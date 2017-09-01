@@ -1,0 +1,2 @@
+Deze zelfstudie leert u de oplossing van de Azure-portal bouwen. Als u geïnteresseerd bent in deze oplossing maken uit een sjabloon, kiest u de juiste sjabloon [Microsoft Azure GitHub sjablonen](http://github.com/Azure/azure-quickstart-templates). De [een beschikbaarheidsgroep maken met SQL Server 2014 gerepliceerde virtuele machines](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) sjabloon dezelfde oplossing als deze zelfstudie maakt. 
+
