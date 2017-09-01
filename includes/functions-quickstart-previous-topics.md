@@ -1,0 +1,1 @@
+Als startpunt van dit onderwerp dienen de resources die zijn gemaakt in [Create your first function from the Azure portal](../articles/azure-functions/functions-create-first-azure-function.md) (Uw eerste functie maken vanuit Azure Portal). Voltooi nu deze stappen om de functie-app te maken, als u dit nog niet hebt gedaan.
