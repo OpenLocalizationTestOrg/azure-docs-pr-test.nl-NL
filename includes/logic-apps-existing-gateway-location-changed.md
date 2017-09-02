@@ -1,0 +1,2 @@
+**Q**: Waarom is de locatie voor mijn bestaande gateway wijzigen? <br/>
+**Een**: Gateway bronnen die zijn gemaakt voordat 3 mei 2017 zijn verplaatst naar de oorspronkelijke locaties van de Azure AD-tenant voor het werk of school-account dat deze gateways gemaakt. Deze wijzigingen mag niet echter van invloed op die momenteel worden uitgevoerd logic apps, die moeten blijven gewoon werken. Gateway resource locaties kunnen met de algemene beschikbaarheid van de gateway in mei verschillen van logische app locaties.
