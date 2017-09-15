@@ -1,15 +1,15 @@
-1. De installatie te kopiëren naar de server en open vervolgens het installatieprogramma.
-2. Op de **installatieoptie** blade Selecteer **installeren van de Mobility-Service**.
+1. <span data-ttu-id="8831b-101">De installatie te kopiëren naar de server en open vervolgens het installatieprogramma.</span><span class="sxs-lookup"><span data-stu-id="8831b-101">Copy the installation to the server, and then open the installer.</span></span>
+2. <span data-ttu-id="8831b-102">Op de **installatieoptie** blade Selecteer **installeren van de Mobility-Service**.</span><span class="sxs-lookup"><span data-stu-id="8831b-102">On the **Installation Option** blade, select **Install Mobility Service**.</span></span>
 
-    ![Pagina van de Mobility Service installatie-optie ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
-3. Selecteer de locatie is geïnstalleerd en klik op **installeren** voor een van de installatieprocedure.
+    ![<span data-ttu-id="8831b-103">Pagina van de Mobility Service installatie-optie</span><span class="sxs-lookup"><span data-stu-id="8831b-103">Mobility Service Install Option Page</span></span> ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. <span data-ttu-id="8831b-104">Selecteer de locatie is geïnstalleerd en klik op **installeren** voor een van de installatieprocedure.</span><span class="sxs-lookup"><span data-stu-id="8831b-104">Select the install location  and click **Install** to being the installation procedure.</span></span>
 
-    ![Pagina van de Mobility Service installatie-locatie ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
-4. U kunt **installatievoortgang** pagina om de voortgang van het installatieprogramma.
-    ![Voortgang van de Mobility-Service installeren](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+    ![<span data-ttu-id="8831b-105">Pagina van de Mobility Service installatie-locatie</span><span class="sxs-lookup"><span data-stu-id="8831b-105">Mobility Service Install Location Page</span></span> ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. <span data-ttu-id="8831b-106">U kunt **installatievoortgang** pagina om de voortgang van het installatieprogramma.</span><span class="sxs-lookup"><span data-stu-id="8831b-106">You can use **Installation Progress** page to monitor the installer's progress.</span></span>
+    <span data-ttu-id="8831b-107">![Voortgang van de Mobility-Service installeren](./media/site-recovery-install-mob-svc-gui/mobility3.png)</span><span class="sxs-lookup"><span data-stu-id="8831b-107">![Mobility Service Install Progress ](./media/site-recovery-install-mob-svc-gui/mobility3.png)</span></span>
 
-5. Nadat de installatie is voltooid, klikt u op de **gaat u verder met de configuratie** knop registreren van de Mobility-Service met de configuratieserver.
-    ![Pagina registreren van de Mobility-service](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+5. <span data-ttu-id="8831b-108">Nadat de installatie is voltooid, klikt u op de **gaat u verder met de configuratie** knop registreren van de Mobility-Service met de configuratieserver.</span><span class="sxs-lookup"><span data-stu-id="8831b-108">Once installation is complete, click the **Proceed to Configuration** button to register the Mobility Service with your Configuration server.</span></span>
+    <span data-ttu-id="8831b-109">![Pagina registreren van de Mobility-service](./media/site-recovery-install-mob-svc-gui/mobility4.png)</span><span class="sxs-lookup"><span data-stu-id="8831b-109">![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility4.png)</span></span>
 
-6. Klik op de **registreren** knop om de inschrijving te voltooien.
-    ![Pagina registreren van de Mobility-service](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+6. <span data-ttu-id="8831b-110">Klik op de **registreren** knop om de inschrijving te voltooien.</span><span class="sxs-lookup"><span data-stu-id="8831b-110">Click on the **Register** button to complete the registration.</span></span>
+    <span data-ttu-id="8831b-111">![Pagina registreren van de Mobility-service](./media/site-recovery-install-mob-svc-gui/mobility5.png)</span><span class="sxs-lookup"><span data-stu-id="8831b-111">![Mobility service Register Page ](./media/site-recovery-install-mob-svc-gui/mobility5.png)</span></span>

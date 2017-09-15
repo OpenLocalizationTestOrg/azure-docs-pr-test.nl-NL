@@ -1,66 +1,66 @@
 > [!div class="op_single_selector"]
-> * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
-> * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
+> * [<span data-ttu-id="644a4-101">Linux</span><span class="sxs-lookup"><span data-stu-id="644a4-101">Linux</span></span>](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
+> * [<span data-ttu-id="644a4-102">Windows</span><span class="sxs-lookup"><span data-stu-id="644a4-102">Windows</span></span>](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-Dit overzicht van de [gesimuleerde apparaat Cloud uploaden voorbeeld] leest u hoe u [Azure IoT rand] [ lnk-sdk] IoT Hub apparaat-naar-cloud telemetrie verzenden van de gesimuleerde apparaten .
+<span data-ttu-id="644a4-103">Dit overzicht van de [gesimuleerde apparaat Cloud uploaden voorbeeld] leest u hoe u [Azure IoT rand] [ lnk-sdk] IoT Hub apparaat-naar-cloud telemetrie verzenden van de gesimuleerde apparaten .</span><span class="sxs-lookup"><span data-stu-id="644a4-103">This walkthrough of the [Simulated Device Cloud Upload sample] shows you how to use [Azure IoT Edge][lnk-sdk] to send device-to-cloud telemetry to IoT Hub from simulated devices.</span></span>
 
-Dit overzicht omvat:
+<span data-ttu-id="644a4-104">Dit overzicht omvat:</span><span class="sxs-lookup"><span data-stu-id="644a4-104">This walkthrough covers:</span></span>
 
-* **Architectuur**: architecturale informatie over de [gesimuleerde apparaat Cloud uploaden voorbeeld].
-* **Ontwikkeling en uitvoering**: de stappen die nodig zijn om het voorbeeld te bouwen en uit te voeren.
+* <span data-ttu-id="644a4-105">**Architectuur**: architecturale informatie over de [gesimuleerde apparaat Cloud uploaden voorbeeld].</span><span class="sxs-lookup"><span data-stu-id="644a4-105">**Architecture**: architectural information about the [Simulated Device Cloud Upload sample].</span></span>
+* <span data-ttu-id="644a4-106">**Ontwikkeling en uitvoering**: de stappen die nodig zijn om het voorbeeld te bouwen en uit te voeren.</span><span class="sxs-lookup"><span data-stu-id="644a4-106">**Build and run**: the steps required to build and run the sample.</span></span>
 
-## <a name="architecture"></a>Architectuur
+## <a name="architecture"></a><span data-ttu-id="644a4-107">Architectuur</span><span class="sxs-lookup"><span data-stu-id="644a4-107">Architecture</span></span>
 
-De [gesimuleerde apparaat Cloud uploaden voorbeeld] laat zien hoe u een gateway die telemetrie van de gesimuleerde apparaten naar een iothub verzendt maken. Een apparaat mogelijk niet rechtstreeks verbinding maken met IoT Hub omdat het apparaat:
+<span data-ttu-id="644a4-108">De [gesimuleerde apparaat Cloud uploaden voorbeeld] laat zien hoe u een gateway die telemetrie van de gesimuleerde apparaten naar een iothub verzendt maken.</span><span class="sxs-lookup"><span data-stu-id="644a4-108">The [Simulated Device Cloud Upload sample] shows how to create a gateway that sends telemetry from simulated devices to an IoT hub.</span></span> <span data-ttu-id="644a4-109">Een apparaat mogelijk niet rechtstreeks verbinding maken met IoT Hub omdat het apparaat:</span><span class="sxs-lookup"><span data-stu-id="644a4-109">A device may not be able to connect directly to IoT Hub because the device:</span></span>
 
-* Gebruikt geen een communicatieprotocol begrepen door de IoT Hub.
-* Is geen smartcard te onthouden van de identiteit die is toegewezen door de IoT Hub.
+* <span data-ttu-id="644a4-110">Gebruikt geen een communicatieprotocol begrepen door de IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="644a4-110">Does not use a communications protocol understood by IoT Hub.</span></span>
+* <span data-ttu-id="644a4-111">Is geen smartcard te onthouden van de identiteit die is toegewezen door de IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="644a4-111">Is not smart enough to remember the identity assigned to it by IoT Hub.</span></span>
 
-Een IoT-Edge-gateway kan deze problemen op de volgende manieren oplossen:
+<span data-ttu-id="644a4-112">Een IoT-Edge-gateway kan deze problemen op de volgende manieren oplossen:</span><span class="sxs-lookup"><span data-stu-id="644a4-112">An IoT Edge gateway can solve these problems in the following ways:</span></span>
 
-* De gateway begrijpt het protocol dat wordt gebruikt door het apparaat ontvangt telemetrie voor apparaat-naar-cloud van het apparaat en stuurt deze berichten naar IoT Hub met behulp van een protocol begrepen door de IoT-hub.
+* <span data-ttu-id="644a4-113">De gateway begrijpt het protocol dat wordt gebruikt door het apparaat ontvangt telemetrie voor apparaat-naar-cloud van het apparaat en stuurt deze berichten naar IoT Hub met behulp van een protocol begrepen door de IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="644a4-113">The gateway understands the protocol used by the device, receives device-to-cloud telemetry from the device, and forwards those messages to IoT Hub using a protocol understood by the IoT hub.</span></span>
 
-* De gateway IoT Hub identiteiten wordt toegewezen aan apparaten en fungeert als een proxy wanneer een apparaat berichten naar IoT Hub verzendt.
+* <span data-ttu-id="644a4-114">De gateway IoT Hub identiteiten wordt toegewezen aan apparaten en fungeert als een proxy wanneer een apparaat berichten naar IoT Hub verzendt.</span><span class="sxs-lookup"><span data-stu-id="644a4-114">The gateway maps IoT Hub identities to devices and acts as a proxy when a device sends messages to IoT Hub.</span></span>
 
-Het volgende diagram toont de belangrijkste onderdelen van het voorbeeld, met inbegrip van de rand van de IoT-modules:
+<span data-ttu-id="644a4-115">Het volgende diagram toont de belangrijkste onderdelen van het voorbeeld, met inbegrip van de rand van de IoT-modules:</span><span class="sxs-lookup"><span data-stu-id="644a4-115">The following diagram shows the main components of the sample, including the IoT Edge modules:</span></span>
 
 ![][1]
 
-De modules geven geen berichten rechtstreeks aan elkaar door. De modules publiceren berichten naar een interne broker, die zorgt voor de berichten op de andere modules met behulp van een mechanisme voor het abonnement. Zie voor meer informatie [aan de slag met Azure IoT rand][lnk-gw-getstarted].
+<span data-ttu-id="644a4-116">De modules geven geen berichten rechtstreeks aan elkaar door.</span><span class="sxs-lookup"><span data-stu-id="644a4-116">The modules do not pass messages directly to each other.</span></span> <span data-ttu-id="644a4-117">De modules publiceren berichten naar een interne broker, die zorgt voor de berichten op de andere modules met behulp van een mechanisme voor het abonnement.</span><span class="sxs-lookup"><span data-stu-id="644a4-117">The modules publish messages to an internal broker that delivers the messages to the other modules using a subscription mechanism.</span></span> <span data-ttu-id="644a4-118">Zie voor meer informatie [aan de slag met Azure IoT rand][lnk-gw-getstarted].</span><span class="sxs-lookup"><span data-stu-id="644a4-118">For more information, see [Get started with Azure IoT Edge][lnk-gw-getstarted].</span></span>
 
-### <a name="protocol-ingestion-module"></a>Module voor het protocolopname
+### <a name="protocol-ingestion-module"></a><span data-ttu-id="644a4-119">Module voor het protocolopname</span><span class="sxs-lookup"><span data-stu-id="644a4-119">Protocol ingestion module</span></span>
 
-Dit is het startpunt voor de ontvangst van gegevens van apparaten, via de gateway en naar de cloud. In het voorbeeld wordt de module:
+<span data-ttu-id="644a4-120">Dit is het startpunt voor de ontvangst van gegevens van apparaten, via de gateway en naar de cloud.</span><span class="sxs-lookup"><span data-stu-id="644a4-120">This module is the starting point for receiving data from devices, through the gateway, and into the cloud.</span></span> <span data-ttu-id="644a4-121">In het voorbeeld wordt de module:</span><span class="sxs-lookup"><span data-stu-id="644a4-121">In the sample, the module:</span></span>
 
-1. Gesimuleerde temperatuur gegevens maakt. Als u fysieke apparaten, leest de module gegevens van deze fysieke apparaten.
-1. Hiermee maakt u een bericht.
-1. De gesimuleerde temperatuur-gegevens in de inhoud van het bericht geplaatst.
-1. Hiermee voegt u een eigenschap met een valse MAC-adres toe aan het bericht.
-1. Maakt het bericht beschikbaar voor de volgende module in de keten.
+1. <span data-ttu-id="644a4-122">Gesimuleerde temperatuur gegevens maakt.</span><span class="sxs-lookup"><span data-stu-id="644a4-122">Creates simulated temperature data.</span></span> <span data-ttu-id="644a4-123">Als u fysieke apparaten, leest de module gegevens van deze fysieke apparaten.</span><span class="sxs-lookup"><span data-stu-id="644a4-123">If you use physical devices, the module reads data from those physical devices.</span></span>
+1. <span data-ttu-id="644a4-124">Hiermee maakt u een bericht.</span><span class="sxs-lookup"><span data-stu-id="644a4-124">Creates a message.</span></span>
+1. <span data-ttu-id="644a4-125">De gesimuleerde temperatuur-gegevens in de inhoud van het bericht geplaatst.</span><span class="sxs-lookup"><span data-stu-id="644a4-125">Places the simulated temperature data into the message content.</span></span>
+1. <span data-ttu-id="644a4-126">Hiermee voegt u een eigenschap met een valse MAC-adres toe aan het bericht.</span><span class="sxs-lookup"><span data-stu-id="644a4-126">Adds a property with a fake MAC address to the message.</span></span>
+1. <span data-ttu-id="644a4-127">Maakt het bericht beschikbaar voor de volgende module in de keten.</span><span class="sxs-lookup"><span data-stu-id="644a4-127">Makes the message available to the next module in the chain.</span></span>
 
-De module wordt aangeroepen **Protocol X opname** in het vorige diagram heet **gesimuleerd apparaat** in de broncode.
+<span data-ttu-id="644a4-128">De module wordt aangeroepen **Protocol X opname** in het vorige diagram heet **gesimuleerd apparaat** in de broncode.</span><span class="sxs-lookup"><span data-stu-id="644a4-128">The module called **Protocol X ingestion** in the previous diagram is called **Simulated device** in the source code.</span></span>
 
-### <a name="mac-lt-gt-iot-hub-id-module"></a>Module MAC &lt;-&gt; IoT Hub-id
+### <a name="mac-lt-gt-iot-hub-id-module"></a><span data-ttu-id="644a4-129">Module MAC &lt;-&gt; IoT Hub-id</span><span class="sxs-lookup"><span data-stu-id="644a4-129">MAC &lt;-&gt; IoT Hub ID module</span></span>
 
-Deze module wordt gescand voor berichten met een Mac-adres-eigenschap. In het voorbeeld wordt de module protocol opname toegevoegd de MAC-adres-eigenschap. Als de module vindt een dergelijke eigenschap, deze wordt toegevoegd een andere eigenschap met de sleutel van een IoT Hub-apparaat aan het bericht. De module wordt het bericht naar de volgende module beschikbaar in de keten.
+<span data-ttu-id="644a4-130">Deze module wordt gescand voor berichten met een Mac-adres-eigenschap.</span><span class="sxs-lookup"><span data-stu-id="644a4-130">This module scans for messages that have a Mac address property.</span></span> <span data-ttu-id="644a4-131">In het voorbeeld wordt de module protocol opname toegevoegd de MAC-adres-eigenschap.</span><span class="sxs-lookup"><span data-stu-id="644a4-131">In the sample, the protocol ingestion module adds the MAC address property.</span></span> <span data-ttu-id="644a4-132">Als de module vindt een dergelijke eigenschap, deze wordt toegevoegd een andere eigenschap met de sleutel van een IoT Hub-apparaat aan het bericht.</span><span class="sxs-lookup"><span data-stu-id="644a4-132">If the module finds such a property, it adds another property with an IoT Hub device key to the message.</span></span> <span data-ttu-id="644a4-133">De module wordt het bericht naar de volgende module beschikbaar in de keten.</span><span class="sxs-lookup"><span data-stu-id="644a4-133">The module then makes the message available to the next module in the chain.</span></span>
 
-De ontwikkelaar stelt een toewijzing tussen MAC-adressen en IoT Hub identiteiten in de gesimuleerde apparaten koppelen met IoT Hub apparaat-id's. De ontwikkelaar wordt de toewijzing handmatig toegevoegd als onderdeel van de moduleconfiguratie.
+<span data-ttu-id="644a4-134">De ontwikkelaar stelt een toewijzing tussen MAC-adressen en IoT Hub identiteiten in de gesimuleerde apparaten koppelen met IoT Hub apparaat-id's.</span><span class="sxs-lookup"><span data-stu-id="644a4-134">The developer sets up a mapping between MAC addresses and IoT Hub identities to associate the simulated devices with IoT Hub device identities.</span></span> <span data-ttu-id="644a4-135">De ontwikkelaar wordt de toewijzing handmatig toegevoegd als onderdeel van de moduleconfiguratie.</span><span class="sxs-lookup"><span data-stu-id="644a4-135">The developer adds the mapping manually as part of the module configuration.</span></span>
 
 > [!NOTE]
-> In dit voorbeeld wordt een MAC-adres gebruikt als een unieke apparaat-id en wordt deze gekoppeld aan de id van een IoT Hub-apparaat. U kunt echter uw eigen module schrijven die een andere unieke id gebruikt. Bijvoorbeeld, uw apparaten mogelijk zijn unieke serienummers of de telemetriegegevens kan de naam van een unieke embedded-apparaat bevatten.
+> <span data-ttu-id="644a4-136">In dit voorbeeld wordt een MAC-adres gebruikt als een unieke apparaat-id en wordt deze gekoppeld aan de id van een IoT Hub-apparaat.</span><span class="sxs-lookup"><span data-stu-id="644a4-136">This sample uses a MAC address as a unique device identifier and correlates it with an IoT Hub device identity.</span></span> <span data-ttu-id="644a4-137">U kunt echter uw eigen module schrijven die een andere unieke id gebruikt.</span><span class="sxs-lookup"><span data-stu-id="644a4-137">However, you can write your own module that uses a different unique identifier.</span></span> <span data-ttu-id="644a4-138">Bijvoorbeeld, uw apparaten mogelijk zijn unieke serienummers of de telemetriegegevens kan de naam van een unieke embedded-apparaat bevatten.</span><span class="sxs-lookup"><span data-stu-id="644a4-138">For example, your devices may have unique serial numbers or the telemetry data may include a unique embedded device name.</span></span>
 
-### <a name="iot-hub-communication-module"></a>Module voor IoT Hub-communicatie
+### <a name="iot-hub-communication-module"></a><span data-ttu-id="644a4-139">Module voor IoT Hub-communicatie</span><span class="sxs-lookup"><span data-stu-id="644a4-139">IoT Hub communication module</span></span>
 
-Deze module wordt berichten met een IoT Hub apparaat-sleuteleigenschap die is toegewezen door de vorige module. De module verzendt inhoud van het bericht naar IoT Hub met de HTTP-protocol. HTTP is een van de drie protocollen die door IoT Hub wordt begrepen.
+<span data-ttu-id="644a4-140">Deze module wordt berichten met een IoT Hub apparaat-sleuteleigenschap die is toegewezen door de vorige module.</span><span class="sxs-lookup"><span data-stu-id="644a4-140">This module takes messages with an IoT Hub device key property that was assigned by the previous module.</span></span> <span data-ttu-id="644a4-141">De module verzendt inhoud van het bericht naar IoT Hub met de HTTP-protocol.</span><span class="sxs-lookup"><span data-stu-id="644a4-141">The module sends the message content to IoT Hub using the HTTP protocol.</span></span> <span data-ttu-id="644a4-142">HTTP is een van de drie protocollen die door IoT Hub wordt begrepen.</span><span class="sxs-lookup"><span data-stu-id="644a4-142">HTTP is one of the three protocols understood by IoT Hub.</span></span>
 
-Deze module wordt in plaats van een verbinding voor elk gesimuleerd apparaat te openen, één HTTP-verbinding geopend van de gateway met de iothub. De module multiplexes vervolgens verbindingen van de gesimuleerde apparaten via deze verbinding. Deze aanpak kunt één gateway om veel meer apparaten te verbinden.
+<span data-ttu-id="644a4-143">Deze module wordt in plaats van een verbinding voor elk gesimuleerd apparaat te openen, één HTTP-verbinding geopend van de gateway met de iothub.</span><span class="sxs-lookup"><span data-stu-id="644a4-143">Instead of opening a connection for each simulated device, this module opens a single HTTP connection from the gateway to the IoT hub.</span></span> <span data-ttu-id="644a4-144">De module multiplexes vervolgens verbindingen van de gesimuleerde apparaten via deze verbinding.</span><span class="sxs-lookup"><span data-stu-id="644a4-144">The module then multiplexes connections from all the simulated devices over that connection.</span></span> <span data-ttu-id="644a4-145">Deze aanpak kunt één gateway om veel meer apparaten te verbinden.</span><span class="sxs-lookup"><span data-stu-id="644a4-145">This approach enables a single gateway to connect many more devices.</span></span>
 
-## <a name="before-you-get-started"></a>Voordat u aan de slag gaat
+## <a name="before-you-get-started"></a><span data-ttu-id="644a4-146">Voordat u aan de slag gaat</span><span class="sxs-lookup"><span data-stu-id="644a4-146">Before you get started</span></span>
 
-Voordat u begint, moet u het volgende doen:
+<span data-ttu-id="644a4-147">Voordat u begint, moet u het volgende doen:</span><span class="sxs-lookup"><span data-stu-id="644a4-147">Before you get started, you must:</span></span>
 
-* [Een iothub maken] [ lnk-create-hub] in uw Azure-abonnement, moet u de naam van uw hub voor dit scenario. Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
-* Twee apparaten toevoegen aan uw IoT-hub en noteer de id's en apparaten sleutels. U kunt de [apparaat explorer] [ lnk-device-explorer] of [iothub explorer] [ lnk-iothub-explorer] hulpprogramma uw apparaten toevoegen aan de IoT-hub die u in de vorige stap hebt gemaakt en de sleutels worden opgehaald.
+* <span data-ttu-id="644a4-148">[Een iothub maken] [ lnk-create-hub] in uw Azure-abonnement, moet u de naam van uw hub voor dit scenario.</span><span class="sxs-lookup"><span data-stu-id="644a4-148">[Create an IoT hub][lnk-create-hub] in your Azure subscription, you need the name of your hub to complete this walkthrough.</span></span> <span data-ttu-id="644a4-149">Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.</span><span class="sxs-lookup"><span data-stu-id="644a4-149">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
+* <span data-ttu-id="644a4-150">Twee apparaten toevoegen aan uw IoT-hub en noteer de id's en apparaten sleutels.</span><span class="sxs-lookup"><span data-stu-id="644a4-150">Add two devices to your IoT hub and make a note of their ids and device keys.</span></span> <span data-ttu-id="644a4-151">U kunt de [apparaat explorer] [ lnk-device-explorer] of [iothub explorer] [ lnk-iothub-explorer] hulpprogramma uw apparaten toevoegen aan de IoT-hub die u in de vorige stap hebt gemaakt en de sleutels worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="644a4-151">You can use the [device explorer][lnk-device-explorer] or [iothub-explorer][lnk-iothub-explorer] tool to add your devices to the IoT hub you created in the previous step and retrieve their keys.</span></span>
 
 ![][2]
 
@@ -69,7 +69,7 @@ Voordat u begint, moet u het volgende doen:
 [2]: media/iot-hub-iot-edge-simulated-selector/image2.png
 
 <!-- Links -->
-[gesimuleerde apparaat Cloud uploaden voorbeeld]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
+<span data-ttu-id="644a4-152">[gesimuleerde apparaat Cloud uploaden voorbeeld]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md</span><span class="sxs-lookup"><span data-stu-id="644a4-152">[Simulated Device Cloud Upload sample]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md</span></span>
 [lnk-sdk]: https://github.com/Azure/iot-edge
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

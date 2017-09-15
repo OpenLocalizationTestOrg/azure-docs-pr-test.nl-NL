@@ -1,4 +1,4 @@
-1. Meld u bij de processerver aan als beheerder.
-2. Download de nieuwste versie van de [geïntegreerde Setup](http://aka.ms/unifiedinstaller).
-3. Dubbelklik op het installatieprogramma om het updateproces te starten.
-4. Het installatieprogramma detecteert de verschillende onderdelen die zijn geïnstalleerd en werkt deze bij naar de nieuwste versie.
+1. <span data-ttu-id="47b17-101">Meld u bij de processerver aan als beheerder.</span><span class="sxs-lookup"><span data-stu-id="47b17-101">Login to the process server as an Administrator.</span></span>
+2. <span data-ttu-id="47b17-102">Download de nieuwste versie van de [geïntegreerde Setup](http://aka.ms/unifiedinstaller).</span><span class="sxs-lookup"><span data-stu-id="47b17-102">Download the latest version of the [Unified Setup](http://aka.ms/unifiedinstaller).</span></span>
+3. <span data-ttu-id="47b17-103">Dubbelklik op het installatieprogramma om het updateproces te starten.</span><span class="sxs-lookup"><span data-stu-id="47b17-103">Double-click the installer to launch the update process.</span></span>
+4. <span data-ttu-id="47b17-104">Het installatieprogramma detecteert de verschillende onderdelen die zijn geïnstalleerd en werkt deze bij naar de nieuwste versie.</span><span class="sxs-lookup"><span data-stu-id="47b17-104">The installer will detect the various components that are installed and upgrade them to the latest version.</span></span>

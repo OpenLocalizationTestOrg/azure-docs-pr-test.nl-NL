@@ -2,6 +2,6 @@
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Als Azure AD B2C niet voorkomt in de lijst met services, breidt u **Meer services** uit. Deze optie vindt u onder in de navigatiebalk in de linkerbenedenhoek van de portal. Ga naar **Azure AD B2C** en selecteer **Azure AD B2C** in de lijst met resultaten. U kunt ook het sterpictogram selecteren om Azure AD B2C toe te voegen aan de lijst met favoriete services.
+<span data-ttu-id="e5804-101">Als Azure AD B2C niet voorkomt in de lijst met services, breidt u **Meer services** uit. Deze optie vindt u onder in de navigatiebalk in de linkerbenedenhoek van de portal.</span><span class="sxs-lookup"><span data-stu-id="e5804-101">If Azure AD B2C isn't in the services list, expand **More services** below the navigation bar in the bottom-left side of the portal.</span></span> <span data-ttu-id="e5804-102">Ga naar **Azure AD B2C** en selecteer **Azure AD B2C** in de lijst met resultaten.</span><span class="sxs-lookup"><span data-stu-id="e5804-102">Search for **Azure AD B2C** and select **Azure AD B2C** in the result list.</span></span> <span data-ttu-id="e5804-103">U kunt ook het sterpictogram selecteren om Azure AD B2C toe te voegen aan de lijst met favoriete services.</span><span class="sxs-lookup"><span data-stu-id="e5804-103">You can also select the star icon to add Azure AD B2C it your favorite services list.</span></span>
 
 ![Zoeken naar de Azure AD B2C-service](media/active-directory-b2c-find-service-settings/navigate-to-azure-ad-b2c.png)

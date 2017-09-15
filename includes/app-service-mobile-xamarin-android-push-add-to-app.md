@@ -1,10 +1,10 @@
-1. Maak een nieuwe klasse in het project met de naam `ToDoBroadcastReceiver`.
-2. Voeg de volgende using-instructies naar **ToDoBroadcastReceiver** klasse:
+1. <span data-ttu-id="70dcb-101">Maak een nieuwe klasse in het project met de naam `ToDoBroadcastReceiver`.</span><span class="sxs-lookup"><span data-stu-id="70dcb-101">Create a new class in the project called `ToDoBroadcastReceiver`.</span></span>
+2. <span data-ttu-id="70dcb-102">Voeg de volgende using-instructies naar **ToDoBroadcastReceiver** klasse:</span><span class="sxs-lookup"><span data-stu-id="70dcb-102">Add the following using statements to **ToDoBroadcastReceiver** class:</span></span>
    
         using Gcm.Client;
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. Voeg de volgende machtigingsaanvragen tussen de **met** instructies en de **naamruimte** declaratie:
+3. <span data-ttu-id="70dcb-103">Voeg de volgende machtigingsaanvragen tussen de **met** instructies en de **naamruimte** declaratie:</span><span class="sxs-lookup"><span data-stu-id="70dcb-103">Add the following permission requests between the **using** statements and the **namespace** declaration:</span></span>
    
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -14,7 +14,7 @@
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-4. Vervang de bestaande **ToDoBroadcastReceiver** klasse definitie door het volgende:
+4. <span data-ttu-id="70dcb-104">Vervang de bestaande **ToDoBroadcastReceiver** klasse definitie door het volgende:</span><span class="sxs-lookup"><span data-stu-id="70dcb-104">Replace the existing **ToDoBroadcastReceiver** class definition with the following:</span></span>
    
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
@@ -29,8 +29,8 @@
             public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
    
-    U moet in de bovenstaande code vervangen  *`<PROJECT_NUMBER>`*  met het projectnummer dat wordt toegewezen door Google wanneer u uw app in de Google-portal voor ontwikkelaars ingericht. 
-5. Voeg de volgende code waarmee wordt gedefinieerd in het projectbestand ToDoBroadcastReceiver.cs de **PushHandlerService** klasse:
+    <span data-ttu-id="70dcb-105">U moet in de bovenstaande code vervangen  *`<PROJECT_NUMBER>`*  met het projectnummer dat wordt toegewezen door Google wanneer u uw app in de Google-portal voor ontwikkelaars ingericht.</span><span class="sxs-lookup"><span data-stu-id="70dcb-105">In the above code, you must replace *`<PROJECT_NUMBER>`* with the project number assigned by Google when you provisioned your app in the Google developer portal.</span></span> 
+5. <span data-ttu-id="70dcb-106">Voeg de volgende code waarmee wordt gedefinieerd in het projectbestand ToDoBroadcastReceiver.cs de **PushHandlerService** klasse:</span><span class="sxs-lookup"><span data-stu-id="70dcb-106">In the ToDoBroadcastReceiver.cs project file, add the following code that defines the **PushHandlerService** class:</span></span>
    
         // The ServiceAttribute must be applied to the class.
         [Service] 
@@ -41,13 +41,13 @@
             public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
         }
    
-    Merk op dat deze klasse is afgeleid van **GcmServiceBase** en dat de **Service** kenmerk moet worden toegepast op deze klasse.
+    <span data-ttu-id="70dcb-107">Merk op dat deze klasse is afgeleid van **GcmServiceBase** en dat de **Service** kenmerk moet worden toegepast op deze klasse.</span><span class="sxs-lookup"><span data-stu-id="70dcb-107">Note that this class derives from **GcmServiceBase** and that the **Service** attribute must be applied to this class.</span></span>
    
    > [!NOTE]
-   > De **GcmServiceBase** klasse implementeert de **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** en  **OnError()** methoden. U moet deze methoden overschrijven de **PushHandlerService** klasse.
+   > <span data-ttu-id="70dcb-108">De **GcmServiceBase** klasse implementeert de **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** en  **OnError()** methoden.</span><span class="sxs-lookup"><span data-stu-id="70dcb-108">The **GcmServiceBase** class implements the **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** and **OnError()** methods.</span></span> <span data-ttu-id="70dcb-109">U moet deze methoden overschrijven de **PushHandlerService** klasse.</span><span class="sxs-lookup"><span data-stu-id="70dcb-109">You must override these methods in the **PushHandlerService** class.</span></span>
    > 
    > 
-6. Voeg de volgende code naar de **PushHandlerService** klasse die de **OnRegistered** gebeurtenis-handler. 
+6. <span data-ttu-id="70dcb-110">Voeg de volgende code naar de **PushHandlerService** klasse die de **OnRegistered** gebeurtenis-handler.</span><span class="sxs-lookup"><span data-stu-id="70dcb-110">Add the following code to the **PushHandlerService** class that overrides the **OnRegistered** event handler.</span></span> 
    
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -86,8 +86,8 @@
             }
         }
    
-    Deze methode maakt gebruik van de geretourneerde GCM-registratie-ID registreren bij Azure voor pushmeldingen. Labels kunnen alleen worden toegevoegd aan de registratie nadat deze is gemaakt. Zie voor meer informatie [hoe: labels toevoegen aan de installatie van een apparaat om in te schakelen push aan labels](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
-7. Overschrijf de **OnMessage** methode in **PushHandlerService** met de volgende code:
+    <span data-ttu-id="70dcb-111">Deze methode maakt gebruik van de geretourneerde GCM-registratie-ID registreren bij Azure voor pushmeldingen.</span><span class="sxs-lookup"><span data-stu-id="70dcb-111">This method uses the returned GCM registration ID to register with Azure for push notifications.</span></span> <span data-ttu-id="70dcb-112">Labels kunnen alleen worden toegevoegd aan de registratie nadat deze is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="70dcb-112">Tags can only be added to the registration after it is created.</span></span> <span data-ttu-id="70dcb-113">Zie voor meer informatie [hoe: labels toevoegen aan de installatie van een apparaat om in te schakelen push aan labels](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).</span><span class="sxs-lookup"><span data-stu-id="70dcb-113">For more information, see [How to: Add tags to a device installation to enable push-to-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).</span></span>
+7. <span data-ttu-id="70dcb-114">Overschrijf de **OnMessage** methode in **PushHandlerService** met de volgende code:</span><span class="sxs-lookup"><span data-stu-id="70dcb-114">Override the **OnMessage** method in **PushHandlerService** with the following code:</span></span>
    
        protected override void OnMessage(Context context, Intent intent)
        {          
@@ -122,7 +122,7 @@
    
            }
        }
-8. Overschrijf de **OnUnRegistered()** en **OnError()** methoden met de volgende code.
+8. <span data-ttu-id="70dcb-115">Overschrijf de **OnUnRegistered()** en **OnError()** methoden met de volgende code.</span><span class="sxs-lookup"><span data-stu-id="70dcb-115">Override the **OnUnRegistered()** and **OnError()** methods with the following code.</span></span>
    
        protected override void OnUnRegistered(Context context, string registrationId)
        {

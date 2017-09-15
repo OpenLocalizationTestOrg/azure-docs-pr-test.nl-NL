@@ -1,46 +1,46 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### <a name="to-add-a-storage-account-in-storsimple-8000-series-update-10"></a>Een opslagaccount in StorSimple 8000 Series Update 1.0 toevoegen
-1. Selecteer uw service op de landingspagina van de StorSimple Manager-service en dubbelklik erop. Hiermee gaat u naar de pagina **Quick Start**. Selecteer de pagina **Configureren**.
-2. Klik op **Opslagaccount toevoegen/bewerken**.
-3. Klik in het dialoogvenster **Opslagaccount toevoegen/bewerken** op **Nieuwe toevoegen**.
-4. Selecteer in het veld **Provider** de juiste cloudserviceprovider. De ondersteunde providers zijn Azure, Amazon S3, Amazon S3 met RRS, HP en OpenStack. Geef de referenties en de locatie voor het opslagaccount van uw cloudserviceproviders op. Welke velden voor referenties worden weergegeven is afhankelijk van de cloudserviceprovider die u hebt opgegeven. 
+#### <a name="to-add-a-storage-account-in-storsimple-8000-series-update-10"></a><span data-ttu-id="fe5b0-101">Een opslagaccount in StorSimple 8000 Series Update 1.0 toevoegen</span><span class="sxs-lookup"><span data-stu-id="fe5b0-101">To add a storage account in StorSimple 8000 Series Update 1.0</span></span>
+1. <span data-ttu-id="fe5b0-102">Selecteer uw service op de landingspagina van de StorSimple Manager-service en dubbelklik erop.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-102">On the StorSimple Manager service landing page, select your service and double-click it.</span></span> <span data-ttu-id="fe5b0-103">Hiermee gaat u naar de pagina **Quick Start**.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-103">This will take you to the **Quick Start** page.</span></span> <span data-ttu-id="fe5b0-104">Selecteer de pagina **Configureren**.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-104">Select the **Configure** page.</span></span>
+2. <span data-ttu-id="fe5b0-105">Klik op **Opslagaccount toevoegen/bewerken**.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-105">Click **Add/edit storage account**.</span></span>
+3. <span data-ttu-id="fe5b0-106">Klik in het dialoogvenster **Opslagaccount toevoegen/bewerken** op **Nieuwe toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-106">In the **Add/Edit Storage Account** dialog box, click **Add new**.</span></span>
+4. <span data-ttu-id="fe5b0-107">Selecteer in het veld **Provider** de juiste cloudserviceprovider.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-107">In the **Provider** field, select the appropriate cloud service provider.</span></span> <span data-ttu-id="fe5b0-108">De ondersteunde providers zijn Azure, Amazon S3, Amazon S3 met RRS, HP en OpenStack.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-108">The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack.</span></span> <span data-ttu-id="fe5b0-109">Geef de referenties en de locatie voor het opslagaccount van uw cloudserviceproviders op.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-109">Specify the credentials and the location associated with the storage account of your cloud service providers.</span></span> <span data-ttu-id="fe5b0-110">Welke velden voor referenties worden weergegeven is afhankelijk van de cloudserviceprovider die u hebt opgegeven.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-110">The fields presented for credentials will be different depending upon the cloud service provider you have specified.</span></span> 
    
-   * Als u Azure hebt geselecteerd als uw cloudserviceprovider, geeft u de **naam** en de primaire **toegangssleutel** voor uw Microsoft Azure Storage-account op. Voor een Azure-account wordt de locatie automatisch ingevuld.
+   * <span data-ttu-id="fe5b0-111">Als u Azure hebt geselecteerd als uw cloudserviceprovider, geeft u de **naam** en de primaire **toegangssleutel** voor uw Microsoft Azure Storage-account op.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-111">If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account.</span></span> <span data-ttu-id="fe5b0-112">Voor een Azure-account wordt de locatie automatisch ingevuld.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-112">For an Azure account, the location will be automatically populated.</span></span>
      
         ![Een Azure Storage-account toevoegen](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
-   * Als u Amazon S3 of Amazon S3 met RRS hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **toegangssleutel** en **geheime sleutel** op. Voor Amazon S3 en Amazon S3 met RSS worden de volgende locaties ondersteund:
+   * <span data-ttu-id="fe5b0-114">Als u Amazon S3 of Amazon S3 met RRS hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **toegangssleutel** en **geheime sleutel** op.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-114">If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**.</span></span> <span data-ttu-id="fe5b0-115">Voor Amazon S3 en Amazon S3 met RSS worden de volgende locaties ondersteund:</span><span class="sxs-lookup"><span data-stu-id="fe5b0-115">For Amazon S3 and Amazon S3 with RRS, the following locations are supported:</span></span>
      
-     * VS Standaard
-     * VS West (Oregon)
-     * VS West (Noord-Californië)
-     * EU (Ierland)
-     * Azië en Stille Oceaan (Singapore)
-     * Azië en Stille Oceaan (Sydney)
-     * Azië en Stille Oceaan (Tokio)
-     * Zuid-Amerika (Sao Paulo)
+     * <span data-ttu-id="fe5b0-116">VS Standaard</span><span class="sxs-lookup"><span data-stu-id="fe5b0-116">US Standard</span></span>
+     * <span data-ttu-id="fe5b0-117">VS West (Oregon)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-117">US West (Oregon)</span></span>
+     * <span data-ttu-id="fe5b0-118">VS West (Noord-Californië)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-118">US West (Northern California)</span></span>
+     * <span data-ttu-id="fe5b0-119">EU (Ierland)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-119">EU (Ireland)</span></span>
+     * <span data-ttu-id="fe5b0-120">Azië en Stille Oceaan (Singapore)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-120">Asia Pacific (Singapore)</span></span>
+     * <span data-ttu-id="fe5b0-121">Azië en Stille Oceaan (Sydney)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-121">Asia Pacific (Sydney)</span></span>
+     * <span data-ttu-id="fe5b0-122">Azië en Stille Oceaan (Tokio)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-122">Asia Pacific (Tokyo)</span></span>
+     * <span data-ttu-id="fe5b0-123">Zuid-Amerika (Sao Paulo)</span><span class="sxs-lookup"><span data-stu-id="fe5b0-123">South America (Sao Paulo)</span></span>
        
        ![Amazon-opslagaccount toevoegen](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-   * Als u HP als uw cloudserviceprovider hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **tenant-id**, **gebruikersnaam** en **wachtwoord** op. Voor HP worden de volgende locaties ondersteund:
+   * <span data-ttu-id="fe5b0-125">Als u HP als uw cloudserviceprovider hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **tenant-id**, **gebruikersnaam** en **wachtwoord** op.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-125">If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**.</span></span> <span data-ttu-id="fe5b0-126">Voor HP worden de volgende locaties ondersteund:</span><span class="sxs-lookup"><span data-stu-id="fe5b0-126">For HP, the following locations are supported:</span></span>
      
-     * VS Oost
-     * VS West
+     * <span data-ttu-id="fe5b0-127">VS Oost</span><span class="sxs-lookup"><span data-stu-id="fe5b0-127">US East</span></span>
+     * <span data-ttu-id="fe5b0-128">VS West</span><span class="sxs-lookup"><span data-stu-id="fe5b0-128">US West</span></span>
        
        ![HP-opslagaccount toevoegen](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-   * Als u **Openstack** als uw cloudserviceprovider hebt geselecteerd, geeft u een **hostnaam**, **toegangssleutel** en **geheime sleutel** op.
+   * <span data-ttu-id="fe5b0-130">Als u **Openstack** als uw cloudserviceprovider hebt geselecteerd, geeft u een **hostnaam**, **toegangssleutel** en **geheime sleutel** op.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-130">If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.</span></span>
      
      > [!NOTE]
-     > Voor alle cloudserviceproviders, met uitzondering van Azure, is een beschrijvende naam toegestaan. U kunt verschillende beschrijvende namen gebruiken en meer dan een opslagaccount met dezelfde set referenties maken.
+     > <span data-ttu-id="fe5b0-131">Voor alle cloudserviceproviders, met uitzondering van Azure, is een beschrijvende naam toegestaan.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-131">For all the cloud service providers, excluding Azure, a friendly name is allowed.</span></span> <span data-ttu-id="fe5b0-132">U kunt verschillende beschrijvende namen gebruiken en meer dan een opslagaccount met dezelfde set referenties maken.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-132">You can use different friendly names and create more than one storage account with the same set of credentials.</span></span>
      > 
      > 
      
         ![Openstack-opslagaccount toevoegen](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
-5. Schakel **SSL-modus inschakelen** in om een beveiligd kanaal te maken voor de netwerkcommunicatie tussen uw apparaat en de cloud. Schakel het selectievakje **SSL-modus inschakelen** uit als u alleen binnen een privécloud werkt.
+5. <span data-ttu-id="fe5b0-134">Schakel **SSL-modus inschakelen** in om een beveiligd kanaal te maken voor de netwerkcommunicatie tussen uw apparaat en de cloud.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-134">Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud.</span></span> <span data-ttu-id="fe5b0-135">Schakel het selectievakje **SSL-modus inschakelen** uit als u alleen binnen een privécloud werkt.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-135">Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.</span></span>
    
    > [!NOTE]
-   > Als u HP als provider gebruikt, wordt SSL altijd ingeschakeld.
+   > <span data-ttu-id="fe5b0-136">Als u HP als provider gebruikt, wordt SSL altijd ingeschakeld.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-136">If you are using HP as your provider, SSL will always be enabled.</span></span>
    > 
    > 
-6. Klik op het vinkje ![vinkje](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). U ontvangt een melding nadat het opslagaccount is gemaakt.
-7. Het nieuwe opslagaccount wordt weergegeven op de pagina **Configureren** onder **Opslagaccounts**. Klik op **Opslaan** om het nieuwe opslagaccount op te slaan. Klik op **OK** als u om bevestiging wordt gevraagd.
+6. <span data-ttu-id="fe5b0-137">Klik op het vinkje</span><span class="sxs-lookup"><span data-stu-id="fe5b0-137">Click the check icon</span></span> ![vinkje](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png)<span data-ttu-id="fe5b0-139">.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-139">.</span></span> <span data-ttu-id="fe5b0-140">U ontvangt een melding nadat het opslagaccount is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-140">You will be notified after the storage account is successfully created.</span></span>
+7. <span data-ttu-id="fe5b0-141">Het nieuwe opslagaccount wordt weergegeven op de pagina **Configureren** onder **Opslagaccounts**.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-141">The newly created storage account will be displayed on the **Configure** page under **Storage accounts**.</span></span> <span data-ttu-id="fe5b0-142">Klik op **Opslaan** om het nieuwe opslagaccount op te slaan.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-142">Click **Save** to save the new storage account.</span></span> <span data-ttu-id="fe5b0-143">Klik op **OK** als u om bevestiging wordt gevraagd.</span><span class="sxs-lookup"><span data-stu-id="fe5b0-143">Click **OK** when prompted for confirmation.</span></span>
 

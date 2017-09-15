@@ -1,10 +1,10 @@
-| Resource | Maximumaantal |
+| <span data-ttu-id="c4700-101">Resource</span><span class="sxs-lookup"><span data-stu-id="c4700-101">Resource</span></span> | <span data-ttu-id="c4700-102">Maximumaantal</span><span class="sxs-lookup"><span data-stu-id="c4700-102">Maximum Limit</span></span> |
 | --- | --- |
-| Maximumaantal nieuwe taken die elke 30 seconden per Automation-Account (niet-geplande taken) kunnen worden verzonden |100 |
-| Maximumaantal gelijktijdige taken die worden uitgevoerd op hetzelfde exemplaar van de tijd per Automation-Account (niet-geplande taken) |200 |
-| Maximumaantal modules dat elke 30 seconden per Automation-Account kan worden geïmporteerd |5 |
-| Maximale grootte van een Module |100 MB |
-| Taak Run-Time - gratis laag |500 minuten per abonnement per kalendermaand |
-| Maximum aantal en de hoeveelheid geheugen aan een taak gegeven |400 MB |
-| Maximumaantal netwerk sockets toegestaan per taak |1000 |
+| <span data-ttu-id="c4700-103">Maximumaantal nieuwe taken die elke 30 seconden per Automation-Account (niet-geplande taken) kunnen worden verzonden</span><span class="sxs-lookup"><span data-stu-id="c4700-103">Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs)</span></span> |<span data-ttu-id="c4700-104">100</span><span class="sxs-lookup"><span data-stu-id="c4700-104">100</span></span> |
+| <span data-ttu-id="c4700-105">Maximumaantal gelijktijdige taken die worden uitgevoerd op hetzelfde exemplaar van de tijd per Automation-Account (niet-geplande taken)</span><span class="sxs-lookup"><span data-stu-id="c4700-105">Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs)</span></span> |<span data-ttu-id="c4700-106">200</span><span class="sxs-lookup"><span data-stu-id="c4700-106">200</span></span> |
+| <span data-ttu-id="c4700-107">Maximumaantal modules dat elke 30 seconden per Automation-Account kan worden geïmporteerd</span><span class="sxs-lookup"><span data-stu-id="c4700-107">Max number of modules that can be imported every 30 seconds per Automation Account</span></span> |<span data-ttu-id="c4700-108">5</span><span class="sxs-lookup"><span data-stu-id="c4700-108">5</span></span> |
+| <span data-ttu-id="c4700-109">Maximale grootte van een Module</span><span class="sxs-lookup"><span data-stu-id="c4700-109">Max size of a Module</span></span> |<span data-ttu-id="c4700-110">100 MB</span><span class="sxs-lookup"><span data-stu-id="c4700-110">100 MB</span></span> |
+| <span data-ttu-id="c4700-111">Taak Run-Time - gratis laag</span><span class="sxs-lookup"><span data-stu-id="c4700-111">Job Run Time - Free tier</span></span> |<span data-ttu-id="c4700-112">500 minuten per abonnement per kalendermaand</span><span class="sxs-lookup"><span data-stu-id="c4700-112">500 minutes per subscription per calendar month</span></span> |
+| <span data-ttu-id="c4700-113">Maximum aantal en de hoeveelheid geheugen aan een taak gegeven</span><span class="sxs-lookup"><span data-stu-id="c4700-113">Max amount of memory given to a job</span></span> |<span data-ttu-id="c4700-114">400 MB</span><span class="sxs-lookup"><span data-stu-id="c4700-114">400 MB</span></span> |
+| <span data-ttu-id="c4700-115">Maximumaantal netwerk sockets toegestaan per taak</span><span class="sxs-lookup"><span data-stu-id="c4700-115">Max number of network sockets allowed per job</span></span> |<span data-ttu-id="c4700-116">1000</span><span class="sxs-lookup"><span data-stu-id="c4700-116">1000</span></span> |
 

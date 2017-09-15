@@ -1,28 +1,28 @@
-**Premium niet-beheerde schijven van virtuele machines: limieten per account**
+<span data-ttu-id="f029c-101">**Premium niet-beheerde schijven van virtuele machines: limieten per account**</span><span class="sxs-lookup"><span data-stu-id="f029c-101">**Premium unmanaged virtual machine disks: per account limits**</span></span>
 
-| Resource | Standaardlimiet |
+| <span data-ttu-id="f029c-102">Resource</span><span class="sxs-lookup"><span data-stu-id="f029c-102">Resource</span></span> | <span data-ttu-id="f029c-103">Standaardlimiet</span><span class="sxs-lookup"><span data-stu-id="f029c-103">Default Limit</span></span> |
 | --- | --- |
-| Totale schijfcapaciteit per account |35 TB |
-| Totale momentopnamecapaciteit per account |10 TB |
-| Maximale bandbreedte per account (inkomend en uitgaand<sup>1</sup>) |<=50 Gbps |
+| <span data-ttu-id="f029c-104">Totale schijfcapaciteit per account</span><span class="sxs-lookup"><span data-stu-id="f029c-104">Total disk capacity per account</span></span> |<span data-ttu-id="f029c-105">35 TB</span><span class="sxs-lookup"><span data-stu-id="f029c-105">35 TB</span></span> |
+| <span data-ttu-id="f029c-106">Totale momentopnamecapaciteit per account</span><span class="sxs-lookup"><span data-stu-id="f029c-106">Total snapshot capacity per account</span></span> |<span data-ttu-id="f029c-107">10 TB</span><span class="sxs-lookup"><span data-stu-id="f029c-107">10 TB</span></span> |
+| <span data-ttu-id="f029c-108">Maximale bandbreedte per account (inkomend en uitgaand<sup>1</sup>)</span><span class="sxs-lookup"><span data-stu-id="f029c-108">Max bandwidth per account (ingress + egress<sup>1</sup>)</span></span> |<span data-ttu-id="f029c-109"><=50 Gbps</span><span class="sxs-lookup"><span data-stu-id="f029c-109"><=50 Gbps</span></span> |
 
-<sup>1</sup>*Inkomend* verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount. *Uitgaand* verwijst naar alle gegevens (reacties) die worden ontvangen van een opslagaccount.
+<span data-ttu-id="f029c-110"><sup>1</sup>*Inkomend* verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="f029c-110"><sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account.</span></span> <span data-ttu-id="f029c-111">*Uitgaand* verwijst naar alle gegevens (reacties) die worden ontvangen van een opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="f029c-111">*Egress* refers to all data (responses) being received from a storage account.</span></span>
 
-**Premium niet-beheerde schijven van virtuele machines: limieten per schijf**
+<span data-ttu-id="f029c-112">**Premium niet-beheerde schijven van virtuele machines: limieten per schijf**</span><span class="sxs-lookup"><span data-stu-id="f029c-112">**Premium unmanaged virtual machine disks: per disk limits**</span></span>
 
-| Schijftype voor Premium Storage | P10 | P20 | P30 | P40 | P50 |
+| <span data-ttu-id="f029c-113">Schijftype voor Premium Storage</span><span class="sxs-lookup"><span data-stu-id="f029c-113">Premium Storage Disk Type</span></span> | <span data-ttu-id="f029c-114">P10</span><span class="sxs-lookup"><span data-stu-id="f029c-114">P10</span></span> | <span data-ttu-id="f029c-115">P20</span><span class="sxs-lookup"><span data-stu-id="f029c-115">P20</span></span> | <span data-ttu-id="f029c-116">P30</span><span class="sxs-lookup"><span data-stu-id="f029c-116">P30</span></span> | <span data-ttu-id="f029c-117">P40</span><span class="sxs-lookup"><span data-stu-id="f029c-117">P40</span></span> | <span data-ttu-id="f029c-118">P50</span><span class="sxs-lookup"><span data-stu-id="f029c-118">P50</span></span> |
 | --- | --- | --- | --- | --- | --- |
-| Schijfgrootte |128 GiB |512 GiB |1024 GiB (1 TB) |2048 giB (2 TB)|4095 giB (4 TB)|
-| Max. aantal IOP's per schijf |500 |2300 |5000 |7500 |7500 |
-| Max. doorvoer per schijf |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
-| Max. aantal schijven per opslagaccount |280 |70 |35 | 17 | 8 |
+| <span data-ttu-id="f029c-119">Schijfgrootte</span><span class="sxs-lookup"><span data-stu-id="f029c-119">Disk size</span></span> |<span data-ttu-id="f029c-120">128 GiB</span><span class="sxs-lookup"><span data-stu-id="f029c-120">128 GiB</span></span> |<span data-ttu-id="f029c-121">512 GiB</span><span class="sxs-lookup"><span data-stu-id="f029c-121">512 GiB</span></span> |<span data-ttu-id="f029c-122">1024 GiB (1 TB)</span><span class="sxs-lookup"><span data-stu-id="f029c-122">1024 GiB (1 TB)</span></span> |<span data-ttu-id="f029c-123">2048 giB (2 TB)</span><span class="sxs-lookup"><span data-stu-id="f029c-123">2048 GiB (2 TB)</span></span>|<span data-ttu-id="f029c-124">4095 giB (4 TB)</span><span class="sxs-lookup"><span data-stu-id="f029c-124">4095 GiB (4 TB)</span></span>|
+| <span data-ttu-id="f029c-125">Max. aantal IOP's per schijf</span><span class="sxs-lookup"><span data-stu-id="f029c-125">Max IOPS per disk</span></span> |<span data-ttu-id="f029c-126">500</span><span class="sxs-lookup"><span data-stu-id="f029c-126">500</span></span> |<span data-ttu-id="f029c-127">2300</span><span class="sxs-lookup"><span data-stu-id="f029c-127">2300</span></span> |<span data-ttu-id="f029c-128">5000</span><span class="sxs-lookup"><span data-stu-id="f029c-128">5000</span></span> |<span data-ttu-id="f029c-129">7500</span><span class="sxs-lookup"><span data-stu-id="f029c-129">7500</span></span> |<span data-ttu-id="f029c-130">7500</span><span class="sxs-lookup"><span data-stu-id="f029c-130">7500</span></span> |
+| <span data-ttu-id="f029c-131">Max. doorvoer per schijf</span><span class="sxs-lookup"><span data-stu-id="f029c-131">Max throughput per disk</span></span> |<span data-ttu-id="f029c-132">100 MB/s</span><span class="sxs-lookup"><span data-stu-id="f029c-132">100 MB/s</span></span> | <span data-ttu-id="f029c-133">150 MB/s</span><span class="sxs-lookup"><span data-stu-id="f029c-133">150 MB/s</span></span> |<span data-ttu-id="f029c-134">200 MB/s</span><span class="sxs-lookup"><span data-stu-id="f029c-134">200 MB/s</span></span> |<span data-ttu-id="f029c-135">250 MB/s</span><span class="sxs-lookup"><span data-stu-id="f029c-135">250 MB/s</span></span> |<span data-ttu-id="f029c-136">250 MB/s</span><span class="sxs-lookup"><span data-stu-id="f029c-136">250 MB/s</span></span> |
+| <span data-ttu-id="f029c-137">Max. aantal schijven per opslagaccount</span><span class="sxs-lookup"><span data-stu-id="f029c-137">Max number of disks per storage account</span></span> |<span data-ttu-id="f029c-138">280</span><span class="sxs-lookup"><span data-stu-id="f029c-138">280</span></span> |<span data-ttu-id="f029c-139">70</span><span class="sxs-lookup"><span data-stu-id="f029c-139">70</span></span> |<span data-ttu-id="f029c-140">35</span><span class="sxs-lookup"><span data-stu-id="f029c-140">35</span></span> | <span data-ttu-id="f029c-141">17</span><span class="sxs-lookup"><span data-stu-id="f029c-141">17</span></span> | <span data-ttu-id="f029c-142">8</span><span class="sxs-lookup"><span data-stu-id="f029c-142">8</span></span> |
 
-**Premium niet-beheerde schijven van virtuele machines: limieten per VM**
+<span data-ttu-id="f029c-143">**Premium niet-beheerde schijven van virtuele machines: limieten per VM**</span><span class="sxs-lookup"><span data-stu-id="f029c-143">**Premium unmanaged virtual machine disks: per VM limits**</span></span>
 
-| Resource | Standaardlimiet |
+| <span data-ttu-id="f029c-144">Resource</span><span class="sxs-lookup"><span data-stu-id="f029c-144">Resource</span></span> | <span data-ttu-id="f029c-145">Standaardlimiet</span><span class="sxs-lookup"><span data-stu-id="f029c-145">Default Limit</span></span> |
 | --- | --- |
-| Max. aantal IOP's per VM |80.000 IOP's met GS5 VM<sup>1</sup> |
-| Max. doorvoer per VM |2000 MB/s met GS5 VM<sup>1</sup> |
+| <span data-ttu-id="f029c-146">Max. aantal IOP's per VM</span><span class="sxs-lookup"><span data-stu-id="f029c-146">Max IOPS Per VM</span></span> |<span data-ttu-id="f029c-147">80.000 IOP's met GS5 VM<sup>1</sup></span><span class="sxs-lookup"><span data-stu-id="f029c-147">80,000 IOPS with GS5 VM<sup>1</sup></span></span> |
+| <span data-ttu-id="f029c-148">Max. doorvoer per VM</span><span class="sxs-lookup"><span data-stu-id="f029c-148">Max throughput per VM</span></span> |<span data-ttu-id="f029c-149">2000 MB/s met GS5 VM<sup>1</sup></span><span class="sxs-lookup"><span data-stu-id="f029c-149">2,000 MB/s with GS5 VM<sup>1</sup></span></span> |
 
-<sup>1</sup>Zie [VM-grootte](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor de limieten die gelden bij andere VM-grootten. 
+<span data-ttu-id="f029c-150"><sup>1</sup>Zie [VM-grootte](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor de limieten die gelden bij andere VM-grootten.</span><span class="sxs-lookup"><span data-stu-id="f029c-150"><sup>1</sup>Refer to [VM Size](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for limits on other VM sizes.</span></span> 
 

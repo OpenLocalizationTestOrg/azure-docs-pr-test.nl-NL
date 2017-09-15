@@ -19,31 +19,31 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/29/2017
 ---
-## <a name="setting-up-your-ios-application"></a>Uw iOS-toepassing instellen
+## <a name="setting-up-your-ios-application"></a><span data-ttu-id="61dff-103">Uw iOS-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="61dff-103">Setting up your iOS application</span></span>
 
-Deze sectie bevat stapsgewijze instructies voor het maken van een nieuw project te laten zien hoe een toepassing voor iOS (Swift) worden geïntegreerd met *aanmelden met Microsoft* zodat Web-API's waarvoor een token op te vragen.
+<span data-ttu-id="61dff-104">Deze sectie bevat stapsgewijze instructies voor het maken van een nieuw project te laten zien hoe een toepassing voor iOS (Swift) worden geïntegreerd met *aanmelden met Microsoft* zodat Web-API's waarvoor een token op te vragen.</span><span class="sxs-lookup"><span data-stu-id="61dff-104">This section provides step-by-step instructions for how to create a new project to demonstrate how to integrate an iOS application (Swift) with *Sign-In with Microsoft* so it can query Web APIs that require a token.</span></span>
 
-> Voorkeur voor het downloaden van dit voorbeeld XCode-project in plaats daarvan? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) en doorgaan met de [configuratiestap](#create-an-application-express) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.
+> <span data-ttu-id="61dff-105">Voorkeur voor het downloaden van dit voorbeeld XCode-project in plaats daarvan?</span><span class="sxs-lookup"><span data-stu-id="61dff-105">Prefer to download this sample's XCode project instead?</span></span> <span data-ttu-id="61dff-106">[Downloaden van een project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) en doorgaan met de [configuratiestap](#create-an-application-express) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="61dff-106">[Download a project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.</span></span>
 
 
-## <a name="install-carthage-to-download-and-build-msal"></a>Carthage te downloaden en te bouwen MSAL installeren
-Carthage package manager wordt gebruikt tijdens de evaluatieperiode van MSAL – het behoud van de mogelijkheden van Microsoft wijzigingen aanbrengen in de bibliotheek is geïntegreerd met XCode.
+## <a name="install-carthage-to-download-and-build-msal"></a><span data-ttu-id="61dff-107">Carthage te downloaden en te bouwen MSAL installeren</span><span class="sxs-lookup"><span data-stu-id="61dff-107">Install Carthage to download and build MSAL</span></span>
+<span data-ttu-id="61dff-108">Carthage package manager wordt gebruikt tijdens de evaluatieperiode van MSAL – het behoud van de mogelijkheden van Microsoft wijzigingen aanbrengen in de bibliotheek is geïntegreerd met XCode.</span><span class="sxs-lookup"><span data-stu-id="61dff-108">Carthage package manager is used during the preview period of MSAL – it integrates with XCode while maintaining the ability for Microsoft to make changes to the library.</span></span>
 
-- Download en installeer de nieuwste versie van Carthage [hier](https://github.com/Carthage/Carthage/releases "Carthage download-URL")
+- <span data-ttu-id="61dff-109">Download en installeer de nieuwste versie van Carthage [hier](https://github.com/Carthage/Carthage/releases "Carthage download-URL")</span><span class="sxs-lookup"><span data-stu-id="61dff-109">Download and install the latest release of Carthage [here](https://github.com/Carthage/Carthage/releases "Carthage download URL")</span></span>
 
-## <a name="creating-your-application"></a>Maken van de toepassing
+## <a name="creating-your-application"></a><span data-ttu-id="61dff-110">Maken van de toepassing</span><span class="sxs-lookup"><span data-stu-id="61dff-110">Creating your application</span></span>
 
-1.  Open Xcode en selecteer`Create a new Xcode project`
-2.  Selecteer `iOS`  >  `Single view Application` en klik op *volgende*
-3.  Geef een productnaam en klik op *volgende*
-4.  Selecteer een map voor het maken van uw app en klik op *maken*
+1.  <span data-ttu-id="61dff-111">Open Xcode en selecteer`Create a new Xcode project`</span><span class="sxs-lookup"><span data-stu-id="61dff-111">Open Xcode and select `Create a new Xcode project`</span></span>
+2.  <span data-ttu-id="61dff-112">Selecteer `iOS`  >  `Single view Application` en klik op *volgende*</span><span class="sxs-lookup"><span data-stu-id="61dff-112">Select `iOS` > `Single view Application` and click *Next*</span></span>
+3.  <span data-ttu-id="61dff-113">Geef een productnaam en klik op *volgende*</span><span class="sxs-lookup"><span data-stu-id="61dff-113">Give a product name and click *Next*</span></span>
+4.  <span data-ttu-id="61dff-114">Selecteer een map voor het maken van uw app en klik op *maken*</span><span class="sxs-lookup"><span data-stu-id="61dff-114">Select a folder to create your app and click *Create*</span></span>
 
-## <a name="build-the-msal-framework"></a>Het Framework MSAL bouwen
+## <a name="build-the-msal-framework"></a><span data-ttu-id="61dff-115">Het Framework MSAL bouwen</span><span class="sxs-lookup"><span data-stu-id="61dff-115">Build the MSAL Framework</span></span>
 
-Volg de instructies hieronder om te halen en vervolgens de nieuwste versie van Carthage MSAL bibliotheken maken:
+<span data-ttu-id="61dff-116">Volg de instructies hieronder om te halen en vervolgens de nieuwste versie van Carthage MSAL bibliotheken maken:</span><span class="sxs-lookup"><span data-stu-id="61dff-116">Follow the instructions below to pull and then build the latest version of MSAL libraries using Carthage:</span></span>
 
-1.  Open de terminal bash en Ga naar de hoofdmap van de App
-2.  Kopieer de hieronder en plak in de terminal bash een 'Cartfile'-bestand te maken:
+1.  <span data-ttu-id="61dff-117">Open de terminal bash en Ga naar de hoofdmap van de App</span><span class="sxs-lookup"><span data-stu-id="61dff-117">Open the bash terminal and go to the App’s root folder</span></span>
+2.  <span data-ttu-id="61dff-118">Kopieer de hieronder en plak in de terminal bash een 'Cartfile'-bestand te maken:</span><span class="sxs-lookup"><span data-stu-id="61dff-118">Copy the below and paste in the bash terminal to create a ‘Cartfile’ file:</span></span>
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -51,7 +51,7 @@ echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" >
 <!-- Workaround for Docs conversion bug -->
 <ol start="3">
 <li>
-Kopieer en plak de onderstaande. Met deze opdracht haalt afhankelijkheden in een map Carthage/opdrachten om uitchecken en vervolgens maakt de MSAL-bibliotheek:
+<span data-ttu-id="61dff-119">Kopieer en plak de onderstaande.</span><span class="sxs-lookup"><span data-stu-id="61dff-119">Copy and paste the below.</span></span> <span data-ttu-id="61dff-120">Met deze opdracht haalt afhankelijkheden in een map Carthage/opdrachten om uitchecken en vervolgens maakt de MSAL-bibliotheek:</span><span class="sxs-lookup"><span data-stu-id="61dff-120">This command fetches dependencies into a Carthage/Checkouts folder, then builds the MSAL library:</span></span>
 </li>
 </ol>
 
@@ -59,15 +59,15 @@ Kopieer en plak de onderstaande. Met deze opdracht haalt afhankelijkheden in een
 carthage update
 ```
 
-> Het proces dat hierboven wordt gebruikt om te downloaden en bouwen van de Microsoft Authentication Library (MSAL). MSAL verwerkt ophalen, opslaan in cache en vernieuwen van gebruikerstokens gebruikt voor toegang tot API's die zijn beveiligd door de Azure Active Directory-v2.
+> <span data-ttu-id="61dff-121">Het proces dat hierboven wordt gebruikt om te downloaden en bouwen van de Microsoft Authentication Library (MSAL).</span><span class="sxs-lookup"><span data-stu-id="61dff-121">The process above is used to download and build the Microsoft Authentication Library (MSAL).</span></span> <span data-ttu-id="61dff-122">MSAL verwerkt ophalen, opslaan in cache en vernieuwen van gebruikerstokens gebruikt voor toegang tot API's die zijn beveiligd door de Azure Active Directory-v2.</span><span class="sxs-lookup"><span data-stu-id="61dff-122">MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by the Azure Active Directory v2.</span></span>
 
-## <a name="add-the-msal-framework-to-your-application"></a>Het framework MSAL aan uw toepassing toevoegen
-1.  Open in Xcode, de `General` tabblad
-2.  Ga naar de `Linked Frameworks and Libraries` sectie en klikt u op`+`
-3.  Selecteer `Add other…`
-4.  Selecteer: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` en klik op *Open*. U ziet `MSAL.framework` toegevoegd aan de lijst.
-5.  Ga naar `Build Phases` tabblad en klik op `+` pictogram kiezen`New Run Script Phase`
-6.  Voeg de volgende inhoud naar de *gebied script*:
+## <a name="add-the-msal-framework-to-your-application"></a><span data-ttu-id="61dff-123">Het framework MSAL aan uw toepassing toevoegen</span><span class="sxs-lookup"><span data-stu-id="61dff-123">Add the MSAL framework to your application</span></span>
+1.  <span data-ttu-id="61dff-124">Open in Xcode, de `General` tabblad</span><span class="sxs-lookup"><span data-stu-id="61dff-124">In Xcode, open the `General` tab</span></span>
+2.  <span data-ttu-id="61dff-125">Ga naar de `Linked Frameworks and Libraries` sectie en klikt u op`+`</span><span class="sxs-lookup"><span data-stu-id="61dff-125">Go to the `Linked Frameworks and Libraries` section and click `+`</span></span>
+3.  <span data-ttu-id="61dff-126">Selecteer `Add other…`</span><span class="sxs-lookup"><span data-stu-id="61dff-126">Select `Add other…`</span></span>
+4.  <span data-ttu-id="61dff-127">Selecteer: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` en klik op *Open*.</span><span class="sxs-lookup"><span data-stu-id="61dff-127">Select: `Carthage` > `Build` > `iOS` > `MSAL.framework` and click *Open*.</span></span> <span data-ttu-id="61dff-128">U ziet `MSAL.framework` toegevoegd aan de lijst.</span><span class="sxs-lookup"><span data-stu-id="61dff-128">You should see `MSAL.framework` added to the list.</span></span>
+5.  <span data-ttu-id="61dff-129">Ga naar `Build Phases` tabblad en klik op `+` pictogram kiezen`New Run Script Phase`</span><span class="sxs-lookup"><span data-stu-id="61dff-129">Go to `Build Phases` tab, and click `+` icon, choose `New Run Script Phase`</span></span>
+6.  <span data-ttu-id="61dff-130">Voeg de volgende inhoud naar de *gebied script*:</span><span class="sxs-lookup"><span data-stu-id="61dff-130">Add the following contents to the *script area*:</span></span>
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -76,7 +76,7 @@ carthage update
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Het volgende toevoegen aan <code>Input Files</code> door te klikken op <code>+</code>:
+<span data-ttu-id="61dff-131">Het volgende toevoegen aan <code>Input Files</code> door te klikken op <code>+</code>:</span><span class="sxs-lookup"><span data-stu-id="61dff-131">Add the following to <code>Input Files</code> by clicking <code>+</code>:</span></span>
 </li>
 </ol>
 
@@ -84,11 +84,11 @@ Het volgende toevoegen aan <code>Input Files</code> door te klikken op <code>+</
 $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
-## <a name="creating-your-applications-ui"></a>Maken van de gebruikersinterface van uw toepassing
-Een bestand Main.storyboard moet automatisch worden gemaakt als onderdeel van uw project-sjabloon. Volg de onderstaande instructies voor het maken van de gebruikersinterface van de app:
+## <a name="creating-your-applications-ui"></a><span data-ttu-id="61dff-132">Maken van de gebruikersinterface van uw toepassing</span><span class="sxs-lookup"><span data-stu-id="61dff-132">Creating your application’s UI</span></span>
+<span data-ttu-id="61dff-133">Een bestand Main.storyboard moet automatisch worden gemaakt als onderdeel van uw project-sjabloon.</span><span class="sxs-lookup"><span data-stu-id="61dff-133">A Main.storyboard file should automatically be created as a part of your project template.</span></span> <span data-ttu-id="61dff-134">Volg de onderstaande instructies voor het maken van de gebruikersinterface van de app:</span><span class="sxs-lookup"><span data-stu-id="61dff-134">Follow the instructions below to create the app UI:</span></span>
 
-1.  Control + klik `Main.storyboard` online zetten van het contextafhankelijke menu en klik vervolgens op:`Open As` > `Source Code`
-2.  Vervang de `<scenes>` knooppunt met de volgende code:
+1.  <span data-ttu-id="61dff-135">Control + klik `Main.storyboard` online zetten van het contextafhankelijke menu en klik vervolgens op:`Open As` > `Source Code`</span><span class="sxs-lookup"><span data-stu-id="61dff-135">Control+click `Main.storyboard` to bring up the contextual menu, and then click: `Open As` > `Source Code`</span></span>
+2.  <span data-ttu-id="61dff-136">Vervang de `<scenes>` knooppunt met de volgende code:</span><span class="sxs-lookup"><span data-stu-id="61dff-136">Replace the `<scenes>` node with the code below:</span></span>
 
 ```xml
  <scenes>

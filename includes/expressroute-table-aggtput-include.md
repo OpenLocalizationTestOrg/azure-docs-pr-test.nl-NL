@@ -1,7 +1,7 @@
-|  | **Doorvoer ExpressRoute-Gateway (tot)** | **VPN-gateway en ExpressRoute bestaan tegelijk** |
+|  | <span data-ttu-id="ca8c6-101">**Doorvoer ExpressRoute-Gateway (tot)**</span><span class="sxs-lookup"><span data-stu-id="ca8c6-101">**ExpressRoute Gateway throughput (up to)**</span></span> | <span data-ttu-id="ca8c6-102">**VPN-gateway en ExpressRoute bestaan tegelijk**</span><span class="sxs-lookup"><span data-stu-id="ca8c6-102">**VPN Gateway and ExpressRoute coexist**</span></span> |
 | --- | --- | --- |
-| **Basis-SKU (afgeschaft)** |500 Mbps |Nee |
-| **Standaard SKU** |1000 Mbps |Ja |
-| **Hoge prestaties SKU** |2000 Mbps |Ja |
-| **Ultra-Performance SKU** |9000 Mbps |Ja |
+| <span data-ttu-id="ca8c6-103">**Basis-SKU (afgeschaft)**</span><span class="sxs-lookup"><span data-stu-id="ca8c6-103">**Basic SKU (deprecated)**</span></span> |<span data-ttu-id="ca8c6-104">500 Mbps</span><span class="sxs-lookup"><span data-stu-id="ca8c6-104">500 Mbps</span></span> |<span data-ttu-id="ca8c6-105">Nee</span><span class="sxs-lookup"><span data-stu-id="ca8c6-105">No</span></span> |
+| <span data-ttu-id="ca8c6-106">**Standaard SKU**</span><span class="sxs-lookup"><span data-stu-id="ca8c6-106">**Standard SKU**</span></span> |<span data-ttu-id="ca8c6-107">1000 Mbps</span><span class="sxs-lookup"><span data-stu-id="ca8c6-107">1000 Mbps</span></span> |<span data-ttu-id="ca8c6-108">Ja</span><span class="sxs-lookup"><span data-stu-id="ca8c6-108">Yes</span></span> |
+| <span data-ttu-id="ca8c6-109">**Hoge prestaties SKU**</span><span class="sxs-lookup"><span data-stu-id="ca8c6-109">**High Performance SKU**</span></span> |<span data-ttu-id="ca8c6-110">2000 Mbps</span><span class="sxs-lookup"><span data-stu-id="ca8c6-110">2000 Mbps</span></span> |<span data-ttu-id="ca8c6-111">Ja</span><span class="sxs-lookup"><span data-stu-id="ca8c6-111">Yes</span></span> |
+| <span data-ttu-id="ca8c6-112">**Ultra-Performance SKU**</span><span class="sxs-lookup"><span data-stu-id="ca8c6-112">**Ultra Performance SKU**</span></span> |<span data-ttu-id="ca8c6-113">9000 Mbps</span><span class="sxs-lookup"><span data-stu-id="ca8c6-113">9000 Mbps</span></span> |<span data-ttu-id="ca8c6-114">Ja</span><span class="sxs-lookup"><span data-stu-id="ca8c6-114">Yes</span></span> |
 

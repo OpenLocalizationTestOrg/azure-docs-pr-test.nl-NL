@@ -1,16 +1,16 @@
-## <a name="application-gateway"></a>Application Gateway
-Toepassingsgateway biedt Azure beheerd HTTP taakverdeling oplossing op basis van de taakverdeling van laag 7. Taakverdeling van toepassing, kunt het gebruik van de routeringsregels voor netwerkverkeer op basis van HTTP. 
+## <a name="application-gateway"></a><span data-ttu-id="6f8cb-101">Application Gateway</span><span class="sxs-lookup"><span data-stu-id="6f8cb-101">Application Gateway</span></span>
+<span data-ttu-id="6f8cb-102">Toepassingsgateway biedt Azure beheerd HTTP taakverdeling oplossing op basis van de taakverdeling van laag 7.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-102">Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing.</span></span> <span data-ttu-id="6f8cb-103">Taakverdeling van toepassing, kunt het gebruik van de routeringsregels voor netwerkverkeer op basis van HTTP.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-103">Application load balancing allows the use of routing rules for network traffic based on HTTP.</span></span> 
 <BR>
 
-| Eigenschap | Beschrijving |
+| <span data-ttu-id="6f8cb-104">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="6f8cb-104">Property</span></span> | <span data-ttu-id="6f8cb-105">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="6f8cb-105">Description</span></span> |
 | --- | --- |
-| **backendAddressPools** |De lijst met IP-adressen van de back-end-servers. De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel moeten een openbare IP-/ VIP of privé-IP |
-| **backendHttpSettingsCollection** |Elke pool heeft instellingen, zoals poort, het protocol en cookie gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool |
-| **frontendPorts** |Dit is de openbare poort die in de toepassingsgateway wordt geopend. Verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-end-servers |
-| **httpListeners** |Listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als u SSL-offloading configureert) |
-| **requestRoutingRules** |De regel verbindt de listener en de back-servergroep beëindigen en definieert die het verkeer moet worden omgeleid servergroep terug eindigen. Momenteel werkt alleen als Round robin |
+| <span data-ttu-id="6f8cb-106">**backendAddressPools**</span><span class="sxs-lookup"><span data-stu-id="6f8cb-106">**backendAddressPools**</span></span> |<span data-ttu-id="6f8cb-107">De lijst met IP-adressen van de back-end-servers.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-107">The list of IP addresses of the back end servers.</span></span> <span data-ttu-id="6f8cb-108">De IP-adressen moeten ofwel deel uitmaken van het subnet van het virtuele netwerk, ofwel moeten een openbare IP-/ VIP of privé-IP</span><span class="sxs-lookup"><span data-stu-id="6f8cb-108">The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP or private IP</span></span> |
+| <span data-ttu-id="6f8cb-109">**backendHttpSettingsCollection**</span><span class="sxs-lookup"><span data-stu-id="6f8cb-109">**backendHttpSettingsCollection**</span></span> |<span data-ttu-id="6f8cb-110">Elke pool heeft instellingen, zoals poort, het protocol en cookie gebaseerde affiniteit.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-110">Every pool has settings like port, protocol, and cookie based affinity.</span></span> <span data-ttu-id="6f8cb-111">Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool</span><span class="sxs-lookup"><span data-stu-id="6f8cb-111">These settings are tied to a pool and are applied to all servers within the pool</span></span> |
+| <span data-ttu-id="6f8cb-112">**frontendPorts**</span><span class="sxs-lookup"><span data-stu-id="6f8cb-112">**frontendPorts**</span></span> |<span data-ttu-id="6f8cb-113">Dit is de openbare poort die in de toepassingsgateway wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-113">This port is the public port opened on the application gateway.</span></span> <span data-ttu-id="6f8cb-114">Verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-end-servers</span><span class="sxs-lookup"><span data-stu-id="6f8cb-114">Traffic hits this port, and then gets redirected to one of the back end servers</span></span> |
+| <span data-ttu-id="6f8cb-115">**httpListeners**</span><span class="sxs-lookup"><span data-stu-id="6f8cb-115">**httpListeners**</span></span> |<span data-ttu-id="6f8cb-116">Listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als u SSL-offloading configureert)</span><span class="sxs-lookup"><span data-stu-id="6f8cb-116">Listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload)</span></span> |
+| <span data-ttu-id="6f8cb-117">**requestRoutingRules**</span><span class="sxs-lookup"><span data-stu-id="6f8cb-117">**requestRoutingRules**</span></span> |<span data-ttu-id="6f8cb-118">De regel verbindt de listener en de back-servergroep beëindigen en definieert die het verkeer moet worden omgeleid servergroep terug eindigen.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-118">The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed.</span></span> <span data-ttu-id="6f8cb-119">Momenteel werkt alleen als Round robin</span><span class="sxs-lookup"><span data-stu-id="6f8cb-119">Currently works only as Round-robin</span></span> |
 
-Voorbeeld van een application gateway Json-sjabloon:
+<span data-ttu-id="6f8cb-120">Voorbeeld van een application gateway Json-sjabloon:</span><span class="sxs-lookup"><span data-stu-id="6f8cb-120">Example of an application gateway Json template:</span></span>
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -216,6 +216,6 @@ Voorbeeld van een application gateway Json-sjabloon:
     }
 
 
-### <a name="additional-resources"></a>Aanvullende bronnen
-Lees [ toepassingsgateway REST-API](https://msdn.microsoft.com/library/azure/mt299388.aspx) voor meer informatie.
+### <a name="additional-resources"></a><span data-ttu-id="6f8cb-121">Aanvullende bronnen</span><span class="sxs-lookup"><span data-stu-id="6f8cb-121">Additional resources</span></span>
+<span data-ttu-id="6f8cb-122">Lees [ toepassingsgateway REST-API](https://msdn.microsoft.com/library/azure/mt299388.aspx) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="6f8cb-122">Read [ application gateway REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx) for more information.</span></span>
 

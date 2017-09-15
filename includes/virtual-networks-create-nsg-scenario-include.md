@@ -1,16 +1,16 @@
-## <a name="scenario"></a>Scenario
-Dit document om beter te laten zien hoe u kunt nsg's maken, gebruikt het onderstaande scenario.
+## <a name="scenario"></a><span data-ttu-id="fce72-101">Scenario</span><span class="sxs-lookup"><span data-stu-id="fce72-101">Scenario</span></span>
+<span data-ttu-id="fce72-102">Dit document om beter te laten zien hoe u kunt nsg's maken, gebruikt het onderstaande scenario.</span><span class="sxs-lookup"><span data-stu-id="fce72-102">To better illustrate how to create NSGs, this document will use the scenario below.</span></span>
 
 ![VNet-scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In dit scenario maakt u een NSG voor elk subnet in de **TestVNet** virtueel netwerk, zoals hieronder beschreven: 
+<span data-ttu-id="fce72-104">In dit scenario maakt u een NSG voor elk subnet in de **TestVNet** virtueel netwerk, zoals hieronder beschreven:</span><span class="sxs-lookup"><span data-stu-id="fce72-104">In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below:</span></span> 
 
-* **NSG-FrontEnd**. De front-end NSG wordt toegepast op de *FrontEnd* subnet, en bevatten twee regels:    
-  * **RDP-regel**. Deze regel kan de RDP-verkeer naar de *FrontEnd* subnet.
-  * **Web-regel**. Deze regel kunnen HTTP-verkeer naar de *FrontEnd* subnet.
-* **NSG-back-end**. De back-end NSG wordt toegepast op de *back-end* subnet, en bevatten twee regels:    
-  * **SQL-regel**. Met deze regel kunnen SQL verkeer alleen via de *FrontEnd* subnet.
-  * **Web-regel**. Deze regel niet alle internet gebonden verkeer van de *back-end* subnet.
+* <span data-ttu-id="fce72-105">**NSG-FrontEnd**.</span><span class="sxs-lookup"><span data-stu-id="fce72-105">**NSG-FrontEnd**.</span></span> <span data-ttu-id="fce72-106">De front-end NSG wordt toegepast op de *FrontEnd* subnet, en bevatten twee regels:</span><span class="sxs-lookup"><span data-stu-id="fce72-106">The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:</span></span>    
+  * <span data-ttu-id="fce72-107">**RDP-regel**.</span><span class="sxs-lookup"><span data-stu-id="fce72-107">**rdp-rule**.</span></span> <span data-ttu-id="fce72-108">Deze regel kan de RDP-verkeer naar de *FrontEnd* subnet.</span><span class="sxs-lookup"><span data-stu-id="fce72-108">This rule will allow RDP traffic to the *FrontEnd* subnet.</span></span>
+  * <span data-ttu-id="fce72-109">**Web-regel**.</span><span class="sxs-lookup"><span data-stu-id="fce72-109">**web-rule**.</span></span> <span data-ttu-id="fce72-110">Deze regel kunnen HTTP-verkeer naar de *FrontEnd* subnet.</span><span class="sxs-lookup"><span data-stu-id="fce72-110">This rule will allow HTTP traffic to the *FrontEnd* subnet.</span></span>
+* <span data-ttu-id="fce72-111">**NSG-back-end**.</span><span class="sxs-lookup"><span data-stu-id="fce72-111">**NSG-BackEnd**.</span></span> <span data-ttu-id="fce72-112">De back-end NSG wordt toegepast op de *back-end* subnet, en bevatten twee regels:</span><span class="sxs-lookup"><span data-stu-id="fce72-112">The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:</span></span>    
+  * <span data-ttu-id="fce72-113">**SQL-regel**.</span><span class="sxs-lookup"><span data-stu-id="fce72-113">**sql-rule**.</span></span> <span data-ttu-id="fce72-114">Met deze regel kunnen SQL verkeer alleen via de *FrontEnd* subnet.</span><span class="sxs-lookup"><span data-stu-id="fce72-114">This rule allows SQL traffic only from the *FrontEnd* subnet.</span></span>
+  * <span data-ttu-id="fce72-115">**Web-regel**.</span><span class="sxs-lookup"><span data-stu-id="fce72-115">**web-rule**.</span></span> <span data-ttu-id="fce72-116">Deze regel niet alle internet gebonden verkeer van de *back-end* subnet.</span><span class="sxs-lookup"><span data-stu-id="fce72-116">This rule denies all internet bound traffic from the *BackEnd* subnet.</span></span>
 
-De combinatie van deze regels maken een DMZ-achtige scenario, waarin de back-end-subnet kan alleen inkomend verkeer ontvangen voor SQL van de front-end-subnet en heeft geen toegang tot het Internet, terwijl de front-end-subnet kan met het Internet communiceren en ontvangen binnenkomende HTTP-aanvragen alleen.
+<span data-ttu-id="fce72-117">De combinatie van deze regels maken een DMZ-achtige scenario, waarin de back-end-subnet kan alleen inkomend verkeer ontvangen voor SQL van de front-end-subnet en heeft geen toegang tot het Internet, terwijl de front-end-subnet kan met het Internet communiceren en ontvangen binnenkomende HTTP-aanvragen alleen.</span><span class="sxs-lookup"><span data-stu-id="fce72-117">The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.</span></span>
 

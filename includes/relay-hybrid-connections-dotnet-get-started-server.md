@@ -1,15 +1,15 @@
-### <a name="create-a-console-application"></a>Een consoletoepassing maken
+### <a name="create-a-console-application"></a><span data-ttu-id="2a485-101">Een consoletoepassing maken</span><span class="sxs-lookup"><span data-stu-id="2a485-101">Create a console application</span></span>
 
-Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepassing (.NET Framework)**.
+<span data-ttu-id="2a485-102">Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepassing (.NET Framework)**.</span><span class="sxs-lookup"><span data-stu-id="2a485-102">First, launch Visual Studio and create a new **Console App (.NET Framework)** project.</span></span>
 
-### <a name="add-the-relay-nuget-package"></a>Het pakket Relay NuGet toevoegen
+### <a name="add-the-relay-nuget-package"></a><span data-ttu-id="2a485-103">Het pakket Relay NuGet toevoegen</span><span class="sxs-lookup"><span data-stu-id="2a485-103">Add the Relay NuGet package</span></span>
 
-1. Klik met de rechtermuisknop op het nieuwe project en klik op **NuGet-pakketten beheren**.
-2. Klik op het tabblad **Bladeren**, zoek naar 'Microsoft Azure Relay' en selecteer het item **Microsoft Azure Relay**. Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.
+1. <span data-ttu-id="2a485-104">Klik met de rechtermuisknop op het nieuwe project en klik op **NuGet-pakketten beheren**.</span><span class="sxs-lookup"><span data-stu-id="2a485-104">Right-click the newly created project and then click **Manage NuGet Packages**.</span></span>
+2. <span data-ttu-id="2a485-105">Klik op het tabblad **Bladeren**, zoek naar 'Microsoft Azure Relay' en selecteer het item **Microsoft Azure Relay**.</span><span class="sxs-lookup"><span data-stu-id="2a485-105">Click the **Browse** tab, then search for "Microsoft.Azure.Relay" and select the **Microsoft Azure Relay** item.</span></span> <span data-ttu-id="2a485-106">Klik op **Installeren** om de installatie te voltooien en sluit vervolgens dit dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="2a485-106">Click **Install** to complete the installation, then close this dialog box.</span></span>
 
-### <a name="write-some-code-to-receive-messages"></a>Code schrijven om berichten te ontvangen
+### <a name="write-some-code-to-receive-messages"></a><span data-ttu-id="2a485-107">Code schrijven om berichten te ontvangen</span><span class="sxs-lookup"><span data-stu-id="2a485-107">Write some code to receive messages</span></span>
 
-1. Vervang de bestaande `using`-instructies bovenaan het bestand Program.cs door de volgende `using`-instructies:
+1. <span data-ttu-id="2a485-108">Vervang de bestaande `using`-instructies bovenaan het bestand Program.cs door de volgende `using`-instructies:</span><span class="sxs-lookup"><span data-stu-id="2a485-108">Replace the existing `using` statements at the top of the Program.cs file with the following `using` statements:</span></span>
    
     ```csharp
     using System;
@@ -18,7 +18,7 @@ Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepas
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Voeg constanten toe aan de klasse `Program` voor de gegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen haakjes door de waarden die u hebt verkregen bij het maken van de hybride verbinding. Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt:
+2. <span data-ttu-id="2a485-109">Voeg constanten toe aan de klasse `Program` voor de gegevens van de hybride verbinding.</span><span class="sxs-lookup"><span data-stu-id="2a485-109">Add constants to the `Program` class for the hybrid connection details.</span></span> <span data-ttu-id="2a485-110">Vervang de tijdelijke aanduidingen tussen haakjes door de waarden die u hebt verkregen bij het maken van de hybride verbinding.</span><span class="sxs-lookup"><span data-stu-id="2a485-110">Replace the placeholders in brackets with the values you obtained when creating the hybrid connection.</span></span> <span data-ttu-id="2a485-111">Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt:</span><span class="sxs-lookup"><span data-stu-id="2a485-111">Be sure to use the fully qualified namespace name:</span></span>
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -26,7 +26,7 @@ Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepas
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Voeg de volgende methode met de naam `ProcessMessagesOnConnection` toe aan de klasse `Program`:
+3. <span data-ttu-id="2a485-112">Voeg de volgende methode met de naam `ProcessMessagesOnConnection` toe aan de klasse `Program`:</span><span class="sxs-lookup"><span data-stu-id="2a485-112">Add the following method called `ProcessMessagesOnConnection` to the `Program` class:</span></span>
    
     ```csharp
     // Method is used to initiate connection
@@ -77,7 +77,7 @@ Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepas
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Voeg als volgt nog een nieuwe methode met de naam `RunAsync` toe aan de klasse `Program`:
+4. <span data-ttu-id="2a485-113">Voeg als volgt nog een nieuwe methode met de naam `RunAsync` toe aan de klasse `Program`:</span><span class="sxs-lookup"><span data-stu-id="2a485-113">Add another method called `RunAsync` to the `Program` class, as follows:</span></span>
    
     ```csharp
     private static async Task RunAsync()
@@ -122,13 +122,13 @@ Start eerst Visual Studio en maak een nieuw project van het type **Consoletoepas
         await listener.CloseAsync(cts.Token);
     }
     ```
-5. Voeg de volgende coderegel toe aan de methode `Main` in de klasse `Program`:
+5. <span data-ttu-id="2a485-114">Voeg de volgende coderegel toe aan de methode `Main` in de klasse `Program`:</span><span class="sxs-lookup"><span data-stu-id="2a485-114">Add the following line of code to the `Main` method in the `Program` class:</span></span>
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Het voltooide bestand Program.cs zou er als volgt moeten uitzien:
+    <span data-ttu-id="2a485-115">Het voltooide bestand Program.cs zou er als volgt moeten uitzien:</span><span class="sxs-lookup"><span data-stu-id="2a485-115">Here is what your completed Program.cs file should look like:</span></span>
    
     ```csharp
     namespace Server

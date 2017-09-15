@@ -1,6 +1,6 @@
-## <a name="versions-of-the-azure-cli"></a>Versies van de Azure CLI
+## <a name="versions-of-the-azure-cli"></a><span data-ttu-id="ae9c2-101">Versies van de Azure CLI</span><span class="sxs-lookup"><span data-stu-id="ae9c2-101">Versions of the Azure CLI</span></span>
 
-Er zijn momenteel twee versies van de Azure-opdrachtregelinterface (CLI) beschikbaar:
+<span data-ttu-id="ae9c2-102">Er zijn momenteel twee versies van de Azure-opdrachtregelinterface (CLI) beschikbaar:</span><span class="sxs-lookup"><span data-stu-id="ae9c2-102">There are two versions of the Azure Command-Line Interface (CLI) currently available:</span></span>
 
-* [Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): onze CLI van de nieuwste generatie, geschreven in Python, voor gebruik met het Resource Manager-implementatiemodel.
-* [Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): onze CLI geschreven in Node.js, voor gebruik met zowel het klassieke implementatiemodel als het Resource Management-implementatiemodel.
+* <span data-ttu-id="ae9c2-103">[Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): onze CLI van de nieuwste generatie, geschreven in Python, voor gebruik met het Resource Manager-implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="ae9c2-103">[Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): Our next-generation CLI written in Python, for use with the Resource Manager deployment model.</span></span>
+* <span data-ttu-id="ae9c2-104">[Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): onze CLI geschreven in Node.js, voor gebruik met zowel het klassieke implementatiemodel als het Resource Management-implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="ae9c2-104">[Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): Our CLI written in Node.js, for use with both the classic and Resource Manager deployment models.</span></span>

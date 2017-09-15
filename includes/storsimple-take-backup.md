@@ -1,30 +1,30 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### <a name="to-take-a-backup"></a>Een back-up maken
-1. Klik op het apparaat op de pagina **Quick Start** en klik vervolgens op **Een back-upbeleid toevoegen**. Hiermee start u de wizard Back-upbeleid toevoegen. 
-2. Op de pagina **Uw back-upbeleid definiëren** doet u het volgende:
+### <a name="to-take-a-backup"></a><span data-ttu-id="4d12d-101">Een back-up maken</span><span class="sxs-lookup"><span data-stu-id="4d12d-101">To take a backup</span></span>
+1. <span data-ttu-id="4d12d-102">Klik op het apparaat op de pagina **Quick Start** en klik vervolgens op **Een back-upbeleid toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="4d12d-102">On the device **Quick Start** page, click **Add a backup policy**.</span></span> <span data-ttu-id="4d12d-103">Hiermee start u de wizard Back-upbeleid toevoegen.</span><span class="sxs-lookup"><span data-stu-id="4d12d-103">This will start the Add Backup Policy wizard.</span></span> 
+2. <span data-ttu-id="4d12d-104">Op de pagina **Uw back-upbeleid definiëren** doet u het volgende:</span><span class="sxs-lookup"><span data-stu-id="4d12d-104">On the **Define your backup policy** page:</span></span>
    
-   1. Geef een naam op die tussen 3 en 150 tekens lang is voor uw back-upbeleid.
-   2. Selecteer de volumes waarvan u een back-up wilt maken. Als u meer dan één volume selecteert, worden deze volumes samen gegroepeerd om zo een crashconsistente back-up te maken.
-   3. Klik op het pijlpictogram ![pijltje](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+   1. <span data-ttu-id="4d12d-105">Geef een naam op die tussen 3 en 150 tekens lang is voor uw back-upbeleid.</span><span class="sxs-lookup"><span data-stu-id="4d12d-105">Supply a name that contains between 3 and 150 characters for your backup policy.</span></span>
+   2. <span data-ttu-id="4d12d-106">Selecteer de volumes waarvan u een back-up wilt maken.</span><span class="sxs-lookup"><span data-stu-id="4d12d-106">Select the volumes to be backed up.</span></span> <span data-ttu-id="4d12d-107">Als u meer dan één volume selecteert, worden deze volumes samen gegroepeerd om zo een crashconsistente back-up te maken.</span><span class="sxs-lookup"><span data-stu-id="4d12d-107">If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.</span></span>
+   3. <span data-ttu-id="4d12d-108">Klik op het pijlpictogram</span><span class="sxs-lookup"><span data-stu-id="4d12d-108">Click the arrow icon</span></span> ![pijltje](./media/storsimple-take-backup/HCS_ArrowIcon-include.png)<span data-ttu-id="4d12d-110">.</span><span class="sxs-lookup"><span data-stu-id="4d12d-110">.</span></span> 
       
       ![Back-upbeleid-toevoegen](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
-3. Op de pagina **Een schema definiëren** doet u het volgende:
+3. <span data-ttu-id="4d12d-112">Op de pagina **Een schema definiëren** doet u het volgende:</span><span class="sxs-lookup"><span data-stu-id="4d12d-112">On the **Define a schedule** page:</span></span>
    
-   1. Selecteer het type back-up in de vervolgkeuzelijst. Selecteer **Lokale momentopname** voor snellere herstelacties. Selecteer **Cloudmomentopname** voor gegevenstolerantie.
-   2. Geef de back-upfrequentie op in minuten, uren, dagen of weken.
-   3. Selecteer een bewaartijd. Hoe lang deze moet zijn, hangt af van hoe vaak een back-up wordt uitgevoerd. Als dagelijks een back-up wordt uitgevoerd, kunt u de bewaartijd instellen op weken. Als maandelijks een back-up wordt gemaakt, kunt u de bewaartijd instellen op maanden.
-   4. Selecteer de begintijd en -datum voor het back-upbeleid.
-   5. Selecteer het selectievakje **Inschakelen** om het back-upbeleid in te schakelen. 
-   6. Klik op het vinkje ![vinkje](./media/storsimple-take-backup/HCS_CheckIcon-include.png) om het beleid op te slaan.
+   1. <span data-ttu-id="4d12d-113">Selecteer het type back-up in de vervolgkeuzelijst.</span><span class="sxs-lookup"><span data-stu-id="4d12d-113">Select the type of backup from the drop-down list.</span></span> <span data-ttu-id="4d12d-114">Selecteer **Lokale momentopname** voor snellere herstelacties.</span><span class="sxs-lookup"><span data-stu-id="4d12d-114">For faster restores, select **Local Snapshot**.</span></span> <span data-ttu-id="4d12d-115">Selecteer **Cloudmomentopname** voor gegevenstolerantie.</span><span class="sxs-lookup"><span data-stu-id="4d12d-115">For data resiliency, select **Cloud Snapshot**.</span></span>
+   2. <span data-ttu-id="4d12d-116">Geef de back-upfrequentie op in minuten, uren, dagen of weken.</span><span class="sxs-lookup"><span data-stu-id="4d12d-116">Specify the backup frequency in minutes, hours, days, or weeks.</span></span>
+   3. <span data-ttu-id="4d12d-117">Selecteer een bewaartijd.</span><span class="sxs-lookup"><span data-stu-id="4d12d-117">Select a retention time.</span></span> <span data-ttu-id="4d12d-118">Hoe lang deze moet zijn, hangt af van hoe vaak een back-up wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="4d12d-118">The retention choices depend on the backup frequency.</span></span> <span data-ttu-id="4d12d-119">Als dagelijks een back-up wordt uitgevoerd, kunt u de bewaartijd instellen op weken. Als maandelijks een back-up wordt gemaakt, kunt u de bewaartijd instellen op maanden.</span><span class="sxs-lookup"><span data-stu-id="4d12d-119">For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.</span></span>
+   4. <span data-ttu-id="4d12d-120">Selecteer de begintijd en -datum voor het back-upbeleid.</span><span class="sxs-lookup"><span data-stu-id="4d12d-120">Select the starting time and date for the backup policy.</span></span>
+   5. <span data-ttu-id="4d12d-121">Selecteer het selectievakje **Inschakelen** om het back-upbeleid in te schakelen.</span><span class="sxs-lookup"><span data-stu-id="4d12d-121">Select the **Enable** check box to enable the backup policy.</span></span> 
+   6. <span data-ttu-id="4d12d-122">Klik op het vinkje</span><span class="sxs-lookup"><span data-stu-id="4d12d-122">Click the check icon</span></span> ![vinkje](./media/storsimple-take-backup/HCS_CheckIcon-include.png) <span data-ttu-id="4d12d-124">om het beleid op te slaan.</span><span class="sxs-lookup"><span data-stu-id="4d12d-124">to save the policy.</span></span>
       
       ![Back-upbeleid-toevoegen](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
       
-      U hebt nu een back-upbeleid voor geplande back-ups van uw volumegegevens.
+      <span data-ttu-id="4d12d-126">U hebt nu een back-upbeleid voor geplande back-ups van uw volumegegevens.</span><span class="sxs-lookup"><span data-stu-id="4d12d-126">You now have a backup policy that will create scheduled backups of your volume data.</span></span>
 
-U hebt de apparaatconfiguratie voltooid. 
+<span data-ttu-id="4d12d-127">U hebt de apparaatconfiguratie voltooid.</span><span class="sxs-lookup"><span data-stu-id="4d12d-127">You have completed the device configuration.</span></span> 
 
-![Video beschikbaar](./media/storsimple-take-backup/Video_icon.png) **Video beschikbaar**
+<span data-ttu-id="4d12d-128">![Video beschikbaar](./media/storsimple-take-backup/Video_icon.png) **Video beschikbaar**</span><span class="sxs-lookup"><span data-stu-id="4d12d-128">![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**</span></span>
 
-Als u een video wilt bekijken over het maken van een StorSimple-back-up, klikt u [hier](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+<span data-ttu-id="4d12d-129">Als u een video wilt bekijken over het maken van een StorSimple-back-up, klikt u [hier](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).</span><span class="sxs-lookup"><span data-stu-id="4d12d-129">To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).</span></span>
 

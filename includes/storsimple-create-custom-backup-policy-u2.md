@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 11/04/15-->
 
 
-#### <a name="to-create-a-custom-backup-policy"></a>Een aangepaste back-upbeleid maken
-1. Op de **apparaten** pagina, klikt u op **back-upbeleid** en klik vervolgens op **toevoegen**.
-2. In de **toevoegen van een back-upbeleid** dialoogvenster onder **uw back-upbeleid definiëren**:
+#### <a name="to-create-a-custom-backup-policy"></a><span data-ttu-id="ce1de-101">Een aangepaste back-upbeleid maken</span><span class="sxs-lookup"><span data-stu-id="ce1de-101">To create a custom backup policy</span></span>
+1. <span data-ttu-id="ce1de-102">Op de **apparaten** pagina, klikt u op **back-upbeleid** en klik vervolgens op **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ce1de-102">On the **Devices** page, click **Backup Policies** and then click **Add**.</span></span>
+2. <span data-ttu-id="ce1de-103">In de **toevoegen van een back-upbeleid** dialoogvenster onder **uw back-upbeleid definiëren**:</span><span class="sxs-lookup"><span data-stu-id="ce1de-103">In the **Add a backup policy** dialog box, under **Define your backup policy**:</span></span>
    
-   1. Geef een naam voor de back-upbeleid.
-   2. Selecteer de volumes moet worden toegevoegd aan dit beleid. U kunt meerdere volumes toevoegen door meerdere selectievakjes in te schakelen.
-   3. Klik op het pijlpictogram ![vinkje](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png).
-3. Onder **een schema definiëren**:
+   1. <span data-ttu-id="ce1de-104">Geef een naam voor de back-upbeleid.</span><span class="sxs-lookup"><span data-stu-id="ce1de-104">Specify a backup policy name.</span></span>
+   2. <span data-ttu-id="ce1de-105">Selecteer de volumes moet worden toegevoegd aan dit beleid.</span><span class="sxs-lookup"><span data-stu-id="ce1de-105">Select the volumes to be added to this policy.</span></span> <span data-ttu-id="ce1de-106">U kunt meerdere volumes toevoegen door meerdere selectievakjes in te schakelen.</span><span class="sxs-lookup"><span data-stu-id="ce1de-106">You can choose to add multiple volumes by selecting multiple check boxes.</span></span>
+   3. <span data-ttu-id="ce1de-107">Klik op het pijlpictogram</span><span class="sxs-lookup"><span data-stu-id="ce1de-107">Click the arrow icon</span></span> ![vinkje](./media/storsimple-create-custom-backup-policy-u2/HCS_ArrowIcon-include.png)<span data-ttu-id="ce1de-109">.</span><span class="sxs-lookup"><span data-stu-id="ce1de-109">.</span></span>
+3. <span data-ttu-id="ce1de-110">Onder **een schema definiëren**:</span><span class="sxs-lookup"><span data-stu-id="ce1de-110">Under **Define a Schedule**:</span></span>
    
-   1. Selecteer de **Type back-up** (**lokale momentopname** of **Cloudmomentopname**).
-   2. Geef de back-upfrequentie op in minuten, uren, dagen of weken.
-   3. Selecteer een bewaarschema in de vervolgkeuzelijst. Hoe lang deze moet zijn, hangt af van hoe vaak een back-up wordt uitgevoerd. 
-   4. Selecteer de begintijd en de datum waarop het beleid.
-   5. Schakel het selectievakje in zodat het beleid.
-4. Klik op het vinkje ![vinkje](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) om te voltooien.
-5. U keert terug naar de **back-upbeleid** pagina. De vermelding in tabelvorm van het back-upbeleid worden bijgewerkt om het aangepaste beleid weer te geven.
+   1. <span data-ttu-id="ce1de-111">Selecteer de **Type back-up** (**lokale momentopname** of **Cloudmomentopname**).</span><span class="sxs-lookup"><span data-stu-id="ce1de-111">Select the **Type of backup** (**Local Snapshot** or **Cloud Snapshot**).</span></span>
+   2. <span data-ttu-id="ce1de-112">Geef de back-upfrequentie op in minuten, uren, dagen of weken.</span><span class="sxs-lookup"><span data-stu-id="ce1de-112">Specify the backup frequency in minutes, hours, days, or weeks.</span></span>
+   3. <span data-ttu-id="ce1de-113">Selecteer een bewaarschema in de vervolgkeuzelijst.</span><span class="sxs-lookup"><span data-stu-id="ce1de-113">Select a retention schedule from the drop-down list.</span></span> <span data-ttu-id="ce1de-114">Hoe lang deze moet zijn, hangt af van hoe vaak een back-up wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="ce1de-114">The retention choices depend on the backup frequency.</span></span> 
+   4. <span data-ttu-id="ce1de-115">Selecteer de begintijd en de datum waarop het beleid.</span><span class="sxs-lookup"><span data-stu-id="ce1de-115">Select the starting time and date for the policy.</span></span>
+   5. <span data-ttu-id="ce1de-116">Schakel het selectievakje in zodat het beleid.</span><span class="sxs-lookup"><span data-stu-id="ce1de-116">Select the check box to enable the policy.</span></span>
+4. <span data-ttu-id="ce1de-117">Klik op het vinkje</span><span class="sxs-lookup"><span data-stu-id="ce1de-117">Click the check icon</span></span> ![vinkje](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) <span data-ttu-id="ce1de-119">om te voltooien.</span><span class="sxs-lookup"><span data-stu-id="ce1de-119">to finish.</span></span>
+5. <span data-ttu-id="ce1de-120">U keert terug naar de **back-upbeleid** pagina.</span><span class="sxs-lookup"><span data-stu-id="ce1de-120">You will return to the **Backup Policies** page.</span></span> <span data-ttu-id="ce1de-121">De vermelding in tabelvorm van het back-upbeleid worden bijgewerkt om het aangepaste beleid weer te geven.</span><span class="sxs-lookup"><span data-stu-id="ce1de-121">The tabular listing of the backup policies will be updated to display the custom policy.</span></span>
 

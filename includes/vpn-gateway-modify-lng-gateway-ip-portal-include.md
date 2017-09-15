@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a>Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding
+### <span data-ttu-id="35cef-101"><a name="gwipnoconnection"></a>Wijzigen van het lokale netwerk gateway IP-adres - er is geen gatewayverbinding</span><span class="sxs-lookup"><span data-stu-id="35cef-101"><a name="gwipnoconnection"></a> To modify the local network gateway IP address - no gateway connection</span></span>
 
-Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding heeft te wijzigen. Wanneer u deze waarde wijzigt, kunt u tegelijkertijd ook de adresvoorvoegsels wijzigen.
+<span data-ttu-id="35cef-102">Gebruik het voorbeeld om een lokale netwerkgateway die geen gatewayverbinding heeft te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="35cef-102">Use the example to modify a local network gateway that does not have a gateway connection.</span></span> <span data-ttu-id="35cef-103">Wanneer u deze waarde wijzigt, kunt u tegelijkertijd ook de adresvoorvoegsels wijzigen.</span><span class="sxs-lookup"><span data-stu-id="35cef-103">When modifying this value, you can also modify the address prefixes at the same time.</span></span>
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.
-2. In de **IP-adres** wijzigt u het IP-adres.
-3. Klik op **opslaan** de instellingen op te slaan.
+1. <span data-ttu-id="35cef-104">Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **configuratie**.</span><span class="sxs-lookup"><span data-stu-id="35cef-104">On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.</span></span>
+2. <span data-ttu-id="35cef-105">In de **IP-adres** wijzigt u het IP-adres.</span><span class="sxs-lookup"><span data-stu-id="35cef-105">In the **IP address** box, modify the IP address.</span></span>
+3. <span data-ttu-id="35cef-106">Klik op **opslaan** de instellingen op te slaan.</span><span class="sxs-lookup"><span data-stu-id="35cef-106">Click **Save** to save the settings.</span></span>
 
-### <a name="gwipwithconnection"></a>Het lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande wijzigen
+### <span data-ttu-id="35cef-107"><a name="gwipwithconnection"></a>Het lokale netwerk gateway gateway IP-adres - gatewayverbinding bestaande wijzigen</span><span class="sxs-lookup"><span data-stu-id="35cef-107"><a name="gwipwithconnection"></a>To modify the local network gateway gateway IP address - existing gateway connection</span></span>
 
-Voor het wijzigen van een lokale netwerkgateway een verbinding heeft, moet u eerst de verbinding verwijderen. Nadat de verbinding is verwijderd, kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken. U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen. Dit veroorzaakt enige downtime in uw VPN-verbinding. Als u het IP-adres van de gateway wijzigt, hoeft u de VPN-gateway niet te verwijderen. U hoeft alleen de verbinding te verwijderen.
+<span data-ttu-id="35cef-108">Voor het wijzigen van een lokale netwerkgateway een verbinding heeft, moet u eerst de verbinding verwijderen.</span><span class="sxs-lookup"><span data-stu-id="35cef-108">To modify a local network gateway that has a connection, you need to first remove the connection.</span></span> <span data-ttu-id="35cef-109">Nadat de verbinding is verwijderd, kunt u het IP-adres van de gateway wijzigen en een nieuwe verbinding maken.</span><span class="sxs-lookup"><span data-stu-id="35cef-109">After the connection is removed, you can modify the gateway IP address and recreate a new connection.</span></span> <span data-ttu-id="35cef-110">U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen.</span><span class="sxs-lookup"><span data-stu-id="35cef-110">You can also modify the address prefixes at the same time.</span></span> <span data-ttu-id="35cef-111">Dit veroorzaakt enige downtime in uw VPN-verbinding.</span><span class="sxs-lookup"><span data-stu-id="35cef-111">This results in some downtime for your VPN connection.</span></span> <span data-ttu-id="35cef-112">Als u het IP-adres van de gateway wijzigt, hoeft u de VPN-gateway niet te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="35cef-112">When modifying the gateway IP address, you don't need to delete the VPN gateway.</span></span> <span data-ttu-id="35cef-113">U hoeft alleen de verbinding te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="35cef-113">You only need to remove the connection.</span></span>
  
-#### <a name="1-remove-the-connection"></a>1. Verwijder de verbinding.
+#### <a name="1-remove-the-connection"></a><span data-ttu-id="35cef-114">1. Verwijder de verbinding.</span><span class="sxs-lookup"><span data-stu-id="35cef-114">1. Remove the connection.</span></span>
 
-1. Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.
-2. Klik op de **...**  op de regel voor de verbinding en klik vervolgens op **verwijderen**.
-3. Klik op **opslaan** uw instellingen op te slaan.
+1. <span data-ttu-id="35cef-115">Op de lokale netwerkgateway-bron in de **instellingen** sectie, klikt u op **verbindingen**.</span><span class="sxs-lookup"><span data-stu-id="35cef-115">On the Local Network Gateway resource, in the **Settings** section, click **Connections**.</span></span>
+2. <span data-ttu-id="35cef-116">Klik op de **...**  op de regel voor de verbinding en klik vervolgens op **verwijderen**.</span><span class="sxs-lookup"><span data-stu-id="35cef-116">Click the **...** on the line for the connection, then click **Delete**.</span></span>
+3. <span data-ttu-id="35cef-117">Klik op **opslaan** uw instellingen op te slaan.</span><span class="sxs-lookup"><span data-stu-id="35cef-117">Click **Save** to save your settings.</span></span>
 
-#### <a name="2-modify-the-ip-address"></a>2. Wijzig het IP-adres.
+#### <a name="2-modify-the-ip-address"></a><span data-ttu-id="35cef-118">2. Wijzig het IP-adres.</span><span class="sxs-lookup"><span data-stu-id="35cef-118">2. Modify the IP address.</span></span>
 
-U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen.
+<span data-ttu-id="35cef-119">U kunt tegelijkertijd ook de adresvoorvoegsels wijzigen.</span><span class="sxs-lookup"><span data-stu-id="35cef-119">You can also modify the address prefixes at the same time.</span></span>
 
-1. In de **IP-adres** wijzigt u het IP-adres.
-2. Klik op **opslaan** de instellingen op te slaan.
+1. <span data-ttu-id="35cef-120">In de **IP-adres** wijzigt u het IP-adres.</span><span class="sxs-lookup"><span data-stu-id="35cef-120">In the **IP address** box, modify the IP address.</span></span>
+2. <span data-ttu-id="35cef-121">Klik op **opslaan** de instellingen op te slaan.</span><span class="sxs-lookup"><span data-stu-id="35cef-121">Click **Save** to save the settings.</span></span>
 
-#### <a name="3-recreate-the-connection"></a>3. Maak de verbinding opnieuw.
+#### <a name="3-recreate-the-connection"></a><span data-ttu-id="35cef-122">3. Maak de verbinding opnieuw.</span><span class="sxs-lookup"><span data-stu-id="35cef-122">3. Recreate the connection.</span></span>
 
-1. Navigeer naar de virtuele netwerkgateway voor uw VNet. (Niet de lokale netwerkgateway.)
-2. Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.
-3. Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.
-4. Maak opnieuw een verbinding.
-5. Klik op **OK** om de verbinding te maken.
+1. <span data-ttu-id="35cef-123">Navigeer naar de virtuele netwerkgateway voor uw VNet.</span><span class="sxs-lookup"><span data-stu-id="35cef-123">Navigate to the Virtual Network Gateway for your VNet.</span></span> <span data-ttu-id="35cef-124">(Niet de lokale netwerkgateway.)</span><span class="sxs-lookup"><span data-stu-id="35cef-124">(Not the Local Network Gateway.)</span></span>
+2. <span data-ttu-id="35cef-125">Op de virtuele netwerkgateway in de **instellingen** sectie, klikt u op **verbindingen**.</span><span class="sxs-lookup"><span data-stu-id="35cef-125">On the Virtual Network Gateway, in the **Settings** section, click **Connections**.</span></span>
+3. <span data-ttu-id="35cef-126">Klik op de **+ toevoegen** openen de **verbinding toevoegen** blade.</span><span class="sxs-lookup"><span data-stu-id="35cef-126">Click the **+ Add** to open the **Add connection** blade.</span></span>
+4. <span data-ttu-id="35cef-127">Maak opnieuw een verbinding.</span><span class="sxs-lookup"><span data-stu-id="35cef-127">Recreate your connection.</span></span>
+5. <span data-ttu-id="35cef-128">Klik op **OK** om de verbinding te maken.</span><span class="sxs-lookup"><span data-stu-id="35cef-128">Click **OK** to create the connection.</span></span>

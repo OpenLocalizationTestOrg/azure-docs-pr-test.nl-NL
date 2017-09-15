@@ -1,23 +1,23 @@
-### <a name="determine-the-dns-name-of-the-virtual-machine"></a>De DNS-naam van de virtuele machine achterhalen
-Als u vanaf een andere computer verbinding wilt maken met de database-engine van SQL Server, moet u de DNS-naam (Domain Name System) van de virtuele machine weten. (Dit is de naam waaraan de virtuele machine op internet wordt herkend. U kunt ook het IP-adres gebruiken, maar dit kan veranderen wanneer Azure resources verplaatst wegens redundantie of onderhoud. De DNS-naam blijft hetzelfde omdat deze kan worden omgeleid naar een nieuw IP-adres.)  
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a><span data-ttu-id="4c073-101">De DNS-naam van de virtuele machine achterhalen</span><span class="sxs-lookup"><span data-stu-id="4c073-101">Determine the DNS name of the virtual machine</span></span>
+<span data-ttu-id="4c073-102">Als u vanaf een andere computer verbinding wilt maken met de database-engine van SQL Server, moet u de DNS-naam (Domain Name System) van de virtuele machine weten.</span><span class="sxs-lookup"><span data-stu-id="4c073-102">To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine.</span></span> <span data-ttu-id="4c073-103">(Dit is de naam waaraan de virtuele machine op internet wordt herkend.</span><span class="sxs-lookup"><span data-stu-id="4c073-103">(This is the name the internet uses to identify the virtual machine.</span></span> <span data-ttu-id="4c073-104">U kunt ook het IP-adres gebruiken, maar dit kan veranderen wanneer Azure resources verplaatst wegens redundantie of onderhoud.</span><span class="sxs-lookup"><span data-stu-id="4c073-104">You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance.</span></span> <span data-ttu-id="4c073-105">De DNS-naam blijft hetzelfde omdat deze kan worden omgeleid naar een nieuw IP-adres.)</span><span class="sxs-lookup"><span data-stu-id="4c073-105">The DNS name will be stable because it can be redirected to a new IP address.)</span></span>  
 
-1. Selecteer **Virtuele machines (klassiek)** in Azure Portal (of vanuit de vorige stap).
-2. Selecteer uw SQL-VM.
-3. Selecteer op de blade **Virtuele machine** de **DNS-naam** van de virtuele machine.
+1. <span data-ttu-id="4c073-106">Selecteer **Virtuele machines (klassiek)** in Azure Portal (of vanuit de vorige stap).</span><span class="sxs-lookup"><span data-stu-id="4c073-106">In the Azure Portal (or from the previous step), select **Virtual machines (classic)**.</span></span>
+2. <span data-ttu-id="4c073-107">Selecteer uw SQL-VM.</span><span class="sxs-lookup"><span data-stu-id="4c073-107">Select your SQL VM.</span></span>
+3. <span data-ttu-id="4c073-108">Selecteer op de blade **Virtuele machine** de **DNS-naam** van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="4c073-108">On the **Virtual machine** blade, copy the **DNS name** for the virtual machine.</span></span>
    
     ![DNS-naam](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-to-the-database-engine-from-another-computer"></a>Verbinding maken met de Database-engine vanaf een andere computer
-1. Open SQL Server Management Studio op een computer die is verbonden met internet.
-2. In het dialoogvenster **Verbinding maken met server** of **Verbinding maken met database-engine** typt u in het vak **Servernaam** de DNS-naam van de virtuele machine (zoals bepaald in de vorige taak) en het poortnummer van een openbaar eindpunt. Gebruik hiervoor de notatie *DNSnaam,poortnummer*, bijvoorbeeld **mysqlvm.cloudapp.net,57500**.
+### <a name="connect-to-the-database-engine-from-another-computer"></a><span data-ttu-id="4c073-110">Verbinding maken met de Database-engine vanaf een andere computer</span><span class="sxs-lookup"><span data-stu-id="4c073-110">Connect to the Database Engine from another computer</span></span>
+1. <span data-ttu-id="4c073-111">Open SQL Server Management Studio op een computer die is verbonden met internet.</span><span class="sxs-lookup"><span data-stu-id="4c073-111">On a computer connected to the internet, open SQL Server Management Studio.</span></span>
+2. <span data-ttu-id="4c073-112">In het dialoogvenster **Verbinding maken met server** of **Verbinding maken met database-engine** typt u in het vak **Servernaam** de DNS-naam van de virtuele machine (zoals bepaald in de vorige taak) en het poortnummer van een openbaar eindpunt. Gebruik hiervoor de notatie *DNSnaam,poortnummer*, bijvoorbeeld **mysqlvm.cloudapp.net,57500**.</span><span class="sxs-lookup"><span data-stu-id="4c073-112">In the **Connect to Server** or **Connect to Database Engine** dialog box, in the **Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **mysqlvm.cloudapp.net,57500**.</span></span>
    
     ![Verbinding maken met behulp van SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    Als u het eerder gekozen poortnummer van het openbare eindpunt niet meer weet, kunt u dit terugvinden in het gedeelte **Eindpunten** van de blade **Virtuele machine**.
+    <span data-ttu-id="4c073-114">Als u het eerder gekozen poortnummer van het openbare eindpunt niet meer weet, kunt u dit terugvinden in het gedeelte **Eindpunten** van de blade **Virtuele machine**.</span><span class="sxs-lookup"><span data-stu-id="4c073-114">If you don't remember the public endpoint port number you previously created, you can find it in the **Endpoints** area of the **Virtual machine** blade.</span></span>
    
     ![Openbare poort](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. Kies in het vak **Verificatie** **SQL Server-verificatie**.
-4. Typ in het vak **Aanmelding** de naam van een aanmelding die u eerder hebt gemaakt.
-5. Typ in het vak **Wachtwoord** het wachtwoord van de aanmelding die u eerder hebt gemaakt.
-6. Klik op **Verbinden**.
+3. <span data-ttu-id="4c073-116">Kies in het vak **Verificatie** **SQL Server-verificatie**.</span><span class="sxs-lookup"><span data-stu-id="4c073-116">In the **Authentication** box, select **SQL Server Authentication**.</span></span>
+4. <span data-ttu-id="4c073-117">Typ in het vak **Aanmelding** de naam van een aanmelding die u eerder hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="4c073-117">In the **Login** box, type the name of a login that you created in an earlier task.</span></span>
+5. <span data-ttu-id="4c073-118">Typ in het vak **Wachtwoord** het wachtwoord van de aanmelding die u eerder hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="4c073-118">In the **Password** box, type the password of the login that you create in an earlier task.</span></span>
+6. <span data-ttu-id="4c073-119">Klik op **Verbinden**.</span><span class="sxs-lookup"><span data-stu-id="4c073-119">Click **Connect**.</span></span>
 

@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Vereisten
-* Een Wunderlist-account  
+### <a name="prerequisites"></a><span data-ttu-id="f02b2-101">Vereisten</span><span class="sxs-lookup"><span data-stu-id="f02b2-101">Prerequisites</span></span>
+* <span data-ttu-id="f02b2-102">Een Wunderlist-account</span><span class="sxs-lookup"><span data-stu-id="f02b2-102">A Wunderlist account</span></span>  
 
-Voordat u uw account Wunderlist in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw account Wunderlist autoriseren. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal. 
+<span data-ttu-id="f02b2-103">Voordat u uw account Wunderlist in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw account Wunderlist autoriseren.</span><span class="sxs-lookup"><span data-stu-id="f02b2-103">Before you can use your Wunderlist account in a Logic app, you must authorize the Logic app to connect to your Wunderlist account.</span></span> <span data-ttu-id="f02b2-104">U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="f02b2-104">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
 
-Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw account Wunderlist:
+<span data-ttu-id="f02b2-105">Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw account Wunderlist:</span><span class="sxs-lookup"><span data-stu-id="f02b2-105">Here are the steps to authorize your Logic app to connect to your Wunderlist account:</span></span>
 
-1. Voor het maken van een verbinding met Wunderlist, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Wunderlist* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+1. <span data-ttu-id="f02b2-106">Voor het maken van een verbinding met Wunderlist, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Wunderlist* in het zoekvak.</span><span class="sxs-lookup"><span data-stu-id="f02b2-106">To create a connection to Wunderlist, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Wunderlist* in the search box.</span></span> <span data-ttu-id="f02b2-107">Selecteer de trigger of je actie moet worden gebruikt:</span><span class="sxs-lookup"><span data-stu-id="f02b2-107">Select the trigger or action you'll like to use:</span></span>  
    ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
-2. Als u verbindingen met Wunderlist voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw referenties Wunderlist op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw Wunderlist-account:   
+2. <span data-ttu-id="f02b2-108">Als u verbindingen met Wunderlist voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw referenties Wunderlist op te geven.</span><span class="sxs-lookup"><span data-stu-id="f02b2-108">If you haven't created any connections to Wunderlist before, you'll get prompted to provide your Wunderlist credentials.</span></span> <span data-ttu-id="f02b2-109">Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw Wunderlist-account:</span><span class="sxs-lookup"><span data-stu-id="f02b2-109">These credentials will be used to authorize your Logic app to connect to, and access your Wunderlist account's data:</span></span>   
    ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
-3. Geef uw referenties in en selecteer de knop aanmelden  
+3. <span data-ttu-id="f02b2-110">Geef uw referenties in en selecteer de knop aanmelden</span><span class="sxs-lookup"><span data-stu-id="f02b2-110">Provide your credentials then select the button to sign in</span></span>  
    ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
-4. U moet vervolgens worden laten weten wat de logische app beschikken over machtigingen te maken met uw account Wunderlist. Als u akkoord gaat, selecteert u de knop om aan te geven van de overeenkomst. 
+4. <span data-ttu-id="f02b2-111">U moet vervolgens worden laten weten wat de logische app beschikken over machtigingen te maken met uw account Wunderlist.</span><span class="sxs-lookup"><span data-stu-id="f02b2-111">You'll then be told what the Logic app will have permissions to do with your Wunderlist account.</span></span> <span data-ttu-id="f02b2-112">Als u akkoord gaat, selecteert u de knop om aan te geven van de overeenkomst.</span><span class="sxs-lookup"><span data-stu-id="f02b2-112">If you agree, select the button to indicate your agreement.</span></span> 
    ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
-5. Tot slot selecteert u de **autoriseren** knop  
+5. <span data-ttu-id="f02b2-113">Tot slot selecteert u de **autoriseren** knop</span><span class="sxs-lookup"><span data-stu-id="f02b2-113">Finally, select the **Authorize** button</span></span>  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 

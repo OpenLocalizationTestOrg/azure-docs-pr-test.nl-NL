@@ -1,18 +1,18 @@
-| Resource | Standaardlimiet | Opmerking |
+| <span data-ttu-id="7e3c2-101">Resource</span><span class="sxs-lookup"><span data-stu-id="7e3c2-101">Resource</span></span> | <span data-ttu-id="7e3c2-102">Standaardlimiet</span><span class="sxs-lookup"><span data-stu-id="7e3c2-102">Default limit</span></span> | <span data-ttu-id="7e3c2-103">Opmerking</span><span class="sxs-lookup"><span data-stu-id="7e3c2-103">Note</span></span> |
 | --- | --- | --- |
-| Application Gateway |50 per abonnement | |
-| Front-end-IP-configuraties |2 |1 openbaar en 1 privé |
-| Front-endpoorten |20 | |
-| Back-endadresgroepen |20 | |
-| Back-endservers per groep |100 | |
-| HTTP-listeners |20 | |
-| HTTP-taakverdelingsregels |200 |het aantal HTTP-luisteraars * n, n = standaard 10 |
-| Back-end-HTTP-instellingen |20 |1 per back-endadresgroep |
-| Exemplaren per gateway |10 | |
-| SSL-certificaten |20 |1 per HTTP-listener |
-| Certificaten voor verificatie |5 | Maximaal 10 |
-| Minimale time-out per verzoek |1 seconde | |
-| Maximale time-out per verzoek |24 uur | |
-| Aantal sites |20 |1 per HTTP-listener |
-| URL Maps per listener |1 | |
+| <span data-ttu-id="7e3c2-104">Application Gateway</span><span class="sxs-lookup"><span data-stu-id="7e3c2-104">Application Gateway</span></span> |<span data-ttu-id="7e3c2-105">50 per abonnement</span><span class="sxs-lookup"><span data-stu-id="7e3c2-105">50 per subscription</span></span> | |
+| <span data-ttu-id="7e3c2-106">Front-end-IP-configuraties</span><span class="sxs-lookup"><span data-stu-id="7e3c2-106">Frontend IP Configurations</span></span> |<span data-ttu-id="7e3c2-107">2</span><span class="sxs-lookup"><span data-stu-id="7e3c2-107">2</span></span> |<span data-ttu-id="7e3c2-108">1 openbaar en 1 privé</span><span class="sxs-lookup"><span data-stu-id="7e3c2-108">1 public and 1 private</span></span> |
+| <span data-ttu-id="7e3c2-109">Front-endpoorten</span><span class="sxs-lookup"><span data-stu-id="7e3c2-109">Frontend Ports</span></span> |<span data-ttu-id="7e3c2-110">20</span><span class="sxs-lookup"><span data-stu-id="7e3c2-110">20</span></span> | |
+| <span data-ttu-id="7e3c2-111">Back-endadresgroepen</span><span class="sxs-lookup"><span data-stu-id="7e3c2-111">Backend Address Pools</span></span> |<span data-ttu-id="7e3c2-112">20</span><span class="sxs-lookup"><span data-stu-id="7e3c2-112">20</span></span> | |
+| <span data-ttu-id="7e3c2-113">Back-endservers per groep</span><span class="sxs-lookup"><span data-stu-id="7e3c2-113">Backend Servers per pool</span></span> |<span data-ttu-id="7e3c2-114">100</span><span class="sxs-lookup"><span data-stu-id="7e3c2-114">100</span></span> | |
+| <span data-ttu-id="7e3c2-115">HTTP-listeners</span><span class="sxs-lookup"><span data-stu-id="7e3c2-115">HTTP Listeners</span></span> |<span data-ttu-id="7e3c2-116">20</span><span class="sxs-lookup"><span data-stu-id="7e3c2-116">20</span></span> | |
+| <span data-ttu-id="7e3c2-117">HTTP-taakverdelingsregels</span><span class="sxs-lookup"><span data-stu-id="7e3c2-117">HTTP load balancing rules</span></span> |<span data-ttu-id="7e3c2-118">200</span><span class="sxs-lookup"><span data-stu-id="7e3c2-118">200</span></span> |<span data-ttu-id="7e3c2-119">het aantal HTTP-luisteraars * n, n = standaard 10</span><span class="sxs-lookup"><span data-stu-id="7e3c2-119"># of HTTP Listeners * n, n=10 Default</span></span> |
+| <span data-ttu-id="7e3c2-120">Back-end-HTTP-instellingen</span><span class="sxs-lookup"><span data-stu-id="7e3c2-120">Backend HTTP settings</span></span> |<span data-ttu-id="7e3c2-121">20</span><span class="sxs-lookup"><span data-stu-id="7e3c2-121">20</span></span> |<span data-ttu-id="7e3c2-122">1 per back-endadresgroep</span><span class="sxs-lookup"><span data-stu-id="7e3c2-122">1 per Backend Address Pool</span></span> |
+| <span data-ttu-id="7e3c2-123">Exemplaren per gateway</span><span class="sxs-lookup"><span data-stu-id="7e3c2-123">Instances per gateway</span></span> |<span data-ttu-id="7e3c2-124">10</span><span class="sxs-lookup"><span data-stu-id="7e3c2-124">10</span></span> | |
+| <span data-ttu-id="7e3c2-125">SSL-certificaten</span><span class="sxs-lookup"><span data-stu-id="7e3c2-125">SSL certificates</span></span> |<span data-ttu-id="7e3c2-126">20</span><span class="sxs-lookup"><span data-stu-id="7e3c2-126">20</span></span> |<span data-ttu-id="7e3c2-127">1 per HTTP-listener</span><span class="sxs-lookup"><span data-stu-id="7e3c2-127">1 per HTTP Listeners</span></span> |
+| <span data-ttu-id="7e3c2-128">Certificaten voor verificatie</span><span class="sxs-lookup"><span data-stu-id="7e3c2-128">Authentication certificates</span></span> |<span data-ttu-id="7e3c2-129">5</span><span class="sxs-lookup"><span data-stu-id="7e3c2-129">5</span></span> | <span data-ttu-id="7e3c2-130">Maximaal 10</span><span class="sxs-lookup"><span data-stu-id="7e3c2-130">Maximum 10</span></span> |
+| <span data-ttu-id="7e3c2-131">Minimale time-out per verzoek</span><span class="sxs-lookup"><span data-stu-id="7e3c2-131">Request timeout min</span></span> |<span data-ttu-id="7e3c2-132">1 seconde</span><span class="sxs-lookup"><span data-stu-id="7e3c2-132">1 second</span></span> | |
+| <span data-ttu-id="7e3c2-133">Maximale time-out per verzoek</span><span class="sxs-lookup"><span data-stu-id="7e3c2-133">Request timeout max</span></span> |<span data-ttu-id="7e3c2-134">24 uur</span><span class="sxs-lookup"><span data-stu-id="7e3c2-134">24hrs</span></span> | |
+| <span data-ttu-id="7e3c2-135">Aantal sites</span><span class="sxs-lookup"><span data-stu-id="7e3c2-135">Number of sites</span></span> |<span data-ttu-id="7e3c2-136">20</span><span class="sxs-lookup"><span data-stu-id="7e3c2-136">20</span></span> |<span data-ttu-id="7e3c2-137">1 per HTTP-listener</span><span class="sxs-lookup"><span data-stu-id="7e3c2-137">1 per HTTP Listeners</span></span> |
+| <span data-ttu-id="7e3c2-138">URL Maps per listener</span><span class="sxs-lookup"><span data-stu-id="7e3c2-138">URL Maps per listener</span></span> |<span data-ttu-id="7e3c2-139">1</span><span class="sxs-lookup"><span data-stu-id="7e3c2-139">1</span></span> | |
 

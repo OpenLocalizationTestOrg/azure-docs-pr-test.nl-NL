@@ -1,43 +1,43 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### <a name="to-attach-the-sas-cables"></a>De SAS-kabels los te koppelen
-1. Identificeer de primaire en de bijlagen EBOD. De twee bijlagen kunnen worden geïdentificeerd door te kijken hun respectieve back vlakken. Zie de volgende afbeelding voor hulp. 
+#### <a name="to-attach-the-sas-cables"></a><span data-ttu-id="99867-101">De SAS-kabels los te koppelen</span><span class="sxs-lookup"><span data-stu-id="99867-101">To attach the SAS cables</span></span>
+1. <span data-ttu-id="99867-102">Identificeer de primaire en de bijlagen EBOD.</span><span class="sxs-lookup"><span data-stu-id="99867-102">Identify the primary and the EBOD enclosures.</span></span> <span data-ttu-id="99867-103">De twee bijlagen kunnen worden geïdentificeerd door te kijken hun respectieve back vlakken.</span><span class="sxs-lookup"><span data-stu-id="99867-103">The two enclosures can be identified by looking at their respective back planes.</span></span> <span data-ttu-id="99867-104">Zie de volgende afbeelding voor hulp.</span><span class="sxs-lookup"><span data-stu-id="99867-104">See the following image for guidance.</span></span> 
    
     ![Back-vlak van primaire en EBOD behuizingen](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
-    **Back-weergave van de primaire en EBOD behuizingen**
+    <span data-ttu-id="99867-106">**Back-weergave van de primaire en EBOD behuizingen**</span><span class="sxs-lookup"><span data-stu-id="99867-106">**Back view of primary and EBOD enclosures**</span></span>
    
-   | Label | Beschrijving |
+   | <span data-ttu-id="99867-107">Label</span><span class="sxs-lookup"><span data-stu-id="99867-107">Label</span></span> | <span data-ttu-id="99867-108">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="99867-108">Description</span></span> |
    |:--- |:--- |
-   | 1 |Primaire behuizing |
-   | 2 |EBOD behuizing |
-2. Zoek de serienummers op de primaire en de bijlagen EBOD. Het serienummer sticker is op het vorige oor van elke behuizing aangebracht. De serienummers moet identiek zijn op beide behuizingen. [Neem contact op met Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) onmiddellijk als de serienummers komen niet overeen. Zie de volgende afbeelding worden de serienummers gevonden.
+   | <span data-ttu-id="99867-109">1</span><span class="sxs-lookup"><span data-stu-id="99867-109">1</span></span> |<span data-ttu-id="99867-110">Primaire behuizing</span><span class="sxs-lookup"><span data-stu-id="99867-110">Primary enclosure</span></span> |
+   | <span data-ttu-id="99867-111">2</span><span class="sxs-lookup"><span data-stu-id="99867-111">2</span></span> |<span data-ttu-id="99867-112">EBOD behuizing</span><span class="sxs-lookup"><span data-stu-id="99867-112">EBOD enclosure</span></span> |
+2. <span data-ttu-id="99867-113">Zoek de serienummers op de primaire en de bijlagen EBOD.</span><span class="sxs-lookup"><span data-stu-id="99867-113">Locate the serial numbers on the primary and the EBOD enclosures.</span></span> <span data-ttu-id="99867-114">Het serienummer sticker is op het vorige oor van elke behuizing aangebracht.</span><span class="sxs-lookup"><span data-stu-id="99867-114">The serial number sticker is affixed to the back ear of each enclosure.</span></span> <span data-ttu-id="99867-115">De serienummers moet identiek zijn op beide behuizingen.</span><span class="sxs-lookup"><span data-stu-id="99867-115">The serial numbers must be identical on both enclosures.</span></span> <span data-ttu-id="99867-116">[Neem contact op met Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) onmiddellijk als de serienummers komen niet overeen.</span><span class="sxs-lookup"><span data-stu-id="99867-116">[Contact Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match.</span></span> <span data-ttu-id="99867-117">Zie de volgende afbeelding worden de serienummers gevonden.</span><span class="sxs-lookup"><span data-stu-id="99867-117">See the following illustration to locate the serial numbers.</span></span>
    
     ![Weergave van de achterzijde van behuizing met van serienummer](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
-    **Locatie van het serienummer sticker**
+    <span data-ttu-id="99867-119">**Locatie van het serienummer sticker**</span><span class="sxs-lookup"><span data-stu-id="99867-119">**Location of serial number sticker**</span></span>
    
-   | Label | Beschrijving |
+   | <span data-ttu-id="99867-120">Label</span><span class="sxs-lookup"><span data-stu-id="99867-120">Label</span></span> | <span data-ttu-id="99867-121">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="99867-121">Description</span></span> |
    |:--- |:--- |
-   | 1 |Wissen van de behuizing |
-3. Gebruik de opgegeven SAS-kabels verbinding maken met de behuizing EBOD de primaire behuizing als volgt:
+   | <span data-ttu-id="99867-122">1</span><span class="sxs-lookup"><span data-stu-id="99867-122">1</span></span> |<span data-ttu-id="99867-123">Wissen van de behuizing</span><span class="sxs-lookup"><span data-stu-id="99867-123">Ear of the enclosure</span></span> |
+3. <span data-ttu-id="99867-124">Gebruik de opgegeven SAS-kabels verbinding maken met de behuizing EBOD de primaire behuizing als volgt:</span><span class="sxs-lookup"><span data-stu-id="99867-124">Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:</span></span>
    
-   1. De vier SAS-poorten op de primaire ruimte en de behuizing EBOD identificeren. De SAS-poorten zijn gelabeld als EBOD op de primaire behuizing en overeen met een poort op de behuizing EBOD, zoals weergegeven in de afbeelding hieronder bekabeling SAS.
-   2. De opgegeven SAS-kabels gebruiken voor verbinding van de poort-poort EBOD A.
-   3. De poort EBOD op de controller 0 moet zijn verbonden met de poort A op EBOD controller 0. De poort EBOD op de controller 1 moet zijn verbonden met de poort A op EBOD controller 1. Zie de volgende afbeelding voor hulp. 
+   1. <span data-ttu-id="99867-125">De vier SAS-poorten op de primaire ruimte en de behuizing EBOD identificeren.</span><span class="sxs-lookup"><span data-stu-id="99867-125">Identify the four SAS ports on the primary enclosure and the EBOD enclosure.</span></span> <span data-ttu-id="99867-126">De SAS-poorten zijn gelabeld als EBOD op de primaire behuizing en overeen met een poort op de behuizing EBOD, zoals weergegeven in de afbeelding hieronder bekabeling SAS.</span><span class="sxs-lookup"><span data-stu-id="99867-126">The SAS ports are labeled as EBOD on the primary enclosure and correspond to port A on the EBOD enclosure, as shown in the SAS cabling illustration, below.</span></span>
+   2. <span data-ttu-id="99867-127">De opgegeven SAS-kabels gebruiken voor verbinding van de poort-poort EBOD A.</span><span class="sxs-lookup"><span data-stu-id="99867-127">Use the provided SAS cables to connect the EBOD port to port A.</span></span>
+   3. <span data-ttu-id="99867-128">De poort EBOD op de controller 0 moet zijn verbonden met de poort A op EBOD controller 0.</span><span class="sxs-lookup"><span data-stu-id="99867-128">The EBOD port on controller 0 should be connected to the port A on EBOD controller 0.</span></span> <span data-ttu-id="99867-129">De poort EBOD op de controller 1 moet zijn verbonden met de poort A op EBOD controller 1.</span><span class="sxs-lookup"><span data-stu-id="99867-129">The EBOD port on controller 1 should be connected to the port A on EBOD controller 1.</span></span> <span data-ttu-id="99867-130">Zie de volgende afbeelding voor hulp.</span><span class="sxs-lookup"><span data-stu-id="99867-130">See the following illustration for guidance.</span></span> 
       
       ![SAS bekabeling voor uw apparaat](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
-      **SAS bekabeling**
+      <span data-ttu-id="99867-132">**SAS bekabeling**</span><span class="sxs-lookup"><span data-stu-id="99867-132">**SAS cabling**</span></span>
       
-      | Label | Beschrijving |
+      | <span data-ttu-id="99867-133">Label</span><span class="sxs-lookup"><span data-stu-id="99867-133">Label</span></span> | <span data-ttu-id="99867-134">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="99867-134">Description</span></span> |
       |:--- |:--- |
-      | A |Primaire behuizing |
-      | B |EBOD behuizing |
-      | 1 |Controller 0 |
-      | 2 |Controller 1 |
-      | 3 |EBOD-Controller 0 |
-      | 4 |EBOD Controller 1 |
-      | 5, 6 |SAS-poorten op de primaire behuizing (gelabelde EBOD) |
-      | 7, 8 |SAS-poorten op EBOD behuizing (A-poort) |
+      | <span data-ttu-id="99867-135">A</span><span class="sxs-lookup"><span data-stu-id="99867-135">A</span></span> |<span data-ttu-id="99867-136">Primaire behuizing</span><span class="sxs-lookup"><span data-stu-id="99867-136">Primary enclosure</span></span> |
+      | <span data-ttu-id="99867-137">B</span><span class="sxs-lookup"><span data-stu-id="99867-137">B</span></span> |<span data-ttu-id="99867-138">EBOD behuizing</span><span class="sxs-lookup"><span data-stu-id="99867-138">EBOD enclosure</span></span> |
+      | <span data-ttu-id="99867-139">1</span><span class="sxs-lookup"><span data-stu-id="99867-139">1</span></span> |<span data-ttu-id="99867-140">Controller 0</span><span class="sxs-lookup"><span data-stu-id="99867-140">Controller 0</span></span> |
+      | <span data-ttu-id="99867-141">2</span><span class="sxs-lookup"><span data-stu-id="99867-141">2</span></span> |<span data-ttu-id="99867-142">Controller 1</span><span class="sxs-lookup"><span data-stu-id="99867-142">Controller 1</span></span> |
+      | <span data-ttu-id="99867-143">3</span><span class="sxs-lookup"><span data-stu-id="99867-143">3</span></span> |<span data-ttu-id="99867-144">EBOD-Controller 0</span><span class="sxs-lookup"><span data-stu-id="99867-144">EBOD Controller 0</span></span> |
+      | <span data-ttu-id="99867-145">4</span><span class="sxs-lookup"><span data-stu-id="99867-145">4</span></span> |<span data-ttu-id="99867-146">EBOD Controller 1</span><span class="sxs-lookup"><span data-stu-id="99867-146">EBOD Controller 1</span></span> |
+      | <span data-ttu-id="99867-147">5, 6</span><span class="sxs-lookup"><span data-stu-id="99867-147">5, 6</span></span> |<span data-ttu-id="99867-148">SAS-poorten op de primaire behuizing (gelabelde EBOD)</span><span class="sxs-lookup"><span data-stu-id="99867-148">SAS ports on primary enclosure (labeled EBOD)</span></span> |
+      | <span data-ttu-id="99867-149">7, 8</span><span class="sxs-lookup"><span data-stu-id="99867-149">7, 8</span></span> |<span data-ttu-id="99867-150">SAS-poorten op EBOD behuizing (A-poort)</span><span class="sxs-lookup"><span data-stu-id="99867-150">SAS ports on EBOD enclosure (Port A)</span></span> |
 

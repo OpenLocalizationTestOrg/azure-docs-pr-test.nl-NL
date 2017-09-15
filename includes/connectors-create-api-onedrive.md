@@ -1,21 +1,21 @@
-#### <a name="prerequisites"></a>Vereisten
-* Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)
-* Een [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account 
+#### <a name="prerequisites"></a><span data-ttu-id="6192f-101">Vereisten</span><span class="sxs-lookup"><span data-stu-id="6192f-101">Prerequisites</span></span>
+* <span data-ttu-id="6192f-102">Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)</span><span class="sxs-lookup"><span data-stu-id="6192f-102">An Azure account; you can create a [free account](https://azure.microsoft.com/free)</span></span>
+* <span data-ttu-id="6192f-103">Een [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account</span><span class="sxs-lookup"><span data-stu-id="6192f-103">A [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) account</span></span> 
 
-Voordat u uw OneDrive-account in een logische app gebruiken kunt, de autorisatie voor de logische app verbinding maken met uw OneDrive-account.  U kunt dit eenvoudig doen in uw logische app in de Azure portal. 
+<span data-ttu-id="6192f-104">Voordat u uw OneDrive-account in een logische app gebruiken kunt, de autorisatie voor de logische app verbinding maken met uw OneDrive-account.</span><span class="sxs-lookup"><span data-stu-id="6192f-104">Before you can use your OneDrive account in a logic app, authorize the logic app to connect to your OneDrive account.</span></span>  <span data-ttu-id="6192f-105">U kunt dit eenvoudig doen in uw logische app in de Azure portal.</span><span class="sxs-lookup"><span data-stu-id="6192f-105">You can do this easily within your logic app on the Azure portal.</span></span> 
 
-Toestaan dat uw logische app verbinding maken met uw OneDrive-account met behulp van de volgende stappen uit:
+<span data-ttu-id="6192f-106">Toestaan dat uw logische app verbinding maken met uw OneDrive-account met behulp van de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="6192f-106">Authorize your logic app to connect to your OneDrive account using the following steps:</span></span>
 
-1. Een logische app maken. Selecteer in de ontwerpfunctie Logic Apps **beheerde API's van Microsoft weergeven** in de vervolgkeuzelijst en voer vervolgens 'onedrive' in het zoekvak. Selecteer een van de triggers of acties:  
+1. <span data-ttu-id="6192f-107">Een logische app maken.</span><span class="sxs-lookup"><span data-stu-id="6192f-107">Create a logic app.</span></span> <span data-ttu-id="6192f-108">Selecteer in de ontwerpfunctie Logic Apps **beheerde API's van Microsoft weergeven** in de vervolgkeuzelijst en voer vervolgens 'onedrive' in het zoekvak.</span><span class="sxs-lookup"><span data-stu-id="6192f-108">In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "onedrive" in the search box.</span></span> <span data-ttu-id="6192f-109">Selecteer een van de triggers of acties:</span><span class="sxs-lookup"><span data-stu-id="6192f-109">Select one of the triggers or actions:</span></span>  
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. Als u verbindingen met OneDrive nog niet eerder hebt gemaakt, wordt u gevraagd aan te melden met uw OneDrive-referenties:  
+2. <span data-ttu-id="6192f-110">Als u verbindingen met OneDrive nog niet eerder hebt gemaakt, wordt u gevraagd aan te melden met uw OneDrive-referenties:</span><span class="sxs-lookup"><span data-stu-id="6192f-110">If you haven't previously created any connections to OneDrive, you are prompted to sign in using your OneDrive credentials:</span></span>  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Selecteer **aanmelden**, en voer uw gebruikersnaam en wachtwoord. Selecteer **aanmelden**:  
+3. <span data-ttu-id="6192f-111">Selecteer **aanmelden**, en voer uw gebruikersnaam en wachtwoord.</span><span class="sxs-lookup"><span data-stu-id="6192f-111">Select **Sign in**, and enter your user name and password.</span></span> <span data-ttu-id="6192f-112">Selecteer **aanmelden**:</span><span class="sxs-lookup"><span data-stu-id="6192f-112">Select **Sign in**:</span></span>  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
-    Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding te maken, toegang tot de gegevens in uw OneDrive-account. 
-4. Selecteer **Ja** voor het autoriseren van de logische app naar uw OneDrive-account gebruiken:  
+    <span data-ttu-id="6192f-113">Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding te maken, toegang tot de gegevens in uw OneDrive-account.</span><span class="sxs-lookup"><span data-stu-id="6192f-113">These credentials are used to authorize your logic app to connect to, and access the data in your OneDrive account.</span></span> 
+4. <span data-ttu-id="6192f-114">Selecteer **Ja** voor het autoriseren van de logische app naar uw OneDrive-account gebruiken:</span><span class="sxs-lookup"><span data-stu-id="6192f-114">Select **Yes** to authorize the logic app to use your OneDrive account:</span></span>  
    ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. U ziet dat de verbinding is gemaakt. Ga nu verder met de overige stappen in uw logische app:  
+5. <span data-ttu-id="6192f-115">U ziet dat de verbinding is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="6192f-115">Notice the connection has been created.</span></span> <span data-ttu-id="6192f-116">Ga nu verder met de overige stappen in uw logische app:</span><span class="sxs-lookup"><span data-stu-id="6192f-116">Now, proceed with the other steps in your logic app:</span></span>  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 

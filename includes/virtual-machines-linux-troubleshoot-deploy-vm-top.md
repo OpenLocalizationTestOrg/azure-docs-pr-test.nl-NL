@@ -1,4 +1,4 @@
-De volgende meest voorkomende problemen kunnen helpen uw probleem wordt opgelost. Als u wilt oplossen, controleert u deze stappen:
+<span data-ttu-id="5279b-101">De volgende meest voorkomende problemen kunnen helpen uw probleem wordt opgelost.</span><span class="sxs-lookup"><span data-stu-id="5279b-101">The following top issues may help resolve your issue.</span></span> <span data-ttu-id="5279b-102">Als u wilt oplossen, controleert u deze stappen:</span><span class="sxs-lookup"><span data-stu-id="5279b-102">To start troubleshooting, review these steps:</span></span>
 
-- [Het cluster kan het aangevraagde VM-grootte niet ondersteunen.](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [Het cluster heeft geen gratis resources](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [<span data-ttu-id="5279b-103">Het cluster kan het aangevraagde VM-grootte niet ondersteunen.</span><span class="sxs-lookup"><span data-stu-id="5279b-103">The cluster cannot support the requested VM size</span></span>](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [<span data-ttu-id="5279b-104">Het cluster heeft geen gratis resources</span><span class="sxs-lookup"><span data-stu-id="5279b-104">The cluster does not have free resources</span></span>](../articles/virtual-machines/linux/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

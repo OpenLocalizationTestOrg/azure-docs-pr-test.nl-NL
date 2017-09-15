@@ -1,18 +1,18 @@
-Dit probleem wordt het veld voor het adres van e-mailadres van elke nieuwe Salesforce lead evalueren. Als het e-mailadres bevat *amazon.com*, het resultaat van de voorwaarde *True*.
+<span data-ttu-id="81d1b-101">Dit probleem wordt het veld voor het adres van e-mailadres van elke nieuwe Salesforce lead evalueren.</span><span class="sxs-lookup"><span data-stu-id="81d1b-101">This condition will evaluate the email address field of each new Salesforce lead.</span></span> <span data-ttu-id="81d1b-102">Als het e-mailadres bevat *amazon.com*, het resultaat van de voorwaarde *True*.</span><span class="sxs-lookup"><span data-stu-id="81d1b-102">If the email address contains *amazon.com*, the condition result will be *True*.</span></span>
 
-1. Selecteer **+ een nieuwe stap**.  
-   ![SalesForce voorwaarde afbeelding 1](./media/connectors-create-api-salesforce/condition-1.png)   
-2. Selecteer **een voorwaarde toevoegen**.    
-   ![SalesForce voorwaarde afbeelding 2](./media/connectors-create-api-salesforce/condition-2.png)  
-3. Selecteer **kiest u een waarde**.    
-   ![SalesForce voorwaarde afbeelding 3](./media/connectors-create-api-salesforce/condition-3.png)  
-4. Selecteer de *e* -token van de lead van de trigger.    
-   ![SalesForce voorwaarde afbeelding 4](./media/connectors-create-api-salesforce/condition-4.png)  
-5. Selecteer *bevat*.      
-   ![SalesForce voorwaarde afbeelding 5](./media/connectors-create-api-salesforce/condition-5.png)  
-6. Selecteer **kiest u een waarde** aan de onderkant van het besturingselement.     
-   ![SalesForce voorwaarde afbeelding 6](./media/connectors-create-api-salesforce/condition-6.png)  
-7. Voer *amazon.com* leiden voor als u wilt evalueren van het e-mailadres van de nieuwe waarde. Als het e-mailadres bevat *amazon.com*, de voorwaarde wordt geëvalueerd als *True* en de overige stappen in uw logische app verder kunnen gaan.    
-   ![SalesForce voorwaarde afbeelding 7](./media/connectors-create-api-salesforce/condition-7.png)  
-8. Sla uw logische apps.  
+1. <span data-ttu-id="81d1b-103">Selecteer **+ een nieuwe stap**.</span><span class="sxs-lookup"><span data-stu-id="81d1b-103">Select **+ New step**.</span></span>  
+   <span data-ttu-id="81d1b-104">![SalesForce voorwaarde afbeelding 1](./media/connectors-create-api-salesforce/condition-1.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-104">![Salesforce condition image 1](./media/connectors-create-api-salesforce/condition-1.png)</span></span>   
+2. <span data-ttu-id="81d1b-105">Selecteer **een voorwaarde toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="81d1b-105">Select **Add a condition**.</span></span>    
+   <span data-ttu-id="81d1b-106">![SalesForce voorwaarde afbeelding 2](./media/connectors-create-api-salesforce/condition-2.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-106">![Salesforce condition image 2](./media/connectors-create-api-salesforce/condition-2.png)</span></span>  
+3. <span data-ttu-id="81d1b-107">Selecteer **kiest u een waarde**.</span><span class="sxs-lookup"><span data-stu-id="81d1b-107">Select **Choose a value**.</span></span>    
+   <span data-ttu-id="81d1b-108">![SalesForce voorwaarde afbeelding 3](./media/connectors-create-api-salesforce/condition-3.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-108">![Salesforce condition image 3](./media/connectors-create-api-salesforce/condition-3.png)</span></span>  
+4. <span data-ttu-id="81d1b-109">Selecteer de *e* -token van de lead van de trigger.</span><span class="sxs-lookup"><span data-stu-id="81d1b-109">Select the *Email* token from the lead of the trigger.</span></span>    
+   <span data-ttu-id="81d1b-110">![SalesForce voorwaarde afbeelding 4](./media/connectors-create-api-salesforce/condition-4.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-110">![Salesforce condition image 4](./media/connectors-create-api-salesforce/condition-4.png)</span></span>  
+5. <span data-ttu-id="81d1b-111">Selecteer *bevat*.</span><span class="sxs-lookup"><span data-stu-id="81d1b-111">Select *Contains*.</span></span>      
+   <span data-ttu-id="81d1b-112">![SalesForce voorwaarde afbeelding 5](./media/connectors-create-api-salesforce/condition-5.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-112">![Salesforce condition image 5](./media/connectors-create-api-salesforce/condition-5.png)</span></span>  
+6. <span data-ttu-id="81d1b-113">Selecteer **kiest u een waarde** aan de onderkant van het besturingselement.</span><span class="sxs-lookup"><span data-stu-id="81d1b-113">Select **Choose a value** at the bottom of the control.</span></span>     
+   <span data-ttu-id="81d1b-114">![SalesForce voorwaarde afbeelding 6](./media/connectors-create-api-salesforce/condition-6.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-114">![Salesforce condition image 6](./media/connectors-create-api-salesforce/condition-6.png)</span></span>  
+7. <span data-ttu-id="81d1b-115">Voer *amazon.com* leiden voor als u wilt evalueren van het e-mailadres van de nieuwe waarde.</span><span class="sxs-lookup"><span data-stu-id="81d1b-115">Enter *amazon.com* as the value you would like to evaluate the email address of the new lead for.</span></span> <span data-ttu-id="81d1b-116">Als het e-mailadres bevat *amazon.com*, de voorwaarde wordt geëvalueerd als *True* en de overige stappen in uw logische app verder kunnen gaan.</span><span class="sxs-lookup"><span data-stu-id="81d1b-116">If the email address contains *amazon.com*, the condition will evaluate to *True* and the other steps in your logic app can proceed.</span></span>    
+   <span data-ttu-id="81d1b-117">![SalesForce voorwaarde afbeelding 7](./media/connectors-create-api-salesforce/condition-7.png)</span><span class="sxs-lookup"><span data-stu-id="81d1b-117">![Salesforce condition image 7](./media/connectors-create-api-salesforce/condition-7.png)</span></span>  
+8. <span data-ttu-id="81d1b-118">Sla uw logische apps.</span><span class="sxs-lookup"><span data-stu-id="81d1b-118">Save your logic apps.</span></span>  
 

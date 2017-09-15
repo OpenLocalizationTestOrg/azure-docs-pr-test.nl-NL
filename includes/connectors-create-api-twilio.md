@@ -1,26 +1,26 @@
-### <a name="prerequisites"></a>Vereisten
-* Een Twilio-account
-* Een geverifieerde Twilio-telefoonnummer dat SMS-berichten kunt ontvangen
-* Een geverifieerde Twilio-telefoonnummer dat SMS kan verzenden
+### <a name="prerequisites"></a><span data-ttu-id="f7629-101">Vereisten</span><span class="sxs-lookup"><span data-stu-id="f7629-101">Prerequisites</span></span>
+* <span data-ttu-id="f7629-102">Een Twilio-account</span><span class="sxs-lookup"><span data-stu-id="f7629-102">A Twilio account</span></span>
+* <span data-ttu-id="f7629-103">Een geverifieerde Twilio-telefoonnummer dat SMS-berichten kunt ontvangen</span><span class="sxs-lookup"><span data-stu-id="f7629-103">A verified Twilio phone number that can receive SMS</span></span>
+* <span data-ttu-id="f7629-104">Een geverifieerde Twilio-telefoonnummer dat SMS kan verzenden</span><span class="sxs-lookup"><span data-stu-id="f7629-104">A verified Twilio phone number that can send SMS</span></span>
 
 > [!NOTE]
-> Als u van een Twilio-proefaccount gebruikmaakt, kunt u alleen SMS te verzenden **geverifieerd** telefoonnummers.  
+> <span data-ttu-id="f7629-105">Als u van een Twilio-proefaccount gebruikmaakt, kunt u alleen SMS te verzenden **geverifieerd** telefoonnummers.</span><span class="sxs-lookup"><span data-stu-id="f7629-105">If you are using a Twilio trial account, you can only send SMS to **verified** phone numbers.</span></span>  
 > 
 > 
 
-Voordat u uw Twilio-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw Twilio-account toestaan. U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal. 
+<span data-ttu-id="f7629-106">Voordat u uw Twilio-account in een logische app gebruiken kunt, moet u de logische app verbinding maken met uw Twilio-account toestaan.</span><span class="sxs-lookup"><span data-stu-id="f7629-106">Before you can use your Twilio account in a Logic app, you must authorize the Logic app to connect to your Twilio account.</span></span> <span data-ttu-id="f7629-107">U kunt dit eenvoudig vanuit gelukkig doen in uw logische app in de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="f7629-107">Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span> 
 
-Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw Twilio-account:
+<span data-ttu-id="f7629-108">Hier volgen de stappen voor het autoriseren van uw logische app verbinding maken met uw Twilio-account:</span><span class="sxs-lookup"><span data-stu-id="f7629-108">Here are the steps to authorize your Logic app to connect to your Twilio account:</span></span>
 
-1. Voor het maken van een verbinding met Twilio, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Twilio* in het zoekvak. Selecteer de trigger of je actie moet worden gebruikt:  
+1. <span data-ttu-id="f7629-109">Voor het maken van een verbinding met Twilio, in de ontwerpfunctie voor Logic app selecteert **beheerde API's van Microsoft weergeven** Voer in de vervolgkeuzelijst *Twilio* in het zoekvak.</span><span class="sxs-lookup"><span data-stu-id="f7629-109">To create a connection to Twilio, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Twilio* in the search box.</span></span> <span data-ttu-id="f7629-110">Selecteer de trigger of je actie moet worden gebruikt:</span><span class="sxs-lookup"><span data-stu-id="f7629-110">Select the trigger or action you'll like to use:</span></span>  
    ![](./media/connectors-create-api-twilio/twilio-0.png)
-2. Als u verbindingen met Twilio voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw Twilio-referenties op te geven. Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw Twilio-account:  
+2. <span data-ttu-id="f7629-111">Als u verbindingen met Twilio voordat u dit nog niet hebt gemaakt, hebt u wordt gevraagd uw Twilio-referenties op te geven.</span><span class="sxs-lookup"><span data-stu-id="f7629-111">If you haven't created any connections to Twilio before, you'll get prompted to provide your Twilio credentials.</span></span> <span data-ttu-id="f7629-112">Deze referenties worden gebruikt voor het autoriseren van uw logische app verbinding maken met en toegang tot gegevens van uw Twilio-account:</span><span class="sxs-lookup"><span data-stu-id="f7629-112">These credentials will be used to authorize your Logic app to connect to, and access your Twilio account's data:</span></span>  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. U moet de **Twilio-account-id** en **Twilio-toegangstoken** vanuit het dashboard in Twilio dus Meld u aan bij uw Twilio-account nu aan pak deze twee soorten informatie:  
+3. <span data-ttu-id="f7629-113">U moet de **Twilio-account-id** en **Twilio-toegangstoken** vanuit het dashboard in Twilio dus Meld u aan bij uw Twilio-account nu aan pak deze twee soorten informatie:</span><span class="sxs-lookup"><span data-stu-id="f7629-113">You'll need the **Twilio account id** and **Twilio access token**  from the dashboard in Twilio, so log in to your Twilio account now to grab these two pieces of information:</span></span>  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Twilio en Logic apps gebruiken verschillende namen voor het identificeren van deze twee soorten informatie. Hier ziet u hoe u moet toe te wijzen aan het dialoogvenster van Logic apps:![](./media/connectors-create-api-twilio/twilio-3.png)  
-5. Selecteer de **verbinding maken** knop:  
+4. <span data-ttu-id="f7629-114">Twilio en Logic apps gebruiken verschillende namen voor het identificeren van deze twee soorten informatie.</span><span class="sxs-lookup"><span data-stu-id="f7629-114">Twilio and Logic apps use different names to identify these two pieces of infomation.</span></span> <span data-ttu-id="f7629-115">Hier ziet u hoe u moet toe te wijzen aan het dialoogvenster van Logic apps:![](./media/connectors-create-api-twilio/twilio-3.png)</span><span class="sxs-lookup"><span data-stu-id="f7629-115">Here is how you must map them to the Logic apps dialog: ![](./media/connectors-create-api-twilio/twilio-3.png)</span></span>  
+5. <span data-ttu-id="f7629-116">Selecteer de **verbinding maken** knop:</span><span class="sxs-lookup"><span data-stu-id="f7629-116">Select the **Create connection** button:</span></span>  
    ![](./media/connectors-create-api-twilio/twilio-4.png)
-6. U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:  
+6. <span data-ttu-id="f7629-117">U ziet de verbinding is gemaakt en u bent nu vrij om door te gaan met de overige stappen in uw logische app:</span><span class="sxs-lookup"><span data-stu-id="f7629-117">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
    ![](./media/connectors-create-api-twilio/twilio-5.png)
 

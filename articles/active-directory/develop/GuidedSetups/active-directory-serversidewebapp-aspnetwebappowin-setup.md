@@ -21,25 +21,25 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/11/2017
 ---
-## <a name="set-up-your-project"></a>Instellen van uw project
+## <a name="set-up-your-project"></a><span data-ttu-id="629f0-103">Instellen van uw project</span><span class="sxs-lookup"><span data-stu-id="629f0-103">Set up your project</span></span>
 
-Deze sectie bevat de stappen voor het installeren en configureren van de verificatiepijplijn via OWIN middleware op een ASP.NET-project met OpenID Connect. 
+<span data-ttu-id="629f0-104">Deze sectie bevat de stappen voor het installeren en configureren van de verificatiepijplijn via OWIN middleware op een ASP.NET-project met OpenID Connect.</span><span class="sxs-lookup"><span data-stu-id="629f0-104">This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect.</span></span> 
 
-> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Downloaden van een project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) en doorgaan met de [configuratiestap](#create-an-application-express) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.
+> <span data-ttu-id="629f0-105">Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan?</span><span class="sxs-lookup"><span data-stu-id="629f0-105">Prefer to download this sample's Visual Studio project instead?</span></span> <span data-ttu-id="629f0-106">[Downloaden van een project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) en doorgaan met de [configuratiestap](#create-an-application-express) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="629f0-106">[Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#create-an-application-express) to configure the code sample before executing.</span></span>
 
 <!--start-collapse-->
-> ### <a name="create-your-aspnet-project"></a>Uw ASP.NET-project maken
+> ### <a name="create-your-aspnet-project"></a><span data-ttu-id="629f0-107">Uw ASP.NET-project maken</span><span class="sxs-lookup"><span data-stu-id="629f0-107">Create your ASP.NET project</span></span>
 
-> 1. In Visual Studio:`File` > `New` > `Project`<br/>
-> 2. Onder *Visual C# \Web*, selecteer `ASP.NET Web Application (.NET Framework)`.
-> 3. Naam van uw toepassing en klik op *OK*
-> 4. Selecteer `Empty` en schakel het selectievakje om toe te voegen `MVC` verwijzingen
+> 1. <span data-ttu-id="629f0-108">In Visual Studio:`File` > `New` > `Project`</span><span class="sxs-lookup"><span data-stu-id="629f0-108">In Visual Studio: `File` > `New` > `Project`</span></span><br/>
+> 2. <span data-ttu-id="629f0-109">Onder *Visual C# \Web*, selecteer `ASP.NET Web Application (.NET Framework)`.</span><span class="sxs-lookup"><span data-stu-id="629f0-109">Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.</span></span>
+> 3. <span data-ttu-id="629f0-110">Naam van uw toepassing en klik op *OK*</span><span class="sxs-lookup"><span data-stu-id="629f0-110">Name your application and click *OK*</span></span>
+> 4. <span data-ttu-id="629f0-111">Selecteer `Empty` en schakel het selectievakje om toe te voegen `MVC` verwijzingen</span><span class="sxs-lookup"><span data-stu-id="629f0-111">Select `Empty` and select the checkbox to add `MVC` references</span></span>
 <!--end-collapse-->
 
-## <a name="add-authentication-components"></a>Verificatieonderdelen toevoegen
+## <a name="add-authentication-components"></a><span data-ttu-id="629f0-112">Verificatieonderdelen toevoegen</span><span class="sxs-lookup"><span data-stu-id="629f0-112">Add authentication components</span></span>
 
-1. In Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Voeg *OWIN middleware NuGet-pakketten* door het volgende te typen in het venster Package Manager-Console:
+1. <span data-ttu-id="629f0-113">In Visual Studio:`Tools` > `Nuget Package Manager` > `Package Manager Console`</span><span class="sxs-lookup"><span data-stu-id="629f0-113">In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`</span></span>
+2. <span data-ttu-id="629f0-114">Voeg *OWIN middleware NuGet-pakketten* door het volgende te typen in het venster Package Manager-Console:</span><span class="sxs-lookup"><span data-stu-id="629f0-114">Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:</span></span>
 
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -48,22 +48,22 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 <!--start-collapse-->
-> ### <a name="about-these-libraries"></a>Over deze bibliotheken
+> ### <a name="about-these-libraries"></a><span data-ttu-id="629f0-115">Over deze bibliotheken</span><span class="sxs-lookup"><span data-stu-id="629f0-115">About these libraries</span></span>
 
->De bovenstaande bibliotheken Schakel eenmalige aanmelding (SSO) met OpenID Connect via authenticatie op basis van een cookie. Nadat de verificatie is voltooid en het token voor de gebruiker wordt verzonden naar uw toepassing, maakt OWIN middleware een sessiecookie. De browser gebruikt deze cookie vervolgens bij volgende aanvragen, zodat de gebruiker hoeft niet hun wachtwoord opnieuw op te geven en geen aanvullende verificatie nodig is.
+><span data-ttu-id="629f0-116">De bovenstaande bibliotheken Schakel eenmalige aanmelding (SSO) met OpenID Connect via authenticatie op basis van een cookie.</span><span class="sxs-lookup"><span data-stu-id="629f0-116">The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication.</span></span> <span data-ttu-id="629f0-117">Nadat de verificatie is voltooid en het token voor de gebruiker wordt verzonden naar uw toepassing, maakt OWIN middleware een sessiecookie.</span><span class="sxs-lookup"><span data-stu-id="629f0-117">After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie.</span></span> <span data-ttu-id="629f0-118">De browser gebruikt deze cookie vervolgens bij volgende aanvragen, zodat de gebruiker hoeft niet hun wachtwoord opnieuw op te geven en geen aanvullende verificatie nodig is.</span><span class="sxs-lookup"><span data-stu-id="629f0-118">The browser then uses this cookie on subsequent requests so the user doesn't need to retype their password, and no additional verification is needed.</span></span>
 <!--end-collapse-->
 
-## <a name="configure-the-authentication-pipeline"></a>De verificatiepijplijn configureren
-De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-Opstartklasse OpenID Connect verificatie configureren. Deze klasse wordt automatisch uitgevoerd wanneer uw IIS-proces wordt gestart.
+## <a name="configure-the-authentication-pipeline"></a><span data-ttu-id="629f0-119">De verificatiepijplijn configureren</span><span class="sxs-lookup"><span data-stu-id="629f0-119">Configure the authentication pipeline</span></span>
+<span data-ttu-id="629f0-120">De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-Opstartklasse OpenID Connect verificatie configureren.</span><span class="sxs-lookup"><span data-stu-id="629f0-120">The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication.</span></span> <span data-ttu-id="629f0-121">Deze klasse wordt automatisch uitgevoerd wanneer uw IIS-proces wordt gestart.</span><span class="sxs-lookup"><span data-stu-id="629f0-121">This class will be executed automatically when your IIS process starts.</span></span>
 
-> Als uw project beschikt niet over een `Startup.cs` bestand in de hoofdmap:<br/>
-> 1. Klik met de rechtermuisknop op de hoofdmap van het project: >`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Geef deze de naam`Startup.cs`
+> <span data-ttu-id="629f0-122">Als uw project beschikt niet over een `Startup.cs` bestand in de hoofdmap:</span><span class="sxs-lookup"><span data-stu-id="629f0-122">If your project doesn't have a `Startup.cs` file in the root folder:</span></span><br/>
+> 1. <span data-ttu-id="629f0-123">Klik met de rechtermuisknop op de hoofdmap van het project: >`Add` > `New Item...` > `OWIN Startup class`</span><span class="sxs-lookup"><span data-stu-id="629f0-123">Right click on the project's root folder: >    `Add` > `New Item...` > `OWIN Startup class`</span></span><br/>
+> 2. <span data-ttu-id="629f0-124">Geef deze de naam`Startup.cs`</span><span class="sxs-lookup"><span data-stu-id="629f0-124">Name it `Startup.cs`</span></span>
 
-> Zorg ervoor dat de geselecteerde klasse is een OWIN-Opstartklasse en niet een standaard C#-klasse. Dit controleren door te controleren of er `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` boven de naamruimte.
+> <span data-ttu-id="629f0-125">Zorg ervoor dat de geselecteerde klasse is een OWIN-Opstartklasse en niet een standaard C#-klasse.</span><span class="sxs-lookup"><span data-stu-id="629f0-125">Make sure the class selected is an OWIN Startup Class and not a standard C# class.</span></span> <span data-ttu-id="629f0-126">Dit controleren door te controleren of er `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` boven de naamruimte.</span><span class="sxs-lookup"><span data-stu-id="629f0-126">Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.</span></span>
 
 
-1. Voeg *OWIN* en *Microsoft.IdentityModel* verwijzingen naar `Startup.cs`:
+1. <span data-ttu-id="629f0-127">Voeg *OWIN* en *Microsoft.IdentityModel* verwijzingen naar `Startup.cs`:</span><span class="sxs-lookup"><span data-stu-id="629f0-127">Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:</span></span>
 
 ```csharp
 using Microsoft.Owin;
@@ -77,7 +77,7 @@ using Microsoft.Owin.Security.Notifications;
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-Opstartklasse vervangen door de volgende code:
+<span data-ttu-id="629f0-128">Opstartklasse vervangen door de volgende code:</span><span class="sxs-lookup"><span data-stu-id="629f0-128">Replace Startup class with the code below:</span></span>
 </li>
 </ol>
 
@@ -145,8 +145,8 @@ public class Startup
 
 ```
 <!--start-collapse-->
-> ### <a name="more-information"></a>Meer informatie
+> ### <a name="more-information"></a><span data-ttu-id="629f0-129">Meer informatie</span><span class="sxs-lookup"><span data-stu-id="629f0-129">More Information</span></span>
 
-> De parameters die u opgeeft in *OpenIDConnectAuthenticationOptions* fungeren als coördinaten voor de toepassing om te communiceren met Azure AD. Omdat het OpenID Connect middleware gebruikmaakt van cookies op de achtergrond, moet u ook Cookieverificatie instellen als de code hierboven wordt weergegeven. De *ValidateIssuer* waarde vertelt OpenIdConnect niet toegang te beperken tot een specifieke organisatie.
+> <span data-ttu-id="629f0-130">De parameters die u opgeeft in *OpenIDConnectAuthenticationOptions* fungeren als coördinaten voor de toepassing om te communiceren met Azure AD.</span><span class="sxs-lookup"><span data-stu-id="629f0-130">The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD.</span></span> <span data-ttu-id="629f0-131">Omdat het OpenID Connect middleware gebruikmaakt van cookies op de achtergrond, moet u ook Cookieverificatie instellen als de code hierboven wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="629f0-131">Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows.</span></span> <span data-ttu-id="629f0-132">De *ValidateIssuer* waarde vertelt OpenIdConnect niet toegang te beperken tot een specifieke organisatie.</span><span class="sxs-lookup"><span data-stu-id="629f0-132">The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.</span></span>
 <!--end-collapse-->
 

@@ -1,9 +1,9 @@
-In dit artikel wordt van het volgende uitgegaan:
+<span data-ttu-id="b34c9-101">In dit artikel wordt van het volgende uitgegaan:</span><span class="sxs-lookup"><span data-stu-id="b34c9-101">This article assumes that</span></span>
 
-1. Er is reeds een **site-naar-site VPN**- of een **Express Route**-verbinding tot stand gebracht tussen uw on-premises netwerk en Azure Virtual Network.
-2. Uw gebruikersaccount heeft machtigingen voor het maken van een nieuwe virtuele machine in het Azure-abonnement waar de virtuele machines tijdens een failover zijn geplaatst.
-3. Uw abonnement heeft een minimum van 4 kernen beschikbaar voor de implementatie van een nieuwe virtuele machine voor de processerver.
-4. U hebt de beschikking over de **wachtwoordzin voor de configuratieserver**.
+1. <span data-ttu-id="b34c9-102">Er is reeds een **site-naar-site VPN**- of een **Express Route**-verbinding tot stand gebracht tussen uw on-premises netwerk en Azure Virtual Network.</span><span class="sxs-lookup"><span data-stu-id="b34c9-102">A **Site to Site VPN** or an **Express Route** connection between your on-premises network and the Azure Virtual Network has already been established.</span></span>
+2. <span data-ttu-id="b34c9-103">Uw gebruikersaccount heeft machtigingen voor het maken van een nieuwe virtuele machine in het Azure-abonnement waar de virtuele machines tijdens een failover zijn geplaatst.</span><span class="sxs-lookup"><span data-stu-id="b34c9-103">Your user account has permissions to create a new virtual machine in the Azure Subscription that the virtual machines have been failed over into.</span></span>
+3. <span data-ttu-id="b34c9-104">Uw abonnement heeft een minimum van 4 kernen beschikbaar voor de implementatie van een nieuwe virtuele machine voor de processerver.</span><span class="sxs-lookup"><span data-stu-id="b34c9-104">Your subscription has a minimum of 4 Cores available to spin up a new Process Server virtual machine.</span></span>
+4. <span data-ttu-id="b34c9-105">U hebt de beschikking over de **wachtwoordzin voor de configuratieserver**.</span><span class="sxs-lookup"><span data-stu-id="b34c9-105">You have the **Configuration Server Passphrase** available.</span></span>
 
 > [!TIP]
-> Zorg ervoor dat u verbinding hebt met poort 443 van de configuratieserver (wordt on-premises uitgevoerd) van Azure Virtual Network waar de virtuele machines tijdens een failover zijn geplaatst.
+> <span data-ttu-id="b34c9-106">Zorg ervoor dat u verbinding hebt met poort 443 van de configuratieserver (wordt on-premises uitgevoerd) van Azure Virtual Network waar de virtuele machines tijdens een failover zijn geplaatst.</span><span class="sxs-lookup"><span data-stu-id="b34c9-106">Ensure that you are able to connect port 443 of the Configuration Server (running on-premises) from the Azure Virtual Network that the virtual machines have been failed over into.</span></span>

@@ -1,21 +1,21 @@
-## <a name="specify-the-behavior-of-the-iot-device"></a>Het gedrag van het IoT-apparaat opgeven
+## <a name="specify-the-behavior-of-the-iot-device"></a><span data-ttu-id="0c063-101">Het gedrag van het IoT-apparaat opgeven</span><span class="sxs-lookup"><span data-stu-id="0c063-101">Specify the behavior of the IoT device</span></span>
 
-De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een model om de opmaak op te geven van de berichten die het apparaat uitwisselt met IoT Hub.
+<span data-ttu-id="0c063-102">De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een model om de opmaak op te geven van de berichten die het apparaat uitwisselt met IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="0c063-102">The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.</span></span>
 
-1. Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe. Vervang de waarden van de tijdelijke aanduidingen [apparaat-id] en [apparaatsleutel] door de waarden die u voor het apparaat hebt genoteerd in het dashboard van de oplossing voor externe controle. Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen. Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:
+1. <span data-ttu-id="0c063-103">Voeg de volgende variabelendeclaraties achter de `#include`-instructies toe.</span><span class="sxs-lookup"><span data-stu-id="0c063-103">Add the following variable declarations after the `#include` statements.</span></span> <span data-ttu-id="0c063-104">Vervang de waarden van de tijdelijke aanduidingen [apparaat-id] en [apparaatsleutel] door de waarden die u voor het apparaat hebt genoteerd in het dashboard van de oplossing voor externe controle.</span><span class="sxs-lookup"><span data-stu-id="0c063-104">Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard.</span></span> <span data-ttu-id="0c063-105">Gebruik de hostnaam van de IoT Hub uit het oplossingsdashboard om [IoTHub-naam] te vervangen.</span><span class="sxs-lookup"><span data-stu-id="0c063-105">Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name].</span></span> <span data-ttu-id="0c063-106">Als uw IoT Hub-hostnaam bijvoorbeeld **contoso.azure devices.net** is, vervangt u [IoTHub-naam] door **contoso**:</span><span class="sxs-lookup"><span data-stu-id="0c063-106">For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:</span></span>
    
     ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
 
-1. Voeg de volgende code toe om het model te definiëren dat het apparaat in staat stelt om met IoT Hub te communiceren. Dit model bepaalt dat het apparaat:
+1. <span data-ttu-id="0c063-107">Voeg de volgende code toe om het model te definiëren dat het apparaat in staat stelt om met IoT Hub te communiceren.</span><span class="sxs-lookup"><span data-stu-id="0c063-107">Add the following code to define the model that enables the device to communicate with IoT Hub.</span></span> <span data-ttu-id="0c063-108">Dit model bepaalt dat het apparaat:</span><span class="sxs-lookup"><span data-stu-id="0c063-108">This model specifies that the device:</span></span>
 
-   - Temperatuur, externe temperatuur, vochtigheid en een apparaat-id als telemetrie kan verzenden.
-   - Metagegevens over het apparaat naar IoT Hub kan verzenden. Het apparaat verzendt bij het opstarten basismetagegevens in een **DeviceInfo**-object.
-   - Gerapporteerde eigenschappen naar de apparaatdubbel in IoT Hub kan verzenden. Deze gerapporteerde eigenschappen zijn gegroepeerd in configuratie-, apparaat- en systeemeigenschappen.
-   - Gewenste eigenschappen die in de apparaatdubbel in IoT Hub zijn ingesteld, kan ontvangen en hierop kan reageren.
-   - Kan reageren op de directe methoden **Reboot** en **InitiateFirmwareUpdate** die via de oplossingsportal worden aangeroepen. Met behulp van gerapporteerde eigenschappen stuurt het apparaat informatie over de ondersteunde directe methoden.
+   - <span data-ttu-id="0c063-109">Temperatuur, externe temperatuur, vochtigheid en een apparaat-id als telemetrie kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-109">Can send temperature, external temperature, humidity, and a device id as telemetry.</span></span>
+   - <span data-ttu-id="0c063-110">Metagegevens over het apparaat naar IoT Hub kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-110">Can send metadata about the device to IoT Hub.</span></span> <span data-ttu-id="0c063-111">Het apparaat verzendt bij het opstarten basismetagegevens in een **DeviceInfo**-object.</span><span class="sxs-lookup"><span data-stu-id="0c063-111">The device sends basic metadata in a **DeviceInfo** object at startup.</span></span>
+   - <span data-ttu-id="0c063-112">Gerapporteerde eigenschappen naar de apparaatdubbel in IoT Hub kan verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-112">Can send reported properties, to the device twin in IoT Hub.</span></span> <span data-ttu-id="0c063-113">Deze gerapporteerde eigenschappen zijn gegroepeerd in configuratie-, apparaat- en systeemeigenschappen.</span><span class="sxs-lookup"><span data-stu-id="0c063-113">These reported properties are grouped into configuration, device, and system properties.</span></span>
+   - <span data-ttu-id="0c063-114">Gewenste eigenschappen die in de apparaatdubbel in IoT Hub zijn ingesteld, kan ontvangen en hierop kan reageren.</span><span class="sxs-lookup"><span data-stu-id="0c063-114">Can receive and act on desired properties set in the device twin in IoT Hub.</span></span>
+   - <span data-ttu-id="0c063-115">Kan reageren op de directe methoden **Reboot** en **InitiateFirmwareUpdate** die via de oplossingsportal worden aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="0c063-115">Can respond to the **Reboot** and **InitiateFirmwareUpdate** direct methods invoked through the solution portal.</span></span> <span data-ttu-id="0c063-116">Met behulp van gerapporteerde eigenschappen stuurt het apparaat informatie over de ondersteunde directe methoden.</span><span class="sxs-lookup"><span data-stu-id="0c063-116">The device sends information about the direct methods it supports using reported properties.</span></span>
    
     ```c
     // Define the Model
@@ -85,10 +85,10 @@ De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een mo
     END_NAMESPACE(Contoso);
     ```
 
-## <a name="implement-the-behavior-of-the-device"></a>Het gedrag van het apparaat implementeren
-Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd.
+## <a name="implement-the-behavior-of-the-device"></a><span data-ttu-id="0c063-117">Het gedrag van het apparaat implementeren</span><span class="sxs-lookup"><span data-stu-id="0c063-117">Implement the behavior of the device</span></span>
+<span data-ttu-id="0c063-118">Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="0c063-118">Now add code that implements the behavior defined in the model.</span></span>
 
-1. Voeg de volgende functies toe die de gewenste eigenschappen verwerken die in het oplossingsdashboard zijn ingesteld. De volgende gewenste eigenschappen zijn in het model gedefinieerd:
+1. <span data-ttu-id="0c063-119">Voeg de volgende functies toe die de gewenste eigenschappen verwerken die in het oplossingsdashboard zijn ingesteld.</span><span class="sxs-lookup"><span data-stu-id="0c063-119">Add the following functions that handle the desired properties set in the solution dashboard.</span></span> <span data-ttu-id="0c063-120">De volgende gewenste eigenschappen zijn in het model gedefinieerd:</span><span class="sxs-lookup"><span data-stu-id="0c063-120">These desired properties are defined in the model:</span></span>
 
     ```c
     void onDesiredTemperatureMeanValue(void* argument)
@@ -107,7 +107,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functies toe die de directe methoden verwerken die via de IoT Hub worden aangeroepen. De volgende directe methoden zijn in het model gedefinieerd:
+1. <span data-ttu-id="0c063-121">Voeg de volgende functies toe die de directe methoden verwerken die via de IoT Hub worden aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="0c063-121">Add the following functions that handle the direct methods invoked through the IoT hub.</span></span> <span data-ttu-id="0c063-122">De volgende directe methoden zijn in het model gedefinieerd:</span><span class="sxs-lookup"><span data-stu-id="0c063-122">These direct methods are defined in the model:</span></span>
 
     ```c
     /* Handlers for direct methods */
@@ -130,7 +130,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functie toe die een bericht naar de vooraf geconfigureerde oplossing verzendt:
+1. <span data-ttu-id="0c063-123">Voeg de volgende functie toe die een bericht naar de vooraf geconfigureerde oplossing verzendt:</span><span class="sxs-lookup"><span data-stu-id="0c063-123">Add the following function that sends a message to the preconfigured solution:</span></span>
    
     ```c
     /* Send data to IoT Hub */
@@ -158,7 +158,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende callbackhandler toe die wordt uitgevoerd wanneer het apparaat nieuwe gerapporteerde eigenschapswaarden naar de vooraf geconfigureerde oplossing heeft verzonden:
+1. <span data-ttu-id="0c063-124">Voeg de volgende callbackhandler toe die wordt uitgevoerd wanneer het apparaat nieuwe gerapporteerde eigenschapswaarden naar de vooraf geconfigureerde oplossing heeft verzonden:</span><span class="sxs-lookup"><span data-stu-id="0c063-124">Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:</span></span>
 
     ```c
     /* Callback after sending reported properties */
@@ -169,16 +169,16 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functie toe om het apparaat te verbinden met de vooraf geconfigureerde oplossing in de cloud, en gegevens uit te wisselen. Deze functie voert de volgende stappen uit:
+1. <span data-ttu-id="0c063-125">Voeg de volgende functie toe om het apparaat te verbinden met de vooraf geconfigureerde oplossing in de cloud, en gegevens uit te wisselen.</span><span class="sxs-lookup"><span data-stu-id="0c063-125">Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data.</span></span> <span data-ttu-id="0c063-126">Deze functie voert de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="0c063-126">This function performs the following steps:</span></span>
 
-    - Initialiseert het platform.
-    - Registreert de Contoso-naamruimte bij de serialisatiebibliotheek.
-    - Initialiseert de client met de verbindingsreeks van het apparaat.
-    - Maakt een exemplaar van het **thermostaat**model.
-    - Maakt en verzendt gerapporteerde eigenschapswaarden.
-    - Verzendt een **DeviceInfo**-object.
-    - Maakt een lus om elke seconde telemetrie te verzenden.
-    - Deïnitialiseert alle resources.
+    - <span data-ttu-id="0c063-127">Initialiseert het platform.</span><span class="sxs-lookup"><span data-stu-id="0c063-127">Initializes the platform.</span></span>
+    - <span data-ttu-id="0c063-128">Registreert de Contoso-naamruimte bij de serialisatiebibliotheek.</span><span class="sxs-lookup"><span data-stu-id="0c063-128">Registers the Contoso namespace with the serialization library.</span></span>
+    - <span data-ttu-id="0c063-129">Initialiseert de client met de verbindingsreeks van het apparaat.</span><span class="sxs-lookup"><span data-stu-id="0c063-129">Initializes the client with the device connection string.</span></span>
+    - <span data-ttu-id="0c063-130">Maakt een exemplaar van het **thermostaat**model.</span><span class="sxs-lookup"><span data-stu-id="0c063-130">Create an instance of the **Thermostat** model.</span></span>
+    - <span data-ttu-id="0c063-131">Maakt en verzendt gerapporteerde eigenschapswaarden.</span><span class="sxs-lookup"><span data-stu-id="0c063-131">Creates and sends reported property values.</span></span>
+    - <span data-ttu-id="0c063-132">Verzendt een **DeviceInfo**-object.</span><span class="sxs-lookup"><span data-stu-id="0c063-132">Sends a **DeviceInfo** object.</span></span>
+    - <span data-ttu-id="0c063-133">Maakt een lus om elke seconde telemetrie te verzenden.</span><span class="sxs-lookup"><span data-stu-id="0c063-133">Creates a loop to send telemetry every second.</span></span>
+    - <span data-ttu-id="0c063-134">Deïnitialiseert alle resources.</span><span class="sxs-lookup"><span data-stu-id="0c063-134">Deinitializes all resources.</span></span>
 
       ```c
       void remote_monitoring_run(void)
@@ -296,7 +296,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
       }
     ```
    
-    Ter referentie volgt hier een voorbeeld van een **telemetrie**bericht dat naar de vooraf geconfigureerde oplossing is verzonden:
+    <span data-ttu-id="0c063-135">Ter referentie volgt hier een voorbeeld van een **telemetrie**bericht dat naar de vooraf geconfigureerde oplossing is verzonden:</span><span class="sxs-lookup"><span data-stu-id="0c063-135">For reference, here is a sample **Telemetry** message sent to the preconfigured solution:</span></span>
    
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}

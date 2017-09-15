@@ -1,8 +1,8 @@
-De volgende beperkingen gelden als u alleen de Azure Resource Manager en Azure-resourcegroepen.
+<span data-ttu-id="b670e-101">De volgende beperkingen gelden als u alleen de Azure Resource Manager en Azure-resourcegroepen.</span><span class="sxs-lookup"><span data-stu-id="b670e-101">The following limits apply when using the Azure Resource Manager and Azure Resource Groups only.</span></span>
 
-| Bron | Standaardlimiet |
+| <span data-ttu-id="b670e-102">Bron</span><span class="sxs-lookup"><span data-stu-id="b670e-102">Resource</span></span> | <span data-ttu-id="b670e-103">Standaardlimiet</span><span class="sxs-lookup"><span data-stu-id="b670e-103">Default Limit</span></span> |
 | --- | --- |
-| Opslag accountbeheerbewerkingen (gelezen) |800 per 5 minuten |
-| Opslag accountbeheerbewerkingen (schrijven) |200 per uur |
-| Opslag accountbeheerbewerkingen (lijst) |100 per 5 minuten |
+| <span data-ttu-id="b670e-104">Opslag accountbeheerbewerkingen (gelezen)</span><span class="sxs-lookup"><span data-stu-id="b670e-104">Storage account management operations (read)</span></span> |<span data-ttu-id="b670e-105">800 per 5 minuten</span><span class="sxs-lookup"><span data-stu-id="b670e-105">800 per 5 minutes</span></span> |
+| <span data-ttu-id="b670e-106">Opslag accountbeheerbewerkingen (schrijven)</span><span class="sxs-lookup"><span data-stu-id="b670e-106">Storage account management operations (write)</span></span> |<span data-ttu-id="b670e-107">200 per uur</span><span class="sxs-lookup"><span data-stu-id="b670e-107">200 per hour</span></span> |
+| <span data-ttu-id="b670e-108">Opslag accountbeheerbewerkingen (lijst)</span><span class="sxs-lookup"><span data-stu-id="b670e-108">Storage account management operations (list)</span></span> |<span data-ttu-id="b670e-109">100 per 5 minuten</span><span class="sxs-lookup"><span data-stu-id="b670e-109">100 per 5 minutes</span></span> |
 
