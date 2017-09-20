@@ -1,0 +1,4 @@
+| <span data-ttu-id="388ae-101">Resource</span><span class="sxs-lookup"><span data-stu-id="388ae-101">Resource</span></span> | <span data-ttu-id="388ae-102">Limiet</span><span class="sxs-lookup"><span data-stu-id="388ae-102">Limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="388ae-103">Abonnementen op gebeurtenissen per regio</span><span class="sxs-lookup"><span data-stu-id="388ae-103">Event Subscriptions per region</span></span> |<span data-ttu-id="388ae-104">1000</span><span class="sxs-lookup"><span data-stu-id="388ae-104">1000</span></span> |
+| <span data-ttu-id="388ae-105">Aangepaste onderwerpen per regio</span><span class="sxs-lookup"><span data-stu-id="388ae-105">Custom Topics per region</span></span> |<span data-ttu-id="388ae-106">20</span><span class="sxs-lookup"><span data-stu-id="388ae-106">20</span></span> |
