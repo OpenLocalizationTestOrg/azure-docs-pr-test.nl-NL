@@ -1,0 +1,123 @@
+---
+title: Azure AD Privileged Identity Management configureren | Microsoft Docs
+description: Dit onderwerp wordt beschreven wat Azure AD Privileged Identity Management is en hoe u PIM gebruikt om de beveiliging van uw cloud te verbeteren.
+services: active-directory
+documentationcenter: 
+author: billmath
+manager: femila
+editor: 
+ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/04/2017
+ms.author: billmath
+ms.custom: pim ; H1Hack27Feb2017
+ms.openlocfilehash: eb7059368cb80be7dd625f9dc6ad2aab1bad709a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="what-is-azure-ad-privileged-identity-management"></a><span data-ttu-id="5aa64-103">Wat is Azure AD Privileged Identity Management?</span><span class="sxs-lookup"><span data-stu-id="5aa64-103">What is Azure AD Privileged Identity Management?</span></span>
+<span data-ttu-id="5aa64-104">Met Azure Active Directory (AD) Privileged Identity Management kunt u toegang binnen de organisatie beheren, controleren en bewaken.</span><span class="sxs-lookup"><span data-stu-id="5aa64-104">With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization.</span></span> <span data-ttu-id="5aa64-105">Dit is inclusief toegang tot resources in Azure AD en andere Microsoft-onlineservices zoals Office 365 en Microsoft Intune.</span><span class="sxs-lookup"><span data-stu-id="5aa64-105">This includes access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.</span></span>  
+
+> [!NOTE]
+> <span data-ttu-id="5aa64-106">Privileged Identity Management is beschikbaar voor uw hele organisatie wanneer u uw beheerders met de Premium P2-editie van Azure Active Directory van licentie.</span><span class="sxs-lookup"><span data-stu-id="5aa64-106">Privileged Identity Management is available to your entire organization when you license your Administrators with the Premium P2 edition of Azure Active Directory.</span></span> <span data-ttu-id="5aa64-107">Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="5aa64-107">For more information, see [Azure Active Directory editions](active-directory-editions.md).</span></span>
+
+<span data-ttu-id="5aa64-108">Beperk het aantal gebruikers die toegang tot beveiligde gegevens of bronnen heeft, omdat die vermindert de kans op een kwaadwillende gebruiker die toegang krijgen dat organisaties willen.</span><span class="sxs-lookup"><span data-stu-id="5aa64-108">Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious user getting that access.</span></span> <span data-ttu-id="5aa64-109">Gebruikers moeten echter nog steeds bij het uitvoeren van bevoorrechte bewerkingen in Azure, Office 365 of SaaS-apps.</span><span class="sxs-lookup"><span data-stu-id="5aa64-109">However, users still need to carry out privileged operations in Azure, Office 365, or SaaS apps.</span></span> <span data-ttu-id="5aa64-110">Organisaties gebruikers bevoorrechte toegang te geven in Azure AD zonder te controleren wat gebruikers doen met hun beheerdersbevoegdheden.</span><span class="sxs-lookup"><span data-stu-id="5aa64-110">Organizations give users privileged access in Azure AD without monitoring what those users are doing with their admin privileges.</span></span> <span data-ttu-id="5aa64-111">Azure AD Privileged Identity Management helpt bij het oplossen van dit risico.</span><span class="sxs-lookup"><span data-stu-id="5aa64-111">Azure AD Privileged Identity Management helps to resolve this risk.</span></span>  
+
+<span data-ttu-id="5aa64-112">Azure AD Privileged Identity Management kunt u:</span><span class="sxs-lookup"><span data-stu-id="5aa64-112">Azure AD Privileged Identity Management helps you:</span></span>  
+
+* <span data-ttu-id="5aa64-113">Zien welke gebruikers zijn Azure AD-beheerders</span><span class="sxs-lookup"><span data-stu-id="5aa64-113">See which users are Azure AD administrators</span></span>
+* <span data-ttu-id="5aa64-114">On-demand 'just in time' beheerderstoegang toewijzen voor Microsoft Online Services, zoals Office 365 en Intune inschakelen</span><span class="sxs-lookup"><span data-stu-id="5aa64-114">Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune</span></span>
+* <span data-ttu-id="5aa64-115">Rapporten over beheerder toegang tot geschiedenis en wijzigingen in beheerderstoewijzingen ophalen</span><span class="sxs-lookup"><span data-stu-id="5aa64-115">Get reports about administrator access history and changes in administrator assignments</span></span>
+* <span data-ttu-id="5aa64-116">Ontvang waarschuwingen over de toegang tot een bevoorrechte rol</span><span class="sxs-lookup"><span data-stu-id="5aa64-116">Get alerts about access to a privileged role</span></span>
+* <span data-ttu-id="5aa64-117">Goedkeuring vereist voor het activeren van (Preview)</span><span class="sxs-lookup"><span data-stu-id="5aa64-117">Require approval to activate (Preview)</span></span>
+
+<span data-ttu-id="5aa64-118">Azure AD Privileged Identity Management kunt beheren de ingebouwde Azure AD organisatie-functies, inclusief (maar niet beperkt tot):</span><span class="sxs-lookup"><span data-stu-id="5aa64-118">Azure AD Privileged Identity Management can manage the built-in Azure AD organizational roles, including (but not limited to):</span></span>  
+
+* <span data-ttu-id="5aa64-119">Globale beheerder</span><span class="sxs-lookup"><span data-stu-id="5aa64-119">Global Administrator</span></span>
+* <span data-ttu-id="5aa64-120">Financieel medewerker</span><span class="sxs-lookup"><span data-stu-id="5aa64-120">Billing Administrator</span></span>
+* <span data-ttu-id="5aa64-121">Servicebeheerder</span><span class="sxs-lookup"><span data-stu-id="5aa64-121">Service Administrator</span></span>  
+* <span data-ttu-id="5aa64-122">De beheerder van de gebruiker</span><span class="sxs-lookup"><span data-stu-id="5aa64-122">User Administrator</span></span>
+* <span data-ttu-id="5aa64-123">Wachtwoordbeheerder</span><span class="sxs-lookup"><span data-stu-id="5aa64-123">Password Administrator</span></span>
+
+## <a name="just-in-time-administrator-access"></a><span data-ttu-id="5aa64-124">Alleen bij beheerderstoegang tijd</span><span class="sxs-lookup"><span data-stu-id="5aa64-124">Just in time administrator access</span></span>
+<span data-ttu-id="5aa64-125">In het verleden hebben toewijzen u een gebruiker aan een rol admin via de klassieke Azure-portal of de Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="5aa64-125">Historically, you could assign a user to an admin role through the Azure classic portal or Windows PowerShell.</span></span> <span data-ttu-id="5aa64-126">Als gevolg hiervan die gebruiker wordt een **permanente beheerder**, altijd actief is in de toegewezen rol.</span><span class="sxs-lookup"><span data-stu-id="5aa64-126">As a result, that user becomes a **permanent admin**, always active in the assigned role.</span></span> <span data-ttu-id="5aa64-127">Azure AD Privileged Identity Management introduceert het concept van een **in aanmerking komende admin**.</span><span class="sxs-lookup"><span data-stu-id="5aa64-127">Azure AD Privileged Identity Management introduces the concept of an **eligible admin**.</span></span> <span data-ttu-id="5aa64-128">In aanmerking komende beheerders moeten gebruikers die bevoorrechte toegang af en toe, maar niet elke dag moeten.</span><span class="sxs-lookup"><span data-stu-id="5aa64-128">Eligible admins should be users that need privileged access now and then, but not every day.</span></span> <span data-ttu-id="5aa64-129">De rol is niet actief totdat de gebruiker toegang, moet vervolgens zij een activering te voltooien en een actieve beheerder voor een vooraf bepaalde hoeveelheid tijd zijn geworden.</span><span class="sxs-lookup"><span data-stu-id="5aa64-129">The role is inactive until the user needs access, then they complete an activation process and become an active admin for a predetermined amount of time.</span></span>
+
+## <a name="enable-privileged-identity-management-for-your-directory"></a><span data-ttu-id="5aa64-130">Privileged Identity Management voor uw directory inschakelen</span><span class="sxs-lookup"><span data-stu-id="5aa64-130">Enable Privileged Identity Management for your directory</span></span>
+<span data-ttu-id="5aa64-131">U kunt starten met Azure AD Privileged Identity Management in de [Azure-portal](https://portal.azure.com/).</span><span class="sxs-lookup"><span data-stu-id="5aa64-131">You can start using Azure AD Privileged Identity Management in the [Azure portal](https://portal.azure.com/).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="5aa64-132">U moet een globale beheerder met een organisatieaccount (bijvoorbeeld @yourdomain.com), niet in een Microsoft-account (bijvoorbeeld @outlook.com), zodat de Azure AD Privileged Identity Management voor een map.</span><span class="sxs-lookup"><span data-stu-id="5aa64-132">You must be a global administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.</span></span>
+
+1. <span data-ttu-id="5aa64-133">Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van uw directory.</span><span class="sxs-lookup"><span data-stu-id="5aa64-133">Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your directory.</span></span>
+2. <span data-ttu-id="5aa64-134">Als uw organisatie meerdere directory's heeft, selecteert u uw gebruikersnaam rechtsboven in de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="5aa64-134">If your organization has more than one directory, select your username in the upper right-hand corner of the Azure portal.</span></span> <span data-ttu-id="5aa64-135">Selecteer de map waar u Azure AD Privileged Identity Management gebruikt.</span><span class="sxs-lookup"><span data-stu-id="5aa64-135">Select the directory where you will use Azure AD Privileged Identity Management.</span></span>
+3. <span data-ttu-id="5aa64-136">Selecteer **Meer services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.</span><span class="sxs-lookup"><span data-stu-id="5aa64-136">Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.</span></span>
+4. <span data-ttu-id="5aa64-137">Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**.</span><span class="sxs-lookup"><span data-stu-id="5aa64-137">Check **Pin to dashboard** and then click **Create**.</span></span> <span data-ttu-id="5aa64-138">De Privileged Identity Management-toepassing wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="5aa64-138">The Privileged Identity Management application opens.</span></span>
+
+<span data-ttu-id="5aa64-139">Als u de eerste persoon bent die Azure AD Privileged Identity Management in uw directory gebruikt, wordt u via de [wizard Beveiliging](active-directory-privileged-identity-management-security-wizard.md) stapsgewijs begeleid bij de eerste toewijzing.</span><span class="sxs-lookup"><span data-stu-id="5aa64-139">If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) walks you through the initial assignment experience.</span></span> <span data-ttu-id="5aa64-140">Hierna als u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de map.</span><span class="sxs-lookup"><span data-stu-id="5aa64-140">After that you automatically become the first **Security administrator** and **Privileged role administrator** of the directory.</span></span>
+
+<span data-ttu-id="5aa64-141">Alleen een beheerder met bevoorrechte rol kan toegang beheren voor andere beheerders.</span><span class="sxs-lookup"><span data-stu-id="5aa64-141">Only a privileged role administrator can manage access for other administrators.</span></span> <span data-ttu-id="5aa64-142">U kunt [bieden andere gebruikers de mogelijkheid om te beheren en PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).</span><span class="sxs-lookup"><span data-stu-id="5aa64-142">You can [give other users the ability to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).</span></span>
+
+## <a name="privileged-identity-management-admin-dashboard"></a><span data-ttu-id="5aa64-143">Privileged Identity Management admin-dashboard</span><span class="sxs-lookup"><span data-stu-id="5aa64-143">Privileged Identity Management admin dashboard</span></span>
+<span data-ttu-id="5aa64-144">Azure AD Privileged Identity Manager biedt een beheerder dashboard waarmee u belangrijke informatie zoals:</span><span class="sxs-lookup"><span data-stu-id="5aa64-144">Azure AD Privileged Identity Manager provides an admin dashboard that gives you important information such as:</span></span>
+
+* <span data-ttu-id="5aa64-145">Waarschuwingen die wijzen op de mogelijkheden voor verbeterde beveiliging</span><span class="sxs-lookup"><span data-stu-id="5aa64-145">Alerts that point out opportunities to improve security</span></span>
+* <span data-ttu-id="5aa64-146">Het aantal gebruikers die zijn toegewezen aan elke bevoorrechte rol</span><span class="sxs-lookup"><span data-stu-id="5aa64-146">The number of users who are assigned to each privileged role</span></span>  
+* <span data-ttu-id="5aa64-147">Het aantal in aanmerking komende en permanente beheerders</span><span class="sxs-lookup"><span data-stu-id="5aa64-147">The number of eligible and permanent admins</span></span>
+* <span data-ttu-id="5aa64-148">Een grafiek van activeringen voor bevoorrechte rollen in uw directory</span><span class="sxs-lookup"><span data-stu-id="5aa64-148">A graph of privileged role activations in your directory</span></span>
+
+![PIM-dashboard - schermafbeelding][2]
+
+## <a name="privileged-role-management"></a><span data-ttu-id="5aa64-150">Bevoorrechte rollen beheren</span><span class="sxs-lookup"><span data-stu-id="5aa64-150">Privileged role management</span></span>
+<span data-ttu-id="5aa64-151">Met Azure AD Privileged Identity Management, kunt u de beheerders beheren door toe te voegen of te verwijderen of de in aanmerking komende beheerders aan elke rol.</span><span class="sxs-lookup"><span data-stu-id="5aa64-151">With Azure AD Privileged Identity Management, you can manage the administrators by adding or removing permanent or eligible administrators to each role.</span></span>
+
+![PIM toevoegen of verwijderen administrators - schermafbeelding][3]
+
+## <a name="configure-the-role-activation-settings"></a><span data-ttu-id="5aa64-153">Configureer de instellingen van de activering</span><span class="sxs-lookup"><span data-stu-id="5aa64-153">Configure the role activation settings</span></span>
+<span data-ttu-id="5aa64-154">Met behulp van de [rolinstellingen](active-directory-privileged-identity-management-how-to-change-default-settings.md) kunt u de rol van in aanmerking komende activering-eigenschappen, waaronder:</span><span class="sxs-lookup"><span data-stu-id="5aa64-154">Using the [role settings](active-directory-privileged-identity-management-how-to-change-default-settings.md) you can configure the eligible role activation properties including:</span></span>
+
+* <span data-ttu-id="5aa64-155">De duur van de rol activeringsperiode</span><span class="sxs-lookup"><span data-stu-id="5aa64-155">The duration of the role activation period</span></span>
+* <span data-ttu-id="5aa64-156">De melding van rolactivering</span><span class="sxs-lookup"><span data-stu-id="5aa64-156">The role activation notification</span></span>
+* <span data-ttu-id="5aa64-157">De informatie die een gebruiker moet worden geleverd tijdens de activering van de rol</span><span class="sxs-lookup"><span data-stu-id="5aa64-157">The information a user needs to provide during the role activation process</span></span>
+* <span data-ttu-id="5aa64-158">Nummer van het ticket of incident service</span><span class="sxs-lookup"><span data-stu-id="5aa64-158">Service ticket or incident number</span></span>
+* [<span data-ttu-id="5aa64-159">Vereisten voor goedkeuring workflow - Preview</span><span class="sxs-lookup"><span data-stu-id="5aa64-159">Approval workflow requirements - Preview</span></span>](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
+
+![PIM-instellingen - activering van de administrator - schermafbeelding][4]
+
+<span data-ttu-id="5aa64-161">Houd er rekening mee dat in de installatiekopie van de knoppen voor **multi-Factor Authentication** zijn uitgeschakeld.</span><span class="sxs-lookup"><span data-stu-id="5aa64-161">Note that in the image, the buttons for **Multi-Factor Authentication** are disabled.</span></span> <span data-ttu-id="5aa64-162">Voor bepaalde, maximaal beschermde rollen, MFA is vereist voor betere beveiliging.</span><span class="sxs-lookup"><span data-stu-id="5aa64-162">For certain, highly privileged roles, we require MFA for heightened protection.</span></span>
+
+## <a name="role-activation"></a><span data-ttu-id="5aa64-163">Rolactivering</span><span class="sxs-lookup"><span data-stu-id="5aa64-163">Role activation</span></span>
+<span data-ttu-id="5aa64-164">Naar [een rol activeren](active-directory-privileged-identity-management-how-to-activate-role.md), een in aanmerking komende beheerder vraagt een tijdsgebonden 'activation' voor de rol.</span><span class="sxs-lookup"><span data-stu-id="5aa64-164">To [activate a role](active-directory-privileged-identity-management-how-to-activate-role.md), an eligible admin requests a time-bound "activation" for the role.</span></span> <span data-ttu-id="5aa64-165">De activering kan worden aangevraagd met behulp van de **mijn rol activeren** optie in Azure AD Privileged Identity Management.</span><span class="sxs-lookup"><span data-stu-id="5aa64-165">The activation can be requested using the **Activate my role** option in Azure AD Privileged Identity Management.</span></span>
+
+<span data-ttu-id="5aa64-166">Een beheerder die een rol activeren wil moet het initialiseren van Azure AD Privileged Identity Management in Azure portal.</span><span class="sxs-lookup"><span data-stu-id="5aa64-166">An admin who wants to activate a role needs to initialize Azure AD Privileged Identity Management in the Azure portal.</span></span>
+
+<span data-ttu-id="5aa64-167">Rolactivering kan worden aangepast.</span><span class="sxs-lookup"><span data-stu-id="5aa64-167">Role activation is customizable.</span></span> <span data-ttu-id="5aa64-168">In de PIM-instellingen, kunt u bepalen de lengte van de activering en wat de beheerder moet worden geleverd voor het activeren van de rol informatie.</span><span class="sxs-lookup"><span data-stu-id="5aa64-168">In the PIM settings, you can determine the length of the activation and what information the admin needs to provide to activate the role.</span></span>
+
+![PIM-beheerder aanvraag rolactivering - schermafbeelding][5]
+
+## <a name="review-role-activity"></a><span data-ttu-id="5aa64-170">Rol controleactiviteit</span><span class="sxs-lookup"><span data-stu-id="5aa64-170">Review role activity</span></span>
+<span data-ttu-id="5aa64-171">Er zijn twee manieren om bij te houden hoe uw werknemers en beheerders bevoorrechte rollen gebruiken.</span><span class="sxs-lookup"><span data-stu-id="5aa64-171">There are two ways to track how your employees and admins are using privileged roles.</span></span> <span data-ttu-id="5aa64-172">Het gebruik van de eerste optie [Directory rollen controlegeschiedenis](active-directory-privileged-identity-management-how-to-use-audit-log.md).</span><span class="sxs-lookup"><span data-stu-id="5aa64-172">The first option is using [Directory Roles audit history](active-directory-privileged-identity-management-how-to-use-audit-log.md).</span></span> <span data-ttu-id="5aa64-173">De controlegeschiedenis registreert het bijhouden van wijzigingen in de toewijzingen van bevoorrechte rollen en rol activering geschiedenis.</span><span class="sxs-lookup"><span data-stu-id="5aa64-173">The audit history logs track changes in privileged role assignments and role activation history.</span></span>
+
+![PIM-activering geschiedenis - schermafbeelding][6]
+
+<span data-ttu-id="5aa64-175">De tweede optie is het instellen van reguliere [toegang tot beoordelingen](active-directory-privileged-identity-management-how-to-start-security-review.md).</span><span class="sxs-lookup"><span data-stu-id="5aa64-175">The second option is to set up regular [access reviews](active-directory-privileged-identity-management-how-to-start-security-review.md).</span></span> <span data-ttu-id="5aa64-176">Deze beoordelingen toegang kunnen worden uitgevoerd door en toegewezen revisor (zoals een teammanager) of de werknemers zelf kunnen bekijken.</span><span class="sxs-lookup"><span data-stu-id="5aa64-176">These access reviews can be performed by and assigned reviewer (like a team manager) or the employees can review themselves.</span></span> <span data-ttu-id="5aa64-177">Dit is de beste manier om te controleren die nog steeds toegang is vereist en die niet langer wordt.</span><span class="sxs-lookup"><span data-stu-id="5aa64-177">This is the best way to monitor who still requires access, and who no longer does.</span></span>
+
+## <a name="azure-ad-pim-at-subscription-expiration"></a><span data-ttu-id="5aa64-178">Azure AD PIM op het abonnement is verlopen</span><span class="sxs-lookup"><span data-stu-id="5aa64-178">Azure AD PIM at subscription expiration</span></span>
+<span data-ttu-id="5aa64-179">Vóór de algemene beschikbaarheid is bereikt Azure AD PIM Preview-versie is en er zijn geen controles licentie voor een tenant voor de preview van Azure AD PIM.</span><span class="sxs-lookup"><span data-stu-id="5aa64-179">Prior to reaching general availability Azure AD PIM was in preview and there were no license checks for a tenant to preview Azure AD PIM.</span></span>  <span data-ttu-id="5aa64-180">Nu dat Azure AD PIM algemene beschikbaarheid bereikt heeft, moeten proefaccount of betaald licenties worden toegewezen aan de groep administrators van de tenant wilt blijven gebruiken PIM.</span><span class="sxs-lookup"><span data-stu-id="5aa64-180">Now that Azure AD PIM has reached general availability, trial or paid licenses must be assigned to the administrators of the tenant to continue using PIM.</span></span>  <span data-ttu-id="5aa64-181">Als uw organisatie geen Azure AD Premium-P2 aanschaffen heeft of de proefversie verloopt, wordt voornamelijk alle Azure AD PIM functies niet langer beschikbaar in uw tenant.</span><span class="sxs-lookup"><span data-stu-id="5aa64-181">If your organization does not purchase Azure AD Premium P2 or your trial expires, mostly all of the Azure AD PIM features will no longer be available in your tenant.</span></span>  <span data-ttu-id="5aa64-182">U kunt meer informatie in de [vereisten voor Azure AD PIM-abonnement](./privileged-identity-management/subscription-requirements.md)</span><span class="sxs-lookup"><span data-stu-id="5aa64-182">You can read more in the [Azure AD PIM subscription requirements](./privileged-identity-management/subscription-requirements.md)</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="5aa64-183">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="5aa64-183">Next steps</span></span>
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
+[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
+[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
+[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
+[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
+[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png

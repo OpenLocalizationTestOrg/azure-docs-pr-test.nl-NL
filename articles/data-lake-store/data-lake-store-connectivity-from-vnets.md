@@ -1,0 +1,57 @@
+---
+title: Verbinding maken met Azure Data Lake Store vanaf VNETs | Microsoft Docs
+description: Verbinding maken met Azure Data Lake Store vanaf Azure VNETs
+services: data-lake-store,data-catalog
+documentationcenter: 
+author: nitinme
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 05/10/2017
+ms.author: nitinme
+ms.openlocfilehash: ff7d28d7b53e872b804788647b1e672fafcf6995
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a><span data-ttu-id="cefa2-103">Toegang tot Azure Data Lake Store van VM's binnen een Azure VNET</span><span class="sxs-lookup"><span data-stu-id="cefa2-103">Access Azure Data Lake Store from VMs within an Azure VNET</span></span>
+<span data-ttu-id="cefa2-104">Azure Data Lake Store is een PaaS-service die wordt uitgevoerd op het openbare Internet IP-adressen.</span><span class="sxs-lookup"><span data-stu-id="cefa2-104">Azure Data Lake Store is a PaaS service that runs on public Internet IP addresses.</span></span> <span data-ttu-id="cefa2-105">Een server die verbinding met het openbare Internet maken kan kunt maken doorgaans verbinding met Azure Data Lake Store-eindpunten ook.</span><span class="sxs-lookup"><span data-stu-id="cefa2-105">Any server that can connect to the public Internet can typically connect to Azure Data Lake Store endpoints as well.</span></span> <span data-ttu-id="cefa2-106">Standaard alle VM's die in Azure VNETs kunnen toegang tot het Internet en daarmee toegang tot Azure Data Lake Store.</span><span class="sxs-lookup"><span data-stu-id="cefa2-106">By default, all VMs that are in Azure VNETs can access the Internet and hence can access Azure Data Lake Store.</span></span> <span data-ttu-id="cefa2-107">Het is echter mogelijk voor het configureren van virtuele machines in een VNET-naar-geen toegang tot het Internet.</span><span class="sxs-lookup"><span data-stu-id="cefa2-107">However, it is possible to configure VMs in a VNET to not have access to the Internet.</span></span> <span data-ttu-id="cefa2-108">Voor deze VM's is toegang tot Azure Data Lake Store beperkt ook.</span><span class="sxs-lookup"><span data-stu-id="cefa2-108">For such VMs, access to Azure Data Lake Store is restricted as well.</span></span> <span data-ttu-id="cefa2-109">Openbare toegang tot Internet blokkeren voor virtuele machines in Azure VNETs kan worden gedaan met behulp van de volgende benadering.</span><span class="sxs-lookup"><span data-stu-id="cefa2-109">Blocking public Internet access for VMs in Azure VNETs can be done using any of the following approach.</span></span>
+
+* <span data-ttu-id="cefa2-110">Door het configureren van Netwerkbeveiligingsgroep groepen (NSG)</span><span class="sxs-lookup"><span data-stu-id="cefa2-110">By configuring Network Security Groups (NSG)</span></span>
+* <span data-ttu-id="cefa2-111">Door gebruiker gedefinieerde Routes (UDR) configureren</span><span class="sxs-lookup"><span data-stu-id="cefa2-111">By configuring User Defined Routes (UDR)</span></span>
+* <span data-ttu-id="cefa2-112">Door het uitwisselen van routes via BGP (dynamische routering standaardprotocol) wanneer u ExpressRoute gebruikt dat blok toegang tot het Internet</span><span class="sxs-lookup"><span data-stu-id="cefa2-112">By exchanging routes via BGP (industry standard dynamic routing protocol) when ExpressRoute is used that block access to the Internet</span></span>
+
+<span data-ttu-id="cefa2-113">In dit artikel leert u hoe u toegang inschakelen voor Azure Data Lake Store van de Azure VM's die zijn beperkt tot toegang tot bronnen met behulp van een van de drie methoden die hierboven worden genoemd.</span><span class="sxs-lookup"><span data-stu-id="cefa2-113">In this article, you will learn how to enable access to the Azure Data Lake Store from Azure VMs which have been restricted to access resources using one of the three methods listed above.</span></span>
+
+## <a name="enabling-connectivity-to-azure-data-lake-store-from-vms-with-restricted-connectivity"></a><span data-ttu-id="cefa2-114">Connectiviteit met Azure Data Lake Store inschakelen van VM's met beperkte connectiviteit</span><span class="sxs-lookup"><span data-stu-id="cefa2-114">Enabling connectivity to Azure Data Lake Store from VMs with restricted connectivity</span></span>
+<span data-ttu-id="cefa2-115">Voor toegang tot Azure Data Lake Store van dergelijke virtuele machines, moet u configureren zodat ze toegang krijgen tot het IP-adres waar het Azure Data Lake Store-account beschikbaar is.</span><span class="sxs-lookup"><span data-stu-id="cefa2-115">To access Azure Data Lake Store from such VMs, you must configure them to access the IP address where the Azure Data Lake Store account is available.</span></span> <span data-ttu-id="cefa2-116">U kunt de IP-adressen voor uw Data Lake Store-accounts identificeren door de DNS-namen van uw accounts op te lossen (`<account>.azuredatalakestore.net`).</span><span class="sxs-lookup"><span data-stu-id="cefa2-116">You can identify the IP addresses for your Data Lake Store accounts by resolving the DNS names of your accounts (`<account>.azuredatalakestore.net`).</span></span> <span data-ttu-id="cefa2-117">Hiervoor kunt u hulpprogramma's zoals **nslookup**.</span><span class="sxs-lookup"><span data-stu-id="cefa2-117">For this you can use tools such as **nslookup**.</span></span> <span data-ttu-id="cefa2-118">Open een opdrachtprompt op de computer en voer de volgende opdracht.</span><span class="sxs-lookup"><span data-stu-id="cefa2-118">Open a command prompt on your computer and run the following command.</span></span>
+
+    nslookup mydatastore.azuredatalakestore.net
+
+<span data-ttu-id="cefa2-119">De uitvoer lijkt op de volgende.</span><span class="sxs-lookup"><span data-stu-id="cefa2-119">The output resembles the following.</span></span> <span data-ttu-id="cefa2-120">De waarde ten opzichte van **adres** eigenschap is het IP-adres dat is gekoppeld aan uw Data Lake Store-account.</span><span class="sxs-lookup"><span data-stu-id="cefa2-120">The value against **Address** property is the IP address associated with your Data Lake Store account.</span></span>
+
+    Non-authoritative answer:
+    Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
+    Address:  104.44.88.112
+    Aliases:  mydatastore.azuredatalakestore.net
+
+
+### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a><span data-ttu-id="cefa2-121">Verbinding van VM's met behulp van de NSG beperkt inschakelen</span><span class="sxs-lookup"><span data-stu-id="cefa2-121">Enabling connectivity from VMs restricted by using NSG</span></span>
+<span data-ttu-id="cefa2-122">Wanneer u een NSG-regel wordt gebruikt voor het blokkeren van toegang tot het Internet, kunt u een andere NSG die toegang tot het Data Lake Store IP-adres verleent maken.</span><span class="sxs-lookup"><span data-stu-id="cefa2-122">When a NSG rule is used to block access to the Internet, then you can create another NSG that allows access to the Data Lake Store IP Address.</span></span> <span data-ttu-id="cefa2-123">Meer informatie over het NSG-regels is beschikbaar op [wat is er een Netwerkbeveiligingsgroep?](../virtual-network/virtual-networks-nsg.md).</span><span class="sxs-lookup"><span data-stu-id="cefa2-123">More information on NSG rules is available at [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md).</span></span> <span data-ttu-id="cefa2-124">Zie voor instructies over het maken van de nsg's [het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).</span><span class="sxs-lookup"><span data-stu-id="cefa2-124">For instructions on how to create NSGs see [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).</span></span>
+
+### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a><span data-ttu-id="cefa2-125">Verbinding van VM's met behulp van UDR of ExpressRoute beperkt inschakelen</span><span class="sxs-lookup"><span data-stu-id="cefa2-125">Enabling connectivity from VMs restricted by using UDR or ExpressRoute</span></span>
+<span data-ttu-id="cefa2-126">Als routes, udr's of uitgewisseld BGP routes worden gebruikt voor het blokkeren van toegang tot het Internet, moet een speciale route worden geconfigureerd zodat virtuele machines in deze subnetten toegang Data Lake Store-eindpunten tot hebben.</span><span class="sxs-lookup"><span data-stu-id="cefa2-126">When routes, either UDRs or BGP-exchanged routes, are used to block access to the Internet, a special route needs to be configured so that VMs in such subnets can access Data Lake Store endpoints.</span></span> <span data-ttu-id="cefa2-127">Zie voor meer informatie [wat de gebruiker gedefinieerde Routes zijn?](../virtual-network/virtual-networks-udr-overview.md).</span><span class="sxs-lookup"><span data-stu-id="cefa2-127">For more information, see [What are User Defined Routes?](../virtual-network/virtual-networks-udr-overview.md).</span></span> <span data-ttu-id="cefa2-128">Zie voor instructies over het maken van udr's [maken udr's in Resource Manager](../virtual-network/virtual-network-create-udr-arm-ps.md).</span><span class="sxs-lookup"><span data-stu-id="cefa2-128">For instructions on creating UDRs, see [Create UDRs in Resource Manager](../virtual-network/virtual-network-create-udr-arm-ps.md).</span></span>
+
+### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a><span data-ttu-id="cefa2-129">Verbinding van VM's met behulp van ExpressRoute beperkt inschakelen</span><span class="sxs-lookup"><span data-stu-id="cefa2-129">Enabling connectivity from VMs restricted by using ExpressRoute</span></span>
+<span data-ttu-id="cefa2-130">Wanneer een ExpressRoute-circuit is geconfigureerd, kunnen de on-premises servers toegang tot Data Lake Store via openbare peering.</span><span class="sxs-lookup"><span data-stu-id="cefa2-130">When an ExpressRoute circuit is configured, the on-premises servers can access Data Lake Store through public peering.</span></span> <span data-ttu-id="cefa2-131">Meer informatie over het configureren van ExpressRoute voor openbare peering is beschikbaar op [Veelgestelde vragen over ExpressRoute](../expressroute/expressroute-faqs.md).</span><span class="sxs-lookup"><span data-stu-id="cefa2-131">More details on configuring ExpressRoute for public peering is available at [ExpressRoute FAQs](../expressroute/expressroute-faqs.md).</span></span>
+
+## <a name="see-also"></a><span data-ttu-id="cefa2-132">Zie ook</span><span class="sxs-lookup"><span data-stu-id="cefa2-132">See also</span></span>
+* [<span data-ttu-id="cefa2-133">Overzicht van Azure Data Lake Store</span><span class="sxs-lookup"><span data-stu-id="cefa2-133">Overview of Azure Data Lake Store</span></span>](data-lake-store-overview.md)
+* [<span data-ttu-id="cefa2-134">De beveiliging van gegevens die zijn opgeslagen in Azure Data Lake Store</span><span class="sxs-lookup"><span data-stu-id="cefa2-134">Securing data stored in Azure Data Lake Store</span></span>](data-lake-store-security-overview.md)
+
