@@ -1,0 +1,1 @@
+Installeer zo nodig de Azure PowerShell-module met behulp van de instructies in de [Azure PowerShell handleiding](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), en voer vervolgens `Login-AzureRmAccount` geen verbinding maken met Azure. Bovendien moet u een openbare SSH-sleutel met de naam `id_rsa.pub` in de SSH-map van uw gebruikersprofiel.
