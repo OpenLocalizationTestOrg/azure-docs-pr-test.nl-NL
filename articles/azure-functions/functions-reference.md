@@ -1,0 +1,136 @@
+---
+title: Richtlijnen voor het ontwikkelen van Azure Functions | Microsoft Docs
+description: Informatie over de Azure Functions-concepten en technieken die u nodig hebt voor het ontwikkelen van functies in Azure, over alle programmeertalen en bindingen.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: 
+tags: 
+keywords: Developer guide, azure-functies, functies, gebeurtenisverwerking webhooks, dynamische compute, zonder server-architectuur
+ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
+ms.service: functions
+ms.devlang: multiple
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 05/30/2017
+ms.author: chrande
+ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="azure-functions-developers-guide"></a><span data-ttu-id="a8152-104">Azure Functions-handleiding voor ontwikkelaars</span><span class="sxs-lookup"><span data-stu-id="a8152-104">Azure Functions developers guide</span></span>
+<span data-ttu-id="a8152-105">Specifieke functies delen in Azure Functions enkele core technische concepten en -onderdelen, ongeacht de taal of een binding die u gebruikt.</span><span class="sxs-lookup"><span data-stu-id="a8152-105">In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use.</span></span> <span data-ttu-id="a8152-106">Voordat u in het leren van gegevens die specifiek zijn voor een bepaalde taal of binding gaan, moet Lees dit overzicht die van toepassing op alle mappen.</span><span class="sxs-lookup"><span data-stu-id="a8152-106">Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.</span></span>
+
+<span data-ttu-id="a8152-107">In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [overzicht van Azure Functions](functions-overview.md) en bekend bent met [WebJobs SDK concepten zoals triggers en bindingen de runtime JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md).</span><span class="sxs-lookup"><span data-stu-id="a8152-107">This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md).</span></span> <span data-ttu-id="a8152-108">Azure Functions is gebaseerd op de WebJobs SDK.</span><span class="sxs-lookup"><span data-stu-id="a8152-108">Azure Functions is based on the WebJobs SDK.</span></span> 
+
+## <a name="function-code"></a><span data-ttu-id="a8152-109">Functiecode</span><span class="sxs-lookup"><span data-stu-id="a8152-109">Function code</span></span>
+<span data-ttu-id="a8152-110">Een *functie* is het primaire concept in Azure Functions.</span><span class="sxs-lookup"><span data-stu-id="a8152-110">A *function* is the primary concept in Azure Functions.</span></span> <span data-ttu-id="a8152-111">U code schrijven voor een functie in een andere taal van uw keuze en slaat de code en configuratie-bestanden in dezelfde map.</span><span class="sxs-lookup"><span data-stu-id="a8152-111">You write code for a function in a language of your choice and save the code and configuration files in the same folder.</span></span> <span data-ttu-id="a8152-112">De configuratie is met de naam `function.json`, die de JSON-configuratiegegevens bevat.</span><span class="sxs-lookup"><span data-stu-id="a8152-112">The configuration is named `function.json`, which contains JSON configuration data.</span></span> <span data-ttu-id="a8152-113">Diverse talen worden ondersteund, en elke service heeft een iets andere ervaring die is geoptimaliseerd voor het meest geschikt zijn voor die taal.</span><span class="sxs-lookup"><span data-stu-id="a8152-113">Various languages are supported, and each one has a slightly different experience optimized to work best for that language.</span></span> 
+
+<span data-ttu-id="a8152-114">Het bestand function.json definieert de functiebindingen en andere configuratie-instellingen.</span><span class="sxs-lookup"><span data-stu-id="a8152-114">The function.json file defines the function bindings and other configuration settings.</span></span> <span data-ttu-id="a8152-115">De runtime maakt gebruik van dit bestand om te bepalen welke gebeurtenissen u wilt bewaken en het doorgeven van gegevens in en gegevens retourneren van een functie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="a8152-115">The runtime uses this file to determine the events to monitor and how to pass data into and return data from function execution.</span></span> <span data-ttu-id="a8152-116">Hier volgt een voorbeeld function.json-bestand.</span><span class="sxs-lookup"><span data-stu-id="a8152-116">The following is an example function.json file.</span></span>
+
+```json
+{
+    "disabled":false,
+    "bindings":[
+        // ... bindings here
+        {
+            "type": "bindingType",
+            "direction": "in",
+            "name": "myParamName",
+            // ... more depending on binding
+        }
+    ]
+}
+```
+
+<span data-ttu-id="a8152-117">Stel de `disabled` eigenschap `true` om te voorkomen dat de functie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="a8152-117">Set the `disabled` property to `true` to prevent the function from being executed.</span></span>
+
+<span data-ttu-id="a8152-118">De `bindings` eigenschap is waar u zowel triggers en bindingen configureren.</span><span class="sxs-lookup"><span data-stu-id="a8152-118">The `bindings` property is where you configure both triggers and bindings.</span></span> <span data-ttu-id="a8152-119">Elke binding deelt enkele algemene instellingen en sommige instellingen die specifiek voor een bepaald type van de binding zijn.</span><span class="sxs-lookup"><span data-stu-id="a8152-119">Each binding shares a few common settings and some settings, which are specific to a particular type of binding.</span></span> <span data-ttu-id="a8152-120">Elke binding moet de volgende instellingen:</span><span class="sxs-lookup"><span data-stu-id="a8152-120">Every binding requires the following settings:</span></span>
+
+| <span data-ttu-id="a8152-121">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="a8152-121">Property</span></span> | <span data-ttu-id="a8152-122">Waarden/typen</span><span class="sxs-lookup"><span data-stu-id="a8152-122">Values/Types</span></span> | <span data-ttu-id="a8152-123">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="a8152-123">Comments</span></span> |
+| --- | --- | --- |
+| `type` |<span data-ttu-id="a8152-124">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="a8152-124">string</span></span> |<span data-ttu-id="a8152-125">Bindingstype.</span><span class="sxs-lookup"><span data-stu-id="a8152-125">Binding type.</span></span> <span data-ttu-id="a8152-126">Bijvoorbeeld `queueTrigger`.</span><span class="sxs-lookup"><span data-stu-id="a8152-126">For example, `queueTrigger`.</span></span> |
+| `direction` |<span data-ttu-id="a8152-127">'in', 'out'</span><span class="sxs-lookup"><span data-stu-id="a8152-127">'in', 'out'</span></span> |<span data-ttu-id="a8152-128">Hiermee wordt aangegeven of de binding voor het ontvangen van gegevens in de functie of het verzenden van gegevens van de functie.</span><span class="sxs-lookup"><span data-stu-id="a8152-128">Indicates whether the binding is for receiving data into the function or sending data from the function.</span></span> |
+| `name` |<span data-ttu-id="a8152-129">Tekenreeks</span><span class="sxs-lookup"><span data-stu-id="a8152-129">string</span></span> |<span data-ttu-id="a8152-130">De naam die wordt gebruikt voor de afhankelijke gegevens in de functie.</span><span class="sxs-lookup"><span data-stu-id="a8152-130">The name that is used for the bound data in the function.</span></span> <span data-ttu-id="a8152-131">Voor C# is dit de naam van een argument; voor JavaScript is de sleutel in een sleutel/waarde-lijst.</span><span class="sxs-lookup"><span data-stu-id="a8152-131">For C#, this is an argument name; for JavaScript, it's the key in a key/value list.</span></span> |
+
+## <a name="function-app"></a><span data-ttu-id="a8152-132">Functie-app</span><span class="sxs-lookup"><span data-stu-id="a8152-132">Function app</span></span>
+<span data-ttu-id="a8152-133">Een functie-app bestaat uit een of meer afzonderlijke functies die samen worden beheerd door Azure App Service.</span><span class="sxs-lookup"><span data-stu-id="a8152-133">A function app is comprised of one or more individual functions that are managed together by Azure App Service.</span></span> <span data-ttu-id="a8152-134">Alle functies in een functie-app delen de dezelfde prijsstelling, continue implementatie en runtime-versie.</span><span class="sxs-lookup"><span data-stu-id="a8152-134">All of the functions in a function app share the same pricing plan, continuous deployment and runtime version.</span></span> <span data-ttu-id="a8152-135">Functies die zijn geschreven in meerdere talen kunnen alle dezelfde functie app delen.</span><span class="sxs-lookup"><span data-stu-id="a8152-135">Functions written in multiple languages can all share the same function app.</span></span> <span data-ttu-id="a8152-136">Een functie-app beschouwen als een manier om te organiseren en gezamenlijk beheren van uw functies.</span><span class="sxs-lookup"><span data-stu-id="a8152-136">Think of a function app as a way to organize and collectively manage your functions.</span></span> 
+
+## <a name="runtime-script-host-and-web-host"></a><span data-ttu-id="a8152-137">Runtime (scripthost en webhost)</span><span class="sxs-lookup"><span data-stu-id="a8152-137">Runtime (script host and web host)</span></span>
+<span data-ttu-id="a8152-138">De runtime of scripthost, is de onderliggende host voor de WebJobs SDK die luistert naar gebeurtenissen, verzamelt en verzendt gegevens en uiteindelijk uw code wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="a8152-138">The runtime, or script host, is the underlying WebJobs SDK host that listens for events, gathers and sends data, and ultimately runs your code.</span></span> 
+
+<span data-ttu-id="a8152-139">Om te bevorderen HTTP-triggers, is er ook een host die is ontworpen voor de scripthost in productiescenario's zitten.</span><span class="sxs-lookup"><span data-stu-id="a8152-139">To facilitate HTTP triggers, there is also a web host that is designed to sit in front of the script host in production scenarios.</span></span> <span data-ttu-id="a8152-140">Met twee hosts eindigen helpt te isoleren van de script-host van de voorzijde verkeer die worden beheerd door de webhost.</span><span class="sxs-lookup"><span data-stu-id="a8152-140">Having two hosts helps to isolate the script host from the front end traffic managed by the web host.</span></span>
+
+## <a name="folder-structure"></a><span data-ttu-id="a8152-141">Mapstructuur</span><span class="sxs-lookup"><span data-stu-id="a8152-141">Folder Structure</span></span>
+[!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+<span data-ttu-id="a8152-142">Bij het instellen van een project voor het implementeren van functies in een functie-app in Azure App Service, kunt u deze mapstructuur behandelen als de code van uw site.</span><span class="sxs-lookup"><span data-stu-id="a8152-142">When setting-up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code.</span></span> <span data-ttu-id="a8152-143">U kunt bestaande hulpprogramma's zoals continue integratie en implementatie of aangepaste implementatie scripts hiervoor pakketinstallatie implementeren of transpilation code.</span><span class="sxs-lookup"><span data-stu-id="a8152-143">You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="a8152-144">Zorg ervoor dat voor het implementeren van uw `host.json` bestanden en mappen rechtstreeks naar werken de `wwwroot` map.</span><span class="sxs-lookup"><span data-stu-id="a8152-144">Make sure to deploy your `host.json` file and function folders directly to the `wwwroot` folder.</span></span> <span data-ttu-id="a8152-145">Neem geen de `wwwroot` map in uw implementaties.</span><span class="sxs-lookup"><span data-stu-id="a8152-145">Do not include the `wwwroot` folder in your deployments.</span></span> <span data-ttu-id="a8152-146">Anders u uiteindelijk `wwwroot\wwwroot` mappen.</span><span class="sxs-lookup"><span data-stu-id="a8152-146">Otherwise, you end up with `wwwroot\wwwroot` folders.</span></span> 
+> 
+> 
+
+## <span data-ttu-id="a8152-147"><a id="fileupdate"></a>Het bijwerken van de functie app-bestanden</span><span class="sxs-lookup"><span data-stu-id="a8152-147"><a id="fileupdate"></a> How to update function app files</span></span>
+<span data-ttu-id="a8152-148">De functie editor ingebouwd in de Azure-portal kunt u bijwerken de *function.json* bestand en het codebestand voor een functie.</span><span class="sxs-lookup"><span data-stu-id="a8152-148">The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function.</span></span> <span data-ttu-id="a8152-149">Te uploaden of andere updatebestanden zoals *package.json* of *project.json* of afhankelijkheden, hebt u andere methoden voor het implementeren.</span><span class="sxs-lookup"><span data-stu-id="a8152-149">To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.</span></span>
+
+<span data-ttu-id="a8152-150">Functie apps zijn gebouwd op App Service, zodat alle de [implementatie-opties die beschikbaar zijn voor een standaard web-apps](../app-service-web/web-sites-deploy.md) zijn ook beschikbaar voor de functie apps.</span><span class="sxs-lookup"><span data-stu-id="a8152-150">Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service-web/web-sites-deploy.md) are also available for function apps.</span></span> <span data-ttu-id="a8152-151">Hier volgen enkele methoden die u gebruiken kunt om te uploaden of bijwerken van de functie app-bestanden.</span><span class="sxs-lookup"><span data-stu-id="a8152-151">Here are some methods you can use to upload or update function app files.</span></span> 
+
+#### <a name="to-use-app-service-editor"></a><span data-ttu-id="a8152-152">App Service-Editor gebruiken</span><span class="sxs-lookup"><span data-stu-id="a8152-152">To use App Service Editor</span></span>
+1. <span data-ttu-id="a8152-153">Klik in de Azure Functions-portal op **werken app-instellingen**.</span><span class="sxs-lookup"><span data-stu-id="a8152-153">In the Azure Functions portal, click **Function app settings**.</span></span>
+2. <span data-ttu-id="a8152-154">In de **geavanceerde instellingen** sectie, klikt u op **gaat u naar App Service-instellingen**.</span><span class="sxs-lookup"><span data-stu-id="a8152-154">In the **Advanced Settings** section, click **Go to App Service Settings**.</span></span>
+3. <span data-ttu-id="a8152-155">Klik op **App Service-Editor** in App-Menu Nav onder **ONTWIKKELINGSPROGRAMMA's**.</span><span class="sxs-lookup"><span data-stu-id="a8152-155">Click **App Service Editor** in App Menu Nav under **DEVELOPMENT TOOLS**.</span></span>
+4. <span data-ttu-id="a8152-156">Klik op **gaat**.</span><span class="sxs-lookup"><span data-stu-id="a8152-156">click **Go**.</span></span>
+   
+   <span data-ttu-id="a8152-157">Nadat de App Service-Editor wordt geladen, ziet u de *host.json* bestands- en mappen onder *wwwroot*.</span><span class="sxs-lookup"><span data-stu-id="a8152-157">After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*.</span></span> 
+5. <span data-ttu-id="a8152-158">Open bestanden, bewerken of slepen en neerzetten van uw ontwikkelcomputer om bestanden te uploaden.</span><span class="sxs-lookup"><span data-stu-id="a8152-158">Open files to edit them, or drag and drop from your development machine to upload files.</span></span>
+
+#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a><span data-ttu-id="a8152-159">De functie-app SCM (Kudu) eindpunt te gebruiken</span><span class="sxs-lookup"><span data-stu-id="a8152-159">To use the function app's SCM (Kudu) endpoint</span></span>
+1. <span data-ttu-id="a8152-160">Ga naar: `https://<function_app_name>.scm.azurewebsites.net`.</span><span class="sxs-lookup"><span data-stu-id="a8152-160">Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.</span></span>
+2. <span data-ttu-id="a8152-161">Klik op **Console voor foutopsporing > CMD**.</span><span class="sxs-lookup"><span data-stu-id="a8152-161">Click **Debug Console > CMD**.</span></span>
+3. <span data-ttu-id="a8152-162">Navigeer naar `D:\home\site\wwwroot\` bijwerken *host.json* of `D:\home\site\wwwroot\<function_name>` een functie-bestanden bij te werken.</span><span class="sxs-lookup"><span data-stu-id="a8152-162">Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.</span></span>
+4. <span data-ttu-id="a8152-163">Slepen en neerzetten een bestand dat u wilt uploaden naar de juiste map in het raster bestand.</span><span class="sxs-lookup"><span data-stu-id="a8152-163">Drag-and-drop a file you want to upload into the appropriate folder in the file grid.</span></span> <span data-ttu-id="a8152-164">Er zijn twee gebieden in het bestand raster waar u een bestand kunt neerzetten.</span><span class="sxs-lookup"><span data-stu-id="a8152-164">There are two areas in the file grid where you can drop a file.</span></span> <span data-ttu-id="a8152-165">Voor *.zip* bestanden, ziet u een vak met het label 'hier naartoe slepen om te uploaden en pak."</span><span class="sxs-lookup"><span data-stu-id="a8152-165">For *.zip* files, a box appears with the label "Drag here to upload and unzip."</span></span> <span data-ttu-id="a8152-166">Voor andere bestandstypen verwijderen in het raster bestand maar buiten het vak 'pak'.</span><span class="sxs-lookup"><span data-stu-id="a8152-166">For other file types, drop in the file grid but outside the "unzip" box.</span></span>
+
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+
+#### <a name="to-use-continuous-deployment"></a><span data-ttu-id="a8152-167">Doorlopende implementatie gebruiken</span><span class="sxs-lookup"><span data-stu-id="a8152-167">To use continuous deployment</span></span>
+<span data-ttu-id="a8152-168">Volg de instructies in het onderwerp [continue implementatie voor Azure Functions](functions-continuous-deployment.md).</span><span class="sxs-lookup"><span data-stu-id="a8152-168">Follow the instructions in the topic [Continuous deployment for Azure Functions](functions-continuous-deployment.md).</span></span>
+
+## <a name="parallel-execution"></a><span data-ttu-id="a8152-169">Parallelle uitvoering</span><span class="sxs-lookup"><span data-stu-id="a8152-169">Parallel execution</span></span>
+<span data-ttu-id="a8152-170">Wanneer meerdere activerende gebeurtenissen sneller plaatsvinden dan een functie single thread-runtime kan verwerken, kan de functie meerdere keren parallel door de runtime worden aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="a8152-170">When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.</span></span>  <span data-ttu-id="a8152-171">Als een functie-app gebruikt de [verbruik die als host fungeert voor plan](functions-scale.md#how-the-consumption-plan-works), de functie-app kan automatisch geschaald uitbreiden.</span><span class="sxs-lookup"><span data-stu-id="a8152-171">If a function app is using the [Consumption hosting plan](functions-scale.md#how-the-consumption-plan-works), the function app could scale out automatically.</span></span>  <span data-ttu-id="a8152-172">Elk exemplaar van de functie-app of de app wordt uitgevoerd op het verbruik hosting-abonnement of een gewone [App Service-plan hostingplan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), gelijktijdige functie aanroepen parallel met meerdere threads mogelijk verwerkt.</span><span class="sxs-lookup"><span data-stu-id="a8152-172">Each instance of the function app, whether the app runs on the Consumption hosting plan or a regular [App Service hosting plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.</span></span>  <span data-ttu-id="a8152-173">Het maximum aantal gelijktijdige functie aanroepen in elke functie app-exemplaar afhankelijk van het type van de trigger wordt gebruikt, evenals de resources die door andere functies in de functie-app gebruikt.</span><span class="sxs-lookup"><span data-stu-id="a8152-173">The maximum number of concurrent function invocations in each function app instance varies based on the type of trigger being used as well as the resources used by other functions within the function app.</span></span>
+
+## <a name="functions-runtime-versioning"></a><span data-ttu-id="a8152-174">Functies runtime versiebeheer</span><span class="sxs-lookup"><span data-stu-id="a8152-174">Functions runtime versioning</span></span>
+
+<span data-ttu-id="a8152-175">U kunt configureren dat de versie van de functies runtime met behulp van de `FUNCTIONS_EXTENSION_VERSION` app-instelling.</span><span class="sxs-lookup"><span data-stu-id="a8152-175">You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting.</span></span> <span data-ttu-id="a8152-176">De waarde '~ 1' geeft bijvoorbeeld aan uw App in de functie wordt gebruik 1 als de primaire versie.</span><span class="sxs-lookup"><span data-stu-id="a8152-176">For example, the value "~1" indicates that your Function App will use 1 as its major version.</span></span> <span data-ttu-id="a8152-177">Functie Apps zijn bijgewerkt naar elke nieuwe secundaire versie zodra ze worden vrijgegeven.</span><span class="sxs-lookup"><span data-stu-id="a8152-177">Function Apps are upgraded to each new minor version as they are released.</span></span> <span data-ttu-id="a8152-178">U vindt de exacte versie van de functie-App in de **instellingen** tabblad in de Azure-Portal.</span><span class="sxs-lookup"><span data-stu-id="a8152-178">You can view the exact version of your Function App in the **Settings** tab in the Azure Portal.</span></span>
+
+## <a name="repositories"></a><span data-ttu-id="a8152-179">Opslagplaatsen</span><span class="sxs-lookup"><span data-stu-id="a8152-179">Repositories</span></span>
+<span data-ttu-id="a8152-180">De code voor Azure Functions is open source en opgeslagen in de GitHub-opslagplaatsen:</span><span class="sxs-lookup"><span data-stu-id="a8152-180">The code for Azure Functions is open source and stored in GitHub repositories:</span></span>
+
+* [<span data-ttu-id="a8152-181">Azure Functions-runtime</span><span class="sxs-lookup"><span data-stu-id="a8152-181">Azure Functions runtime</span></span>](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [<span data-ttu-id="a8152-182">Azure Functions-portal</span><span class="sxs-lookup"><span data-stu-id="a8152-182">Azure Functions portal</span></span>](https://github.com/projectkudu/AzureFunctionsPortal)
+* [<span data-ttu-id="a8152-183">Azure Functions-sjablonen</span><span class="sxs-lookup"><span data-stu-id="a8152-183">Azure Functions templates</span></span>](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [<span data-ttu-id="a8152-184">Azure WebJobs SDK</span><span class="sxs-lookup"><span data-stu-id="a8152-184">Azure WebJobs SDK</span></span>](https://github.com/Azure/azure-webjobs-sdk/)
+* [<span data-ttu-id="a8152-185">Azure WebJobs SDK-extensies</span><span class="sxs-lookup"><span data-stu-id="a8152-185">Azure WebJobs SDK Extensions</span></span>](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+
+## <a name="bindings"></a><span data-ttu-id="a8152-186">Bindingen</span><span class="sxs-lookup"><span data-stu-id="a8152-186">Bindings</span></span>
+<span data-ttu-id="a8152-187">Hier volgt een lijst met alle ondersteunde bindingen.</span><span class="sxs-lookup"><span data-stu-id="a8152-187">Here is a table of all supported bindings.</span></span>
+
+[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+## <a name="reporting-issues"></a><span data-ttu-id="a8152-188">Melden van problemen</span><span class="sxs-lookup"><span data-stu-id="a8152-188">Reporting Issues</span></span>
+[!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
+
+## <a name="next-steps"></a><span data-ttu-id="a8152-189">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a8152-189">Next steps</span></span>
+<span data-ttu-id="a8152-190">Zie de volgende bronnen voor meer informatie:</span><span class="sxs-lookup"><span data-stu-id="a8152-190">For more information, see the following resources:</span></span>
+
+* [<span data-ttu-id="a8152-191">Aanbevolen procedures voor Azure Functions</span><span class="sxs-lookup"><span data-stu-id="a8152-191">Best Practices for Azure Functions</span></span>](functions-best-practices.md)
+* [<span data-ttu-id="a8152-192">Azure Functions C# referentie voor ontwikkelaars</span><span class="sxs-lookup"><span data-stu-id="a8152-192">Azure Functions C# developer reference</span></span>](functions-reference-csharp.md)
+* [<span data-ttu-id="a8152-193">Azure Functions F # referentie voor ontwikkelaars</span><span class="sxs-lookup"><span data-stu-id="a8152-193">Azure Functions F# developer reference</span></span>](functions-reference-fsharp.md)
+* [<span data-ttu-id="a8152-194">Azure Functions NodeJS-referentie voor ontwikkelaars</span><span class="sxs-lookup"><span data-stu-id="a8152-194">Azure Functions NodeJS developer reference</span></span>](functions-reference-node.md)
+* [<span data-ttu-id="a8152-195">Azure Functions-triggers en bindingen</span><span class="sxs-lookup"><span data-stu-id="a8152-195">Azure Functions triggers and bindings</span></span>](functions-triggers-bindings.md)
+* <span data-ttu-id="a8152-196">[Azure Functions: Het traject](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) op de Azure App Service-team-blog.</span><span class="sxs-lookup"><span data-stu-id="a8152-196">[Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog.</span></span> <span data-ttu-id="a8152-197">Een overzicht van hoe Azure Functions is ontwikkeld.</span><span class="sxs-lookup"><span data-stu-id="a8152-197">A history of how Azure Functions was developed.</span></span>
+

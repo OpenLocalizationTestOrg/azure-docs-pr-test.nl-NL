@@ -1,0 +1,3 @@
+## <a name="whats-changed"></a><span data-ttu-id="2927f-101">Wat is er gewijzigd</span><span class="sxs-lookup"><span data-stu-id="2927f-101">What's changed</span></span>
+* <span data-ttu-id="2927f-102">Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span><span class="sxs-lookup"><span data-stu-id="2927f-102">For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span></span>
+
