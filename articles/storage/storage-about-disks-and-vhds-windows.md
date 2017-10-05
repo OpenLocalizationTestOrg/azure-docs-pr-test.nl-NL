@@ -1,0 +1,84 @@
+---
+title: Over schijven en VHD's voor Microsoft Azure VM's van Windows | Microsoft Docs
+description: Meer informatie over de basisprincipes van schijven en virtuele harde schijven voor Windows virtuele machines in Azure.
+services: storage
+documentationcenter: 
+author: robinsh
+manager: timlt
+editor: tysonn
+ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/15/2017
+ms.author: robinsh
+ms.openlocfilehash: 34a4d8fa176484fbadb1b385d794cada5be607c8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/18/2017
+---
+# <a name="about-disks-and-vhds-for-azure-windows-vms"></a><span data-ttu-id="abfe0-103">Over schijven en VHD's voor VM's van Windows Azure</span><span class="sxs-lookup"><span data-stu-id="abfe0-103">About disks and VHDs for Azure Windows VMs</span></span>
+<span data-ttu-id="abfe0-104">Net als elke andere computer gebruiken virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens.</span><span class="sxs-lookup"><span data-stu-id="abfe0-104">Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data.</span></span> <span data-ttu-id="abfe0-105">Alle virtuele machines in Azure hebt ten minste twee schijven: de schijf van een Windows-besturingssysteem en een tijdelijke schijf.</span><span class="sxs-lookup"><span data-stu-id="abfe0-105">All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk.</span></span> <span data-ttu-id="abfe0-106">De besturingssysteemschijf wordt gemaakt van een installatiekopie en zowel de besturingssysteemschijf en de installatiekopie zijn virtuele harde schijven (VHD's) opgeslagen in Azure storage-account.</span><span class="sxs-lookup"><span data-stu-id="abfe0-106">The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account.</span></span> <span data-ttu-id="abfe0-107">Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="abfe0-107">Virtual machines also can have one or more data disks, that are also stored as VHDs.</span></span> 
+
+<span data-ttu-id="abfe0-108">In dit artikel wordt hebben over de verschillende manieren worden gebruikt voor de schijven, en vervolgens bespreken de verschillende typen schijven kunt u maken en gebruiken.</span><span class="sxs-lookup"><span data-stu-id="abfe0-108">In this article, we will talk about the different uses for the disks, and then discuss the different types of disks you can create and use.</span></span> <span data-ttu-id="abfe0-109">In dit artikel is ook beschikbaar voor [virtuele Linux-machines](storage-about-disks-and-vhds-linux.md).</span><span class="sxs-lookup"><span data-stu-id="abfe0-109">This article is also available for [Linux virtual machines](storage-about-disks-and-vhds-linux.md).</span></span>
+
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+## <a name="disks-used-by-vms"></a><span data-ttu-id="abfe0-110">Schijven die worden gebruikt door virtuele machines</span><span class="sxs-lookup"><span data-stu-id="abfe0-110">Disks used by VMs</span></span>
+
+<span data-ttu-id="abfe0-111">Eens kijken hoe de schijven worden gebruikt door de virtuele machines.</span><span class="sxs-lookup"><span data-stu-id="abfe0-111">Let's take a look at how the disks are used by the VMs.</span></span>
+
+### <a name="operating-system-disk"></a><span data-ttu-id="abfe0-112">Besturingssysteemschijf</span><span class="sxs-lookup"><span data-stu-id="abfe0-112">Operating system disk</span></span>
+<span data-ttu-id="abfe0-113">Elke virtuele machine heeft een gekoppelde besturingssysteemschijf.</span><span class="sxs-lookup"><span data-stu-id="abfe0-113">Every virtual machine has one attached operating system disk.</span></span> <span data-ttu-id="abfe0-114">Het is geregistreerd als een SATA harde schijf en aangeduid als het station C: standaard.</span><span class="sxs-lookup"><span data-stu-id="abfe0-114">It's registered as a SATA drive and labeled as the C: drive by default.</span></span> <span data-ttu-id="abfe0-115">Deze schijf heeft een maximale capaciteit van 2048 gigabyte (GB).</span><span class="sxs-lookup"><span data-stu-id="abfe0-115">This disk has a maximum capacity of 2048 gigabytes (GB).</span></span> 
+
+### <a name="temporary-disk"></a><span data-ttu-id="abfe0-116">Tijdelijke schijf</span><span class="sxs-lookup"><span data-stu-id="abfe0-116">Temporary disk</span></span>
+<span data-ttu-id="abfe0-117">Elke virtuele machine bevat een tijdelijke schijf.</span><span class="sxs-lookup"><span data-stu-id="abfe0-117">Each VM contains a temporary disk.</span></span> <span data-ttu-id="abfe0-118">De tijdelijke schijf opslag op korte termijn biedt voor toepassingen en processen en voor het opslaan van gegevens, zoals pagina of het swap-bestanden alleen is bedoeld.</span><span class="sxs-lookup"><span data-stu-id="abfe0-118">The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files.</span></span> <span data-ttu-id="abfe0-119">Gegevens op de tijdelijke schijf zijn mogelijk verloren gegaan tijdens een [onderhoud](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) of wanneer u [opnieuw implementeren van een virtuele machine](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="abfe0-119">Data on the temporary disk may be lost during a [maintenance event](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) or when you [redeploy a VM](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span> <span data-ttu-id="abfe0-120">Tijdens een standaard opnieuw opstarten van de virtuele machine, moet de gegevens op de tijdelijke schijf handhaven.</span><span class="sxs-lookup"><span data-stu-id="abfe0-120">During a standard reboot of the VM, the data on the temporary drive should persist.</span></span>
+
+<span data-ttu-id="abfe0-121">De tijdelijke schijf wordt aangeduid als het station D: standaard en het wordt gebruikt voor het opslaan van pagefile.sys.</span><span class="sxs-lookup"><span data-stu-id="abfe0-121">The temporary disk is labeled as the D: drive by default and it used for storing pagefile.sys.</span></span> <span data-ttu-id="abfe0-122">Als u wilt deze schijf aan een andere stationsletter toewijzen, Zie [wijzigen van de stationsletter van de tijdelijke schijf Windows](../virtual-machines/windows/change-drive-letter.md).</span><span class="sxs-lookup"><span data-stu-id="abfe0-122">To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](../virtual-machines/windows/change-drive-letter.md).</span></span> <span data-ttu-id="abfe0-123">De grootte van de tijdelijke schijf varieert, afhankelijk van de grootte van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="abfe0-123">The size of the temporary disk varies, based on the size of the virtual machine.</span></span> <span data-ttu-id="abfe0-124">Zie voor meer informatie [grootten voor Windows virtuele machines](../virtual-machines/windows/sizes.md).</span><span class="sxs-lookup"><span data-stu-id="abfe0-124">For more information, see [Sizes for Windows virtual machines](../virtual-machines/windows/sizes.md).</span></span>
+
+<span data-ttu-id="abfe0-125">Zie voor meer informatie over hoe Azure gebruikt voor de tijdelijke schijf [inzicht in de tijdelijke schijf op Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)</span><span class="sxs-lookup"><span data-stu-id="abfe0-125">For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)</span></span>
+
+
+### <a name="data-disk"></a><span data-ttu-id="abfe0-126">Gegevensschijf</span><span class="sxs-lookup"><span data-stu-id="abfe0-126">Data disk</span></span>
+<span data-ttu-id="abfe0-127">Een gegevensschijf is een VHD die gekoppeld aan een virtuele machine voor het opslaan van toepassingsgegevens of andere gegevens die u wilt bewaren.</span><span class="sxs-lookup"><span data-stu-id="abfe0-127">A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep.</span></span> <span data-ttu-id="abfe0-128">Gegevensschijven worden geregistreerd als SCSI-stations en zijn gelabeld met een letter die u kiest.</span><span class="sxs-lookup"><span data-stu-id="abfe0-128">Data disks are registered as SCSI drives and are labeled with a letter that you choose.</span></span> <span data-ttu-id="abfe0-129">Elke gegevensschijf heeft een maximale capaciteit van 4095 GB.</span><span class="sxs-lookup"><span data-stu-id="abfe0-129">Each data disk has a maximum capacity of 4095 GB.</span></span> <span data-ttu-id="abfe0-130">De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u aan deze en het type opslag koppelen kunt die u kunt gebruiken voor het hosten van de schijven.</span><span class="sxs-lookup"><span data-stu-id="abfe0-130">The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="abfe0-131">Zie voor meer informatie over de capaciteit van virtuele machines, [grootten voor Windows virtuele machines](../virtual-machines/windows/sizes.md).</span><span class="sxs-lookup"><span data-stu-id="abfe0-131">For more information about virtual machines capacities, see [Sizes for Windows virtual machines](../virtual-machines/windows/sizes.md).</span></span>
+> 
+
+<span data-ttu-id="abfe0-132">Azure maakt een besturingssysteemschijf wanneer u een virtuele machine van een installatiekopie maakt.</span><span class="sxs-lookup"><span data-stu-id="abfe0-132">Azure creates an operating system disk when you create a virtual machine from an image.</span></span> <span data-ttu-id="abfe0-133">Als u een afbeelding met gegevensschijven gebruikt, maakt Azure ook de gegevensschijven bij het maken van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="abfe0-133">If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine.</span></span> <span data-ttu-id="abfe0-134">Anders toevoegen u gegevensschijven nadat u de virtuele machine hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="abfe0-134">Otherwise, you add data disks after you create the virtual machine.</span></span>
+
+<span data-ttu-id="abfe0-135">U kunt gegevensschijven toevoegen aan een virtuele machine op elk gewenst moment door **koppelen** de schijf met de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="abfe0-135">You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine.</span></span> <span data-ttu-id="abfe0-136">U kunt een VHD die u hebt geüpload of gekopieerd naar uw storage-account of een Azure voor u maakt.</span><span class="sxs-lookup"><span data-stu-id="abfe0-136">You can use a VHD that you've uploaded or copied to your storage account, or one that Azure creates for you.</span></span> <span data-ttu-id="abfe0-137">Een gegevensschijf koppelen koppelt het VHD-bestand aan de virtuele machine door het plaatsen van een 'lease' op de VHD zodat deze kan niet worden verwijderd uit de opslag terwijl er nog steeds gekoppeld.</span><span class="sxs-lookup"><span data-stu-id="abfe0-137">Attaching a data disk associates the VHD file with the VM by placing a 'lease' on the VHD so it can't be deleted from storage while it's still attached.</span></span>
+
+
+[!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
+
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a><span data-ttu-id="abfe0-138">Een laatste aanbeveling: gebruik TRIM met niet-beheerde standaardschijven</span><span class="sxs-lookup"><span data-stu-id="abfe0-138">One last recommendation: Use TRIM with unmanaged standard disks</span></span> 
+
+<span data-ttu-id="abfe0-139">Als u niet-beheerde standaard schijven (HDD) gebruikt, moet u TRIM inschakelen.</span><span class="sxs-lookup"><span data-stu-id="abfe0-139">If you use unmanaged standard disks (HDD), you should enable TRIM.</span></span> <span data-ttu-id="abfe0-140">TRIM worden niet-gebruikte blokken op de schijf verwijderd, zodat u wordt alleen gefactureerd voor opslag die u daadwerkelijk gebruikt.</span><span class="sxs-lookup"><span data-stu-id="abfe0-140">TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using.</span></span> <span data-ttu-id="abfe0-141">Dit kunt besparen op kosten als u grote bestanden maken en deze vervolgens te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="abfe0-141">This can save on costs if you create large files and then delete them.</span></span> 
+
+<span data-ttu-id="abfe0-142">U kunt deze opdracht om te controleren van de beperkende instelling uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="abfe0-142">You can run this command to check the TRIM setting.</span></span> <span data-ttu-id="abfe0-143">Open een opdrachtprompt op de virtuele machine van Windows en typ:</span><span class="sxs-lookup"><span data-stu-id="abfe0-143">Open a command prompt on your Windows VM and type:</span></span>
+
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+<span data-ttu-id="abfe0-144">Als de opdracht 0 retourneert, wordt ' trim ' correct ingeschakeld.</span><span class="sxs-lookup"><span data-stu-id="abfe0-144">If the command returns 0, TRIM is enabled correctly.</span></span> <span data-ttu-id="abfe0-145">Als deze 1 retourneert, voert u de volgende opdracht voor het vrijmaken van opslagruimte inschakelen:</span><span class="sxs-lookup"><span data-stu-id="abfe0-145">If it returns 1, run the following command to enable TRIM:</span></span>
+
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+> [!NOTE]
+> <span data-ttu-id="abfe0-146">Opmerking: Ondersteuning begint met Windows Server 2012 / Windows 8 en hoger, Zie Zie [nieuwe API apps hints 'TRIM en ontkoppelen' verzenden naar opslagmedia toestaan](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).</span><span class="sxs-lookup"><span data-stu-id="abfe0-146">Note: Trim support starts with Windows Server 2012 / Windows 8 and above, see see [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).</span></span>
+> 
+
+<!-- Might want to match next-steps from overview of managed disks -->
+## <a name="next-steps"></a><span data-ttu-id="abfe0-147">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="abfe0-147">Next steps</span></span>
+* <span data-ttu-id="abfe0-148">[Een schijf koppelen](../virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toevoegen van extra opslagruimte voor uw virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="abfe0-148">[Attach a disk](../virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.</span></span>
+* <span data-ttu-id="abfe0-149">[Wijzigen van de stationsletter van de tijdelijke schijf Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) zodat uw toepassing het station D: voor gegevens gebruiken kunt.</span><span class="sxs-lookup"><span data-stu-id="abfe0-149">[Change the drive letter of the Windows temporary disk](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so your application can use the D: drive for data.</span></span>
+

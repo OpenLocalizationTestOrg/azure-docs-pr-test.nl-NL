@@ -1,0 +1,3 @@
+> [!IMPORTANT]
+> <span data-ttu-id="4467d-101">De apparaat-ID is mogelijk zichtbaar in de logboeken die worden verzameld voor klantondersteuning en probleemoplossing. Zorg er dus voor dat wordt voorkomen dat gevoelige informatie wordt vermeld.</span><span class="sxs-lookup"><span data-stu-id="4467d-101">The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.</span></span>
+>

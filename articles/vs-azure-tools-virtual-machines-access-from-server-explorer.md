@@ -1,0 +1,54 @@
+---
+title: Toegang tot virtuele Machines van Azure in Server Explorer | Microsoft Docs
+description: Krijg een overzicht van het weergeven van maken en beheren van Azure virtuele machines (VM's) in Server Explorer in Visual Studio.
+services: visual-studio-online
+documentationcenter: na
+author: kraigb
+manager: ghogen
+editor: 
+ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 11/18/2016
+ms.author: kraigb
+ms.openlocfilehash: fcbb00cc2f00691e25ea84333e8c418b08210a67
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
+---
+# <a name="accessing-azure-virtual-machines-from-server-explorer"></a><span data-ttu-id="3ffe5-103">Toegang tot virtuele Machines van Azure in Server Explorer</span><span class="sxs-lookup"><span data-stu-id="3ffe5-103">Accessing Azure Virtual Machines from Server Explorer</span></span>
+<span data-ttu-id="3ffe5-104">Server Explorer in Visual Studio gebruikt, kunt u informatie weergeven over uw virtuele machines die door Azure worden gehost.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-104">By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.</span></span>
+
+## <a name="accessing-virtual-machines-in-server-explorer"></a><span data-ttu-id="3ffe5-105">Toegang tot virtuele machines in Server Explorer</span><span class="sxs-lookup"><span data-stu-id="3ffe5-105">Accessing virtual machines in Server Explorer</span></span>
+<span data-ttu-id="3ffe5-106">Als u virtuele machines die worden gehost door Azure hebt, kunt u deze kunt openen in Server Explorer.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-106">If you have virtual machines hosted by Azure, you can access them in Server Explorer.</span></span> <span data-ttu-id="3ffe5-107">U moet eerst aanmelden bij uw Azure-abonnement om uw mobiele services weer te geven.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-107">You must first sign in to your Azure subscription to view your mobile services.</span></span> <span data-ttu-id="3ffe5-108">Als u wilt aanmelden, opent u het snelmenu voor het Azure-knooppunt in Server Explorer en kies **verbinding maken met Microsoft Azure**.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-108">To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose **Connect to Microsoft Azure**.</span></span>
+
+### <a name="to-get-information-about-your-virtual-machines"></a><span data-ttu-id="3ffe5-109">Voor informatie over uw virtuele machines</span><span class="sxs-lookup"><span data-stu-id="3ffe5-109">To get information about your virtual machines</span></span>
+1. <span data-ttu-id="3ffe5-110">In Server Explorer, kiest u een virtuele machine en kies vervolgens de sleutel F4 het eigenschappenvenster weer te geven.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-110">In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.</span></span>
+   
+    <span data-ttu-id="3ffe5-111">De volgende tabel ziet u welke eigenschappen beschikbaar zijn, maar ze zijn allemaal alleen-lezen.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-111">The following table shows what properties are available, but they are all read-only.</span></span> <span data-ttu-id="3ffe5-112">Om deze te wijzigen, gebruikt u de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span><span class="sxs-lookup"><span data-stu-id="3ffe5-112">To change them, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span></span>
+   
+   | <span data-ttu-id="3ffe5-113">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="3ffe5-113">Property</span></span> | <span data-ttu-id="3ffe5-114">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="3ffe5-114">Description</span></span> |
+   | --- | --- |
+   | <span data-ttu-id="3ffe5-115">DNS-naam</span><span class="sxs-lookup"><span data-stu-id="3ffe5-115">DNS Name</span></span> |<span data-ttu-id="3ffe5-116">De URL met het internetadres van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-116">The URL with the Internet address of the virtual machine.</span></span> |
+   | <span data-ttu-id="3ffe5-117">Omgeving</span><span class="sxs-lookup"><span data-stu-id="3ffe5-117">Environment</span></span> |<span data-ttu-id="3ffe5-118">De waarde van deze eigenschap is voor een virtuele machine altijd productie.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-118">For a virtual machine, the value of this property is always Production.</span></span> |
+   | <span data-ttu-id="3ffe5-119">Naam</span><span class="sxs-lookup"><span data-stu-id="3ffe5-119">Name</span></span> |<span data-ttu-id="3ffe5-120">De naam van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-120">The name of the virtual machine.</span></span> |
+   | <span data-ttu-id="3ffe5-121">Grootte</span><span class="sxs-lookup"><span data-stu-id="3ffe5-121">Size</span></span> |<span data-ttu-id="3ffe5-122">De grootte van de virtuele machine, dat overeenkomt met de hoeveelheid geheugen en schijfruimte ruimte die beschikbaar is.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-122">The size of the virtual machine, which reflects the amount of memory and disk space that’s available.</span></span> <span data-ttu-id="3ffe5-123">Zie voor meer informatie How To: grootte van virtuele machines configureren.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-123">For more information, see How To: Configure Virtual Machine Sizes.</span></span> |
+   | <span data-ttu-id="3ffe5-124">Status</span><span class="sxs-lookup"><span data-stu-id="3ffe5-124">Status</span></span> |<span data-ttu-id="3ffe5-125">Waarden zijn starten, gestart, gestopt, gestopt en Status ophalen.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-125">Values include Starting, Started, Stopping, Stopped, and Retrieving Status.</span></span> <span data-ttu-id="3ffe5-126">Als bij het ophalen van de Status wordt weergegeven, is de huidige status is onbekend.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-126">If Retrieving Status appears, the current status is unknown.</span></span> <span data-ttu-id="3ffe5-127">De waarden voor deze eigenschap afwijken van de waarden die worden gebruikt op de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span><span class="sxs-lookup"><span data-stu-id="3ffe5-127">The values for this property differ from the values that are used on the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span></span> |
+   | <span data-ttu-id="3ffe5-128">Abonnements-id</span><span class="sxs-lookup"><span data-stu-id="3ffe5-128">SubscriptionID</span></span> |<span data-ttu-id="3ffe5-129">De abonnement-ID voor uw Azure-account.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-129">The subscription ID for your Azure account.</span></span> <span data-ttu-id="3ffe5-130">U kunt deze informatie weergeven op de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885) door de eigenschappen voor een abonnement te bekijken.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-130">You can show this information on the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885) by viewing the properties for a subscription.</span></span> |
+2. <span data-ttu-id="3ffe5-131">Kies een knooppunt van het eindpunt en bekijk vervolgens de **eigenschappen** venster.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-131">Choose an endpoint node, and then view the **Properties** window.</span></span>
+3. <span data-ttu-id="3ffe5-132">De volgende tabel beschrijft de beschikbare eigenschappen van eindpunten, maar ze zijn alleen-lezen.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-132">The following table describes the available properties of endpoints, but they are read-only.</span></span> <span data-ttu-id="3ffe5-133">Als u wilt toevoegen of bewerken van de eindpunten voor een virtuele machine, gebruikt u de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span><span class="sxs-lookup"><span data-stu-id="3ffe5-133">To add or edit the endpoints for a virtual machine, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).</span></span> 
+   
+   | <span data-ttu-id="3ffe5-134">Eigenschap</span><span class="sxs-lookup"><span data-stu-id="3ffe5-134">Property</span></span> | <span data-ttu-id="3ffe5-135">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="3ffe5-135">Description</span></span> |
+   | --- | --- |
+   | <span data-ttu-id="3ffe5-136">Naam</span><span class="sxs-lookup"><span data-stu-id="3ffe5-136">Name</span></span> |<span data-ttu-id="3ffe5-137">Een id voor het eindpunt.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-137">An identifier for the endpoint.</span></span> |
+   | <span data-ttu-id="3ffe5-138">Particuliere poort</span><span class="sxs-lookup"><span data-stu-id="3ffe5-138">Private Port</span></span> |<span data-ttu-id="3ffe5-139">De poort voor intern gebruik binnen uw toepassing netwerktoegang.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-139">The port for network access internal to your application.</span></span> |
+   | <span data-ttu-id="3ffe5-140">Protocol</span><span class="sxs-lookup"><span data-stu-id="3ffe5-140">Protocol</span></span> |<span data-ttu-id="3ffe5-141">Het protocol dat gebruikmaakt van de transportlaag is opgehaald voor dit eindpunt, TCP of UDP.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-141">The protocol that the transport layer for this endpoint uses, either TCP or UDP.</span></span> |
+   | <span data-ttu-id="3ffe5-142">Openbare poort</span><span class="sxs-lookup"><span data-stu-id="3ffe5-142">Public Port</span></span> |<span data-ttu-id="3ffe5-143">De poort die wordt gebruikt voor openbare toegang tot uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="3ffe5-143">The port that’s used for public access to your application.</span></span> |
+
+## <a name="next-steps"></a><span data-ttu-id="3ffe5-144">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="3ffe5-144">Next steps</span></span>
+<span data-ttu-id="3ffe5-145">Zie voor meer informatie over het gebruik van Azure-functies in Visual Studio, [met behulp van extern bureaublad met de Azure-rollen](vs-azure-tools-remote-desktop-roles.md).</span><span class="sxs-lookup"><span data-stu-id="3ffe5-145">To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).</span></span>
+

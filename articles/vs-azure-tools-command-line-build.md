@@ -1,0 +1,40 @@
+---
+title: Opdrachtregelprogramma build voor Azure | Microsoft Docs
+description: Opdrachtregelprogramma build voor Azure
+services: visual-studio-online
+documentationcenter: na
+author: kraigb
+manager: ghogen
+editor: 
+ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/05/2017
+ms.author: kraigb
+ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2017
+---
+# <a name="building-azure-projects-from-the-command-line"></a><span data-ttu-id="c729c-103">Het bouwen van Azure projecten vanaf de opdrachtregel</span><span class="sxs-lookup"><span data-stu-id="c729c-103">Building Azure projects from the command line</span></span>
+<span data-ttu-id="c729c-104">Met de Engine van Microsoft bouwen (MSBuild), kunt u producten in de build-omgevingen waarin Visual Studio niet is geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="c729c-104">Using the Microsoft Build Engine (MSBuild), you can build products in build-lab environments where Visual Studio is not installed.</span></span> <span data-ttu-id="c729c-105">MSBuild maakt gebruik van een XML-indeling voor bestanden in dat de uitbreidbare en volledig wordt ondersteund door Microsoft.</span><span class="sxs-lookup"><span data-stu-id="c729c-105">MSBuild uses an XML format for project files that's extensible and fully supported by Microsoft.</span></span> <span data-ttu-id="c729c-106">Met de MSBuild-bestandsindeling, kunt u aangeven welke items moeten worden gebouwd voor een of meer platforms en configuraties.</span><span class="sxs-lookup"><span data-stu-id="c729c-106">Using the MSBuild file format, you can describe what items must be built for one or more platforms and configurations.</span></span>
+
+<span data-ttu-id="c729c-107">U kunt ook MSBuild uitvoeren op de opdrachtregel en dit onderwerp wordt beschreven die benadering.</span><span class="sxs-lookup"><span data-stu-id="c729c-107">You can also run MSBuild at the command line, and this topic describes that approach.</span></span> <span data-ttu-id="c729c-108">U kunt specifieke configuraties van een project maken door het instellen van eigenschappen op de opdrachtregel.</span><span class="sxs-lookup"><span data-stu-id="c729c-108">By setting properties on the command line, you can build specific configurations of a project.</span></span> <span data-ttu-id="c729c-109">Op deze manier kunt u ook de doelen die MSBuild voortbouwt definiëren.</span><span class="sxs-lookup"><span data-stu-id="c729c-109">Similarly, you can also define the targets that MSBuild builds.</span></span> <span data-ttu-id="c729c-110">Zie voor meer informatie over opdrachtregelparameters en MSBuild [MSBuild-Naslaggids](https://msdn.microsoft.com/library/ms164311.aspx).</span><span class="sxs-lookup"><span data-stu-id="c729c-110">For more information about command-line parameters and MSBuild, see [MSBuild Command-Line Reference](https://msdn.microsoft.com/library/ms164311.aspx).</span></span>
+
+## <a name="msbuild-parameters"></a><span data-ttu-id="c729c-111">MSBuild-parameters</span><span class="sxs-lookup"><span data-stu-id="c729c-111">MSBuild parameters</span></span>
+<span data-ttu-id="c729c-112">De eenvoudigste manier om een pakket te maken is om uit te voeren MSBuild met de `/t:Publish` optie.</span><span class="sxs-lookup"><span data-stu-id="c729c-112">The simplest way to create a package is to run MSBuild with the `/t:Publish` option.</span></span> <span data-ttu-id="c729c-113">Met deze opdracht maakt standaard een map ten opzichte van de hoofdmap voor het project, zoals `<ProjectDirectory>\bin\Configuration\app.publish\`.</span><span class="sxs-lookup"><span data-stu-id="c729c-113">By default, this command creates a directory in relation to the root folder for the project, such as `<ProjectDirectory>\bin\Configuration\app.publish\`.</span></span> <span data-ttu-id="c729c-114">Wanneer u een Azure-project maakt, twee bestanden worden gegenereerd: het pakket van het bestand zelf en het bijbehorende configuratiebestand:</span><span class="sxs-lookup"><span data-stu-id="c729c-114">When you build an Azure project, two files are generated: the package file itself and the accompanying configuration file:</span></span>
+
+* <span data-ttu-id="c729c-115">Bestand van het pakket (`project.cspkg`)</span><span class="sxs-lookup"><span data-stu-id="c729c-115">Package File (`project.cspkg`)</span></span>
+* <span data-ttu-id="c729c-116">Configuratiebestand (`ServiceConfiguration.TargetProfile.cscfg`)</span><span class="sxs-lookup"><span data-stu-id="c729c-116">Configuration File (`ServiceConfiguration.TargetProfile.cscfg`)</span></span>
+
+<span data-ttu-id="c729c-117">Elke Azure-project bevat standaard één service-configuratiebestand voor de lokale (foutopsporing) builds en een andere voor builds cloud (fasering of productie).</span><span class="sxs-lookup"><span data-stu-id="c729c-117">By default, each Azure project includes one service-configuration file for local (debugging) builds and another for cloud (staging or production) builds.</span></span> <span data-ttu-id="c729c-118">U kunt echter toevoegen of verwijderen van bestanden van de configuratie van de service zo nodig.</span><span class="sxs-lookup"><span data-stu-id="c729c-118">However, you can add or remove service-configuration files as needed.</span></span> <span data-ttu-id="c729c-119">Wanneer u een pakket vanuit Visual Studio maakt, wordt u gevraagd welke service-configuratiebestand om op te nemen samen met het pakket.</span><span class="sxs-lookup"><span data-stu-id="c729c-119">When you build a package within Visual Studio, you are asked which service-configuration file to include alongside the package.</span></span> <span data-ttu-id="c729c-120">Als u een pakket met behulp van MSBuild bouwen, wordt het lokale bestand voor de configuratie van de service standaard opgenomen.</span><span class="sxs-lookup"><span data-stu-id="c729c-120">When you build a package by using MSBuild, the local service-configuration file is included by default.</span></span> <span data-ttu-id="c729c-121">Instellen als u wilt opnemen in een ander bestand in de configuratie van de service, de `TargetProfile` eigenschap van de MSBuild-opdracht (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).</span><span class="sxs-lookup"><span data-stu-id="c729c-121">To include a different service-configuration file, set the `TargetProfile` property of the MSBuild command (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).</span></span>
+
+<span data-ttu-id="c729c-122">Als u gebruiken van een alternatieve map voor het pakket opgeslagen en configuratiebestanden wilt, het pad worden ingesteld met behulp van de `/p:PublishDir=Directory\` optie, met inbegrip van het afsluitende backslash scheidingsteken.</span><span class="sxs-lookup"><span data-stu-id="c729c-122">If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="c729c-123">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="c729c-123">Next steps</span></span>
+<span data-ttu-id="c729c-124">Nadat het pakket is gebouwd, kunt u deze kunt implementeren naar Azure.</span><span class="sxs-lookup"><span data-stu-id="c729c-124">After the package is built, you can deploy it to Azure.</span></span> <span data-ttu-id="c729c-125">Zie voor een zelfstudie die u laat zien hoe u kunt dit proces te automatiseren, [continue leveringsmethode voor Cloud-Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).</span><span class="sxs-lookup"><span data-stu-id="c729c-125">For a tutorial that demonstrates how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).</span></span>
+

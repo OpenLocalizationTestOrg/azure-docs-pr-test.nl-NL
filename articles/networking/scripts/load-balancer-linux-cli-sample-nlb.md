@@ -1,0 +1,68 @@
+---
+title: Azure CLI-voorbeeldscript - Load balance verkeer naar VM's voor hoge beschikbaarheid | Microsoft Docs
+description: Azure CLI-voorbeeldscript - Load balance verkeer naar VM's voor hoge beschikbaarheid
+services: load-balancer
+documentationcenter: load-balancer
+author: KumudD
+manager: timlt
+editor: tysonn
+tags: 
+ms.assetid: 
+ms.service: load-balancer
+ms.devlang: azurecli
+ms.topic: article
+ms.tgt_pltfrm: 
+ms.workload: infrastructure
+ms.date: 07/07/2017
+ms.author: kumud
+ms.openlocfilehash: 69a7753cc75b028e2bf093053d9a5fc0890562e8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="load-balance-traffic-to-vms-for-high-availability"></a><span data-ttu-id="08af7-103">Load balance verkeer naar VM's voor hoge beschikbaarheid</span><span class="sxs-lookup"><span data-stu-id="08af7-103">Load balance traffic to VMs for high availability</span></span>
+
+<span data-ttu-id="08af7-104">Dit voorbeeldscript wordt gemaakt van alles wat u nodig voor het uitvoeren van verschillende Ubuntu virtuele machines geconfigureerd in een maximaal beschikbare en taakverdeling configuratie laden.</span><span class="sxs-lookup"><span data-stu-id="08af7-104">This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration.</span></span> <span data-ttu-id="08af7-105">Nadat het script is uitgevoerd, hebt u drie virtuele machines, die lid zijn van een Azure Beschikbaarheidsset, en toegankelijk zijn via een Azure Load Balancer.</span><span class="sxs-lookup"><span data-stu-id="08af7-105">After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.</span></span> 
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="sample-script"></a><span data-ttu-id="08af7-106">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="08af7-106">Sample script</span></span>
+
+<span data-ttu-id="08af7-107">[!code-azurecli-interactive[belangrijkste](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "snelle VM maken")]</span><span class="sxs-lookup"><span data-stu-id="08af7-107">[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "Quick Create VM")]</span></span>
+
+## <a name="clean-up-deployment"></a><span data-ttu-id="08af7-108">Opschonen van implementatie</span><span class="sxs-lookup"><span data-stu-id="08af7-108">Clean up deployment</span></span> 
+
+<span data-ttu-id="08af7-109">Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="08af7-109">Run the following command to remove the resource group, VM, and all related resources.</span></span>
+
+```azurecli
+az group delete --name myResourceGroup
+```
+
+## <a name="script-explanation"></a><span data-ttu-id="08af7-110">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="08af7-110">Script explanation</span></span>
+
+<span data-ttu-id="08af7-111">Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, virtuele machine, beschikbaarheidsset, load balancer en alle gerelateerde resources.</span><span class="sxs-lookup"><span data-stu-id="08af7-111">This script uses the following commands to create a resource group, virtual machine, availability set, load balancer, and all related resources.</span></span> <span data-ttu-id="08af7-112">Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.</span><span class="sxs-lookup"><span data-stu-id="08af7-112">Each command in the table links to command specific documentation.</span></span>
+
+| <span data-ttu-id="08af7-113">Opdracht</span><span class="sxs-lookup"><span data-stu-id="08af7-113">Command</span></span> | <span data-ttu-id="08af7-114">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="08af7-114">Notes</span></span> |
+|---|---|
+| [<span data-ttu-id="08af7-115">AZ groep maken</span><span class="sxs-lookup"><span data-stu-id="08af7-115">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="08af7-116">Maakt een resourcegroep waarin alle resources worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="08af7-116">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="08af7-117">AZ network vnet maken</span><span class="sxs-lookup"><span data-stu-id="08af7-117">az network vnet create</span></span>](https://docs.microsoft.com/cli/azure/network/vnet#create) | <span data-ttu-id="08af7-118">Maakt een virtueel Azure-netwerk en subnet.</span><span class="sxs-lookup"><span data-stu-id="08af7-118">Creates an Azure virtual network and subnet.</span></span> |
+| [<span data-ttu-id="08af7-119">AZ netwerk openbare ip-maken</span><span class="sxs-lookup"><span data-stu-id="08af7-119">az network public-ip create</span></span>](https://docs.microsoft.com/cli/azure/network/public-ip#create) | <span data-ttu-id="08af7-120">Hiermee maakt een openbaar IP-adres met een statisch IP-adres en een bijbehorende DNS-naam.</span><span class="sxs-lookup"><span data-stu-id="08af7-120">Creates a public IP address with a static IP address and an associated DNS name.</span></span> |
+| [<span data-ttu-id="08af7-121">AZ network Load Balancer maken</span><span class="sxs-lookup"><span data-stu-id="08af7-121">az network lb create</span></span>](https://docs.microsoft.com/cli/azure/network/lb#create) | <span data-ttu-id="08af7-122">Hiermee maakt u een Azure load balancer.</span><span class="sxs-lookup"><span data-stu-id="08af7-122">Creates an Azure load balancer.</span></span> |
+| [<span data-ttu-id="08af7-123">AZ network Load Balancer-test maken</span><span class="sxs-lookup"><span data-stu-id="08af7-123">az network lb probe create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/probe#create) | <span data-ttu-id="08af7-124">Hiermee maakt u een load balancer-test.</span><span class="sxs-lookup"><span data-stu-id="08af7-124">Creates a load balancer probe.</span></span> <span data-ttu-id="08af7-125">Een load balancer-test wordt gebruikt voor het bewaken van elke virtuele machine in de load balancer-set.</span><span class="sxs-lookup"><span data-stu-id="08af7-125">A load balancer probe is used to monitor each VM in the load balancer set.</span></span> <span data-ttu-id="08af7-126">Als een virtuele machine niet meer toegankelijk is, wordt verkeer niet doorgestuurd naar de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="08af7-126">If any VM becomes inaccessible, traffic is not routed to the VM.</span></span> |
+| [<span data-ttu-id="08af7-127">AZ network Load Balancer-regel maken</span><span class="sxs-lookup"><span data-stu-id="08af7-127">az network lb rule create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | <span data-ttu-id="08af7-128">Maakt een regel voor load balancer.</span><span class="sxs-lookup"><span data-stu-id="08af7-128">Creates a load balancer rule.</span></span> <span data-ttu-id="08af7-129">In dit voorbeeld wordt een regel gemaakt voor poort 80.</span><span class="sxs-lookup"><span data-stu-id="08af7-129">In this sample, a rule is created for port 80.</span></span> <span data-ttu-id="08af7-130">HTTP-verkeer ontvangt bij de load balancer wordt doorgestuurd naar poort 80 een van de virtuele machines in de LB-set.</span><span class="sxs-lookup"><span data-stu-id="08af7-130">As HTTP traffic arrives at the load balancer, it is routed to port 80 one of the VMs in the LB set.</span></span> |
+| [<span data-ttu-id="08af7-131">AZ netwerk lb-nat-regel voor binnenkomende verbindingen maken</span><span class="sxs-lookup"><span data-stu-id="08af7-131">az network lb inbound-nat-rule create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) | <span data-ttu-id="08af7-132">Regel voor load balancer Network Address Translation (NAT) maakt.</span><span class="sxs-lookup"><span data-stu-id="08af7-132">Creates load balancer Network Address Translation (NAT) rule.</span></span>  <span data-ttu-id="08af7-133">Een poort van de load balancer toewijzen NAT-regels aan een poort op een virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="08af7-133">NAT rules map a port of the load balancer to a port on a VM.</span></span> <span data-ttu-id="08af7-134">In dit voorbeeld wordt een NAT-regel gemaakt voor SSH-verkeer naar elke virtuele machine in de load balancer-set.</span><span class="sxs-lookup"><span data-stu-id="08af7-134">In this sample, a NAT rule is created for SSH traffic to each VM in the load balancer set.</span></span>  |
+| [<span data-ttu-id="08af7-135">nsg voor AZ netwerk maken</span><span class="sxs-lookup"><span data-stu-id="08af7-135">az network nsg create</span></span>](https://docs.microsoft.com/cli/azure/network/nsg#create) | <span data-ttu-id="08af7-136">Maakt een netwerkbeveiligingsgroep (NSG), die een beveiligingsgrens tussen het internet en de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="08af7-136">Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine.</span></span> |
+| [<span data-ttu-id="08af7-137">AZ netwerk nsg regel maken</span><span class="sxs-lookup"><span data-stu-id="08af7-137">az network nsg rule create</span></span>](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) | <span data-ttu-id="08af7-138">Maakt een NSG-regel voor binnenkomend verkeer toestaan.</span><span class="sxs-lookup"><span data-stu-id="08af7-138">Creates an NSG rule to allow inbound traffic.</span></span> <span data-ttu-id="08af7-139">In dit voorbeeld wordt poort 22 voor SSH-verkeer geopend.</span><span class="sxs-lookup"><span data-stu-id="08af7-139">In this sample, port 22 is opened for SSH traffic.</span></span> |
+| [<span data-ttu-id="08af7-140">AZ netwerk nic maken</span><span class="sxs-lookup"><span data-stu-id="08af7-140">az network nic create</span></span>](https://docs.microsoft.com/cli/azure/network/nic#create) | <span data-ttu-id="08af7-141">Hiermee maakt u een virtueel netwerkkaart en gekoppeld aan het virtuele netwerk, subnet en NSG.</span><span class="sxs-lookup"><span data-stu-id="08af7-141">Creates a virtual network card and attaches it to the virtual network, subnet, and NSG.</span></span> |
+| [<span data-ttu-id="08af7-142">AZ vm beschikbaarheidsset maken</span><span class="sxs-lookup"><span data-stu-id="08af7-142">az vm availability-set create</span></span>](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | <span data-ttu-id="08af7-143">Hiermee maakt een beschikbaarheidsset.</span><span class="sxs-lookup"><span data-stu-id="08af7-143">Creates an availability set.</span></span> <span data-ttu-id="08af7-144">Beschikbaarheidssets waarborgen uptime van toepassingen via de virtuele machines verspreid over fysieke resources zo dat als fout optreedt, wordt de hele set niet gedaan.</span><span class="sxs-lookup"><span data-stu-id="08af7-144">Availability sets ensure application uptime by spreading the virtual machines across physical resources such that if failure occurs, the entire set is not effected.</span></span> |
+| [<span data-ttu-id="08af7-145">AZ vm maken</span><span class="sxs-lookup"><span data-stu-id="08af7-145">az vm create</span></span>](/cli/azure/vm#create) | <span data-ttu-id="08af7-146">De virtuele machine maakt en met de netwerkkaart, virtueel netwerk, subnet en NSG is verbonden.</span><span class="sxs-lookup"><span data-stu-id="08af7-146">Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG.</span></span> <span data-ttu-id="08af7-147">Deze opdracht geeft ook aan de installatiekopie van de virtuele machine om te worden gebruikt en administratieve referenties.</span><span class="sxs-lookup"><span data-stu-id="08af7-147">This command also specifies the virtual machine image to be used and administrative credentials.</span></span>  |
+| [<span data-ttu-id="08af7-148">AZ groep verwijderen</span><span class="sxs-lookup"><span data-stu-id="08af7-148">az group delete</span></span>](https://docs.microsoft.com/cli/azure/vm/extension#set) | <span data-ttu-id="08af7-149">Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources.</span><span class="sxs-lookup"><span data-stu-id="08af7-149">Deletes a resource group including all nested resources.</span></span> |
+
+## <a name="next-steps"></a><span data-ttu-id="08af7-150">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="08af7-150">Next steps</span></span>
+
+<span data-ttu-id="08af7-151">Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="08af7-151">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+
+<span data-ttu-id="08af7-152">Aanvullende voorbeelden van Azure toegang CLI script kunnen u vinden in de [documentatie Azure Networking](../cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="08af7-152">Additional Azure Networking CLI script samples can be found in the [Azure Networking documentation](../cli-samples.md).</span></span>

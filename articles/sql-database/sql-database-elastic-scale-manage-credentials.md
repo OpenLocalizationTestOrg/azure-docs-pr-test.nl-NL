@@ -1,0 +1,79 @@
+---
+title: Het beheer van referenties in de clientbibliotheek voor elastische database | Microsoft Docs
+description: Het instellen van het juiste niveau van de referenties van beheerder zijn om de alleen-lezen, voor apps voor elastische database
+services: sql-database
+documentationcenter: 
+manager: jhubbard
+author: ddove
+editor: 
+ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+ms.service: sql-database
+ms.custom: scale out apps
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/24/2016
+ms.author: ddove
+ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="credentials-used-to-access-the-elastic-database-client-library"></a><span data-ttu-id="0d63a-103">Referenties gebruikt voor toegang tot de clientbibliotheek voor elastische Database</span><span class="sxs-lookup"><span data-stu-id="0d63a-103">Credentials used to access the Elastic Database client library</span></span>
+<span data-ttu-id="0d63a-104">De [clientbibliotheek voor elastische Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) drie verschillende soorten referenties gebruikt voor toegang tot de [shard kaart manager](sql-database-elastic-scale-shard-map-management.md).</span><span class="sxs-lookup"><span data-stu-id="0d63a-104">The [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) uses three different kinds  of credentials to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md).</span></span> <span data-ttu-id="0d63a-105">Gebruik de referenties met het laagste niveau van toegang mogelijk afhankelijk van de behoeften.</span><span class="sxs-lookup"><span data-stu-id="0d63a-105">Depending on the need, use the credential with  the lowest level of access possible.</span></span>
+
+* <span data-ttu-id="0d63a-106">**Beheerreferenties**: voor het maken of bewerken van een manager shard-toewijzing.</span><span class="sxs-lookup"><span data-stu-id="0d63a-106">**Management credentials**: for creating or manipulating a shard map manager.</span></span> <span data-ttu-id="0d63a-107">(Zie de [verklarende woordenlijst](sql-database-elastic-scale-glossary.md).)</span><span class="sxs-lookup"><span data-stu-id="0d63a-107">(See the [glossary](sql-database-elastic-scale-glossary.md).)</span></span> 
+* <span data-ttu-id="0d63a-108">**Toegang tot de referenties**: voor toegang tot een bestaande shard-toewijzing manager voor informatie over shards.</span><span class="sxs-lookup"><span data-stu-id="0d63a-108">**Access credentials**: to access an existing shard map manager to obtain information about shards.</span></span>
+* <span data-ttu-id="0d63a-109">**Verbindingsreferenties**: verbinding maken met shards.</span><span class="sxs-lookup"><span data-stu-id="0d63a-109">**Connection credentials**: to connect to shards.</span></span> 
+
+<span data-ttu-id="0d63a-110">Zie ook [databases en aanmeldingen in Azure SQL Database beheren](sql-database-manage-logins.md).</span><span class="sxs-lookup"><span data-stu-id="0d63a-110">See also [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md).</span></span> 
+
+## <a name="about-management-credentials"></a><span data-ttu-id="0d63a-111">Informatie over van beheerreferenties</span><span class="sxs-lookup"><span data-stu-id="0d63a-111">About management credentials</span></span>
+<span data-ttu-id="0d63a-112">Van beheerreferenties worden gebruikt voor het maken van een [ **ShardMapManager** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) object voor toepassingen die manipuleren van shard-kaarten.</span><span class="sxs-lookup"><span data-stu-id="0d63a-112">Management credentials are used to create a [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) object for applications that manipulate shard maps.</span></span> <span data-ttu-id="0d63a-113">(Zie bijvoorbeeld [toevoegen van een shard met hulpprogramma's van elastische Database](sql-database-elastic-scale-add-a-shard.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)) de gebruiker van de clientbibliotheek elastisch schalen wordt gemaakt van de SQL-gebruikers en de SQL-aanmeldingen en zorgt ervoor dat elk is verleend de machtiging lezen/schrijven voor de database voor globale shard en ook alle shard-databases.</span><span class="sxs-lookup"><span data-stu-id="0d63a-113">(For example, see [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md) and [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)) The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well.</span></span> <span data-ttu-id="0d63a-114">Deze referenties worden gebruikt voor het onderhouden van de globale shard-toewijzing en het lokale shard-kaarten wanneer wijzigingen in de shard-toewijzing worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="0d63a-114">These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed.</span></span> <span data-ttu-id="0d63a-115">Gebruik bijvoorbeeld de beheerreferenties voor het maken van het beheerobject shard-toewijzing (met behulp van [ **GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):</span><span class="sxs-lookup"><span data-stu-id="0d63a-115">For instance, use the management credentials to create the shard map manager object (using [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):</span></span> 
+
+    // Obtain a shard map manager. 
+    ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
+            smmAdminConnectionString, 
+            ShardMapManagerLoadPolicy.Lazy 
+    ); 
+
+<span data-ttu-id="0d63a-116">De variabele **smmAdminConnectionString** een verbindingsreeks die de beheerreferenties bevat.</span><span class="sxs-lookup"><span data-stu-id="0d63a-116">The variable **smmAdminConnectionString** is a connection string that contains the management credentials.</span></span> <span data-ttu-id="0d63a-117">De gebruikersnaam en wachtwoord biedt lees-/ schrijftoegang tot shard kaart database- en afzonderlijke shards.</span><span class="sxs-lookup"><span data-stu-id="0d63a-117">The user ID and password provides read/write access to both shard map database and individual shards.</span></span> <span data-ttu-id="0d63a-118">De management-verbindingsreeks bevat ook de servernaam en databasenaam op voor het identificeren van de database globale shard-toewijzing.</span><span class="sxs-lookup"><span data-stu-id="0d63a-118">The management connection string also includes the server name and database name to identify the global shard map database.</span></span> <span data-ttu-id="0d63a-119">Hier volgt een typische verbindingsreeks daarvoor:</span><span class="sxs-lookup"><span data-stu-id="0d63a-119">Here is a typical connection string for that purpose:</span></span>
+
+     "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
+
+<span data-ttu-id="0d63a-120">Gebruik geen waarden in de vorm van "username@server', in plaats daarvan de waarde 'gebruikersnaam' gebruiken.</span><span class="sxs-lookup"><span data-stu-id="0d63a-120">Do not use values in the form of "username@server"—instead just use the "username" value.</span></span>  <span data-ttu-id="0d63a-121">Dit komt doordat de referenties moeten werken op basis van de shard-toewijzing manager-database en de afzonderlijke shards die mogelijk op verschillende servers.</span><span class="sxs-lookup"><span data-stu-id="0d63a-121">This is because credentials must work against both the shard map manager database and individual shards, which may be on different servers.</span></span>
+
+## <a name="access-credentials"></a><span data-ttu-id="0d63a-122">Referenties voor toegang</span><span class="sxs-lookup"><span data-stu-id="0d63a-122">Access credentials</span></span>
+<span data-ttu-id="0d63a-123">Gebruik referenties met alleen-lezen-machtigingen voor de globale shard-toewijzing bij het maken van een shard kaart manager in een toepassing die wordt shard-kaarten niet beheren.</span><span class="sxs-lookup"><span data-stu-id="0d63a-123">When creating a shard map manager in an application that does not administer shard maps, use credentials that have read-only permissions on the global shard map.</span></span> <span data-ttu-id="0d63a-124">De informatie die is opgehaald uit de globale shard-toewijzing onder deze referenties worden gebruikt voor [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en voor het vullen van de shard-toewijzing-cache op de client.</span><span class="sxs-lookup"><span data-stu-id="0d63a-124">The information retrieved from the global shard map under these credentials are used for [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client.</span></span> <span data-ttu-id="0d63a-125">De referenties worden geleverd via hetzelfde patroon aanroep naar **GetSqlShardMapManager** zoals hierboven beschreven:</span><span class="sxs-lookup"><span data-stu-id="0d63a-125">The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown above:</span></span> 
+
+    // Obtain shard map manager. 
+    ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
+            smmReadOnlyConnectionString, 
+            ShardMapManagerLoadPolicy.Lazy
+    );  
+
+<span data-ttu-id="0d63a-126">Let op het gebruik van de **smmReadOnlyConnectionString** in overeenstemming met het gebruik van andere referenties voor deze toegang namens **niet-beheerders** gebruikers: deze referenties mag geen schrijfmachtigingen op de globale shard-toewijzing.</span><span class="sxs-lookup"><span data-stu-id="0d63a-126">Note the use of the **smmReadOnlyConnectionString** to reflect the use of different credentials for this access on behalf of **non-admin** users: these credentials should not provide write permissions on the global shard map.</span></span> 
+
+## <a name="connection-credentials"></a><span data-ttu-id="0d63a-127">Verbindingsreferenties</span><span class="sxs-lookup"><span data-stu-id="0d63a-127">Connection credentials</span></span>
+<span data-ttu-id="0d63a-128">Aanvullende referenties nodig zijn bij gebruik van de [ **OpenConnectionForKey** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) methode voor toegang tot een shard gekoppeld aan een sharding-sleutel.</span><span class="sxs-lookup"><span data-stu-id="0d63a-128">Additional credentials are needed when using the [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) method to access a shard associated with a sharding key.</span></span> <span data-ttu-id="0d63a-129">Deze referenties moeten machtigingen voor alleen-lezen toegang tot de tabellen voor lokale shard-toewijzing die zich op de shard opgeven.</span><span class="sxs-lookup"><span data-stu-id="0d63a-129">These credentials need to provide permissions for read-only access to the local shard map tables residing on the shard.</span></span> <span data-ttu-id="0d63a-130">Dit is nodig voor het uitvoeren van de verbindingsvalidatie voor het gegevensafhankelijke routering op de shard.</span><span class="sxs-lookup"><span data-stu-id="0d63a-130">This is needed to perform connection validation for data-dependent routing on the shard.</span></span> <span data-ttu-id="0d63a-131">Dit codefragment kunt toegang tot gegevens in de context van het gegevensafhankelijke routering:</span><span class="sxs-lookup"><span data-stu-id="0d63a-131">This code snippet allows data access in the context of data dependent routing:</span></span> 
+
+    using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
+    targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
+
+<span data-ttu-id="0d63a-132">In dit voorbeeld **smmUserConnectionString** bevat de verbindingsreeks voor referenties van de gebruiker.</span><span class="sxs-lookup"><span data-stu-id="0d63a-132">In this example, **smmUserConnectionString** holds the connection string for the user credentials.</span></span> <span data-ttu-id="0d63a-133">Hier volgt een typische verbindingsreeks voor de gebruikersreferenties voor Azure SQL DB:</span><span class="sxs-lookup"><span data-stu-id="0d63a-133">For Azure SQL DB, here is a typical connection string for user credentials:</span></span> 
+
+    "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
+
+<span data-ttu-id="0d63a-134">Net als bij de beheerdersreferenties komen niet de waarden in de vorm van "username@server'.</span><span class="sxs-lookup"><span data-stu-id="0d63a-134">As with the admin credentials, do not values in the form of "username@server".</span></span> <span data-ttu-id="0d63a-135">In plaats daarvan gebruikt u 'gebruikersnaam'.</span><span class="sxs-lookup"><span data-stu-id="0d63a-135">Instead, just use "username".</span></span>  <span data-ttu-id="0d63a-136">Houd er ook rekening mee dat de verbindingsreeks bevat geen een servernaam en databasenaam op.</span><span class="sxs-lookup"><span data-stu-id="0d63a-136">Also note that the connection string does not contain a server name and database name.</span></span> <span data-ttu-id="0d63a-137">Dat komt doordat de **OpenConnectionForKey** aanroep wordt de verbinding met de juiste shard op basis van de sleutel automatisch doorverwezen.</span><span class="sxs-lookup"><span data-stu-id="0d63a-137">That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key.</span></span> <span data-ttu-id="0d63a-138">De databasenaam en servernaam zijn daarom niet opgegeven.</span><span class="sxs-lookup"><span data-stu-id="0d63a-138">Hence, the database name and server name are not provided.</span></span> 
+
+## <a name="see-also"></a><span data-ttu-id="0d63a-139">Zie ook</span><span class="sxs-lookup"><span data-stu-id="0d63a-139">See also</span></span>
+[<span data-ttu-id="0d63a-140">Databases en aanmeldingen beheren in Azure SQL Database</span><span class="sxs-lookup"><span data-stu-id="0d63a-140">Managing databases and logins in Azure SQL Database</span></span>](sql-database-manage-logins.md)
+
+[<span data-ttu-id="0d63a-141">Uw SQL-database beveiligen</span><span class="sxs-lookup"><span data-stu-id="0d63a-141">Securing your SQL Database</span></span>](sql-database-security-overview.md)
+
+[<span data-ttu-id="0d63a-142">Aan de slag met taken voor elastische Database</span><span class="sxs-lookup"><span data-stu-id="0d63a-142">Getting started with Elastic Database jobs</span></span>](sql-database-elastic-jobs-getting-started.md)
+
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
