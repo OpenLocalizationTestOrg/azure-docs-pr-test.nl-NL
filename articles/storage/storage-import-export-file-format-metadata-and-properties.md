@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-service metagegevens en eigenschappen bestandsindeling
 U kunt de eigenschappen voor een of meer blobs en metagegevens als onderdeel van een import-taak of een taak voor exporteren opgeven. Metagegevens of eigenschappen voor BLOB's worden gemaakt als onderdeel van een import-taak, stelt opgeven u een bestand eigenschappen of metagegevens op de harde schijf met de gegevens moeten worden geïmporteerd. Voor een exporttaak worden metagegevens en eigenschappen geschreven naar een bestand eigenschappen of metagegevens die is opgenomen op de harde schijf die aan u worden geretourneerd.  

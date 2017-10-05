@@ -1,0 +1,147 @@
+---
+title: Azure App Service Web Apps aanbiedingen voor Enterprise
+description: Laat zien hoe u Azure App Service Web Apps enterprise website om oplossingen te maken voor uw bedrijf
+services: app-service\web
+documentationcenter: 
+author: apwestgarth
+manager: erikre
+editor: 
+ms.assetid: cf9ac3b2-0493-4461-8b64-251d3a5cd5b5
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/29/2016
+ms.author: anwestg
+ms.openlocfilehash: 4d46654f42a3fd5c9b491f1b565c2acfa0dc52c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/11/2017
+---
+# <a name="azure-app-service-web-apps-offerings-for-enterprise-whitepaper"></a>Azure App Service Web Apps aanbiedingen voor Enterprise technisch document
+De noodzaak om te verlagen de kosten en IT-oplossingen sneller leveren in een omgeving met snel veranderende maakt nieuwe uitdagingen voor ontwikkelaars, IT-Professionals en Managers. Gebruikers zoekt steeds regel van Business (LOB) toegang tot hun webtoepassingen snel, responsief en beschikbaar zijn vanaf elk apparaat. Op hetzelfde moment bedrijven wilt profiteren van de hogere productiviteit en efficiëntie die afkomstig zijn van de integratie met cloud- en mobiele services, kan dit iets net zo eenvoudig als eenmalige aanmelding op apparaten met Active Directory voor samenwerking in Office365 met behulp van gegevens uit een interne LOB-toepassing die op zijn beurt in de bedrijfsimplementatie van het van Salesforce-gegevens ophaalt opgehaald. [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) is een cloudservice bedrijfsniveau voor ontwikkelen, testen en het uitvoeren van webtoepassingen en mobiele, Web-API's en algemene websites. Het kan worden gebruikt voor zakelijke websites, intranetsites, business-apps en digitale marketingcampagnes uitvoeren op een wereldwijd netwerk van datacenters die zijn geoptimaliseerd voor schaal en de beschikbaarheid, evenals ondersteuning voor continue integratie en moderne DevOps procedures.  
+
+Dit technisch document markeert de mogelijkheden van de [Web-Apps](/services/app-service/web/) service specifiek gericht op het actieve LOB-toepassingen, die betrekking hebben op de migratie van de bestaande webtoepassingen en implementatie van nieuwe LOB-webtoepassingen op het platform.
+
+## <a name="audience"></a>Doelgroep
+IT-Professionals, architecten en -managers die op zoek zijn naar de cloud web werkbelastingen die momenteel worden uitgevoerd op de lokale te migreren. Web-werkbelastingen kunnen ofwel bedrijf naar werknemer of Business-to-Partners webtoepassingen beslaan.
+
+## <a name="introduction"></a>Inleiding
+App Service Web Apps is een ideaal platform voor het hosten van zowel externe en interne webtoepassingen en -services biedt een rendabele, uiterst schaalbare, beheerde oplossing zodat u zich kunt concentreren op de bedrijfswaarde voor uw gebruikers te leveren in plaats van uitgaven aanzienlijke hoeveelheid tijd en geld onderhouden en de ondersteunende omgevingen scheiden. Web Apps biedt een flexibel platform waarop voor het implementeren van uw onderneming webtoepassingen bieden de mogelijkheid om te blijven worden geverifieerd bij de lokale Active Directory dankzij integratie met Microsoft Azure Active Directory, ondersteuning van snel en gemakkelijk implementaties maken gebruik van uw interne continue integratie en implementatie procedures, tijdens het automatisch geschaald vergroten met de zakelijke behoeften - allemaal op een beheerd platform waarmee u zich kunt richten op uw toepassing en niet op uw infrastructuur.
+
+## <a name="problem-definition"></a>Probleemdefinitie
+De IT-omgeving snel wordt gewijzigd, met een verplaatsing weg hosten op traditionele servers met de hoge kosten van verschaffen tijden dat wordt gebruikt op aanvraag gebruiken van services die automatisch wordt geschaald om belasting te verwerken. IT-afdelingen zijn wordt gecontroleerd om de kosten te beperken en te besteden aan de voetafdruk van de infrastructuur en het onderhoud van bij richten op het verminderen van CAPEX terwijl er meer flexibiliteit. Het einde van de levensduur van oudere platforms infrastructuur, zoals Windows Server 2003, leidt IT-afdelingen cloudmigratie als een mogelijke manier om te voorkomen dat de kosten van het nieuwe lange termijn te bekijken. CIO's maakt in het verleden aankoopbeslissingen voor andere afdelingen; echter duurt steeds CMOs en andere bedrijven eenheid koppen een meer actieve rol in hoe hun budget is uitgegeven en wat het rendement van hun investering is. Steeds meer moeten bedrijven hun werknemers moeten worden veel meer mobiele dan ooit tevoren aan werknemers op afstand werkt, meer tijd besteedt aan klanten die behoefte hebben toegang tot systemen probleemloos.
+
+De zakelijke behoeften veranderen maandelijks, wekelijks, dagelijks. Bedrijven zoeken altijd instant globale schaal met reguliere bijgewerkte services volledig van de nieuwe functies, door een derde partij of intern.  In sommige gevallen bedrijven ook zoekt de mogelijkheden voor het isoleren van hun toepassingen en toegang tot resources wordt aangeroepen terwijl er ook maken gebruik van openbare Cloud faciliteiten. Gebruikers hebben hogere verwachtingen, met veel die gebruikmaken van services in hun eigen persoonlijke leven zoals Office365. Ze willen toegang hebben tot gelijksoortige, up-to-date functie uitgebreide services in de levenscyclus van hun werk. Met deze vraag IT moet uiterlijk om u te helpen bij het bedrijf dit inschakelen via de selectie en integratie met derden services, zorgvuldige selectie van de platforms die u aan de zakelijke behoeften, aanpassen kunt terwijl tevens wordt betrouwbare met een lagere eigendomskosten.
+
+Ontwikkelteams op zoek bent voor het leveren van onmiddellijk voordeel, nieuwe functies regelmatig leveren. Ze op zoek bent naar een voordelige, betrouwbare platform dat kan worden geïntegreerd met hun bestaande hulpprogramma's en procedures – ontwikkeling, testen, vrijgeven; en werkt samen met de IT-afdelingen automatiseert implementatie, beheer en waarschuwingen, met het doel van de uitvaltijd.
+
+<a name="highlevel"></a>
+## <a name="high-level-solution"></a>Hoog niveau oplossing
+Webplatforms en frameworks worden steeds gebruikt ontwikkelen, testen en line-of-business-toepassingen hosten.  Met een typische line-of-business-toepassing, zoals een interne werknemer onkosten-systeem vaak die uitsluitend bestaan uit een web-app met een database back-ups maken voor het opslaan van de gegevens die zijn verbonden met de toepassing.
+
+App Service Web Apps is een goede optie voor het hosten van dergelijke toepassingen biedt schaalbare en betrouwbare infrastructuur die wordt beheerd met bijna nul handmatige interventie en uitvaltijd hersteld. Het Microsoft Azure-platform biedt veel opslagopties van gegevens voor de ondersteuning van webtoepassingen die worden gehost op Web-Apps van Microsoft Azure SQL Database, een beheerde schaalbare relationele database-as-a-service, met populaire services van onze partners zoals ClearDB MySQL-Database en MongoDB.
+
+Een alternatieve methode is om te maken van uw bestaande investeringen in on-premises gebruiken. U kunt desgewenst uw gegevensopslag in uw eigen interne infrastructuur onderhouden in het voorbeeldscenario wordt een werknemer onkosten-systeem. Dit kan zijn voor de integratie met interne systemen (reporting, salaris, facturering enz.) of om te voldoen aan een vereiste van IT-beheer.  Web Apps biedt een aantal methoden u verbinding maken met uw on-premises-infrastructuur in te schakelen:
+
+* [App Service-omgevingen](app-service-app-service-environment-intro.md) -as-omgevingen (App Service omgeving) is een nieuwe Premium-functie die is onlangs toevoegen aan de Microsoft Azure App Service-aanbieding.  ASEs bieden van een volledig geïsoleerde en toegewezen omgeving voor het uitvoeren van Azure App Service-apps veilig op grote schaal en biedt isolatie en beveiligde netwerktoegang   
+* [Hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) – hybride verbindingen zijn een functie van Microsoft Azure BizTalk Services en Web-Apps inschakelen verbinding maken met on-premises resources veilig, bijvoorbeeld SQL Server, MySQL, Web-API's en aangepaste webservices.
+* [Virtuele netwerkintegratie](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web-Apps integratie met Azure Virtual Network kunt u uw web-app verbinden met een virtueel Azure-netwerk dat op zijn beurt kunnen worden verbonden met uw on premises infrastructuur via een site-naar-site VPN-verbinding.
+
+De volgende diagrammen weer een voorbeeld op hoog niveau oplossing met connectiviteitsopties voor op de lokale bronnen.  Het eerste voorbeeld ziet u hoe u kunt dit doen met de standaardfuncties van Azure App Service en de tweede ziet u hoe deze kan worden bereikt met het aanbieden van App Service-omgevingen premium.
+
+Standard-App Service-functies gebruiken:![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions.png "Using Standard App Service Features")
+
+Met behulp van een App Service-omgeving:![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions-ASE.png "Using an App Service Environment")
+
+## <a name="business-benefits"></a>Zakelijke voordelen
+App Service Web Apps biedt tal van zakelijke voordelen waarmee uw functie veel meer rendabele en flexibele in leveren voor de zakelijke behoeften.
+
+### <a name="paas-model"></a>PaaS-Model
+App Service Web Apps is gebouwd op een Platform als een servicemodel waarmee een aantal kosten en efficiëntie wordt bespaard.  Niet langer hoeft u uur het beheren van virtuele machines, besturingssystemen en Frameworks patchen. Web-Apps is een omgeving met automatisch patches waarmee u zich kunt richten op het beheren van uw webtoepassingen en geen virtuele machines, verlaten teams gratis extra business-waarde opgeven.
+
+Het PaaS-Model versterking van Web-Apps kunt professionals van de DevOps-methode om te voldoen aan hun doelstellingen. Dit betekent als bedrijf volledig beheer en integratie gedurende de hele toepassing hele levenscyclus, met inbegrip van ontwikkeling, testen, versie, bewaking en beheer en ondersteuning.
+
+Voor ontwikkelteams, worden continue integratie en implementatie-werkstromen geconfigureerd in Visual Studio Team Services, GitHub, TeamCity, Hudson of BitBucket, het inschakelen van geautomatiseerde build-, test- en implementatie inschakelen sneller release cycli terwijl de wrijving verminderen betrokken bij het vrijgeven van in de bestaande infrastructuur. Web Apps biedt ook ondersteuning voor het maken van meerdere test- en faseringsomgevingen maken voor uw werkstroom release, niet langer moet u reserve of hardware voor deze doeleinden toewijzen, kunt u zo veel omgevingen zoals u wilt en uw eigen promotie release van de werkstroom definiëren. Als u besluit kan in een sleuf test vrijgave van broncodebeheer, voert u een reeks tests en na geslaagde voltooiing bedrijf promoveren tot een fase sleuf en ten slotte wisselen naar de productieomgeving zonder uitvaltijd, het voordeel dat webtoepassingen die worden gehost op Web-Apps worden vooraf geladen en hot om de best mogelijke gebruikerservaring.  Bedrijven kunnen bovendien maakt gebruik van de testen in productie-mogelijkheden van App Service Web Apps naar een gedeelte van het verkeer naar een andere sleuf directe, het valideren van de wijzigingen voordat alle verkeer overschakelen naar de nieuwe implementatie of terugzetten van alle verkeer naar de vorige implementatie.
+
+Bewerkingen teams kunnen erop vertrouwen dat ze zich in de best mogelijke positie om te reageren op problemen met een van hun webtoepassingen die worden gehost op Web-Apps met de ingebouwde functies voor bewaking en waarschuwingen. Operations Teams moet al hebt geïnvesteerd in analytics en bewakingsoplossingen dergelijke van Microsoft Visual Studio Application Insights, New Relic en AppDynamics. Deze worden ook volledig ondersteund op Web-Apps inschakelen voor bedrijfscontinuïteit en een vertrouwde omgevingen waarin uw webtoepassingen bewaken.
+
+Ten slotte Web Apps biedt functionaliteit voor back-up van uw App (s) en gehoste databases rechtstreeks naar een Azure Blob Storage-container. Biedt u een eenvoudige manier en zeer rendabel methode waarmee de herstelprocedure na een noodgeval, waardoor de noodzaak van complexe op lokale hardware en software.
+
+### <a name="ease-of-migration"></a>Betere toegankelijkheid van de migratie
+Onderhoud van hardware en de rotatie is zeer belangrijk voor bedrijven zoals release cycli voor hardware en besturingssystemen versnellen. Misschien hebt u een aantal Windows Server 2003 R2-servers die afkomstig zijn aan het einde van ondersteuning in 2015, maar ze worden nog steeds gehost sleutel webtoepassingen voor uw bedrijf? App Service Web Apps is een goede kandidaat op die als host voor deze web-apps en u de hardware business goed rationaliseren. Web-Apps hebt u toegang tot een bereik van hardwarespecificaties die worden beheerd en bijgehouden als onderdeel van de service, hoeft u rekening te houden in vervanging en beheerkosten als onderdeel van uw budget infrastructuur.  Migratie worden net zo eenvoudig als een kopie en plakken van uw bestaande implementatie voor Web-Apps of een complexere migratie waarbij met behulp van de Web-Apps migratie Assistant waarde wordt toegevoegd. Gemigreerde webtoepassingen Profiteer van het volledige scala Azure-services, integratie van extra services de webtoepassingen. U kunt bijvoorbeeld overwegen Azure Active Directory voor het beheren van toegang tot uw toepassing op basis van de koppeling gebruikers aan beveiligingsgroepen toe te voegen. Een ander voorbeeld kan Cache-Services op de prestaties verbeteren en de latentie, mits betere algehele gebruikerservaring worden toegevoegd.
+
+### <a name="enterprise-class-hosting"></a>Hosting van Enterprise-klasse
+App Service Web Apps biedt een stabiele, betrouwbare platform waarvan is aangetoond dat voor het afhandelen van een groot aantal verschillende bedrijven kunnen moet van kleine interne ontwikkeling en tests werkbelastingen, maximaal geschaalde intensief verkeer websites. Met behulp van Web-Apps maken u gebruik van de hetzelfde hosting platform van de enterprise-klasse die door Microsoft als een bedrijf worden gebruikt voor hoge waarde web werkbelastingen. Web-Apps, samen met alle services op het Azure-platform zijn gebouwd met beveiliging en naleving van regelgeving, zoals ISO (ISO/IEC 27001:2005;) SOC1 en SOC2 SSAE 16/ISAE 3402-verklaringen, HIPAA BAA, PCI en Fedramp uiteindelijk van elk element en de functie voor meer informatie Zie [http://aka.ms/azurecompliance](/support/trust-center/compliance/).
+
+Microsoft Azure-platform kunt rol gebaseerd autorisatie besturingselementen enterprise niveaus van controle op resources binnen de Web-Apps inschakelen. RBAC biedt ondernemingen de kracht voor het implementeren van hun eigen access management-beleid voor alle hun activa in de Azure-omgeving door gebruikers toewijzen aan groepen en op zijn beurt de vereiste machtigingen toewijzen aan deze groepen op basis van de activa zoals een web-app. Zie voor meer informatie over RBAC in Azure [http://aka.ms/azurerbac](../active-directory/role-based-access-control-configure.md). Door het gebruik van Web-Apps, kunt u ervoor dat uw webtoepassingen zijn geïmplementeerd in een omgeving veilig en beveiligd en hebt u volledige controle in welke Territorium uw assets zijn geïmplementeerd zijn.
+
+Azure App Service-omgevingen [http://aka.ms/aseintro](http://aka.ms/aseintro) zijn van een nieuwe optie van premium-service-abonnement voor enterprise-klanten willen maken gebruik van Azure App Service en deze zorgen voor een volledig geïsoleerde en toegewezen omgeving.  Hierdoor kunnen klanten voor het implementeren van toepassingen die van zeer grote schaal profiteren kunnen wordt aangeroepen terwijl er ook met volledige controle over binnenkomende en uitgaande netwerkverkeer enterprise en ASEs zodat toepassingen kunnen zeer snelle beveiligde verbindingen via virtuele netwerken lokale bronnen hebben.
+
+App Service WebApps kunnen ook volle gebruik te maken van uw on premises-investeringen door het aanbieden van de mogelijkheid uw interne bronnen, zoals uw datawarehouse en de SharePoint-omgeving verbinding te maken. Zoals beschreven in [hoog niveau oplossing](#high-level-solution) kunt u het gebruik van hybride verbindingen en virtuele netwerkverbinding tot stand brengen van verbindingen met voor lokale infrastructuur en services.
+
+### <a name="global-scale"></a>Wereldwijde schaal
+App Service Web Apps is een globale en schaalbare platform, waardoor uw webtoepassingen groeien en aanpassen aan de behoeften van een groeiende onderneming snel en met minimale lange termijn planning en kosten. In typische op lokale infrastructure-scenario's uitbreiding en stijging van de vraag lokaal en geografisch zou vereisen een grote hoeveelheid management, planning en uitgaven voor het inrichten en beheren van extra infrastructuur. Web Apps biedt de mogelijkheid om te schalen van uw webtoepassingen met de ebb en de stroom van uw vereisten. Bijvoorbeeld met behulp van de toepassing kosten als voorbeeld voor het merendeel van de maand uw gebruikers zijn lichte gebruikers van de toepassing, maar als de deadline elke maand voor onkosten inzendingen moeten worden ingevoerd en gebruik neemt toe op uw toepassing, Web-Apps de mogelijkheid om automatisch te stellen meer infrastructuur voor uw toepassing heeft en vervolgens zodra het gebruik heeft terug opnieuw deze kan worden geschaald terug naar de basislijn-infrastructuur die u definieert.
+
+Web Apps is globaal in 24-datacenters overal ter wereld en groeiende beschikbaar. Zie voor de meest recente lijst met regio's en de locatie, [http://aka.ms/azlocations](http://aka.ms/azlocations). Met Web-Apps kunt globaal bereik en de schaal eenvoudig bereiken door uw bedrijf. Als uw bedrijf in nieuwe regio's groeit, het rapportage-dashboards voor toepassingen die u gebruikt en de host op Web-Apps kunnen eenvoudig worden geïmplementeerd in extra datacenters en lokale gebruikers veel sneller via de combinatie van Web-Apps en Azure Traffic Manager alle het voordeel van de schaalbare infrastructuur onder het contract en vouw naarmate de behoeften van de regionale kantoren wijziging kunnen fungeren.
+
+## <a name="solution-details"></a>Oplossingsdetails
+Bekijk een voorbeeld van een toepassing migratiescenario. Dit geeft een overzicht van de details van hoe App Service Web Apps functies worden aan gecombineerd geweldige oplossing en de bedrijfswaarde opgeven.
+
+In dit voorbeeld is de line-of-business-toepassing die we zullen worden bespreken last reporting toepassing waarmee werknemers hun uitgaven voor terugbetaling verzenden. De toepassing wordt gehost op een Windows Server 2003 R2 IIS6 uitgevoerd en de database is een SQL Server 2005-database. De reden kiest oudere server wordt veroorzaakt door de komende einde van de Service voor Windows Server 2003 R2 en SQL Server 2005 en we hebben [extra](http://aka.ms/websitesmigration) en [richtlijnen](http://aka.ms/websitesmigrationresources) automatisch workloads in Azure te migreren. Met die in gedachten, het patroon dat wordt gebruikt in dit voorbeeld van toepassing op een breed Compliantie migratiescenario's.
+
+### <a name="migrate-existing-application"></a>Migreren van bestaande toepassing
+Stap 1 van de algehele oplossing voor het verplaatsen van een line-of-business-toepassing voor Web-Apps is het identificeren van de bestaande toepassing activa en architectuur. Het voorbeeld in dit artikel is een ASP.NET-webtoepassing gehost op een enkele IIS-Server met de database gehost op een afzonderlijke SQL Server, zoals wordt weergegeven in de afbeelding hieronder. Aanmelding van de werknemers aan het systeem met een combinatie van gebruikersnaam en wachtwoord, ze Geef details van de kosten en gescande kopieën van ontvangsten uploaden naar de database voor elk item van onkosten.
+
+![](./media/web-sites-enterprise-offerings/on-premise-app-example.png)
+
+#### <a name="items-to-consider"></a>Rekening mee moet houden
+Wanneer de migratietoepassing van een on-premises omgeving, die u mogelijk wilt Denk er enkele beperkingen voor Web-Apps. Hier volgen enkele belangrijke onderwerpen moet denken wanneer webtoepassingen migreren naar de Web-Apps ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)):
+
+* Poort bindingen – Web Apps ondersteunt alleen poort 80 voor HTTP en poort 443 voor HTTPS-verkeer. Als uw toepassing een andere poort gebruikt, gaat u eenmaal gemigreerd wordt de toepassing maken gebruik van poort 80 voor HTTP en poort 443 voor HTTPS-verkeer. Dit is vaak een probleem onschadelijke als het is gebruikelijk in op de lokale implementaties voor het maken gebruik van verschillende poorten ter voorkoming van het gebruik van domeinnamen, met name in omgevingen voor ontwikkeling en tests
+* Verificatie – Web Apps biedt ondersteuning voor anonieme verificatie standaard en formulierverificatie aangeduid door een toepassing. Web Apps kan Windows-verificatie bieden wanneer de toepassing is geïntegreerd met Azure Active Directory en AD FS alleen. Dit is een functie die wordt besproken in meer detail [hier](http://aka.ms/azurebizapp)
+* Assembly's op basis van GAC-Web-Apps niet in staat de implementatie van assembly's naar de globale Assembly-Cache (GAC). Daarom als de toepassing wordt gemigreerd maakt gebruik van deze functie lokale, overweeg dan het verplaatsen van de assembly's naar de bin-map van de toepassing.
+* IIS5-Compatibiliteitsmodus – IIS5-compatibiliteitsmodus biedt geen ondersteuning voor Web Apps en als zodanig elk exemplaar van de Web-Apps en alle webtoepassingen onder dit exemplaar van bovenliggende Web-Apps in hetzelfde werkproces binnen één groep van toepassingen worden uitgevoerd.
+* Gebruik van de COM-bibliotheken Web Apps is niet toegestaan voor de registratie van COM-onderdelen op het platform. Daarom als de toepassing gebruik van een COM-onderdelen maakt, deze moeten opnieuw worden geschreven in beheerde code en geïmplementeerd met de toepassing.
+* ISAPI-Filters ISAPI-Filters kunnen worden ondersteund op Web-Apps. Ze moeten worden geïmplementeerd als onderdeel van de toepassing en geregistreerd in web.config-bestand voor de webtoepassing. Zie voor meer informatie [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md).
+
+Zodra deze onderwerpen zijn beschouwd, is uw webtoepassing gereed voor de Cloud. En u hoeft niet als sommige onderwerpen niet volledig wordt voldaan, het hulpprogramma voor migratie van best-effort krijgt voor de migratie.
+
+De volgende stappen in het migratieproces zijn om een App Service-web-app en een Azure SQL Database te maken. Er zijn meerdere groottes van exemplaren van de Web-Apps met een verschillend aantal CPU-kernen en RAM-geheugen bedragen die beschikbaar zijn voor u om te selecteren op basis van de vereiste van uw web-toepassingen. Voor meer informatie en prijzen, Zie [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Microsoft Azure SQL Database caters ook aan alle behoeften van een bedrijf met verschillende Servicelagen en prestatieniveaus om te voldoen aan de vereisten. Meer informatie vindt u op [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). Zodra gemaakt, wordt de toepassing is geüpload naar App Service Web Apps, hetzij via FTP of web Deploy en Ga naar de database.
+
+In deze migratie wordt de oplossing gebruikt Azure SQL Database, maar dat is niet de enige database die wordt ondersteund op Azure. Bedrijven kunnen ook gebruik maken van MySQL, MongoDB, Azure Cosmos DB en nog veel meer via invoegtoepassingen die kunnen worden gekocht bij de [Azure Store](/marketplace/partner-program/).
+
+Wanneer maken van een Azure SQL Database een aantal opties zijn beschikbaar voor het importeren van een bestaande database uit een on-premises server van het genereren van een script van een bestaande database voor het gebruik van de [Data-tier Application-exporteren en importeren](http://aka.ms/dacpac).
+
+De database van de toepassing kosten is gemaakt door een nieuwe Azure SQL Database maakt, verbinden met de database met behulp van SQL Server Management Studio en voert u een script voor het bouwen van schema van de database en deze vullen met gegevens uit de lokale database.
+
+De laatste stap in deze eerste fase van de migratie moet het bijwerken van verbindingstekenreeksen voor de database voor de toepassing. Dit kan worden bereikt via de Azure-portal. U kunt toepassingsspecifieke instellingen, inclusief eventuele verbindingstekenreeksen wordt gebruikt door de toepassing verbinding maken met een database die wordt gebruikt aanpassen voor elke web-app.
+
+### <a name="alternatives-to-using-azure-sql-database"></a>Alternatieven voor het gebruik van Azure SQL Database
+De Azure-platform biedt een aantal alternatieven voor het gebruik van Azure SQL Database als een primaire database voor web-toepassingen, is dit dus verschillende werkbelastingen inschakelen het gebruik van een oplossing voor NoSQL of het platform aan de behoeften van een bedrijf gegevens inschakelen. Bijvoorbeeld, een bedrijf kan gegevens bevatten die niet moeten worden opgeslagen buiten het bedrijf of in een openbare cloud-omgeving en daarom ziet er als u wilt het gebruik van hun on-premises-database behouden.
+
+#### <a name="connectivity-to-on-premises-resources"></a>Connectiviteit met lokale bronnen
+App Service Web Apps biedt meerdere opties voor het verbinding maken met op de lokale bronnen, zoals databases, opnieuw gebruiken van bestaande infrastructuur met hoge waarde inschakelen. De opties zijn zoals hieronder weergegeven:
+
+* App Service-omgevingen zijn geïsoleerd en gemaakt binnen een subnet van een virtueel netwerk, waardoor u daarom de omgeving te communiceren met persoonlijke eindpunten zich binnen hetzelfde virtuele netwerk - [http://aka.ms/appserviceasenetworking](http://aka.ms/appserviceasenetworking)
+* Web-Apps virtuele netwerkintegratie ondersteunt de integratie tussen Web-Apps en een virtueel netwerk van Azure, zodat u toegang tot bronnen in uw virtuele netwerk waarmee, als verbonden met uw lokale netwerk bij site-naar-site VPN-verbinding rechtstreeks naar uw on-premises-systemen worden uitgevoerd.
+* Hybride verbindingen zijn van een functie van Azure BizTalk Services en bieden een eenvoudige manier verbinding maken met afzonderlijke lokale resources, zoals SQL Server, MySQL, HTTP-Web-API's en de meeste aangepaste webservices.
+
+#### <a name="scale-and-resiliency"></a>Schaal en tolerantie
+Wanneer een bedrijf zijn werknemers, via overname of natuurlijke organische groei, dus groeit moet web te schalen om te voldoen aan de eisen van deze nieuwe toepassingen. Inderdaad vandaag is het gebruikelijk om te zien van een nog meer verspreiding van CO-locaties teams en externe werknemers, bijvoorbeeld bedrijven met filialen in de Verenigde Staten, Europa en Azië, met een mobiele verkoop geforceerd in veel meer gebieden. Web Apps heeft de mogelijkheid voor het afhandelen van elastische wijzigingen in de schaal probleemloos en automatisch.
+
+App Service Web Apps kunt webtoepassingen worden geconfigureerd om te schalen automatisch via Azure portal, afhankelijk van de twee vectoren – geplande tijden of door de CPU-gebruik. Web-Apps automatisch schalen biedt een rendabele en zeer flexibele manier voor het opvangen van groter wijzigingen in gebruik voor alle zakelijke toepassingen vanuit webtoepassingen zoals onze kosten rapportagesysteem voor uw websites, wat een hoge burst van verkeer dat gedurende een korte periode van de promotie optreden. Zie voor meer informatie en hulp bij het schalen van uw Web-Apps met webtoepassingen [How to Scale Websites](web-sites-scale.md).
+
+Naast de vergroten/verkleinen flexibiliteit van Web-Apps kunt het algemene platform u zakelijke continuïteit en tolerantie via de mogelijke distributie van webtoepassingen en hun activa op meerdere datacenters en geografische regio's.
+
+## <a name="summary"></a>Samenvatting
+App Service Web Apps biedt een flexibele, rendabele, responsief oplossing voor de dynamische behoeften van een bedrijf in een omgeving met snel veranderende. Web-Apps helpt bedrijven de productiviteit te verhogen en de efficiëntie door maken gebruik van een beheerd platform met mogelijkheden voor moderne DevOps en verminderde handen op beheer, waarbij de enterprise-mogelijkheden van schaal, herstelmogelijkheden, beveiliging en integratie met lokale activa.
+
+## <a name="call-to-action"></a>Aanroep van bewerking
+Voor meer informatie over de service Azure App Service Web Apps, gaat u naar [http://aka.ms/enterprisewebsites](/services/websites/enterprise/) waar u meer informatie kunnen afkomstig zijn en meld u aan voor een proefversie vandaag om [https://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/) om te evalueren van de service en de voordelen voor uw bedrijf te detecteren.
+
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
