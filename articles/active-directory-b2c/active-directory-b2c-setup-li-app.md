@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: LinkedIn configuratie | Microsoft Docs'
-description: Gebruikers met een account in uw toepassingen die zijn beveiligd met Azure Active Directory B2C LinkedIn bieden zich kunnen registreren en aanmelden
+description: Registreren en aanmelden tooconsumers voorzien van LinkedIn accounts in uw toepassingen die zijn beveiligd met Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 1a6c4b19261aa34e668554ccad2b6340cddf9bf5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6c5233ef48b24968fd6383f470b5d8a969a78ecf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Zich kunnen registreren en aanmelden gebruikers bieden met LinkedIn-accounts
+# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-tooconsumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Bieden LinkedIn accounts zich kunnen registreren en aanmelden tooconsumers
 ## <a name="create-a-linkedin-application"></a>Een LinkedIn-toepassing maken
-Als u wilt gebruiken als een id-provider in Azure Active Directory (Azure AD) B2C LinkedIn gebruikt, moet u een LinkedIn-toepassing maken en geeft deze met de juiste parameters. U moet een LinkedIn-account om dit te doen. Als u niet hebt, kunt u krijgen op het [https://www.linkedin.com/](https://www.linkedin.com/).
+toouse LinkedIn als een id-provider in Azure Active Directory (Azure AD) B2C, u moet een toepassing LinkedIn toocreate en leveren met de juiste parameters Hallo. U moet een account LinkedIn toodo dit. Als u niet hebt, kunt u krijgen op het [https://www.linkedin.com/](https://www.linkedin.com/).
 
-1. Ga naar de [LinkedIn ontwikkelaars website](https://www.developer.linkedin.com/) en meld u aan met de referenties van uw LinkedIn-account.
-2. Klik op **mijn Apps** in de bovenste menubalk en klik vervolgens op **toepassing maken**.
+1. Ga toohello [LinkedIn ontwikkelaars website](https://www.developer.linkedin.com/) en meld u aan met de referenties van uw LinkedIn-account.
+2. Klik op **mijn Apps** in Hallo bovenste menubalk en klik vervolgens op **toepassing maken**.
    
     ![LinkedIn - nieuwe app](./media/active-directory-b2c-setup-li-app/linkedin-new-app.png)
-3. In de **Maak een nieuwe toepassing** Vul de relevante informatie (**bedrijfsnaam**, **naam**, **beschrijving**, **Toepassing Logo URL**, **toepassing gebruik**, **Website-URL**, **zakelijke e** en **telefoon (werk)**).
-4. Ga akkoord met de **LinkedIn API gebruiksvoorwaarden** en klik op **indienen**.
+3. In Hallo **Maak een nieuwe toepassing** Vul Hallo relevante informatie (**bedrijfsnaam**, **naam**, **beschrijving**, **Toepassing Logo URL**, **toepassing gebruik**, **Website-URL**, **zakelijke e** en **telefoon (werk)**).
+4. Ik ga hiermee akkoord toohello **LinkedIn API gebruiksvoorwaarden** en klik op **indienen**.
    
     ![LinkedIn - app registreren](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
-5. Kopieer de waarden van **Client-ID** en **Clientgeheim**. (U vindt deze onder **verificatiesleutels**.) U moet beide LinkedIn configureren als een id-provider in uw tenant.
+5. Kopieer de waarden Hallo van **Client-ID** en **Clientgeheim**. (U vindt deze onder **verificatiesleutels**.) U moet ze tooconfigure LinkedIn als een id-provider in uw tenant.
    
    > [!NOTE]
    > **Clientgeheim** is een belangrijke beveiligingsreferentie.
    > 
    > 
-6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **geautoriseerd Omleidings-URL's** veld (onder **OAuth 2.0**). Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contoso.onmicrosoft.com). Klik op **toevoegen**, en klik vervolgens op **Update**. De **{tenant}** hoofdlettergevoelig.
+6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in Hallo **geautoriseerd Omleidings-URL's** veld (onder **OAuth 2.0**). Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contoso.onmicrosoft.com). Klik op **toevoegen**, en klik vervolgens op **Update**. Hallo **{tenant}** hoofdlettergevoelig.
    
     ![LinkedIn - Setup-app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## <a name="configure-linkedin-as-an-identity-provider-in-your-tenant"></a>LinkedIn configureren als een id-provider in uw tenant
-1. Volg deze stappen voor [gaat u naar de blade B2C-functies](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) in de Azure portal.
-2. Klik op de blade B2C-functies op **identiteitsproviders**.
-3. Klik op **+Toevoegen** boven aan de blade.
-4. Geef een beschrijvende **naam** voor de configuratie van de id-provider. Voer bijvoorbeeld 'LI'.
+1. Volg deze stappen te[toohello B2C-functiesblade navigeren](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) op Hallo Azure-portal.
+2. Klik op de blade Hallo B2C-functies, **identiteitsproviders**.
+3. Klik op **+ toevoegen** Hallo boven aan het Hallo-blade.
+4. Geef een beschrijvende **naam** voor Hallo identiteit provider configureren. Voer bijvoorbeeld 'LI'.
 5. Klik op **identiteit providertype**, selecteer **LinkedIn**, en klik op **OK**.
-6. Klik op **instellen van deze id-provider** en voer de client-ID en clientgeheim van de LinkedIn-toepassing die u eerder hebt gemaakt.
-7. Klik op **OK** en klik vervolgens op **maken** naar uw LinkedIn-configuratie op te slaan.
+6. Klik op **instellen van deze id-provider** en Voer Hallo-ID en client clientgeheim Hallo LinkedIn-toepassing die u eerder hebt gemaakt.
+7. Klik op **OK** en klik vervolgens op **maken** toosave uw LinkedIn-configuratie.
 

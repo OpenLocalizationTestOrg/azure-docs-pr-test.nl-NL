@@ -1,6 +1,6 @@
 ---
-title: Verbinding met uw app in het virtuele netwerk maken via PowerShell
-description: Instructies voor het verbinding maken met en werken met virtuele netwerken met behulp van PowerShell
+title: aaaConnect uw app tooyour virtueel netwerk met behulp van PowerShell
+description: Instructies over hoe tooconnect tooand werken met virtuele netwerken met behulp van PowerShell
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
-ms.openlocfilehash: 6fae6a6c162fa326161d2b47a259b3151d6e3dd0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c9d0fa99d02cab7b2c7211a1b2f7b7d0cd27ee8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Verbinding met uw app in het virtuele netwerk maken via PowerShell
+# <a name="connect-your-app-tooyour-virtual-network-by-using-powershell"></a>Verbinding maken met uw app tooyour virtueel netwerk met behulp van PowerShell
 ## <a name="overview"></a>Overzicht
-In Azure App Service kunt u uw app (web, mobiel of API) met een Azure virtual network (VNet) in uw abonnement. Deze functie is aangeroepen VNet-integratie. Verwar de VNet-integratiefunctie niet met de functie App Service-omgeving, zodat u kunt een exemplaar van Azure App Service uitvoeren in uw virtuele netwerk.
+In Azure App Service kunt u uw app (web, mobiel of API) tooan virtuele Azure-netwerk (VNet) in uw abonnement. Deze functie is aangeroepen VNet-integratie. Verwar Hallo VNet-integratiefunctie niet met de functie App Service-omgeving hello, zodat u toorun een exemplaar van Azure App Service in uw virtuele netwerk.
 
-De VNet-integratiefunctie heeft een gebruikersinterface (UI) in de nieuwe portal die u gebruiken kunt om te integreren met virtuele netwerken die zijn geïmplementeerd met behulp van het klassieke implementatiemodel of het Azure Resource Manager-implementatiemodel. Als u wilt voor meer informatie over de functie, Zie [uw app integreren met een Azure-netwerk](web-sites-integrate-with-vnet.md).
+Hallo VNet-integratiefunctie heeft een gebruikersinterface (UI) in de nieuwe portal Hallo dat u toointegrate met virtuele netwerken die zijn geïmplementeerd gebruiken kunt met behulp van het klassieke implementatiemodel Hallo of hello Azure Resource Manager-implementatiemodel. Als u meer informatie over de functie Hallo toolearn wilt, Zie [uw app integreren met een Azure-netwerk](web-sites-integrate-with-vnet.md).
 
-Dit artikel is niet over het gebruik van de gebruikersinterface, maar in plaats daarvan over het inschakelen van integratie met behulp van PowerShell. Omdat de opdrachten voor elk implementatiemodel verschillend zijn, heeft dit artikel een sectie voor elke implementatiemodel.  
+In dit artikel wordt niet over hoe toouse UI hello, maar in plaats daarvan over het tooenable integratie met behulp van PowerShell. Omdat het Hallo-opdrachten voor elk implementatiemodel verschillend zijn, heeft dit artikel een sectie voor elke implementatiemodel.  
 
 Controleer voordat u met dit artikel doorgaat, dat u hebt:
 
-* De nieuwste Azure PowerShell SDK geïnstalleerd. U kunt dit installeren met het Webplatforminstallatieprogramma.
+* Hallo die nieuwste Azure PowerShell-SDK geïnstalleerd. U kunt dit installeren met de Hallo Web Platform Installer.
 * Een app in Azure App Service wordt uitgevoerd op een Standard of Premium-SKU.
 
 ## <a name="classic-virtual-networks"></a>Klassieke virtuele netwerken
-Deze sectie wordt uitgelegd drie taken voor virtuele netwerken die gebruikmaken van het klassieke implementatiemodel:
+Deze sectie wordt uitgelegd drie taken voor virtuele netwerken die gebruikmaken van het klassieke implementatiemodel Hallo:
 
-1. Uw app verbinden met een bestaand virtueel netwerk dat een gateway heeft en is geconfigureerd voor punt-naar-site-connectiviteit.
+1. Uw app tooa bestaande virtueel netwerk verbinden dat een gateway heeft en is geconfigureerd voor punt-naar-site-connectiviteit.
 2. Werk uw gegevens van de integratie van virtueel netwerk voor uw app.
 3. Verbreek de verbinding tussen uw app in het virtuele netwerk.
 
-### <a name="connect-an-app-to-a-classic-vnet"></a>Een app verbinden met een klassiek VNet
-Als u wilt een app koppelen aan een virtueel netwerk, volg deze drie stappen:
+### <a name="connect-an-app-tooa-classic-vnet"></a>Verbinding maken met een app tooa klassieke VNet
+tooconnect een app tooa virtueel netwerk, volg deze drie stappen:
 
-1. Declareren in de web-app of moet deze aan een bepaald virtueel netwerk koppelen. De app een certificaat dat wordt verleend aan het virtuele netwerk voor punt-naar-site-connectiviteit gegenereerd.
-2. Het certificaat voor web-app uploaden naar het virtuele netwerk en vervolgens de punt-naar-site VPN-pakket URI worden opgehaald.
-3. De web-app virtueel netwerkverbinding met de pakket-URI van de punt-naar-site bijwerken.
+1. Declareren toohello web-app of moet deze aan een bepaald virtueel netwerk koppelen. Hallo-app een certificaat dat wordt verleend toohello virtueel netwerk voor punt-naar-site-connectiviteit gegenereerd.
+2. Hallo web app certificaat toohello virtueel netwerk uploaden en vervolgens Hallo punt-naar-site VPN-pakket-URI die worden opgehaald.
+3. Hallo van web-app virtueel netwerkverbinding bijwerken met Hallo punt-naar-site de pakket-URI.
 
-De eerste en derde stappen volledige scriptondersteuning mogelijk zijn, maar de tweede stap vereist een eenmalige, handmatige actie via de portal of de toegang tot het uitvoeren van **plaatsen** of **PATCH** acties op het virtuele netwerk Azure Resource Manager-eindpunt. Neem contact op met een Azure-ondersteuning als dit is ingeschakeld. Voordat u begint, zorg ervoor dat er een klassiek virtueel netwerk met punt-naar-site-connectiviteit is ingeschakeld en een geïmplementeerde gateway. Als u wilt maken van de gateway en punt-naar-site-connectiviteit inschakelt, moet u de portal te gebruiken, zoals beschreven op [maken van een VPN-gateway][createvpngateway].
+Hello eerste en derde stappen zijn volledige scriptondersteuning mogelijk, maar de tweede stap Hallo vereist een eenmalige, handmatige actie via Hallo portal of toegang tooperform **plaatsen** of **PATCH** acties op Hallo virtueel netwerk Azure Resource Manager-eindpunt. Neem contact op met ondersteuning van Azure toohave dit ingeschakeld. Voordat u begint, zorg ervoor dat er een klassiek virtueel netwerk met punt-naar-site-connectiviteit is ingeschakeld en een geïmplementeerde gateway. toocreate hello gateway en schakel punt-naar-site-connectiviteit, moet u toouse Hallo portal zoals beschreven op [maken van een VPN-gateway][createvpngateway].
 
-Het klassieke virtuele netwerk moet zich in hetzelfde abonnement als uw App Service-abonnement met de app die u integreert.
+Hallo klassiek virtueel netwerk moet toobe in Hallo hetzelfde abonnement als uw App-Service die blokkeringen Hallo-app die u integreert met plant.
 
 ##### <a name="set-up-azure-powershell-sdk"></a>Instellen van Azure PowerShell SDK
 Open een PowerShell-venster en instellen van uw Azure-account en abonnement met behulp van:
 
     Login-AzureRmAccount
 
-Deze opdracht wordt een prompt voor uw Azure-referenties geopend. Nadat u zich aanmeldt, gebruik een van de volgende opdrachten om het abonnement dat u wilt gebruiken. Zorg ervoor dat u van het abonnement die uw virtuele netwerk en de App Service-abonnement gebruikmaakt in.
+Deze opdracht wordt een prompt tooget geopend uw Azure-referenties. Nadat u zich aanmeldt, kunt een van de volgende opdrachten tooselect Hallo abonnement dat u wilt dat toouse hello te gebruiken. Zorg ervoor dat u van Hallo abonnement die uw virtuele netwerk en de App Service-abonnement gebruikmaakt in.
 
     Select-AzureRmSubscription –SubscriptionName [WebAppSubscriptionName]
 
@@ -65,9 +65,9 @@ of
     Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
 
 ##### <a name="variables-used-in-this-article"></a>Variabelen die in dit artikel worden gebruikt
-Om te vereenvoudigen opdrachten, stelt we een **$Configuration** PowerShell variabele met de specifieke configuratie.
+toosimplify opdrachten, zullen een **$Configuration** PowerShell variabele met de Hallo specifieke configuratie.
 
-Een variabele als volgt instellen in PowerShell met de volgende parameters:
+Een variabele als volgt instellen in PowerShell Hello volgende parameters:
 
     $Configuration = @{}
     $Configuration.WebAppResourceGroup = "[Your web app resource group]"
@@ -76,15 +76,15 @@ Een variabele als volgt instellen in PowerShell met de volgende parameters:
     $Configuration.VnetResourceGroup = "[Your vnet resource group]"
     $Configuration.VnetName = "[Your vnet name]"
 
-De locatie van de app moet de locatie zonder spaties. Bijvoorbeeld, is VS-West westus.
+Hallo app locatie moet Hallo locatie zonder spaties. Bijvoorbeeld, is VS-West westus.
 
     $Configuration.WebAppLocation = "[Your web app Location]"
 
-Het volgende item is waar het certificaat moet worden geschreven. Deze moet een pad op de lokale computer. Zorg ervoor dat .cer aan het einde.
+het volgende item Hallo is waar Hallo certificaat moet worden geschreven. Deze moet een pad op de lokale computer. Zorg ervoor dat tooinclude .cer Hallo achter.
 
     $Configuration.GeneratedCertificatePath = "[C:\Path\To\Certificate.cer]"
 
-Typ om te zien wat u hebt ingesteld, **$Configuration**.
+toosee ingesteld, type **$Configuration**.
 
     > $Configuration
 
@@ -98,33 +98,33 @@ Typ om te zien wat u hebt ingesteld, **$Configuration**.
     WebAppName                     vnetintdemoapp
     WebAppLocation                 centralus
 
-De rest van deze sectie wordt ervan uitgegaan dat u een variabele die is gemaakt als NET beschreven hebt.
+Hallo rest van deze sectie wordt ervan uitgegaan dat u een variabele die is gemaakt als NET beschreven hebt.
 
-##### <a name="declare-the-virtual-network-to-the-app"></a>Het virtuele netwerk naar de app declareren
-Gebruik de volgende opdracht om te controleren van de app dat deze dit bepaalde virtuele netwerk wordt gebruikt. Dit zorgt ervoor dat de app voor het genereren van de benodigde certificaten:
+##### <a name="declare-hello-virtual-network-toohello-app"></a>Hallo virtueel netwerk toohello app declareren
+Gebruik hello volgt opdracht tootell Hallo app dat deze dit bepaalde virtuele netwerk wordt gebruikt. Hierdoor wordt Hallo app toogenerate benodigde certificaten:
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
 
-Als u deze opdracht is geslaagd, **$vnet** moet een **eigenschappen** in deze variabele. De **eigenschappen** variabele moet zowel een vingerafdruk van het certificaat en de gegevens van het certificaat bevatten.
+Als u deze opdracht is geslaagd, **$vnet** moet een **eigenschappen** in deze variabele. Hallo **eigenschappen** variabele moet zowel een certificaat vingerafdruk en Hallo certificaatgegevens bevatten.
 
-##### <a name="upload-the-web-app-certificate-to-the-virtual-network"></a>Het certificaat voor web-app uploaden naar het virtuele netwerk
-Een handmatige stap eenmalige is vereist voor elk abonnement en de combinatie van het virtuele netwerk. Dat wil zeggen, als u apps in abonnement een verbinding met een virtueel netwerk, moet u doen in deze stap slechts eenmaal ongeacht hoeveel apps die u configureert. Als u een nieuwe app aan een ander virtueel netwerk toevoegt, moet u dit opnieuw te doen. De reden hiervoor is dat een set van certificaten wordt gegenereerd tijdens een abonnement in Azure App Service en de set eenmaal voor elk virtueel netwerk dat de apps die verbinding met maakt wordt gegenereerd.
+##### <a name="upload-hello-web-app-certificate-toohello-virtual-network"></a>Hallo web app certificaat toohello virtueel netwerk uploaden
+Een handmatige stap eenmalige is vereist voor elk abonnement en de combinatie van het virtuele netwerk. Dat wil zeggen, als u apps in abonnement een tooVirtual netwerk een verbinding maakt, moet u toodo deze stap slechts eenmaal ongeacht hoeveel apps die u configureert. Als u een nieuw virtueel netwerk van de app-tooanother toevoegt, moet u dit opnieuw toodo. Hallo reden hiervoor is dat een set van certificaten wordt gegenereerd tijdens een abonnement in Azure App Service en Hallo set eenmaal voor elk virtueel netwerk dat Hallo apps maakt verbinding met wordt gegenereerd.
 
-De certificaten wordt al zijn ingesteld als u deze stappen hebt uitgevoerd of als u geïntegreerd met hetzelfde virtuele netwerk met behulp van de portal.
+Hallo certificaten wordt al zijn ingesteld als u deze stappen hebt gevolgd, of als u een geïntegreerd met Hallo hetzelfde virtuele netwerk met behulp van Hallo-portal.
 
-De eerste stap is het cer-bestand genereren. De tweede stap is het cer-bestand uploaden naar uw virtuele netwerk. Voor het genereren van het cer-bestand van de API-aanroep in de vorige stap, voer de volgende opdrachten.
+de eerste stap Hallo is toogenerate Hallo cer-bestand. de tweede stap Hallo is tooupload Hallo .cer-bestand tooyour virtueel netwerk. toogenerate hello cer-bestand van Hallo API-aanroep in Hallo eerdere stap Hallo volgende opdrachten uitvoeren.
 
     $certBytes = [System.Convert]::FromBase64String($vnet.Properties.certBlob)
     [System.IO.File]::WriteAllBytes("$($Configuration.GeneratedCertificatePath)", $certBytes)
 
-Het certificaat wordt gevonden op de locatie die **$Configuration.GeneratedCertificatePath** bevat.
+Hallo-certificaat worden gevonden op locatie Hallo die **$Configuration.GeneratedCertificatePath** bevat.
 
-Het certificaat handmatig uploaden, gebruiken de [Azure-portal] [ azureportal] en **bladeren virtueel netwerk (klassiek)** > **VPN-verbindingen** > **punt-naar-site** > **certificaten beheren**. Hier kunt uw certificaat te uploaden.
+tooupload hello certificaat handmatig hello gebruiken [Azure-portal] [ azureportal] en **bladeren virtueel netwerk (klassiek)** > **VPN-verbindingen**  >  **Punt-naar-site** > **certificaten beheren**. Hier kunt uw certificaat te uploaden.
 
-##### <a name="get-the-point-to-site-package"></a>Het pakket voor punt-naar-site
-De volgende stap bij het instellen van een virtueel netwerkverbinding op een web-app is het ophalen van het pakket voor punt-naar-site en het weer doorgeeft aan uw web-app.
+##### <a name="get-hello-point-to-site-package"></a>Hallo punt-naar-site-pakket
+Hallo volgende stap bij het instellen van een virtueel netwerkverbinding op een web-app is tooget Hallo punt-naar-site-pakket en geef deze tooyour web-app.
 
-De volgende sjabloon opslaan in een bestand met de naam van de GetNetworkPackageUri.json ergens op uw computer, bijvoorbeeld C:\Azure\Templates\GetNetworkPackageUri.json.
+Sla Hallo volgende sjabloonbestand tooa aangeroepen GetNetworkPackageUri.json ergens op uw computer, bijvoorbeeld C:\Azure\Templates\GetNetworkPackageUri.json.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -160,41 +160,41 @@ Invoerparameters instellen:
     certThumbprint = $vnet.Properties.certThumbprint ;
     "networkName" = $Configuration.VnetName }
 
-Roept het script:
+Roep Hallo script:
 
     $output = New-AzureRmResourceGroupDeployment -Name unused -ResourceGroupName $Configuration.VnetResourceGroup -TemplateParameterObject $parameters -TemplateFile C:\PATH\TO\GetNetworkPackageUri.json
 
 
-De variabele **$output. Outputs.packageUri** bevat nu de pakket-URI die moet worden besteed aan uw web-app.
+Hallo variabele **$output. Outputs.packageUri** bevat nu Hallo pakket URI toobe gegeven tooyour web-app.
 
-##### <a name="upload-the-point-to-site-package-to-your-app"></a>Uploaden van het pakket punt-naar-site naar uw app
-De laatste stap is om te voorzien van de app dit pakket. Alleen uitvoeren de volgende opdracht:
+##### <a name="upload-hello-point-to-site-package-tooyour-app"></a>Hallo punt-naar-site pakket tooyour app uploaden
+de laatste stap Hallo is tooprovide Hallo app met dit pakket. De volgende opdracht Hallo voert u eenvoudigweg:
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
 
-Als een bericht u gevraagd te bevestigen wordt dat u een bestaande resource wilt overschrijven, moet u mogelijk te maken.
+Als een bericht gevraagd tooconfirm dat u een bestaande resource wilt overschrijven, moet u ervoor dat tooallow deze.
 
-Nadat deze opdracht is geslaagd, moet u uw app nu verbonden aan het virtuele netwerk. Om te bevestigen geslaagd, gaat u naar uw app-console en typ het volgende:
+Nadat deze opdracht is geslaagd, moet uw app nu verbonden toohello virtueel netwerk zijn. tooconfirm geslaagd, gaat u tooyour app-console en typt u de volgende Hallo:
 
     SET WEBSITE_
 
-Als er een omgevingsvariabele WEBSITE_VNETNAME die heeft een waarde die overeenkomt met de naam van het virtuele doelnetwerk genoemd, worden alle configuraties zijn geslaagd.
+Als er een omgevingsvariabele WEBSITE_VNETNAME die heeft een waarde die overeenkomt met de naam Hallo Hallo doel virtueel netwerk genoemd, worden alle configuraties zijn geslaagd.
 
 ### <a name="update-classic-vnet-integration-information"></a>Klassieke VNet integratie-informatie bijwerken
-Als u wilt bijwerken of uw gegevens synchroniseren, herhaalt u de stappen die u hebt gevolgd wanneer u de integratie in eerste instantie gemaakt. Deze stappen zijn:
+tooupdate of uw gegevens synchroniseren, herhaalt Hallo stappen die u tijdens het maken van Hallo-integratie in de eerste plaats Hallo gevolgd. Deze stappen zijn:
 
 1. Definieer uw configuratie-informatie.
-2. Het virtuele netwerk naar de app declareren.
-3. Ophalen van de punt-naar-site-pakket.
-4. Upload het pakket punt-naar-site naar uw app.
+2. Hallo virtueel netwerk toohello app declareren.
+3. Hallo punt-naar-site package ophalen.
+4. Hallo punt-naar-site pakket tooyour app uploaden.
 
 ### <a name="disconnect-your-app-from-a-classic-vnet"></a>Verbreek de verbinding tussen uw app een klassiek VNet
-Als u wilt verbreken van de app, moet u de configuratiegegevens die is ingesteld tijdens de integratie van virtueel netwerk. Deze gegevens niet gebruiken, is er vervolgens één opdracht uw app ontkoppelt van het virtuele netwerk.
+toodisconnect hello app, moet u Hallo configuratie-informatie die is ingesteld tijdens de integratie van virtueel netwerk. Deze gegevens niet gebruiken, zich vervolgens één opdracht toodisconnect uw app uit het virtuele netwerk.
 
     $vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
 
 ## <a name="resource-manager-virtual-networks"></a>Virtuele netwerken van Resource Manager
-Virtuele netwerken van Resource Manager hebben Azure Resource Manager-API's die bepaalde processen in vergelijking met het klassieke virtuele netwerken vereenvoudigen. Wij hebben een script waarmee u de volgende taken uitvoeren:
+Virtuele netwerken van Resource Manager hebben Azure Resource Manager-API's die bepaalde processen in vergelijking met het klassieke virtuele netwerken vereenvoudigen. Wij hebben een script dat u kunt Hallo volgende taken voltooien:
 
 * Een virtueel netwerk van Resource Manager maken en uw app integreren.
 * Maken van een gateway, punt-naar-site-connectiviteit in een bestaande Resource Manager virtueel netwerk configureren en vervolgens uw app integreren met het.
@@ -202,7 +202,7 @@ Virtuele netwerken van Resource Manager hebben Azure Resource Manager-API's die 
 * Verbreek de verbinding tussen uw app in het virtuele netwerk.
 
 ### <a name="resource-manager-vnet-app-service-integration-script"></a>Script voor Resource Manager VNet-App Service-integratie
-Kopieer het volgende script en sla deze op een bestand. Als u niet dat het script te gebruiken wilt, u kunt meer uit om te zien hoe dingen instellen met een virtueel netwerk van Resource Manager.
+Hallo volgende script en sla het bestand tooa kopiëren. Als u niet dat toouse Hallo script wilt, kunt u gratis toolearn hieruit toosee hoe tooset mogelijkheden van met een virtueel netwerk van Resource Manager.
 
     function ReadHostWithDefault($message, $default)
     {
@@ -262,10 +262,10 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
         $pip = New-AzureRmPublicIpAddress -Name $vnetIpName -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
         $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $vnetIpConfigName -Subnet $subnet -PublicIpAddress $pip
 
-        Write-Host "Adding a root certificate to this VNET"
+        Write-Host "Adding a root certificate toothis VNET"
         $root = New-AzureRmVpnClientRootCertificate -Name "AppServiceCertificate.cer" -PublicCertData $certificateData
 
-        Write-Host "Creating Azure VNET Gateway. This may take up to an hour."
+        Write-Host "Creating Azure VNET Gateway. This may take up tooan hour."
         New-AzureRmVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $resourceGroupName -Location $location -IpConfigurations $ipconf -GatewayType Vpn -VpnType RouteBased -EnableBgp $false -GatewaySku Basic -VpnClientAddressPool $vnetPointToSiteAddressSpace -VpnClientRootCertificates $root
     }
 
@@ -290,7 +290,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
         while($changeRequested -eq 0)
         {
             Write-Host
-            Write-Host "Currently, I will create a VNET with the following settings:"
+            Write-Host "Currently, I will create a VNET with hello following settings:"
             Write-Host
             Write-Host "Virtual Network Name: $vnetName"
             Write-Host "Resource Group Name:  $resourceGroupName"
@@ -301,7 +301,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
             Write-Host "Gateway Address Space:$vnetGatewayAddressSpace"
             Write-Host "Point-To-Site Address Space:  $vnetPointToSiteAddressSpace"
             Write-Host
-            $changeRequested = PromptYesNo "" "Do you wish to change these settings?" 1
+            $changeRequested = PromptYesNo "" "Do you wish toochange these settings?" 1
 
             if($changeRequested -eq 0)
             {
@@ -318,15 +318,15 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
 
         $ErrorActionPreference = "Stop";
 
-        # We create the virtual network and add it here. The way this works is:
-        # 1) Add the VNET association to the App. This allows the App to generate certificates, etc. for the VNET.
-        # 2) Create the VNET and VNET gateway, add the certificates, create the public IP, etc., required for the gateway
-        # 3) Get the VPN package from the gateway and pass it back to the App.
+        # We create hello virtual network and add it here. hello way this works is:
+        # 1) Add hello VNET association toohello App. This allows hello App toogenerate certificates, etc. for hello VNET.
+        # 2) Create hello VNET and VNET gateway, add hello certificates, create hello public IP, etc., required for hello gateway
+        # 3) Get hello VPN package from hello gateway and pass it back toohello App.
 
         $webApp = Get-AzureRmResource -ResourceName $webAppName -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01 -ResourceGroupName $webAppResourceGroup
         $location = $webApp.Location
 
-        Write-Host "Creating App association to VNET"
+        Write-Host "Creating App association tooVNET"
         $propertiesObject = @{
          "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($resourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
         }
@@ -336,16 +336,16 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
 
         CreateVnetGateway $resourceGroupName $vnetName $vnetIpName $location $vnetIpConfigName $vnetGatewayName $virtualNetwork.Properties.CertBlob $vnetPointToSiteAddressSpace
 
-        Write-Host "Retrieving VPN Package and supplying to App"
+        Write-Host "Retrieving VPN Package and supplying tooApp"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
         
-        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        # $packageUri may contain literal double-quotes at hello start and hello end of hello URL
         if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
         {
             $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
         }
 
-        # Put the VPN client configuration package onto the App
+        # Put hello VPN client configuration package onto hello App
         $PropertiesObject = @{
         "vnetName" = $VirtualNetworkName; "vpnPackageUri" = $packageUri
         }
@@ -359,7 +359,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
     {
         $ErrorActionPreference = "Stop";
 
-        # At this point, the gateway should be able to be joined to an App, but may require some minor tweaking. We will declare to the App now to use this VNET
+        # At this point, hello gateway should be able toobe joined tooan App, but may require some minor tweaking. We will declare toohello App now toouse this VNET
         Write-Host "Getting App information"
         $webApp = Get-AzureRmResource -ResourceName $webAppName -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
         $location = $webApp.Location
@@ -368,7 +368,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
         $currentVnet = $webAppConfig.Properties.VnetName
         if($currentVnet -ne $null -and $currentVnet -ne "")
         {
-            Write-Host "Currently connected to VNET $currentVnet"
+            Write-Host "Currently connected tooVNET $currentVnet"
         }
 
         # Display existing vnets
@@ -380,23 +380,23 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
         }
 
         Write-Host
-        $vnet = PromptCustom "Select a VNET to integrate with" $vnets $vnetNames
+        $vnet = PromptCustom "Select a VNET toointegrate with" $vnets $vnetNames
 
-        # We need to check if this VNET is able to be joined to a App, based on following criteria
+        # We need toocheck if this VNET is able toobe joined tooa App, based on following criteria
             # If there is no gateway, we can create one.
             # If there is a gateway:
                 # It must be of type Vpn
                 # It must be of VpnType RouteBased
-                # If it doesn't have the right certificate, we will need to add it.
-                # If it doesn't have a point-to-site range, we will need to add it.
+                # If it doesn't have hello right certificate, we will need tooadd it.
+                # If it doesn't have a point-to-site range, we will need tooadd it.
 
         $gatewaySubnet = $vnet.Subnets | Where-Object { $_.Name -eq "GatewaySubnet" }
 
         if($gatewaySubnet -eq $null -or $gatewaySubnet.IpConfigurations -eq $null -or $gatewaySubnet.IpConfigurations.Count -eq 0)
         {
             $ErrorActionPreference = "Continue";
-            # There is no gateway. We need to create one.
-            Write-Host "This Virtual Network has no gateway. I will need to create one."
+            # There is no gateway. We need toocreate one.
+            Write-Host "This Virtual Network has no gateway. I will need toocreate one."
 
             $vnetName = $vnet.Name
             $vnetGatewayName="$($vnetName)-gateway"
@@ -410,7 +410,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
 
             $changeRequested = 0
 
-            Write-Host "Your VNET is in the address space $($vnet.AddressSpace.AddressPrefixes), with the following Subnets:"
+            Write-Host "Your VNET is in hello address space $($vnet.AddressSpace.AddressPrefixes), with hello following Subnets:"
             foreach($subnet in $vnet.Subnets)
             {
                 Write-Host "$($subnet.Name): $($subnet.AddressPrefix)"
@@ -421,7 +421,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
             while($changeRequested -eq 0)
             {
                 Write-Host
-                Write-Host "Currently, I will create a VNET gateway with the following settings:"
+                Write-Host "Currently, I will create a VNET gateway with hello following settings:"
                 Write-Host
                 Write-Host "Virtual Network Name: $vnetName"
                 Write-Host "Resource Group Name:  $($vnet.ResourceGroupName)"
@@ -432,7 +432,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
                 Write-Host "Gateway Address Space:$vnetGatewayAddressSpace"
                 Write-Host "Point-To-Site Address Space:  $vnetPointToSiteAddressSpace"
                 Write-Host
-                $changeRequested = PromptYesNo "" "Do you wish to change these settings?" 1
+                $changeRequested = PromptYesNo "" "Do you wish toochange these settings?" 1
 
                 if($changeRequested -eq 0)
                 {
@@ -446,14 +446,14 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
 
             $ErrorActionPreference = "Stop";
 
-            Write-Host "Creating App association to VNET"
+            Write-Host "Creating App association tooVNET"
             $propertiesObject = @{
              "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnetName)"
             }
 
             $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
 
-            # If there is no gateway subnet, we need to create one.
+            # If there is no gateway subnet, we need toocreate one.
             if($gatewaySubnet -eq $null)
             {
                 $gatewaySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $vnetGatewayAddressSpace
@@ -476,13 +476,13 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
             # validate gateway types, etc.
             if($gateway.GatewayType -ne "Vpn")
             {
-                Write-Error "This gateway is not of the Vpn type. It cannot be joined to an App."
+                Write-Error "This gateway is not of hello Vpn type. It cannot be joined tooan App."
                 return
             }
 
             if($gateway.VpnType -ne "RouteBased")
             {
-                Write-Error "This gateways Vpn type is not RouteBased. It cannot be joined to an App."
+                Write-Error "This gateways Vpn type is not RouteBased. It cannot be joined tooan App."
                 return
             }
 
@@ -493,14 +493,14 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
                 Set-AzureRmVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $gateway.Name -VpnClientAddressPool $pointToSiteAddress
             }
 
-            Write-Host "Creating App association to VNET"
+            Write-Host "Creating App association tooVNET"
             $propertiesObject = @{
              "vnetResourceId" = "/subscriptions/$($subscriptionId)/resourceGroups/$($vnet.ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($vnet.Name)"
             }
 
             $virtualNetwork = New-AzureRmResource -Location $location -Properties $PropertiesObject -ResourceName "$($webAppName)/$($vnet.Name)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName -Force
 
-            # We need to check if the certificate here exists in the gateway.
+            # We need toocheck if hello certificate here exists in hello gateway.
             $certificates = $gateway.VpnClientConfiguration.VpnClientRootCertificates
 
             $certFound = $false
@@ -520,17 +520,17 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
             }
         }
 
-        # Now finish joining by getting the VPN package and giving it to the App
-        Write-Host "Retrieving VPN Package and supplying to App"
+        # Now finish joining by getting hello VPN package and giving it toohello App
+        Write-Host "Retrieving VPN Package and supplying tooApp"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
         
-        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        # $packageUri may contain literal double-quotes at hello start and hello end of hello URL
         if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
         {
             $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
         }
 
-        # Put the VPN client configuration package onto the App
+        # Put hello VPN client configuration package onto hello App
         $PropertiesObject = @{
         "vnetName" = $vnet.Name; "vpnPackageUri" = $packageUri
         }
@@ -546,13 +546,13 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
         $currentVnet = $webAppConfig.Properties.VnetName
         if($currentVnet -ne $null -and $currentVnet -ne "")
         {
-            Write-Host "Currently connected to VNET $currentVnet"
+            Write-Host "Currently connected tooVNET $currentVnet"
 
             Remove-AzureRmResource -ResourceName "$($webAppName)/$($currentVnet)" -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-08-01 -ResourceGroupName $resourceGroupName
         }
             else
         {
-            Write-Host "Not connected to a VNET."
+            Write-Host "Not connected tooa VNET."
         }
     }
 
@@ -566,7 +566,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
 
     if($subs.Length -eq 0)
     {
-        Write-Error "No subscriptions bound to this account."
+        Write-Error "No subscriptions bound toothis account."
         return
     }
 
@@ -589,13 +589,13 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
-    $resourceGroup = Read-Host "Please enter the Resource Group of your App"
+    $resourceGroup = Read-Host "Please enter hello Resource Group of your App"
 
-    $appName = Read-Host "Please enter the Name of your App"
+    $appName = Read-Host "Please enter hello Name of your App"
 
-    $options = @("Add a NEW Virtual Network to an App", "Add an EXISTING Virtual Network to an App", "Remove a Virtual Network from an App");
+    $options = @("Add a NEW Virtual Network tooan App", "Add an EXISTING Virtual Network tooan App", "Remove a Virtual Network from an App");
     $optionValues = @(0, 1, 2)
-    $option = PromptCustom "What do you want to do?" $optionValues $options
+    $option = PromptCustom "What do you want toodo?" $optionValues $options
 
     if($option -eq 0)
     {
@@ -610,7 +610,7 @@ Kopieer het volgende script en sla deze op een bestand. Als u niet dat het scrip
         RemoveVnet $subscriptionId $resourceGroup $appName
     }
 
-Sla een kopie van het script. In dit artikel V2VnetAllinOne.ps1 wordt aangeroepen, maar u kunt een andere naam. Er zijn geen argumenten voor dit script. U gewoon uitvoeren het. Het eerste wat dat het script doet is gevraagd u aan te melden. Nadat u zich aanmeldt, wordt het script haalt gegevens over uw account en retourneert een lijst met abonnementen. De aanvraag om uw referenties niet meegerekend, weergegeven uitvoering van het oorspronkelijke script als volgt:
+Sla een kopie van het Hallo-script. In dit artikel V2VnetAllinOne.ps1 wordt aangeroepen, maar u kunt een andere naam. Er zijn geen argumenten voor dit script. U gewoon uitvoeren het. Hallo eerst te beginnen Hallo script doet u toosign in gevraagd is. Nadat u zich aanmeldt, wordt Hallo script haalt gegevens over uw account en retourneert een lijst met abonnementen. Hallo-aanvraag voor uw referenties niet meegerekend, uitziet Hallo initiële scriptuitvoering:
 
     PS C:\Users\ccompy\Documents\VNET> .\V2VnetAllInOne.ps1
     Please Login
@@ -631,18 +631,18 @@ Sla een kopie van het script. In dit artikel V2VnetAllinOne.ps1 wordt aangeroepe
 
     Account: ccompy@microsoft.com omgeving: AzureCloud abonnement: 2d4c99a4-57f9-4d5e-a0a1-0034c52db59d Tenant: 722278f-fef1-499f-91ab-2323d011db47
 
-    Geef de resourcegroep van uw App: Geef de naam van uw App hcdemo rg: v2vnetpowershell wat wilt u doen?
+    Voer Hallo resourcegroep van uw App: hcdemo rg Voer Hallo naam van uw App: v2vnetpowershell wat wilt u wilt dat toodo?
 
-    1) Een nieuw virtueel netwerk toevoegen aan een App
-    2) Een bestaand virtueel netwerk toevoegen aan een App
+    1) Een nieuw virtueel netwerk tooan App toevoegen
+    2) Een bestaand virtueel netwerk tooan App toevoegen
     3) Een virtueel netwerk verwijderen uit een App
 
-De rest van dit gedeelte wordt elk van deze drie opties.
+Hallo rest van dit gedeelte wordt elk van deze drie opties.
 
 ### <a name="create-a-resource-manager-vnet-and-integrate-with-it"></a>Een Resource Manager VNet maken en integreren met het
-Voor het maken van een nieuwe virtuele netwerk dat gebruikmaakt van het implementatiemodel van Resource Manager en het integreren met uw app, selecteer **1) een nieuw virtueel netwerk toevoegen aan een App**. Hiermee wordt u gevraagd om de naam van het virtuele netwerk. In mijn geval, zoals u in de volgende instellingen ziet gebruikt ik de naam van de v2pshell.
+selecteert u een nieuw virtueel netwerk dat gebruik Hallo Resource Manager-implementatiemodel en met uw app integreren toocreate **1) Voeg een nieuw virtueel netwerk tooan App**. Hiermee wordt u gevraagd voor naam van het virtuele netwerk Hallo Hallo. In mijn geval, zoals u in Hallo ziet-instellingen, volgende ik Hallo naam gebruikt, v2pshell.
 
-Het script geeft de informatie over het virtuele netwerk dat wordt gemaakt. Als ik wil, kan ik een van de waarden te wijzigen. In dit voorbeeld wordt uitgevoerd, moet ik een virtueel netwerk met de volgende instellingen gemaakt:
+Hallo-script geeft Hallo informatie over Hallo virtueel netwerk dat wordt gemaakt. Als ik wil, kan ik Hallo waarden wijzigen. In dit voorbeeld wordt uitgevoerd, moet ik een virtueel netwerk met Hallo volgende instellingen gemaakt:
 
     Virtual Network Name:         v2pshell
     Resource Group Name:          hcdemo-rg
@@ -653,19 +653,19 @@ Het script geeft de informatie over het virtuele netwerk dat wordt gemaakt. Als 
     Gateway Address Space:        10.5.0.0/16
     Point-To-Site Address Space:  172.16.0.0/12
 
-    Do you wish to change these settings?
+    Do you wish toochange these settings?
     [Y] Yes  [N] No  [?] Help (default is "N"):
 
-Als u wijzigen van de waarden wilt, typt u **Y** en wijzigingen aanbrengen. Wanneer u tevreden over de instellingen van het virtuele netwerk bent, typt u **N** of drukt u op Enter wanneer u wordt gevraagd over het wijzigen van de instellingen. Vanaf dat moment tot voltooiing, het script vertelt u enkele van wat de it' i's doen totdat het begint te maken van de virtuele netwerkgateway. Deze stap kan een uur duren. Er is geen voortgangsindicator tijdens deze fase, maar het script kunt u weten wanneer de gateway is gemaakt.
+Als u toochange Hallo waarden wilt, typ **Y** en Hallo wijzigingen aanbrengen. Wanneer u tevreden over virtuele-netwerkinstellingen hello bent, typt u **N** of drukt u op Enter wanneer u wordt gevraagd over het Hallo-instellingen wijzigen. Vanaf dat moment tot voltooiing, Hallo script vertelt u enkele van wat de it' i's doen totdat deze toocreate Hallo virtuele netwerkgateway wordt gestart. Deze stap kan tooan uur duren. Er is geen voortgangsindicator tijdens deze fase, maar Hallo script kunt u weten wanneer Hallo gateway is gemaakt.
 
-Wanneer het script is voltooid, wordt er **voltooid**. Op dit moment hebt u een Resource Manager virtueel netwerk met de naam en de instellingen die u hebt geselecteerd. Deze nieuwe virtuele netwerk wordt ook worden geïntegreerd met uw app.
+Wanneer het Hallo-script is voltooid, wordt er **voltooid**. Op dit moment hebt u een virtueel netwerk van Resource Manager met naam Hallo en instellingen die u hebt geselecteerd. Deze nieuwe virtuele netwerk wordt ook worden geïntegreerd met uw app.
 
 ### <a name="integrate-your-app-with-a-preexisting-resource-manager-vnet"></a>Uw app integreren met een bestaande Resource Manager VNet
-Wanneer u met een bestaand virtueel netwerk, integreren bent als u een Resource Manager virtueel netwerk dat geen gateway of punt-naar-site-connectiviteit bieden, wordt het script ingesteld die. Als het VNET al deze dingen instellen, gaat het script meteen naar de app-integratie. Om te starten, selecteert u de **2) een bestaand virtueel netwerk toevoegen aan een App**.
+Wanneer u met een bestaand virtueel netwerk, integreren bent als u een Resource Manager virtueel netwerk dat geen gateway of punt-naar-site-connectiviteit bieden, wordt Hallo script ingesteld die. Als Hallo VNET al deze dingen instellen, gaat het Hallo-script rechte toohello app-integratie. toostart dit proces gewoon Selecteer **2) Voeg een bestaand virtueel netwerk tooan App**.
 
-Deze optie werkt alleen als u een bestaand virtueel netwerk voor Resource Manager, dat zich in hetzelfde abonnement als uw app. Nadat u de optie selecteert, wordt er verschijnt een lijst met uw virtuele netwerken van Resource Manager.   
+Deze optie werkt alleen als u een bestaand virtueel netwerk voor Resource Manager, in Hallo hetzelfde abonnement als uw app. Nadat u Hallo-optie selecteert, wordt er verschijnt een lijst met uw virtuele netwerken van Resource Manager.   
 
-    Select a VNET to integrate with
+    Select a VNET toointegrate with
 
     1) v2demonetwork
     2) v2pshell
@@ -675,14 +675,14 @@ Deze optie werkt alleen als u een bestaand virtueel netwerk voor Resource Manage
 
     Kies een optie: 5
 
-Het virtuele netwerk dat u integreren wilt met eenvoudig kunt selecteren. Als u al een gateway die voor punt-naar-site-connectiviteit is ingeschakeld, wordt het script gewoon uw app integreren met het virtuele netwerk. Als u een gateway niet hebt, moet u het gatewaysubnet opgeven. Het gatewaysubnet moet in de adresruimte van uw virtuele netwerk en deze kan niet in een ander subnet. Als u een virtueel netwerk zonder een gateway hebt en deze stap uitvoert, dingen moeten uitzien:
+Hallo virtueel netwerk dat u wilt dat toointegrate met eenvoudig kunt selecteren. Als u al een gateway die voor punt-naar-site-connectiviteit is ingeschakeld, wordt Hallo script gewoon uw app integreren met het virtuele netwerk. Als u een gateway niet hebt, moet u toospecify hello gatewaysubnet. Het gatewaysubnet moet in de adresruimte van uw virtuele netwerk en deze kan niet in een ander subnet. Als u een virtueel netwerk zonder een gateway hebt en deze stap uitvoert, dingen moeten uitzien:
 
-    This Virtual Network has no gateway. I will need to create one.
-    Your VNET is in the address space 172.16.0.0/16, with the following Subnets:
+    This Virtual Network has no gateway. I will need toocreate one.
+    Your VNET is in hello address space 172.16.0.0/16, with hello following Subnets:
     default: 172.16.0.0/24
     Please choose a GatewaySubnet address space: 172.16.1.0/26
 
-In dit voorbeeld moet ik een virtuele netwerkgateway met de volgende instellingen gemaakt:
+In dit voorbeeld gemaakt ik een virtuele netwerkgateway met Hallo volgende instellingen:
 
     Virtual Network Name:         v2pshell2
     Resource Group Name:          vnetdemo-rg
@@ -693,24 +693,24 @@ In dit voorbeeld moet ik een virtuele netwerkgateway met de volgende instellinge
     Gateway Address Space:        172.16.1.0/26
     Point-To-Site Address Space:  172.16.0.0/12
 
-    Do you wish to change these settings?
+    Do you wish toochange these settings?
     [Y] Yes  [N] No  [?] Help (default is "N"):
-    Creating App association to VNET
+    Creating App association tooVNET
 
-Als u een van deze instellingen wijzigt wilt, kunt u dit doet. Anders, druk op Enter en het script wordt gemaakt van uw gateway en uw app koppelen aan het virtuele netwerk. De aanmaaktijd van de gateway is echter nog steeds een uur, dus zorg ervoor dat u die rekening houden. Als alles is voltooid, het script dicteert **voltooid**.
+Als u toochange deze instellingen wilt, kunt u dit doet. Anders, druk op Enter en Hallo script wordt gemaakt van uw gateway en uw app tooyour virtueel netwerk koppelen. Aanmaaktijd Hallo-gateway is echter nog steeds een uur, dus zorg ervoor dat u die rekening houden. Als alles is voltooid, Hallo script dicteert **voltooid**.
 
 ### <a name="disconnect-your-app-from-a-resource-manager-vnet"></a>Verbreek de verbinding tussen uw app een Resource Manager VNet
-Het virtuele netwerk van uw app verbreken niet noteren de gateway of punt-naar-site-connectiviteit uitschakelen. U, nadat alle gebruikt deze voor iets anders. Deze wordt ook niet verbroken deze van alle andere apps dan die u hebt opgegeven. Om deze actie niet uitvoeren, selecteert u **3) een virtueel netwerk verwijderen uit een App**. Als u doet dit, ziet u ongeveer het volgende:
+Het virtuele netwerk van uw app verbreken niet noteren Hallo gateway of punt-naar-site-connectiviteit uitschakelen. U, nadat alle gebruikt deze voor iets anders. Deze wordt ook niet verbroken deze van alle andere apps dan Hallo een die u hebt opgegeven. tooperform deze actie, selecteer **3) een virtueel netwerk verwijderen uit een App**. Als u doet dit, ziet u ongeveer het volgende:
 
-    Currently connected to VNET v2pshell
+    Currently connected tooVNET v2pshell
 
     Confirm
-    Are you sure you want to delete the following resource:
+    Are you sure you want toodelete hello following resource:
     /subscriptions/edcc99a4-b7f9-4b5e-a9a1-3034c51db496/resourceGroups/hcdemo-rg/providers/Microsoft.Web/sites/v2vnetpowers
     hell/virtualNetworkConnections/v2pshell
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-Hoewel het script verwijderen staat, verwijdert het virtuele netwerk niet meer. Het worden zojuist de integratie verwijderd. Nadat u bevestigen dat dit is wat u wilt doen, de opdracht erg snel wordt verwerkt en vertelt u **True** wanneer het is voltooid.
+Hoewel Hallo script verwijderen staat, verwijdert Hallo virtueel netwerk niet meer. Het worden Hallo-integratie alleen verwijderd. Nadat u bevestigen dat dit is wat u wilt toodo, Hallo opdracht erg snel wordt verwerkt en vertelt u **True** wanneer het is voltooid.
 
 <!--Links-->
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/

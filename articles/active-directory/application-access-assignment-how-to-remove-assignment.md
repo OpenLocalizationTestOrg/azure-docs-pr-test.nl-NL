@@ -1,6 +1,6 @@
 ---
-title: Het verwijderen van een gebruiker toegang tot een toepassing | Microsoft Docs
-description: Begrijpen hoe een gebruiker toegang tot een toepassing te verwijderen
+title: aaaHow tooremove een gebruiker de toegang tot de toepassing tooan | Microsoft Docs
+description: Begrijpen hoe tooremove een gebruiker de toegang tot de toepassing tooan
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,62 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 497429e7bf62f7e1d67ea429d6b858725f843688
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 17017bddb73aad5a0ef3a411ac91bf0423f0b600
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-remove-a-users-access-to-an-application"></a>Het verwijderen van een gebruiker toegang tot een toepassing
+# <a name="how-tooremove-a-users-access-tooan-application"></a>Hoe tooremove een gebruiker de toegang tot de toepassing tooan
 
-In dit artikel helpt u bij het begrijpen hoe een gebruiker toegang tot een toepassing te verwijderen.
+In dit artikel kunt u toounderstand hoe tooremove een gebruiker de toegang tot tooan toepassing.
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Ik wil een specifieke gebruiker of groep van toewijzing aan een toepassing verwijderen
+## <a name="i-want-tooremove-a-specific-users-or-groups-assignment-tooan-application"></a>Ik wil tooremove dat een specifieke gebruiker of groep van toewijzing tooan toepassing
 
-Als u wilt verwijderen van een gebruiker of groepstoewijzing aan een toepassing, volg de stappen in de [de toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artikel.
+een gebruiker of groep toewijzing tooan toepassing tooremove Hallo stappen in Hallo volgen [de toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artikel.
 
-. ## ik wil alle toegang tot een toepassing voor elke gebruiker uitschakelen
+. ## ik wil toodisable alle access tooan-toepassing voor elke gebruiker
 
-Schakel alle gebruikersaanmeldingen tot een toepassing die de stappen die worden vermeld in de [gebruikersaanmeldingen een enterprise-App in Azure Active Directory uitschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artikel.
+toodisable alle aanmeldingen tooan Gebruikerstoepassing, volg Hallo de stappen die worden vermeld in Hallo [gebruikersaanmeldingen een enterprise-App in Azure Active Directory uitschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artikel.
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Ik wil een toepassing volledig verwijderen
+## <a name="i-want-toodelete-an-application-entirely"></a>Ik wil dat een toepassing toodelete volledig
 
-Naar **verwijderen van een toepassing**, volgt u onderstaande instructies:
+te**verwijderen van een toepassing**, volgt u onderstaande instructies voor Hallo:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
 
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
 
-6.  Selecteer de toepassing die u wilt verwijderen.
+6.  Selecteer de gewenste toodelete Hallo-toepassing.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **verwijderen** pictogram van de bovenste toepassing **overzicht** blade.
+7.  Nadat de toepassing hello wordt geladen, klikt u op **verwijderen** pictogram van Hallo bovenste toepassing **overzicht** blade.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Ik wil alle bewerkingen van toekomstige gebruikers toestemming voor elke toepassing uitschakelen
+## <a name="i-want-toodisable-all-future-user-consent-operations-tooany-application"></a>Ik wil toodisable alle toekomstige toestemming operations tooany-Gebruikerstoepassing
 
-Toestemming van de gebruiker uitschakelt voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat elke toepassing. Beheerders kunnen nog steeds op behalves van de gebruiker toestemming. Meer informatie over de toepassing toestemming en waarom u niet wilt doen, of lezen [wat gebruikers- en toestemming van de beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Toestemming van de gebruiker uitschakelt voor uw hele directory voorkomen dat eindgebruikers van ermee akkoord dat tooany toepassing. Beheerders kunnen nog steeds op behalves van de gebruiker toestemming. toolearn meer informatie over de toepassing toestemming geven en waarom u kunt of wilt niet toodo, Lees [wat gebruikers- en toestemming van de beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Naar **uitschakelen alle toekomstige gebruikers toestemming bewerkingen in uw hele directory**, volgt u onderstaande instructies:
+te**uitschakelen alle toekomstige gebruikers toestemming bewerkingen in uw hele directory**, volgt u onderstaande instructies voor Hallo:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
+1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
 
-4.  Klik op **gebruikers en groepen** in het navigatiemenu.
+4.  Klik op **gebruikers en groepen** in het navigatiemenu Hallo.
 
 5.  Klik op **gebruikersinstellingen**.
 
-6.  Alle toekomstige gebruikers toestemming bewerkingen uitschakelen door in te stellen de **gebruikers kunnen toestaan dat apps toegang tot hun gegevens** in-of uitschakelen op **Nee** en klik op de **opslaan** knop.
+6.  Alle toekomstige gebruikers toestemming bewerkingen uitschakelen door Hallo instelling **gebruikers apps tooaccess kunnen toestaan hun gegevens** te schakelen**Nee** en klik op Hallo **opslaan** knop.
 
 
 # <a name="next-steps"></a>Volgende stappen
-[Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
+[Het beheren van toegang tooapps](active-directory-managing-access-to-apps.md)

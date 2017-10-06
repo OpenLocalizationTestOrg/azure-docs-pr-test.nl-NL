@@ -1,5 +1,5 @@
 ---
-title: Een Azure Cosmos DB .NET-toepassing ontwikkelen met behulp van de Table-API | Microsoft-documenten
+title: een Azure Cosmos DB .NET-toepassing gebruikt aaaBuild Hallo tabel-API | Microsoft Docs
 description: Aan de slag met de Table-API van Azure Cosmos DB met behulp van .NET
 services: cosmos-db
 documentationcenter: 
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bdd4f8ec45407962b3d2cb26aa814a20cfc62173
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: een .NET-toepassing ontwikkelen met de Table-API
+# <a name="azure-cosmos-db-build-a-net-application-using-hello-table-api"></a>Azure Cosmos DB: Een .NET-toepassing hello tabel API met bouwen
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel maken en query document, de sleutel/waarde en de grafiek databases, die allemaal van Hallo wereldwijde distributie en mogelijkheden van de horizontale schaal Hallo kern van Azure Cosmos DB profiteren. 
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account en een tabel binnen dat account kunt maken met behulp van de Azure Portal. U moet vervolgens code schrijven om entiteiten in te voegen, bij te werken en te verwijderen en enkele query's uit te voeren met behulp van het nieuwe [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget)-pakket (preview) van NuGet. Deze bibliotheek heeft dezelfde klassen en handtekeningen voor methodes als de openbare [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), maar biedt ook de mogelijkheid verbinding te maken met Azure Cosmos DB-accounts met behulp van de [Table-API](table-introduction.md) (preview). 
+Deze snel starten laat zien hoe toocreate een Cosmos Azure DB account en het maken van een tabel in dat account met behulp van hello Azure-portal. U moet vervolgens schrijven van code tooinsert, update en delete-entiteiten en enkele query's met Hallo nieuwe [Windows Azure-opslag Premium Table](https://aka.ms/premiumtablenuget) (preview)-pakket van NuGet. Deze bibliotheek heeft Hallo dezelfde klassen- en handtekeningen als Hallo openbaar [Windows Azure-opslag-SDK](https://www.nuget.org/packages/WindowsAzure.Storage), maar heeft ook Hallo mogelijkheid tooconnect tooAzure Cosmos DB accounts met Hallo [tabel API](table-introduction.md) (preview). 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken van Hallo **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u inschakelt **ontwikkelen van Azure** tijdens de installatie van Visual Studio Hallo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,36 +43,36 @@ Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en 
 
 ## <a name="add-sample-data"></a>Voorbeeldgegevens toevoegen
 
-U kunt nu gegevens aan uw nieuwe tabel toevoegen met behulp van Data Explorer (Preview).
+U kunt nu gegevens tooyour nieuwe tabel met behulp van Data Explorer (Preview) toevoegen.
 
 1. Vouw in Data Explorer **sample-table** uit, klik op **Entiteiten** en klik vervolgens op **Entiteit toevoegen**.
 
-   ![Nieuwe entiteiten maken in Data Explorer in Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Voeg nu gegevens toe aan de vakken met een waarde voor PartitionKey en RowKey en klik op **Entiteit toevoegen**.
+   ![Maken van nieuwe entiteiten in de Data Explorer in hello Azure-portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+2. Nu gegevens toohello PartitionKey waarde vakken en RowKey waarde toevoegen en klik op **entiteit toevoegen**.
 
-   ![De partitiesleutel en de rijsleutel instellen voor een nieuwe entiteit](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
+   ![Stel Hallo partitie en sleutel van de rij voor een nieuwe entiteit](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
-    U kunt nu meer entiteiten toevoegen aan uw tabel, uw entiteiten bewerken of een query op uw gegevens uitvoeren in Data Explorer. Data Explorer is ook de plek waar u uw doorvoer kunt schalen en opgeslagen procedures, door de gebruiker gedefinieerde functies en triggers aan uw tabel kunt toevoegen.
+    U kunt nu meer entiteiten tooyour tabel toevoegen, bewerken van uw entiteiten of de gegevens in Data Explorer zoeken. Data Explorer is ook kunt u uw doorvoer schalen en opgeslagen procedures, door de gebruiker gedefinieerde functies en triggers tooyour tabel toevoegen.
 
-## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
+## <a name="clone-hello-sample-application"></a>Hallo-voorbeeldtoepassing klonen
 
-We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
+Nu gaan we een tabel-app vanuit github Hallo verbindingsreeks instellen en voer dit klonen. U ziet hoe eenvoudig het is toowork met gegevens via een programma. 
 
-1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
+1. Open een git-terminalvenster zoals git bash en en `cd` tooa werkmap.  
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+2. Hallo na de opdracht tooclone Hallo voorbeeld opslagplaats worden uitgevoerd. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
     ```
 
-3. Open vervolgens het oplossingenbestand in Visual Studio. 
+3. Open het oplossingsbestand Hallo in Visual Studio. 
 
-## <a name="review-the-code"></a>De code bekijken
+## <a name="review-hello-code"></a>Hallo code bekijken
 
-Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.cs en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
+We maken een kort overzicht van wat in Hallo-app gebeurt er. Het bestand Program.cs Open Hallo en u vindt dat deze regels code hello Azure Cosmos DB resources maken. 
 
-* De CloudTableClient is geïnitialiseerd.
+* Hallo CloudTableClient is geïnitialiseerd.
 
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
@@ -86,7 +86,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.
     table.CreateIfNotExists();
     ```
 
-* Er wordt een nieuwe Table-container gemaakt. Deze code is vergelijkbaar met de reguliere code van de Azure Table Storage-SDK. 
+* Er wordt een nieuwe Table-container gemaakt. Hier ziet u deze code vergelijkbaar tooregular Azure Table storage SDK. 
 
     ```csharp
     CustomerEntity item = new CustomerEntity()
@@ -101,60 +101,60 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-We werken nu de verbindingsreeksinformatie bij, zodat uw app kan communiceren met Azure Cosmos DB. 
+Nu ontvangt updates verbindingsreeksgegevens Hallo zodat uw app tooAzure Cosmos DB kan communiceren. 
 
-1. In Visual Studio opent u het bestand app.config. 
+1. Open in Visual Studio Hallo app.config-bestand. 
 
-2. In [Azure Portal](http://portal.azure.com/) klikt u in het Azure Cosmos DB-navigatiemenu links op **Verbindingsreeks**. Klik vervolgens in het nieuwe deelvenster op de knop Kopiëren voor de verbindingsreeks. 
+2. In Hallo [Azure-portal](http://portal.azure.com/), in hello Azure Cosmos DB navigatiemenu links, klikt u op **verbindingsreeks**. Klik vervolgens in het nieuwe deelvenster Hallo op knop voor het kopiëren voor de verbindingsreeks Hallo Hallo. 
 
-    ![Het eindpunt en de accountsleutel in het deelvenster Verbindingsreeks weergeven en kopiëren](./media/create-table-dotnet/keys.png)
+    ![Bekijken en kopiëren Hallo eindpunt en Accountsleutel in Hallo verbindingsreeks deelvenster](./media/create-table-dotnet/keys.png)
 
-3. Plak de waarde in het bestand app.config als de waarde van de PremiumStorageConnectionString. 
+3. Hallo-waarde in Hallo app.config-bestand als de waarde Hallo Hallo PremiumStorageConnectionString plakken. 
 
     `<add key="PremiumStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
 
-    U kunt de StandardStorageConnectionString ongewijzigd laten.
+    U kunt laten Hallo StandardStorageConnectionString is.
 
-U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
+U hebt nu uw app bijgewerkt met alle Hallo info moet toocommunicate met Azure Cosmos DB. 
 
-## <a name="run-the-web-app"></a>De web-app uitvoeren
+## <a name="run-hello-web-app"></a>Hallo-web-app uitvoeren
 
-1. Klik in Visual Studio met de rechtermuisknop op het project in **PremiumTableGetStarted** in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
+1. In Visual Studio met de rechtermuisknop op Hallo **PremiumTableGetStarted** project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
-2. Typ in het vak **Bladeren** in NuGet *WindowsAzure.Storage-PremiumTable*.
+2. In Hallo NuGet **Bladeren** in het vak *WindowsAzure.Storage PremiumTable*.
 
-3. Controleer het vak **Prerelease insluiten**. 
+3. Controleer de Hallo **Include prerelease** vak. 
 
-4. Installeer de bibliotheek **WindowsAzure.Storage-PremiumTable** vanuit de lijst met resultaten. Nu wordt de preview geïnstalleerd van het Azure Cosmos DB Table-API-pakket en alle daarvoor vereiste onderdelen. Houd er rekening mee dat dit een ander NuGet-pakket is dan het Windows Azure Storage-pakket dat wordt gebruikt door Azure Table Storage. 
+4. Installeren in Hallo resultaten Hallo **WindowsAzure.Storage PremiumTable** bibliotheek. Hiermee installeert u Hallo preview pakket Azure Cosmos DB tabel API, evenals alle afhankelijkheden. Houd er rekening mee dat dit een andere NuGet-pakket dan Hallo Windows Azure Storage-pakket wordt gebruikt door Azure Table storage is. 
 
-5. Klik op Ctrl+F5 om de toepassing uit te voeren.
+5. Klik op CTRL + F5 toorun Hallo-toepassing.
 
-    In het consolevenster worden de gegevens weergegeven die worden toegevoegd, opgehaald, opgevraagd, vervangen en verwijderd uit de tabel. Zodra het script is voltooid, drukt u op een willekeurige toets om het consolevenster te sluiten. 
+    Hallo-consolevenster weergegeven Hallo gegevens wordt toegevoegd, opgehaald, opgevraagd, vervangen en verwijderd uit de tabel Hallo. Wanneer het Hallo-script is voltooid, drukt u op elke sleutel tooclose Hallo-consolevenster. 
     
-    ![Console-uitvoer van de snelstartgids](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
+    ![Console-uitvoer van Hallo Quick Start](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
 
-6. Als u de nieuwe entiteiten in Data Explorer wilt weergeven, plaatst u opmerkingen bij regels 188-208 in program.cs, zodat deze niet worden verwijderd. Vervolgens voert u het voorbeeld opnieuw uit. 
+6. Als u wilt dat toosee Hallo nieuwe entiteiten in Data Explorer alleen commentaar regels 188 208 in program.cs zodat ze niet worden verwijderd, Voer Hallo voorbeeld opnieuw. 
 
-    U kunt nu terug naar Data Explorer. Klik op **Vernieuwen**, vouw de tabel **Mensen** uit en klik op **Entiteiten**. Maar vervolgens gebruik van deze nieuwe gegevens. 
+    U kunt nu teruggaan tooData Explorer, klikt u op **vernieuwen**, vouw Hallo **mensen** tabel en klik op **entiteiten**, en werk met deze nieuwe gegevens. 
 
     ![Nieuwe entiteiten in Data Explorer](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
 
-## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Sla's bekijken in hello Azure-portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal: 
+Als u deze app niet toocontinue toouse gaat, verwijdert u alle resources die zijn gemaakt door deze snelstartgids in hello Azure-portal met Hallo stappen te volgen: 
 
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
+1. Hallo links menu in hello Azure-portal en klik op **resourcegroepen** en klik vervolgens op Hallo-naam van het Hallo-resource die u hebt gemaakt. 
+2. Klik op de pagina van de groep resource **verwijderen**, typ de naam Hallo van Hallo resource toodelete in Hallo tekstvak en klik op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een tabel gemaakt met de Data Explorer en hebt u een app uitgevoerd.  Nu kunt u een query uitvoeren op uw gegevens met de Table-API.  
+In deze snelstartgids hebt u geleerd hoe toocreate een Cosmos-DB Azure-account, een tabel maken met de Hallo Data Explorer en een app uitvoert.  U kunt nu uw gegevens dankzij Hallo tabel API opvragen.  
 
 > [!div class="nextstepaction"]
-> [Query uitvoeren met behulp van de Table-API](tutorial-query-table.md)
+> [Query met Hallo tabel-API](tutorial-query-table.md)
 

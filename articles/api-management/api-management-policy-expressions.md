@@ -1,5 +1,5 @@
 ---
-title: Azure API Management-beleidsexpressies | Microsoft Docs
+title: API Management-beleidsexpressies aaaAzure | Microsoft Docs
 description: Meer informatie over beleidsexpressies in Azure API Management.
 services: api-management
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 79da0d6ca3963307ec811a33aaac3d63a7abd97d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressies voor API Management-beleid
-De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
+De syntaxis van de beleid-expressies is C# 6.0. Elke expressie heeft toegang tot toohello impliciet opgegeven [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
   
 > [!NOTE]
->  Zie voor meer informatie over beleidsexpressies de [Beleidsexpressies](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
+>  Zie voor meer informatie over beleidsexpressies hello [Beleidsexpressies](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
 >   
->  Zie voor demonstraties van het configureren van beleidsregels met behulp van beleidsexpressies [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). In deze video bevat de volgende expressie demonstraties voor beleid.  
+>  Zie voor demonstraties van het configureren van beleidsregels met behulp van beleidsexpressies [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). In deze video bevat Hallo beleid expressie demonstraties te volgen.  
 >   
->  -   10:30 - informatie over het toepassen van beleid voor de API-niveau op te geven contextgegevens met de back-end-service via de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) en [ingesteld HTTP-header](api-management-transformation-policies.md#SetHTTPheader) beleid. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u deze beleidsregels op kantoor kunt zien.  
-> -   Informatie over het gebruiken van 13:50 - de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid vooraf toegang verlenen aan bewerkingen op basis van claims token. Snel doorsturen naar 15:00 voor een overzicht van het beleid dat is geconfigureerd in de beleidseditor en vervolgens naar 18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met als zonder de vereiste verificatietoken.  
-> -   21:00 - zien hoe u een [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) trace om te zien hoe beleid wordt geëvalueerd en de resultaten van de evaluatie.  
-> -   25:25 - informatie over het gebruiken van voor expressies met de [ophalen uit de cache](api-management-caching-policies.md#GetFromCache) en [Store aan cache](api-management-caching-policies.md#StoreToCache) beleid voor het configureren van API Management cachebewerkingen reactieduur die overeenkomt met het antwoord in cache plaatsen van de back-end service zoals opgegeven door de back-service `Cache-Control` richtlijn.  
-> -   34:30 - informatie over het uitvoeren van de inhoud filteren van door gegevenselementen te verwijderen uit het antwoord ontvangen van de back-end-service via de [transportbesturing](api-management-advanced-policies.md#choose) en [instantie ingesteld](api-management-transformation-policies.md#SetBody) beleid. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
-> -   Zie voor het downloaden van de beleid-instructies in deze video gebruikt de [api-management-voorbeelden/beleid](https://github.com/Azure/api-management-samples/tree/master/policies) github-opslagplaats.  
+>  -   10:30 - Zie hoe beleid voor tooapply Hallo API toosupply context informatie toohello back-endservice Hallo met niveau [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) en [ingesteld HTTP-header](api-management-transformation-policies.md#SetHTTPheader) beleid. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de ontwikkelaarsportal Hallo waar u deze beleidsregels op kantoor kunt zien.  
+> -   13:50 - Zie hoe toouse hello [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid toopre-toegang toooperations op basis van claims token autoriseren. Snel toosee Hallo beleid dat is geconfigureerd in de beleidseditor Hallo doorsturen too15:00 en vervolgens too18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal Hallo zowel met als zonder Hallo verificatietoken vereist.  
+> -   21:00 - Zie hoe toouse een [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) toosee hoe beleidsregels worden geëvalueerd en resultaten van de Hallo evaluaties Hallo traceren.  
+> -   25:25 - Zie hoe toouse beleidsexpressies met Hallo [ophalen uit de cache](api-management-caching-policies.md#GetFromCache) en [Store toocache](api-management-caching-policies.md#StoreToCache) beleid tooconfigure API Management antwoord duur dat overeenkomt met antwoord in cache plaatsen van Hallo Hallo opslaan in cache back-endservice zoals opgegeven door Hallo van service back `Cache-Control` richtlijn.  
+> -   34:30 - Zie hoe tooperform inhoud worden gefilterd door het verwijderen van elementen uit Hallo antwoord ontvangen van back-endservice Hallo Hallo met [transportbesturing](api-management-advanced-policies.md#choose) en [instantie ingesteld](api-management-transformation-policies.md#SetBody) beleid. Start op 31:50 toosee een overzicht van [Hallo donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
+> -   toodownload Hallo-beleidsverklaringen gebruikt in deze video Zie Hallo [api-management-voorbeelden/beleid](https://github.com/Azure/api-management-samples/tree/master/policies) github-opslagplaats.  
   
   
 ##  <a name="Syntax"></a>Syntaxis  
@@ -68,13 +68,13 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a>Gebruik  
- Expressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management [beleid](api-management-policies.md), tenzij de naslaginformatie over beleid iets anders aangeeft.  
+ Expressies kunnen worden gebruikt als kenmerkwaarden of tekstwaarden in API Management Hallo [beleid](api-management-policies.md), tenzij Hallo beleidsverwijzing iets anders aangeeft.  
   
 > [!IMPORTANT]
->  Houd er rekening mee dat wanneer u beleidsexpressies gebruikt, is dit alleen beperkt verificatie van de beleidsexpressies als het beleid is gedefinieerd. Aangezien de expressies worden uitgevoerd tijdens de uitvoering in de pijplijn binnenkomend of uitgaand door de gateway, resulteert runtime-uitzonderingen die worden gegenereerd door de beleidsexpressies in een runtime-fout in de API-aanroep.  
+>  Houd er rekening mee dat wanneer u beleidsexpressies, er slechts beperkt verificatie van beleidsexpressies Hallo is wanneer Hallo beleid is gedefinieerd. Aangezien het Hallo-expressies worden uitgevoerd tijdens de uitvoering in de pijplijn binnenkomend of uitgaand Hallo Hallo-gateway, resulteert runtime-uitzonderingen die worden gegenereerd door Hallo beleidsexpressies in een runtime-fout in Hallo API-aanroep.  
   
 ##  <a name="CLRTypes"></a>.NET framework-typen die zijn toegestaan in beleidsexpressies voor  
- De volgende tabel bevat de typen .NET Framework en hun leden die zijn toegestaan in beleidsexpressies voor.  
+ Hallo volgende tabel bevat Hallo .NET Framework-typen en leden die zijn toegestaan in beleidsexpressies voor.  
   
 |CLR-type|Ondersteunde methoden|  
 |--------------|-----------------------|  
@@ -168,7 +168,7 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |System.Xml.XmlNodeType|Alle|  
   
 ##  <a name="ContextVariables"></a>Context variabele  
- Een variabele met de naam `context` impliciet beschikbaar is in elk beleid [expressie](api-management-policy-expressions.md#Syntax). De leden bevatten informatie die relevant zijn voor de `\request`. Alle van de `context` leden zijn alleen-lezen.  
+ Een variabele met de naam `context` impliciet beschikbaar is in elk beleid [expressie](api-management-policy-expressions.md#Syntax). De leden ervan de relevante toohello informatie bieden `\request`. Alle Hallo `context` leden zijn alleen-lezen.  
   
 |Context variabele|Methoden, eigenschappen en parameterwaarden toegestaan|  
 |----------------------|-------------------------------------------------------|  
@@ -179,26 +179,26 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |context. Bewerking|ID: tekenreeks<br /><br /> Methode: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> UrlTemplate: tekenreeks|  
 |context. Product|API's: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Status: enum ProductState {NotPublished, gepubliceerde}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
 |context. Aanvraag|Hoofdtekst: IMessageBody<br /><br /> Certificaat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adres: tekenreeks<br /><br /> MatchedParameters: IReadOnlyDictionary < tekenreeks, tekenreeks ><br /><br /> Methode: tekenreeks<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
-|tekenreekscontext. Request.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert door komma's gescheiden waarden voor aanvraag-header of `defaultValue` als de header is niet gevonden.|  
+|tekenreekscontext. Request.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert door komma's gescheiden waarden voor aanvraag-header of `defaultValue` als Hallo-header is niet gevonden.|  
 |context. Antwoord|Hoofdtekst: IMessageBody<br /><br /> Headers: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: tekenreeks|  
-|tekenreekscontext. Response.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Door komma's gescheiden-antwoord geretourneerd met de headerwaarden of `defaultValue` als de header is niet gevonden.|  
+|tekenreekscontext. Response.Headers.GetValueOrDefault (HeaderName is opgeslagen: string, defaultValue: tekenreeks)|HeaderName is opgeslagen: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Door komma's gescheiden-antwoord geretourneerd met de headerwaarden of `defaultValue` als Hallo-header is niet gevonden.|  
 |context. Abonnement|CreatedTime: datum/tijd<br /><br /> EndDate: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Sleutel: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> PrimaryKey: tekenreeks<br /><br /> Secundaire sleutel: tekenreeks<br /><br /> StartDate: DateTime?|  
 |context. Gebruiker|E-mailadres: tekenreeks<br /><br /> Voornaam: tekenreeks<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Identiteiten: IEnumerable < IUserIdentity\><br /><br /> Achternaam: tekenreeks<br /><br /> Opmerking: tekenreeks<br /><br /> RegistrationDate: datum/tijd|  
 |IApi|ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Protocollen: IEnumerable < tekenreeks\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|ID: tekenreeks<br /><br /> Naam: tekenreeks|  
-|IMessageBody|Als < T\>(preserveContent: bool = false): waar T: tekenreeks, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> De `context.Request.Body.As<T>` en `context.Response.Body.As<T>` methoden worden gebruikt voor het lezen van een aanvraag en -antwoord de berichttekst in een bepaald type `T`. De methode gebruikt standaard de oorspronkelijke instantie berichtenstroom en reneders het is niet beschikbaar na het resultaat. Om te voorkomen dat door de methode op een kopie van de hoofdstroom werkt, stel de `preserveContent` -parameter voor `true`. Ga [hier](api-management-transformation-policies.md#SetBody) voor een voorbeeld.|  
+|IMessageBody|Als < T\>(preserveContent: bool = false): waar T: tekenreeks, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Hallo `context.Request.Body.As<T>` en `context.Response.Body.As<T>` methoden zijn gebruikte tooread instanties die een aanvraag en antwoord-bericht in een bepaald type `T`. Standaard hello methode maakt gebruik van Hallo oorspronkelijke instantie berichtenstroom en reneders nadat deze is niet beschikbaar wordt. tooavoid die door de methode Hallo werken op een kopie van Hallo hoofdtekst stream, set Hallo `preserveContent` parameter te`true`. Ga [hier](api-management-transformation-policies.md#SetBody) toosee een voorbeeld.|  
 |IUrl|Host: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> Poort: int<br /><br /> Query: IReadOnlyDictionary < string, string [] ><br /><br /> QueryString: tekenreeks<br /><br /> Schema: tekenreeks|  
 |IUserIdentity|ID: tekenreeks<br /><br /> Provider: tekenreeks|  
 |ISubscriptionKeyParameterNames|Koptekst: tekenreeks<br /><br /> Query: tekenreeks|  
-|tekenreeks IUrl.Query.GetValueOrDefault (queryParameterName: string, defaultValue: tekenreeks)|queryParameterName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert met door komma's gescheiden parameterwaarden of `defaultValue` als de parameter is niet gevonden.|  
-|T-context. Variables.GetValueOrDefault < T\>(variabelenaam: string, defaultValue: T)|Variabelenaam: tekenreeks<br /><br /> Standaardwaarde: T<br /><br /> Retourneert de waarde van variabele geconverteerd naar type `T` of `defaultValue` als de variabele is niet gevonden.<br /><br /> Deze methode genereert een uitzondering als het opgegeven type komt niet overeen met het werkelijke type van de geretourneerde variabele.|  
-|BasicAuthCredentials AsBasic(input: this string)|invoer: tekenreeks<br /><br /> Als de invoerparameter een geldige HTTP basisverificatie autorisatie aanvraag-header-waarde bevat, de methode retourneert een object van het type `BasicAuthCredentials`; anders is de methode retourneert null.|  
-|BOOL TryParseBasic (invoer: deze tekenreeks, resultaat: uit BasicAuthCredentials)|invoer: tekenreeks<br /><br /> resultaat: uit BasicAuthCredentials<br /><br /> Als de invoerparameter geldig HTTP-basisverificatie autorisatie aanvraag-headerwaarde bevat, de methode retourneert `true` en de resultatenparameter bevat een waarde van het type `BasicAuthCredentials`; anders is de methode retourneert `false`.|  
+|tekenreeks IUrl.Query.GetValueOrDefault (queryParameterName: string, defaultValue: tekenreeks)|queryParameterName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert met door komma's gescheiden parameterwaarden of `defaultValue` als Hallo-parameter is niet gevonden.|  
+|T-context. Variables.GetValueOrDefault < T\>(variabelenaam: string, defaultValue: T)|Variabelenaam: tekenreeks<br /><br /> Standaardwaarde: T<br /><br /> Retourneert de waarde van variabele cast tootype `T` of `defaultValue` als Hallo variabele is niet gevonden.<br /><br /> Deze methode genereert een uitzondering als hello opgegeven type komt niet overeen met de werkelijke type Hallo Hallo variabele geretourneerd.|  
+|BasicAuthCredentials AsBasic(input: this string)|invoer: tekenreeks<br /><br /> Als invoerparameter Hallo een geldige HTTP basisverificatie autorisatie aanvraag-header-waarde bevat, Hallo-methode retourneert een object van het type `BasicAuthCredentials`; anders Hallo-methode retourneert null.|  
+|BOOL TryParseBasic (invoer: deze tekenreeks, resultaat: uit BasicAuthCredentials)|invoer: tekenreeks<br /><br /> resultaat: uit BasicAuthCredentials<br /><br /> Hallo-methode retourneert als invoerparameter Hallo geldig HTTP-basisverificatie autorisatie aanvraag-headerwaarde bevat, `true` en Hallo resultatenparameter bevat een waarde van het type `BasicAuthCredentials`; anders Hallo-methode retourneert `false`.|  
 |BasicAuthCredentials|Wachtwoord: tekenreeks<br /><br /> Gebruikers-id: tekenreeks|  
-|Jwt AsJwt(input: this string)|invoer: tekenreeks<br /><br /> Als de invoerparameter geen geldige waarde van de JWT-token bevat, de methode retourneert een object van het type `Jwt`; anders is de methode retourneert `null`.|  
-|BOOL TryParseJwt (invoer: deze tekenreeks, resultaat: uit Jwt)|invoer: tekenreeks<br /><br /> resultaat: uit Jwt<br /><br /> De methode retourneert als de invoerparameter een geldige waarde van de JWT-token bevat, `true` en de resultatenparameter bevat een waarde van het type `Jwt`; anders is de methode retourneert `false`.|  
+|Jwt AsJwt(input: this string)|invoer: tekenreeks<br /><br /> Als invoerparameter Hallo geen geldige waarde van de JWT-token bevat, Hallo-methode retourneert een object van het type `Jwt`; anders Hallo-methode retourneert `null`.|  
+|BOOL TryParseJwt (invoer: deze tekenreeks, resultaat: uit Jwt)|invoer: tekenreeks<br /><br /> resultaat: uit Jwt<br /><br /> Hallo-methode retourneert als invoerparameter Hallo de bevat een geldige waarde van de JWT-token, `true` en Hallo resultatenparameter bevat een waarde van het type `Jwt`; anders Hallo-methode retourneert `false`.|  
 |Jwt|Algoritme: tekenreeks<br /><br /> Doelgroep: IEnumerable < tekenreeks\><br /><br /> Claims: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Uitgever: tekenreeks<br /><br /> NotBefore: DateTime?<br /><br /> Onderwerpnaam: tekenreeks<br /><br /> Type: tekenreeks|  
-|tekenreeks Jwt.Claims.GetValueOrDefault (claimName: string, defaultValue: tekenreeks)|claimName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden claimwaarden of `defaultValue` als de header is niet gevonden.|
+|tekenreeks Jwt.Claims.GetValueOrDefault (claimName: string, defaultValue: tekenreeks)|claimName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden claimwaarden of `defaultValue` als Hallo-header is niet gevonden.|
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  

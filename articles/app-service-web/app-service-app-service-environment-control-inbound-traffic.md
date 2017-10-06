@@ -1,6 +1,6 @@
 ---
-title: Het inkomende verkeer naar een App Service-omgeving beheren
-description: Meer informatie over het configureren van netwerk-beveiligingsregels voor binnenkomend verkeer naar een App Service-omgeving beheren.
+title: aaaHow tooControl binnenkomend verkeer tooan App Service-omgeving
+description: Meer informatie over hoe tooconfigure network security regels toocontrol inkomend verkeer tooan App Service-omgeving.
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
-ms.openlocfilehash: ee0a2248a1cd5d76f87b280de05410b94f96c8af
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e7c6e6201db6a1ea77f7a2eee29a3b5445175495
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Het inkomende verkeer naar een App Service-omgeving beheren
+# <a name="how-toocontrol-inbound-traffic-tooan-app-service-environment"></a>Hoe tooControl binnenkomend verkeer tooan App Service-omgeving
 ## <a name="overview"></a>Overzicht
-Een App Service-omgeving kunnen worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een klassieke implementatiemodel [virtueel netwerk] [ virtualnetwork].  Een nieuw virtueel netwerk en een nieuw subnet kunnen worden gedefinieerd op het moment dat een App Service-omgeving wordt gemaakt.  U kunt ook kunnen een App Service-omgeving worden gemaakt in een bestaand virtueel netwerk en de bestaande subnet.  Met een wijziging in juni 2016, kan ASEs ook worden geïmplementeerd in virtuele netwerken die gebruikmaken van openbare-adresbereiken of RFC1918 adresruimten (dat wil zeggen particuliere adressen).  Zie voor meer informatie over het maken van een App-serviceomgeving [het maken van een App-serviceomgeving][HowToCreateAnAppServiceEnvironment].
+Een App Service-omgeving kunnen worden gemaakt in **beide** een virtueel netwerk van Azure Resource Manager, **of** een klassieke implementatiemodel [virtueel netwerk] [ virtualnetwork].  Een nieuw virtueel netwerk en een nieuw subnet kunnen worden gedefinieerd op Hallo moment die een App Service-omgeving wordt gemaakt.  U kunt ook kunnen een App Service-omgeving worden gemaakt in een bestaand virtueel netwerk en de bestaande subnet.  Met een wijziging in juni 2016, worden ASEs ook geïmplementeerd in virtuele netwerken die gebruikmaken van openbare-adresbereiken of RFC1918 adresruimten (dat wil zeggen particuliere adressen).  Zie voor meer informatie over het maken van een App-serviceomgeving [hoe tooCreate een App-serviceomgeving][HowToCreateAnAppServiceEnvironment].
 
-Een App-serviceomgeving moet altijd worden gemaakt binnen een subnet omdat een subnet een netwerkgrens bevindt die kan worden gebruikt biedt voor binnenkomend verkeer achter upstream apparaten en services vergrendelen zodat HTTP en HTTPS-verkeer alleen wordt geaccepteerd vanuit specifieke stroomopwaarts IP-adressen.
+Een App-serviceomgeving moet altijd worden gemaakt binnen een subnet omdat een subnet biedt een netwerkgrens bevindt die gebruikt toolock omlaag binnenkomend verkeer achter upstream netwerkapparaten en -services worden kan zodanig dat HTTP en HTTPS-verkeer alleen wordt geaccepteerd vanuit specifieke stroomopwaarts IP-adressen.
 
-Binnenkomende en uitgaande netwerkverkeer op een subnet wordt beheerd met behulp van een [netwerkbeveiligingsgroep][NetworkSecurityGroups]. Binnenkomend verkeer te beheren is vereist in een netwerkbeveiligingsgroep netwerkbeveiligingsregels maakt en vervolgens de netwerkbeveiliging toe te wijzen groep het subnet met de App Service-omgeving.
+Binnenkomende en uitgaande netwerkverkeer op een subnet wordt beheerd met behulp van een [netwerkbeveiligingsgroep][NetworkSecurityGroups]. Binnenkomend verkeer te beheren, moet netwerkbeveiligingsregels in een netwerkbeveiligingsgroep maken en vervolgens toewijzen Hallo network security groep Hallo subnet met Hallo App Service-omgeving.
 
-Zodra een netwerkbeveiligingsgroep aan een subnet is toegewezen, wordt binnenkomend verkeer naar apps in App Service-omgeving is toegestaan/geblokkeerd op basis van de toestaan en weigeren van regels die zijn gedefinieerd in de netwerkbeveiligingsgroep.
+Zodra een netwerkbeveiligingsgroep is tooa subnet worden toegewezen, wordt binnenkomend verkeer tooapps in App Service-omgeving toegestaan/geblokkeerd op basis van Hallo is Hallo toestaan en weigeren van regels die zijn gedefinieerd in Hallo netwerkbeveiligingsgroep.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="inbound-network-ports-used-in-an-app-service-environment"></a>Inkomende netwerkpoorten worden gebruikt in een App Service-omgeving
-Voordat het vergrendelen van binnenkomend netwerkverkeer koppelen aan een netwerkbeveiligingsgroep, is het belangrijk te weten van de reeks vereiste en optionele netwerkpoorten die wordt gebruikt door een App Service-omgeving.  Per ongeluk uit het verkeer naar bepaalde poorten sluiten, kan dit leiden tot verlies aan functionaliteit in een App Service-omgeving.
+Voordat het vergrendelen van binnenkomend netwerkverkeer koppelen aan een netwerkbeveiligingsgroep is het belangrijk tooknow Hallo reeks vereiste en optionele netwerkpoorten die wordt gebruikt door een App Service-omgeving.  Per ongeluk uit verkeer toosome poorten sluiten, kan dit leiden tot verlies aan functionaliteit in een App Service-omgeving.
 
-Hier volgt een lijst met poorten die worden gebruikt door een App Service-omgeving. Alle poorten zijn **TCP**, tenzij anders wordt duidelijk vermeld:
+Hallo Hieronder volgt een lijst met poorten die worden gebruikt door een App Service-omgeving. Alle poorten zijn **TCP**, tenzij anders wordt duidelijk vermeld:
 
-* 454: **poort vereist** gebruikt door de Azure-infrastructuur voor het beheren en onderhouden van App Service-omgevingen met SSL-beveiliging.  Geen verkeer blokkeert dat naar deze poort.  Deze poort is altijd gebonden aan het openbare VIP van een as-omgeving.
-* 455: **poort vereist** gebruikt door de Azure-infrastructuur voor het beheren en onderhouden van App Service-omgevingen met SSL-beveiliging.  Geen verkeer blokkeert dat naar deze poort.  Deze poort is altijd gebonden aan het openbare VIP van een as-omgeving.
-* 80: standaard poort voor inkomende HTTP-verkeer naar apps die worden uitgevoerd in App Service-plannen in een App Service-omgeving.  Op een as ingeschakeld met een ILB-omgeving, worden deze poort is gebonden aan het ILB-adres van de as-omgeving.
-* 443: standaard poort voor inkomende SSL-verkeer naar apps die worden uitgevoerd in App Service-plannen in een App Service-omgeving.  Op een as ingeschakeld met een ILB-omgeving, worden deze poort is gebonden aan het ILB-adres van de as-omgeving.
-* 21: besturingskanaal voor FTP.  Deze poort kan veilig worden geblokkeerd als FTP niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, kan deze poort worden gebonden aan het adres ILB voor een as-omgeving.
-* 990: besturingskanaal voor FTPS.  Deze poort kan veilig worden geblokkeerd als FTPS niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, kan deze poort worden gebonden aan het adres ILB voor een as-omgeving.
-* 10001 10020: kanalen voor FTP-gegevens.  Net als bij het besturingskanaal kunnen deze poorten worden veilig geblokkeerd als FTP niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, kan deze poort worden gebonden aan de ILB-adres van de as-omgeving.
-* 4016: gebruikt voor foutopsporing op afstand met Visual Studio 2012.  Deze poort kan veilig worden geblokkeerd als de functie niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, worden deze poort is gebonden aan het ILB-adres van de as-omgeving.
-* 4018: gebruikt voor foutopsporing op afstand met Visual Studio 2013.  Deze poort kan veilig worden geblokkeerd als de functie niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, worden deze poort is gebonden aan het ILB-adres van de as-omgeving.
-* 4020: gebruikt voor foutopsporing op afstand met Visual Studio 2015.  Deze poort kan veilig worden geblokkeerd als de functie niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, worden deze poort is gebonden aan het ILB-adres van de as-omgeving.
+* 454: **poort vereist** gebruikt door de Azure-infrastructuur voor het beheren en onderhouden van App Service-omgevingen met SSL-beveiliging.  Verkeer toothis poort niet blokkeren.  Deze poort is altijd gebonden toohello openbare VIP van een as-omgeving.
+* 455: **poort vereist** gebruikt door de Azure-infrastructuur voor het beheren en onderhouden van App Service-omgevingen met SSL-beveiliging.  Verkeer toothis poort niet blokkeren.  Deze poort is altijd gebonden toohello openbare VIP van een as-omgeving.
+* 80: standaard poort voor inkomende HTTP-verkeer tooapps uitgevoerd in App Service-plannen in een App Service-omgeving.  Op een as ingeschakeld met een ILB-omgeving is deze poort gebonden toohello ILB adres Hallo as-omgeving.
+* 443: standaard poort voor inkomende SSL-verkeer tooapps uitgevoerd in App Service-plannen in een App Service-omgeving.  Op een as ingeschakeld met een ILB-omgeving is deze poort gebonden toohello ILB adres Hallo as-omgeving.
+* 21: besturingskanaal voor FTP.  Deze poort kan veilig worden geblokkeerd als FTP niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, kan deze poort worden gebonden toohello ILB adres voor een as-omgeving.
+* 990: besturingskanaal voor FTPS.  Deze poort kan veilig worden geblokkeerd als FTPS niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, kan deze poort worden gebonden toohello ILB adres voor een as-omgeving.
+* 10001 10020: kanalen voor FTP-gegevens.  Als met besturingskanaal hello, kunnen deze poorten worden veilig geblokkeerd als FTP niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving, kan deze poort gebonden toohello as-omgeving van ILB adres zijn.
+* 4016: gebruikt voor foutopsporing op afstand met Visual Studio 2012.  Deze poort kan veilig worden geblokkeerd als het Hallo-functie niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving is deze poort gebonden toohello ILB adres Hallo as-omgeving.
+* 4018: gebruikt voor foutopsporing op afstand met Visual Studio 2013.  Deze poort kan veilig worden geblokkeerd als het Hallo-functie niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving is deze poort gebonden toohello ILB adres Hallo as-omgeving.
+* 4020: gebruikt voor foutopsporing op afstand met Visual Studio 2015.  Deze poort kan veilig worden geblokkeerd als het Hallo-functie niet wordt gebruikt.  Op een as ingeschakeld met een ILB-omgeving is deze poort gebonden toohello ILB adres Hallo as-omgeving.
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Uitgaande verbinding en DNS-vereisten
-Voor een App Service-omgeving te laten functioneren, moet deze ook uitgaande toegang tot verschillende eindpunten vereist. Een volledige lijst met de externe eindpunten die worden gebruikt door een as-omgeving is in de sectie 'Netwerkverbinding vereist' van de [netwerkconfiguratie voor ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artikel.
+Voor een App Service-omgeving toofunction correct, het is ook vereist uitgaande toegang toovarious eindpunten. Een volledige lijst met externe Hallo-eindpunten die worden gebruikt door een as-omgeving zich in de sectie 'Netwerkverbinding vereist' Hallo Hallo [netwerkconfiguratie voor ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artikel.
 
-App Service-omgevingen moeten een geldige DNS-infrastructuur is geconfigureerd voor het virtuele netwerk.  Als voor een bepaalde reden worden de DNS-configuratie is gewijzigd nadat een App-serviceomgeving is gemaakt, kunnen ontwikkelaars een App Service-omgeving naar de nieuwe DNS-configuratie worden opgepikt afdwingen.  Activering van rolling omgeving opgestart met het pictogram "Restart" zich boven aan de blade voor het beheer van App Service-omgeving in de [Azure-portal] [ NewPortal] , wordt de omgeving voor de nieuwe DNS-configuratie worden opgepikt.
+App Service-omgevingen moeten een geldige DNS-infrastructuur is geconfigureerd voor het virtuele netwerk Hallo.  Als voor een Hallo reden worden DNS-configuratie is gewijzigd nadat een App-serviceomgeving is gemaakt, kunnen ontwikkelaars een App Service-omgeving toopick Hallo nieuwe DNS-configuratie van afdwingen.  Activering van rolling omgeving opgestart met behulp van Hallo pictogram "Restart" hello boven aan het Hallo-App Service-omgeving management blade in Hallo [Azure-portal] [ NewPortal] zullen Hallo omgeving toopick Hallo nieuwe DNS-configuratie.
 
-Het is ook raadzaam dat alle aangepaste DNS-servers op het vnet ingesteld worden voordat u een App-serviceomgeving tevoren.  Als een virtueel netwerk DNS-configuratie wordt gewijzigd terwijl een App Service-omgeving wordt gemaakt, wordt die leiden tot het mislukken van de App Service-omgeving maken van het proces.  In een vergelijkbare vein als een aangepaste DNS-server op het andere einde van een VPN-gateway bestaat en de DNS-server onbereikbaar is of niet beschikbaar is, is mislukt het proces voor het maken van App Service-omgeving ook.
+Het is ook aanbevolen of aangepaste DNS-servers op Hallo vnet ingesteld voor tijd voorafgaande toocreating een App Service-omgeving worden.  Als een virtueel netwerk DNS-configuratie wordt gewijzigd terwijl een App Service-omgeving wordt gemaakt, wordt die leiden tot Hallo App Service-omgeving maken proces mislukken.  Als een aangepaste DNS-server op Hallo bestaat is andere einde van een VPN-gateway en Hallo DNS-server in een vergelijkbare vein niet bereikbaar is of niet beschikbaar is, Hallo App Service-omgeving maakproces ook mislukken.
 
 ## <a name="creating-a-network-security-group"></a>Een Netwerkbeveiligingsgroep maken
-Voor volledige informatie over hoe netwerk werk beveiligingsgroepen raadpleegt u de volgende [informatie][NetworkSecurityGroups].  Het onderstaande voorbeeld raakt op Azure-servicebeheer licht van netwerkbeveiligingsgroepen en een focus over het configureren en toepassen van een netwerkbeveiligingsgroep aan een subnet met een App Service-omgeving.
+Volledige Raadpleeg voor informatie over hoe netwerk werk beveiligingsgroepen Hallo volgende [informatie][NetworkSecurityGroups].  onderstaande verbeterd op Hallo Azure Service Management-voorbeeld illustreert van netwerkbeveiligingsgroepen en een focus over het configureren en toepassen van een security group tooa netwerksubnet waarin een App Service-omgeving.
 
-**Opmerking:** netwerkbeveiligingsgroepen kunnen worden geconfigureerd grafisch weergegeven met de [Azure Portal](https://portal.azure.com) of via Azure PowerShell.
+**Opmerking:** netwerkbeveiligingsgroepen worden geconfigureerd met grafisch Hallo [Azure Portal](https://portal.azure.com) of via Azure PowerShell.
 
-Netwerkbeveiligingsgroepen worden eerst gemaakt als een zelfstandige entiteit die is gekoppeld aan een abonnement. Aangezien netwerkbeveiligingsgroepen in een Azure-regio worden gemaakt, moet u ervoor dat de netwerkbeveiligingsgroep is gemaakt in dezelfde regio bevinden als de App Service-omgeving.
+Netwerkbeveiligingsgroepen worden eerst gemaakt als een zelfstandige entiteit die is gekoppeld aan een abonnement. Aangezien netwerkbeveiligingsgroepen in een Azure-regio worden gemaakt, zorg ervoor dat die beveiligingsgroep Hallo-netwerk wordt gemaakt in Hallo dezelfde regio als Hallo App Service-omgeving.
 
-Het volgende voorbeeld toont een netwerkbeveiligingsgroep maken:
+Hallo hieronder ziet u een netwerkbeveiligingsgroep maken:
 
     New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
 
-Zodra een netwerkbeveiligingsgroep is gemaakt, zijn een of meer netwerkbeveiligingsregels toegevoegd.  Aangezien de set regels kan worden gewijzigd na verloop van tijd, wordt u aangeraden om de nummering dat wordt gebruikt voor prioriteiten om gemakkelijk extra regels invoegen na verloop van tijd.
+Zodra een netwerkbeveiligingsgroep is gemaakt, worden een of meer netwerkbeveiligingsregels tooit toegevoegd.  Aangezien Hallo reeks regels kan worden gewijzigd na verloop van tijd, wordt u aangeraden toospace uit Hallo nummering schema gebruikt voor regel prioriteiten toomake eenvoudig tooinsert extra regels gedurende een bepaalde periode.
 
-Het volgende voorbeeld ziet u een regel die expliciet toegang tot de poorten die nodig is voor de Azure-infrastructuur verleent te beheren en onderhouden van een App Service-omgeving.  Houd er rekening mee dat alle beheerverkeer via SSL loopt en wordt beveiligd door clientcertificaten, zodat zelfs als de poorten zijn geopend ze niet toegankelijk door een andere entiteit dan Azure beheerinfrastructuur zijn.
+Hallo in het volgende voorbeeld ziet u een regel die expliciet verleent toegang toohello management poorten die nodig is voor hello Azure-infrastructuur toomanage en onderhouden van een App Service-omgeving.  Houd er rekening mee dat alle beheerverkeer via SSL loopt en wordt beveiligd door clientcertificaten, dus Hoewel Hallo poorten zijn geopend niet toegankelijk door een andere entiteit dan Azure beheerinfrastructuur zijn.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 
 
-Wanneer het vergrendelen van toegang tot poort 80 en 443 ' verbergen ' een App-serviceomgeving achter upstream apparaten of services, moet u de upstream IP-adres op te geven.  Bijvoorbeeld, als u gebruikmaakt van een web application firewall (WAF), de WAF heeft een eigen IP-adres (of adressen) die worden gebruikt bij via een proxy-verkeer naar een downstream-App Service-omgeving.  U moet deze IP-adres in de *SourceAddressPrefix* parameter van een netwerkbeveiligingsregel.
+Wanneer vergrendelen toegang tooport 80 en 443 te 'verbergen' een App-serviceomgeving achter upstream apparaten of services, moet u tooknow Hallo upstream IP-adres.  Bijvoorbeeld, als u een web application firewall (WAF) gebruikt, Hallo WAF heeft een eigen IP-adres (of adressen) die worden gebruikt bij via een proxy verkeer tooa downstream-App Service-omgeving.  U moet toouse dit IP-adres in Hallo *SourceAddressPrefix* parameter van een netwerkbeveiligingsregel.
 
-In het onderstaande voorbeeld is binnenkomend verkeer van een specifiek IP-adres upstream expliciet toegestaan.  Het adres *1.2.3.4* wordt gebruikt als een tijdelijke aanduiding voor de IP-adres van een upstream WAF.  Wijzig de waarde zodat deze overeenkomt met het adres dat wordt gebruikt door een upstream-apparaat of service.
+In onderstaande Hallo voorbeeld, is inkomend verkeer van een specifiek IP-adres upstream expliciet toegestaan.  Hallo adres *1.2.3.4* wordt gebruikt als een tijdelijke aanduiding voor Hallo IP-adres van een upstream WAF.  Hallo waarde toomatch Hallo adres dat wordt gebruikt door een upstream-apparaat of de service wijzigen.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTP" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTPS" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 
-Als u FTP-ondersteuning, kunnen de volgende regels worden gebruikt als een sjabloon om toegang te verlenen tot de FTP-besturingselement poort en de gegevens channel-poorten.  Omdat FTP een stateful protocol, kunt u mogelijk geen FTP-verkeer routeren via een traditionele HTTP/HTTPS-firewall of proxyserver apparaat.  In dit geval moet u om in te stellen de *SourceAddressPrefix* op een andere waarde - bijvoorbeeld het IP-adresbereik van ontwikkelaars of implementatie machines op waarmee FTP-clients worden uitgevoerd. 
+Als u FTP-ondersteuning, kan Hallo volgens de regels worden gebruikt als een sjabloon toogrant toohello FTP-besturingselement toegangspoort en gegevens channel-poorten.  Omdat FTP een stateful protocol, mogelijk niet kunnen tooroute FTP-verkeer via een traditionele HTTP/HTTPS-firewall of proxyserver apparaat.  In dit geval moet u tooset hello *SourceAddressPrefix* tooa andere waarde - bijvoorbeeld Hallo IP-adresbereik van ontwikkelaars of implementatie machines op waarmee FTP-clients worden uitgevoerd. 
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Opmerking:** de gegevenskanaalpoortbereik kan worden gewijzigd tijdens de preview-periode.)
+(**Opmerking:** hello gegevenskanaalpoortbereik kan worden gewijzigd tijdens de evaluatieperiode Hallo.)
 
-Als u foutopsporing op afstand met Visual Studio gebruikt, ziet u de volgende regels hoe om toegang te verlenen.  Er is een afzonderlijke regel voor elke ondersteunde versie van Visual Studio aangezien elke versie een andere poort voor foutopsporing op afstand gebruikt.  Net zoals bij FTP-toegang mogelijk niet correct externe foutopsporing verkeer stromen via een traditionele WAF of de proxyapparaat.  De *SourceAddressPrefix* in plaats daarvan kan worden ingesteld op het IP-adresbereik van Visual Studio developer machines.
+Als u foutopsporing op afstand met Visual Studio gebruikt, Hallo volgens de regels voor laten zien hoe toogrant toegang tot.  Er is een afzonderlijke regel voor elke ondersteunde versie van Visual Studio aangezien elke versie een andere poort voor foutopsporing op afstand gebruikt.  Net zoals bij FTP-toegang mogelijk niet correct externe foutopsporing verkeer stromen via een traditionele WAF of de proxyapparaat.  Hallo *SourceAddressPrefix* kan in plaats daarvan toohello IP-adresbereik van Visual Studio developer machines worden ingesteld.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2012" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4016' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2013" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4018' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2015" -Type Inbound -Priority 800 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4020' -Protocol TCP
 
-## <a name="assigning-a-network-security-group-to-a-subnet"></a>Een Netwerkbeveiligingsgroep toewijzen aan een Subnet
-Een netwerkbeveiligingsgroep heeft een standaardbeveiligingsregel die de toegang aan alle externe verkeer weigert.  Het resultaat van het combineren van de beveiligingsregels voor netwerken die hierboven worden beschreven en de standaardregel voor beveiliging blokkeren van binnenkomend verkeer is dat alleen het verkeer van de bron-adresbereiken die zijn gekoppeld aan een *toestaan* actie kunnen verzenden het verkeer naar apps die worden uitgevoerd in een App Service-omgeving.
+## <a name="assigning-a-network-security-group-tooa-subnet"></a>Een Netwerkbeveiligingsgroep tooa Subnet toewijzen
+Een netwerkbeveiligingsgroep heeft een standaardbeveiligingsregel waarmee externe toegang tooall-verkeer.  resultaat van het combineren van Hallo netwerkbeveiligingsregels hierboven beschreven, Hallo en Hallo standaardbeveiligingsregel inkomend verkeer blokkeert, wordt alleen verkeer van de bron-adresbereiken die zijn gekoppeld aan een *toestaan* actie kan worden toosend verkeer tooapps uitvoert in een App Service-omgeving.
 
-Nadat een netwerkbeveiligingsgroep is gevuld met beveiligingsregels, moet deze worden toegewezen aan het subnet met de App Service-omgeving.  De opdracht toewijzing verwijst naar zowel de naam van het virtuele netwerk waarin de App Service-omgeving zich bevindt, evenals de naam van het subnet waarin de App-serviceomgeving is gemaakt.  
+Nadat een netwerkbeveiligingsgroep is gevuld met beveiligingsregels, moet deze toobe toegewezen toohello subnet met Hallo App Service-omgeving.  Hallo toewijzing opdracht verwijst naar de naam van beide Hallo Hallo virtuele netwerk waarin Hallo App Service-omgeving zich bevindt, evenals de naam Hallo van Hallo subnet waar Hallo App Service-omgeving is gemaakt.  
 
-Het volgende voorbeeld ziet een netwerkbeveiligingsgroep wordt toegewezen aan een subnet en het virtuele netwerk:
+Hallo in het volgende voorbeeld ziet u een netwerkbeveiligingsgroep tooa subnet en virtueel netwerk worden toegewezen:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-Zodra de groepstoewijzing voor netwerk-beveiliging is geslaagd (de toewijzing is van een langlopende bewerkingen en kan een paar minuten duren), alleen inkomend verkeer die overeenkomt met *toestaan* regels wordt met succes bereiken apps in App Service -Omgeving.
+Zodra het Hallo network security groepstoewijzing is gelukt (Hallo-toewijzing is een langlopende bewerkingen en kan een paar minuten toocomplete), alleen inkomend verkeer die overeenkomt met *toestaan* regels wordt apps in App Hallo is bereikt Service-omgeving.
 
-Het volgende voorbeeld ziet voor de volledigheid verwijderen en de netwerkbeveiligingsgroep van het subnet dus reke‑ koppelen:
+Voor de volledigheid Hallo ziet volgende voorbeeld u hoe tooremove en dus DIS koppelen Hallo netwerkbeveiliging groep uit Hallo subnet:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>Speciale overwegingen voor expliciete IP-SSL
-Als een app is geconfigureerd met een expliciete SSL IP-adres (toepasselijke *alleen* naar ASEs waarvoor een openbare VIP), in plaats van het standaard IP-adres van de App Service-omgeving, HTTP en HTTPS-verkeer stroomt in het subnet via een andere set van poorten dan de poorten 80 en 443.
+Als een app is geconfigureerd met een expliciete SSL IP-adres (toepasselijke *alleen* tooASEs waarvoor een openbare VIP), in plaats van Hallo standaard IP-adres van Hallo App Service-omgeving, HTTP en HTTPS-verkeer stroomt in Hallo subnet via een andere set van poorten dan de poorten 80 en 443.
 
-Het paar afzonderlijke van poorten gebruikt door elk IP-SSL-adres gevonden in de portal-gebruikersinterface van de App Service-omgeving details UX-blade.  Selecteer 'alle instellingen'--> 'IP-adressen'.  Het tabblad 'IP-adressen' bevat een tabel met alle expliciet geconfigureerd IP-SSL-adressen voor de App Service-omgeving, samen met het paar speciale poort die wordt gebruikt voor het routeren van HTTP en HTTPS-verkeer die zijn gekoppeld aan elk IP-SSL-adres.  Deze poort toe dat worden gebruikt voor de parameters DestinationPortRange moet bij het configureren van regels in een netwerkbeveiligingsgroep is.
+Hallo afzonderlijke set van poorten gebruikt door elk IP-SSL-adres vindt u in de portal gebruikersinterface Hallo Hallo App Service-omgeving van details UX-blade.  Selecteer 'alle instellingen'--> 'IP-adressen'.  Hallo 'IP-adressen' blade ziet u een tabel met alle expliciet geconfigureerd IP-SSL-adressen voor Hallo App Service-omgeving, samen met de Hallo speciale poort paar dat wordt gebruikt tooroute HTTP en HTTPS-verkeer met de bijbehorende IP-SSL.  Deze poort paar die toobe voor Hallo DestinationPortRange parameters worden gebruikt bij het configureren van regels in een netwerkbeveiligingsgroep nodig is.
 
-Wanneer een app op een as-omgeving is geconfigureerd voor gebruik van IP-SSL, is externe klanten niet zien en hoeft niet te hoeven maken over het toewijzen van de paar speciale poort.  Het verkeer naar de apps worden normaal gesproken overgebracht naar de geconfigureerde IP-SSL-adres.  De vertaling naar het paar speciale poort automatisch gebeurt intern tijdens de laatste fase van het routeren van verkeer in het subnet met de as-omgeving. 
+Wanneer een app op een as-omgeving geconfigureerde toouse IP-SSL is, is externe klanten niet zien en hoeft niet tooworry over speciale poorttoewijzing paar Hallo.  Verkeer toohello apps stromen normaal toohello geconfigureerd SSL IP-adres.  Hallo vertaling toohello speciale poort paar automatisch uitgevoerd intern tijdens de laatste fase van het routeren van verkeer Hallo in Hallo subnet met Hallo as-omgeving. 
 
 ## <a name="getting-started"></a>Aan de slag
-Om aan de slag met App Service-omgevingen, Zie [Inleiding tot de App Service-omgeving][IntroToAppServiceEnvironment]
+tooget de slag met App Service-omgevingen, Zie [inleiding tooApp Service-omgeving][IntroToAppServiceEnvironment]
 
-Alle artikelen en hoe-aan de voor App Service-omgevingen zijn beschikbaar in de [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
+Alle artikelen en hoe-aan de voor App Service-omgevingen beschikbaar in Hallo zijn [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
 
-Zie voor meer informatie om apps veilig verbinding maakt met back-end-bron van een App-serviceomgeving [veilig verbinding probeert te maken met back-endresources van een App-serviceomgeving][SecurelyConnecttoBackend]
+Zie voor meer informatie over apps die gebruikmaken van veilig toobackend resource van een App-serviceomgeving [tooBackend resources veilig verbinding te maken van een App-serviceomgeving][SecurelyConnecttoBackend]
 
-Zie voor meer informatie over het Azure App Service-platform [Azure App Service][AzureAppService].
+Zie voor meer informatie over hello Azure App Service-platform, [Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

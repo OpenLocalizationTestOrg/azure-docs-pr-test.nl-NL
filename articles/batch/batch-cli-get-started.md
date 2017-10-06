@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure CLI voor Batch | Microsoft Docs
-description: Een korte inleiding in de Batch-opdrachten in Azure CLI voor het beheren van Azure Batch-serviceresources
+title: aaaGet de slag met Azure CLI voor Batch | Microsoft Docs
+description: Get-een korte inleiding toohello batchopdrachten in de Azure CLI voor het beheren van bronnen van Azure Batch-service
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,90 +15,90 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 14f28311ecb16c8097d0d304a4ad89de282a2e9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
 
-De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Azure CLI 2.0 is geoptimaliseerd voor het beheren van Azure-resources vanaf de opdrachtregel. U kunt de Azure CLI gebruiken om uw Azure Batch-accounts te beheren en om resources zoals pools, functies en taken te beheren. Met de Azure CLI kunt u scripts maken om veel van dezelfde taken uit te voeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch PowerShell-cmdlets.
+Hello Azure CLI 2.0 is een nieuwe Azure opdrachtregelprogramma ervaring voor het beheren van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Azure CLI 2.0 is geoptimaliseerd voor het beheren en Azure-resources beheren vanaf Hallo-opdrachtregel. U kunt hello Azure CLI toomanage uw Azure Batch-accounts en toomanage resources zoals pools, jobs en taken. Hello Azure CLI, kunt u veel van Hallo script dezelfde taken die u met uitvoert Hallo Batch-API's, Azure-portal en Batch PowerShell-cmdlets.
 
-Dit artikel biedt een overzicht van het gebruik van [Azure CLI versie 2.0](https://docs.microsoft.com/cli/azure/overview) met Batch. Zie [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) voor een overzicht van het gebruik van CLI met Azure.
+Dit artikel biedt een overzicht van het gebruik van [Azure CLI versie 2.0](https://docs.microsoft.com/cli/azure/overview) met Batch. Zie [aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) voor een overzicht van het gebruik van Hallo CLI met Azure.
 
-Microsoft adviseert om de nieuwste versie van Azure CLI te gebruiken, versie 2.0. Meer informatie over versie 2.0 kunt u lezen in [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (Azure Command Line 2.0 nu algemeen beschikbaar).
+Microsoft raadt u aan met de nieuwste versie Hallo van hello Azure CLI versie 2.0. Meer informatie over versie 2.0 kunt u lezen in [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (Azure Command Line 2.0 nu algemeen beschikbaar).
 
-## <a name="set-up-the-azure-cli"></a>De Azure CLI instellen
+## <a name="set-up-hello-azure-cli"></a>Hello Azure CLI instellen
 
-Volg de stappen in [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli.md) voor het installeren van de Azure CLI.
+tooinstall hello Azure CLI stappen Hallo die worden beschreven in [installeren hello Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
 
 > [!TIP]
-> Het wordt aangeraden de Azure CLI-installatie regelmatig bij te werken om te profiteren van service-updates en verbeteringen.
+> We bevelen aan dat u de installatie van Azure CLI vaak tootake profiteren van de service-updates en verbeteringen.
 > 
 > 
 
 ## <a name="command-help"></a>Opdracht Help
 
-U kunt voor elke opdracht in de Azure CLI Help-tekst weergeven door `-h` toe te voegen aan de opdracht. Laat alle andere opties weg. Bijvoorbeeld:
+U kunt voor elke opdracht help-tekst weergeven in hello Azure CLI door toe te voegen `-h` toohello opdracht. Laat alle andere opties weg. Bijvoorbeeld:
 
-* Als u hulp nodig hebt bij de opdracht `az`, voert u in: `az -h`
-* Voor een lijst met alle Batch-opdrachten in de opdrachtregelinterface, gebruikt u: `az batch -h`
-* Als u hulp nodig hebt bij het maken van een Batch-account, voert u in: `az batch account create -h`
+* help voor Hallo tooget `az` opdracht, invoeren:`az -h`
+* een lijst met alle Batch-opdrachten in Hallo CLI tooget gebruiken:`az batch -h`
+* Voer in tooget informatie over het maken van een Batch-account:`az batch account create -h`
 
-Gebruik bij twijfel de opdrachtregeloptie `-h` voor hulp bij een willekeurige Azure CLI-opdracht.
+Bij twijfel gebruiken Hallo `-h` opdrachtregeloptie tooget help bij de Azure CLI-opdrachten.
 
 > [!NOTE]
-> In eerdere versies van de Azure CLI werd `azure` gebruikt vóór een CLI-opdracht. In versie 2.0 worden alle opdrachten nu voorafgegaan door `az`. Vergeet niet om uw scripts bij te werken met de nieuwe syntaxis van versie 2.0.
+> Eerdere versies van hello Azure CLI gebruikt `azure` toopreface een CLI-opdracht. In versie 2.0 worden alle opdrachten nu voorafgegaan door `az`. Worden tooupdate ervoor dat uw scripts toouse Hallo nieuwe syntaxis met versie 2.0.
 >
 >  
 
-Raadpleeg de naslagdocumentatie van Azure CLI voor informatie over [Azure CLI-opdrachten voor Batch](https://docs.microsoft.com/cli/azure/batch). 
+Raadpleeg daarnaast toohello Azure CLI-naslagdocumentatie voor informatie over [Azure CLI-opdrachten voor Batch](https://docs.microsoft.com/cli/azure/batch). 
 
 ## <a name="log-in-and-authenticate"></a>Aanmelden en verifiëren
 
-Als u de Azure CLI wilt gebruiken met Batch, moet u zich aanmelden en verifiëren. Dit kan via twee eenvoudige stappen:
+toouse hello Azure CLI met Batch, u moet toolog in en te verifiëren. Er zijn twee eenvoudige stappen toofollow:
 
-1. **Aanmelden bij Azure.** Als u bent aangemeld bij Azure, hebt u toegang tot opdrachten van Azure Resource Manager, inclusief opdrachten van de [Batch Management-service](batch-management-dotnet.md).  
-2. **Aanmelden bij uw Batch-account.** Als u bent aangemeld bij uw Batch-account, hebt u toegang tot opdrachten van de Batch-service.   
+1. **Aanmelden bij Azure.** Aanmelden bij Azure biedt u tooAzure Resource Manager-opdrachten, inclusief toegang tot [Batch Management-service](batch-management-dotnet.md) opdrachten.  
+2. **Aanmelden bij uw Batch-account.** Aan te melden bij uw Batch-account biedt openen u de opdrachten tooBatch service.   
 
-### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+### <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in [Aanmelden met de Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+Er zijn een aantal verschillende manieren toolog in Azure, gedetailleerd beschreven in [aanmelden met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
+1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in). Interactief aanmelden wanneer u Azure CLI-opdrachten zelf worden uitgevoerd vanaf de opdrachtregel Hallo.
 2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
 
-Ten behoeve van dit artikel laten we zien hoe u zich interactief aanmeldt bij Azure. Typ [az login](https://docs.microsoft.com/cli/azure/#login) op de opdrachtregel:
+Voor de toepassing hello van dit artikel, laten we zien hoe toolog in Azure interactief. Type [az aanmelding](https://docs.microsoft.com/cli/azure/#login) op Hallo-opdrachtregel:
 
 ```azurecli
-# Log in to Azure and authenticate interactively.
+# Log in tooAzure and authenticate interactively.
 az login
 ```
 
-De opdracht `az login` retourneert een token dat u kunt gebruiken om u te verifiëren, zoals hier wordt weergegeven. Volg de weergegeven instructies om een webpagina te openen en het token naar Azure te verzenden:
+Hallo `az login` opdracht retourneert een token dat u tooauthenticate, kunt zoals hier wordt weergegeven. Ga als volgt Hallo instructies tooopen webpagina's en het verzenden van Hallo token tooAzure:
 
-![Meld u aan bij Azure.](./media/batch-cli-get-started/az-login.png)
+![Meld u bij tooAzure](./media/batch-cli-get-started/az-login.png)
 
-De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-scripts) laten ook zien hoe u een Azure CLI-sessie start door u interactief aan te melden bij Azure. Wanneer u bent aangemeld, kunt u opdrachten aanroepen voor gebruik met resources van Batch Management, met inbegrip van Batch-accounts, sleutels, toepassingspakketten en quota's.  
+Hallo-voorbeelden die worden vermeld in Hallo [steekproef shell-scripts](#sample-shell-scripts) sectie ook tonen hoe toostart uw Azure CLI-sessie door interactief aanmelden bij Azure. Wanneer u zich hebt aangemeld, kunt u opdrachten toowork met Batch Management bronnen, met inbegrip van Batch-accounts, sleutels toepassingspakketten en quota's aanroepen.  
 
-### <a name="log-in-to-your-batch-account"></a>Aanmelden bij uw Batch-account
+### <a name="log-in-tooyour-batch-account"></a>Meld u bij tooyour Batch-account
 
-Als u de Azure CLI wilt gebruiken voor het beheren van Batch-resources, zoals pools, functies en taken, moet u zich aanmelden bij uw Batch-account en u vervolgens verifiëren. U kunt zich aanmelden bij de Batch-service met de opdracht [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login). 
+toouse hello Azure CLI toomanage Batch-resources, zoals groepen, taken en taken, u moet toolog in uw Batch-account en verifiëren. toolog in toohello Batch-service gebruiken Hallo [az batch-account aanmelding](https://docs.microsoft.com/cli/azure/batch/account#login) opdracht. 
 
 Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
 
 - **Met behulp van Azure AD-verificatie (Azure Active Directory).** 
 
-    Verificatie met Azure AD is de standaardinstelling als u de Azure CLI gebruikt met Batch en wordt aanbevolen voor de meeste scenario's. 
+    Verificatie met Azure AD is Hallo standaardwaarde als u hello Azure CLI met Batch gebruiken en aanbevolen voor de meeste scenario's. 
     
-    Wanneer u zich interactief aanmeldt bij Azure, zoals beschreven in de vorige sectie, worden uw referenties in de cache opgeslagen, zodat de Azure CLI u met behulp van deze zelfde referenties kan aanmelden bij uw Batch-account. Als u zich aanmeldt bij Azure met behulp van een service-principal, worden deze referenties ook gebruikt voor aanmelding bij uw Batch-account.
+    Wanneer u in tooAzure interactief aanmelden, zoals beschreven in de vorige sectie hello, uw referenties in cache zijn opgeslagen, zodat hello Azure CLI kunt u kunt zich aanmelden tooyour Batch-account met behulp van deze dezelfde referenties. Als u zich aanmeldt met een service-principal tooAzure, wordt deze referenties worden ook gebruikt toolog in tooyour Batch-account.
 
-    Een voordeel van Azure AD is de ondersteuning voor toegangsbeheer op basis van rollen (RBAC). Met RBAC is de toegang van gebruikers afhankelijk van hun rol, in plaats van of ze wel of niet over de accountsleutels beschikken. U hoeft dus geen accountsleutels te beheren, maar RBAC-rollen, waarna Azure AD de toegang en verificatie afhandelt.  
+    Een voordeel van Azure AD is de ondersteuning voor toegangsbeheer op basis van rollen (RBAC). Met RBAC, van een gebruiker toegang is afhankelijk van hun rol, in plaats van of ze Hallo toegangscodes bezitten. U hoeft dus geen accountsleutels te beheren, maar RBAC-rollen, waarna Azure AD de toegang en verificatie afhandelt.  
 
-    Verificatie met Azure AD is vereist als u uw Azure Batch-account hebt gemaakt met de modus voor groepstoewijzing ingesteld op Gebruikersabonnement. 
+    Verificatie met Azure AD is vereist als u hebt gemaakt uw Azure Batch-account met de modus van de toewijzing van toepassingen instellen too'User abonnement '. 
 
-    Als u zich via Azure AD wilt aanmelden bij uw Batch-account, gebruikt u de opdracht [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login): 
+    toolog in tooyour Batch-account met behulp van Azure AD, neemt u contact Hallo [az batch-account aanmelding](https://docs.microsoft.com/cli/azure/batch/account#login) opdracht: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -106,25 +106,25 @@ Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
 
 - **Met behulp van gedeelde sleutelverificatie.**
 
-    Bij [gedeelde sleutelverificatie](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) worden de toegangssleutels van uw account gebruikt om Azure CLI-opdrachten te verifiëren voor de Batch-service.
+    [Verificatie met een gedeelde sleutel](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) maakt gebruik van uw account toegangstoetsen tooauthenticate Azure CLI-opdrachten voor Hallo Batch-service.
 
-    Als u Azure CLI-scripts maakt om het aanroepen van Batch-opdrachten te automatiseren, kunt u gebruikmaken van gedeelde sleutelverificatie of van een service-principal van Azure AD. In sommige scenario's kan gedeelde sleutelverificatie een eenvoudigere oplossing zijn dan het maken van een service-principal.  
+    Als u Azure CLI-scripts tooautomate aanroepen Batch-opdrachten maakt, kunt u verificatie met gedeelde sleutel of een Azure AD-service principal. In sommige scenario's kan gedeelde sleutelverificatie een eenvoudigere oplossing zijn dan het maken van een service-principal.  
 
-    Als u zich wilt aanmelden met behulp van gedeelde sleutelverificatie, gebruikt u de optie `--shared-key-auth` op de opdrachtregel:
+    toolog bij het gebruik van verificatie met een gedeelde sleutel opnemen Hallo `--shared-key-auth` optie op Hallo-opdrachtregel:
 
     ```azurecli
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-De voorbeelden in de sectie [Voorbeelden van shell-scripts](#sample-shell-scripts) laten zien hoe u zich met de Azure CLI aanmeldt bij uw Batch-account met zowel Azure AD als een gedeelde sleutel.
+Hallo-voorbeelden die worden vermeld in Hallo [steekproef shell-scripts](#sample-shell-scripts) sectie laten zien hoe toolog in uw Batch-account met Azure CLI met zowel hello Azure AD en gedeelde sleutel.
 
 ## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken (preview)
 
-U kunt de Azure CLI gebruiken om Batch-taken end-to-end uit te voeren zonder code te schrijven. Batch-sjabloonbestanden ondersteunen het maken van pools, jobs en taken met de Azure CLI. U kunt de Azure CLI ook gebruiken om jobinvoerbestanden te uploaden naar het Azure Storage-account dat is gekoppeld aan het Batch-account en de jobuitvoerbestanden ervan downloaden. Zie [Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie.
+U kunt hello Azure CLI toorun Batch taken end-to-end-code te schrijven. Batch-sjabloonbestanden ondersteuning maken pools, jobs en taken Hello Azure CLI. U kunt ook hello Azure CLI tooupload taak invoerbestanden toohello Azure Storage-account gekoppeld Hallo Batch-account en uitvoerbestanden taak downloaden. Zie [Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie.
 
 ## <a name="sample-shell-scripts"></a>Voorbeelden van shell-scripts
 
-De voorbeeldscripts in de volgende tabel laten zien hoe u Azure CLI-opdrachten gebruikt met de Batch-service en de Batch-Management-service om veelvoorkomende taken uit te voeren. In deze voorbeeldscripts worden veel van de opdrachten behandeld die beschikbaar zijn in de Azure CLI voor Batch. 
+Hallo-voorbeeldscripts vermeld in Hallo tabel weergeven na hoe toouse Azure CLI-opdrachten met Hallo Batch-service en algemene taken voor tooaccomplish Batch Management-service. Deze voorbeeldscripts betrekking hebben op veel van Hallo-opdrachten die beschikbaar zijn in hello Azure CLI voor Batch. 
 
 | Script | Opmerkingen |
 |---|---|
@@ -135,61 +135,61 @@ De voorbeeldscripts in de volgende tabel laten zien hoe u Azure CLI-opdrachten g
 
 ## <a name="json-files-for-resource-creation"></a>JSON-bestanden voor het maken van resources
 
-Als u Batch-resources maakt, zoals groepen en taken, kunt u een JSON-bestand opgeven dat de configuratie van de nieuwe resource bevat, in plaats van de bijbehorende parameters op te geven als opdrachtregelopties. Bijvoorbeeld:
+Wanneer u Batch-resources zoals pools en jobs maakt, kunt u een JSON-bestand met Hallo nieuwe resource-configuratie in plaats van de parameters doorgeven als opdrachtregelopties opgeven. Bijvoorbeeld:
 
 ```azurecli
 az batch pool create my_batch_pool.json
 ```
 
-Hoewel u de meeste resources kunt maken met alleen opdrachtregelopties, is voor sommige functies vereist dat u een bestand met de JSON-indeling opgeeft met daarin details van de resource. U moet bijvoorbeeld een JSON-bestand gebruiken als u resourcebestanden wilt opgeven voor een starttaak.
+U kunt de meeste Batch-resources met behulp van alleen opdrachtregelopties voor het maken, worden sommige functies vereisen dat u een bestand JSON-indeling met details van de resource Hallo opgeeft. U moet bijvoorbeeld een JSON-bestand gebruiken als u wilt dat de bronbestanden toospecify voor een begintaak.
 
-Informatie over de juiste JSON-syntaxis voor het maken van een resource vindt u in de Engelstalige [Azure Batch REST API Reference][rest_api]. De onderwerpen voor het toevoegen van een *resourcetype* in de Azure Batch REST API Reference bevat JSON-voorbeeldscripts voor het maken van die resource. U kunt deze JSON-voorbeeldscripts als sjablonen gebruiken voor JSON-bestanden die u met de Azure CLI wilt gebruiken. Als u bijvoorbeeld de JSON-syntaxis wilt zien voor het maken van een pool, raadpleegt u [Add a pool to an account][rest_add_pool] (Een pool toevoegen aan een account).
+toosee hello JSON syntaxis toocreate vereist een resource, raadpleeg dan toohello [Batch REST-API-verwijzing] [ rest_api] documentatie. Elke ' Add *brontype*' onderwerp in Hallo naslaginformatie over REST API bevat JSON-voorbeeldscripts voor het maken van die bron. U kunt deze JSON-voorbeeldscripts als sjabloon gebruiken voor JSON-bestanden toouse Hello Azure CLI. Bijvoorbeeld toosee Hallo JSON-syntaxis voor het maken van de groep van toepassingen te verwijzen[toevoegen van een account voor toepassingsgroep tooan][rest_add_pool].
 
 Zie [Running jobs on Azure Batch with Azure CLI](./scripts/batch-cli-sample-run-job.md) (Taken uitvoeren in Azure Batch met Azure CLI) voor een voorbeeld van een script waarin een JSON-bestand is opgegeven.
 
 > [!NOTE]
-> Als u een JSON-bestand opgeeft bij het maken van een resource, worden alle andere parameters die u opgeeft op de opdrachtregel, genegeerd.
+> Als u een JSON-bestand opgeeft wanneer u een resource maakt, worden andere parameters die u op de opdrachtregel Hallo voor die bron opgeeft worden genegeerd.
 > 
 > 
 
 ## <a name="efficient-queries-for-batch-resources"></a>Efficiënte query's voor Batch-resources
 
-Elk Batch-resourcetype ondersteunt een `list`-opdracht die een query uitvoert voor het Batch-account, en vermeldt een lijst met resources van dit type. U kunt bijvoorbeeld de groepen in uw account vermelden en de taken in een taak:
+Elk Batch-resourcetype ondersteunt een `list`-opdracht die een query uitvoert voor het Batch-account, en vermeldt een lijst met resources van dit type. U kunt bijvoorbeeld Hallo toepassingen weergeven in uw account en het Hallo-taken in een job:
 
 ```azurecli
 az batch pool list
 az batch task list --job-id job001
 ```
 
-Wanneer u op de Batch-service een query uitvoert met daarin een `list`-bewerking, kunt u een OData-component opgeven om de hoeveelheid geretourneerde gegevens te beperken. Omdat de filteracties op de server plaatsvinden, worden alleen de gegevens geretourneerd waarin u bent geïnteresseerd. Gebruik deze componenten om bandbreedte (en dus tijd) te besparen tijdens het uitvoeren van lijstbewerkingen.
+Wanneer u een query Hallo Batch-service met een `list` bewerking, kunt u een OData-component toolimit Hallo hoeveelheid gegevens die worden geretourneerd. Omdat alle filteren serverzijde plaatsvindt, bestrijkt alleen Hallo gegevens die u aanvragen Hallo-kabel. Deze componenten toosave bandbreedte gebruiken (en dus time) wanneer u een lijst met bewerkingen uitvoert.
 
-De volgende tabel beschrijft de OData-componenten die worden ondersteund door de Batch-service:
+Hallo staan volgende tabel Hallo OData-componenten ondersteund door Hallo Batch-service:
 
 | Component | Beschrijving |
 |---|---|
 | `--select-clause [select-clause]` | Retourneert een subset met eigenschappen voor elke entiteit. |
-| `--filter-clause [filter-clause]` | Retourneert alleen entiteiten die overeenkomen met de opgegeven OData-expressie. |
-| `--expand-clause [expand-clause]` | Vraagt de entiteitgegevens op in één onderliggende REST-aanroep. De component expand ondersteunt momenteel alleen de eigenschap `stats`. |
+| `--filter-clause [filter-clause]` | Retourneert alleen entiteiten die overeenkomen met de Hallo opgegeven OData-expressie. |
+| `--expand-clause [expand-clause]` | Verkrijgt Hallo entiteit in één onderliggende REST-aanroep. Hallo Vouw Component momenteel ondersteunt alleen Hallo `stats` eigenschap. |
 
-Zie [Een functie en taken uitvoeren met Batch](./scripts/batch-cli-sample-run-job.md) voor een voorbeeld van een script dat laat zien hoe u een OData-component gebruikt.
+Voor een voorbeeld van een script dat toont hoe een OData-component toouse zien [een job en taken uitvoeren met Batch](./scripts/batch-cli-sample-run-job.md).
 
-Zie [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md) (Query's maken om efficiënt Batch-resources op te vragen) voor meer informatie over het uitvoeren van efficiënte lijstquery's met OData-componenten.
+Zie voor meer informatie over het uitvoeren van query's efficiënt lijst met OData-componenten [hello Azure Batch-service efficiënt Query](batch-efficient-list-queries.md).
 
 ## <a name="troubleshooting-tips"></a>Tips voor probleemoplossing
 
-De volgende tips kunnen helpen bij het oplossen van problemen met Azure CLI:
+Hallo kunt volgende tips u Azure CLI-problemen oplossen:
 
-* Gebruik `-h` om **Help-tekst** weer te geven voor elke willekeurige CLI-opdracht
-* Gebruik `-v` en `-vv` om **uitgebreide** opdrachtuitvoer weer te geven. Als u de vlag `-vv` toevoegt, toont de Azure CLI de werkelijke REST-aanvragen en -antwoorden. Deze schakelopties zijn handig voor het weergeven van de volledige foutuitvoer.
-* U kunt **opdrachtuitvoer weergeven als JSON** met de `--json`-optie. `az batch pool show pool001 --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. Vervolgens kunt u deze uitvoer kopiëren en aanpassen om te worden gebruikt in een `--json-file` (zie [JSON-bestanden](#json-files) eerder in dit artikel).
-<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-* Het [Batch-forum][batch_forum] wordt gecontroleerd door leden van het Batch-team. U kunt hier vragen posten als u problemen hebt of hulp nodig hebt met een bepaalde bewerking.
+* Gebruik `-h` tooget **help-tekst** voor elke opdracht CLI
+* Gebruik `-v` en `-vv` toodisplay **uitgebreide** opdracht uitvoer. Wanneer Hallo `-vv` vlag is opgenomen, hello Azure CLI geeft Hallo werkelijke REST-aanvragen en antwoorden. Deze schakelopties zijn handig voor het weergeven van de volledige foutuitvoer.
+* U kunt bekijken **opdracht uitvoer als JSON** Hello `--json` optie. `az batch pool show pool001 --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. U kunt vervolgens kopiëren en wijzigen van deze toouse uitvoer in een `--json-file` (Zie [JSON-bestanden](#json-files) eerder in dit artikel).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting tooany location.--->
+* Hallo [Batch-forum] [ batch_forum] wordt bewaakt door de teamleden Batch. U kunt hier vragen posten als u problemen hebt of hulp nodig hebt met een bepaalde bewerking.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
+* Zie voor meer informatie over hello Azure CLI Hallo [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Meer informatie over Batch-resources vindt u in dit Engelstalige [overzicht van Azure Batch voor ontwikkelaars](batch-api-basics.md).
-* Zie [Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken (preview)](batch-cli-templates.md) voor meer informatie over het gebruik van Batch-sjablonen voor het maken van pools, jobs en taken zonder code te schrijven.
+* Zie voor meer informatie over het gebruik van Batch sjablonen toocreate pools, jobs en taken zonder code te schrijven [gebruik Azure Batch CLI sjablonen en File Transfer (Preview)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

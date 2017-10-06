@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Problemen met verbindingen | Microsoft Docs'
-description: Legt uit hoe u problemen met verbindingen met Azure AD Connect.
+description: Legt uit hoe tootroubleshoot connectiviteit problemen met een Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 60d6b7c4ad8a3ab907c20e598ec9443f115df287
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Oplossen van problemen met de netwerkverbinding met Azure AD Connect
-Dit artikel wordt uitgelegd hoe de verbinding tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn waarschijnlijk kunnen worden bekeken in een omgeving met een proxyserver.
+Dit artikel wordt uitgelegd hoe de verbinding tussen Azure AD Connect en Azure AD werkt en hoe tootroubleshoot connectiviteit uitgeeft. Deze problemen zijn de meest waarschijnlijke toobe gezien in een omgeving met een proxyserver.
 
-## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Problemen met verbindingen in de installatiewizard
-Azure AD Connect maakt gebruik van moderne verificatie (met behulp van de ADAL-bibliotheek) voor verificatie. De installatiewizard en de juiste synchronisatie-engine vereisen machine.config correct worden geconfigureerd omdat deze twee .NET-toepassingen.
+## <a name="troubleshoot-connectivity-issues-in-hello-installation-wizard"></a>Problemen met verbindingen in de installatiewizard Hallo
+Azure AD Connect maakt gebruik van moderne verificatie (met Hallo ADAL-bibliotheek) voor verificatie. Hallo-installatiewizard en de juiste Hallo synchronisatie-engine vereisen machine.config toobe omdat deze twee .NET-toepassingen de juiste wijze geconfigureerd.
 
-In dit artikel, laten we zien hoe Fabrikam verbinding maakt met Azure AD via de proxy. De proxy-server met de naam fabrikamproxy en poort 8080 wordt gebruikt.
+In dit artikel, laten we zien hoe tooAzure AD in Fabrikam verbinding maakt via de proxy. Hallo-proxyserver heet fabrikamproxy en poort 8080 wordt gebruikt.
 
-Eerst moet ervoor zorgen [ **machine.config** ](active-directory-aadconnect-prerequisites.md#connectivity) correct is geconfigureerd.  
+Eerst moet u toomake ervoor [ **machine.config** ](active-directory-aadconnect-prerequisites.md#connectivity) correct is geconfigureerd.  
 ![machineconfig uit te voeren](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [!NOTE]
-> In sommige blogs niet-Microsoft wordt dat moet worden gewijzigd miiserver.exe.config in plaats daarvan beschreven. Dit bestand is echter overschreven bij elke upgrade dus zelfs dat als dit tijdens de initiële installatie werkt, het systeem werkt niet bij een eerste upgrade. Aangeraden wordt om die reden machine.config in plaats daarvan bijwerken.
+> In sommige blogs niet-Microsoft wordt dat de wijzigingen moeten worden aangebracht toomiiserver.exe.config in plaats daarvan beschreven. Dit bestand is echter overschreven bij elke upgrade dus zelfs als dit tijdens de initiële installatie werkt, Hallo systeem werkt niet bij een eerste upgrade. Daarom wordt aangeraden Hallo tooupdate machine.config in plaats daarvan.
 >
 >
 
-De proxy-server moet ook de gewenste URL's die worden geopend. De officiële lijst wordt beschreven in [Office 365-URL's en IP-adresbereiken](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Hallo-proxyserver moet zijn toegewezen Hallo vereist URL's die zijn geopend. Hallo officiële lijst wordt beschreven in [Office 365-URL's en IP-adresbereiken](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-URL's is de volgende tabel absolute bare minimaal kunnen helemaal verbinden met Azure AD. Deze lijst bevat geen eventuele optionele functies, zoals wachtwoord terugschrijven of Azure AD Connect Health. Dit wordt hier beschreven om te helpen bij het oplossen van problemen voor de eerste configuratie.
+URL's is Hallo tabel Hallo absolute bare minimale toobe kunnen tooconnect tooAzure AD. Deze lijst bevat geen eventuele optionele functies, zoals wachtwoord terugschrijven of Azure AD Connect Health. Het is gedocumenteerde hier toohelp bij het oplossen van de eerste configuratie Hallo.
 
 | URL | Poort | Beschrijving |
 | --- | --- | --- |
-| mscrl.Microsoft.com |HTTP-/ 80 |Gebruikt voor het downloaden van de CRL-lijsten. |
-| \*. verisign.com |HTTP-/ 80 |Gebruikt voor het downloaden van de CRL-lijsten. |
-| \*. entrust.com |HTTP-/ 80 |Gebruikt voor het downloaden van een lijst met CRL voor MFA. |
-| \*.windows.net |HTTPS/443 |Gebruikt om aan te melden bij Azure AD. |
+| mscrl.Microsoft.com |HTTP-/ 80 |Gebruikte toodownload CRL bevat. |
+| \*. verisign.com |HTTP-/ 80 |Gebruikte toodownload CRL bevat. |
+| \*. entrust.com |HTTP-/ 80 |Gebruikte toodownload CRL geeft een lijst voor MFA. |
+| \*.windows.net |HTTPS/443 |Gebruikte toosign in tooAzure AD. |
 | Secure.aadcdn.microsoftonline p.com |HTTPS/443 |Gebruikt voor MFA. |
-| \*.microsoftonline.com |HTTPS/443 |Gebruikt voor het configureren van uw Azure AD-directory en gegevens voor importeren/exporteren. |
+| \*.microsoftonline.com |HTTPS/443 |Tooconfigure uw Azure AD-directory en voor importeren/exporteren gegevens gebruikt. |
 
-## <a name="errors-in-the-wizard"></a>Fouten in de wizard
-De installatiewizard maakt gebruik van twee andere beveiligingscontext. Op de pagina **verbinding maken met Azure AD**, het gebruik van de momenteel aangemelde gebruiker. Op de pagina **configureren**, deze wordt gewijzigd in de [account dat de service voor de synchronisatie-engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Als er een probleem is, verschijnt deze waarschijnlijk al op de **verbinding maken met Azure AD** pagina in de wizard omdat de proxyconfiguratie globale.
+## <a name="errors-in-hello-wizard"></a>Fouten in de wizard Hallo
+Hallo-installatiewizard maakt gebruik van twee andere beveiligingscontext. Op de pagina Hallo **verbinding tooAzure AD**, het gebruik van Hallo momenteel aangemelde gebruiker. Op de pagina Hallo **configureren**, verandert het toohello [account voor service voor de synchronisatie-engine Hallo Hallo](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Als er een probleem is, verschijnt deze waarschijnlijk al op Hallo **verbinding tooAzure AD** pagina in de wizard Hallo omdat Hallo proxyconfiguratie globale.
 
-De volgende problemen zijn de meest voorkomende fouten die in de installatiewizard optreden.
+Hallo volgende problemen zijn Hallo meest voorkomende fouten die in de installatiewizard Hallo optreden.
 
-### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>De installatiewizard is niet correct geconfigureerd
-Deze fout treedt op wanneer de wizard zelf de proxy kan bereiken.  
+### <a name="hello-installation-wizard-has-not-been-correctly-configured"></a>Hallo-installatiewizard niet correct is geconfigureerd
+Deze fout wordt weergegeven wanneer het Hallo-wizard zelf Hallo proxy niet bereiken.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
-* Als u deze fout aanhoudt, controleert u of de [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) correct is geconfigureerd.
-* Als die er goed uitziet, volgt u de stappen in [controleren of de proxy verbinding](#verify-proxy-connectivity) om te zien als het probleem niet met de wizard ook aanwezig is.
+* Als u deze fout aanhoudt, controleert u of Hallo [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) correct is geconfigureerd.
+* Als die er goed uitziet, stappen Hallo in [controleren of de proxy verbinding](#verify-proxy-connectivity) toosee als Hallo probleem buiten Hallo wizard ook aanwezig is.
 
 ### <a name="a-microsoft-account-is-used"></a>Een Microsoft-account wordt gebruikt
 Als u een **Microsoft-account** in plaats van een **school of organisatie** account, ziet u een algemene fout.  
 ![Een Microsoft-Account wordt gebruikt](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
-### <a name="the-mfa-endpoint-cannot-be-reached"></a>Het MFA-eindpunt kan niet worden bereikt
-Deze fout treedt op als het eindpunt **https://secure.aadcdn.microsoftonline-p.com** kan niet worden bereikt en de globale beheerder heeft MFA ingeschakeld.  
+### <a name="hello-mfa-endpoint-cannot-be-reached"></a>Hallo MFA-eindpunt kan niet worden bereikt
+Deze fout treedt op als hello eindpunt **https://secure.aadcdn.microsoftonline-p.com** kan niet worden bereikt en de globale beheerder heeft MFA ingeschakeld.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
-* Als u deze fout ziet, Controleer het eindpunt **secure.aadcdn.microsoftonline p.com** is toegevoegd aan de proxy.
+* Als u deze fout aanhoudt, controleert u of dat eindpunt Hallo **secure.aadcdn.microsoftonline p.com** toohello proxy is toegevoegd.
 
-### <a name="the-password-cannot-be-verified"></a>Het wachtwoord kan niet worden geverifieerd.
-Als de installatiewizard voltooid is in de verbinding te maken met Azure AD, maar het wachtwoord zelf kan niet worden geverifieerd dat u deze fout te zien:  
+### <a name="hello-password-cannot-be-verified"></a>Hallo wachtwoord kan niet worden geverifieerd.
+Als Hallo-installatiewizard tooAzure AD verbinding geslaagd is, maar Hallo wachtwoord zelf kan niet worden geverifieerd dat u deze fout te zien:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* Het wachtwoord is een tijdelijk wachtwoord en moet worden gewijzigd? Is het daadwerkelijk het juiste wachtwoord? Probeer te melden bij https://login.microsoftonline.com (op een andere computer dan de Azure AD Connect-server) en controleer of dat het account kan worden gebruikt.
+* Hallo-wachtwoord is een tijdelijk wachtwoord en moet worden gewijzigd? Is het juiste wachtwoord voor het daadwerkelijk Hallo? Probeer toosign in toohttps://login.microsoftonline.com (op een andere computer dan hello Azure AD Connect-server) en controleer of Hallo-account kan worden gebruikt.
 
 ### <a name="verify-proxy-connectivity"></a>Controleer de proxy-connectiviteit
-Om te controleren of de Azure AD Connect-server de werkelijke connectiviteit met de Proxy- en Internet heeft, moet u enkele PowerShell gebruiken om te zien als de proxy webaanvragen of niet toestaat. Voer in een PowerShell-prompt `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technisch de eerste aanroep https://login.microsoftonline.com is en deze URI werkt ook, maar de overige URI is sneller reageren.)
+tooverify als hello Azure AD Connect-server heeft de werkelijke connectiviteit met hello Proxy- en Internet, gebruikt u sommige toosee PowerShell als Hallo proxy toestaat webaanvragen of niet. Voer in een PowerShell-prompt `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technisch hello eerste aanroep is toohttps://login.microsoftonline.com en deze URI werkt ook, maar hello andere URI is sneller toorespond.)
 
-PowerShell gebruikt de configuratie in machine.config contact opnemen met de proxy. De instellingen van winhttp/netsh moeten geen invloed op deze cmdlets.
+Hallo configuration PowerShell gebruikt in machine.config toocontact Hallo proxy. Hallo-instellingen van winhttp/netsh moeten geen invloed op deze cmdlets.
 
-Als de proxy correct is geconfigureerd, krijgt u de status geslaagd: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
+Als Hallo proxy correct is geconfigureerd, krijgt u de status geslaagd: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-Als u krijgt **kan geen verbinding maken met de externe server**, vervolgens PowerShell probeert te maken van een directe aanroep zonder met behulp van de proxy- of DNS is niet correct geconfigureerd. Zorg ervoor dat de **machine.config** bestand correct is geconfigureerd.
+Als u krijgt **niet kan tooconnect toohello externe server**, PowerShell probeert een directe aanroep toomake zonder Hallo proxy of DNS is niet correct geconfigureerd. Zorg ervoor dat Hallo **machine.config** bestand correct is geconfigureerd.
 ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
-Als de proxy is niet correct geconfigureerd, krijgt u een fout opgetreden: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
+Als het Hallo-proxy is niet correct geconfigureerd, krijgt u een fout opgetreden: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
 | Fout | Foutbericht | Opmerking |
 | --- | --- | --- |
-| 403 |Is niet toegestaan |De proxy is niet geopend voor de aangevraagde URL. Terugkeren naar de proxyconfiguratie en zorg ervoor dat de [URL's](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zijn geopend. |
-| 407 |Proxyverificatie is vereist |De proxyserver vereist een aanmelden en geen taaksequencer opgegeven. Als de proxyserver verificatie vereist, zorg ervoor dat u hebt deze instelling is geconfigureerd in machine.config. Controleer ook of dat u domeinaccounts gebruikt voor de gebruiker die de wizard uitvoert, en voor het serviceaccount. |
+| 403 |Is niet toegestaan |Hallo-proxy is niet geopend voor Hallo URL aangevraagde. Hallo-proxyconfiguratie bezoekt en zorg ervoor dat Hallo [URL's](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zijn geopend. |
+| 407 |Proxyverificatie is vereist |Hallo-proxyserver vereist een aanmelden en geen taaksequencer opgegeven. Als de proxyserver verificatie vereist, zorg ervoor dat toohave deze instelling is geconfigureerd in Hallo machine.config. Controleer ook of dat u domeinaccounts gebruikt voor Hallo-gebruiker die de wizard Hallo en voor het Hallo-serviceaccount. |
 
-## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Het communicatiepatroon tussen Azure AD Connect en Azure AD
-Als u deze voorgaande stappen hebt uitgevoerd en nog steeds geen verbinding kunt maken, u mogelijk op dit moment gaan zo kijken netwerk Logboeken. Deze sectie wordt een patroon normaal en geslaagde verbinding documenteren. Het is ook algemene rood herrings die kan worden genegeerd wanneer u de logboeken netwerk lezen aanbieding.
+## <a name="hello-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Hallo communicatiepatronen tussen Azure AD Connect en Azure AD
+Als u deze voorgaande stappen hebt uitgevoerd en nog steeds geen verbinding kunt maken, u mogelijk op dit moment gaan zo kijken netwerk Logboeken. Deze sectie wordt een patroon normaal en geslaagde verbinding documenteren. Het is ook algemene rood herrings die kan worden genegeerd wanneer u Hallo netwerk logboeken lezen aanbieding.
 
-* Er zijn https://dc.services.visualstudio.com aanroepen. Dit is niet vereist om deze URL is geopend in de proxy voor de installatie mislukt en deze aanroepen kunnen worden genegeerd.
-* U ziet de werkelijke hosts in de DNS-naam ruimte nsatc.net en andere naamruimten niet onder microsoftonline.com een lijst met DNS-omzetting. Echter, er zijn webserviceaanvragen op de namen van de werkelijke en er geen URL's toevoegen aan de proxy.
-* De eindpunten adminwebservice provisioningapi detectie eindpunten en gebruikt voor het zoeken van het werkelijke eindpunt te gebruiken. Deze eindpunten zijn verschillend afhankelijk van uw regio.
+* Er zijn toohttps://dc.services.visualstudio.com aanroepen. Het is niet vereist toohave die deze URL openen in Hallo-proxy voor Hallo installatie toosucceed en deze aanroepen kan worden genegeerd.
+* U ziet dat DNS-omzetting Hallo werkelijke hosts toobe in Hallo DNS-naam ruimte nsatc.net en andere naamruimten niet onder microsoftonline.com bevat. Echter er zijn webserviceaanvragen op Hallo werkelijke servernamen en u hebt geen tooadd deze URL's toohello proxy.
+* Hallo eindpunten adminwebservice en provisioningapi detectie eindpunten en toofind Hallo echt eindpunt toouse gebruikt. Deze eindpunten zijn verschillend afhankelijk van uw regio.
 
 ### <a name="reference-proxy-logs"></a>Verwijzing proxy-Logboeken
-Hier volgt een dump uit een werkelijke proxy-logboek en op de pagina van de wizard installatie van waar deze is genomen (hetzelfde eindpunt van dubbele items zijn verwijderd). Deze sectie kan worden gebruikt als referentie voor uw eigen logboeken proxy en het netwerk. De werkelijke eindpunten kunnen afwijken in uw omgeving (met name de URL's in *cursief*).
+Hier volgt een dump van een werkelijke proxy logboek en Hallo wizard installatiepagina waar is gemaakt (dubbele vermeldingen toohello hetzelfde eindpunt zijn verwijderd). Deze sectie kan worden gebruikt als referentie voor uw eigen logboeken proxy en het netwerk. Hallo werkelijke eindpunten kunnen afwijken in uw omgeving (met name de URL's in *cursief*).
 
-**Verbinding maken met Azure AD**
+**Verbinding maken met tooAzure AD**
 
 | Time | URL |
 | --- | --- |
@@ -142,16 +142,16 @@ Hier volgt een dump uit een werkelijke proxy-logboek en op de pagina van de wiza
 | 1/11/2016 8:49 |verbinding: / /*bba800 anker*. microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Verificatiefouten
-Deze sectie bevat informatie over fouten die kunnen worden geretourneerd van ADAL (de verificatiebibliotheek voor Azure AD Connect gebruikt) en PowerShell. De fout uitgelegd kunt u in de volgende stappen te begrijpen.
+Deze sectie bevat informatie over fouten die kunnen worden geretourneerd van ADAL (Hallo verificatiebibliotheek wordt gebruikt door Azure AD Connect) en PowerShell. Hallo fout uitgelegd kunt u in de volgende stappen te begrijpen.
 
 ### <a name="invalid-grant"></a>Ongeldige verlenen
-Ongeldige gebruikersnaam of wachtwoord. Zie voor meer informatie [het wachtwoord kan niet worden geverifieerd](#the-password-cannot-be-verified).
+Ongeldige gebruikersnaam of wachtwoord. Zie voor meer informatie [Hallo wachtwoord kan niet worden geverifieerd](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Onbekende gebruikerstype
-Uw Azure AD-directory kan niet worden gevonden of opgelost. U probeert mogelijk aanmelden met een gebruikersnaam in een niet-geverifieerd domein?
+Uw Azure AD-directory kan niet worden gevonden of opgelost. U probeert misschien toologin met een gebruikersnaam in een niet-geverifieerd domein?
 
 ### <a name="user-realm-discovery-failed"></a>Gebruiker Realm detectie is mislukt
-Netwerk- of proxyinstellingen configuratieproblemen. Het netwerk kan niet worden bereikt. Zie [oplossen van problemen met de netwerkverbinding in de installatiewizard](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+Netwerk- of proxyinstellingen configuratieproblemen. Hallo-netwerk kan niet worden bereikt. Zie [problemen met verbindingen in de installatiewizard Hallo](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### <a name="user-password-expired"></a>Gebruikerswachtwoord verlopen
 Uw referenties zijn verlopen. Uw wachtwoord wijzigen.
@@ -160,7 +160,7 @@ Uw referenties zijn verlopen. Uw wachtwoord wijzigen.
 Onbekend probleem.
 
 ### <a name="authentication-cancelled"></a>Verificatie is geannuleerd
-De uitdaging multi-factor authentication (MFA) is geannuleerd.
+Hallo multi-factor authentication (MFA) uitdaging is geannuleerd.
 
 ### <a name="connecttomsonline"></a>ConnectToMSOnline
 Verificatie is gelukt, maar er is een verificatieprobleem met Azure AD PowerShell.
@@ -178,21 +178,21 @@ Verificatie is gelukt. Kan de bedrijfsgegevens niet ophalen uit Azure AD.
 Verificatie is gelukt. Kan de domeingegevens niet ophalen uit Azure AD.
 
 ### <a name="unexpected-exception"></a>Onverwachte uitzondering
-Onverwachte fout opgetreden in de installatiewizard weergegeven. Kan gebeuren als u probeert te gebruiken een **Microsoft-Account** in plaats van een **school of organisatie-account**.
+Onverwachte fout opgetreden in de installatiewizard Hallo weergegeven. Kan gebeuren als u toouse probeert een **Microsoft-Account** in plaats van een **school of organisatie-account**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Stappen voor probleemoplossing voor eerdere versies.
-Uitgaven vanaf de aanmeldhulp build-nummer 1.1.105.0 (februari 2016 uitgebracht), buiten gebruik werd gesteld. Deze sectie en de configuratie mag niet langer zijn vereist, maar wordt opgeslagen als referentie.
+Met versies die beginnen met de build-nummer 1.1.105.0 (februari 2016 uitgebracht), Hallo-aanmeldhulp buiten gebruik werd gesteld. Deze sectie en Hallo configuratie mag niet langer zijn vereist, maar wordt opgeslagen als referentie.
 
-Voor de één-aanmeldhulp werken, moet winhttp worden geconfigureerd. Deze configuratie kunt u doen met [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
+Voor Hallo eenmalige aanmelding in assistent toowork, moet winhttp worden geconfigureerd. Deze configuratie kunt u doen met [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![Netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>De aanmeldhulp is niet correct geconfigureerd
-Deze fout treedt op wanneer de aanmeldhulp de proxy niet bereiken kan of de proxy is niet toegestaan voor de aanvraag.
+### <a name="hello-sign-in-assistant-has-not-been-correctly-configured"></a>Hallo-aanmeldhulp is niet correct geconfigureerd
+Deze fout wordt weergegeven wanneer Hallo-aanmeldhulp niet Hallo proxy bereiken of Hallo proxy Hallo-aanvraag niet toestaat.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-* Als u deze fout ziet, bekijkt u in de configuratie van de proxy [netsh](active-directory-aadconnect-prerequisites.md#connectivity) en controleer of deze juist is.
+* Als deze fout wordt weergegeven, bekijkt hello proxyconfiguratie in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) en controleer of deze juist is.
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-* Als die er goed uitziet, volgt u de stappen in [controleren of de proxy verbinding](#verify-proxy-connectivity) om te zien als het probleem niet met de wizard ook aanwezig is.
+* Als die er goed uitziet, stappen Hallo in [controleren of de proxy verbinding](#verify-proxy-connectivity) toosee als Hallo probleem buiten Hallo wizard ook aanwezig is.
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](active-directory-aadconnect.md).

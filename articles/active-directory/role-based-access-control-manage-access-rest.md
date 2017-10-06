@@ -1,6 +1,6 @@
 ---
-title: Op rollen gebaseerde toegangsbeheer met de REST - Azure AD | Microsoft Docs
-description: Op rollen gebaseerde toegangsbeheer met de REST-API beheren
+title: Toegangsbeheer op basis van aaaRole met REST - Azure AD | Microsoft Docs
+description: Toegangsbeheer op basis van rollen met Hallo REST-API beheren
 services: active-directory
 documentationcenter: na
 author: andredm7
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccd402fd4fe4583288076cac23753dd067694681
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Op rollen gebaseerde toegangsbeheer met de REST-API beheren
+# <a name="manage-role-based-access-control-with-hello-rest-api"></a>Toegangsbeheer op basis van rollen met Hallo REST-API beheren
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure-CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Op rollen gebaseerde toegangsbeheer (RBAC) in de Azure portal en Azure Resource Manager-API kunt u toegang tot uw abonnement en bronnen op een heel nauwkeurig beheren. Met deze functie kunt u toegang tot Active Directory-gebruikers, groepen of service-principals verlenen door sommige rollen toewijzen aan deze bij een bepaald bereik.
+Op rollen gebaseerde toegangsbeheer (RBAC) in hello Azure-portal en Azure Resource Manager-API kunt u access tooyour abonnement en bronnen op een heel nauwkeurig beheren. Met deze functie kunt u toegang tot Active Directory-gebruikers, groepen of service-principals verlenen door toe te wijzen van sommige rollen toothem bij een bepaald bereik.
 
 ## <a name="list-all-role-assignments"></a>Lijst van alle roltoewijzingen
-Geeft een lijst van alle roltoewijzingen aan het opgegeven bereik en subscopes.
+Een lijst met alle Hallo roltoewijzingen op Hallo opgegeven bereik en subscopes.
 
-Aan de lijst roltoewijzingen, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/read` bewerking in het bereik. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+roltoewijzingen toolist, u moet de toegang te hebben`Microsoft.Authorization/roleAssignments/read` bewerking bij Hallo bereik. Alle Hallo ingebouwde rollen krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **ophalen** methode met de volgende URI:
+Gebruik Hallo **ophalen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarvoor u wilt de roltoewijzingen lijst. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo bereik waarvoor toolist Hallo roltoewijzingen. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{api-versie}* met 2015-07-01.
-3. Vervang *{filter}* met de voorwaarde die u wilt toepassen om de rol toewijzingslijst te filteren:
+3. Vervang *{filter}* met Hallo voorwaarde dat u wenst dat tooapply toofilter Hallo rol toewijzingslijst:
 
-   * Roltoewijzingen voor alleen het opgegeven bereik niet met inbegrip van de roltoewijzingen op subscopes lijst:`atScope()`    
+   * Lijst roltoewijzingen voor alleen Hallo opgegeven bereik, inclusief niet Hallo roltoewijzingen op subscopes:`atScope()`    
    * Roltoewijzingen lijst voor een specifieke gebruiker, groep of toepassing:`principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Lijst van roltoewijzingen voor een specifieke gebruiker, inclusief overgenomen van groepen |`assignedTo('{objectId of user}')`
 
@@ -79,23 +79,23 @@ Statuscode: 200
 ```
 
 ## <a name="get-information-about-a-role-assignment"></a>Informatie ophalen over een roltoewijzing
-Hiermee haalt u informatie over één roltoewijzing opgegeven door de id van de toewijzing van rollen.
+Hiermee haalt u informatie over één roltoewijzing opgegeven Hallo rol toewijzing-id.
 
-Als u informatie over een roltoewijzing, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/read` bewerking. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+tooget informatie over een roltoewijzing, u moet de toegang te hebben`Microsoft.Authorization/roleAssignments/read` bewerking. Alle Hallo ingebouwde rollen krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **ophalen** methode met de volgende URI:
+Gebruik Hallo **ophalen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarvoor u wilt de roltoewijzingen lijst. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo bereik waarvoor toolist Hallo roltoewijzingen. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{toewijzing-rol-id}* met de id van de GUID van de roltoewijzing.
+2. Vervang *{toewijzing-rol-id}* met Hallo GUID-id van de roltoewijzing Hallo.
 3. Vervang *{api-versie}* met 2015-07-01.
 
 ### <a name="response"></a>Antwoord
@@ -120,26 +120,26 @@ Statuscode: 200
 ```
 
 ## <a name="create-a-role-assignment"></a>Een roltoewijzing maken
-Een roltoewijzing bij het opgegeven bereik voor de opgegeven principal verlenen van de opgegeven rol maken.
+Een gebruikersrol maakt toewijzing op Hallo opgegeven bereik voor Hallo principal verlenen Hallo opgegeven rol opgegeven.
 
-Voor het maken van een roltoewijzing, u moet toegang hebben tot `Microsoft.Authorization/roleAssignments/write` bewerking. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+een roltoewijzing toocreate, u moet de toegang te hebben`Microsoft.Authorization/roleAssignments/write` bewerking. Hallo ingebouwde rollen, alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **plaatsen** methode met de volgende URI:
+Gebruik Hallo **plaatsen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarmee u wilt maken van de roltoewijzingen. Wanneer u een roltoewijzing op een bovenliggend bereik maakt, nemen alle onderliggende bereiken de dezelfde toewijzing van rollen. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo bereik op die u toocreate Hallo roltoewijzingen wenst. Als u een roltoewijzing op een bovenliggend bereik maakt, alle onderliggende bereiken Hallo overgenomen dezelfde roltoewijzing. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1   
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{toewijzing-rol-id}* met een nieuwe GUID die de GUID-id van de nieuwe roltoewijzing wordt.
+2. Vervang *{toewijzing-rol-id}* met een nieuwe GUID die Hallo GUID-id van nieuwe roltoewijzing hello wordt.
 3. Vervang *{api-versie}* met 2015-07-01.
 
-Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
+Voor de aanvraagtekst hello, bieden Hallo waarden in de volgende indeling Hallo:
 
 ```
 {
@@ -153,8 +153,8 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| roleDefinitionId |Ja |Tekenreeks |De id van de rol. De indeling van de id is:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Ja |Tekenreeks |object-id van de Azure AD-principal waaraan de rol is toegewezen (gebruiker, groep of service-principal). |
+| roleDefinitionId |Ja |Tekenreeks |Hallo-id van Hallo-rol. Hallo-indeling van het Hallo-id is:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Ja |Tekenreeks |objectId hello Azure AD-principal (gebruiker, groep of service-principal) toowhich Hallo rol wordt toegewezen. |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 201
@@ -178,23 +178,23 @@ Statuscode: 201
 ```
 
 ## <a name="delete-a-role-assignment"></a>Een roltoewijzing verwijderen
-Een roltoewijzing bij het opgegeven bereik verwijderen.
+Een roltoewijzing bij Hallo verwijderen opgegeven bereik.
 
-Als u wilt een roltoewijzing hebt verwijderd, u moet toegang hebben tot de `Microsoft.Authorization/roleAssignments/delete` bewerking. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+een roltoewijzing toodelete, hebt u toegang toohello `Microsoft.Authorization/roleAssignments/delete` bewerking. Hallo ingebouwde rollen, alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **verwijderen** methode met de volgende URI:
+Gebruik Hallo **verwijderen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarmee u wilt maken van de roltoewijzingen. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo bereik op die u toocreate Hallo roltoewijzingen wenst. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{toewijzing-rol-id}* met de roltoewijzings-id GUID.
+2. Vervang *{toewijzing-rol-id}* met Hallo roltoewijzings-id GUID.
 3. Vervang *{api-versie}* met 2015-07-01.
 
 ### <a name="response"></a>Antwoord
@@ -219,27 +219,27 @@ Statuscode: 200
 ```
 
 ## <a name="list-all-roles"></a>Lijst van alle rollen
-Geeft een lijst van alle functies die beschikbaar voor toewijzing op het opgegeven bereik zijn.
+Geeft een lijst van alle Hallo-functies die beschikbaar voor toewijzing op Hallo opgegeven zijn bereik.
 
-Lijst met rollen, u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/read` bewerking in het bereik. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+toolist rollen, u moet de toegang te hebben`Microsoft.Authorization/roleDefinitions/read` bewerking bij Hallo bereik. Alle Hallo ingebouwde rollen krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **ophalen** methode met de volgende URI:
+Gebruik Hallo **ophalen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarvoor u wilt weergeven van de rollen. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo bereik waarvoor toolist Hallo rollen. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Vervang *{api-versie}* met 2015-07-01.
-3. Vervang *{filter}* met de voorwaarde die u wilt toepassen om te filteren op de lijst met rollen:
+3. Vervang *{filter}* met Hallo voorwaarde dat u wenst dat tooapply toofilter Hallo lijst met rollen:
 
-   * Lijst met beschikbare rollen voor toewijzing bij het opgegeven bereik en een van de onderliggende scopes van:`atScopeAndBelow()`
-   * Zoeken naar een rol met de exacte weergavenaam: `roleName%20eq%20'{role-display-name}'`. Gebruik het URL-gecodeerd-formulier van de exacte weergavenaam van de rol. Bijvoorbeeld:`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Lijst met beschikbare rollen voor toewijzing op Hallo opgegeven bereik en een van de onderliggende bereiken:`atScopeAndBelow()`
+   * Zoeken naar een rol met de exacte weergavenaam: `roleName%20eq%20'{role-display-name}'`. Hallo URL gecodeerde vorm van Hallo exacte weergavenaam van de rol hello gebruiken. Bijvoorbeeld:`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 200
@@ -251,7 +251,7 @@ Statuscode: 200
       "properties": {
         "roleName": "Virtual Machine Contributor",
         "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
+        "description": "Lets you manage virtual machines, but not access toothem, and not hello virtual network or storage account they\u2019re connected to.",
         "assignableScopes": [
           "/"
         ],
@@ -302,23 +302,23 @@ Statuscode: 200
 ```
 
 ## <a name="get-information-about-a-role"></a>Informatie ophalen over een rol
-Hiermee haalt u informatie over een enkele rol die is opgegeven door de rol definitie-id. Zie voor informatie over de weergegeven naam met één functie, [lijst van alle rollen](role-based-access-control-manage-access-rest.md#list-all-roles).
+Hiermee haalt u informatie over een enkele rol door Hallo rol definitie-id opgegeven. Zie informatie over één rol met de weergavenaam tooget [lijst van alle rollen](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-Als u informatie over een rol, u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/read` bewerking. De ingebouwde rollen krijgen toegangsrechten voor deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+tooget informatie over een rol, u moet de toegang te hebben`Microsoft.Authorization/roleDefinitions/read` bewerking. Alle Hallo ingebouwde rollen krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **ophalen** methode met de volgende URI:
+Gebruik Hallo **ophalen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarvoor u wilt de roltoewijzingen lijst. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo bereik waarvoor toolist Hallo roltoewijzingen. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{rol-definitie-id}* met de id van de GUID van de functiedefinitie.
+2. Vervang *{rol-definitie-id}* met Hallo GUID-id van de roldefinitie Hallo.
 3. Vervang *{api-versie}* met 2015-07-01.
 
 ### <a name="response"></a>Antwoord
@@ -331,7 +331,7 @@ Statuscode: 200
       "properties": {
         "roleName": "Virtual Machine Contributor",
         "type": "BuiltInRole",
-        "description": "Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they\u2019re connected to.",
+        "description": "Lets you manage virtual machines, but not access toothem, and not hello virtual network or storage account they\u2019re connected to.",
         "assignableScopes": [
           "/"
         ],
@@ -384,24 +384,24 @@ Statuscode: 200
 ## <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
 Maak een aangepaste beveiligingsrol.
 
-Voor het maken van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/write` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+een aangepaste beveiligingsrol toocreate, u moet de toegang te hebben`Microsoft.Authorization/roleDefinitions/write` bewerking op alle Hallo `AssignableScopes`. Hallo ingebouwde rollen, alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **plaatsen** methode met de volgende URI:
+Gebruik Hallo **plaatsen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het eerste *AssignableScope* van de aangepaste rol. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus.
+1. Vervang *{bereik}* Hello eerste *AssignableScope* van Hallo aangepaste rol. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus.
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{rol-definitie-id}* met een nieuwe GUID die de GUID-id van de nieuwe aangepaste rol wordt.
+2. Vervang *{rol-definitie-id}* met een nieuwe GUID die Hallo GUID-id van nieuwe aangepaste rol hello wordt.
 3. Vervang *{api-versie}* met 2015-07-01.
 
-Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
+Voor de aanvraagtekst hello, bieden Hallo waarden in de volgende indeling Hallo:
 
 ```
 {
@@ -436,13 +436,13 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
-| properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol. Maximale grootte 128 tekens. |
-| Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol. Maximale grootte 1024 tekens. |
-| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
-| Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen die zijn verleend door de aangepaste rol. |
-| properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die zijn verleend door de aangepaste rol. |
-| properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de aangepaste rol kan worden gebruikt. |
+| naam |Ja |Tekenreeks |GUID-id van de aangepaste rol Hallo. |
+| properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol Hallo. Maximale grootte 128 tekens. |
+| Properties.Description |Nee |Tekenreeks |Beschrijving van aangepaste Hallo-rol. Maximale grootte 1024 tekens. |
+| Properties.type |Ja |Tekenreeks |Stel te 'CustomRole'. |
+| Properties.permissions.Actions |Ja |String] |Een matrix van actie tekenreeksen geven Hallo operations verleend door Hallo aangepaste rol. |
+| properties.permissions.notActions |Nee |String] |Een matrix met actie tekenreeksen Hallo operations tooexclude van Hallo-bewerkingen die zijn verleend door de aangepaste rol Hallo opgeven. |
+| properties.assignableScopes |Ja |String] |Een matrix van bereiken in welke Hallo aangepaste rol kan worden gebruikt. |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 201
@@ -487,24 +487,24 @@ Statuscode: 201
 ## <a name="update-a-custom-role"></a>Bijwerken van een aangepaste rol
 Een aangepaste rol wijzigen.
 
-Voor het wijzigen van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/write` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+een aangepaste beveiligingsrol toomodify, u moet de toegang te hebben`Microsoft.Authorization/roleDefinitions/write` bewerking op alle Hallo `AssignableScopes`. Hallo ingebouwde rollen, alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **plaatsen** methode met de volgende URI:
+Gebruik Hallo **plaatsen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het eerste *AssignableScope* van de aangepaste rol. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* Hello eerste *AssignableScope* van Hallo aangepaste rol. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{rol-definitie-id}* met de GUID-id van de aangepaste rol.
+2. Vervang *{rol-definitie-id}* met Hallo GUID-id van de aangepaste rol Hallo.
 3. Vervang *{api-versie}* met 2015-07-01.
 
-Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
+Voor de aanvraagtekst hello, bieden Hallo waarden in de volgende indeling Hallo:
 
 ```
 {
@@ -539,13 +539,13 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
-| properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol die is bijgewerkt. |
-| Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol die is bijgewerkt. |
-| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
-| Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen waarvoor de bijgewerkte aangepaste rol die toegang verleent. |
-| properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die de bijgewerkte aangepaste rol toekent. |
-| properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de bijgewerkte aangepaste rol kan worden gebruikt. |
+| naam |Ja |Tekenreeks |GUID-id van de aangepaste rol Hallo. |
+| properties.roleName |Ja |Tekenreeks |Weergavenaam van Hallo bijgewerkt aangepaste rol. |
+| Properties.Description |Nee |Tekenreeks |Beschrijving van Hallo bijgewerkt aangepaste rol. |
+| Properties.type |Ja |Tekenreeks |Stel te 'CustomRole'. |
+| Properties.permissions.Actions |Ja |String] |Een matrix met actie tekenreeksen geven Hallo operations toowhich Hallo bijgewerkt aangepaste rol verleent toegang. |
+| properties.permissions.notActions |Nee |String] |Een matrix van actie tekenreeksen geven Hallo operations tooexclude van welke Hallo aangepaste rol verleent bijgewerkt Hallo-bewerkingen. |
+| properties.assignableScopes |Ja |String] |Een matrix van bereiken in welke Hallo bijgewerkte aangepaste rol kan worden gebruikt. |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 201
@@ -590,21 +590,21 @@ Statuscode: 201
 ## <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
 Een aangepaste rol verwijderen.
 
-Voor het verwijderen van een aangepaste rol die u moet toegang hebben tot `Microsoft.Authorization/roleDefinitions/delete` bewerking op alle de `AssignableScopes`. Van de ingebouwde rollen alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang tot deze bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
+een aangepaste beveiligingsrol toodelete, u moet de toegang te hebben`Microsoft.Authorization/roleDefinitions/delete` bewerking op alle Hallo `AssignableScopes`. Hallo ingebouwde rollen, alleen *eigenaar* en *beheerder voor gebruikerstoegang* krijgen toegang toothis bewerking. Zie voor meer informatie over roltoewijzingen en het beheer van toegang voor Azure-resources [rollen gebaseerd toegangsbeheer](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Aanvraag
-Gebruik de **verwijderen** methode met de volgende URI:
+Gebruik Hallo **verwijderen** methode Hello URI te volgen:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
 
-Binnen de URI moet u de volgende vervangingen voor het aanpassen van uw aanvraag:
+Zorg binnen Hallo URI, Hallo vervangingen toocustomize na uw aanvraag:
 
-1. Vervang *{bereik}* met het bereik waarmee u wilt verwijderen van de functiedefinitie. De volgende voorbeelden laten zien hoe het bereik opgeven voor verschillende niveaus:
+1. Vervang *{bereik}* met Hallo-bereik dat u wenst dat toodelete Hallo roldefinitie. Hallo volgen voorbeelden laten zien hoe toospecify Hallo bereik voor verschillende niveaus:
 
    * Abonnement: /subscriptions/ {abonnement-id}  
    * Resourcegroep: /subscriptions/ {abonnement-id} / resourceGroups/myresourcegroup1  
    * Bron: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
-2. Vervang *{rol-definitie-id}* met de GUID roldefinitie-id van de aangepaste rol.
+2. Vervang *{rol-definitie-id}* met Hallo GUID roldefinitie-id van de aangepaste rol Hallo.
 3. Vervang *{api-versie}* met 2015-07-01.
 
 ### <a name="response"></a>Antwoord

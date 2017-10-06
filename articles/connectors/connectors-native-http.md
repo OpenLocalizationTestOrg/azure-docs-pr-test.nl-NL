@@ -1,5 +1,5 @@
 ---
-title: Communicatie met een willekeurig eindpunt via HTTP - Azure Logic Apps | Microsoft Docs
+title: aaaCommunicate met een willekeurig eindpunt via HTTP - Azure Logic Apps | Microsoft Docs
 description: Logische apps die kunnen communiceren met een willekeurig eindpunt te maken via HTTP
 services: logic-apps
 author: jeffhollan
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9793601839437a2b880bdb81e15881270cacc963
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-http-action"></a>Aan de slag met de HTTP-actie
+# <a name="get-started-with-hello-http-action"></a>Aan de slag met Hallo HTTP-actie
 
-U kunt met de HTTP-actie werkstromen voor uw organisatie uitbreiden en communiceren met een willekeurig eindpunt via HTTP.
+Met HTTP-actie hello, kunt u werkstromen voor uw organisatie uitbreiden en tooany eindpunt communicatie via HTTP.
 
 U kunt:
 
 * Logic app-werkstromen waarmee (trigger) wordt geactiveerd wanneer een website die u beheert uitvalt maken.
-* Naar een willekeurig eindpunt communiceren via HTTP voor het uitbreiden van uw werkstromen bij andere services.
+* Communiceren tooany eindpunt via HTTP tooextend uw werkstromen bij andere services.
 
-Om te beginnen met de HTTP-actie in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget gestart met Hallo HTTP-actie in een logische app, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-http-trigger"></a>De HTTP-trigger te gebruiken
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](connectors-overview.md).
+## <a name="use-hello-http-trigger"></a>Hallo HTTP-trigger te gebruiken
+Een trigger is een gebeurtenis die kan worden gebruikt toostart Hallo werkstroom die is gedefinieerd in een logische app. [Meer informatie over triggers](connectors-overview.md).
 
-Hier volgt een voorbeeld van de volgorde van het instellen van de HTTP-trigger in de ontwerpfunctie voor Logic App.
+Hier volgt een van de voorbeeldreeks hoe tooset up Hallo HTTP activeren in Hallo Logic App-ontwerper.
 
-1. De HTTP-trigger toevoegen in uw logische app.
-2. Vul de parameters voor het HTTP-eindpunt dat u wilt pollen.
-3. Wijzig het terugkeerpatroon op hoe vaak het moet peilen.
+1. Hallo HTTP-trigger toevoegen in uw logische app.
+2. Hallo-parameters voor Hallo HTTP-eindpunt dat u wilt dat toopoll invullen.
+3. Hallo terugkeerpatroon op hoe vaak het pollen moet wijzigen.
 
-   De logische app wordt nu gestart met inhoud die is geretourneerd tijdens elke controle.
+   Hallo logische app wordt nu gestart met inhoud die is geretourneerd tijdens elke controle.
 
    ![HTTP-trigger](./media/connectors-native-http/using-trigger.png)
 
-### <a name="how-the-http-trigger-works"></a>De werking van de HTTP-trigger
+### <a name="how-hello-http-trigger-works"></a>De werking van de HTTP-trigger Hallo
 
-De HTTP-trigger stuurt een aanroep van HTTP-eindpunt op een terugkerend interval. Standaard een HTTP-antwoordcode die lager is dan 300 zorgt ervoor dat een logische app om uit te voeren. U kunt om op te geven of de logische app moet worden geactiveerd, de logische app in de codeweergave bewerken en toevoegen van een voorwaarde die wordt geëvalueerd als na de HTTP-aanroep. Hier volgt een voorbeeld van een HTTP-trigger wordt geactiveerd wanneer de geretourneerde statuscode is groter dan of gelijk zijn aan `400`.
+Hallo HTTP-trigger stuurt een aanroep van tooHTTP-eindpunt op een terugkerend interval. Standaard een HTTP-antwoordcode die lager is dan 300 zorgt ervoor dat de toorun van een logische app. toospecify of Hallo logische app moet worden geactiveerd, u kunt Hallo logische app in de codeweergave bewerken en toevoegen van een voorwaarde die wordt geëvalueerd als na Hallo HTTP-aanroep. Hier volgt een voorbeeld van een HTTP-trigger wordt geactiveerd wanneer het Hallo geretourneerde statuscode is groter dan of gelijk zijn aan te`400`.
 
 ```javascript
 "Http":
@@ -72,57 +72,57 @@ De HTTP-trigger stuurt een aanroep van HTTP-eindpunt op een terugkerend interval
 }
 ```
 
-Volledige details over de HTTP-trigger-parameters zijn beschikbaar op [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+Volledige details over Hallo HTTP-trigger-parameters zijn beschikbaar op [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
-## <a name="use-the-http-action"></a>Gebruik de HTTP-actie
+## <a name="use-hello-http-action"></a>Gebruik Hallo HTTP-actie
 
-Een actie is een bewerking die wordt uitgevoerd door de werkstroom die is gedefinieerd in een logische app. 
+Een actie is een bewerking die wordt uitgevoerd door Hallo werkstroom die is gedefinieerd in een logische app. 
 [Meer informatie over acties](connectors-overview.md).
 
 1. Kies **nieuwe stap** > **een actie toevoegen**.
-3. Typ in het zoekvak actie **http** voor een lijst met de HTTP-acties.
+3. Typ in het zoekvak Hallo actie, **http** toolist Hallo HTTP acties.
    
-    ![Selecteer de HTTP-actie](./media/connectors-native-http/using-action-1.png)
+    ![Selecteer Hallo HTTP-actie](./media/connectors-native-http/using-action-1.png)
 
-4. Voeg eventueel vereiste parameters voor de HTTP-aanroep.
+4. Voeg eventueel vereiste parameters voor Hallo HTTP-aanroep.
    
-    ![De HTTP-actie niet voltooien](./media/connectors-native-http/using-action-2.png)
+    ![Volledige Hallo HTTP-actie](./media/connectors-native-http/using-action-2.png)
 
-5. Klik op de werkbalk designer **opslaan**. Uw logische app worden opgeslagen en gepubliceerd (geactiveerd) op hetzelfde moment.
+5. Op de werkbalk Hallo designer **opslaan**. Uw logische app worden opgeslagen en gepubliceerd (geactiveerd) op Hallo hetzelfde moment.
 
 ## <a name="http-trigger"></a>HTTP-trigger
-Hier volgen de details voor de trigger die ondersteuning biedt voor deze connector. De HTTP-connector heeft een trigger.
+Hier vindt u details Hallo Hallo-trigger die ondersteuning biedt voor deze connector. Hallo HTTP-connector heeft een trigger.
 
 | Trigger | Beschrijving |
 | --- | --- |
-| HTTP |Maakt een HTTP-aanroep en retourneert de antwoordinhoud. |
+| HTTP |Maakt een HTTP-aanroep en antwoordinhoud Hallo retourneert. |
 
 ## <a name="http-action"></a>HTTP-actie
-Hier volgen de details voor de actie die ondersteuning biedt voor deze connector. De HTTP-connector heeft een mogelijke actie.
+Hier vindt u details Hallo voor Hallo-actie die ondersteuning biedt voor deze connector. Hallo HTTP-connector heeft een mogelijke actie.
 
 | Actie | Beschrijving |
 | --- | --- |
-| HTTP |Maakt een HTTP-aanroep en retourneert de antwoordinhoud. |
+| HTTP |Maakt een HTTP-aanroep en antwoordinhoud Hallo retourneert. |
 
 ## <a name="http-details"></a>HTTP-details
-De volgende tabellen beschrijven de vereiste en optionele invoervelden voor de actie en de bijbehorende uitvoerdetails die zijn gekoppeld met de actie.
+Hallo volgende tabellen worden beschreven Hallo vereiste en optionele invoervelden voor Hallo actie en het bijbehorende uitvoerdetails hello, die gekoppeld zijn aan het Hallo-actie.
 
 #### <a name="http-request"></a>HTTP-aanvraag
-Hier volgen de invoervelden voor de actie, waardoor een uitgaande HTTP-aanvraag.
+Hallo volgen invoervelden voor Hallo actie, waardoor een uitgaande HTTP-aanvraag.
 A * houdt in dat een vereist veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Methode * |Methode |De HTTP-term moet worden gebruikt |
-| URI * |URI |De URI voor de HTTP-aanvraag |
-| Headers |Headers |De HTTP-headers te nemen van een JSON-object |
-| Hoofdtekst |Hoofdtekst |De hoofdtekst van de HTTP-aanvraag |
-| Authentication |Verificatie |Gegevens in de [verificatie](#authentication) sectie |
+| Methode * |Methode |Hallo HTTP-term toouse |
+| URI * |URI |Hallo URI voor Hallo HTTP-aanvraag |
+| Headers |Headers |Een JSON-object van het HTTP-headers tooinclude |
+| Hoofdtekst |Hoofdtekst |Hallo hoofdtekst van de HTTP-aanvraag |
+| Authentication |Verificatie |De details in Hallo [verificatie](#authentication) sectie |
 
 <br>
 
 #### <a name="output-details"></a>Uitvoerdetails
-Hier volgen de uitvoerdetails voor het HTTP-antwoord.
+Hallo hieronder vindt u uitvoerdetails voor Hallo HTTP-antwoord.
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ Hier volgen de uitvoerdetails voor het HTTP-antwoord.
 | Statuscode |int |HTTP-statuscode |
 
 ## <a name="authentication"></a>Authentication
-De functie Logic Apps kunt u verschillende soorten verificatie op basis van HTTP-eindpunten. U kunt deze verificatie met de **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, en  **[HTTP-Webhook](connectors-native-webhook.md)**  connectors. De volgende soorten authenticatie worden geconfigureerd:
+Hallo Logic Apps-functie kunt u verschillende soorten verificatie op basis van HTTP-eindpunten toouse. U kunt deze verificatie Hallo **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, en  **[HTTP-Webhook](connectors-native-webhook.md)**  connectors. Hallo volgende typen verificatie worden geconfigureerd:
 
 * [Basisverificatie](#basic-authentication)
 * [Verificatie van clientcertificaten](#client-certificate-authentication)
@@ -139,17 +139,17 @@ De functie Logic Apps kunt u verschillende soorten verificatie op basis van HTTP
 
 #### <a name="basic-authentication"></a>Basisverificatie
 
-De volgende verificatieobject is nodig voor basisverificatie.
+Hallo na verificatieobject is nodig voor basisverificatie.
 A * houdt in dat een vereist veld.
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
 | Type * |type |Type verificatie (moet `Basic` voor basisverificatie) |
-| Gebruikersnaam * |gebruikersnaam |Gebruikersnaam voor verificatie |
-| Wachtwoord * |wachtwoord |Wachtwoord voor verificatie |
+| Gebruikersnaam * |gebruikersnaam |Gebruiker naam tooauthenticate |
+| Wachtwoord * |wachtwoord |Wachtwoord tooauthenticate |
 
 > [!TIP]
-> Als u wilt geen wachtwoord gebruiken dat niet uit de definitie van gebruik ophalen een `securestring` parameter en de `@parameters()`  
+> Als u een wachtwoord dat niet uit de definitie van Hallo ophalen toouse wilt, gebruikt een `securestring` parameter en Hallo `@parameters()`  
 >  [definitie Werkstroomfunctie](http://aka.ms/logicappdocs).
 
 Bijvoorbeeld:
@@ -164,16 +164,16 @@ Bijvoorbeeld:
 
 #### <a name="client-certificate-authentication"></a>Clientverificatie via certificaat
 
-De volgende verificatieobject is nodig voor verificatie van clientcertificaten. A * houdt in dat een vereist veld.
+Hallo is volgende verificatieobject nodig voor verificatie van clientcertificaten. A * houdt in dat een vereist veld.
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Type * |type |Het type verificatie (moet `ClientCertificate` voor SSL-certificaten voor client) |
-| PFX * |PFX |De Base64-gecodeerde inhoud van het bestand (Personal Information Exchange (PFX) |
-| Wachtwoord * |wachtwoord |Het wachtwoord voor toegang tot het PFX-bestand |
+| Type * |type |Hallo type verificatie (moet `ClientCertificate` voor SSL-certificaten voor client) |
+| PFX * |PFX |Hallo Base64-gecodeerde inhoud van Hallo Personal Information Exchange (PFX)-bestand |
+| Wachtwoord * |wachtwoord |Hallo wachtwoord tooaccess Hallo PFX-bestand |
 
 > [!TIP]
-> Als u wilt een parameter die niet leesbaar in de definitie na het opslaan van de logische app gebruikt, kunt u een `securestring` parameter en de `@parameters()`  
+> een parameter die niet in de definitie van de Hallo na het opslaan van Hallo logische app leesbaar toouse, kunt u een `securestring` parameter en Hallo `@parameters()`  
 >  [definitie Werkstroomfunctie](http://aka.ms/logicappdocs).
 
 Bijvoorbeeld:
@@ -187,18 +187,18 @@ Bijvoorbeeld:
 ```
 
 #### <a name="azure-ad-oauth-authentication"></a>Azure AD-OAuth-verificatie
-De volgende verificatieobject is nodig voor Azure AD OAuth-verificatie. A * houdt in dat een vereist veld.
+Hallo na verificatieobject is nodig voor Azure AD OAuth-verificatie. A * houdt in dat een vereist veld.
 
 | De naam van eigenschap | Gegevenstype | Beschrijving |
 | --- | --- | --- |
-| Type * |type |Het type verificatie (moet `ActiveDirectoryOAuth` voor Azure AD OAuth) |
-| Tenant * |Tenant |De tenant-id voor de Azure AD-tenant |
-| Doelgroep * |doelgroep |De bron die u aanvraagt autorisatie moet worden gebruikt. Bijvoorbeeld: `https://management.core.windows.net/` |
-| Client -ID * |clientId |De client-id voor de Azure AD-toepassing |
-| Geheim * |Geheim |Het geheim van de client die het token is aangevraagd |
+| Type * |type |Hallo type verificatie (moet `ActiveDirectoryOAuth` voor Azure AD OAuth) |
+| Tenant * |Tenant |Hallo tenant-id voor hello Azure AD-tenant |
+| Doelgroep * |doelgroep |Hallo bron die u aanvraagt autorisatie toouse. Bijvoorbeeld: `https://management.core.windows.net/` |
+| Client -ID * |clientId |Hallo van client-id voor de toepassing hello Azure AD |
+| Geheim * |Geheim |Hallo geheim van Hallo-client die Hallo-token aanvraagt |
 
 > [!TIP]
-> U kunt een `securestring` parameter en de `@parameters()` [Werkstroomfunctie definitie](http://aka.ms/logicappdocs) gebruiken een parameter die niet leesbaar in de definitie nadat ze zijn opgeslagen.
+> U kunt een `securestring` parameter en Hallo `@parameters()` [definitie Werkstroomfunctie](http://aka.ms/logicappdocs) toouse een parameter die niet leesbaar is in definitie van de Hallo nadat ze zijn opgeslagen.
 > 
 > 
 
@@ -215,5 +215,5 @@ Bijvoorbeeld:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu uitproberen van het platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt de beschikbare connectors in Logic Apps verkennen door te kijken onze [API's lijst](apis-list.md).
+Nu uitproberen Hallo-platform en [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md). U kunt verkennen Hallo van andere beschikbare connectors in Logic Apps door te kijken onze [API's lijst](apis-list.md).
 

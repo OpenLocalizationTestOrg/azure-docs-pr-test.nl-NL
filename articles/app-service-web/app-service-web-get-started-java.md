@@ -1,6 +1,6 @@
 ---
-title: Uw eerste Java-web-app in Azure maken
-description: In dit artikel leest u hoe u door het implementeren van een eenvoudige Java-app leert hoe u web-apps uitvoert in App Service.
+title: aaaCreate uw eerste web-app van Java in Azure
+description: Meer informatie over hoe toorun web-apps in App Service door het implementeren van een eenvoudige Java-app.
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -15,24 +15,24 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc
-ms.openlocfilehash: b91b9bde5eb8ea0d7e2196056b635fe54095e748
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 81315c07b5aa84cbec50a17b2cb3914927b19c00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
-De functie [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) van [Azure App Service](../app-service/app-service-value-prop-what-is.md) biedt een zeer schaalbare webhostingservice met self-patchfunctie. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
+Hallo [Web-Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) functie van [Azure App Service](../app-service/app-service-value-prop-what-is.md) biedt een zeer schaalbaar, zelf patch webhosting-service. Deze snelstartgids ziet u hoe toodeploy een Java web-app tooApp Service met behulp van Hallo [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
+toocomplete deze snelstartgids installeren:
 
-* De gratis [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/). Deze Quickstart maakt gebruik van Eclipse Neon.
-* De [Azure Toolkit voor Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* Hallo gratis [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/). Deze Quickstart maakt gebruik van Eclipse Neon.
+* Hallo [Azure Toolkit voor Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooie
 
 Selecteer in Eclipse **Bestand** > **Nieuw** > **Dynamisch webproject**.
 
-Geef het project in het dialoogvenster **Nieuw dynamisch webproject** de naam **MyFirstJavaOnAzureWebApp** en selecteer **Voltooien**.
+In Hallo **nieuwe dynamisch webproject** in het dialoogvenster, naam Hallo project **MyFirstJavaOnAzureWebApp**, en selecteer **voltooien**.
    
 ![Het dialoogvenster Nieuw dynamisch webproject](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -50,19 +50,19 @@ Geef Projectverkenner weer als dat nu niet het geval is.
 
 ![Java EE-werkruimte voor Eclipse](./media/app-service-web-get-started-java/pe.png)
 
-Vouw in Projectverkenner het project **MyFirstJavaOnAzureWebApp** uit.
+Vouw in Projectverkenner Hallo **MyFirstJavaOnAzureWebApp** project.
 Klik met de rechtermuisknop op **WebContent** en selecteer vervolgens **Nieuw** > **JSP-bestand**.
 
 ![Menu voor een nieuw JSP-bestand in Projectverkenner](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-In het dialoogvenster **Nieuw JSP-bestand**:
+In Hallo **nieuw JSP-bestand** in het dialoogvenster:
 
-* Noem het bestand **index.jsp**.
+* Bestand met de Hallo **index.jsp**.
 * Selecteer **Voltooien**.
 
   ![Het dialoogvenster Nieuw JSP-bestand](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
-Vervang in het bestand index.jsp het element `<body></body>` door de volgende code:
+In het bestand index.jsp hello, vervangt u Hallo `<body></body>` element met Hallo aantekeningen te volgen:
 
 ```jsp
 <body>
@@ -70,21 +70,21 @@ Vervang in het bestand index.jsp het element `<body></body>` door de volgende co
 </body>
 ```
 
-Sla de wijzigingen op.
+Hallo wijzigingen opslaan.
 
-## <a name="publish-the-web-app-to-azure"></a>De web-app publiceren in Azure
+## <a name="publish-hello-web-app-tooazure"></a>Hallo web app tooAzure publiceren
 
-Klik in Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **Publiceren als Azure Web App**.
+In Projectverkenner met de rechtermuisknop op het Hallo-project en selecteer vervolgens **Azure** > **publiceren als Azure-Web-App**.
 
 ![Het contextmenu Publiceren als Azure Web App](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-Laat in het dialoogvenster **Azure-aanmelding** de optie **Interactief** ingeschakeld en selecteer **Aanmelden**.
+In Hallo **Azure aanmelden** dialoogvenster, houd Hallo **interactief** optie en selecteer vervolgens **aanmelden**.
 
-Volg de instructies om u aan te melden.
+Instructies Hallo aanmelden.
 
 ### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
 
-Nadat u zich hebt aangemeld bij uw Azure-account, wordt het dialoogvenster **Web-app implementeren** weergegeven.
+Nadat u zich hebt geregistreerd in Azure-account tooyour, Hallo **Web-App implementeren** dialoogvenster wordt weergegeven.
 
 Selecteer **Maken**.
 
@@ -92,20 +92,20 @@ Selecteer **Maken**.
 
 ### <a name="create-app-service-dialog-box"></a>Het dialoogvenster App Service maken
 
-Het dialoogvenster **App Service** wordt weergegeven met standaardwaarden. De numerieke waarde **170602185241** in de volgende afbeelding is anders in het dialoogvenster dat u ziet.
+Hallo **Create App Service** dialoogvenster wordt weergegeven met standaardwaarden. aantal Hallo **170602185241** wordt weergegeven in volgende Hallo in het dialoogvenster van uw installatiekopie verschilt.
 
 ![Het dialoogvenster App Service maken](./media/app-service-web-get-started-java/cas1.png)
 
-In het dialoogvenster **App Service maken**:
+In Hallo **Create App Service** in het dialoogvenster:
 
-* Gebruik de gegenereerde naam voor de web-app. Deze naam moet uniek zijn binnen Azure. De naam is onderdeel van het URL-adres voor de web-app. Als de web-app bijvoorbeeld de naam **MyJavaWebApp** heeft, is de URL *myjavawebapp.azurewebsites.net*.
-* Gebruik standaard-webcontainer.
+* Houd naam voor de web-app Hallo Hallo gegenereerd. Deze naam moet uniek zijn binnen Azure. Hallo-naam is onderdeel van de URL-adres voor de web-app Hallo Hallo. Bijvoorbeeld: als de web-appnaam hello **MyJavaWebApp**, Hallo-URL is *myjavawebapp.azurewebsites.net*.
+* Houd Hallo standaard webcontainer.
 * Selecteer een Azure-abonnement.
-* Op het tabblad **App Service-plan**:
+* Op Hallo **App service-abonnement** tabblad:
 
-  * **Nieuwe maken**: gebruik de standaardwaarde, wat de naam van het App Service-plan is.
+  * **Maken van nieuwe**: gebruik Hallo standaardwaarde Hallo-naam van Hallo App Service-abonnement.
   * **Locatie**: selecteer **West-Europa** of een locatie bij u in de buurt.
-  * **Prijscategorie**: selecteer een gratis variant. Voor een functiebeschrijving zie [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/).
+  * **Prijscategorie**: Selecteer Hallo gratis optie. Voor een functiebeschrijving zie [App Service-prijzen](https://azure.microsoft.com/pricing/details/app-service/).
 
    ![Het dialoogvenster App Service maken](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -113,7 +113,7 @@ In het dialoogvenster **App Service maken**:
 
 ### <a name="resource-group-tab"></a>Het tabblad Resourcegroep
 
-Selecteer het tabblad **Resourcegroep**. Gebruik de gegenereerde standaardwaarde voor de resourcegroep.
+Selecteer Hallo **resourcegroep** tabblad. Hallo standaard gegenereerde waarde voor de resourcegroep Hallo behouden.
 
 ![Het tabblad Resourcegroep](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
@@ -122,38 +122,38 @@ Selecteer het tabblad **Resourcegroep**. Gebruik de gegenereerde standaardwaarde
 Selecteer **Maken**.
 
 <!--
-### The JDK tab
+### hello JDK tab
 
-Select the **JDK** tab. Keep the default, and then select **Create**.
+Select hello **JDK** tab. Keep hello default, and then select **Create**.
 
 ![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 -->
 
-De web-app wordt gemaakt in Azure Toolkit en de voortgang wordt in een dialoogvenster weergegeven.
+Hello Azure Toolkit Hallo web-app maakt en geeft een dialoogvenster uitgevoerd.
 
 ![Het voortgangsvenster voor het maken van een App Service](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
 ### <a name="deploy-web-app-dialog-box"></a>Het dialoogvenster Web-app implementeren
 
-Selecteer **Implementeren in hoofdmap** in het dialoogvenster **Web-app implementeren**. Als u een app-service hebt in *wingtiptoys.azurewebsites.net* en u niet in de hoofdmap implementeert, wordt de web-app met de naam **MyFirstJavaOnAzureWebApp** geïmplementeerd in *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+In Hallo **Web-App implementeren** dialoogvenster, **tooroot implementeren**. Als u hebt een app-service op *wingtiptoys.azurewebsites.net* en implementeert u geen toohello root, Hallo web-app met de naam **MyFirstJavaOnAzureWebApp** te wordt geïmplementeerd *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Het dialoogvenster Web-app implementeren](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-In het dialoogvenster ziet u de selecties voor Azure, JDK en webcontainer.
+Hallo dialoogvenster vak geeft hello Azure, JDK en web container selecties.
 
-Selecteer **Implementeren** om de web-app in Azure te publiceren.
+Selecteer **implementeren** tooAzure toopublish Hallo web-app.
 
-Als het publiceren is voltooid, selecteert u de koppeling **Gepubliceerd** in het dialoogvenster **Azure-activiteitenlogboek**.
+Wanneer het Hallo-publiceren is voltooid, selecteert u Hallo **gepubliceerde** koppeling in Hallo **Azure Activity Log** in het dialoogvenster.
 
 ![Het dialoogvenster Azure-activiteitenlogboek](./media/app-service-web-get-started-java/aal.png)
 
-Gefeliciteerd. De web-app is nu geïmplementeerd in Azure. 
+Gefeliciteerd. U hebt uw tooAzure web-app is geïmplementeerd. 
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="update-the-web-app"></a>De web-app bijwerken
+## <a name="update-hello-web-app"></a>Hallo-web-app bijwerken
 
-Wijzig de tekst van de JSP-voorbeeldcode.
+Hallo JSP code tooa verschillende voorbeeldbericht wijzigen.
 
 ```jsp
 <body>
@@ -161,35 +161,35 @@ Wijzig de tekst van de JSP-voorbeeldcode.
 </body>
 ```
 
-Sla de wijzigingen op.
+Hallo wijzigingen opslaan.
 
-Klik in Projectverkenner met de rechtermuisknop op het project en selecteer vervolgens **Azure** > **Publiceren als Azure Web App**.
+In Projectverkenner met de rechtermuisknop op het Hallo-project en selecteer vervolgens **Azure** > **publiceren als Azure-Web-App**.
 
-Het dialoogvenster **Web-app implementeren** wordt geopend, met de app-service die u eerder hebt gemaakt. 
+Hallo **Web-App implementeren** in het dialoogvenster wordt weergegeven en toont Hallo-app service die u eerder hebt gemaakt. 
 
 > [!NOTE]
-> Selecteer **Implementeren in hoofdmap** telkens wanneer u gaat publiceren.
+> Selecteer **tooroot implementeren** telkens wanneer u publiceert.
 >
 
-Selecteer de web-app en selecteer **Implementeren** om de wijzigingen te publiceren.
+Hallo-web-app selecteren en selecteer **implementeren**, die Hallo wijzigingen publiceert.
 
-Wanneer de koppeling **Publiceren** wordt weergegeven, selecteert u deze om naar de web-app te bladeren en de wijzigingen te bekijken.
+Wanneer Hallo **Publishing** koppeling wordt weergegeven, selecteert u deze toobrowse toohello web-app en Hallo wijzigingen zien.
 
-## <a name="manage-the-web-app"></a>De web-app beheren
+## <a name="manage-hello-web-app"></a>Hallo-web-app beheren
 
-Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te zien die u hebt gemaakt.
+Ga toohello <a href="https://portal.azure.com" target="_blank">Azure-portal</a> toosee Hallo web-app die u hebt gemaakt.
 
-Selecteer **Resourcegroepen** in het linkermenu.
+Selecteer in het linkermenu Hallo **resourcegroepen**.
 
-![Portalnavigatie naar resourcegroepen](media/app-service-web-get-started-java/rg.png)
+![Navigatie in de portal tooresource groepen](media/app-service-web-get-started-java/rg.png)
 
-Selecteer de resourcegroep. De pagina bevat de resources die u in deze Quickstart hebt gemaakt.
+Selecteer Hallo resourcegroep. Hallo pagina weergegeven Hallo-resources die u hebt gemaakt in deze snelstartgids.
 
 ![Resourcegroep myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 
-Selecteer de web-app (**webapp 170602193915** in de voorgaande afbeelding).
+Selecteer Hallo web-app (**webapp 170602193915** in Hallo voorgaande afbeelding).
 
-De pagina **Overzicht** wordt weergegeven. Deze pagina geeft u een overzicht van hoe de app presteert. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw starten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuraties die u kunt openen. 
+Hallo **overzicht** pagina wordt weergegeven. Deze pagina kunt u een overzicht van hoe Hallo app doet. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw starten en verwijderen. Hallo tabbladen aan de linkerkant Hallo van Hallo pagina bevatten Hallo verschillende configuraties die u kunt openen. 
 
 ![App Service-pagina in Azure Portal](media/app-service-web-get-started-java/web-app-blade.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Wederzijdse TLS-verificatie voor web-app configureren
-description: Informatie over het configureren van uw web-app voor het gebruik van verificatie van clientcertificaten op TLS.
+title: aaaHow tooConfigure TLS wederzijdse verificatie voor Web-App
+description: Meer informatie over hoe tooconfigure uw web-app toouse clientcertificaat verificatie op TLS.
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8aeb9b35058fac50b8b38f6428207ad4a82d8637
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Wederzijdse TLS-verificatie voor web-app configureren
+# <a name="how-tooconfigure-tls-mutual-authentication-for-web-app"></a>Hoe tooConfigure TLS wederzijdse verificatie voor Web-App
 ## <a name="overview"></a>Overzicht
-U kunt toegang tot uw Azure-web-app beperken door verschillende soorten verificatie voor het inschakelen. Een manier om dit te doen is om te verifiëren met een clientcertificaat als de aanvraag via TLS/SSL. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie en dit artikel wordt beschreven hoe u voor het instellen van uw web-app voor het gebruik van verificatie van clientcertificaten clientcertificaat genoemd.
+U kunt access tooyour Azure-web-app beperken door verschillende soorten verificatie voor het inschakelen. Eenzijdige toodo is daarom tooauthenticate met een clientcertificaat als Hallo-aanvraag via TLS/SSL. Dit mechanisme wordt TLS wederzijdse verificatie of verificatie van clientcertificaten genoemd en dit artikel wordt beschreven hoe toosetup uw web-app toouse verificatie van clientcertificaten.
 
-> **Opmerking:** als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist moet u niet toestaan aanvragen voor uw toepassing via HTTP.
+> **Opmerking:** als u toegang uw site via HTTP en niet HTTPS tot, ontvangt u geen een clientcertificaat. Dus als uw toepassing clientcertificaten vereist moet u niet toestaan aanvragen tooyour toepassing via HTTP.
 > 
 > 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="configure-web-app-for-client-certificate-authentication"></a>Web-App configureren voor verificatie van clientcertificaten
-Instellen van uw web-app moet u de instelling van de site clientCertEnabled voor uw web-app toevoegen en stel deze in op true clientcertificaten vereist. Deze instelling is momenteel niet beschikbaar via de beheerervaring in de Portal en de REST-API moet worden gebruikt om dit te bereiken.
+toosetup uw web-app toorequire clientcertificaten moet u tooadd Hallo clientCertEnabled site instellen voor uw web-app en stel deze tootrue. Deze instelling is momenteel niet beschikbaar via Hallo beheerervaring in Hallo Portal en Hallo REST-API moet tooaccomplish toobe gebruikt dit.
 
-U kunt de [ARMClient hulpprogramma](https://github.com/projectkudu/ARMClient) gemakkelijk worden opgesteld van de REST-API-aanroep. Nadat u met het hulpprogramma aanmelden moet u de volgende opdracht:
+Kunt u Hallo [ARMClient hulpprogramma](https://github.com/projectkudu/ARMClient) toomake het eenvoudig toocraft Hallo REST API-aanroep. Nadat u met Hallo hulpprogramma aanmelden, moet u tooissue Hallo volgende opdracht:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-Alles in {} worden vervangen door de gegevens voor uw web-app en het maken van een bestand met de naam enableclientcert.json met de volgende JSON-inhoud:
+Alles in {} worden vervangen door de gegevens voor uw web-app en het maken van een bestand met de naam enableclientcert.json Hello volgende JSON-inhoud:
 
     {
         "location": "My Web App Location",
@@ -46,19 +46,19 @@ Alles in {} worden vervangen door de gegevens voor uw web-app en het maken van e
         }
     }
 
-Zorg ervoor dat u de waarde van 'locatie' wijzigen waar uw web-app zich bevindt bijvoorbeeld Noordelijk Centraal, VS of West VS enzovoort.
+Zorg ervoor dat toochange Hallo-waarde van 'locatie' toowherever die uw web-app is bijvoorbeeld Noordelijk Centraal, VS of West VS enzovoort.
 
-U kunt ook https://resources.azure.com spiegelen gebruiken de `clientCertEnabled` eigenschap `true`.
+U kunt ook https://resources.azure.com tooflip hello `clientCertEnabled` eigenschap te`true`.
 
-> **Opmerking:** als u ARMClient vanuit Powershell uitvoert, moet u als escapeteken voor het @-teken voor de JSON-bestand met een back-maatstreepjes '.
+> **Opmerking:** als u ARMClient vanuit Powershell uitvoert, moet u tooescape Hallo @-teken voor JSON-bestand met een back-maatstreepjes Hallo ".
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>Toegang tot het certificaat van uw Web-App
-Als u gebruik van ASP.NET en configureer uw app voor het gebruik van verificatie van clientcertificaten, het certificaat is beschikbaar via de **HttpRequest.ClientCertificate** eigenschap. Voor andere stacks toepassing zijn de client-certificaat beschikbaar in uw app via een base64-gecodeerde waarde in de aanvraagheader 'X ARR ClientCert'. Uw toepassing kunt maken van een certificaat via deze waarde en vervolgens worden gebruikt voor verificatie en autorisatie doeleinden in uw toepassing.
+## <a name="accessing-hello-client-certificate-from-your-web-app"></a>Toegang tot Hallo Client certificaat van uw Web-App
+Als u gebruik van ASP.NET en configureren van uw app toouse-verificatie van clientcertificaten, Hallo-certificaat is beschikbaar via Hallo **HttpRequest.ClientCertificate** eigenschap. Voor andere stacks toepassing zijn hello client cert beschikbaar in uw app via een base64-gecodeerde waarde in de aanvraagheader van Hallo 'X ARR ClientCert'. Uw toepassing kunt maken van een certificaat via deze waarde en vervolgens worden gebruikt voor verificatie en autorisatie doeleinden in uw toepassing.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Speciale overwegingen voor validatie van het servercertificaat
-Het clientcertificaat dat wordt verzonden naar de toepassing via niet een validatie door het platform Azure Web Apps. Dit certificaat wordt gevalideerd, is de verantwoordelijkheid van de web-app. Hier volgt een voorbeeld ASP.NET-code te valideren en eigenschappen voor certificaat voor verificatie.
+Hallo-clientcertificaat dat wordt verzonden toohello toepassing via niet een validatie door hello Azure Web Apps platform. Dit certificaat wordt gevalideerd, is de verantwoordelijkheid van de Hallo van Hallo web-app. Hier volgt een voorbeeld ASP.NET-code te valideren en eigenschappen voor certificaat voor verificatie.
 
     using System;
     using System.Collections.Specialized;
@@ -81,8 +81,8 @@ Het clientcertificaat dat wordt verzonden naar de toepassing via niet een valida
             public bool isValidCert = false;
 
             //
-            // Read the certificate from the header into an X509Certificate2 object
-            // Display properties of the certificate on the page
+            // Read hello certificate from hello header into an X509Certificate2 object
+            // Display properties of hello certificate on hello page
             //
             protected void Page_Load(object sender, EventArgs e)
             {
@@ -124,13 +124,13 @@ Het clientcertificaat dat wordt verzonden naar de toepassing via niet een valida
             //
             private bool IsValidClientCertificate()
             {
-                // In this example we will only accept the certificate as a valid certificate if all the conditions below are met:
-                // 1. The certificate is not expired and is active for the current time on server.
-                // 2. The subject name of the certificate has the common name nildevecc
-                // 3. The issuer name of the certificate has the common name nildevecc and organization name Microsoft Corp
-                // 4. The thumbprint of the certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
+                // In this example we will only accept hello certificate as a valid certificate if all hello conditions below are met:
+                // 1. hello certificate is not expired and is active for hello current time on server.
+                // 2. hello subject name of hello certificate has hello common name nildevecc
+                // 3. hello issuer name of hello certificate has hello common name nildevecc and organization name Microsoft Corp
+                // 4. hello thumbprint of hello certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
                 //
-                // This example does NOT test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
+                // This example does NOT test that this certificate is chained tooa Trusted Root Authority (or revoked) on hello server 
                 // and it allows for self signed certificates
                 //
 
@@ -175,7 +175,7 @@ Het clientcertificaat dat wordt verzonden naar de toepassing via niet een valida
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
+                // If you also want tootest if hello certificate chains tooa Trusted Root Authority you can uncomment hello code below
                 //
                 //X509Chain certChain = new X509Chain();
                 //certChain.Build(certificate);

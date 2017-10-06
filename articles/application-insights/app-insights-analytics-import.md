@@ -1,6 +1,6 @@
 ---
-title: Uw gegevens importeren in analyses in Azure Application Insights | Microsoft Docs
-description: Statische gegevens samen te voegen met de app telemetrie importeren of een afzonderlijke gegevensstroom query met Analytics importeren.
+title: aaaImport uw tooAnalytics gegevens in Azure Application Insights | Microsoft Docs
+description: Statische gegevens toojoin met app telemetrie importeren, of een afzonderlijke gegevensstroom tooquery met Analytics importeren.
 services: application-insights
 keywords: Open-schema, gegevens importeren
 documentationcenter: 
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
-ms.openlocfilehash: aa855a9050ec4e5e7c5db88b7209b8bb48bdba51
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a3a3c9155adc1885dd366ddb13dda80bb894adb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="import-data-into-analytics"></a>Gegevens importeren in Analytics
 
-Importeer tabellaire gegevens in [Analytics](app-insights-analytics.md)om toe te voegen met een [Application Insights](app-insights-overview.md) telemetrie van uw app of dat u deze als een afzonderlijke stream kunt analyseren. Analytics is een krachtige querytaal die geschikt is voor het analyseren van grote hoeveelheden voorzien van een tijdstempel streams telemetrie.
+Importeer tabellaire gegevens in [Analytics](app-insights-analytics.md), ofwel toojoin met [Application Insights](app-insights-overview.md) telemetrie van uw app, of dat u deze als een afzonderlijke stream kunt analyseren. Analytics is een krachtige query language geschikt tooanalyzing hoog volume voorzien van een tijdstempel streams telemetrie.
 
-U kunt gegevens importeren in Analytics met uw eigen schema. Heeft geen gebruik van de standaard Application Insights-schema's zoals aanvraag of trace.
+U kunt gegevens importeren in Analytics met uw eigen schema. Heeft geen toouse Hallo standaard Application Insights-schema's zoals aanvraag of trace.
 
 U kunt importeren JSON of DSV (scheidingsteken gescheiden waarden - komma, puntkomma of tab) bestanden.
 
-Er zijn drie situaties waarin u importeert in Analytics handig is:
+Er zijn drie situaties waarin tooAnalytics importeren handig is:
 
-* **Voeg met app telemetrie.** U kunt bijvoorbeeld een tabel met URL's van uw website wordt toegewezen aan beter leesbaar pagina's importeren. In Analytics, kunt u een dashboard grafiekrapport de tien meest populaire pagina's in uw website. Nu kunt deze pagina's in plaats van de URL's weergeven.
+* **Voeg met app telemetrie.** U kunt bijvoorbeeld een tabel die is toegewezen URL's van uw website toomore gelezen pagina's importeren. In Analytics, kunt u een dashboard grafiekrapport Hallo tien meest populaire pagina's in uw website. Nu kan worden weergegeven waarop Hallo pagina's in plaats van Hallo URL's.
 * **Telemetrie van uw toepassing correleren** met andere bronnen zoals netwerkverkeer, server-gegevens of CDN logboekbestanden.
-* **Analyse van toepassing op een afzonderlijke gegevensstroom.** Application Insights Analytics is een krachtig hulpprogramma dat goed samen met sparse, voorzien van een tijdstempel streams - veel beter dan SQL in veel gevallen werkt. Als u een dergelijke stroom van een andere bron hebt, kunt u deze kunt analyseren met Analytics.
+* **Toepassing Analytics tooa afzonderlijke gegevensstroom.** Application Insights Analytics is een krachtig hulpprogramma dat goed samen met sparse, voorzien van een tijdstempel streams - veel beter dan SQL in veel gevallen werkt. Als u een dergelijke stroom van een andere bron hebt, kunt u deze kunt analyseren met Analytics.
 
-Verzenden van gegevens naar de gegevensbron is eenvoudig. 
+Verzenden de tooyour-gegevensbron is eenvoudig. 
 
-1. (Eenmaal) Definieer de planning van uw gegevens in een gegevensbron.
-2. (Periodiek) Uw gegevens uploaden naar Azure storage en de REST-API om contact met ons opnemen die nieuwe gegevens opname wacht aanroepen. De gegevens zijn beschikbaar voor de query in Analytics binnen een paar minuten.
+1. (Eenmaal) Hallo-schema van uw gegevens in een gegevensbron definiëren.
+2. (Periodiek) Uploaden van uw gegevens tooAzure opslag en Hallo REST-API toonotify ons die nieuwe gegevens opname wacht te bellen. Binnen een paar minuten is Hallo gegevens beschikbaar voor query's in Analytics.
 
-De frequentie van het uploaden wordt gedefinieerd door u en hoe snel wilt u uw gegevens beschikbaar voor query's. Het is efficiënter uploaden van gegevens in grotere segmenten, maar niet groter zijn dan 1GB.
+Hello frequentie van Hallo uploaden is door u gedefinieerde en hoe snel wilt u uw gegevens toobe beschikbaar voor query's. Het is efficiënter tooupload gegevens in grotere segmenten, maar niet groter zijn dan 1GB.
 
 > [!NOTE]
-> *Hebt u veel gegevensbronnen analyseren?* [*Overweeg het gebruik van* logstash *voor het verzenden van uw gegevens naar Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
+> *Hebt u veel gegevensbronnen tooanalyze?* [*Overweeg het gebruik van* logstash *tooship uw gegevens in Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
 > 
 
 ## <a name="before-you-start"></a>Voordat u begint
@@ -50,52 +50,52 @@ U hebt de volgende zaken nodig:
 
 1. Een Application Insights-resource in Microsoft Azure.
 
- * Als u wilt analyseren van uw gegevens afzonderlijk van andere telemetrie [Maak een nieuwe Application Insights-resource](app-insights-create-new-resource.md).
- * Als u lid worden van of uw gegevens met de telemetrie van een app die al is ingesteld met Application Insights vergelijken, kunt u de bron voor die app gebruiken.
- * Inzender of eigenaar toegang tot deze resource.
+ * Als u uw gegevens afzonderlijk van andere telemetrie tooanalyze wilt [Maak een nieuwe Application Insights-resource](app-insights-create-new-resource.md).
+ * Als u lid worden van of uw gegevens met de telemetrie van een app die al is ingesteld met Application Insights vergelijken, kunt u Hallo resource voor die app gebruiken.
+ * Inzender of eigenaar toegang toothat resource.
  
-2. Azure-opslag. U kunt uploaden naar Azure storage en Analytics uw gegevens ontvangt van daaruit. 
+2. Azure-opslag. Uploaden van tooAzure opslag en Analytics uw gegevens ontvangt van daaruit. 
 
- * U wordt aangeraden dat u een speciale storage-account maken voor uw blobs. Als uw blobs worden gedeeld met andere processen, duurt het langer voor onze processen uw blobs te lezen.
+ * U wordt aangeraden dat u een speciale storage-account maken voor uw blobs. Als uw blobs worden gedeeld met andere processen, duurt het langer voor onze tooread processen uw blobs.
 
 
 ## <a name="define-your-schema"></a>Uw schema definiëren
 
-Voordat u gegevens importeren kunt, moet u een *gegevensbron* waarmee het schema van uw gegevens.
-U kunt maximaal 50 gegevensbronnen in een enkele Application Insights-bron hebben
+Voordat u gegevens importeren kunt, moet u een *gegevensbron* waarmee Hallo-schema van uw gegevens.
+U kunt hebben van de gegevensbronnen too50 in één Application Insights-resource
 
-1. Start de wizard gegevensbron. Gebruik de knop 'Een nieuwe gegevensbron toevoegen'. U kunt ook - klikt u op de knop instellingen in rechts bovenhoek en kies 'Gegevensbronnen' in het vervolgkeuzemenu.
+1. Start de wizard Gegevensbron Hallo. Gebruik de knop 'Een nieuwe gegevensbron toevoegen'. U kunt ook - klikt u op de knop instellingen in rechts bovenhoek en kies 'Gegevensbronnen' in het vervolgkeuzemenu.
 
     ![Nieuwe gegevensbron toevoegen](./media/app-insights-analytics-import/add-new-data-source.png)
 
     Geef een naam voor de nieuwe gegevensbron.
 
-2. Definieer de indeling van de bestanden die u zult uploaden.
+2. Definieer de indeling van Hallo-bestanden die u zult uploaden.
 
-    U kunt de indeling handmatig definiëren of u een voorbeeld-bestand uploaden.
+    U kunt Hallo indeling handmatig opgeven of u een voorbeeldbestand uploaden.
 
-    Als de gegevens zich in de CSV-indeling, zijn de eerste rij van de voorbeeld-kolomkoppen. U kunt de veldnamen in de volgende stap.
+    Als Hallo gegevens zich in de CSV-indeling, zijn de eerste rij Hallo van Hallo voorbeeld kolomkoppen. Hallo-veldnamen in de volgende stap hello, kunt u wijzigen.
 
-    Het voorbeeld moet ten minste 10 rijen of records van de gegevens bevatten.
+    Hallo-voorbeeld moet ten minste 10 rijen of records van de gegevens bevatten.
 
     Kolom- of veldnamen moeten alfanumeriek namen (zonder spaties of leestekens) hebben.
 
     ![Een voorbeeld-bestand uploaden](./media/app-insights-analytics-import/sample-data-file.png)
 
 
-3. Controleer het schema die is verkregen met de wizard. Als deze de typen van een voorbeeld van een afgeleid, moet u mogelijk de afgeleide typen van de kolommen aanpassen.
+3. Bekijk Hallo schema dat wizard Hallo heeft is. Als het Hallo-typen uit een voorbeeld van een afgeleid, moet u mogelijk tooadjust Hallo afgeleid typen Hallo kolommen.
 
-    ![Bekijk de afgeleid schema](./media/app-insights-analytics-import/data-source-review-schema.png)
+    ![Bekijk Hallo afgeleid schema](./media/app-insights-analytics-import/data-source-review-schema.png)
 
- * (Optioneel.) Upload een schemadefinitie. Zie de onderstaande notatie.
+ * (Optioneel.) Upload een schemadefinitie. Zie de onderstaande Hallo-notatie.
 
- * Selecteer een tijdstempel. Alle gegevens in Analytics moet beschikken over een tijdstempelveld. Type moet hebben `datetime`, maar heeft geen naam 'tijdstempel'. Als uw gegevens een kolom met een datum en tijd in de ISO-indeling heeft, kies deze optie als de timestamp-kolom. Kies anders 'als gegevens ontvangen' en het importproces een timestamp-veld wilt toevoegen.
+ * Selecteer een tijdstempel. Alle gegevens in Analytics moet beschikken over een tijdstempelveld. Type moet hebben `datetime`, maar heeft geen toobe met de naam 'tijdstempel'. Als uw gegevens een kolom met een datum en tijd in de ISO-indeling heeft, kies deze optie als Hallo timestamp-kolom. Kies anders 'als gegevens ontvangen' en Hallo importproces een timestamp-veld wilt toevoegen.
 
-5. De gegevensbron maken.
+5. Hallo-gegevensbron maken.
 
 ### <a name="schema-definition-file-format"></a>Bestandsindeling van pakketdefinities schema
 
-In plaats van het schema in de gebruikersinterface bewerkt, kunt u de schemadefinitie laden uit een bestand. De indeling van de definitie schema is als volgt: 
+In plaats van het Hallo-schema in de gebruikersinterface bewerkt, kunt u de schemadefinitie Hallo laden uit een bestand. Hallo schema definitie-indeling is als volgt: 
 
 Gescheiden indeling 
 ```
@@ -115,34 +115,34 @@ JSON-indeling
 ]
 ```
  
-Elke kolom wordt geïdentificeerd door de locatie, de naam en het type. 
+Elke kolom wordt geïdentificeerd door Hallo locatie, naam en type. 
 
-* Locatie – is voor het bestand met scheidingstekens hiervan de positie van de toegewezen waarde. Voor JSON-indeling is de jpath van de toegewezen sleutel.
-* Naam: de naam van de kolom die wordt weergegeven.
-* Type: het gegevenstype van die kolom.
+* Locatie – is voor het bestand met scheidingstekens formatteert u het Hallo-positie van Hallo toegewezen waarde. Voor JSON-indeling is het Hallo jpath van Hallo toegewezen sleutel.
+* Naam: Hallo weergegeven naam van Hallo-kolom.
+* Type: Hallo-gegevenstype van die kolom.
  
-Als een voorbeeldgegevens gebruikt en bestandsindeling worden gescheiden, moet de schemadefinitie alle kolommen toewijzen en nieuwe kolommen toevoegen aan het einde. 
+Als een voorbeeldgegevens gebruikt en bestandsindeling worden gescheiden, moet Hallo schemadefinitie alle kolommen toewijzen en nieuwe kolommen toevoegen aan Hallo einde. 
 
-JSON staat gedeeltelijke toewijzing van de gegevens, dus de schemadefinitie van JSON-indeling heeft geen elke sleutel die is gevonden in een voorbeeldgegevens toewijzen. Deze kolommen die geen deel uitmaken van de voorbeeldgegevens kan ook worden toegewezen. 
+JSON staat gedeeltelijke Hallo gegevens worden toegewezen, daarom hello schemadefinitie van JSON-indeling heeft geen toomap elke sleutel die is gevonden in een voorbeeldgegevens. Deze kunt kolommen die geen deel uitmaken van de voorbeeldgegevens Hallo ook toewijzen. 
 
 ## <a name="import-data"></a>Gegevens importeren
 
-Om gegevens te importeren, uploaden naar Azure storage, een toegangssleutel voor het maken en breng een REST-API-aanroep.
+tooimport gegevens, tooAzure opslag te uploaden, een toegangssleutel voor het maken en breng vervolgens een REST-API-aanroep.
 
 ![Nieuwe gegevensbron toevoegen](./media/app-insights-analytics-import/analytics-upload-process.png)
 
-U kunt het volgende proces handmatig uitvoeren of een geautomatiseerde systeem instellen om dat te doen met regelmatige tussenpozen. U moet als volgt te werk voor elk blok van gegevens die u wilt importeren.
+U kunt Hallo na handmatig uitvoeren of instellen van een toodo automatisch deze met regelmatige tussenpozen. U moet toofollow deze stappen voor elk gegevensblok tooimport gewenste.
 
-1. De gegevens te uploaden [Azure blob-opslag](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Hallo-gegevens te uploaden[Azure blob-opslag](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
- * BLOBs kunnen worden elke maximaal 1GB ongecomprimeerde omvang. Grote blobs honderden MB zijn ideaal vanuit het oogpunt van prestaties van.
- * U kunt het comprimeren met Gzip uploadtijd en de latentie voor de gegevens beschikbaar zijn voor de query te verbeteren. Gebruik de `.gz` bestandsnaamextensie.
- * Het is raadzaam een afzonderlijke opslagaccount voor dit doel gebruiken om te voorkomen dat verzoeken van andere services prestaties te vertragen.
- * Tijdens het verzenden van gegevens met hoge frequentie, om de paar seconden het verdient aanbeveling gebruik van meer dan één opslagaccount, voor betere prestaties.
+ * BLOBs kunnen elke grootte van niet-gecomprimeerd too1GB zijn. Grote blobs honderden MB zijn ideaal vanuit het oogpunt van prestaties van.
+ * U kunt het comprimeren met Gzip tooimprove uploadtijd en de latentie voor Hallo gegevens toobe beschikbaar voor query. Gebruik Hallo `.gz` bestandsnaamextensie.
+ * Is het beste toouse een afzonderlijke opslagaccount voor dit doel, tooavoid aanroepen vanuit verschillende services prestaties te vertragen.
+ * Tijdens het verzenden van gegevens met hoge frequentie, om de paar seconden verdient toouse meer dan één opslagaccount opgeven voor betere prestaties.
 
  
-2. [Maak een Shared Access Signature-sleutel voor de blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). De sleutel moet een vervalperiode van één dag hebben en leestoegang te bieden.
-3. Een REST-aanroep op de hoogte van Application Insights die wacht op de gegevens wilt maken.
+2. [Maak een Shared Access Signature-sleutel voor Hallo blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Hallo-sleutel moet een vervalperiode van één dag hebben en geef leestoegang.
+3. Controleer een REST-aanroep toonotify Application Insights dat gegevens wordt verwacht.
 
  * Eindpunt:`https://dc.services.visualstudio.com/v2/track`
  * HTTP-methode: POST
@@ -167,32 +167,32 @@ U kunt het volgende proces handmatig uitvoeren of een geautomatiseerde systeem i
     }
 ```
 
-De tijdelijke aanduidingen zijn:
+Hallo tijdelijke aanduidingen zijn:
 
-* `Blob URI with Shared Access Key`: U krijgt deze van de procedure voor het maken van een sleutel. Het is specifiek voor de blob.
-* `Schema ID`: De schema-ID gegenereerd voor uw gedefinieerd schema. De gegevens in deze blob moeten voldoen aan het schema.
-* `DateTime`: De UTC-tijd waarop de aanvraag is verzonden. We accepteren van deze indelingen: ISO8601 (zoals ' 01-01-2016 13:45:01 '); RFC822 (' Wed, 14 december 16 14:57:01 + 0000 '); RFC850 ("woensdag, 14-december-16 14:57:00 UTC"); RFC1123 (' Wed 14 december 2016 14:57:00 + 0000 ').
+* `Blob URI with Shared Access Key`: U krijgt deze van Hallo procedure voor het maken van een sleutel. Het is specifieke toohello blob.
+* `Schema ID`: Hallo schema-ID gegenereerd voor uw gedefinieerd schema. Hallo-gegevens in deze blob moet toohello schema voldoen.
+* `DateTime`: Hallo UTC-tijd van aanvraag is verzonden op welke hello,. We accepteren van deze indelingen: ISO8601 (zoals ' 01-01-2016 13:45:01 '); RFC822 (' Wed, 14 december 16 14:57:01 + 0000 '); RFC850 ("woensdag, 14-december-16 14:57:00 UTC"); RFC1123 (' Wed 14 december 2016 14:57:00 + 0000 ').
 * `Instrumentation key`van uw Application Insights-resource.
 
-De gegevens zijn beschikbaar in Analytics na een paar minuten.
+Hallo-gegevens zijn beschikbaar in Analytics na een paar minuten.
 
 ## <a name="error-responses"></a>Foutberichten
 
-* **400 onjuiste aanvraag**: geeft aan dat de nettolading van de aanvraag ongeldig is. Controleren:
+* **400 onjuiste aanvraag**: geeft aan dat verzoek Hallo nettolading is ongeldig. Controleren:
  * Juiste instrumentatiesleutel.
- * Geldige tijd-waarde. Deze moet de tijd nu in UTC.
- * De JSON van de gebeurtenis voldoet aan het schema.
-* **403-verboden**: de blob die u hebt verzonden, is niet toegankelijk. Zorg ervoor dat de gedeelde toegangssleutel geldig is en niet is verlopen.
+ * Geldige tijd-waarde. Hallo UTC-tijd nu moeten worden.
+ * De JSON van de gebeurtenis Hallo voldoet toohello schema.
+* **403-verboden**: Hallo blob die u hebt verzonden, is niet toegankelijk. Zorg ervoor dat Hallo gedeelde toegangssleutel is geldig en niet is verlopen.
 * **404 niet gevonden**:
- * De blob bestaat niet.
- * De bron-id is onjuist.
+ * Hallo blob bestaat niet.
+ * Hallo sourceId is onjuist.
 
-Meer gedetailleerde informatie is beschikbaar in het antwoordbericht van de fout.
+Meer gedetailleerde informatie is beschikbaar in het foutbericht Hallo-antwoord.
 
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-Deze code gebruikt de [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet-pakket.
+Deze code gebruikt Hallo [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) NuGet-pakket.
 
 ### <a name="classes"></a>Klassen
 
@@ -365,5 +365,5 @@ Deze code gebruiken voor elke blob.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Rondleiding van de querytaal Log Analytics](app-insights-analytics-tour.md)
-* [Gebruik *Logstash* om gegevens te verzenden naar Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
+* [Rondleiding Hallo querytaal Log Analytics](app-insights-analytics-tour.md)
+* [Gebruik *Logstash* toosend gegevens tooApplication Insights](https://github.com/Microsoft/logstash-output-application-insights)

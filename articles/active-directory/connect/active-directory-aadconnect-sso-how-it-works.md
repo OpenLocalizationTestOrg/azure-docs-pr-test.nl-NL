@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Naadloze eenmalige aanmelding - werking | Microsoft Docs'
-description: Dit artikel wordt beschreven hoe de functie Azure Active Directory naadloze eenmalige aanmelding werkt.
+description: Dit artikel wordt beschreven hoe hello Azure Active Directory naadloze eenmalige aanmelding functie werkt.
 services: active-directory
 keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
 documentationcenter: 
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
-ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 17ce35b32832d241068ab878cf7aac42deab74ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory naadloze eenmalige aanmelding: technische diepgaand
 
-In dit artikel biedt u technische gegevens in de werking van de functie Azure Active Directory naadloze eenmalige aanmelding (SSO naadloze).
+In dit artikel biedt u technische gegevens in de werking van hello Azure Active Directory naadloze eenmalige aanmelding (SSO naadloze) functie.
 
 >[!IMPORTANT]
->De functie naadloze eenmalige aanmelding is momenteel in preview.
+>Hallo naadloze SSO-functie is momenteel in preview.
 
 ## <a name="how-does-seamless-sso-work"></a>Hoe werkt naadloze eenmalige aanmelding
 
-Deze sectie heeft twee delen:
-1. De installatie van de functie naadloze eenmalige aanmelding.
+Deze sectie heeft twee onderdelen tooit:
+1. Hallo-instelling van Hallo naadloze SSO-functie.
 2. Hoe werkt een enkele gebruiker aanmelden transactie met naadloze eenmalige aanmelding.
 
 ### <a name="how-does-set-up-work"></a>Hoe werken instellen?
 
-Naadloze eenmalige aanmelding is ingeschakeld via Azure AD Connect zoals [hier](active-directory-aadconnect-sso-quick-start.md). Tijdens het inschakelen van de functie, plaats de volgende stappen:
+Naadloze eenmalige aanmelding is ingeschakeld via Azure AD Connect zoals [hier](active-directory-aadconnect-sso-quick-start.md). Tijdens het inschakelen van de functie Hallo optreden Hallo stappen te volgen:
 - Een account met de naam `AZUREADSSOACCT` (geeft Azure AD) is gemaakt in uw on-premises Active Directory (AD).
-- Het computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD.
-- Bovendien worden twee Kerberos-SPN-namen (SPN's) gemaakt ter vertegenwoordiging van twee URL's die worden gebruikt tijdens het aanmelden van Azure AD.
+- Hallo computeraccount Kerberos ontsleutelingssleutel wordt veilig worden gedeeld met Azure AD.
+- Twee Kerberos-SPN-namen (SPN's) gemaakt bovendien twee URL's voor een toorepresent die worden gebruikt tijdens het aanmelden van Azure AD.
 
 >[!NOTE]
-> Het computeraccount en de Kerberos-SPN's worden gemaakt in elk AD-forest u synchroniseren met Azure AD (met behulp van Azure AD Connect) en gebruikers voor wie u wilt dat naadloze eenmalige aanmelding. Verplaats de `AZUREADSSOACCT` computeraccount aan een organisatie-eenheid (OE) waar de computeraccounts van andere worden opgeslagen om ervoor te zorgen dat het op dezelfde manier wordt beheerd en wordt niet verwijderd.
+> Hallo-computeraccount en Hallo Kerberos-SPN's worden gemaakt in elk AD-forest u tooAzure AD synchroniseren (met behulp van Azure AD Connect) en gebruikers voor wie u wilt dat naadloze eenmalige aanmelding. Hallo verplaatsen `AZUREADSSOACCT` computer account tooan organisatie-eenheid (OE) waar de computeraccounts van andere opgeslagen tooensure die wordt beheerd zijn in dezelfde Hallo manier en is niet verwijderd.
 
 >[!IMPORTANT]
->Ten zeerste aangeraden dat u [Beweeg de muis over de ontsleutelingssleutel Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) van de `AZUREADSSOACCT` computeraccount ten minste elke 30 dagen.
+>Ten zeerste aangeraden dat u [overschakelen Hallo Kerberos ontsleutelingssleutel](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) Hallo `AZUREADSSOACCT` computeraccount ten minste elke 30 dagen.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Hoe aanmelden met naadloze eenmalige aanmelding werk?
 
-Zodra de installatie voltooid is, werkt naadloze eenmalige aanmelding op dezelfde manier als elke andere aanmelden die gebruikmaakt van geïntegreerde Windows-verificatie (IWA). De stroom is als volgt:
+Zodra het Hallo-installatie is voltooid, werkt naadloos SSO Hallo dezelfde manier als andere aanmelden die gebruikmaakt van geïntegreerde Windows-verificatie (IWA). Hallo-stroom is als volgt:
 
-1. De gebruiker probeert te krijgen tot een toepassing (bijvoorbeeld de Outlook Web App - https://outlook.office365.com/owa/) van een domein, zakelijke apparaat binnen uw bedrijfsnetwerk.
-2. Als de gebruiker niet is al aangemeld, wordt de gebruiker omgeleid naar de aanmeldingspagina van Azure AD.
+1. Hallo gebruiker probeert een toepassing tooaccess (bijvoorbeeld Hallo Outlook Web App - https://outlook.office365.com/owa/) van een domein, zakelijke apparaat binnen uw bedrijfsnetwerk.
+2. Als het Hallo-gebruiker is niet al aangemeld, is Hallo gebruiker omgeleide toohello Azure AD-aanmeldingspagina.
 
   >[!NOTE]
-  >Als de Azure AD-in de aanvraag bevat een `domain_hint` (identificeren uw tenant - bijvoorbeeld, contoso.onmicrosoft.com) of `login_hint` (identificatie van de gebruiker - bijvoorbeeld user@contoso.onmicrosoft.com of user@contoso.com) parameter en klik vervolgens stap 2 wordt overgeslagen.
+  >Als hello Azure AD-aanmelden-aanvraag bevat een `domain_hint` (identificeren uw tenant - bijvoorbeeld, contoso.onmicrosoft.com) of `login_hint` (Hallo gebruiker - bijvoorbeeld identificeren user@contoso.onmicrosoft.com of user@contoso.com) parameter en klik vervolgens stap 2 wordt overgeslagen.
 
-3. De gebruiker typt de naam van de gebruiker naar de aanmeldingspagina van Azure AD.
-4. Voor informatie over het gebruik van JavaScript in de achtergrond van de uitdagingen Azure AD van de browser, via een 401-niet-geautoriseerde respons, zodat een Kerberos-ticket.
-5. Op zijn beurt vraagt de browser een ticket van Active Directory voor de `AZUREADSSOACCT` computeraccount (die staat voor Azure AD).
-6. Active Directory wordt gezocht naar de computeraccount en retourneert een Kerberos-ticket en de browser die is versleuteld met het computeraccount geheim.
-7. De browser stuurt het Kerberos-ticket die is verkregen van Active Directory naar Azure AD (op een van de [Azure AD-URL's eerder zijn toegevoegd aan de browser Intranet-beveiligingszone-instellingen](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
-8. Azure AD ontsleutelt het Kerberos-ticket, waaronder de identiteit van de gebruiker aangemeld bij het bedrijfsapparaat met de eerder gedeelde sleutel.
-9. Na evaluatie, is Azure AD retourneert een token terug naar de toepassing of de gebruiker extra bewijzen, zoals multi-factor Authentication uitvoeren wordt gevraagd.
-10. Als de gebruiker aanmelden geslaagd is, wordt de gebruiker toegang tot de toepassing is.
+3. Hallo gebruikerstypen in hun gebruikersnaam in de aanmeldingspagina hello Azure AD.
+4. Als u JavaScript in Hallo achtergrond, uitdagingen Azure AD Hallo browser via een 401 onbevoegde antwoord tooprovide een Kerberos-ticket.
+5. Hallo-browser op hun beurt vraagt een ticket uit Active Directory voor Hallo `AZUREADSSOACCT` computeraccount (die staat voor Azure AD).
+6. Active Directory Hallo computeraccount zoekt en retourneert een Kerberos-ticket toohello browser versleuteld met Hallo computeraccount geheim.
+7. Hallo browser stuurt Hallo Kerberos-ticket die is verkregen van Active Directory tooAzure AD (op een van de Hallo [Azure AD-URL's van de browser toohello Intranet-beveiligingszone-instellingen hebt toegevoegd](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
+8. Azure AD ontsleuteld Hallo Kerberos-ticket, waaronder Hallo identiteit van Hallo gebruiker is aangemeld bij bedrijfsapparaten Hallo Hallo eerder gebruikte gedeelde sleutel.
+9. Na evaluatie, is Azure AD retourneert een token terug toohello toepassing of vraagt Hallo gebruiker tooperform aanvullende bewijzen, zoals multi-factor Authentication.
+10. Als Hallo gebruiker aanmelden geslaagd is, is Hallo gebruiker kunnen tooaccess Hallo-toepassing.
 
-Het volgende diagram illustreert de onderdelen en de vereiste stappen.
+Hallo volgende diagram ziet u alle onderdelen van Hallo en Hallo stappen die nodig zijn.
 
 ![Naadloze eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso2.png)
 
-Naadloze eenmalige aanmelding is opportunistisch, dat als dit mislukt, de aanmeldingservaring terugvalt op het normale gedrag - eenledige, de gebruiker moet invoeren van hun wachtwoord aan te melden.
+Naadloze eenmalige aanmelding is opportunistisch, wat betekent dat als het mislukt, de aanmeldingservaring Hallo terugvalt tooits reguliere gedrag - eenledige, Hallo gebruiker moet tooenter hun toosign wachtwoord in.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [**Snel starten** ](active-directory-aadconnect-sso-quick-start.md) - laten en Azure AD naadloze eenmalige aanmelding wordt uitgevoerd.
-- [**Veelgestelde vragen** ](active-directory-aadconnect-sso-faq.md) -antwoorden op veelgestelde vragen.
-- [**Problemen met** ](active-directory-aadconnect-troubleshoot-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
+- [**Veelgestelde vragen** ](active-directory-aadconnect-sso-faq.md) -toofrequently vragen worden beantwoord.
+- [**Problemen met** ](active-directory-aadconnect-troubleshoot-sso.md) -informatie over hoe tooresolve algemene problemen met een Hallo-functie.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen indienen.

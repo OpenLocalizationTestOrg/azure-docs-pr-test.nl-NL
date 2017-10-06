@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met & eerlijk gezegd | Microsoft Docs'
-description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en & eerlijk gezegd.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en & eerlijk gezegd.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,116 +13,116 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ea18a9f9bff258337a3de6d7703b4c548efa37df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 92677b6fcd8609ca31f82a30e85c7010b7bb3351
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Zelfstudie: Azure Active Directory-integratie met & eerlijk gezegd
 
-In deze zelfstudie leert u hoe integreren & eerlijk gezegd met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe toointegrate & eerlijk gezegd met Azure Active Directory (Azure AD).
 
-Integratie van & eerlijk gezegd met Azure AD biedt u de volgende voordelen:
+Integratie van & eerlijk gezegd met Azure AD biedt u Hallo volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot & eerlijk gezegd heeft
-- U kunt uw gebruikers automatisch aangemelde op & eerlijk gezegd inschakelen (Single Sign-On) met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die toegang te & eerlijk gezegd heeft
+- U kunt uw tooautomatically te & eerlijk gezegd ophalen aangemelde gebruikers inschakelen (Single Sign-On) met hun Azure AD-accounts
+- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD nodig-integratie met & eerlijk gezegd, u het volgende:
+tooconfigure Azure AD-integratie met & eerlijk gezegd, u moet Hallo volgende items:
 
 - Een Azure AD-abonnement
 - A & eerlijk gezegd eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toe te voegen & eerlijk gezegd uit de galerie
+1. Toe te voegen & eerlijk gezegd van Hallo-galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-frankly-from-the-gallery"></a>Toe te voegen & eerlijk gezegd uit de galerie
-Voor het configureren van de integratie van & eerlijk gezegd met Azure AD, moet u toevoegen & eerlijk gezegd uit de galerie aan de lijst met beheerde SaaS-apps.
+## <a name="adding-frankly-from-hello-gallery"></a>Toe te voegen & eerlijk gezegd van Hallo-galerie
+tooconfigure hello integratie van & eerlijk gezegd met Azure AD, moet u tooadd & eerlijk gezegd van Hallo galerie tooyour lijst met beheerde SaaS-apps.
 
-**Voeg & eerlijk gezegd uit de galerie, de volgende stappen uitvoeren:**
+**tooadd & eerlijk gezegd via Hallo gallery Hallo volgende stappen uit te voeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **& eerlijk gezegd**.
+4. Typ in het zoekvak Hallo **& eerlijk gezegd**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_search.png)
 
-5. Selecteer in het deelvenster resultaten **& eerlijk gezegd**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+5. Selecteer in het deelvenster resultaten hello, **& eerlijk gezegd**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie u configureren en testen van Azure AD eenmalige aanmelding met & eerlijk gezegd op basis van een testgebruiker genaamd "Britta Simon."
 
-Voor eenmalige aanmelding werkt, Azure AD moet weten welke gebruiker de bijbehorende equivalent in & eerlijk gezegd is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in & eerlijk gezegd tot stand worden gebracht.
+Voor één aanmelding toowork moet Azure AD tooknow wat Hallo equivalent gebruiker in & eerlijk gezegd tooa gebruiker in Azure AD. Met andere woorden, een relatie koppeling tussen een Azure AD-gebruiker en verwante gebruiker Hallo in & eerlijk gezegd behoeften toobe tot stand gebracht.
 
-In & eerlijk gezegd, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In & eerlijk gezegd Hallo waarde Hallo toewijzen **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
 
-Als u wilt configureren en testen van Azure AD moet eenmalige aanmelding met & eerlijk gezegd, u voltooien van de volgende elementen:
+tooconfigure en test eenmalige aanmelding Azure AD met behulp van & eerlijk gezegd, u moet toocomplete Hallo bouwstenen te volgen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een & eerlijk gezegd testgebruiker](#creating-a-frankly-test-user)**  - hebben een equivalent van Britta Simon in & eerlijk gezegd is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een & eerlijk gezegd testgebruiker](#creating-a-frankly-test-user)**  -toohave een equivalent van Britta Simon in & eerlijk gezegd die gekoppelde toohello Azure AD-weergave van de gebruiker.
+4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In deze sectie kunt u Azure AD eenmalige aanmelding in de Azure portal inschakelen en configureren eenmalige aanmelding in uw & eerlijk gezegd groep.
+In deze sectie maakt u Azure AD eenmalige aanmelding in hello Azure-portal inschakelen en configureren eenmalige aanmelding in uw & eerlijk gezegd groep.
 
-**Voor het configureren van Azure AD één aanmelding met & eerlijk gezegd, voer de volgende stappen uit:**
+**Azure AD tooconfigure één aanmelding met & eerlijk gezegd Hallo stappen uitvoeren:**
 
-1. In de Azure-portal op de **& eerlijk gezegd** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op Hallo Hallo **& eerlijk gezegd** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_samlbase.png)
 
-3. Op de **& eerlijk gezegd domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP** modus gestart:
+3. Op Hallo **& eerlijk gezegd domein en de URL's** sectie, indien gewenst tooconfigure Hallo toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
+    a. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
+    b. In Hallo **antwoord-URL** textbox, typ een URL met Hallo patroon volgen:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
-4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Controleer **weergeven geavanceerde instellingen voor URL**. U kunt eventueel tooconfigure Hallo toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
+    In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id en eenmalige aanmelding en antwoord-URL. Neem contact op met [andfrankly ondersteuningsteam](mailto:help@andfrankly.com) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Bijwerken van deze waarden met Hallo werkelijke-id en eenmalige aanmelding en antwoord-URL. Neem contact op met [andfrankly ondersteuningsteam](mailto:help@andfrankly.com) tooget deze waarden.
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+5. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_certificate.png) 
 
@@ -130,63 +130,63 @@ In deze sectie kunt u Azure AD eenmalige aanmelding in de Azure portal inschakel
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_general_400.png)
 
-7. Eenmalige aanmelding configureren op **& eerlijk gezegd** zijde, moet u de gedownloade verzenden **Metadata XML** naar [andfrankly ondersteuningsteam](mailto:help@andfrankly.com). 
+7. tooconfigure eenmalige aanmelding op **& eerlijk gezegd** zijde, moet u toosend Hallo gedownload **Metadata XML** te[andfrankly ondersteuningsteam](mailto:help@andfrankly.com). 
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In Hallo **naam** textbox type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-frankly-test-user"></a>Maken van een & eerlijk gezegd testgebruiker
 
-In deze sectie maakt u een gebruiker met de naam Britta Simon in & eerlijk gezegd. Werken met [andfrankly ondersteuningsteam](mailto:help@andfrankly.com) om toe te voegen de gebruikers in de & eerlijk gezegd platform.
+In deze sectie maakt u een gebruiker met de naam Britta Simon in & eerlijk gezegd. Werken met [andfrankly ondersteuningsteam](mailto:help@andfrankly.com) tooadd Hallo gebruikers in Hallo & eerlijk gezegd platform.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot & eerlijk gezegd.
+In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang te & eerlijk gezegd.
 
 ![Gebruiker toewijzen][200] 
 
-**Als u wilt toewijzen Britta Simon op & eerlijk gezegd, kunt u de volgende stappen uitvoeren:**
+**tooassign Britta Simon te & eerlijk gezegd uitvoeren Hallo stappen te volgen:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **& eerlijk gezegd**.
+2. Selecteer in de lijst met de toepassingen van Hallo **& eerlijk gezegd**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -194,7 +194,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -202,13 +202,13 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behulp van het toegangsvenster.
+Hallo-doel van deze sectie is tootest uw Azure AD SSO-configuratie met Hallo Toegangsvenster.
 
-Wanneer u klikt op de & eerlijk gezegd tegel in het deelvenster toegang, krijgt u automatisch aangemeld bij uw & eerlijk gezegd groep
+Wanneer u klikt u op Hallo & eerlijk gezegd-tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour & eerlijk gezegd groep
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

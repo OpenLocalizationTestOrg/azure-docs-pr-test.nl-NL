@@ -1,6 +1,6 @@
 ---
-title: Azure Enterprise-API's - saldo en samenvatting facturering | Microsoft Docs
-description: Meer informatie over het gebruik van Azure facturering en RateCard APIs's die worden gebruikt voor het bieden van inzicht in Azure brongebruik en trends.
+title: aaaAzure facturering Enterprise-API's - saldo en overzicht | Microsoft Docs
+description: Meer informatie over het gebruik van Azure-facturering en RateCard APIs's die gebruikt tooprovide inzichten in Azure brongebruik en trends zijn.
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f6b149f0e656d2263705048aa5b644f5bb4a5712
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b031de2c347e5abeacd11743cc96024434518918
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---balance-and-summary"></a>Rapportage-API's voor Enterprise-klanten - saldo en samenvatting
 
-Het saldo en samenvatting API biedt een maandelijkse samenvatting van gegevens op tegoeden, nieuwe aankopen Azure Marketplace kosten, aanpassingen en overschrijding kosten.
+Hallo saldo en samenvatting API biedt een maandelijkse samenvatting van gegevens op tegoeden, nieuwe aankopen Azure Marketplace kosten, aanpassingen en overschrijding kosten.
 
 
 ##<a name="request"></a>Aanvraag 
-Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven [hier](billing-enterprise-api.md). Als een factureringsperiode niet is opgegeven, wordt de gegevens voor de huidige factureringsperiode geretourneerd.
+Algemene Kopteksteigenschappen voor die toobe toegevoegd moeten zijn opgegeven [hier](billing-enterprise-api.md). Als een factureringsperiode niet is opgegeven, klikt u vervolgens gegevens voor de huidige facturering Hallo periode geretourneerd.
 
 |Methode | Aanvraag-URI|
 |-|-|
@@ -35,7 +35,7 @@ Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven
 |TOEVOEGEN| https://consumption.Azure.com/v2/enrollments/ {enrollmentNumber} /billingPeriods/ {billingPeriod} / balancesummary|
 
 > [!Note]
-> Voor het gebruik van de preview-versie van de API v1 in de bovenstaande URL vervangen v2.
+> toouse hello preview-versie van de API, v2 vervangen door v1 in Hallo bovenstaande URL.
 >
 
 ## <a name="response"></a>Antwoord
@@ -77,11 +77,11 @@ Algemene Kopteksteigenschappen voor die moeten worden toegevoegd, zijn opgegeven
 
 |De naam van eigenschap| Type| Beschrijving
 |-|-|-|
-|id|Tekenreeks|De unieke Id voor een specifieke factureringsperiode en de inschrijving|
-|billingPeriodId|Tekenreeks |De Id van de factureringsperiode|
-|currencyCode|Tekenreeks |De valutacode|
-|beginningBalance|Decimale| Het beginsaldo voor de factureringsperiode|
-|endingBalance|Decimale| Het eindsaldo voor de factureringsperiode (voor open perioden die dit wordt dagelijks bijgewerkt)|
+|id|Tekenreeks|Hallo unieke Id voor een specifieke factureringsperiode en de inschrijving|
+|billingPeriodId|Tekenreeks |Hallo facturering periode-Id|
+|currencyCode|Tekenreeks |Hallo-valutacode|
+|beginningBalance|Decimale| Hallo beginsaldo voor Hallo factureringsperiode|
+|endingBalance|Decimale| Hallo eindsaldo voor Hallo factureringsperiode (voor open perioden die dit wordt dagelijks bijgewerkt)|
 |newPurchases|Decimale| Totaalbedrag nieuwe aankoop|
 |aanpassingen aan|Decimale| Aanpassing van de totale hoeveelheid|
 |gebruikt|Decimale| Totaal gebruik voor vastlegging|

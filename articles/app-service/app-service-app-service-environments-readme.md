@@ -1,6 +1,6 @@
 ---
-title: App Service-omgeving | Microsoft Docs
-description: Wat is een Azure App Service-omgeving? Een inleiding tot de App Service-omgeving.
+title: aaaApp Service-omgeving | Microsoft Docs
+description: Wat is een Azure App Service-omgeving? Een inleiding tooApp Service-omgeving.
 keywords: Azure app service-omgeving, virtueel netwerk netwerkbeveiliging
 services: app-service
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: stefsch
-ms.openlocfilehash: 1de3f2c513f4f5ce6fd2ab2b57514122955a9a98
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b59fed4e5a72d4c4805e1dca203747e07e77103
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-documentation"></a>Documentatie voor App Service-omgeving
 Een App Service-omgeving is een [Premium] [ PremiumTier] service-plan optie van Azure App Service die een volledig geïsoleerde en toegewezen omgeving biedt voor het uitvoeren van Azure App Service-apps veilig op grote schaal, met inbegrip van [Web-Apps][WebApps], [Mobile Apps][MobileApps], en [API Apps][APIApps].  
@@ -31,9 +31,9 @@ App Service-omgevingen zijn ideaal voor toepassingsworkloads vereisen:
 
 Klanten kunnen meerdere App Service-omgevingen binnen één Azure-regio, evenals over meerdere Azure-regio's maken.  Dit maakt App Service-omgevingen ideaal voor horizontaal schalen status minder toepassingslagen ter ondersteuning van werklasten met hoge RPS.
 
-App Service-omgevingen zijn geïsoleerd, zodat slechts één klant toepassingen uitvoeren en altijd in een virtueel netwerk worden geïmplementeerd.  Klanten hebben fijnmazig controle over beide gebruikt voor het verkeer inkomend en uitgaand toepassing netwerk [netwerkbeveiligingsgroepen][NetworkSecurityGroups].  Toepassingen kunnen ook tot stand brengen snelle beveiligde verbindingen via virtuele netwerken met lokale bedrijfsbronnen.
+App Service-omgevingen zijn geïsoleerd toorunning alleen één klant toepassingen en altijd in een virtueel netwerk worden geïmplementeerd.  Klanten hebben fijnmazig controle over beide gebruikt voor het verkeer inkomend en uitgaand toepassing netwerk [netwerkbeveiligingsgroepen][NetworkSecurityGroups].  Toepassingen kunnen ook tot stand brengen snelle beveiligde verbindingen via virtuele netwerken tooon-premises bedrijfsbronnen.
 
-Apps moeten vaak toegang tot bedrijfsbronnen zoals interne databases en -services.  Apps die worden uitgevoerd op App Service-omgevingen toegang tot bronnen bereikbaar is via [Site-naar-Site] [ SiteToSite] VPN en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
+Apps moeten vaak tooaccess bedrijfsbronnen zoals interne databases en webservices.  Apps die worden uitgevoerd op App Service-omgevingen toegang tot bronnen bereikbaar is via [Site-naar-Site] [ SiteToSite] VPN en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
 
 * [Wat is een App Service-omgeving?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Een App Service-omgeving maken](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)

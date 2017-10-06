@@ -1,6 +1,6 @@
 ---
-title: Connector versiegeschiedenis van Release | Microsoft Docs
-description: In dit onderwerp geeft een lijst van alle versies van de Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM)
+title: aaaConnector versiegeschiedenis van Release | Microsoft Docs
+description: In dit onderwerp geeft een lijst van alle versies van Hallo Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: 
 author: fimguy
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/24/2017
 ms.author: fimguy
-ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3522f17c30e46542eaa367ecdefdfd2fc47f71a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
-De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
+Hallo-Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
 
 > [!NOTE]
-> In dit onderwerp is alleen van FIM en MIM. Deze Connectors worden niet ondersteund voor installatie op Azure AD Connect. Uitgebrachte Connectors zijn vooraf geïnstalleerd op AADConnect wanneer een upgrade naar Build opgegeven.
+> In dit onderwerp is alleen van FIM en MIM. Deze Connectors worden niet ondersteund voor installatie op Azure AD Connect. Uitgebrachte Connectors zijn vooraf geïnstalleerd op de AADConnect bij een upgrade toospecified Build.
 
-In dit onderwerp lijst van alle versies van de Connectors die zijn uitgebracht.
+In dit onderwerp lijst van alle versies van Hallo Connectors die zijn uitgebracht.
 
 Verwante koppelingen:
 
@@ -46,20 +46,20 @@ Verwante koppelingen:
 * Algemene webservices:
   * Een probleem dat verhindert dat er een SOAP-project wordt gemaakt wanneer er twee of meer eindpunten zijn opgelost.
 * Algemene SQL:
-  * In de werking van het importeren is de GSQL niet converteren van tijd correct wanneer opgeslagen naar het connectorgebied overgebracht. De standaardnotatie voor datum en tijd voor connectorgebied overgebracht van de GSQL is gewijzigd van 'jjjj-MM-dd: ssZ' in 'jjjj-MM-dd: ssZ'.
+  * In bewerking van import Hallo Hallo GSQL is niet converteren van een tijd correct wanneer opgeslagen tooconnector ruimte. Hallo is standaard datum en tijd-indeling voor connectorgebied Hallo GSQL gewijzigd van 'jjjj-MM-dd: ssZ' too'yyyy-MM-dd: ssZ '.
 
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Opgeloste problemen:
 
 * Algemene webservices:
-  * Het hulpprogramma Wsconfig is niet juist geconverteerd de Json-matrix van 'voorbeeldaanvraag' voor de methode voor de REST. Dit veroorzaakt problemen met serialisatie deze Json-matrix voor de REST-aanvraag.
+  * Hallo Wsconfig hulpprogramma heeft niet juist geconverteerd Hallo Json-matrix van"voorbeeld" voor de methode voor de REST Hallo. Dit veroorzaakt problemen met serialisatie deze Json-matrix voor Hallo REST-aanvraag.
   * Web Service-Connector Configuration Tool biedt geen ondersteuning voor informatie over het gebruik van symbolen ruimte in JSON-kenmerknamen 
-    * Het patroon van een vervanging kan handmatig worden toegevoegd aan het bestand WSConfigTool.exe.config bijvoorbeeld```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Het patroon van een vervanging kan handmatig worden toegevoegd toohello WSConfigTool.exe.config bestand, bijvoorbeeld```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes:
-  * Wanneer de optie **aangepaste certifiers toestaan voor organisatie/organisatorische eenheden** is uitgeschakeld en vervolgens de connector is mislukt tijdens het exporteren (Update) na de export-stroom alle kenmerken worden geëxporteerd naar Domino maar op het moment van exporteren een KeyNotFoundException wordt geretourneerd om te synchroniseren. 
-    * Dit gebeurt omdat de naamswijziging mislukt als er wordt geprobeerd DN-naam (kenmerk UserName) wijzigen door het wijzigen van een van de volgende kenmerken:  
+  * Wanneer Hallo optie **aangepaste certifiers toestaan voor organisatie/organisatorische eenheden** is uitgeschakeld en vervolgens Hallo connector mislukt tijdens het exporteren (Update) na Hallo export stromen alle kenmerken geëxporteerde tooDomino zijn maar gelijktijdig Hallo met exporteren een KeyNotFoundException tooSync geretourneerd. 
+    * Dit komt doordat Hallo wijzigen mislukt als er wordt geprobeerd toochange DN-naam (kenmerk UserName) door het wijzigen van een van onderstaande Hallo-kenmerken:  
       - Achternaam
       - Voornaam
       - MiddleInitial
@@ -89,7 +89,7 @@ Verwante koppelingen:
   * OverflowException in GSQL connector met de DB2 op AS / 400
 
 Lotus:
-  * Toegevoegde optie om te zoeken naar organisatie-eenheden voor het openen van de pagina GlobalParameters enable\disable
+  * Toegevoegde optie tooenable\disable OE's voor het openen van GlobalParameters pagina zoeken
 
 ## <a name="114430"></a>1.1.443.0
 
@@ -98,18 +98,18 @@ Uitgebracht: 2017 maart
 ### <a name="enhancements"></a>Verbeteringen
 
 * Algemene SQL:</br>
-  **Scenario symptomen:** is een bekende beperking met de SQL-Connector waar we alleen een verwijzing naar een objecttype toestaan en vereisen kruisverwijzingen met leden. </br>
-  **Beschrijving van oplossing:** In de verwerkingsstap voor verwijzingen zijn ' * ' optie kiest, worden alle combinaties van objecttypen terug naar de synchronisatie-engine geretourneerd.
+  **Scenario symptomen:** is een bekende beperking Hello SQL Connector waar we alleen toestaan van een verwijzingstype tooone-object en vereisen kruisverwijzingen met leden. </br>
+  **Beschrijving van oplossing:** In Hallo verwerkingsstap voor verwijzingen zijn ' * ' optie is gekozen, alle combinaties van objecttypen back toohello synchronisatie-engine wordt geretourneerd.
 
 >[!Important]
 - Hiermee maakt u veel tijdelijke aanduidingen
-- Is vereist om ervoor te zorgen dat de naamgeving is kruislings objecttypen die uniek zijn.
+- Het is vereiste toomake ervoor dat Hallo naming uniek kruislings objecttypen.
 
 
 * Algemene LDAP:</br>
- **Scenario:** wanneer slechts enkele containers in specifieke partitie zijn geselecteerd, klikt u vervolgens de zoekopdracht nog wordt uitgevoerd in hele partitie. Specifieke worden gefilterd door de synchronisatieservice, maar niet door MA wat kan leiden tot verminderde prestaties. </br>
+ **Scenario:** wanneer slechts enkele containers in specifieke partitie zijn geselecteerd, klikt u vervolgens Hallo zoeken nog wordt uitgevoerd in hele partitie. Specifieke worden gefilterd door de synchronisatieservice, maar niet door MA wat kan leiden tot verminderde prestaties. </br>
 
- **Beschrijving van oplossing:** code GLDAP gewijzigd-connector maken het mogelijk Doorloop alle containers en objecten zoeken in elk van deze in plaats van zoeken in de hele partitie.
+ **Beschrijving van oplossing:** GLDAP gewijzigd-connector code toomake op het dan mogelijk doorlopen alle containers en objecten zoeken in elk van deze in plaats van zoeken in de hele partitie Hallo.
 
 
 * Lotus Domino:
@@ -119,15 +119,15 @@ Uitgebracht: 2017 maart
 
 ### <a name="fixed-issues"></a>Opgeloste problemen:
 * Algemene webservices:
- * Bij het wijzigen van de service-URL in standaard via de WebService-configuratieprogramma projecten SAP wsconfig en vervolgens de volgende fout gebeurt: kan een deel van het pad niet vinden
+ * Bij het wijzigen van Hallo service-URL in standaard via de WebService-configuratieprogramma projecten SAP wsconfig en vervolgens de volgende fout Hallo gebeurt: kan een deel van Hallo pad niet vinden
 
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Algemene LDAP:
  * GLDAP Connector ondersteunt niet alle kenmerken in AD LDS-raadpleegt u
- * Wizard einden wanneer geen UPN-kenmerken worden gedetecteerd vanuit de LDAP-directory-schema
+ * Wizard einden wanneer geen UPN-kenmerken worden gedetecteerd vanuit Hallo LDAP-directory-schema
  * Delta-invoer is mislukt met detectie-fouten is niet aanwezig zijn tijdens de volledige import, als 'objectclass'-kenmerk niet is geselecteerd
- * Een pagina van de configuratie 'Partities en hiërarchieën configureren' wordt niet weergegeven van alle objecten welk type gelijk is aan de partitie voor de nieuwe servers in de algemene  
+ * Een pagina van de configuratie 'Partities en hiërarchieën configureren' wordt niet weergegeven objecten welk type is gelijk toohello partitie voor nieuwe servers in algemene Hallo  
 MA LDAP. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
 
 
@@ -137,13 +137,13 @@ MA LDAP. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
 
 
 * Lotus Notes:
- * Een bepaald veld 'Volledige naam' wordt weergegeven in de metaverse correct echter bij het exporteren naar de opmerkingen bij de waarde voor het kenmerk Null of leeg is.
+ * Een bepaald veld 'Volledige naam' wordt weergegeven in Hallo metaverse correct echter als uitvoer tooNotes Hallo waarde voor kenmerk Hallo Null of leeg is.
  * Voor dubbele Certifier fout oplossen
- * Als het Object zonder gegevens is ingeschakeld op de Lotus Domino-Connector met andere objecten ontvangt we de Discovery-fout tijdens het uitvoeren van volledige Import.
- * Wanneer de Delta-Import wordt uitgevoerd op de Lotus Domino-Connector aan het einde van die wordt uitgevoerd, de Microsoft.IdentityManagement.MA.LotusDomino.Service.exe service soms retourneert een toepassingsfout.
- * Groep lidmaatschap algehele werkt goed samen en wordt onderhouden, behalve wanneer de export proberen te verwijderen van een gebruiker van het lidmaatschap wordt uitgevoerd als succesvol kunnen werken met een update te zien, maar de gebruiker niet daadwerkelijk ophalen verwijderd uit lidmaatschap van Lotus Notes.
- * Een kans om de modus van uitvoer kiezen, zoals 'Append Item onderin' is toegevoegd in de configuratie GUI van Lotus MA nieuwe items onderin tijdens het exporteren voor kenmerken met meerdere waarden toevoegen.
- * Connector voegt de benodigde logica voor het bestand verwijderen uit de e-mailmap en ID-kluis.
+ * Wanneer Hallo Object zonder gegevens is geselecteerd op hello Lotus Domino-Connector met andere objecten ontvangt er de Detectiefout Hallo tijdens het uitvoeren van volledige Import.
+ * Wanneer de Delta-Import wordt uitgevoerd op hello Lotus Domino-Connector op Hallo einde van dat uitvoeren, Hallo Microsoft.IdentityManagement.MA.LotusDomino.Service.exe service soms een toepassing een fout retourneert.
+ * Groep lidmaatschap algehele werkt goed samen en wordt onderhouden, behalve wanneer een gebruiker wordt uitgevoerd Hallo export tootry tooremove lidmaatschap van een als succesvol kunnen werken met een update bevat, maar Hallo gebruiker niet daadwerkelijk ophalen verwijderd uit het lidmaatschap van Lotus Notes.
+ * Een kans toochoose modus van uitvoer als 'Append Item onderin' is toegevoegd in configuratie GUI Lotus MA tooappend nieuwe items onderin tijdens het Hallo exporteren voor kenmerken met meerdere waarden.
+ * Connector voegt Hallo nodig logica toodelete Hallo-bestand van Hallo e-mailmap en ID-kluis.
  * Verwijderen van lidmaatschap voor cross-NAB lid niet werkt.
  * Waarden moeten worden verwijderd uit een kenmerk met meerdere waarden
 
@@ -151,33 +151,33 @@ MA LDAP. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
 Uitgebracht: 2016 maart
 
 **Nieuwe verbindingslijn**  
-Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsync-connector-genericsql.md).
+Initiële release van Hallo [algemene SQL-Connector](active-directory-aadconnectsync-connector-genericsql.md).
 
 **Nieuwe functies:**
 
 * Algemene LDAP-Connector:
   * Ondersteuning toegevoegd voor de delta-import met Isode.
 * Web Services-Connector:
-  * Bijgewerkt in de csEntryChangeResult en setImportErrorCode activiteit om toe te staan fouten object terug naar de synchronisatie-engine wordt geretourneerd.
-  * De SAP6 en SAP6User sjablonen voor het gebruik van de nieuwe functionaliteit van de object-fout op niveau wordt bijgewerkt.
+  * Bijgewerkte Hallo csEntryChangeResult activiteit en setImportErrorCode activiteit tooallow object fouten toobe geretourneerde back toohello synchronisatie-engine.
+  * Bijgewerkte Hallo SAP6 en SAP6User sjablonen toouse Hallo nieuwe object foutniveau functionaliteit.
 * Lotus Domino-Connector:
-  * Voor het exporteren moet u één certifier per adresboek. U kunt nu voor alle certifiers hetzelfde wachtwoord gebruiken om het beheer te vereenvoudigen.
+  * Voor het exporteren moet u één certifier per adresboek. U kunt nu gebruik Hallo hetzelfde wachtwoord voor alle certifiers toomake Hallo beheer eenvoudiger.
 
 **Opgeloste problemen:**
 
 * Algemene LDAP-Connector:
   * Voor IBM Tivoli DS, sommige reference-kenmerken zijn niet correct is gedetecteerd.
-  * Voor Open LDAP tijdens een delta-import zijn spaties aan het begin en einde van tekenreeksen afgekapt.
-  * Voor Novell en NetIQ hernoemd exporteren van een die een object tussen de organisatie-eenheden/containers en tegelijkertijd verplaatst het object is mislukt.
+  * Voor Open LDAP tijdens een delta-import zijn spaties aan Hallo begin en einde van tekenreeksen afgekapt.
+  * Voor Novell en NetIQ exporteren van een die een object tussen de organisatie-eenheden/containers en op Hallo verplaatst dezelfde tijd hernoemde Hallo-object is mislukt.
 * Web Services-Connector:
-  * Als de web-service meerdere eindpunten voor dezelfde binding heeft, is klikt u vervolgens de Connector niet correct detecteren deze eindpunten.
+  * Als het Hallo-web-service heeft meerdere eindpunten voor dezelfde binding, is vervolgens hello Connector niet correct detecteren deze eindpunten.
 * Lotus Domino-Connector:
-  * Exporteren van een van de volledige naam-kenmerk met een database mail in werkt niet.
-  * Exporteren van een die zowel toegevoegd en verwijderd lid uit een groep alleen de toegevoegde leden geëxporteerd.
-  * Als een Notes-Document is ongeldig (het kenmerk isValid ingesteld op false), is mislukt voor de Connector.
+  * Exporteren van een van de Hallo fullName kenmerk tooa mail in database werkt niet.
+  * Exporteren van een waarvoor de toegevoegde en verwijderde uit een groep alleen geëxporteerd Hallo toegevoegd leden.
+  * Als een Notes-Document ongeldig is (Hallo kenmerk isValid ingesteld toofalse), vervolgens Hallo Connector mislukt.
 
 ## <a name="older-releases"></a>Oudere versies
-De Connectors zijn vóór maart 2016 uitgebracht als ondersteuning onderwerpen.
+Hallo-Connectors zijn vóór maart 2016 uitgebracht als ondersteuning onderwerpen.
 
 **Algemene LDAP**
 
@@ -205,6 +205,6 @@ De Connectors zijn vóór maart 2016 uitgebracht als ondersteuning onderwerpen.
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013-augustus
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over de [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md) configuratie.
+Meer informatie over Hallo [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md) configuratie.
 
 Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory ](active-directory-aadconnect.md).

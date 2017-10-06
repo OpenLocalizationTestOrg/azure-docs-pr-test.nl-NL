@@ -1,6 +1,6 @@
 ---
-title: API's met Azure API Management, Event Hubs en Runscope bewaken | Microsoft Docs
-description: Voorbeeld van een toepassing demonstreren van het logboek voor eventhub-beleid door het verbindende Azure API Management, Azure Event Hubs en Runscope voor HTTP-logboekregistratie en controle
+title: API's met Azure API Management, Event Hubs en Runscope aaaMonitor | Microsoft Docs
+description: Voorbeeld van een toepassing demonstreren Hallo logboek-eventhub-beleid door het maken van verbinding Azure API Management, Azure Event Hubs en Runscope voor HTTP-logboekregistratie en controle
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,39 +14,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7456a2436f3a2d7b815b70b65fca9481d39c5fe9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Uw API's met Azure API Management, Event Hubs en Runscope bewaken
-De [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden voor het verbeteren van de verwerking van HTTP-aanvragen verzonden naar uw HTTP-API. Het bestaan van de aanvragen en antwoorden zijn echter tijdelijke. De aanvraag wordt gedaan en wordt via de API Management-service naar uw back-end API gebruikt. De aanvraag wordt verwerkt door uw API en een antwoord doorloopt aan de verbruiker API. API Management-service houdt een aantal belangrijke statistieken over de API voor weergave in het dashboard van de uitgever-portal, maar ook buiten dat de gegevens verwijderd zijn.
+Hallo [API Management-service](api-management-key-concepts.md) biedt veel mogelijkheden tooenhance Hallo verwerking van HTTP-aanvragen dat is verzonden tooyour HTTP-API. Hallo echter bestaan Hallo aanvragen en antwoorden zijn tijdelijke. Hallo-aanvraag wordt gedaan en wordt gebruikt door Hallo API Management-service tooyour end-API. Hallo-aanvraag wordt verwerkt door uw API en een antwoord terug via toohello API consumer loopt. Hallo API Management-service houdt een aantal belangrijke statistische gegevens over Hallo API's voor weergave in Hallo Publisher portaldashboard, maar naast, details Hallo zijn verdwenen.
 
-Met behulp van de [logboek voor eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [beleid](api-management-howto-policies.md) in API Management-service verzendt u details van de aanvraag en de reactie op een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Er zijn diverse redenen waarom u mogelijk gebeurtenissen wilt van HTTP-berichten worden verzonden naar uw API's. Voorbeelden zijn audittrail van updates, gebruiksanalyse, uitzondering waarschuwingen en 3e integraties van derden.   
+Met behulp van Hallo [logboek voor eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [beleid](api-management-howto-policies.md) in Hallo API Management-service verzendt u details van de aanvraag en -antwoord tooan hello [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Er zijn diverse redenen waarom u kunt toogenerate gebeurtenissen van HTTP-berichten worden verzonden tooyour API's. Voorbeelden zijn audittrail van updates, gebruiksanalyse, uitzondering waarschuwingen en 3e integraties van derden.   
 
-In dit artikel laat zien hoe het gehele HTTP-aanvraag en -antwoord bericht vastleggen, verzenden naar een Event Hub en vervolgens relay-bericht naar een service waarmee HTTP-logboekregistratie en controle van de services van derden.
+In dit artikel laat zien hoe toocapture Hallo gehele HTTP-aanvraag en antwoord-bericht verzenden tooan Event Hub en vervolgens relay-bericht tooa van derden service waarmee HTTP-logboekregistratie en controle van services.
 
 ## <a name="why-send-from-api-management-service"></a>Waarom verzenden van API Management-Service?
-Het is mogelijk HTTP-middleware waarmee HTTP-API-frameworks vastleggen HTTP-aanvragen en antwoorden en ze in logboekregistratie en controle van systemen feed kunt aansluiten schrijven. Het nadeel hiervan is de HTTP-middleware moet worden geïntegreerd in de back-end API en moet overeenkomen met het platform van de API. Als er meerdere API's moet elk criterium de middleware implementeren. Er zijn vaak redenen waarom de back-end voor API's kan niet worden bijgewerkt.
+Het is mogelijk toowrite HTTP middleware waarmee kunt aansluiten op een HTTP-API frameworks toocapture HTTP-aanvragen en antwoorden en ze in logboekregistratie en controle van systemen feed. Hallo neerwaartse toothis aanpak is Hallo HTTP middleware moet toobe geïntegreerd in Hallo-end-API en platform Hallo Hallo API moet overeenkomen. Als er meerdere API's moet elk criterium Hallo middleware implementeren. Er zijn vaak redenen waarom de back-end voor API's kan niet worden bijgewerkt.
 
-De Azure API Management-service gebruikt om te integreren met infrastructuur voor logboekregistratie biedt een gecentraliseerd en platformonafhankelijk-oplossing. Het is ook schaalbare gedeeltelijk indienen bij de [geo-replicatie](api-management-howto-deploy-multi-region.md) mogelijkheden van Azure API Management.
+Met behulp van hello Azure API Management-service toointegrate met infrastructuur voor logboekregistratie biedt een gecentraliseerd en platformonafhankelijk-oplossing. Het is ook schaalbare gedeeltelijk vanwege toohello [geo-replicatie](api-management-howto-deploy-multi-region.md) mogelijkheden van Azure API Management.
 
-## <a name="why-send-to-an-azure-event-hub"></a>Waarom verzenden naar een Azure Event Hub?
-Het is een redelijk te vragen, waarom maakt u een beleid dat specifiek is voor Azure Event Hubs? Er zijn verschillende plaatsen waar mogelijk wil mijn aanvragen moeten worden geregistreerd. Alleen verzenden waarom niet de aanvragen rechtstreeks naar de uiteindelijke bestemming?  Dit is een optie. Wanneer u logboekregistratie van aanvragen van een API management-service, is het echter nodig zijn om te overwegen hoe berichtregistratie invloed op de prestaties van de API. Geleidelijke toename in belasting kunnen worden verwerkt door het verhogen van de beschikbare exemplaren van de onderdelen van het systeem of door gebruik te maken van geo-replicatie. Korte pieken in het verkeer kunnen echter leiden tot aanvragen als aanvragen voor de infrastructuur voor logboekregistratie van beginnen met het vertragen belast aanzienlijk vertraagd.
+## <a name="why-send-tooan-azure-event-hub"></a>Waarom Azure Event Hub tooan verzenden?
+Het is een redelijke tooask, waarom maakt u een beleid dat specifiek tooAzure Event Hubs? Er zijn verschillende plaatsen waar mogelijk wil toolog mijn aanvragen. Waarom niet gewoon verzenden Hallo-aanvragen rechtstreeks toohello eindbestemming?  Dit is een optie. Wanneer u logboekregistratie van aanvragen van een API management-service, is het echter noodzakelijk tooconsider hoe berichtregistratie heeft invloed op prestaties Hallo Hallo API. Geleidelijke toename in belasting kunnen worden verwerkt door het verhogen van de beschikbare exemplaren van de onderdelen van het systeem of door gebruik te maken van geo-replicatie. Korte pieken in het verkeer kunnen echter leiden tot aanvragen toobe aanzienlijk vertraagd als aanvragen toologging infrastructuur tooslow belast wordt gestart.
 
-De Azure Event Hubs is ontworpen voor grote hoeveelheden gegevens, inkomend met capaciteit voor het omgaan met een veel hoger aantal gebeurtenissen dan het aantal HTTP-verwerken voor de meeste API's aanvragen. De Event Hub fungeert als een soort geavanceerde buffer tussen uw API management-service en de infrastructuur die wordt opgeslagen en de berichten worden verwerkt. Dit zorgt ervoor dat de prestaties van uw API niet als gevolg van de infrastructuur voor logboekregistratie afnemen.  
+Hello Azure Event Hubs is ontworpen tooingress grote hoeveelheden gegevens, met capaciteit voor het omgaan met een veel hoger aantal gebeurtenissen dan Hallo aantal HTTP-aanvragen proces voor de meeste API's. Hallo Event Hub fungeert als een soort geavanceerde buffer tussen uw API management-service en Hallo infrastructuur die wordt opgeslagen en Hallo-berichten verwerken. Dit zorgt ervoor dat de prestaties van uw API niet vanwege toohello logboekregistratie infrastructuur afnemen.  
 
-Nadat de gegevens is doorgegeven naar een Event Hub, deze wordt bewaard en wordt gewacht op Event Hub consumenten verwerken. De Event Hub niets uit hoe deze worden verwerkt, het is net belangrijk ervoor te zorgen dat het bericht met succes worden geleverd.     
+Wanneer gegevens Hallo is verstreken tooan Event Hub worden bewaard en wordt gewacht op Event Hub consumenten tooprocess deze. Hallo Event Hub niets uit hoe deze worden verwerkt, het is net belangrijk ervoor te zorgen dat het Hallo-bericht met succes worden geleverd.     
 
-Event Hubs kunnen de stroom gebeurtenissen aan meerdere consumergroepen. Hiermee worden gebeurtenissen worden verwerkt door andere systemen. Hierdoor kunnen veel integratiescenario's ondersteunen zonder te plaatsen vertragingen bij het toevoegen van de verwerking van de API-aanvraag in de API Management-service als slechts één gebeurtenis moet worden gegenereerd.
+Event Hubs hebben Hallo mogelijkheid toostream gebeurtenissen toomultiple consumer-groepen. Hiermee worden gebeurtenissen toobe verwerkt door andere systemen. Hierdoor kunnen veel integratiescenario's ondersteunen toevoeging vertragingen zonder op te plaatsen Hallo verwerken van de API-aanvraag Hallo binnen Hallo API Management-service wanneer slechts één gebeurtenis toobe gegenereerd moet.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>Een beleid voor het verzenden van de toepassing/HTTP-berichten
-Een Event Hub accepteert gebeurtenisgegevens worden opgeslagen als een eenvoudige tekenreeks. De inhoud van de reeks zijn volledig bepaalt zelf. Om te kunnen verpakken in een HTTP-aanvraag en dit uit te verzenden naar Event Hubs moet de tekenreeks met de aanvraag of antwoord informatie. In dit soort situaties, als er een bestaande opmaak kan opnieuw worden gebruikt en we kunnen geen ons eigen bij het parseren van code schrijven. In eerste instantie als ik beschouwd met behulp van de [HAR](http://www.softwareishard.com/blog/har-12-spec/) voor het verzenden van HTTP-aanvragen en antwoorden. Deze indeling is echter wel geoptimaliseerd voor het opslaan van een reeks van HTTP-aanvragen in een JSON op basis van indeling. Het bevat een aantal verplichte elementen die onnodige complexiteit voor het scenario van het HTTP-bericht wordt doorgegeven via de kabel toegevoegd.  
+## <a name="a-policy-toosend-applicationhttp-messages"></a>Een beleid toosend toepassing/HTTP-berichten
+Een Event Hub accepteert gebeurtenisgegevens worden opgeslagen als een eenvoudige tekenreeks. Hallo-inhoud van de reeks zijn volledig tooyou. toobe kunnen toopackage-up maken van een HTTP-aanvraag en uit tooEvent Hubs tooformat Hallo tekenreeks met de aanvraag of antwoord informatie Hallo moet verzenden. In dit scenario, als er een bestaande opmaak die kan opnieuw worden gebruikt, vervolgens wordt mogelijk geen toowrite ons eigen bij het parseren van code. In eerste instantie als ik beschouwd met behulp van Hallo [HAR](http://www.softwareishard.com/blog/har-12-spec/) voor het verzenden van HTTP-aanvragen en antwoorden. Deze indeling is echter wel geoptimaliseerd voor het opslaan van een reeks van HTTP-aanvragen in een JSON op basis van indeling. Het bevat een aantal verplichte elementen die onnodige complexiteit voor Hallo scenario Hallo HTTP-bericht om door te geven via de kabel Hallo toegevoegd.  
 
-Een alternatief is om te gebruiken de `application/http` mediatype zoals beschreven in de HTTP-specificatie [RFC 7230](http://tools.ietf.org/html/rfc7230). Dit mediumtype exact dezelfde indeling die wordt gebruikt voor het daadwerkelijk HTTP-berichten verzenden via de kabel gebruikt, maar het volledige bericht kan worden geplaatst in de hoofdtekst van een andere HTTP-aanvraag. In ons geval gaan we net gebruiken de hoofdtekst als ons bericht te verzenden naar Event Hubs. Gemakkelijk, is er een parser dat voorkomt in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die u kunnen deze indeling parseren en te converteren naar het native `HttpRequestMessage` en `HttpResponseMessage` objecten.
+Een alternatief is toouse hello `application/http` mediatype zoals beschreven in Hallo HTTP-specificatie [RFC 7230](http://tools.ietf.org/html/rfc7230). Dit mediatype gebruikt Hallo exact dezelfde notatie is gebruikte tooactually verzenden HTTP-berichten via de kabel hello, maar de volledige Hallo-bericht in de Hallo hoofdtekst van een andere HTTP-aanvraag kan worden geplaatst. In ons geval gaan NET we toouse Hallo instantie als onze bericht toosend tooEvent Hubs. Gemakkelijk, is er een parser dat voorkomt in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) bibliotheken die kunnen parseren deze indeling en deze converteren naar Hallo systeemeigen `HttpRequestMessage` en `HttpResponseMessage` objecten.
 
-Om te kunnen maken van dit bericht moeten we om te profiteren van C# [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Hier wordt het beleid dat u een HTTP-bericht naar Azure Event Hubs verzendt.
+toobe kunnen toocreate dit bericht moeten we tootake profiteren van C# [beleidsexpressies](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Hier volgt Hallo-beleid waarmee een HTTP-aanvraag bericht tooAzure Event Hubs wordt verzonden.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -75,27 +75,27 @@ Om te kunnen maken van dit bericht moeten we om te profiteren van C# [beleidsexp
 ```
 
 ### <a name="policy-declaration"></a>De declaratie van het beleid
-Er enkele bepaalde zaken opgemerkt over dit beleidsexpressie. Het logboek voor eventhub-beleid heeft een kenmerk met de naam van logboek-id die verwijst naar de naam van het logboek dat is gemaakt in de API Management-service. De details van het instellen van een Event Hub-logboek in de API Management-service vindt u in het document [vastleggen van gebeurtenissen voor Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md). Het tweede kenmerk is een optionele parameter zodat Event Hubs die partitie voor het opslaan van het bericht in. Event Hubs partities gebruiken voor schaalbaarheid en ten minste twee nodig hebben. De levering van berichten is alleen binnen een partitie gegarandeerd. Als we niet het Event Hub in welke partitie opdragen doen te plaatsen van het bericht, die een round robin-algoritme wordt gebruikt voor de verdelen. Echter, die mogelijk enkele van onze berichten volgorde worden verwerkt.  
+Er enkele bepaalde zaken opgemerkt over dit beleidsexpressie. Hallo-logboek voor eventhub beleid heeft een kenmerk met de naam van logboek-id die verwijst toohello-naam van het logboek dat binnen Hallo API Management-service is gemaakt. meer informatie over hoe toosetup een Event Hub berichtenlogboek in Hallo API Management-service kan worden gevonden in Hallo document Hallo [hoe toolog gebeurtenissen tooAzure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md). Hallo tweede kenmerk is een optionele parameter zodat Event Hubs welke partitie toostore Hallo-bericht in. Event Hubs partities tooenable schaalbaarheid gebruiken en een minimum van twee vereisen. Hallo besteld aflevering van berichten is alleen binnen een partitie gegarandeerd. Als we Event Hub niet in welke partitie tooplace Hallo-bericht opdragen doen, wordt een round robin algoritme toodistribute Hallo belasting gebruikt. Echter, die mogelijk enkele van onze berichten toobe volgorde worden verwerkt.  
 
 ### <a name="partitions"></a>Partities
-Ik heb gekozen onze berichten naar gebruikers in volgorde worden geleverd en te profiteren van de load-distributie-functionaliteit van partities te garanderen, HTTP-aanvraagberichten verzenden naar één partitie en HTTP-antwoordberichten naar een tweede partitie. Dit zorgt ervoor dat een gelijkmatige verdeling en wij kunnen garanderen dat alle aanvragen worden gebruikt in volgorde en alle antwoorden in volgorde worden gebruikt. Is het mogelijk een reactie op voordat de bijbehorende aanvraag worden verbruikt, maar omdat die niet is een probleem zoals we hebben een ander mechanisme voor het correleren van aanvragen te antwoorden en we weten dat aanvragen altijd voordat antwoorden afkomstig zijn.
+tooensure onze berichten worden tooconsumers op volgorde geleverd en te profiteren van Hallo load distributie mogelijkheid van partities, ik heb gekozen toosend HTTP-aanvraag berichten tooone en HTTP-antwoord berichten tooa tweede partitie. Dit zorgt ervoor dat een gelijkmatige verdeling en wij kunnen garanderen dat alle aanvragen worden gebruikt in volgorde en alle antwoorden in volgorde worden gebruikt. Het is mogelijk een antwoord toobe geconsumeerd voor het bijbehorende Hallo-aanvraag, maar omdat die niet is een probleem zoals we hebben een ander mechanisme voor het correleren tooresponses vraagt en we weten dat aanvragen altijd voordat antwoorden afkomstig zijn.
 
 ### <a name="http-payloads"></a>HTTP-nettoladingen
-Na het gebouw de `requestLine` gecontroleerd om te zien als de hoofdtekst van de aanvraag moet worden afgekapt. De aanvraagtekst is afgekapt tot enige 1024. Dit kan worden verhoogd, maar afzonderlijke Event Hub berichten beperkt tot 256KB zijn, dus is het waarschijnlijk dat bepaalde HTTP-bericht wordt niet in een enkel bericht passen instanties. Bij het uitvoeren van logboekregistratie en analyse kan een aanzienlijke hoeveelheid gegevens worden afgeleid van alleen de regel voor HTTP-aanvraag en -koppen. Ook veel API-aanvragen alleen kleine instanties retourneren en dus het verlies van informatie waarde door af te kappen grote instanties vrij minimale in vergelijking met de beperking van overdracht, verwerking en kosten voor opslag te houden van alle inhoud. Een afsluitende opmerking over het verwerken van de hoofdtekst is dat we moet doorgeven `true` naar de As<string>()-methode omdat we bij het lezen van de inhoud van de instantie, maar is ook wilt dat de back-end API om te kunnen worden gelezen van de hoofdtekst. Door door te geven waar deze methode we ervoor zorgen dat de hoofdtekst van de buffer worden opgeslagen zodat deze een tweede keer kan worden gelezen. Dit is belangrijk te weten als er een API die geen zeer grote bestanden worden geüpload of lange polling gebruikt. In deze gevallen zou worden aanbevolen om te voorkomen dat de hoofdtekst helemaal lezen.   
+Na het bouwen van Hallo `requestLine` we toosee controleren als aanvraagtekst Hallo moet worden afgekapt. Hallo aanvraagtekst is afgekapt tooonly 1024. Dit kan worden verhoogd, afzonderlijke Event Hub berichten zijn echter beperkt too256KB, dus is het waarschijnlijk dat bepaalde HTTP-bericht wordt niet in een enkel bericht passen instanties. Bij het uitvoeren van logboekregistratie en analyse een aanzienlijke hoeveelheid gegevens kunnen worden afgeleid van NET Hallo HTTP-aanvraagregel en -koppen. Ook veel API-aanvragen alleen kleine instanties retourneren en dus Hallo verlies van informatie waarde door af te kappen grote organisaties is vrij minimale vergelijking toohello vermindering van overdracht, verwerking en opslag van kosten tookeep alle inhoud. Een definitieve opmerking over het verwerken van Hallo-instantie is moeten we toopass `true` toohello als<string>()-methode omdat we bij het lezen van de inhoud van hello, maar is ook wilt Hallo-end-API toobe kunnen tooread Hallo hoofdtekst. Door door te geven waar toothis methode hebben we Hallo hoofdtekst toobe gebufferd zodat deze een tweede keer kan worden gelezen. Dit is belangrijk toobe op de hoogte van hebt u een API die geen zeer grote bestanden worden geüpload of lange polling gebruikt. In deze gevallen zou worden aanbevolen tooavoid Hallo hoofdtekst helemaal lezen.   
 
 ### <a name="http-headers"></a>HTTP-headers
-HTTP-Headers kunnen eenvoudig worden overgedragen via in de berichtindeling in een eenvoudige sleutel/waarde-paar-indeling. We hebben ervoor gekozen het verwijderen van bepaalde beveiliging gevoelige velden, om te voorkomen dat onnodig lekken referentie-informatie. Het lijkt onwaarschijnlijk dat API-sleutels en andere referenties zou worden gebruikt voor andere doeleinden analytics. Als we willen analyse van de gebruiker en het product ze gebruiken en we kan ophalen die van de `context` object en voeg die toe aan het bericht.     
+HTTP-Headers kunnen eenvoudig worden overgedragen via in Hallo berichtindeling in een eenvoudige sleutel/waarde-paar-indeling. We hebben ervoor gekozen toostrip uit bepaalde beveiligings-tijdgevoelige velden, tooavoid onnodig lekken referentie-informatie. Het lijkt onwaarschijnlijk dat API-sleutels en andere referenties zou worden gebruikt voor andere doeleinden analytics. Als we toodo analyse op Hallo gebruiker en Hallo bepaald product wilt ze gebruiken en we die kan verkrijgen van Hallo `context` object en toohello bericht toe te voegen.     
 
 ### <a name="message-metadata"></a>De metagegevens van het bericht
-Wanneer u het volledige bericht te verzenden naar de event hub, de eerste regel is niet daadwerkelijk deel uit van de `application/http` bericht. De eerste regel zijn aanvullende metagegevens die bestaan uit of het bericht is een aanvraag of antwoordbericht en een bericht-id die wordt gebruikt voor aanvragen voor reacties correleren. De bericht-id is gemaakt met behulp van een ander beleid dat op dit lijkt:
+Wanneer u Hallo volledige bericht toosend toohello event hub, Hallo eerste regel is niet deel uit van Hallo `application/http` bericht. de eerste regel Hallo is aanvullende metagegevens die bestaan uit of het Hallo-bericht een aanvraag of antwoord-bericht is en een bericht-id die gebruikt toocorrelate is tooresponses aanvragen. Hallo-bericht-id is gemaakt met behulp van een ander beleid dat op dit lijkt:
 
 ```xml
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Er kan het aanvraagbericht gemaakt, die in een variabele opgeslagen totdat het antwoord is geretourneerd en gewoon verzend de aanvraag en -antwoord als één bericht. Echter, krijgen we verzenden onafhankelijk van de aanvraag en -antwoord en een bericht-id correlaties zichtbaar maken tussen de twee, iets meer flexibiliteit in de berichtgrootte, de mogelijkheid om te profiteren van meerdere partities terwijl het onderhouden van de volgorde van berichten en het verzoek wordt weergegeven in onze logboekregistratie dashboard sneller. Ook kan er een aantal scenario's waarbij een geldig antwoord wordt nooit verzonden naar de event hub, mogelijk vanwege een onherstelbare aanvraag-fout in de API Management-service, maar er wordt nog een record van de aanvraag.
+Er kan Hallo-aanvraagbericht dat in een variabele tot Hallo antwoord is geretourneerd en vervolgens gewoon Hallo-aanvraag en -antwoord als een enkel bericht verzonden opgeslagen gemaakt. Hallo echter door Hallo-aanvraag en -antwoord onafhankelijk verzenden en het gebruik van een bericht-id toocorrelate twee, er iets meer flexibiliteit bij het Hallo-berichtgrootte, Hallo mogelijkheid tootake profiteren van meerdere partities ophalen terwijl de volgorde van berichten en Hallo behouden blijven aanvraag wordt weergegeven in het dashboard van onze logboekregistratie sneller. Ook kan er een aantal scenario's waarbij toohello event hub, mogelijk vanwege tooa aanvraag fatale fout in Hallo API Management-service, nooit door een geldig antwoord wordt verzonden, maar we kunnen je wordt nog een record van Hallo-aanvraag.
 
-Het beleid voor het verzenden van het HTTP-antwoordbericht lijkt erg op de aanvraag en dus de volledige beleidsconfiguratie ziet er ongeveer als volgt:
+Hallo beleid toosend Hallo antwoord HTTP-bericht vergelijkbaar toohello aanvraag eruitziet en dus Hallo voltooien beleidsconfiguratie uitziet:
 
 ```xml
 <policies>
@@ -155,16 +155,16 @@ Het beleid voor het verzenden van het HTTP-antwoordbericht lijkt erg op de aanvr
 </policies>
 ```
 
-De `set-variable` beleid maakt een waarde die toegankelijk is voor zowel de `log-to-eventhub` beleid in de `<inbound>` sectie en de `<outbound>` sectie.  
+Hallo `set-variable` beleid maakt een waarde die toegankelijk is voor beide Hallo `log-to-eventhub` beleid in Hallo `<inbound>` sectie en Hallo `<outbound>` sectie.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Ontvangen van gebeurtenissen van Event Hubs
-Gebeurtenissen van Azure Event Hub worden ontvangen met behulp van de [AMQP-protocol](http://www.amqp.org/). Het Microsoft Service Bus-team aangebracht client bibliotheken beschikbaar om de verbruikende gebeurtenissen te vereenvoudigen. Er zijn twee verschillende benaderingen ondersteund, een wordt een *directe Consumer* en de andere maakt gebruik van de `EventProcessorHost` klasse. Voorbeelden van deze twee methoden kunnen u vinden in de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md). Er is de beknopte versie van de verschillen, `Direct Consumer` hebt u volledige controle en de `EventProcessorHost` biedt u enkele van de Loodgieterswerk voor u maar kunt u bepaalde veronderstellingen over hoe u deze gebeurtenissen worden verwerkt.  
+Gebeurtenissen van Azure Event Hub worden ontvangen met Hallo [AMQP-protocol](http://www.amqp.org/). Hallo Microsoft Service Bus-team aangebracht client bibliotheken beschikbaar toomake Hallo gebeurtenissen gemakkelijker verbruikt. Er zijn twee verschillende benaderingen ondersteund, een wordt een *directe Consumer* , en andere Hallo Hallo `EventProcessorHost` klasse. Voorbeelden van deze twee methoden kunnen u vinden in Hallo [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md). Hallo verkorte versie van Hallo verschillen is, `Direct Consumer` , hebt u volledige controle en Hallo `EventProcessorHost` biedt een aantal Loodgieterswerk Hallo voor u maar kunt u bepaalde veronderstellingen over hoe u deze gebeurtenissen worden verwerkt.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-In dit voorbeeld gebruiken we de `EventProcessorHost` voor eenvoud, maar het kan niet de beste keuze voor dit scenario. `EventProcessorHost`de vaste werkt waarbij wordt gecontroleerd of er problemen binnen een bepaalde gebeurtenis Processorklasse threading bang geen. In ons scenario zijn we echter gewoon het bericht converteren naar een andere indeling en deze samen met een andere service door middel van een async-methode wordt doorgegeven. Er is niet nodig voor het bijwerken van de gedeelde status en daarom geen risico bestaat dat threading problemen. Voor de meeste scenario `EventProcessorHost` is waarschijnlijk de beste keuze en het is gewoon de gemakkelijker optie.     
+In dit voorbeeld gebruiken we Hallo `EventProcessorHost` voor eenvoud, maar deze kan niet Hallo beste keuze voor dit scenario. `EventProcessorHost`Hallo harde werk waarbij wordt gecontroleerd of er geen tooworry over threading problemen binnen een bepaalde gebeurtenis processor-klasse. In ons scenario zijn er echter gewoon Hallo tooanother berichtindeling converteren en doorgeeft langs tooanother service met behulp van een async-methode. Er is niet nodig voor het bijwerken van de gedeelde status en daarom geen risico bestaat dat threading problemen. Voor de meeste scenario `EventProcessorHost` is waarschijnlijk de beste keuze Hallo en het is gewoon eenvoudiger Hallo-optie.     
 
 ### <a name="ieventprocessor"></a>IEventProcessor
-Het centrale concept bij gebruik van `EventProcessorHost` is het maken van een implementatie van de `IEventProcessor` interface de methode bevat `ProcessEventAsync`. De essentie van deze methode wordt hier weergegeven:
+Hallo centrale concept bij gebruik van `EventProcessorHost` toocreate is een een implementatie van Hallo `IEventProcessor` interface waarin Hallo methode `ProcessEventAsync`. Hallo essentie van deze methode wordt hier weergegeven:
 
 ```c#
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -188,10 +188,10 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 }
 ```
 
-Een lijst met EventData objecten worden doorgegeven aan de methode en we doorlopen die lijst. Het aantal bytes van elke methode worden geparseerd naar een object HttpMessage en dat object wordt doorgegeven aan een exemplaar van IHttpMessageProcessor.
+Een lijst met EventData objecten worden doorgegeven aan de methode Hallo en we doorlopen die lijst. Hallo bytes van elke methode worden geparseerd naar een object HttpMessage en dat object tooan exemplaar van IHttpMessageProcessor wordt doorgegeven.
 
 ### <a name="httpmessage"></a>HttpMessage
-De `HttpMessage` -exemplaar bevat drie soorten gegevens:
+Hallo `HttpMessage` -exemplaar bevat drie soorten gegevens:
 
 ```c#
 public class HttpMessage
@@ -206,15 +206,15 @@ public class HttpMessage
 }
 ```
 
-De `HttpMessage` -exemplaar bevat een `MessageId` GUID die kan worden uitgevoerd op de verbinding met de HTTP-aanvragen in het bijbehorende HTTP-antwoord en een Boolean die aangeeft of het object een exemplaar van een HttpRequestMessage en HttpResponseMessage bevat. Met behulp van de ingebouwde in HTTP-klassen uit `System.Net.Http`, kon ik om te profiteren van de `application/http` bij het parseren van code die is opgenomen in `System.Net.Http.Formatting`.  
+Hallo `HttpMessage` -exemplaar bevat een `MessageId` GUID waarmee we tooconnect Hallo HTTP-aanvraag toohello bijbehorende HTTP-antwoord en een Booleaanse waarde die aangeeft of het Hallo-object bevat een exemplaar van een HttpRequestMessage en HttpResponseMessage. Met behulp van de ingebouwde HTTP-klassen uit Hallo `System.Net.Http`, ik tootake kunnen profiteren van Hallo is `application/http` bij het parseren van code die is opgenomen in `System.Net.Http.Formatting`.  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-De `HttpMessage` exemplaar wordt vervolgens doorgestuurd naar de implementatie van `IHttpMessageProcessor` die ik gemaakt voor het loskoppelen van de ontvangen en de interpretatie van de gebeurtenis van Azure Event Hub en de daadwerkelijke verwerking van deze interface is.
+Hallo `HttpMessage` exemplaar wordt vervolgens doorgestuurd tooimplementation van `IHttpMessageProcessor` die ik heb gemaakt toodecouple Hallo ontvangen en interpretatie van Hallo-gebeurtenis uit Azure Event Hub en Hallo daadwerkelijke verwerking van deze interface is.
 
-## <a name="forwarding-the-http-message"></a>Het HTTP-bericht doorsturen
-Voor dit voorbeeld ik besloten deze zou van belang zijn voor de HTTP-aanvraag via push naar [Runscope](http://www.runscope.com). Runscope is een service in de cloud die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en controle. Ze hebben een gratis laag, zodat het gemakkelijk om te proberen en kunt u ons om te zien van de HTTP-aanvragen in realtime stromend door onze API Management-service.
+## <a name="forwarding-hello-http-message"></a>Doorsturen Hallo HTTP-bericht
+Voor dit voorbeeld ik besloten zou zijn interessante toopush Hallo HTTP-aanvraag via te[Runscope](http://www.runscope.com). Runscope is een service in de cloud die is gespecialiseerd in HTTP-foutopsporing, logboekregistratie en controle. Ze hebben een gratis laag, dus is het eenvoudig tootry en kunt u ons toosee Hallo HTTP-aanvragen in realtime stromend door onze API Management-service.
 
-De `IHttpMessageProcessor` implementatie uitziet,
+Hallo `IHttpMessageProcessor` implementatie uitziet,
 
 ```c#
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
@@ -254,24 +254,24 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
        messagesLink.BucketKey = _BucketKey;
        messagesLink.RunscopeMessage = runscopeMessage;
        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
+       _Logger.LogDebug("Request sent tooRunscope");
    }
 }
 ```
 
-Ik heb om te profiteren van een [bestaande-clientbibliotheek voor Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) waarmee u gemakkelijk te pushen `HttpRequestMessage` en `HttpResponseMessage` up bij hun service-exemplaren. Om te kunnen krijgen tot de API Runscope moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden in de [toepassingen maken voor toegang tot Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
+Ik was tootake kunnen profiteren van een [bestaande-clientbibliotheek voor Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) kunt dan eenvoudig toopush `HttpRequestMessage` en `HttpResponseMessage` up bij hun service-exemplaren. In volgorde Hallo tooaccess Runscope API moet u een account en een API-sleutel. Instructies voor het ophalen van een API-sleutel kunnen worden gevonden in Hallo [toepassingen maken tooAccess Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
 
 ## <a name="complete-sample"></a>Compleet codevoorbeeld
-De [broncode](https://github.com/darrelmiller/ApimEventProcessor) en tests voor het voorbeeld op GitHub. U moet een [API Management-Service](api-management-get-started.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) om uit te voeren van het voorbeeld voor uzelf.   
+Hallo [broncode](https://github.com/darrelmiller/ApimEventProcessor) en tests voor Hallo voorbeeld op GitHub. U moet een [API Management-Service](api-management-get-started.md), [een verbonden Event Hub](api-management-howto-log-event-hubs.md), en een [Opslagaccount](../storage/common/storage-create-storage-account.md) toorun Hallo voorbeeld voor uzelf.   
 
-Het voorbeeld is alleen een eenvoudige consoletoepassing die luistert naar gebeurtenissen die afkomstig zijn van de Event Hub, converteert u deze in een `HttpRequestMessage` en `HttpResponseMessage` objecten en stuurt deze door u aan bij de Runscope-API.
+Hallo voorbeeld is alleen een eenvoudige consoletoepassing die luistert naar gebeurtenissen die afkomstig zijn van de Event Hub, converteert u deze in een `HttpRequestMessage` en `HttpResponseMessage` objecten en stuurt ze door op toohello Runscope API.
 
-In de volgende animatie afbeelding ziet u een aanvraag wordt aan een API in de Portal voor ontwikkelaars de consoletoepassing met het bericht wordt ontvangen, verwerkt en doorgestuurd en vervolgens de aanvraag en antwoord weergegeven in de inspector Runscope verkeer.
+In Hallo animatie te volgen, ziet u een aanvraag wordt tooan API in Hallo Portal voor ontwikkelaars Hallo Console toepassing waarin Hallo-bericht wordt ontvangen, verwerkt en doorgestuurd en vervolgens Hallo aanvraag en -antwoord weergegeven in de Hallo Runscope verkeer Inspector.
 
-![Demonstratie van de aanvraag doorgestuurd naar Runscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![Demonstratie van de aanvraag doorgestuurd tooRunscope](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Samenvatting
-Azure API Management-service biedt een ideaal plaats voor het vastleggen van de HTTP-verkeer op reis naar en van uw API's. Azure Event Hubs is een zeer schaalbaar, voordelige oplossing voor het vastleggen van dat verkeer en die deze naar secundaire verwerkingssystemen voor logboekregistratie, bewaken en andere geavanceerde analyses. Verbinding maken met 3e partij verkeer bewaken Runscope is een eenvoudige als een paar dozijn regels code.
+Azure API Management-service biedt een ideaal plaats toocapture Hallo HTTP-verkeer op reis tooand van uw API's. Azure Event Hubs is een zeer schaalbaar, voordelige oplossing voor het vastleggen van dat verkeer en die deze naar secundaire verwerkingssystemen voor logboekregistratie, bewaken en andere geavanceerde analyses. Verbinding maken met too3rd partij verkeer bewaken Runscope is een eenvoudige als een paar dozijn regels code.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over Azure Event Hubs
@@ -279,6 +279,6 @@ Azure API Management-service biedt een ideaal plaats voor het vastleggen van de 
   * [Berichten ontvangen met EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Programmeerhandleiding voor Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Meer informatie over de integratie van API Management en Event Hubs
-  * [Het registreren van gebeurtenissen voor Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
+  * [Hoe toolog gebeurtenissen tooAzure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
   * [Entiteitsverwijzing berichtenlogboek](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [documentatie voor logboek-eventhub-beleid](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

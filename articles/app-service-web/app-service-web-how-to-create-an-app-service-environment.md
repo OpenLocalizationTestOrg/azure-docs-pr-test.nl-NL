@@ -1,5 +1,5 @@
 ---
-title: Het maken van een App Service omgeving v1
+title: aaaHow tooCreate een App Service-omgeving v1
 description: Beschrijving van de stroom maken voor een app service-omgeving v1
 services: app-service
 documentationcenter: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 400bcc08650f8a13911c05c8d0d04ddc22327dfd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 95feb33854eee5bac02fa68b066e2fc10eb3fede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-an-app-service-environment-v1"></a>Het maken van een App Service omgeving v1 
+# <a name="how-toocreate-an-app-service-environment-v1"></a>Hoe tooCreate een App Service-omgeving v1 
 
 > [!NOTE]
-> In dit artikel gaat over de v1 App Service-omgeving. Er is een nieuwere versie van de App Service-omgeving die eenvoudiger te gebruiken en wordt uitgevoerd op krachtiger infrastructuur. Voor meer informatie over de nieuwe versie begin met het [Inleiding tot de App-serviceomgeving](../app-service/app-service-environment/intro.md).
+> In dit artikel gaat over het Hallo v1 App Service-omgeving. Er is een nieuwere versie van App Service-omgeving die eenvoudiger toouse en wordt uitgevoerd op krachtiger infrastructuur Hallo. meer informatie over de nieuwe versie Hallo met Hallo beginnen toolearn [inleiding toohello App Service-omgeving](../app-service/app-service-environment/intro.md).
 > 
 
 ### <a name="overview"></a>Overzicht
-De as-omgeving (App Service omgeving) is de optie voor een Premium-service van Azure App Service, die zorgt voor een verbeterde functie die is niet beschikbaar in de multitenant stempels. De functie as-omgeving wordt in wezen de Azure App Service geïmplementeerd in virtueel netwerk van een klant. Een beter inzicht in de mogelijkheden die worden aangeboden door App Service-omgevingen lezen krijgen de [wat is er een App-serviceomgeving] [ WhatisASE] documentatie.
+Hallo as-omgeving (App Service omgeving) is de optie voor een Premium-service van Azure App Service, die zorgt voor een verbeterde functie die is niet beschikbaar in Hallo multitenant stempels. Hallo as-omgeving functie implementeert in wezen hello Azure App Service in virtueel netwerk van een klant. toogain een beter inzicht in Hallo mogelijkheden die worden aangeboden door App Service-omgevingen lezen Hallo [wat is er een App-serviceomgeving] [ WhatisASE] documentatie.
 
 ### <a name="before-you-create-your-ase"></a>Voordat u uw as-omgeving maken
-Het is belangrijk te weten van de dingen die u niet wijzigen. Deze aspecten die u over uw as-omgeving niet wijzigen nadat deze is gemaakt, zijn:
+Het is belangrijk toobe op de hoogte van Hallo dingen die u niet wijzigen. Deze aspecten die u over uw as-omgeving niet wijzigen nadat deze is gemaakt, zijn:
 
 * Locatie
 * Abonnement
@@ -39,24 +39,24 @@ Het is belangrijk te weten van de dingen die u niet wijzigen. Deze aspecten die 
 * Subnet dat wordt gebruikt 
 * De subnetgrootte van het
 
-Wanneer het verzamelen van een VNet en het opgeven van een subnet, Controleer of is het groot genoeg voor een eventuele toekomstige groei. 
+Wanneer een VNet verzamelen en een subnet, op te geven kunt controleren of deze is groot genoeg tooaccomodate een eventuele toekomstige groei. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Maken van een App Service-omgeving v1
-Maken van een App Service-omgeving v1 die u wilt zoeken van de Azure Marketplace voor ***App Service-omgeving v1***, of door te gaan via nieuw -> Web en mobiel -> App Service-omgeving. Een ASEv1 maken:
+toocreate een App Service-omgeving v1 moet u toosearch hello Azure Marketplace voor ***App Service-omgeving v1***, of door te gaan via nieuw -> Web en mobiel -> App Service-omgeving. een ASEv1 toocreate:
 
-1. Geef de naam van uw as-omgeving. De naam die is opgegeven voor de as-omgeving wordt gebruikt voor de apps die zijn gemaakt in de as-omgeving. Naam van het subdomein zou zijn als de naam van de as-omgeving appsvcenvdemo. *appsvcenvdemo.p.azurewebsites.net*. Als u een app met de naam dus gemaakt *mytestapp* en vervolgens het normaal zou op adresseerbare zijn *mytestapp.appsvcenvdemo.p.azurewebsites.net*. U kunt witruimte niet gebruiken in de naam van uw as-omgeving. Als u hoofdletters in de naam gebruikt, worden de domeinnaam de totale kleine versie met die naam. Als u een ILB gebruikt vervolgens de naam van uw as-omgeving wordt niet gebruikt in een subdomein maar in plaats daarvan expliciet is opgegeven tijdens het maken van de as-omgeving
+1. Geef de naam op Hallo van uw as-omgeving. Hallo-naam die is opgegeven voor Hallo as-omgeving wordt gebruikt voor het Hallo-apps die zijn gemaakt in Hallo as-omgeving. Hallo subdomeinnaam zou zijn als de naam van de as-omgeving Hallo appsvcenvdemo. *appsvcenvdemo.p.azurewebsites.net*. Als u een app met de naam dus gemaakt *mytestapp* en vervolgens het normaal zou op adresseerbare zijn *mytestapp.appsvcenvdemo.p.azurewebsites.net*. U kunt witruimte niet gebruiken in Hallo-naam van uw as-omgeving. Als u hoofdletters in de naam van de Hallo gebruikt, worden de domeinnaam Hallo Hallo totale kleine versie met die naam. Als u een ILB gebruikt vervolgens de naam van uw as-omgeving wordt niet gebruikt in een subdomein maar in plaats daarvan expliciet is opgegeven tijdens het maken van de as-omgeving
    
     ![][1]
-2. Selecteer uw abonnement. Het abonnement dat u gebruikt voor uw as-omgeving is ook een die alle apps in die as-omgeving met worden gemaakt. U kunt uw as-omgeving in een VNet dat in een ander abonnement plaatsen
-3. Selecteer of geef een nieuwe resourcegroep. De resourcegroep die wordt gebruikt voor uw as-omgeving moet dezelfde dat wordt gebruikt voor uw VNet. Als u een bestaande VNet selecteert wordt vervolgens de selectie van de resourcegroep voor uw as-omgeving bijgewerkt naar aanleiding van uw VNet.
+2. Selecteer uw abonnement. Hallo abonnement dat u gebruikt voor uw as-omgeving is ook Hallo een die alle apps in die as-omgeving met worden gemaakt. U kunt uw as-omgeving in een VNet dat in een ander abonnement plaatsen
+3. Selecteer of geef een nieuwe resourcegroep. Hallo resourcegroep gebruikt voor uw as-omgeving moet dezelfde dat wordt gebruikt voor uw VNet Hallo. Als u een bestaande VNet selecteert en Hallo resourcegroep selecteren voor uw as-omgeving bijgewerkte tooreflect worden die uw VNet.
    
     ![][2]
-4. Controleer uw selecties virtueel netwerk en de locatie. U kunt een nieuw VNet maken of selecteren van een bestaande VNet. Als u een nieuw VNet daarna kunt u een naam en locatie opgeven. De nieuwe VNet heeft de adres-bereik 192.168.250.0/23 en een subnet met de naam **standaard** die is gedefinieerd als 192.168.250.0/24. U kunt ook gewoon een reeds bestaande klassiek of Resource Manager VNet selecteren. De selectie van het VIP bepaalt of de as-omgeving rechtstreeks toegankelijk zijn vanaf internet (extern) of als een interne Load Balancer (ILB) wordt gebruikt. Voor meer informatie over deze lezen [met behulp van een interne Load Balancer met een App-serviceomgeving][ILBASE]. Als u een VIP-type van extern selecteert kunt u het aantal externe IP-adressen het systeem is gemaakt met voor IPSSL doeleinden selecteren. Als u interne selecteren moet u opgeven van het subdomein die door uw as-omgeving wordt gebruikt. ASEs kan worden geïmplementeerd in virtuele netwerken die gebruikmaken van *beide* openbare-adresbereiken, *of* RFC1918 adresruimten (dat wil zeggen particuliere adressen). U moet het VNet tevoren maken om een virtueel netwerk gebruiken met een openbare-adresbereik. Wanneer u een bestaande VNet selecteren moet u een nieuw subnet maken tijdens het maken van de as-omgeving. **U kunt een vooraf gemaakte subnet niet gebruiken in de portal. Als u uw as-omgeving met een resource manager-sjabloon maakt, kunt u een as-omgeving met een bestaande subnet.** Een as-omgeving maken van een sjabloon gebruiken de informatie hier [maken van een App-serviceomgeving uit sjabloon] [ ILBAseTemplate] en hier [een ILB-App Service-omgeving te maken van sjabloon][ASEfromTemplate].
+4. Controleer uw selecties virtueel netwerk en de locatie. U kunt kiezen toocreate een nieuw VNet of Selecteer een bestaande VNet. Als u een nieuw VNet daarna kunt u een naam en locatie opgeven. Hallo nieuwe VNet hebben Hallo adresbereik 192.168.250.0/23 en een subnet met de naam **standaard** die is gedefinieerd als 192.168.250.0/24. U kunt ook gewoon een reeds bestaande klassiek of Resource Manager VNet selecteren. Hallo VIP selectie bepaalt als uw as-omgeving rechtstreeks toegankelijk zijn vanuit Hallo internet (extern) of als er een interne Load Balancer (ILB) gebruikt. meer informatie hierover lezen toolearn [met behulp van een interne Load Balancer met een App-serviceomgeving][ILBASE]. Als u een VIP-type van externe selecteert kunt vervolgens u hoeveel extern IP-adressen Hallo-systeem is gemaakt met voor IPSSL doeleinden. Als u interne selecteren moet u toospecify Hallo subdomein die door uw as-omgeving wordt gebruikt. ASEs kan worden geïmplementeerd in virtuele netwerken die gebruikmaken van *beide* openbare-adresbereiken, *of* RFC1918 adresruimten (dat wil zeggen particuliere adressen). In de volgorde toouse een virtueel netwerk met een openbare-adresbereik moet u toocreate hello VNet tevoren. Wanneer u een bestaande VNet selecteert moet u een nieuw subnet toocreate tijdens het maken van de as-omgeving. **U kunt een vooraf gemaakte subnet niet gebruiken in Hallo-portal. Als u uw as-omgeving met een resource manager-sjabloon maakt, kunt u een as-omgeving met een bestaande subnet.** toocreate een as-omgeving van een sjabloon Hallo informatie hier gebruiken [maken van een App-serviceomgeving uit sjabloon] [ ILBAseTemplate] en hier [een ILB-App Service-omgeving te maken van sjabloon] [ASEfromTemplate].
 
 ### <a name="details"></a>Details
-Een as-omgeving wordt gemaakt met 2-Front-Ends en twee 2 werkers beschikken. De Front-Ends fungeren als de HTTP/HTTPS-eindpunten en verkeer worden verzonden naar de werknemers die zijn de functies die voor het hosten van uw apps. U kunt het aantal na het maken van de as-omgeving aanpassen en zelfs instellen regels voor automatisch schalen op deze resourcegroepen. Ga voor meer informatie over het handmatig schalen beheren en controleren van een App Service-omgeving naar: [een App-serviceomgeving configureren][ASEConfig] 
+Een as-omgeving wordt gemaakt met 2-Front-Ends en twee 2 werkers beschikken. Hallo-Front-Ends fungeren als Hallo HTTP/HTTPS-eindpunten en verkeer verzenden toohello werknemers die Hallo-functies die als host fungeren van uw apps. U kunt Hallo hoeveelheid na het maken van de as-omgeving aanpassen en zelfs instellen regels voor automatisch schalen op deze resourcegroepen. Ga voor meer informatie over het handmatig schalen beheren en controleren van een App Service-omgeving naar: [hoe tooconfigure een App-serviceomgeving][ASEConfig] 
 
-Alleen de één as-omgeving kan bestaan in het subnet dat wordt gebruikt door de as-omgeving. Het subnet kan niet worden gebruikt voor iets anders dan de as-omgeving
+Alleen Hallo een as-omgeving kan bestaan in Hallo subnet dat wordt gebruikt door Hallo as-omgeving. Hallo-subnet kan niet worden gebruikt voor iets anders dan Hallo as-omgeving
 
 ### <a name="after-app-service-environment-v1-creation"></a>Na het maken van App Service-omgeving v1
 U kunt na het maken van de as-omgeving aanpassen:
@@ -64,20 +64,20 @@ U kunt na het maken van de as-omgeving aanpassen:
 * Aantal van de Front-Ends (minimum: 2)
 * Aantal werknemers (minimum: 2)
 * Het aantal IP-adressen beschikbaar voor IP-SSL
-* COMPUTE resource grootten gebruikt door de Front-Ends of werknemers (front-end minimumgrootte is P2)
+* COMPUTE resource tekengrootten in Hallo-Front-Ends of werknemers (front-end minimumgrootte is P2)
 
-Er zijn meer details omtrent handmatige schaal, management en hier bewaking van App Service-omgevingen: [een App-serviceomgeving configureren][ASEConfig] 
+Er zijn meer details omtrent handmatige schaal, management en hier bewaking van App Service-omgevingen: [hoe tooconfigure een App-serviceomgeving][ASEConfig] 
 
-Voor informatie over automatisch schalen is er een handleiding hier: [automatisch schalen voor een App-serviceomgeving configureren][ASEAutoscale]
+Voor informatie over automatisch schalen is er een handleiding hier: [hoe tooconfigure automatisch schalen voor een App-serviceomgeving][ASEAutoscale]
 
-Er zijn extra afhankelijkheden die niet beschikbaar om aan te passen, zoals de database en de opslag. Deze zijn verwerkt door Azure en worden geleverd met het systeem. De opslagruimte op het systeem ondersteunt maximaal 500 GB voor de hele App Service-omgeving en de database wordt aangepast door Azure naar behoefte van de schaal van het systeem.
+Er zijn extra afhankelijkheden die niet beschikbaar voor aanpassing zoals Hallo-database en opslag. Deze zijn verwerkt door Azure en worden geleverd met Hallo-systeem. Hallo system opslag ondersteunt up too500 GB voor de hele App Service-omgeving Hallo en Hallo-database wordt aangepast door Azure indien nodig door Hallo schaal van Hallo-systeem.
 
 ## <a name="getting-started"></a>Aan de slag
-Alle artikelen en hoe-aan de voor App Service-omgevingen zijn beschikbaar in de [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
+Alle artikelen en hoe-aan de voor App Service-omgevingen beschikbaar in Hallo zijn [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
 
-Om aan de slag met App Service-omgeving v1, Zie [Inleiding tot de App Service-omgeving v1][WhatisASE]
+tooget de slag met App Service-omgeving v1, Zie [inleiding toohello App Service-omgeving v1][WhatisASE]
 
-Zie voor meer informatie over het Azure App Service-platform [Azure App Service][AzureAppService].
+Zie voor meer informatie over hello Azure App Service-platform, [Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

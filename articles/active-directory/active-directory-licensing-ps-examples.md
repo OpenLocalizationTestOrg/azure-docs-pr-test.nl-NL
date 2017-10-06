@@ -1,5 +1,5 @@
 ---
-title: PowerShell-voorbeelden voor op basis van een groep licentieverlening in Azure AD | Microsoft Docs
+title: Voorbeelden van aaaPowerShell voor op basis van een groep licentieverlening in Azure AD | Microsoft Docs
 description: PowerShell-scenario's voor Azure Active Directory op basis van een groep licentieverlening
 services: active-directory
 keywords: Azure AD-licentieverlening
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: b561dd29faff63d4898f351b2c9a39d359b89539
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 31eeab0a34c35e80849a4cd11f5447a30b7c04be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-voorbeelden voor op basis van een groep licentieverlening in Azure AD
 
-Volledige functionaliteit voor licentieverlening op basis van een groep is beschikbaar via de [Azure-portal](https://portal.azure.com), en PowerShell-ondersteuning is momenteel beperkt. Er zijn echter enkele nuttige taken die kunnen worden uitgevoerd met behulp van de bestaande [MSOnline PowerShell-cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). Dit document vindt voorbeelden van wat mogelijk is.
+Volledige functionaliteit voor licentieverlening op basis van een groep is beschikbaar via Hallo [Azure-portal](https://portal.azure.com), en PowerShell-ondersteuning is momenteel beperkt. Er zijn echter enkele nuttige taken die kunnen worden uitgevoerd met behulp van bestaande Hallo [MSOnline PowerShell-cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). Dit document vindt voorbeelden van wat mogelijk is.
 
 > [!NOTE]
-> Voordat u begint dat u de cmdlets uitvoert, moet u eerst verbinding maakt met uw tenant, door het uitvoeren van de `Connect-MsolService` cmdlet.
+> Voordat u begint dat u de cmdlets uitvoert, moet u eerst verbinding maakt met tooyour tenant, door te voeren Hallo `Connect-MsolService` cmdlet.
 
-## <a name="view-product-licenses-assigned-to-a-group"></a>Weergave productlicenties toegewezen aan een groep
-De [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan worden gebruikt voor het ophalen van het groepsobject en controleer de *licenties* eigenschap: geeft een lijst van alle productlicenties momenteel toegewezen aan de groep.
+## <a name="view-product-licenses-assigned-tooa-group"></a>Weergave productlicenties tooa groep toegewezen
+De [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet kan worden gebruikt tooretrieve Hallo groepsobject en controleer Hallo *licenties* eigenschap: geeft een lijst van alle productlicenties toohello groep momenteel toegewezen.
 ```
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
@@ -43,11 +43,11 @@ EMSPREMIUM
 ```
 
 > [!NOTE]
-> De gegevens zijn beperkt tot productinformatie (SKU). Het is niet mogelijk voor een lijst met de service-abonnementen in de licentie is uitgeschakeld.
+> Hallo is beperkt tooproduct (SKU) informatie. Het is niet mogelijk toolist Hallo-serviceabonnementen uitgeschakeld in het Hallo-licentie.
 
 ## <a name="get-all-groups-with-licenses"></a>Alle groepen ophalen met licenties
 
-U vindt alle groepen die geen licentie toegewezen door de volgende opdracht uit te voeren:
+U kunt alle groepen die geen licentie toegewezen door het uitvoeren van de volgende opdracht Hallo zoeken:
 ```
 Get-MsolGroup | Where {$_.Licenses}
 ```
@@ -70,7 +70,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Statistieken voor groepen met licenties ophalen
-Elementaire statistieken voor groepen met licenties kunt u rapporteren. In het onderstaande voorbeeld lijst we het aantal totale aantal gebruikers, de telling van gebruikers met licenties die zijn al toegewezen door de groep en de telling van gebruikers voor wie kunnen licenties niet worden toegewezen door de groep.
+Elementaire statistieken voor groepen met licenties kunt u rapporteren. In onderstaand voorbeeld voor Hallo wij in de lijst Hallo totale aantal gebruikers count, Hallo telling van gebruikers met licenties die zijn al toegewezen aan een groep Hallo en Hallo-telling van gebruikers voor wie kunnen geen licenties door Hallo-groep worden toegewezen.
 
 ```
 #get all groups with licenses
@@ -83,7 +83,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $licenseErrorCount = 0;
 
     Get-MsolGroupMember -All -GroupObjectId $groupId |
-    #get full info about each user in the group
+    #get full info about each user in hello group
     Get-MsolUser -ObjectId {$_.ObjectId} |
     Foreach {
         $user = $_;
@@ -94,7 +94,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
         {
             $licenseAssignedCount++
         }
-        #check if user has any licenses that failed to be assigned from this group
+        #check if user has any licenses that failed toobe assigned from this group
         if ($user.IndirectLicenseErrors | ? {$_.ReferencedObjectId -ieq $groupId })
         {
             $licenseErrorCount++
@@ -125,11 +125,11 @@ EMS E5 - all s... 7023a314-6148-4d7b-b33f-6c775572879a EMSPREMIUM               
 PowerBi - Lice... cf41f428-3b45-490b-b69f-a349c8a4c38e POWER_BI_STANDARD                2                 2                 0
 O365 E3 - all ... 962f7189-59d9-4a29-983f-556ae56f19a5 ENTERPRISEPACK                   2                 2                 0
 O365 E5 - EXO     102fb8f4-bbe7-462b-83ff-2145e7cdd6ed ENTERPRISEPREMIUM                1                 1                 0
-Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK                     4                 3                 1
+Access tooOffi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK                     4                 3                 1
 ```
 
 ## <a name="get-all-groups-with-license-errors"></a>Alle groepen ophalen met licentie-fouten
-Om groepen te vinden die bevatten sommige gebruikers voor wie licenties kunnen niet worden toegewezen:
+toofind groepen met sommige gebruikers voor wie licenties kunnen niet worden toegewezen:
 ```
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
@@ -137,17 +137,17 @@ Uitvoer:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
-11151866-5419-4d93-9141-0603bbf78b42 Access to Office 365 E1 Security  Users who should have E1 licenses
+11151866-5419-4d93-9141-0603bbf78b42 Access tooOffice 365 E1 Security  Users who should have E1 licenses
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Ophalen van alle gebruikers met licentie-fouten in een groep
 
-Gegeven een groep met enkele licentie gerelateerde fouten, u kunt nu alle gebruikers die worden beïnvloed door deze fouten aanbieden. Een jser kan fouten van andere groepen te hebben. Echter, in dit voorbeeld we resultaten alleen voor fouten die relevant zijn voor de desbetreffende groep beperken door het controleren van de **ReferencedObjectId** eigenschap van elke **IndirectLicenseError** vermelding van de gebruiker.
+Gegeven een groep met enkele licentie gerelateerde fouten, u kunt nu alle gebruikers die worden beïnvloed door deze fouten aanbieden. Een jser kan fouten van andere groepen te hebben. Echter, in dit voorbeeld we alleen tooerrors relevante toohello groep resultaten betrokken beperken door het controleren van de **ReferencedObjectId** eigenschap van elke **IndirectLicenseError** post op Hallo-gebruiker.
 
 ```
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
-#get all user members of the group
+#get all user members of hello group
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
@@ -165,12 +165,12 @@ ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
-## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Alle gebruikers met licentie-fouten in de hele tenant ophalen
+## <a name="get-all-users-with-license-errors-in-hello-entire-tenant"></a>Alle gebruikers met licentie-fouten in hele Hallo-tenant ophalen
 
-Als u alle gebruikers die licentie-fouten van een of meer groepen hebben, kan het volgende script worden gebruikt. Dit script wordt een lijst één rij per gebruiker per licentiefout waarmee u duidelijk aangeven dat de bron van elke fout optreedt.
+toolist alle gebruikers die hebben licentie-fouten van één of meer groepen, Hallo na script kunnen worden gebruikt. Dit script wordt een lijst met één rij per gebruiker, per licentiefout waarmee u kunt tooclearly Hallo bron identificeren van elke fout optreedt.
 
 > [!NOTE]
-> Dit script worden alle gebruikers in de tenant die misschien niet optimaal voor grote tenants opsommen.
+> Dit script worden alle gebruikers in Hallo-tenant, mogelijk niet optimaal voor grote tenants inventariseren.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -196,7 +196,7 @@ Catherine Gibson 6d325baf-22b7-46fa-a2fc-a2500613ca15 11151866-5419-4d93-9141-06
 Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-129a3c471332 MutuallyExclusiveViolation
 ```
 
-Hier volgt een andere versie van het script dat wordt gezocht alleen in groepen die licentie fouten bevatten. Het kan meer worden geoptimaliseerd voor scenario's waarin u verwacht dat bepaalde groepen met problemen hebben.
+Hier volgt een andere versie van het Hallo-script waarmee wordt gezocht alleen in groepen die licentie fouten bevatten. Kan het zijn dat meer geoptimaliseerd voor scenario's waarin u verwacht toohave dat enkele groepen met problemen.
 
 ```
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -213,30 +213,30 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
 
 ## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Controleer of de licentie is toegewezen rechtstreeks of van een groep overgenomen
 
-Voor een gebruikersobject is het mogelijk om te controleren of een bepaald product-licentie is toegewezen uit een groep of als er rechtstreeks is toegewezen.
+Voor een gebruikersobject is mogelijk toocheck als een bepaald product-licentie is toegewezen uit een groep of als er rechtstreeks is toegewezen.
 
-De twee onderstaande Voorbeeldfuncties kunnen worden gebruikt voor het analyseren van het type toewijzing op een afzonderlijke gebruiker:
+onderstaande Hallo twee Voorbeeldfuncties kunnen worden tooanalyze Hallo type toewijzing gebruikt op een afzonderlijke gebruiker:
 ```
-#Returns TRUE if the user has the license assigned directly
+#Returns TRUE if hello user has hello license assigned directly
 function UserHasLicenseAssignedDirectly
 {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
 
     foreach($license in $user.Licenses)
     {
-        #we look for the specific license SKU in all licenses assigned to the user
+        #we look for hello specific license SKU in all licenses assigned toohello user
         if ($license.AccountSkuId -ieq $skuId)
         {
-            #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-            #This could be a group object or a user object (contrary to what the name suggests)
-            #If the collection is empty, this means the license is assigned directly - this is the case for users who have never been licensed via groups in the past
+            #GroupsAssigningLicense contains a collection of IDs of objects assigning hello license
+            #This could be a group object or a user object (contrary toowhat hello name suggests)
+            #If hello collection is empty, this means hello license is assigned directly - this is hello case for users who have never been licensed via groups in hello past
             if ($license.GroupsAssigningLicense.Count -eq 0)
             {
                 return $true
             }
 
-            #If the collection contains the ID of the user object, this means the license is assigned directly
-            #Note: the license may also be assigned through one or more groups in addition to being assigned directly
+            #If hello collection contains hello ID of hello user object, this means hello license is assigned directly
+            #Note: hello license may also be assigned through one or more groups in addition toobeing assigned directly
             foreach ($assignmentSource in $license.GroupsAssigningLicense)
             {
                 if ($assignmentSource -ieq $user.ObjectId)
@@ -249,22 +249,22 @@ function UserHasLicenseAssignedDirectly
     }
     return $false
 }
-#Returns TRUE if the user is inheriting the license from a group
+#Returns TRUE if hello user is inheriting hello license from a group
 function UserHasLicenseAssignedFromGroup
 {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
 
     foreach($license in $user.Licenses)
     {
-        #we look for the specific license SKU in all licenses assigned to the user
+        #we look for hello specific license SKU in all licenses assigned toohello user
         if ($license.AccountSkuId -ieq $skuId)
         {
-            #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-            #This could be a group object or a user object (contrary to what the name suggests)
+            #GroupsAssigningLicense contains a collection of IDs of objects assigning hello license
+            #This could be a group object or a user object (contrary toowhat hello name suggests)
             foreach ($assignmentSource in $license.GroupsAssigningLicense)
             {
-                #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-                #Note: the license may also be assigned directly in addition to being inherited
+                #If hello collection contains at least one ID not matching hello user ID this means that hello license is inherited from a group.
+                #Note: hello license may also be assigned directly in addition toobeing inherited
                 if ($assignmentSource -ine $user.ObjectId)
                 {
                     return $true
@@ -277,12 +277,12 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-Dit script wordt uitgevoerd die functies van elke gebruiker in de tenant met behulp van de SKU-ID als invoer - in dit voorbeeld zijn er geïnteresseerd in de licentie voor *Enterprise Mobility + Security*, die in onze-tenant met ID wordt vertegenwoordigd  *Contoso:EMS*:
+Dit script wordt uitgevoerd die functies van elke gebruiker in Hallo-tenant, Hallo SKU-ID gebruiken als invoer - in dit voorbeeld we geïnteresseerd bent in het Hallo-licentie voor *Enterprise Mobility + Security*, die in onze-tenant met ID wordtvertegenwoordigd*contoso:EMS*:
 ```
-#the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
+#hello license SKU we are interested in. use Msol-GetAccountSku toosee a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
-#find all users that have the SKU license assigned
+#find all users that have hello SKU license assigned
 Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
     ObjectId, `
     @{Name="SkuId";Expression={$skuId}}, `
@@ -300,14 +300,14 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ```
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Directe licenties voor gebruikers met licenties van de groep verwijderen
-Het doel van dit script is voor het verwijderen van onnodige direct licenties van gebruikers die al de licentie van een groep overnemen; bijvoorbeeld, als onderdeel van een [overgang in de groep gebaseerde licentieverlening voor](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+Hallo-doel van dit script is tooremove onnodige direct licenties van gebruikers die al Hallo dezelfde licentie overnemen van een groep; bijvoorbeeld, als onderdeel van een [toogroup gebaseerde licentieverlening in een overgang](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> Het is belangrijk voor het eerst valideren dat de directe licenties worden verwijderd niet de mogelijkheid meer service-functionaliteit dan de overgenomen licenties. Verwijderen van de directe licentie mogelijk anders toegang tot services en gegevens voor gebruikers uitschakelen. Het is momenteel niet mogelijk om te controleren via PowerShell welke services worden ingeschakeld via overgenomen licenties tegenover direct. In het script wordt het minimumaantal we weten dat services worden overgenomen van groepen en er wordt gecontroleerd op basis van die opgegeven.
+> Het is belangrijk toofirst valideren die Hallo direct licenties toobe verwijderd meer service-functionaliteit dan Hallo overgenomen licenties niet inschakelt. Anders mogen Hallo direct licentie verwijderen tooservices toegang en gegevens van gebruikers. Het is momenteel niet mogelijk toocheck via PowerShell welke services worden ingeschakeld via overgenomen licenties tegenover direct. Hallo-script geeft we Hallo minimaal niveau hebben we weten dat services worden overgenomen van groepen en er wordt gecontroleerd op basis van die.
 
 ```
-#BEGIN: Helper functions used by the script
+#BEGIN: Helper functions used by hello script
 
-#Returns TRUE if the user has the license assigned directly
+#Returns TRUE if hello user has hello license assigned directly
 function UserHasLicenseAssignedDirectly
 {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
@@ -316,16 +316,16 @@ function UserHasLicenseAssignedDirectly
 
     if ($license -ne $null)
     {
-        #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-        #This could be a group object or a user object (contrary to what the name suggests)
-        #If the collection is empty, this means the license is assigned directly - this is the case for users who have never been licensed via groups in the past
+        #GroupsAssigningLicense contains a collection of IDs of objects assigning hello license
+        #This could be a group object or a user object (contrary toowhat hello name suggests)
+        #If hello collection is empty, this means hello license is assigned directly - this is hello case for users who have never been licensed via groups in hello past
         if ($license.GroupsAssigningLicense.Count -eq 0)
         {
             return $true
         }
 
-        #If the collection contains the ID of the user object, this means the license is assigned directly
-        #Note: the license may also be assigned through one or more groups in addition to being assigned directly
+        #If hello collection contains hello ID of hello user object, this means hello license is assigned directly
+        #Note: hello license may also be assigned through one or more groups in addition toobeing assigned directly
         foreach ($assignmentSource in $license.GroupsAssigningLicense)
         {
             if ($assignmentSource -ieq $user.ObjectId)
@@ -337,7 +337,7 @@ function UserHasLicenseAssignedDirectly
     }
     return $false
 }
-#Returns TRUE if the user is inheriting the license from a specific group
+#Returns TRUE if hello user is inheriting hello license from a specific group
 function UserHasLicenseAssignedFromThisGroup
 {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId, [Guid]$groupId)
@@ -346,12 +346,12 @@ function UserHasLicenseAssignedFromThisGroup
 
     if ($license -ne $null)
     {
-        #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-        #This could be a group object or a user object (contrary to what the name suggests)
+        #GroupsAssigningLicense contains a collection of IDs of objects assigning hello license
+        #This could be a group object or a user object (contrary toowhat hello name suggests)
         foreach ($assignmentSource in $license.GroupsAssigningLicense)
         {
-            #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-            #Note: the license may also be assigned directly in addition to being inherited
+            #If hello collection contains at least one ID not matching hello user ID this means that hello license is inherited from a group.
+            #Note: hello license may also be assigned directly in addition toobeing inherited
             if ($assignmentSource -ieq $groupId)
             {
                 return $true
@@ -362,11 +362,11 @@ function UserHasLicenseAssignedFromThisGroup
     return $false
 }
 
-#Returns the license object corresponding to the skuId. Returns NULL if not found
+#Returns hello license object corresponding toohello skuId. Returns NULL if not found
 function GetUserLicense
 {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId, [Guid]$groupId)
-    #we look for the specific license SKU in all licenses assigned to the user
+    #we look for hello specific license SKU in all licenses assigned toohello user
     foreach($license in $user.Licenses)
     {
         if ($license.AccountSkuId -ieq $skuId)
@@ -377,7 +377,7 @@ function GetUserLicense
     return $null
 }
 
-#produces a list of disabled service plan names for a set of plans we want to leave enabled
+#produces a list of disabled service plan names for a set of plans we want tooleave enabled
 function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
@@ -406,34 +406,34 @@ function GetUnexpectedEnabledPlansForUser
 }
 #END: helper functions
 
-#BEGIN: executing the script
-#the group to be processed
+#BEGIN: executing hello script
+#hello group toobe processed
 $groupId = "48ca647b-7e4d-41e5-aa66-40cab1e19101"
 
-#license to be removed - Office 365 E3
+#license toobe removed - Office 365 E3
 $skuId = "contoso:ENTERPRISEPACK"
 
-#minimum set of service plans we know are inherited from groups - we want to make sure that there aren't any users who have more services enabled
+#minimum set of service plans we know are inherited from groups - we want toomake sure that there aren't any users who have more services enabled
 #which could mean that they may lose access after we remove direct licenses
 $servicePlansFromGroups = ("EXCHANGE_S_ENTERPRISE", "SHAREPOINTENTERPRISE", "OFFICESUBSCRIPTION")
 
 $expectedDisabledPlans = GetDisabledPlansForSKU $skuId $servicePlansFromGroups
 
-#process all members in the group
+#process all members in hello group
 Get-MsolGroupMember -All -GroupObjectId $groupId |
-    #get full info about each user in the group
+    #get full info about each user in hello group
     Get-MsolUser -ObjectId {$_.ObjectId} |
     Foreach {
         $user = $_;
         $operationResult = "";
 
-        #check if Direct license exists on the user
+        #check if Direct license exists on hello user
         if (UserHasLicenseAssignedDirectly $user $skuId)
         {
-            #check if the license is assigned from this group, as expected
+            #check if hello license is assigned from this group, as expected
             if (UserHasLicenseAssignedFromThisGroup $user $skuId $groupId)
             {
-                #check if there are any extra plans we didn't expect - we are being extra careful not to remove unexpected services
+                #check if there are any extra plans we didn't expect - we are being extra careful not tooremove unexpected services
                 $extraPlans = GetUnexpectedEnabledPlansForUser $user $skuId $expectedDisabledPlans
                 if ($extraPlans.Count -gt 0)
                 {
@@ -441,7 +441,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
                 }
                 else
                 {
-                    #remove the direct license from user
+                    #remove hello direct license from user
                     Set-MsolUserLicense -ObjectId $user.ObjectId -RemoveLicenses $skuId
                     $operationResult = "Removed direct license from user."   
                 }
@@ -454,7 +454,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
         }
         else
         {
-            $operationResult = "User has no direct license to remove. Skipping."
+            $operationResult = "User has no direct license tooremove. Skipping."
         }
 
         #format output
@@ -462,7 +462,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
                     Add-Member -NotePropertyName UserId -NotePropertyValue $user.ObjectId -PassThru |
                     Add-Member -NotePropertyName OperationResult -NotePropertyValue $operationResult -PassThru
     } | Format-Table
-#END: executing the script
+#END: executing hello script
 ```
 
 Uitvoer:
@@ -471,15 +471,15 @@ UserId                               OperationResult
 ------                               ---------------                                                                                
 7c7f860f-700a-462a-826c-f50633931362 Removed direct license from user.                                                              
 0ddacdd5-0364-477d-9e4b-07eb6cdbc8ea User has extra plans that may be lost - license removal was skipped. Extra plans: SHAREPOINTWAC
-aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.                                                
+aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license tooremove. Skipping.                                                
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende onderwerpen voor meer informatie over de functie voor het Licentiebeheer van de via groepen instellen:
+informatie over de functie Hallo instellen voor Licentiebeheer van de via groepen, toolearn Hallo ziet:
 
 * [Wat is licentieverlening in Azure Active Directory op basis van groep?](active-directory-licensing-whatis-azure-portal.md)
-* [Licenties toewijzen aan een groep in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
+* [Toewijzen van licenties tooa groep in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Opsporen en oplossen van licentieproblemen met een voor een groep in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Het migreren van afzonderlijke gebruikers met een licentie aan op basis van een groep licentieverlening in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Hoe toomigrate afzonderlijk in licentie gegeven gebruikers licentieverlening in Azure Active Directory op basis van toogroup](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory-licentieverlening voor aanvullende scenario's op basis van groep](active-directory-licensing-group-advanced.md)

@@ -1,6 +1,6 @@
 ---
-title: Groepsinstellingen configureren via Azure Active Directory-cmdlets | Microsoft Docs
-description: Hoe beheert u de instellingen voor groepen met behulp van Azure Active Directory-cmdlets
+title: Groepsinstellingen aaaConfigure met Azure Active Directory-cmdlets | Microsoft Docs
+description: Hoe Hallo instellingen beheren voor groepen met behulp van Azure Active Directory-cmdlets
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,32 +16,32 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 0d89f12955b90c7e1a8301b7c3a1a92e7f62d085
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 46db49d9dec3eaa41c97ca74c57854189eddc16d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
 
 > [!IMPORTANT]
-> Deze inhoud geldt alleen voor Office 365-groepen. Voor meer informatie over het zodat gebruikers kunnen beveiligingsgroepen maken, stelt `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Deze inhoud is van toepassing alleen tooOffice 365-groepen. Voor meer informatie over het tooallow gebruikers toocreate beveiligingsgroepen ingesteld `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
-Instellingen voor Office 365-groepen zijn geconfigureerd met een object-instellingen en een SettingsTemplate-object. In eerste instantie is er geen voor instellingenobjecten in uw directory omdat uw directory is geconfigureerd met de standaardinstellingen. Als u wilt de standaardinstellingen wilt wijzigen, moet u een nieuw object voor instellingen met een sjabloon voor instellingen. Instellingen voor sjablonen zijn gedefinieerd door Microsoft. Er zijn verschillende sjablonen met verschillende instellingen. Instellingen voor Office 365-groep voor uw directory configureren, moet u de sjabloon met de naam 'Group.Unified' gebruiken. Gebruik de sjabloon met de naam "Group.Unified.Guest" voor informatie over het configureren van instellingen voor Office 365-groep op één groep. Deze sjabloon wordt gebruikt voor het beheren van gasttoegang tot een Office 365-groep. 
+Instellingen voor Office 365-groepen zijn geconfigureerd met een object-instellingen en een SettingsTemplate-object. In eerste instantie is er geen voor instellingenobjecten in uw directory omdat uw directory is geconfigureerd met de standaardinstellingen Hallo. standaardinstellingen voor toochange hello, moet u een nieuw object voor instellingen met een sjabloon instellingen maken. Instellingen voor sjablonen zijn gedefinieerd door Microsoft. Er zijn verschillende sjablonen met verschillende instellingen. Groepsinstellingen tooconfigure Office 365 voor uw directory, dat u met de naam 'Group.Unified' Hallo-sjabloon gebruiken. de instellingen voor Office 365 tooconfigure op één groep Hallo-sjabloon met de naam 'Group.Unified.Guest' gebruiken. Deze sjabloon is gebruikte toomanage Gast toegangsgroep tooan Office 365. 
 
-De cmdlets maken deel uit van de Azure Active Directory PowerShell V2-module. Voor instructies het downloaden en installeren van de module op uw computer, Zie het artikel [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/azuread/). U kunt installeren de release versie 2 van de module op basis van [de PowerShell-galerie](https://www.powershellgallery.com/packages/AzureAD/).
+Hallo cmdlets maken deel uit van hello Azure Active Directory PowerShell V2-module. Zie voor instructies hoe toodownload en Hallo-module installeren op uw computer Hallo artikel [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/azuread/). U kunt installeren Hallo versie 2-release van Hallo module op basis van [Hallo PowerShell gallery](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="retrieve-a-specific-settings-value"></a>De waarde van een specifieke instellingen ophalen
-Als u de naam van de instelling die u wilt ophalen, kunt u de onderstaande cmdlet voor het ophalen van de huidige waarde van de instellingen. In dit voorbeeld ophaalt we de waarde voor een instelling met de naam 'UsageGuidelinesUrl'. U vindt dat meer informatie over instellingen voor directory en hun namen verder omlaag in dit artikel.
+Als u Hallo naam weet van Hallo instelling die u wilt dat tooretrieve, kunt u Hallo hieronder cmdlet tooretrieve Hallo huidige waarde van de instellingen. In dit voorbeeld ophaalt we Hallo-waarde voor een instelling met de naam 'UsageGuidelinesUrl'. U vindt dat meer informatie over instellingen voor directory en hun namen verder omlaag in dit artikel.
 
 ```powershell
 (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
 ```
 
-## <a name="create-settings-at-the-directory-level"></a>Instellingen op het niveau van de directory maken
-Deze stappen maken instellingen op het niveau van de directory die van toepassing op alle Office 365-groepen (Unified groepen) in de map.
+## <a name="create-settings-at-hello-directory-level"></a>Instellingen op Hallo directory niveau maken
+Deze stappen maken instellingen op het niveau van de directory die tooall Office 365-groepen (Unified groepen) in de map Hallo toepassen.
 
-1. In de cmdlets DirectorySettings, moet u de ID van de SettingsTemplate die u wilt gebruiken. Als u deze ID niet weet, retourneert deze cmdlet de lijst met alle instellingen sjablonen:
+1. Hallo DirectorySettings cmdlets, moet u Hallo-ID van Hallo SettingsTemplate u toouse wilt opgeven. Als u deze ID niet weet, retourneert deze cmdlet Hallo lijst met alle instellingen sjablonen:
   
   ```
   PS C:> Get-AzureADDirectorySettingTemplate
@@ -53,12 +53,12 @@ Deze stappen maken instellingen op het niveau van de directory die van toepassin
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
   08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
-  16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
+  16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define hello different settings that can be used for hello associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule       Settings ...
   ```
-2. Als u wilt een richtlijn gebruik URL kunt toevoegen, moet u eerst het SettingsTemplate-object dat de waarde van de URL in de gebruik richtlijn; definieert ophalen dat wil zeggen, de sjabloon Group.Unified:
+2. een URL van de richtlijn gebruik tooadd, moet u eerst tooget hello SettingsTemplate-object dat Hallo gebruik richtlijn URL-waarde bepaalt; dat wil zeggen, Hallo Group.Unified sjabloon:
   
   ```
   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
@@ -68,43 +68,43 @@ Deze stappen maken instellingen op het niveau van de directory die van toepassin
   ```
   $Setting = $template.CreateDirectorySetting()
   ```  
-4. Werk vervolgens de waarde van de richtlijn gebruik:
+4. Werk vervolgens de richtlijn gebruikswaarde Hallo:
   
   ```
   $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
   ```  
-5. Ten slotte de instellingen toepassen:
+5. Ten slotte Hallo-instellingen toepassen:
   
   ```
   New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
-Heeft voltooid wordt de cmdlet de ID van de nieuwe voor instellingenobject:
+Na geslaagde voltooiing retourneert Hallo cmdlet Hallo-ID van nieuwe instellingenobject Hallo:
   ```
   Id                                   DisplayName TemplateId                           Values
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsTemplate.
+Hier zijn gedefinieerd in Hallo Group.Unified SettingsTemplate Hallo-instellingen.
 
 | **Instelling** | **Beschrijving** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Booleaanse<li>Standaard: True |De vlag die aangeeft of het maken van Unified groep is toegestaan in de map. |
-|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Standaardwaarde: ' " |GUID van de beveiligingsgroep waarvan de leden mogen Unified groepen maken, zelfs wanneer EnableGroupCreation == false. |
-|  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Standaardwaarde: ' " |Een koppeling naar de richtlijnen voor het gebruik van groep. |
+|  <ul><li>EnableGroupCreation<li>Type: Booleaanse<li>Standaard: True |Hallo-vlag die aangeeft of het maken van Unified in Hallo directory is toegestaan. |
+|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Standaardwaarde: ' " |GUID van de beveiligingsgroep Hallo voor welke Hallo leden toocreate Unified groepen zijn toegestaan, zelfs wanneer EnableGroupCreation == false. |
+|  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Standaardwaarde: ' " |Een koppeling toohello richtlijnen voor het gebruik van groep. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Standaardwaarde: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. |
-|  <ul><li>DefaultClassification<li>Type: String<li>Standaardwaarde: ' " | De classificatie die moet worden gebruikt als de Standaardclassificatie voor een groep als deze is niet opgegeven.|
+|  <ul><li>DefaultClassification<li>Type: String<li>Standaardwaarde: ' " | Hallo-classificatie die toobe gebruikt als Hallo Standaardclassificatie voor een groep als deze is niet opgegeven.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Standaardwaarde: ' " |Nog niet geïmplementeerd
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Booleaanse<li>Standaard: False | Een Boolean die aangeeft of een gastgebruiker moet een eigenaar van de groepen kan worden. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Booleaanse<li>Standaard: True | Een Boolean die aangeeft of een gastgebruiker toegang tot inhoud Unified-groepen krijgen kan. |
-|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Standaardwaarde: ' " | De url van een koppeling naar de richtlijnen voor het gebruik van Gast. |
-|  <ul><li>AllowToAddGuests<li>Type: Booleaanse<li>Standaard: True | Een boolean die aangeeft of of niet is toegestaan gasten toevoegen aan deze map.|
-|  <ul><li>ClassificationList<li>Type: String<li>Standaardwaarde: ' " |Een door komma's gescheiden lijst met geldige classificatiewaarden die kunnen worden toegepast op groepen Unified. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Type: Booleaanse<li>Standaard: True | Een Boolean die aangeeft of een gastgebruiker toegangsgroepen van tooUnified inhoud kan hebben. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Standaardwaarde: ' " | Hallo-url van een koppeling toohello Gast richtlijnen. |
+|  <ul><li>AllowToAddGuests<li>Type: Booleaanse<li>Standaard: True | Een boolean die aangeeft of of niet is toegestaan tooadd gasten toothis directory.|
+|  <ul><li>ClassificationList<li>Type: String<li>Standaardwaarde: ' " |Een door komma's gescheiden lijst met geldige classificatiewaarden die toegepast tooUnified groepen worden kunnen. |
 |  <ul><li>EnableGroupCreation<li>Type: Booleaanse<li>Standaard: True | Een boolean die aangeeft of niet-beheerders van nieuwe maken kunnen geïntegreerde groepen. |
 
 
-## <a name="read-settings-at-the-directory-level"></a>Instellingen op het mapniveau van de lezen
-Volgende stappen uit op het niveau van de directory-instellingen die van toepassing op alle Office-groepen in de map gelezen.
+## <a name="read-settings-at-hello-directory-level"></a>Instellingen lezen op Hallo directory niveau
+Volgende stappen uit op het niveau van de directory-instellingen die van toepassing zijn tooall Office-groepen in de map Hallo gelezen.
 
 1. Lees alle bestaande directoryinstellingen:
   ```
@@ -126,7 +126,7 @@ Volgende stappen uit op het niveau van de directory-instellingen die van toepass
   ```
   (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
   ```
-  Deze cmdlet retourneert de namen en waarden in deze object-instellingen voor deze specifieke groep:
+  Deze cmdlet retourneert Hallo namen en waarden in deze object-instellingen voor deze specifieke groep:
   ```
   Name                          Value
   ----                          -----
@@ -145,7 +145,7 @@ Volgende stappen uit op het niveau van de directory-instellingen die van toepass
 
 ## <a name="update-settings-for-a-specific-group"></a>Instellingen voor een specifieke groep bijwerken
 
-1. Zoeken naar de instellingen sjabloon met de naam 'Groups.Unified.Guest'
+1. Zoeken naar Hallo instellingen sjabloon met de naam 'Groups.Unified.Guest'
   ```
   Get-AzureADDirectorySettingTemplate
   
@@ -157,20 +157,20 @@ Volgende stappen uit op het niveau van de directory-instellingen die van toepass
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
   ```
-2. Het ophalen van de sjabloonobject voor de sjabloon Groups.Unified.Guest:
+2. Hallo sjabloonobject voor Hallo Groups.Unified.Guest sjabloon ophalen:
   ```
   $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
   ```
-3. Maak een nieuw object van de instellingen van de sjabloon:
+3. Maak een nieuw instellingenobject van Hallo sjabloon:
   ```
   $Setting = $Template.CreateDirectorySetting()
   ```
 
-4. Stel de instelling op de vereiste waarde:
+4. Hallo toohello vereist instellingswaarde instellen:
   ```
   $Setting["AllowToAddGuests"]=$False
   ```
-5. De nieuwe instelling maken voor de vereiste groep in de map:
+5. Nieuwe instelling voor de vereiste groep Hallo Hallo op Hallo directory maken:
   ```
   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
   
@@ -179,11 +179,11 @@ Volgende stappen uit op het niveau van de directory-instellingen die van toepass
   25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
   ```
 
-## <a name="update-settings-at-the-directory-level"></a>Update-instellingen op het niveau van de directory
+## <a name="update-settings-at-hello-directory-level"></a>Update-instellingen op Hallo directory niveau
 
-Deze stappen bijwerken op het niveau van de directory-instellingen die van toepassing op alle Unified groepen in Active directory. Deze voorbeelden wordt ervan uitgegaan dat er is al een object-instellingen in uw directory.
+Volgende stappen uit bijwerken op het niveau van de directory-instellingen die van toepassing zijn tooall Unified groepen in Hallo directory. Deze voorbeelden wordt ervan uitgegaan dat er is al een object-instellingen in uw directory.
 
-1. Zoek het bestaande object-instellingen:
+1. Bestaand instellingenobject Hallo vinden:
   ```
   Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
   
@@ -193,19 +193,19 @@ Deze stappen bijwerken op het niveau van de directory-instellingen die van toepa
   
   $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
   ```
-2. Werk de waarde:
+2. Hallo waarde bijwerken:
   
   ```
   $Setting["AllowToAddGuests"] = "false"
   ```
-3. Werk de instelling:
+3. Hallo-instelling bijwerken:
   
   ```
   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
   ```
 
-## <a name="remove-settings-at-the-directory-level"></a>Verwijder de instellingen op het niveau van de directory
-Deze stap verwijdert instellingen op het niveau van de directory die van toepassing op alle Office-groepen in de map.
+## <a name="remove-settings-at-hello-directory-level"></a>Verwijder de instellingen op Hallo directory niveau
+Deze stap verwijdert-instellingen op het niveau van de directory die van toepassing zijn tooall Office-groepen in Hallo-directory.
   ```
   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
   ```
@@ -215,5 +215,5 @@ U vindt meer Azure Active Directory PowerShell-documentatie op [Azure Active Dir
 
 ## <a name="additional-reading"></a>Aanvullende bronnen
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
+* [Tooresources toegang beheren met Azure Active Directory-groepen](active-directory-manage-groups.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)

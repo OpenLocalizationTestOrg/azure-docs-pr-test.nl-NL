@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Event Hubs-bindingen | Microsoft Docs
-description: Het gebruik van Azure Event Hubs bindingen in de Azure Functions begrijpen.
+title: aaaAzure functies Event Hubs bindingen | Microsoft Docs
+description: Begrijpen hoe toouse Azure Event Hubs bindingen in de Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -16,55 +16,55 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/20/2017
 ms.author: wesmc
-ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e864f032ad5ac58d318c9843c3844b5642733a70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Azure Functions Event Hubs-bindingen
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-In dit artikel wordt uitgelegd hoe u configureert en gebruikt [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindingen voor Azure Functions.
+Dit artikel wordt uitgelegd hoe tooconfigure en gebruik [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindingen voor Azure Functions.
 Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Als u niet bekend met Azure Event Hubs bent, raadpleegt u de [overzicht van Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+Als u nieuwe tooAzure Event Hubs, Zie Hallo [overzicht van Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
 ## <a name="event-hub-trigger"></a>Event hub trigger
-Gebruik de Event Hubs-trigger om te reageren op een gebeurtenis verzonden naar de gebeurtenisstroom van een event hub. U moet leestoegang hebben tot de event hub voor het instellen van de trigger.
+Gebruik Hallo Event Hubs gebeurtenis toorespond tooan tooan event hub gebeurtenisstroom verzonden. U moet leestoegang toohello event hub tooset up Hallo trigger hebben.
 
-De trigger Event Hubs-functie maakt gebruik van de volgende JSON-object in de `bindings` matrix van function.json:
+Hallo Event Hubs functie trigger gebruikt de volgende JSON-object in Hallo Hallo `bindings` matrix van function.json:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
+    "path": "<Name of hello event hub>",
+    "consumerGroup": "Consumer group toouse - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup`is een optionele eigenschap gebruikt om de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt.  
-`connection`moet de naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte.
-Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.
+`consumerGroup`is een optionele eigenschap gebruikt tooset hello [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) toosubscribe tooevents in Hallo hub gebruikt. Als u dit weglaat, Hallo `$Default` consumergroep wordt gebruikt.  
+`connection`moet Hallo-naam van een app-instelling met naamruimte Hallo connection string toohello gebeurtenis van de hub.
+Kopieer deze verbindingsreeks door te klikken op Hallo **verbindingsgegevens** knop voor Hallo *naamruimte*, niet Hallo event hub zelf. Deze verbindingsreeks heeft moet ten minste machtigingen tooactivate Hallo trigger lezen.
 
-[Extra instellingen](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) kan worden opgegeven in een bestand host.json verder verbeteren van de Event Hubs-triggers.  
+[Extra instellingen](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) kan worden opgegeven in een host.json bestand toofurther fijn stemmen Event Hubs-triggers.  
 
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Gebruik van de trigger
-Wanneer een functie van Event Hubs trigger wordt geactiveerd, wordt het bericht dat deze wordt geactiveerd als een tekenreeks in de functie doorgegeven.
+Wanneer een functie van Event Hubs trigger wordt geactiveerd, wordt in de functie Hallo Hallo-bericht dat deze wordt geactiveerd doorgegeven als een tekenreeks.
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Voorbeeld van de trigger
-Stel dat u hebt de volgende Event Hubs activeren de `bindings` matrix van function.json:
+Stel dat u volgende Event Hubs in Hallo activeren Hallo hebt `bindings` matrix van function.json:
 
 ```json
 {
@@ -76,7 +76,7 @@ Stel dat u hebt de volgende Event Hubs activeren de `bindings` matrix van functi
 }
 ```
 
-Zie de taalspecifieke-voorbeeldtoepassing die u de berichttekst van de event hub-trigger registreert.
+Zie Hallo taalspecifieke steekproef die het Hallo-berichttekst van Hallo event hub trigger registreert.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)
@@ -95,7 +95,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-U kunt ook ontvangen de gebeurtenis als een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, waarmee u toegang krijgt tot de metagegevens van de gebeurtenis.
+U kunt ook Hallo-gebeurtenis ontvangen een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, waarmee u toegang tot toohello gebeurtenis metagegevens.
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +108,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-Voor het ontvangen van gebeurtenissen in een batch, wijzigt de methodehandtekening voor `string[]` of `EventData[]`.
+gebeurtenissen in een batch tooreceive Hallo methodehandtekening ook wijzigen`string[]` of `EventData[]`.
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -143,9 +143,9 @@ module.exports = function (context, myEventHubMessage) {
 <a name="output"></a>
 
 ## <a name="event-hubs-output-binding"></a>Event Hubs uitvoer binding
-De uitvoer van de Event Hubs binding gebeurtenissen schrijven naar de gebeurtenisstroom van een event hub gebruiken. U moet gemachtigd verzenden naar een event hub gebeurtenissen om ernaar te schrijven.
+Gebruik Hallo Event Hubs uitvoer binding toowrite gebeurtenissen tooan event hub stroom gebeurtenissen. U moet verzenden machtiging tooan event hub toowrite gebeurtenissen tooit hebben.
 
-De uitvoer-binding gebruikt de volgende JSON-object in de `bindings` matrix van function.json:
+Hallo uitvoer binding gebruikt Hallo volgende JSON-object in Hallo `bindings` matrix van function.json:
 
 ```json
 {
@@ -157,22 +157,22 @@ De uitvoer-binding gebruikt de volgende JSON-object in de `bindings` matrix van 
 }
 ```
 
-`connection`moet de naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte.
-Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.
+`connection`moet Hallo-naam van een app-instelling met naamruimte Hallo connection string toohello gebeurtenis van de hub.
+Kopieer deze verbindingsreeks door te klikken op Hallo **verbindingsgegevens** knop voor Hallo *naamruimte*, niet Hallo event hub zelf. Deze verbindingsreeks moet verzenden machtigingen toosend hello toohello gebeurtenis berichtenstroom hebben.
 
 ## <a name="output-usage"></a>Gebruik voor uitvoer
-Deze sectie wordt beschreven hoe u de uitvoer van uw Event Hubs in uw functiecode binding.
+Deze sectie leest u hoe toouse de Event Hubs uitvoer binding in uw functiecode.
 
-U kunt berichten naar de geconfigureerde event hub uitvoeren met de volgende parametertypen:
+U kunt berichten toohello geconfigureerd event hub uitvoer Hello parametertypen te volgen:
 
 * `out string`
-* `ICollector<string>`(om uit te voeren op meerdere berichten)
+* `ICollector<string>`(toooutput meerdere berichten)
 * `IAsyncCollector<string>`(async-versie van `ICollector<T>`)
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Voorbeeld van uitvoer
-Stel dat u hebt de volgende Event Hubs uitvoer binding in de `bindings` matrix van function.json:
+Stel dat u hebt de volgende Hallo Event Hubs binding in Hallo uitvoer `bindings` matrix van function.json:
 
 ```json
 {
@@ -184,7 +184,7 @@ Stel dat u hebt de volgende Event Hubs uitvoer binding in de `bindings` matrix v
 }
 ```
 
-Zie het voorbeeld taalspecifieke die een gebeurtenis naar de zelfs stroom geschreven.
+Zie Hallo taalspecifieke voorbeeldtoepassing die u een gebeurtenis toohello zelfs stroom schrijft.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -205,7 +205,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Of om meerdere berichten te maken:
+Of toocreate meerdere berichten:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -241,7 +241,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Of om meerdere berichten te verzenden
+Of toosend meerdere berichten
 
 ```javascript
 module.exports = function(context) {

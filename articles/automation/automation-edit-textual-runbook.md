@@ -1,6 +1,6 @@
 ---
-title: Tekstuele runbooks in Azure Automation bewerken
-description: Dit artikel bevat verschillende procedures voor het werken met PowerShell en PowerShell Workflow-runbooks in Azure Automation met behulp van de teksteditor.
+title: aaaEditing tekstuele runbooks in Azure Automation
+description: Dit artikel bevat verschillende procedures voor het werken met PowerShell en PowerShell Workflow-runbooks in Azure Automation met behulp van Hallo teksteditor.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 21f30e1266a444a2258973f8acad3692077f535b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3fd87d457838f300ca6c94bc345e82c679a0e011
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Tekstuele runbooks in Azure Automation bewerken
-De teksteditor in Azure Automation kan worden gebruikt om te bewerken [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks). Dit heeft de typische functies van andere code-editor zoals intellisense en kleurcodering met aanvullende speciale functies om u te helpen bij het openen van bronnen die gemeenschappelijk zijn voor runbooks.  In dit artikel biedt gedetailleerde stappen voor het uitvoeren van verschillende functies met deze editor.
+Hallo teksteditor in Azure Automation kan worden gebruikt tooedit [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks). Dit heeft Hallo typische functies van andere code-editors, zoals intellisense en kleurcodering met extra functies voor speciale tooassist u bij het openen van bronnen algemene toorunbooks.  In dit artikel biedt gedetailleerde stappen voor het uitvoeren van verschillende functies met deze editor.
 
-De teksteditor bevat een functie voor het invoegen van code voor activiteiten, assets en onderliggende runbooks in een runbook. U kunt in plaats van te typen in de code zelf selecteren uit een lijst met beschikbare resources en de juiste code is ingevoegd in het runbook.
+Hallo teksteditor bevat een functie tooinsert code voor activiteiten, assets en onderliggende runbooks in een runbook. U kunt in plaats van te typen in Hallo code zelf selecteren uit een lijst met beschikbare bronnen en hebt de juiste code Hallo Hallo runbook ingevoegd.
 
-Elk runbook in Azure Automation heeft twee versies, ontwerp- en gepubliceerd. U bewerkt de conceptversie van het runbook en publiceert deze zodat deze kan worden uitgevoerd. De gepubliceerde versie kan niet worden bewerkt. Zie [een runbook publiceren](automation-creating-importing-runbook.md#publishing-a-runbook) voor meer informatie.
+Elk runbook in Azure Automation heeft twee versies, ontwerp- en gepubliceerd. U bewerkt de conceptversie Hallo van Hallo runbook en publiceert deze zodat deze kan worden uitgevoerd. Hallo gepubliceerde versie kan niet worden bewerkt. Zie [een runbook publiceren](automation-creating-importing-runbook.md#publishing-a-runbook) voor meer informatie.
 
-Werken met [grafische Runbooks](automation-runbook-types.md#graphical-runbooks), Zie [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
+toowork met [grafische Runbooks](automation-runbook-types.md#graphical-runbooks), Zie [grafisch ontwerpen in Azure Automation](automation-graphical-authoring-intro.md).
 
-## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Een runbook bewerken met de Azure-portal
-Gebruik de volgende procedure een runbook bewerken in de teksteditor te openen.
+## <a name="tooedit-a-runbook-with-hello-azure-portal"></a>tooedit een runbook met hello Azure-portal
+Hallo te volgen procedure tooopen een runbook bewerken in de teksteditor hello gebruiken.
 
-1. Selecteer uw automation-account in de Azure-portal.
-2. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.
-3. Klik op de naam van het runbook dat u wilt bewerken en klik vervolgens op de **bewerken** knop.
-4. Voer de vereiste bewerkingen.
+1. In hello Azure-portal, selecteer uw automation-account.
+2. Klik op Hallo **Runbooks** tegel tooopen Hallo lijst van runbooks.
+3. Klik op de naam van de Hallo van Hallo runbook u wilt dat tooedit en klik vervolgens op Hallo **bewerken** knop.
+4. Hallo vereist bewerken uitvoeren.
 5. Klik op **opslaan** wanneer de bewerkingen zijn voltooid.
-6. Klik op **publiceren** als u wilt dat de meest recente conceptversie van het runbook te publiceren.
+6. Klik op **publiceren** als u wilt dat de meest recente conceptversie Hallo van Hallo runbook toobe gepubliceerd.
 
-### <a name="to-insert-a-cmdlet-into-a-runbook"></a>Een cmdlet in een runbook invoegen
-1. Het Canvas van de teksteditor zet de cursor in waar u de cmdlet plaatsen.
-2. Vouw de **Cmdlets** knooppunt in het besturingselement bibliotheek.
-3. Vouw in de module met de cmdlet die u wilt gebruiken.
-4. Klik met de rechtermuisknop op de cmdlet invoegen en selecteer **toevoegen aan papier**.  Als de cmdlet meer dan één parameter is ingesteld heeft, wordt de standaardset worden toegevoegd.  U kunt ook de cmdlet om te selecteren van een andere parameterset uitbreiden.
-5. De code voor de cmdlet worden opgenomen met de volledige lijst van parameters.
-6. Kies een passende waarde in plaats van het gegevenstype omgeven door accolades <> voor alle vereiste parameters.  U hoeft geen parameters worden verwijderd.
+### <a name="tooinsert-a-cmdlet-into-a-runbook"></a>tooinsert een cmdlet in een runbook
+1. Hallo Canvas van teksteditor hello, zet Hallo cursor in waar u tooplace Hallo cmdlet.
+2. Vouw Hallo **Cmdlets** knooppunt in het besturingselement bibliotheek Hallo.
+3. Hallo-module met Hallo-cmdlet u toouse wilt uitbreiden.
+4. Klik met de rechtermuisknop op Hallo cmdlet tooinsert en selecteer **toocanvas toevoegen**.  Als Hallo cmdlet meer dan één parameter is ingesteld heeft, wordt de standaardset Hallo worden toegevoegd.  U kunt ook uitbreiden Hallo cmdlet tooselect een andere parameter ingesteld.
+5. Hallo-code voor Hallo cmdlet wordt ingevoegd met de volledige lijst van parameters.
+6. Kies een passende waarde in plaats van Hallo gegevenstype omgeven door accolades <> voor alle vereiste parameters.  U hoeft geen parameters worden verwijderd.
 
-### <a name="to-insert-code-for-a-child-runbook-into-a-runbook"></a>Code voor een onderliggend runbook in een runbook invoegen
-1. Het Canvas van de teksteditor zet de cursor in waar u de code voor de [onderliggend runbook](automation-child-runbooks.md).
-2. Vouw de **Runbooks** knooppunt in het besturingselement bibliotheek.
-3. Klik met de rechtermuisknop op het runbook invoegen en selecteer **toevoegen aan papier**.
-4. De code voor het onderliggende runbook wordt ingevoegd met een tijdelijke aanduidingen voor de runbookparameters.
-5. Vervang de tijdelijke aanduidingen met de juiste waarden voor elke parameter.
+### <a name="tooinsert-code-for-a-child-runbook-into-a-runbook"></a>tooinsert code voor een onderliggend runbook in een runbook
+1. Hallo Canvas van teksteditor hello, zet Hallo cursor in waar u tooplace Hallo code voor Hallo [onderliggend runbook](automation-child-runbooks.md).
+2. Vouw Hallo **Runbooks** knooppunt in het besturingselement bibliotheek Hallo.
+3. Klik met de rechtermuisknop op Hallo runbook tooinsert en selecteer **toocanvas toevoegen**.
+4. Hallo-code voor Hallo onderliggend runbook wordt ingevoegd met een tijdelijke aanduidingen voor elke runbook-parameters.
+5. Vervang de tijdelijke aanduidingen Hallo met de juiste waarden voor elke parameter.
 
-### <a name="to-insert-an-asset-into-a-runbook"></a>Een asset in een runbook invoegen
-1. Het Canvas van de teksteditor zet de cursor in waar u de code voor het onderliggende runbook.
-2. Vouw de **activa** knooppunt in het besturingselement bibliotheek.
-3. Vouw het knooppunt voor het type van de asset die u wilt.
-4. Klik met de rechtermuisknop op de asset invoegen en selecteer **toevoegen aan papier**.  Voor [variabele assets](automation-variables.md), selecteert u **'Variabele ophalen' naar het canvas toevoegen** of **toevoegen '-variabele instellen' naar het canvas** afhankelijk van of u wilt ophalen of instellen van de variabele.
-5. De code voor de activa wordt in het runbook ingevoegd.
+### <a name="tooinsert-an-asset-into-a-runbook"></a>tooinsert activa in een runbook
+1. Hallo Canvas van teksteditor hello, zet Hallo cursor in waar u tooplace Hallo code voor Hallo onderliggend runbook.
+2. Vouw Hallo **activa** knooppunt in het besturingselement bibliotheek Hallo.
+3. Hallo-knooppunt voor Hallo type asset die u wilt uitbreiden.
+4. Hallo asset tooinsert Klik met de rechtermuisknop en selecteer **toocanvas toevoegen**.  Voor [variabele assets](automation-variables.md), selecteert u **toevoegen 'Variabele ophalen' toocanvas** of **toevoegen '-variabele instellen' toocanvas** , afhankelijk van of u wilt dat tooget of Hallo-variabele instellen.
+5. Hallo-code voor Hallo asset is ingevoegd in Hallo runbook.
 
-## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Een runbook bewerken met de Azure-portal
-Gebruik de volgende procedure een runbook bewerken in de teksteditor te openen.
+## <a name="tooedit-a-runbook-with-hello-azure-portal"></a>tooedit een runbook met hello Azure-portal
+Hallo te volgen procedure tooopen een runbook bewerken in de teksteditor hello gebruiken.
 
-1. Selecteer in de Azure-portal **Automation** en klik vervolgens op de naam van een automation-account.
-2. Selecteer de **Runbooks** tabblad.
-3. Klik op de naam van het runbook dat u wilt bewerken en selecteer vervolgens de **auteur** tabblad.
-4. Klik op de **bewerken** knop aan de onderkant van het scherm.
-5. Voer de vereiste bewerkingen.
+1. Selecteer in de Azure-portal hello, **Automation** en klik vervolgens op Hallo-naam van een automation-account.
+2. Selecteer Hallo **Runbooks** tabblad.
+3. Klik op de naam van de Hallo van Hallo runbook u wilt dat tooedit en selecteer vervolgens Hallo **auteur** tabblad.
+4. Klik op Hallo **bewerken** knop Hallo onder welkomstscherm aan.
+5. Hallo vereist bewerken uitvoeren.
 6. Klik op **opslaan** wanneer de bewerkingen zijn voltooid.
-7. Klik op **publiceren** als u wilt dat de meest recente conceptversie van het runbook te publiceren.
+7. Klik op **publiceren** als u wilt dat de meest recente conceptversie Hallo van Hallo runbook toobe gepubliceerd.
 
-### <a name="to-insert-an-activity-into-a-runbook"></a>Een activiteit in een Runbook invoegen
-1. Het Canvas van de teksteditor zet de cursor in waar u de activiteit te plaatsen.
-2. Aan de onderkant van het scherm, klikt u op **invoegen** en vervolgens **activiteit**.
-3. In de **integratiemodule** kolom, selecteert u de module waarin de activiteit.
-4. In de **activiteit** deelvenster, selecteert u een activiteit.
-5. In de **beschrijving** kolom, Let op de beschrijving van de activiteit. Desgewenst kunt u weergeven gedetailleerde help help voor de activiteit in de browser te starten.
-6. Klik op de pijl naar rechts.  Als de activiteit parameters bevat, wordt deze voor uw gegevens worden weergegeven.
-7. Klik op de knop controleren.  Code voor het uitvoeren van de activiteit wordt ingevoegd in het runbook.
-8. Als de activiteit parameters vereist, typt u een geschikte waarde in plaats van het gegevenstype omgeven door accolades <>.
+### <a name="tooinsert-an-activity-into-a-runbook"></a>een activiteit in een Runbook tooinsert
+1. Hallo Canvas van teksteditor hello, zet Hallo cursor in waar u tooplace Hallo activiteit.
+2. Aan de onderkant van de Hallo van Hallo scherm, klikt u op **invoegen** en vervolgens **activiteit**.
+3. In Hallo **integratiemodule** kolom, selecteer Hallo-module die Hallo activiteit bevat.
+4. In Hallo **activiteit** deelvenster, selecteert u een activiteit.
+5. In Hallo **beschrijving** kolom Opmerking Hallo beschrijving van Hallo-activiteit. Desgewenst kunt u gedetailleerde weergave toolaunch help voor de activiteit in de browser Hallo Hallo.
+6. Klik op de pijl-rechts Hallo.  Als Hallo activiteit parameters bevat, worden ze ter informatie weergegeven.
+7. Klik op de knop controleren Hallo.  Code toorun Hallo activiteit zal worden ingevoegd in Hallo runbook.
+8. Als Hallo activiteit parameters vereist, typt u een geschikte waarde in plaats van Hallo gegevenstype omgeven door accolades <>.
 
-### <a name="to-insert-code-for-a-child-runbook-into-a-runbook"></a>Code voor een onderliggend runbook in een runbook invoegen
-1. Het Canvas van de teksteditor zet de cursor in waar u wilt plaatsen de [onderliggend runbook](automation-child-runbooks.md).
-2. Aan de onderkant van het scherm, klikt u op **invoegen** en vervolgens **Runbook**.
-3. Selecteer het runbook invoegen in de middelste kolom en klik op de pijl naar rechts.
-4. Als het runbook parameters heeft, wordt deze voor uw gegevens worden weergegeven.
-5. Klik op de knop controleren.  Code voor het uitvoeren van het geselecteerde runbook wordt ingevoegd in het huidige runbook.
-6. Als het runbook parameters vereist, typt u een geschikte waarde in plaats van het gegevenstype omgeven door accolades <>.
+### <a name="tooinsert-code-for-a-child-runbook-into-a-runbook"></a>tooinsert code voor een onderliggend runbook in een runbook
+1. Hallo Canvas van teksteditor hello, zet Hallo cursor in waar u tooplace hello [onderliggend runbook](automation-child-runbooks.md).
+2. Aan de onderkant van de Hallo van Hallo scherm, klikt u op **invoegen** en vervolgens **Runbook**.
+3. Hallo runbook tooinsert van Hallo middelste kolom en klik op de pijl-rechts Hallo.
+4. Als Hallo runbook parameters heeft, kunt u ze wordt weergegeven voor uw gegevens.
+5. Klik op de knop controleren Hallo.  Code toorun Hallo geselecteerd runbook zal worden ingevoegd in de huidige runbook Hallo.
+6. Als Hallo runbook parameters vereist, typt u een geschikte waarde in plaats van Hallo gegevenstype omgeven door accolades <>.
 
-### <a name="to-insert-an-asset-into-a-runbook"></a>Een asset in een runbook invoegen
-1. Het Canvas van de teksteditor zet de cursor in waar u de activiteit voor het ophalen van de asset plaatsen.
-2. Aan de onderkant van het scherm, klikt u op **invoegen** en vervolgens **instelling**.
-3. In de **Instellingsactie** kolom, selecteer de actie die u wilt.
-4. Selecteer in de beschikbare elementen in de middelste kolom.
-5. Klik op de knop controleren.  Code ophalen of instellen van de activa wordt ingevoegd in het runbook.
+### <a name="tooinsert-an-asset-into-a-runbook"></a>tooinsert activa in een runbook
+1. Hallo Canvas van teksteditor hello, zet Hallo cursor in waar u tooplace Hallo activiteit tooretrieve Hallo asset.
+2. Aan de onderkant van de Hallo van Hallo scherm, klikt u op **invoegen** en vervolgens **instelling**.
+3. In Hallo **Instellingsactie** kolom, selecteer Hallo-actie die u wilt.
+4. Selecteer in de beschikbare activa Hallo in Hallo middelste kolom.
+5. Klik op de knop controleren Hallo.  Code tooget of set Hallo asset zal worden ingevoegd in Hallo runbook.
 
-## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Een Azure Automation-runbook met Windows PowerShell bewerken
-Als u wilt een runbook bewerken met Windows PowerShell, gebruikt u editor van uw keuze en opslaan in een .ps1-bestand. U kunt de [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet voor het ophalen van de inhoud van het runbook en vervolgens [Set AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet het bestaande runbook concept door het gewijzigde.
+## <a name="tooedit-an-azure-automation-runbook-using-windows-powershell"></a>tooedit een Azure Automation-runbook met Windows PowerShell
+tooedit een runbook met Windows PowerShell kunt u gebruik Hallo-editor van uw keuze en tooa .ps1-bestand opslaan. Kunt u Hallo [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet tooretrieve Hallo inhoud van Hallo runbook en vervolgens [Set AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet tooreplace Hallo bestaande conceptrunbook Hello gewijzigd een.
 
-### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>De inhoud van een Runbook met Windows PowerShell ophalen
-De volgende voorbeeldopdrachten laten zien hoe het script voor een runbook ophalen en opslaan in een scriptbestand. In dit voorbeeld wordt de conceptversie opgehaald. Het is ook mogelijk om op te halen van de gepubliceerde versie van het runbook, hoewel deze versie kan niet worden gewijzigd.
+### <a name="tooretrieve-hello-contents-of-a-runbook-using-windows-powershell"></a>tooRetrieve Hallo inhoud van een Runbook met Windows PowerShell
+Hallo volgende voorbeeldopdrachten laten zien hoe tooretrieve Hallo script voor een runbook en sla het tooa-scriptbestand. In dit voorbeeld wordt de conceptversie Hallo opgehaald. Het is ook mogelijk tooretrieve Hallo gepubliceerde versie van Hallo runbook Hoewel deze versie kan niet worden gewijzigd.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -112,8 +112,8 @@ De volgende voorbeeldopdrachten laten zien hoe het script voor een runbook ophal
 
     Out-File -InputObject $runbookContent -FilePath $scriptPath
 
-### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>De inhoud van een Runbook met Windows PowerShell wijzigen
-De volgende voorbeeldopdrachten laten zien hoe de bestaande inhoud van een runbook vervangt door de inhoud van een scriptbestand. Houd er rekening mee dat dit dezelfde voorbeeldprocedure als in is [een runbook importeren uit een scriptbestand met Windows PowerShell](automation-creating-importing-runbook.md).
+### <a name="toochange-hello-contents-of-a-runbook-using-windows-powershell"></a>tooChange Hallo inhoud van een Runbook met Windows PowerShell
+Hallo volgende voorbeeldopdrachten laten zien hoe tooreplace bestaande inhoud van een runbook met inhoud van een scriptbestand Hallo Hallo. Opmerking dat is dit Hallo dezelfde procedure als in voorbeeld [tooimport een runbook uit een scriptbestand met Windows PowerShell](automation-creating-importing-runbook.md).
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"

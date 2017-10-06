@@ -1,6 +1,6 @@
 ---
-title: Tenantbeheerder toegangsrechten - Azure AD uitbreiden | Microsoft Docs
-description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC).
+title: aaaTenant admin toegangsrechten - Azure AD uitbreiden | Microsoft Docs
+description: Dit onderwerp beschrijft Hallo ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC).
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.openlocfilehash: bf64a92b359a6f68d84fa5ee17eda64ed6371990
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7996f2af3277dc40e2a1766cc4a7862a2399cdef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Toegangsrechten uitbreiden als een tenantbeheerder met toegangsbeheer op basis van rollen
 
-Toegangsbeheer op basis van rollen kunt tenantbeheerders tijdelijke uitbreidingen in toegang krijgen, zodat ze hoger dan normaal machtigen kunnen. Een tenantbeheerder kan zichzelf uitbreiden naar de rol beheerder voor gebruikerstoegang wanneer deze nodig is. Die rol, krijgt de tenant beheerdersmachtigingen te verlenen aan zichzelf of andere functies op het bereik '/'.
+Toegangsbeheer op basis van rollen kunt tenantbeheerders tijdelijke uitbreidingen in toegang krijgen, zodat ze hoger dan normaal machtigen kunnen. Een tenantbeheerder bevoegdheden zichzelf toohello toegang beheerderrol wanneer deze nodig is. Die rol biedt Hallo beheerder machtigingen toogrant tenant zichzelf of andere functies op Hallo bereik '/'.
 
-Deze functie is belangrijk omdat hiermee de tenantbeheerder om te zien van de abonnementen die zijn opgenomen in een organisatie. Kunt u ook voor automation-apps (zoals facturering en controle) voor toegang tot alle abonnementen en bieden een nauwkeurige weergave van de status van de organisatie voor facturerings- of asset management.  
+Deze functie is belangrijk omdat hiermee tenant Hallo beheerder toosee die alle abonnementen die zijn opgenomen in een organisatie Hallo. Ook kunt automation-apps (zoals facturering en controle) tooaccess alle Hallo-abonnementen en bieden een nauwkeurige weergave van de status van de organisatie Hallo voor facturerings- of asset management Hallo.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Het gebruik van elevateAccess tenant toegang te verlenen
+## <a name="how-toouse-elevateaccess-toogive-tenant-access"></a>Hoe toouse elevateAccess toogive tenant-toegang
 
-Het basisproces werkt met de volgende stappen uit:
+Hallo basisproces werkt met Hallo stappen te volgen:
 
-1. REST, aanroepen *elevateAccess*, waarmee u de rol van beheerder voor gebruikerstoegang op verleent ' / ' bereik.
+1. REST, aanroepen *elevateAccess*, hebt u de rol beheerder voor gebruikerstoegang op Hallo ' / ' bereik.
 
     ```
     POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
     ```
 
-2. Maak een [roltoewijzing](/rest/api/authorization/roleassignments) aan elke rol op een bereik toe te wijzen. Het volgende voorbeeld ziet u de eigenschappen voor het toewijzen van de rol lezer op ' / ' bereik:
+2. Maak een [roltoewijzing](/rest/api/authorization/roleassignments) tooassign elke rol op een bereik. Hallo volgende voorbeeld ziet u Hallo-eigenschappen voor het toewijzen van de rol lezer op Hallo ' / ' bereik:
 
     ```
     { "properties":{
@@ -55,17 +55,17 @@ Het basisproces werkt met de volgende stappen uit:
 4. De gebruiker toegang tot de beheerdersmachtigingen intrekken totdat ze weer nodig zijn.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>De actie elevateAccess ongedaan maken
+## <a name="how-tooundo-hello-elevateaccess-action"></a>Hoe tooundo elevateAccess actie Hallo
 
-Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze bevoegdheden intrekken moet u de toewijzing verwijderen.
+Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat toorevoke die bevoegdheden beschikt u de moet toodelete, toewijzing Hallo.
 
-1.  Roep [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) waar roleName = beheerder voor gebruikerstoegang om te bepalen van de naam van de GUID van de rol beheerder voor gebruikerstoegang. Het antwoord ziet er als volgt:
+1.  Roep [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) waar roleName = naam van de Hallo beheerder voor gebruikerstoegang toodetermine GUID van Hallo beheerder voor gebruikerstoegang rol. Hallo antwoord ziet er als volgt:
 
     ```
     {"value":[{"properties":{
     "roleName":"User Access Administrator",
     "type":"BuiltInRole",
-    "description":"Lets you manage user access to Azure resources.",
+    "description":"Lets you manage user access tooAzure resources.",
     "assignableScopes":["/"],
     "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
     "createdOn":"0001-01-01T08:00:00.0000000Z",
@@ -78,9 +78,9 @@ Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze 
     "nextLink":null}
     ```
 
-    Sla de GUID van de *naam* parameter in dit geval **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Hallo GUID van Hallo opslaan *naam* parameter in dit geval **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Roep [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) waar principalId = uw eigen ObjectId. Hier ziet u alle toewijzingen in de tenant. Zoek naar de waar de scope is '/' en de RoleDefinitionId eindigt met de naam van de rol GUID die u in stap 1 hebt gevonden. De roltoewijzing moet er als volgt uitzien:
+2. Roep [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get) waar principalId = uw eigen ObjectId. Hier ziet u alle toewijzingen in Hallo-tenant. Hallo een zoekt waarbij Hallo scope is '/' hello RoleDefinitionId eindigt met Hallo rol naam GUID die u in stap 1 hebt gevonden. Hallo roltoewijzing moet er als volgt uitzien:
 
     ```
     {"value":[{"properties":{
@@ -97,12 +97,12 @@ Als u aanroept *elevateAccess* u een roltoewijzing maken voor uzelf, zodat deze 
     "nextLink":null}
     ```
 
-    Opnieuw in en sla de GUID van de *naam* parameter in dit geval **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Hallo GUID weer van Hallo opslaan *naam* parameter in dit geval **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
-3. Tenslotte roept [verwijderen roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) waar roleAssignmentId = de naam van de GUID die u in stap 2 hebt vastgesteld.
+3. Tenslotte roept [verwijderen roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) waar roleAssignmentId = Hallo naam GUID die u in stap 2 hebt vastgesteld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [toegangsbeheer op basis van rollen met REST beheren](role-based-access-control-manage-access-rest.md)
 
-- [Beheren van toegangstoewijzingen](role-based-access-control-manage-assignments.md) in de Azure portal
+- [Beheren van toegangstoewijzingen](role-based-access-control-manage-assignments.md) in hello Azure-portal

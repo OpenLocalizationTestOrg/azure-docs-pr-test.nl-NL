@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2C | Microsoft Docs
-description: Het bouwen van een Windows-bureaubladtoepassing met aanmelden, aanmelding en Profielbeheer met behulp van Azure Active Directory B2C.
+title: aaaAzure Active Directory B2C | Microsoft Docs
+description: Hoe toobuild een Windows-bureaubladtoepassingen die bevat aanmelding, registratie en beheer met behulp van Azure Active Directory B2C-profiel.
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
@@ -14,64 +14,64 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f22b0299ff74bfba2f3fea88f006da609859dda5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows desktop app bouwen
-U kunt met behulp van Azure Active Directory (Azure AD) B2C beheerfuncties krachtige Self-service identiteitsbeheer toevoegen aan uw bureaublad-app in slechts enkele korte stappen. In dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst' u app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor aanmelden en aanmelden met een gebruikersnaam of e-mailbericht. Het biedt ook ondersteuning voor zich kunnen registreren en aanmelden via sociale accounts zoals Facebook en Google.
+U kunt met behulp van Azure Active Directory (Azure AD) B2C bureaublad tooyour-app van de krachtige Self-service identiteitsbeheer management-functies toevoegen in slechts enkele korte stappen. In dit artikel wordt uitgelegd hoe u toocreate een 'Takenlijst'.NET Windows Presentation Foundation (WPF)-app die gebruikersregistratie, aanmelding en Profielbeheer bevat. Hallo-app biedt ondersteuning voor zich kunnen registreren en aanmelden met een gebruikersnaam of e-mailbericht. Het biedt ook ondersteuning voor zich kunnen registreren en aanmelden via sociale accounts zoals Facebook en Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
 Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken.  Een directory is een container voor alle gebruikers, apps, groepen en meer. Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u doorgaat in deze handleiding.
 
 ## <a name="create-an-application"></a>Een app maken
-Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door aan Azure AD die nodig is om veilig te communiceren met uw app. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken.  Zorg ervoor dat:
+Vervolgens moet u een app toocreate in uw B2C-directory. Hiermee geeft u Azure AD-informatie of deze behoeften toosecurely met uw app communiceren. toocreate een app, volg [deze instructies](active-directory-b2c-app-registration.md).  Zorg ervoor dat:
 
-* Omvatten een **native client** in de toepassing.
-* Kopieer de **omleidings-URI** `urn:ietf:wg:oauth:2.0:oob`. Dit is de standaard-URL voor dit codevoorbeeld.
-* U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt dit later nodig.
+* Omvatten een **native client** in Hallo-toepassing.
+* Kopiëren Hallo **omleidings-URI** `urn:ietf:wg:oauth:2.0:oob`. Het is Hallo-standaard-URL voor dit codevoorbeeld.
+* Kopiëren Hallo **toepassings-ID** is toegewezen tooyour app. U hebt dit later nodig.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet een beleid voor elk type maken, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u uw drie beleidsregels maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Dit codevoorbeeld bevat drie identiteitservaringen: registreren, aanmelden en profiel bewerken. U moet toocreate een beleid voor elk type, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u Hallo drie beleidsregels maakt, moet u:
 
-* Kiest u **Registratie met gebruikers-id** of **Registratie via e-mail** op de blade met identiteitsproviders.
+* Kies een **gebruikers-ID registreren** of **registratie via E-mail** in de blade met identiteitsproviders Hallo.
 * Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
 * Kiest u **Weergavenaam**- en **Object-id**-claims als toepassingsclaims voor elk beleid. U kunt ook andere claims kiezen.
-* Kopieert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U hebt deze beleidsnamen later nodig.
+* Kopiëren Hallo **naam** van elk beleid nadat u dit hebt gemaakt. Het voorvoegsel Hallo heeft `b2c_1_`.  U hebt deze beleidsnamen later nodig.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Nadat u de drie beleidsregels hebt gemaakt, kunt u uw app maken.
+Wanneer u hebt gemaakt Hallo drie beleidsregels, bent u klaar toobuild uw app.
 
-## <a name="download-the-code"></a>De code downloaden
-De code voor deze zelfstudie [wordt bewaard in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Als u het voorbeeld wilt maken terwijl u aan het werk bent, kunt u [een basisproject downloaden als zip-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). U kunt het basisproject ook klonen:
+## <a name="download-hello-code"></a>Hallo code downloaden
+code voor deze zelfstudie Hallo [wordt bewaard in GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). toobuild hello voorbeeld als u gaat, kunt u [een basisproject downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). U kunt Hallo basisproject ook klonen:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-De voltooide app is ook [beschikbaar als zip-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) of in de `complete`-vertakking van dezelfde opslagplaats.
+Hallo voltooid app is ook [beschikbaar als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) of op Hallo `complete` vertakking van Hallo dezelfde opslagplaats.
 
-Nadat u de voorbeeldcode hebt gedownload, opent u het SLN-bestand in Visual Studio om aan de slag te gaan. De `TaskClient` project is de WPF-bureaubladtoepassing die de gebruiker werkt. Voor de doeleinden van deze zelfstudie wordt een taak back-end-web-API, gehost in Azure die de takenlijst van elke gebruiker opslaat aangeroepen.  U hoeft niet voor het bouwen van de web-API, we hebben al actief voor u.
+Nadat u Hallo voorbeeldcode hebt gedownload, open Hallo Visual Studio .sln-bestand tooget is gestart. Hallo `TaskClient` project is Hallo WPF-bureaubladtoepassing die gebruiker Hallo communiceert met. Aangeroepen voor Hallo toepassing van deze zelfstudie wordt een taak back-end-web-API, gehost in Azure die de takenlijst van elke gebruiker opslaat.  U hoeft geen toobuild Hallo web-API, we hebben al actief voor u.
 
-Bekijk voor meer informatie over hoe een web-API veilig wordt geverifieerd aanvragen met behulp van Azure AD B2C, de [web-API aan de slag artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
+toolearn hoe aanvragen voor een web-API veilig verifieert met behulp van Azure AD B2C, bekijk de [web-API aan de slag artikel](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="execute-policies"></a>Uitvoeren van beleid
-Uw app communiceert met Azure AD B2C door te sturen verificatieberichten die het beleid dat hij of zij wil uit te voeren als onderdeel van de HTTP-aanvraag opgeven. Voor .NET-desktoptoepassingen, kunt u de voorbeeld Microsoft Authentication Library (MSAL) gebruiken om te verzenden van berichten van OAuth 2.0-verificatie, voert u beleidsregels en ophalen van tokens die aanroepen van web-API's.
+Uw app communiceert met Azure AD B2C door te sturen verificatieberichten die ze willen tooexecute als onderdeel van Hallo HTTP-aanvraag Hallo het beleid opgeven. Voor .NET-desktoptoepassingen, kunt u Hallo Microsoft Authentication Library (MSAL) toosend OAuth 2.0-verificatieberichten bekijken, beleid uitvoeren en tokens verkrijgen voor de web-API's van deze aanroep.
 
 ### <a name="install-msal"></a>MSAL installeren
-Toevoegen van MSAL naar de `TaskClient` project met de Visual Studio Package Manager-Console.
+Toevoegen van MSAL toohello `TaskClient` project met behulp van Hallo Visual Studio Package Manager-Console.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="enter-your-b2c-details"></a>Uw B2C-gegevens invoeren
-Open het bestand `Globals.cs` en elk van de eigenschapswaarden vervangt door uw eigen. Deze klasse wordt gebruikt in de gehele `TaskClient` verwijzing gebruikte waarden.
+Open Hallo bestand `Globals.cs` en elk Hallo eigenschapswaarden vervangen door uw eigen. Deze klasse wordt gebruikt in `TaskClient` tooreference gebruikte waarden.
 
 ```C#
 public static class Globals
@@ -91,8 +91,8 @@ public static class Globals
 
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-### <a name="create-the-publicclientapplication"></a>De PublicClientApplication maken
-De primaire klasse van MSAL is `PublicClientApplication`. Deze klasse vertegenwoordigt de toepassing in het Azure AD B2C-systeem. Wanneer de initalizes app maakt voor een exemplaar van `PublicClientApplication` in `MainWindow.xaml.cs`. Dit kan worden gebruikt in het venster.
+### <a name="create-hello-publicclientapplication"></a>Hallo PublicClientApplication maken
+de primaire klasse Hallo van MSAL is `PublicClientApplication`. Deze klasse vertegenwoordigt de toepassing in Azure AD B2C Hallo-systeem. Wanneer hello app initalizes, maak een instantie van `PublicClientApplication` in `MainWindow.xaml.cs`. Dit kan worden gebruikt in de gehele Hallo-venster.
 
 ```C#
 protected async override void OnInitialized(EventArgs e)
@@ -101,8 +101,8 @@ protected async override void OnInitialized(EventArgs e)
 
     pca = new PublicClientApplication(Globals.clientId)
     {
-        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
-        // we've extended the MSAL TokenCache and created a simple FileCache in this app.
+        // MSAL implements an in-memory cache by default.  Since we want tokens toopersist when hello user closes hello app,
+        // we've extended hello MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
 
@@ -110,7 +110,7 @@ protected async override void OnInitialized(EventArgs e)
 ```
 
 ### <a name="initiate-a-sign-up-flow"></a>Een registratie stroom initiëren
-Wanneer een gebruiker ervoor om te tekenen van kiest, die u wilt starten een aanmelding stroom die gebruikmaakt van het registratiebeleid die u hebt gemaakt. Met behulp van MSAL die u zojuist hebt aanroepen `pca.AcquireTokenAsync(...)`. De parameters die u doorgeeft aan `AcquireTokenAsync(...)` bepalen welk token wordt weergegeven, het beleid op waarmee de verificatieaanvraag, enzovoort.
+Wanneer een gebruiker toosigns up kiest, wilt u tooinitiate een aanmelding stroom die gebruikmaakt van Hallo registratiebeleid die u hebt gemaakt. Met behulp van MSAL die u zojuist hebt aanroepen `pca.AcquireTokenAsync(...)`. parameters die u te doorgeeft Hallo`AcquireTokenAsync(...)` bepalen welk token wordt weergegeven, Hallo-beleid gebruikt in de verificatieaanvraag Hallo en meer.
 
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -118,29 +118,29 @@ private async void SignUp(object sender, RoutedEventArgs e)
     AuthenticationResult result = null;
     try
     {
-        // Use the app's clientId here as the scope parameter, indicating that
-        // you want a token to the your app's backend web API (represented by
-        // the cloud hosted task API).  Use the UiOptions.ForceLogin flag to
-        // indicate to MSAL that it should show a sign-up UI no matter what.
+        // Use hello app's clientId here as hello scope parameter, indicating that
+        // you want a token toohello your app's backend web API (represented by
+        // hello cloud hosted task API).  Use hello UiOptions.ForceLogin flag to
+        // indicate tooMSAL that it should show a sign-up UI no matter what.
         result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                 string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                 Globals.signUpPolicy);
 
-        // Upon success, indicate in the app that the user is signed in.
+        // Upon success, indicate in hello app that hello user is signed in.
         SignInButton.Visibility = Visibility.Collapsed;
         SignUpButton.Visibility = Visibility.Collapsed;
         EditProfileButton.Visibility = Visibility.Visible;
         SignOutButton.Visibility = Visibility.Visible;
 
-        // When the request completes successfully, you can get user
-        // information from the AuthenticationResult
+        // When hello request completes successfully, you can get user
+        // information from hello AuthenticationResult
         UsernameLabel.Content = result.User.Name;
 
-        // After the sign up successfully completes, display the user's To-Do List
+        // After hello sign up successfully completes, display hello user's To-Do List
         GetTodoList();
     }
 
-    // Handle any exeptions that occurred during execution of the policy.
+    // Handle any exeptions that occurred during execution of hello policy.
     catch (MsalException ex)
     {
         if (ex.ErrorCode != "authentication_canceled")
@@ -161,7 +161,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ```
 
 ### <a name="initiate-a-sign-in-flow"></a>Starten van een stroom aanmelden
-U kunt een stroom aanmelden op dezelfde manier als dat u een aanmelding stroom initiëren initiëren. Wanneer een gebruiker zich aanmeldt, moet u dezelfde aanroep MSAL, ditmaal met behulp van uw beleid voor aanmelden:
+U kunt een stroom aanmelden in Hallo starten dezelfde manier als dat u een aanmelding stroom initiëren. Wanneer een gebruiker zich aanmeldt, moet dezelfde Hallo aanroepen tooMSAL, ditmaal met behulp van uw beleid voor aanmelden:
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
@@ -176,7 +176,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ```
 
 ### <a name="initiate-an-edit-profile-flow"></a>Starten van een stroom profiel bewerken
-U kunt een beleid voor het profiel bewerken opnieuw uitvoeren op dezelfde manier:
+Opnieuw uitvoeren van een beleid voor het profiel bewerken in Hallo dezelfde manier:
 
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
@@ -189,16 +189,16 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     Globals.editProfilePolicy);
 ```
 
-In al deze gevallen retourneert MSAL ofwel een token in `AuthenticationResult` of er een uitzondering gegenereerd. Telkens wanneer u een token via MSAL krijgen, kunt u de `AuthenticationResult.User` object bijwerken van de gebruikersgegevens in de app, zoals de gebruikersinterface. Het token voor gebruik in andere onderdelen van de toepassing worden ook opgeslagen in ADAL.
+In al deze gevallen retourneert MSAL ofwel een token in `AuthenticationResult` of er een uitzondering gegenereerd. Telkens wanneer u een token via MSAL krijgen, kunt u Hallo `AuthenticationResult.User` tooupdate Hallo gebruikersgegevens in Hallo-app, zoals Hallo UI-object. ADAL ook caches Hallo token voor gebruik in andere gedeelten van de toepassing hello.
 
 ### <a name="check-for-tokens-on-app-start"></a>Controleer voor tokens op app starten
-U kunt ook MSAL gebruiken om-in status van de gebruiker bij te houden.  In deze app willen we de gebruiker blijft aangemeld nadat ze de app sluiten en opnieuw openen.  Terug in de `OnInitialized` overschrijven, gebruikt u de MSAL `AcquireTokenSilent` methode om te controleren of tokens in de cache opgeslagen:
+U kunt ook MSAL tookeep bijhouden van Hallo aanmelden gebruikersstatus gebruiken.  In deze app willen we Hallo gebruiker tooremain aangemeld nadat ze Hallo-app sluiten en opnieuw openen.  Terug in Hallo `OnInitialized` overschrijven, gebruikt u de MSAL `AcquireTokenSilent` methode toocheck voor tokens in de cache:
 
 ```C#
 AuthenticationResult result = null;
 try
 {
-    // If the user has has a token cached with any policy, we'll display them as signed-in.
+    // If hello user has has a token cached with any policy, we'll display them as signed-in.
     TokenCacheItem tci = pca.UserTokenCache.ReadItems(Globals.clientId).Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
     string existingPolicy = tci == null ? null : tci.Policy;
     result = await pca.AcquireTokenSilentAsync(new string[] { Globals.clientId }, string.Empty, Globals.authority, existingPolicy, false);
@@ -214,7 +214,7 @@ catch (MsalException ex)
 {
     if (ex.ErrorCode == "failed_to_acquire_token_silently")
     {
-        // There are no tokens in the cache.  Proceed without calling the To Do list service.
+        // There are no tokens in hello cache.  Proceed without calling hello tooDo list service.
     }
     else
     {
@@ -230,8 +230,8 @@ catch (MsalException ex)
 }
 ```
 
-## <a name="call-the-task-api"></a>De takenlijst-API aanroepen
-U hebt nu MSAL gebruikt om beleidsregels uitvoeren en tokens verkrijgen.  Wanneer u een deze tokens aan te roepen de takenlijst-API gebruiken wilt, kunt u opnieuw gebruiken van MSAL `AcquireTokenSilent` methode om te controleren of tokens in de cache opgeslagen:
+## <a name="call-hello-task-api"></a>Hallo taak API aanroepen
+U hebt nu MSAL tooexecute beleidsregels gebruikt en tokens verkrijgen.  Wanneer u toouse een deze tokens toocall Hallo taak API wilt, kunt u opnieuw gebruiken van MSAL `AcquireTokenSilent` methode toocheck voor tokens in de cache:
 
 ```C#
 private async void GetTodoList()
@@ -239,18 +239,18 @@ private async void GetTodoList()
     AuthenticationResult result = null;
     try
     {
-        // Here we want to check for a cached token, independent of whatever policy was used to acquire it.
+        // Here we want toocheck for a cached token, independent of whatever policy was used tooacquire it.
         TokenCacheItem tci = pca.UserTokenCache.ReadItems(Globals.clientId).Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
         string existingPolicy = tci == null ? null : tci.Policy;
 
-        // Use AcquireTokenSilent to indicate that MSAL should throw an exception if a token cannot be acquired
+        // Use AcquireTokenSilent tooindicate that MSAL should throw an exception if a token cannot be acquired
         result = await pca.AcquireTokenSilentAsync(new string[] { Globals.clientId }, string.Empty, Globals.authority, existingPolicy, false);
 
     }
-    // If a token could not be acquired silently, we'll catch the exception and show the user a message.
+    // If a token could not be acquired silently, we'll catch hello exception and show hello user a message.
     catch (MsalException ex)
     {
-        // There is no access token in the cache, so prompt the user to sign-in.
+        // There is no access token in hello cache, so prompt hello user toosign-in.
         if (ex.ErrorCode == "failed_to_acquire_token_silently")
         {
             MessageBox.Show("Please sign up or sign in first");
@@ -276,31 +276,31 @@ private async void GetTodoList()
     ...
 ```
 
-Bij het aanroepen van `AcquireTokenSilentAsync(...)` is gelukt en een token gevonden in de cache, kunt u het token voor toevoegen de `Authorization` koptekst van de HTTP-aanvraag. De web-API van de taak wordt deze header gebruiken om te verifiëren van de aanvraag voor het lezen van de takenlijst van de gebruiker:
+Wanneer de aanroep te Hallo`AcquireTokenSilentAsync(...)` is gelukt en een token gevonden in cache hello, kunt u Hallo token toohello toevoegen `Authorization` koptekst van Hallo HTTP-aanvraag. Hallo taak web-API gebruikt deze header tooauthenticate Hallo aanvraag tooread Hallo de takenlijst gebruiker:
 
 ```C#
     ...
-    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+    // Once hello token has been returned by MSAL, add it toohello http authorization header, before making hello call tooaccess hello tooDo list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
-    // Call the To Do list service.
+    // Call hello tooDo list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
     ...
 ```
 
-## <a name="sign-the-user-out"></a>De gebruiker afmelden
-Ten slotte kunt u MSAL naar einde van een gebruikerssessie met de app wanneer de gebruiker selecteert **Afmelden**.  Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle van de tokens van de tokencache:
+## <a name="sign-hello-user-out"></a>Meld u Hallo gebruiker af
+Ten slotte kunt u MSAL tooend een gebruikerssessie met Hallo app wanneer de gebruiker Hallo selecteert **Afmelden**.  Wanneer u MSAL gebruikt, wordt dit wordt bereikt door het wissen van alle Hallo tokens van Hallo tokencache:
 
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)
 {
-    // Clear any remnants of the user's session.
+    // Clear any remnants of hello user's session.
     pca.UserTokenCache.Clear(Globals.clientId);
 
-    // This is a helper method that clears browser cookies in the browser control that MSAL uses, it is not part of MSAL.
+    // This is a helper method that clears browser cookies in hello browser control that MSAL uses, it is not part of MSAL.
     ClearCookies();
 
-    // Update the UI to show the user as signed out.
+    // Update hello UI tooshow hello user as signed out.
     TaskList.ItemsSource = string.Empty;
     SignInButton.Visibility = Visibility.Visible;
     SignUpButton.Visibility = Visibility.Visible;
@@ -310,23 +310,23 @@ private void SignOut(object sender, RoutedEventArgs e)
 }
 ```
 
-## <a name="run-the-sample-app"></a>De voorbeeld-app uitvoeren
-Ten slotte bouwen en uitvoeren van het voorbeeld.  Zich registreren voor de app met behulp van de naam van een e-adres of de gebruiker. Meld u af en meld u opnieuw aan als dezelfde gebruiker. Profiel van de gebruiker bewerken. Meld u af en meld u aan met behulp van een andere gebruiker.
+## <a name="run-hello-sample-app"></a>Hallo voorbeeld-app uitvoeren
+Ten slotte bouwen en uitvoeren van Hallo-voorbeeld.  Zich registreren voor Hallo-app met behulp van de naam van een e-adres of de gebruiker. Meld u af en meld u weer aan als Hallo dezelfde gebruiker. Profiel van de gebruiker bewerken. Meld u af en meld u aan met behulp van een andere gebruiker.
 
 ## <a name="add-social-idps"></a>Sociale IDPs toevoegen
-Op dit moment wordt de app ondersteunt alleen gebruiker registreren en aanmelden met **lokale accounts**. Dit zijn opgeslagen in uw B2C-directory accounts die gebruikmaken van een gebruikersnaam en wachtwoord. U kunt met behulp van Azure AD B2C, ondersteuning voor andere id-providers (IDPs) toevoegen zonder uw code.
+Op dit moment Hallo app ondersteunt alleen gebruiker registreren en aanmelden met **lokale accounts**. Dit zijn opgeslagen in uw B2C-directory accounts die gebruikmaken van een gebruikersnaam en wachtwoord. U kunt met behulp van Azure AD B2C, ondersteuning voor andere id-providers (IDPs) toevoegen zonder uw code.
 
-Volg de gedetailleerde instructies in deze artikelen wilt sociale IDPs toevoegen aan uw app, eerst. Voor elke IDP die u wilt ondersteunen, moet u een toepassing registreren in dat systeem en het verkrijgen van een client-ID.
+tooadd sociale IDPs tooyour app volg eerst Hallo gedetailleerde instructies in deze artikelen. Voor elke IDP gewenste toosupport, u moet een toepassing tooregister in dat systeem en verkrijgen van een client-ID.
 
 * [Facebook ingesteld als een IDP](active-directory-b2c-setup-fb-app.md)
 * [Google ingesteld als een IDP](active-directory-b2c-setup-goog-app.md)
 * [Amazon ingesteld als een IDP](active-directory-b2c-setup-amzn-app.md)
 * [LinkedIn instellen als een IDP](active-directory-b2c-setup-li-app.md)
 
-Nadat u de id-providers aan uw B2C-directory toevoegen, moet u elk van de drie beleidsregels om op te nemen van de nieuwe IDPs bewerken, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md). Nadat u uw beleid opslaat, voer de app opnieuw. U ziet nu de nieuwe IDPs toegevoegd als aanmelden en aanmeldingsopties in elk van uw identiteit ervaringen.
+Nadat u Hallo identiteit providers tooyour B2C-directory toevoegt, moet u elk van de drie beleidsregels tooinclude Hallo nieuwe IDPs als in Hallo beschreven tooedit [naslagartikel](active-directory-b2c-reference-policies.md). Nadat u uw beleid opslaat, Voer u Hallo app opnieuw. U ziet Hallo die nieuwe IDPs als opties voor aanmelden en registreren in elk van uw identiteitservaringen toegevoegd.
 
-U kunt experimenteren met het beleid en houd rekening met de gevolgen voor uw voorbeeld-app. Toevoegen of verwijderen van IDPs, toepassingsclaims bewerken of registratiekenmerken wijzigen. Experiment totdat u kunt zien hoe beleidsregels, verificatieaanvragen en MSAL met elkaar verbinden.
+U kunt experimenteren met het beleid en observeren Hallo gevolgen voor uw voorbeeld-app. Toevoegen of verwijderen van IDPs, toepassingsclaims bewerken of registratiekenmerken wijzigen. Experiment totdat u kunt zien hoe beleidsregels, verificatieaanvragen en MSAL met elkaar verbinden.
 
-Voor een verwijzing naar het voltooide voorbeeld [wordt geleverd als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). U kunt dit ook klonen van GitHub:
+Ter referentie: voltooid Hallo voorbeeld [wordt geleverd als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). U kunt dit ook klonen van GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```

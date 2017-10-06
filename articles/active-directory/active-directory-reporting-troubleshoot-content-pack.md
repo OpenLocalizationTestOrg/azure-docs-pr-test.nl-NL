@@ -1,6 +1,6 @@
 ---
 title: Problemen oplossen van Azure Active Directory-activiteit inhoudspakket fouten-Logboeken | Microsoft Docs
-description: Biedt u een lijst met foutberichten van het inhoudspakket van Azure Active Directory-activiteit en werk deze kunt oplossen.
+description: Biedt u een lijst met foutberichten van hello Azure Active Directory-activiteit inhoud Inpakken en stappen toofix ze.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,56 +15,56 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c880e9eb6d48bd1e38075fbd867d3906ec67b547
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 325de65ff1572a2f8f8319c0a52350bda03af3de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Het oplossen van Azure Active Directory-activiteit registreert inhoudspakket fouten 
 
 
-Als u werkt met het Power BI-inhoudspakket voor Azure Active Directory-Preview, is het mogelijk dat u in de volgende fouten uitvoert: 
+Als u werkt met Hallo Power BI-inhoudspakket voor Azure Active Directory-Preview, is het mogelijk dat u uitvoert in Hallo volgende fouten: 
 
 - [Vernieuwen is mislukt](active-directory-reporting-troubleshoot-content-pack.md#refresh-failed) 
-- [Gegevensbronreferenties bijwerken is mislukt](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
+- [Mislukte tooupdate referenties voor gegevensbron](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
 - [Importeren van gegevens duurt te lang is](active-directory-reporting-troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
  
-In dit onderwerp vindt u informatie over de mogelijke oorzaken en hoe deze fouten te herstellen.
+Dit onderwerp vindt u informatie over de mogelijke oorzaken Hallo en hoe toofix deze fouten.
  
 ## <a name="refresh-failed"></a>Vernieuwen is mislukt 
  
-**Hoe deze fout wordt opgehaald**: e-mailbericht met Power BI- of mislukte status in de geschiedenis vernieuwen. 
+**Hoe deze fout wordt opgehaald**: e-mailbericht met Power BI- of mislukte status in de geschiedenis van Hallo vernieuwen. 
 
 
-| Oorzaak | Op te lossen |
+| Oorzaak | Hoe toofix |
 | ---   | ---        |
-| Vernieuwen van de fout fouten kunnen worden veroorzaakt wanneer de referenties van de gebruikers die verbinding maken met het inhoudspakket is opnieuw ingesteld, maar niet bijgewerkt in de verbindingsinstellingen van de van het inhoudspakket. | Zoek de gegevensset die overeenkomt met het Azure Active Directory-activiteit logboeken dashboard (Azure Active Directory-activiteit Logboeken), kies schema vernieuwen en voer uw Azure AD-referenties in Power BI. |
-| Vernieuwen kan mislukken vanwege gegevensproblemen met de in het onderliggende inhoudspakket. | Een ondersteuningsticket-bestand. Zie voor meer informatie [ondersteuning voor Azure Active Directory krijgen](active-directory-troubleshooting-support-howto.md).|
+| Fout fouten kunnen worden veroorzaakt wanneer de referenties op Hallo van Hallo gebruikers verbinding maken met het inhoudspakket toohello zijn opnieuw ingesteld, maar niet bijgewerkt in de verbindingsinstellingen Hallo Hallo van Hallo-inhoudspakket worden vernieuwd. | Hallo gegevensset bijbehorende toohello Azure Active Directory-activiteit logboeken dashboard (Azure Active Directory-activiteit Logboeken) vinden in Power BI, kies schema vernieuwen en voer uw Azure AD-referenties. |
+| Vernieuwen kan mislukken vanwege toodata problemen in Hallo onderliggende inhoudspakket. | Een ondersteuningsticket-bestand. Zie voor meer informatie [hoe tooget ondersteuning bieden voor Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
  
  
-## <a name="failed-to-update-data-source-credentials"></a>Gegevensbronreferenties bijwerken is mislukt 
+## <a name="failed-tooupdate-data-source-credentials"></a>Mislukte tooupdate referenties voor gegevensbron 
  
-**Hoe deze fout wordt opgehaald**: In Power BI, wanneer u een verbinding met het inhoudspakket van Azure Active Directory-activiteit Logboeken (preview). 
+**Hoe deze fout wordt opgehaald**: In Power BI, wanneer u verbinding toohello Azure Active Directory-activiteit Logboeken (preview)-inhoudspakket maakt. 
 
-| Oorzaak | Op te lossen |
+| Oorzaak | Hoe toofix |
 | ---   | ---        |
-| Gebruiker die de verbinding is een globale beheerder noch een lezer beveiliging of een beheerder beveiliging. | Gebruik een account dat een globale beheerder of een lezer beveiliging of een beheerder van de beveiliging voor toegang tot de inhoudspakketten. |
-| Uw tenant is niet een Premium-tenant of beschikt niet over ten minste één gebruiker met Premium-licentie bestand. | Een ondersteuningsticket-bestand. Zie voor meer informatie [ondersteuning voor Azure Active Directory krijgen](active-directory-troubleshooting-support-howto.md).|
+| de gebruiker verbinding maakt Hallo is een globale beheerder noch een lezer beveiliging of een beheerder beveiliging. | Gebruik een account dat een globale beheerder of een lezer beveiliging of een beveiliging admin tooaccess Hallo inhoudspakketten. |
+| Uw tenant is niet een Premium-tenant of beschikt niet over ten minste één gebruiker met Premium-licentie bestand. | Een ondersteuningsticket-bestand. Zie voor meer informatie [hoe tooget ondersteuning bieden voor Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
  
 
  
 
 ## <a name="importing-of-data-is-taking-too-long"></a>Importeren van gegevens duurt te lang is 
  
-**Hoe deze fout wordt opgehaald**: In Power BI zodra u verbinding hebt gemaakt met uw inhoudspakket het importproces gestart uw dashboard voorbereiden voor Azure Active Directory-logboek. Het bericht: '*importeren van gegevens...* '  
+**Hoe deze fout wordt opgehaald**: In Power BI zodra u verbinding hebt gemaakt met uw inhoudspakket importproces Hallo gestart tooprepare uw dashboard voor Azure Active Directory-logboek. U ziet het Hallo-bericht: '*importeren van gegevens...* '  
 
-| Oorzaak | Op te lossen |
+| Oorzaak | Hoe toofix |
 | ---   | ---        |
-| Afhankelijk van de grootte van uw tenant, kan deze stap enkele minuten tot duren 30 minuten. | NET worden geduld. Als het bericht wordt niet gewijzigd in uw dashboard binnen een uur wordt weergegeven, neem een ondersteuningsticket-bestand. Zie voor meer informatie [ondersteuning voor Azure Active Directory krijgen](active-directory-troubleshooting-support-howto.md).|
+| Afhankelijk van de grootte van de Hallo van uw tenant, kan deze stap duren een paar minuten too30 minuten. | NET worden geduld. Als het Hallo-bericht niet tooshowing uw dashboard binnen een uur verandert, moet u een ondersteuningsticket bestand. Zie voor meer informatie [hoe tooget ondersteuning bieden voor Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Klik op om de Power BI-inhoudspakket voor Azure Active Directory-Preview [hier](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
+tooinstall hello Power BI-inhoudspakket voor Azure Active Directory-Preview, klikt u op [hier](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
 
 

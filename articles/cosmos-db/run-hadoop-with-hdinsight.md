@@ -1,6 +1,6 @@
 ---
-title: Voer een met behulp van Azure DB die Cosmos en HDInsight Hadoop | Microsoft Docs
-description: Ontdek hoe u een eenvoudige Hive, Pig en MapReduce-taak uitvoert met Azure Cosmos DB en Azure HDInsight.
+title: aaaRun een Hadoop-taak met behulp van Azure DB die Cosmos en HDInsight | Microsoft Docs
+description: Meer informatie over hoe toorun een eenvoudige Hive, Pig en MapReduce taak met Azure Cosmos DB en Azure HDInsight.
 services: cosmos-db
 author: dennyglee
 manager: jhubbard
@@ -15,34 +15,34 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2e27499f2c4ba951af9a1ade1bcc9c1b6d298fcd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Voer een Apache Hive, Pig of Hadoop met behulp van Azure DB die Cosmos en HDInsight
-Deze zelfstudie leert u hoe u uitvoert [Apache Hive][apache-hive], [Apache Pig][apache-pig], en [Apache Hadoop] [ apache-hadoop] MapReduce-taken in Azure HDInsight met Hadoop-connector Cosmos-database. Hadoop-connector cosmos-database kunt Cosmos DB om te fungeren als een bron- en sink voor Hive, Pig en MapReduce-taken. Deze zelfstudie gaat Cosmos DB gebruiken als de gegevensbron en de bestemming voor Hadoop-taken.
+Deze zelfstudie leert u hoe toorun [Apache Hive][apache-hive], [Apache Pig][apache-pig], en [Apache Hadoop] [ apache-hadoop] MapReduce-taken in Azure HDInsight met Hadoop-connector Cosmos-database. Cosmos DB van Hadoop-connector kunt Cosmos DB tooact als een bron- en sink voor Hive, Pig en MapReduce-taken. Deze zelfstudie gebruikt Cosmos DB Hallo gegevensbron en bestemming voor Hadoop-taken.
 
-Na het voltooien van deze zelfstudie, hebt u mogelijk de volgende vragen beantwoorden:
+Na het voltooien van deze zelfstudie, moet u kunnen tooanswer Hallo vragen te volgen:
 
 * Hoe ik gegevens laden van de Cosmos-database met behulp van een Hive, Pig of MapReduce-taak?
 * Hoe kan ik gegevens opslaan in Cosmos-database met behulp van een Hive, Pig of MapReduce-taak?
 
-Het is raadzaam om aan de slag door de volgende video, waar we uitvoeren via een met behulp van de Cosmos-DB en HDInsight Hive-taak kijken.
+Het is raadzaam om aan de slag door bekijkt hello volgende video waar we uitvoeren via een met behulp van de Cosmos-DB en HDInsight Hive-taak.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
 >
 >
 
-Keer vervolgens terug naar dit artikel, waar u de volledige informatie over hoe u analytics-taken op uw gegevens Cosmos DB uitvoeren kunt hebt ontvangen.
+Keer vervolgens terug toothis artikel, waarin u ontvangt Hallo volledige details over hoe u analytics-taken op uw gegevens Cosmos DB uitvoeren kunt.
 
 > [!TIP]
-> Deze zelfstudie wordt ervan uitgegaan dat u ervaring met Apache Hadoop, Hive en/of Pig hebt. Als u niet bekend met Apache Hadoop Hive en Pig bent, raden wij aan via de [Apache Hadoop-documentatie][apache-hadoop-doc]. Deze zelfstudie wordt ervan uitgegaan dat u ervaring met Cosmos DB hebt en een Cosmos-DB-account hebben. Als u niet bekend met Cosmos DB bent of u beschikt niet over een Cosmos-DB-account, check onze [aan de slag] [ getting-started] pagina.
+> Deze zelfstudie wordt ervan uitgegaan dat u ervaring met Apache Hadoop, Hive en/of Pig hebt. Als u nieuwe tooApache Hadoop Hive en Pig, wordt aangeraden bezoeken Hallo [Apache Hadoop-documentatie][apache-hadoop-doc]. Deze zelfstudie wordt ervan uitgegaan dat u ervaring met Cosmos DB hebt en een Cosmos-DB-account hebben. Als u nieuwe tooCosmos DB of u geen een Cosmos-DB-account hebt, check onze [aan de slag] [ getting-started] pagina.
 >
 >
 
-Geen tijd om de zelfstudie te voltooien en wilt ophalen van de PowerShell-scripts voor het volledige voorbeeld voor Hive, Pig en MapReduce? Geen probleem, ze [hier][hdinsight-samples]. De download bevat ook de hql, pig en java-bestanden voor deze voorbeelden.
+Hebt u geen tijd toocomplete Hallo zelfstudie en alleen wilt tooget Hallo het volledige voorbeeld PowerShell-scripts voor Hive, Pig en MapReduce? Geen probleem, ze [hier][hdinsight-samples]. Hallo download bevat ook Hallo hql, pig en java-bestanden voor deze voorbeelden.
 
 ## <a name="NewestVersion"></a>Meest recente versie
 <table border='1'>
@@ -55,41 +55,41 @@ Geen tijd om de zelfstudie te voltooien en wilt ophalen van de PowerShell-script
     <tr><th>Ondersteunde HDInsight-versies</th>
         <td>3.1, 3.2</td></tr>
     <tr><th>Wijzigingenlogboek</th>
-        <td>Bijgewerkt Azure Cosmos DB Java SDK voor 1.6.0</br>
+        <td>Bijgewerkte Azure Cosmos DB Java SDK too1.6.0</br>
             Toegevoegde ondersteuning voor gepartitioneerde verzamelingen op als een bron- en sink</br>
         </td></tr>
 </table>
 
 ## <a name="Prerequisites"></a>Vereisten
-Voordat u de instructies in deze zelfstudie, zorg ervoor dat u het volgende hebt:
+Zorg ervoor dat u de volgende Hallo hebt voordat Hallo-instructies in deze zelfstudie:
 
-* Een Cosmos-DB-account, een database en een verzameling met documenten in. Zie voor meer informatie [aan de slag met Cosmos DB][getting-started]. Voorbeeldgegevens importeren in een Cosmos-DB-account met de [Cosmos DB import-hulpprogramma][import-data].
+* Een Cosmos-DB-account, een database en een verzameling met documenten in. Zie voor meer informatie [aan de slag met Cosmos DB][getting-started]. Voorbeeldgegevens importeren in uw account Cosmos DB Hello [Cosmos DB import-hulpprogramma][import-data].
 * De doorvoer. Leest en schrijft uit HDInsight naar uw toegewezen aanvraageenheden voor uw verzamelingen worden geteld.
-* De uitvoer van capaciteit voor een aanvullende opgeslagen procedure binnen elke verzameling. De opgeslagen procedures worden gebruikt voor het overdragen van de resulterende documenten.
-* Capaciteit voor de resulterende documenten uit de Hive, Pig of MapReduce-taken.
+* De uitvoer van capaciteit voor een aanvullende opgeslagen procedure binnen elke verzameling. Hallo opgeslagen procedures worden gebruikt voor het overdragen van de resulterende documenten.
+* Capaciteit voor de resulterende documenten Hallo uit Hallo Hive, Pig of MapReduce-taken.
 * [*Optioneel*] capaciteit voor een aanvullende verzameling.
 
 > [!WARNING]
-> Om te voorkomen dat het maken van een nieuwe verzameling tijdens een van de taken, kunt u de resultaten naar stdout afdrukken, sla de uitvoer naar de container WASB of geef een bestaande verzameling op. In het geval van een bestaande verzameling geven, nieuwe documenten gemaakt in de verzameling en de al bestaande documenten alleen worden beïnvloed als er een conflict in *id's*. **De connector wordt automatisch bestaande documenten overschreven met de ID-conflicten**. U kunt deze functie uitschakelen door de optie upsert op false. Als upsert ingesteld op false is en een conflict optreedt, mislukt de taak Hadoop; een id conflict fout wordt gemeld.
+> Tooavoid hello gemaakt van een nieuwe verzameling tijdens een Hallo taken, kunt u Hallo resultaten toostdout afdrukken, opslaan Hallo uitvoer tooyour WASB container of geef een bestaande verzameling op. In geval van het opgeven van een bestaande verzameling Hallo nieuwe documenten worden gemaakt in de verzameling Hallo en al bestaande documenten alleen worden beïnvloed als er een conflict in *id's*. **Hallo-connector wordt automatisch bestaande documenten overschreven met de ID-conflicten**. U kunt deze functie uitschakelen door in te stellen Hallo upsert optie toofalse. Als upsert ingesteld op false is en een conflict optreedt, mislukt de Hallo Hadoop taak; een id conflict fout wordt gemeld.
 >
 >
 
 ## <a name="ProvisionHDInsight"></a>Stap 1: Maak een nieuw HDInsight-cluster
-Deze zelfstudie wordt scriptactie vanuit de Azure Portal voor het aanpassen van uw HDInsight-cluster. In deze zelfstudie gebruiken we de Azure Portal om uw HDInsight-cluster te maken. Voor instructies over het gebruik van PowerShell-cmdlets of de HDInsight-SDK voor .NET, bekijk de [aanpassen HDInsight-clusters met behulp van de scriptactie] [ hdinsight-custom-provision] artikel.
+Deze zelfstudie wordt scriptactie van hello Azure Portal toocustomize uw HDInsight-cluster. In deze zelfstudie gebruiken we hello Azure Portal toocreate uw HDInsight-cluster. Voor instructies over hoe toouse PowerShell-cmdlets of Hallo HDInsight .NET SDK, bekijk de [aanpassen HDInsight-clusters met behulp van de scriptactie] [ hdinsight-custom-provision] artikel.
 
-1. Aanmelden bij de [Azure-Portal][azure-portal].
-2. Klik op **+ nieuw** zoekt boven aan het linkernavigatiegedeelte **HDInsight** in de bovenste zoekbalk op de nieuwe blade.
-3. **HDInsight** gepubliceerd door **Microsoft** aan de bovenkant van de resultaten worden weergegeven. Klik hierop en klik vervolgens op **maken**.
-4. Blade maken op het nieuwe HDInsight-Cluster, Voer uw **clusternaam** en selecteer de **abonnement** wilt u deze bron op onder inrichten.
+1. Meld u aan toohello [Azure Portal][azure-portal].
+2. Klik op **+ nieuw** zoekt op Hallo bovenaan Hallo linkernavigatiebalk **HDInsight** in de bovenste zoekbalk Hallo op Hallo nieuwe blade.
+3. **HDInsight** gepubliceerd door **Microsoft** Hallo boven aan het Hallo-resultaten wordt weergegeven. Klik hierop en klik vervolgens op **maken**.
+4. Blade op Hallo nieuwe HDInsight-Cluster te maken, Voer uw **clusternaam** en selecteer Hallo **abonnement** gewenste tooprovision deze bron op onder.
 
     <table border='1'>
-        <tr><td>Clusternaam</td><td>De naam van het cluster.<br/>
+        <tr><td>Clusternaam</td><td>Naam Hallo-cluster.<br/>
 DNS-naam moet beginnen en eindigen met een teken alfanumerieke en streepjes kan bevatten.<br/>
-Het veld moet een tekenreeks tussen 3 en 63 tekens lang zijn.</td></tr>
+Hallo-veld moet een tekenreeks tussen 3 en 63 tekens lang zijn.</td></tr>
         <tr><td>De naam van abonnement</td>
-            <td>Als u meer dan één Azure-abonnement hebt, selecteert u het abonnement dat als voor uw HDInsight-cluster host fungeert. </td></tr>
+            <td>Als u meer dan één Azure-abonnement hebt, selecteert u Hallo-abonnement dat als voor uw HDInsight-cluster host fungeert. </td></tr>
     </table>
-5.Klik op **clustertype Selecteer** en de volgende eigenschappen instellen op de opgegeven waarden.
+5.Klik op **clustertype Selecteer** en set Hallo eigenschappen toohello na opgegeven waarden.
 
     <table border='1'>
         <tr><td>Clustertype</td><td><strong>Hadoop</strong></td></tr>
@@ -101,63 +101,63 @@ Het veld moet een tekenreeks tussen 3 en 63 tekens lang zijn.</td></tr>
     Klik nu op **Selecteer**.
 
     ![Hadoop HDInsight initiële clusterdetails bieden][image-customprovision-page1]
-6. Klik op **referenties** uw aanmeldgegevens en referenties voor externe toegang instellen. Kies uw **Cluster aanmelding gebruikersnaam** en **aanmeldingswachtwoord Cluster**.
+6. Klik op **referenties** tooset uw aanmeldgegevens en referenties voor externe toegang. Kies uw **Cluster aanmelding gebruikersnaam** en **aanmeldingswachtwoord Cluster**.
 
-    Als u wilt dat extern in uw cluster, selecteert u *Ja* onderaan de blade en geef een gebruikersnaam en wachtwoord.
-7. Klik op **gegevensbron** instellen van uw primaire locatie voor toegang tot gegevens. Kies de **selectiemethode** en geef een bestaand opslagaccount of maak een nieuwe.
-8. Geef op de blade dezelfde een **standaard Container** en een **locatie**. En klik op **Selecteer**.
+    Als u wilt dat tooremote in uw cluster, selecteert u *Ja* Hallo Hallo blade onderaan in en geef een gebruikersnaam en wachtwoord.
+7. Klik op **gegevensbron** tooset uw primaire locatie voor gegevens openen. Kies Hallo **selectiemethode** en geef een bestaand opslagaccount of maak een nieuwe.
+8. Op dezelfde blade hello, geeft u een **standaard Container** en een **locatie**. En klik op **Selecteer**.
 
    > [!NOTE]
-   > Selecteer een locatie dicht bij uw regio Cosmos-DB-account voor betere prestaties
+   > Selecteer een locatie sluiten tooyour Cosmos DB accountregio voor betere prestaties
    >
    >
-9. Klik op **prijzen** selecteren van het aantal en type van knooppunten. U kunt de standaardconfiguratie houden en schalen het aantal Worker-knooppunten later op.
-10. Klik op **optionele configuratie**, klikt u vervolgens **acties Script** in de Blade optionele configuratie.
+9. Klik op **prijzen** tooselect Hallo aantal en type knooppunten. U kunt de standaardconfiguratie Hallo en schaal Hallo aantal Worker-knooppunten later op houden.
+10. Klik op **optionele configuratie**, klikt u vervolgens **scriptacties** in Hallo optionele configuratie-Blade.
 
-     Voer de volgende informatie voor het aanpassen van uw HDInsight-cluster in Script-acties.
+     Voer in scriptacties, Hallo informatie toocustomize te volgen in uw HDInsight-cluster.
 
      <table border='1'>
          <tr><th>Eigenschap</th><th>Waarde</th></tr>
          <tr><td>Naam</td>
-             <td>Geef een naam voor de scriptactie.</td></tr>
+             <td>Geef een naam voor de scriptactie Hallo.</td></tr>
          <tr><td>Script-URI</td>
-             <td>Geef de URI moet het script dat wordt opgeroepen voor het aanpassen van het cluster.</br></br>
+             <td>Geef Hallo URI toohello script is aangeroepen toocustomize Hallo-cluster.</br></br>
 Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</strong>.</td></tr>
          <tr><td>Kop</td>
-             <td>Klik op het selectievakje in om te worden uitgevoerd op het hoofdknooppunt van het PowerShell-script.</br></br>
+             <td>Klik op Hallo selectievakje toorun Hallo PowerShell-script op Hallo hoofdknooppunt.</br></br>
              <strong>Schakel dit selectievakje in</strong>.</td></tr>
          <tr><td>Werknemer</td>
-             <td>Klik op het selectievakje in als u wilt uitvoeren van het PowerShell-script op het werkrolknooppunt.</br></br>
+             <td>Klik op Hallo selectievakje toorun Hallo PowerShell-script op hello werkrolknooppunt.</br></br>
              <strong>Schakel dit selectievakje in</strong>.</td></tr>
          <tr><td>Zookeeper</td>
-             <td>Klik op het selectievakje in als u wilt uitvoeren van het PowerShell-script op de Zookeeper.</br></br>
+             <td>Klik op Hallo selectievakje toorun Hallo PowerShell-script op Hallo Zookeeper.</br></br>
              <strong>Niet nodig</strong>.
              </td></tr>
          <tr><td>Parameters</td>
-             <td>Geef de parameters op, indien vereist door het script.</br></br>
+             <td>Geef parameters op Hallo, indien vereist door het Hallo-script.</br></br>
              <strong>Er zijn geen Parameters nodig</strong>.</td></tr>
      </table>
 11.Maken van een nieuwe **resourcegroep** of gebruik een bestaande resourcegroep onder uw Azure-abonnement.
-12. Controleer nu **vastmaken aan dashboard** bijhouden van de implementatie en klikt u op **maken**!
+12. Controleer nu **pincode toodashboard** tootrack de implementatie en klik op **maken**!
 
 ## <a name="InstallCmdlets"></a>Stap 2: Installeer en configureer Azure PowerShell
 1. Installeer Azure PowerShell. Instructies hiervoor vindt u [hier][powershell-install-configure].
 
    > [!NOTE]
-   > U kunt ook van HDInsight online Hive-Editor gebruiken voor Hive-query's. Om dit te doen, moet u zich aanmelden bij de [Azure Portal][azure-portal], klikt u op **HDInsight** in het linkerdeelvenster om een lijst met uw HDInsight-clusters weer te geven. Klik op het cluster dat u wilt uitvoeren van Hive-query's op en klik vervolgens op **Query Console**.
+   > U kunt ook van HDInsight online Hive-Editor gebruiken voor Hive-query's. toohello toodo dus aanmelden [Azure Portal][azure-portal], klikt u op **HDInsight** op Hallo linkerdeelvenster tooview een lijst met uw HDInsight-clusters. Klik op Hallo cluster u wilt toorun Hive-query's op en klik vervolgens op **Query Console**.
    >
    >
-2. Open de Azure PowerShell Integrated Scripting Environment:
+2. Open Azure PowerShell Integrated Scripting Environment Hallo:
 
-   * Op een computer met Windows 8 of WindowsServer 2012 of nieuwer, kunt u de ingebouwde zoekopdracht. Typ in het startscherm **powershell ise** en klik op **Enter**.
-   * Gebruik het menu Start op een computer met een besturingssysteem dat ouder dan Windows 8 of Windows Server 2012. Typ in het menu Start **opdrachtprompt** in het zoekvak en vervolgens in de lijst met resultaten, klikt u op **opdrachtprompt**. Typ in het opdrachtpromptvenster **powershell_ise** en klik op **Enter**.
+   * Op een computer met Windows 8 of WindowsServer 2012 of nieuwer, kunt u de ingebouwde Hallo zoeken. Typ vanuit het startscherm Hallo **powershell ise** en klik op **Enter**.
+   * Gebruik op een computer met een besturingssysteem dat ouder dan Windows 8 of Windows Server 2012, Hallo startmenu. Typ vanuit het startmenu hello, **opdrachtprompt** Hallo zoeken in en klik vervolgens in de lijst met resultaten hello, klikt u op **opdrachtprompt**. Typ in het Hallo opdrachtprompt, **powershell_ise** en klik op **Enter**.
 3. Uw Azure-Account toevoegen.
 
-   1. Typ in het consolevenster **Add-AzureAccount** en klik op **Enter**.
-   2. Typ in het e-mailadres dat is gekoppeld aan uw Azure-abonnement en klikt u op **doorgaan**.
-   3. Typ in het wachtwoord voor uw Azure-abonnement.
+   1. Typ in het Hallo-consolevenster, **Add-AzureAccount** en klik op **Enter**.
+   2. Typ Hallo e-mailadres gekoppeld aan uw Azure-abonnement en klik op **doorgaan**.
+   3. Typ in het Hallo-wachtwoord voor uw Azure-abonnement.
    4. Klik op **aanmelden**.
-4. Het volgende diagram worden de belangrijke onderdelen van uw omgeving Azure PowerShell-scripts.
+4. Hallo volgende diagram identificeert Hallo belangrijke onderdelen van uw omgeving Azure PowerShell-scripts.
 
     ![Diagram voor Azure PowerShell][azure-powershell-diagram]
 
@@ -167,27 +167,27 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 >
 >
 
-1. De volgende variabelen instellen in het deelvenster van de PowerShell-Script.
+1. Stel Hallo variabelen in het deelvenster van de PowerShell-Script te volgen.
 
-        # Provide Azure subscription name, the Azure Storage account and container that is used for the default HDInsight file system.
+        # Provide Azure subscription name, hello Azure Storage account and container that is used for hello default HDInsight file system.
         $subscriptionName = "<SubscriptionName>"
         $storageAccountName = "<AzureStorageAccountName>"
         $containerName = "<AzureStorageContainerName>"
 
-        # Provide the HDInsight cluster name where you want to run the Hive job.
+        # Provide hello HDInsight cluster name where you want toorun hello Hive job.
         $clusterName = "<HDInsightClusterName>"
-2. <p>Laten we beginnen construeren van de queryreeks. We moet een Hive-query die wordt het systeem gegenereerde tijdstempels (_ts) en de unieke id's (_rid) uit een verzameling Azure Cosmos DB alle documenten, telt alle documenten per minuut en slaat vervolgens de resultaten weer in een nieuwe Azure DB die Cosmos-verzameling schrijven.</p>
+2. <p>Laten we beginnen construeren van de queryreeks. We moet een Hive-query die wordt het systeem gegenereerde tijdstempels (_ts) en de unieke id's (_rid) uit een verzameling Azure Cosmos DB alle documenten, telt alle documenten van Hallo minuut en slaat vervolgens Hallo resultaten weer in een nieuwe Azure DB die Cosmos-verzameling schrijven.</p>
 
-    <p>Eerst gaan we een Hive-tabel maken van onze Azure DB die Cosmos-verzameling. Het volgende codefragment toevoegen aan het deelvenster met PowerShell-Script <strong>nadat</strong> het codefragment van #1. Zorg ervoor dat u de beperkende optionele DocumentDB.query parameter t onze documenten kunnen alleen _ts en _rid.</p>
+    <p>Eerst gaan we een Hive-tabel maken van onze Azure DB die Cosmos-verzameling. Hallo na code codefragment toohello deelvenster van de PowerShell-Script toevoegen <strong>nadat</strong> codefragment Hallo van #1. Zorg ervoor dat u Hallo optionele DocumentDB.query parameter t trim onze documenten toojust _ts en _rid.</p>
 
    > [!NOTE]
    > **Naamgeving van DocumentDB.inputCollections is niet een fout.** Ja, kunnen we meerdere verzamelingen als invoer toe te voegen: </br>
    >
    >
 
-        '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
+        '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> hello collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from DocumentDB. Pass DocumentDB hello query toofilter transferred data too_rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -198,16 +198,16 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
                                 "'DocumentDB.inputCollections' = '<DocumentDB Input Collection Name>', " +
                                 "'DocumentDB.query' = 'SELECT r._rid AS id, r._ts AS ts FROM root r' ); "
 
-1. Vervolgens maken we een Hive-tabel voor de uitvoer-verzameling. De eigenschappen van de uitvoer is de maand, dag, uur, minuut en het totale aantal exemplaren.
+1. Vervolgens maken we een Hive-tabel voor de verzameling van Hallo uitvoer. Hallo uitvoer documenteigenschappen worden Hallo maand, dag, uur, minuut en Hallo kunt u het totale aantal exemplaren.
 
    > [!NOTE]
    > **Naamgeving van DocumentDB.outputCollections was nog opnieuw niet een fout.** Ja, kunnen we meerdere verzamelingen toe te voegen als uitvoer: </br>
-   > '*DocumentDB.outputCollections*'='*\<DocumentDB verzameling uitvoernaam 1\>*,*\<DocumentDB verzameling uitvoernaam 2\>* ' </br> De verzamelingsnamen van de worden zonder spaties, met slechts een enkele komma gescheiden. </br></br>
-   > Documenten worden gedistribueerde round robin in meerdere verzamelingen. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling, enzovoort.
+   > '*DocumentDB.outputCollections*'='*\<DocumentDB verzameling uitvoernaam 1\>*,*\<DocumentDB verzameling uitvoernaam 2\>* ' </br> Hallo verzamelingsnamen worden zonder spaties, met slechts een enkele komma gescheiden. </br></br>
+   > Documenten worden gedistribueerde round robin in meerdere verzamelingen. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling hello, enzovoort.
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for hello output data tooDocumentDB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -216,7 +216,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
                                  "'DocumentDB.key' = '<DocumentDB Primary Key>', " +  
                                  "'DocumentDB.db' = '<DocumentDB Database Name>', " +
                                  "'DocumentDB.outputCollections' = '<DocumentDB Output Collection Name>' ); "
-2. Tot slot gaan we de documenten tally per maand, dag, uur en minuut en invoegen van de resultaten weer in de uitvoer van de Hive-tabel.
+2. Tot slot uitvoer gaan we tally Hallo documenten per maand, dag, uur en minuut en insert Hallo resultaten weer in Hallo Hive-tabel.
 
         # GROUP BY minute, COUNT entries for each, INSERT INTO output Hive table.
         $queryStringPart3 = "INSERT INTO table DocumentDB_analytics " +
@@ -226,39 +226,39 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
                               "FROM DocumentDB_timestamps " +
                               "GROUP BY month(from_unixtime(ts)), day(from_unixtime(ts)), " +
                               "hour(from_unixtime(ts)) , minute(from_unixtime(ts)); "
-3. Voeg het volgende fragment script voor het maken van de definitie van een Hive-taak uit de vorige query.
+3. Na het script codefragment toocreate de definitie van een Hive-taak uit de vorige query Hallo Hallo toevoegen.
 
         # Create a Hive job definition.
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
 
-    U kunt ook gebruiken om op te geven van een scriptbestand HiveQL op HDFS-schakeloptie in het bestand.
-4. Voeg het volgende codefragment voor het opslaan van de begintijd en verzenden van de Hive-taak.
+    U kunt ook Hallo - bestand overschakelen toospecify een scriptbestand HiveQL op HDFS.
+4. Na de begintijd van codefragment toosave Hallo Hallo toevoegen en het verzenden van Hallo Hive-taak.
 
-        # Save the start time and submit the job to the cluster.
+        # Save hello start time and submit hello job toohello cluster.
         $startTime = Get-Date
         Select-AzureSubscription $subscriptionName
         $hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
-5. Voeg de volgende wachten tot de Hive-taak te voltooien.
+5. Hallo na toowait voor Hallo Hive-taak toocomplete toevoegen.
 
-        # Wait for the Hive job to complete.
+        # Wait for hello Hive job toocomplete.
         Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
-6. Voeg de volgende om de standaarduitvoer en de begin- en eindtijden te drukken.
+6. Toevoegen Hallo na tooprint Hallo standaard uitvoer en Hallo begin- en eindtijden.
 
-        # Print the standard error, the standard output of the Hive job, and the start and end time.
+        # Print hello standard error, hello standard output of hello Hive job, and hello start and end time.
         $endTime = Get-Date
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
         Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
-7. **Voer** het nieuwe script! **Klik op** de knop groen uitvoeren.
-8. Controleer de resultaten. Meld u aan bij de [Azure-Portal][azure-portal].
+7. **Voer** het nieuwe script! **Klik op** Hallo groene knop uitvoeren.
+8. Hallo resultaten controleren. Meld u aan bij Hallo [Azure Portal][azure-portal].
 
-   1. Klik op <strong>Bladeren</strong> in het paneel aan de linkerkant. </br>
-   2. Klik op <strong>Alles</strong> in de rechterbovenhoek van het paneel bladeren. </br>
+   1. Klik op <strong>Bladeren</strong> op Hallo aan de linkerkant Configuratiescherm. </br>
+   2. Klik op <strong>Alles</strong> op Hallo rechtsboven van Hallo bladeren paneel. </br>
    3. Zoek en klik op <strong>Azure Cosmos DB Accounts</strong>. </br>
-   4. Zoek vervolgens uw <strong>Azure Cosmos-DB Account</strong>, klikt u vervolgens <strong>Azure Cosmos DB Database</strong> en uw <strong>Azure Cosmos DB verzameling</strong> die zijn gekoppeld aan de verzameling uitvoer is opgegeven in uw Hive-query.</br>
+   4. Zoek vervolgens uw <strong>Azure Cosmos-DB Account</strong>, klikt u vervolgens <strong>Azure Cosmos DB Database</strong> en uw <strong>Azure Cosmos DB verzameling</strong> die zijn gekoppeld aan de opgegeven de verzameling van de Hallo uitvoer uw Hive-query.</br>
    5. Tot slot op <strong>documentverkenner</strong> onder <strong>hulpprogramma's voor ontwikkelaars</strong>.</br></p>
 
-   Hier ziet u de resultaten van uw Hive-query.
+   Hier ziet u Hallo resultaten van uw Hive-query.
 
    ![De resultaten van de hive-query][image-hive-query-results]
 
@@ -268,125 +268,125 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 >
 >
 
-1. De volgende variabelen instellen in het deelvenster van de PowerShell-Script.
+1. Stel Hallo variabelen in het deelvenster van de PowerShell-Script te volgen.
 
         # Provide Azure subscription name.
         $subscriptionName = "Azure Subscription Name"
 
-        # Provide HDInsight cluster name where you want to run the Pig job.
+        # Provide HDInsight cluster name where you want toorun hello Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
-2. <p>Laten we beginnen construeren van de queryreeks. We moet een Pig-query die wordt het systeem gegenereerde tijdstempels (_ts) en de unieke id's (_rid) uit een verzameling Azure Cosmos DB alle documenten, telt alle documenten per minuut en slaat vervolgens de resultaten weer in een nieuwe Azure DB die Cosmos-verzameling schrijven.</p>
-    <p>Documenten van de Cosmos-database eerst laden in HDInsight. Het volgende codefragment toevoegen aan het deelvenster met PowerShell-Script <strong>nadat</strong> het codefragment van #1. Zorg ervoor dat u een DocumentDB-query toevoegen aan de optionele parameter van de query DocumentDB om onze documenten kunnen alleen _ts trim en _rid.</p>
+2. <p>Laten we beginnen construeren van de queryreeks. We moet een Pig-query die wordt het systeem gegenereerde tijdstempels (_ts) en de unieke id's (_rid) uit een verzameling Azure Cosmos DB alle documenten, telt alle documenten van Hallo minuut en slaat vervolgens Hallo resultaten weer in een nieuwe Azure DB die Cosmos-verzameling schrijven.</p>
+    <p>Documenten van de Cosmos-database eerst laden in HDInsight. Hallo na code codefragment toohello deelvenster van de PowerShell-Script toevoegen <strong>nadat</strong> codefragment Hallo van #1. Zorg ervoor dat een DocumentDB tooadd toohello optionele DocumentDB query parameter tootrim query onze documenten toojust _ts en _rid.</p>
 
    > [!NOTE]
    > Ja, kunnen we meerdere verzamelingen als invoer toe te voegen: </br>
-   > '*\<DocumentDB verzameling invoernaam 1\>*,*\<DocumentDB verzameling invoernaam 2\>*'</br> De verzamelingsnamen van de worden zonder spaties, met slechts een enkele komma gescheiden. </b>
+   > '*\<DocumentDB verzameling invoernaam 1\>*,*\<DocumentDB verzameling invoernaam 2\>*'</br> Hallo verzamelingsnamen worden zonder spaties, met slechts een enkele komma gescheiden. </b>
    >
    >
 
-    Documenten worden gedistribueerde round robin in meerdere verzamelingen. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling, enzovoort.
+    Documenten worden gedistribueerde round robin in meerdere verzamelingen. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling hello, enzovoort.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass DocumentDB query toofilter transferred data too_rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
                                                         "'<DocumentDB Input Collection Name>', " +
                                                         "'SELECT r._rid AS id, r._ts AS ts FROM root r' ); "
-3. Vervolgens laten we de documenten tally door de maand, dag, uur, minuut en het totale aantal exemplaren.
+3. Vervolgens laten we tally Hallo documenten door Hallo maand, dag, uur, minuut en Hallo kunt u het totale aantal exemplaren.
 
        # GROUP BY minute and COUNT entries for each.
        $queryStringPart2 = "timestamp_record = FOREACH DocumentDB_timestamps GENERATE `$0#'id' as id:int, ToDate((long)(`$0#'ts') * 1000) as timestamp:datetime; " +
                            "by_minute = GROUP timestamp_record BY (GetYear(timestamp), GetMonth(timestamp), GetDay(timestamp), GetHour(timestamp), GetMinute(timestamp)); " +
                            "by_minute_count = FOREACH by_minute GENERATE FLATTEN(group) as (Year:int, Month:int, Day:int, Hour:int, Minute:int), COUNT(timestamp_record) as Total:int; "
-4. Stel ten slotte de resultaten opslaan in onze nieuwe uitvoer-verzameling.
+4. Stel ten slotte Hallo resultaten opslaan in onze nieuwe uitvoer-verzameling.
 
    > [!NOTE]
    > Ja, kunnen we meerdere verzamelingen toe te voegen als uitvoer: </br>
-   > '\<DocumentDB verzameling uitvoernaam 1\>,\<DocumentDB verzameling uitvoernaam 2\>'</br> De verzamelingsnamen van de worden zonder spaties, met slechts een enkele komma gescheiden.</br>
-   > Documenten worden over meerdere verzamelingen gedistribueerde round robin. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling, enzovoort.
+   > '\<DocumentDB verzameling uitvoernaam 1\>,\<DocumentDB verzameling uitvoernaam 2\>'</br> Hallo verzamelingsnamen worden zonder spaties, met slechts een enkele komma gescheiden.</br>
+   > Documenten worden zijn gedistribueerde round robin via Hallo meerdere verzamelingen. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling hello, enzovoort.
    >
    >
 
-        # Store output data to Cosmos DB.
+        # Store output data tooCosmos DB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
                             "USING com.microsoft.azure.documentdb.pig.DocumentDBStorage( " +
                                 "'<DocumentDB Primary Key>', " +
                                 "'<DocumentDB Database Name>', " +
                                 "'<DocumentDB Output Collection Name>'); "
-5. Voeg het volgende fragment script voor het maken van de definitie van een Pig-taak uit de vorige query.
+5. Na het script codefragment toocreate de definitie van een Pig-taak uit de vorige query Hallo Hallo toevoegen.
 
         # Create a Pig job definition.
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $queryString -StatusFolder $statusFolder
 
-    U kunt ook gebruiken om op te geven van een scriptbestand Pig op HDFS-schakeloptie in het bestand.
-6. Voeg het volgende codefragment voor het opslaan van de begintijd en verzenden van de Pig-taak.
+    U kunt ook Hallo - bestand overschakelen toospecify een Pig-scriptbestand op HDFS.
+6. Na de begintijd van codefragment toosave Hallo Hallo toevoegen en het verzenden van Hallo Pig-taak.
 
-        # Save the start time and submit the job to the cluster.
+        # Save hello start time and submit hello job toohello cluster.
         $startTime = Get-Date
         Select-AzureSubscription $subscriptionName
         $pigJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $pigJobDefinition
-7. Voeg de volgende wachten tot de Pig-taak te voltooien.
+7. Hallo na toowait voor Hallo Pig-taak toocomplete toevoegen.
 
-        # Wait for the Pig job to complete.
+        # Wait for hello Pig job toocomplete.
         Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
-8. Voeg de volgende om de standaarduitvoer en de begin- en eindtijden te drukken.
+8. Toevoegen Hallo na tooprint Hallo standaard uitvoer en Hallo begin- en eindtijden.
 
-        # Print the standard error, the standard output of the Hive job, and the start and end time.
+        # Print hello standard error, hello standard output of hello Hive job, and hello start and end time.
         $endTime = Get-Date
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
         Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
-9. **Voer** het nieuwe script! **Klik op** de knop groen uitvoeren.
-10. Controleer de resultaten. Meld u aan bij de [Azure-Portal][azure-portal].
+9. **Voer** het nieuwe script! **Klik op** Hallo groene knop uitvoeren.
+10. Hallo resultaten controleren. Meld u aan bij Hallo [Azure Portal][azure-portal].
 
-    1. Klik op <strong>Bladeren</strong> in het paneel aan de linkerkant. </br>
-    2. Klik op <strong>Alles</strong> in de rechterbovenhoek van het paneel bladeren. </br>
+    1. Klik op <strong>Bladeren</strong> op Hallo aan de linkerkant Configuratiescherm. </br>
+    2. Klik op <strong>Alles</strong> op Hallo rechtsboven van Hallo bladeren paneel. </br>
     3. Zoek en klik op <strong>Azure Cosmos DB Accounts</strong>. </br>
-    4. Zoek vervolgens uw <strong>Azure Cosmos-DB Account</strong>, klikt u vervolgens <strong>Azure Cosmos DB Database</strong> en uw <strong>Azure Cosmos DB verzameling</strong> die zijn gekoppeld aan de verzameling uitvoer is opgegeven in uw Pig-query.</br>
+    4. Zoek vervolgens uw <strong>Azure Cosmos-DB Account</strong>, klikt u vervolgens <strong>Azure Cosmos DB Database</strong> en uw <strong>Azure Cosmos DB verzameling</strong> die zijn gekoppeld aan de opgegeven de verzameling van de Hallo uitvoer uw query Pig.</br>
     5. Tot slot op <strong>documentverkenner</strong> onder <strong>hulpprogramma's voor ontwikkelaars</strong>.</br></p>
 
-    Hier ziet u de resultaten van uw query Pig.
+    Hier ziet u Hallo resultaten van de Pig-query.
 
     ![Pig-queryresultaten][image-pig-query-results]
 
 ## <a name="RunMapReduce"></a>Stap 5: Een MapReduce-taak met behulp van Azure DB die Cosmos en HDInsight uitvoeren
-1. De volgende variabelen instellen in het deelvenster van de PowerShell-Script.
+1. Stel Hallo variabelen in het deelvenster van de PowerShell-Script te volgen.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
         $clusterName = "<ClusterName>"             # HDInsight cluster name
-2. Er moet een MapReduce-taak die het aantal exemplaren voor elke eigenschap van het Document uit de verzameling van uw Azure Cosmos DB telt uitvoeren. In dit fragment script toevoegen **nadat** het bovenstaande codefragment.
+2. We je een MapReduce-taak die Hallo aantal exemplaren voor elke eigenschap van het Document uit de verzameling van uw Azure Cosmos DB telt uitvoeren. In dit fragment script toevoegen **nadat** Hallo codefragment hierboven.
 
-        # Define the MapReduce job.
+        # Define hello MapReduce job.
         $TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
    > [!NOTE]
-   > TallyProperties v01.jar wordt geleverd met de aangepaste installatie van de Cosmos DB Hadoop-Connector.
+   > TallyProperties v01.jar wordt geleverd met aangepaste installatie Hallo Hallo Cosmos DB Hadoop-Connector.
    >
    >
-3. Voeg de volgende opdracht om het verzenden van de MapReduce-taak.
+3. Hallo na de opdracht toosubmit hello MapReduce-taak toevoegen.
 
-        # Save the start time and submit the job.
+        # Save hello start time and submit hello job.
         $startTime = Get-Date
         Select-AzureSubscription $subscriptionName
         $TallyPropertiesJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $TallyPropertiesJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
-    Naast de taakdefinitie MapReduce, moet u ook de naam van het HDInsight-cluster waarop u wilt uitvoeren van de MapReduce-taak en de referenties opgeven. De begin-AzureHDInsightJob is een aanroep van asynchrone uitvoering. Gebruiken om te controleren op de voltooiing van de taak, de *wacht AzureHDInsightJob* cmdlet.
-4. Voeg de volgende opdracht om te controleren of er fouten met de MapReduce-taak uitgevoerd.
+    Bovendien toohello taakdefinitie MapReduce, u ook opgeven naam Hallo HDInsight cluster waar u toorun hello MapReduce-taak en Hallo-referenties. Hallo Start AzureHDInsightJob is een aanroep van asynchrone uitvoering. toocheck hello voltooiing van de taak hello, gebruik Hallo *wacht AzureHDInsightJob* cmdlet.
+4. Hallo opdracht toocheck na of er fouten met actieve Hallo MapReduce-taak toevoegen.
 
-        # Get the job output and print the start and end time.
+        # Get hello job output and print hello start and end time.
         $endTime = Get-Date
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $TallyPropertiesJob.JobId -StandardError
         Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
-5. **Voer** het nieuwe script! **Klik op** de knop groen uitvoeren.
-6. Controleer de resultaten. Meld u aan bij de [Azure-Portal][azure-portal].
+5. **Voer** het nieuwe script! **Klik op** Hallo groene knop uitvoeren.
+6. Hallo resultaten controleren. Meld u aan bij Hallo [Azure Portal][azure-portal].
 
-   1. Klik op <strong>Bladeren</strong> in het paneel aan de linkerkant.
-   2. Klik op <strong>Alles</strong> in de rechterbovenhoek van het paneel bladeren.
+   1. Klik op <strong>Bladeren</strong> op Hallo aan de linkerkant Configuratiescherm.
+   2. Klik op <strong>Alles</strong> op Hallo rechtsboven van Hallo bladeren paneel.
    3. Zoek en klik op <strong>Azure Cosmos DB Accounts</strong>.
-   4. Zoek vervolgens uw <strong>Azure Cosmos-DB Account</strong>, klikt u vervolgens <strong>Azure Cosmos DB Database</strong> en uw <strong>Azure Cosmos DB verzameling</strong> die zijn gekoppeld aan de verzameling uitvoer is opgegeven in uw MapReduce-taak.
+   4. Zoek vervolgens uw <strong>Azure Cosmos-DB Account</strong>, klikt u vervolgens <strong>Azure Cosmos DB Database</strong> en uw <strong>Azure Cosmos DB verzameling</strong> die zijn gekoppeld aan de opgegeven de verzameling van de Hallo uitvoer uw MapReduce-taak.
    5. Tot slot op <strong>documentverkenner</strong> onder <strong>hulpprogramma's voor ontwikkelaars</strong>.
 
-      Hier ziet u de resultaten van uw MapReduce-taak.
+      Hier ziet u Hallo resultaten van de MapReduce-taak.
 
       ![MapReduce-queryresultaten][image-mapreduce-query-results]
 
@@ -395,11 +395,11 @@ Gefeliciteerd. U hebt zojuist uw eerste Hive, Pig en MapReduce-taken met behulp 
 
 We hebben onze Hadoop-Connector die afkomstig zijn geopend. Als u geïnteresseerd bent, u kunt bijdragen op [GitHub][github].
 
-Zie voor meer informatie de volgende artikelen:
+toolearn Zie meer Hallo artikelen te volgen:
 
 * [Een Java-toepassing met Documentdb ontwikkelen][documentdb-java-application]
 * [Het ontwikkelen van Java-MapReduce-programma's voor Hadoop in HDInsight][hdinsight-develop-deploy-java-mapreduce]
-* [Aan de slag met Hadoop Hive in HDInsight analyseren mobiele telefoon gebruiken][hdinsight-get-started]
+* [Aan de slag met Hadoop Hive in HDInsight tooanalyze mobiele telefoon gebruiken][hdinsight-get-started]
 * [MapReduce gebruiken met HDInsight][hdinsight-use-mapreduce]
 * [Hive gebruiken met HDInsight][hdinsight-use-hive]
 * [Pig gebruiken met HDInsight][hdinsight-use-pig]

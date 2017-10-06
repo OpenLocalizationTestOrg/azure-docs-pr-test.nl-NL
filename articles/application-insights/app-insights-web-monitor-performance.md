@@ -1,5 +1,5 @@
 ---
-title: De status en informatie over het gebruik met Application Insights van uw app bewaken
+title: aaaMonitor de status van uw app en het gebruik met Application Insights
 description: Aan de slag met Application Insights. Analyseer gebruik, beschikbaarheid en prestaties van uw on-premises of de Microsoft Azure-toepassingen.
 services: application-insights
 documentationcenter: 
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2015
 ms.author: bwren
-ms.openlocfilehash: 5b7b1f4a53cd2624ee8e2ab684ba6ba63252674f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 9230a6e65e5afb00c36122ff1d1de01ba19cd7f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-performance-in-web-applications"></a>Prestaties in webtoepassingen controleren
 
 
-Zorg ervoor dat uw toepassing goed presteert en vindt u informatie snel over fouten. [Application Insights] [ start] u vertellen over prestatieproblemen en uitzonderingen en kunt u vinden en de hoofdoorzaken analyseren.
+Zorg ervoor dat uw toepassing goed presteert en vindt u informatie snel over fouten. [Application Insights] [ start] u vertellen over prestatieproblemen en uitzonderingen en helpen u te vinden en diagnose Hallo hoofdmap oorzaken.
 
 Application Insights kunnen Java- en ASP.NET-webtoepassingen en services, WCF-services bewaken. Ze kunnen worden gehost op locatie, op virtuele machines, of als Microsoft Azure websites. 
 
-Application Insights kan duren voordat telemetrie van webpagina's en een groot aantal apparaten, zoals iOS, Android en Windows Store-apps aan de clientzijde.
+Aan de clientzijde hello, Application Insights kan duren voordat telemetrie van webpagina's en een groot aantal apparaten, zoals iOS, Android en Windows Store-apps.
 
 >[!Note]
-> We hebben een nieuwe ervaring beschikbaar gesteld voor langzame pagina's uitvoeren in uw webtoepassing kan vinden. Als u geen toegang tot deze, inschakelen door het configureren van de preview-opties, waarbij de [Preview blade](app-insights-previews.md). Meer informatie over deze nieuwe ervaring in [opsporen en oplossen van knelpunten met de interactieve prestaties onderzoek](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
+> We hebben een nieuwe ervaring beschikbaar gesteld voor langzame pagina's uitvoeren in uw webtoepassing kan vinden. Als u geen toegang tot tooit, het inschakelen door het configureren van uw opties preview Hello [Preview blade](app-insights-previews.md). Meer informatie over deze nieuwe ervaring in [opsporen en oplossen van knelpunten met Hallo interactieve prestaties onderzoek](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
 
 ## <a name="setup"></a>Instellen van de bewaking van toepassingsprestaties
-Als u dit nog niet hebt (dat wil zeggen, als er geen ApplicationInsights.config) nog Application Insights toegevoegd aan uw project, kies een van de volgende manieren aan de slag:
+Als u nog tooyour Application Insights hebt toegevoegd (dat wil zeggen, als er geen ApplicationInsights.config) project, kies een van de volgende manieren tooget gestart:
 
 * [ASP.NET-web-apps](app-insights-asp-net.md)
   * [Uitzondering bewaking toevoegen](app-insights-asp-net-exceptions.md)
@@ -41,37 +41,37 @@ Als u dit nog niet hebt (dat wil zeggen, als er geen ApplicationInsights.config)
   * [Bewaking van afhankelijkheid toevoegen](app-insights-java-agent.md)
 
 ## <a name="view"></a>Maatstaven voor prestaties verkennen
-In [de Azure-portal](https://portal.azure.com), blader naar de Application Insights-resource die u hebt ingesteld voor uw toepassing. De overzichtsblade ziet u eenvoudige prestatiegegevens:
+In [hello Azure-portal](https://portal.azure.com), bladeren toohello Application Insights-resource die u hebt ingesteld voor uw toepassing. overzichtsblade Hello ziet basic prestatiegegevens:
 
-Klik op een grafiek om meer details en om resultaten te bekijken voor een langere periode. Klik bijvoorbeeld op de tegel aanvragen en selecteer vervolgens een tijdsbereik:
+Klik op een grafiek toosee meer detail en toosee resultaten voor een langere periode. Klik bijvoorbeeld op Hallo aanvragen tegel en selecteer vervolgens een tijdsbereik:
 
-![Klik verder voor meer gegevens en selecteer een tijdsbereik](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![Klik door toomore gegevens en selecteer een tijdsbereik](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
-Klik op een grafiek om te kiezen welke metrische gegevens worden weergegeven, of Voeg een nieuwe grafiek toe en selecteer de metrische gegevens:
+Klik op een grafiek toochoose welke metrische gegevens worden weergegeven, of Voeg een nieuwe grafiek toe en selecteer de metrische gegevens:
 
-![Klik op een grafiek om metrische gegevens te selecteren](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
+![Klik op een grafiek toochoose metrische gegevens](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
 > [!NOTE]
-> **Schakel het selectievakje van de metrische gegevens** om te zien van de volledige selectie die beschikbaar is. De metrische gegevens kunnen worden onderverdeeld in groepen; Wanneer een lid van een groep is geselecteerd, worden alleen de andere leden van die groep weergegeven.
+> **Schakel alle Hallo metrische gegevens** toosee volledige selectie Hallo die beschikbaar is. Hallo metrische gegevens kunnen worden onderverdeeld in groepen; Wanneer een lid van een groep is geselecteerd, worden alleen hello andere leden van die groep weergegeven.
 
 ## <a name="metrics"></a>Wat doet u alle gemiddelde? Tegels van de prestaties en rapporten
-Er zijn verschillende maatstaven voor prestaties die kunt u krijgen. Laten we beginnen met degenen die standaard worden weergegeven op de blade van de toepassing.
+Er zijn verschillende maatstaven voor prestaties die kunt u krijgen. Laten we beginnen met degenen die standaard worden weergegeven op de blade voor Hallo-toepassing.
 
 ### <a name="requests"></a>Aanvragen
-Het aantal HTTP-aanvragen ontvangen in een opgegeven periode. Vergelijk deze met de resultaten op andere rapporten om te zien hoe uw app omgaat als de belasting varieert.
+Hallo aantal HTTP-aanvragen ontvangen in een opgegeven periode. Vergelijk dit met Hallo resultaten op andere rapporten toosee hoe uw app omgaat als Hallo belasting varieert.
 
 HTTP-aanvragen bevatten alle GET of POST-aanvragen voor pagina's, gegevens en installatiekopieën.
 
-Klik op de tegel voor tellingen voor specifieke URL's.
+Klik op Hallo tegel tooget tellingen voor specifieke URL's.
 
 ### <a name="average-response-time"></a>Gemiddelde reactietijd
-Hiermee wordt de tijd tussen een webaanvraag invoeren van uw toepassing en het antwoord.
+Metingen Hallo tijd tussen een webaanvraag invoeren van uw toepassing en het Hallo-antwoord geretourneerd.
 
-De punten weergeven zwevend gemiddelde. Als er een groot aantal aanvragen, is er mogelijk een aantal die afwijken van het gemiddelde zonder een duidelijke piek of dip in de grafiek.
+Hallo punten weergeven zwevend gemiddelde. Als er een groot aantal aanvragen, is er mogelijk enkele die afwijken van Hallo gemiddelde zonder een duidelijke piek of dip in Hallo-grafiek.
 
-Zoek naar ongebruikelijke pieken. In het algemeen verwachten reactietijd toenemen met een toename van aanvragen. Als de stijging onevenredige is, is het mogelijk dat uw app een limiet resource zoals CPU of de capaciteit van een service die wordt gebruikt roept.
+Zoek naar ongebruikelijke pieken. In het algemeen verwacht antwoord tijd toorise met een toename van aanvragen. Als Hallo aanleiding onevenredige is, kan uw app een limiet resource zoals CPU of Hallo capaciteit van een service die wordt gebruikt raken.
 
-Klik op de tegel voor tijden voor specifieke URL's.
+Klik op Hallo tegel tooget tijden voor specifieke URL's.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-42reqs.png)
 
@@ -85,70 +85,70 @@ Toont welke aanvragen mogelijk prestaties afstemmen.
 
 Een aantal aanvragen dat niet-onderschepte uitzonderingen heeft geretourneerd.
 
-Klik op de tegel om de details van specifieke problemen en selecteert u een afzonderlijke aanvraag naar de details. 
+Hallo tegel toosee Hallo details van specifieke fouten op en selecteer een afzonderlijke aanvraag toosee de details. 
 
 Alleen een representatieve steekproef van fouten wordt voor afzonderlijke inspectie bewaard.
 
 ### <a name="other-metrics"></a>Andere metrische gegevens
-Om te zien wat stelt andere metrische gegevens weergeven, klikt u op een grafiek en schakelt u de metrische gegevens voor een overzicht van de volledige beschikbaar. Klik (i) voor elke metriek definitie.
+toosee welke andere metrische gegevens weergeven, klikt u op een grafiek en schakelt u alle Hallo metrische gegevens toosee Hallo volledige set. Klik op (i) toosee elke metriek definitie.
 
-![Schakel alle metrische gegevens voor een overzicht van de hele set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![Selectie van alle metrische gegevens toosee Hallo hele set opheffen](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
-Een metriek selecteren, schakelt anderen die op dezelfde grafiek kan niet worden weergegeven.
+Selecteren van elke Hallo metrische schakelt Hallo anderen die kan niet worden weergegeven op hetzelfde diagram.
 
 ## <a name="set-alerts"></a>Waarschuwingen instellen
-Ontvangen van e-mailadres van ongebruikelijke waarden van alle metrische gegevens, moet u een waarschuwing toevoegen. U kunt ofwel het e-mailbericht verzenden naar de accountbeheerders, of specifieke e-mailadressen.
+op de hoogte met e-mailadres van ongebruikelijke waarden van een metriek toobe een waarschuwing toevoegen. U kunt toohello accountbeheerders voor toosend Hallo e of e-mailadressen toospecific.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-413setMetricAlert.png)
 
-De bron voor de overige eigenschappen instellen. Kies de bronnen webtest geen als u wilt waarschuwingen instellen voor prestaties of gebruik metrische gegevens.
+Hallo-bron voordat Hallo andere eigenschappen instellen. Kies de Hallo webtest bronnen geen als u wilt dat tooset waarschuwingen van prestaties of de meetgegevens voor softwaregebruik op.
 
-Wees voorzichtig te weten de eenheden waarin u wordt gevraagd om in te voeren van de drempelwaarde.
+Worden zorgvuldige toonote Hallo eenheden waarin u wordt gevraagd tooenter Hallo drempelwaarde.
 
-*Ik ziet de waarschuwing toevoegen knop niet.* -Is dit een groep account waartoe u alleen-lezen toegang hebben? Neem contact op met de accountbeheerder.
+*Waarschuwing knop Hallo toevoegen wordt niet weergegeven.* -Is dit een groep account toowhich u alleen-lezen toegang hebben? Neem contact op met de accountbeheerder Hallo.
 
 ## <a name="diagnosis"></a>Oplossen van problemen
 Hier volgen enkele tips voor het zoeken en onderzoeken van prestatieproblemen:
 
-* Instellen van [webtests] [ availability] om te worden gewaarschuwd als uw website uitvalt of onjuist of traag reageert. 
-* Vergelijk het aantal verzoeken met andere metrische gegevens om te controleren of het mislukte of trage reactie laden zijn gerelateerd.
-* [Invoegen en zoek trace-instructies] [ diagnostic] in uw code te helpen problemen te lokaliseren.
+* Instellen van [webtests] [ availability] toobe gewaarschuwd als uw website uitvalt of onjuist of traag reageert. 
+* Hallo aanvraag aantal met andere toosee metrische gegevens vergelijken als mislukte of trage reactie gerelateerde tooload zijn.
+* [Invoegen en zoek trace-instructies] [ diagnostic] in uw code toohelp speldenpunt problemen.
 * Bewaken van uw Web-app in bewerking met [livestream metrische gegevens][livestream].
-* De status van uw .net-toepassing met vastleggen [momentopname foutopsporingsprogramma][snapshot].
+* Hallo-status van uw .net-toepassing met vastleggen [momentopname foutopsporingsprogramma][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>Zoek en corrigeer de knelpunten met een interactieve prestaties onderzoek
 
-U kunt het nieuwe Application Insights interactieve prestaties onderzoek opzoeken gebieden van uw Web-app die de algehele prestaties vertragen. U kunt snel zoeken naar specifieke's die vertragen en gebruikt de [Profiling hulpprogramma](app-insights-profiler.md) om te zien of er een correlatie tussen deze pagina's.
+U kunt Hallo nieuwe Application Insights interactieve prestaties onderzoek toolocate gebieden van uw Web-app die de algehele prestaties vertragen. U kunt snel zoeken naar specifieke's die vertragen en Hallo [Profiling hulpprogramma](app-insights-profiler.md) toosee als er een correlatie tussen deze pagina's.
 
 ### <a name="create-a-list-of-slow-performing-pages"></a>Een lijst met langzame presterende pagina's maken 
 
-De eerste stap voor het vinden van prestatieproblemen is voor een lijst van de traag reageert niet meer pagina's. De schermafbeelding hieronder ziet u met behulp van de blade Performance om een lijst van mogelijke's verder onderzoeken. Snel ziet u op deze pagina dat er een vertraging in de reactietijd van de app op ongeveer 18:00 uur en nogmaals op ongeveer 10 uur was. U ziet ook dat de GET-bewerking klantgegevens/bepaalde langlopende bewerkingen met een gemiddelde reactietijd van 507.05 milliseconden had. 
+Hallo eerste stap voor het vinden van prestatieproblemen is tooget een lijst met Hallo traag reageert pagina's. de onderstaande schermafdruk Hallo wordt gedemonstreerd met behulp van Hallo prestaties blade tooget een lijst met mogelijke tooinvestigate pagina's verder. Snel ziet u op deze pagina dat er een vertraging in Hallo reactietijd van Hallo-app op ongeveer 18:00 uur en nogmaals op ongeveer 10 uur was. U ziet ook dat Hallo GET klantgegevens/bewerking heeft enkele langlopende bewerkingen met een gemiddelde responstijd 507.05 tijd in milliseconden. 
 
 ![Application Insights interactieve prestaties](./media/app-insights-web-monitor-performance/performance1.png)
 
 ### <a name="drill-down-on-specific-pages"></a>Inzoomen op bepaalde pagina 's
 
-Zodra u een momentopname van de prestaties van uw app hebt, kunt u meer informatie krijgen op specifieke bewerkingen trage prestaties. Klik op elke bewerking in de lijst om de details te bekijken, zoals hieronder wordt weergegeven. U kunt zien als de prestaties is gebaseerd op een afhankelijkheid van de grafiek. U kunt ook zien hoeveel gebruikers de verschillende reactietijden heeft ondergaan. 
+Zodra u een momentopname van de prestaties van uw app hebt, kunt u meer informatie krijgen op specifieke bewerkingen trage prestaties. Klik op elke bewerking in Hallo lijst toosee Hallo details, zoals hieronder wordt weergegeven. U kunt zien als Hallo prestaties is gebaseerd op een afhankelijkheid uit Hallo grafiek. Ook ziet u hoeveel gebruikers ervaren Hallo verschillende responstijden. 
 
 ![Application Insights operations blade](./media/app-insights-web-monitor-performance/performance5.png)
 
 ### <a name="drill-down-on-a-specific-time-period"></a>Inzoomen op een specifieke tijdsperiode
 
-Nadat u een punt in tijd voor het onderzoeken van hebt geïdentificeerd, kunt u inzoomen zelfs verder blik op de specifieke bewerkingen die er de oorzaak van zijn dat de vertraging van de prestaties. Als u klikt op in een bepaald punt in tijd krijgt u de details van de pagina, zoals hieronder wordt weergegeven. In het voorbeeld hieronder u ziet de bewerkingen die worden vermeld voor een bepaalde periode samen met de server reactiecodes en de duur van de bewerking zijn. Hebt u ook de url voor het openen van een TFS-werkitem als u moet deze informatie wordt verzonden naar uw ontwikkelteam.
+Nadat u een punt in tijd tooinvestigate hebt geïdentificeerd, Inzoomen nog verder toolook op Hallo specifieke bewerkingen die mogelijk Hallo prestaties vertraging veroorzaakt. Als u klikt op in een bepaald punt in tijd krijgt u details op Hallo van Hallo pagina zoals hieronder wordt weergegeven. In Hallo ziet voorbeeld hieronder u Hallo bewerkingen die worden vermeld voor een bepaalde periode samen met reactiecodes Hallo-server en de duur van de Hallo-bewerking. U hebt ook Hallo-url voor het openen van een TFS-werkitem als u deze informatie tooyour-ontwikkelteam toosend nodig.
 
 ![Application Insights tijdsegment](./media/app-insights-web-monitor-performance/performance2.png)
 
 ### <a name="drill-down-on-a-specific-operation"></a>Inzoomen op een specifieke bewerking
 
-Nadat u een punt in tijd voor het onderzoeken van hebt geïdentificeerd, kunt u inzoomen zelfs verder blik op de specifieke bewerkingen die er de oorzaak van zijn dat de vertraging van de prestaties. Klik op een bewerking uit de lijst om de details van de bewerking te bekijken, zoals hieronder wordt weergegeven. In dit voorbeeld ziet u dat de bewerking is mislukt, en Application Insights de details van de uitzondering heeft voor de toepassing heeft gekregen. U kunt een TFS-werkitem opnieuw gemakkelijk van deze blade maken.
+Nadat u een punt in tijd tooinvestigate hebt geïdentificeerd, Inzoomen nog verder toolook op Hallo specifieke bewerkingen die mogelijk Hallo prestaties vertraging veroorzaakt. Klik op een bewerking van Hallo lijst toosee Hallo details van Hallo bewerking zoals hieronder wordt weergegeven. In dit voorbeeld u ziet dat Hallo-bewerking is mislukt en Application Insights Hallo details van Hallo is opgegeven heeft een uitzondering Hallo toepassing geretourneerd. U kunt een TFS-werkitem opnieuw gemakkelijk van deze blade maken.
 
 ![Application Insights bewerking blade](./media/app-insights-web-monitor-performance/performance3.png)
 
 
 ## <a name="next"></a>Volgende stappen
-[Webtests] [ availability] -webaanvragen verzonden naar uw toepassing met regelmatige tussenpozen van de hele wereld hebben.
+[Webtests] [ availability] -hebt verzonden webaanvragen tooyour toepassing met regelmatige tussenpozen van Hallo wereld.
 
-[Vastleggen en zoeken van diagnostische traceringen] [ diagnostic] - traceringsaanroepen invoegen en de resultaten op de speldenpunt problemen doorzoeken.
+[Vastleggen en zoeken van diagnostische traceringen] [ diagnostic] - traceringsaanroepen invoegen en doorzoeken Hallo resultaten toopinpoint problemen.
 
 [Gebruik bijhouden] [ usage] -weten hoe mensen uw toepassing gebruiken.
 

@@ -1,6 +1,6 @@
 ---
-title: Sjablonen voor toepassingen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van de toepassing pagina's in de ontwikkelaarsportal in Azure API Management.
+title: aaaApplication sjablonen in Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toocustomize Hallo inhoud Hallo toepassing pagina's in de ontwikkelaarsportal Hallo in Azure API Management.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 6d2d44465800219f16866a621d4822614ac9e1dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4dc078be7163b047ca2e640a9065ba9e5ba709e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-templates-in-azure-api-management"></a>Sjablonen voor toepassingen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Azure API Management biedt dat u Hallo mogelijkheid toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en het Hallo-editor naar keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [ De glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunt u de inhoud van de toepassing pagina's in de ontwikkelaarsportal aanpassen.  
+ Hallo-sjablonen in deze sectie kunt u toocustomize Hallo inhoud van het Hallo toepassingspagina's in het Hallo-portal voor ontwikkelaars.  
   
 -   [Lijst met toepassingen](#ProductList)  
   
 -   [Toepassing](#Application)  
   
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie Hallo, maar onderwerp toochange vanwege toocontinuous verbeteringen zijn. U kunt Hallo live standaardsjablonen in Hallo developer-portal door te navigeren toohello gewenst afzonderlijke sjablonen weergeven. Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="ProductList"></a>Lijst met toepassingen  
- De **toepassingslijst** sjabloon kunt u de hoofdtekst van de pagina van de lijst met toepassingen in de ontwikkelaarsportal aanpassen.  
+ Hallo **toepassingslijst** sjabloon kunt u toocustomize Hallo hoofdtekst van de pagina toepassing hello in Hallo-portal voor ontwikkelaars.  
   
  ![Lijst met pagina Developer Portal Toepassingssjablonen](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM lijst pagina Developer Portal Toepassingssjablonen")  
   
@@ -70,7 +70,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `Product list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `Product list` sjabloon mogelijk gebruikt u de volgende Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
   
@@ -78,9 +78,9 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Zoekresultaten oproepen|[Wisselgeheugengebruik](api-management-template-data-model-reference.md#Paging) entiteit.|De paginerings-informatie voor de verzameling van toepassingen.|  
-|Toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen die zichtbaar is voor de huidige gebruiker.|  
-|Categorienaam|Tekenreeks|De categorie van toepassing.|  
+|Zoekresultaten oproepen|[Wisselgeheugengebruik](api-management-template-data-model-reference.md#Paging) entiteit.|Hallo paginering informatie voor de verzameling van Hallo-toepassingen.|  
+|Toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|Hallo toepassingen zichtbaar toohello huidige gebruiker.|  
+|Categorienaam|Tekenreeks|Hallo categorie van toepassing.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -134,7 +134,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="Application"></a>Toepassing  
- De **toepassing** sjabloon kunt u de hoofdtekst van de toepassingspagina in de ontwikkelaarsportal aanpassen.  
+ Hallo **toepassing** sjabloon kunt u toocustomize Hallo hoofdtekst van de pagina van de toepassing hello in Hallo-portal voor ontwikkelaars.  
   
  ![Pagina Developer Portal Toepassingssjablonen](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM pagina Developer Portal Toepassingssjablonen")  
   
@@ -177,7 +177,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `Application` sjabloon staat niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `Application` sjabloon staat niet toe dat het gebruik van een Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Gegevensmodel  
  [Toepassing](api-management-template-data-model-reference.md#Application) entiteit.  
@@ -220,4 +220,4 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).

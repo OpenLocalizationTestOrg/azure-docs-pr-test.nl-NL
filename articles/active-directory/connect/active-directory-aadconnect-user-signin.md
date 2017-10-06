@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99df1c65ee59a3c12e8818d9069a8b487839b08d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7848b419f3855b25cfa074a46779d258bd534bae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect gebruiker aanmeldingsopties
-Verbinden met Azure Active Directory (Azure AD) kan uw gebruikers zich aanmelden bij zowel cloud als on-premises resources met dezelfde wachtwoorden. In dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
+Verbinden met Azure Active Directory (Azure AD) kunt uw gebruikers toosign in tooboth cloud en lokale bronnen met behulp van dezelfde wachtwoorden Hallo. Dit artikel beschrijft de belangrijkste concepten voor elk model identiteit toohelp Kies van Hallo-identiteit die u wilt toouse tooAzure AD aanmelden.
 
-Als u al bekend met het Azure AD identity-model bent en voor meer informatie over een specifieke methode, raadpleegt u de desbetreffende koppeling:
+Als u al bekend met hello Azure AD identiteitsmodel bent en meer informatie over een specifieke methode toolearn, raadpleegt u de desbetreffende koppeling Hallo:
 
 * [Wachtwoordsynchronisatie](#password-synchronization) met [eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md)
 * [Federatieve eenmalige aanmelding (met Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
-## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>De gebruiker aanmelden methode voor uw organisatie te kiezen
-Voor de meeste organisaties die willen inschakelen gebruiker aanmelden bij Office 365, SaaS-toepassingen en andere Azure AD gebaseerde-resources, wordt aangeraden de standaardoptie voor de synchronisatie van wachtwoord. Sommige organisaties hebben echter een bepaalde reden is dat ze gebruikmaken van deze optie niet. Ze kunnen beide een federatieve aanmelding opties, zoals AD FS of Pass through-verificatie kiezen. U kunt de volgende tabel kunt u de juiste keuze.
+## <a name="choosing-hello-user-sign-in-method-for-your-organization"></a>Hallo gebruiker aanmelden methode voor uw organisatie te kiezen
+Voor de meeste organisaties die alleen tooenable gebruiker aanmelden tooOffice 365, SaaS-toepassingen en andere Azure AD gebaseerde bronnen wilt, wordt aangeraden wachtwoord Hallo-synchronisatie standaardoptie. Sommige organisaties hebben echter een bepaalde reden is dat ze niet kunnen toouse deze optie. Ze kunnen beide een federatieve aanmelding opties, zoals AD FS of Pass through-verificatie kiezen. U kunt na de tabel toohelp u bij het maken van de juiste keuze Hallo Hallo gebruiken.
 
-Ik wil | PS met eenmalige aanmelding| PA met eenmalige aanmelding| AD FS |
+Nodig| PS met eenmalige aanmelding| PA met eenmalige aanmelding| AD FS |
  --- | --- | --- | --- |
-Nieuwe gebruikers, contactpersonen en groepsaccounts in Active Directory naar de cloud lokale automatisch gesynchroniseerd.|x|x|x|
+Nieuwe gebruikers, contactpersonen en groepsaccounts in de lokale Active Directory toohello cloud automatisch gesynchroniseerd.|x|x|x|
 Instellen van mijn tenants voor Office 365 hybride scenario's.|x|x|x|
-Mijn gebruikers aanmelden en toegang tot cloudservices met hun on-premises wachtwoord inschakelen.|x|x|x|
+Mijn gebruikers toosign in services en -toegang cloud inschakelen met behulp van hun on-premises wachtwoord.|x|x|x|
 Eenmalige aanmelding implementeren met behulp van zakelijke referenties.|x|x|x|
-Zorg ervoor dat er geen wachtwoorden worden opgeslagen in de cloud.||x *|x|
+Zorg ervoor dat er geen wachtwoorden in Hallo cloud worden opgeslagen.||x *|x|
 Oplossingen voor on-premises meervoudige verificatie inschakelen.|||x|
 
 * Via een lichtgewicht connector.
@@ -47,20 +47,20 @@ Oplossingen voor on-premises meervoudige verificatie inschakelen.|||x|
 > Pass through-verificatie heeft momenteel de enige beperkingen met uitgebreide clients. Zie [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) voor meer informatie.
 
 ### <a name="password-synchronization"></a>Wachtwoordsynchronisatie
-Met Wachtwoordsynchronisatie worden-hashes van gebruikerswachtwoorden gesynchroniseerd vanaf de lokale Active Directory naar Azure AD. Wanneer wachtwoorden worden gewijzigd of opnieuw instellen van lokale, de nieuwe wachtwoorden worden gesynchroniseerd naar Azure AD onmiddellijk zodat uw gebruikers altijd hetzelfde wachtwoord voor cloud-bronnen en lokale bronnen gebruiken kunnen. De wachtwoorden worden nooit verzonden naar Azure AD of opgeslagen in Azure AD in ongecodeerde tekst. U kunt Wachtwoordsynchronisatie samen met terugschrijven van wachtwoord gebruiken om in te schakelen selfservice wachtwoordherstel in Azure AD.
+Met Wachtwoordsynchronisatie worden-hashes van gebruikerswachtwoorden gesynchroniseerd vanaf de lokale Active Directory tooAzure AD. Wanneer wachtwoorden worden gewijzigd of opnieuw instellen van lokale, nieuwe wachtwoorden Hallo gesynchroniseerde tooAzure AD zijn onmiddellijk zodat uw gebruikers kunnen altijd gebruik dezelfde Hallo wachtwoord voor cloud-bronnen en lokale bronnen. Hallo wachtwoorden worden nooit verzonden tooAzure AD of opgeslagen in Azure AD in ongecodeerde tekst. U kunt Wachtwoordsynchronisatie samen met wachtwoord terugschrijven tooenable selfservice wachtwoordherstel in Azure AD.
 
-Bovendien kunt u inschakelen [SSO](active-directory-aadconnect-sso.md) voor gebruikers op domein-machines op het bedrijfsnetwerk. Met eenmalige aanmelding moeten ingeschakelde gebruikers alleen een gebruikersnaam zodat ze veilig toegang tot cloud-bronnen invoeren.
+Bovendien kunt u inschakelen [SSO](active-directory-aadconnect-sso.md) voor gebruikers op domein-machines op Hallo bedrijfsnetwerk. Met eenmalige aanmelding ingeschakeld gebruikers alleen nodig tooenter een gebruikersnaam toohelp ze veilig toegang krijgen tot bronnen.
 
 ![Wachtwoordsynchronisatie](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Zie voor meer informatie de [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
+Zie voor meer informatie, Hallo [Wachtwoordsynchronisatie](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
 
 ### <a name="pass-through-authentication"></a>Pass through-verificatie
-Met Pass through-verificatie, is het wachtwoord van de gebruiker gevalideerd met de lokale Active Directory-domeincontroller. Het wachtwoord hoeft niet aanwezig zijn in Azure AD in een formulier. Hierdoor lokale beleidsregels, zoals de beperkingen van het uur aanmelden, moet worden geëvalueerd tijdens de verificatie naar de cloud-services.
+Met Pass through-verificatie wordt het wachtwoord van gebruiker Hallo gevalideerd met Hallo lokale Active Directory-domeincontroller. Hallo wachtwoord nodig niet aanwezig in Azure AD in een formulier toobe. Hierdoor lokale beleidsregels, zoals aanmelden uur beperkingen, toobe geëvalueerd tijdens toocloud verificatieservices.
 
-Pass through-verificatie gebruikt een eenvoudige-agent op een Windows Server 2012 R2 domein machine in de on-premises omgeving. Deze agent luistert naar aanvragen voor wachtwoord-validatie. Poorten voor inkomend verkeer te worden gebruikt met het Internet nodig niet is.
+Pass through-verificatie gebruikt een eenvoudige-agent op een Windows Server 2012 R2 domein machine Hallo on-premises omgeving. Deze agent luistert naar aanvragen voor wachtwoord-validatie. Alle poorten voor inkomend verkeer toobe open toohello Internet nodig niet is.
 
-Bovendien kunt u ook eenmalige aanmelding voor gebruikers in domein-machines op het bedrijfsnetwerk. Met eenmalige aanmelding moeten ingeschakelde gebruikers alleen een gebruikersnaam zodat ze veilig toegang tot cloud-bronnen invoeren.
+Bovendien kunt u ook eenmalige aanmelding voor gebruikers in domein-machines op Hallo bedrijfsnetwerk. Met eenmalige aanmelding ingeschakeld gebruikers alleen nodig tooenter een gebruikersnaam toohelp ze veilig toegang krijgen tot bronnen.
 ![Pass through-verificatie](./media/active-directory-aadconnect-user-signin/pta.png)
 
 Zie voor meer informatie:
@@ -68,7 +68,7 @@ Zie voor meer informatie:
 - [Eenmalige aanmelding](active-directory-aadconnect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federatieve die gebruikmaakt van een nieuwe of bestaande farm met AD FS in Windows Server 2012 R2
-Met federatieve aanmelden, zich uw gebruikers aanmelden bij Azure AD gebaseerde services met hun on-premises wachtwoorden. Terwijl ze op het bedrijfsnetwerk, zijn ze zelfs om hun wachtwoord invoeren. U kunt een nieuwe of bestaande farm met AD FS in Windows Server 2012 R2 implementeren via de optie Federatie met AD FS. Als u ervoor kiest om op te geven van een bestaande farm, configureert Azure AD Connect de vertrouwensrelatie tussen uw farm en Azure AD, zodat uw gebruikers zich kunnen aanmelden.
+Met federatieve aanmelden, kunnen uw gebruikers aanmelden tooAzure AD gebaseerde services met hun on-premises wachtwoorden. Terwijl ze op het bedrijfsnetwerk hello, hebben ze geen zelfs tooenter hun wachtwoorden. Hallo federation optie met AD FS gebruikt, kunt u een nieuwe of bestaande farm met AD FS in Windows Server 2012 R2 kunt implementeren. Als u op een bestaande farm toospecify kiest, configureert Azure AD Connect Hallo vertrouwensrelatie tussen uw farm en Azure AD, zodat uw gebruikers zich kunnen aanmelden.
 
 <center>![Federatie met AD FS in Windows Server 2012 R2](./media/active-directory-aadconnect-user-signin/federatedsignin.png)</center>
 
@@ -76,102 +76,102 @@ Met federatieve aanmelden, zich uw gebruikers aanmelden bij Azure AD gebaseerde 
 
 Als u een nieuwe farm implementeert, moet u het volgende nodig:
 
-* Een Windows Server 2012 R2-server voor de federation-server.
-* Een Windows Server 2012 R2-server voor de Webtoepassingsproxy.
+* Een Windows Server 2012 R2-server voor Hallo federation-server.
+* Een Windows Server 2012 R2-server voor Hallo Web Application Proxy.
 * Een pfx-bestand met een SSL-certificaat voor de naam van uw beoogde federation-service. Bijvoorbeeld: fs.contoso.com.
 
 Als u een nieuwe farm implementeert of via een bestaande farm, u moet:
 
 * Lokale beheerdersreferenties op uw federatieservers.
-* Lokale beheerdersreferenties op de werkgroepservers van een (geen lid van een domein) die u van plan bent voor de implementatie van de functie Web Application Proxy.
-* De computer waarop u de wizard uitvoeren op kunnen verbinding maken met andere computers die u wilt installeren van AD FS of Web Application Proxy op met behulp van Windows Remote Management.
+* Lokale beheerdersreferenties op de werkgroepservers van een (geen lid van een domein) die u van plan toodeploy bent Hallo Web Application Proxy-rol op.
+* Hallo-machine uit te voeren Hallo wizard op toobe kunnen tooconnect tooany andere machines dat u tooinstall AD FS of Web Application Proxy op wilt met behulp van Windows Remote Management.
 
 Zie voor meer informatie [eenmalige aanmelding met AD FS configureren](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Aanmelden met een eerdere versie van AD FS of een oplossing van derden
-Als u al cloud aanmelden met behulp van een eerdere versie van AD FS (zoals AD FS 2.0) of een derde partij federatieprovider hebt geconfigureerd, kunt u overslaan van de gebruiker aanmelden configuratie met Azure AD Connect. Hierdoor kunt u de laatste synchronisatie en andere mogelijkheden van Azure AD Connect downloaden terwijl u ook uw bestaande oplossing voor aanmelden.
+Als u al cloud aanmelden met behulp van een eerdere versie van AD FS (zoals AD FS 2.0) of een derde partij federatieprovider hebt geconfigureerd, kunt u tooskip aanmelden Gebruikersconfiguratie met Azure AD Connect. Hierdoor kunt u tooget Hallo laatste synchronisatie en andere mogelijkheden van Azure AD Connect terwijl u ook uw bestaande oplossing voor aanmelden.
 
-Zie voor meer informatie de [Azure AD van derden federatiecompatibiliteitslijst](active-directory-aadconnect-federation-compatibility.md).
+Zie voor meer informatie, Hallo [Azure AD van derden federatiecompatibiliteitslijst](active-directory-aadconnect-federation-compatibility.md).
 
 
 ## <a name="user-sign-in-and-user-principal-name"></a>Gebruiker aanmelden en UPN
 ### <a name="understanding-user-principal-name"></a>Understanding UPN-naam
-In Active Directory is het achtervoegsel van de standaard user principal name (UPN) de DNS-naam van het domein waar het gebruikersaccount is gemaakt. In de meeste gevallen is dit de domeinnaam die geregistreerd als het domein van de onderneming op het Internet. U kunt echter meer UPN-achtervoegsels toevoegen met behulp van Active Directory: domeinen en vertrouwensrelaties.
+In Active Directory is voor het achtervoegsel voor user principal name (UPN) voor Hallo standaard Hallo DNS-naam van het Hallo-domein waarin Hallo-gebruikersaccount is gemaakt. In de meeste gevallen is dit Hallo-domeinnaam die geregistreerd als Hallo enterprise domein op Hallo Internet. U kunt echter meer UPN-achtervoegsels toevoegen met behulp van Active Directory: domeinen en vertrouwensrelaties.
 
-De UPN van de gebruiker heeft de indeling username@domain. Bijvoorbeeld, een Active Directory-domein 'contoso.com' met de naam van een gebruiker met de naam John wellicht de UPN 'john@contoso.com'. De UPN van de gebruiker is gebaseerd op RFC 822. Hoewel het UPN- en e-mail dezelfde indeling delen, de waarde van de UPN voor een gebruiker kunnen wel of niet hetzelfde zijn als het e-mailadres van de gebruiker.
+Hallo UPN van de gebruiker Hallo heeft Hallo indeling username@domain. Bijvoorbeeld, een Active Directory-domein 'contoso.com' met de naam van een gebruiker met de naam John wellicht Hallo UPN 'john@contoso.com'. Hallo UPN van de gebruiker Hallo is gebaseerd op RFC 822. Hoewel hello UPN- en e-share hello dezelfde indeling, Hallo-waarde van Hallo UPN voor een gebruiker kunnen wel of niet dezelfde als e-mailadres van de gebruiker Hallo HALLO hallo.
 
 ### <a name="user-principal-name-in-azure-ad"></a>UPN-naam in Azure AD
-De Azure AD Connect-wizard gebruikt het kenmerk userPrincipalName of kunt u opgeven dat het kenmerk (in een aangepaste installatie) on-premises worden gebruikt als de user principal name in Azure AD. Dit is de waarde die wordt gebruikt voor aanmelding bij Azure AD. Als de waarde van het kenmerk userPrincipalName komt niet met een geverifieerde domeinnaam in Azure AD overeen, Azure AD wordt deze met een standaardwaarde. onmicrosoft.com-waarde.
+Hello Azure AD Connect-wizard gebruikt de kenmerk userPrincipalName Hallo of kunt die u opgeven Hallo kenmerk (in een aangepaste installatie) toobe als Hallo UPN-naam van on-premises gebruikt in Azure AD. Dit is Hallo-waarde die wordt gebruikt voor het aanmelden tooAzure AD. Als het Hallo-waarde van Hallo userPrincipalName kenmerk komt niet overeen tooa gecontroleerd domein in Azure AD, Azure AD wordt vervangen door een standaard. onmicrosoft.com-waarde.
 
-Elke map in Azure Active Directory wordt geleverd met een ingebouwde domeinnaam de indeling contoso.onmicrosoft.com, waarmee u aan de slag met Azure of andere Microsoft-services. U kunt verbeteren en de aanmeldingservaring vereenvoudigen met behulp van aangepaste domeinen. Zie voor informatie over aangepaste domeinnamen in Azure AD en het controleren van een domein, [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../add-custom-domain.md#add-your-custom-domain).
+Elke map in Azure Active Directory wordt geleverd met een ingebouwde domeinnaam Hallo indeling contoso.onmicrosoft.com, waarmee u aan de slag met Azure of andere Microsoft-services. U kunt verbeteren en de aanmeldingservaring Hallo vereenvoudigen met behulp van aangepaste domeinen. Voor informatie over aangepaste domeinnamen in Azure AD en hoe tooverify een domein, Zie [toevoegen van uw aangepaste domein naam tooAzure Active Directory](../add-custom-domain.md#add-your-custom-domain).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Aanmeldconfiguratie Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD-in-configuratie met Azure AD Connect
-De Azure AD-aanmeldingservaring aanpast, is afhankelijk van of Azure AD kan overeenkomen met de UPN-achtervoegsel van een gebruiker die wordt gesynchroniseerd met een van de aangepaste domeinen die zijn geverifieerd in de Azure AD-directory. Azure AD Connect bevat help tijdens het configureren van Azure AD-aanmelden-instellingen, zodat de aanmeldingspagina de gebruikerservaring in de cloud is vergelijkbaar met de ervaring van de lokale.
+Hello Azure AD-aanmeldingservaring aanpast, is afhankelijk van of in Azure AD kan overeenkomen met Hallo UPN-achtervoegsel van een gebruiker die wordt gesynchroniseerd tooone van Hallo aangepaste domeinen die zijn geverifieerd in hello Azure AD-directory. Azure AD Connect bevat help tijdens het configureren van Azure AD-aanmelden-instellingen, zodat Hallo aanmelden gebruikerservaring in Hallo cloud vergelijkbare toohello lokale ervaring.
 
-Azure AD Connect bevat de UPN-achtervoegsels die zijn gedefinieerd voor de domeinen en er wordt geprobeerd deze overeenkomen met een aangepast domein in Azure AD. Vervolgens kunt u met de juiste actie die moet worden ondernomen.
-De aanmeldingspagina van Azure AD geeft een lijst van de UPN-achtervoegsels die zijn gedefinieerd voor de lokale Active Directory en de bijbehorende status tegen elk achtervoegsel wordt weergegeven. De statuswaarden zijn:
+Azure AD Connect lijsten Hallo UPN-achtervoegsels die zijn gedefinieerd voor de domeinen en pogingen toomatch Hallo ze met een aangepast domein in Azure AD. Vervolgens kunt u met de Hallo gepaste actie die toobe genomen moet.
+Hello Azure AD-aanmeldingspagina bevat Hallo UPN-achtervoegsels die zijn gedefinieerd voor de lokale Active Directory en wordt de bijbehorende status Hallo tegen elk achtervoegsel weergegeven. Hallo statuswaarden kunnen een van de volgende Hallo zijn:
 
 | Status | Beschrijving | Actie vereist |
 |:--- |:--- |:--- |
 | Geverifieerd |Azure AD Connect gevonden dat een overeenkomende domein in Azure AD geverifieerd. Alle gebruikers voor dit domein kunnen aanmelden met hun on-premises referenties. |Er is geen actie vereist. |
-| Niet geverifieerd |Azure AD Connect een overeenkomende aangepast domein in Azure AD gevonden, maar het is niet geverifieerd. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd in de standaard. het achtervoegsel onmicrosoft.com na synchronisatie als het domein is niet geverifieerd. | [Controleer of het aangepaste domein in Azure AD.](../add-custom-domain.md#verify-the-domain-name-with-azure-ad) |
-| Niet toegevoegd |Azure AD Connect niet zoeken naar een aangepast domein kwam met het UPN-achtervoegsel overeen. Het UPN-achtervoegsel van de gebruikers van dit domein wordt gewijzigd op de standaardwaarde. achtervoegsel onmicrosoft.com als het domein is niet toegevoegd en geverifieerd in Azure. | [Toevoegen en controleer of u een aangepast domein dat overeenkomt met het UPN-achtervoegsel.](../add-custom-domain.md) |
+| Niet geverifieerd |Azure AD Connect een overeenkomende aangepast domein in Azure AD gevonden, maar het is niet geverifieerd. Hallo UPN-achtervoegsel van Hallo gebruikers van dit domein worden standaard toohello gewijzigd. het achtervoegsel onmicrosoft.com na synchronisatie als Hallo domein is niet geverifieerd. | [Controleer of het aangepaste domein Hallo in Azure AD.](../add-custom-domain.md#verify-the-domain-name-with-azure-ad) |
+| Niet toegevoegd |Azure AD Connect niet een aangepast domein gevonden die overeenkwam toohello UPN-achtervoegsel. Hallo UPN-achtervoegsel van Hallo gebruikers van dit domein worden standaard toohello gewijzigd. achtervoegsel onmicrosoft.com als Hallo domein niet is toegevoegd en geverifieerd in Azure. | [Toevoegen en controleer of u een aangepast domein dat overeenkomt met toohello UPN-achtervoegsel.](../add-custom-domain.md) |
 
-De aanmeldingspagina van Azure AD geeft een lijst van de UPN-achtervoegsels die zijn gedefinieerd voor de lokale Active Directory en de bijbehorende aangepaste domein in Azure AD met de huidige verificatiestatus. In een aangepaste installatie kunt u het kenmerk voor de user principal name nu selecteren op de **Azure AD-aanmeldingspagina** pagina.
+de aanmeldingspagina Hello Azure AD geeft een lijst Hallo UPN-achtervoegsels die zijn gedefinieerd voor de lokale Active Directory en de bijbehorende aangepast domein in Azure AD met de huidige verificatiestatus Hallo Hallo. In een aangepaste installatie kunt u nu Hallo-kenmerk voor Hallo user principal name op Hallo selecteren **Azure AD-aanmeldingspagina** pagina.
 
 ![Azure AD-aanmeldingspagina](./media/active-directory-aadconnect-user-signin/custom_azure_sign_in.png)
 
-U kunt klikken op de knop Vernieuwen om de laatste status van de aangepaste domeinen opnieuw ophalen uit Azure AD.
+U kunt klikken op Hallo vernieuwen knop toore ophalen Hallo laatste status van aangepaste domeinen Hallo van Azure AD.
 
-### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Het kenmerk voor de user principal name selecteren in Azure AD
-Het kenmerk userPrincipalName is het kenmerk dat gebruikers gebruiken wanneer ze zich bij Azure AD aanmelden en Office 365. U moet controleren of de domeinen die worden gebruikt in Azure AD voordat de gebruikers worden gesynchroniseerd (ook wel bekend als UPN-achtervoegsels).
+### <a name="selecting-hello-attribute-for-hello-user-principal-name-in-azure-ad"></a>Hallo-kenmerk voor Hallo user principal name in Azure AD selecteren
+Hallo kenmerk userPrincipalName is Hallo-kenmerk die gebruikers gebruiken wanneer ze zich tooAzure AD en Office 365 aanmelden. Hallo-domeinen (ook wel bekend als UPN-achtervoegsels) die worden gebruikt in Azure AD voordat Hallo gebruikers worden gesynchroniseerd, moet u controleren.
 
-Het is raadzaam dat u het standaard kenmerk userPrincipalName behouden. Als dit kenmerk nonroutable is en kan niet worden geverifieerd, is het mogelijk een ander kenmerk (bijvoorbeeld e-mail) selecteren als het kenmerk met de aanmeldings-ID. Dit staat bekend als de alternatieve-ID. De waarde van de alternatieve ID-kenmerk moet voldoen aan de standaard RFC 822. U kunt een alternatieve ID gebruiken met wachtwoord SSO en federatieve SSO als oplossing voor aanmelden.
+Het is raadzaam Hallo standaard kenmerk userPrincipalName te houden. Als dit kenmerk nonroutable en kan niet worden geverifieerd, dan is het mogelijk tooselect een ander kenmerk (bijvoorbeeld e-mail) als Hallo-kenmerk van de Hallo aanmeldings-ID. Dit staat bekend als Hallo alternatieve-ID. Hallo alternatieve id-kenmerkwaarde moet Hallo RFC 822 standaard volgen. U kunt een alternatieve ID met wachtwoord SSO en federatieve SSO als oplossing voor aanmelden hello gebruiken.
 
 > [!NOTE]
 > Met behulp van een alternatieve ID is niet compatibel met alle Office 365-werkbelastingen. Zie voor meer informatie [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
 >
 >
 
-#### <a name="different-custom-domain-states-and-their-effect-on-the-azure-sign-in-experience"></a>Ander aangepast domein statussen en hun effect op de Azure-aanmeldingservaring aanpast
-Het is belangrijk om te begrijpen van de relatie tussen de statussen van het aangepaste domein in uw Azure AD-directory en de UPN-achtervoegsels die zijn gedefinieerd op de lokale. We gaan via de verschillende mogelijke Azure aanmelden ervaringen wanneer u synchronisatie instellen bent met behulp van Azure AD Connect.
+#### <a name="different-custom-domain-states-and-their-effect-on-hello-azure-sign-in-experience"></a>Ander aangepast domein statussen en hun effect op Hallo Azure aanmelden ervaring
+Het is heel belangrijk toounderstand Hallo relatie tussen Hallo aangepast domein statussen in uw Azure AD-directory en hello UPN-achtervoegsels die zijn gedefinieerd op de lokale. We doorlopen Hallo verschillende mogelijke Azure aanmelden ervaringen wanneer u synchronisatie instellen bent met behulp van Azure AD Connect.
 
-Voor de volgende informatie, gaan we ervan uit dat we betrokken zijn bij het UPN-achtervoegsel contoso.com, die wordt gebruikt in de on-premises directory als onderdeel van de UPN--bijvoorbeeld user@contoso.com.
+Voor Hallo informatie te volgen, gaan we ervan uit dat we betrokken zijn bij Hallo UPN-achtervoegsel contoso.com, die wordt gebruikt in Hallo on-premises adreslijst als onderdeel van de UPN--bijvoorbeeld user@contoso.com.
 
 ###### <a name="express-settingspassword-synchronization"></a>Snelle synchronisatie-instellingen en wachtwoord
 | Status | Effect op de gebruikerservaring Azure aanmelden |
 |:---:|:--- |
-| Niet toegevoegd |In dit geval is geen aangepast domein voor contoso.com toegevoegd aan de Azure AD-directory. Gebruikers die beschikken over UPN on-premises met het achtervoegsel @contoso.com niet mogelijk gebruik van de lokale UPN aan te melden bij Azure. Ze hebt in plaats daarvan gebruikt u een nieuwe UPN die opgegeven voor deze door Azure AD door het achtervoegsel voor de standaard Azure AD-directory toe te voegen. Bijvoorbeeld, als u gebruikers de Azure AD-directory azurecontoso.onmicrosoft.com, kan de lokale gebruiker bent synchroniseren user@contoso.com een UPN van krijgt user@azurecontoso.onmicrosoft.com. |
-| Niet geverifieerd |In dit geval hebben we een aangepast domein contoso.com die in de Azure AD-directory wordt toegevoegd. Het echter nog niet geverifieerd. Als u verder gaat met het synchroniseren van gebruikers zonder te controleren van het domein, wordt de gebruikers een nieuwe UPN door Azure AD toegewezen, net als in het scenario 'Niet toegevoegd'. |
-| Geverifieerd |In dit geval hebben we een aangepast domein contoso.com die al is toegevoegd en geverifieerd in Azure AD voor het UPN-achtervoegsel. Gebruikers gebruiken hun lokale UPN-naam, bijvoorbeeld kan worden user@contoso.com, aan te melden bij Azure nadat ze zijn gesynchroniseerd naar Azure AD. |
+| Niet toegevoegd |In dit geval is geen aangepast domein voor contoso.com toegevoegd aan hello Azure AD-directory. Gebruikers die beschikken over UPN met on-premises Hallo achtervoegsel @contoso.com niet kunnen toouse hun lokale UPN toosign in tooAzure. Ze hebt een nieuwe UPN die is opgegeven toothem door Azure AD door toe te voegen Hallo achtervoegsel voor Hallo standaard Azure AD-directory in plaats daarvan toouse. Bijvoorbeeld, als u gebruikers toohello Azure AD-directory azurecontoso.onmicrosoft.com synchroniseert bent, vervolgens Hallo lokale gebruiker user@contoso.com een UPN van krijgt user@azurecontoso.onmicrosoft.com. |
+| Niet geverifieerd |In dit geval hebben we een aangepast domein contoso.com die in hello Azure AD-directory wordt toegevoegd. Het echter nog niet geverifieerd. Als u verder gaat met het synchroniseren van gebruikers zonder Hallo domein te verifiëren, wordt vervolgens Hallo gebruikers een nieuwe UPN wordt toegewezen door Azure AD, net als in Hallo 'Wordt niet toegevoegd'-scenario. |
+| Geverifieerd |In dit geval hebben we een aangepast domein contoso.com die al is toegevoegd en geverifieerd in Azure AD voor Hallo UPN-achtervoegsel. Gebruikers worden kunnen toouse hun lokale UPN-naam, bijvoorbeeld user@contoso.com, toosign in tooAzure nadat ze zijn gesynchroniseerd tooAzure AD. |
 
 ###### <a name="ad-fs-federation"></a>AD FS-federatie
-U kunt een federatieve maken met de standaardwaarde. onmicrosoft.com-domein in Azure AD of een niet-geverifieerde aangepaste in Azure AD. Wanneer u de Azure AD Connect-wizard uitvoert als u een niet-geverifieerde domein voor het maken van een federatie met selecteert, klikt u vervolgens vraagt Azure AD Connect u met de benodigde records worden gemaakt waar uw DNS voor het domein wordt gehost. Zie voor meer informatie [Controleer of de Azure AD-domein voor Federatie is geselecteerd](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+U kunt een federatie met Hallo standaard maken. onmicrosoft.com-domein in Azure AD of een niet-geverifieerde aangepaste in Azure AD. Wanneer u uitvoert hello Azure AD Connect-wizard, als u een niet-geverifieerd domein toocreate selecteert een federatie met vervolgens Azure AD Connect wordt u gevraagd u Hello nodig toobe gemaakt waar uw DNS wordt gehost voor Hallo domein registreert. Zie voor meer informatie [hello Azure AD-domein controleren voor Federatie is geselecteerd](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
-Als u de gebruikersoptie aanmelden geselecteerd **Federatie met AD FS**, en vervolgens moet u een aangepast domein om door te gaan maken van een federatieve in Azure AD hebben. Voor onze bespreking betekent dit dat er moet een aangepast domein contoso.com toegevoegd in de Azure AD-directory.
+Als u Hallo gebruiker aanmelden optie geselecteerd **Federatie met AD FS**, en vervolgens moet u een aangepast domein toocontinue maken van een federatieve in Azure AD hebben. Voor onze bespreking betekent dit dat er moet een aangepast domein contoso.com in hello Azure AD-directory toegevoegd.
 
-| Status | Effect op de gebruiker Azure aanmeldingservaring |
+| Status | Effect op Hallo Azure aanmelden gebruikerservaring |
 |:---:|:--- |
-| Niet toegevoegd |Azure AD Connect gevonden in dit geval een overeenkomende aangepast domein voor het UPN-achtervoegsel contoso.com in de Azure AD-directory. U moet een aangepast domein contoso.com toevoegen als u gebruikers moet zich aanmelden met behulp van AD FS met de UPN van de lokale (zoals user@contoso.com). |
+| Niet toegevoegd |Azure AD Connect gevonden in dit geval een overeenkomende aangepast domein voor Hallo UPN-achtervoegsel contoso.com in hello Azure AD-directory. Moet u een aangepast domein contoso.com tooadd als u gebruikers toosign in met behulp van AD FS met de UPN van de lokale (zoals user@contoso.com). |
 | Niet geverifieerd |In dit geval Azure AD Connect vraagt u om met de juiste informatie over hoe u uw domein in een later stadium kunt controleren. |
-| Geverifieerd |In dit geval gaat u door met de configuratie zonder verdere actie. |
+| Geverifieerd |In dit geval gaat u door met de Hallo-configuratie zonder verdere actie. |
 
-## <a name="changing-the-user-sign-in-method"></a>De gebruiker aanmelden methode wijzigen
-U kunt de gebruiker aanmelden methode wijzigen van federatieve, Wachtwoordsynchronisatie of Pass through-verificatie met behulp van de taken die beschikbaar in Azure AD Connect na de initiële configuratie van Azure AD Connect met de wizard zijn. De Azure AD Connect-wizard opnieuw uitvoeren en ziet u een lijst met taken die u kunt uitvoeren. Selecteer **wijzigen gebruikersaanmelding** uit de lijst met taken.
+## <a name="changing-hello-user-sign-in-method"></a>Hallo gebruiker aanmelden methode wijzigen
+U kunt Hallo gebruiker aanmelden methode kunt wijzigen van federatieve, Wachtwoordsynchronisatie of Pass through-verificatie met behulp van Hallo-taken die beschikbaar in Azure AD Connect na de initiële configuratie Hallo van Azure AD Connect met Hallo-wizard zijn. Hello Azure AD Connect-wizard opnieuw uitvoeren en ziet u een lijst met taken die u kunt uitvoeren. Selecteer **wijzigen gebruikersaanmelding** uit Hallo lijst met taken.
 
 ![Gebruikersaanmelding wijzigen](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-Op de volgende pagina kunt u gevraagd de referenties opgeven voor Azure AD.
+Op de volgende pagina hello, bent u tooprovide Hallo referenties gevraagd voor Azure AD.
 
-![Verbinding maken met Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2.png)
+![Verbinding maken met tooAzure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2.png)
 
-Op de **gebruikersaanmelding** pagina, selecteert u de gewenste gebruiker aanmelden.
+Op Hallo **gebruikersaanmelding** pagina, selecteert u Hallo gewenst gebruiker aanmelden.
 
-![Verbinding maken met Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
+![Verbinding maken met tooAzure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> Als u alleen een tijdelijke switch aan synchronisatie van wachtwoorden brengt, selecteert u de **gebruikersaccounts niet worden geconverteerd** selectievakje. Elke gebruiker federatieve niet controleren of de optie geconverteerd en het kan enkele uren duren.
+> Als u alleen een tijdelijke switch toopassword synchronisatie maakt, selecteert u Hallo **gebruikersaccounts niet worden geconverteerd** selectievakje. Hallo-optie niet inschakelt, wordt elke gebruiker toofederated converteren en het kan enkele uren duren.
 >
 >
 

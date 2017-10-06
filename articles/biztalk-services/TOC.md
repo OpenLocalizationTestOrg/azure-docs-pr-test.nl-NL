@@ -12,8 +12,8 @@
 ### [Beperking](biztalk-throttling-thresholds.md)
 ### [Service-instellingen en bewaking](biztalk-dashboard-monitor-scale-tabs.md)
 ## Migreren
-### [BizTalk Server EDI-oplossingen voor BizTalk Services](biztalk-migrating-to-edi-guide.md)
-## Controleren
+### [BizTalk Server EDI-oplossingen tooBizTalk Services](biztalk-migrating-to-edi-guide.md)
+## Bewaken
 ### [Taken die afhankelijk zijn van de status van de service](biztalk-service-state-chart.md)
 ## Beveiligen
 ### [Toegangsbeheer](biztalk-issuer-name-issuer-key.md)

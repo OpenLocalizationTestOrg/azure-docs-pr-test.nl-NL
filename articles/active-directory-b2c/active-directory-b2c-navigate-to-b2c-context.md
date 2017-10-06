@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: overschakelen naar een B2C-tenant | Microsoft Docs'
-description: Overschakelen naar de context van uw Active Directory B2C-tenant
+title: 'Azure Active Directory B2C: Overschakelen tooa B2C-tenant | Microsoft Docs'
+description: Hoe tooswitch in de context Hallo van uw Active Directory B2C-tenant
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 40d8d57d974a949fbdc0a06eeceb2d06bfbaa09f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 572f9ab283ecac68d284bb04fdfc98575bcf9393
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="switching-to-your-azure-ad-b2c-tenant"></a>Overschakelen naar uw Azure AD B2C-tenant
+# <a name="switching-tooyour-azure-ad-b2c-tenant"></a>Schakelen tussen tooyour Azure AD B2C-tenant
 
-U moet zich in de context van uw Azure AD B2C-tenant bevinden om Azure AD B2C te configureren.
+In de volgorde tooconfigure Azure AD B2C moet u toobe in de context Hallo van uw Azure AD B2C-tenant.
 
 ## <a name="log-into-azure-ad-b2c-tenant"></a>Aanmelden bij de Azure AD B2C-tenant
 
-U moet bij Azure Portal zijn aangemeld als een globale beheerder van de Azure AD B2C-tenant om naar uw Azure AD B2C-tenant te gaan.
+toonavigate tooyour Azure AD B2C-tenant, u moet zijn aangemeld bij hello Azure-portal als globale beheerder van hello Azure AD B2C-tenant.
 
-1. Meld u aan bij de [Azure Portal](http://portal.azure.com).
-1. Schakel tenants over door te klikken op uw e-mailadres of afbeelding in de rechterbovenhoek.
-1. In de `Directory`-lijst die wordt weergegeven selecteert u de Azure AD B2C-tenant die u wilt beheren.
+1. Meld u aan bij Hallo [Azure-portal](http://portal.azure.com).
+1. Op uw e-mailadres of de afbeelding in de rechterbovenhoek Hallo gaan tenants.
+1. In Hallo `Directory` lijst die wordt weergegeven, dat u wenst dat toomanage Selecteer hello Azure AD B2C-tenant.
 
-Azure Portal wordt vernieuwd.  U bent nu aangemeld bij Azure Portal in de context van uw Azure AD B2C-tenant.
+Hello Azure-Portal wordt vernieuwd.  U bent nu aangemeld bij hello Azure-Portal in de context Hallo van uw Azure AD B2C-tenant.
 
-## <a name="navigate-to-the-b2c-features-blade"></a>Ga naar de blade B2C-functies
+## <a name="navigate-toohello-b2c-features-blade"></a>Navigeer toohello B2C-functiesblade
 
-1. Klik op **Bladeren** in de navigatiebalk aan de linkerkant.
-1. Klik op **> Meer services** en zoek vervolgens naar `Azure AD B2C` in het linker navigatievenster.  (Als u het aan het Startboard links wilt vastmaken, klikt u op de ster aan de linkerkant van Azure AD B2C)
-1. Klik op **Azure AD B2C** voor toegang tot de blade B2C-functies.
+1. Klik op **Bladeren** op Hallo linkerkant navigatie.
+1. Klik op **> meer services** en zoek vervolgens naar `Azure AD B2C` in het linkernavigatievenster Hallo.  (toopin tooyour links Startboard, klikt u op Hallo ster toohello links van Azure AD B2C)
+1. Klik op **Azure AD B2C** tooaccess Hallo blade B2C-functies.
    
-    ![Schermafbeelding van bladeren naar de blade B2C-functies](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![Schermopname van bladeren tooB2C functiesblade](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> U moet een globale beheerder van de B2C-tenant zijn om de blade B2C-functies te kunnen openen. Een globale beheerder van andere tenant of een gebruiker van een tenant heeft hiertoe geen toegang.  U kunt overschakelen naar uw B2C-tenant met behulp van de tenantwisselaar in de rechterbovenhoek van Azure Portal.
+> U moet een globale beheerder van Hallo B2C-tenant toobe kunnen tooaccess Hallo B2C-functiesblade toobe. Een globale beheerder van andere tenant of een gebruiker van een tenant heeft hiertoe geen toegang.  U kunt tooyour B2C-tenant schakelen met behulp van Hallo tenant schakelbaar in Hallo rechtsboven hello Azure-portal.

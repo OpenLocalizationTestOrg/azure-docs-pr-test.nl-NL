@@ -1,6 +1,6 @@
 ---
-title: Uitvoeren van Runbook in Azure Automation | Microsoft Docs
-description: Beschrijft de details van hoe een runbook in Azure Automation wordt verwerkt.
+title: aaaRunbook uitvoering in Azure Automation | Microsoft Docs
+description: Beschrijft de details op Hallo van hoe een runbook in Azure Automation wordt verwerkt.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: bwren
-ms.openlocfilehash: 14f923e3f08dd3b286218ae56012ce14edcc4058
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bdb535675443353d44640bc7773de3f9dac5e42c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
-Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor de taak.  Één runbook kan meerdere taken tegelijk actief hebben. Wanneer u de lijst met runbooks in de Azure portal weergeeft, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Zie voor een beschrijving van de status van een andere taak [status van een taak](#job-statuses).
+Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen toorun elke taak. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U hebt geen controle over welke worker services Hallo-aanvraag voor uw project.  Één runbook kan meerdere taken tegelijk actief hebben. Wanneer u hello lijst met runbooks in hello Azure-portal bekijkt, geeft het Hallo-status van alle taken die zijn gestart voor elk runbook. U kunt Hallo lijst met taken voor elk runbook in de volgorde tootrack Hallo status van elke weergeven. Zie voor een beschrijving van status van een andere taak Hallo [status van een taak](#job-statuses).
 
-Het volgende diagram toont de levenscyclus van een runbooktaak voor [grafische runbooks](automation-runbook-types.md#graphical-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
+Hallo volgende diagram toont Hallo levenscyclus van een runbooktaak voor [grafische runbooks](automation-runbook-types.md#graphical-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![Status van een taak - PowerShell-werkstroom](./media/automation-runbook-execution/job-statuses.png)
 
-Het volgende diagram toont de levenscyclus van een runbooktaak voor [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks).
+Hallo volgende diagram toont Hallo levenscyclus van een runbooktaak voor [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks).
 
 ![Status van een taak - PowerShell-Script](./media/automation-runbook-execution/job-statuses-script.png)
 
-Uw taken hebben toegang tot uw Azure-resources door het maken van een verbinding met uw Azure-abonnement. Ze hebben alleen toegang tot bronnen in uw datacentrum als deze resources toegankelijk via de openbare cloud zijn.
+Uw taken hebben toegang tot tooyour Azure resources door het maken van een verbinding tooyour Azure-abonnement. Ze hebben alleen toegang tooresources in uw datacenter als deze bronnen toegankelijk vanaf Hallo openbare cloud zijn.
 
 ## <a name="job-statuses"></a>Status van een taak
-De volgende tabel beschrijft de verschillende statussen die mogelijk voor een taak zijn.
+Hallo beschrijft volgende tabel Hallo verschillende statussen die mogelijk voor een taak zijn.
 
 | Status | Beschrijving |
 |:--- |:--- |
-| Voltooid |De taak is voltooid. |
-| Is mislukt |Voor [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md), het runbook kan niet worden gecompileerd.  Voor [PowerShell-Script runbooks](automation-runbook-types.md), het runbook kan niet worden gestart of de taak is een uitzondering opgetreden. |
-| Is mislukt, wacht voor bronnen |De taak is mislukt omdat het werkproces de [evenredige verdeling](#fairshare) driemaal beperken en gestart vanaf het dezelfde controlepunt of vanaf het begin van het runbook elke keer. |
-| In de wachtrij |De taak is in afwachting voor bronnen op een Automation worker beschikbaar zijn, zodat het kan worden gestart. |
-| Starting |De taak is toegewezen aan een werknemer en het systeem is bezig te starten. |
-| Hervatten |Het systeem is bezig de taak wordt hervat nadat deze is onderbroken. |
-| Running |De taak wordt uitgevoerd. |
-| Wordt uitgevoerd, wachten op resources |De taak is verwijderd omdat het werkproces de [evenredige verdeling](#fairshare) limiet. Het hervatten snel uit de laatste controlepunt. |
-| Stopped |De taak is gestopt door de gebruiker voordat deze is voltooid. |
-| Stopping |Het systeem is bezig te stoppen van de taak. |
-| Onderbroken |De taak is onderbroken door de gebruiker, door het systeem of door een opdracht in het runbook. Een onderbroken taak kan opnieuw worden gestart en hervat vanaf het laatste controlepunt of vanaf het begin van het runbook als er geen controlepunten. Het runbook wordt alleen door het systeem worden onderbroken wanneer er een uitzondering optreedt. ErrorActionPreference is standaard ingesteld op **doorgaan**, wil zeggen dat de taak wordt uitgevoerd op een fout. Als deze voorkeursvariabele is ingesteld op **stoppen**, en vervolgens de taak wordt onderbroken op een fout opgetreden.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
-| Onderbreken |Het systeem probeert te onderbreken van de taak op verzoek van de gebruiker. Het runbook moet het volgende controlepunt bereiken voordat deze kan worden onderbroken. Als het laatste controlepunt al doorgegeven, is voordat deze kan worden onderbroken voltooid.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
+| Voltooid |Hallo-taak is voltooid. |
+| Is mislukt |Voor [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md), Hallo runbook toocompile is mislukt.  Voor [PowerShell-Script runbooks](automation-runbook-types.md), Hallo runbook toostart is mislukt of Hallo-taak is een uitzondering opgetreden. |
+| Is mislukt, wacht voor bronnen |Hallo-taak is mislukt omdat het Hallo bereikt [evenredige verdeling](#fairshare) driemaal beperken en gestart vanaf dezelfde controlepunt Hallo of van Hallo begintijd van Hallo runbook elke. |
+| In de wachtrij |Hallo taak wacht bronnen op een beschikbare Automation worker toocome zodat het kan worden gestart. |
+| Starting |Hallo-taak is toegewezen tooa worker en Hallo systeem zich in de Hallo proces gestart. |
+| Hervatten |Hallo-systeem zich in de Hallo proces van het Hallo-taak hervatten nadat deze is onderbroken. |
+| Running |Hallo-taak wordt uitgevoerd. |
+| Wordt uitgevoerd, wachten op resources |Hallo taak is verwijderd omdat het Hallo bereikt [evenredige verdeling](#fairshare) limiet. Het hervatten snel uit de laatste controlepunt. |
+| Stopped |Hallo-taak is gestopt door gebruiker Hallo voordat deze is voltooid. |
+| Stopping |Hallo-systeem zich in de Hallo proces van het Hallo-taak wordt gestopt. |
+| Onderbroken |Hallo-taak is onderbroken door de gebruiker hello, door Hallo systeem of door een opdracht in Hallo runbook. Een onderbroken taak kan opnieuw worden gestart en hervat vanaf het laatste controlepunt of vanaf Hallo vanaf van Hallo runbook als er geen controlepunten. Hallo runbook zal alleen worden onderbroken door Hallo systeem wanneer er een uitzondering optreedt. ErrorActionPreference is standaard te**doorgaan**, wat betekent dat deze taak Hallo houdt uitgevoerd op een fout opgetreden. Als deze voorkeursvariabele is ingesteld, te**stoppen**, en vervolgens het Hallo-taak wordt onderbroken op een fout opgetreden.  Van toepassing is te[grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
+| Onderbreken |Hallo-systeem probeert toosuspend Hallo taak op verzoek van de gebruiker Hallo Hallo. Hallo runbook moet het volgende controlepunt bereiken voordat deze kan worden onderbroken. Als het laatste controlepunt al doorgegeven, is voordat deze kan worden onderbroken voltooid.  Van toepassing is te[grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
 
-## <a name="viewing-job-status-from-the-azure-portal"></a>Status van de Azure-portal weergeven
-U kunt een samengevatte status van alle runbooktaken weergeven of inzoomen op gegevens van een specifiek runbook-taak in de Azure portal of door integratie met uw werkruimte voor logboekanalyse van Microsoft Operations Management Suite (OMS) om door te sturen runbook de status en taak streams taak configureren.  Zie voor meer informatie over de integratie met OMS Log Analytics [doorsturen taakstatus en taak stromen van Automation voor logboekanalyse (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+## <a name="viewing-job-status-from-hello-azure-portal"></a>Status van hello Azure-portal weergeven
+U kunt een samengevatte status van alle runbooktaken weergeven of inzoomen op gegevens van een specifieke runbooktaak in hello Azure-portal of door integratie met Microsoft Operations Management Suite (OMS) Log Analytics werkruimte tooforward runbook taak de status van uw configureren en taak stromen.  Zie voor meer informatie over de integratie met OMS Log Analytics [taakstatus en taak streams doorsturen van Automation tooLog logboekanalyse (OMS)](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation-runbooktaken samenvatting
-Aan de rechterkant van de geselecteerde Automation-account, ziet u een overzicht van alle runbooktaken voor een geselecteerde Automation-account onder **taak statistieken** tegel.<br><br> ![Statistieken voor taak tegel](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Deze tegel wordt weergegeven voor een aantal en de grafische weergave van de taakstatus voor alle taken die worden uitgevoerd.  
+Op Hallo van uw geselecteerde Automation-account, ziet u een overzicht van alle Hallo runbooktaken voor een geselecteerde Automation-account onder **taak statistieken** tegel.<br><br> ![Statistieken voor taak tegel](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Deze tegel wordt weergegeven voor een aantal en de grafische weergave van de taakstatus Hallo voor alle taken die worden uitgevoerd.  
 
-Op de tegel te klikken geeft de **taken** blade die een overzicht van alle taken die worden uitgevoerd, met de status, taakuitvoering en begin en einde tijden bevat.<br><br> ![Blade Automation-account-uptaken](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)<br><br>  U kunt de lijst met taken filteren door te selecteren **Filter de taken** en filter op een specifiek runbook, taakstatus, of in de vervolgkeuzelijst, het bereik van de datum/tijd om te zoeken in.<br><br> ![Status van de taak filteren](./media/automation-runbook-execution/automation-account-jobs-filter.png)
+Hallo te klikken op de tegel Hallo geeft **taken** blade die een overzicht van alle taken die worden uitgevoerd, met de status, taakuitvoering en begin en einde tijden bevat.<br><br> ![Blade Automation-account-uptaken](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)<br><br>  U kunt filteren dat Hallo lijst met taken selecteren **Filter de taken** en filter op een specifiek runbook, taakstatus, of uit de vervolgkeuzelijst hello, Hallo datum/tijd bereik toosearch binnen.<br><br> ![Status van de taak filteren](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-U kunt ook overzichtsgegevens voor een specifiek runbook taak weergeven door te selecteren dat runbook uit de **Runbooks** blade in uw Automation-account en selecteer vervolgens de **taken** tegel.  Dit geeft de **taken** blade en daar kunt u klikken op de record van de taak om de details en de uitvoer weer te geven.<br><br> ![Blade Automation-account-uptaken](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)<br> 
+U kunt ook overzichtsgegevens voor een specifiek runbook taak weergeven door te selecteren dat runbook in Hallo **Runbooks** blade in uw Automation-account en selecteer vervolgens Hallo **taken** tegel.  Dit geeft Hallo **taken** blade en daar kunt u klikken op Hallo taak record tooview de details en de uitvoer.<br><br> ![Blade Automation-account-uptaken](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)<br> 
 
 ### <a name="job-summary"></a>Taakoverzicht
-U kunt een lijst van alle taken die zijn gemaakt voor een bepaald runbook en de meest recente status weergeven. U kunt deze lijst op de taakstatus en het datumbereik voor de laatste wijziging aan het project op te filteren. Als u wilt weergeven in de gedetailleerde informatie en uitvoer, klik op de naam van een taak. De gedetailleerde weergave van de taak bevat de waarden voor de runbookparameters die zijn opgegeven voor die taak.
+U kunt een lijst van alle Hallo-taken die zijn gemaakt voor een bepaald runbook en de meest recente status weergeven. U kunt deze lijst filteren op de taakstatus en Hallo datumbereik voor Hallo laatste wijziging toohello taak. tooview de gedetailleerde informatie en uitvoer, klik op Hallo-naam van een taak. Hallo bevat gedetailleerde weergave van de taak Hallo Hallo waarden voor Hallo runbookparameters die zijn opgegeven toothat taak.
 
-U kunt de volgende stappen gebruiken om de taken voor een runbook weer te geven.
+U kunt Hallo stappen tooview Hallo taken voor een runbook te volgen.
 
-1. Selecteer in de Azure-portal **Automation** en selecteer vervolgens de naam van een Automation-account.
-2. Selecteer in de hub **Runbooks** en klik vervolgens op de **Runbooks** blade een runbook in de lijst selecteren.
-3. Op de blade voor het geselecteerde runbook, klikt u op de **taken** tegel.
-4. Klik op een van de taken in de lijst en op de blade runbook taak details kunt u de details en de uitvoer weergeven.
+1. Selecteer in de Azure-portal hello, **Automation** en selecteer vervolgens Hallo-naam van een Automation-account.
+2. Selecteer in het Hallo-hub **Runbooks** en klik vervolgens op Hallo **Runbooks** blade selecteert u een runbook in Hallo lijst.
+3. Op de blade Hallo voor runbook Hallo geselecteerd, klikt u op Hallo **taken** tegel.
+4. Klik op een van de taken in de lijst Hallo Hallo en op de blade toewijzingdetails hello runbook-taak kunt u de details en de uitvoer weergeven.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Taakstatus ophalen met Windows PowerShell
-U kunt de [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) voor het ophalen van de taken gemaakt voor een runbook en de details van een bepaalde taak. Als u een runbook met Windows PowerShell Start [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), en vervolgens wordt de resulterende taak geretourneerd. Gebruik [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)uitvoer naar een taak ophalen-uitvoer.
+U kunt Hallo [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) tooretrieve Hallo taken voor een runbook en Hallo details voor een bepaalde taak gemaakt. Als u een runbook met Windows PowerShell Start [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), en vervolgens de resulterende taak Hallo wordt. Gebruik [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)uitvoer tooget een job-uitvoer.
 
-De volgende voorbeeldopdrachten de laatste taak voor een voorbeeldrunbook opgehaald en sorden de status, de waarden voor de runbookparameters en de uitvoer van de taak.
+Hello volgende voorbeeldopdrachten Hallo laatste taak voor een voorbeeldrunbook opgehaald en toont de status, Hallo waarden opgegeven voor de Hallo runbookparameters en de uitvoer van de taak Hallo Hallo.
 
     $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
     –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
@@ -84,18 +84,18 @@ De volgende voorbeeldopdrachten de laatste taak voor een voorbeeldrunbook opgeha
     –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 
 ## <a name="fair-share"></a>Evenredige verdeling
-Om de resources kan delen met alle runbooks in de cloud, wordt Azure Automation tijdelijk elke taak geladen nadat deze actief is geweest gedurende drie uur.  Tijdens deze periode kunnen taken voor [op basis van PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) worden gestopt en wordt niet opnieuw worden gestart.  De taak status ziet **gestopt**.  Dit type runbook wordt altijd opnieuw opgestart vanaf het begin omdat controlepunten wordt niet ondersteund.  
+In de volgorde tooshare resources tussen alle runbooks in de cloud hello, wordt Azure Automation tijdelijk elke taak geladen nadat deze actief is geweest gedurende drie uur.  Tijdens deze periode kunnen taken voor [op basis van PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks) worden gestopt en wordt niet opnieuw worden gestart.  taak status bevat Hallo **gestopt**.  Dit type runbook wordt altijd opnieuw opgestart vanaf het begin van de Hallo omdat controlepunten wordt niet ondersteund.  
 
-[PowerShell-werkstroom runbooks](automation-runbook-types.md#powershell-workflow-runbooks) wordt hervat vanaf de laatste [controlepunt](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints).  Na het uitvoeren van drie uur zal de runbooktaak worden onderbroken door de service en de status ervan toont **uitgevoerd, wachten op resources**.  Zodra een sandbox beschikbaar, het runbook wordt automatisch opnieuw gestart door de Automation-service en wordt hervat vanaf het laatste controlepunt.  Dit is normaal gedrag van de PowerShell-werkstroom voor onderbreken/opnieuw te starten.  Als het runbook opnieuw groter is dan drie uur van de runtime, het proces wordt herhaald, worden drie pogingen gedaan.  Na het derde opnieuw opstarten, als het runbook nog niet voltooid in drie uur en vervolgens de runbooktaak is mislukt en de status van de taak aangeeft **mislukt, wacht resources**.  In dit geval ontvangt u de volgende uitzondering aan de fout.
+[PowerShell-werkstroom runbooks](automation-runbook-types.md#powershell-workflow-runbooks) wordt hervat vanaf de laatste [controlepunt](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints).  Na het uitvoeren van drie uur zal Hallo runbooktaak worden onderbroken door het Hallo-service en de status ervan toont **uitgevoerd, wachten op resources**.  Zodra een sandbox beschikbaar, Hallo runbook wordt automatisch opnieuw opgestart door Hallo Automation-service en wordt hervat vanaf het laatste controlepunt Hallo.  Dit is normaal gedrag van de PowerShell-werkstroom voor onderbreken/opnieuw te starten.  Als Hallo runbook opnieuw groter is dan drie uur van de runtime, Hallo-proces wordt herhaald, van toothree tijden.  Na het Hallo derde opnieuw opstarten, als Hallo runbook nog niet voltooid in drie uur en vervolgens Hallo runbooktaak is mislukt en ziet u de status van de taak Hallo **mislukt, wacht resources**.  In dit geval krijgt u de volgende uitzondering met fouten in de Hallo Hallo.
 
-*De taak kan niet worden voortgezet omdat deze is herhaaldelijk onbeschikbaar gemaakt vanaf het controlepunt dezelfde. Zorg ervoor dat uw Runbook heeft geen langdurige bewerkingen zonder dat de status.*
+*Hallo-taak kan niet worden voortgezet omdat deze meerdere keren verwijdering uit Hallo dezelfde controlepunt. Zorg ervoor dat uw Runbook heeft geen langdurige bewerkingen zonder dat de status.*
 
-Dit is de service van runbooks voor onbepaalde tijd worden uitgevoerd zonder te voltooien, beveiligen, omdat ze niet de volgende controlepunt te maken kunnen zonder het ontladen opnieuw.
+Dit is tooprotect Hallo service runbooks uitgevoerd voor onbepaalde tijd zonder te worden voltooid, omdat deze geen toomake kunnen het volgende controlepunt toohello zonder ontladen opnieuw.
 
-Als het runbook geen controlepunten heeft of de taak niet het eerste controlepunt heeft bereikt voordat het wordt ongedaan gemaakt, klikt u vervolgens opnieuw wordt gestart vanaf het begin.  
+Als Hallo runbook geen controlepunten heeft of Hallo-taak niet Hallo eerste controlepunt heeft bereikt voordat het wordt ongedaan gemaakt, klikt u vervolgens opnieuw wordt gestart vanaf Hallo begin.  
 
-Wanneer u een runbook maakt, moet u ervoor zorgen dat de tijd voor het uitvoeren van alle activiteiten tussen de twee controlepunten niet meer dan drie uur. Mogelijk moet u controlepunten toevoegen aan uw runbook om ervoor te zorgen dat deze niet deze drie uur limiet is bereikt of lange onderverdelen bewerkingen uitgevoerd. Uw runbook kan bijvoorbeeld een opnieuw indexeren uitvoeren op een grote SQL-database. Als deze één bewerking niet voltooid binnen de limiet van evenredige verdeling, worden de taak de verwijderd en opnieuw worden opgestart vanaf het begin. In dit geval moet u de bewerking opnieuw indexeren in meerdere stappen, zoals het indexeren van één tabel tegelijk onderverdelen en vervolgens een controlepunt invoegen na elke bewerking, zodat de taak na de laatste bewerking hervatten kan te voltooien.
+Wanneer u een runbook maakt, moet u ervoor zorgen dat Hallo tijd toorun activiteiten tussen de twee controlepunten niet meer dan drie uur. Mogelijk moet u tooadd controlepunten tooyour runbook tooensure dit is geen limiet drie uur of lange onderverdelen bewerkingen uitgevoerd. Uw runbook kan bijvoorbeeld een opnieuw indexeren uitvoeren op een grote SQL-database. Als deze één bewerking niet voltooid binnen Hallo evenredige share limiet, en vervolgens Hallo taak zijn verwijderd en opnieuw gestart vanaf het begin Hallo. In dit geval moet u onderverdelen Hallo opnieuw indexeren bewerking in meerdere stappen, zoals het indexeren van één tabel tegelijk, en voeg vervolgens een controlepunt na elke bewerking zodat hello taak na de laatste bewerking toocomplete Hallo hervatten kan.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de verschillende methoden die kunnen worden gebruikt voor het starten van een runbook in Azure Automation, [een runbook starten in Azure Automation](automation-starting-a-runbook.md)
+* Zie toolearn meer informatie over Hallo verschillende methoden die gebruikt toostart een runbook in Azure Automation worden kunnen [een runbook starten in Azure Automation](automation-starting-a-runbook.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Beveiligingsaanbevelingen voor de Azure Advisor | Microsoft Docs
-description: Gebruik Azure Advisor om te helpen verbeteren de beveiliging van uw Azure-implementaties.
+title: Aanbevelingen voor beveiliging van Advisor aaaAzure | Microsoft Docs
+description: Gebruik Azure Advisor toohelp Hallo beveiliging van uw Azure-implementaties te verbeteren.
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 53be05593c3733ccb27979a3a026414013125779
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e01ac29eb6e02bff0b1e846e320e7c36f85c7343
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advisor-security-recommendations"></a>Aanbevelingen voor beveiliging van Advisor
 
-Azure Advisor biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources. Het is geïntegreerd met Azure Security Center zodat u aanbevelingen voor beveiliging. U krijgt aanbevelingen voor beveiliging van de **beveiliging** op het dashboard Advisor.
+Azure Advisor biedt een consistente, geconsolideerde weergave van aanbevelingen voor alle Azure-resources. Het is geïntegreerd met Azure Security Center toobring u aanbevelingen voor beveiliging. U krijgt aanbevelingen voor beveiliging van Hallo **beveiliging** tabblad op Hallo Advisor dashboard.
 
-![De knop Advisor-beveiliging](./media/advisor-security-recommendations/advisor-security-tab.png)
+![Hallo-knop van Advisor-beveiliging](./media/advisor-security-recommendations/advisor-security-tab.png)
 
-Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Er worden regelmatig de beveiligingsstatus van uw Azure-resources. Wanneer met Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen gedaan. De aanbevelingen leiden u door het configuratieproces van de besturingselementen die u nodig hebt. 
+Security Center helpt u bij het detecteren, voorkomen van en reageren toothreats met verhoogde zichtbaarheid van en controle over Hallo beveiliging van uw Azure-resources. Periodiek wordt geanalyseerd Hallo beveiligingsstatus van uw Azure-resources. Wanneer met Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen gedaan. Hallo aanbevelingen helpen u bij Hallo configuratieproces Hallo besturingselementen die u nodig hebt. 
 
-![Het tabblad Beveiliging van Advisor](./media/advisor-security-recommendations/advisor-security-recommendations.png)
+![tabblad van de Advisor-beveiliging Hallo](./media/advisor-security-recommendations/advisor-security-recommendations.png)
 
 Zie voor meer informatie over beveiligingsaanbevelingen [aanbevelingen voor beveiliging in Azure Security Center beheren](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
 
-## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Toegang tot de aanbevelingen voor beveiliging in Azure Advisor
+## <a name="how-tooaccess-security-recommendations-in-azure-advisor"></a>Hoe tooaccess aanbevelingen voor beveiliging in Azure Advisor
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
 
-2. Klik in het linkerdeelvenster op **meer services**.
+2. Klik in het linkerdeelvenster Hallo **meer services**.
 
-3. Klik in het deelvenster service menu onder **bewaking en beheer**, klikt u op **Azure Advisor**.  
- De Advisor-dashboard wordt weergegeven.
+3. Service in Hallo menu deelvenster onder **bewaking en beheer**, klikt u op **Azure Advisor**.  
+ Hallo Advisor dashboard wordt weergegeven.
 
-4. Klik op het dashboard Advisor de **beveiliging** tabblad.
+4. Klik op Hallo Advisor dashboard Hallo **beveiliging** tabblad.
 
-5. Selecteer het abonnement waarvoor u wilt ontvangen van aanbevelingen en klik vervolgens op **aanbevelingen krijgen**.
+5. Selecteer Hallo abonnement waarvoor u wilt dat tooreceive aanbevelingen en klik vervolgens op **aanbevelingen krijgen**.
 
 > [!NOTE]
-> Voor toegang tot de aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* start van de Advisor-dashboard en klikt op de **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het abonnement is geregistreerd, kunt u de aanbevelingen van Advisor als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, resourcegroep of een specifieke bron.
+> tooaccess aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* gestart Hallo dashboard en klikt op Hallo van Advisor **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het Hallo-abonnement is geregistreerd, kunt u Advisor aanbevelingen als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, een resourcegroep of een bepaalde resource.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Advisor aanbevelingen:
-* [Inleiding tot Advisor](advisor-overview.md)
+toolearn meer informatie over de aanbevelingen van Advisor, Zie:
+* [Inleiding tooAdvisor](advisor-overview.md)
 * [Aan de slag met Advisor](advisor-get-started.md)
 * [Advisor kosten aanbevelingen](advisor-performance-recommendations.md)
 * [Aanbevelingen van Advisor-prestaties](advisor-performance-recommendations.md)

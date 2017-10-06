@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect-synchronisatie: AD-Prullenbak inschakelen | Microsoft Docs'
-description: In dit onderwerp raadt het gebruik van de functie Prullenbak van AD met Azure AD Connect.
+description: In dit onderwerp adviseert Hallo gebruik van AD-Prullenbak-functie met Azure AD Connect.
 services: active-directory
 keywords: Prullenbak van AD, per ongeluk verwijderen, bronanker
 documentationcenter: 
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: eb455477547f3db8245cf3601576eba9c6fdc56f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2bb4827d677ccecfd8d2861f2a2fcf73b8cc2d95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect-synchronisatie: AD-Prullenbak inschakelen
-Het is raadzaam dat u de Prullenbak van AD-functie inschakelen voor uw lokale Active Directory's die worden gesynchroniseerd naar Azure AD. 
+Het verdient aanbeveling dat u voor uw lokale Active Directory's die gesynchroniseerd tooAzure AD zijn Hallo AD-Prullenbak-functie inschakelen. 
 
-Als u een on-premises per ongeluk hebt verwijderd AD-gebruiker-object maken en terugzetten met de functie, Azure AD worden hersteld het bijbehorende object van de Azure AD-gebruiker.  Raadpleeg voor informatie over de Prullenbak van AD-functie, artikel [Scenario-overzicht voor het herstellen van verwijderde Active Directory-objecten](https://technet.microsoft.com/library/dd379542.aspx).
+Als u een on-premises per ongeluk hebt verwijderd AD-gebruiker-object maken en terugzetten met de functie hello, Azure AD worden hersteld Hallo bijbehorende Azure AD-gebruikersobject.  Raadpleeg voor informatie over de functie Prullenbak Hallo AD tooarticle [Scenario-overzicht voor het herstellen van verwijderde Active Directory-objecten](https://technet.microsoft.com/library/dd379542.aspx).
 
-## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Voordelen van de AD-Prullenbak inschakelen
-Deze functie helpt bij het herstellen van Azure AD-gebruikersobjecten als volgt:
+## <a name="benefits-of-enabling-hello-ad-recycle-bin"></a>Prullenbak van de voordelen van het Hallo AD inschakelen
+Deze functie helpt bij het herstellen van objecten voor Azure AD-gebruiker door Hallo volgende te doen:
 
-* Als u een on-premises per ongeluk hebt verwijderd object AD-gebruiker, het bijbehorende object van de Azure AD-gebruiker wordt verwijderd in de volgende synchronisatiecyclus. Standaard Azure AD houdt het verwijderde object van Azure AD-gebruiker voorlopig verwijderde status voor 30 dagen.
+* Als u een on-premises per ongeluk hebt verwijderd AD-gebruiker object, bijbehorende Azure AD-gebruikersobject Hallo verwijderd in Hallo volgende synchronisatiecyclus. Standaard houdt Azure AD verwijderd hello Azure AD-gebruikersobject voorlopig verwijderde status heeft voor 30 dagen.
 
-* Als u beschikt over on-premises AD Recycle Bin functie is ingeschakeld, kunt u de verwijderde herstellen lokale AD-gebruiker-object zonder dat u de waarde Bronanker wijzigt. Wanneer de herstelde on-premises AD-gebruiker-object wordt gesynchroniseerd naar Azure AD, Azure AD wordt gebruikersobject terugzetten van de bijbehorende voorlopig verwijderde Azure AD. Raadpleeg voor informatie over Bronanker kenmerk artikel [Azure AD Connect: concepten ontwerpen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* Als u beschikt over on-premises AD-Prullenbak-functie is ingeschakeld, kunt u Hallo verwijderd herstellen lokale AD-gebruiker-object zonder dat u de waarde Bronanker wijzigt. Wanneer Hallo hersteld lokale AD-gebruiker-object is gesynchroniseerd tooAzure AD, Azure AD wordt hersteld Hallo overeenkomt voorlopig verwijderde Azure AD-gebruiker-object. Raadpleeg voor informatie over Bronanker kenmerk tooarticle [Azure AD Connect: concepten ontwerpen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
 
-* Als u geen lokale AD-Prullenbak-functie is ingeschakeld, kan u worden gevraagd een AD-gebruikersobject ter vervanging van het verwijderde object te maken. Als Azure AD Connect-synchronisatieservice is geconfigureerd voor het systeem gegenereerde AD-kenmerk (zoals ObjectGuid) gebruiken voor het kenmerk Bronanker, is het gemaakte object van de AD-gebruiker heeft niet dezelfde Bronanker waarde als het verwijderde object van de AD-gebruiker. Wanneer het gemaakte object van de AD-gebruiker is gesynchroniseerd met Azure AD, Azure AD maakt een nieuw object van de Azure AD-gebruiker in plaats van het herstellen van het voorlopig verwijderde object in de Azure AD.
+* Als u geen lokale AD Recycle Bin functie is ingeschakeld, hebt u mogelijk vereist toocreate een AD-object tooreplace Hallo verwijderde gebruikersobject. Als Azure AD Connect-synchronisatieservice geconfigureerde toouse systeem gegenereerde AD kenmerk is (zoals ObjectGuid) voor Hallo Bronanker kenmerk, wordt hello gemaakte AD-gebruiker-object niet hebben Hallo dezelfde Bronanker-waarde als Hallo AD-gebruikersobject verwijderd. Wanneer hello gemaakte object voor AD-gebruiker gesynchroniseerd tooAzure AD is, Azure AD maakt een nieuw object van de Azure AD-gebruiker in plaats van Azure AD-gebruikersobject Hallo voorlopig verwijderde herstellen.
 
 > [!NOTE]
-> Standaard verwijderd Azure AD houdt objecten van Azure AD-gebruiker in staat voorlopig verwijderde voor 30 dagen voordat ze worden permanent verwijderd. Beheerders kunnen echter de verwijdering van dergelijke objecten te versnellen. Zodra de objecten worden permanent verwijderd, kunnen ze niet meer worden hersteld, zelfs als lokale AD-Prullenbak-functie is ingeschakeld.
+> Standaard verwijderd Azure AD houdt objecten van Azure AD-gebruiker in staat voorlopig verwijderde voor 30 dagen voordat ze worden permanent verwijderd. Beheerders kunnen echter Hallo verwijderen van dergelijke objecten te versnellen. Zodra het Hallo-objecten worden permanent verwijderd, kunnen ze niet meer worden hersteld, zelfs als lokale AD-Prullenbak-functie is ingeschakeld.
 
 
 

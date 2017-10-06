@@ -1,5 +1,5 @@
 ---
-title: IP-adressen die worden gebruikt door de Application Insights | Microsoft Docs
+title: aaaIP adressen die worden gebruikt door de Application Insights | Microsoft Docs
 description: Firewall-uitzonderingen die zijn vereist voor Application Insights
 services: application-insights
 documentationcenter: .net
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/11/2017
 ms.author: bwren
-ms.openlocfilehash: 3bb076c63223fc1567c6b7b25c1a513bbc81ed58
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2c101b8da2ba9594fbff607f4f7551cda80c3c25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ip-addresses-used-by-application-insights"></a>IP-adressen die worden gebruikt door Application Insights
-De [Azure Application Insights](app-insights-overview.md) service gebruikt een aantal IP-adressen. Mogelijk moet u weten van deze adressen als de app die u bewaakt achter een firewall wordt gehost.
+Hallo [Azure Application Insights](app-insights-overview.md) service gebruikt een aantal IP-adressen. Mogelijk moet u tooknow deze adressen als Hallo-app die u bewaakt achter een firewall wordt gehost.
 
 > [!NOTE]
-> Hoewel deze adressen statisch zijn, is het mogelijk dat moeten we ze van tijd tot tijd te wijzigen.
+> Hoewel deze adressen statisch zijn, is het mogelijk dat we toochange moeten van tijd tootime.
 > 
 > 
 
 ## <a name="outgoing-ports"></a>Uitgaande poorten
-U moet een aantal uitgaande poorten openen in de firewall van uw server om toe te staan van de Application Insights-SDK en/of Status Monitor om gegevens te verzenden naar de portal:
+Tooopen moet u een aantal uitgaande poorten in uw server firewall tooallow Hallo Application Insights-SDK en/of de Status Monitor toosend gegevensportal toohello:
 
 | Doel | URL | IP | Poorten |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Status monitorconfiguratie: alleen nodig wanneer u wijzigingen aanbrengt.
 | Crashgegevens |gate.hockeyapp.NET |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Beschikbaarheidstests
-Dit is de lijst met adressen waaruit [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) worden uitgevoerd. Als u wilt uitvoeren van webtests van uw app, maar de webserver beperkt is tot specifieke clients van dienst, hebt u toe dat binnenkomend verkeer op onze beschikbaarheid test-servers.
+Dit is de lijst Hallo van adressen waaruit [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) worden uitgevoerd. Als u webtests toorun op uw app wilt, maar uw webserver beperkte tooserving specifieke clients, hebt u toopermit binnenkomend verkeer op onze servers beschikbaarheid test.
 
 Open de poorten 80 (http) en 443 (https) voor binnenkomend verkeer naar deze adressen (IP-adressen zijn gegroepeerd op locatie):
 

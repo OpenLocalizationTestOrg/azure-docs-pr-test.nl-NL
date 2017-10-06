@@ -1,6 +1,6 @@
 ---
-title: Variabele assets in Azure Automation | Microsoft Docs
-description: Variabele assets zijn waarden die beschikbaar voor alle runbooks en in Azure Automation DSC-configuraties zijn.  Dit artikel wordt uitgelegd dat de details van de variabelen en hoe u ermee in tekstvorm en grafisch ontwerpen.
+title: aaaVariable activa in Azure Automation | Microsoft Docs
+description: Variabele assets zijn waarden die beschikbaar tooall runbooks en in Azure Automation DSC-configuraties zijn.  Dit artikel wordt uitgelegd Hallo details van de variabelen en hoe toowork ermee in tekstvorm en grafisch ontwerpen.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: dc00e1e5fa8df5cb55e7e2672137d1df44133773
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9daa49fc1dc883ffb218a9adf26e36df1d6bb27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabele assets in Azure Automation
 
-Variabele assets zijn waarden die beschikbaar voor alle runbooks en DSC-configuraties in uw automation-account zijn. Ze kunnen worden gemaakt, gewijzigd en opgehaald uit de Azure portal, Windows PowerShell en vanuit een runbook of de DSC-configuratie. Automation-variabelen zijn handig voor de volgende scenario's:
+Variabele assets zijn waarden die beschikbaar tooall runbooks en DSC-configuraties in uw automation-account zijn. Ze kunnen worden gemaakt, gewijzigd en opgehaald uit hello Azure-portal, Windows PowerShell en vanuit een runbook of de DSC-configuratie. Automation-variabelen zijn handig voor het Hallo volgen scenario's:
 
 - Een waarde tussen meerdere runbooks of DSC-configuraties delen.
 
-- Een waarde tussen meerdere taken van de DSC-configuratie of hetzelfde runbook delen.
+- Een waarde tussen meerdere taken van Hallo delen hetzelfde runbook of DSC-configuratie.
 
-- Een waarde beheren vanuit de portal of vanuit de Windows PowerShell-opdrachtregel die wordt gebruikt door runbooks of DSC-configuraties, zoals een set algemene configuratie-items zoals bepaalde lijst van de VM-namen, een specifieke resourcegroep, een naam voor AD-domein, enzovoort.  
+- Een waarde beheren vanuit de portal Hallo of vanaf Hallo Windows PowerShell-opdrachtregel die wordt gebruikt door runbooks of DSC-configuraties, zoals een set algemene configuratie-items zoals bepaalde lijst van de VM-namen, een specifieke resourcegroep, een naam voor AD-domein, enzovoort.  
 
-Automation-variabelen worden behouden zodat ze beschikbaar blijven zelfs als het runbook of de DSC-configuratie is mislukt.  Hierdoor kunt ook een waarde worden ingesteld door een runbook dat vervolgens wordt gebruikt door een ander of wordt gebruikt door de hetzelfde runbook of de DSC-configuratie de volgende keer dat deze wordt uitgevoerd.
+Automation-variabelen worden behouden zodat ze toobe beschikbaar blijven zelfs als het Hallo-runbook of de DSC-configuratie is mislukt.  Hierdoor kunt u ook een waarde toobe ingesteld door het ene runbook die vervolgens wordt gebruikt door een andere of wordt gebruikt door Hallo hetzelfde runbook of DSC-configuratie Hallo volgende keer dat deze wordt uitgevoerd.
 
-Wanneer een variabele is gemaakt, kunt u opgeven dat deze worden opgeslagen versleuteld.  Als een variabele is versleuteld, het veilig in Azure Automation opgeslagen wordt en wordt de waarde kan niet worden opgehaald uit de [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet die wordt geleverd als onderdeel van de Azure PowerShell-module.  De enige manier om dat er een gecodeerde waarde kan worden opgehaald, is van de **Get-AutomationVariable** activiteit in een runbook of de DSC-configuratie.
+Wanneer een variabele is gemaakt, kunt u opgeven dat deze worden opgeslagen versleuteld.  Wanneer een variabele is versleuteld, het veilig in Azure Automation opgeslagen wordt en de waarde kan niet worden opgehaald uit Hallo [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet die wordt geleverd als onderdeel van hello Azure PowerShell-module.  Hallo enige manier om dat er een gecodeerde waarde kan worden opgehaald wordt uit Hallo **Get-AutomationVariable** activiteit in een runbook of de DSC-configuratie.
 
 > [!NOTE]
-> Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in de Azure Automation met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, wordt de sleutel voor het automation-account worden ontsleuteld met het basiscertificaat en vervolgens worden gebruikt voor het versleutelen van de asset.
+> Beveiligde activa in Azure Automation zijn referenties, certificaten, verbindingen en gecodeerde variabelen. Deze activa zijn versleuteld en opgeslagen in hello Azure Automation, met een unieke sleutel die wordt gegenereerd voor elk automation-account. Deze sleutel is versleuteld met een basiscertificaat en opgeslagen in Azure Automation. Voordat u een beveiligd bedrijfsmiddel op te slaan, Hallo-sleutel voor Hallo automation-account wordt ontsleuteld met behulp van het basiscertificaat Hallo en vervolgens gebruikt tooencrypt Hallo asset.
 
 ## <a name="variable-types"></a>Typen variabelen
 
-Wanneer u een variabele met de Azure portal maakt, kunt u een gegevenstype uit de vervolgkeuzelijst moet opgeven, zodat het juiste besturingselement voor het invoeren van de variabele waarde door de portal kunt weergeven. De variabele is niet beperkt tot dit gegevenstype, maar u moet de variabele met Windows PowerShell als u wilt opgeven van een waarde van een ander type instellen. Als u opgeeft **niet gedefinieerd**, wordt de waarde van de variabele wordt ingesteld op **$null**, en moet u instellen dat de waarde met de [Set AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet of **Set-AutomationVariable** activiteit.  U kunt maken of wijzig de waarde voor een variabele voor complex type in de portal, maar u kunt een waarde van een type met Windows PowerShell opgeven. Complexe typen worden geretourneerd als een [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
+Wanneer u een variabele Hello Azure-portal maakt, moet u een gegevenstype uit de vervolgkeuzelijst Hallo opgeven zodat Hallo portal Hallo juiste besturingselement voor het invoeren van de variabele waarde Hallo kunt weergeven. Hallo-variabele is niet beperkt toothis gegevens type, maar u moet instellen met behulp van Windows PowerShell als u wilt dat toospecify Hallo-variabele een waarde van een ander type. Als u opgeeft **niet gedefinieerd**, en vervolgens het Hallo-waarde van variabele hello te ingesteld**$null**, en stelt u de waarde Hallo Hello [Set AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet of **Set-AutomationVariable** activiteit.  Kan niet maken of wijzigen van Hallo-waarde voor een variabele voor complex type in Hallo-portal, maar u kunt een waarde van een type met Windows PowerShell opgeven. Complexe typen worden geretourneerd als een [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
 
-U kunt meerdere waarden in een enkele variabele opslaan door het maken van een matrix of een hashtabel en op de variabele op te slaan.
+U kunt meerdere waarden tooa enkele variabele opslaan door het maken van een matrix of een hashtabel en opslaan van de variabele toohello.
 
-Hier volgen een lijst met variabelen die beschikbaar zijn in Automation:
+Hallo hieronder vindt u een lijst met variabelen die beschikbaar zijn in Automation:
 
 * Tekenreeks
 * Geheel getal
@@ -53,38 +53,38 @@ Hier volgen een lijst met variabelen die beschikbaar zijn in Automation:
 
 ## <a name="cmdlets-and-workflow-activities"></a>-Cmdlets en workflow-activiteiten
 
-De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van Automation-variabelen met Windows PowerShell. Ze worden verzonden als onderdeel van de [Azure PowerShell-module](../powershell-install-configure.md) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuratie.
+Hallo-cmdlets in de volgende tabel Hallo gebruikte toocreate zijn en beheren van Automation-variabelen met Windows PowerShell. Ze worden verzonden als onderdeel van Hallo [Azure PowerShell-module](../powershell-install-configure.md) die beschikbaar is voor gebruik in Automation-runbooks en DSC-configuratie.
 
 |Cmdlets|Beschrijving|
 |:---|:---|
-|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Haalt de waarde van een bestaande variabele.|
+|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Hallo-waarde van een bestaande variabele opgehaald.|
 |[Nieuwe AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Maakt een nieuwe variabele en stelt u de waarde ervan.|
 |[Verwijder AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Hiermee verwijdert u een bestaande variabele.|
-|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|De waarde voor een bestaande variabele ingesteld.|
+|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Hallo-waarde voor een bestaande variabele ingesteld.|
 
-De workflow-activiteiten in de volgende tabel worden gebruikt voor toegang tot Automation-variabelen in een runbook. Ze zijn alleen beschikbaar voor gebruik in een runbook of de DSC-configuratie en niet worden geleverd als onderdeel van de Azure PowerShell-module.
+Hallo workflow-activiteiten in de volgende tabel Hallo zijn gebruikte tooaccess Automation-variabelen in een runbook. Ze zijn alleen beschikbaar voor gebruik in een runbook of de DSC-configuratie en niet worden geleverd als onderdeel van hello Azure PowerShell-module.
 
 |Workflow-activiteiten|Beschrijving|
 |:---|:---|
-|Get-AutomationVariable|Haalt de waarde van een bestaande variabele.|
-|Set-AutomationVariable|De waarde voor een bestaande variabele ingesteld.|
+|Get-AutomationVariable|Hallo-waarde van een bestaande variabele opgehaald.|
+|Set-AutomationVariable|Hallo-waarde voor een bestaande variabele ingesteld.|
 
 > [!NOTE] 
-> Vermijd het gebruik van variabelen in de parameter-Name van **Get-AutomationVariable** in een runbook of de DSC-configuratie omdat dit detecteren van afhankelijkheden tussen runbooks of DSC-configuratie en de Automation-variabelen tijdens de ontwerpfase bemoeilijken kan.
+> Vermijd het gebruik van variabelen in Hallo – Name-parameter van **Get-AutomationVariable** in een runbook of de DSC-configuratie omdat dit detecteren van afhankelijkheden tussen runbooks of DSC-configuratie en automatisering bemoeilijken kan variabelen in de ontwerpfase.
 
 ## <a name="creating-a-new-automation-variable"></a>Een nieuwe automatiseringsvariabele maken
 
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Een nieuwe variabele maken met de Azure-portal
+### <a name="toocreate-a-new-variable-with-hello-azure-portal"></a>toocreate een nieuwe variabele Hello Azure-portal
 
-1. Van uw Automation-account, klikt u op de **activa** tegel en klik vervolgens op de **activa** blade Selecteer **variabelen**.
-2. Op de **variabelen** tegel, selecteer **toevoegen van een variabele**.
-3. Het voltooien van de opties op de **nieuwe variabele** blade en klik op **maken** opslaan van de nieuwe variabele.
+1. Klik op Hallo van uw Automation-account **activa** tegel en klik vervolgens op Hallo **activa** blade Selecteer **variabelen**.
+2. Op Hallo **variabelen** tegel, selecteer **toevoegen van een variabele**.
+3. Hallo-opties op Hallo voltooien **nieuwe variabele** blade en klik op **maken** opslaan Hallo nieuwe variabele.
 
-### <a name="to-create-a-new-variable-with-windows-powershell"></a>Een nieuwe variabele maken met Windows PowerShell
+### <a name="toocreate-a-new-variable-with-windows-powershell"></a>toocreate een nieuwe variabele met Windows PowerShell
 
-De [nieuw AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet maakt een nieuwe variabele en stelt u de initiële waarde. U kunt ophalen met de waarde met behulp van [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Als de waarde een eenvoudig type is, wordt dat hetzelfde type geretourneerd. Als het een complex type en vervolgens een **PSCustomObject** wordt geretourneerd.
+Hallo [nieuw AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet maakt een nieuwe variabele en stelt u de initiële waarde. U kunt ophalen Hallo-waarde met [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Hallo-waarde is een eenvoudig type, die hetzelfde type geretourneerd. Als het een complex type en vervolgens een **PSCustomObject** wordt geretourneerd.
 
-De volgende voorbeeldopdrachten laten zien hoe een variabele van het type tekenreeks maken en vervolgens de waarde te retourneren.
+Hallo volgende steekproef opdrachten weergeven hoe toocreate een variabele van het type tekenreeks en de retourwaarde.
 
     New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
@@ -92,7 +92,7 @@ De volgende voorbeeldopdrachten laten zien hoe een variabele van het type tekenr
     $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
-De volgende voorbeeldopdrachten laten zien hoe een variabele maken met een complex type en vervolgens de eigenschappen ervan te retourneren. In dit geval wordt een virtuele machine object uit **Get-AzureRmVm** wordt gebruikt.
+Hallo volgende steekproef opdrachten tonen hoe een variabele met een complex toocreate installatietype en retourneren ze de eigenschappen ervan. In dit geval wordt een virtuele machine object uit **Get-AzureRmVm** wordt gebruikt.
 
     $vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
     New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
@@ -106,14 +106,14 @@ De volgende voorbeeldopdrachten laten zien hoe een variabele maken met een compl
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Met behulp van een variabele in een runbook of de DSC-configuratie
 
-Gebruik de **Set-AutomationVariable** activiteit is de waarde van een Automation-variabele instellen in een runbook of de DSC-configuratie en de **Get-AutomationVariable** te halen.  Gebruik niet de **Set AzureAutomationVariable** of **Get-AzureAutomationVariable** cmdlets in een runbook of de DSC-configuratie omdat ze minder efficiënt dan de werkstroomactiviteiten zijn.  U de waarde van beveiligde variabelen met ook niet ophalen **Get-AzureAutomationVariable**.  De enige manier om een nieuwe variabele van binnen een runbook of de DSC-configuratie maken is met de [nieuw AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet.
+Gebruik Hallo **Set-AutomationVariable** activiteit tooset Hallo waarde van een automatiseringsvariabele in een runbook of de DSC-configuratie en het Hallo **Get-AutomationVariable** tooretrieve deze.  Gebruik Hallo niet **Set AzureAutomationVariable** of **Get-AzureAutomationVariable** cmdlets in een runbook of de DSC-configuratie omdat ze minder efficiënt dan Hallo workflow-activiteiten zijn.  Kunt u ook niet ophalen Hallo-waarde van beveiligde variabelen met **Get-AzureAutomationVariable**.  Hallo alleen manier toocreate een nieuwe variabele van binnen een runbook of de DSC-configuratie is toouse hello [nieuw AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet.
 
 
 ### <a name="textual-runbook-samples"></a>Tekstueel runbook-voorbeelden
 
 #### <a name="setting-and-retrieving-a-simple-value-from-a-variable"></a>Instellen en een eenvoudige waarde ophalen van een variabele
 
-De volgende voorbeeldopdrachten laten zien hoe instelt en ophaalt van een variabele in een tekstueel runbook. In dit voorbeeld wordt ervan uitgegaan dat variabelen van het type integer naam *NumberOfIterations* en *NumberOfRunnings* en een variabele van het type tekenreeks met de naam *SampleMessage* al zijn gemaakt.
+Hallo volgende steekproef opdrachten weergeven hoe tooset en een variabele in een tekstueel runbook op te halen. In dit voorbeeld wordt ervan uitgegaan dat variabelen van het type integer naam *NumberOfIterations* en *NumberOfRunnings* en een variabele van het type tekenreeks met de naam *SampleMessage* al zijn gemaakt.
 
     $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
     $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
@@ -128,13 +128,13 @@ De volgende voorbeeldopdrachten laten zien hoe instelt en ophaalt van een variab
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Bijwerken en het ophalen van een complex object in een variabele
 
-De volgende voorbeeldcode laat zien hoe een variabele met een complexe waarde in een tekstueel runbook bijwerken. In dit voorbeeld wordt een virtuele machine van Azure is opgehaald met **Get-AzureVM** en opgeslagen in een bestaand Automation-variabele.  Zoals uitgelegd in [typen variabelen](#variable-types), dit wordt opgeslagen als een PSCustomObject.
+Hallo volgende steekproef code wordt getoond hoe tooupdate een variabele met een complexe waarde in een tekstueel runbook. In dit voorbeeld wordt een virtuele machine van Azure is opgehaald met **Get-AzureVM** en opgeslagen tooan bestaande Automation-variabele.  Zoals uitgelegd in [typen variabelen](#variable-types), dit wordt opgeslagen als een PSCustomObject.
 
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
 
-De waarde is opgehaald van de variabele en gebruikt voor het starten van de virtuele machine in de volgende code.
+In de Hallo code te volgen, wordt Hallo-waarde opgehaald uit Hallo-variabele en gebruikte toostart Hallo virtuele machine.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
     if ($vmObject.PowerState -eq 'Stopped') {
@@ -144,12 +144,12 @@ De waarde is opgehaald van de variabele en gebruikt voor het starten van de virt
 
 #### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Bijwerken en het ophalen van een verzameling in een variabele
 
-De volgende voorbeeldcode laat zien hoe het gebruik van een variabele met een verzameling complexe waarden in een tekstueel runbook. In dit voorbeeld meerdere virtuele machines in Azure worden opgehaald met **Get-AzureVM** en opgeslagen in een bestaand Automation-variabele.  Zoals uitgelegd in [typen variabelen](#variable-types), dit wordt opgeslagen als een verzameling van PSCustomObjects.
+Hallo volgende steekproef code wordt getoond hoe toouse een variabele met een verzameling complexe waarden in een tekstueel runbook. In dit voorbeeld meerdere virtuele machines in Azure worden opgehaald met **Get-AzureVM** en opgeslagen tooan bestaande Automation-variabele.  Zoals uitgelegd in [typen variabelen](#variable-types), dit wordt opgeslagen als een verzameling van PSCustomObjects.
 
     $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
     Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
 
-De verzameling is opgehaald van de variabele en gebruikt voor het starten van elke virtuele machine in de volgende code.
+In Hallo code te volgen, Hallo verzameling wordt opgehaald uit het Hallo-variabele en toostart elke virtuele machine gebruikt.
 
     $vmValues = Get-AutomationVariable -Name "MyComplexVariable"
     ForEach ($vmValue in $vmValues)
@@ -162,17 +162,17 @@ De verzameling is opgehaald van de variabele en gebruikt voor het starten van el
 
 ### <a name="graphical-runbook-samples"></a>Grafische runbook-voorbeelden
 
-In een grafisch runbook, voegt u de **Get-AutomationVariable** of **Set-AutomationVariable** door met de rechtermuisknop op de variabele in het deelvenster bibliotheek van de grafische editor en de activiteit die u wilt selecteren.
+In een grafisch runbook, voegt u Hallo **Get-AutomationVariable** of **Set-AutomationVariable** door met de rechtermuisknop op het Hallo-variabele in Hallo bibliotheek deelvenster van de grafische editor Hallo en Hallo selecteren activiteit die u zoekt.
 
-![Variabele aan canvas toevoegen](media/automation-variables/runbook-variable-add-canvas.png)
+![Variabele toocanvas toevoegen](media/automation-variables/runbook-variable-add-canvas.png)
 
 #### <a name="setting-values-in-a-variable"></a>Instellen van waarden in een variabele
-De volgende afbeelding toont een voorbeeld van activiteiten voor het bijwerken van een variabele met een eenvoudige waarde in een grafisch runbook. In dit voorbeeld wordt een enkele virtuele machine van Azure is opgehaald met **Get-AzureRmVM** en naam van de computer is opgeslagen in een bestaand Automation-variabele van het type tekenreeks.  Het maakt niet uit of de [koppeling is een pijplijn of een reeks](automation-graphical-authoring-intro.md#links-and-workflow) omdat alleen we een enkel object in de uitvoer verwachten.
+Hallo volgende afbeelding toont voorbeeld activiteiten tooupdate een variabele met een eenvoudige waarde in een grafisch runbook. In dit voorbeeld wordt een enkele virtuele machine van Azure is opgehaald met **Get-AzureRmVM** en Hallo computernaam tooan bestaande Automation-variabele van het type tekenreeks wordt opgeslagen.  Het maakt niet uit of hello [koppeling is een pijplijn of een reeks](automation-graphical-authoring-intro.md#links-and-workflow) omdat alleen we een enkel object in Hallo uitvoer verwachten.
 
 ![Eenvoudige variabele instellen](media/automation-variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het aansluiten van activiteiten bij elkaar in grafisch ontwerpen, [koppelingen in het grafisch ontwerpen](automation-graphical-authoring-intro.md#links-and-workflow)
-* Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks 
+* Zie toolearn meer informatie over activiteiten aan elkaar koppelen in het grafisch ontwerpen [koppelingen in het grafisch ontwerpen](automation-graphical-authoring-intro.md#links-and-workflow)
+* Zie tooget gestart met grafische runbooks [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) 
 

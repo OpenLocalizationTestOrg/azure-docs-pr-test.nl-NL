@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Aangepaste beleidsproblemen oplossen | Microsoft Docs'
-description: Meer informatie over methoden voor het oplossen van fouten bij het werken met aangepaste beleidsregels in Azure Active Directory.
+description: Meer informatie over benaderingen toosolving fouten bij het werken met aangepaste beleidsregels in Azure Active Directory.
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: joroja
-ms.openlocfilehash: 023390ba36a74217503ff8b3076ad17978fe3fb8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b9e1b46df1ddb29cdb90953e4a0d6f1dd085441f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Problemen oplossen met Azure AD B2C aangepaste beleidsregels en identiteit ervaring Framework
 
-Als u gebruikmaakt van Azure Active Directory B2C (Azure AD B2C) aangepast beleid, kunt u het Framework identiteit optreden in het XML-indeling van de beleid-taal instellen uitdagingen tegenkomen.  Leren schrijven van aangepaste beleidsregels kan worden zoals leren werken met een andere taal. In dit artikel beschreven tools en tips waarmee u kunnen snel opsporen en oplossen van problemen. 
+Als u gebruikmaakt van Azure Active Directory B2C (Azure AD B2C) aangepast beleid, kunt u uitdagingen Hallo identiteit ondervinden Framework in het XML-indeling van de beleid-taal instellen tegenkomen.  Learning toowrite aangepaste beleidsregels kunnen worden zoals leren werken met een andere taal. In dit artikel beschreven tools en tips waarmee u kunnen snel opsporen en oplossen van problemen. 
 
 > [!NOTE]
-> Dit artikel is gericht op de configuratie van uw Azure AD B2C aangepast beleid voor het oplossen van problemen. Het omgaan niet met de relying party-toepassing of de identity-bibliotheek.
+> Dit artikel is gericht op de configuratie van uw Azure AD B2C aangepast beleid voor het oplossen van problemen. Het adres Hallo relying party-toepassing of een identity-bibliotheek niet.
 
 ## <a name="xml-editing"></a>XML-bewerken
 
-De meest voorkomende fout bij het instellen van een aangepast beleid is niet goed opgemaakt XML. Er is een goede XML-editor bijna essentieel. Een goede XML-editor XML systeemeigen wordt weergegeven, gekleurd inhoud prefills algemene voorwaarden, houdt XML-elementen die zijn geïndexeerd en kunt valideren met schema. Hier vindt u twee van onze favoriete XML-editors:
+Hallo meest voorkomende fout bij het instellen van een aangepast beleid is niet goed opgemaakt XML. Er is een goede XML-editor bijna essentieel. Een goede XML-editor XML systeemeigen wordt weergegeven, gekleurd inhoud prefills algemene voorwaarden, houdt XML-elementen die zijn geïndexeerd en kunt valideren met schema. Hier vindt u twee van onze favoriete XML-editors:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Kladblok ++](https://notepad-plus-plus.org/)
 
-XML-schemavalidatie identificeert fouten voordat u uw XML-bestand uploaden. Haal de XML-schemadefinitie TrustFrameworkPolicy_0.3.0.0.xsd in de hoofdmap van het starter pack. Voor meer informatie in de documentatie van uw XML-editor, zoekt u naar *XML-hulpprogramma's* en *XML-validatie*.
+XML-schemavalidatie identificeert fouten voordat u uw XML-bestand uploaden. In de hoofdmap van Hallo starter pack Hallo Hallo XML-schemadefinitie TrustFrameworkPolicy_0.3.0.0.xsd worden opgehaald. Voor meer informatie in de documentatie van uw XML-editor Hallo zoekt *XML-hulpprogramma's* en *XML-validatie*.
 
 Mogelijk vindt u een overzicht van XML-regels handig zijn. Azure AD B2C wordt geweigerd eventuele XML opmaakfouten die worden gedetecteerd. In sommige gevallen kan een onjuiste indeling XML mogelijk foutberichten die misleidend zijn.
 
 ## <a name="upload-policies-and-policy-validation"></a>Beleid en de validatie van het uploaden
 
- XML-bestand uploaden validatie is automatisch. De meeste fouten veroorzaken het uploaden is mislukt. Validatie omvat het beleidsbestand dat u uploadt. Dit omvat ook de keten van bestanden die het uploadbestand naar (het bestand met beleidsregel van relying party, het bestand uitbreidingen en de base-bestand verwijst). 
+ XML-bestand uploaden validatie is automatisch. De meeste fouten veroorzaken Hallo uploaden toofail. Validatie omvat Hallo beleidsbestand dat u uploadt. Dit omvat ook Hallo keten van bestanden Hallo uploadbestand te verwijst (Hallo relying party beleidsbestand, Hallo uitbreidingen en base Hallo-bestand). 
  
- Algemene validatiefouten biedt de volgende.
+ Algemene validatiefouten bevatten Hallo volgende.
 
-Fout-fragment:`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
-* De waarde ClaimType mogelijk verkeerd gespeld of bestaat niet in het schema.
-* ClaimType waarden moeten worden gedefinieerd in ten minste één van de bestanden in het beleid. 
+Fout-fragment:`... makes a reference tooClaimType with id "displaName" but neither hello policy nor any of its base policies contain such an element`
+* Hallo ClaimType waarde kan worden getypt of bestaat niet in het Hallo-schema.
+* ClaimType waarden moeten ten minste één Hallo-bestanden in het Hallo-beleid worden gedefinieerd. 
     Bijvoorbeeld: ` <ClaimType Id="socialIdpUserId">`
-* Als ClaimType is gedefinieerd in het extensiebestand, maar kan ook worden gebruikt in een TechnicalProfile-waarde in de base-bestand, resulteert het base-bestand uploadt in een fout.
+* Als ClaimType in Hallo extensiebestand is gedefinieerd, maar kan ook worden gebruikt in een waarde TechnicalProfile in base Hallo-bestand, base Hallo-bestand uploadt in een fout resulteert.
 
-Fout-fragment:`...makes a reference to a ClaimsTransformation with id...`
-* De oorzaken van de fout kunnen zijn dezelfde als de fout ClaimType.
+Fout-fragment:`...makes a reference tooa ClaimsTransformation with id...`
+* Hallo oorzaken voor Hallo fout mogelijk worden Hallo dezelfde als voor Hallo ClaimType fout.
 
-Fout-fragment:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Controleer of de tenant-id-waarde in de  **\<TrustFrameworkPolicy\>**  en  **\<BasePolicy\>**  elementen overeen met de doel-Azure AD B2C-tenant.  
+Fout-fragment:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order toomanage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Controleer dat Hallo TenantId waarde in Hallo  **\<TrustFrameworkPolicy\>**  en  **\<BasePolicy\>**  elementen overeen met het doel-Azure AD B2C tenant.  
 
-## <a name="troubleshoot-the-runtime"></a>De runtime oplossen
+## <a name="troubleshoot-hello-runtime"></a>Hallo runtime oplossen
 
-* Gebruik `Run Now` en `https://jwt.io` voor het testen van uw beleid onafhankelijk van uw web- of mobiele toepassing. Deze website fungeert als een relying party-toepassing. De inhoud van de JSON Web Token (JWT) die wordt gegenereerd door het beleid van uw Azure AD B2C wordt weergegeven. Voor het maken van een testtoepassing in identiteit ervaring Framework, gebruikt u de volgende waarden:
+* Gebruik `Run Now` en `https://jwt.io` tootest uw beleid onafhankelijk van uw web- of mobiele toepassing. Deze website fungeert als een relying party-toepassing. Hallo inhoud Hallo JSON Web Token (JWT) die wordt gegenereerd door het beleid van uw Azure AD B2C wordt weergegeven. toocreate een testtoepassing in identiteit ervaring Framework, gebruik Hallo volgende waarden:
     * Naam: TestApp
     * Web-App of Web-API: Nee
     * Native client: Nee
 
-* Als u wilt traceren de uitwisseling van berichten tussen de clientbrowser en de Azure AD B2C, gebruik [Fiddler](http://www.telerik.com/fiddler). Dit kunt u een indicatie van waar de gebruiker reis in stappen van de orchestration kan niet ophalen.
+* tootrace hello uitwisseling van berichten tussen de clientbrowser en de Azure AD B2C, gebruik [Fiddler](http://www.telerik.com/fiddler). Dit kunt u een indicatie van waar de gebruiker reis in stappen van de orchestration kan niet ophalen.
 
-* In **Ontwikkelingsmodus**, gebruik **Application Insights** als u wilt traceren van de activiteit van uw identiteit ervaring Framework gebruiker reis. In **Ontwikkelingsmodus**, kunt u de uitwisseling van claims tussen identiteit ervaring Framework en de verschillende claimproviders die zijn gedefinieerd door technische profielen, zoals id-providers, op basis van een API-services, zien de Azure AD B2C-gebruikerslijst en andere services zoals Azure meerdere-multi-factor-verificatie.  
+* In **Ontwikkelingsmodus**, gebruik **Application Insights** tootrace Hallo activiteit van uw identiteit ervaring Framework gebruiker reis. In **Ontwikkelingsmodus**, ziet u Hallo uitwisseling van claims tussen Hallo identiteit ervaring Framework en hello verschillende claims providers die zijn gedefinieerd door technische profielen, zoals id-providers, op basis van een API-services Hello Azure AD B2C-gebruikerslijst en andere services, zoals Azure meerdere-multi-factor-verificatie.  
 
 ## <a name="recommended-practices"></a>Aanbevolen procedures
 
-**Houd meerdere versies van uw scenario's. Ze te groeperen in een project met uw toepassing.** De base, uitbreidingen en relying party-bestanden zijn rechtstreeks van elkaar afhankelijk. Opslaan als een groep. Nieuwe functies worden toegevoegd aan uw beleid, houd aparte werkende versies. Fase werkende versies in uw eigen bestandssysteem met de toepassingscode die ze met communiceren.  Uw toepassingen mogelijk veel verschillende relying party beleidsregels in een tenant worden aangeroepen. Deze is mogelijk afhankelijk van de claims die ze van uw Azure AD B2C-beleid verwachten.
+**Houd meerdere versies van uw scenario's. Ze te groeperen in een project met uw toepassing.** Hallo base, uitbreidingen en relying party-bestanden zijn rechtstreeks van elkaar afhankelijk. Opslaan als een groep. Als nieuwe functies worden tooyour beleid toegevoegd, kunt u afzonderlijke werkende versies bewaren. Fase werkende versies in uw eigen bestandssysteem met ze met communiceren de Hallo toepassingscode.  Uw toepassingen mogelijk veel verschillende relying party beleidsregels in een tenant worden aangeroepen. Deze is mogelijk afhankelijk van het Hallo-claims die ze van uw Azure AD B2C-beleid verwachten.
 
-**Ontwikkelen en testen van technische profielen met bekende gebruikers reizen.** Geteste starter pack beleid gebruiken voor het instellen van uw technische profielen. Ze afzonderlijk testen voordat u ze in uw eigen trajecten gebruiker opnemen.
+**Ontwikkelen en testen van technische profielen met bekende gebruikers reizen.** Geteste starter pack beleid tooset van uw technische profielen gebruiken. Ze afzonderlijk testen voordat u ze in uw eigen trajecten gebruiker opnemen.
 
-**Ontwikkelen en testen van de gebruiker trajecten met geteste technische profielen.** De orchestration-stappen van een gebruiker reis incrementeel wijzigen. Geleidelijk bouw uw beoogde scenario's.
+**Ontwikkelen en testen van de gebruiker trajecten met geteste technische profielen.** Hallo indelingsstappen van een gebruiker reis incrementeel wijzigen. Geleidelijk bouw uw beoogde scenario's.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Download het [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-bestand in GitHub.
+* Download Hallo [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ZIP-bestand in GitHub.

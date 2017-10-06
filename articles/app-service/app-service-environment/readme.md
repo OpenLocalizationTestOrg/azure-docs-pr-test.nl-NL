@@ -1,6 +1,6 @@
 ---
-title: Azure App Service-omgeving Leesmij-bestand
-description: Geeft een lijst van de documentatie die Azure App Service-omgeving beschrijft
+title: App Service-omgeving Leesmij-bestand aaaAzure
+description: Een lijst met Hallo documentatie die Azure App Service-omgeving beschrijft
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 5b1362854dbc3b0098718bd2ea3cffb06366000c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6edc74804ded7497e70c31c9e08252257add4415
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-documentation"></a>Documentatie voor App Service-omgeving
  Azure App Service-omgeving is een Azure App Service-functie een volledig geïsoleerde en toegewezen omgeving biedt voor het uitvoeren van App Service-apps veilig op grote schaal. Deze mogelijkheid kan hosten uw [web-apps][webapps], [mobiele apps][mobileapps], [API-apps] [ APIApps], en [functies][Functions].
@@ -29,20 +29,20 @@ App Service-omgevingen (ASEs) zijn ideaal voor toepassingsworkloads die vereisen
 
 Klanten kunnen meerdere ASEs binnen één Azure-regio en tussen meerdere Azure-regio's maken. Deze veelzijdigheid maakt ASEs ideaal voor stateless toepassingslagen ter ondersteuning van werklasten met hoge RPS horizontaal schalen.
 
-ASEs zijn geïsoleerd, zodat slechts één klant toepassingen uitvoeren en altijd in een Azure-netwerk worden geïmplementeerd. Klanten hebben fijnmazig controle over de toepassing voor binnenkomend en uitgaand netwerkverkeer met behulp van [Netwerkbeveiligingsgroepen][NSGs]. Toepassingen kunnen ook tot stand brengen snelle beveiligde verbindingen via virtuele netwerken met lokale bedrijfsbronnen.
+ASEs zijn geïsoleerd toorunning alleen één klant toepassingen en altijd in een Azure-netwerk worden geïmplementeerd. Klanten hebben fijnmazig controle over de toepassing voor binnenkomend en uitgaand netwerkverkeer met behulp van [Netwerkbeveiligingsgroepen][NSGs]. Toepassingen kunnen ook tot stand brengen snelle beveiligde verbindingen via virtuele netwerken tooon-premises bedrijfsbronnen.
 
-Apps moeten vaak toegang tot bedrijfsbronnen, zoals interne databases en -services. Apps die worden uitgevoerd op ASEs toegang tot bronnen via [site-naar-site] [ SiteToSite] VPN en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
+Apps moeten vaak tooaccess bedrijfsbronnen, zoals interne databases en webservices. Apps die worden uitgevoerd op ASEs toegang tot bronnen via [site-naar-site] [ SiteToSite] VPN en [Azure ExpressRoute] [ ExpressRoute] verbindingen.
 
 * [Wat is een App Service-omgeving?][Intro]
 * [Een App Service-omgeving maken][MakeExternalASE]
 * [Een interne load balancer-App Service-omgeving maken][MakeILBASE]
 * [Gebruik van een App Service-omgeving][UsingASE]
-* [Aandachtspunten voor netwerken en de App Service-omgeving][ASENetwork]
+* [Overwegingen bij het netwerk en Hallo App Service-omgeving][ASENetwork]
 * [Een App Service-omgeving te maken van een sjabloon][MakeASEfromTemplate]
 
 
 ## <a name="videos"></a>Video's
-Gebruik moderne PaaS voor bedrijven met Azure App Service
+Master moderne PaaS voor Hallo Enterprise met Azure App Service
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player]
 
 Zeer schaalbare en beveiligde apps implementeren

@@ -1,6 +1,6 @@
 ---
-title: Probleem federatieve eenmalige aanmelding voor een toepassing niet galerie configureren | Microsoft Docs
-description: Adres van een aantal veelvoorkomende problemen die optreden kunnen bij het configureren van federatieve eenmalige aanmelding voor uw aangepaste SAML-toepassing die niet wordt vermeld in de Azure AD-Toepassingsgalerie
+title: configureren van federatieve eenmalige aanmelding voor een toepassing niet galerie aaaProblem | Microsoft Docs
+description: Aantal Hallo veelvoorkomende problemen die optreden kunnen bij het configureren van federatieve eenmalige aanmelding tooyour aangepaste SAML-toepassing die niet wordt vermeld in de galerie van Azure AD-toepassing hello adres
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,59 +13,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4eb2c04c940dd6ad15a491a331aed76c237f0387
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8c80f0001de01cbc9930ef0441cd804082ee8578
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Probleem federatieve eenmalige aanmelding voor een toepassing niet galerie configureren
 
-Als u een probleem ondervindt bij het configureren van een toepassing. Controleer of u alle stappen in het artikel hebt gevolgd [eenmalige aanmelding tot toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie configureren.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+Als u een probleem ondervindt bij het configureren van een toepassing. Controleer of u alle stappen van Hallo in Hallo artikel hebt gevolgd [eenmalige aanmelding tooapplications die zich niet in de Azure Active Directory-toepassingsgalerie Hallo configureren.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 
-## <a name="cant-add-another-instance-of-the-application"></a>Een ander exemplaar van de toepassing toevoegen niet
+## <a name="cant-add-another-instance-of-hello-application"></a>Een ander exemplaar van de toepassing hello toevoegen niet
 
-Als u wilt een tweede exemplaar van een toepassing toevoegt, moet u mogelijk:
+tooadd een tweede exemplaar van een toepassing, moet u toobe kunnen:
 
--   Configureer een unieke id voor de tweede instantie. Het niet mogelijk om te configureren voor het eerste exemplaar gebruikt dezelfde id.
+-   Een unieke id voor de tweede instantie Hallo configureren. U kunt tooconfigure Hallo dezelfde id voor de eerste instantie Hallo gebruikt niet.
 
--   Configureer een ander certificaat dan de versie die wordt gebruikt voor het eerste exemplaar.
+-   Configureer een ander certificaat dan Hallo gebruikt voor de eerste instantie Hallo.
 
-Als de toepassing biedt geen ondersteuning voor een van de bovenstaande. Vervolgens het niet mogelijk voor het configureren van een tweede exemplaar.
+Als hello toepassing biedt geen ondersteuning voor een van bovenstaande Hallo. Vervolgens niet kunnen tooconfigure een tweede exemplaar.
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Waar kan ik de id van de entiteit (gebruikers-id)-indeling instellen
+## <a name="where-do-i-set-hello-entityid-user-identifier-format"></a>Waar kan ik Hallo id (gebruiker Identifier) van de entiteit indeling instellen
 
-Het niet mogelijk om de id van de entiteit (gebruikers-id)-indeling die Azure AD naar de toepassing in het antwoord na verificatie van gebruikers verzendt te selecteren.
+U kunt tooselect Hallo id (gebruiker Identifier) van de entiteit indeling Azure AD toohello toepassing hello als antwoord verzendt na verificatie van gebruiker niet.
 
-Azure AD selecteren de indeling voor het kenmerk NameID (gebruikers-id) op basis van de waarde geselecteerd of de indeling die is aangevraagd door de toepassing in de SAML-AuthRequest. Raadpleeg voor meer informatie het artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy,
+Azure AD Selecteer Hallo-indeling voor Hallo NameID kenmerk (gebruikers-id) op basis van geselecteerde Hallo-waarde of Hallo aangevraagd door de toepassing hello in Hallo SAML AuthRequest indeling. Voor meer informatie gaat u naar Hallo artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder sectie Hallo NameIDPolicy,
 
-## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Waar vind ik de metagegevens van de toepassing of het certificaat van Azure AD
+## <a name="where-do-i-get-hello-application-metadata-or-certificate-from-azure-ad"></a>Waar vind ik metagegevens van de toepassing hello of een certificaat van Azure AD
 
-Voor het downloaden van de metagegevens van de toepassing of het certificaat van Azure AD, de volgende stappen uit te voeren:
+de metagegevens van de toepassing hello toodownload of het certificaat van Azure AD stappen Hallo volgende:
 
-1.  Open de [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
+1.  Open Hallo [ **Azure Portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **meer services** onderaan in het navigatiemenu belangrijkste linkerkant.
+2.  Open Hallo **Azure Active Directory-extensie** door te klikken op **meer services** Hallo Hallo belangrijkste linkerkant navigatiemenu onderaan in.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak Hallo-filter en selecteer Hallo **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van Azure Active Directory linkerkant navigatie.
+4.  Klik op **bedrijfstoepassingen** van navigatiemenu links aan de Azure Active Directory Hallo.
 
-5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
+5.  Klik op **alle toepassingen** tooview een lijst met al uw toepassingen.
 
-   * Als u de toepassing die u wilt weergeven die hier niet ziet, gebruikt u de **Filter** besturingselement aan de bovenkant van de **lijst met alle toepassingen** en stel de **weergeven** optie naar **alle toepassingen.**
+   * Als er geen Hallo-toepassing die u wilt dat hier weergegeven, gebruikt u Hallo **Filter** besturingselement bovenaan Hallo Hallo **lijst met alle toepassingen** en set Hallo **weergeven** optie te **Alle aanvragen.**
 
-6.  Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
+6.  Selecteer Hallo-toepassing die u hebt geconfigureerd eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** van navigatiemenu links aan de van de toepassing.
+7.  Nadat de toepassing hello wordt geladen, klikt u op Hallo **eenmalige aanmelding** uit van de toepassing hello linkerkant navigatiemenu.
 
-8.  Ga naar **SAML-certificaat voor ondertekening van** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding vereist, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
+8.  Ga te**SAML-certificaat voor ondertekening van** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van welke toepassing hello configureren van eenmalige aanmelding vereist, ziet u beide Hallo optie toodownload Hallo Metadata XML of Hallo certificaat.
 
-Azure AD biedt een URL als u de metagegevens niet. De metagegevens kan alleen worden opgehaald als een XML-bestand.
+Azure AD biedt een URL tooget Hallo metagegevens niet. Hallo metagegevens kan alleen worden opgehaald als een XML-bestand.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Weet u niet het aanpassen van SAML-claims verzonden naar een toepassing
+## <a name="dont-know-how-toocustomize-saml-claims-sent-tooan-application"></a>Niet weet hoe toocustomize SAML claims tooan toepassing verzonden
 
-Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
+toolearn hoe toocustomize Hallo SAML kenmerk claims verzonden tooyour toepassing, Zie [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md)

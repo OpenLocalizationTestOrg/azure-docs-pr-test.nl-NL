@@ -1,6 +1,6 @@
 ---
-title: Gebruik van de Connector Slack in Azure logic apps | Microsoft Docs
-description: Verbinding maken met Slack in logic apps
+title: aaaUse hello Slack-Connector in Azure logic apps | Microsoft Docs
+description: Verbinding maken met tooSlack in logic apps
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6599d7b69d2147425c9fab978c5d0f93e5605f19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-slack-connector"></a>Aan de slag met de toegestane connector
+# <a name="get-started-with-hello-slack-connector"></a>Aan de slag met Slack Hallo-connector
 Vertraging is een hulpprogramma team communicatie, die samenbrengt alle van uw team communicatie in een plaatst, onmiddellijk doorzoekbare en beschikbaar waar u ook bent. 
 
 Aan de slag door het maken van een logische app nu; Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-slack"></a>Maak een verbinding met Slack
-Voor het gebruik van de toegestane connector maakt u eerst een **verbinding** Geef vervolgens de details voor deze eigenschappen: 
+## <a name="create-a-connection-tooslack"></a>Een tooSlack verbinding maken
+toouse hello Slack-connector maakt u eerst een **verbinding** vervolgens Hallo informatie opgeven voor deze eigenschappen: 
 
 | Eigenschap | Vereist | Beschrijving |
 | --- | --- | --- |
 | Token |Ja |Toegestane referenties opgeven |
 
-Volg deze stappen voor het aanmelden bij de vertraging en voltooi de configuratie van de toegestane vertraging **verbinding** in uw logische app:
+Volg deze stappen toosign in Slack en configuratie van de volledige Hallo Hallo Slack **verbinding** in uw logische app:
 
 1. Selecteer **terugkeerpatroon**
 2. Selecteer een **frequentie** en voer een **Interval**
 3. Selecteer **een actie toevoegen**  
    ![Vertraging configureren][1]  
-4. Vertraging in het zoekvak invoert en wacht tot de zoekopdracht te retourneren van alle vermeldingen met vertraging in de naam
+4. Vertraging in het zoekvak Hallo invoeren en wachten op Hallo zoeken tooreturn alle vermeldingen met Slack in Hallo naam
 5. Selecteer **Slack - bericht posten**
-6. Selecteer **aanmelden met Slack**:  
+6. Selecteer **tooSlack aanmelden**:  
    ![Vertraging configureren][2]
-7. De toegestane referenties opgeven voor het aanmelden bij de toepassing    
+7. Geef uw toosign toegestane referenties in tooauthorize Hallo toepassing    
    ![Vertraging configureren][3]  
-8. U moet worden omgeleid naar de aanmeldingspagina van uw organisatie. **Autoriseren** Slack om te communiceren met uw logische app:      
+8. U zult de aanmeldingspagina van de organisatie van de omgeleide tooyour. **Autoriseren** toegestane toointeract met uw logische app:      
    ![Vertraging configureren][5] 
-9. Nadat de autorisatie is voltooid wordt u omgeleid naar uw logische app om deze te voltooien door het configureren van de **vertraging - alle berichten ophalen** sectie. Toevoegen van andere triggers en acties die u nodig hebt.  
+9. Nadat het Hallo-autorisatie is voltooid, moet u omgeleide tooyour logic app toocomplete door het configureren van Hallo **vertraging - alle berichten ophalen** sectie. Toevoegen van andere triggers en acties die u nodig hebt.  
    ![Vertraging configureren][6]
-10. Sla uw werk door te selecteren **opslaan** boven in het menu.
+10. Sla uw werk door te selecteren **opslaan** op Hallo menubalk hierboven.
 
 ## <a name="connector-specific-details"></a>Connector-specifieke details
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/slack/).
+Alle triggers en acties die zijn gedefinieerd in swagger Hallo bekijken en ook bekijken in Hallo beperkingen [connector details](/connectors/slack/).
 
 ## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [API's lijst](apis-list.md).
+Ga terug toohello [API's lijst](apis-list.md).
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 

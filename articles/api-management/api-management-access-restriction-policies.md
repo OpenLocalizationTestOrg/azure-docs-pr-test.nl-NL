@@ -1,6 +1,6 @@
 ---
-title: Azure API Management-beperking beleid | Microsoft Docs
-description: Meer informatie over de beperking toegangsbeleid beschikbaar voor gebruik in Azure API Management.
+title: aaaAzure API Management toegangsbeleid beperking | Microsoft Docs
+description: Meer informatie over Hallo beperking toegangsbeleid beschikbaar voor gebruik in Azure API Management.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ef368c2781d9a5cf9eaaa41a47489c904ed3198
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Beperking van API Management toegangsbeleid
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Dit onderwerp bevat een verwijzing voor Hallo API Management-beleidsregels te volgen. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a>Softwarerestrictiebeleid toegang  
   
@@ -33,14 +33,14 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 -   [Aanroeper IP-adressen beperken](api-management-access-restriction-policies.md#RestrictCallerIPs) -Filters (kunt/weigert) aanroepen van bepaalde IP-adressen en/of -adresbereiken.  
   
--   [Gebruiksquotum per abonnement instellen](api-management-access-restriction-policies.md#SetUsageQuota) -Hiermee kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per abonnement afdwingen.  
+-   [Gebruiksquotum per abonnement instellen](api-management-access-restriction-policies.md#SetUsageQuota) -kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum tooenforce op basis van per abonnement.  
   
--   [Gebruiksquotum instellen door sleutel](#SetUsageQuotaByKey) -Hiermee kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van de sleutel per afdwingen.  
+-   [Gebruiksquotum instellen door sleutel](#SetUsageQuotaByKey) -kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum tooenforce op basis van de per-sleutel.  
   
 -   [Valideren van JWT](api-management-access-restriction-policies.md#ValidateJWT) -afdwingt bestaan en de geldigheid van een JWT opgehaald uit een opgegeven HTTP-koptekst of een opgegeven queryparameter.  
   
 ##  <a name="CheckHTTPHeader"></a>Controleer de HTTP-header  
- Gebruik de `check-header` beleid af te dwingen dat een aanvraag een opgegeven HTTP-header heeft. U kunt eventueel controleren of de header is een specifieke waarde of het selectievakje voor een bereik van toegestane waarden. Als de controle mislukt, wordt het beleid wordt beëindigd aanvraagverwerking en retourneert het HTTP-status code en de fout bericht opgegeven door het beleid.  
+ Gebruik Hallo `check-header` beleid tooenforce dat een aanvraag een opgegeven HTTP-header heeft. U kunt eventueel toosee controleren als Hallo-header een specifieke waarde of het selectievakje voor een bereik van toegestane waarden is. Hallo controle mislukt, Hallo beleid aanvraagverwerking wordt beëindigd als HTTP-status code en de fout welkomstbericht opgegeven door het beleid voor Hallo retourneert.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -64,31 +64,31 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |controle-header|Hoofdelement.|Ja|  
-|waarde|Toegestane waarde voor HTTP-header. Als meerdere elementen van de waarde worden opgegeven, de controle wordt beschouwd als geslaagd als een van de waarden een overeenkomst.|Nee|  
+|waarde|Toegestane waarde voor HTTP-header. Als meerdere elementen van de waarde worden opgegeven, Hallo selectievakje wordt beschouwd als geslaagd als een van de waarden Hallo een overeenkomst.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|kan de niet-controle-foutbericht|Het foutbericht te retourneren in de HTTP-antwoordtekst als de header bestaat niet of een ongeldige waarde heeft. Dit bericht moet de speciale tekens escape hebben.|Ja|N.v.t.|  
-|Kan controle httpcode|HTTP-statuscode te retourneren als de header bestaat niet of een ongeldige waarde heeft.|Ja|N.v.t.|  
-|header-naam|De naam van de HTTP-Header om te controleren.|Ja|N.v.t.|  
-|negeren geval|Kan worden ingesteld op True of False. Als is ingesteld op True aanvraag wordt genegeerd wanneer de waarde voor header met de set van acceptabele waarden vergeleken.|Ja|N.v.t.|  
+|kan de niet-controle-foutbericht|Fout bericht tooreturn in Hallo HTTP-antwoordtekst als Hallo header bestaat niet of een ongeldige waarde heeft. Dit bericht moet de speciale tekens escape hebben.|Ja|N.v.t.|  
+|Kan controle httpcode|HTTP-Status code tooreturn als Hallo header bestaat niet of een ongeldige waarde heeft.|Ja|N.v.t.|  
+|header-naam|de naam van de Hallo Hallo toocheck HTTP-Header.|Ja|N.v.t.|  
+|negeren geval|Kan worden ingesteld tooTrue of ONWAAR. Als de set tooTrue aanvraag wordt genegeerd wanneer het Hallo-kopwaarde vergeleken met de Hallo set van acceptabele waarden.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** binnenkomende, uitgaande  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="LimitCallRate"></a>Aanroepfrequentie per abonnement  
- De `rate-limit` API gebruikspieken op basis van per abonnement wordt verhinderd door het beperken van de aanroepfrequentie met een opgegeven aantal gedurende een opgegeven periode. Wanneer dit beleid wordt geactiveerd. de aanroeper ontvangt een `429 Too Many Requests` statuscode van antwoord.  
+ Hallo `rate-limit` beleid voorkomt dat het gebruik van de API pieken per abonnement op basis van een door het beperken van Hallo aanroepen snelheid tooa opgegeven aantal gedurende een opgegeven periode. Wanneer dit beleid wordt geactiveerd Hallo aanroeper ontvangt een `429 Too Many Requests` statuscode van antwoord.  
   
 > [!IMPORTANT]
 >  Dit beleid kan slechts één keer per beleidsdocument worden gebruikt.  
 >   
->  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van het beleid voor dit beleid.  
+>  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van Hallo-beleid voor dit beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -119,26 +119,26 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |opgegeven limiet|Hoofdelement.|Ja|  
-|api|Voeg een of meer van deze elementen te leggen frequentielimiet aanroep op API's binnen het product. Producten en -API aanroepen snelheid limieten onafhankelijk worden toegepast.|Nee|  
-|bewerking|Een of meer van deze elementen te leggen van de frequentielimiet van een aanroep op bewerkingen binnen een API toevoegen. Product, API en bewerking aanroepen snelheid limieten onafhankelijk worden toegepast.|Nee|  
+|api|Een of meer van deze elementen tooimpose een frequentielimiet aanroep op API's binnen Hallo product toevoegen. Producten en -API aanroepen snelheid limieten onafhankelijk worden toegepast.|Nee|  
+|bewerking|Een of meer van deze elementen tooimpose een frequentielimiet aanroep op bewerkingen binnen een API toevoegen. Product, API en bewerking aanroepen snelheid limieten onafhankelijk worden toegepast.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|naam|De naam van de API voor de frequentielimiet wordt toegepast.|Ja|N.v.t.|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N.v.t.|  
-|vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
+|naam|Hallo de naam van Hallo API voor welke tooapply Hallo limiet.|Ja|N.v.t.|  
+|aanroepen|maximum aantal aanroepen toegestaan tijdens het Hallo tijdsinterval is opgegeven in Hallo Hallo `renewal-period`.|Ja|N.v.t.|  
+|vernieuwingsperiode|Hallo periode in seconden waarna hello quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** product  
   
 ##  <a name="LimitCallRateByKey"></a>Aanroepfrequentie per sleutel  
- De `rate-limit-by-key` API gebruikspieken op basis van de sleutel per wordt verhinderd door het beperken van de aanroepfrequentie met een opgegeven aantal gedurende een opgegeven periode. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen naar de limiet moeten worden geteld. Wanneer dit beleid wordt geactiveerd. de aanroeper ontvangt een `429 Too Many Requests` statuscode van antwoord.  
+ Hallo `rate-limit-by-key` beleid voorkomt dat het gebruik van de API pieken per sleutel op basis van een door het beperken van Hallo aanroepen snelheid tooa opgegeven aantal gedurende een opgegeven periode. Hallo-sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met. Optionele incrementele voorwaarde kan worden toegevoegd als toospecify welke aanvragen naar Hallo limiet moeten worden geteld. Wanneer dit beleid wordt geactiveerd Hallo aanroeper ontvangt een `429 Too Many Requests` statuscode van antwoord.  
   
  Zie voor meer informatie over en voorbeelden van dit beleid, [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -156,7 +156,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- In het volgende voorbeeld wordt de frequentielimiet ingevoerd door de aanroeper IP-adres.  
+ In Hallo voorbeeld te volgen, wordt de frequentielimiet Hallo ingevoerd met Hallo aanroeper IP-adres.  
   
 ```xml  
 <policies>  
@@ -183,20 +183,20 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N.v.t.|  
-|tegenpartij sleutel|De sleutel moet worden gebruikt voor het frequentielimietbeleid.|Ja|N.v.t.|  
-|verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`).|Nee|N.v.t.|  
-|vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
+|aanroepen|maximum aantal aanroepen toegestaan tijdens het Hallo tijdsinterval is opgegeven in Hallo Hallo `renewal-period`.|Ja|N.v.t.|  
+|tegenpartij sleutel|Hallo sleutel toouse voor beleid voor frequentielimiet Hallo.|Ja|N.v.t.|  
+|verhoging voorwaarde|Hallo Booleaanse expressie opgeven als Hallo-aanvraag moet worden geteld voor Hallo quotum (`true`).|Nee|N.v.t.|  
+|vernieuwingsperiode|Hallo periode in seconden waarna hello quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="RestrictCallerIPs"></a>Aanroeper IP-adressen beperken  
- De `ip-filter` beleid filtert (kunt/weigert) aanroepen van bepaalde IP-adressen en/of -adresbereiken.  
+ Hallo `ip-filter` beleid filtert (kunt/weigert) aanroepen van bepaalde IP-adressen en/of -adresbereiken.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -221,30 +221,30 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |IP-filter|Hoofdelement.|Ja|  
-|Adres|Hiermee geeft u een enkel IP-adres waarop u wilt filteren.|Ten minste één `address` of `address-range` element is vereist.|  
-|adresbereik van = 'adres' naar 'adres' =|Hiermee geeft u een bereik met IP-adres waarop u wilt filteren.|Ten minste één `address` of `address-range` element is vereist.|  
+|Adres|Hiermee geeft u één IP-adres op welke toofilter.|Ten minste één `address` of `address-range` element is vereist.|  
+|adresbereik van = 'adres' naar 'adres' =|Hiermee geeft u een bereik met IP-adres op welke toofilter.|Ten minste één `address` of `address-range` element is vereist.|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|adresbereik van = 'adres' naar 'adres' =|Een bereik van IP-adressen wilt toestaan of weigeren van toegang voor.|Vereist wanneer de `address-range` element wordt gebruikt.|N.v.t.|  
-|IP-filteractie = ' toestaan dat &#124; verbieden"|Geeft aan of aanroepen moeten worden toegestaan of niet voor het opgegeven IP-adressen en de bereiken.|Ja|N.v.t.|  
+|adresbereik van = 'adres' naar 'adres' =|Een bereik met IP-adressen tooallow of weigeren van toegang voor.|Vereist wanneer hello `address-range` element wordt gebruikt.|N.v.t.|  
+|IP-filteractie = ' toestaan dat &#124; verbieden"|Geeft aan of aanroepen moeten worden toegestaan of niet voor Hallo IP-adressen en -bereiken opgegeven.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="SetUsageQuota"></a>Gebruiksquotum per abonnement instellen  
- De `quota` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per abonnement.  
+ Hallo `quota` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per abonnement.  
   
 > [!IMPORTANT]
 >  Dit beleid kan slechts één keer per beleidsdocument worden gebruikt.  
 >   
->  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van het beleid voor dit beleid.  
+>  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van Hallo-beleid voor dit beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -275,34 +275,34 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |quotum|Hoofdelement.|Ja|  
-|api|Voeg een of meer van deze elementen te leggen een quotum op API's binnen het product. Product- en API-quota worden onafhankelijk toegepast.|Nee|  
-|bewerking|Een of meer van deze elementen te leggen een quotum op bewerkingen binnen een API toevoegen. Product, API en bewerking quota's worden onafhankelijk van elkaar toegepast.|Nee|  
+|api|Een of meer van deze elementen tooimpose een quotum op API's binnen Hallo product toevoegen. Product- en API-quota worden onafhankelijk toegepast.|Nee|  
+|bewerking|Een of meer van deze elementen tooimpose een quotum op bewerkingen binnen een API toevoegen. Product, API en bewerking quota's worden onafhankelijk van elkaar toegepast.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|naam|De naam van de API of de bewerking waarvoor het quotum van toepassing.|Ja|N.v.t.|  
-|Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
-|vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
+|naam|Hallo-naam van het Hallo-API of de bewerking voor welke Hallo quotum van toepassing.|Ja|N.v.t.|  
+|Bandbreedte|maximum aantal kilobytes is toegestaan tijdens het Hallo tijdsinterval is opgegeven in Hallo Hallo `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
+|aanroepen|maximum aantal aanroepen toegestaan tijdens het Hallo tijdsinterval is opgegeven in Hallo Hallo `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
+|vernieuwingsperiode|Hallo periode in seconden waarna hello quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a>Gebruiksquotum instellen door sleutel  
- De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van de per-sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen naar het quotum moeten worden geteld.  
+ Hallo `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van de per-sleutel. Hallo-sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met. Optionele incrementele voorwaarde kan worden toegevoegd als toospecify welke aanvragen naar Hallo quotum moeten worden geteld.  
   
  Zie voor meer informatie over en voorbeelden van dit beleid, [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
 > [!IMPORTANT]
 >  Dit beleid kan slechts één keer per beleidsdocument worden gebruikt.  
 >   
->  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van het beleid voor dit beleid.  
+>  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van Hallo-beleid voor dit beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -316,7 +316,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- In het volgende voorbeeld wordt het quotum ingevoerd door de aanroeper IP-adres.  
+ In Hallo voorbeeld te volgen, wordt de Hallo quotum ingevoerd met Hallo aanroeper IP-adres.  
   
 ```xml  
 <policies>  
@@ -342,33 +342,33 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
-|tegenpartij sleutel|De sleutel moet worden gebruikt voor het quotumbeleid.|Ja|N.v.t.|  
-|verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`)|Nee|N.v.t.|  
-|vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
+|Bandbreedte|maximum aantal kilobytes is toegestaan tijdens het Hallo tijdsinterval is opgegeven in Hallo Hallo `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
+|aanroepen|maximum aantal aanroepen toegestaan tijdens het Hallo tijdsinterval is opgegeven in Hallo Hallo `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
+|tegenpartij sleutel|Hallo sleutel toouse voor Hallo quotumbeleid.|Ja|N.v.t.|  
+|verhoging voorwaarde|Hallo Booleaanse expressie opgeven als Hallo-aanvraag moet worden geteld voor Hallo quotum (`true`)|Nee|N.v.t.|  
+|vernieuwingsperiode|Hallo periode in seconden waarna hello quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="ValidateJWT"></a>JWT valideren  
- De `validate-jwt` beleid zorgt ervoor dat bestaan en de geldigheid van een JWT opgehaald uit beide een opgegeven HTTP-Header of een opgegeven queryparameter.  
+ Hallo `validate-jwt` beleid zorgt ervoor dat bestaan en de geldigheid van een JWT opgehaald uit beide een opgegeven HTTP-Header of een opgegeven queryparameter.  
   
 > [!IMPORTANT]
->  De `validate-jwt` beleid vereist dat de `exp` geregistreerde claim inlcuded in de JWT-token is tenzij `require-expiration-time` kenmerk is opgegeven en ingesteld op `false`.  
-> De `validate-jwt` beleid ondersteunt HS256 en RS256 ondertekenen algoritmen. HS256 moet de sleutel worden opgegeven voor inline in het beleid in het formulier base64-gecodeerd. De sleutel heeft voor RS256 om via een Open ID configuratie-eindpunt.  
+>  Hallo `validate-jwt` beleid vereist dat Hallo `exp` geregistreerde claim is inlcuded in Hallo JWT-token, tenzij `require-expiration-time` kenmerk is opgegeven en ingesteld te`false`.  
+> Hallo `validate-jwt` beleid ondersteunt HS256 en RS256 ondertekenen algoritmen. HS256 moet Hallo-sleutel worden opgegeven voor inline binnen Hallo beleid Hallo base64-gecodeerde vorm. Hallo-sleutel heeft voor RS256 toobe bieden via een Open ID configuratie-eindpunt.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
 <validate-jwt   
-    header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
-    failed-validation-httpcode="http status code to return on failure"   
-    failed-validation-error-message="error message to return on failure"   
+    header-name="name of http header containing hello token (use query-parameter-name attribute if hello token is passed in hello URL)"   
+    failed-validation-httpcode="http status code tooreturn on failure"   
+    failed-validation-error-message="error message tooreturn on failure"   
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"   
@@ -386,13 +386,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
-      <value>claim value as it is expected to appear in the token</value>  
+    <claim name="name of hello claim as it appears in hello token" match="all|any">  
+      <value>claim value as it is expected tooappear in hello token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
     <!-- if there are multiple possible allowed values, then add additional value elements -->  
   </required-claims>  
-  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />  
+  <openid-config url="full URL of hello configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />  
   <zumo-master-key id="key identifier">key value</zumo-master-key>  
 </validate-jwt>  
   
@@ -449,11 +449,11 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 </validate-jwt>  
 ```  
   
-#### <a name="authorize-access-to-operations-based-on-token-claims"></a>Toegang verlenen aan bewerkingen op basis van claims token  
- Dit voorbeeld ziet u hoe u de [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid vooraf toegang verlenen aan bewerkingen op basis van claims token. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot 13:50. Snel doorsturen naar 15:00 voor een overzicht van het beleid dat is geconfigureerd in de beleidseditor en vervolgens naar 18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal zowel met als zonder de vereiste verificatietoken.  
+#### <a name="authorize-access-toooperations-based-on-token-claims"></a>Toegang toooperations op basis van claims token autoriseren  
+ Dit voorbeeld ziet u hoe toouse hello [JWT valideren](api-management-access-restriction-policies.md#ValidateJWT) beleid toopre-toegang toooperations op basis van claims token autoriseren. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en too13:50 vooruit. Snel toosee Hallo beleid dat is geconfigureerd in de beleidseditor Hallo doorsturen too15:00 en vervolgens too18:50 voor een demonstratie van een bewerking aanroepen vanuit de ontwikkelaarsportal Hallo zowel met als zonder Hallo verificatietoken vereist.  
   
 ```xml  
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
+<!-- Copy hello following snippet into hello inbound section at hello api (or higher) level toopre-authorize access toooperations based on token claims -->  
 <set-variable name="signingKey" value="insert signing key here" />  
 <choose>  
   <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">  
@@ -495,31 +495,31 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
 |valideren jwt|Hoofdelement.|Ja|  
-|doelgroepen|Bevat een lijst van toegestane doelgroep claims die gebruikt op het token worden kunnen. Als meerdere doelgroep waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt. Ten minste één doelgroep moet worden opgegeven.|Nee|  
-|ondertekening-sleutels van uitgever|Een lijst met Base64-gecodeerd beveiligingssleutels gebruikt om ondertekende tokens te valideren. Als meerdere beveiligingssleutels aanwezig zijn, wordt elke sleutel wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt (dit is nuttig voor de overschakeling van token). De belangrijkste elementen hebben een optioneel `id` kenmerk dat wordt gebruikt voor het vergelijken van `kid` claim.|Nee|  
-|uitgevers van certificaten|Een lijst met toegestane principals die het token heeft uitgegeven. Als meerdere verlener waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt.|Nee|  
-|openid-config|Het element dat wordt gebruikt voor het opgeven van een compatibele configuratie-eindpunt voor Open-ID is waar ondertekenen van sleutels en uitgever kan worden verkregen.|Nee|  
-|vereist claims|Bevat een lijst met claims aanwezig zijn op het token als geldig beschouwd als deze wordt verwacht. Wanneer de `match` kenmerk is ingesteld op `all` elke claimwaarde in het beleid moet aanwezig zijn in het token voor de validatie mislukt. Wanneer de `match` kenmerk is ingesteld op `any` ten minste één claim moet aanwezig zijn in het token voor de validatie mislukt.|Nee|  
+|doelgroepen|Bevat een lijst met toegestane doelgroep claims die gebruikt op Hallo-token worden kunnen. Als meerdere doelgroep waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt. Ten minste één doelgroep moet worden opgegeven.|Nee|  
+|ondertekening-sleutels van uitgever|Een lijst met Base64-gecodeerd beveiliging sleutels die worden gebruikt toovalidate ondertekend tokens. Als meerdere beveiligingssleutels aanwezig zijn, wordt elke sleutel wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt (dit is nuttig voor de overschakeling van token). De belangrijkste elementen hebben een optioneel `id` toomatch kenmerk gebruikt tegen `kid` claim.|Nee|  
+|uitgevers van certificaten|Een lijst met toegestane principals die Hallo token uitgegeven. Als meerdere verlener waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt.|Nee|  
+|openid-config|Hallo-element dat wordt gebruikt voor het opgeven van een compatibele configuratie-eindpunt voor Open-ID is waar ondertekenen van sleutels en uitgever kan worden verkregen.|Nee|  
+|vereist claims|Bevat een lijst met claims verwacht toobe aanwezig is op Hallo token voor toobe als geldig beschouwd. Wanneer Hallo `match` kenmerk is ingesteld, te`all` elke claimwaarde in Hallo beleid moet aanwezig zijn in Hallo token voor validatie toosucceed. Wanneer Hallo `match` kenmerk is ingesteld, te`any` ten minste één claim moet aanwezig zijn in Hallo token voor validatie toosucceed.|Nee|  
 |zumo hoofdsleutel|Hoofdsleutel voor tokens die zijn uitgegeven door Azure Mobile Services|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|tijdverschil|TimeSpan. Biedt een aantal kleine eenheidsprofiel voor het geval van het token verloopt claim aanwezig in het token is en na de huidige datum valt / tijd.|Nee|0 seconden|  
-|kan de niet-validatie-foutbericht|Het foutbericht te retourneren in de HTTP-antwoordtekst als de JWT niet kan gevalideerd worden. Dit bericht moet de speciale tekens escape hebben.|Nee|Standaardfoutbericht, is afhankelijk van validatieprobleem, bijvoorbeeld 'JWT niet aanwezig."|  
-|kan geen validatie httpcode|HTTP-statuscode te retourneren als de JWT niet gevalideerd worden.|Nee|401|  
-|header-naam|De naam van de HTTP-header van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N.v.t.|  
-|id|De `id` -kenmerk uit voor de `key` element kunt u opgeven van de tekenreeks die wordt vergeleken met `kid` claim in het token (indien aanwezig) om erachter te komen met de juiste sleutel moet worden gebruikt voor validatie van handtekening.|Nee|N.v.t.|  
-|Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all`-de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any`-ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|Alle|  
-|query-paremeter-naam|De naam van de de queryparameter van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N.v.t.|  
-|vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|De waarde True|
-|vereisen schema|De naam van het token schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N.v.t.|
-|vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|De waarde True|  
-|URL|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N.v.t.|  
+|tijdverschil|TimeSpan. Biedt een aantal kleine eenheidsprofiel geval Hallo-token verloopt claim aanwezig in het Hallo-token is en na de huidige Hallo valt datum / tijd.|Nee|0 seconden|  
+|kan de niet-validatie-foutbericht|Fout bericht tooreturn in Hallo HTTP-antwoordtekst als Hallo JWT niet kan gevalideerd worden. Dit bericht moet de speciale tekens escape hebben.|Nee|Standaardfoutbericht, is afhankelijk van validatieprobleem, bijvoorbeeld 'JWT niet aanwezig."|  
+|kan geen validatie httpcode|HTTP-Status code tooreturn als Hallo JWT validatie niet doorstaan.|Nee|401|  
+|header-naam|Hallo-naam van Hallo HTTP-header Hallo-token bedrijf.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N.v.t.|  
+|id|Hallo `id` -kenmerk op Hallo `key` element kunt u toospecify Hallo tekenreeks die wordt vergeleken met `kid` claim in Hallo token (indien aanwezig) toofind uit Hallo geschikte sleutel toouse voor validatie van handtekening.|Nee|N.v.t.|  
+|Overeenkomst|Hallo `match` -kenmerk op Hallo `claim` element geeft aan of de waarde van elke claim in Hallo beleid aanwezig in Hallo token voor validatie toosucceed zijn moet. Mogelijke waarden zijn:<br /><br /> -                          `all`-de waarde van elke claim in Hallo beleid moet aanwezig zijn in Hallo token voor validatie toosucceed.<br /><br /> -                          `any`-ten minste één claimwaarde moet aanwezig zijn in Hallo token voor validatie toosucceed.|Nee|Alle|  
+|query-paremeter-naam|Hallo-naam van de queryparameter voor Hallo HALLO hallo-token bedrijf.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N.v.t.|  
+|vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in Hallo-token is vereist.|Nee|De waarde True|
+|vereisen schema|naam van het token Hallo-schema, bijvoorbeeld Hallo 'Bearer'. Wanneer dit kenmerk is ingesteld, kan Hallo beleid zorgt ervoor dat het schema is aanwezig in Hallo autorisatie-header-waarde opgegeven.|Nee|N.v.t.|
+|vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist toobe ondertekend.|Nee|De waarde True|  
+|URL|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Voor Azure Active Directory gebruiken Hallo volgende URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   

@@ -1,6 +1,6 @@
 ---
-title: Azure Role-eigenschappen
-description: Informatie over het gebruik van de Azure-Toolkit voor Eclipse om Azure-functie-instellingen te configureren.
+title: aaaAzure Role-eigenschappen
+description: Meer informatie over hoe toouse Azure Toolkit Hallo voor Eclipse tooconfigure Azure serverfunctie-instellingen.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,23 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d111b4b9e4f12e49f38755bf6c9acc1a1de17a50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-role-properties"></a>Azure Role-eigenschappen
-Verschillende configuratie-instellingen voor uw Azure-rol kunnen worden ingesteld binnen de Azure-werkset voor Eclipse.
+Verschillende configuratie-instellingen voor uw Azure-rol kunnen worden ingesteld binnen hello Azure Toolkit voor Eclipse.
 
 ## <a name="configuring-azure-role-properties"></a>Eigenschappen van de Azure-functie configureren
-De eigenschappen van uw Azure-functie configureren wordt via de eigenschap dialoogvensters voor uw werkrol gerealiseerd. Open het contextmenu voor de rol in de Eclipse-Project Explorer-venster en selecteer de **Azure** vervolgmenu. (Als u de rol in de Projectverkenner Eclipse niet ziet, vouwt u uw Azure-project in Projectverkenner.)
+Configureren van de eigenschappen van uw Azure-rol wordt uitgevoerd via Hallo eigenschap dialoogvensters voor uw werkrol. Open Hallo contextmenu voor Hallo-rol in de Projectverkenner deelvenster en selecteer Hallo van Eclipse **Azure** vervolgmenu. (Als er geen Hallo-rol in Eclipse Projectverkenner hello, vouwt u uw Azure-project in Projectverkenner.)
 
 ![][ic789599]
 
-De diverse eigenschappen die kunnen worden ingesteld vanuit de **eigenschappen** dialoogvensters worden beschreven in dit onderwerp. Houd er rekening mee dat veel eigenschappen worden automatisch ingevuld bij het maken van een nieuw project in de Azure-implementatie.
+diverse eigenschappen die kunnen worden ingesteld van Hallo Hallo **eigenschappen** dialoogvensters worden beschreven in dit onderwerp. Houd er rekening mee dat veel eigenschappen worden automatisch ingevuld bij het maken van een nieuw project in de Azure-implementatie.
 
-De volgende eigenschappenpagina's zijn beschikbaar voor Azure-functies.
+Hallo na eigenschappenpagina's zijn beschikbaar voor Azure-functies.
 
 * [Eigenschappen van virtuele machine](#virtual_machine_properties)
 * [Eigenschappen opslaan in cache](#caching_properties)
@@ -47,137 +47,137 @@ De volgende eigenschappenpagina's zijn beschikbaar voor Azure-functies.
 <a name="virtual_machine_properties"></a>
 
 ### <a name="virtual-machine-properties"></a>Eigenschappen van virtuele machine
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **eigenschappen**, en u hebt de mogelijkheid om de grootte van de virtuele machine te wijzigen en het nummer ook wijzigen van exemplaren, zoals wordt weergegeven in de volgende afbeelding.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **eigenschappen**, en u Hallo mogelijkheid toochange Hallo de grootte van virtuele machine, en ook wijzigen Hallo aantal exemplaren, zoals wordt weergegeven in Hallo installatiekopie te volgen.
 
 ![][ic719499]
 
 > [!NOTE]
-> Alleen Windows: als u het aantal exemplaren op een waarde groter dan 1 en u ook een toepassingsserver configureren, kunt de toolkit slechts 1 rolexemplaar in de emulator, ongeacht deze instelling uit te voeren. Dit is de poort binding om conflicten te voorkomen tussen de exemplaren van de andere server (bijvoorbeeld alle probeert te binden aan poort 8080) wanneer ze op dezelfde computer worden uitgevoerd. De instelling voor uw exemplaar van het gewenste aantal wordt bewaard, maar wordt ingevoerd alleen wanneer u naar de cloud implementeert.
+> Alleen Windows: wanneer u het aantal exemplaren Hallo tooa waarde groter is dan 1 instellen en u ook een toepassingsserver configureren, Hallo toolkit slechts 1 rol exemplaar toorun in Hallo-emulator, ongeacht deze instelling wordt toestaan. Dit is tooavoid poort bindingsconflicten tussen verschillende serverexemplaren hello (bijvoorbeeld alle poging toobind tooport 8080) wanneer ze worden uitgevoerd op Hallo dezelfde computer. De instelling voor uw exemplaar van het gewenste aantal wordt bewaard, maar wordt ingevoerd alleen wanneer u toohello cloud implementeert.
 > 
 > 
 
 <a name="caching_properties"></a> 
 
 ### <a name="caching-properties"></a>Eigenschappen opslaan in cache
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **opslaan in cache**. In dit dialoogvenster kunt u met de naam CO-locaties memcache-compatibele caches inschakelen zodat u sneller webtoepassingen te.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **opslaan in cache**. In dit dialoogvenster kunt u met de naam CO-locaties memcache-compatibele caches inschakelen zodat u toohelp snelheid van uw webtoepassingen.
 
 ![][ic719483]
 
-Binnen de **opslaan in cache** eigenschappenpagina, kunt u algemene instellingen voor het volgende opgeven:
+Binnen Hallo **opslaan in cache** eigenschappenpagina, kunt u algemene instellingen voor hello te volgen:
 
 * Hiermee wordt aangegeven of CO-locaties opslaan in cache is ingeschakeld.
-* de grootte van de cache als een percentage van het geheugen.
-* naam van het opslagaccount voor het opslaan van de status van de cache wanneer uw toepassing wordt uitgevoerd als een cloudservice of none als u niet wilt dat de status van de cache opslaan. (Naam van het opslagaccount wordt niet gebruikt wanneer u uw toepassing in de rekenemulator uitvoeren.) Als u de naam van het opslagaccount ingesteld op **(automatisch)** (dit is de standaardwaarde), de configuratie van de cache automatisch gebruikmaken van hetzelfde opslagaccount als het account dat u selecteert in de **publiceren naar Azure** dialoogvenster.
+* Hallo cachegrootte als een percentage van het geheugen.
+* Hallo opslagaccountnaam voor het opslaan van Hallo cache staat wanneer uw toepassing wordt uitgevoerd als een cloudservice of none als u niet dat toosave Hallo cache staat wilt. (Hallo opslagaccountnaam wordt niet gebruikt wanneer u uw toepassing in Hallo rekenemulator uitvoeren.) Als u instelt dat de opslagaccountnaam hello te**(automatisch)** (dit is de standaardwaarde Hallo), automatisch gebruikmaken van de configuratie van uw cache in hetzelfde opslagaccount hello, zoals een u in Hallo selecteert Hallo **publiceren tooAzure**dialoogvenster.
 
 > [!NOTE]
-> De **(automatisch)** instelling heeft het gewenste effect alleen als u uw implementatie met de Eclipse-toolkit publiceren wizard publiceren. Als u in plaats daarvan het publiceren van het .cspkg-bestand met een externe methode, handmatig, zoals de [Azure Management Portal][Azure Management Portal], de implementatie niet goed.
+> Hallo **(automatisch)** instelling heeft Hallo gewenst effect alleen als u uw implementatie met Hallo Eclipse toolkit publiceren wizard publiceren. Als u in plaats daarvan het publiceren van Hallo .cspkg bestand handmatig met een externe methode, zoals Hallo [Azure Management Portal][Azure Management Portal], Hallo-implementatie niet goed.
 > 
 > 
 
-Het volgende dialoogvenster ziet u de eigenschappen voor een cache.
+Hallo volgende dialoogvenster ziet Hallo-eigenschappen voor een cache.
 
 ![][ic719501]
 
-* **Naam:** de naam van de cache geplaatst.
-* **Poortnummer:** het poortnummer dat moet worden gebruikt voor de cache.
-* **Verloopbeleid:** een van de volgende waarden die aangeeft wanneer een sleutel in de cache verloopt.
-  * **Absolute:** is verlopen wanneer de tijd die is opgegeven door de sleutel **minuten live** is bereikt.
-  * **NeverExpires:** de sleutel heeft geen een verlooptijd.
-  * **SlidingWindow:** de sleutel verloopt als deze niet is geopend voor de hoeveelheid tijd die is opgegeven door **minuten live**; elke keer dat deze wordt geopend, de vervaldatum klok wordt opnieuw ingesteld.
-* **Minuten live:** het maximale aantal minuten een memcached-sleutel voor live onderworpen aan het verloopbeleid.
-* **Hoge beschikbaarheid met gerepliceerde back-ups voor andere rolinstanties:** als ingeschakeld, zorgt voor hoge beschikbaarheid met behulp van back-ups op andere rolinstanties gerepliceerd. Houd er rekening mee dat ten minste twee rolexemplaren van kracht voor uw implementatie voor deze functie zijn moeten te gebruiken.
+* **Naam:** Hallo-naam van Hallo cache CO-locaties.
+* **Poortnummer:** Hallo poort nummer toouse voor Hallo-cache.
+* **Verloopbeleid:** een Hallo waarden te volgen die aangeeft wanneer een sleutel in Hallo cache verloopt.
+  * **Absolute:** Hallo sleutel verloopt wanneer Hallo tijd die is opgegeven door **minuten toolive** is bereikt.
+  * **NeverExpires:** Hallo sleutel heeft geen een verlooptijd.
+  * **SlidingWindow:** Hallo sleutel verloopt als deze niet is geopend voor de hoeveelheid tijd die is opgegeven door Hallo **minuten toolive**; elke keer dat deze wordt geopend, Hallo verlopen klok wordt opnieuw ingesteld.
+* **Minuten toolive:** het maximale aantal minuten voor een sleutel memcached toolive, toohello, vervaldatumbeleid onderwerpnaam.
+* **Hoge beschikbaarheid met gerepliceerde back-ups voor andere rolinstanties:** als ingeschakeld, zorgt voor hoge beschikbaarheid met behulp van back-ups op andere rolinstanties gerepliceerd. Houd er rekening mee dat ten minste twee rolexemplaren van kracht voor uw implementatie voor deze functie toowork moeten zijn.
 
-Klik op als u een nieuwe cache de **toevoegen** knop in de **opslaan in cache** eigenschappenpagina, en een **configureren met de naam Cache** dialoogvenster wordt geopend. Geef waarden op voor de eigenschappen die hierboven zijn beschreven.
+een nieuwe cache tooadd klikt u op Hallo **toevoegen** knop in Hallo **opslaan in cache** eigenschappenpagina, en een **configureren met de naam Cache** dialoogvenster wordt geopend. Geef waarden op voor het Hallo-eigenschappen die hierboven zijn beschreven.
 
-Voor het wijzigen van een benoemde cache, selecteert u de cache en klikt u op de **bewerken** knop in de **opslaan in cache** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u de eigenschappen van de cache. Druk op **OK** de cachewaarden op te slaan.
+een benoemde cache toomodify Hallo cache selecteren en klik op Hallo **bewerken** knop in Hallo **opslaan in cache** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u toomodify Hallo cache eigenschappen. Druk op **OK** toosave Hallo cachewaarden.
 
-Verwijder een cache, selecteert u de cache te klikken en de **verwijderen** knop in de **opslaan in cache** eigenschappenpagina en klik vervolgens op **Ja** om de verwijdering te bevestigen.
+een cache toodelete Hallo cache selecteren en klik op Hallo **verwijderen** knop in Hallo **opslaan in cache** eigenschappenpagina en klik vervolgens op **Ja** tooconfirm Hallo verwijderen.
 
-Zie voor meer informatie over het gebruik van caching [hoe gebruiken Co-located Caching][How to Use Co-located Caching].
+Voor meer informatie over het toouse caching, Zie [hoe tooUse CO-locaties opslaan in cache][How tooUse Co-located Caching].
 
 <a name="certificates_properties"></a> 
 
 ### <a name="certificates-properties"></a>Eigenschappen van certificaten
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **certificaten**.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **certificaten**.
 
 ![][ic710964]
 
-In dit dialoogvenster kunt u toevoegen of verwijderen van de certificaten waarnaar wordt verwezen door uw Eclipse-project. Houd er rekening mee dat de certificaten die hier niet automatisch in een Java-sleutelopslag opgeslagen worden en daarom niet automatisch beschikbaar voor gebruik van binnen een Java-toepassing zijn. Ze zijn alleen geregistreerd met Azure zodat ze vooraf kunnen worden geladen in de Windows certificaat opslaan op de virtuele machines waarop uw implementatie wordt uitgevoerd en vervolgens worden gebruikt door andere Windows-software. Op dit moment de enige functie van de toolkit die gebruikmaakt van de certificaten waarnaar wordt verwezen in deze manier de **certificaten** dialoogvenster is [SSL-Offloading][SSL Offloading], vanwege de afhankelijkheid van Internet Information Services (IIS) en Application Request Routing (ARR), waarvoor het juiste certificaat beschikbaar op deze manier wordt gemaakt.
+In dit dialoogvenster kunt u toevoegen of verwijderen van de certificaten waarnaar wordt verwezen door uw Eclipse-project. Houd er rekening mee dat Hallo certificaten hier vermeld niet automatisch in een Java-sleutelopslag opgeslagen worden en daarom niet automatisch beschikbaar voor gebruik van binnen een Java-toepassing zijn. Ze zijn alleen geregistreerd met Azure zodat ze vooraf kunnen worden geladen in Hallo Windows certificaat opslaan op Hallo virtuele machines waarop uw implementatie wordt uitgevoerd en vervolgens worden gebruikt door andere Windows-software. Op dit moment Hallo alleen functie van Hallo toolkit die gebruikmaakt van Hallo certificaten waarnaar wordt verwezen in Hallo op deze manier **certificaten** dialoogvenster is [SSL-Offloading][SSL Offloading], vanwege tooits de afhankelijkheid van Internet Information Services (IIS) en Application Request Routing (ARR), waarvoor Hallo juiste certificaat toobe beschikbaar op deze manier gemaakt.
 
-Wanneer u uw project in Azure maken met de wizard Publiceren implementeert, wordt u gevraagd om te verwijzen naar de de Personal Information Exchange (PFX)-bestanden die overeenkomt met deze certificaten, samen met hun wachtwoorden om automatisch te uploaden naar de Azure-service , maar alleen als ze zijn niet geüpload er eerder.
+Wanneer u uw project tooAzure met behulp van de wizard Publiceren Hallo implementeert, kunt u zich na vragen aan gebruiker toopoint op Hallo Personal Information Exchange (PFX) overeenkomen toothese certificaten, samen met hun wachtwoorden, in volgorde tooautomatically uploaden toohello Azure-service, maar alleen als ze zijn niet geüpload er eerder.
 
 <a name="components_properties"></a> 
 
 ### <a name="components-properties"></a>Eigenschappen van onderdelen
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **onderdelen**. U hebt de mogelijkheid om te toevoegen, wijzigen, of de onderdelen van uw rol verwijderen, evenals de volgorde waarin ze worden verwerkt wijzigen binnen dit dialoogvenster.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **onderdelen**. In dit dialoogvenster u Hallo mogelijkheid tooadd hebben, wijzigen, of Hallo onderdelen van uw rol verwijderen, evenals Hallo volgorde waarin ze worden verwerkt wijzigen.
 
 ![][ic719502]
 
-De functie onderdelen kunt u afhankelijkheden toevoegen aan uw project Azure-implementatie, zoals Java-toepassing projecten, speciale bestanden en uitvoerbare opdrachtregel-instructies die nodig zijn voor uw implementatie.
+Hallo onderdelen functie kunt u tooadd afhankelijkheden tooyour Azure implementatieproject, zoals Java-toepassing projecten, speciale bestanden en uitvoerbare opdrachtregel-instructies die nodig zijn voor uw implementatie.
 
 Voor elk onderdeel, kunt u het volgende opgeven:
 
-* De stap moeten worden genomen bij het importeren van het onderdeel in uw Azure-implementatie-project wanneer ze is opgebouwd.
-* De stap moeten worden genomen bij het implementeren van dit onderdeel in de Azure-cloud.
+* Hallo stap toobe genomen bij het importeren van hello onderdeel in uw Azure-implementatie-project wanneer ze is opgebouwd.
+* Hallo stap toobe genomen bij het implementeren van dit onderdeel in hello Azure-cloud.
 
 > [!NOTE]
-> Wanneer u opgeeft onderdeelbestanden of opdrachtregels, houd er rekening mee dat uw implementatie wordt gepubliceerd naar een virtuele Windows-computer, zodat uw aangepaste stappen geldig zijn voor een besturingssysteem op basis van Windows moet. 
+> Wanneer u opgeeft onderdeelbestanden of opdrachtregels, houd er rekening mee dat uw implementatie wordt gepubliceerde tooa virtuele Windows-computer, zodat uw aangepaste stappen geldig zijn voor een Windows-besturingssysteem moet. 
 > 
 > 
 
-Onderdelen van hebben de volgende eigenschappen:
+Onderdelen hebben Hallo volgende eigenschappen:
 
-* **-Import:** methode waarmee wordt aangegeven hoe het onderdeel worden geïmporteerd in het project wanneer het project is gebouwd. Dit kan een van de volgende waarden zijn:
-  * **exemplaar:** het onderdeel wordt opgehaald uit het lokale pad dat is opgegeven door de **van** eigenschap aan de rol **approot** directory.
-  * **WISSEN:** het onderdeel is een Java enterprise-archief (wissen) geïmporteerd uit een Enterprise-toepassingsproject in het lokale pad dat is opgegeven door de **van** eigenschap. (Dit wordt automatisch gedetecteerd door de toolkit op basis van de aard van het project op die locatie).
-  * **JAR:** het onderdeel is van een Java-archief (JAR) en wordt geïmporteerd uit een Java-project in het lokale pad dat is opgegeven door de **van** eigenschap. (Dit wordt automatisch gedetecteerd door de toolkit op basis van de aard van het project op die locatie).
-  * **geen:** geen actie is ondernomen voor het importeren van het onderdeel. Dit is van toepassing wanneer het onderdeel wordt ervan uitgegaan dat al aanwezig in de rol **approot** directory, of wanneer het onderdeel is slechts een instructie van het uitvoerbare bestand vanaf de opdrachtregel, zoals opgegeven in de **als** eigenschap wanneer de **implementeren** methode is **exec**.
-  * **WAR:** het onderdeel is van een Java web application-archief (WAR) en wordt geïmporteerd uit een dynamisch webproject in het lokale pad dat is opgegeven door de **van** eigenschap. (Dit wordt automatisch gedetecteerd door de toolkit op basis van de aard van het project op die locatie).
-  * **ZIP:** het onderdeel is van een zip-bestand en wordt geïmporteerd door het comprimeren van de map of bestand dat is opgegeven door de **van** eigenschap.
-* **Van:** bronpad op uw lokale computer naar de map of bestand dat staat voor de items te importeren voor uw implementatie. Windows-omgevingsvariabelen kunnen worden gebruikt in deze eigenschap. Alle importeerbare onderdelen worden geïmporteerd in de rol **approot** directory wanneer het project is gebouwd.
+* **-Import:** methode die hoe Hallo onderdeel worden geïmporteerd in Hallo project aangeeft wanneer Hallo project is gebouwd. Dit kan een van de volgende waarden Hallo zijn:
+  * **exemplaar:** Hallo-component wordt opgehaald uit Hallo lokale pad dat is opgegeven door Hallo **van** eigenschap in het Hallo-rol **approot** directory.
+  * **WISSEN:** Hallo onderdeel is een Java enterprise-archief (wissen) geïmporteerd uit een Enterprise-toepassingsproject op Hallo lokaal pad opgegeven door Hallo **van** eigenschap. (Dit wordt automatisch gedetecteerd door Hallo toolkit op basis van Hallo aard van Hallo-project op die locatie).
+  * **JAR:** Hallo onderdeel is van een Java-archief (JAR) en wordt geïmporteerd uit een Java-project op Hallo lokaal pad opgegeven door Hallo **van** eigenschap. (Dit wordt automatisch gedetecteerd door Hallo toolkit op basis van Hallo aard van Hallo-project op die locatie).
+  * **geen:** tooimport Hallo onderdeel er geen actie ondernomen. Dit is van toepassing wanneer het Hallo-onderdeel wordt van uitgegaan tooalready aanwezig zijn in Hallo-rol **approot** directory, of wanneer Hallo-component is slechts een overzicht van het uitvoerbare vanaf de opdrachtregel, als opgegeven in de Hallo **als**eigenschap bij hello **implementeren** methode is **exec**.
+  * **WAR:** Hallo onderdeel is van een Java web application-archief (WAR) en wordt geïmporteerd uit een dynamisch webproject op Hallo lokaal pad opgegeven door Hallo **van** eigenschap. (Dit wordt automatisch gedetecteerd door Hallo toolkit op basis van Hallo aard van Hallo-project op die locatie).
+  * **ZIP:** Hallo onderdeel is van een zip-bestand en zijn geïmporteerd door de comprimeren Hallo directory of bestand dat is opgegeven door Hallo **van** eigenschap.
+* **Van:** bronpad op uw lokale machine toohello map of het bestand dat Hallo items tooimport tooyour implementatie vertegenwoordigt. Windows-omgevingsvariabelen kunnen worden gebruikt in deze eigenschap. Alle importeerbare onderdelen worden geïmporteerd in het Hallo-rol **approot** map bevindt wanneer Hallo project is gebouwd.
   
-    Houd er rekening mee dat u de mogelijkheid hebt tot het implementeren van een onderdeel van een download bij het implementeren van de cloud (niet de rekenemulator). Zie Verwante informatie hieronder over het toevoegen van een onderdeel.    
-* **Net als:** bestandsnaam waaronder het onderdeel worden geïmporteerd in de rol **approot** directory en uiteindelijk geïmplementeerd in de Azure-cloud. Deze eigenschap wilt niets behouden de naam omdat deze zich op de lokale computer. (Voor uitvoerbare onderdelen, dat wil zeggen, deze waarvan **implementeren** methode is ingesteld op **exec**, dit kan een willekeurige Windows-opdrachtregel-instructie zijn.)
+    Houd er rekening mee dat u Hallo mogelijkheid toodeploy een onderdeel van een download hebt bij het implementeren van toohello cloud (niet-rekenemulator Hallo). Zie Verwante informatie hieronder over het toevoegen van een onderdeel.    
+* **Net als:** bestandsnaam onder welke Hallo onderdeel worden geïmporteerd in het Hallo-rol **approot** directory en uiteindelijk geïmplementeerde in hello Azure-cloud. Laat deze leeg tookeep eigenschap Hallo naam Hallo dezelfde manier als op de lokale machine Hallo is. (Voor uitvoerbare onderdelen, dat wil zeggen, deze waarvan **implementeren** methode te is ingesteld**exec**, dit kan een willekeurige Windows-opdrachtregel-instructie zijn.)
   
   > [!IMPORTANT]
-  > Als u spaties voor deze waarde gebruikt, wordt ze anders afgehandeld, afhankelijk van de methode implementeren. Als de methode implementeren **exec**, spaties, wordt geïnterpreteerd als scheidingstekens voor de opdrachtregel-argumenten en niet als onderdeel van de bestandsnaam. Implementeren voor alle andere methoden, spaties, wordt geïnterpreteerd als onderdeel van de bestandsnaam.
+  > Als u voor deze waarde spaties, ze worden verwerkt verschillend, afhankelijk van Hallo methode implementeren. Als Hallo methode implementeert is **exec**, spaties, wordt geïnterpreteerd als scheidingstekens voor de opdrachtregel-argumenten en niet als onderdeel van het Hallo-bestandsnaam. Implementeren voor alle andere methoden, spaties, wordt geïnterpreteerd als onderdeel van het Hallo-bestandsnaam.
   > 
   > 
-* **Implementeren:** methode waarmee wordt aangegeven welke actie op het onderdeel moet worden toegepast wanneer de implementatie wordt gestart. Dit kan een van de volgende waarden zijn:
+* **Implementeren:** methode die Hallo actie geeft toohello onderdeel toegepast wanneer het Hallo-implementatie is gestart. Dit kan een van de volgende waarden Hallo zijn:
   
-  * **exemplaar:** het onderdeel wordt gekopieerd naar het doelpad dat is opgegeven door de **naar** eigenschap.
-  * **exec:** het onderdeel is een uitvoerbare Windows-opdrachtregel instructie uitgevoerd in de context van het pad dat is opgegeven door de **naar** -eigenschap op het moment dat de implementatie start.
-  * **geen:** geen actie op het onderdeel wordt toegepast wanneer de implementatie start.
-  * **ZIP:** het onderdeel is uitgepakt naar het doelpad dat is opgegeven door de **naar** eigenschap. Deze methode is alleen beschikbaar wanneer de **importeren** eigenschap is **zip**.
-* **Naar:** doelpad op de virtuele machine waarop het onderdeel wordt geïmplementeerd. Windows-omgevingsvariabelen kunnen worden gebruikt in deze eigenschap en bestandspaden zijn relatief **approot**.
+  * **exemplaar:** Hallo onderdeel is gekopieerde toohello doelpad is opgegeven door Hallo **naar** eigenschap.
+  * **exec:** Hallo onderdeel is een uitvoerbare Windows-opdrachtregel instructie uitgevoerd in context van Hallo pad is opgegeven door Hallo Hallo **naar** eigenschap gelijktijdig Hallo Hallo implementatie start.
+  * **geen:** is geen actie toegepaste toohello onderdeel wanneer Hallo-implementatie wordt gestart.
+  * **ZIP:** Hallo onderdeel is uitgepakt toohello doelpad is opgegeven door Hallo **naar** eigenschap. Deze methode is alleen beschikbaar wanneer hello **importeren** eigenschap is **zip**.
+* **Naar:** doelpad op Hallo virtuele machine waarop Hallo-component wordt geïmplementeerd. Windows-omgevingsvariabelen kunnen worden gebruikt in deze eigenschap en bestandspaden zijn relatieve te**approot**.
 
-Als u wilt een nieuw onderdeel toevoegen, klikt u op de **toevoegen** knop in de **onderdelen** eigenschappenpagina, en een **Azure rol onderdeel** dialoogvenster wordt geopend. Geef waarden op voor de eigenschappen die hierboven zijn beschreven. 
+een nieuw onderdeel tooadd klikt u op Hallo **toevoegen** knop in Hallo **onderdelen** eigenschappenpagina, en een **Azure rol onderdeel** dialoogvenster wordt geopend. Geef waarden op voor het Hallo-eigenschappen die hierboven zijn beschreven. 
 
-Hieronder ziet u een voorbeeld voor het toevoegen van een nieuwe WAR-component.
+Hallo hieronder toont een voorbeeld voor het toevoegen van een nieuwe WAR-component.
 
 ![][ic719503]
 
-Wanneer implementeren naar de cloud (niet de rekenemulator), als u wilt implementeren van het onderdeel van een download ervoor te zorgen dat **implementeren in de cloud, in plaats van in het pakket, inclusief vanaf** is ingeschakeld. Als u downloaden van uw Azure storage-account wilt, selecteert u het opslagaccount van de **opslagaccount** vervolgkeuzelijst (u kunt klikken op de **Accounts** koppeling om te wijzigen wat is er in de lijst), die wordt gedeeltelijk Vul de **URL** veld en vult u het resterende deel van de URL. Als u niet gebruiken van Azure storage wilt, selecteert u **(geen)** van de **opslagaccount** vervolgkeuzelijst lijst en voer de URL naar uw onderdeel in de **URL** veld. Geef een van de volgende methoden:
+Wanneer het implementeren van toohello cloud (geen Hallo compute-emulator) als u wilt dat toodeploy Hallo onderdeel van een download ervoor te zorgen dat **implementeren in de cloud, in plaats van in Hallo pakket, inclusief vanaf** is ingeschakeld. Als u toodownload van uw Azure storage-account, selecteert u Hallo storage-account van Hallo **Storage-account** vervolgkeuzelijst (u kunt klikken op Hallo **Accounts** koppelen toomodify wat is er in de lijst Hallo), die gedeeltelijk hello wordt ingevuld **URL** veld en vul vervolgens de resterende deel van de URL Hallo Hallo. Als u niet dat toouse Azure-opslag wilt, selecteert u **(geen)** van Hallo **opslagaccount** vervolgkeuzelijst, en voert u Hallo URL tooyour onderdeel in Hallo **URL** veld. Geef een van de volgende methoden Hallo:
 
-* **exemplaar:** het onderdeel downloaden wordt gekopieerd naar het doelpad dat is opgegeven door de **To Directory** pad.
-* **dezelfde:** dezelfde methode gebruikt voor **implementeren van downloaden** als voor **distribueren van pakket**.
-* **ZIP:** het onderdeel downloaden is uitgepakt naar het doelpad dat is opgegeven door de **To Directory** pad.
+* **exemplaar:** Hallo downloaden onderdeel is gekopieerde toohello doelpad is opgegeven door Hallo **tooDirectory** pad.
+* **dezelfde:** Hallo dezelfde methode gebruikt voor **implementeren van downloaden** als voor **distribueren van pakket**.
+* **ZIP:** Hallo downloaden onderdeel is uitgepakt toohello doelpad is opgegeven door Hallo **tooDirectory** pad.
 
-Selecteer het onderdeel voor het wijzigen van een onderdeel, en klik op de **bewerken** knop in de **onderdelen** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u de onderdeeleigenschappen wijzigen. Druk op **OK** de onderdeelwaarden op te slaan.
+een onderdeel, selecteer Hallo-onderdeel en klikt u op Hallo toomodify **bewerken** knop in Hallo **onderdelen** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u toomodify Hallo eigenschappen van onderdeel. Druk op **OK** toosave Hallo onderdeelwaarden.
 
-Selecteer het onderdeel voor het verwijderen van een onderdeel, en klik op de **verwijderen** knop in de **onderdelen** eigenschappenpagina en klik vervolgens op **Ja** om de verwijdering te bevestigen.
+een onderdeel, selecteer Hallo-onderdeel en klikt u op Hallo toodelete **verwijderen** knop in Hallo **onderdelen** eigenschappenpagina en klik vervolgens op **Ja** tooconfirm Hallo verwijderen.
 
-Onderdelen worden verwerkt in de volgorde weergegeven. Gebruik de **omhoog** en **omlaag** knoppen om de volgorde te bepalen.
+Onderdelen worden in volgorde van Hallo verwerkt. Gebruik Hallo **omhoog** en **omlaag** tooarrange Hallo volgorde knoppen.
 
 > [!NOTE]
-> De functie server configuratie afhankelijk van de onderdelen ook. Deze onderdelen kunnen worden verwijderd of gewijzigd zonder de bijbehorende serverconfiguratie worden verwijderd. U wordt gevraagd over die bij een poging om deze onderdelen te wijzigen.
+> Hallo-serverfunctie configuratie afhankelijk van de onderdelen ook. Deze onderdelen kunnen worden verwijderd of gewijzigd zonder de bijbehorende serverconfiguratie Hallo worden verwijderd. U wordt gevraagd over die tijdens een poging de toomake wijzigingen toosuch onderdelen.
 > 
 > 
 
 <!-- <a name="debugging_properties"></a> -->
 
 <!-- ### Debugging properties -->
-<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
+<!-- Open hello context menu for hello role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have hello ability tooenable or disable remote debugging, as well as create debug configurations, as shown in hello following image. -->
 
 <!-- ![][ic719504] -->
 
@@ -186,53 +186,53 @@ Onderdelen worden verwerkt in de volgorde weergegeven. Gebruik de **omhoog** en 
 <a name="endpoints_properties"></a> 
 
 ### <a name="endpoints-properties"></a>Eigenschappen van de eindpunten
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **eindpunten**. In dit dialoogvenster hebt u de mogelijkheid een eindpunt worden gemaakt, evenals bewerken of verwijderen van een eindpunt, zoals wordt weergegeven in de volgende afbeelding.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **eindpunten**. In dit dialoogvenster u hebt Hallo mogelijkheid toocreate een eindpunt evenals bewerken of verwijderen van een eindpunt zoals weergegeven in Hallo installatiekopie te volgen.
 
 ![][ic719505]
 
-Als u wilt een eindpunt toevoegen, klikt u op de **toevoegen** knop in de **eindpunten** eigenschappenpagina, en een **eindpunt toevoegen** dialoogvenster wordt geopend.
+tooadd een eindpunt, klikt u op Hallo **toevoegen** knop in Hallo **eindpunten** eigenschappenpagina, en een **eindpunt toevoegen** dialoogvenster wordt geopend.
 
 ![][ic710897]
 
-Geef een naam voor het eindpunt, selecteer het type (ofwel **invoer**, **intern**, of **InstanceInput**), en de openbare en particuliere poort opgeven. Druk op **OK** het nieuwe eindpunt waarden op te slaan.
+Geef een naam voor het Hallo-eindpunt, Hallo-type selecteren (ofwel **invoer**, **intern**, of **InstanceInput**), en Hallo openbare en particuliere poort opgeven. Druk op **OK** toosave Hallo nieuwe waarden van het eindpunt.
 
-Afhankelijk van het type eindpunt, kunt u poortbereiken als volgt gebruiken:
+Afhankelijk van Hallo type eindpunt, kunt u poortbereiken als volgt gebruiken:
 
-* De openbare poort is voor een eindpunt invoer exemplaar een poortbereik (bijvoorbeeld **2000 2010**) en de particuliere poort is een vaste waarde.
-* Voor een interne eindpunt, kan de openbare poort wordt niet gebruikt, en de particuliere poort een bereik, of u leeg of is ingesteld op een sterretje om aan te geven dat deze automatisch door Azure is ingesteld.
-* Voor invoereindpunten, een vaste waarde kan alleen worden door de openbare poort en de particuliere poort kan een vaste waarde, of u leeg of is ingesteld als een sterretje om aan te geven dat wordt automatisch ingesteld door Azure.
+* Hallo openbare poort is voor een eindpunt invoer exemplaar een poortbereik (bijvoorbeeld **2000 2010**) en particuliere poort Hallo is een vaste waarde.
+* Voor een interne eindpunt kan Hallo openbare poort wordt niet gebruikt, en particuliere poort Hallo een bereik, of leeg worden gelaten of set tooan sterretje tooindicate die wordt automatisch ingesteld door Azure.
+* Hallo openbare poort kan alleen worden voor een vaste waarde voor invoereindpunten, en particuliere poort Hallo mag een vaste waarde, of leeg worden gelaten of set tooan sterretje tooindicate die wordt automatisch ingesteld door Azure.
 
-Als u een enkele poortnummer gebruiken in plaats van een bereik wilt, laat u het tekstvak voor het einde van het bereik leeg.
+Als u toouse een enkele poortnummer in plaats van een bereik wilt, in het tekstvak voor Hallo einde van Hallo bereik Hallo leeg laten.
 
-Voor de poorten die zijn ingesteld op automatisch, als u nodig hebt om te bepalen welke poort daadwerkelijk wordt gebruikt tijdens runtime, toepassingen kunnen gebruikmaken van de Azure Service Runtime API, die wordt beschreven in de [com.microsoft.windowsazure.serviceruntime pakket samenvatting ][com.microsoft.windowsazure.serviceruntime package summary].
+Voor de poorten die ingesteld tooautomatic, zijn als u nodig hebt toodetermine welke poort daadwerkelijk wordt gebruikt tijdens runtime, kunt uw toepassing hello Azure Service Runtime API, die wordt beschreven in Hallo [com.microsoft.windowsazure.serviceruntime-pakket Samenvatting][com.microsoft.windowsazure.serviceruntime package summary].
 
-<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
+<!-- toosee how instance input endpoints can be used toohelp with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
-Selecteer het eindpunt voor het wijzigen van een eindpunt en klik op de **bewerken** knop in de **eindpunten** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u de naam van het eindpunt, type en openbare en particuliere poort wijzigen. Druk op **OK** de gewijzigde endpoint-waarden op te slaan.
+toomodify een eindpunt, selecteer Hallo eindpunt en klikt u op Hallo **bewerken** knop in Hallo **eindpunten** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u toomodify Hallo eindpuntnaam, type en openbare en particuliere poort. Druk op **OK** toosave Hallo eindpunt waarden gewijzigd.
 
-Verwijder een eindpunt, selecteer het eindpunt te klikken en de **verwijderen** knop in de **eindpunten** eigenschappenpagina en klik vervolgens op **Ja** om de verwijdering te bevestigen.
+toodelete een eindpunt, selecteer Hallo eindpunt en klikt u op Hallo **verwijderen** knop in Hallo **eindpunten** eigenschappenpagina en klik vervolgens op **Ja** tooconfirm Hallo verwijderen.
 
-Om correcte configuratie van enkele van de functies (zoals Caching, sessie affiniteit of SSL-offloading) door de gebruiker op een rol is ingeschakeld, kan de toolkit automatisch speciale eindpunten die u samen met de gebruiker gedefinieerde eindpunten configureren. De toolkit wordt voorkomen dat de gebruiker bewerken of eindpunten verwijderen van deze automatisch worden gegenereerd als de bijbehorende functie is ingeschakeld.
+In de volgorde tooproperly configureren aantal Hallo functies (zoals Caching, sessie affiniteit of SSL-offloading) ingeschakeld door de gebruiker op een rol hello, Hallo toolkit mogelijk automatisch speciale eindpunten die u samen met de gebruiker gedefinieerde eindpunten configureren. Hallo toolkit verhindert dat Hallo-gebruiker bewerken of verwijderen van dergelijke automatisch gegenereerde eindpunten, zolang Hallo gekoppeld functie is ingeschakeld.
 
 <a name="environment_variables_properties"></a> 
 
 ### <a name="environment-variables-properties"></a>Variabelen omgevingseigenschappen
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **omgevingsvariabelen**. In dit dialoogvenster hebt u de mogelijkheid een omgevingsvariabele maakt, evenals wijzigen of verwijderen van een omgevingsvariabele betreft, zoals wordt weergegeven in de volgende afbeelding.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **omgevingsvariabelen**. In dit dialoogvenster u Hallo mogelijkheid toocreate een omgevingsvariabele hebt, evenals wijzigen of verwijderen van een omgevingsvariabele zoals weergegeven in Hallo installatiekopie te volgen.
 
 ![][ic719506]
 
-Omgevingsvariabelen zijn beschikbaar voor uw opstartscript wanneer de functie wordt gestart.
+Omgevingsvariabelen zijn beschikbaar tooyour opstartscript wanneer Hallo-rol wordt gestart.
 
 > [!NOTE]
-> Houd er rekening mee dat uw implementatie wordt gepubliceerd naar een virtuele Windows-computer, zodat de omgevingsvariabelen geldig zijn voor een Windows-besturingssysteem moet bij het opgeven van omgevingsvariabelen.
+> Houd er rekening mee dat uw implementatie wordt gepubliceerde tooa virtuele Windows-computer, zodat de omgevingsvariabelen geldig zijn voor een besturingssysteem op basis van Windows moet bij het opgeven van omgevingsvariabelen.
 > 
 > 
 
-Als een voorbeeld van een omgevingsvariabele wordt beschikbaar wanneer de functie wordt gestart, kunt u een nieuwe omgevingsvariabele maken door te klikken op de **toevoegen** knop. Hieronder vindt u een omgevingsvariabele **MyRoleVersion** wordt gemaakt en de waarde aan toegewezen **1.0**.
+Als een voorbeeld van een omgevingsvariabele wordt beschikbaar wanneer Hallo-rol wordt gestart, kunt u een nieuwe omgevingsvariabele maken door te klikken op Hallo **toevoegen** knop. Hallo hieronder vindt u een omgevingsvariabele **MyRoleVersion** wordt gemaakt en toegewezen Hallo waarde **1.0**.
 
 ![][ic659268]
 
-Binnen uw jsp-code, kunt u weergeven de waarde met behulp van de `System.getenv` methode:
+Binnen uw code jsp Hallo-waarde met behulp van Hallo kan worden weergegeven `System.getenv` methode:
 
     <body>
       <b> Hello World!</b>
@@ -243,166 +243,166 @@ Waardoor deze uitvoer wanneer uw toepassing wordt uitgevoerd:
 
 ![][ic552233]
 
-Selecteer de omgevingsvariabele voor het wijzigen van een omgevingsvariabele, en klik op de **bewerken** knop in de **omgevingsvariabelen** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u de omgeving variabele eigenschappen wijzigen. Druk op **OK** om op te slaan van de omgeving de waarden van variabelen.
+een omgevingsvariabele toomodify Hallo omgevingsvariabele selecteren en klik op Hallo **bewerken** knop in Hallo **omgevingsvariabelen** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u toomodify Hallo omgeving variabele eigenschappen. Druk op **OK** toosave Hallo omgeving de waarden van variabelen.
 
-Als u wilt verwijderen van een omgevingsvariabele, selecteer de omgevingsvariabele en klik op de **verwijderen** knop in de **omgevingsvariabelen** eigenschappenpagina en klik vervolgens op **Ja** naar Bevestig de verwijdering.
+een omgevingsvariabele toodelete Hallo omgevingsvariabele selecteren en klik op Hallo **verwijderen** knop in Hallo **omgevingsvariabelen** eigenschappenpagina en klik vervolgens op **Ja**tooconfirm Hallo verwijderen.
 
-Om correcte configuratie van enkele van de functies (zoals serverconfiguratie foutopsporing op afstand of de lokale opslag) ingeschakeld door de gebruiker op een rol, de toolkit automatisch speciale omgevingsvariabelen die wordt weergegeven naast de gebruiker gedefinieerde mogelijk configureren omgevingsvariabelen. De toolkit wordt voorkomen dat de gebruiker bewerken of verwijderen van deze automatisch gegenereerd omgevingsvariabelen, zolang de bijbehorende functie is ingeschakeld.
+In de volgorde tooproperly configureren aantal Hallo functies (zoals serverconfiguratie foutopsporing op afstand of de lokale opslag) ingeschakeld door de gebruiker Hallo op een rol, het Hallo toolkit mogelijk automatisch configureren voor speciale omgevingsvariabelen die wordt weergegeven samen met gebruiker gedefinieerde omgevingsvariabelen. Hallo toolkit verhindert dat Hallo-gebruiker bewerken of verwijderen van deze automatisch gegenereerde omgevingsvariabelen zolang Hallo gekoppeld functie is ingeschakeld.
 
 <a name="session_affinity_properties"></a> 
 
 ### <a name="load-balancing--session-affinity-aka-sticky-sessions-properties"></a>Taakverdeling / sessie affiniteit (ook wel 'een tijdelijke sessies')-eigenschappen
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **Load Balancing**. In dit dialoogvenster hebt u de mogelijkheid-of uitschakelen van affiniteit van de sessie, zoals wordt weergegeven in de volgende afbeelding.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **Load Balancing**. In dit dialoogvenster hebt Hallo mogelijkheid tooenable of uitschakelen affiniteit van de sessie, zoals wordt weergegeven in Hallo installatiekopie te volgen.
 
 ![][ic719492]
 
-Zie voor meer informatie kunt [sessie affiniteit][Session Affinity]. Let ook op deze functie gedrag in de context van het SSL-offloading, zoals beschreven op [SSL-Offloading][SSL Offloading].
+Zie voor meer informatie kunt [sessie affiniteit][Session Affinity]. Let ook op deze functie gedrag in Hallo context van het SSL-offloading, zoals beschreven op [SSL-Offloading][SSL Offloading].
 
 <a name="local_storage_properties"></a> 
 
 ### <a name="local-storage-properties"></a>Eigenschappen van lokale opslag
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **lokale opslag**. In dit dialoogvenster hebt u de mogelijkheid om te maken, wijzigen of verwijderen van tijdelijke lokale opslag voor de virtuele machine die uw toepassing wordt uitgevoerd. Specifieke waarden kunnen worden ingesteld voor de grootte van de lokale opslag, en geeft aan of de inhoud behouden blijven wanneer de functie wordt gerecycled, zoals wordt weergegeven in de volgende afbeelding.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **lokale opslag**. In dit dialoogvenster Hallo mogelijkheid toocreate hebt u, wijzigen of verwijderen van tijdelijke lokale opslag voor Hallo virtuele machine die uw toepassing wordt uitgevoerd. Specifieke waarden kunnen worden ingesteld voor Hallo grootte van de lokale opslag hello, evenals of Hallo inhoud blijven behouden wanneer Hallo-rol wordt gerecycled, zoals wordt weergegeven in Hallo installatiekopie te volgen.
 
 ![][ic719508]
 
-U kunt eventueel ook een omgevingsvariabele die overeenkomt met de lokale opslag opgeven.
+U kunt eventueel ook een omgevingsvariabele die overeenkomt met de lokale opslag toohello opgeven.
 
-Standaard alles wat u in Azure implementeert geplaatst (en zijn uitgepakt) in de **approot** map van de rolinstantie. Terwijl de meeste implementaties van eenvoudige past er zelfs na het ritsen, de ruimte toegewezen voor de **approot** directory is beperkt en niet goed gedefinieerde (minder dan 1 GB is een redelijke vuistregel). Toewijst daarom om ervoor te zorgen Azure voldoende schijfruimte beschikbaar voor grotere implementaties die niet passen mogelijk in de **approot** map, moet u instellen een lokale opslag resource met de **lokale opslag** dialoogvenster. Zie voor een eenvoudige manier om dit te doen, [grote implementaties implementeren][Deploying Large Deployments].
+Standaard alles wat u in Azure implementeert geplaatst (en zijn uitgepakt) in Hallo **approot** map van de rolinstantie Hallo. Terwijl de meeste implementaties van eenvoudige past er zelfs na het ritsen, Hallo toegewezen ruimte voor Hallo **approot** directory is beperkt en niet goed gedefinieerde (minder dan 1 GB is een redelijke vuistregel). Daarom tooensure Azure voldoende schijfruimte toewijst voor grotere implementaties die mogelijk niet in het Hallo passen **approot** map, u moet een lokale opslagresource instellen met behulp van Hallo **lokale opslag** het dialoogvenster. Voor een eenvoudige manier toodo deze, Zie [grote implementaties implementeren][Deploying Large Deployments].
 
-U kunt eenvoudig verwijzen naar de opslagbronnen van opstartscripts (bijvoorbeeld uw **startup.cmd**) met behulp van de omgevingsvariabele automatisch door de Eclipse-toolkit zijn gekoppeld aan de resource, zoals wordt weergegeven in de  **Lokale opslag** dialoogvenster. Deze omgevingsvariabele bevat het volledige pad van de lokale resource die u hebt geconfigureerd op het moment dat het opstartscript wordt uitgevoerd. 
+U kunt eenvoudig verwijzen naar opslagresource Hallo van opstartscripts (bijvoorbeeld uw **startup.cmd**) met Hallo omgevingsvariabele automatisch gekoppeld door Hallo Eclipse toolkit Hallo resource, zoals in Hallo  **Lokale opslag** dialoogvenster. Deze omgevingsvariabele bevat volledige pad op Hallo van Hallo lokale resource die u hebt geconfigureerd op Hallo moment die uw opstartscript wordt uitgevoerd. 
 
-Voor het wijzigen van een resource voor lokale opslag, selecteer de bron van de lokale opslag en klik op de **bewerken** knop in de **lokale opslag** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u de eigenschappen van lokale opslag resource wijzigen. Druk op **OK** de waarden van de resource lokale opslag op te slaan.
+toomodify een resource lokale opslag, selecteer Hallo lokale opslagresource en op Hallo **bewerken** knop in Hallo **lokale opslag** eigenschappenpagina. Een dialoogvenster wordt geopend zodat u toomodify Hallo lokale opslag broneigenschappen. Druk op **OK** toosave Hallo waarden voor lokale opslag van resources.
 
-Als u wilt verwijderen van een resource voor lokale opslag, selecteer de bron van de lokale opslag en klik op de **verwijderen** knop in de **lokale opslag** eigenschappenpagina en klik vervolgens op **Ja** om te bevestigen de verwijdering.
+toodelete een resource lokale opslag, selecteer Hallo lokale opslagresource en op Hallo **verwijderen** knop in Hallo **lokale opslag** eigenschappenpagina en klik vervolgens op **Ja** tooconfirm hello verwijderen.
 
 <a name="server_configuration_properties"></a> 
 
 ### <a name="server-configuration-properties"></a>Configuratie-eigenschappen van server
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **serverconfiguratie**. In dit dialoogvenster de mogelijkheid wilt toevoegen, verwijderen en wijzigen van de JDK en Java-toepassingsserver die wordt gebruikt door uw implementatie hebt u evenals toevoegen of verwijderen van de toepassingen (zoals WAR, JAR of OOR-bestanden) die door uw implementatie.
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **serverconfiguratie**. In dit dialoogvenster hebt u de mogelijkheid tooadd hello, verwijderen, en Hallo JDK en Java-toepassingsserver, die wordt gebruikt door uw implementatie wijzigen evenals toepassingen toevoegen of verwijderen hello (zoals WAR, JAR of OOR-bestanden) die wordt gebruikt door uw implementatie.
 
 ### <a name="jdk-configuration"></a>JDK-configuratie
-Dit dialoogvenster kunt u de JDK-pakket moet worden gebruikt voor uw implementatie op te geven. Als u Eclipse op Windows gebruikt, kunt u het pakket JDK naar lokaal gebruiken bij het uitvoeren in de Azure-emulator en hebt u de optie die lokale installatie implementeren naar Azure. De emulator JDK-instelling is niet van toepassing op niet-Windows-besturingssystemen en het lokaal geïnstalleerde JDK kan niet worden geïmplementeerd omdat deze niet compatibel met Windows. Echter, ongeacht het besturingssysteem die u gebruikt, u kunt altijd kiezen uit de 3e partij JDK pakketten om te implementeren naar Azure of op uw eigen Windows-compatibele JDK-pakket van het rapportageservicepunt vanuit een alternatieve locatie.
+Dit dialoogvenster kunt u toospecify hello JDK pakket toouse voor uw implementatie. Als u Eclipse op Windows gebruikt, kunt u Hallo JDK pakket toouse lokaal wanneer uitgevoerd in hello Azure-emulator en u Hallo optie toodeploy die tooAzure lokale installatie opgeven. Op niet-Windows-besturingssystemen, Hallo emulator JDK instelling is niet van toepassing en kan niet worden geïmplementeerd Hallo lokaal JDK geïnstalleerd omdat het is niet compatibel met Windows. Ongeacht Hallo-besturingssysteem die u gebruikt, u kunt echter altijd kiezen tussen Hallo 3e partij JDK pakketten toodeploy tooAzure of wijst op uw eigen Windows-compatibele JDK-pakket van een alternatieve locatie.
 
-Hier volgt een voorbeeld van hoe u een JDK in Windows kunt opgeven:
+Hallo Hieronder volgt een voorbeeld van hoe u een JDK in Windows kunt opgeven:
 
 ![][ic780647]
 
-Als u Eclipse op Windows gebruikt, kunt u een JDK voor gebruik met de rekenemulator; om dit te doen, zorg ervoor dat **de JDK die van dit bestandspad gebruiken om lokaal te testen** is ingeschakeld de **Emulator implementatie** sectie. Geef het lokale pad naar uw JDK; u kunt bladeren naar andere JDK als degene die u wilt gebruiken, wordt niet automatisch geselecteerd. U hebt ook de optie voor het implementeren van uw JDK met uw Azure-cloud-service; om dit te doen, selecteert u de **mijn lokale JDK (automatische-uploaden naar de cloudopslag) implementeren** optie in de **Cloud implementatie** sectie.
+Als u Eclipse op Windows gebruikt, kunt u een toouse JDK Hello rekenemulator; toodo dus zorg ervoor dat **gebruik Hallo JDK van dit bestandspad om lokaal te testen** Hallo is ingecheckt **Emulator implementatie** sectie. Geef vervolgens Hallo lokaal pad tooyour JDK; u kunt toodifferent JDK bladeren desgewenst hello één toouse wordt niet automatisch geselecteerd. U hebt ook Hallo optie toodeploy uw JDK tooyour Azure-cloudservice; toodo Selecteer daarom Hallo **mijn lokale JDK (automatisch uploaden toocloud opslag) implementeren** optie in Hallo **Cloud implementatie** sectie.
 
-Opmerking: op niet-Windows-besturingssystemen, de **Emulator implementatie** instellingen en de **implementeren mijn lokale JDK** optie zijn niet beschikbaar. Het volgende voorbeeld ziet u het opgeven van een JDK op een Mac- of andere ondersteund niet-Windows-besturingssysteem:
+Opmerking: Op niet-Windows-besturingssystemen, Hallo **Emulator implementatie** instellingen en Hallo **implementeren mijn lokale JDK** optie zijn niet beschikbaar. Hallo volgende voorbeeld ziet u een JDK geven op een Mac of andere niet-Windows-besturingssysteem wordt ondersteund:
 
 ![][ic789643]
 
-Ongeacht het besturingssysteem dat u zich bevindt, hebt u de volgende twee **Cloud implementatie** opties voor de bron en het type van uw pakket JDK:
+Ongeacht Hallo besturingssysteem u zich bevindt, hebt u na twee Hallo **Cloud implementatie** opties voor het Hallo-bron en het type van uw pakket JDK:
 
 * **Een beschikbaar is op Azure 3e partij JDK pakket implementeren** 
 * **Implementeren vanaf een aangepast downloaden** 
 
-Als u de **implementeren van een beschikbaar is via Azure 3e partij JDK pakket** optie:
+Als u van Hallo gebruikmaakt **implementeren van een beschikbaar is via Azure 3e partij JDK pakket** optie:
 
-1. Schakel het selectievakje in met de naam **implementeren van een beschikbaar is via Azure 3e partij JDK pakket**.
-2. Selecteer het pakket met 3e partij JDK die beschikbaar is in Azure uit de vervolgkeuzelijst.
-3. Uw **JDK** tabblad ziet er ongeveer als volgt in Windows: ![][ic780648] en deze ziet er ongeveer als volgt op de Mac OS of andere niet-Windows-besturingssystemen ondersteund:![][ic789643]
-4. Klik op **OK** om uw wijzigingen op te slaan.
-5. Wanneer u wordt gevraagd om te accepteren van de gebruiksrechtovereenkomst van de 3e JDK Pakketprovider, lees de licentievoorwaarden. Ervan uitgaande dat u de voorwaarden accepteren klikt u op **Ja** sluiten de **gebruiksrechtovereenkomst** dialoogvenster.
-    Let op de onderliggende logica voor welke items worden weergegeven in de vervolgkeuzelijst voor de **implementeren van een beschikbaar is via Azure 3e partij JDK pakket** optie kan worden aangepast. Voor het aanpassen van de items in de **JDK** dialoogvenster, klikt u op de **aanpassen** koppeling. Hiermee sluit u de **JDK** eigenschappenpagina en open de **componentsets.xml** bestand in Eclipse, die u kunt zo nodig wijzigen. Documentatie voor **componentsets.xml** is opgenomen in de **componentsets.xml** -bestand zelf.
+1. Hallo selectievakje met de naam **implementeren van een beschikbaar is via Azure 3e partij JDK pakket**.
+2. Selecteer in de vervolgkeuzelijst hello, Hallo 3e partij JDK pakket dat beschikbaar is in Azure.
+3. Uw **JDK** tabblad eruit vergelijkbare toohello volgende in Windows: ![][ic780648] en wordt er gezocht op Mac OS vergelijkbare toohello volgende of andere niet-Windows-besturingssystemen ondersteund:![][ic789643]
+4. Klik op **OK** toosave uw wijzigingen.
+5. Wanneer de vraag tooaccept hello gebruiksrechtovereenkomst van Hallo 3e partij JDK Pakketprovider, bekijkt u Hallo-licentievoorwaarden. Ervan uitgaande dat u akkoord gaat met hello, klikt u op **Ja** tooclose hello **gebruiksrechtovereenkomst** dialoogvenster.
+    Houd er rekening mee dat de onderliggende logica waarvoor items worden weergegeven in de keuzelijst Hallo voor Hallo Hallo **implementeren van een beschikbaar is via Azure 3e partij JDK pakket** optie kan worden aangepast. toocustomize hello items in Hallo **JDK** dialoogvenster, klikt u op Hallo **aanpassen** koppeling. Hiermee sluit u Hallo **JDK** eigenschappenpagina en open Hallo **componentsets.xml** bestand in Eclipse, die u kunt zo nodig wijzigen. Documentatie voor **componentsets.xml** is opgenomen in Hallo **componentsets.xml** -bestand zelf.
 
-Als u de **implementeren van een JDK van downloaden van een aangepaste** optie:
+Als u van Hallo gebruikmaakt **implementeren van een JDK van downloaden van een aangepaste** optie:
 
-1. Maak een ZIP van de installatiemap van JDK, zorgt u ervoor dat de directory-knooppunt zelf is het onderliggende element van het ZIP-structuur en niet de inhoud ervan. Noteer de naam van de map en als u deze later nodig en houd er rekening mee dat deze installatie JDK wordt geïmplementeerd op een virtuele Windows-computer.
-2. Upload het ZIP-bestand naar uw Azure storage-account als een blob. U kunt doen dit met een extern beschikbare hulpprogramma voor uploaden naar Azure storage-blobs. Het verdient aanbeveling gebruik van een persoonlijke blob. Let op de blob-URL van het ZIP-inhoud.
-3. Schakel het selectievakje in met de naam **implementeren van een JDK van downloaden van een aangepaste**.
-    Als u downloaden van uw Azure storage-account wilt, selecteert u het opslagaccount van de **opslagaccount** vervolgkeuzelijst (u kunt klikken op de **Accounts** koppeling om te wijzigen wat is er in de lijst), die wordt gedeeltelijk Vul de **URL** veld en vult u het resterende deel van de URL. Als u niet gebruiken van Azure storage wilt, selecteert u **(geen)** van de **opslagaccount** vervolgkeuzelijst lijst en voer de URL naar uw download JDK in de **URL** veld. Als u Azure-opslag gebruikt, zijn blob-namen in de URL in kleine letters.
-4. Zorg ervoor dat de **JAVA_HOME** textbox verwijst naar de naam van de juiste map. Standaard wordt verwezen naar de naam van de dezelfde JDK map als de waarde die u hebt gekozen voor uw lokale gebruik. Maar als de map in het ZIP-bestand heeft een andere naam (bijvoorbeeld door middel van een andere versie) bijwerken van de naam van de map in de **JAVA_HOME** dienovereenkomstig textbox sinds deze instelling wordt in de cloud worden gebruikt (niet in de rekenemulator).
-5. Klik op **OK** om uw wijzigingen op te slaan.
+1. Maak een ZIP van de installatiemap van JDK ervoor te zorgen dat Hallo directory knooppunt zelf is Hallo onderliggende van Hallo ZIP structuur en niet de inhoud ervan. Let op Hallo-naam van het Hallo-directory, als u deze later nodig en houd er rekening mee deze JDK installatie worden geïmplementeerde tooa virtuele Windows-machine.
+2. Hallo ZIP naar uw Azure storage-account als een blob uploaden. U kunt dit doen met een hulpprogramma voor het extern beschikbaar voor het uploaden van BLOB's tooAzure opslag. Het is aanbevolen toouse een persoonlijke blob. Let op de URL van de blob Hallo Hallo ZIP-inhoud.
+3. Hallo selectievakje met de naam **implementeren van een JDK van downloaden van een aangepaste**.
+    Als u toodownload van uw Azure storage-account, selecteert u Hallo storage-account van Hallo **Storage-account** vervolgkeuzelijst (u kunt klikken op Hallo **Accounts** koppelen toomodify wat is er in de lijst Hallo), die gedeeltelijk hello wordt ingevuld **URL** veld en vul vervolgens de resterende deel van de URL Hallo Hallo. Als u niet dat toouse Azure-opslag wilt, selecteert u **(geen)** van Hallo **opslagaccount** vervolgkeuzelijst, en voert u Hallo URL tooyour JDK downloaden in Hallo **URL** veld. Als u Azure-opslag gebruikt, is blobnamen in Hallo URL moeten kleine letters.
+4. Zorg ervoor dat Hallo **JAVA_HOME** tekstvak voor de naam van de juiste map toohello verwijst. Standaard wordt verwezen naar dezelfde JDK mapnaam Hallo-waarde die u hebt gekozen voor uw lokale gebruik Hallo. Maar als een andere naam Hallo map in Hallo ZIP heeft (bijvoorbeeld vanwege toousing een andere versie), update Hallo mapnaam in Hallo **JAVA_HOME** textbox dienovereenkomstig, aangezien deze instelling worden gebruikt in Hallo cloud () niet in Hallo rekenemulator).
+5. Klik op **OK** toosave uw wijzigingen.
 
-Dat is alles. Nu, als u voor de cloud bouwen, zult u grootte van het pakket is veel kleiner, het buildproces duurt meestal minder tijd en de implementatie zelf wanneer u naar de cloud publiceert moet ook rekening houden met minder tijd. Houd er rekening mee dat de **mijn lokale JDK (automatische-uploaden naar de cloudopslag) implementeren** of **implementeren van een JDK van downloaden van een aangepaste** opties zijn alleen van kracht wanneer uw toepassing wordt geïmplementeerd in de cloud. Ze hebben geen invloed op uw ervaring van de compute-emulator; de lokale versie van de onderdelen wordt nog steeds worden gebruikt wanneer u in de rekenemulator implementeert. 
+Dat is alles. Nu, als u voor Hallo cloud bouwen, zult u Hallo pakketgrootte is veel kleiner, Hallo buildproces duurt meestal minder tijd en Hallo implementatie zelf wanneer u toohello cloud publiceert moet ook rekening houden met minder tijd. Houd er rekening mee dat Hallo **mijn lokale JDK (automatisch uploaden toocloud opslag) implementeren** of **implementeren van een JDK van downloaden van een aangepaste** opties zijn alleen van kracht wanneer uw toepassing wordt geïmplementeerd in de cloud Hallo. Ze hebben geen invloed op uw ervaring van de compute-emulator; Hallo lokale versie van Hallo-onderdelen wordt nog steeds worden gebruikt wanneer u de rekenemulator toohello implementeert. 
 
 ### <a name="server-configuration"></a>Serverconfiguratie
-Hier volgt een voorbeeld van hoe u een toepassingsserver kunt opgeven.
+Hallo Hier volgt een voorbeeld van hoe u een toepassingsserver kunt opgeven.
 
 ![][ic796926]
 
-Controleer de **implementeren van een server van dit type** selectievakje is ingeschakeld en kies vervolgens het type van de toepassingsserver die u wilt gebruiken.
+Controleren dat Hallo **implementeren van een server van dit type** selectievakje is ingeschakeld, en kies vervolgens Hallo-type van de toepassingsserver die u wilt toouse.
 
-Voor het opgeven van een server wilt gebruiken voor de implementatie van cloud, kunt u profiteren van de volgende opties:
+Voor het opgeven van een server toouse voor cloudimplementatie, kunt u profiteren van Hallo volgende opties:
 
-1. **Een 3e partij-server beschikbaar zijn in Azure implementeren** -dit is vooral van toepassing in ontwikkelen en testen scenario's waarbij implementatie efficiëntie en eenvoud een prioriteit en de server is niet vereist voor een aangepaste configuratie. Of als u wilt een van deze servers als uitgangspunt te gebruiken, maar u bevatten aanpassing van de juiste server in uw implementatie opstartlogica stappen.
-2. **Implementeren vanaf het downloaden van een aangepaste** -dit is vooral van toepassing in productiescenario's wanneer er een speciaal voorbereid en geconfigureerde server die u wilt gebruiken in de cloud.
-3. **De installatie van de lokale server implementeren** -dit is vooral van toepassing in als de installatie van de lokale server al aangepaste geconfigureerd voor gebruik is. Als u deze optie kiest, moet u ook opgeven van de lokale server pad in de **pad naar de lokale server** onderstaande tekstvak.
+1. **Een 3e partij-server beschikbaar zijn in Azure implementeren** -dit is vooral van toepassing in ontwikkelen en testen scenario's waarbij implementatie efficiëntie en eenvoud een prioriteit en Hallo-server geen een aangepaste configuratie vereist. Of als u toouse een van deze servers wilt gebruiken als startpunt hello, maar u bevatten aanpassing van de juiste server in uw implementatie opstartlogica stappen.
+2. **Implementeren vanaf het downloaden van een aangepaste** -dit is vooral van toepassing in productiescenario's wanneer u een speciaal voorbereid en geconfigureerde server die u wilt dat toouse in Hallo cloud hebt.
+3. **De installatie van de lokale server implementeren** -dit is vooral van toepassing in als de installatie van de lokale server al aangepaste geconfigureerd voor gebruik is. Als u deze optie kiest, moet u ook de lokale server pad opgeeft in Hallo **pad naar de lokale server** onderstaande tekstvak.
 
-Als u de **3e partij-server implementeren in Azure beschikbaar** optie:
+Als u van Hallo gebruikmaakt **3e partij-server implementeren in Azure beschikbaar** optie:
 
-1. Schakel het selectievakje in met de naam **3e partij-server implementeren in Azure beschikbaar**.
-2. Selecteer de gewenste server-software voor gebruik met uw implementatie in de cloud in de vervolgkeuzelijst. Opmerking: als u al een type van server naar het eerder opgegeven, kunt u zich beperkt tot het kiezen van een cloud-server die zich in de familie van dat servertype. Maar als u geen servertype hebt gekozen, kunt u kiezen uit een van de servers die momenteel beschikbaar op Azure zijn en het servertype wordt automatisch voor u geselecteerd.
-3. Klik op **OK** om uw wijzigingen op te slaan.
+1. Hallo selectievakje met de naam **3e partij-server implementeren in Azure beschikbaar**.
+2. Selecteer in het vervolgkeuzemenu Hallo, Hallo gewenst server software toouse met uw implementatie in Hallo cloud. Opmerking: als u al een type server toouse eerder hebt opgegeven, worden beperkt toochoosing een cloud-server die zich in Hallo uit dezelfde familie als het type van die server. Maar als u geen servertype hebt gekozen, kunt u kiezen uit Hallo-servers die momenteel beschikbaar op Azure zijn en Hallo servertype wordt automatisch voor u geselecteerd.
+3. Klik op **OK** toosave uw wijzigingen.
 
-Als de **implementeren van een aangepaste download** optie:
+Als u Hallo **implementeren van een aangepaste download** optie:
 
-1. Zorg ervoor dat u al een servertype volgens de voorgaande stappen hebt geselecteerd. Dit vertelt de invoegtoepassing voor het implementeren van de server van uw aangepaste downloaden, zoals het moet uit dezelfde familie als uw type geselecteerde server.
-2. Schakel het selectievakje in met de naam **implementeren van een aangepaste download**.
-    Als u downloaden van uw Azure storage-account wilt, selecteert u het opslagaccount van de **opslagaccount** vervolgkeuzelijst (u kunt klikken op de **Accounts** koppeling om te wijzigen wat is er in de lijst), die wordt gedeeltelijk Vul de **URL** veld en vult u het resterende deel van de URL van uw server ZIP downloaden (wanneer met behulp van Azure-opslag, blob-namen in de URL een kleine letter moet). Als u niet gebruiken van Azure storage wilt, selecteert u **(geen)** van de **opslagaccount** vervolgkeuzelijst, en voert u de URL naar uw server in het ZIP downloaden de **URL** veld. Het ZIP-bestand bevat een onderliggende map voor de installatiemap van uw toepassing-server. Bijvoorbeeld, als u van een zip voor Apache Tomcat 7.0.35 gebruikmaakt, binnen het ZIP-bestand zou zijn de onderliggende map voor de map wilt installeren, zoals **apache-tomcat-7.0.35**. 
-3. Geef de waarde voor de basismap-omgevingsvariabele. De standaardinstelling is de waarde die voor uw lokale toepassingsserver, indien van toepassing, maar u kunt een andere waarde opgeven als de cloud-toepassingsserver af van uw lokale toepassingsserver wijkt. Echter, moet u ervoor zorgen dat uw cloud-toepassingsserver uit dezelfde familie als de server is type eerder hebt geselecteerd.
-    Als u uw postcode cloud application server in de toekomst bijwerkt, kunt u handmatig de instelling voor de basismap, wijzigen of om deze opnieuw overeenkomen met uw lokale instelling (als u uw lokale toepassingsserver te gewijzigd).
-4. Klik op **OK** om uw wijzigingen op te slaan.
+1. Zorg ervoor dat u al een servertype volgens toohello vorige stappen hebt geselecteerd. Dit vertelt Hallo invoegtoepassing hoe toodeploy Hallo server van uw aangepaste downloaden, zoals deze moet vallen tussen-Hallo uit dezelfde familie als uw type geselecteerde server.
+2. Hallo selectievakje met de naam **implementeren van een aangepaste download**.
+    Als u toodownload van uw Azure storage-account, selecteert u Hallo storage-account van Hallo **Storage-account** vervolgkeuzelijst (u kunt klikken op Hallo **Accounts** koppelen toomodify wat is er in de lijst Hallo), die gedeeltelijk hello wordt ingevuld **URL** veld en vult u Hallo resterende deel van Hallo URL tooyour server ZIP downloaden (wanneer met behulp van Azure-opslag, blob-namen in Hallo-URL een kleine letter moet). Als u niet dat toouse Azure-opslag wilt, selecteert u **(geen)** van Hallo **opslagaccount** vervolgkeuzelijst, en voert u Hallo URL tooyour server download ZIP in Hallo **URL** veld. Hallo ZIP zou een onderliggende map voor de installatiemap van uw toepassing-server bevatten. Bijvoorbeeld, als u van een zip voor Apache Tomcat 7.0.35 gebruikmaakt, binnen Hallo zip zou zijn Hallo onderliggende map die Hallo installatiemap, zoals **apache-tomcat-7.0.35**. 
+3. Hallo waarde opgeven voor Hallo basismap omgevingsvariabele. Wordt standaard toohello-waarde gebruikt voor uw lokale toepassingsserver, indien van toepassing, maar u kunt een andere waarde opgeven als de cloud-toepassingsserver af van uw lokale toepassingsserver wijkt. Echter, moet u ervoor dat uw cloud-toepassingsserver Hallo toomake uit dezelfde familie als type Hallo-server eerder hebt geselecteerd.
+    Als u uw cloud application server zip in toekomstige Hallo bijwerkt, kunt u handmatig wijzigen Hallo basismap instelling of toohave deze opnieuw overeenkomt met uw lokale instelling (als u uw lokale toepassingsserver te gewijzigd).
+4. Klik op **OK** toosave uw wijzigingen.
 
-De onderliggende logica waarvoor items worden weergegeven in de **Server** tabblad van de **serverconfiguratie** eigenschappenpagina kan worden aangepast. Dit is een geavanceerde functie die u wellicht als uw behoeften buiten de standaardwaarden uitbreiden of als u wilt toevoegen, andere servers. Voor het aanpassen van de logica de **Server** dialoogvenster, klikt u op de **aanpassen** koppeling. Hiermee sluit u de **serverconfiguratie** eigenschappenpagina en open de **componentsets.xml** bestand in Eclipse, die u naar behoefte uitbreiden van de server configuratiesjabloon vervolgens kunt wijzigen. Documentatie voor **componentsets.xml** is opgenomen in de **componentsets.xml** -bestand zelf.
+Hallo onderliggende logica waarvoor items worden weergegeven in Hallo **Server** tabblad Hallo **serverconfiguratie** eigenschappenpagina kan worden aangepast. Dit is een geavanceerde functie die u wellicht als uw behoeften Hallo standaardwaarden overschrijden of als u tooadd andere servers wilt. toocustomize hello logica in Hallo **Server** dialoogvenster, klikt u op Hallo **aanpassen** koppeling. Hiermee sluit u Hallo **serverconfiguratie** eigenschappenpagina en open Hallo **componentsets.xml** bestand in Eclipse, die u als sjabloon benodigde tooextend Hallo server-configuratie kunt wijzigen. Documentatie voor **componentsets.xml** is opgenomen in Hallo **componentsets.xml** -bestand zelf.
 
-Als u de **mijn lokale server (automatische-uploaden naar de cloudopslag) implementeren** optie:
+Als u van Hallo gebruikmaakt **mijn lokale server (automatisch uploaden toocloud opslag) implementeren** optie:
 
-1. Schakel het selectievakje in met de naam **mijn lokale server (automatische-uploaden naar de cloudopslag) implementeren**.
-2. Met behulp van de **opslagaccount** vervolgkeuzelijst, selecteer **(automatisch)**. Als u opgeeft **(automatisch)** hier de Eclipse-toolkit hetzelfde opslagaccount wordt gebruikt voor uw server als het account dat u hebt geselecteerd voor uw implementatie in de **publiceren naar Azure** dialoogvenster.
-3. Klik op **OK** om uw wijzigingen op te slaan.
+1. Hallo selectievakje met de naam **mijn lokale server (automatisch uploaden toocloud opslag) implementeren**.
+2. Met behulp van Hallo **opslagaccount** vervolgkeuzelijst, selecteer **(automatisch)**. Als u opgeeft **(automatisch)** hier Hallo Eclipse toolkit gebruikt hetzelfde opslagaccount voor uw server als Hallo Hallo een u voor uw implementatie in Hallo **tooAzure publiceren** dialoogvenster.
+3. Klik op **OK** toosave uw wijzigingen.
 
-Selecteer een installatiepad voor de server op uw computer in de **pad naar de lokale server** tekstvak als een van de volgende voorwaarden voldaan wordt:
+Selecteer een installatiepad voor de server op uw computer in Hallo **pad naar de lokale server** tekstvak als een van de Hallo volgende voorwaarden voldaan wordt:
 
-* Wilt u uw implementatie testen in de emulator (alleen van toepassing op Windows).
-* Wilt u uw lokaal geïnstalleerde server implementeren in de cloud.
-* U wilt downloaden van uw eigen in de cloud, waarin de aanvraag door een aangepaste server gebruiken, zorg er ook voor de **mijn lokale server (automatische-uploaden naar de cloudopslag) implementeren** hierboven is ingeschakeld.
+* Wilt u tootest uw implementatie in Hallo-emulator (geldt alleen tooWindows).
+* Wilt u toodeploy uw lokaal geïnstalleerde server toohello cloud.
+* U wilt dat toouse downloaden van uw eigen in cloud hello, in welk geval door een aangepaste server, zorg er ook voor Hallo **mijn lokale server (automatisch uploaden toocloud opslag) implementeren** hierboven is ingeschakeld.
 
-Als geen van de opties hierboven van toepassing op uw situatie, is de instelling van de lokale server is optioneel.
+Als geen van de voorgaande opties Hallo tooyour situatie toepassing, is Hallo lokale server optioneel.
 
 ### <a name="applications-configuration"></a>Configuratie van de toepassing
-Hier volgt een voorbeeld van hoe u een toepassing kunt opgeven.
+Hallo Hier volgt een voorbeeld van hoe u een toepassing kunt opgeven.
 
 ![][ic719512]
 
-Klik op **toevoegen** toevoegen van een andere toepassing of **verwijderen** om een toepassing te verwijderen. Voor efficiëntie doeleinden, als u een download voor de bron van een toepassing gebruiken wilt bij het implementeren van de cloud, gebruik de [onderdelen eigenschappen](#components_properties) om op te geven van een URL, storage-account, enzovoort. 
+Klik op **toevoegen** tooadd een andere toepassing of **verwijderen** tooremove een toepassing. Voor de efficiëntie, als u downloaden van een toouse voor Hallo bron van een toepassing wilt bij het implementeren van cloud toohello, gebruik Hallo [onderdelen eigenschappen](#components_properties) toospecify een URL, storage-account, enzovoort. 
 
-Vanaf de release van April 2014, worden de toepassingen automatisch geüpload in hetzelfde opslagaccount (onder de **eclipsedeploy** container) als het account dat is geselecteerd voor uw implementatie. Het starten van de logica van uw implementatie bevat een stap die u downloadt eerst deze toepassingen uit dat opslagaccount. Dit betekent dat u uw toepassingen in uw implementatie kan upgraden zonder opnieuw maken en implementeren van het volledige pakket door handmatig uploaden nieuwere versies van de toepassing rechtstreeks in dit opslagaccount (met behulp van de Azure-portal bijvoorbeeld), vervangen van de bestanden WAR oorspronkelijk geüpload er door de toolkit. Vervolgens net start het recyclen van alle die rolinstanties met behulp van de Azure-beheerportal opnieuw, of via de opdrachtregel-hulpprogramma's. (Rollen recyclen rechtstreeks vanuit binnen de Eclipse-toolkit activerende is momenteel niet ondersteund.)
+Beginnend met Hallo release van April 2014, worden uw toepassingen automatisch geüpload naar Hallo hetzelfde opslagaccount (onder Hallo **eclipsedeploy** container) zoals Hallo geselecteerd voor uw implementatie. Hallo opstartlogica van uw implementatie bevat een stap die u downloadt eerst deze toepassingen uit dat opslagaccount. Dit betekent dat u mogelijk uw toepassingen in uw implementatie bijwerken zonder toorebuild en Hallo gehele pakket, opnieuw implementeren door de nieuwere versies van de toepassing hello rechtstreeks in dit opslagaccount (bijvoorbeeld hello Azure-portal met) handmatig uploaden , vervangen, Hallo WAR bestanden oorspronkelijk er geüpload door Hallo toolkit. Vervolgens net start Hallo recycling van alle die rolinstanties met behulp van de Azure-beheerportal opnieuw, of via de opdrachtregel-hulpprogramma's. (Rol rechtstreeks vanuit het recyclen binnen Hallo Eclipse toolkit activerende is momenteel niet ondersteund.)
 
 ### <a name="notes-about-server-configuration"></a>Opmerkingen over de serverconfiguratie van de
-Wijzigingen die zijn aangebracht via de **serverconfiguratie** eigenschappenpagina worden doorgevoerd in de `<component>` elementen van het bestand Package.xml heeft.
+Wijzigingen via Hallo **serverconfiguratie** eigenschappenpagina worden doorgevoerd in Hallo `<component>` elementen van het bestand Hallo-Package.xml heeft.
 
-Wanneer u gebruikt de **automatisch uploaden...**  of **implementeren niet worden gedownload...**  opties voor de JDK of toepassingsserver en u wilt maken voor de cloud (niet de rekenemulator), en u bent verbonden met het netwerk, merkt u berichten, zoals het volgende in de Console-uitvoer bouwen als de opbouwfunctie voor het Ant wordt gecontroleerd de download beschikbaarheid:
+Wanneer u Hallo gebruikt **automatisch uploaden...**  of **implementeren niet worden gedownload...**  opties voor Hallo JDK of toepassingsserver en u wilt maken voor Hallo cloud (geen Hallo rekenemulator), en u bent verbonden toohello netwerk, merkt u berichten, zoals het volgende in de Console-uitvoer Hallo Hallo bouwen, zoals Ant Hallo Builder controleert de beschikbaarheid van Hallo downloaden:
 
 `[windowsazurepackage] Verifying blob availability (https://example.blob.core.windows.net/temp/tomcat6.zip)...` 
 
-Als u hebt geselecteerd de **implementeren niet worden gedownload...**  optie, worden mogelijk de volgende waarschuwing weergegeven, maar de build gaat verder:
+Als u geselecteerd Hallo **implementeren niet worden gedownload...**  optie Hallo waarschuwing na kan worden weergegeven, maar Hallo build gaat verder:
 
-`[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).` 
+`[windowsazurepackage] warning: Failed tooconfirm blob availability! Make sure hello URL and/or hello access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).` 
 
-Deze waarschuwing is de enige indicatie dat de beschikbaarheid van de download niet is gecontroleerd. Dus als een implementatie is in de cloud voor een bepaalde reden mislukt, controleert u of u deze waarschuwing ontvangen.
+Deze waarschuwing is Hallo enige aanwijzing dat Hallo downloaden van beschikbaarheid niet is gecontroleerd. Dus als een implementatie is mislukt in de cloud Hallo voor een bepaalde reden, Controleer toosee als u deze waarschuwing hebt ontvangen.
 
-Als u wilt de controle downloaden (bijvoorbeeld als u denkt dat dit onnodig de build vertraagt) niet uitschakelen, stelt u de `verifydownloads` kenmerk `false` in de `<windowsazurepackage>` element van Package.xml heeft: 
+Als u wilt dat toodisable Hallo downloaden verificatie (bijvoorbeeld, als u denkt dit onnodig vertraagt de Hallo build dat) stelt hello `verifydownloads` te kenmerk`false` in Hallo `<windowsazurepackage>` element van Package.xml heeft: 
 
 `<windowsazurepackage verifydownloads="false" ...>` 
 
-Als u hebt geselecteerd de **automatisch uploaden...**  optie, klikt u vervolgens in het consolevenster u ziet bouwen berichten rapportage van de voortgang van het uploaden van elke vijf seconden telkens wanneer een upload nodig is.
+Als u geselecteerd Hallo **automatisch uploaden...**  optie, en vervolgens in het consolevenster Hallo ziet u hoe build berichten reporting Hallo voortgang van Hallo uploaden om de vijf seconden, wanneer een upload nodig is.
 
 <a name="ssl_offloading_properties"></a> 
 
 ### <a name="ssl-offloading-properties"></a>SSL-offloading eigenschappen
-Open het contextmenu voor de rol in het deelvenster van de Eclipse Projectverkenner, klik op **Azure**, en klik vervolgens op **SSL-Offloading**. 
+Hallo contextmenu voor Hallo rol in Eclipse van Projectverkenner deelvenster openen, klikt u op **Azure**, en klik vervolgens op **SSL-Offloading**. 
 
 ![][ic719481]
 
-In dit dialoogvenster kunt u SSL-offloading, zodat u eenvoudig Hypertext Transfer Protocol Secure (HTTPS)-ondersteuning inschakelen in uw implementatie Java in Azure, zonder dat u SSL configureren op uw Java-toepassingsserver. Zie voor meer informatie [SSL-Offloading] [ SSL Offloading] en [hoe gebruik SSL-Offloading][How to Use SSL Offloading].
+In dit dialoogvenster kunt u SSL-offloading, zodat u tooeasily inschakelen Hypertext Transfer Protocol Secure (HTTPS) in uw implementatie Java in Azure, ondersteunen zonder dat u tooconfigure SSL in uw Java-toepassingsserver inschakelen. Zie voor meer informatie [SSL-Offloading] [ SSL Offloading] en [hoe tooUse SSL-Offloading][How tooUse SSL Offloading].
 
 ## <a name="see-also"></a>Zie ook
 [Azure Toolkit voor Eclipse][Azure Toolkit for Eclipse]
 
-[De installatie van de Azure Toolkit voor Eclipse][Installing the Azure Toolkit for Eclipse]
+[Hello Azure Toolkit voor Eclipse installeren][Installing hello Azure Toolkit for Eclipse]
 
 [Maken van een Hallo wereld-toepassing voor Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
@@ -410,7 +410,7 @@ In dit dialoogvenster kunt u SSL-offloading, zodat u eenvoudig Hypertext Transfe
 
 [Lijst met Azure Storage-Account][Azure Storage Account List]
 
-Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Developer Center][Azure Java Developer Center].
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center][Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -424,9 +424,9 @@ Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Deve
 [Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
-[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
-[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[How tooUse Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
+[How tooUse SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 

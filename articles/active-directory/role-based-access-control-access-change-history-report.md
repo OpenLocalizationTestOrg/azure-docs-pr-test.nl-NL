@@ -1,6 +1,6 @@
 ---
-title: Toegang tot rapportage - Azure RBAC | Microsoft Docs
-description: Genereer een rapport met een lijst met alle wijzigingen in de toegang tot uw Azure-abonnementen met toegangsbeheer op basis van rollen gedurende de afgelopen 90 dagen.
+title: aaaAccess rapportage - Azure RBAC | Microsoft Docs
+description: Genereer een rapport dat een lijst met alle wijzigingen in de tooyour voor toegang tot Azure-abonnementen met op rollen gebaseerde toegangsbeheer via Hallo afgelopen 90 dagen.
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -15,35 +15,35 @@ ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8028ab43ed02ef0c0a1374326b07f72f97d9d9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9ad85d3d8e66ce167032638a35e4afffb46d3892
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Een access-rapport maken voor toegangsbeheer op basis van rollen
-Elk gewenst moment iemand verleent of trekt u toegang binnen uw abonnementen, worden de wijzigingen geregistreerd in Azure gebeurtenissen. U kunt toegang tot Geschiedenisrapporten om te zien alle wijzigingen voor de afgelopen negentig dagen maken.
+Elk gewenst moment iemand verleent of trekt u toegang binnen uw abonnementen worden Hallo wijzigingen geregistreerd in Azure gebeurtenissen. U kunt maken toegang wijzigen geschiedenis rapporten toosee alle wijzigingen voor Hallo afgelopen 90 dagen.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Een rapport maken met Azure PowerShell
-Gebruik voor het maken van een geschiedenisrapport voor gewijzigde van toegang in PowerShell de [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) opdracht.
+toocreate een toegang wijzigen geschiedenisrapport in PowerShell gebruik Hallo [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) opdracht.
 
-Wanneer u deze opdracht aanroept, kunt u opgeven welke eigenschap van de toewijzingen die u weergegeven, inclusief het volgende wilt:
+Wanneer u deze opdracht aanroept, kunt u opgeven welke eigenschap van de gewenste weergegeven, met inbegrip van de volgende Hallo Hallo-toewijzingen:
 
 | Eigenschap | Beschrijving |
 | --- | --- |
 | **Actie** |Hiermee wordt aangegeven of toegang is toegekend of ingetrokken |
-| **Aanroeper** |De eigenaar die verantwoordelijk is voor de wijziging toegang |
-| **PrincipalId** | De unieke id van de gebruiker, groep of toepassing die de rol is toegewezen |
-| **Primaire naam** |De naam van de gebruiker, groep of toepassing |
-| **PrincipalType** |Hiermee wordt aangegeven of de toewijzing voor een gebruiker, groep of toepassing is |
-| **RoleDefinitionId** |De GUID van de rol die is toegekend of ingetrokken |
-| **Rolnaam** |De rol die is toegekend of ingetrokken |
-| **Bereik** | De unieke id van het abonnement, resourcegroep of resource die de toewijzing is van toepassing op | 
-| **ScopeName** |De naam van het abonnement, resourcegroep of resource |
-| **ScopeType** |Hiermee wordt aangegeven of de toewijzing is op het abonnement, resourcegroep of resource-bereik |
-| **Tijdstempel** |De datum en tijd op dat toegang is gewijzigd |
+| **Aanroeper** |Hallo-eigenaar die verantwoordelijk is voor Hallo toegang wijzigen |
+| **PrincipalId** | de unieke id van het Hallo-gebruiker, groep of toepassing die is toegewezen rol Hallo Hallo |
+| **Primaire naam** |Hallo-naam van het Hallo-gebruiker, groep of toepassing |
+| **PrincipalType** |Hiermee wordt aangegeven of Hallo-toewijzing voor een gebruiker, groep of toepassing is |
+| **RoleDefinitionId** |Hallo GUID van het Hallo-rol die is toegekend of ingetrokken |
+| **Rolnaam** |Hallo-rol die is toegekend of ingetrokken |
+| **Bereik** | Hallo unieke id van Hallo abonnement, resourcegroep of resource die Hallo toewijzing is van toepassing te| 
+| **ScopeName** |Hallo-naam van het Hallo-abonnement, resourcegroep of resource |
+| **ScopeType** |Hiermee wordt aangegeven of Hallo-toewijzing is op het Hallo-abonnement, resourcegroep of resource bereik |
+| **Tijdstempel** |Hallo-datum en tijd waarop de toegang is gewijzigd |
 
-Deze opdracht worden alle wijzigingen in het abonnement voor de afgelopen zeven dagen:
+Deze opdracht worden alle toegang wijzigingen in het abonnement voor Hallo Hallo afgelopen zeven dagen:
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
@@ -52,14 +52,14 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ![PowerShell Get-AzureRMAuthorizationChangeLog - schermafbeelding](./media/role-based-access-control-configure/access-change-history.png)
 
 ## <a name="create-a-report-with-azure-cli"></a>Een rapport maken met Azure CLI
-Gebruik voor het maken van een access-geschiedenisrapport van wijziging in de Azure-opdrachtregelinterface (CLI) de `azure role assignment changelog list` opdracht.
+een geschiedenisrapport voor gewijzigde van toegang in hello Azure-opdrachtregelinterface (CLI) toocreate gebruiken Hallo `azure role assignment changelog list` opdracht.
 
-## <a name="export-to-a-spreadsheet"></a>Naar een spreadsheet exporteren
-Als u het rapport opslaan of manipuleren van de gegevens, de toegang wijzigingen in een CSV-bestand wilt exporteren. U kunt vervolgens het rapport weergeven in een werkblad voor revisie.
+## <a name="export-tooa-spreadsheet"></a>Werkblad tooa exporteren
+toosave rapport Hallo of Hallo gegevens bewerken, export Hallo toegang verandert in een CSV-bestand. U kunt vervolgens Hallo rapport weergeven in een werkblad voor controle.
 
 ![Changelog weergegeven als werkblad - schermafbeelding](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Werken met [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md)
-* Meer informatie over het beheren van [Azure RBAC met powershell](role-based-access-control-manage-access-powershell.md)
+* Meer informatie over hoe toomanage [Azure RBAC met powershell](role-based-access-control-manage-access-powershell.md)
 

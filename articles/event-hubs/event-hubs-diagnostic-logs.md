@@ -1,6 +1,6 @@
 ---
-title: Diagnostische logboeken van Azure Event Hubs | Microsoft Docs
-description: Informatie over het instellen van diagnostische logboeken voor event hubs in Azure.
+title: Diagnostische logboeken van aaaAzure Event Hubs | Microsoft Docs
+description: Meer informatie over hoe tooset van diagnostische logboeken voor event hubs in Azure.
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2054e2e444e715e5077fe2608fe1e009e6c1d84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Diagnostische logboeken van Event Hubs
 
 U kunt twee soorten logboeken voor Azure Event Hubs bekijken:
-* **[Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Deze logboeken bevat gegevens over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
-* **[Diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. U kunt diagnostische logboeken voor een uitgebreidere weergave van alles wat er gebeurt met een taak configureren. Diagnostische logboeken behandeld activiteiten vanaf het moment dat de taak is gemaakt totdat de taak is verwijderd, inclusief updates en activiteiten die optreden terwijl de taak wordt uitgevoerd.
+* **[Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Deze logboeken bevat gegevens over de bewerkingen die worden uitgevoerd op een andere taak. Hallo logboeken zijn altijd ingeschakeld.
+* **[Diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. U kunt diagnostische logboeken voor een uitgebreidere weergave van alles wat er gebeurt met een taak configureren. Diagnostische logboeken behandeld activiteiten van Hallo tijd Hallo-taak is gemaakt totdat het Hallo-taak is verwijderd, inclusief updates en activiteiten die zich tijdens het Hallo-taak wordt uitgevoerd.
 
 ## <a name="turn-on-diagnostic-logs"></a>Logboeken met diagnostische gegevens inschakelen
-Diagnostische logboeken zijn standaard uitgeschakeld. Logboeken met diagnostische gegevens inschakelen:
+Diagnostische logboeken zijn standaard uitgeschakeld. Diagnostische logboeken tooenable:
 
-1.  In de [Azure-portal](https://portal.azure.com)onder **bewaking + Management**, klikt u op **diagnostische logboeken**.
+1.  In Hallo [Azure-portal](https://portal.azure.com)onder **bewaking + Management**, klikt u op **diagnostische logboeken**.
 
-    ![Blade navigatie naar Logboeken met diagnostische gegevens](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Blade navigatie toodiagnostic Logboeken](./media/event-hubs-diagnostic-logs/image1.png)
 
-2.  Klik op de bron die u wilt bewaken.
+2.  Klik op de gewenste toomonitor Hallo-bron.
 
 3.  Klik op **diagnostische gegevens inschakelen**.
 
@@ -42,32 +42,32 @@ Diagnostische logboeken zijn standaard uitgeschakeld. Logboeken met diagnostisch
 
 4.  Voor **Status**, klikt u op **op**.
 
-    ![Wijzig de status van diagnostische logboeken](./media/event-hubs-diagnostic-logs/image3.png)
+    ![Hallo-status van diagnostische logboeken wijzigen](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Doel voor de archief gewenste; ingesteld bijvoorbeeld, een opslagaccount, een event hub of Azure-logboekanalyse.
+5.  Set Hallo archief doel dat u wilt. bijvoorbeeld, een opslagaccount, een event hub of Azure-logboekanalyse.
 
-6.  De nieuwe instellingen voor diagnostische gegevens opslaan.
+6.  Hallo nieuwe diagnostische instellingen opslaan.
 
-Nieuwe instellingen van kracht in ongeveer 10 minuten. Daarna logboeken worden weergegeven in de geconfigureerde archivering doel op de **diagnostische logboeken** blade.
+Nieuwe instellingen van kracht in ongeveer 10 minuten. Daarna logboeken worden weergegeven in de archivering doel Hallo geconfigureerd op Hallo **diagnostische logboeken** blade.
 
-Zie voor meer informatie over het configureren van diagnostische gegevens van de [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Zie voor meer informatie over het configureren van diagnostische gegevens Hallo [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Diagnostische logboeken categorieën
 Event Hubs worden vastgelegd diagnostische logboeken voor twee categorieën:
 
-* **ArchiveLogs**: Logboeken specifiek betrekking hebben op Event Hubs-archieven, logboeken die betrekking hebben op fouten te archiveren.
-* **OperationalLogs**: informatie over wat er gebeurt tijdens Event Hubs-bewerkingen in het bijzonder de bewerking hebt getypt, waaronder event hub is gemaakt, resources die worden gebruikt en de status van de bewerking.
+* **ArchiveLogs**: Logboeken gerelateerde tooEvent Hubs archieven, in het bijzonder tooarchive gerelateerde fouten registreert.
+* **OperationalLogs**: informatie over wat er gebeurt tijdens Event Hubs-bewerkingen in het bijzonder Hallo bewerkingstype, met inbegrip van de event hub is gemaakt, resources die worden gebruikt, en status van de bewerking Hallo Hallo.
 
 ## <a name="diagnostic-logs-schema"></a>Diagnostische logboeken schema
-Alle logboeken worden opgeslagen in de notatie JSON (JavaScript Object)-indeling. Elk item heeft tekenreeksvelden die gebruikmaken van de indeling die wordt beschreven in de volgende secties.
+Alle logboeken worden opgeslagen in de notatie JSON (JavaScript Object)-indeling. Elk item heeft tekenreeksvelden die gebruikmaken van Hallo-indeling die wordt beschreven in Hallo uit te voeren.
 
 ### <a name="archive-logs-schema"></a>Archief logboeken schema
 
-Archief logboek JSON tekenreeksen bevatten elementen in de volgende tabel weergegeven:
+Archief logboek JSON tekenreeksen bevatten die worden vermeld in de volgende tabel Hallo elementen:
 
 Naam | Beschrijving
 ------- | -------
-Taaknaam | Beschrijving van de taak die is mislukt.
+Taaknaam | Beschrijving van het Hallo-taak die is mislukt.
 ActivityId | Interne ID gebruikt om te worden bijgehouden.
 trackingId | Interne ID gebruikt om te worden bijgehouden.
 resourceId | Azure Resource Manager resource-ID.
@@ -80,7 +80,7 @@ durationInSeconds | De duur van de fout.
 Bericht | Foutbericht.
 category | ArchiveLogs
 
-De volgende code is een voorbeeld van een logboek archiveren JSON-tekenreeks:
+Hallo is volgende code een voorbeeld van een logboek archiveren JSON-tekenreeks:
 
 ```json
 {
@@ -94,18 +94,18 @@ De volgende code is een voorbeeld van een logboek archiveren JSON-tekenreeks:
      "startTime": "9/22/2016 5:11:21 AM",
      "failures": 3,
      "durationInSeconds": 360,
-     "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
+     "message": "Microsoft.WindowsAzure.Storage.StorageException: hello remote server returned an error: (404) Not Found. ---> System.Net.WebException: hello remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
      "category": "ArchiveLogs"
 }
 ```
 
 ### <a name="operational-logs-schema"></a>Operationele logboeken schema
 
-Operationeel logboek van JSON tekenreeksen bevatten elementen in de volgende tabel weergegeven:
+Operationeel logboek van JSON tekenreeksen bevatten die worden vermeld in de volgende tabel Hallo elementen:
 
 Naam | Beschrijving
 ------- | -------
-ActivityId | Interne ID gebruikt voor het bijhouden van doel.
+ActivityId | Interne ID tootrack doel gebruikt.
 EventName | Naam van de bewerking.  
 resourceId | Azure Resource Manager resource-ID.
 SubscriptionId | Abonnements-ID.
@@ -115,7 +115,7 @@ Status | Status van de bewerking.
 Caller | De aanroeper van bewerking (Azure portal of management-client).
 category | OperationalLogs
 
-De volgende code is een voorbeeld van een operationeel logboek van JSON-tekenreeks:
+Hallo is volgende code een voorbeeld van een operationeel logboek van JSON-tekenreeks:
 
 ```json
 Example:
@@ -133,6 +133,6 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Inleiding tooEvent Hubs](event-hubs-what-is-event-hubs.md)
 * [Event Hubs-API-overzicht](event-hubs-api-overview.md)
 * [Aan de slag met Event Hubs](event-hubs-csharp-ephcs-getstarted.md)

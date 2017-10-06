@@ -1,6 +1,6 @@
 ---
-title: Maken van een aangepaste test - Azure Application Gateway - PowerShell-klassiek | Microsoft Docs
-description: Informatie over het maken van een aangepaste test voor Application Gateway met behulp van PowerShell in het klassieke implementatiemodel
+title: een aangepaste test - Azure Application Gateway - PowerShell-klassiek aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een aangepaste test voor Application Gateway met behulp van PowerShell in het klassieke implementatiemodel Hallo
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68332367c99328bd6456b0c339923765637be986
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Maak een aangepaste test voor Azure Application Gateway (klassiek) met behulp van PowerShell
 
@@ -28,49 +28,49 @@ ms.lasthandoff: 07/11/2017
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-In dit artikel kunt u een aangepaste test toevoegen aan een bestaande application gateway met PowerShell. Aangepaste tests zijn handig voor toepassingen die de pagina controle van een specifieke status hebben, of voor toepassingen die een geslaagde reactie op de standaardwebtoepassing geen bieden.
+In dit artikel voegt u een aangepaste test tooan bestaande application gateway met PowerShell. Aangepaste tests zijn handig voor toepassingen die de pagina controle van een specifieke status hebben, of voor toepassingen die een geslaagde reactie op Hallo standaardwebtoepassing geen bieden.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](application-gateway-create-probe-ps.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Meer informatie over hoe te[u deze stappen uitvoert met behulp van de Resource Manager-model Hallo](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken
 
-Ga als volgt te werk om een toepassingsgateway te maken:
+toocreate een toepassingsgateway:
 
 1. Maak een toepassingsgatewayresource.
 2. Maak een XML-configuratiebestand of een configuratieobject.
-3. Voer de configuratie door voor de zojuist gemaakte toepassingsgatewayresource.
+3. Doorvoeren Hallo configuratie toohello nieuw gemaakte toepassingsgatewayresource.
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Een toepassingsgatewayresource maken met een aangepaste test
 
-Gebruik de cmdlet `New-AzureApplicationGateway` en vervang de waarden door uw eigen waarden om een gateway te maken. Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
+Gebruik Hallo-gateway Hallo toocreate `New-AzureApplicationGateway` cmdlet, waarbij Hallo waarden vervangt door uw eigen. Facturering voor Hallo-gateway op dit moment niet worden gestart. Facturering begint met een latere stap Hallo gateway is gestart.
 
-In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.
+Hallo volgende voorbeeld wordt een application gateway met behulp van een virtueel netwerk 'testvnet1' en een subnet met de naam 'subnet 1' genoemd.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is gemaakt.
+toovalidate die Hallo gateway is gemaakt, kunt u Hallo `Get-AzureApplicationGateway` cmdlet.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. U kunt kiezen tussen een klein, middelgroot en groot.
+> de standaardwaarde voor Hallo *InstanceCount* is 2 en de maximale waarde is 10. de standaardwaarde voor Hallo *GatewaySize* is normaal. U kunt kiezen tussen een klein, middelgroot en groot.
 > 
 > 
 
-*VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend. Deze waarden worden gemaakt nadat de gateway uitgevoerd is.
+*VirtualIPs* en *DnsName* leeg worden weergegeven omdat het Hallo-gateway is nog niet gestart. Deze waarden worden gemaakt nadat Hallo gateway Hallo status actief is.
 
 ### <a name="configure-an-application-gateway-by-using-xml"></a>Een toepassingsgateway configureren met XML
 
-In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.  
+In Hallo voorbeeld te volgen, gebruiken een XML-bestand tooconfigure alle instellingen voor de toepassingsgateway en ze toohello toepassingsgatewayresource doorvoeren.  
 
-Kopieer de volgende tekst naar Kladblok.
+Kopieer Hallo tekst tooNotepad te volgen.
 
 ```xml
 <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -136,39 +136,39 @@ Kopieer de volgende tekst naar Kladblok.
 </ApplicationGatewayConfiguration>
 ```
 
-Bewerk de waarden tussen de haakjes voor de configuratie-items. Sla het bestand op met de bestandsextensie .xml.
+Hallo waarden tussen haakjes Hallo voor Hallo configuratie-items bewerken. Hallo-bestand opslaan met de bestandsextensie .xml.
 
-Het volgende voorbeeld ziet hoe u een configuratiebestand gebruiken om de toepassingsgateway taakverdeling van HTTP-verkeer via de openbare poort 80 en verzenden van netwerkverkeer naar de back-endpoort 80 tussen twee IP-adressen met behulp van een aangepaste test te stellen.
+Hallo volgende voorbeeld ziet u hoe een configuration file tooset up Hallo application gateway tooload toouse saldo HTTP-verkeer via de openbare poort 80 en netwerkverkeer tooback-endpoort 80 tussen twee IP-adressen met behulp van een aangepaste test verzenden.
 
 > [!IMPORTANT]
-> Het protocolitem Http of Https is hoofdlettergevoelig.
+> Hallo protocolitem Http of Https is hoofdlettergevoelig.
 
-Een nieuwe configuratie-item \<Probe\> wordt toegevoegd aan het configureren van aangepaste tests.
+Een nieuwe configuratie-item \<Probe\> tooconfigure aangepaste tests wordt toegevoegd.
 
-De configuratieparameters zijn:
+Hallo-configuratieparameters zijn:
 
 |Parameter|Beschrijving|
 |---|---|
 |**Naam** |De referentienaam voor aangepaste test. |
 * **Protocol** | Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).|
-| **Host** en **pad** | Volledige URL-pad dat wordt opgeroepen door de toepassingsgateway de status van het exemplaar te bepalen. Bijvoorbeeld, hebt u een website http://contoso.com/, kan vervolgens aangepaste test worden geconfigureerd voor 'http://contoso.com/path/custompath.htm' voor de controle te hebben van een geslaagde reactie van de HTTP-test.|
-| **Interval** | Hiermee configureert u de controles van de test-interval in seconden.|
-| **Time-out** | Hiermee definieert u de test-time-outwaarde voor de controle van een HTTP-antwoord.|
-| **UnhealthyThreshold** | Het aantal mislukte HTTP-antwoorden die nodig zijn voor de back-end-instantie als vlag *slecht*.|
+| **Host** en **pad** | Volledige URL-pad dat wordt opgeroepen door Hallo gateway toodetermine Hallo toepassingsstatus van het Hallo-exemplaar. Als u een http://contoso.com/ website hebt en vervolgens de aangepaste test Hallo kan worden geconfigureerd voor controleert 'http://contoso.com/path/custompath.htm' voor de test toohave geslaagde HTTP-antwoord.|
+| **Interval** | Hiermee configureert u Hallo test interval controles in seconden.|
+| **Time-out** | Hiermee definieert u Hallo test time-outwaarde voor de controle van een HTTP-antwoord.|
+| **UnhealthyThreshold** | aantal mislukte HTTP-antwoorden Hallo nodig tooflag Hallo backend-exemplaar als *slecht*.|
 
-Naam van de test wordt verwezen in de \<BackendHttpSettings\> configuratie om toe te wijzen welke back-end-adresgroep maakt gebruik van aangepaste test-instellingen.
+naam van de test Hello wordt verwezen in Hallo \<BackendHttpSettings\> configuratie tooassign welke back-end-pool aangepaste test-instellingen gebruikt.
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Een aangepaste test toevoegen aan een bestaande application gateway
+## <a name="add-a-custom-probe-tooan-existing-application-gateway"></a>Een aangepaste test tooan bestaande toepassingsgateway toevoegen
 
-Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen vereist: ophalen van het huidige XML-configuratiebestand, als u een aangepaste test wilt wijzigen en de toepassingsgateway configureren met de nieuwe XML-instellingen.
+Veranderende Hallo huidige configuratie van een toepassingsgateway zijn drie stappen vereist: ophalen van huidige XML-configuratiebestand hello, toohave een aangepaste test wijzigen en Hallo-toepassingsgateway met Hallo nieuwe XML-instellingen configureren.
 
-1. Ophalen van het XML-bestand met behulp van `Get-AzureApplicationGatewayConfig`. Deze cmdlet exporteert u de configuratie-XML om toe te voegen testinstelling worden gewijzigd.
+1. Hallo XML-bestand ophalen met behulp van `Get-AzureApplicationGatewayConfig`. Deze cmdlet uitvoer Hallo configuration XML toobe gewijzigd tooadd testinstelling.
 
   ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path toofile>"
   ```
 
-1. Open het XML-bestand in een teksteditor. Voeg een `<probe>` sectie na `<frontendport>`.
+1. Hallo XML-bestand openen in een teksteditor. Voeg een `<probe>` sectie na `<frontendport>`.
 
   ```xml
 <Probes>
@@ -184,7 +184,7 @@ Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen ver
 </Probes>
   ```
 
-  Toevoegen in de sectie backendHttpSettings van de XML-naam van de test zoals weergegeven in het volgende voorbeeld:
+  Voeg in Hallo backendHttpSettings sectie Hallo XML Hallo test naam zoals weergegeven in het volgende voorbeeld Hallo:
 
   ```xml
     <BackendHttpSettings>
@@ -197,17 +197,17 @@ Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen ver
     </BackendHttpSettings>
   ```
 
-  Sla het XML-bestand.
+  Hallo XML-bestand opslaan.
 
-1. De configuratie van de application gateway met het nieuwe XML-bestand bijwerken met behulp van `Set-AzureApplicationGatewayConfig`. Deze cmdlet werkt de toepassingsgateway van uw met de nieuwe configuratie.
+1. Update Hallo toepassingsgateway configuratie met Hallo nieuwe XML-bestand met behulp van `Set-AzureApplicationGatewayConfig`. Deze cmdlet werkt uw toepassingsgateway met een nieuwe configuratie Hallo.
 
 ```powershell
-Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path toofile>"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u configureren van Secure Sockets Layer (SSL)-offload wilt, Zie [een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).
+Als u tooconfigure Secure Sockets Layer (SSL)-offload wilt, Zie [een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).
 
-Als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer, raadpleegt u [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken).
+Als u wilt dat tooconfigure een toouse application gateway met een interne load balancer, raadpleegt u [een toepassingsgateway maken met een interne load balancer (ILB)](application-gateway-ilb.md).
 

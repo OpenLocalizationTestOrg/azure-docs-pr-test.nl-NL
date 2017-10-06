@@ -1,6 +1,6 @@
 ---
-title: Azure API Management Geavanceerde beleidsregels | Microsoft Docs
-description: Meer informatie over de geavanceerde beleidsregels beschikbaar voor gebruik in Azure API Management.
+title: aaaAzure API Management Geavanceerde beleidsregels | Microsoft Docs
+description: Meer informatie over Hallo Geavanceerde beleidsregels beschikbaar voor gebruik in Azure API Management.
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8245e7a4c9d432b7b4d362192e357829fcabad55
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Dit onderwerp bevat een verwijzing voor Hallo API Management-beleidsregels te volgen. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AdvancedPolicies"></a>Geavanceerde beleidsregels  
   
--   [Transportbesturing](api-management-advanced-policies.md#choose) - voorwaardelijk is van toepassing op basis van de resultaten van de evaluatie van Booleaanse waarde beleidsverklaringen [expressies](api-management-policy-expressions.md).  
+-   [Transportbesturing](api-management-advanced-policies.md#choose) - voorwaardelijk is van toepassing op basis van resultaten van de evaluatie van Booleaanse waarde Hallo Hallo beleidsverklaringen [expressies](api-management-policy-expressions.md).  
   
--   [Doorsturen van aanvraag](#ForwardRequest) -stuurt de aanvraag naar de back-endservice.
+-   [Doorsturen van aanvraag](#ForwardRequest) -stuurt Hallo aanvraag toohello back-endservice.
 
--   [Gelijktijdigheid beperken](#LimitConcurrency) -voorkomt u dat beleid uit door meer dan het opgegeven aantal aanvragen wordt uitgevoerd op een tijdstip ingesloten.
+-   [Gelijktijdigheid beperken](#LimitConcurrency) -voorkomt u dat beleid wordt uitgevoerd door meer dan een opgegeven aantal aanvragen op een tijdstip Hallo ingesloten.
   
--   [Logboek naar Event Hub](#log-to-eventhub) -berichten in de opgegeven indeling verzendt naar een Event Hub gedefinieerd door een entiteit berichtenlogboek. 
+-   [Meld u tooEvent Hub](#log-to-eventhub) -verzendt berichten in Hallo indeling tooan Event Hub wordt gedefinieerd door een entiteit van het logboek opgegeven. 
 
--   [Antwoord model](#mock-response) -pipeline-uitvoering wordt afgebroken en retourneert een mocked antwoord rechtstreeks aan de aanroeper.
+-   [Antwoord model](#mock-response) -pipeline-uitvoering wordt afgebroken en een mocked antwoord geretourneerd rechtstreeks toohello aanroeper.
   
--   [Probeer](#Retry) -uitvoering van de ingesloten beleidsverklaringen pogingen als en pas de voorwaarde wordt voldaan. Uitvoering wordt herhaald op de opgegeven tijdsintervallen en tot het opgegeven aantal nieuwe pogingen.  
+-   [Probeer](#Retry) -uitvoering van de nieuwe pogingen van Hallo ingesloten beleidsverklaringen, als en totdat Hallo-voorwaarde is voldaan. Uitvoering wordt herhaald op Hallo opgegeven tijdsintervallen en up toohello opgegeven aantal nieuwe pogingen.  
   
--   [Antwoord retourneren](#ReturnResponse) -pipeline-uitvoering wordt afgebroken en retourneert het opgegeven antwoord rechtstreeks naar de aanroeper. 
+-   [Antwoord retourneren](#ReturnResponse) -wordt afgebroken pijplijn uitvoering en retourneert Hallo opgegeven antwoord rechtstreeks toohello aanroeper. 
   
--   [Eenzijdige aanvraag verzenden](#SendOneWayRequest) -verzendt een aanvraag naar de opgegeven URL zonder te wachten op reactie.  
+-   [Eenzijdige aanvraag verzenden](#SendOneWayRequest) -verzendt een aanvraag toohello URL opgegeven zonder te wachten op reactie.  
   
--   [Aanvraag verzenden](#SendRequest) -verzendt een aanvraag naar de opgegeven URL.  
+-   [Aanvraag verzenden](#SendRequest) -verzendt een aanvraag toohello URL opgegeven.  
 
--   [HTTP-proxy ingesteld](#SetHttpProxy) -kunt u de aanvragen van de route die zijn doorgestuurd via een HTTP-proxy.  
+-   [HTTP-proxy ingesteld](#SetHttpProxy) -kunt u aanvragen tooroute doorgestuurd via een HTTP-proxy.  
 
--   [Stel aanvraagmethode](#SetRequestMethod) -kunt u de HTTP-methode voor een aanvraag wijzigen.  
+-   [Stel aanvraagmethode](#SetRequestMethod) -kunt u toochange Hallo HTTP-methode voor een aanvraag.  
   
--   [Statuscode ingesteld](#SetStatus) -wijzigingen van de HTTP-statuscode in de opgegeven waarde.  
+-   [Statuscode ingesteld](#SetStatus) -wijzigingen Hallo HTTP status code toohello opgegeven waarde.  
   
 -   [Variabele instellen](api-management-advanced-policies.md#set-variable) -zich blijft voordoen een waarde in een benoemde [context](api-management-policy-expressions.md#ContextVariables) variabele voor latere toegang.  
 
--   [Tracering](#Trace) -voegt een tekenreeks in de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) uitvoer.  
+-   [Tracering](#Trace) -wordt een tekenreeks toegevoegd in Hallo [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) uitvoer.  
   
--   [Wacht](#Wait) -wacht voor ingesloten [Verzendaanvraag](api-management-advanced-policies.md#SendRequest), [waarde niet ophalen uit de cache](api-management-caching-policies.md#GetFromCacheByKey), of [transportbesturing](api-management-advanced-policies.md#choose) beleid om te voltooien voordat u doorgaat.  
+-   [Wacht](#Wait) -wacht voor ingesloten [Verzendaanvraag](api-management-advanced-policies.md#SendRequest), [waarde niet ophalen uit de cache](api-management-caching-policies.md#GetFromCacheByKey), of [transportbesturing](api-management-advanced-policies.md#choose) beleid toocomplete voordat u doorgaat.  
   
 ##  <a name="choose"></a>Controlestroom  
- De `choose` beleid van toepassing is ingesloten beleid op basis van het resultaat van evaluatie van Booleaanse expressies, vergelijkbaar met een if-then-else of een switch instructies in een programmeertaal maken.  
+ Hallo `choose` beleid van toepassing is ingesloten beleid op basis van resultaat van evaluatie van Booleaanse expressies, vergelijkbare tooan if vervolgens else of een switch Hallo instructies in een programmeertaal maken.  
   
 ###  <a name="ChoosePolicyStatement"></a>Beleidsverklaring  
   
 ```xml  
 <choose>   
     <when condition="Boolean expression | Boolean constant">   
-        <!— one or more policy statements to be applied if the above condition is true  -->  
+        <!— one or more policy statements toobe applied if hello above condition is true  -->  
     </when>   
     <when condition="Boolean expression | Boolean constant">   
-        <!— one or more policy statements to be applied if the above condition is true  -->  
+        <!— one or more policy statements toobe applied if hello above condition is true  -->  
     </when>   
     <otherwise>   
-        <!— one or more policy statements to be applied if none of the above conditions are true  -->  
+        <!— one or more policy statements toobe applied if none of hello above conditions are true  -->  
 </otherwise>   
 </choose>  
 ```  
   
- Het beleid voor toegangsbeheer stroom moet ten minste één bevatten `<when/>` element. De `<otherwise/>` element is optioneel. Voorwaarden `<when/>` elementen worden geëvalueerd in de volgorde van de weergave in het beleid. Beleid voor instructie (s) die tussen de eerste `<when/>` element met kenmerk gelijk is aan voorwaarde `true` worden toegepast. Beleidsregels die tussen de `<otherwise/>` element, indien aanwezig, wordt toegepast als alle van de `<when/>` voorwaarde elementkenmerken zijn `false`.  
+ Hallo beleid voor toegangsbeheer stroom moet ten minste één bevatten `<when/>` element. Hallo `<otherwise/>` element is optioneel. Voorwaarden `<when/>` elementen worden in volgorde van hun binnen Hallo beleid geëvalueerd. Beleid voor instructie (s) die tussen Hallo eerst `<when/>` element met kenmerk gelijk is aan voorwaarde `true` worden toegepast. Beleid omsloten Hallo `<otherwise/>` element, indien aanwezig, wordt toegepast als alle Hallo `<when/>` voorwaarde elementkenmerken zijn `false`.  
   
 ### <a name="examples"></a>Voorbeelden  
   
 ####  <a name="ChooseExample"></a>Voorbeeld  
- Het volgende voorbeeld toont een [variabele instellen](api-management-advanced-policies.md#set-variable) beleid en twee beleidsregels voor beheer-stroom.  
+ Hallo volgende voorbeeld toont een [variabele instellen](api-management-advanced-policies.md#set-variable) beleid en twee beleidsregels voor beheer-stroom.  
   
- De variabele beleid instellen in de sectie inkomende en genereert een `isMobile` Booleaanse [context](api-management-policy-expressions.md#ContextVariables) variabele die is ingesteld op true als de `User-Agent` aanvraag-header bevat de tekst `iPad` of `iPhone`.  
+ Hallo-variabele beleid instellen is in binnenkomende sectie Hallo en maakt een `isMobile` Booleaanse [context](api-management-policy-expressions.md#ContextVariables) variabele die tootrue is ingesteld als hello `User-Agent` aanvraag-header bevat de tekst hello `iPad` of `iPhone`.  
   
- Het eerste beleid voor toegangsbeheer stroom is ook in de sectie inkomende en voorwaardelijk wordt een van twee [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) beleidsregels, afhankelijk van de waarde van de `isMobile` context-variabele.  
+ eerste beleid voor toegangsbeheer stroom Hallo zich ook in sectie inkomende hello en voorwaardelijk wordt een van twee [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) beleidsregels, afhankelijk van de waarde Hallo Hallo `isMobile` context-variabele.  
   
- Het tweede beleid voor toegangsbeheer stroom is in de sectie uitgaande en voorwaardelijk geldt de [XML converteren naar JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) beleid wanneer `isMobile` is ingesteld op `true`.  
+ Hallo tweede besturingselement stroom beleid is in de uitgaande sectie Hallo en voorwaardelijk geldt Hallo [XML converteren tooJSON](api-management-transformation-policies.md#ConvertXMLtoJSON) beleid wanneer `isMobile` te is ingesteld`true`.  
   
 ```xml  
 <policies>  
@@ -117,10 +117,10 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ```  
   
 #### <a name="example"></a>Voorbeeld  
- Dit voorbeeld ziet u hoe u inhoud filteren van door gegevenselementen te verwijderen uit het antwoord ontvangen van de back-endservice bij gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit te 34:30. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
+ Dit voorbeeld ziet u hoe tooperform filteren op inhoud door het verwijderen van elementen uit Hallo antwoord ontvangen van de back-endservice Hallo bij gebruik van Hallo `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en too34:30 vooruit. Start op 31:50 toosee een overzicht van [Hallo donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
   
 ```xml  
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->  
+<!-- Copy this snippet into hello outbound section tooremove a number of data elements from hello response received from hello backend service based on hello name of hello api product -->  
 <choose>  
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">  
     <set-body>@{  
@@ -140,27 +140,27 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
 |Kies|Hoofdelement.|Ja|  
-|Wanneer|De voorwaarde moet worden gebruikt voor de `if` of `ifelse` delen van de `choose` beleid. Als de `choose` beleid heeft meerdere `when` secties, ze worden opeenvolgend geëvalueerd. Eenmaal de `condition` van een wanneer element resulteert in `true`, niet verder `when` voorwaarden worden geëvalueerd.|Ja|  
-|anders|Bevat het fragment beleid moet worden gebruikt als geen van de `when` voorwaarden worden geëvalueerd tot `true`.|Nee|  
+|Wanneer|voorwaarde toouse voor Hallo Hallo `if` of `ifelse` delen van Hallo `choose` beleid. Als hello `choose` beleid heeft meerdere `when` secties, ze worden opeenvolgend geëvalueerd. Eenmaal Hallo `condition` van een wanneer element te evalueert`true`, niet verder `when` voorwaarden worden geëvalueerd.|Ja|  
+|anders|Hallo beleid codefragment toobe gebruikt als geen van Hallo bevat `when` voorwaarden te evalueren`true`.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|  
 |---------------|-----------------|--------------|  
-|conditie = "Boole-expressie &#124; Constante Booleaanse'|De Boole-expressie of een constante geëvalueerd wanneer de die `when` beleidsverklaring wordt geëvalueerd.|Ja|  
+|conditie = "Boole-expressie &#124; Constante Booleaanse'|Hallo Booleaanse expressie of constante tooevaluated wanneer Hallo die `when` beleidsverklaring wordt geëvalueerd.|Ja|  
   
 ###  <a name="ChooseUsage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="ForwardRequest"></a>Doorsturen van aanvraag  
- De `forward-request` beleid stuurt de binnenkomende aanvraag naar de back-endservice die is opgegeven in de aanvraag [context](api-management-policy-expressions.md#ContextVariables). De back-end-service-URL is opgegeven in de API [instellingen](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) en kan worden gewijzigd met behulp van de [back-endservice ingesteld](api-management-transformation-policies.md) beleid.  
+ Hallo `forward-request` beleid stuurt Hallo binnenkomende aanvraag toohello back-endservice opgegeven in de aanvraag Hallo [context](api-management-policy-expressions.md#ContextVariables). Hallo back-end service URL is opgegeven in Hallo API [instellingen](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) en kan worden gewijzigd met behulp van Hallo [back-endservice ingesteld](api-management-transformation-policies.md) beleid.  
   
 > [!NOTE]
->  Verwijderen van deze resultaten van Groepsbeleid in de aanvraag niet wordt doorgestuurd naar de back-end worden-service en het beleid in de sectie uitgaande geëvalueerd onmiddellijk na de geslaagde voltooiing van het beleid in de sectie inkomende.  
+>  Verwijderen van dit beleid resulteert in het Hallo-aanvraag niet doorgestuurd toohello back-end-service en het Hallo-beleid in uitgaande sectie Hallo onmiddellijk worden geëvalueerd na geslaagde voltooiing Hallo Hallo beleidsregels in Hallo inkomende sectie.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -171,7 +171,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ### <a name="examples"></a>Voorbeelden  
   
 #### <a name="example"></a>Voorbeeld  
- Het volgende beleid van de API-niveau verzendt alle aanvragen naar de back endservice met een time-outinterval van 60 seconden.  
+ Hallo stuurt volgende API-niveau beleid alle aanvragen toohello back-endservice met een time-outinterval van 60 seconden.  
   
 ```xml  
 <!-- api level -->  
@@ -190,7 +190,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ```  
   
 #### <a name="example"></a>Voorbeeld  
- Het beleid voor deze bewerking gebruikt de `base` element worden overgenomen van het back-end-beleid van het bovenliggende niveau API-bereik.  
+ Het beleid voor deze bewerking gebruikt Hallo `base` element tooinherit Hallo back-end-beleid van Hallo bovenliggende API-niveau bereik.  
   
 ```xml  
 <!-- operation level -->  
@@ -209,7 +209,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ```  
   
 #### <a name="example"></a>Voorbeeld  
- Deze bewerking beleid expliciet stuurt alle aanvragen naar de back endservice met een time-out van 120 en het is niet overgenomen van het bovenliggende niveau back-end-API-beleid.  
+ Deze bewerking beleid stuurt alle aanvragen toohello back-endservice met een time-out van 120 expliciet en neemt geen Hallo bovenliggende niveau back-end-API-beleid.  
   
 ```xml  
 <!-- operation level -->  
@@ -219,7 +219,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
     </inbound>  
     <backend>  
         <forward-request timeout="120"/>   
-        <!-- effective policy. note the absence of <base/> -->  
+        <!-- effective policy. note hello absence of <base/> -->  
     </backend>  
     <outbound>  
         <base/>          
@@ -229,7 +229,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ```  
   
 #### <a name="example"></a>Voorbeeld  
- Dit beleid op het niveau bewerking doorstuurt geen aanvragen voor de back-endservice.  
+ Het beleid voor deze bewerking niet doorsturen van aanvragen toohello back-endservice.  
   
 ```xml  
 <!-- operation level -->  
@@ -238,7 +238,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
         <base/>  
     </inbound>  
     <backend>  
-        <!-- no forwarding to backend -->  
+        <!-- no forwarding toobackend -->  
     </backend>  
     <outbound>  
         <base/>          
@@ -257,18 +257,18 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|Geen time-out|  
-|Volg omleidingen = "true &#124; False"|Hiermee geeft u op of omleidingen vanaf de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|ONWAAR|  
+|time-out = 'integer'|Hallo-time-outinterval in seconden alvorens het Hallo-aanroep toohello back-endservice is mislukt.|Nee|Geen time-out|  
+|Volg omleidingen = "true &#124; False"|Geeft aan of omleidingen van back-endservice Hallo worden gevolgd door Hallo gateway of toohello aanroeper wordt geretourneerd.|Nee|ONWAAR|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** back-end  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="LimitConcurrency"></a>Limiet gelijktijdigheid van taken  
- De `limit-concurrency` ingesloten beleid uit door meer dan het opgegeven aantal aanvragen wordt uitgevoerd op een bepaald moment wordt verhinderd door beleid. Nieuwe aanvragen worden toegevoegd aan een wachtrij op die de drempelwaarde overschrijden, totdat de maximum wachtrijlengte wordt bereikt. Bij uitputting van de wachtrij mislukken nieuwe aanvragen onmiddellijk.
+ Hallo `limit-concurrency` beleid voorkomt dat ingesloten beleid uit door meer dan een opgegeven aantal aanvragen Hallo op een bepaald moment wordt uitgevoerd. Bij Hallo drempelwaarde overschrijdt, worden nieuwe aanvragen tooa wachtrij toegevoegd totdat Hallo maximum wachtrijlengte wordt bereikt. Bij uitputting van de wachtrij mislukken nieuwe aanvragen onmiddellijk.
   
 ###  <a name="LimitConcurrencyStatement"></a>Beleidsverklaring  
   
@@ -281,7 +281,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ### <a name="examples"></a>Voorbeelden  
   
 ####  <a name="ChooseExample"></a>Voorbeeld  
- Het volgende voorbeeld laat zien hoe u wilt beperken het aantal aanvragen worden doorgestuurd naar een back-end op basis van de waarde van een variabele context.
+ Hallo volgende voorbeeld laat zien hoe het aantal aanvragen toolimit tooa back-end op basis van het Hallo-waarde van een variabele context doorgestuurd.
  
 ```xml  
 <policies>
@@ -305,35 +305,35 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|--------------|  
-|sleutel|Een tekenreeks. Een expressie toegestaan. Hiermee geeft u het bereik gelijktijdigheid van taken. Kan worden gedeeld door meerdere beleidsregels.|Ja|N.v.t.|  
-|maximum aantal|Een geheel getal. Hiermee geeft u het maximale aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|N.v.t.|  
-|Time-out|Een geheel getal. Een expressie toegestaan. Hiermee geeft u het aantal seconden dat een aanvraag wachten moet om in te voeren van een scope voordat deze is mislukt met ' 403 te veel aanvragen '|Nee|Infinity|  
-|maximale wachtrijlengte|Een geheel getal. Een expressie toegestaan. Hiermee geeft u de maximum wachtrijlengte. Inkomende aanvragen probeert in te voeren van dit beleid wordt gestopt met ' 403 te veel aanvragen ' onmiddellijk wanneer de wachtrij is verbruikt.|Nee|Infinity|  
+|sleutel|Een tekenreeks. Een expressie toegestaan. Hiermee geeft u Hallo gelijktijdigheid bereik. Kan worden gedeeld door meerdere beleidsregels.|Ja|N.v.t.|  
+|maximum aantal|Een geheel getal. Hiermee geeft u het maximale aantal aanvragen dat tooenter Hallo beleid zijn toegestaan.|Ja|N.v.t.|  
+|timeout|Een geheel getal. Een expressie toegestaan. Hiermee geeft u het aantal seconden dat een aanvraag wachten tooenter een scope voordat deze is mislukt met de moet Hallo ' 403 te veel aanvragen '|Nee|Infinity|  
+|maximale wachtrijlengte|Een geheel getal. Een expressie toegestaan. Hiermee geeft u de maximale wachtrijlengte Hallo. Inkomende aanvragen tooenter probeert dit beleid wordt beëindigd met ' 403 te veel aanvragen ' onmiddellijk wanneer Hallo wachtrij is verbruikt.|Nee|Infinity|  
   
 ###  <a name="ChooseUsage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
 
-##  <a name="log-to-eventhub"></a>Logboek naar Event Hub  
- De `log-to-eventhub` beleid verzendt berichten in de opgegeven indeling naar een Event Hub gedefinieerd door een entiteit berichtenlogboek. Als de naam al aangeeft, wordt het beleid wordt gebruikt voor het opslaan van de geselecteerde aanvraag of antwoord contextinformatie voor online of offline-analyse.  
+##  <a name="log-to-eventhub"></a>Meld u tooEvent Hub  
+ Hallo `log-to-eventhub` beleid verzendt berichten in Hallo indeling tooan Event Hub gedefinieerd door een entiteit van het logboek opgegeven. Als de naam al aangeeft, worden Hallo beleid wordt gebruikt voor het opslaan van de geselecteerde aanvraag of antwoord contextinformatie voor online of offline-analyse.  
   
 > [!NOTE]
->  Zie voor een stapsgewijze handleiding voor het configureren van een event hub en vastleggen van gebeurtenissen, [het registreren van API Management-gebeurtenissen met Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).  
+>  Zie voor een stapsgewijze handleiding voor het configureren van een event hub en vastleggen van gebeurtenissen, [hoe toolog API Management-gebeurtenissen met Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
-<log-to-eventhub logger-id="id of the logger entity" partition-id="index of the partition where messages are sent" partition-key="value used for partition assignment">  
-  Expression returning a string to be logged  
+<log-to-eventhub logger-id="id of hello logger entity" partition-id="index of hello partition where messages are sent" partition-key="value used for partition assignment">  
+  Expression returning a string toobe logged  
 </log-to-eventhub>  
   
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- Elke tekenreeks kan worden gebruikt als de waarde worden geregistreerd in Event Hubs. In dit voorbeeld is de datum en tijd, implementatie-servicenaam, aanvraag-id, IP-adres en de naam van de bewerking voor alle binnenkomende oproepen worden geregistreerd in de event hub berichtenlogboek geregistreerd bij de `contoso-logger` id.  
+ Elke tekenreeks kan worden gebruikt als Hallo waarde toobe vastgelegd in Event Hubs. In dit voorbeeld Hallo datum en tijd implementatie servicenaam, aanvraag-id, IP-adres en de naam van de bewerking voor alle binnenkomende oproepen zijn geregistreerde toohello event hub berichtenlogboek geregistreerd bij Hallo `contoso-logger` id.  
   
 ```xml  
 <policies>  
@@ -351,25 +351,25 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
-|logboek voor eventhub|Hoofdelement. De waarde van dit element is de tekenreeks aan te melden naar uw event hub.|Ja|  
+|logboek voor eventhub|Hoofdelement. Hallo-waarde van dit element is Hallo tekenreeks toolog tooyour event hub.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|  
 |---------------|-----------------|--------------|  
-|logboek-id|De id van het logboek geregistreerd bij uw API Management-service.|Ja|  
-|partitie-id|Hiermee geeft u de index van de partitie waarin berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-key` wordt gebruikt.|  
-|Partitiesleutel|Hiermee geeft u de waarde voor de partitietoewijzing van de wordt gebruikt wanneer berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-id` wordt gebruikt.|  
+|logboek-id|Hallo-id van Hallo berichtenlogboek geregistreerd met uw API Management-service.|Ja|  
+|partitie-id|Hiermee geeft u een index Hallo van Hallo partitie waarin berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-key` wordt gebruikt.|  
+|Partitiesleutel|Hiermee geeft u Hallo-waarde die voor de partitietoewijzing van de wordt gebruikt wanneer berichten worden verzonden.|Optioneel. Dit kenmerk kan niet worden gebruikt als `partition-id` wordt gebruikt.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
 
 ##  <a name="mock-response"></a>Mock-antwoord  
-De `mock-response`, als de naam al aangeeft, wordt gebruikt voor het model van de API's en bewerkingen. Het normale pipeline-uitvoering wordt afgebroken en retourneert een mocked antwoord aan de aanroeper. Het beleid probeert altijd te retourneren van reacties van hoogste betrouwbaarheid. Deze verkiest antwoord inhoud voorbeelden, indien beschikbaar. Het voorbeeld antwoorden van schema's, genereert wanneer schema's worden geleverd en voorbeelden niet. Als geen van beide voorbeelden of schema's zijn gevonden, worden de antwoorden met geen inhoud geretourneerd.
+Hallo `mock-response`, als de naam van de Hallo impliceert, is gebruikt toomock API's en bewerkingen. Het normale pipeline-uitvoering afgebroken en een mocked antwoord toohello aanroeper retourneert. Hallo beleid probeert altijd tooreturn reacties van hoogste betrouwbaarheid. Deze verkiest antwoord inhoud voorbeelden, indien beschikbaar. Het voorbeeld antwoorden van schema's, genereert wanneer schema's worden geleverd en voorbeelden niet. Als geen van beide voorbeelden of schema's zijn gevonden, worden de antwoorden met geen inhoud geretourneerd.
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -382,11 +382,11 @@ De `mock-response`, als de naam al aangeeft, wordt gebruikt voor het model van d
   
 ```xml  
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
-status code. First found content type is used. If no example or schema is found, the content is empty. -->
+status code. First found content type is used. If no example or schema is found, hello content is empty. -->
 <mock-response/>
 
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
-status code and media type. If no example or schema found, the content is empty. -->
+status code and media type. If no example or schema found, hello content is empty. -->
 <mock-response status-code='200' content-type='application/json'/>  
 ```  
   
@@ -400,18 +400,18 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|--------------|  
-|statuscode in|Hiermee geeft u de statuscode van antwoord en wordt gebruikt om bijbehorende voorbeeld of schema te selecteren.|Nee|200|  
-|type inhoud|Hiermee geeft u `Content-Type` headerwaarde antwoord en wordt gebruikt om bijbehorende voorbeeld of schema te selecteren.|Nee|Geen|  
+|statuscode in|Hiermee geeft u de statuscode van antwoord en is de bijbehorende voorbeeld gebruikte tooselect of schema.|Nee|200|  
+|type inhoud|Hiermee geeft u `Content-Type` headerwaarde antwoord en de bijbehorende voorbeeld gebruikte tooselect of schema.|Nee|Geen|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** binnenkomende, uitgaande, bij fouten  
   
 -   **Beleid scopes:** alle scopes
 
 ##  <a name="Retry"></a>Probeer het opnieuw  
- De `retry` beleid de onderliggende beleidsregels eenmaal wordt uitgevoerd en vervolgens probeert om opnieuw de uitvoering ervan totdat de nieuwe poging `condition` wordt `false` of probeer het opnieuw `count` leeg.  
+ Hallo `retry` beleid de onderliggende beleidsregels eenmaal wordt uitgevoerd en vervolgens probeert om opnieuw de uitvoering ervan tot Hallo opnieuw `condition` wordt `false` of probeer het opnieuw `count` leeg.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -430,7 +430,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- In het volgende voorbeeldaanvraag forewarding wordt opnieuw geprobeerd maximaal tien keer met exponentiële algoritme proberen. Aangezien `first-fast-retry` is ingesteld op false, alle pogingen zijn onderworpen aan de algoritme van exponsntial probeer het opnieuw.  
+ In Hallo voorbeeld aanvraag forewarding na geprobeerd up tooten tijdstippen met behulp van de algoritme exponentiële probeer het opnieuw. Aangezien `first-fast-retry` is ingesteld toofalse, alle nieuwe pogingen worden onderwerp toohello exponsntial opnieuw algoritme.  
   
 ```xml  
   
@@ -450,33 +450,33 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
-|Probeer het opnieuw|Hoofdelement. Kan geen ander beleid bevatten als de onderliggende elementen.|Ja|  
+|retry|Hoofdelement. Kan geen ander beleid bevatten als de onderliggende elementen.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
 |Voorwaarde|Een boolean letterlijke waarde of [expressie](api-management-policy-expressions.md) opgeven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|N.v.t.|  
-|Aantal|Een positief getal dat aangeeft het maximale aantal nieuwe pogingen om te proberen.|Ja|N.v.t.|  
-|Interval|Een positief getal in seconden, geven de wachtinterval tussen het opnieuw probeert.|Ja|N.v.t.|  
-|Max-interval|Een positief getal in seconden voor het opgeven van de maximale wachttijd interval tussen de pogingen. Wordt gebruikt voor het implementeren van een algoritme exponentiële probeer het opnieuw.|Nee|N.v.t.|  
-|delta|Een positief getal in seconden, de wachttijd interval verhoging opgeven. Wordt gebruikt voor het implementeren van de algoritmen lineaire en exponentieel probeer het opnieuw.|Nee|N.v.t.|  
-|eerste-fast-probeer het opnieuw|Indien ingesteld op `true` , de eerste nieuwe poging wordt onmiddellijk uitgevoerd.|Nee|`false`|  
+|Aantal|Een positief getal Hallo kunt u het maximum aantal nieuwe pogingen tooattempt opgeven.|Ja|N.v.t.|  
+|interval|Een positief getal in seconden hello Wacht-interval tussen nieuwe pogingen van Hallo opgeven.|Ja|N.v.t.|  
+|Max-interval|Een positief getal in seconden hello maximale wachttijd-interval tussen nieuwe pogingen van Hallo opgeven. Is het gebruikte tooimplement een algoritme exponentiële probeer het opnieuw.|Nee|N.v.t.|  
+|delta|Een positief getal in seconden Hallo Wacht interval verhoging opgeven. Het is gebruikte tooimplement Hallo lineaire en exponentieel opnieuw algoritmen.|Nee|N.v.t.|  
+|eerste-fast-probeer het opnieuw|Als instellen te `true` , Hallo eerste nieuwe poging wordt onmiddellijk uitgevoerd.|Nee|`false`|  
   
 > [!NOTE]
->  Wanneer alleen de `interval` is opgegeven, **vaste** interval voor nieuwe pogingen worden uitgevoerd.  
->  Wanneer alleen de `interval` en `delta` zijn opgegeven, een **lineaire** interval opnieuw proberen algoritme wordt gebruikt, waarbij de tijd tussen nieuwe pogingen wordt berekend op basis van de volgende formule - `interval + (count - 1)*delta`.  
->  Wanneer de `interval`, `max-interval` en `delta` zijn opgegeven, **exponentiële** interval opnieuw proberen algoritme wordt toegepast, waarbij de wachttijd tussen de pogingen groeit exponentieel van de waarde van `interval` naar de waarde `max-interval` volgens de volgende forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.  
+>  Wanneer alleen Hallo `interval` is opgegeven, **vaste** interval voor nieuwe pogingen worden uitgevoerd.  
+>  Wanneer alleen Hallo `interval` en `delta` zijn opgegeven, een **lineaire** interval opnieuw proberen algoritme wordt gebruikt, waarbij de tijd tussen nieuwe pogingen berekende volgens Hallo formule - de volgende `interval + (count - 1)*delta`.  
+>  Wanneer Hallo `interval`, `max-interval` en `delta` zijn opgegeven, **exponentiële** interval opnieuw proberen algoritme wordt toegepast, waarbij Hallo wachttijd tussen nieuwe pogingen Hallo groeit exponentieel van Hallo-waarde van `interval`toohello waarde `max-interval` op basis van de volgende toohello forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Houd er rekening mee dat informatie over het gebruik van onderliggende beleidsbeperkingen wordt overgenomen door dit beleid.  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Houd er rekening mee dat informatie over het gebruik van onderliggende beleidsbeperkingen wordt overgenomen door dit beleid.  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="ReturnResponse"></a>Antwoord retourneren  
- De `return-response` beleid annuleert pipeline-uitvoering en retourneert een standaardwaarde of een aangepast antwoord naar de aanroeper. Standaardantwoord is `200 OK` met geen hoofdcode. Aangepast antwoord kan worden opgegeven via de instructies voor een context variabele of beleid. Wanneer beide zijn opgegeven, wordt de reactie die is opgenomen in de context-variabele voordat het naar de aanroeper wordt geretourneerd door de beleidsverklaringen gewijzigd.  
+ Hallo `return-response` beleid annuleert pipeline-uitvoering en retourneert een standaardwaarde of een aangepast antwoord toohello aanroeper. Standaardantwoord is `200 OK` met geen hoofdcode. Aangepast antwoord kan worden opgegeven via de instructies voor een context variabele of beleid. Wanneer beide zijn opgegeven, wordt door Hallo beleidsverklaringen antwoord Hallo opgenomen in de context-variabele Hallo gewijzigd voordat het toohello aanroeper wordt geretourneerd.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -514,17 +514,17 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Kenmerk|Beschrijving|Vereist|  
 |---------------|-----------------|--------------|  
-|naam van een antwoord variabele|De naam van de variabele context waarnaar wordt verwezen vanuit, bijvoorbeeld een upstream [aanvragen verzenden](api-management-advanced-policies.md#SendRequest) beleid en met een `Response` object|Optioneel.|  
+|naam van een antwoord variabele|Hallo Hallo context variabele voor waarnaar wordt verwezen vanuit, bijvoorbeeld een upstream [aanvragen verzenden](api-management-advanced-policies.md#SendRequest) beleid en met een `Response` object|Optioneel.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="SendOneWayRequest"></a>Eenzijdige aanvraag verzenden  
- De `send-one-way-request` beleid voor de opgegeven aanvraag verzendt naar de opgegeven URL zonder te wachten op reactie.  
+ Hallo `send-one-way-request` beleid verzendt Hallo opgegeven aanvraag toohello URL opgegeven zonder te wachten op reactie.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -539,7 +539,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- Dit beleid voorbeeld toont een voorbeeld van het gebruik van de `send-one-way-request` beleid een bericht te verzenden naar toegestane chatruimten als de HTTP-antwoordcode groter dan of gelijk zijn aan 500 is. Zie voor meer informatie over dit voorbeeld [met behulp van externe services van de Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+ Dit beleid voorbeeld toont een voorbeeld van het gebruik van Hallo `send-one-way-request` beleid toosend bericht tooa toegestane chatruimten als Hallo HTTP-antwoordcode groter dan of gelijk too500 is. Zie voor meer informatie over dit voorbeeld [met behulp van externe services van hello Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
 <choose>  
@@ -572,28 +572,28 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
 |een-manier-verzoek om te verzenden|Hoofdelement.|Ja|  
-|URL|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
-|Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|URL|Hallo-URL van Hallo-aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|Methode|Hallo HTTP-methode voor Hallo-aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
-|Hoofdtekst|De aanvraagtekst.|Nee|  
+|Hoofdtekst|Hallo aanvraagtekst.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
-|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N.v.t.|  
-|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
+|modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag Hallo is. In de uitgaande modus, modus = kopie Hallo aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
+|naam|Geeft de naam Hallo van Hallo header toobe set.|Ja|N.v.t.|  
+|Er bestaat actie|Geeft aan welke actie tootake Hallo-header is al opgegeven. Dit kenmerk moet een van de volgende waarden Hallo hebben.<br /><br /> -onderdrukkingswaarde - vervangt Hallo van bestaande Hallo-header.<br />-skip - vervangen Hallo bestaande header-waarde niet.<br />-toevoeg - Hallo waarde toohello bestaande header-waarde wordt toegevoegd.<br />Hallo-header verwijdert - delete - van Hallo-aanvraag.<br /><br /> Als de waarde te`override` opnemen van meerdere vermeldingen met Hallo dezelfde resulteert in het Hallo-header wordt ingesteld volgens tooall-vermeldingen (die wordt vermeld meerdere keren) naam; alleen de vermelde waarden worden ingesteld in Hallo resultaat.|Nee|overschrijven|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="SendRequest"></a>Aanvraag verzenden  
- De `send-request` beleid voor de opgegeven aanvraag verzendt naar de opgegeven URL wacht niet langer dan de ingestelde time-out-waarde.  
+ Hallo `send-request` beleid verzendt Hallo opgegeven aanvraag toohello opgegeven URL, niet langer wachten dan Hallo time-outwaarde instellen.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -609,14 +609,14 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- In dit voorbeeld ziet een manier om te controleren of de verwijzing naar een token met een server voor autorisatie. Zie voor meer informatie over dit voorbeeld [met behulp van externe services van de Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+ Dit voorbeeld ziet u een referentie-token met een server autorisatie eenrichtingssessie tooverify. Zie voor meer informatie over dit voorbeeld [met behulp van externe services van hello Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
 <inbound>  
   <!-- Extract Token from Authorization header parameter -->  
   <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />  
   
-  <!-- Send request to Token Server to validate token (see RFC 7662) -->  
+  <!-- Send request tooToken Server toovalidate token (see RFC 7662) -->  
   <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">  
     <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>  
     <set-method>POST</set-method>  
@@ -651,31 +651,31 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
 |aanvragen verzenden|Hoofdelement.|Ja|  
-|URL|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
-|Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|URL|Hallo-URL van Hallo-aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|Methode|Hallo HTTP-methode voor Hallo-aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
-|Hoofdtekst|De aanvraagtekst.|Nee|  
+|Hoofdtekst|Hallo aanvraagtekst.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
+|modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag Hallo is. In de uitgaande modus, modus = kopie Hallo aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
 |antwoord-variabele-name = 'tekenreeks'|Als deze niet aanwezig is, `context.Response` wordt gebruikt.|Nee|N.v.t.|  
-|time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de URL is mislukt.|Nee|60|  
-|fout negeren|Indien true en de aanvraag resulteert in een fout opgetreden:<br /><br /> -Als de naam van een antwoord variabele bevat een null-waarde is opgegeven.<br />-Als de naam van een antwoord variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|ONWAAR|  
-|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N.v.t.|  
-|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
+|time-out = 'integer'|Hallo-time-outinterval in seconden voordat de aanroep van Hallo toohello URL is mislukt.|Nee|60|  
+|fout negeren|Als true en Hallo resulteert in een fout opgetreden aanvragen:<br /><br /> -Als de naam van een antwoord variabele bevat een null-waarde is opgegeven.<br />-Als de naam van een antwoord variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|ONWAAR|  
+|naam|Geeft de naam Hallo van Hallo header toobe set.|Ja|N.v.t.|  
+|Er bestaat actie|Geeft aan welke actie tootake Hallo-header is al opgegeven. Dit kenmerk moet een van de volgende waarden Hallo hebben.<br /><br /> -onderdrukkingswaarde - vervangt Hallo van bestaande Hallo-header.<br />-skip - vervangen Hallo bestaande header-waarde niet.<br />-toevoeg - Hallo waarde toohello bestaande header-waarde wordt toegevoegd.<br />Hallo-header verwijdert - delete - van Hallo-aanvraag.<br /><br /> Als de waarde te`override` opnemen van meerdere vermeldingen met Hallo dezelfde resulteert in het Hallo-header wordt ingesteld volgens tooall-vermeldingen (die wordt vermeld meerdere keren) naam; alleen de vermelde waarden worden ingesteld in Hallo resultaat.|Nee|overschrijven|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="SetHttpProxy"></a>Set HTTP-proxy  
- De `proxy` beleid kunt u op route-aanvragen worden doorgestuurd naar de back-ends via een HTTP-proxy. Alleen HTTP (niet HTTPS) wordt ondersteund tussen de gateway en de proxy. Basic- en NTLM-verificatie.
+ Hallo `proxy` beleid kunt u tooroute aanvragen doorgestuurd toobackends via een HTTP-proxy. Alleen HTTP (niet HTTPS) wordt ondersteund tussen Hallo-gateway en het Hallo-proxy. Basic- en NTLM-verificatie.
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -685,7 +685,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Voorbeeld  
-Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als waarden van de gebruikersnaam en wachtwoord om te voorkomen dat gevoelige informatie op te slaan in het beleidsdocument.  
+Houd er rekening mee Hallo gebruik van [eigenschappen](api-management-howto-properties.md) als de waarden van het Hallo-gebruikersnaam en wachtwoord tooavoid gevoelige informatie op te slaan in Hallo beleidsdocument.  
   
 ```xml  
 <proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
@@ -702,19 +702,19 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|URL = 'tekenreeks'|Proxy-URL in de vorm van http://host:port.|Ja|N.v.t.|  
-|gebruikersnaam = 'tekenreeks'|De gebruikersnaam moet worden gebruikt voor verificatie met de proxy.|Nee|N.v.t.|  
-|wachtwoord = 'tekenreeks'|Wachtwoord moet worden gebruikt voor verificatie met de proxy.|Nee|N.v.t.|  
+|URL = 'tekenreeks'|Proxy-URL in de vorm Hallo van http://host:port.|Ja|N.v.t.|  
+|gebruikersnaam = 'tekenreeks'|Gebruikersnaam toobe gebruikt voor verificatie met Hallo proxy.|Nee|N.v.t.|  
+|wachtwoord = 'tekenreeks'|Wachtwoord toobe gebruikt voor verificatie met Hallo proxy.|Nee|N.v.t.|  
 
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** alle scopes  
 
 ##  <a name="SetRequestMethod"></a>Set-aanvraagmethode  
- De `set-method` beleid kunt u de HTTP-aanvraagmethode voor een aanvraag wijzigen.  
+ Hallo `set-method` beleid kunt u toochange Hallo HTTP-aanvraagmethode voor een aanvraag.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -724,7 +724,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- Dit voorbeeld-beleid die gebruikmaakt van de `set-method` beleid toont een voorbeeld van een bericht verzenden naar toegestane chatruimten als de HTTP-antwoordcode groter dan of gelijk zijn aan 500 is. Zie voor meer informatie over dit voorbeeld [met behulp van externe services van de Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
+ Dit voorbeeld-beleid die gebruikmaakt van Hallo `set-method` beleid toont een voorbeeld van het verzenden van bericht tooa toegestane chatruimten als Hallo HTTP-antwoordcode groter dan is of gelijk too500. Zie voor meer informatie over dit voorbeeld [met behulp van externe services van hello Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
 <choose>  
@@ -756,17 +756,17 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
-|set-methode|Hoofdelement. De waarde van het element bevat de HTTP-methode.|Ja|  
+|set-methode|Hoofdelement. Hallo-waarde van Hallo element geeft Hallo HTTP-methode.|Ja|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, bij fouten  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="SetStatus"></a>Set-statuscode  
- De `set-status` beleid wordt de HTTP-statuscode ingesteld op de opgegeven waarde.  
+ Hallo `set-status` beleid sets Hallo HTTP status code toohello opgegeven waarde.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -776,7 +776,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- In dit voorbeeld laat zien hoe een 401-respons retourneren als het verificatietoken ongeldig is. Zie voor meer informatie [met behulp van externe services van de Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
+ Dit voorbeeld ziet u hoe tooreturn een 401-respons als Hallo verificatietoken is ongeldig. Zie voor meer informatie [met behulp van externe services van hello Azure API Management-service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)  
   
 ```xml  
 <choose>  
@@ -802,18 +802,18 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|code = 'integer'|De HTTP-statuscode te retourneren.|Ja|N.v.t.|  
-|reden = 'tekenreeks'|Een beschrijving van de reden voor het retourneren van de statuscode.|Ja|N.v.t.|  
+|code = 'integer'|Hallo HTTP status code tooreturn.|Ja|N.v.t.|  
+|reden = 'tekenreeks'|Een beschrijving van Hallo reden voor het retourneren van Hallo-statuscode.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** uitgaand, back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
 
 ##  <a name="set-variable"></a>Variabele instellen  
- De `set-variable` beleid declareert een [context](api-management-policy-expressions.md#ContextVariables) variabele en hieraan een waarde die is opgegeven een [expressie](api-management-policy-expressions.md) of een letterlijke tekenreeks. Als de expressie een letterlijke reeks bevat wordt geconverteerd naar een tekenreeks en het type van de waarde niet `System.String`.  
+ Hallo `set-variable` beleid declareert een [context](api-management-policy-expressions.md#ContextVariables) variabele en hieraan een waarde die is opgegeven een [expressie](api-management-policy-expressions.md) of een letterlijke tekenreeks. Als het Hallo-expressie bevat een letterlijke reeks wordt geconverteerd tooa tekenreeks en Hallo type Hallo-waarde niet `System.String`.  
   
 ###  <a name="set-variablePolicyStatement"></a>Beleidsverklaring  
   
@@ -822,7 +822,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 ```  
   
 ###  <a name="set-variableExample"></a>Voorbeeld  
- Het volgende voorbeeld wordt een variabele beleid instellen in de sectie binnenkomend. Deze variabele beleid instellen maakt een `isMobile` Booleaanse [context](api-management-policy-expressions.md#ContextVariables) variabele die is ingesteld op true als de `User-Agent` aanvraag-header bevat de tekst `iPad` of `iPhone`.  
+ Hallo volgende voorbeeld ziet u een variabele beleid instellen in Hallo inkomende sectie. Deze variabele beleid instellen maakt een `isMobile` Booleaanse [context](api-management-policy-expressions.md#ContextVariables) variabele die tootrue is ingesteld als hello `User-Agent` aanvraag-header bevat de tekst hello `iPad` of `iPhone`.  
   
 ```xml  
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />  
@@ -838,18 +838,18 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|  
 |---------------|-----------------|--------------|  
-|naam|De naam van de variabele.|Ja|  
-|waarde|De waarde van de variabele. Dit kan een expressie of een letterlijke waarde zijn.|Ja|  
+|naam|Hallo-naam van Hallo-variabele.|Ja|  
+|waarde|Hallo-waarde van Hallo-variabele. Dit kan een expressie of een letterlijke waarde zijn.|Ja|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ###  <a name="set-variableAllowedTypes"></a>Toegestane typen  
- Expressies in de `set-variable` beleid moet een van de volgende eenvoudige typen retourneren.  
+ Expressies in Hallo `set-variable` beleid moet een van volgende basistypen Hallo retourneren.  
   
 -   System.Boolean  
   
@@ -914,7 +914,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>Tracering  
- De `trace` beleid wordt toegevoegd een tekenreeks in de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) uitvoer. Het beleid wordt uitgevoerd, alleen wanneer tracering wordt geactiveerd, dat wil zeggen `Ocp-Apim-Trace` aanvraagheader aanwezig is en is ingesteld op `true` en `Ocp-Apim-Subscription-Key` aanvraagheader aanwezig is en een geldige sleutel die is gekoppeld aan het beheerdersaccount bevat.  
+ Hallo `trace` beleid wordt een tekenreeks toegevoegd in Hallo [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) uitvoer. Hallo beleid worden uitgevoerd alleen wanneer tracering wordt geactiveerd, dat wil zeggen `Ocp-Apim-Trace` aanvraagheader aanwezig is en stel te`true` en `Ocp-Apim-Subscription-Key` aanvraagheader aanwezig is en bevat een geldige sleutel die is gekoppeld aan het Hallo-beheeraccount.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -936,17 +936,17 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|Bron|Letterlijke tekenreeks relevant zijn voor de traceringsviewer en de bron van het bericht op te geven.|Ja|N.v.t.|  
+|Bron|Tekenreeks van letterlijke zinvolle toohello traceringsviewer en geven Hallo bron van het Hallo-bericht.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="Wait"></a>Wacht  
- De `wait` beleid bijbehorende directe onderliggende beleidsregels parallel worden uitgevoerd en wordt gewacht op alle of een van de bijbehorende directe onderliggende beleidsregels te voltooien voordat deze is voltooid. Het beleid voor de wachttijd kan hebben als het beleid direct onderliggende [Verzendaanvraag](api-management-advanced-policies.md#SendRequest), [waarde niet ophalen uit de cache](api-management-caching-policies.md#GetFromCacheByKey), en [transportbesturing](api-management-advanced-policies.md#choose) beleid.  
+ Hallo `wait` beleid bijbehorende directe onderliggende beleidsregels parallel worden uitgevoerd en wordt gewacht op alle of een van de bijbehorende directe onderliggende beleidsregels toocomplete voordat deze is voltooid. Hallo kunt wacht beleid hebben als het beleid direct onderliggende [Verzendaanvraag](api-management-advanced-policies.md#SendRequest), [waarde niet ophalen uit de cache](api-management-caching-policies.md#GetFromCacheByKey), en [transportbesturing](api-management-advanced-policies.md#choose) beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -959,7 +959,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
 ```  
   
 ### <a name="example"></a>Voorbeeld  
- In het volgende voorbeeld zijn er twee `choose` beleid als beleid direct onderliggende van de `wait` beleid. Elk van deze `choose` beleid parallel worden uitgevoerd. Elke `choose` beleid probeert op te halen van een waarde in de cache. Als er een cache ontbreekt, wordt een back-endservice aangeroepen om de waarde. In dit voorbeeld de `wait` beleid niet wordt voltooid totdat alle van de bijbehorende directe onderliggende beleidsregels hebt voltooid, omdat de `for` kenmerk is ingesteld op `all`.   In dit voorbeeld de variabelen context (`execute-branch-one`, `value-one`, `execute-branch-two`, en `value-two`) zijn gedeclareerd buiten het bereik van dit voorbeeldbeleid.  
+ In het volgende voorbeeld Hallo er zijn twee `choose` beleid als beleid direct onderliggende Hallo `wait` beleid. Elk van deze `choose` beleid parallel worden uitgevoerd. Elke `choose` beleid tooretrieve probeert een waarde in de cache. Als er een cache ontbreekt, wordt een back-endservice tooprovide Hallo waarde genoemd. In dit voorbeeld Hallo `wait` beleid niet wordt voltooid totdat alle van de bijbehorende directe onderliggende beleidsregels hebt voltooid, omdat Hallo `for` kenmerk is ingesteld, te`all`.   In dit voorbeeld Hallo context variabelen (`execute-branch-one`, `value-one`, `execute-branch-two`, en `value-two`) buiten het bereik van dit voorbeeldbeleid Hallo zijn gedeclareerd.  
   
 ```xml  
 <wait for="all">  
@@ -1003,10 +1003,10 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|voor|Hiermee wordt bepaald of de `wait` beleid wacht tot alle directe onderliggende beleidsregels is voltooid of alleen bestaan. Toegestane waarden zijn:<br /><br /> -   `all`-Wacht totdat alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op een directe onderliggende beleid om te voltooien. Zodra het eerste directe onderliggende beleid is voltooid, de `wait` beleid is voltooid en de uitvoering van een ander beleid direct onderliggende is beëindigd.|Nee|Alle|  
+|voor|Hiermee wordt bepaald of hello `wait` beleid wacht tot alle directe onderliggende beleidsregels toobe voltooid of slechts één. Toegestane waarden zijn:<br /><br /> -   `all`-alle directe onderliggende beleidsregels toocomplete wacht<br />-een - directe onderliggende beleid toocomplete wacht. Zodra het eerste directe onderliggende beleid Hallo is voltooid, Hallo `wait` beleid is voltooid en de uitvoering van een ander beleid direct onderliggende is beëindigd.|Nee|Alle|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end  
   

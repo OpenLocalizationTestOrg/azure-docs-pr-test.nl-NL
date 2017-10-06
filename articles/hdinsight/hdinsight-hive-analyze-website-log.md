@@ -1,6 +1,6 @@
 ---
-title: Hive gebruiken met Hadoop voor websitelogboekanalyse - Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruik van Hive met HDInsight websitelogboeken analyseren. U hebt een logboekbestand gebruiken als invoer in een tabel met HDInsight en HiveQL gebruiken voor het opvragen van de gegevens.
+title: aaaUse Hive met Hadoop voor websitelogboekanalyse - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse Hive met HDInsight tooanalyze website registreert. U hebt een logboekbestand gebruiken als invoer in een tabel met HDInsight en HiveQL tooquery Hallo gegevens worden gebruikt.
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,44 +16,44 @@ ms.topic: article
 ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: e1cdb786bb6049980aafc0213abf53013e342618
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9cbce3cc8cf8bc3ad104dc4ca6a5628802c8fe89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Hive gebruiken met HDInsight op basis van Windows logboeken van websites te analyseren
-Informatie over het HiveQL gebruiken met HDInsight voor het analyseren van Logboeken vanaf een website. Websitelogboekanalyse kan worden gebruikt om segmenteren van uw doelgroep op basis van soortgelijke activiteiten, demografische gegevens van bezoekers categoriseren en wilt weten de inhoud ze weergeven, de websites die ze afkomstig zijn van, enzovoort.
+# <a name="use-hive-with-windows-based-hdinsight-tooanalyze-logs-from-websites"></a>Hive gebruiken met HDInsight op basis van Windows tooanalyze logboeken van websites
+Meer informatie over hoe toouse HiveQL met HDInsight tooanalyze registreert vanaf een website. Websitelogboekanalyse kunt gebruikte toosegment worden uw doelgroep op basis van soortgelijke activiteiten, categoriseren bezoekers door demografische gegevens en toofind uit Hallo inhoud die ze bekijken en Hallo websites die afkomstig zijn uit.
 
 > [!IMPORTANT]
-> De stappen in dit document wordt alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Hallo stappen in dit document alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-In dit voorbeeld gebruikt u een HDInsight-cluster voor het analyseren van de logboekbestanden van de website om inzicht te krijgen in de frequentie van bezoeken van externe websites in een dag naar de website. Ook genereert u een overzicht van website-fouten die optreden van de gebruikers. U leert hoe:
+In dit voorbeeld gebruikt u een HDInsight-cluster tooanalyze website logboek bestanden tooget inzicht in de frequentie van toohello-website bezoeken van externe websites Hallo in een dag. U hebt ook een overzicht van website-fouten die Hallo gebruikers ondervinden genereren. U leert hoe:
 
-* Verbinding maken met een Azure Blob storage, bevat de logboekbestanden van de website.
-* HIVE-tabellen om op te vragen deze logboeken maken.
-* Maak HIVE-query's om de gegevens te analyseren.
-* Microsoft Excel gebruiken voor verbinding met HDInsight (met behulp van (ODBC) open database connectivity geanalyseerde gegevens ophalen.
+* Verbinding maken met tooa Azure Blob storage, waarin de logboekbestanden van de website.
+* Maken van HIVE-tabellen tooquery deze logboeken.
+* HIVE-query's tooanalyze Hallo gegevens maken.
+* Microsoft Excel tooconnect tooHDInsight gebruiken (met behulp van open database connectivity (ODBC) tooretrieve hallo geanalyseerd-gegevens.
 
 ![HDI. Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet een Hadoop-cluster in Azure HDInsight hebt ingericht. Zie voor instructies [HDInsight-Clusters inrichten][hdinsight-provision].
 * U moet Microsoft Excel 2013 of Excel 2010 is geïnstalleerd.
-* U moet hebben [stuurprogramma Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886) gegevens importeren uit Hive in Excel.
+* U moet hebben [stuurprogramma Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886) tooimport gegevens van Hive in Excel.
 
-## <a name="to-run-the-sample"></a>Het voorbeeld uitvoeren
-1. Van de [Azure Portal](https://portal.azure.com/), vanaf het Startboard (als u er in het cluster hebt vastgemaakt), klik op de tegel van het cluster waarop u wilt uitvoeren van het voorbeeld.
-2. De cluster-blade onder **snelkoppelingen**, klikt u op **Cluster-Dashboard**, en vervolgens naar de **Cluster-Dashboard** blade, klikt u op **HDInsight-Cluster Dashboard**. U kunt het dashboard ook rechtstreeks openen met behulp van de volgende URL:
+## <a name="toorun-hello-sample"></a>toorun Hallo-voorbeeld
+1. Van Hallo [Azure Portal](https://portal.azure.com/), Hallo Startboard (als u er Hallo cluster hebt vastgemaakt), klik op Hallo cluster tegel waarop toorun Hallo voorbeeld.
+2. Bij Hallo cluster blade onder **snelkoppelingen**, klikt u op **Cluster-Dashboard**, en klik vervolgens vanuit Hallo **Cluster-Dashboard** blade, klikt u op **HDInsight-Cluster Dashboard**. U kunt ook rechtstreeks Hallo dashboard openen met behulp van Hallo URL te volgen:
 
          https://<clustername>.azurehdinsight.net
 
-    Wanneer u wordt gevraagd, worden geverifieerd met behulp van de administrator-gebruikersnaam en wachtwoord waarmee u bij het inrichten van het cluster.
-3. Op de webpagina klikt u op de **Getting Started galerie** tabblad en klik vervolgens onder de **oplossingen met voorbeeldgegevens** categorie, klikt u op de **Websitelogboekanalyse** voorbeeld.
-4. Volg de instructies op de pagina voor het voltooien van de steekproef.
+    Wanneer u wordt gevraagd, kunt u verifiëren met behulp van Hallo beheerder-gebruikersnaam en wachtwoord die u hebt gebruikt bij het inrichten van Hallo-cluster.
+3. Van de webpagina Hallo dat wordt geopend, klikt u op Hallo **Getting Started galerie** tabblad en klik vervolgens onder Hallo **oplossingen met voorbeeldgegevens** categorie, klikt u op Hallo **Websitelogboekanalyse** voorbeeld.
+4. Volg de aanwijzingen Hallo van Hallo webpagina toofinish Hallo steekproef.
 
 ## <a name="next-steps"></a>Volgende stappen
-Probeer het volgende voorbeeld: [analyseren van sensorgegevens met Hive met HDInsight](hdinsight-hive-analyze-sensor-data.md).
+Probeer Hallo voorbeeld te volgen: [analyseren van sensorgegevens met Hive met HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

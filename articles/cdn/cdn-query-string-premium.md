@@ -1,6 +1,6 @@
 ---
-title: Beheren van Azure CDN cachegedrag met queryreeksen - Premium | Microsoft Docs
-description: Azure CDN-queryreeks opslaan in cache bepaalt hoe bestanden worden in de cache worden opgeslagen wanneer ze queryreeksen bevatten.
+title: cachegedrag van Azure CDN met queryreeksen - Premium aaaControl | Microsoft Docs
+description: Azure CDN-queryreeks opslaan in cache bepaalt hoe bestanden toobe worden wanneer ze queryreeksen bevatten in de cache opgeslagen.
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5c97cf0230ae13fd378bfce49481f3135a5ef101
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Besturingselement Azure CDN cachegedrag met queryreeksen - Premium
 > [!div class="op_single_selector"]
@@ -28,34 +28,34 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="overview"></a>Overzicht
-Queryreeks opslaan in cache bepaalt hoe bestanden worden in de cache worden opgeslagen wanneer ze queryreeksen bevatten.
+Queryreeks opslaan in cache bepaalt hoe bestanden toobe worden wanneer ze queryreeksen bevatten in de cache opgeslagen.
 
 > [!IMPORTANT]
-> De Standard en Premium-CDN-producten, bieden dezelfde querytekenreeks cache-functionaliteit, maar de gebruikersinterface verschilt.  Dit document beschrijft de interface voor **Azure CDN Premium van Verizon**.  Voor deze query opslaan in cache met **Azure CDN Standard van Akamai** en **Azure CDN Standard van Verizon**, Zie [beheren cachegedrag van CDN aanvragen met querytekenreeksen](cdn-query-string.md).
+> Hallo Standard en Premium-CDN-producten bieden Hallo dezelfde tekenreeks in het cachegeheugen functionaliteit query, maar het Hallo-gebruikersinterface verschilt.  Dit document beschrijft Hallo-interface voor **Azure CDN Premium van Verizon**.  Voor deze query opslaan in cache met **Azure CDN Standard van Akamai** en **Azure CDN Standard van Verizon**, Zie [beheren cachegedrag van CDN aanvragen met querytekenreeksen](cdn-query-string.md).
 > 
 > 
 
 Drie beschikbare modi zijn beschikbaar:
 
-* **Standard-cache**: dit is de standaardmodus.  Het CDN edge-knooppunt geeft de queryreeks van de aanvrager aan de oorsprong op de eerste aanvraag en cache de asset.  Alle volgende aanvragen voor de activa die worden aangeboden via het edge-knooppunt kan de query-tekenreeks worden genegeerd totdat de activa in de cache verloopt.
-* **Er is geen cache**: In deze modus kan aanvragen met queryreeksen zijn niet in cache opgeslagen op de edge-knooppunt van het CDN.  Het edge-knooppunt ophalen van de asset rechtstreeks vanuit de oorsprong en wordt doorgegeven aan de aanvrager aan elke aanvraag.
-* **unieke cache**: in deze modus wordt elke aanvraag met een queryreeks beschouwd als een unieke activum met een eigen cache.  Bijvoorbeeld: de reactie van de oorsprong van een aanvraag voor *foo.ashx?q=bar* zou worden in de cache opgeslagen op de edge-knooppunt en voor daaropvolgende caches met die dezelfde querytekenreeks geretourneerd.  Een aanvraag voor *foo.ashx?q=somethingelse* zou in de cache opgeslagen als een afzonderlijk actief met een eigen tijd levensduur.
+* **Standard-cache**: dit is de standaardmodus Hallo.  op de eerste aanvraag Hallo en cache Hallo asset geeft Hallo CDN edge-knooppunt Hallo queryreeks vanuit Hallo aanvrager toohello oorsprong.  Alle volgende aanvragen voor de activa die worden aangeboden via edge-knooppunt Hallo negeert Hallo queryreeks totdat Hallo in de cache asset verloopt.
+* **Er is geen cache**: In deze modus kan aanvragen met querytekenreeksen in cache zijn niet opgeslagen op Hallo CDN edge-knooppunt.  Hallo edge-knooppunt Hallo asset haalt rechtstreeks vanuit de oorsprong Hallo en geeft deze door de aanvrager toohello bij elke aanvraag.
+* **unieke cache**: in deze modus wordt elke aanvraag met een queryreeks beschouwd als een unieke activum met een eigen cache.  Bijvoorbeeld, Hallo reactie van de oorsprong Hallo voor een aanvraag voor *foo.ashx?q=bar* zou worden in de cache opgeslagen op Hallo edge-knooppunt en voor daaropvolgende caches met die dezelfde querytekenreeks geretourneerd.  Een aanvraag voor *foo.ashx?q=somethingelse* zou in de cache opgeslagen als een afzonderlijk actief met een eigen toolive tijd.
 
 ## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Het wijzigen van de queryreeks opslaan in cache-instellingen voor premium-CDN-profielen
-1. Klik in de blade CDN-profiel op de **beheren** knop.
+1. Blade voor Hallo CDN-profiel, klik op Hallo **beheren** knop.
    
     ![Knop blade CDN-profiel beheren](./media/cdn-query-string-premium/cdn-manage-btn.png)
    
-    Hiermee opent u de CDN-beheerportal.
-2. Beweeg de muisaanwijzer over de **HTTP grote** tabblad en klik vervolgens Beweeg de muisaanwijzer over de **Cache-instellingen** doel.  Klik op **queryreeks Caching**.
+    Hallo CDN-beheerportal geopend.
+2. Houd de muis boven Hallo **HTTP grote** tabblad en houd de muis boven Hallo **Cache-instellingen** doel.  Klik op **queryreeks Caching**.
    
     Queryreeks cache-opties worden weergegeven.
    
     ![CDN-queryreeks cacheopties](./media/cdn-query-string-premium/cdn-query-string.png)
-3. Nadat u hebt geselecteerd, klikt u op de **Update** knop.
+3. Nadat u hebt geselecteerd, klikt u op Hallo **Update** knop.
 
 > [!IMPORTANT]
-> Wijzigingen in de instellingen zijn mogelijk niet direct weergegeven als het duurt om de registratie te geven in CDN.  Profielen van <b>Azure CDN van Verizon</b> worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.
+> Hallo instellingen wijzigingen zijn mogelijk niet direct weergegeven als het duurt voor Hallo registratie toopropagate via Hallo CDN.  Profielen van <b>Azure CDN van Verizon</b> worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.
 > 
 > 
 

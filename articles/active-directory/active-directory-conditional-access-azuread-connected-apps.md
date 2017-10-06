@@ -1,6 +1,6 @@
 ---
-title: Azure voorwaardelijke toegang voor SaaS-Apps | Microsoft Docs
-description: 'Voorwaardelijke toegang in Azure AD kunt u regels voor toegang per toepassing multi-factor authentication-server en de mogelijkheid om te blokkeren van toegang voor gebruikers niet op een vertrouwd netwerk configureren. '
+title: aaaAzure voorwaardelijke toegang voor SaaS-Apps | Microsoft Docs
+description: 'Voorwaardelijke toegang in Azure AD kunt u tooconfigure per toepassing meerledige verificatie toegangsregels en Hallo mogelijkheid tooblock toegang voor gebruikers niet op een vertrouwd netwerk. '
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: efaa70467346e910a78a63d182041029bb34b1cc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 69748014c0c8e266ba66562980c784aba4c68d80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Aan de slag met Azure Active Directory voorwaardelijke toegang
 Azure Active Directory voorwaardelijke toegang voor [SaaS](https://azure.microsoft.com/overview/what-is-saas/) apps en Azure AD verbonden apps kunt u voorwaardelijke toegang op basis van de groep, de locatie en de gevoeligheid van de toepassing configureren. 
 
-Met voorwaardelijke toegang op basis van de gevoeligheid van toepassing, kunt u regels voor multi-factor authentication (MFA) toegang per toepassing instellen. MFA per toepassing biedt de mogelijkheid om te blokkeren van toegang voor gebruikers die zich niet op een vertrouwd netwerk. U kunt MFA regels toepassen op alle gebruikers die zijn toegewezen aan de toepassing of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen.  Gebruikers kunnen worden uitgesloten van de MFA-vereiste als ze toegang hebben tot de toepassing van een IP-adres in het bedrijfsnetwerk.
+Met voorwaardelijke toegang op basis van de gevoeligheid van toepassing, kunt u regels voor multi-factor authentication (MFA) toegang per toepassing instellen. MFA per toepassing biedt Hallo mogelijkheid tooblock toegang voor gebruikers die zich niet op een vertrouwd netwerk. U kunt MFA regels tooall gebruikers die zijn toegewezen toohello toepassing, of alleen voor gebruikers binnen de opgegeven beveiligingsgroepen kunt toepassen.  Gebruikers kunnen worden uitgesloten van MFA-vereiste Hallo als ze Hallo toepassing van een IP-adres in van de organisatie Hallo-netwerk.
 
-Deze mogelijkheden zijn beschikbaar voor klanten die een Azure Active Directory Premium-licentie hebt aangeschaft.
+Deze mogelijkheden zijn beschikbaar toocustomers die een Azure Active Directory Premium-licentie hebt aangeschaft.
 
 ## <a name="scenario-prerequisites"></a>Scenario-vereisten
 * Licentie voor Azure Active Directory Premium
@@ -33,57 +33,57 @@ Deze mogelijkheden zijn beschikbaar voor klanten die een Azure Active Directory 
 * Federatieve tenants vereisen meervoudige verificatie worden ingeschakeld.
 
 ## <a name="configure-per-application-access-rules"></a>Configureer regels voor toegang per toepassing
-Deze sectie beschrijft het configureren van regels voor toegang per toepassing.
+Deze sectie wordt beschreven hoe tooconfigure per toepassing toegang tot regels.
 
-1. Aanmelden bij de klassieke Azure portal met behulp van een account dat een hoofdbeheerder voor Azure AD.
-2. Selecteer in het linkerdeelvenster **Active Directory**.
-3. Selecteer uw directory op het tabblad map.
-4. Selecteer de **toepassingen** tabblad.
-5. Selecteer de toepassing die de regel worden ingesteld voor.
-6. Selecteer de tab **Configureren**.
-7. Schuif omlaag naar de sectie toegang regels. Selecteer de gewenste toegangsregel.
-8. Geef de gebruikers die de regel van toepassing.
-9. Inschakelen van het beleid door het selecteren **ingeschakeld op**.
+1. Meld u aan toohello klassieke Azure-portal met behulp van een account dat een hoofdbeheerder voor Azure AD.
+2. Selecteer in het linkerdeelvenster Hallo **Active Directory**.
+3. Tabblad Hallo-map, selecteer uw directory.
+4. Selecteer Hallo **toepassingen** tabblad.
+5. Selecteer Hallo-toepassing die Hallo regel worden ingesteld voor.
+6. Selecteer Hallo **configureren** tabblad.
+7. Schuif naar beneden toohello toegang regels sectie. Selecteer de gewenste toegangsregel Hallo.
+8. Geef gebruikers met Hallo Hallo regel van toepassing.
+9. Hallo-beleid inschakelen door het selecteren **toobe ingeschakeld op**.
 
 ## <a name="understanding-access-rules"></a>Understanding toegangsregels
-Deze sectie geeft een gedetailleerde beschrijving van de toegangsregels die worden ondersteund in de Azure voorwaardelijke toegang tot toepassingen.
+Deze sectie geeft een gedetailleerde beschrijving van de toegangsregels hello wordt ondersteund in hello Azure voorwaardelijke toegang tot toepassingen.
 
-### <a name="specifying-the-users-the-access-rules-apply-to"></a>Geven de gebruikers de regels voor toegang van toepassing op
-Standaard wordt het beleid toepassen op alle gebruikers die toegang tot de toepassing hebben. U kunt echter ook het beleid voor gebruikers die lid van de opgegeven beveiligingsgroepen zijn beperken. De **groep toevoegen** knop wordt gebruikt om te selecteren van een of meer groepen in het groepsdialoogvenster waarop de toegangsregel van toepassing. Dit dialoogvenster kan ook worden gebruikt om te verwijderen van de geselecteerde groepen. Wanneer de regels toepassen op groepen zijn geselecteerd, wordt de toegangsregels alleen afgedwongen voor gebruikers die deel uitmaken van een van de opgegeven beveiligingsgroepen.
+### <a name="specifying-hello-users-hello-access-rules-apply-to"></a>Geven Hallo gebruikers Hallo toegang regels van toepassing op
+Standaard Hallo beleid van toepassing tooall-gebruikers die toegang toohello toepassing hebben. Echter, u kunt ook beperken Hallo beleid toousers die lid van Hallo opgegeven zijn beveiligingsgroepen. Hallo **groep toevoegen** knop is gebruikte tooselect een of meer groepen van dialoogvenster voor Groepselectie Hallo die Hallo toegangsregel van toepassing op. Dit dialoogvenster kan ook worden gebruikt tooremove geselecteerde groepen. Wanneer regels Hallo geselecteerde tooapply tooGroups, Hallo toegangsregels alleen worden afgedwongen voor gebruikers die deel uitmaken van tooone Hallo opgegeven beveiligingsgroepen.
 
-Beveiligingsgroepen kunnen ook worden expliciet uitgesloten van het beleid door het selecteren van de **behalve** optie en een of meer groepen op te geven. Gebruikers die lid zijn van een groep in de **behalve** lijst niet worden gebruikt voor de vereiste voor meervoudige verificatie, zelfs als ze lid zijn van een groep die de toegangsregel van toepassing op.
-De toegangsregel die hieronder wordt weergegeven, moeten alle gebruikers in de groep beheerders meervoudige verificatie gebruiken bij het openen van de toepassing.
+Beveiligingsgroepen kunnen ook worden expliciet uitgesloten van Hallo beleid door het selecteren van Hallo **behalve** optie en een of meer groepen op te geven. Gebruikers die lid van een groep in Hallo zijn **behalve** lijst niet meer worden onderwerp toohello meerledige verificatie vereist, zelfs als ze lid zijn van een groep die Hallo toegangsregel van toepassing op.
+Hallo toegangsregel hieronder wordt alle gebruikers in Hallo Managers groep toouse meervoudige verificatie vereisen wanneer toegang tot de toepassing hello.
 
 ![Instellen van regels voor voorwaardelijke toegang met MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
 
 ## <a name="conditional-access-rules-with-mfa"></a>Regels voor voorwaardelijke toegang met MFA
-Als een gebruiker is geconfigureerd met de functie van de multi-factor authentication-server per gebruiker, wordt deze instelling op de gebruiker wordt gecombineerd met de regels van de multi-factor authentication-server van de app. Dit betekent dat een gebruiker die is geconfigureerd voor de per gebruiker multi-factor authentication-server moet aan de multi-factor authentication uitvoeren, zelfs als ze de multi-factor authentication-server-regels van toepassing zijn uitgesloten. Meer informatie over instellingen voor meervoudige verificatie en per gebruiker.
+Als een gebruiker is geconfigureerd met de Hallo per gebruiker multi-factor authentication-Server-functie, wordt deze instelling op Hallo gebruiker combineren met Hallo multi-factorauthenticatie regels van Hallo-app. Dit betekent een gebruiker die is geconfigureerd voor de per gebruiker multi-factor authentication-server vereist tooperform multi-factorauthenticatie zelfs als ze zijn vrijgesteld van autorisatieregels Hallo multi-factor authentication-server. Meer informatie over instellingen voor meervoudige verificatie en per gebruiker.
 
 ### <a name="access-rule-options"></a>Opties voor toegang tot de regel
-De volgende opties worden ondersteund:
+Hallo volgende opties worden ondersteund:
 
-* **Meervoudige authenticatie**: de gebruikers aan wie de toegangsregels van toepassing op, moeten volledige multi-factor authentication-server voordat de toegang tot de toepassing die het beleid van toepassing.
-* **Meervoudige authenticatie niet op het werk**: een gebruiker die afkomstig is van een vertrouwde IP-adres niet moeten worden multi-factor authentication uitvoeren. De vertrouwde IP-adresbereiken kunnen worden geconfigureerd op de pagina voor meervoudige verificatie-instellingen.
-* **Blokkeert de toegang niet op het werk**: een gebruiker die niet afkomstig is van een vertrouwde IP-adres wordt geblokkeerd. De vertrouwde IP-adresbereiken kunnen worden geconfigureerd op de pagina voor meervoudige verificatie-instellingen.
+* **Meervoudige authenticatie**: Hallo gebruikers toowhom Hallo toegangsregels van toepassing op, kunnen vereist toocomplete multi-factor authentication-server voordat toegang tot Hallo-toepassing die Hallo beleid van toepassing op.
+* **Meervoudige authenticatie niet op het werk**: een gebruiker die afkomstig is van een vertrouwde IP-adres worden niet vereist tooperform multi-factor authentication-server. Hallo vertrouwd IP-adresbereiken kunnen worden geconfigureerd op de pagina Hallo meerledige verificatie-instellingen.
+* **Blokkeert de toegang niet op het werk**: een gebruiker die niet afkomstig is van een vertrouwde IP-adres wordt geblokkeerd. Hallo vertrouwd IP-adresbereiken kunnen worden geconfigureerd op de pagina Hallo meerledige verificatie-instellingen.
 
 ### <a name="setting-rule-status"></a>Regelstatus is ingesteld
-Toegangsstatus van de regel kan de regels in of uit te schakelen. Wanneer de toegangsregels uitgeschakeld zijn, worden de vereiste voor meervoudige verificatie wordt niet afgedwongen.
+Toegangsstatus van de regel kan het Hallo-regels in- of uitschakelen. Wanneer hello toegangsregels uitgeschakeld zijn, wordt Hallo MFA-vereiste niet afgedwongen.
 
 ### <a name="access-rule-evaluation"></a>Regeltoepassing toegang
-Toegangsregels worden geëvalueerd wanneer een gebruiker een federatieve toepassing die gebruikmaakt van OAuth 2.0, OpenID Connect, SAML of WS-Federation. Toegangsregels worden bovendien geëvalueerd wanneer de OAuth 2.0 en OpenID Connect een vernieuwingstoken dat is gebruikt om toegang te verkrijgen van een toegangstoken. Als de evaluatie van het beleid mislukt als een vernieuwingstoken wordt gebruikt, de fout **invalid_grant** wordt geretourneerd, wordt hiermee de gebruiker moet opnieuw worden geverifieerd aan de client.
+Toegangsregels worden geëvalueerd wanneer een gebruiker een federatieve toepassing die gebruikmaakt van OAuth 2.0, OpenID Connect, SAML of WS-Federation. Toegangsregels worden bovendien geëvalueerd wanneer een vernieuwing token tooacquire een toegangstoken hello OAuth 2.0- en OpenID Connect. Als de evaluatie van het beleid mislukt als een vernieuwingstoken wordt gebruikt, Hallo fout **invalid_grant** wordt geretourneerd, wordt hiermee Hallo gebruiker moet toore-toohello-client te verifiëren.
 
-### <a name="configure-federation-services-to-provide-multi-factor-authentication"></a>Federatieservices om multi-factorauthenticatie configureren
-Voor federatieve tenants MFA mag worden uitgevoerd met Azure Active Directory of met de on-premises AD FS-server.
+### <a name="configure-federation-services-tooprovide-multi-factor-authentication"></a>Federation services tooprovide multi-factor authentication configureren
+Voor federatieve tenants MFA mag worden uitgevoerd met Azure Active Directory of Hallo lokale AD FS-server.
 
-MFA wordt standaard uitgevoerd op een pagina die wordt gehost door Azure Active Directory. Voor het configureren van MFA on-premises de **– SupportsMFA** eigenschap moet worden ingesteld op **true** in Azure Active Directory, met behulp van de Azure AD-module voor Windows PowerShell.
+MFA wordt standaard uitgevoerd op een pagina die wordt gehost door Azure Active Directory. tooconfigure MFA on-premises Hallo **– SupportsMFA** eigenschap te moet worden ingesteld**true** in Azure Active Directory, met behulp van hello Azure AD-module voor Windows PowerShell.
 
-Het volgende voorbeeld laat zien hoe lokale MFA inschakelen via de [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) op de tenant contoso.com:
+Hallo volgende voorbeeld laat zien hoe tooenable on-premises MFA door met behulp van Hallo [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) op Hallo contoso.com tenant:
 
     Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
 
-Naast deze vlag instelt, moet het federatieve tenant AD FS-exemplaar worden geconfigureerd voor multi-factor authentication uitvoeren. Volg de instructies voor [implementeren van Azure multi-factor Authentication lokale](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+In aanvulling toosetting deze vlag Hallo federatieve AD FS-tenant-exemplaar moet tooperform multi-factor authentication-server geconfigureerd. Volg de instructies Hallo voor [implementeren van Azure multi-factor Authentication lokale](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## <a name="related-articles"></a>Verwante artikelen
-* [Beveiligen van toegang tot Office 365 en andere apps die zijn verbonden met Azure Active Directory](active-directory-conditional-access.md)
+* [Toegang beveiligen tooOffice 365 en andere apps verbonden tooAzure Active Directory](active-directory-conditional-access.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 

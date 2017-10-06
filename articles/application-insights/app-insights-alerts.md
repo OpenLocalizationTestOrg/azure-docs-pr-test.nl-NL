@@ -1,5 +1,5 @@
 ---
-title: Meldingen instellen in Azure Application Insights | Microsoft Docs
+title: aaaSet waarschuwingen in Azure Application Insights | Microsoft Docs
 description: Blijf op de hoogte over trage responstijden, uitzonderingen, en andere prestaties of gebruik wijzigingen in uw web-app.
 services: application-insights
 documentationcenter: 
@@ -13,86 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: c8386ffc5d68260eeb75edf7efb77db1163dcef8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e160cb173e68fda2e6d97f29da342c46b7ac4f19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-alerts-in-application-insights"></a>Meldingen instellen in Application Insights
-[Azure Application Insights] [ start] kunt u een waarschuwing op wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
+[Azure Application Insights] [ start] waarschuwt u toochanges in prestaties of gebruik metrische gegevens in uw web-app. 
 
-Application Insights wordt uw live app bewaakt op een [groot aantal verschillende platformen] [ platforms] bij het vaststellen van prestatieproblemen en gebruikspatronen te begrijpen.
+Application Insights wordt uw live app bewaakt op een [groot aantal verschillende platformen] [ platforms] toohelp u prestatieproblemen en gebruikspatronen te begrijpen.
 
 Er zijn drie soorten waarschuwingen:
 
 * **Metrische waarschuwingen** laat u weten wanneer een metriek een drempelwaarde overschrijden gedurende een bepaalde - zoals reactietijden, aantal uitzonderingen is, CPU-gebruik of paginaweergaven. 
-* [**Webtests** ] [ availability] zien wanneer de site niet beschikbaar op het internet of reageert traag is. [Meer informatie][availability].
-* [**Proactieve diagnoses** ](app-insights-proactive-diagnostics.md) worden automatisch geconfigureerd om u te waarschuwen over ongebruikelijke prestatiepatronen.
+* [**Webtests** ] [ availability] laat u weten wanneer uw site is niet beschikbaar op Hallo internet of traag reageert. [Meer informatie][availability].
+* [**Proactieve diagnoses** ](app-insights-proactive-diagnostics.md) worden automatisch geconfigureerd toonotify u over ongebruikelijke prestatiepatronen.
 
 We zich richten op metrische waarschuwingen in dit artikel.
 
 ## <a name="set-a-metric-alert"></a>Een metriek waarschuwing instellen
-Open de blade met regels voor waarschuwingen en gebruik vervolgens de knop toevoegen. 
+Open Hallo waarschuwingsregels blade en gebruik Hallo toevoegen knop. 
 
-![In de blade waarschuwingsregels kiezen waarschuwing toevoegen. Uw app instellen als de bron wilt meten, Geef een naam op voor de waarschuwing en een waarde kiezen.](./media/app-insights-alerts/01-set-metric.png)
+![Hallo waarschuwingsregels blade kiezen waarschuwing toevoegen. Uw app niet instellen omdat de bron toomeasure hello, Geef een naam op voor Hallo waarschuwing en een waarde kiezen.](./media/app-insights-alerts/01-set-metric.png)
 
-* De bron voor de overige eigenschappen instellen. **Kies de resource '(onderdelen)'** als u wilt waarschuwingen instellen voor prestaties of gebruik metrische gegevens.
-* De naam die u aan de waarschuwing toewijst moet uniek zijn binnen de resourcegroep (niet alleen uw toepassing).
-* Wees voorzichtig te weten de eenheden waarin u wordt gevraagd om in te voeren van de drempelwaarde.
-* Als u het selectievakje '... e-eigenaars', worden waarschuwingen verzonden via e-mail wilt maken voor iedereen die toegang tot deze resourcegroep heeft. Als deze reeks mensen wilt uitbreiden, voeg deze toe aan de [resourcegroep of abonnement](app-insights-resources-roles-access-control.md) (niet de bron).
-* Als u 'Extra e-mailberichten' opgeeft, worden waarschuwingen verzonden naar deze personen of groepen (of u het e-eigenaars...' selectievakje aangevinkt). 
-* Stel een [webhook adres](../monitoring-and-diagnostics/insights-webhooks-alerts.md) als u een web-app die op waarschuwingen reageert hebt ingesteld. Deze wordt aangeroepen wanneer de waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat op dit moment, query-parameters niet als webhookeigenschappen doorgegeven.)
-* U kunt uitschakelen of de waarschuwing in te schakelen: Zie de knoppen aan de bovenkant van de blade.
+* Hallo-bron voordat Hallo andere eigenschappen instellen. **Kies '(onderdelen)' hello resource** als u wilt dat tooset waarschuwingen op de prestaties of gebruik metrische gegevens.
+* geeft u de waarschuwing toohello Hallo-naam moet uniek zijn binnen de resourcegroep hello (niet alleen uw toepassing).
+* Worden zorgvuldige toonote Hallo eenheden waarin u wordt gevraagd tooenter Hallo drempelwaarde.
+* Als u selectievakje Hallo '... e-eigenaars', worden waarschuwingen verzonden door de e-tooeveryone wie toegang tot toothis resourcegroep heeft. deze personen, ingesteld tooexpand toohello toe te voegen [resourcegroep of abonnement](app-insights-resources-roles-access-control.md) (geen resource Hallo).
+* Als u 'Extra e-mailberichten' opgeeft, worden waarschuwingen verzonden toothose personen of groepen (of u dit selectievakje inschakelt Hallo e-eigenaars...' vak). 
+* Stel een [webhook adres](../monitoring-and-diagnostics/insights-webhooks-alerts.md) als u een web-app die tooalerts reageert hebt ingesteld. Deze wordt aangeroepen wanneer Hallo waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat op dit moment, query-parameters niet als webhookeigenschappen doorgegeven.)
+* U kunt uitschakelen of inschakelen Hallo signaal: Hallo knoppen Hallo boven aan het Hallo-blade.
 
-*Ik ziet de waarschuwing toevoegen knop niet.* 
+*Waarschuwing knop Hallo toevoegen wordt niet weergegeven.* 
 
-* Gebruikt u een organisatie-account? Als u de eigenaar of bijdrager toegang tot de bron van deze toepassing hebt, kunt u waarschuwingen instellen. Bekijk de Access Control-blade. [Meer informatie over toegangsbeheer][roles].
+* Gebruikt u een organisatie-account? Als u de eigenaar of bijdrager toegang toothis toepassingsresource hebt, kunt u waarschuwingen instellen. Bekijk Hallo Access Control-blade. [Meer informatie over toegangsbeheer][roles].
 
 > [!NOTE]
-> In de blade waarschuwingen u ziet dat er al een waarschuwing instellen: [proactieve diagnoses](app-insights-proactive-failure-diagnostics.md). De automatische waarschuwing controleert een bepaalde meetwaarde, percentage mislukte. Tenzij u besluit de proactieve waarschuwing uitschakelen, hoeft u niet instellen van uw eigen waarschuwing voor Faalpercentage van de aanvraag. 
+> Hallo waarschuwingen blade u ziet dat er al een waarschuwing set up is: [proactieve diagnoses](app-insights-proactive-failure-diagnostics.md). Hallo automatische waarschuwing controleert een bepaalde meetwaarde, percentage mislukte. Tenzij u toodisable Hallo proactieve waarschuwing besluit, hoeft u geen tooset uw eigen een waarschuwing voor Faalpercentage van de aanvraag. 
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Uw waarschuwingen weergegeven
 Krijgt u een e-mailbericht wanneer de status van een waarschuwing wijzigt tussen inactieve en actief. 
 
-De huidige status van elke waarschuwing wordt weergegeven in de regels voor waarschuwingen-blade.
+Hallo huidige status van elke waarschuwing wordt weergegeven in Hallo waarschuwingsregels blade.
 
-Er is een overzicht van recente activiteit in de waarschuwingen vervolgkeuzelijst:
+Er is een overzicht van recente activiteiten in Hallo waarschuwingen vervolgkeuzelijst:
 
 ![Waarschuwingen-omlaag](./media/app-insights-alerts/010-alert-drop.png)
 
-De geschiedenis van statuswijzigingen is in het logboek voor activiteit:
+Hallo-geschiedenis van statuswijzigingen heeft Hallo activiteitenlogboek:
 
-![Klik op instellingen, controlelogboeken op de overzichtsblade.](./media/app-insights-alerts/09-alerts.png)
+![Klik op instellingen, controlelogboeken op de overzichtsblade Hallo](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Hoe waarschuwingen werken
-* Een waarschuwing heeft drie statussen: 'Nooit geactiveerd', 'Geactiveerd' en "Opgelost." Geactiveerde betekent dat de voorwaarde die u hebt opgegeven is waar, wanneer deze het laatst is geëvalueerd.
-* Een melding wordt gegenereerd wanneer de status van een waarschuwing wordt gewijzigd. (Als voorwaarde voor de waarschuwing al true is wanneer u de waarschuwing hebt gemaakt, mogelijk niet krijgt u een melding totdat de voorwaarde onwaar gaat.)
-* Elke melding genereert een e-mailadres als u het selectievakje e-mails aangevinkt of e-mailadressen opgegeven. U kunt ook zoeken op de vervolgkeuzelijst meldingen.
+* Een waarschuwing heeft drie statussen: 'Nooit geactiveerd', 'Geactiveerd' en "Opgelost." Geactiveerde betekent Hallo voorwaarde die u hebt opgegeven is waar, wanneer deze het laatst is geëvalueerd.
+* Een melding wordt gegenereerd wanneer de status van een waarschuwing wordt gewijzigd. (Als Hallo meldingsvoorwaarde al true is wanneer u Hallo waarschuwing gemaakt, mogelijk niet krijgt u een melding totdat Hallo voorwaarde onwaar gaat.)
+* Elke melding genereert een e-mailadres als u gecontroleerd Hallo e-mailberichten vak of e-mailadressen opgegeven. U kunt ook zoeken op Hallo meldingen vervolgkeuzelijst.
 * Een waarschuwing wordt elke keer dat een metriek, maar niet anders binnenkomt geëvalueerd.
-* De evaluatie van de metrische gegevens aggregeert gedurende de afgelopen periode en vergelijkt deze aan de drempelwaarde om de nieuwe status te bepalen.
-* De periode die u kiest, geeft het interval op gedurende welke de metrische gegevens worden geaggregeerd. Heeft geen invloed op hoe vaak de waarschuwing wordt geëvalueerd: dat is afhankelijk van de frequentie van de aankomst van metrische gegevens.
-* Als er geen gegevens zijn voor enige tijd voor een bepaalde metriek binnenkomt, heeft de afstand van de verschillende gevolgen voor de evaluatie van de waarschuwing en op de grafieken in metrische explorer. Als er geen gegevens langer dan de grafiek steekproefinterval wordt gezien geeft de grafiek in metrische explorer een waarde van 0. Maar een waarschuwing op basis van dezelfde metric is niet opnieuw geëvalueerd, en de status van de waarschuwing blijft ongewijzigd. 
+* Hallo evaluatie Hallo metriek aggregeert via Hallo voorgaande periode, en vergelijkt deze toohello drempelwaarde toodetermine Hallo nieuwe status.
+* Hallo-periode die u kiest geeft Hallo-interval gedurende welke de metrische gegevens worden geaggregeerd. Heeft geen invloed op hoe vaak hello waarschuwing wordt geëvalueerd: dat is afhankelijk van Hallo frequentie van de aankomst van metrische gegevens.
+* Als er worden geen gegevens is voor een bepaalde metriek voor even binnenkomt, heeft Hallo hiaat verschillende gevolgen voor de evaluatie van de waarschuwing en op Hallo grafieken in metrische explorer. Als er geen gegevens die u voor het langer dan steekproefinterval Hallo-grafiek toont Hallo-diagram in metrische explorer een waarde van 0. Maar een waarschuwing op basis van Hallo dezelfde metrische gegevens is niet opnieuw worden geëvalueerd en Hallo van waarschuwing status blijft ongewijzigd. 
   
-    Wanneer gegevens uiteindelijk aankomen, wordt de grafiek gaat terug naar een andere waarde dan nul. De waarschuwing wordt geëvalueerd op basis van de gegevens beschikbaar voor de periode die u hebt opgegeven. Als het nieuwe gegevenspunt beschikbaar in de periode is, de statistische functie gebaseerd alleen op dat van gegevenspunt.
-* Een waarschuwing kunt vaak knipperen tussen waarschuwingen en de goede status, zelfs als u een lange periode instelt. Dit kan gebeuren als de metrische waarde wordt bewogen rond de drempelwaarde. Er is geen hysteresis drempelwaarde: de overgang naar waarschuwing gebeurt op dezelfde waarde als de overgang op in orde.
+    Wanneer gegevens uiteindelijk aankomen, gaat de grafiek Hallo tooa back andere waarde dan nul. Hallo-waarschuwing wordt geëvalueerd op basis van Hallo gegevens beschikbaar voor Hallo periode die u hebt opgegeven. Als nieuwe gegevenspunt Hallo Hallo slechts één beschikbaar in Hallo periode, Hallo cumulatieve gebaseerd alleen op punt van gegevens.
+* Een waarschuwing kunt vaak knipperen tussen waarschuwingen en de goede status, zelfs als u een lange periode instelt. Dit kan gebeuren als de metrische waarde hello wordt bewogen rond Hallo drempelwaarde. Er is geen hysteresis Hallo drempelwaarde: Hallo overgang tooalert gebeurt op dezelfde als Hallo overgang toohealthy waarde Hallo.
 
-## <a name="what-are-good-alerts-to-set"></a>Wat zijn goede waarschuwingen instellen?
-Dit is afhankelijk van uw toepassing. Beginnen met, is het beter niet te veel metrische gegevens instellen. Besteed voldoende tijd kijken naar uw metrische grafieken terwijl uw app wordt uitgevoerd, om een idee krijgen hoe het werkt normaal. Hierdoor kunt u de prestaties verbeteren vinden. Vervolgens waarschuwingen instellen om te zien wanneer de metrische gegevens buiten de normale zone gaat. 
+## <a name="what-are-good-alerts-tooset"></a>Wat zijn goede waarschuwingen tooset?
+Dit is afhankelijk van uw toepassing. toostart, is het handig niet tooset te veel metrische gegevens. Besteed voldoende tijd kijken naar uw metrische grafieken terwijl uw app wordt uitgevoerd, tooget een idee voor hoe het werkt normaal. Deze oefening kunt u de prestaties van tooimprove manieren vinden. Stel waarschuwingen tootell u wanneer Hallo metrische gegevens buiten de normale zone Hallo gaat. 
 
 Populaire waarschuwingen zijn onder andere:
 
-* [Browser metrische gegevens][client], met name Browser **pagina laadtijden**, geschikt zijn voor webtoepassingen. Als uw pagina veel scripts heeft, moet u controleren of **browseruitzonderingen**. Om deze metrische gegevens en waarschuwingen, die u hebt voor het instellen van [webpagina bewaking][client].
-* **Serverreactietijd** voor de serverkant van webtoepassingen. En het instellen van waarschuwingen, Let op deze metrische gegevens om te zien als deze niet goed afhankelijk van hoog tarieven: variatie kan erop wijzen dat uw app wordt uitgevoerd onvoldoende resources. 
-* **Serveruitzonderingen** : als u wilt zien, kunnen sommige [aanvullende instellingen](app-insights-asp-net-exceptions.md).
+* [Browser metrische gegevens][client], met name Browser **pagina laadtijden**, geschikt zijn voor webtoepassingen. Als uw pagina veel scripts heeft, moet u controleren of **browseruitzonderingen**. In de volgorde tooget deze metrische gegevens en waarschuwingen, hebt u tooset up [webpagina bewaking][client].
+* **Serverreactietijd** voor de serverzijde Hallo van webtoepassingen. En het instellen van waarschuwingen, Let op deze metrische toosee als deze niet goed met hoog tarieven varieert: variatie kan erop wijzen dat uw app wordt uitgevoerd onvoldoende resources. 
+* **Serveruitzonderingen** -toosee ze, hebt u toodo sommige [aanvullende instellingen](app-insights-asp-net-exceptions.md).
 
-Vergeet niet dat [proactieve fout snelheid diagnostics](app-insights-proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met fout codes reageert te bewaken. 
+Vergeet niet dat [proactieve fout snelheid diagnostics](app-insights-proactive-failure-diagnostics.md) automatisch monitor Hallo-snelheid waarmee uw app toorequests met fout codes reageert. 
 
 ## <a name="automation"></a>Automatisering
-* [PowerShell gebruiken voor het instellen van waarschuwingen automatiseren](app-insights-powershell-alerts.md)
-* [Webhooks gebruiken om te reageren op waarschuwingen automatiseren](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Gebruik PowerShell tooautomate instellen van waarschuwingen](app-insights-powershell-alerts.md)
+* [Webhooks tooautomate reageert tooalerts gebruiken](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## <a name="video"></a>Video
 

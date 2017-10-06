@@ -14,102 +14,102 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: a8292474b6b81172850c11f6cb5b04baf64aec77
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11acc79e06163e3193b1aa981f2cd28af812789d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Een beheerd domein van Azure AD Domain Services beheren
-In dit artikel laat zien hoe een Azure Active Directory (AD) Domain Services beheerd domein beheren.
+Dit artikel laat zien hoe tooadminister een Azure Active Directory (AD) Domain Services beheerd domein.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
+tooperform hello taken die in dit artikel worden vermeld, hebt u nodig:
 
 1. Een geldige **Azure-abonnement**.
 2. Een **Azure AD-directory** -ofwel gesynchroniseerd met een on-premises adreslijst of een map alleen in de cloud.
-3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [handleiding](active-directory-ds-getting-started.md).
-4. Een **domein virtuele machine** van waaruit u het beheerde domein van Azure AD Domain Services beheren. Als u een dergelijke virtuele machine geen hebt, volgt u alle taken die worden beschreven in het artikel [een virtuele Windows-computer toevoegen aan een beheerd domein](active-directory-ds-admin-guide-join-windows-vm.md).
-5. U moet de referenties van een **gebruikersaccount van de ' AAD DC' beheerdersgroep** in uw directory voor het beheren van uw beheerde domein.
+3. **Azure AD Domain Services** moet zijn ingeschakeld voor hello Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle Hallo taken die worden beschreven in Hallo [handleiding](active-directory-ds-getting-started.md).
+4. Een **domein virtuele machine** hello Azure AD Domain Services beheerd domein uit die u beheert. Als u dergelijke een virtuele machine geen hebt, volgt u alle Hallo taken die worden beschreven in artikel Hallo [lid worden van een beheerd domein voor Windows virtuele machine tooa](active-directory-ds-admin-guide-join-windows-vm.md).
+5. U moet referenties op Hallo van een **account behoren toohello 'AAD DC-beheerders' gebruikersgroep** in uw directory tooadminister uw beheerde domein.
 
 <br>
 
 ## <a name="administrative-tasks-you-can-perform-on-a-managed-domain"></a>Administratieve taken die u op een beheerd domein uitvoeren kunt
-Leden van de groep 'AAD DC Administrators' krijgen bevoegdheden op het beheerde domein waarmee deze taken uit te voeren, zoals:
+Leden van Hallo ' AAD DC' beheerdersgroep krijgen bevoegdheden op Hallo beheerd domein waarmee ze tooperform taken, zoals:
 
-* Computers toevoegen aan het beheerde domein.
-* De ingebouwde GPO voor de containers 'AADDC Computers' en 'AADDC Users' in het beheerde domein configureren.
-* DNS beheren in het beheerde domein.
-* Maak en beheer van aangepaste organisatie-eenheden (OE's) voor het beheerde domein.
-* Beheerderstoegang verkrijgen tot computers die aan het beheerde domein zijn gekoppeld.
+* Lid worden machines toohello beheerde domein.
+* Hallo ingebouwde GPO voor Hallo 'AADDC Computers' en 'AADDC gebruikers' containers in Hallo beheerd domein configureren.
+* DNS op Hallo beheerd domein beheren.
+* Maken en beheren van aangepaste organisatie-eenheden (OE's) op Hallo beheerde domein.
+* Voordeel beheerderstoegang toocomputers deel toohello beheerde domein.
 
 ## <a name="administrative-privileges-you-do-not-have-on-a-managed-domain"></a>U niet op een beheerd domein hebt beheerdersbevoegdheden
-Het domein wordt beheerd door Microsoft, met inbegrip van activiteiten zoals patchen, bewaking en, back-ups maken. Daarom wordt het domein is vergrendeld en u bent niet bevoegd bepaalde beheertaken uitvoeren op het domein. Er zijn enkele voorbeelden van taken die u niet kunt uitvoeren onder.
+Hallo domein wordt beheerd door Microsoft, met inbegrip van activiteiten zoals patchen, bewaking en, back-ups maken. Daarom Hallo domein is vergrendeld en u hebt geen rechten tooperform bepaalde beheertaken op Hallo-domein. Er zijn enkele voorbeelden van taken die u niet kunt uitvoeren onder.
 
-* U domein- of Ondernemingsadministrator-bevoegdheden voor het beheerde domein niet krijgen.
-* U kunt het schema van het beheerde domein niet uitbreiden.
-* U kan geen verbinding met de domeincontrollers voor het beheerde domein met extern bureaublad.
-* U kunt domeincontrollers kan toevoegen aan het beheerde domein.
+* U domeinbeheerder of ondernemingsbeheerder bevoegdheden voor Hallo beheerde domein niet krijgen.
+* U kunt Hallo-schema van het beheerde domein Hallo niet uitbreiden.
+* U kunt toodomain controllers voor Hallo beheerde domein maken met extern bureaublad geen verbinding maken.
+* U kunt geen domain controllers toohello beheerd domein toevoegen.
 
-## <a name="task-1---provision-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Taak 1: een domein Windows Server-machine voor het extern beheren van het beheerde domein inrichten
-Azure AD Domain Services beheerde domeinen kunnen worden beheerd met vertrouwd Active Directory-beheerprogramma's zoals de Active Directory-beheercentrum (ADAC) of AD PowerShell. Tenantbeheerders hoeft geen bevoegdheden voor verbinding met domeincontrollers op het beheerde domein via Extern bureaublad. Leden van de groep 'AAD DC Administrators' beheren daarom beheerde domeinen op afstand met AD-beheerprogramma's van een Windows-Server /-client-computer die is toegevoegd aan het beheerde domein. AD-beheerprogramma's kunnen worden geïnstalleerd als onderdeel van het optionele onderdeel van Remote Server Administration Tools (RSAT) voor Windows Server en client-computers die zijn gekoppeld aan het beheerde domein.
+## <a name="task-1---provision-a-domain-joined-windows-server-virtual-machine-tooremotely-administer-hello-managed-domain"></a>Taak 1 - inrichten van een domein Windows Server virtuele machine tooremotely Hallo beheerd domein beheren
+Azure AD Domain Services beheerde domeinen kunnen worden beheerd met vertrouwd Active Directory-beheerprogramma's zoals Hallo Active Directory-beheercentrum (ADAC) of AD PowerShell. Tenantbeheerders hebt geen rechten tooconnect toodomain controllers op Hallo beheerd domein via Extern bureaublad. Leden van Hallo ' AAD DC' beheerdersgroep kunt beheren beheerd daarom domeinen op afstand met AD-beheerprogramma's vanaf een Windows-Server /-client-computer die is gekoppeld toohello beheerd domein. AD-beheerprogramma's kunnen worden geïnstalleerd als onderdeel van Hallo Remote Server Administration Tools (RSAT) optioneel onderdeel op Windows Server en client-computers die lid zijn van toohello beheerd domein.
 
-De eerste stap is het instellen van een virtuele machine van Windows Server die is toegevoegd aan het beheerde domein. Voor instructies raadpleegt u het artikel [virtuele machine met Windows Server toevoegen aan een beheerd domein van Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md).
+de eerste stap Hallo is tooset een virtuele machine van Windows Server die is gekoppeld toohello beheerd domein. Voor instructies raadpleegt u artikel toohello [lid worden van een Windows Server virtuele machine tooan Azure AD Domain Services beheerd domein](active-directory-ds-admin-guide-join-windows-vm.md).
 
-### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Het beheerde domein op afstand te beheren vanaf een clientcomputer (bijvoorbeeld Windows 10)
-De instructies in dit artikel gebruik een virtuele machine van Windows Server voor het beheren van de AAD-DS beheerd domein. U kunt echter ook een virtuele machine van Windows-client (bijvoorbeeld Windows 10) gebruiken om dit te doen.
+### <a name="remotely-administer-hello-managed-domain-from-a-client-computer-for-example-windows-10"></a>Hallo beheerd domein op afstand te beheren vanaf een clientcomputer (bijvoorbeeld Windows 10)
+Hallo-instructies in dit artikel gebruik een Windows Server virtuele machine tooadminister Hallo AAD-DS beheerd domein. Echter, u kunt ook toouse een Windows-client (bijvoorbeeld Windows 10) virtuele machine toodo dus.
 
-U kunt [Remote Server Administration Tools (RSAT) installeren](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) op een Windows-client virtuele machine door de instructies op TechNet.
+U kunt [Remote Server Administration Tools (RSAT) installeren](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) op een Windows-client virtuele machine door Hallo instructies te volgen op TechNet.
 
-## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Taak 2 - Install Active Directory-beheerprogramma's op de virtuele machine
-Voer de volgende stappen voor het installeren van de Active Directory-beheerprogramma's op de virtuele machine van verbonden met het domein. Zie Technet voor meer [informatie over het installeren en gebruiken van Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx).
+## <a name="task-2---install-active-directory-administration-tools-on-hello-virtual-machine"></a>Taak 2 - Install Active Directory-beheerprogramma's op Hallo virtuele machine
+Hallo stappen tooinstall Hallo Active Directory-beheerprogramma's te volgen op Hallo verbonden met het domein virtuele machine uitvoeren. Zie Technet voor meer [informatie over het installeren en gebruiken van Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx).
 
-1. Navigeer naar **virtuele Machines** knooppunt in de klassieke Azure portal. Selecteer de virtuele machine die u in taak 1 hebt gemaakt en klik op **Connect** op de opdrachtbalk aan de onderkant van het venster.
+1. Navigeer te**virtuele Machines** knooppunt in Hallo klassieke Azure-portal. Selecteer Hallo virtuele machine die u in taak 1 hebt gemaakt en klik op **Connect** op de opdrachtbalk Hallo HALLO hallo venster onderaan in.
 
-    ![Verbinding maken met virtuele Windows-computer](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. De klassieke portal vraagt u om te openen of opslaan van een bestand met een extensie 'RDP-', die wordt gebruikt voor het verbinding maken met de virtuele machine. Klik op het bestand te openen wanneer het downloaden is voltooid.
-3. Gebruik de referenties van een gebruiker van de ' AAD DC' beheerdersgroep bij de aanmeldingsprompt. Bijvoorbeeld, gebruiken we 'bob@domainservicespreview.onmicrosoft.com' in ons geval.
-4. Open in het startscherm **Serverbeheer**. Klik op **functies en onderdelen toevoegen** in het centrale deelvenster van het venster Server Manager.
+    ![Verbinding maken met tooWindows virtuele machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
+2. klassieke portal Hallo tooopen wordt u gevraagd of een bestand met de extensie '.rdp' opslaan die gebruikte tooconnect toohello virtuele machine is. Klik op tooopen Hallo bestand wanneer het downloaden is voltooid.
+3. Op Hallo aanmeldprompt weergegeven, gebruiken Hallo referenties van een gebruiker die toohello ' AAD DC' beheerdersgroep hoort. Bijvoorbeeld, gebruiken we 'bob@domainservicespreview.onmicrosoft.com' in ons geval.
+4. Open in het startscherm hello, **Serverbeheer**. Klik op **functies en onderdelen toevoegen** in de centrale deelvenster Hallo van Hallo venster in Serverbeheer.
 
     ![Serverbeheer starten op de virtuele machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. Op de **voordat u begint** pagina van de **Wizard Functies toevoegen en onderdelen**, klikt u op **volgende**.
+5. Op Hallo **voordat u begint** pagina Hallo **Wizard Functies toevoegen en onderdelen**, klikt u op **volgende**.
 
     ![Voordat u begint met pagina](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. Op de **installatietype** pagina, laat u de **op basis van functie of onderdeel gebaseerde installatie** optie ingeschakeld en klik op **volgende**.
+6. Op Hallo **installatietype** pagina, laat u Hallo **op basis van functie of onderdeel gebaseerde installatie** optie ingeschakeld en klik op **volgende**.
 
     ![Pagina Type installatie](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. Op de **serverselectie** pagina, selecteert u de huidige virtuele machine uit de servergroep en klik op **volgende**.
+7. Op Hallo **serverselectie** pagina, Hallo huidige virtuele machine uit de servergroep Hallo selecteren en op **volgende**.
 
     ![Pagina voor serverselectie](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Op de **serverfuncties** pagina, klikt u op **volgende**. We overslaan deze pagina omdat er geen rollen niet op de server installeert.
-9. Op de **functies** pagina, vouw de **Remote Server Administration Tools** knooppunt en klik vervolgens op uit te breiden de **functiebeheer** knooppunt. Selecteer **AD DS en AD LDS-hulpprogramma** functie uit de lijst met hulpprogramma's voor functiebeheer.
+8. Op Hallo **serverfuncties** pagina, klikt u op **volgende**. We overslaan deze pagina omdat we niet alle functies op Hallo server installeert.
+9. Op Hallo **functies** pagina, klikt u op tooexpand hello **Remote Server Administration Tools** knooppunt en klik vervolgens op tooexpand hello **functiebeheer** knooppunt. Selecteer **AD DS en AD LDS-hulpprogramma** functie uit de lijst Hallo met beheerprogramma's voor rollen.
 
     ![Pagina onderdelen](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
-10. Op de **bevestiging** pagina, klikt u op **installeren** installeren de advertentie en functie van AD LDS-hulpprogramma's op de virtuele machine. Wanneer de functie-installatie is voltooid, klikt u op **sluiten** om af te sluiten de **functies en onderdelen toevoegen** wizard.
+10. Op Hallo **bevestiging** pagina, klikt u op **installeren** tooinstall hello AD- en AD LDS-hulpprogramma's voor de functie op Hallo virtuele machine. Wanneer de functie-installatie is voltooid, klikt u op **sluiten** tooexit hello **functies en onderdelen toevoegen** wizard.
 
     ![Bevestigingspagina](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
-## <a name="task-3---connect-to-and-explore-the-managed-domain"></a>Taak 3: verbinding maken met en het beheerde domein verkennen
-Nu de AD-beheerprogramma's zijn geïnstalleerd op de virtuele machine van het domein, kunnen we deze hulpprogramma's gebruiken om te verkennen en beheren van het beheerde domein.
+## <a name="task-3---connect-tooand-explore-hello-managed-domain"></a>Taak 3: verbinding maken met tooand verkennen Hallo beheerd domein
+Nu Hallo AD beheerprogramma's zijn geïnstalleerd op Hallo domein virtuele machine, we kunnen deze hulpprogramma's voor tooexplore gebruiken en Hallo beheerd domein beheren.
 
 > [!NOTE]
-> U moet lid zijn van de groep 'AAD DC-beheerders' voor het beheer van het beheerde domein.
+> U moet toobe lid van Hallo ' AAD DC' beheerdersgroep tooadminister Hallo beheerd domein.
 >
 >
 
-1. Klik vanuit het startscherm op **Systeembeheer**. Hier ziet u de AD-beheerprogramma's geïnstalleerd op de virtuele machine.
+1. Vanuit het startscherm hello, klikt u op **Systeembeheer**. U ziet Systeembeheer Hallo AD op Hallo virtuele machine geïnstalleerd.
 
     ![Beheerprogramma's geïnstalleerd op server](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Klik op **Active Directory-beheercentrum**.
 
     ![Active Directory-beheercentrum](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. Als u wilt verkennen van het domein, klikt u op de naam van het domein in het linkerdeelvenster (bijvoorbeeld, contoso100.com'). U ziet twee containers respectievelijk 'AADDC Computers' en 'AADDC gebruikers' genoemd.
+3. tooexplore hello domein, klikt u op Hallo-domeinnaam in het linkerdeelvenster hello (bijvoorbeeld, contoso100.com'). U ziet twee containers respectievelijk 'AADDC Computers' en 'AADDC gebruikers' genoemd.
 
     ![Active Directory-Beheercentrum - domein weergeven](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
-4. Klik op de container aangeroepen **AADDC gebruikers** om te zien alle gebruikers en groepen die tot het beheerde domein behoren. Ziet u gebruikersaccounts en groepen in uw Azure AD tenant weergeven om in deze container. In dit voorbeeld ziet, een gebruikersaccount voor de gebruiker met de naam "bob" en een groep genaamd 'AAD DC-beheerders' zijn beschikbaar in deze container.
+4. Klik op Hallo zogenaamd **AADDC gebruikers** toosee alle gebruikers en groepen die behoren toohello beheerd domein. Ziet u gebruikersaccounts en groepen in uw Azure AD tenant weergeven om in deze container. In dit voorbeeld ziet, een gebruikersaccount voor Hallo gebruiker met de naam "bob" en een groep genaamd 'AAD DC-beheerders' zijn beschikbaar in deze container.
 
     ![Active Directory-Beheercentrum - domeingebruikers](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
-5. Klik op de container aangeroepen **AADDC Computers** om te zien van de computers die zijn gekoppeld aan dit beheerde domein. Hier ziet u een vermelding voor de huidige virtuele machine, die is gekoppeld aan het domein. De computeraccounts voor alle computers die lid zijn van het beheerde domein van Azure AD Domain Services worden opgeslagen in deze container AADDC-Computers.
+5. Klik op Hallo zogenaamd **AADDC Computers** toosee Hallo computers die lid zijn van toothis beheerd domein. Hier ziet u een vermelding voor Hallo huidige virtuele machine, die gekoppeld toohello domein is. Computeraccounts voor alle computers die lid zijn van toohello Azure AD Domain Services beheerd domein worden opgeslagen in deze container AADDC-Computers.
 
     ![Active Directory-Beheercentrum - computers die lid van domein](./media/active-directory-domain-services-admin-guide/adac-aaddc-computers.png)
 
@@ -117,5 +117,5 @@ Nu de AD-beheerprogramma's zijn geïnstalleerd op de virtuele machine van het do
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)
-* [Virtuele machine met Windows Server toevoegen aan een beheerd domein van Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Deelnemen aan een Windows Server virtuele machine tooan Azure AD Domain Services beheerd domein](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Remote Server Administration Tools implementeren](https://technet.microsoft.com/library/hh831501.aspx)

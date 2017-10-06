@@ -1,6 +1,6 @@
 ---
-title: Met behulp van Azure-toepassingsgateway met interne Load Balancer | Microsoft Docs
-description: Deze pagina vindt u instructies voor het configureren van een Azure-toepassingsgateway met een eindpunt interne met gelijke taakverdeling
+title: Azure Application Gateway met interne Load Balancer aaaUsing | Microsoft Docs
+description: Deze pagina vindt u instructies tooconfigure een Azure-toepassingsgateway met een eindpunt interne met gelijke taakverdeling
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 272ef84a02f92a8521c35aad6f1d9f9bf1675718
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Een Application Gateway maken met een Internal Load Balancer (ILB)
 
@@ -26,25 +26,25 @@ ms.lasthandoff: 07/11/2017
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 
-Application Gateway kan worden geconfigureerd met een internetgericht virtueel IP-adres of met een interne eindpunt niet blootgesteld aan internet, ook wel bekend als interne Load Balancer (ILB)-eindpunt. De gateway configureren met een ILB is nuttig voor interne line-of-business-toepassingen niet blootgesteld aan internet. Het is ook nuttig voor servicecategorieën binnen een toepassing met meerdere lagen, die zich binnen een beveiligingsgrens niet blootgesteld aan internet, maar nog steeds vereist verdeling van round-robin, sessiepersistentie of SSL-beëindiging. In dit artikel worden de stappen beschreven voor het configureren van een toepassingsgateway met een ILB.
+Application Gateway kan worden geconfigureerd met een internetgericht virtueel IP-adres of met een interne eindpunt niet blootgesteld toohello internet, ook wel bekend als interne Load Balancer (ILB)-eindpunt. Hallo-gateway configureren met een ILB is nuttig voor toointernet interne line-of-business-toepassingen niet weergegeven. Het is ook nuttig voor servicecategorieën binnen een toepassing met meerdere lagen, die bevindt zich in een grens niet blootgesteld beveiliging toointernet, maar er wel round-robin verdeling, sessiepersistentie of SSL-beëindiging. Dit artikel begeleidt u bij Hallo stappen tooconfigure een toepassingsgateway met een ILB.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-1. Installeer de nieuwste versie van de Azure PowerShell-cmdlets met behulp van het Webplatforminstallatieprogramma. U kunt downloaden en installeer de nieuwste versie van de **Windows PowerShell** sectie van de [downloadpagina](https://azure.microsoft.com/downloads/).
+1. Installeer de nieuwste versie van Hallo Hallo Web Platform Installer met Azure PowerShell-cmdlets. U kunt downloaden en installeren van de meest recente versie Hallo van Hallo **Windows PowerShell** sectie Hallo [downloadpagina](https://azure.microsoft.com/downloads/).
 2. Controleer of u een werkend virtueel netwerk met een geldig subnetmasker.
-3. Controleer of u back-endservers in het virtuele netwerk of een openbaar IP-/ VIP-adres toegewezen.
+3. Controleer of u back-endservers in het virtuele netwerk hello of een openbaar IP-/ VIP-adres toegewezen.
 
-Als u wilt een toepassingsgateway maken, moet u de volgende stappen uitvoeren in de volgorde weergegeven. 
+een toepassingsgateway toocreate Hallo stappen te volgen in volgorde van Hallo uitvoeren. 
 
 1. [Een toepassingsgateway maken](#create-a-new-application-gateway)
-2. [De gateway configureren](#configure-the-gateway)
-3. [Configuratie van de gateway instellen](#set-the-gateway-configuration)
-4. [Start de gateway](#start-the-gateway)
-5. [Controleer of de gateway](#verify-the-gateway-status)
+2. [Hallo-gateway configureren](#configure-the-gateway)
+3. [De configuratie van een set Hallo-gateway](#set-the-gateway-configuration)
+4. [Hallo gateway starten](#start-the-gateway)
+5. [Controleer of de gateway Hallo](#verify-the-gateway-status)
 
 ## <a name="create-an-application-gateway"></a>Een toepassingsgateway maken:
 
-**De gateway te maken**, gebruiken de `New-AzureApplicationGateway` cmdlet, waarbij de waarden vervangt door uw eigen. Er worden op dit moment nog geen kosten in rekening gebracht voor gebruik van de gateway. De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.
+**toocreate hello gateway**, gebruik Hallo `New-AzureApplicationGateway` cmdlet, waarbij Hallo waarden vervangt door uw eigen. Houd er rekening mee dat facturering voor Hallo gateway niet op dit moment wordt gestart. Facturering begint met een latere stap Hallo gateway is gestart.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -58,9 +58,9 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
-**Valideren** dat de gateway is gemaakt, kunt u de `Get-AzureApplicationGateway` cmdlet. 
+**toovalidate** dat Hallo gateway is gemaakt, kunt u Hallo `Get-AzureApplicationGateway` cmdlet. 
 
-In het voorbeeld *beschrijving*, *InstanceCount*, en *GatewaySize* zijn optionele parameters. De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10. De standaardwaarde voor *GatewaySize* is Medium. Kleine en grote andere beschikbare waarden zijn. *VIP* en *DnsName* leeg worden weergegeven omdat de gateway is nog niet gestart. Deze parameters worden ingevuld zodra de gateway wordt geactiveerd. 
+In voorbeeld Hallo *beschrijving*, *InstanceCount*, en *GatewaySize* zijn optionele parameters. de standaardwaarde voor Hallo *InstanceCount* is 2 en de maximale waarde is 10. de standaardwaarde voor Hallo *GatewaySize* is normaal. Kleine en grote andere beschikbare waarden zijn. *VIP* en *DnsName* leeg worden weergegeven omdat het Hallo-gateway is nog niet gestart. Deze worden nadat Hallo gateway Hallo uitvoeringsstatus is gemaakt. 
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -81,25 +81,25 @@ VirtualIPs:
 DnsName:
 ```
 
-## <a name="configure-the-gateway"></a>De gateway configureren
-Een toepassingsgateway configuratie bestaat uit meerdere waarden. De waarden kunnen worden gekoppeld samen te stellen de configuratie.
+## <a name="configure-hello-gateway"></a>Hallo-gateway configureren
+Een toepassingsgateway configuratie bestaat uit meerdere waarden. Hallo-waarden kunnen worden gekoppeld samen tooconstruct Hallo configuratie.
 
-De waarden zijn:
+Hallo-waarden zijn:
 
-* **Back-end-servergroep:** de lijst met IP-adressen van de back-endservers. De IP-adressen moeten ofwel deel uitmaken van het VNet subnet, ofwel moeten een openbare IP-/ VIP. 
-* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gekoppeld aan een pool en worden toegepast op alle servers in de pool.
-* **Front-Endpoort:** dit is de openbare poort die in de toepassingsgateway wordt geopend. Het verkeer komt binnen via deze poort en wordt vervolgens omgeleid naar een van de back-endservers.
-* **Listener:** de listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en de SSL-certificaatnaam (als u SSL-offloading configureert). 
-* **Regel:** de regel verbindt de listener met de back-end-servergroep en definieert naar welke back-end-servergroep die het verkeer moet worden omgeleid wanneer dit bij een bepaalde listener aankomt. Momenteel wordt alleen de regel *basic* ondersteund. De regel *basic* is een vorm van round-robinbelastingverdeling.
+* **Back-end-servergroep:** Hallo lijst met IP-adressen van Hallo back-endservers. Hallo IP-adressen moeten ofwel deel uitmaken toohello VNet subnet, ofwel moeten een openbare IP-/ VIP. 
+* **Back-endserverpoolinstellingen:** elke pool heeft instellingen, zoals voor de poort, het protocol en de op cookies gebaseerde affiniteit. Deze instellingen zijn gebonden tooa servergroep en toegepaste tooall servers binnen de pool Hallo zijn.
+* **Front-Endpoort:** dit is de openbare poort Hallo in Hallo toepassingsgateway geopend. Het verkeer komt binnen via deze poort en vervolgens wordt omgeleid tooone van Hallo back-endservers.
+* **Listener:** Hallo listener beschikt over een front-endpoort, een protocol (Http of Https; deze zijn hoofdlettergevoelig), en Hallo SSL-certificaatnaam (als u SSL-offloading configureert). 
+* **Regel:** Hallo regel verbindt Hallo listener Hallo back-end-servergroep en bepaalt welke back-end server groep Hallo verkeer gerichte toowhen dit bij een bepaalde listener aankomt. Op dit moment alleen Hallo *basic* regel wordt ondersteund. Hallo *basic* regel is round-robinbelastingverdeling.
 
-U kunt de configuratie maken door het maken van een configuratieobject of met behulp van een XML-configuratiebestand. Kan de configuratie met behulp van een XML-configuratiebestand, gebruik het voorbeeld hieronder.
+U kunt de configuratie maken door het maken van een configuratieobject of met behulp van een XML-configuratiebestand. tooconstruct uw configuratie met behulp van een XML-configuratiebestand, gebruik Hallo voorbeeld hieronder.
 
-Houd rekening met het volgende:
+Let op Hallo volgende:
 
-* De *FrontendIPConfigurations* element beschrijft de ILB details die relevant zijn voor het configureren van Application Gateway met een ILB. 
-* De Frontend IP *Type* moet worden ingesteld op 'Privé'
-* De *StaticIPAddress* moet worden ingesteld op het gewenste interne IP-adres waarop de gateway verkeer ontvangt. Houd er rekening mee dat de *StaticIPAddress* element is optioneel. Als dat niet is ingesteld, een beschikbare intern IP-adres van het geïmplementeerde subnet is gekozen. 
-* De waarde van de *naam* opgegeven element in *FrontendIPConfiguration* moet worden gebruikt in de HTTPListener *FrontendIP* element om te verwijzen naar de FrontendIPConfiguration.
+* Hallo *FrontendIPConfigurations* element worden Hallo ILB details relevant zijn voor het configureren van Application Gateway met een ILB beschreven. 
+* Hallo Frontend-IP- *Type* too'Private moet worden ingesteld '
+* Hallo *StaticIPAddress* toohello gewenst intern IP-adres op welke Hallo gateway verkeer ontvangt moet worden ingesteld. Houd er rekening mee dat Hallo *StaticIPAddress* element is optioneel. Als dat niet is ingesteld, een beschikbare interne IP-adres uit Hallo geïmplementeerd subnet is gekozen. 
+* waarde van Hallo Hallo *naam* opgegeven element in *FrontendIPConfiguration* moet worden gebruikt in Hallo HTTPListener van *FrontendIP* element toorefer toohello FrontendIPConfiguration.
   
   **Configuratie-XML-voorbeeld**
 ```xml
@@ -156,8 +156,8 @@ Houd rekening met het volgende:
 ```
 
 
-## <a name="set-the-gateway-configuration"></a>Configuratie van de gateway instellen
-Vervolgens stelt u de toepassingsgateway. U kunt de `Set-AzureApplicationGatewayConfig` cmdlet met een configuratieobject of met een XML-configuratiebestand. 
+## <a name="set-hello-gateway-configuration"></a>De configuratie van een set Hallo-gateway
+Vervolgens stelt u de toepassingsgateway Hallo. U kunt Hallo `Set-AzureApplicationGatewayConfig` cmdlet met een configuratieobject of met een XML-configuratiebestand. 
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
@@ -171,12 +171,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
-## <a name="start-the-gateway"></a>De gateway openen
+## <a name="start-hello-gateway"></a>Hallo gateway starten
 
-Nadat de gateway is geconfigureerd, gebruikt u de cmdlet `Start-AzureApplicationGateway` om de gateway te activeren. Voor een toepassingsgateway worden pas kosten doorberekend wanneer de gateway is geactiveerd. 
+Zodra het Hallo-gateway is geconfigureerd, gebruikt u Hallo `Start-AzureApplicationGateway` cmdlet toostart Hallo gateway. Facturering voor een application gateway wordt gestart nadat het Hallo-gateway is gestart. 
 
 > [!NOTE]
-> De `Start-AzureApplicationGateway` cmdlet mogelijk maximaal 15-20 minuten duren. 
+> Hallo `Start-AzureApplicationGateway` cmdlet toocomplete too15-20 minuten kan duren. 
 > 
 > 
 
@@ -192,12 +192,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
-## <a name="verify-the-gateway-status"></a>De gatewaystatus controleren
+## <a name="verify-hello-gateway-status"></a>Controleer of de status van de gateway Hallo
 
-Gebruik de `Get-AzureApplicationGateway` cmdlet om de status van gateway te controleren. Als `Start-AzureApplicationGateway` is voltooid in de vorige stap, de status moet *met*, en het Vip en DnsName moet geldige vermeldingen hebben. Dit voorbeeld ziet u de cmdlet op de eerste regel weergegeven, gevolgd door de uitvoer. In dit voorbeeld wordt de gateway wordt uitgevoerd en gereed is voor verkeer. 
+Gebruik Hallo `Get-AzureApplicationGateway` cmdlet toocheck Hallo status van gateway. Als `Start-AzureApplicationGateway` is voltooid in de vorige stap hello, Hallo status moet worden *met*, en Hallo Vip en DnsName moet geldige vermeldingen hebben. Dit voorbeeld toont Hallo cmdlet op de eerste regel hello, gevolgd door Hallo uitvoer. In dit voorbeeld Hallo gateway wordt uitgevoerd en is klaar tootake verkeer. 
 
 > [!NOTE]
-> De toepassingsgateway is geconfigureerd voor het accepteren van verkeer op de geconfigureerde ILB-eindpunt van 10.0.0.10 in dit voorbeeld.
+> Hallo application gateway is geconfigureerd tooaccept-verkeer bij Hallo ILB-eindpunt van de 10.0.0.10 geconfigureerd in dit voorbeeld.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest 

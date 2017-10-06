@@ -46,13 +46,13 @@
 #### [Offline synchroniseren inschakelen](app-service-mobile-android-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-android-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-android-get-started-push.md)
-#### [Werken met de client-SDK](app-service-mobile-android-how-to-use-client-library.md)
+#### [Werken met SDK Hallo-clients](app-service-mobile-android-how-to-use-client-library.md)
 
 ### Cordova
 #### [Offline synchroniseren inschakelen](app-service-mobile-cordova-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-cordova-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-cordova-get-started-push.md)
-#### Werken met de client-SDK
+#### Werken met SDK Hallo-clients
 ##### [Cordova](app-service-mobile-cordova-how-to-use-client-library.md)
 ##### [JavaScript/HTML](app-service-mobile-html-how-to-use-client-library.md)
 
@@ -60,52 +60,52 @@
 #### [Offline synchroniseren inschakelen](app-service-mobile-ios-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-ios-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-ios-get-started-push.md)
-#### [Werken met de client-SDK](app-service-mobile-ios-how-to-use-client-library.md)
+#### [Werken met SDK Hallo-clients](app-service-mobile-ios-how-to-use-client-library.md)
 
 ### Windows
 #### [Offline synchroniseren inschakelen](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-windows-store-dotnet-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-windows-store-dotnet-get-started-push.md)
-#### [Werken met de client-SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Werken met SDK Hallo-clients](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.Android
 #### [Offline synchroniseren inschakelen](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-xamarin-android-get-started-push.md)
-#### [Werken met de client-SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Werken met SDK Hallo-clients](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.Forms
 #### [Offline synchroniseren inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Werken met de client-SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Werken met SDK Hallo-clients](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
 #### [Offline synchroniseren inschakelen](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 #### [Verificatie toevoegen](app-service-mobile-xamarin-ios-get-started-users.md)
 #### [Pushmeldingen toevoegen](app-service-mobile-xamarin-ios-get-started-push.md)
-#### [Werken met de client-SDK](app-service-mobile-dotnet-how-to-use-client-library.md)
+#### [Werken met SDK Hallo-clients](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Werken met de server-SDK
+### Werken met Hallo server SDK
 #### [.NET-back-end](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 #### [Node.js-back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md)
 #### [Versiebeheer voor client en server](app-service-mobile-client-and-server-versioning.md)
 
 ### Webtaken
-#### [Wat is de Azure WebJobs-SDK?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Wat is Azure WebJobs SDK Hallo](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Een .NET-webtaak maken in Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Het gebruik van Azure Blob Storage met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Queue Storage gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Service Bus gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Table Storage gebruiken met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Hoe toouse Azure blob-opslag met Hallo WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Hoe toouse Azure queue storage Hello WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Hoe toouse Azure Service Bus met Hallo WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Hoe toouse Azure table storage Hello WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### App Service-omgeving
 #### [Een web-app maken in een App Service-omgeving](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Een ILB ASE maken met behulp van Azure Resource Manager-sjablonen](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Hoe tooCreate een ILB as-omgeving met behulp van Azure Resource Manager-sjablonen](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Een interne load balancer maken](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Implementeren](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Implementeren naar App Service](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [TooApp Service implementeren](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Cloudsynchronisatie implementeren](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Doorlopende implementatie](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Faseringsomgevingen](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -137,14 +137,14 @@
 ### [App Service-omgeving](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Configureren](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Aangepaste configuratie-instellingen](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Inkomend verkeer beheren](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Hoe toocontrol binnenkomend verkeer](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Overzicht van netwerkarchitectuur](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Details van netwerkconfiguratie met ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Migreren
-### [Hoe laat App Service zich vergelijken met Mobile Services?](app-service-mobile-value-prop-migration-from-mobile-services.md)
-### [Een bestaande mobiele service migreren naar App Service](app-service-mobile-migrating-from-mobile-services.md)
-### Een bestaande mobiele service upgraden naar App Service
+### [Hoe verhoudt tooMobile Services zich in App Service?](app-service-mobile-value-prop-migration-from-mobile-services.md)
+### [Migreren van een bestaande Mobile Service-tooApp Service](app-service-mobile-migrating-from-mobile-services.md)
+### Upgrade van een bestaande Mobile Service-tooApp Service
 #### [.NET-back-end](app-service-mobile-net-upgrading-from-mobile-services.md)
 #### [Node.js-back-end](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
@@ -167,12 +167,12 @@
 ### Een App Service-omgeving beveiligen
 #### [Een firewall voor webtoepassingen configureren](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Een gelaagde beveiligingsarchitectuur implementeren](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Veilig verbinding maken met back-endresources](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [TooBackend Resources veilig verbinding te maken](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Back-up maken
+## Back-up
 ### [Back-up maken van uw app in Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Een app in Azure herstellen](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [REST gebruiken voor back-up en herstel van App Service-apps](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Gebruik REST tooback en herstellen van App Service-apps](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Controle](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Diagnostische logboekregistratie inschakelen](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -193,15 +193,15 @@
 
 ## Integreren
 ### [Toegang tot on-premises resources via hybride verbindingen](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [E-mail verzenden via SendGrid met Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Exporteren naar PowerApps en Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Hoe toosend e-SendGrid gebruiken met Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [TooPowerApps en Microsoft-Flow exporteren](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Problemen oplossen
 ### Algemene probleemoplossing voor Mobile Apps
 #### [.NET-back-end](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.js-back-end](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
 ### [Diagnostische logboekregistratie inschakelen](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Streaminglogboekbestanden en de console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Streaminglogboeken en het Hallo-console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Problemen met behulp van Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Naslaginformatie

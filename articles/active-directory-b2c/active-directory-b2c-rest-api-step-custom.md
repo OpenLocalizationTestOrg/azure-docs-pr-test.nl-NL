@@ -14,48 +14,48 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: dc319c97e64e55861b84cc3943667418077a05d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90a495029f48d70232ef3f99de4ea4d351395aa7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Overzicht: Uitwisseling van claims REST-API in uw Azure AD B2C gebruiker reis integreren als een stap orchestration
 
-De identiteit ervaring Framework (IEF) waarop Azure Active Directory B2C (Azure AD B2C) kunt u de ontwikkelaar van de identiteit voor het integreren van een interactie met een RESTful-API in het traject van een gebruiker.  
+Hallo identiteit ervaring Framework (IEF) waarop Azure Active Directory B2C (Azure AD B2C) kunt Hallo identiteit developer toointegrate interactie met een RESTful-API in het traject van een gebruiker.  
 
-Aan het einde van dit scenario kunt u zich kunt maken van een Azure AD B2C gebruiker reis die communiceert met RESTful-services.
+Aan het einde van de Hallo van deze rondleiding, kunt u zich kunt toocreate een Azure AD B2C gebruiker reis die met RESTful-services communiceert.
 
-De IEF gegevens in de claims gegevens verzendt en ontvangt in claims. De REST-API-claims exchange:
+Hallo IEF gegevens in de claims gegevens verzendt en ontvangt in claims. Hallo REST-API claims exchange:
 
 - Als een stap orchestration kunnen worden ontworpen.
 - Kan resulteren in een externe actie. Het kan bijvoorbeeld een gebeurtenis vastleggen in een externe database.
-- Kan worden gebruikt voor een waarde ophalen en deze vervolgens opslaan in de database.
+- Gebruikte toofetch een waarde worden en vervolgens opslaan in Hallo-gebruikersdatabase.
 
-U kunt de ontvangen claims later gebruiken om te wijzigen van de stroom van de uitvoering van.
+Kunt u claims ontvangen hello later toochange Hallo stroom van de uitvoering.
 
-U kunt ook de interactie als validatieprofiel ontwerpen. Zie voor meer informatie [Walkthrough: REST-API integreren claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis als validatie van gebruikersinvoer](active-directory-b2c-rest-api-validation-custom.md).
+U kunt ook Hallo interactie als validatieprofiel ontwerpen. Zie voor meer informatie [Walkthrough: REST-API integreren claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis als validatie van gebruikersinvoer](active-directory-b2c-rest-api-validation-custom.md).
 
-Het scenario is dat wanneer een gebruiker een profiel bewerken uitvoert, we willen:
+Hallo-scenario is dat wanneer een gebruiker een profiel bewerken uitvoert, we willen:
 
-1. Zoek de gebruiker in een extern systeem.
-2. Haal de plaats waar de gebruiker is geregistreerd.
-3. Dit kenmerk terug naar de toepassing als een claim.
+1. Hallo gebruiker opzoeken in een extern systeem.
+2. Get Hallo de plaats waar de gebruiker is geregistreerd.
+3. Kenmerk toohello toepassing als een claim retourneren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Een Azure AD B2C-tenant die is geconfigureerd voor het voltooien van een lokaal account sign-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
-- Een REST-API-eindpunt om te communiceren met. In dit scenario wordt een eenvoudige Azure-functie app-webhook als voorbeeld.
-- *Aanbevolen*: Voltooi de [REST-API-claims exchange scenario als een validatiestap](active-directory-b2c-rest-api-validation-custom.md).
+- Een Azure AD B2C-tenant geconfigureerd toocomplete een lokaal account sign-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+- Een REST-API-eindpunt toointeract met. In dit scenario wordt een eenvoudige Azure-functie app-webhook als voorbeeld.
+- *Aanbevolen*: volledige Hallo [REST-API-claims exchange scenario als een validatiestap](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Stap 1: Bereid de REST-API-functie
+## <a name="step-1-prepare-hello-rest-api-function"></a>Stap 1: Voorbereiden Hallo REST-API-functie
 
 > [!NOTE]
-> Installatie van de REST-API-functies is buiten het bereik van dit artikel. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) biedt een uitstekend toolkit voor het maken van RESTful-services in de cloud.
+> Installatie van de REST-API-functies is buiten het bereik van dit artikel Hallo. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) biedt een uitstekend toolkit toocreate RESTful-services in de cloud Hallo.
 
-We hebben ingesteld om een Azure-functie die een claim aangeroepen ontvangt `email`, en retourneert vervolgens de claim `city` met toegewezen waarde `Redmond`. De Azure-functie is een voorbeeld op [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+We hebben ingesteld om een Azure-functie die een claim aangeroepen ontvangt `email`, en vervolgens retourneert claim Hallo `city` met Hallo toegewezen waarde `Redmond`. Hallo voorbeeld Azure-functie is op [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-De `userMessage` claim die de Azure-functie wordt geretourneerd is optioneel in deze context en de IEF deze instelling wordt genegeerd. U kunt het mogelijk als een bericht wordt doorgegeven aan de toepassing en weergegeven voor de gebruiker later gebruiken.
+Hallo `userMessage` claim die hello Azure functie retourneert is optioneel in deze context en Hallo IEF deze instelling wordt genegeerd. U kunt deze mogelijk gebruiken als een bericht toohello toepassing doorgegeven en later toohello gebruiker weergegeven.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -78,14 +78,14 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-Een Azure-functie-app kunt eenvoudig de functie-URL waaronder de id van de specifieke functie ophalen. In dit geval wordt de URL is: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. U kunt deze gebruiken voor het testen.
+Een Azure-functie-app maakt het eenvoudig tooget Hallo functie URL, waaronder het Hallo-id van de specifieke Hallo-functie. In dit geval Hallo-URL is: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. U kunt deze gebruiken voor het testen.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Stap 2: De uitwisseling van de claims RESTful-API als in uw bestand TrustFrameworExtensions.xml technische profiel configureren
+## <a name="step-2-configure-hello-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Stap 2: Hallo RESTful-API claims exchange als in uw bestand TrustFrameworExtensions.xml technische profiel configureren
 
-Een technische profiel is de volledige configuratie van de uitwisseling van de gewenste met de RESTful-service. Open het bestand TrustFrameworkExtensions.xml en voeg de volgende XML-fragment in de `<ClaimsProvider>` element.
+Een technische profiel is de volledige configuratie Hallo van Hallo exchange gewenst Hello RESTful-service. Hallo TrustFrameworkExtensions.xml bestand openen en toevoegen van de volgende XML-fragment in Hallo Hallo `<ClaimsProvider>` element.
 
 > [!NOTE]
-> In de volgende XML, RESTful-provider `Version=1.0.0.0` als protocol wordt beschreven. Beschouwen als de functie die met de externe service communiceren. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+> In XML, RESTful-provider te volgen Hallo `Version=1.0.0.0` Hallo-protocol wordt genoemd. Beschouwen als Hallo-functie die met externe Hallo-service communiceren. <!-- TODO: A full definition of hello schema can be found...link tooRESTful Provider schema definition>-->
 
 ```XML
 <ClaimsProvider>
@@ -111,18 +111,18 @@ Een technische profiel is de volledige configuratie van de uitwisseling van de g
 </ClaimsProvider>
 ```
 
-De `<InputClaims>` element definieert de claims die wordt verzonden via de IEF met de REST-service. In dit voorbeeld wordt de inhoud van de claim `givenName` wordt verzonden naar de REST-service als de claim `email`.  
+Hallo `<InputClaims>` element Hallo claims die wordt verzonden via Hallo IEF toohello REST-service wordt gedefinieerd. In dit voorbeeld Hallo inhoud van de claim Hallo `givenName` toohello REST-service wordt verzonden als de claim Hallo `email`.  
 
-De `<OutputClaims>` element definieert de claims die de IEF wordt verwacht van de REST-service. Ongeacht het aantal claims die afkomstig zijn, wordt de IEF alleen de geïdentificeerd hier gebruiken. In dit voorbeeld wordt een claim ontvangen als `city` worden toegewezen aan een IEF claim aangeroepen `city`.
+Hallo `<OutputClaims>` element Hallo claims wordt gedefinieerd die Hallo IEF van Hallo REST-service wordt verwacht. Ongeacht Hallo aantal claims die afkomstig zijn wordt Hallo IEF alleen de geïdentificeerd hier gebruiken. In dit voorbeeld wordt een claim ontvangen als `city` moet worden toegewezen tooan IEF claim aangeroepen `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Stap 3: Voeg de nieuwe claim `city` aan het schema van het bestand TrustFrameworkExtensions.xml
+## <a name="step-3-add-hello-new-claim-city-toohello-schema-of-your-trustframeworkextensionsxml-file"></a>Stap 3: Voeg nieuwe claim Hallo `city` toohello schema van het bestand TrustFrameworkExtensions.xml
 
-De claim `city` is nog niet gedefinieerd overal in onze schema. Voeg een definitie in het element dus toe `<BuildingBlocks>`. U vindt dit element aan het begin van het bestand TrustFrameworkExtensions.xml.
+Hallo claim `city` is nog niet gedefinieerd overal in onze schema. Voeg een definitie in een element Hallo dus toe `<BuildingBlocks>`. U vindt dit element aan Hallo begin van Hallo TrustFrameworkExtensions.xml bestand.
 
 ```XML
 <BuildingBlocks>
-    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
-    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
+    <!--hello claimtype city must be added toohello TrustFrameworkPolicy-->
+    <!-- You can add new claims in hello BASE file Section III, or in hello extensions file-->
     <ClaimsSchema>
         <ClaimType Id="city">
             <DisplayName>City</DisplayName>
@@ -134,14 +134,14 @@ De claim `city` is nog niet gedefinieerd overal in onze schema. Voeg een definit
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Stap 4: De REST service claims exchange bevatten als een orchestration stap in uw profiel bewerken gebruiker reis in TrustFrameworkExtensions.xml
+## <a name="step-4-include-hello-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Stap 4: Hallo REST servicewissel claims bevatten als een stap orchestration in uw profiel bewerken gebruiker reis in TrustFrameworkExtensions.xml
 
-Een stap in het profiel bewerken gebruiker reis nadat de gebruiker is geverifieerd (orchestration stappen 1-4 in de volgende XML-) en de informatie bijgewerkt profiel (stap 5) is opgegeven door de gebruiker toevoegen.
+Toevoegen van een stap toohello profiel bewerken gebruiker reis nadat Hallo gebruiker is geverifieerd (orchestration stappen 1-4 in Hallo XML volgende) en Hallo gebruiker profielgegevens Hallo bijgewerkt (stap 5) is opgegeven.
 
 > [!NOTE]
-> Er zijn veel gevallen waar de REST-API-aanroep kan worden gebruikt als een stap orchestration. Als een stap orchestration kan deze worden gebruikt als een update aan voor een extern systeem nadat een taak, zoals de registratie van de eerste keer met succes is voltooid door een gebruiker, of als een Profielupdate om gegevens die zijn gesynchroniseerd te houden. In dit geval wordt deze gebruikt voor het verbeteren van de informatie die is opgegeven voor de toepassing nadat het profiel bewerken.
+> Er zijn veel gevallen waarbij Hallo REST API-aanroep kan worden gebruikt als een stap orchestration. Als een stap orchestration deze kan worden gebruikt als een update tooan extern systeem nadat een taak, zoals de registratie van de eerste keer met succes is voltooid door een gebruiker of als een profiel bijwerken tookeep informatie die wordt gesynchroniseerd. In dit geval is het gebruikte tooaugment Hallo informatie toohello toepassing opgegeven nadat het Hallo-profiel bewerken.
 
-Kopieer het profiel bewerken gebruiker reis XML-code uit het bestand TrustFrameworkBase.xml in uw bestand TrustFrameworkExtensions.xml binnen de `<UserJourneys>` element. Maak vervolgens de wijziging in stap 6.
+Hallo-profiel kopiëren bewerken gebruiker reis XML-code van Hallo TrustFrameworkBase.xml tooyour TrustFrameworkExtensions.xml bestand binnen Hallo `<UserJourneys>` element. Maak vervolgens een Hallo wijziging onder stap 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -152,9 +152,9 @@ Kopieer het profiel bewerken gebruiker reis XML-code uit het bestand TrustFramew
 ```
 
 > [!IMPORTANT]
-> Als de volgorde komt niet overeen met de versie, controleert u of u de code invoegen als de stap voordat de `ClaimsExchange` type `SendClaims`.
+> Als Hallo volgorde komt niet overeen met de versie, zorgt u ervoor dat u Hallo code als Hallo stap voordat Hallo invoegen `ClaimsExchange` type `SendClaims`.
 
-De laatste XML voor de gebruiker reis er als volgt uit:
+Hallo ziet laatste XML voor Hallo gebruiker reis er als volgt:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -200,7 +200,7 @@ De laatste XML voor de gebruiker reis er als volgt uit:
                 <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
             </ClaimsExchanges>
         </OrchestrationStep>
-        <!-- Add a step 6 to the user journey before the JWT token is created-->
+        <!-- Add a step 6 toohello user journey before hello JWT token is created-->
         <OrchestrationStep Order="6" Type="ClaimsExchange">
             <ClaimsExchanges>
                 <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
@@ -212,11 +212,11 @@ De laatste XML voor de gebruiker reis er als volgt uit:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Stap 5: De claim toevoegen `city` voor uw relying party beleid bestand zodat de claim wordt verzonden naar uw toepassing
+## <a name="step-5-add-hello-claim-city-tooyour-relying-party-policy-file-so-hello-claim-is-sent-tooyour-application"></a>Stap 5: Toevoegen claim Hallo `city` tooyour relying party beleid bestand Hallo claim verzonden tooyour toepassing
 
-Bewerk uw ProfileEdit.xml relying party (RP)-bestand en wijzig de `<TechnicalProfile Id="PolicyProfile">` element op de volgende toevoegen: `<OutputClaim ClaimTypeReferenceId="city" />`.
+Bewerk het ProfileEdit.xml relying party (RP)-bestand en wijzig Hallo `<TechnicalProfile Id="PolicyProfile">` element tooadd Hallo volgende: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
-Nadat u de nieuwe claim toegevoegd, is het profiel voor technische ziet er als volgt:
+Nadat u een nieuwe claim Hallo toevoegt, uitziet Hallo technische profiel:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -231,15 +231,15 @@ Nadat u de nieuwe claim toegevoegd, is het profiel voor technische ziet er als v
 
 ## <a name="step-6-upload-your-changes-and-test"></a>Stap 6: Uw wijzigingen te uploaden en testen
 
-Overschrijf de bestaande versies van het beleid.
+Hallo bestaande versies van Hallo beleid overschreven.
 
-1.  (Optioneel:) Sla de bestaande versie (door downloaden) van uw extensiebestand voordat u doorgaat. Als u wilt behouden de oorspronkelijke complexiteit lage, is het raadzaam dat u meerdere versies van de extensies-bestand niet uploaden.
-2.  (Optioneel:) Wijzig de naam van de nieuwe versie van de beleids-ID voor het beleidsbestand bewerken door te wijzigen `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.  Upload het bestand uitbreidingen.
-4.  Het beleid bewerken RP-bestand uploaden.
-5.  Gebruik **nu uitvoeren** voor het testen van het beleid. Bekijk het token dat de IEF aan de toepassing retourneert.
+1.  (Optioneel:) Hallo bestaande versie (door downloaden) opslaan van uw extensiebestand voordat u doorgaat. tookeep hello initiële complexiteit lage, wordt aangeraden dat u meerdere versies van Hallo extensiebestand niet uploaden.
+2.  (Optioneel:) Wijzig de naam van de nieuwe versie Hallo van Hallo beleids-ID voor het Hallo-beleid bewerken bestand door te wijzigen `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+3.  Hallo-extensiebestand uploaden.
+4.  Hallo-beleid bewerken RP-bestand uploaden.
+5.  Gebruik **nu uitvoeren** tootest Hallo beleid. Hallo-token dat IEF toohello toepassing retourneert hello bekijken.
 
-Als alles juist is ingesteld, de nieuwe claim worden opgenomen in het token `city`, met de waarde `Redmond`.
+Als alles juist is ingesteld, Hallo-token worden opgenomen in nieuwe claim Hallo `city`, met de Hallo waarde `Redmond`.
 
 ```JSON
 {
@@ -261,4 +261,4 @@ Als alles juist is ingesteld, de nieuwe claim worden opgenomen in het token `cit
 
 [Een REST-API gebruiken als een validatiestap](active-directory-b2c-rest-api-validation-custom.md)
 
-[Het bewerken van het profiel voor het verzamelen van aanvullende informatie van uw gebruikers wijzigen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Hallo profiel bewerken toogather aanvullende gegevens van uw gebruikers wijzigen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

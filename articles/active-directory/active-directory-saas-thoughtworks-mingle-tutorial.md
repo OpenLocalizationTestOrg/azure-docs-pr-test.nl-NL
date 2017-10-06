@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Thoughtworks Singleplayer | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Thoughtworks Singleplayer.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Thoughtworks Singleplayer.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,174 +14,174 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 268ae5affb88a718f68c08daa94fe7aba4a99c11
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c17f8e13d2db3de7d228d9b27128d134f98d6cdf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Zelfstudie: Azure Active Directory-integratie met Thoughtworks Singleplayer
 
-In deze zelfstudie leert u hoe Thoughtworks Singleplayer integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe toointegrate Thoughtworks Singleplayer met Azure Active Directory (Azure AD).
 
-Thoughtworks Singleplayer integreren met Azure AD biedt de volgende voordelen:
+Thoughtworks Singleplayer integreren met Azure AD biedt Hallo volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Thoughtworks Singleplayer heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Thoughtworks Singleplayer (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD wie toegang tot tooThoughtworks Mingle heeft
+- U kunt uw gebruikers tooautomatically get aangemelde tooThoughtworks Mingle (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Thoughtworks Singleplayer, moet u de volgende items:
+Azure AD-integratie met Thoughtworks Singleplayer tooconfigure, moet u Hallo volgende items:
 
 - Een Azure AD-abonnement
 - Een Thoughtworks Singleplayer eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Toe te voegen Thoughtworks Singleplayer uit de galerie
+1. Het toevoegen van Thoughtworks Singleplayer van Hallo-galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Toe te voegen Thoughtworks Singleplayer uit de galerie
-Voor het configureren van de integratie van Thoughtworks Singleplayer in Azure AD, moet u Thoughtworks Singleplayer toevoegen uit de galerie aan de lijst met beheerde SaaS-apps.
+## <a name="adding-thoughtworks-mingle-from-hello-gallery"></a>Het toevoegen van Thoughtworks Singleplayer van Hallo-galerie
+tooconfigure hello integratie van Thoughtworks Singleplayer in Azure AD, moet u tooadd Thoughtworks Singleplayer uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Thoughtworks Singleplayer uit de galerie, moet u de volgende stappen uitvoeren:**
+**tooadd Thoughtworks Singleplayer via Hallo gallery uitvoeren Hallo stappen te volgen:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![Hello Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![Hallo Enterprise toepassingen blade][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![knop voor nieuwe toepassing Hello][3]
 
-4. Typ in het zoekvak **Thoughtworks Singleplayer**, selecteer **Thoughtworks Singleplayer** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak Hallo **Thoughtworks Singleplayer**, selecteer **Thoughtworks Singleplayer** van resultaat deelvenster klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
 
-    ![Thoughtworks Singleplayer in de lijst met resultaten](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
+    ![Thoughtworks Singleplayer in de lijst met resultaten Hallo](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Thoughtworks Singleplayer op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Thoughtworks Singleplayer is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Thoughtworks Singleplayer tot stand worden gebracht.
+Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in Thoughtworks Singleplayer is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in Thoughtworks Singleplayer toobe tot stand gebracht.
 
-Wijs in het Thoughtworks Singleplayer, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+Wijs in het Thoughtworks Singleplayer, Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Thoughtworks Singleplayer, moet u de volgende bouwstenen voltooien:
+tooconfigure en eenmalige aanmelding Azure AD-test met Thoughtworks Singleplayer, moet u toocomplete Hallo bouwstenen te volgen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Thoughtworks Singleplayer](#create-a-thoughtworks-mingle-test-user)**  - Thoughtworks Singleplayer die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Thoughtworks Singleplayer](#create-a-thoughtworks-mingle-test-user)**  -toohave een equivalent van Britta Simon in Thoughtworks Singleplayer die gekoppelde toohello Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de testgebruiker hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  -tooverify Hallo of configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Thoughtworks Singleplayer configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing Thoughtworks Singleplayer configureren.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Thoughtworks Singleplayer, moet u de volgende stappen uitvoeren:**
+**Azure AD tooconfigure eenmalige aanmelding met Thoughtworks Singleplayer, Voer Hallo stappen te volgen:**
 
-1. In de Azure-portal op de **Thoughtworks Singleplayer** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op Hallo Hallo **Thoughtworks Singleplayer** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
 
-3. Op de **Thoughtworks Singleplayer domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op Hallo **Thoughtworks Singleplayer domein en de URL's** sectie, voert u Hallo stappen te volgen:
 
     ![URL's en Thoughtworks Singleplayer domein eenmalige aanmelding informatie](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.mingle.thoughtworks.com`
+    In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<companyname>.mingle.thoughtworks.com`
 
     > [!NOTE] 
-    > De waarde is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Thoughtworks Singleplayer Client ondersteuningsteam](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) de waarde op te halen. 
+    > Hallo-waarde is geen echte. Waarde van de update Hallo met Hallo werkelijke aanmeldings-URL. Neem contact op met [Thoughtworks Singleplayer Client ondersteuningsteam](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) tooget Hallo waarde. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
+    ![Hallo certificaat downloadkoppeling](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_400.png)
 
-6. Meld u aan bij uw **Thoughtworks Singleplayer** bedrijf site als administrator.
+6. Meld u bij tooyour **Thoughtworks Singleplayer** bedrijf site als administrator.
 
-7. Klik op de **Admin** tabblad en klik vervolgens op **SSO-Config**.
+7. Klik op Hallo **Admin** tabblad en klik vervolgens op **SSO-Config**.
    
     ![Tabblad beheer](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785157.png "SSO-configuratie")
 
-8. In de **SSO-Config** sectie, voert u de volgende stappen uit:
+8. In Hallo **SSO-Config** sectie, voert u Hallo stappen te volgen:
    
     ![SSO-Config](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785158.png "SSO-configuratie")
     
-    a. Als u wilt uploaden van het metagegevensbestand, klikt u op **bestand kiezen**. 
+    a. metagegevensbestand tooupload hello, klikt u op **bestand kiezen**. 
 
     b. Klik op **wijzigingen opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
 
 ![Een Azure AD-testgebruiker maken][100]
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
 
-    ![De Azure Active Directory-knop](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
+    ![Hello Azure Active Directory-knop](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
     
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
+    ![Hallo 'Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
  
-    ![De knop toevoegen](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
+    ![knop voor Hallo toevoegen](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
  
-    ![Het dialoogvenster gebruiker](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
+    ![het dialoogvenster Hallo-gebruiker](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In Hallo **naam** textbox type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="create-a-thoughtworks-mingle-test-user"></a>Een testgebruiker Thoughtworks Singleplayer maken
 
-Azure AD-gebruikers moeten kunnen aanmelden, als ze worden ingericht voor de toepassing Thoughtworks Singleplayer met behulp van de namen van de Azure Active Directory-gebruiker. In het geval van Thoughtworks Singleplayer is inrichting een handmatige taak.
+Voor Azure AD gebruikers toobe kunnen toosign in, moeten ze ingerichte toohello Thoughtworks Singleplayer toepassing met behulp van de namen van de Azure Active Directory-gebruiker zijn. In geval van Thoughtworks Singleplayer Hallo is inrichting een handmatige taak.
 
-**Als u wilt configureren voor gebruikers inrichten, moet u de volgende stappen uitvoeren:**
+**tooconfigure gebruikers inrichten, Voer Hallo stappen te volgen:**
 
-1. Meld u aan bij uw bedrijf Thoughtworks Singleplayer site als administrator.
+1. Aanmelden tooyour Thoughtworks Singleplayer bedrijf site als administrator.
 
 2. Klik op **profiel**.
    
     ![Uw eerste Project](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785160.png "uw eerste Project")
 
-3. Klik op de **Admin** tabblad en klik vervolgens op **gebruikers**.
+3. Klik op Hallo **Admin** tabblad en klik vervolgens op **gebruikers**.
    
     ![Gebruikers](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785161.png "gebruikers")
 
@@ -189,45 +189,45 @@ Azure AD-gebruikers moeten kunnen aanmelden, als ze worden ingericht voor de toe
    
     ![Nieuwe gebruiker](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785162.png "nieuwe gebruiker")
 
-5. Op de **nieuwe gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+5. Op Hallo **nieuwe gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
    
     ![Dialoogvenster Nieuwe gebruiker](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785163.png "nieuwe gebruiker")  
  
-    a. Type de **aanmeldingsnaam**, **weergavenaam**, **Kies wachtwoord**, **wachtwoord bevestigen** van een geldig Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt. 
+    a. Type Hallo **aanmeldingsnaam**, **weergavenaam**, **Kies wachtwoord**, **wachtwoord bevestigen** van een geldig Azure AD-account die u wilt dat tooprovision gerelateerde in Hallo tekstvakken. 
 
     b. Als **gebruikerstype**, selecteer **volledige gebruiker**.
 
     c. Klik op **maken van dit profiel**.
 
 >[!NOTE]
->U kunt andere Thoughtworks Singleplayer gebruiker account hulpmiddelen voor het maken of API's die is geleverd door Thoughtworks Singleplayer aan inrichten AAD-gebruikersaccounts.
+>U kunt andere Thoughtworks Singleplayer gebruiker account hulpmiddelen voor het maken of API's die worden geleverd door tooprovision Thoughtworks Singleplayer AAD-gebruikersaccounts.
 > 
 
-### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+### <a name="assign-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen Thoughtworks Singleplayer.
+In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooThoughtworks Mingle.
 
-![Toewijzen van de gebruikersrol][200] 
+![Hallo-gebruikersrollen toewijzen][200] 
 
-**Britta Simon om aan te wijzen Thoughtworks Singleplayer, moet u de volgende stappen uitvoeren:**
+**tooassign Britta Simon tooThoughtworks Mingle, Voer Hallo stappen te volgen:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Thoughtworks Singleplayer**.
+2. Selecteer in de lijst met de toepassingen van Hallo **Thoughtworks Singleplayer**.
 
-    ![De koppeling Thoughtworks Singleplayer in de lijst met toepassingen](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
+    ![Hallo Thoughtworks Singleplayer koppeling in de lijst met Hallo-toepassingen](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202] 
+    ![de koppeling 'Gebruikers en groepen' Hallo][202] 
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+    ![Hallo toevoegen toewijzing deelvenster][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -235,13 +235,13 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+Hallo-doel van deze sectie is tootest uw Azure AD-configuratie voor één aanmelding via Hallo Toegangsvenster.
 
-Als u op de tegel Thoughtworks Singleplayer in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Thoughtworks Singleplayer.
+Als u op Hallo Thoughtworks Singleplayer tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Thoughtworks Singleplayer toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

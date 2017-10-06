@@ -1,6 +1,6 @@
 ---
-title: App-registratie Portal Help-onderwerpen | Microsoft Docs
-description: Een beschrijving van verschillende functies in de Microsoft app-registratieportal.
+title: aaaApp registratie Portal Help-onderwerpen | Microsoft Docs
+description: Een beschrijving van verschillende functies in Hallo-portal voor registratie van Microsoft-app.
 services: active-directory
 documentationcenter: 
 author: lnalepa
@@ -15,35 +15,35 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3eb17b629577446a336152799497e7d980fb825d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-registration-reference"></a>Verwijzing van App-registratie
-Dit document bevat context en beschrijvingen van de verschillende functies die zijn gevonden in de Microsoft App-Registratieportal [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
+Dit document bevat context en beschrijvingen van de verschillende functies van Microsoft App-Portal voor Wachtwoordregistratie hello [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
 
 ## <a name="my-applications"></a>Mijn toepassingen
-Deze lijst bevat alle van de toepassingen die zijn geregistreerd voor gebruik met de Azure AD v2.0-eindpunt.  Deze toepassingen hebben de mogelijkheid aan te melden gebruikers met beide persoonlijke accounts van Microsoft-account en werk/schoolaccounts van Azure Active Directory.  Zie voor meer informatie over het Azure AD v2.0-eindpunt, onze [v2.0 overzicht](active-directory-appmodel-v2-overview.md).  Deze toepassingen kunnen ook worden gebruikt om te integreren met het eindpunt van de verificatie in de Microsoft-account, `https://login.live.com`.
+Deze lijst bevat alle van de toepassingen die zijn geregistreerd voor gebruik met hello Azure AD v2.0-eindpunt.  Deze toepassingen hebben Hallo mogelijkheid toosign in gebruikers met beide persoonlijke accounts van Microsoft-account en werk/schoolaccounts van Azure Active Directory.  toolearn meer informatie over hello Azure AD v2.0-eindpunt, Zie onze [v2.0 overzicht](active-directory-appmodel-v2-overview.md).  Deze toepassingen kunnen ook worden gebruikt toointegrate met Hallo Microsoft-account verificatie eindpunt `https://login.live.com`.
 
 ## <a name="live-sdk-applications"></a>Live SDK-Apps
-Deze lijst bevat alle van de toepassingen die zijn geregistreerd voor gebruik uitsluitend met Microsoft-account.  Ze zijn niet ingeschakeld voor gebruik met Azure Active Directory beeïndigen.  Dit is waar vindt u alle toepassingen die eerder was is geregistreerd in de ontwikkelaarsportal MSA op `https://account.live.com/developers/applications`.  Alle functies die u eerder hebt uitgevoerd op `https://account.live.com/developers/applications` kunnen nu worden uitgevoerd in deze nieuwe portal `https://apps.dev.microsoft.com`.  Als u meer vragen over uw toepassingen van Microsoft-account hebt, neem dan contact met ons.
+Deze lijst bevat alle van de toepassingen die zijn geregistreerd voor gebruik uitsluitend met Microsoft-account.  Ze zijn niet ingeschakeld voor gebruik met Azure Active Directory beeïndigen.  Dit is waar vindt u alle toepassingen die eerder was geregistreerd bij Hallo MSA developer-portal op `https://account.live.com/developers/applications`.  Alle functies die u eerder hebt uitgevoerd op `https://account.live.com/developers/applications` kunnen nu worden uitgevoerd in deze nieuwe portal `https://apps.dev.microsoft.com`.  Als u meer vragen over uw toepassingen van Microsoft-account hebt, neem dan contact met ons.
 
 ## <a name="application-secrets"></a>Toepassing geheimen
-Toepassing geheimen zijn referenties waarmee uw toepassing uit te voeren betrouwbare [clientverificatie](http://tools.ietf.org/html/rfc6749#section-2.3) met Azure AD.  In het OAuth- & OpenID Connect, een toepassing geheimen wordt vaak aangeduid als een `client_secret`.  In het v2.0-protocol, alle toepassingen die u een beveiligingstoken voor een adresseerbare weblocatie ontvangt (met behulp van een `https` schema) moet een toepassingsgeheim gebruiken om zichzelf te identificeren bij Azure AD bij inwisseling die beveiligingstoken.  Bovendien een native client die krijgen tokens op een apparaat wordt worden niet toegestaan vanaf een toepassingsgeheim met voor het uitvoeren van clientverificatie, om te voorkomen dat de opslag van geheimen in onbeveiligde omgevingen.
+Toepassing geheimen zijn referenties waarmee uw toepassing tooperform betrouwbare [clientverificatie](http://tools.ietf.org/html/rfc6749#section-2.3) met Azure AD.  OAuth & OpenID Connect, een toepassing geheimen is vaak waarnaar wordt verwezen tooas een `client_secret`.  In alle toepassingen die u een beveiligingstoken voor een adresseerbare weblocatie ontvangt-protocol v2.0 hello (met behulp van een `https` schema) een toepassing geheime tooidentify zelf tooAzure AD bij inwisseling die beveiligingstoken moet gebruiken.  Bovendien een native client dat tokens ontvangen op een apparaat niet kunnen worden toegestaan van het gebruik van een toepassing geheime tooperform clientverificatie toodiscourage Hallo opslag van geheimen in onbeveiligde omgevingen.
 
-Elke app kan twee geldige aanvraag-geheimen op elk gewenst moment in de tijd bevatten.  Door twee geheimen, hebt u de ablilty periodieke sleutelrollover uitvoert voor de gehele omgeving van uw toepassing.  Zodra u het geheel van uw toepassing naar een nieuwe geheim hebt gemigreerd, kunt u deze kunt verwijderen van het oude geheim en inrichten van een nieuwe.
+Elke app kan twee geldige aanvraag-geheimen op elk gewenst moment in de tijd bevatten.  Door twee geheimen, hebt u Hallo ablilty tooperform periodieke sleutelrollover in de gehele omgeving van uw toepassing.  Zodra u Hallo geheel van uw toepassing tooa nieuwe geheim hebt gemigreerd, kunt u deze kunt verwijderen van oude geheim Hallo en inrichten van een nieuwe.
 
-Slechts twee soorten geheimen van toepassing zijn op dit moment toegestaan in de app-portal voor wachtwoordregistratie.  Kiezen **nieuw wachtwoord genereren** gaat genereren en opslaan van een gedeeld geheim in de respectieve gegevensopslag, kunt u in uw toepassing.  Kiezen **sleutelpaar genereren** maakt een nieuw openbaar/persoonlijk sleutelpaar sleutel die kan worden gedownload en kan worden gebruikt voor clientverificatie naar Azure AD.
+Op dit moment worden slechts twee soorten toepassing geheimen zijn toegestaan in Hallo app-portal voor wachtwoordregistratie.  Kiezen **nieuw wachtwoord genereren** gaat genereren en opslaan van een gedeeld geheim in Hallo respectieve gegevensarchief, dat u in uw toepassing gebruiken kunt.  Kiezen **sleutelpaar genereren** maakt een nieuw openbaar/persoonlijk sleutelpaar sleutel die kan worden gedownload en kan worden gebruikt voor client verificatie tooAzure AD.
 
 ## <a name="profile"></a>Profiel
-De profielsectie van de portal van de registratie van de app kan worden gebruikt voor het aanpassen van de aanmeldingspagina voor uw toepassing.  Op dit moment kunt u de aanmeldingspagina van pagina toepassing logo, voorwaarden van de service-URL en privacyverklaring wijzigen.  Het logo moet een transparante afbeelding van 48 x 48 of 50 x 50 pixels in een GIF-, PNG- of JPEG-bestand van 15 kB of kleiner zijn.  Probeer de waarden wijzigen en het bekijken van de resulterende aanmelding op de pagina!
+Hallo profiel gedeelte van de portal voor registratie van Hallo app toocustomize Hallo aanmelding op de pagina voor uw toepassing gebruikt.  Op dit moment kunt u wijzigen Hallo aanmelden van pagina toepassing logo, voorwaarden van de service-URL en privacyverklaring.  Hallo logo moet een transparante 48 x 48 of 50 x 50 pixels afbeelding in een GIF, PNG of JPEG-bestand dat 15 kB of kleiner.  Wijzig Hallo waarden en weer te geven Hallo resulterende aanmeldingspagina!
 
 ## <a name="live-sdk-support"></a>Ondersteuning voor Live SDK
-Als u 'Live SDK Support' inschakelt, geen toepassing geheimen die u maakt in de Azure AD worden ingericht en Microsoft-Account gegevensarchieven.  Hierdoor kan uw toepassing rechtstreeks te integreren met de service Microsoft-Account (login.live.com).  Als u wenst voor het bouwen van een app met behulp van Microsoft-Account rechtstreeks (in plaats van via het Azure AD v2.0-eindpunt), moet u ervoor zorgen dat de ondersteuning van Live SDK is ingeschakeld.
+Als u 'Live SDK Support' inschakelt, wordt elke toepassing die u maakt geheimen worden ingericht in hello Azure AD en gegevens van Microsoft-Account worden opgeslagen.  Hierdoor kan uw toepassing toointegrate rechtstreeks met de Hallo service van Microsoft-Account (login.live.com).  Als u een app met behulp van Microsoft-Account (als tegengestelde toousing hello Azure AD v2.0-eindpunt) rechtstreeks toobuild wilt, moet u ervoor zorgen dat de ondersteuning van Live SDK is ingeschakeld.
 
-Ondersteuning voor Live SDK uitschakelen zorgt ervoor dat de toepassingsgeheim alleen wordt geschreven naar de Azure AD-gegevens opslaat.  De Azure AD-gegevens store bedrijfsniveau voorschriften die van toe te staan om te voldoen aan bepaalde standaarden, zoals FISMA naleving opgenomen.  Als u ondersteuning voor Live SDK inschakelt, kan uw toepassing compatibiliteit met enkele van deze standaarden niet bereiken.
+Ondersteuning voor Live SDK uitschakelen, zorgt u ervoor dat toepassingsgeheim Hallo in hello Azure AD-gegevensarchief is opgesteld.  Hello Azure AD-gegevensarchief opgenomen bedrijfsniveau voorschriften die van toe te staan toomeet bepaalde standaarden, zoals FISMA naleving.  Als u ondersteuning voor Live SDK inschakelt, kan uw toepassing compatibiliteit met enkele van deze standaarden niet bereiken.
 
-Als u alleen ooit het Azure AD v2.0-eindpunt te gebruiken, kunt u veilig ondersteuning voor Live SDK uitschakelen.
+Als u alleen ooit toouse hello Azure AD v2.0-eindpunt plant, kunt u veilig ondersteuning voor Live SDK uitschakelen.
 

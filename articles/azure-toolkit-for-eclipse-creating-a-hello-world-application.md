@@ -1,6 +1,6 @@
 ---
-title: Maken van een Cloudservice van Hallo wereld voor Azure in Eclipse
-description: Informatie over het maken van een eenvoudige Hallo wereld-toepassing met de Azure-Toolkit voor Eclipse.
+title: een Hello World Cloud Service voor Azure in Eclipse aaaCreate
+description: Meer informatie over hoe een eenvoudig Hello World toepassing met toocreate hello Azure Toolkit voor Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,16 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 9b31f0faeb6ee7b5e7b8fe3a1f2827133d6188e6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dfb81374aaf78e933c0bf83a1dbd98023801491a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-hello-world-cloud-service-for-azure-in-eclipse"></a>Maken van een Cloudservice van Hallo wereld voor Azure in Eclipse
-De volgende stappen ziet u het maken en implementeren van een eenvoudige JSP-toepassing naar Azure met de Azure-Toolkit voor Eclipse. Een voorbeeld van een JSP voor eenvoud wordt weergegeven, maar maximaal gelijksoortige stappen zou zijn geschikt voor een servlet Java wat betreft Azure-implementatie is.
+Hallo volgende stappen ziet u hoe toocreate en implementeren van een eenvoudige JSP-toepassing tooAzure met hello Azure Toolkit voor Eclipse. Een voorbeeld van een JSP voor eenvoud wordt weergegeven, maar maximaal gelijksoortige stappen zou zijn geschikt voor een servlet Java wat betreft Azure-implementatie is.
 
-De toepassing ziet er ongeveer als volgt:
+Hallo-toepassing ziet vergelijkbare toohello volgende uit:
 
 ![][ic600360]
 
@@ -32,14 +32,14 @@ De toepassing ziet er ongeveer als volgt:
 * Eclipse IDE voor Java EE-ontwikkelaars Indigo of hoger. Dit kan worden gedownload vanaf <http://www.eclipse.org/downloads/>.
 * Een distributiepunt van een Java gebaseerde webserver of toepassingsserver, zoals Apache Tomcat, GlassFish, JBoss-toepassingsserver, Jetty of IBM® WebSphere® Application Server Liberty Core.
 * Een Azure-abonnement, die kan worden opgehaald uit <http://azure.microsoft.com/pricing/purchase-options/>.
-* De Azure-werkset voor Eclipse. Zie voor meer informatie [installeren van de Azure-werkset voor Eclipse][Installing the Azure Toolkit for Eclipse].
+* Hello Azure Toolkit voor Eclipse. Zie voor meer informatie [installeren hello Azure Toolkit voor Eclipse][Installing hello Azure Toolkit for Eclipse].
 
-## <a name="to-create-a-hello-world-application"></a>Een toepassing Hello World maken
+## <a name="toocreate-a-hello-world-application"></a>een toepassing Hello World toocreate
 Eerst beginnen we uitschakelen met een Java-project maken.
 
-1. Start Eclipse en klik op het menu **bestand**, klikt u op **nieuw**, en klik vervolgens op **dynamisch webproject**. (Als er geen **dynamisch webproject** vermeld als een project beschikbaar wanneer u op **bestand**, **nieuw**, doet u het volgende: klik op **bestand**, klikt u op **nieuw**, klikt u op **Project...** , vouw **Web**, klikt u op **dynamisch webproject**, en klik op **volgende**.)
+1. Start Eclipse en op Hallo-menu op **bestand**, klikt u op **nieuw**, en klik vervolgens op **dynamisch webproject**. (Als er geen **dynamisch webproject** vermeld als een project beschikbaar wanneer u op **bestand**, **nieuw**, vervolgens Hallo te volgen: klik op **bestand**, klikt u op **nieuw**, klikt u op **Project...** , vouw **Web**, klikt u op **dynamisch webproject**, en klik op **volgende**.)
 
-1. Noem het project voor deze zelfstudie **MyHelloWorld**. (Zorg ervoor dat u gebruikt deze naam, volgende stappen in deze zelfstudie verwacht dat uw naam MyHelloWorld WAR-bestand). Uw scherm ziet er ongeveer als volgt:
+1. Naam voor deze zelfstudie Hallo project **MyHelloWorld**. (Zorg ervoor dat u gebruikt deze naam, de volgende stappen in deze zelfstudie verwacht dat het WAR-bestand toobe MyHelloWorld met de naam). Het scherm wordt vergelijkbaar toohello volgende weergegeven:
 
    ![][ic589576]
 
@@ -47,13 +47,13 @@ Eerst beginnen we uitschakelen met een Java-project maken.
 
 1. Vouw in de weergave Project Explorer van Eclipse **MyHelloWorld**. Klik met de rechtermuisknop op **WebContent**(Webinhoud) en klik vervolgens op **New** (Nieuw) en **JSP File** (JSP-bestand).
 
-1. In de **nieuw JSP-bestand** dialoogvenster, de naam van het bestand **index.jsp**. Bewaar de bovenliggende map als **MyHelloWorld/WebContent**, zoals wordt weergegeven in het volgende:
+1. In Hallo **nieuw JSP-bestand** dialoogvenster, Hallo bestandsnaam **index.jsp**. Hallo bovenliggende map als houden **MyHelloWorld/WebContent**, zoals wordt weergegeven in de volgende Hallo:
 
    ![][ic659262]
 
-1. In de **JSP-sjabloon selecteren** dialoogvenster ten behoeve van deze zelfstudie selecteert **nieuw JSP-bestand (html)** en klik op **voltooien**.
+1. In Hallo **JSP-sjabloon selecteren** dialoogvenster ten behoeve van deze zelfstudie selecteert **nieuw JSP-bestand (html)** en klik op **voltooien**.
 
-1. Wanneer het bestand index.jsp wordt geopend in Eclipse, toevoegen in de tekst die moet dynamisch weergeven **Hello World!** in het bestaande `<body>`-element. Uw bijgewerkte `<body>` inhoud moet worden weergegeven als het volgende:
+1. Wanneer de bestand index.jsp hello wordt geopend in Eclipse, toevoegen in toodynamically tekstweergave **Hello World!** binnen de bestaande Hallo `<body>` element. Uw bijgewerkte `<body>` inhoud moet worden weergegeven als Hallo volgende:
    ```
    <body>
    <b><% out.println("Hello World!"); %></b>
@@ -61,141 +61,141 @@ Eerst beginnen we uitschakelen met een Java-project maken.
    ```
 1. Index.jsp opslaan.
 
-## <a name="to-deploy-your-application-to-azure-the-quick-and-simple-way"></a>Voor het implementeren van uw toepassing in Azure, hoe snel en eenvoudig
-Zodra u een Java-webtoepassing gereed om te testen hebt, kunt u de volgende snelkoppeling uitproberen rechtstreeks op de Azure-cloud.
+## <a name="toodeploy-your-application-tooazure-hello-quick-and-simple-way"></a>toodeploy van uw toepassing tooAzure, Hallo snelle en eenvoudige manier
+Als u een Java web application gereed tootest hebt, kunt u Hallo snelkoppeling tootry het afmelden rechtstreeks op Hallo Azure cloud te volgen.
 
 1. Klik in Projectverkenner van Eclipse **MyHelloWorld**.
 
-2. Klik in de werkbalk van Eclipse op de **publiceren** vervolgkeuzepijl en klik vervolgens op **publiceren als Azure Cloud Service**
+2. Klik op Hallo Hallo Eclipse werkbalk **publiceren** vervolgkeuzepijl en klik vervolgens op **publiceren als Azure Cloud Service**
 
    ![][publishDropdownButton]
 
-3. Als u deze toepassing in Azure voor het eerst publiceert en u niet voor deze toepassing voordat u een Azure-implementatie-project hebt gemaakt, worden een project Azure-implementatie automatisch voor u gemaakt. U ziet de volgende prompt, die ook een lijst met het pakket JDK en de toepassingsserver die automatisch worden geïmplementeerd als uw toepassing wilt uitvoeren.
+3. Als u nog geen gemaakt met een Azure-implementatie-project voor deze toepassing voordat u deze toepassing tooAzure voor Hallo publiceert eerst worden een webproject Azure-implementatie automatisch voor u gemaakt. U ziet toorun uw toepassing hello volgen vragen, waarin ook Hallo JDK pakket- en server die automatisch worden geïmplementeerd.
 
    ![][ic789598]
    
-   Deze aanpak snelkoppeling kunt een snelle en gemakkelijke manier om te testen van uw toepassing in Azure zonder een bepaalde server of de JDK die verschilt van de standaardinstellingen configureren. Als u tevreden met de standaardinstellingen bent, klikt u op **OK** om door te gaan met de volgende stappen.
-   Echter, als u wilt wijzigen van de JDK of toepassingsserver te gebruiken voor uw toepassing kunt u dat later doen door het bewerken van het project Azure-implementatie die automatisch voor u is gemaakt, of u kunt op **annuleren** nu uit en lees de  **Over Azure-implementatie projecten sectie** van deze zelfstudie.
+   Deze aanpak snelkoppeling kan een snelle en gemakkelijke manier tootest uw toepassing in Azure zonder tooconfigure een bepaalde server of de JDK die verschilt van Hallo standaardwaarden. Als u tevreden met Hallo standaardwaarden bent, klikt u op **OK** toocontinue Hello stappen te volgen.
+   Echter, als u wilt dat toochange hello JDK of application server toouse voor uw toepassing, kunt u dat doen later door te bewerken hello Azure implementatieproject die automatisch voor u is gemaakt, of u kunt op **annuleren** nu weergeven en lezen Hallo **over Azure-implementatie projecten sectie** van deze zelfstudie.
 
-4. In de **publiceren naar Azure** dialoogvenster:
+4. In Hallo **tooAzure publiceren** dialoogvenster:
 
-   1. Als er geen abonnementen om te selecteren zijn de **abonnement** lijst nog als volgt te werk als u wilt uw abonnementsgegevens importeren:
+   1. Als er geen abonnementen tooselect in Hallo **abonnement** lijst nog Volg deze stappen tooimport uw abonnementsgegevens:
       1. Klik op **importeren uit bestand publiceren instellingen**.
-      2. In de **importeren abonnementsgegevens** dialoogvenster, klikt u op **publiceren-SETTINGS-bestand downloaden**. Als u nog niet aangemeld bij uw Azure-account, wordt u gevraagd om aan te melden. U wordt vervolgens gevraagd te Sla een Azure bestand publicatie-instellingen. Sla deze op uw lokale computer.
-      3. Nog steeds in de **importeren abonnementsgegevens** dialoogvenster, klikt u op de **Bladeren** knop, selecteer het publish settings-bestand dat u lokaal in de vorige stap opgeslagen en klik vervolgens op **openen**. Uw scherm ziet er ongeveer als volgt:![][ic644267]
+      2. In Hallo **importeren abonnementsgegevens** dialoogvenster, klikt u op **publiceren-SETTINGS-bestand downloaden**. Als u nog niet aangemeld bij uw Azure-account, kunt u zich na vragen aan gebruiker toolog in. Vervolgens wordt u gevraagd een Azure toosave bestand publicatie-instellingen. Sla het op de lokale computer tooyour.
+      3. Nog steeds in Hallo **importeren abonnementsgegevens** dialoogvenster, klikt u op Hallo **Bladeren** knop, selecteer Hallo bestand publicatie-instellingen die u lokaal in de vorige stap Hallo opgeslagen en klik vervolgens op  **Open**. Uw scherm ziet er vergelijkbare toohello volgende:![][ic644267]
       4. Klik op **OK**.
-   2. Voor **abonnement**, selecteer het abonnement die u gebruiken voor uw implementatie wilt.
-   3. Voor **opslagaccount**, selecteert u het opslagaccount dat u wilt gebruiken, of klik op **nieuw** een nieuw opslagaccount maken.
-   4. Voor **servicenaam**, selecteer de cloudservice die u wilt gebruiken, of klik op **nieuw** voor het maken van een nieuwe cloudservice.
-   5. Voor **doel OS**, selecteer de versie van het besturingssysteem dat u wilt gebruiken voor uw implementatie.
-   6. Voor **doelomgeving**, voor deze zelfstudie selecteert **fasering**. (Wanneer u klaar bent om te implementeren voor uw productiesite, past u deze optie om te **productie**.)
-   7. Optioneel: Zorg ervoor dat **overschrijven van de vorige implementatie** als u wilt dat uw nieuwe implementatie moeten worden overschreven de vorige implementatie is ingeschakeld. Wanneer u deze optie inschakelt, wordt geen ervaring '409 conflict' problemen bij het publiceren naar dezelfde locatie.
-      Houd er rekening mee dat de **publiceren naar Azure** dialoogvenster bevat een sectie voor **RAS**. Standaard externe toegang niet is ingeschakeld en er wordt het niet inschakelen voor dit voorbeeld. Voor externe toegang, voert u een gebruikersnaam en wachtwoord voor gebruik bij het aanmelden op afstand. Zie voor meer informatie over externe toegang [externe toegang inschakelen voor Azure-implementaties in Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
-      Uw **publiceren naar Azure** dialoogvenster ziet er ongeveer als volgt:![][ic719488]
+   2. Voor **abonnement**, selecteer Hallo abonnement die u gebruiken voor uw implementatie wilt.
+   3. Voor **opslagaccount**, selecteer Hallo opslagaccount dat u wilt dat toouse of op **nieuw** toocreate een nieuw opslagaccount.
+   4. Voor **servicenaam**, Hallo cloudservice wilt toouse of klik op selecteren **nieuw** toocreate een nieuwe cloudservice.
+   5. Voor **doel OS**, selecteer Hallo-versie van besturingssysteem hello wilt u toouse voor uw implementatie.
+   6. Voor **doelomgeving**, voor deze zelfstudie selecteert **fasering**. (Als u klaar toodeploy tooyour productiesite bent, wijzigt u dit te**productie**.)
+   7. Optioneel: Zorg ervoor dat **overschrijven van de vorige implementatie** als u wilt dat uw nieuwe implementatie tooautomatically overschrijven Hallo vorige implementatie is ingeschakeld. Wanneer u deze optie inschakelt, wordt geen ervaring '409 conflict' problemen bij het publiceren van toohello dezelfde locatie.
+      Houd er rekening mee dat Hallo **publiceren tooAzure** dialoogvenster bevat een sectie voor **RAS**. Standaard externe toegang niet is ingeschakeld en er wordt het niet inschakelen voor dit voorbeeld. tooenable externe toegang, voert u een gebruiker en het wachtwoord toouse bij het aanmelden op afstand. Zie voor meer informatie over externe toegang [externe toegang inschakelen voor Azure-implementaties in Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
+      Uw **tooAzure publiceren** dialoogvenster vergelijkbare toohello volgende weergegeven:![][ic719488]
 
-5. Klik op **publiceren** publiceren naar de Staging-omgeving.
+5. Klik op **publiceren** toopublish toohello faseringsomgeving.
 
-   Wanneer u wordt gevraagd om uit te voeren van een volledige build, klikt u op **Ja**. Dit kan enkele minuten voor de eerste build duren.
+   Wanneer na vragen aan gebruiker tooperform een volledige build, klikt u op **Ja**. Dit kan enkele minuten voor de eerste build Hallo duren.
    Een **Azure Activity Log** wordt weergegeven in de sectie met tabs Eclipse weergaven.
-   ![][ic719489]U kunt dit logboek, evenals de **Console** weergeven om te zien van de voortgang van uw implementatie. Een alternatief is aan te melden bij de [Azure Management Portal][Azure Management Portal], en gebruik de **Cloudservices** sectie om de status te controleren.
+   ![][ic719489]U kunt dit logboek gebruiken, evenals Hallo **Console** toosee Hallo voortgang van uw implementatie weergeven. Een alternatief is toolog in toohello [Azure Management Portal][Azure Management Portal], en gebruik Hallo **Cloudservices** sectie toomonitor Hallo status.
 
-6. Wanneer uw implementatie succes is geïmplementeerd, de **Azure Activity Log** ziet de status van **gepubliceerde**. Klik op **gepubliceerde**, zoals wordt weergegeven in de volgende afbeelding en de browser een exemplaar van uw implementatie wordt geopend.
+6. Wanneer uw implementatie succes is geïmplementeerd, Hallo **Azure Activity Log** ziet de status van **gepubliceerde**. Klik op **gepubliceerde**, zoals wordt weergegeven in de volgende Hallo installatiekopie en de browser wordt geopend een exemplaar van uw implementatie.
 
    ![][ic719490]
 
-Omdat dit een implementatie met een testomgeving, worden de DNS-naam van het formulier http://&lt;*guid*&gt;. cloudapp.net en de URL wordt de DNS-naam, plus een achtervoegsel voor de toepassing bevatten. Bijvoorbeeld: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (De **MyHelloWorld** gedeelte hoofdlettergevoelig is.) U ziet ook de DNS-naam als u de implementatienaam van de in het beheerportal van Azure-Platform (in de Cloud Services-gedeelte van de beheerportal) op.
+Omdat dit een implementatie tooa staging-omgeving, Hallo DNS-naam is van Hallo formulier http://&lt;*guid*&gt;. cloudapp.net en Hallo-URL bevat Hallo DNS-naam, plus een achtervoegsel voor uw toepassing. Bijvoorbeeld: http://447564652c20426f6220526f636b7321.cloudapp.net/MyHelloWorld. (Hallo **MyHelloWorld** gedeelte hoofdlettergevoelig is.) U ziet ook Hallo DNS als u de implementatienaam Hallo in Hallo beheerportal van Azure-Platform (binnen Hallo Cloud Services-gedeelte van de beheerportal Hallo) op naam.
 
-Hoewel deze procedure voor een implementatie van de testomgeving is, een productie-implementatie dezelfde stappen volgt, behalve binnen de **publiceren naar Azure** dialoogvenster Selecteer **productie** in plaats van **Fasering** voor de **doelomgeving**. Een implementatie naar productie resulteert in een URL op basis van de DNS-naam van uw keuze, in plaats van een GUID als gebruikt voor fasering.
+Hoewel deze procedure voor een implementatie toohello staging-omgeving is, een implementatie tooproduction volgt dezelfde stappen behalve binnen Hallo Hallo **publiceren tooAzure** dialoogvenster Selecteer **productie** in plaats van **fasering** voor Hallo **doelomgeving**. Een implementatie tooproduction resulteert in een URL die is gebaseerd op Hallo DNS-naam van uw keuze, in plaats van een GUID als gebruikt voor fasering.
 
 > [!WARNING]
-> U hebt op dit moment uw Azure-toepassing naar de cloud geïmplementeerd. Echter, voordat u doorgaat, houd er rekening mee dat een geïmplementeerde toepassing, zelfs als deze niet wordt uitgevoerd, blijft toenemen factureerbare tijd voor uw abonnement. Het is daarom zeer belangrijk dat u ongewenste implementaties van uw Azure-abonnement verwijdert.
+> Nu hebt u uw Azure-toepassing toohello cloud geïmplementeerd. Echter, voordat u doorgaat, houd er rekening mee dat een geïmplementeerde toepassing, zelfs als deze niet wordt uitgevoerd, de factureerbare tijd tooaccrue voor uw abonnement blijft. Het is daarom zeer belangrijk dat u ongewenste implementaties van uw Azure-abonnement verwijdert.
 > 
 > 
 
 ## <a name="about-azure-deployment-projects"></a>Over Azure-implementatie-projecten
-Als een of meer Java-toepassingen in Azure implementeert, is een Azure-implementatieproject vereist. Het speelt de rol van het 'pakket' dat uw toepassingen worden verpakt moeten in om te kunnen worden gepubliceerd in Azure.
+In volgorde toodeploy een of meer Java-toepassingen tooAzure, een Azure-implementatieproject nodig is. Het speelt Hallo rol Hallo 'pakket' dat uw toepassingen toobe samengevoegd moeten in in de volgorde toobe gepubliceerd in Azure.
 
-Naast de informatie over uw toepassingen een Azure-implementatie-project bevat ook informatie over andere belangrijke onderdelen van uw implementatie belangrijker: de container van de toepassing om uit te voeren van uw web-app in en uit te voeren op de Java-runtime. Azure biedt ondersteuning voor een groot aantal Java runtimes en Java-toepassingsservers die u kunt kiezen uit.
+Naast het Hallo-informatie over uw toepassingen, een Azure-implementatie-project bevat ook informatie over andere belangrijke onderdelen van uw implementatie belangrijker: Hallo application server container toorun in uw web-app en Java runtime toorun Hallo deze op. Azure biedt ondersteuning voor een groot aantal Java runtimes en Java-toepassingsservers die u kunt kiezen uit.
 
-Hoewel het voorbeeld dat hier gebruikt sterk vereenvoudigd voor educatieve doeleinden, kan een Azure-implementatie-project ook andere belangrijke configuratie-informatie waarmee u bijna willekeurig complexe, schaalbare en maximaal beschikbaar maken bevatten meerdere lagen cloudservices met uw toepassingen. U kunt inschakelen **affiniteit sessie ("een tijdelijke sessies')**, **Snelle caching**, **SSL-offloading**, **firewallpoort routering**, **RAS**, en een aantal andere krachtige mogelijkheden.
+Hoewel het Hallo-voorbeeld hier gebruikt sterk vereenvoudigd voor educatieve doeleinden, kan een Azure-implementatie-project ook andere belangrijke configuratie-informatie waarmee u toocreate bijna willekeurig complexe, schaalbare en maximaal beschikbaar, bevatten meerdere lagen cloudservices met uw toepassingen. U kunt inschakelen **affiniteit sessie ("een tijdelijke sessies')**, **Snelle caching**, **SSL-offloading**, **firewallpoort routering**, **RAS**, en een aantal andere krachtige mogelijkheden.
 
-Als u de vorige sectie van deze zelfstudie (' voor het implementeren van uw toepassing naar Azure, de snelle en eenvoudige manier') hebt voltooid, ziet u nu een nieuw project in de Azure-implementatie in de Projectverkenner automatisch voor u gegenereerd en de naam ' **MyHelloWorld_onAzure**'.
+Als u de vorige sectie Hallo van deze zelfstudie hebt voltooid ("toodeploy van uw toepassing tooAzure, Hallo snelle en eenvoudige manier '), ziet u nu een nieuw project in de Azure-implementatie in Hallo Projectverkenner automatisch voor u gegenereerd en de naam ' **MyHelloWorld_onAzure**'.
 
-U kan hebben ook gestart in deze zelfstudie een Azure-implementatie leeg project eerst maken zelf en vervolgens toe te voegen uw toepassingen aan. Er is een langer proces, maar geeft u meer controle over de eerste configuratie vanaf het begin.
+U kan hebben ook gestart in deze zelfstudie een Azure-implementatie leeg project eerst maken zelf en vervolgens toe te voegen uw tooit toepassing(en). Er is een langer proces, maar geeft u meer controle over de eerste configuratie van de Hallo Hallo vanaf.
 
-Klik op maken om een nieuw project in de Azure-implementatie de **nieuwe Azure-implementatieproject** knop ![][ic710876].
+toocreate een nieuw Azure-implementatie-project maken, klikt u op Hallo **nieuwe Azure-implementatieproject** knop ![][ic710876].
 
-Ongeacht of u werken met een bestaand Azure-implementatie-project, of maken van een geheel nieuw, u kunt wijzigen van de configuratie-instellingen en -onderdelen, zoals de JDK of de toepassingsserver gelijkmatig zijn gemakkelijk op elk gewenst moment.
+Ongeacht of u werken met een bestaand Azure-implementatie-project, of maken van een geheel nieuw, u kunt toochange de configuratie-instellingen en -onderdelen, zoals Hallo JDK of toepassingsserver, net zo eenvoudig hello op elk gewenst moment.
 
-De JDK of de toepassingsserver of de lijst met toepassingen in een bestaand project in de Azure-implementatie wijzigen:
+toochange hello JDK, of toepassingsserver Hallo of lijst met toepassingen in een bestaand Azure-implementatieproject Hallo:
 
-1. Vouw het projectknooppunt (bijvoorbeeld **MyHelloWorld_onAzure**) in de Projectverkenner
+1. Vouw Hallo projectknooppunt (bijvoorbeeld **MyHelloWorld_onAzure**) in Hallo Projectverkenner
 
 2. Met de rechtermuisknop op **WorkerRole1**
 
-3. Vouw de **Azure** submenu in het contextmenu
+3. Vouw Hallo **Azure** submenu in het contextmenu Hallo
 
 4. Klik op **serverconfiguratie**
 
-Ongeacht of u bent gestart deze serverconfiguratiestappen door een bestaand project in de Azure-implementatie te bewerken, zoals hierboven, of u een nieuwe maakt vanaf het begin, ziet u hetzelfde type dialoogvensters zodat u kunt uw JDK, servers en toepassingen configureren onderdelen. Zie voor meer informatie over het wijzigen van de instellingen in de dialoogvensters, bijvoorbeeld om te wijzigen van de JDK, de toepassingsserver en toepassingen toevoegen of verwijderen in een implementatie, de [configuratie-eigenschappen Server] [ Server configuration properties] artikel.
+Ongeacht of u deze serverconfiguratiestappen gestart door een bestaand project in de Azure-implementatie te bewerken, zoals hierboven of maakt een nieuwe maken, u Hallo ziet dezelfde soort dialoogvensters zodat u tooconfigure uw JDK servers en toepassingen onderdelen. toolearn meer hoe toochange Hallo instellingen in de dialoogvensters, bijvoorbeeld toochange hello JDK, Hallo toepassingsserver en toepassingen toevoegen of verwijderen in een implementatie, Zie Hallo [configuratie-eigenschappen Server] [ Server configuration properties] artikel.
 
-## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Alleen Windows: voor het implementeren van uw toepassing de rekenemulator
+## <a name="windows-only-toodeploy-your-application-toohello-compute-emulator"></a>Alleen Windows: toodeploy rekenemulator voor uw toepassing toohello
 
 > [!NOTE]
-> De Azure-emulator is alleen beschikbaar in Windows. Deze sectie overslaan als u een besturingssysteem dan Windows.
+> Hello Azure-emulator is alleen beschikbaar in Windows. Deze sectie overslaan als u een besturingssysteem dan Windows.
 > 
 > 
 
-Als u de stappen eerder, dat wil zeggen impliciet een nieuw Azure-implementatie-project hebt gemaakt door uw toepassing met Azure, de JDK en de toepassing te publiceren zijn servers geconfigureerd voor de cloud, maar niet voor lokale geëmuleerd. Als u uw project voorbereiden voor het testen in de lokale emulator, de volgende stappen uit:
+Als u een nieuw Azure-implementatieproject Hallo stappen eerder, dat wil zeggen impliciet door het publiceren van uw tooAzure toepassing hebt gemaakt Hallo JDK en toepassingsservers zijn geconfigureerd voor Hallo cloud, maar niet voor lokale geëmuleerd. tooprepare uw project voor het testen in lokale Hallo-emulator, als volgt te werk:
 
 1. Klik in Projectverkenner van Eclipse **MyHelloWorld_onAzure**.
 
 2. Met de rechtermuisknop op **WorkerRole1**.
 
-3. Vouw de **Azure** submenu in het contextmenu.
+3. Vouw Hallo **Azure** submenu in het contextmenu Hallo.
 
 4. Klik op **serverconfiguratie**.
 
-5. Op de **JDK** tabblad, moet u controleren als de toolkit een standaardwaarde heeft vooraf geconfigureerde lokale JDK voor u. Als dat niet, of als u wilt wijzigen van de veronderstelde standaardwaarden, zorg ervoor dat de **de JDK die van dit bestandspad gebruiken om lokaal te testen** selectievakje is ingeschakeld en de installatielocatie JDK die u wilt gebruiken is opgegeven. Als u wijzigen wilt, klikt u op de **Bladeren** knop en selecteer de Active directory-locatie van de JDK die moet worden gebruikt met het besturingselement bladeren.
+5. Op Hallo **JDK** tabblad, moet u controleren als Hallo toolkit is een standaard vooraf geconfigureerde lokale JDK voor u. Als dat niet, of als u wilt toochange Hallo aangenomen dat de standaardinstellingen, zorg ervoor dat Hallo **gebruik Hallo JDK van dit bestandspad om lokaal te testen** selectievakje is ingeschakeld en Hallo installatielocatie JDK die u wilt dat toouse is opgegeven. Als u wilt dat toochange, klikt u op Hallo **Bladeren** en Hallo bladeren besturingselement gebruikt, selecteer de maplocatie Hallo van Hallo JDK toouse.
 
-6. Klik op de **Server** tabblad.
+6. Klik op Hallo **Server** tabblad.
 
-7. In de **pad naar de lokale server** in het tekstvak onder in het dialoogvenster voert u het pad van een server met lokaal zijn geïnstalleerd die overeenkomt met het type en het primaire versienummer van de server die geselecteerd onder aan de bovenkant van het dialoogvenster de  **Een server van dit type implementeren** selectievakje. Als u gebruiken een ander type of de primaire versie van de toepassingsserver wilt, eerst de selectie onder dit selectievakje wijzigen.
+7. In Hallo **pad naar de lokale server** in het tekstvak onder Hallo van dialoogvenster Hallo Hallo pad opgeven van een server met lokaal zijn geïnstalleerd die overeenkomt met Hallo type en het primaire versienummer van Hallo server geselecteerd Hallo boven aan het Hallo-dialoogvenster, klikt u onder Hallo **implementeren van een server van dit type** selectievakje. Als u toouse een ander type of de primaire versie van de toepassingsserver hello wilt, eerst de selectie Hallo onder dit selectievakje wijzigen.
 
 8. Klik op **OK**.
 
-9. Klik in de werkbalk van Eclipse op de **uitvoeren in Azure-Emulator** knop ![][ic710879]. Als de **uitvoeren in Azure-Emulator** knop is niet ingeschakeld, zorg ervoor dat **MyHelloWorld_onAzure** is geselecteerd in de Projectverkenner van Eclipse en zorg ervoor dat de Eclipse-Project Explorer focus als de huidige venster. Dit wordt eerst een volledige versie van uw project te starten en start vervolgens de Java-webtoepassing in de rekenemulator. (Afhankelijk van de prestatiekenmerken van de computer, de eerste build tussen een paar seconden een paar minuten kan duren, maar volgende builds krijgen sneller.) Nadat de eerste stap van de build is voltooid, wordt u door Windows Gebruikersaccountbeheer (UAC) gevraagd om toe te staan van deze opdracht om uw computer te wijzigen. Klik op **Ja**.
+9. Klik op Hallo Hallo Eclipse werkbalk **uitvoeren in Azure-Emulator** knop ![][ic710879]. Als hello **uitvoeren in Azure-Emulator** knop is niet ingeschakeld, zorg ervoor dat **MyHelloWorld_onAzure** is geselecteerd in de Projectverkenner van Eclipse en zorg ervoor dat de Eclipse-Project Explorer focus als Hallo huidige venster. Hiermee wordt een volledige versie van uw project voor de eerste keer en start vervolgens uw Java-webtoepassing in Hallo rekenemulator. (Afhankelijk van de prestatiekenmerken van de computer, Hallo eerste build tussen een paar seconden tooa enkele minuten kan duren, maar volgende builds krijgen sneller.) Nadat de eerste build stap Hallo is voltooid, wordt u gevraagd deze opdracht toomake wijzigt Windows Gebruikersaccountbeheer (UAC) tooallow tooyour computer. Klik op **Ja**.
 
 > [!IMPORTANT]
-> Als u de UAC-prompt niet ziet, kijk op de taakbalk van Windows voor het pictogram UAC en klikt u op het eerst. Soms Gebruikersaccountbeheer prompt niet wordt weergegeven als een bovenste venster, maar alleen als een pictogram op de taakbalk zichtbaar is.
+> Als er geen Hallo UAC-prompt, selectievakje Hallo van Windows-taakbalk voor Hallo UAC-pictogram en klik op de eerste. Soms Hallo UAC-prompt niet wordt weergegeven als een bovenste venster, maar alleen als een pictogram op de taakbalk zichtbaar is.
 > 
 > 
 
-1. Bekijk de uitvoer van de rekenemulator gebruikersinterface om te bepalen of er problemen met uw project zijn. Afhankelijk van de inhoud van uw implementatie duurt enkele minuten duren voor uw toepassing volledig binnen de rekenemulator worden gestart.
+1. Bekijk de uitvoer op Hallo van Hallo compute-emulator UI toodetermine als er problemen met uw project zijn. Afhankelijk van de inhoud van de Hallo van uw implementatie duurt een paar minuten voor uw toepassing toobe volledig binnen het Hallo-rekenemulator is gestart.
 
-2. Start uw browser en gebruikt u de URL `http://localhost:8080/MyHelloWorld` als het adres (de `MyHelloWorld` deel van de URL is hoofdlettergevoelig). U ziet nu uw toepassing MyHelloWorld (de uitvoer van index.jsp), vergelijkbaar met de volgende afbeelding:
+2. Start uw browser en gebruik Hallo URL `http://localhost:8080/MyHelloWorld` als Hallo-adres (Hallo `MyHelloWorld` gedeelte van het Hallo-URL is hoofdlettergevoelig). U ziet uw MyHelloWorld toepassing (Hallo uitvoer van index.jsp), vergelijkbaar toohello installatiekopie te volgen:
 
    ![][ic589579]
 
-Wanneer u klaar bent voor het stoppen van uw toepassing wordt uitgevoerd in de rekenemulator op de werkbalk van Eclipse, klikt u op de **opnieuw instellen van de Azure-Emulator** knop ![][ic710880].
+Wanneer u bent klaar toostop uw toepassing wordt uitgevoerd in de rekenemulator Hallo Hallo Eclipse werkbalk klikt u op Hallo **opnieuw instellen van de Azure-Emulator** knop ![][ic710880].
 
-## <a name="to-delete-your-deployment"></a>Verwijderen van uw implementatie
-Zorg ervoor dat voor het verwijderen van uw implementatie binnen de Azure-werkset voor Eclipse **MyHelloWorld_onAzure** is geselecteerd in de Eclipse-Project Explorer, Controleer de Eclipse-Project Explorer heeft het huidige venster richten en klik vervolgens op de  **Publicatie ongedaan maken** knop ![][ic710883], op de werkbalk van Eclipse. (U kunt dezelfde bewerking doen met de rechtermuisknop op **MyHelloWorld_onAzure** in Eclipse van Projectverkenner te klikken op **Azure** en vervolgens te klikken op **Undeploy vanuit Azure Cloud**.) Hiermee wordt weergegeven de **ongedaan maken van de Azure-Project** dialoogvenster.
+## <a name="toodelete-your-deployment"></a>toodelete uw implementatie
+toodelete uw implementatie binnen hello Azure Toolkit voor Eclipse ervoor te zorgen dat **MyHelloWorld_onAzure** is geselecteerd in de Eclipse-Project Explorer, Controleer Hallo Eclipse Projectverkenner heeft Hallo huidige venster richten en klik vervolgens op Hallo **publicatie ongedaan maken** knop ![][ic710883], op Hallo Eclipse werkbalk. (U kan doen dezelfde bewerking met de rechtermuisknop op Hallo **MyHelloWorld_onAzure** in Eclipse van Projectverkenner te klikken op **Azure** en vervolgens te klikken op **Undeploy vanuit Azure Cloud**.) Hiermee wordt weergegeven Hallo **ongedaan maken van de Azure-Project** dialoogvenster.
 
 ![][ic719491]
 
-Selecteer het abonnement en cloud-service die uw implementatie bevat, selecteert u de implementatie die u wilt verwijderen en klik vervolgens op **publicatie ongedaan maken**.
+Selecteer Hallo abonnement en cloud service met uw implementatie, selecteer Hallo-implementatie wilt toodelete en klik vervolgens op **publicatie ongedaan maken**.
 
-(Een alternatief voor het gebruik van de toolkit verwijderen van de implementatie is met de **Cloud Services** sectie van de Azure-beheerportal: Ga naar uw implementatie, selecteert u deze en klik op de **verwijderen** de knop. Hiermee stopt en verwijder de implementatie. Als u alleen wilt stoppen met de implementatie en niet wordt verwijderd, klikt u op de **stoppen** knop in plaats van de **verwijderen** knop, maar als hierboven vermeld, als u de implementatie niet hebt verwijderd, factureerbare blijven de kosten samenvoegen voor uw implementatie zelfs als deze is gestopt).
+(Een alternatieve toousing Hallo toolkit toodelete Hallo-implementatie is toouse hello **Cloudservices** sectie Hallo Azure Management Portal: navigeer tooyour implementatie, selecteert u deze en klik op Hallo **verwijderen** knop. Hiermee stoppen en vervolgens verwijdert, Hallo-implementatie. Als u wilt dat alleen toostop Hallo implementatie en niet wordt verwijderd, klikt u op Hallo **stoppen** knop in plaats van Hallo **verwijderen** knop, maar zoals hierboven vermeld als Hallo-implementatie, factureerbare kosten wordt niet verwijderd blijven tooaccrue voor uw implementatie zelfs als deze is gestopt).
 
 ## <a name="see-also"></a>Zie ook
 [Azure Toolkit voor Eclipse][Azure Toolkit for Eclipse]
 
-[De installatie van de Azure Toolkit voor Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Hello Azure Toolkit voor Eclipse installeren][Installing hello Azure Toolkit for Eclipse] 
 
-[Wat is er nieuw in de Azure werkset voor Eclipse][What's New in the Azure Toolkit for Eclipse]
+[Wat is er nieuw in hello Azure Toolkit voor Eclipse][What's New in hello Azure Toolkit for Eclipse]
 
-Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Developer Center][Azure Java Developer Center].
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center][Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -204,9 +204,9 @@ Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Deve
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[What's New in hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

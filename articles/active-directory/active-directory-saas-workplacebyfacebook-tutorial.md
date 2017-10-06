@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met werkplek door Facebook | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en werkplek met Facebook.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en werkplek met Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,112 +13,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 1590a66f215f0c093d24ff602c0ad951ba1e1eea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f71a59527394730757d501a973251dc293fd3683
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Zelfstudie: Azure Active Directory-integratie met werkplek door Facebook
 
-In deze zelfstudie leert u hoe werkplek door Facebook integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe toointegrate werkplek door Facebook met Azure Active Directory (Azure AD).
 
-Werkplek door Facebook integreren met Azure AD biedt de volgende voordelen:
+Werkplek door Facebook integreren met Azure AD biedt Hallo volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot de werkplek door Facebook heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij werkplek door Facebook (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD wie toegang tot tooWorkplace door Facebook heeft
+- U kunt uw gebruikers tooautomatically get aangemelde tooWorkplace door Facebook (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met werkplek door Facebook, moet u de volgende items:
+Azure AD-integratie met werkplek door Facebook tooconfigure, moet u Hallo volgende items:
 
 - Een Azure AD-abonnement
 - Een werkplek met eenmalige aanmelding Facebook abonnement ingeschakeld
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Werkplek door Facebook uit de galerie toevoegen
+1. Het toevoegen van werkplek door Facebook van Hallo-galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Werkplek door Facebook uit de galerie toevoegen
-Voor het configureren van de integratie van werkplek door Facebook in Azure AD, moet u werkplek door Facebook uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-workplace-by-facebook-from-hello-gallery"></a>Het toevoegen van werkplek door Facebook van Hallo-galerie
+tooconfigure hello integratie van werkplek door Facebook in Azure AD, moet u tooadd werkplek door Facebook uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen werkplek door Facebook uit de galerie, moet u de volgende stappen uitvoeren:**
+**tooadd werkplek door Facebook via Hallo gallery uitvoeren Hallo stappen te volgen:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **werkplek door Facebook**.
+4. Typ in het zoekvak Hallo **werkplek door Facebook**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
 
-5. Selecteer in het deelvenster resultaten **werkplek door Facebook**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+5. Selecteer in het deelvenster resultaten hello, **werkplek door Facebook**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met werkplek door Facebook op basis van een testgebruiker genaamd "Britta Simon."
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in werkplek door Facebook is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gebruiker op de werkplek door Facebook tot stand worden gebracht.
+Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in werkplek door Facebook is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante gebruiker Hallo in werkplek door Facebook toobe tot stand gebracht.
 
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in werkplek met Facebook.
+Deze relatie koppeling wordt vastgesteld door het toewijzen van de waarde van Hallo Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** in werkplek met Facebook.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met werkplek door Facebook, moet u de volgende bouwstenen voltooien:
+tooconfigure en test eenmalige aanmelding Azure AD met behulp van werkplek door Facebook, moet u toocomplete Hallo bouwstenen te volgen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Configureren van Herauthenticatie frequentie](#configuring-reauthentication-frequency)**  - werkplek vraagt om een SAML-controle configureren.
-3. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-4. **[Maken van een werkplek door Facebook testgebruiker](#creating-a-workplace-by-facebook-test-user)**  - werkplek door Facebook die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-5. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-6. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
+2. **[Configureren van Herauthenticatie frequentie](#configuring-reauthentication-frequency)**  -tooconfigure werkplek tooprompt voor een SAML-controle.
+3. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Maken van een werkplek door Facebook testgebruiker](#creating-a-workplace-by-facebook-test-user)**  -toohave een equivalent van Britta Simon in werkplek door Facebook die gekoppelde toohello Azure AD-weergave van de gebruiker.
+5. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
+6. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren op uw werkplek met Facebook-toepassing.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding configureren op uw werkplek met Facebook-toepassing.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met werkplek door Facebook, moet u de volgende stappen uitvoeren:**
+**Azure AD tooconfigure eenmalige aanmelding met werkplek door Facebook, Voer Hallo stappen te volgen:**
 
-1. In de Azure-portal op de **werkplek door Facebook** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op Hallo Hallo **werkplek door Facebook** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. Op de **werkplek Facebook-domein en URL's** sectie, voert u de volgende stappen uit:
+3. Op Hallo **werkplek Facebook-domein en URL's** sectie, voert u Hallo stappen te volgen:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instancename>.facebook.com`
+    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<instancename>.facebook.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://www.facebook.com/company/<instancename>`
+    b. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://www.facebook.com/company/<instancename>`
 
     > [!NOTE] 
-    > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [werkplek door Facebook Client-ondersteuningsteam](https://workplace.fb.com/faq/) ophalen van deze waarden. 
+    > Deze waarden zijn niet Hallo echte. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [werkplek door Facebook Client-ondersteuningsteam](https://workplace.fb.com/faq/) tooget deze waarden. 
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het Hallo-certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_certificate.png) 
 
@@ -126,82 +126,82 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_400.png)
 
-6. Op de **werkplek door Facebook configuratie** sectie, klikt u op **werkplek configureren door Facebook** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op Hallo **werkplek door Facebook configuratie** sectie, klikt u op **werkplek configureren door Facebook** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/config.png) 
 
-7. In een ander browservenster, meld u aan bij uw werkplek door Facebook bedrijf site als beheerder.
+7. In een ander browservenster, aanmelding tooyour werkplek door Facebook bedrijf site als beheerder.
   
    > [!NOTE] 
-   > Als onderdeel van het SAML-verificatieproces mag werkplek queryreeksen van de grootte van maximaal 2,5 kB gebruiken om de parameters doorgeven aan Azure AD.
+   > Als onderdeel van SAML-verificatieproces hello, kan werkplek gebruikmaken van queryreeksen van up grootte in volgorde toopass parameters tooAzure AD too2.5 kB.
 
-8. In de **bedrijf Dashboard**, gaat u naar de **verificatie** tabblad.
+8. In Hallo **bedrijf Dashboard**, gaat u toohello **verificatie** tabblad.
 
-9. Onder **SAML-verificatie**, selecteer **eenmalige aanmelding alleen** uit de vervolgkeuzelijst.
+9. Onder **SAML-verificatie**, selecteer **eenmalige aanmelding alleen** uit de vervolgkeuzelijst Hallo.
 
-10. Voer de waarden die zijn gekopieerd uit **werkplek door Facebook-configuratie** sectie van de Azure portal naar de bijbehorende velden:
+10. Invoer Hallo-waarden die zijn gekopieerd uit **werkplek door Facebook configuratie** sectie van de Azure-portal in de bijbehorende velden Hallo Hallo:
 
-    *   In **SAML URL** textbox, plak de waarde van **Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
-    *   In **URL-verlener SAML textbox**, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal.
-    *   In **SAML afmelding omleiden** (optioneel), plak de waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
-    *   Open uw **base-64 gecodeerde certificaat** in Kladblok van Azure portal hebt gedownload, kopieert u de inhoud ervan naar het Klembord en plakt u deze naar de **SAML certificaat** textbox.
+    *   In **SAML URL** textbox plakken Hallo-waarde van **Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+    *   In **URL-verlener SAML textbox**, plak Hallo-waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal.
+    *   In **SAML afmelding omleiden** (optioneel) plakken Hallo-waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
+    *   Open uw **base-64 gecodeerde certificaat** in Kladblok gedownload vanuit Azure-portal Hallo inhoud van het kopiëren naar het Klembord en plak deze toothe **SAML certificaat** textbox.
 
-11. Mogelijk moet u de doelgroep URL invoeren, de URL van de geadresseerde, en de URL van de ACS (Assertion Consumer-Service) die worden vermeld onder de **SAML-configuratie** sectie.
+11. Mogelijk moet u tooenter Hallo doelgroep-URL de URL van de geadresseerde, en URL ACS (Assertion Consumer-Service) die worden vermeld onder Hallo **SAML-configuratie** sectie.
 
-12. Ga naar de onderkant van de sectie en klik op de **Test SSO** knop. Dit resulteert in een pop-upvenster wordt weergegeven met Azure AD-aanmeldingspagina weergegeven. Geef uw referenties in als normaal om te verifiëren. 
+12. Schuif toohello onder aan de sectie Hallo en klikt u op Hallo **Test SSO** knop. Dit resulteert in een pop-upvenster wordt weergegeven met Azure AD-aanmeldingspagina weergegeven. Geef uw referenties in als normale tooauthenticate. 
 
-    **Voor probleemoplossing:** Zorg ervoor dat het e-mailadres dat wordt geretourneerd back vanuit Azure AD is hetzelfde als het werkplekaccount dat u bent aangemeld.
+    **Voor probleemoplossing:** Controleer Hallo e-mailadres wordt geretourneerd door Azure AD is hetzelfde als het werkplekaccount dat u bent aangemeld Hallo Hallo.
 
-13. Zodra de test is voltooid, Ga naar de onderkant van de pagina en klik op de **opslaan** knop.
+13. Zodra het Hallo-test is voltooid, schuif toohello onder aan Hallo pagina en klik op Hallo **opslaan** knop.
 
 14. Alle gebruikers met behulp van werkplek wordt nu weergegeven met Azure AD-aanmeldingspagina voor verificatie.
 
 15. **SAML afmelding omleiden (optioneel)** - 
 
-    U kunt desgewenst een SAML afmelding-Url, die kan worden gebruikt om te verwijzen op de pagina voor Azure AD-Meld u af te configureren. Als deze instelling is ingeschakeld en geconfigureerd, wordt de gebruiker niet langer worden omgeleid naar de pagina Werkplek afmelden. In plaats daarvan wordt de gebruiker wordt omgeleid naar de url die is toegevoegd in de instelling voor het omleiden van SAML-afmelden.
+    U kunt kiezen toooptionally een Url van de afmelding SAML te configureren die de gebruikte toopoint op de pagina voor Azure AD-afmelding kan zijn. Als deze instelling is ingeschakeld en geconfigureerd, langer Hallo gebruiker niet gerichte toohello werkplek afmelding pagina. Hallo-gebruiker worden in plaats daarvan omgeleide toohello-url die is toegevoegd in Hallo SAML afmelding omleiden instelling.
 
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="configuring-reauthentication-frequency"></a>Herauthenticatie frequentie configureren
 
-U kunt configureren werkplek om aan te vragen om een SAML-controle elke dag, drie dagen, week, twee weken, maanden of nooit.
+U kunt configureren werkplek tooprompt voor een SAML-controle elke dag drie dagen, week, twee weken, maanden of nooit.
 
 > [!NOTE] 
->De minimumwaarde voor de SAML-controle voor mobiele toepassingen is ingesteld op één week.
+>Hallo minimale waarde voor Hallo SAML-controle voor mobiele toepassingen is ingesteld tooone week.
 
-U kunt ook een SAML opnieuw instellen voor alle gebruikers met behulp van de knop afdwingen: vereisen SAML-verificatie voor alle gebruikers nu.
+U kunt ook een SAML opnieuw instellen voor alle gebruikers met behulp van de knop Hallo afdwingen: vereisen SAML-verificatie voor alle gebruikers nu.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-workplacebyfacebook-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-workplacebyfacebook-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-workplacebyfacebook-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-workplacebyfacebook-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In Hallo **naam** textbox type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
 
     d. Klik op **Create**.
  
@@ -209,28 +209,28 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 In deze sectie wordt een gebruiker met de naam Britta Simon in werkplek gemaakt door Facebook. Werkplek door Facebook ondersteunt just-in-time-inrichting, die standaard is ingeschakeld.
 
-Er is geen actie voor u in deze sectie. Als een gebruiker niet op de werkplek door Facebook bestaat, wordt een nieuw gemaakt wanneer u probeert te openen, werkplek met Facebook.
+Er is geen actie voor u in deze sectie. Als een gebruiker niet op de werkplek door Facebook bestaat, wordt een nieuw gemaakt wanneer u tooaccess werkplek probeert met Facebook.
 
 >[!Note]
->Als u wilt een gebruiker handmatig maken, neem contact op met [werkplek door ondersteuningsteam Facebook-Client](https://workplace.fb.com/faq/)
+>Als u een gebruiker handmatig, neem contact op met toocreate moet [werkplek door ondersteuningsteam Facebook-Client](https://workplace.fb.com/faq/)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang te verlenen aan een werkplek met Facebook.
+In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooWorkplace met Facebook.
 
 ![Gebruiker toewijzen][200] 
 
-**Als u wilt toewijzen Britta Simon werkplek door Facebook, moet u de volgende stappen uitvoeren:**
+**tooassign Britta Simon tooWorkplace door Facebook, Voer Hallo stappen te volgen:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **werkplek door Facebook**.
+2. Selecteer in de lijst met de toepassingen van Hallo **werkplek door Facebook**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -238,7 +238,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -246,13 +246,13 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
+Als u uw instellingen voor eenmalige aanmelding tootest wilt, open Hallo Toegangsvenster.
+Zie voor meer informatie over Hallo Toegangspaneel [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Gebruikers inrichten configureren](active-directory-saas-workplacebyfacebook-provisioning-tutorial.md)
 

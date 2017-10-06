@@ -1,6 +1,6 @@
 ---
-title: Onderliggende runbooks in Azure Automation | Microsoft Docs
-description: Beschrijft de verschillende methoden voor het starten van een runbook in Azure Automation vanuit een ander runbook en delen van gegevens tussen deze.
+title: aaaChild runbooks in Azure Automation | Microsoft Docs
+description: Beschrijft de verschillende methoden voor het starten van een runbook in Azure Automation vanuit een ander runbook en delen van gegevens tussen deze Hallo.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: a605d278dbbda9613b91007ea6a7042403a7a6ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3d06818d344b565d53cc4f4705b41dcfcf9a376
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
-Het is een best practice in Azure Automation schrijven herbruikbare, modulaire runbooks met een aparte functie die kan worden gebruikt door andere runbooks. Een bovenliggend runbook roept vaak een of meer onderliggende runbooks om uit te voeren van de vereiste functionaliteit. Er zijn twee manieren om aan te roepen, een onderliggend runbook en elke manier kent duidelijke verschillen die u moet begrijpen zodat u kunt bepalen wat de beste optie voor uw verschillende scenario's.
+Het is een best practice in Azure Automation toowrite herbruikbare, modulaire runbooks met een aparte functie die kan worden gebruikt door andere runbooks. Een bovenliggend runbook roept vaak een of meer onderliggende runbooks functionaliteit tooperform vereist. Er zijn twee manieren toocall een onderliggend runbook en elke manier kent duidelijke verschillen die u moet begrijpen zodat u kunt bepalen wat de beste optie voor uw verschillende scenario's.
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Aanroepen van een onderliggend runbook met inline-uitvoering
-Als u wilt een runbook inline vanuit een ander runbook aanroepen, gebruikt u de naam van het runbook en geef waarden op voor de parameters precies zoals wanneer u een activiteit of cmdlet.  Alle runbooks in dezelfde Automation-account zijn beschikbaar voor alle andere moet op deze manier worden gebruikt. Het bovenliggende runbook wacht tot het onderliggende runbook om te voltooien voordat u doorgaat naar de volgende regel, en eventuele uitvoer rechtstreeks aan het bovenliggende object wordt geretourneerd.
+tooinvoke een runbook inline vanuit een ander runbook u Hallo-naam van Hallo runbook gebruiken en geef waarden op voor de parameters precies zoals wanneer u een activiteit of cmdlet.  Alle runbooks in dezelfde Automation-account Hallo beschikbaar tooall anderen toobe op deze manier gebruikt zijn. Hallo bovenliggend runbook wacht Hallo onderliggend runbook toocomplete voordat u de volgende regel toohello verplaatst, en eventuele uitvoer wordt rechtstreeks toohello bovenliggende geretourneerd.
 
-Als u een runbook inline aanroept, deze wordt uitgevoerd in dezelfde taak als het bovenliggende runbook. Er zijn geen vermelding in de taakgeschiedenis van het onderliggende runbook die is uitgevoerd. Eventuele uitzonderingen en eventuele Stroomuitvoer van het onderliggende runbook worden gekoppeld aan het bovenliggende item zijn. Dit resulteert in minder taken en zorgt ervoor dat ze gemakkelijker om bij te houden en op te lossen omdat eventuele uitzonderingen worden veroorzaakt door het onderliggende runbook en de Stroomuitvoer gekoppeld aan de bovenliggende taak zijn.
+Als u een runbook inline aanroept, voert deze Hallo dezelfde taak als Hallo bovenliggende runbook. Er zijn geen vermelding in de taakgeschiedenis Hallo van Hallo onderliggend runbook dat is uitgevoerd. Eventuele uitzonderingen en eventuele Stroomuitvoer van Hallo onderliggend runbook worden gekoppeld met bovenliggende Hallo. Dit resulteert in minder taken en zorgt ervoor dat ze gemakkelijker tootrack en tootroubleshoot omdat eventuele uitzonderingen worden veroorzaakt door Hallo onderliggend runbook en een van de Stroomuitvoer zijn gekoppeld aan Hallo bovenliggende taak.
 
-Wanneer een runbook wordt gepubliceerd, moet alle onderliggende runbooks die daardoor worden aangeroepen al zijn gepubliceerd. Dit is omdat Azure Automation een koppeling met onderliggende runbooks maakt wanneer een runbook wordt gecompileerd. Als ze niet, is het bovenliggende runbook correct wordt gepubliceerd wordt weergegeven, maar wordt een uitzondering gegenereerd wanneer deze wordt gestart. Als dit gebeurt, kunt u het bovenliggende runbook opnieuw publiceren om correct wordt verwezen naar de onderliggende runbooks. U hoeft niet naar het bovenliggende runbook opnieuw publiceren als een van de onderliggende runbooks worden gewijzigd omdat de koppeling wordt al zijn gemaakt.
+Wanneer een runbook wordt gepubliceerd, moet alle onderliggende runbooks die daardoor worden aangeroepen al zijn gepubliceerd. Dit is omdat Azure Automation een koppeling met onderliggende runbooks maakt wanneer een runbook wordt gecompileerd. Als ze niet, Hallo bovenliggend runbook toopublish correct wordt weergegeven, maar wordt een uitzondering gegenereerd wanneer deze wordt gestart. Als dit gebeurt, kunt u Hallo bovenliggend runbook in de volgorde tooproperly verwijzing Hallo onderliggende runbooks opnieuw publiceren. U hoeft geen toorepublish Hallo bovenliggend runbook als een Hallo onderliggende runbooks is gewijzigd, omdat het Hallo-koppeling wordt al zijn gemaakt.
 
-Elk gegevenstype met inbegrip van complexe objecten kunnen worden door de parameters van een onderliggend runbook dat inline wordt aangeroepen en er is geen [JSON-serialisatie](automation-starting-a-runbook.md#runbook-parameters) omdat er bij het starten van het runbook met behulp van de Azure-beheerportal of met de cmdlet Start-AzureRmAutomationRunbook.
+Hallo-parameters van een onderliggend runbook dat inline wordt aangeroepen elk gegevenstype met inbegrip van complexe objecten kunnen worden en er is geen [JSON-serialisatie](automation-starting-a-runbook.md#runbook-parameters) omdat er bij u Hallo runbook start met behulp hello Azure Management Portal of met Hallo De cmdlet start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Runbooktypen
 Welke typen kunnen bellen elkaar:
 
 * Een [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) en [grafische runbooks](automation-runbook-types.md#graphical-runbooks) elke andere inline (beide zijn op basis van PowerShell) kunt aanroepen.
 * Een [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks) en grafische PowerShell Workflow-runbooks, kunnen elke andere inline (beide zijn op basis van PowerShell-werkstroom) aangeroepen.
-* De PowerShell-typen en de typen PowerShell Workflow elkaar inline kunnen niet worden aangeroepen en Start AzureRmAutomationRunbook moeten gebruiken.
+* Hallo PowerShell-typen en Hallo die PowerShell Workflow typen elkaar inline kan niet worden aangeroepen en Start AzureRmAutomationRunbook moet gebruiken.
 
 Wanneer volgorde zaak wordt gepubliceerd:
 
-* De volgorde van het publiceren van runbooks is alleen van belang voor PowerShell-werkstromen en grafische PowerShell Workflow-runbooks.
+* Hallo publiceren volgorde van runbooks alleen belangrijk is voor de PowerShell-werkstromen en grafische PowerShell Workflow-runbooks.
 
-Wanneer u een grafisch of PowerShell-werkstroom onderliggend runbook met inline-uitvoering aanroepen, gebruikt u alleen de naam van het runbook.  Wanneer u een PowerShell-onderliggend runbook aanroepen, moet u dezelfde naam hebben als voorafgegaan *.\\*  om op te geven dat het script in de lokale map bevinden zich. 
+Wanneer u een grafisch of PowerShell-werkstroom onderliggend runbook met inline-uitvoering aanroept, u alleen Hallo-naam van Hallo runbook gebruiken.  Wanneer u een PowerShell-onderliggend runbook aanroepen, moet u dezelfde naam hebben als voorafgegaan *.\\*  toospecify die Hallo script bevindt zich in de lokale directory Hallo. 
 
 ### <a name="example"></a>Voorbeeld
-Het volgende voorbeeld wordt een onderliggend testrunbook dat drie parameters, een complex object, een geheel getal en een Boolean-waarde accepteert. De uitvoer van het onderliggende runbook is toegewezen aan een variabele.  In dit geval wordt is het onderliggende runbook een PowerShell Workflow-runbook
+Hallo volgende voorbeeld wordt een onderliggend testrunbook dat drie parameters, een complex object, een geheel getal en een Boolean-waarde accepteert aangeroepen. Hallo-uitvoer van Hallo onderliggend runbook is tooa variabele worden toegewezen.  In dit geval is Hallo onderliggend runbook een PowerShell Workflow-runbook
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
-Hier volgt het hetzelfde voorbeeld met een PowerShell-runbook als het onderliggende object.
+Hieronder vindt u Hallo hetzelfde voorbeeld met een PowerShell-runbook als onderliggende hello.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>Een onderliggend runbook met behulp van de cmdlet starten
-U kunt de [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet een runbook starten, zoals beschreven in [een runbook starten met Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Er zijn twee modi voor deze cmdlet.  De cmdlet retourneert de taak-id in één modus zodra de onderliggende taak is gemaakt voor het onderliggende runbook.  In de andere modus, waarbij u door het opgeven van inschakelen de **-wacht** parameter, de cmdlet gewacht tot de onderliggende taak is voltooid en de uitvoer van het onderliggende runbook wordt geretourneerd.
+U kunt Hallo [Start AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet toostart een runbook, zoals beschreven in [toostart een runbook met Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Er zijn twee modi voor deze cmdlet.  Hallo cmdlet retourneert Hallo taak-id in één modus zodra Hallo onderliggende taak is gemaakt voor Hallo onderliggend runbook.  Hallo in andere modus, waarbij u inschakelen door te geven Hallo **-wacht** parameter Hallo cmdlet gewacht tot Hallo onderliggende taak is voltooid en retourneert Hallo uitvoer van Hallo onderliggend runbook.
 
-De taak van een onderliggend runbook dat is gestart met een cmdlet wordt uitgevoerd in een afzonderlijke taak van het bovenliggende runbook. Dit resulteert in meer taken dan het runbook inline wordt aangeroepen en maakt ze moeilijker te volgen. De bovenliggende kan meerdere onderliggende runbooks asynchroon starten zonder te wachten op elk daarvan is voltooid. Voor dezelfde soort parallelle uitvoering de onderliggende runbooks inline aanroepen, moet het bovenliggende runbook gebruiken de [parallelle sleutelwoord](automation-powershell-workflow.md#parallel-processing).
+Hallo-taak van een onderliggend runbook dat is gestart met een cmdlet wordt uitgevoerd in een afzonderlijke taak van Hallo bovenliggende runbook. Dit resulteert in meer taken dan Hallo runbook inline wordt aangeroepen en maakt ze moeilijker tootrack. Hallo bovenliggende kan meerdere onderliggende runbooks asynchroon starten zonder te wachten op voor elke toocomplete. Voor dezelfde soort parallelle uitvoering Hallo onderliggende runbooks inline aanroepen, Hallo bovenliggend runbook moet toouse hello [parallelle sleutelwoord](automation-powershell-workflow.md#parallel-processing).
 
-Parameters voor een onderliggend runbook dat is gestart met een cmdlet worden opgegeven als hashtabel, zoals beschreven in [Runbookparameters](automation-starting-a-runbook.md#runbook-parameters). Alleen eenvoudige gegevenstypen kunnen worden gebruikt. Als het runbook een parameter met een complex gegevenstype heeft, moet klikt u vervolgens het worden aangeroepen inline.
+Parameters voor een onderliggend runbook dat is gestart met een cmdlet worden opgegeven als hashtabel, zoals beschreven in [Runbookparameters](automation-starting-a-runbook.md#runbook-parameters). Alleen eenvoudige gegevenstypen kunnen worden gebruikt. Als Hallo runbook een parameter met een complex gegevenstype heeft, moet klikt u vervolgens het worden aangeroepen inline.
 
 ### <a name="example"></a>Voorbeeld
-Het volgende voorbeeld wordt een onderliggend runbook met parameters gestart en wordt er gewacht totdat deze is voltooid met behulp van de Start-AzureRmAutomationRunbook-parameter wacht. Zodra voltooid, wordt de uitvoer van het onderliggende runbook verzameld.
+Hallo volgende voorbeeld wordt gestart een onderliggend runbook met parameters en vervolgens wacht toocomplete met Hallo Start AzureRmAutomationRunbook-parameter wacht. Zodra voltooid, wordt de uitvoer van Hallo onderliggend runbook verzameld.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
     $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Vergelijking van methoden voor het aanroepen van een onderliggend runbook
-De volgende tabel geeft een overzicht van de verschillen tussen de twee methoden voor het aanroepen van een runbook vanuit een ander runbook.
+Hallo volgende tabel ziet u Hallo verschillen tussen Hallo twee methoden voor het aanroepen van een runbook vanuit een ander runbook.
 
 |  | Inline | Cmdlet |
 |:--- |:--- |:--- |
-| Job |Onderliggende runbooks worden uitgevoerd in dezelfde taak als het bovenliggende item. |Een afzonderlijke taak is voor het onderliggende runbook gemaakt. |
-| Uitvoering |Bovenliggend runbook wacht tot het onderliggende runbook om te voltooien voordat u doorgaat. |Bovenliggend runbook gaat direct verder nadat onderliggend runbook is gestart *of* bovenliggend runbook wacht tot de onderliggende taak is voltooid. |
+| Job |Onderliggende runbooks worden uitgevoerd in dezelfde taak als bovenliggend niveau Hallo Hallo. |Een afzonderlijke taak voor Hallo onderliggend runbook gemaakt. |
+| Uitvoering |Bovenliggend runbook wacht Hallo onderliggend runbook toocomplete voordat u doorgaat. |Bovenliggend runbook gaat direct verder nadat onderliggend runbook is gestart *of* bovenliggend runbook wacht Hallo onderliggende taak toofinish. |
 | Uitvoer |Bovenliggend runbook kan uitvoer rechtstreeks ophalen van onderliggend runbook. |Bovenliggend runbook moet uitvoer ophalen uit taak van onderliggend runbook *of* bovenliggend runbook kan uitvoer rechtstreeks ophalen van onderliggend runbook. |
-| Parameters |Waarden voor de parameters van onderliggend runbook worden afzonderlijk opgegeven en elk gegevenstype kunnen gebruiken. |Waarden voor de parameters van onderliggend runbook moeten worden gecombineerd in één hashtabel en kunnen alleen bestaan uit eenvoudig, matrix en object-gegevenstypen die gebruiken voor de JSON-serialisatie. |
-| Automation-account |Bovenliggend runbook kan alleen onderliggend runbook in de dezelfde automation-account gebruiken. |Bovenliggend runbook kunt onderliggend runbook vanuit een automation-account van de dezelfde Azure-abonnement en zelfs een ander abonnement gebruiken als u een verbinding mee hebt. |
+| Parameters |Waarden voor parameters van onderliggend runbook Hallo worden afzonderlijk opgegeven en elk gegevenstype kunnen gebruiken. |Waarden voor Hallo onderliggend runbook parameters moeten worden samengevoegd in één hashtabel en kunnen alleen bestaan uit eenvoudig, matrix en object gegevenstypen die gebruiken voor de JSON-serialisatie. |
+| Automation-account |Bovenliggend runbook kan alleen onderliggend runbook gebruiken in Hallo dezelfde automation-account. |Bovenliggend runbook kunt onderliggend runbook vanuit een automation-account via hello gebruiken dezelfde Azure-abonnement en zelfs een ander abonnement als u een tooit verbinding hebt. |
 | Publiceren |Onderliggend runbook moet worden gepubliceerd voordat bovenliggend runbook wordt gepubliceerd. |Onderliggend runbook moet worden gepubliceerd voordat bovenliggend runbook wordt gestart. |
 
 ## <a name="next-steps"></a>Volgende stappen

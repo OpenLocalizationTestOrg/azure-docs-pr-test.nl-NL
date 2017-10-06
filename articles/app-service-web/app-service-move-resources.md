@@ -1,6 +1,6 @@
 ---
-title: Web-App Resources verplaatsen naar een andere resourcegroep
-description: Beschrijft de scenario's waarin kunt u Web-Apps en App-Services van een resourcegroep naar een andere.
+title: aaaMove bronnen voor Web-App tooanother resourcegroep
+description: Hallo-scenario's waarin u Web-Apps en App-Services van een resourcegroep tooanother verplaatsen kunt beschrijft.
 services: app-service
 documentationcenter: 
 author: ZainRizvi
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 931012fee656b7f8a4b2c225c38739a9171d3b2e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-move-configurations"></a>Ondersteunde Move-configuraties
-Kunt u Web-App van Azure-resources met behulp van de [Resource Manager verplaatsen Resources API](../azure-resource-manager/resource-group-move-resources.md).
+U kunt Azure-Web-App-resources met behulp van Hallo verplaatsen [Resource Manager verplaatsen Resources API](../azure-resource-manager/resource-group-move-resources.md).
 
-Azure Web Apps biedt momenteel ondersteuning voor de volgende move-scenario's:
+Azure Web Apps ondersteunt momenteel Hallo verplaatsen scenario's te volgen:
 
-* De volledige inhoud van een resourcegroep (web-apps, app service-abonnementen en certificaten) naar een andere resourcegroep verplaatsen. 
+* Hallo volledige inhoud van een resourcegroep (web-apps, app service-abonnementen en certificaten) verplaatsen tooanother resourcegroep. 
    > [!Note]
-   > De resourcegroep voor de bestemming kan geen Microsoft.Web bronnen in dit scenario bevatten.
+   > Hallo bestemming resourcegroep mag niet Microsoft.Web bronnen in dit scenario.
 
-* Afzonderlijke web-apps naar een andere resourcegroep verplaatsen tijdens het hosten van ze nog steeds in de huidige app service-abonnement (het app service-abonnement blijft in de oude resourcegroep).
+* Afzonderlijke web apps tooa andere resourcegroep verplaatsen tijdens het hosten van ze nog steeds in de huidige app service-abonnement (Hallo-app service plan blijft in de oude resourcegroep Hallo).
 
 

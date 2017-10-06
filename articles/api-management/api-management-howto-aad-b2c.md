@@ -1,6 +1,6 @@
 ---
-title: Ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory B2C - Azure API Management | Microsoft Docs
-description: Informatie over het autoriseren van gebruikers met behulp van Azure Active Directory B2C in API Management.
+title: ontwikkelaarsaccounts aaaAuthorize met behulp van Azure Active Directory B2C - Azure API Management | Microsoft Docs
+description: Meer informatie over hoe tooauthorize gebruikers met behulp van Azure Active Directory B2C in API Management.
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -14,101 +14,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: eb7deb1a79d9db9ac5cfbea69b8d3c564eb55577
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 28f7cae53138938dbbc848b4afcbf08b72690e37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory B2C in Azure API Management
+# <a name="how-tooauthorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe tooauthorize developer gebruikersaccounts met behulp van Azure Active Directory B2C in Azure API Management
 ## <a name="overview"></a>Overzicht
-Azure Active Directory B2C is een oplossing voor identiteitsbeheer voor consumentgerichte webtoepassingen en mobiele toepassingen cloud. U kunt deze gebruiken voor toegang tot uw ontwikkelaarsportal beheren. Deze handleiding beschrijft u de configuratie die vereist is in uw API Management-service om te integreren met Azure Active Directory B2C. Zie voor meer informatie over het inschakelen van toegang tot de portal voor ontwikkelaars via de klassieke Azure Active Directory [hoe ontwikkelaarsaccounts met Azure Active Directory autoriseren].
+Azure Active Directory B2C is een oplossing voor identiteitsbeheer voor consumentgerichte webtoepassingen en mobiele toepassingen cloud. U kunt deze gebruiken toomanage toegang tooyour developer-portal. Deze handleiding ziet u de configuratie die vereist is in uw API Management-service toointegrate met Azure Active Directory B2C Hallo. Zie voor meer informatie over het inschakelen van toegang toohello developer-portal met behulp van de klassieke Azure Active Directory [hoe tooauthorize developer gebruikersaccounts via Azure Active Directory].
 
 > [!NOTE]
-> U moet een Azure Active Directory B2C-tenant maken van een toepassing in hebben voor het voltooien van de stappen in deze handleiding. U moet ook, aanmelding en aanmelding beleid gereed. Zie voor meer informatie [overzicht van Azure Active Directory B2C].
+> toocomplete hello stappen in deze handleiding, moet u eerst hebben een Azure Active Directory B2C-tenant toocreate een toepassing. U moet ook toohave aanmelding en aanmelding beleidsregels gereed. Zie voor meer informatie [overzicht van Azure Active Directory B2C].
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory B2C
 
-1. Om te beginnen, klikt u op **publicatieportal** in de Azure portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
+1. tooget gestart, klikt u op **publicatieportal** in hello Azure-portal voor uw API Management-service. Hiermee gaat u toohello API Management-publicatieportal.
 
    ![Publicatieportal][api-management-management-console]
 
    > [!NOTE]
-   > Als u nog een exemplaar van API Management-service hebt gemaakt, Zie [API Management service-exemplaar maken] [ Create an API Management service instance] in de [aan de slag met Azure API Management-zelfstudie] [Get started with Azure API Management].
+   > Als u nog een exemplaar van API Management-service hebt gemaakt, Zie [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management-zelfstudie][Get started with Azure API Management].
 
-2. Op de **API Management** menu, klikt u op **beveiliging**. Op de **identiteiten** Kies **Azure Active Directory B2C**.
+2. Op Hallo **API Management** menu, klikt u op **beveiliging**. Op Hallo **identiteiten** Kies **Azure Active Directory B2C**.
 
   ![Externe identiteiten 1][api-management-howto-aad-b2c-security-tab]
 
-3. Noteer de **Omleidings-URL** en schakel naar Azure Active Directory B2C in de Azure portal.
+3. Maak een notitie van Hallo **Omleidings-URL** en switch via Active Directory B2C tooAzure in hello Azure-portal.
 
   ![Externe identiteiten 2][api-management-howto-aad-b2c-security-tab-reply-url]
 
-4. Klik op de **toepassingen** knop.
+4. Klik op Hallo **toepassingen** knop.
 
   ![Een nieuwe toepassing 1 registreren][api-management-howto-aad-b2c-portal-menu]
 
-5. Klik op de **toevoegen** knop een nieuwe Azure Active Directory B2C-toepassing maken.
+5. Klik op Hallo **toevoegen** knop toocreate een nieuwe Azure Active Directory B2C-toepassing.
 
   ![Een nieuwe toepassing 2 registreren][api-management-howto-aad-b2c-add-button]
 
-6. In de **nieuwe toepassing** blade een naam voor de toepassing. Kies **Ja** onder **Web App of Web-API**, en kies **Ja** onder **toestaan impliciete stroom**. Kopieer de **Omleidings-URL** van de **Azure Active Directory B2C** sectie van de **identiteiten** tabblad in de publicatieportal en plak deze in de **antwoord URL** in het tekstvak.
+6. In Hallo **nieuwe toepassing** blade een naam voor de toepassing hello invoeren. Kies **Ja** onder **Web App of Web-API**, en kies **Ja** onder **toestaan impliciete stroom**. Vervolgens kopiëren Hallo **Omleidings-URL** van Hallo **Azure Active Directory B2C** sectie Hallo **identiteiten** tabblad in de publicatieportal hello en plak deze in Hallo **Antwoord-URL** in het tekstvak.
 
   ![Registreren van een nieuwe toepassing 3][api-management-howto-aad-b2c-app-details]
 
-7. Klik op de knop **Maken**. Wanneer de toepassing is gemaakt, wordt deze weergegeven de **toepassingen** blade. Klik op de naam van de toepassing om de details te bekijken.
+7. Klik op Hallo **maken** knop. Wanneer de toepassing hello wordt gemaakt, wordt deze in Hallo **toepassingen** blade. Klik op Hallo toepassing naam toosee de details ervan.
 
   ![Een nieuwe toepassing 4 registreren][api-management-howto-aad-b2c-app-created]
 
-8. Van de **eigenschappen** blade-, Kopieer de **toepassings-ID** naar het Klembord.
+8. Van Hallo **eigenschappen** blade, kopie Hallo **toepassings-ID** toohello Klembord.
 
   ![Toepassings-ID 1][api-management-howto-aad-b2c-app-id]
 
-9. Ga terug naar de publicatieportal en plakt u de ID in de **Client-Id** in het tekstvak.
+9. Overschakelen van de publicatieportal back toohello en plakt u Hallo-ID in Hallo **Client-Id** in het tekstvak.
 
   ![Toepassings-ID 2][api-management-howto-aad-b2c-client-id]
 
-10. Ga terug naar de Azure-portal, klikt u op de **sleutels** knop en klik vervolgens op **sleutel genereren**. Klik op **opslaan** de configuratie op te slaan en wordt weergegeven de **App-sleutel**. De sleutel naar het Klembord kopiëren.
+10. Back-toohello Azure-portal overschakelen, klikt u op Hallo **sleutels** knop en klik vervolgens op **sleutel genereren**. Klik op **opslaan** toosave Hallo Hallo van configuratie- en **App-sleutel**. Hallo sleutel toohello Klembord kopiëren.
 
   ![App-sleutel 1][api-management-howto-aad-b2c-app-key]
 
-11. Ga terug naar de publicatieportal en plak de sleutel in de **Clientgeheim** in het tekstvak.
+11. Switch back toohello publisher-portal en plakken Hallo sleutel in Hallo **Clientgeheim** in het tekstvak.
 
   ![App-sleutel 2][api-management-howto-aad-b2c-client-secret]
 
-12. Geef de domeinnaam van de Azure Active Directory B2C-tenant in **Tenant toegestaan**.
+12. Geef de domeinnaam Hallo van hello Azure Active Directory B2C-tenant in **Tenant toegestaan**.
 
   ![Toegestane tenant][api-management-howto-aad-b2c-allowed-tenant]
 
-13. Geef de **aanmelding beleid** en **aanmelding beleid**. Desgewenst kunt u ook opgeven de **profiel bewerken beleid** en **opnieuw instellen wachtwoordbeleid**.
+13. Geef Hallo **aanmelding beleid** en **aanmelding beleid**. Desgewenst kunt u ook Hallo opgeven **profiel bewerken beleid** en **opnieuw instellen wachtwoordbeleid**.
 
   ![Beleidsregels][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
   > Zie voor meer informatie over beleidsregels [Azure Active Directory B2C: uitbreidbaar beleidsframework].
 
-14. Nadat u de gewenste configuratie hebt opgegeven, klikt u op **opslaan**.
+14. Nadat u de gewenste configuratie Hallo hebt opgegeven, klikt u op **opslaan**.
 
-  Nadat de wijzigingen zijn opgeslagen, zich ontwikkelaars voor het maken van nieuwe accounts en aanmelden bij de portal voor ontwikkelaars met behulp van Azure Active Directory B2C.
+  Nadat het Hallo wijzigingen zijn opgeslagen, wordt de ontwikkelaars kunnen toocreate worden nieuwe accounts en de toohello developer-portal aanmelden via Azure Active Directory B2C.
 
 ## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Aanmelden voor een ontwikkelaarsaccount met behulp van Azure Active Directory B2C
 
-1. Aanmelden voor een ontwikkelaarsaccount met behulp van Azure Active Directory B2C, open een nieuw browservenster en gaat u naar de portal voor ontwikkelaars. Klik op de **aanmelden** knop.
+1. toosign voor een developer-account met behulp van Azure Active Directory B2C, open een nieuw browservenster en gaat u toohello developer-portal. Klik op Hallo **aanmelden** knop.
 
    ![1-portal voor ontwikkelaars][api-management-howto-aad-b2c-dev-portal]
 
-2. Wilt u zich aanmeldt met **Azure Active Directory B2C**.
+2. Kies toosign up met **Azure Active Directory B2C**.
 
    ![2-portal voor ontwikkelaars][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-3. U wordt omgeleid naar het registratie-beleid die u hebt geconfigureerd in de vorige sectie. Kies aan te melden met behulp van uw e-mailadres of een van uw bestaande sociale accounts.
+3. U kunt beleid voor omgeleide toohello aanmelding die u hebt geconfigureerd in de vorige sectie Hallo. Kies toosign up met behulp van uw e-mailadres of een van uw bestaande sociale accounts.
 
    > [!NOTE]
-   > Als u Azure Active Directory B2C is de enige optie die ingeschakeld op de **identiteiten** tabblad in de publicatieportal u zult omgeleid naar het registratie-beleid rechtstreeks.
+   > Als u Azure Active Directory B2C is Hallo enige optie die ingeschakeld op Hallo **identiteiten** tabblad in de publicatieportal hello, moet u omgeleide toohello aanmelding beleid rechtstreeks.
 
    ![ontwikkelaarsportal][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
-   Wanneer de aanmelding voltooid is, bent u omgeleid naar de portal voor ontwikkelaars. U bent nu aangemeld bij de portal voor ontwikkelaars voor uw API Management-service-exemplaar.
+   Wanneer het Hallo-aanmelding is voltooid, bent u klaar omgeleide back toohello developer-portal. U bent nu aangemeld toohello developer-portal voor uw API Management-service-exemplaar.
 
     ![Inschrijving voltooid][api-management-registration-complete]
 
@@ -172,10 +172,10 @@ Azure Active Directory B2C is een oplossing voor identiteitsbeheer voor consumen
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
@@ -184,9 +184,9 @@ Azure Active Directory B2C is een oplossing voor identiteitsbeheer voor consumen
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing hello Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [overzicht van Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[hoe ontwikkelaarsaccounts met Azure Active Directory autoriseren]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
+[hoe tooauthorize developer gebruikersaccounts via Azure Active Directory]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
 [Azure Active Directory B2C: uitbreidbaar beleidsframework]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Een Microsoft-account gebruiken als een id-provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Een Google-account gebruiken als een id-provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
@@ -195,8 +195,8 @@ Azure Active Directory B2C is een oplossing voor identiteitsbeheer voor consumen
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1
-[Configure an API to use OAuth 2.0 user authorization]: #step2
-[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Configure an API toouse OAuth 2.0 user authorization]: #step2
+[Test hello OAuth 2.0 user authorization in hello Developer Portal]: #step3
 [Next steps]: #next-steps
 
-[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+[Log in toohello Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account

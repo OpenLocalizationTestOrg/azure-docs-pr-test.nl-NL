@@ -1,6 +1,6 @@
 ---
-title: Virtuele machines beheren met behulp van de Azure-Explorer voor Eclipse | Microsoft Docs
-description: Informatie over het beheren van uw virtuele machines in Azure met behulp van de Azure-Explorer voor Eclipse.
+title: aaaManage virtuele machines met behulp van Azure Explorer voor Eclipse Hallo | Microsoft Docs
+description: Meer informatie over hoe toomanage uw virtuele machines in Azure met behulp van hello Azure Explorer voor Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 9784e8af9c530078afee06f08a23403a44b0762f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa83ec7546a0a8514842723b51ce8a5af81f98f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-virtual-machines-by-using-the-azure-explorer-for-eclipse"></a>Virtuele machines beheren met behulp van de Azure-Explorer voor Eclipse
+# <a name="manage-virtual-machines-by-using-hello-azure-explorer-for-eclipse"></a>Virtuele machines beheren met behulp van hello Azure Explorer voor Eclipse
 
-De Azure-Explorer, die deel van de Azure-werkset voor Eclipse uitmaakt, biedt Java ontwikkelaars een oplossing eenvoudig te gebruiken voor het beheren van virtuele machines in de Azure-account uit binnen de Eclipse integrated development environment (IDE).
+Hello Azure Explorer, die deel van hello Azure Toolkit voor Eclipse uitmaakt, Java-ontwikkelaars met een eenvoudig-en-klare oplossing biedt voor het beheren van virtuele machines in de Azure-account uit binnen Hallo Eclipse IDE integrated development environment ().
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
@@ -30,116 +30,116 @@ De Azure-Explorer, die deel van de Azure-werkset voor Eclipse uitmaakt, biedt Ja
 
 ## <a name="create-a-virtual-machine-in-eclipse"></a>Een virtuele machine maken in Eclipse
 
-Voor het maken van een virtuele machine met behulp van de Azure-Explorer, het volgende doen:
+een virtuele machine met behulp van hello Azure Explorer toocreate Hallo te volgen:
 
-1. Aanmelden bij uw Azure-account met behulp van de [aanmelden instructies voor de Azure-werkset voor Eclipse].
+1. Meld u aan tooyour Azure-account met behulp van Hallo [aanmelden instructies voor het hello Azure Toolkit voor Eclipse].
 
-2. In de **Azure Explorer** weergeven, vouw de **Azure** knooppunt met de rechtermuisknop op **virtuele Machines**, en klik vervolgens op **VM maken**.
+2. In Hallo **Azure Explorer** weergeven, vouwt u Hallo **Azure** knooppunt met de rechtermuisknop op **virtuele Machines**, en klik vervolgens op **VM maken**.
 
-   ![De opdracht VM maken][CR01]  
-   De **nieuwe virtuele Machine maken** wizard wordt geopend.
+   ![Hallo opdracht VM maken][CR01]  
+   Hallo **nieuwe virtuele Machine maken** wizard wordt geopend.
 
-3. In de **Kies een abonnement** venster uw abonnement te selecteren en klik vervolgens op **volgende**.
+3. In Hallo **Kies een abonnement** venster uw abonnement te selecteren en klik vervolgens op **volgende**.
 
-   ![De Kies een abonnement-venster][CR02]
+   ![Kies een abonnement venster Hallo][CR02]
 
-4. In de **selecteert u de installatiekopie van een virtuele Machine** venster, voer de volgende informatie:
+4. In Hallo **selecteert u de installatiekopie van een virtuele Machine** venster Voer Hallo volgende informatie:
 
    * **Locatie**: Hiermee geeft u op waar uw virtuele machine wordt gemaakt (bijvoorbeeld *VS-West*).
 
-   * **Publisher**: Hiermee geeft u de uitgever die de afbeelding die u gebruikt voor het maken van uw virtuele machine hebt gemaakt (bijvoorbeeld *Microsoft*).
+   * **Publisher**: Hiermee geeft u op Hallo publisher dat u uw virtuele machine gaat gebruiken voor toocreate Hallo-installatiekopie heeft gemaakt (bijvoorbeeld *Microsoft*).
 
-   * **Bieden**: Hiermee geeft u de virtuele machine biedt van de geselecteerde uitgever te gebruiken (bijvoorbeeld *JDK*).
+   * **Bieden**: Hiermee geeft u op Hallo virtuele machine toouse aanbieding van de geselecteerde uitgever Hallo (bijvoorbeeld *JDK*).
 
-   * **SKU**: Hiermee geeft u de SKU (SKU) van de geselecteerde aanbieding te gebruiken (bijvoorbeeld *JDK_8*).
+   * **SKU**: Hiermee geeft u op Hallo SKU (SKU's) toouse van de geselecteerde serviceaanbieding Hallo (bijvoorbeeld *JDK_8*).
 
-   * **Versie #**: Hiermee geeft u op welke versie van de geselecteerde SKU te gebruiken.
+   * **Versie #**: Hiermee geeft u op welke versie van Hallo geselecteerd SKU toouse.
 
-    ![Selecteer een venster van de installatiekopie van virtuele Machine][CR03]
+    ![Hallo selecteert u het venster van een installatiekopie van virtuele Machine][CR03]
 
 5. Klik op **Volgende**.
 
-6. In de **basisinstellingen van de virtuele Machine** venster, voer de volgende informatie:
+6. In Hallo **basisinstellingen van de virtuele Machine** venster Voer Hallo volgende informatie:
 
-   * **Naam van virtuele Machine**: Hiermee geeft u de naam voor uw nieuwe virtuele machine, die moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes.
+   * **Naam van virtuele Machine**: Hiermee geeft u de naam Hallo voor uw nieuwe virtuele machine die moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes.
 
-   * **De grootte van**: Hiermee geeft u het aantal kernen en het geheugen toewijzen voor uw virtuele machine.
+   * **De grootte van**: Hiermee geeft u Hallo aantal kernen en geheugen tooallocate voor uw virtuele machine.
 
-   * **Gebruikersnaam**: Hiermee geeft u het administrator-account maken voor het beheren van uw virtuele machine.
+   * **Gebruikersnaam**: Hiermee geeft u op Hallo beheerder account toocreate voor het beheren van uw virtuele machine.
 
-   * **Wachtwoord** en **bevestigen**: Hiermee geeft u het wachtwoord voor uw beheerdersaccount.
+   * **Wachtwoord** en **bevestigen**: Hallo wachtwoord voor uw beheerdersaccount.
 
-    ![Het venster basisinstellingen van de virtuele Machine][CR04]
+    ![Hallo basisinstellingen van de virtuele Machine venster][CR04]
 
 7. Klik op **Volgende**.
 
-8. In de **nieuw Opslagaccount maken** venster, voer de volgende informatie:
+8. In Hallo **nieuw Opslagaccount maken** venster Voer Hallo volgende informatie:
 
-   * **Resourcegroep**: Hiermee geeft u de resourcegroep voor uw virtuele machine. Selecteer een van de volgende opties:
-      * **Maken van nieuwe**: geeft aan dat u wilt maken van een nieuwe resourcegroep.
-      * **Gebruik bestaande**: geeft aan dat u wilt een resourcegroep die al is gekoppeld aan uw Azure-account selecteren.
+   * **Resourcegroep**: Hiermee geeft u de resourcegroep Hallo voor uw virtuele machine. Selecteer een Hallo volgende opties:
+      * **Maken van nieuwe**: geeft aan dat u wilt dat toocreate een nieuwe resourcegroep.
+      * **Gebruik bestaande**: geeft aan dat u wilt dat tooselect een resourcegroep die al is gekoppeld aan uw Azure-account.
 
-      ![Het dialoogvenster Nieuw Opslagaccount maken][CR05]
+      ![dialoogvenster voor Hallo nieuw Opslagaccount maken][CR05]
 
-   * **Storage-account**: Hiermee geeft u het opslagaccount moet worden gebruikt voor het opslaan van uw virtuele machine. U kunt een bestaand opslagaccount gebruiken of een nieuw account maken.
+   * **Storage-account**: Hiermee geeft u op Hallo storage account toouse voor het opslaan van uw virtuele machine. U kunt een bestaand opslagaccount gebruiken of een nieuw account maken.
 
-   * **Virtueel netwerk** en **Subnet**: Hiermee geeft u het virtuele netwerk en subnet dat uw virtuele machine maakt verbinding met. U kunt een bestaand netwerk en subnet of kunt u een nieuw netwerk en subnet. Als u selecteert **nieuw**, het volgende dialoogvenster wordt weergegeven:
+   * **Virtueel netwerk** en **Subnet**: Hiermee geeft u op Hallo virtueel netwerk en subnet dat uw virtuele machine maakt verbinding met. U kunt een bestaand netwerk en subnet of kunt u een nieuw netwerk en subnet. Als u selecteert **nieuw**, Hallo volgen in het dialoogvenster wordt weergegeven:
 
-      ![Het dialoogvenster Nieuw virtueel netwerk maken][CR06]
+      ![dialoogvenster voor Hallo nieuw virtueel netwerk maken][CR06]
 
-9. In de **Resources die zijn gekoppeld** venster, voer de volgende informatie:
+9. In Hallo **Resources die zijn gekoppeld** venster Voer Hallo volgende informatie:
 
-   * **Openbaar IP-adres**: Hiermee geeft u een extern gerichte IP-adres voor uw virtuele machine. U kunt een nieuw IP-adres maken of, als uw virtuele machine een openbaar IP-adres niet hebt wordt, kunt u **(geen)**.
+   * **Openbaar IP-adres**: Hiermee geeft u een extern gerichte IP-adres voor uw virtuele machine. U kunt toocreate een nieuw IP-adres of, als uw virtuele machine een openbaar IP-adres niet hebt wordt, kunt u **(geen)**.
 
    * **Netwerkbeveiligingsgroep**: Hiermee geeft u een optionele netwerken firewall voor uw virtuele machine. Kunt u een firewall of, als uw virtuele machine niet voor een netwerkfirewall gebruikt wordt, kunt u **(geen)**.
 
-   * **Beschikbaarheidsset**: Hiermee geeft u een optionele beschikbaarheidsset dat deel van uw virtuele machine uitmaken kunnen. U kunt een bestaande beschikbaarheidsset selecteren of maken van een nieuwe beschikbaarheidsset of de virtuele machine hoort niet bij een beschikbaarheidsset, kunt u **(geen)**.
+   * **Beschikbaarheidsset**: Hiermee geeft u een optionele beschikbaarheidsset dat deel van uw virtuele machine uitmaken kunnen. U kunt een bestaande beschikbaarheidsset selecteren of maken van een nieuwe beschikbaarheidsset of, als uw virtuele machine niet tooan beschikbaarheidsset hoort, kunt u **(geen)**.
 
-   ![Het venster Resources die zijn gekoppeld][CR07]
+   ![venster van de Resources die zijn gekoppeld Hallo][CR07]
 
 9. Klik op **Voltooien**.  
-  Uw nieuwe virtuele machine wordt weergegeven in het venster van het hulpprogramma Azure Explorer.
+  Uw nieuwe virtuele machine wordt weergegeven in het venster hello Azure Explorer-hulpprogramma.
 
    ![Nieuwe virtuele Machine][CR08]
 
 ## <a name="restart-a-virtual-machine-in-eclipse"></a>Opnieuw opstarten van een virtuele machine in Eclipse
 
-Als u wilt een virtuele machine opstarten met behulp van de Azure-Explorer in Eclipse, het volgende doen:
+een virtuele machine met behulp van hello Azure Explorer in Eclipse toorestart Hallo te volgen:
 
-1. In de **Azure Explorer** bekijken, met de rechtermuisknop op de virtuele machine en selecteer vervolgens **opnieuw**.
+1. In Hallo **Azure Explorer** bekijken, met de rechtermuisknop op Hallo virtuele machine en selecteer vervolgens **opnieuw**.
 
-   ![De opdracht van de virtuele machine opnieuw starten][RE01]
+   ![de opdracht Hallo virtuele machines opnieuw starten][RE01]
 
-2. Klik in het bevestigingsvenster **Ja**.
+2. Klik in het bevestigingsvenster hello, **Ja**.
 
-   ![Het bevestigingsvenster opnieuw opstarten][RE02]
+   ![Hallo herstart bevestigingsvenster][RE02]
 
 ## <a name="shut-down-a-virtual-machine-in-eclipse"></a>Een virtuele machine in Eclipse afsluiten
 
-Als u wilt afsluiten een actieve virtuele machine met behulp van de Azure-Explorer in Eclipse, het volgende doen:
+tooshut omlaag een actieve virtuele machine met behulp van hello Azure Explorer in Eclipse Hallo te volgen:
 
-1. In de **Azure Explorer** bekijken, met de rechtermuisknop op de virtuele machine en selecteer vervolgens **afsluiten**.
+1. In Hallo **Azure Explorer** bekijken, met de rechtermuisknop op Hallo virtuele machine en selecteer vervolgens **afsluiten**.
 
-   ![De opdracht van virtuele machines afsluiten][SH01]
+   ![Hallo afsluitopdracht van virtuele machines][SH01]
 
-2. Klik in het bevestigingsvenster **Ja**.
+2. Klik in het bevestigingsvenster hello, **Ja**.
 
-   ![Het bevestigingsvenster virtuele machines afsluiten][SH02]
+   ![Hallo virtuele machines afsluiten bevestigingsvenster][SH02]
 
 ## <a name="delete-a-virtual-machine-in-eclipse"></a>Een virtuele machine in Eclipse verwijderen
 
-Als u wilt verwijderen van een virtuele machine met behulp van de Azure-Explorer in Eclipse, het volgende doen:
+een virtuele machine met behulp van hello Azure Explorer in Eclipse toodelete Hallo te volgen:
 
-1. In de **Azure Explorer** bekijken, met de rechtermuisknop op de virtuele machine en selecteer vervolgens **verwijderen**.
+1. In Hallo **Azure Explorer** bekijken, met de rechtermuisknop op Hallo virtuele machine en selecteer vervolgens **verwijderen**.
 
-   ![De opdracht van de virtuele machine verwijderen][DE01]
+   ![opdracht voor Hallo virtuele machines verwijderen][DE01]
 
-2. Klik in het bevestigingsvenster **Ja**.
+2. Klik in het bevestigingsvenster hello, **Ja**.
 
-   ![Het verwijderen van een virtuele machine bevestigingsvenster][DE02]
+   ![Hallo verwijderen van een virtuele machine bevestigingsvenster][DE02]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over Azure grootten voor virtuele machines en prijzen:
+Zie voor meer informatie over Azure grootten voor virtuele machines en prijzen Hallo resources te volgen:
 
 * Azure grootten voor virtuele machines
   * [Grootten voor Windows virtuele machines in Azure]
@@ -148,17 +148,17 @@ Zie de volgende bronnen voor meer informatie over Azure grootten voor virtuele m
   * [Prijzen van virtuele machines in Windows]
   * [Prijzen van Linux virtuele machines]
 
-Zie de volgende bronnen voor meer informatie over de Azure-Toolkits voor IDE voor Java:
+Zie voor meer informatie over hello Azure Toolkits voor IDE voor Java Hallo resources te volgen:
 
 * [Azure Toolkit voor Eclipse]
-  * [Wat is er nieuw in de Azure-werkset voor Eclipse]
-  * [Installing the Azure Toolkit for Eclipse] (De Azure Toolkit voor Eclipse installeren)
-  * [aanmelden instructies voor de Azure-werkset voor Eclipse]
+  * [Wat is er nieuw in hello Azure Toolkit voor Eclipse]
+  * [Hello Azure Toolkit voor Eclipse installeren]
+  * [aanmelden instructies voor het hello Azure Toolkit voor Eclipse]
   * [Een Hallo wereld-web-app maken voor Azure in Eclipse]
 * [Azure Toolkit for IntelliJ] (Azure Toolkit voor IntelliJ)
-  * [Wat is er nieuw in de Azure-werkset voor IntelliJ]
-  * [Installing the Azure Toolkit for IntelliJ] (De Azure Toolkit voor IntelliJ installeren)
-  * [Aanmelden instructies voor de Azure-Toolkit voor IntelliJ]
+  * [Wat is er nieuw in hello Azure Toolkit voor IntelliJ]
+  * [Hello Azure Toolkit voor IntelliJ installeren]
+  * [Aanmelden instructies voor hello Azure Toolkit voor IntelliJ]
   * [Een Hallo wereld-web-app maken voor Azure in IntelliJ]
 
 Zie voor meer informatie over het gebruik van Azure met Java [Azure Java Developer Center] en [Java-Tools voor Visual Studio Team Services].
@@ -169,12 +169,12 @@ Zie voor meer informatie over het gebruik van Azure met Java [Azure Java Develop
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md (Azure Toolkit voor IntelliJ)
 [Een Hallo wereld-web-app maken voor Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Een Hallo wereld-web-app maken voor Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md (De Azure Toolkit voor Eclipse installeren)
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md (De Azure Toolkit voor IntelliJ installeren)
-[aanmelden instructies voor de Azure-werkset voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Aanmelden instructies voor de Azure-Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Wat is er nieuw in de Azure-werkset voor Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Wat is er nieuw in de Azure-werkset voor IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Hello Azure Toolkit voor Eclipse installeren]: ./azure-toolkit-for-eclipse-installation.md
+[Hello Azure Toolkit voor IntelliJ installeren]: ./azure-toolkit-for-intellij-installation.md
+[aanmelden instructies voor het hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Aanmelden instructies voor hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Wat is er nieuw in hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Wat is er nieuw in hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java-Tools voor Visual Studio Team Services]: https://java.visualstudio.com/

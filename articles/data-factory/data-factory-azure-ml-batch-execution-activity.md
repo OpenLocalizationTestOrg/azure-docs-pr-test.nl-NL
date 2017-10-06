@@ -1,6 +1,6 @@
 ---
-title: Maak voorspellende gegevenspijplijnen met behulp van Azure Data Factory | Microsoft Docs
-description: Beschrijft hoe u voorspellende pijplijnen met behulp van Azure Data Factory en Azure Machine Learning maken
+title: voorspellende gegevenspijplijnen aaaCreate met behulp van Azure Data Factory | Microsoft Docs
+description: Hierin wordt beschreven hoe toocreate voorspellende pijplijnen met behulp van Azure Data Factory en Azure Machine Learning maken
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: d8e2c9583fc909e4e015e2d40473d2754529d8ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 943210c28b1696e299ff9b7cc96369b95f182354
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Maak voorspellende pijplijnen met behulp van Azure Machine Learning en Azure Data Factory
 
@@ -37,51 +37,51 @@ ms.lasthandoff: 07/11/2017
 ## <a name="introduction"></a>Inleiding
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) kunt u bouwen, testen en implementeren van predictive analytics-oplossingen. Het is voltooid uit op hoog niveau oogpunt in drie stappen:
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) Hiermee schakelt u toobuild, testen en implementeren van predictive analytics-oplossingen. Het is voltooid uit op hoog niveau oogpunt in drie stappen:
 
-1. **Maken van een trainingsexperiment**. U kunt deze stap doen met behulp van de Azure ML Studio. De ML studio is een gezamenlijke visual ontwikkelingsomgeving waarmee u trainen en te testen van een predictive analytics-model met trainingsgegevens.
-2. **Converteren naar een Voorspellend experiment**. Nadat uw model is getraind met bestaande gegevens en u bent klaar om te gebruiken voor het beoordelen van nieuwe gegevens, kunt u voorbereiden en uw experiment voor score berekenen stroomlijnen.
-3. **Als een webservice implementeren**. U kunt uw scoreprofiel experiment publiceren als een Azure-web-service. U kunt gegevens verzenden naar uw model via deze web service-eindpunt en ontvangen resultaat voorspellingen van het model.  
+1. **Maken van een trainingsexperiment**. U doen deze stap met behulp van hello Azure ML Studio. Hallo ML studio is een gezamenlijke visual ontwikkelomgeving tootrain te gebruiken en testen van een predictive analytics-model met trainingsgegevens.
+2. **Converteert u deze tooa Voorspellend experiment**. Nadat uw model is getraind met bestaande gegevens en u klaar toouse bent deze nieuwe gegevens tooscore, bereiden en het stroomlijnen van uw experiment voor score berekenen.
+3. **Als een webservice implementeren**. U kunt uw scoreprofiel experiment publiceren als een Azure-web-service. U kunt tooyour gegevensmodel via deze web service-eindpunt te verzenden en ontvangen resultaat voorspellingen van Hallo-model.  
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de **verplaatsing** en **transformatie** van gegevens wordt beheerd en geautomatiseerd. U kunt gegevens integratieoplossingen maken gebruik van Azure Data Factory kunnen opnemen van gegevens uit verschillende gegevensarchieven, transformatieproces de gegevens en de result-gegevens publiceren naar de gegevensarchieven.
+Data Factory is een cloud-gebaseerde gegevens integration-service die ingedeeld en automatiseert Hallo **verkeer** en **transformatie** van gegevens. U kunt gegevens integratieoplossingen maken gebruik van Azure Data Factory die kunnen gegevens uit verschillende gegevensarchieven opnemen, transformatieproces Hallo gegevens publiceren Hallo resultaat toohello gegevens gegevensarchieven.
 
-Met Data Factory-service kunt u gegevenspijplijnen maken die gegevens verplaatsen en transformeren, en de pijplijnen vervolgens uitvoeren volgens een opgegeven schema (per uur, dagelijks, wekelijks enz.). U vindt uitgebreide visualisaties om de afkomst en afhankelijkheden tussen uw gegevenspijplijnen weer te geven en al uw gegevenspijplijnen te controleren vanuit één centrale weergave zodat u eenvoudig problemen kunt detecteren en bewakingswaarschuwingen kunt instellen.
+Data Factory-service kunt u toocreate gegevenspijplijnen verplaatsen en gegevens transformeren en Voer Hallo pijplijnen volgens een opgegeven schema (elk uur, dagelijks, wekelijks, enzovoort). Ook biedt uitgebreide visualisaties toodisplay hello afkomstinformatie en afhankelijkheden tussen uw gegevenspijplijnen en uw gegevenspijplijnen van een één centrale weergave tooeasily baseren problemen bewaken en waarschuwingen voor toepassingsbewaking instellen.
 
-Zie [Inleiding tot Azure Data Factory](data-factory-introduction.md) en [bouwen van uw eerste pijplijn](data-factory-build-your-first-pipeline.md) artikelen die u kunt snel aan de slag met de Azure Data Factory-service.
+Zie [inleiding tooAzure Data Factory](data-factory-introduction.md) en [bouwen van uw eerste pijplijn](data-factory-build-your-first-pipeline.md) artikelen tooquickly aan de slag met hello Azure Data Factory-service.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory en Machine Learning samen
-Azure Data Factory kunt u gemakkelijk maken pijplijnen die gebruikmaken van een gepubliceerde [Azure Machine Learning] [ azure-machine-learning] voor predictive analytics-webservice. Met behulp van de **Batchuitvoeringsactiviteit** in een Azure Data Factory-pijplijn, kunt u een webservice Azure ML zodat voorspellingen op de gegevens in batch aanroept. Zie [aanroepen van een Azure ML-webservice met behulp van de Batchuitvoeringsactiviteit](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) sectie voor meer informatie.
+Azure Data Factory kunt u tooeasily maken pijplijnen die gebruikmaken van een gepubliceerde [Azure Machine Learning] [ azure-machine-learning] voor predictive analytics-webservice. Met behulp van Hallo **Batchuitvoeringsactiviteit** in een Azure Data Factory-pijplijn, kunt u een Azure ML web service toomake voorspellingen op Hallo-gegevens in een batch aanroept. Zie [aanroepen van een Azure ML-Batchuitvoeringsactiviteit web service gebruikmaakt van Hallo](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) sectie voor meer informatie.
 
-Na verloop van tijd moeten de voorspellende modellen in de Azure ML experimenten score berekenen met behulp van de nieuwe invoergegevenssets worden retrained. U kunt een Azure ML-model van een Data Factory-pijplijn retrain als volgt u de volgende stappen uit:
+Na verloop van tijd moeten Hallo voorspellende modellen in hello Azure ML scoreprofiel experimenten toobe retrained met nieuwe invoergegevenssets. U kunt een Azure ML-model van een Data Factory-pijplijn retrain Hallo volgende stappen uit als volgt:
 
-1. Publiceer het trainingsexperiment (geen Voorspellend experiment) als een webservice. Deze stap in de Azure ML Studio doet u als hiervoor toen u Voorspellend experiment weergeven als een webservice in het voorgaande scenario.
-2. Gebruik de Azure ML-Batchuitvoeringsactiviteit aanroepen van de webservice voor de trainingsexperiment. In principe kunt u de Azure ML-Batchuitvoering activiteit webservice training zowel scoreprofiel webservice aanroepen.
+1. Hallo trainingsexperiment (geen Voorspellend experiment) publiceren als een webservice. Deze stap in hello Azure ML Studio doet u net als tooexpose Voorspellend experiment als een webservice in Hallo voorgaande scenario.
+2. Hello Azure ML-Batchuitvoeringsactiviteit tooinvoke Hallo-webservice voor Hallo trainingsexperiment gebruiken. U kunt in principe hello Azure ML-Batchuitvoering activiteit tooinvoke zowel webservice trainings- en score berekenen voor web-service gebruiken.
 
-Nadat u klaar bent met de retraining, de scoreprofiel webservice bijwerken (Voorspellend experiment weergegeven als een webservice) met het nieuwe getrainde model met behulp van de **Azure ML-Resourceactiviteit**. Zie [bijwerken met behulp van de Update Resourceactiviteit modellen](data-factory-azure-ml-update-resource-activity.md) artikel voor meer informatie.
+Nadat u klaar bent met de retraining, bijwerken Hallo score berekenen voor web-service (Voorspellend experiment weergegeven als een webservice) met Hallo zojuist getrainde model met behulp van Hallo **Azure ML-Resourceactiviteit**. Zie [bijwerken met behulp van de Update Resourceactiviteit modellen](data-factory-azure-ml-update-resource-activity.md) artikel voor meer informatie.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Batchuitvoeringsactiviteit met een webservice wordt aangeroepen
-U Azure Data Factory gebruiken voor het indelen van de verplaatsing van gegevens en verwerking en vervolgens met behulp van Azure Machine Learning-Batchuitvoering uit te voeren. Hier volgen de stappen op het hoogste niveau:
+U gebruikt Azure Data Factory tooorchestrate gegevensverplaatsing en verwerking en vervolgens uitvoert met Azure Machine Learning-batchuitvoering. Hier volgen op het hoogste niveau Hallo-stappen:
 
-1. Maak een Azure Machine Learning gekoppelde service. U moet de volgende waarden:
+1. Maak een Azure Machine Learning gekoppelde service. U moet Hallo volgende waarden:
 
-   1. **URI van de aanvraag** voor de Batchuitvoering API. U kunt de aanvraag-URI vinden door te klikken op de **BATCHUITVOERING** koppeling op de webpagina van de services.
-   2. **API-sleutel** voor de gepubliceerde Azure Machine Learning-webservice. U kunt de API-sleutel vinden door te klikken op de webservice die u hebt gepubliceerd.
-   3. Gebruik de **AzureMLBatchExecution** activiteit.
+   1. **URI van de aanvraag** voor Hallo Batch-API voor uitvoering. U kunt Hallo aanvraag-URI vinden door te klikken op Hallo **BATCHUITVOERING** koppeling op Hallo services webpagina.
+   2. **API-sleutel** voor Hallo gepubliceerd Azure Machine Learning-webservice. U kunt Hallo API-sleutel vinden door te klikken op Hallo-webservice die u hebt gepubliceerd.
+   3. Gebruik Hallo **AzureMLBatchExecution** activiteit.
 
       ![Machine Learning-Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
       ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
-### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario: Experimenten met behulp van Web service invoer/uitvoer die naar gegevens in Azure Blob-opslag verwijzen
-In dit scenario wordt de Azure Machine Learning-webservice maakt voorspellingen met gegevens uit een bestand in een Azure blob storage en de resultaten van de voorspelling opslaat in de blobopslag. De volgende JSON definieert een Data Factory-pijplijn met een AzureMLBatchExecution-activiteit. De activiteit heeft de gegevensset **DecisionTreeInputBlob** als invoer en **DecisionTreeResultBlob** als uitvoer. De **DecisionTreeInputBlob** wordt doorgegeven als invoer voor de webservice door met de **webServiceInput** JSON-eigenschap. De **DecisionTreeResultBlob** wordt doorgegeven als uitvoer met de webservice door met de **webServiceOutputs** JSON-eigenschap.  
+### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-toodata-in-azure-blob-storage"></a>Scenario: Experimenten met behulp van Web service invoer/uitvoer die toodata in Azure Blob Storage verwijst
+In dit scenario hello Azure Machine Learning-webservice maakt voorspellingen met gegevens uit een bestand in een Azure blob storage en slaat Hallo voorspelling resultaten in Hallo blob-opslag. Hallo definieert volgende JSON een Data Factory-pijplijn met een AzureMLBatchExecution-activiteit. Hallo-activiteit heeft Hallo gegevensset **DecisionTreeInputBlob** als invoer en **DecisionTreeResultBlob** als Hallo uitvoer. Hallo **DecisionTreeInputBlob** is doorgegeven als een webservice van invoer toohello door Hallo met **webServiceInput** JSON-eigenschap. Hallo **DecisionTreeResultBlob** wordt doorgegeven als uitvoer toohello webservice door met de Hallo **webServiceOutputs** JSON-eigenschap.  
 
 > [!IMPORTANT]
-> Als de web-service meerdere invoer heeft, gebruikt u de **webServiceInputs** in plaats van de eigenschap **webServiceInput**. Zie de [webservice vereist meerdere invoeritems](#web-service-requires-multiple-inputs) sectie voor een voorbeeld van het gebruik van de eigenschap webServiceInputs.
+> Als webservice Hallo meerdere invoer heeft, gebruikt u Hallo **webServiceInputs** in plaats van de eigenschap **webServiceInput**. Zie Hallo [webservice vereist meerdere invoeritems](#web-service-requires-multiple-inputs) sectie voor een voorbeeld van het gebruik van Hallo webServiceInputs eigenschap.
 >
-> Gegevenssets waarnaar wordt verwezen door de **webServiceInput**/**webServiceInputs** en **webServiceOutputs** eigenschappen (in  **typeProperties**) moet ook zijn opgenomen in de activiteit **invoer** en **levert**.
+> Gegevenssets waarnaar wordt verwezen door Hallo **webServiceInput**/**webServiceInputs** en **webServiceOutputs** eigenschappen (in  **typeProperties**) moet ook zijn opgenomen in Hallo activiteit **invoer** en **levert**.
 >
-> In uw experiment Azure ML web service invoer of uitvoerpoorten en globale parameters standaardnamen hebben ('input1', 'input2') die u kunt aanpassen. De namen die u voor webServiceInputs en webServiceOutputs globalParameters instellingen gebruikt moeten exact overeenkomen met de namen in de experimenten. U kunt de nettolading van de voorbeeld-aanvraag bekijken op de pagina Batch-uitvoering Help voor uw Azure ML-eindpunt om te controleren of de verwachte toewijzing.
+> In uw experiment Azure ML web service invoer of uitvoerpoorten en globale parameters standaardnamen hebben ('input1', 'input2') die u kunt aanpassen. Hallo namen die u voor webServiceInputs en webServiceOutputs globalParameters instellingen moeten exact overeenkomen met Hallo-namen in Hallo experimenten. U kunt de aanvraaglading van de steekproef Hallo bekijken op Hallo Batch uitvoering Help-pagina voor uw Azure ML-eindpunt tooverify Hallo verwacht toewijzing.
 >
 >
 
@@ -127,16 +127,16 @@ In dit scenario wordt de Azure Machine Learning-webservice maakt voorspellingen 
 }
 ```
 > [!NOTE]
-> Alleen invoer en uitvoer van de activiteit AzureMLBatchExecution kunnen als parameters worden doorgegeven aan de webservice. In de bovenstaande JSON-codefragment is DecisionTreeInputBlob bijvoorbeeld invoer voor de activiteit AzureMLBatchExecution, die wordt doorgegeven als invoer voor de webservice via webServiceInput-parameter.   
+> Alleen invoer en uitvoer van Hallo AzureMLBatchExecution activiteit kunnen worden doorgegeven als parameters toohello webservice. In Hallo hierboven JSON-codefragment is DecisionTreeInputBlob bijvoorbeeld een invoer toohello AzureMLBatchExecution activiteit, die is doorgegeven als een invoer toohello webservice via webServiceInput-parameter.   
 >
 >
 
 ### <a name="example"></a>Voorbeeld
-Dit voorbeeld wordt een Azure Storage voor de invoer- en gegevens.
+In dit voorbeeld maakt gebruik van Azure Storage toohold beide Hallo en uitvoergegevens.
 
-Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Factory] [ adf-build-1st-pipeline] zelfstudie voordat u verdergaat met het volgende voorbeeld. De Data Factory-Editor gebruiken voor het maken van Data Factory-artefacten (gekoppelde services, gegevenssets, pijplijn) in dit voorbeeld.   
+Het is raadzaam dat u Hallo doorloopt [bouwen van uw eerste pijplijn met Data Factory] [ adf-build-1st-pipeline] zelfstudie voordat u verdergaat met het volgende voorbeeld. Hallo Data Factory-Editor toocreate Data Factory-artefacten (gekoppelde services, gegevenssets, pijplijn) in dit voorbeeld gebruiken.   
 
-1. Maak een **gekoppelde service** voor uw **Azure Storage**. Als de invoer- en -bestanden zich in verschillende storage-accounts, moet u twee gekoppelde services. Hier volgt een voorbeeld van JSON:
+1. Maak een **gekoppelde service** voor uw **Azure Storage**. Als hello invoer en uitvoer bestanden zich in verschillende storage-accounts, moet u twee gekoppelde services. Hier volgt een voorbeeld van JSON:
 
     ```JSON
     {
@@ -149,7 +149,7 @@ Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Facto
       }
     }
     ```
-2. Maak de **invoer** Azure Data Factory **gegevensset**. In tegenstelling tot een aantal andere Data Factory-gegevenssets deze gegevenssets, beide moet bevatten **folderPath** en **fileName** waarden. U kunt partitioneren ervoor zorgen dat elke Batchuitvoering (elke gegevenssegment) om te verwerken of produceren unieke invoer en uitvoer van bestanden. U moet mogelijk zijn sommige upstream-activiteit voor het transformeren van de invoer naar de CSV-bestandsindeling en plaats deze in het opslagaccount voor elk segment. In dat geval u geen omvat de **externe** en **externalData** instellingen die worden weergegeven in het volgende voorbeeld en uw DecisionTreeInputBlob zou de uitvoergegevensbron van een andere activiteit.
+2. Hallo maken **invoer** Azure Data Factory **gegevensset**. In tegenstelling tot een aantal andere Data Factory-gegevenssets deze gegevenssets, beide moet bevatten **folderPath** en **fileName** waarden. U kunt gebruiken partitionering toocause elke batch uitvoering (elke gegevenssegment) tooprocess of unieke invoer produceren en uitvoerbestanden. Mogelijk moet u tooinclude sommige upstream-activiteit tootransform Hallo invoer voor Hallo CSV-bestandsindeling en plaats deze in Hallo storage-account voor elk segment. In dat geval zou u geen Hallo opgenomen **externe** en **externalData** instellingen die worden weergegeven in de volgende Hallo voorbeeld en uw DecisionTreeInputBlob hello uitvoergegevensset van een andere activiteit zou zijn.
 
     ```JSON
     {
@@ -181,7 +181,7 @@ Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Facto
     }
     ```
 
-    Uw invoer csv-bestand moet de veldnamenrij kolom hebben. Als u de **Kopieeractiviteit** als u wilt maken of verplaatsen de csv in de blobopslag, moet u de eigenschap sink instellen **blobWriterAddHeader** naar **true**. Bijvoorbeeld:
+    Uw invoer csv-bestand moet Hallo kolom veldnamenrij hebben. Als u van Hallo gebruikmaakt **Kopieeractiviteit** toocreate of verplaatsen Hallo csv in Hallo blob-opslag, moet u Hallo sink-eigenschap instellen **blobWriterAddHeader** te**true**. Bijvoorbeeld:
 
     ```JSON
     sink:
@@ -191,8 +191,8 @@ Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Facto
     }
     ```
 
-    Als het csv-bestand is geen de veldnamenrij, ziet u mogelijk de volgende fout: **fout in de activiteit: fout bij het lezen van de tekenreeks. Onverwacht token: StartObject. Pad '', regel 1, positie 1**.
-3. Maak de **uitvoer** Azure Data Factory **gegevensset**. In dit voorbeeld gebruikt partitioneren voor een unieke uitvoerpad voor de uitvoering van elk segment maken. Zonder de partitionering, zou de activiteit bestand overschreven.
+    Als Hallo CSV-bestand geen veldnamenrij hello heeft, ziet u mogelijk Hallo volgende fout: **fout in de activiteit: fout bij het lezen van de tekenreeks. Onverwacht token: StartObject. Pad '', regel 1, positie 1**.
+3. Hallo maken **uitvoer** Azure Data Factory **gegevensset**. Dit voorbeeld wordt partitionering toocreate een unieke uitvoerpad voor de uitvoering van elk segment. Zonder Hallo partitioneren, zou Hallo activiteit Hallo bestand overschreven.
 
     ```JSON
     {
@@ -233,7 +233,7 @@ Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Facto
       }
     }
     ```
-4. Maak een **gekoppelde service** van het type: **AzureMLLinkedService**, bieden de API-sleutel en model van de volgende URL.
+4. Maak een **gekoppelde service** van het type: **AzureMLLinkedService**, bieden Hallo API-sleutel en model van de volgende URL.
 
     ```JSON
     {
@@ -247,11 +247,11 @@ Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Facto
       }
     }
     ```
-5. Ten slotte schrijft een pijplijn met een **AzureMLBatchExecution** activiteit. Pijplijn voert tijdens runtime, de volgende stappen uit:
+5. Ten slotte schrijft een pijplijn met een **AzureMLBatchExecution** activiteit. Tijdens runtime voert de pijplijn Hallo stappen te volgen:
 
-   1. Hiermee haalt u de locatie van het bestand voor invoer van uw invoer gegevenssets.
-   2. De Batchuitvoering van Azure Machine Learning API aanroept
-   3. De uitvoer van de batch-uitvoering gekopieerd naar de blob die is opgegeven in de uitvoergegevensset.
+   1. Hallo-locatie van het invoerbestand Hallo krijgt van uw invoer gegevenssets.
+   2. Hello Azure Machine Learning-Batchuitvoering API aanroept
+   3. Kopieën Hallo batch uitvoering uitvoer toohello blob gegeven in de uitvoergegevensset.
 
       > [!NOTE]
       > AzureMLBatchExecution activiteit kan hebben nul of meer invoer en uitvoer van een of meer.
@@ -300,24 +300,24 @@ Het is raadzaam dat u doorloopt de [bouwen van uw eerste pijplijn met Data Facto
     }
     ```
 
-      Beide **start** en **end** tijd moeten [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** tijd is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**' Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
+      Beide **start** en **end** tijd moeten [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. Hallo **end** tijd is optioneel. Als u geen waarde voor Hallo opgeeft **end** eigenschap, wordt berekend als '**start + 48 uur.**' toorun hello pijplijn voor onbepaalde tijd, geef **9999-09-09** als waarde voor Hallo Hallo **end** eigenschap. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
 
       > [!NOTE]
-      > Invoer voor de AzureMLBatchExecution opgeven is activiteit optioneel.
+      > Invoer voor Hallo AzureMLBatchExecution activiteit opgeven is optioneel.
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenario: Experimenten lezer/schrijver-Modules gebruiken om te verwijzen naar gegevens in verschillende gelijksoortig
-Bij het maken van Azure ML-experimenten een ander gebruikelijk scenario is het gebruik van de lezer en -schrijver modules. De module reader wordt gebruikt om gegevens te laden in een experiment en de module writer is gegevens van uw experimenten worden opgeslagen. Zie voor meer informatie over de lezer en -schrijver modules [lezer](https://msdn.microsoft.com/library/azure/dn905997.aspx) en [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) onderwerpen op MSDN-bibliotheek.     
+### <a name="scenario-experiments-using-readerwriter-modules-toorefer-toodata-in-various-storages"></a>Scenario: Experimenten met lezer/schrijver Modules toorefer toodata in verschillende gelijksoortig
+Bij het maken van Azure ML-experimenten een ander gebruikelijk scenario is toouse lezer en -schrijver modules. leesmodule Hello gebruikte tooload gegevens in een experiment en Hallo-schrijfmodule toosave gegevens vanuit uw experimenten. Zie voor meer informatie over de lezer en -schrijver modules [lezer](https://msdn.microsoft.com/library/azure/dn905997.aspx) en [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) onderwerpen op MSDN-bibliotheek.     
 
-Wanneer u de lezer en -schrijver modules, is het raadzaam om een Web service-parameter voor elke eigenschap van deze modules lezer/schrijver gebruiken. Deze web-parameters kunnen u voor het configureren van de waarden tijdens runtime. U kunt bijvoorbeeld een experiment maken met een leesmodule die gebruikmaakt van een Azure SQL Database: XXX.database.windows.net. Nadat de web-service is geïmplementeerd, die u wilt inschakelen van de consument van de web-service om op te geven van een Azure SQL-Server YYY.database.windows.net aangeroepen. Een parameter van Web service kunt u toestaan dat deze waarde moet worden geconfigureerd.
+Wanneer u Hallo lezer en -schrijver modules, is het raadzaam om toouse een parameter van de Web service voor elke eigenschap van deze modules lezer/schrijver. Deze web-parameters kunnen u tooconfigure Hallo waarden tijdens runtime. U kunt bijvoorbeeld een experiment maken met een leesmodule die gebruikmaakt van een Azure SQL Database: XXX.database.windows.net. Nadat Hallo web-service is geïmplementeerd, kunt u tooenable Hallo consumenten van Hallo web service toospecify een Azure SQL-Server YYY.database.windows.net aangeroepen. Deze waarde toobe geconfigureerd, kunt u een Web service parameter tooallow gebruiken.
 
 > [!NOTE]
-> Web service invoer en uitvoer verschillen van de parameters van Web service. In het eerste scenario hebt u gezien hoe een invoer en uitvoer voor een webservice Azure ML kunnen worden opgegeven. In dit scenario kunt u parameters voor een webservice die overeenkomen met doorgeven aan de eigenschappen van de lezer/schrijver modules.
+> Web service invoer en uitvoer verschillen van de parameters van Web service. In het eerste scenario hello, hebt u gezien hoe een invoer en uitvoer voor een webservice Azure ML kunnen worden opgegeven. In dit scenario moet u parameters voor een webservice die overeenkomen met tooproperties lezer/schrijver modules doorgeven.
 >
 >
 
-We bekijken een scenario voor het gebruik van parameters van Web service. U hebt een geïmplementeerde Azure Machine Learning-webservice die gebruikmaakt van een module reader gegevens lezen uit een van de gegevensbronnen die wordt ondersteund door Azure Machine Learning (bijvoorbeeld: Azure SQL Database). Nadat de batchuitvoering is uitgevoerd, kan de resultaten zijn geschreven met behulp van een module Writer (Azure SQL Database).  Er is geen web-service in- en uitgangen zijn gedefinieerd in de experimenten. In dit geval is het raadzaam dat u de parameters van de relevante web service voor de lezer en -schrijver modules configureert. Deze configuratie kunt de reader/writer modules worden geconfigureerd wanneer u de activiteit AzureMLBatchExecution. U Web serviceparameters opgeven in de **globalParameters** sectie als volgt in de JSON van de activiteit.
+We bekijken een scenario voor het gebruik van parameters van Web service. U hebt een geïmplementeerde Azure Machine Learning-webservice die gebruikmaakt van een lezer module tooread gegevens uit een van de gegevensbronnen hello wordt ondersteund door Azure Machine Learning (bijvoorbeeld: Azure SQL Database). Nadat de Batchuitvoering hello wordt uitgevoerd, kan Hallo resultaten zijn geschreven met behulp van een module Writer (Azure SQL Database).  Er is geen web-service in- en uitgangen zijn gedefinieerd in Hallo experimenten. In dit geval is het raadzaam dat u de relevante webserviceparameters voor Hallo lezer en -schrijver modules configureert. Deze configuratie kunt Hallo lezer/schrijver modules toobe geconfigureerd wanneer u Hallo AzureMLBatchExecution activiteit. U Web serviceparameters opgeven in Hallo **globalParameters** sectie in Hallo activiteits-JSON als volgt.
 
 ```JSON
 "typeProperties": {
@@ -328,7 +328,7 @@ We bekijken een scenario voor het gebruik van parameters van Web service. U hebt
 }
 ```
 
-U kunt ook [Data Factory functies](data-factory-functions-variables.md) waarden doorgeven voor de Web service-parameters zoals weergegeven in het volgende voorbeeld:
+U kunt ook [Data Factory functies](data-factory-functions-variables.md) in het doorgeven van waarden voor Hallo Web serviceparameters zoals weergegeven in Hallo voorbeeld te volgen:
 
 ```JSON
 "typeProperties": {
@@ -339,14 +339,14 @@ U kunt ook [Data Factory functies](data-factory-functions-variables.md) waarden 
 ```
 
 > [!NOTE]
-> Parameters van de webservice zijn hoofdlettergevoelig, dus zorg ervoor dat de namen die u opgeeft in de activiteits-JSON overeenkomen met de gegevenstypen die worden weergegeven door de webservice.
+> Hallo Web serviceparameters zijn hoofdlettergevoelig, dus zorg ervoor dat Hallo-namen die u opgeeft in de activiteit Hallo JSON overeenkomen Hallo waarden die worden weergegeven door het Hallo-webservice.
 >
 >
 
-### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Een module Reader gebruikt om te lezen van gegevens uit meerdere bestanden in Azure Blob
-BIG data pijplijnen met activiteiten zoals Pig en Hive kunt produceren van een of meer uitvoerbestanden zonder extensie. Bijvoorbeeld, wanneer u een externe Hive-tabel opgeeft, kan de gegevens voor de externe Hive-tabel kunnen worden opgeslagen in Azure blob storage met de volgende naam 000000_0. U kunt de module reader gebruiken in een experiment meerdere bestanden lezen en deze worden gebruikt voor voorspellingen.
+### <a name="using-a-reader-module-tooread-data-from-multiple-files-in-azure-blob"></a>Een lezer module tooread gegevens uit meerdere bestanden in Azure Blob gebruiken
+BIG data pijplijnen met activiteiten zoals Pig en Hive kunt produceren van een of meer uitvoerbestanden zonder extensie. Bijvoorbeeld, wanneer u een externe Hive-tabel opgeeft, kunnen de Hallo gegevens voor Hallo externe Hive-tabel worden opgeslagen in Azure blob-opslag Hello naam 000000_0 te volgen. U kunt meerdere bestanden Hallo leesmodule in een experiment tooread gebruiken en deze worden gebruikt voor voorspellingen.
 
-Wanneer u de module reader in een Azure Machine Learning-experiment, kunt u Azure Blob opgeven als invoer. De bestanden in Azure blob storage kunnen worden de uitvoerbestanden (voorbeeld: 000000_0) die worden geproduceerd door een Pig en Hive-script uitgevoerd op HDInsight. De module reader kunt u lezen-bestanden (met er worden geen extensies) door het configureren van de **pad naar de container, map/blob**. De **pad naar de container** verwijst naar de container en **directory/blob** verwijst naar de map waarin de bestanden, zoals wordt weergegeven in de volgende afbeelding. Het sterretje dat wil zeggen, \*) **geeft aan dat alle bestanden in de container of de map (dat wil zeggen, aggregateddata-gegevens/jaar = maand-2014-6 /\*)** als onderdeel van het experiment worden gelezen.
+Wanneer u de module reader Hallo in een Azure Machine Learning-experiment, kunt u Azure Blob opgeven als invoer. Hallo-bestanden in hello Azure blob-opslag kunnen worden uitvoerbestanden hello (voorbeeld: 000000_0) die worden geproduceerd door een Pig en Hive-script uitgevoerd op HDInsight. Hallo leesmodule kunt u tooread-bestanden (met er worden geen extensies) door het configureren van Hallo **toocontainer pad, de map/blob**. Hallo **pad toocontainer** punten toohello container en **directory/blob** verwijst toofolder die Hallo bestanden bevat, zoals wordt weergegeven in Hallo installatiekopie te volgen. Hallo sterretje dat wil zeggen, \*) **geeft aan dat alle bestanden in Hallo container of de map Hallo (dat wil zeggen, aggregateddata-gegevens/jaar = maand-2014-6 /\*)** als onderdeel van het Hallo-experiment worden gelezen.
 
 ![Azure Blob-eigenschappen](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -401,16 +401,16 @@ Wanneer u de module reader in een Azure Machine Learning-experiment, kunt u Azur
 }
 ```
 
-In de bovenstaande JSON-voorbeeld:
+In de Hallo hierboven JSON-voorbeeld:
 
-* De geïmplementeerde Azure Machine Learning-webservice maakt gebruik van een lezer en een schrijfmodule tot lezen/schrijven van gegevens van/naar een Azure SQL Database. Deze webservice beschrijft de volgende vier parameters: servernaam, databasenaam, servergebruikersnaam en wachtwoord voor gebruikersaccount Server-Database.  
-* Beide **start** en **end** tijd moeten [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. De **end** tijd is optioneel. Als u geen waarde voor de **end** eigenschap, wordt berekend als '**start + 48 uur.**' Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9999-09-09** op als waarde voor de eigenschap **end**. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
+* Hallo geïmplementeerd in Azure Machine Learning Web service een lezer en een writer module tooread/gegevens schrijven van gebruikt / tooan Azure SQL Database. Deze webservice beschrijft Hallo na vier parameters: servernaam, databasenaam, servergebruikersnaam en wachtwoord voor gebruikersaccount Server-Database.  
+* Beide **start** en **end** tijd moeten [ISO-indeling](http://en.wikipedia.org/wiki/ISO_8601). Bijvoorbeeld: 2014-10-14T16:32:41Z. Hallo **end** tijd is optioneel. Als u geen waarde voor Hallo opgeeft **end** eigenschap, wordt berekend als '**start + 48 uur.**' toorun hello pijplijn voor onbepaalde tijd, geef **9999-09-09** als waarde voor Hallo Hallo **end** eigenschap. Zie de [naslaginformatie voor JSON-scriptverwerking](https://msdn.microsoft.com/library/dn835050.aspx) voor meer informatie over de JSON-eigenschappen.
 
 ### <a name="other-scenarios"></a>Andere scenario's
 #### <a name="web-service-requires-multiple-inputs"></a>Meerdere invoer is vereist
-Als de web-service meerdere invoer heeft, gebruikt u de **webServiceInputs** in plaats van de eigenschap **webServiceInput**. Gegevenssets waarnaar wordt verwezen door de **webServiceInputs** moet ook zijn opgenomen in de activiteit **invoer**.
+Als webservice Hallo meerdere invoer heeft, gebruikt u Hallo **webServiceInputs** in plaats van de eigenschap **webServiceInput**. Gegevenssets waarnaar wordt verwezen door Hallo **webServiceInputs** moet ook zijn opgenomen in Hallo activiteit **invoer**.
 
-In uw experiment Azure ML web service invoer of uitvoerpoorten en globale parameters standaardnamen hebben ('input1', 'input2') die u kunt aanpassen. De namen die u voor webServiceInputs en webServiceOutputs globalParameters instellingen gebruikt moeten exact overeenkomen met de namen in de experimenten. U kunt de nettolading van de voorbeeld-aanvraag bekijken op de pagina Batch-uitvoering Help voor uw Azure ML-eindpunt om te controleren of de verwachte toewijzing.
+In uw experiment Azure ML web service invoer of uitvoerpoorten en globale parameters standaardnamen hebben ('input1', 'input2') die u kunt aanpassen. Hallo namen die u voor webServiceInputs en webServiceOutputs globalParameters instellingen moeten exact overeenkomen met Hallo-namen in Hallo experimenten. U kunt de aanvraaglading van de steekproef Hallo bekijken op Hallo Batch uitvoering Help-pagina voor uw Azure ML-eindpunt tooverify Hallo verwacht toewijzing.
 
 ```JSON
 {
@@ -453,7 +453,7 @@ In uw experiment Azure ML web service invoer of uitvoerpoorten en globale parame
 ```
 
 #### <a name="web-service-does-not-require-an-input"></a>Web-Service vereist geen invoer
-Azure ML-batch uitvoering webservices kunnen worden gebruikt voor het uitvoeren van alle werkstromen, voor voorbeeld R- of Python-scripts die niet alle invoer nodig. Of het experiment kan worden geconfigureerd met een lezer-module die u maakt een GlobalParameters niet beschikbaar. In dat geval wordt de activiteit AzureMLBatchExecution zou als volgt geconfigureerd:
+Azure ML-batch uitvoering webservices gebruikte toorun geen werkstromen kan worden, bijvoorbeeld R of Python-scripts, kan die niet alle invoer vereisen. Of Hallo experiment kan worden geconfigureerd met een lezer-module die u maakt een GlobalParameters niet beschikbaar. In dat geval Hallo AzureMLBatchExecution activiteit zou als volgt geconfigureerd:
 
 ```JSON
 {
@@ -480,7 +480,7 @@ Azure ML-batch uitvoering webservices kunnen worden gebruikt voor het uitvoeren 
 ```
 
 #### <a name="web-service-does-not-require-an-inputoutput"></a>Web-Service vereist geen invoer/uitvoer
-De webservice voor de uitvoering van Azure ML hebben mogelijk niet alle webservice-uitvoer geconfigureerd. Er is geen webservice invoer of uitvoer in dit voorbeeld, noch een GlobalParameters zijn geconfigureerd. Er is nog steeds een uitvoer die is geconfigureerd op de activiteit zelf, maar er is geen opgegeven als een webServiceOutput.
+Hello Azure ML-batch uitvoering web-service mogelijk geen webservice uitvoer geconfigureerd. Er is geen webservice invoer of uitvoer in dit voorbeeld, noch een GlobalParameters zijn geconfigureerd. Er is nog steeds een uitvoer die is geconfigureerd op Hallo activiteit zelf, maar er is geen opgegeven als een webServiceOutput.
 
 ```JSON
 {
@@ -503,8 +503,8 @@ De webservice voor de uitvoering van Azure ML hebben mogelijk niet alle webservi
 },
 ```
 
-#### <a name="web-service-uses-readers-and-writers-and-the-activity-runs-only-when-other-activities-have-succeeded"></a>Web-Service gebruikt lezers en schrijvers en de activiteit wordt uitgevoerd, alleen wanneer andere activiteiten zijn geslaagd
-De Azure ML web service lezer en -schrijver modules kunnen zijn geconfigureerd om te worden uitgevoerd met of zonder eventuele GlobalParameters. U kunt echter serviceaanroepen insluiten in een pijplijn die gebruikmaakt van gegevensset afhankelijkheden aanroepen van de service alleen wanneer sommige upstream verwerking is voltooid. Nadat de Batchuitvoering van de is voltooid met deze benadering kunt u ook een andere actie activeren. In dat geval kunt u de afhankelijkheden die met behulp van activiteit in- en uitgangen, zonder een van deze als webservice in- of uitgangen uitdrukken.
+#### <a name="web-service-uses-readers-and-writers-and-hello-activity-runs-only-when-other-activities-have-succeeded"></a>Web-Service gebruikt en schrijfprogramma en activiteiten bij uitvoering Hallo alleen wanneer andere activiteiten zijn geslaagd
+Hello Azure ML web service lezer en -schrijver modules mogelijk geconfigureerde toorun met of zonder eventuele GlobalParameters. U kunt echter tooembed service aanroepen in een pijplijn die de gegevensset afhankelijkheden tooinvoke Hallo service gebruikt, alleen wanneer er een upstream-verwerking is voltooid. U kunt ook een andere actie activeren nadat het Hallo-batchuitvoering is voltooid met deze benadering. In dat geval kunt u met behulp van activiteit in- en uitgangen, zonder een van deze als webservice in- of uitgangen Hallo-afhankelijkheden uitdrukken.
 
 ```JSON
 {
@@ -535,33 +535,33 @@ De Azure ML web service lezer en -schrijver modules kunnen zijn geconfigureerd o
 },
 ```
 
-De **takeaways** zijn:
+Hallo **takeaways** zijn:
 
-* Als uw experiment-eindpunt maakt gebruik van een webServiceInput: er wordt vertegenwoordigd door een blob-gegevensset en is opgenomen in de activiteitinvoer en de eigenschap webServiceInput. Anders wordt is de eigenschap webServiceInput weggelaten.
-* Als uw experiment-eindpunt maakt gebruik van webServiceOutput(s): ze worden vertegenwoordigd door de blob-gegevenssets en zijn opgenomen in de uitvoer voor activiteiten en in de eigenschap webServiceOutputs. Uitvoer van de activiteit en webServiceOutputs zijn toegewezen door de naam van elke uitvoer in het experiment. Anders wordt is de eigenschap webServiceOutputs weggelaten.
-* Als uw experiment eindpunt globalParameter(s) beschrijft, staan ze vermeld in de eigenschap globalParameters van activiteit als sleutel-waardeparen. Anders wordt is de eigenschap globalParameters weggelaten. De sleutels zijn hoofdlettergevoelig. [Azure Data Factory-functies](data-factory-functions-variables.md) kan worden gebruikt in de waarden.
-* Aanvullende gegevenssets kan worden opgenomen in de eigenschappen van de invoer en uitvoer voor activiteiten, zonder waarnaar wordt verwezen in de activiteit typeProperties. Deze gegevenssets kan worden uitgevoerd segment afhankelijkheden reguleren maar anders worden genegeerd door de activiteit AzureMLBatchExecution.
+* Als uw experiment-eindpunt maakt gebruik van een webServiceInput: er wordt vertegenwoordigd door een blob-gegevensset en is opgenomen in de activiteitinvoer hello en Hallo webServiceInput eigenschap. Anders is Hallo webServiceInput eigenschap weggelaten.
+* Als uw experiment-eindpunt maakt gebruik van webServiceOutput(s): ze worden vertegenwoordigd door de blob-gegevenssets en zijn opgenomen in de uitvoer voor activiteiten hello en in Hallo webServiceOutputs eigenschap. Hallo activiteit uitvoer en webServiceOutputs met de naam van elke uitvoer in Hallo experiment Hallo zijn toegewezen. Anders wordt wordt de eigenschap webServiceOutputs hello weggelaten.
+* Als uw experiment eindpunt globalParameter(s) beschrijft, wordt verstrekt in de Activiteitseigenschap globalParameters Hallo als sleutel-waardeparen. Anders wordt wordt de eigenschap globalParameters hello weggelaten. Hallo-sleutels zijn hoofdlettergevoelig. [Azure Data Factory-functies](data-factory-functions-variables.md) kan worden gebruikt in Hallo waarden.
+* Aanvullende gegevenssets kan worden opgenomen in Hallo in- en uitgangen activiteitseigenschappen, zonder waarnaar wordt verwezen in Hallo activiteit typeProperties. Deze gegevenssets kan worden uitgevoerd segment afhankelijkheden reguleren maar anders worden genegeerd door Hallo AzureMLBatchExecution activiteit.
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Bijwerken van modellen Update Resource activiteit
-Nadat u klaar bent met de retraining, de scoreprofiel webservice bijwerken (Voorspellend experiment weergegeven als een webservice) met het nieuwe getrainde model met behulp van de **Azure ML-Resourceactiviteit**. Zie [bijwerken met behulp van de Update Resourceactiviteit modellen](data-factory-azure-ml-update-resource-activity.md) artikel voor meer informatie.
+Nadat u klaar bent met de retraining, bijwerken Hallo score berekenen voor web-service (Voorspellend experiment weergegeven als een webservice) met Hallo zojuist getrainde model met behulp van Hallo **Azure ML-Resourceactiviteit**. Zie [bijwerken met behulp van de Update Resourceactiviteit modellen](data-factory-azure-ml-update-resource-activity.md) artikel voor meer informatie.
 
 ### <a name="reader-and-writer-modules"></a>Lezer en Writer Modules
-Een veelvoorkomend scenario voor het gebruik van parameters voor Web-service is het gebruik van Azure SQL en schrijfprogramma. De module reader wordt gebruikt voor het laden van gegevens in een experiment van data management-services buiten Azure Machine Learning Studio. De module writer is het opslaan van gegevens vanuit uw experimenten in beheerservices gegevens buiten Azure Machine Learning Studio.  
+Een veelvoorkomend scenario voor het gebruik van parameters voor Web-service is Hallo gebruik van Azure SQL en schrijfprogramma. leesmodule Hello is gebruikte tooload gegevens in een experiment van data management-services buiten Azure Machine Learning Studio. Hallo-schrijfmodule is toosave gegevens vanuit uw experimenten in beheerservices gegevens buiten Azure Machine Learning Studio.  
 
-Zie voor meer informatie over Azure-Blob/Azure SQL-lezer/schrijver [lezer](https://msdn.microsoft.com/library/azure/dn905997.aspx) en [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) onderwerpen op MSDN-bibliotheek. Het voorbeeld in de vorige sectie gebruikt de Azure Blob-lezer en Azure Blob-schrijver. Deze sectie beschrijft het gebruik van Azure SQL-reader en Azure SQL writer.
+Zie voor meer informatie over Azure-Blob/Azure SQL-lezer/schrijver [lezer](https://msdn.microsoft.com/library/azure/dn905997.aspx) en [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) onderwerpen op MSDN-bibliotheek. Hallo-voorbeeld in de vorige sectie Hallo gebruikt hello Azure Blob-lezer en Azure Blob-schrijver. Deze sectie beschrijft het gebruik van Azure SQL-reader en Azure SQL writer.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**V:** ik heb meerdere bestanden die worden gegenereerd door mijn pijplijnen big data. Kan ik de activiteit AzureMLBatchExecution gebruiken om te werken op alle bestanden?
+**V:** ik heb meerdere bestanden die worden gegenereerd door mijn pijplijnen big data. Kan ik Hallo AzureMLBatchExecution activiteit toowork op alle Hallo-bestanden gebruiken?
 
-**A:** Ja. Zie de **met behulp van een module Reader gegevens lezen uit meerdere bestanden in Azure Blob** sectie voor meer informatie.
+**A:** Ja. Zie Hallo **met een lezer module tooread gegevens uit meerdere bestanden in Azure Blob** sectie voor meer informatie.
 
 ## <a name="azure-ml-batch-scoring-activity"></a>Score berekenen voor Azure ML-Batch-activiteit
-Als u de **AzureMLBatchScoring** activiteit integreren met Azure Machine Learning, het is raadzaam dat u de meest recente **AzureMLBatchExecution** activiteit.
+Als u van Hallo gebruikmaakt **AzureMLBatchScoring** activiteit toointegrate met Azure Machine Learning, wordt aangeraden dat u Hallo meest recente **AzureMLBatchExecution** activiteit.
 
-De activiteit AzureMLBatchExecution wordt geïntroduceerd in de augustus 2015-release van Azure SDK en Azure PowerShell.
+Hallo AzureMLBatchExecution activiteit is geïntroduceerd in Hallo augustus 2015-release van Azure SDK en Azure PowerShell.
 
-Als u wilt doorgaan met het gebruik van de activiteit AzureMLBatchScoring, blijven lezen via deze sectie.  
+Als u toocontinue hello AzureMLBatchScoring activiteit wilt, blijven lezen via deze sectie.  
 
 ### <a name="azure-ml-batch-scoring-activity-using-azure-storage-for-inputoutput"></a>Azure ML-Batchscoreberekening activiteit voor het gebruik van Azure Storage voor invoer/uitvoer
 
@@ -601,7 +601,7 @@ Als u wilt doorgaan met het gebruik van de activiteit AzureMLBatchScoring, blijv
 ```
 
 ### <a name="web-service-parameters"></a>Parameters voor Web-Service
-Waarden voor de Web serviceparameters wilt opgeven, Voeg een **typeProperties** sectie aan de **AzureMLBatchScoringActivty** sectie in de JSON-pijplijn, zoals wordt weergegeven in het volgende voorbeeld:
+toospecify waarden voor de Web service-parameters, Voeg een **typeProperties** sectie toohello **AzureMLBatchScoringActivty** sectie in Hallo pijplijn JSON zoals weergegeven in Hallo voorbeeld te volgen:
 
 ```JSON
 "typeProperties": {
@@ -611,7 +611,7 @@ Waarden voor de Web serviceparameters wilt opgeven, Voeg een **typeProperties** 
     }
 }
 ```
-U kunt ook [Data Factory functies](data-factory-functions-variables.md) waarden doorgeven voor de Web service-parameters zoals weergegeven in het volgende voorbeeld:
+U kunt ook [Data Factory functies](data-factory-functions-variables.md) in het doorgeven van waarden voor Hallo Web serviceparameters zoals weergegeven in Hallo voorbeeld te volgen:
 
 ```JSON
 "typeProperties": {
@@ -622,7 +622,7 @@ U kunt ook [Data Factory functies](data-factory-functions-variables.md) waarden 
 ```
 
 > [!NOTE]
-> Parameters van de webservice zijn hoofdlettergevoelig, dus zorg ervoor dat de namen die u opgeeft in de activiteits-JSON overeenkomen met de gegevenstypen die worden weergegeven door de webservice.
+> Hallo Web serviceparameters zijn hoofdlettergevoelig, dus zorg ervoor dat Hallo-namen die u opgeeft in de activiteit Hallo JSON overeenkomen Hallo waarden die worden weergegeven door het Hallo-webservice.
 >
 >
 

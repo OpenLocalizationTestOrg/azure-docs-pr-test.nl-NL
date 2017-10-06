@@ -1,6 +1,6 @@
 ---
-title: Groepen toewijzen aan Azure AD-apps | Microsoft-Docs
-description: Klik hier voor meer informatie over het implementeren van de groepstoewijzing van de voor Azure-toepassingen.
+title: aaaAssign groepen tooAzure AD-apps | Microsoft-Docs
+description: Hoe tooimplement groepstoewijzing voor Azure-toepassingen.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -16,26 +16,26 @@ ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 robots: noindex
-ms.openlocfilehash: e0b0b87a454db96747f024e81882fe83d62fdbe2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 086619df09c13bf259afc3128d45ed804b99e519
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-azure-active-directory-groups-to-an-application"></a>Azure Active Directory-groepen toewijzen aan een toepassing
-Voordat u gebruikers en groepen aan een toepassing toewijzen kunt, moet u de toewijzing van gebruiker vereisen. Zie voor informatie over het vereisen van de gebruiker is toegewezen, de [Gebruikerstoewijzing vereisen](active-directory-applications-guiding-developers-requiring-user-assignment.md) artikel.
+# <a name="assign-azure-active-directory-groups-tooan-application"></a>Azure Active Directory-groepen tooan toepassing toewijzen
+Voordat u gebruikers en groepen tooan toepassing toewijzen kunt, moet u de toewijzing van gebruiker vereisen. toolearn hoe toorequire Gebruikerstoewijzing, Zie Hallo [Gebruikerstoewijzing vereisen](active-directory-applications-guiding-developers-requiring-user-assignment.md) artikel.
 
-In dit artikel wordt ervan uitgegaan dat u groepen in de active directory die u voor deze toepassing gebruikt al hebt gemaakt.
+In dit artikel wordt ervan uitgegaan dat u groepen in Hallo active directory die u voor deze toepassing gebruikt al hebt gemaakt.
 
-## <a name="assigning-groups-to-an-application"></a>Groepen toewijzen aan een toepassing
-1. Aanmelden bij de Azure-portal met een administratoraccount.
-2. Klik op de **alle Items** item in het hoofdmenu.
-3. Kies de map die u voor de toepassing gebruikt.
-4. Klik op de **toepassingen** tabblad.
-5. Selecteer de toepassing uit de lijst met toepassingen die zijn gekoppeld aan deze map.
-6. Klik op de **gebruikers en groepen** tabblad.
-7. De lijst met groepen in uw active directory filteren met behulp van de **groepen** vervolgkeuzelijst.
-8. Selecteer de groep.
+## <a name="assigning-groups-tooan-application"></a>Groepen tooan toepassing toewijzen
+1. Meld u bij toohello Azure-portal met een administratoraccount.
+2. Klik op Hallo **alle Items** item in het hoofdmenu Hallo.
+3. Hallo-map die u voor de toepassing hello gebruikt te kiezen.
+4. Klik op Hallo **toepassingen** tabblad.
+5. Selecteer Hallo-toepassing uit het Hallo-lijst met toepassingen die zijn gekoppeld aan deze map.
+6. Klik op Hallo **gebruikers en groepen** tabblad.
+7. Hallo-filterlijst van groepen in uw active directory via Hallo **groepen** vervolgkeuzelijst.
+8. Hallo groep selecteren.
 9. Klik op **toewijzen**.
 10. Klik op **Ja** wanneer u wordt gevraagd.
 

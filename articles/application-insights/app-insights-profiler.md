@@ -1,6 +1,6 @@
 ---
-title: Profileren van live web-apps in Azure met Application Insights | Microsoft Docs
-description: Identificeer de hot pad in uw web server-code met een lage footprint profiler.
+title: aaaProfiling live web-apps in Azure met Application Insights | Microsoft Docs
+description: Hallo hot pad in uw servercode web identificeren met een lage footprint profiler.
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,202 +12,202 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: ff39f9a84b86c14859aaee50ee368643fb2848ea
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3c7f21076f19335e0f006327932e13623ec9526b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profileren van live Azure-web-apps met Application Insights
 
 *Deze functie van Application Insights is NH voor App-Services en in preview voor Compute.*
 
-Na hoeveel tijd is besteed aan elke methode in uw live-webtoepassing met het hulpprogramma profilering van weten [Azure Application Insights](app-insights-overview.md). Deze leest u gedetailleerde profielen van live-aanvragen die door uw app zijn behandeld en markeert de 'hot pad' die met behulp van de meeste tijd. Deze voorbeelden die u verschillende responstijden hebt automatisch geselecteerd. De profiler maakt gebruik van verschillende technieken overhead te minimaliseren.
+Na hoeveel tijd is besteed aan elke methode in uw live-webtoepassing met behulp van hulpprogramma profilering Hallo weten [Azure Application Insights](app-insights-overview.md). U gedetailleerde profielen van live-aanvragen die zijn geleverd door uw app worden weergegeven, en licht Hallo 'hot pad' Hallo meeste tijd is gebruikt. Deze voorbeelden die u verschillende responstijden hebt automatisch geselecteerd. Hallo profiler maakt gebruik van verschillende technieken toominimize overhead.
 
-De profiler werkt momenteel voor ASP.NET-web-apps uitgevoerd op Azure App Services in ten minste het Basic prijscategorie. 
+Hallo profiler momenteel werkt voor ASP.NET-web-apps die worden uitgevoerd op Azure App Services in ten minste Hallo Basic prijscategorie. 
 
 <a id="installation"></a>
-## <a name="enable-the-profiler"></a>De profiler inschakelen
+## <a name="enable-hello-profiler"></a>Hallo profiler inschakelen
 
-[Installeer Application Insights-](app-insights-asp-net.md) in uw code. Als deze al geïnstalleerd, zorg er dan voor dat u de meest recente versie hebt. (U doet dit door met de rechtermuisknop op het project in Solution Explorer en kies beheren NuGet-pakketten. Selecteer Updates en alle updatepakketten.) Uw app opnieuw implementeren.
+[Installeer Application Insights-](app-insights-asp-net.md) in uw code. Als deze al geïnstalleerd, zorg er dan voor dat u beschikt over de nieuwste versie Hallo. (toodo dit door met de rechtermuisknop op het project in Solution Explorer en kies beheren NuGet-pakketten. Selecteer Updates en alle updatepakketten.) Uw app opnieuw implementeren.
 
 *Met behulp van ASP.NET Core? [Schakel dit selectievakje](#aspnetcore).*
 
-In [https://portal.azure.com](https://portal.azure.com), opent u de Application Insights-resource voor uw web-app. Open **prestaties** en klik op **Profiler voor Application Insights inschakelen...** .
+In [https://portal.azure.com](https://portal.azure.com), Hallo Application Insights-resource voor uw web-app openen. Open **prestaties** en klik op **Profiler voor Application Insights inschakelen...** .
 
-![Klik op de banner van de profiler inschakelen][enable-profiler-banner]
+![Klik op Hallo profiler banner inschakelen][enable-profiler-banner]
 
-U kunt ook u kunt altijd op **configureren** als status wilt weergeven, inschakelen of uitschakelen van de Profiler.
+U kunt ook u kunt altijd op **configureren** tooview status, inschakelen of uitschakelen van Hallo Profiler.
 
-![Klik op configureren in de blade Performance][performance-blade]
+![In de blade Performance hello, klikt u op configureren][performance-blade]
 
-Web-apps die zijn geconfigureerd met Application Insights worden vermeld op de blade configureren. Volg de instructies voor het installeren van de agent Profiler indien nodig. Als er geen web-app is geconfigureerd met Application Insights nog, klikt u op *gekoppelde Apps toevoegen*.
+Web-apps die zijn geconfigureerd met Application Insights worden vermeld op de blade configureren. Volg de instructies tooinstall Hallo Profiler agent indien nodig. Als er geen web-app is geconfigureerd met Application Insights nog, klikt u op *gekoppelde Apps toevoegen*.
 
-Gebruik de *Profiler inschakelen* of *Profiler uitschakelen* knoppen in de blade configureren om te bepalen van de Profiler op alle gekoppelde Webapps.
+Gebruik Hallo *Profiler inschakelen* of *Profiler uitschakelen* knoppen in Hallo configureren blade toocontrol Hallo Profiler op alle gekoppelde Webapps.
 
 
 
 ![Blade configureren][linked app services]
 
-Als u wilt stoppen of opnieuw starten van de profiler voor een afzonderlijke App Service-exemplaar, kijkt u **in de bron-App Service**in **webtaken**. Zoek wilt verwijderen, onder **extensies**.
+toostop of opnieuw opstarten Hallo profiler voor een afzonderlijke App Service-exemplaar, kijkt u **in App Service-resource Hallo**in **webtaken**. toodelete ervan, kijk onder **extensies**.
 
 ![Profiler voor een webtaken uitschakelen][disable-profiler-webjob]
 
-We raden u aan de Profiler die is ingeschakeld op alle web-apps voor het detecteren van eventuele prestatieproblemen zo snel mogelijk.
+We raden u aan Hallo Profiler ingeschakeld op alle uw web-apps toodiscover eventuele prestatieproblemen met zo snel mogelijk.
 
-Als u Web Deploy te implementeren wijzigingen aan uw webtoepassing hebt gebruikt, zorg ervoor dat u deze uitsluiten van de **App_Data** map worden verwijderd tijdens de implementatie. Anders wordt worden de profiler extensiebestanden verwijderd wanneer u naast de webtoepassing naar Azure implementeert.
+Als u Web Deploy toodeploy wijzigingen tooyour-webtoepassing hebt gebruikt, zorg ervoor dat u deze uitsluiten van Hallo **App_Data** map worden verwijderd tijdens de implementatie. Anders worden hello profiler extensiebestanden verwijderd wanneer u naast Hallo web application tooAzure implementeert.
 
 ### <a name="using-profiler-with-azure-vms-and-compute-resources-preview"></a>Profiler gebruiken met Azure VM's en rekenresources (preview)
 
-Wanneer u [Application Insights inschakelen voor Azure app services tijdens runtime](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatisch beschikbaar. (Als u al Application Insights voor de resource hebt ingeschakeld, moet u mogelijk om bij te werken naar de laatste versie door de **configureren** wizard.)
+Wanneer u [Application Insights inschakelen voor Azure app services tijdens runtime](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Profiler is automatisch beschikbaar. (Als u al Application Insights voor Hallo resource hebt ingeschakeld, moet u mogelijk tooupdate toohello laatste versie via Hallo **configureren** wizard.)
 
-Er is een [preview-versie van de Profiler voor Azure Compute-bronnen](https://go.microsoft.com/fwlink/?linkid=848155).
+Er is een [preview-versie van Hallo Profiler voor Azure Compute-bronnen](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
 ## <a name="limits"></a>Limieten
 
-De bewaartermijn van de gegevens standaard is 5 dagen. Maximaal 10 GB per dag wordt ingenomen.
+bewaren van gegevens van Hallo standaard is 5 dagen. Maximaal 10 GB per dag wordt ingenomen.
 
-Er zijn geen kosten voor de profiler-service. Uw web-app moet worden gehost in ten minste de basisstaffel van App-Services.
+Er zijn geen kosten voor Hallo profiler service. Uw web-app moet worden gehost in ten minste Hallo basisstaffel van App-Services.
 
 ## <a name="viewing-profiler-data"></a>Profiler gegevens bekijken
 
-Open de blade Performance en blader naar de Bewerkingslijst.
+Open de blade Performance Hallo en schuif omlaag in de Bewerkingslijst toohello.
 
 
 
 
 ![Application Insights-prestaties blade voorbeelden kolom][performance-blade-examples]
 
-De kolommen in de tabel zijn:
+Hallo-kolommen in tabel Hallo zijn:
 
-* **Aantal** -het aantal van deze aanvragen in het tijdsbereik van de blade.
-* **Mediaan** - typische duurt voordat uw app om te reageren op een aanvraag. De helft van alle antwoorden zijn sneller dan dit.
-* **95e percentiel** 95% van de antwoorden sneller dan dit zijn. Als deze afbeelding heel verschillend van de mediaan is, is er mogelijk een onregelmatig probleem met uw app. (Of het kan worden verklaard door een ontwerpfunctie zoals opslaan in cache).
-* **Voorbeelden** -een pictogram geeft aan dat de profiler stack-traces voor deze bewerking is vastgelegd.
+* **Aantal** -nummer van deze aanvragen in het tijdsbereik Hallo van Hallo blade Hallo.
+* **Mediaan** -Hallo typische duurt voordat uw app toorespond tooa aanvraag. De helft van alle antwoorden zijn sneller dan dit.
+* **95e percentiel** 95% van de antwoorden sneller dan dit zijn. Als deze afbeelding heel verschillend van Hallo mediaan is, is er mogelijk een onregelmatig probleem met uw app. (Of het kan worden verklaard door een ontwerpfunctie zoals opslaan in cache).
+* **Voorbeelden** -een pictogram geeft aan dat profiler Hallo stack-traces voor deze bewerking is vastgelegd.
 
-Klik op het pictogram voorbeelden om de tracering explorer te openen. De explorer enkele voorbeelden ziet u dat de profiler is vastgelegd, geclassificeerd door reactietijd.
+Klik op Hallo voorbeelden pictogram tooopen Hallo trace explorer. Hallo explorer geeft enkele voorbeelden die Hallo profiler is vastgelegd, geclassificeerd door reactietijd.
 
-Selecteer een voorbeeld om weer te geven van een code-niveau verdeling van tijd besteed aan de aanvraag wordt uitgevoerd.
+Selecteer een voorbeeld tooshow een code-niveau verdeling van tijd besteed aan het uitvoerende Hallo-aanvraag.
 
 ![Application Insights Trace Explorer][trace-explorer]
 
-**Hot pad weergeven** wordt geopend de grootste blad knooppunt of ten minste iets sluit. In de meeste gevallen wordt dit knooppunt worden naast het prestatieknelpunt.
+**Hot pad weergeven** wordt geopend Hallo grootste leaf-knooppunt of ten minste iets sluit. In de meeste gevallen is dit knooppunt aangrenzende tooa prestatieknelpunt.
 
 
 
-* **Label**: de naam van de functie of de gebeurtenis. De structuur bevat een mengeling van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen). De eerste gebeurtenis vertegenwoordigt de totale duur van de aanvraag.
-* **Verstreken**: het tijdsinterval tussen het begin van de bewerking en het einde.
-* **Wanneer**: bevat waarop de functie/gebeurtenis werd uitgevoerd in de relatie aan andere functies.
+* **Label**: Hallo-naam van de functie Hallo of gebeurtenis. Hallo-structuur bevat een mengeling van code en gebeurtenissen die hebben plaatsgevonden (zoals SQL- en HTTP-gebeurtenissen). Hallo bovenste gebeurtenis geeft Hallo totale duur van aanvraag.
+* **Verstreken**: Hallo tijdsinterval tussen Hallo Hallo-bewerking is gestart en Hallo-end.
+* **Wanneer**: ziet u wanneer Hallo functie/gebeurtenis werd uitgevoerd in de relatie tooother functies.
 
-## <a name="how-to-read-performance-data"></a>Het lezen van prestatiegegevens
+## <a name="how-tooread-performance-data"></a>Hoe tooread prestatiegegevens
 
-Profiler voor Microsoft-service gebruikt een combinatie van methode en instrumentatie voor het analyseren van de prestaties van uw toepassing.
-Wanneer uitgebreide verzameling uitgevoerd wordt, voorbeelden serviceprofiler de instructie aanwijzer van elk van de machine CPU in elke milliseconde.
-Elk voorbeeld wordt de volledige aanroepstack van de thread die momenteel wordt uitgevoerd, waarin gedetailleerde en nuttige informatie over wat u dat thread werd uitgevoerd op beide hoge en lage niveaus van abstractie vastgelegd. Profiler service verzamelt ook andere gebeurtenissen zoals context switch gebeurtenissen, TPL gebeurtenissen en threadgroep correlatie van activiteit en oorzakelijk verband bijhouden.
+Profiler voor Microsoft-service gebruikt een combinatie van de steekproef nemen methode en instrumentation tooanalyze Hallo-prestaties van uw toepassing.
+Wanneer uitgebreide verzameling uitgevoerd wordt, Hallo service profiler voorbeelden instructie aanwijzer van elk van de machine Hallo CPU in elke milliseconde.
+Elke steekproef vastgelegd Hallo volledige aanroepstack van Hallo thread momenteel wordt uitgevoerd, waarin gedetailleerde en nuttige informatie over wat u dat thread werd uitgevoerd op beide hoge en lage niveaus van abstractie. Profiler service verzamelt ook andere gebeurtenissen zoals context switch gebeurtenissen, TPL gebeurtenissen, en threadgroep gebeurtenissen tootrack activiteit correlatie en oorzakelijk verband.
 
-De aanroepstack wordt weergegeven in de tijdlijnweergave is het resultaat van de bovenstaande steekproeven en instrumentation. Omdat elk voorbeeld de volledige aanroepstack van de thread bevat, bevat de code van .NET framework, evenals andere frameworks die u verwijst.
+Hallo aanroepstack wordt weergegeven in de tijdlijnweergave Hallo is Hallo resultaat Hallo boven steekproeven en instrumentation. Omdat elk voorbeeld vastgelegd Hallo volledige aanroepstack van Hallo thread, bevat de code van Hallo .NET framework, evenals andere frameworks die u verwijst.
 
 ### <a id="jitnewobj"></a>Object-toewijzing (`clr!JIT\_New or clr!JIT\_Newarr1`)
-`clr!JIT\_New and clr!JIT\_Newarr1`Help-functies in .NET framework die wijst geheugen toe vanuit beheerde heap zijn. `clr!JIT\_New`wordt aangeroepen wanneer een object is toegewezen. `clr!JIT\_Newarr1`wordt aangeroepen wanneer een objectmatrix is toegewezen. Deze twee functies zijn meestal zeer snel en relatief klein hoeveelheid tijd moeten uitvoeren. Als u ziet `clr!JIT\_New` of `clr!JIT\_Newarr1` een aanzienlijke hoeveelheid tijd kosten in de tijdlijn, is het een indicatie dat de code kan worden veel objecten toewijzen en aanzienlijke hoeveelheid geheugen.
+`clr!JIT\_New and clr!JIT\_Newarr1`Help-functies in .NET framework die wijst geheugen toe vanuit beheerde heap zijn. `clr!JIT\_New`wordt aangeroepen wanneer een object is toegewezen. `clr!JIT\_Newarr1`wordt aangeroepen wanneer een objectmatrix is toegewezen. Deze twee functies zijn meestal zeer snel en relatief klein hoeveelheid tijd moeten uitvoeren. Als u ziet `clr!JIT\_New` of `clr!JIT\_Newarr1` een aanzienlijke hoeveelheid tijd kosten in de tijdlijn, is het een indicatie dat Hallo code kan worden veel objecten toewijzen en aanzienlijke hoeveelheid geheugen.
 
 ### <a id="theprestub"></a>Bij het laden van Code (`clr!ThePreStub`)
-`clr!ThePreStub`is een Help-functie in .NET framework die de code uit te voeren voor de eerste keer wordt voorbereid. Dit doorgaans omvat, maar niet beperkt tot, (alleen In Time) JIT-compilatie. Voor elke methode C# `clr!ThePreStub` mag maximaal één keer tijdens de levensduur van een proces worden aangeroepen.
+`clr!ThePreStub`is een Help-functie in .NET framework die wordt voorbereid Hallo code tooexecute voor Hallo eerst. Dit doorgaans omvat, maar niet beperkt tot, (alleen In Time) JIT-compilatie. Voor elke methode C# `clr!ThePreStub` mag maximaal één keer tijdens de levensduur van een proces Hallo worden aangeroepen.
 
-Als u ziet `clr!ThePreStub` neemt veel tijd voor een aanvraag, dit geeft aan dat aanvraag is de eerste die wordt uitgevoerd die methode en de tijd voor .NET framework runtime laden van deze methode aanzienlijk is. U kunt overwegen een opgewarmd-proces dat wordt uitgevoerd dat deel van de code voordat uw gebruikers toegang dit tot of overweeg NGen uitgevoerd op uw assembly's.
+Als u ziet `clr!ThePreStub` neemt veel tijd voor een aanvraag, betekent dit dat die aanvraag Hallo eerste één die wordt uitgevoerd die methode en het Hallo-tijd voor .NET framework runtime tooload methode is belangrijk. U kunt overwegen een opgewarmd-proces dat wordt uitgevoerd dat deel van het Hallo-code voordat uw gebruikers toegang dit tot of overweeg NGen uitgevoerd op uw assembly's.
 
 ### <a id="lockcontention"></a>Aantal conflicten vergrendelen (`clr!JITutil\_MonContention` of `clr!JITutil\_MonEnterWorker`)
-`clr!JITutil\_MonContention`of `clr!JITutil\_MonEnterWorker` geven aan de huidige thread wacht op een vergrendeling worden vrijgegeven. Dit doorgaans weergegeven bij het uitvoeren van een C# lock-instructie Monitor.Enter methode wordt aangeroepen of een methode met het kenmerk MethodImplOptions.Synchronized wordt aangeroepen. Vergrendelingsconflicten gebeurt meestal wanneer de thread A verkrijgt een vergrendeling en thread B probeert de vergrendeling te verkrijgen dezelfde voordat een thread is vrijgegeven.
+`clr!JITutil\_MonContention`of `clr!JITutil\_MonEnterWorker` geven aan de huidige thread Hallo wacht op een vergrendeling toobe uitgebracht. Dit doorgaans weergegeven bij het uitvoeren van een C# lock-instructie Monitor.Enter methode wordt aangeroepen of een methode met het kenmerk MethodImplOptions.Synchronized wordt aangeroepen. Vergrendelingsconflicten gebeurt meestal wanneer de thread A verkrijgt een vergrendeling en thread B probeert tooacquire Hallo dezelfde vergrendelen voordat een thread is vrijgegeven.
 
 ### <a id="ngencold"></a>Bij het laden van code (`[COLD]`)
-Als de naam van de methode bevat `[COLD]`, zoals `mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined`, betekent dit dat de .NET framework runtime is worden gebruikt voor het uitvoeren van code dat niet is geoptimaliseerd door <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">optimalisatie profiel begeleide</a> voor de eerste keer. Voor elke methode moet worden weergegeven van maximaal één keer tijdens de levensduur van het proces.
+Als de naam van de methode Hallo bevat `[COLD]`, zoals `mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined`, betekent dit dat Hallo .NET framework runtime is uitvoeren van code dat niet is geoptimaliseerd door <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">optimalisatie profiel begeleide</a> voor Hallo eerst. Voor elke methode moet worden weergegeven van maximaal één keer tijdens de levensduur Hallo van Hallo-proces.
 
-Als bij het laden van code aanzienlijke hoeveelheid tijd voor een aanvraag duurt, geeft u aan deze aanvraag is de eerste uit te voeren van het niet geoptimaliseerde gedeelte van de methode. U kunt een warme up proces dat wordt uitgevoerd dat deel van de code voordat uw gebruikers toegang krijgen het tot overwegen.
+Als bij het laden van code aanzienlijke hoeveelheid tijd voor een aanvraag duurt, geeft aan dat verzoek is Hallo eerste één tooexecute Hallo niet geoptimaliseerde gedeelte van Hallo-methode. U kunt een warme up proces dat wordt uitgevoerd dat deel van het Hallo-code voordat uw gebruikers toegang krijgen het tot overwegen.
 
 ### <a id="httpclientsend"></a>HTTP-aanvraag verzenden
-Methoden zoals `HttpClient.Send` geven de code wacht op een HTTP-verzoek om te voltooien.
+Methoden zoals `HttpClient.Send` Hallo code wordt gewacht op een HTTP-aanvraag toocomplete aangeven.
 
 ### <a id="sqlcommand"></a>Databasebewerking
-Methode zoals SqlCommand.Execute geeft dat de code wacht tot een databasebewerking te voltooien.
+Methode zoals SqlCommand.Execute geeft Hallo code wordt gewacht op een toocomplete database-bewerking.
 
 ### <a id="await"></a>Wachten op (`AWAIT\_TIME`)
-`AWAIT\_TIME`Hiermee geeft u dat de code wordt gewacht op een andere taak is voltooid. Dit gebeurt gewoonlijk met C# 'await' instructie. Wanneer de code een C# 'await', de thread wordt afgewikkeld en wordt de besturing aan de threadgroep en er is geen thread die wachten op de 'await' om te voltooien is geblokkeerd. Logisch wordt de thread die de wizard de await heeft echter 'geblokkeerd' wachten totdat de bewerking te voltooien. De `AWAIT\_TIME` geeft de tijd die het geblokkeerde wachten op de taak is voltooid.
+`AWAIT\_TIME`Hiermee wordt aangegeven op Hallo code wordt gewacht op een andere taak toocomplete. Dit gebeurt gewoonlijk met C# 'await' instructie. Als Hallo-code heeft een C# 'await', hello thread afgewikkeld besturingselement toohello threadgroep retourneert en er is geen thread die wachten op Hallo 'await' toofinish is geblokkeerd. Logisch Hallo echter dat is Hallo await 'geblokkeerd' Hallo bewerking toocomplete wachten op thread. De `AWAIT\_TIME` geeft Hallo geblokkeerd tijd Hallo taak toocomplete wachten.
 
 ### <a id="block"></a>Geblokkeerde tijd
-`BLOCKED_TIME`Hiermee geeft u dat de code wordt gewacht op een andere bron beschikbaar, zoals het wachten op een synchronisatieobject wachten op een thread beschikbaar of wachten op een aanvraag te voltooien.
+`BLOCKED_TIME`Hiermee wordt aangegeven op Hallo code wordt gewacht op een andere resource toobe beschikbaar, zoals het wachten op een synchronisatieobject, een thread-toobe beschikbaar of wacht op een aanvraag toofinish wachten.
 
 ### <a id="cpu"></a>CPU-tijd
-De CPU is bezig met uitvoeren van de instructies.
+Hallo CPU is bezig met uitvoeren Hallo-instructies.
 
 ### <a id="disk"></a>Schijftijd
-De toepassing uitvoert schijfbewerkingen.
+de toepassing Hello uitvoert schijfbewerkingen.
 
 ### <a id="network"></a>Network Time
-De toepassing met het uitvoeren van bewerkingen in het netwerk.
+Hallo-toepassing met het uitvoeren van bewerkingen in het netwerk.
 
 ### <a id="when"></a>Wanneer kolom
-Dit is een visualisatie van hoe de inclusief voorbeelden die worden verzameld voor een knooppunt gedurende een bepaalde periode variëren. Het totale bereik van de aanvraag is onderverdeeld in 32 tijd buckets en inclusief voorbeelden voor dat knooppunt in deze buckets 32 wordt geteld. Elke bucket wordt vervolgens weergegeven als een balk waarvan u de hoogte een uitgebreid waarde vertegenwoordigt. Voor knooppunten gemarkeerd `CPU_TIME` of `BLOCKED_TIME`, of wanneer er een duidelijke relatie van de consumptie van een resource (cpu, schijf, een thread), de balk staat voor een van deze resources voor de periode van die bucket verbruikt. Voor deze metrische gegevens krijgt u meer dan 100% door meerdere resources verbruikt. Bijvoorbeeld, als Gemiddeld u twee CPU's tijdens een interval van gebruiken krijgt vervolgens u 200%.
+Dit is een visualisatie van hoe Hallo inclusief voorbeelden die worden verzameld voor een knooppunt gedurende een bepaalde periode variëren. totale bereik van de aanvraag Hallo Hallo is onderverdeeld in 32 tijd buckets en Hallo inclusief voorbeelden voor dat knooppunt in deze buckets 32 wordt geteld. Elke bucket wordt vervolgens weergegeven als een balk waarvan u de hoogte een uitgebreid waarde vertegenwoordigt. Voor knooppunten gemarkeerd `CPU_TIME` of `BLOCKED_TIME`, of wanneer er een duidelijke relatie van de consumptie van een resource (cpu, schijf, een thread), Hallo balk vertegenwoordigt een van deze resources voor Hallo tijdsperiode die bucket verbruikt. Voor deze metrische gegevens krijgt u meer dan 100% door meerdere resources verbruikt. Bijvoorbeeld, als Gemiddeld u twee CPU's tijdens een interval van gebruiken krijgt vervolgens u 200%.
 
 
 ## <a id="troubleshooting"></a>Problemen oplossen
 
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Hoe weet ik of Application Insights profiler wordt uitgevoerd?
 
-De profiler wordt uitgevoerd als een taak continu web in Web-App. U kunt de Web-App-resource openen in https://portal.azure.com en controleer de status 'ApplicationInsightsProfiler' in de blade WebJobs. Als deze niet wordt uitgevoerd, opent u **logboeken** voor meer informatie.
+Hallo profiler wordt uitgevoerd als een taak continu web in Web-App. U kunt Hallo Web-App-resource openen in https://portal.azure.com en controleer de status 'ApplicationInsightsProfiler' hello WebJobs-blade. Als deze niet wordt uitgevoerd, opent u **logboeken** toofind meer informatie.
 
-### <a name="why-cant-i-find-any-stack-examples-even-though-the-profiler-is-running"></a>Waarom kan ik geen voorbeelden stack vinden ook al de profiler wordt uitgevoerd?
+### <a name="why-cant-i-find-any-stack-examples-even-though-hello-profiler-is-running"></a>Waarom kan ik geen voorbeelden stack vinden ook al Hallo profiler wordt uitgevoerd?
 
 Hier volgen enkele dingen die u kunt controleren.
 
 1. Zorg ervoor dat uw Web-App Service-Plan basisstaffel en hoger.
 2. Zorg ervoor dat uw Web-App heeft Application Insights SDK 2.2 Beta en hierboven ingeschakeld.
-3. Zorg ervoor dat uw Web-App is ingesteld op APPINSIGHTS_INSTRUMENTATIONKEY met dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
+3. Zorg ervoor dat uw Web-App Hallo APPINSIGHTS_INSTRUMENTATIONKEY instelling Hello dezelfde instrumentatiesleutel wordt gebruikt door de Application Insights-SDK.
 4. Zorg ervoor dat uw Web-App wordt uitgevoerd op .net Framework 4.6.
-5. Als het een toepassing ASP.NET Core, Controleer ook of [de vereiste afhankelijkheden](#aspnetcore).
+5. Als het een toepassing ASP.NET Core, Controleer ook of [Hallo afhankelijkheden vereist](#aspnetcore).
 
-Nadat de profiler is gestart, is er een korte opgewarmd periode wanneer de profiler actief traceringen worden verzameld verschillende prestaties. Hierna is de profiler traceringen worden verzameld prestaties twee minuten in elk uur.  
+Nadat de profiler Hallo is gestart, is er een korte opgewarmd periode wanneer Hallo profiler actief traceringen worden verzameld verschillende prestaties. Daarna Hallo profiler traceringen worden verzameld prestaties twee minuten in elk uur.  
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Ik werd Azure Service Profiler gebruikt. Wat is er gebeurd met het?  
+### <a name="i-was-using-azure-service-profiler-what-happened-tooit"></a>Ik werd Azure Service Profiler gebruikt. Welke happened tooit?  
 
 Wanneer u Application Insights Profiler inschakelt, is Azure Service Profiler agent uitgeschakeld.
 
 ### <a id="double-counting"></a>Dubbele parallelle threads tellen
 
-In sommige gevallen is de totale tijd metrische gegevens in de stack-viewer hoger dan de werkelijke duur van de aanvraag.
+In sommige gevallen Hallo is metric van de totale tijd in Hallo stack-viewer hoger dan de werkelijke duur van aanvraag Hallo Hallo.
 
-Dit kan gebeuren wanneer er twee of meer threads die zijn gekoppeld aan een aanvraag, parallel uitgevoerd. De tijd van de totale thread is meer dan de verstreken tijd. In veel gevallen kan één thread worden wacht op de andere te voltooien. De viewer wil dit detecteren en laat de niet-interessante wachten, maar errs aan de kant van te veel in plaats van als weggelaten welke essentiële informatie kunnen worden weergegeven.  
+Dit kan gebeuren wanneer er twee of meer threads die zijn gekoppeld aan een aanvraag, parallel uitgevoerd. tijd van de totale thread Hallo is meer dan Hallo verstreken tijd. Hallo in veel gevallen één thread wachten op een kan andere toocomplete. Hallo viewer pogingen toodetect dit en niet-interessante wacht Hallo weglaten, maar errs Hallo-zijde van te veel in plaats van als weggelaten welke essentiële informatie kunnen worden weergegeven.  
 
-Wanneer u parallelle threads in uw traceringen zien, moet u bepalen welke threads wachten zodat u het kritieke pad voor de aanvraag kunt zien. In de meeste gevallen is gewoon de thread die probeert het snel de status van een wait wacht op de andere threads. Richten op de andere en de tijd in de wachtende threads wordt genegeerd.
+Wanneer u parallelle threads in uw traceringen zien, moet u toodetermine die threads wachten zodat u Hallo kritieke pad voor Hallo aanvraag kunt zien. In de meeste gevallen Hallo Hallo thread die in de modus wachttijd is snel gewoon wachten op een andere threads. Concentreren op Hallo van anderen en Hallo tijd in Hallo wachtende threads te negeren.
 
 ### <a id="issue-loading-trace-in-viewer"></a>Er is geen profileringsgegevens
 
-1. Als de gegevens die u probeert weer te geven ouder dan een paar weken is, kunt u uw tijdfilter beperken en probeer het opnieuw.
+1. Als Hallo gegevens die u probeert tooview ouder is dan een paar weken, kunt u uw tijdfilter beperken en probeer het opnieuw.
 
-2. Controleer dat proxy of firewall hebben geen toegang tot geblokkeerd https://gateway.azureserviceprofiler.net.
+2. Controleer dat proxy of firewall toegang toohttps://gateway.azureserviceprofiler.net niet geblokkeerd.
 
-3. Controleer of de Application Insights-instrumentatiesleutel die u in uw app werkt hetzelfde als de Application Insights-resource die u hebt ingeschakeld met profilering. De sleutel bevindt zich doorgaans in ApplicationInsights.config, maar u kunt ook vinden in web.config of app.config.
+3. Controleer dat Application Insights-instrumentatiesleutel die u in uw app gebruikt is dezelfde als Hallo Application Insights-resource die u hebt ingeschakeld met profilering Hallo Hallo. Hallo sleutel bevindt zich doorgaans in ApplicationInsights.config, maar u kunt ook vinden in web.config of app.config.
 
-### <a name="error-report-in-the-profiling-viewer"></a>Foutrapport in de viewer voor profielservices gegeven
+### <a name="error-report-in-hello-profiling-viewer"></a>Foutenrapport in Hallo viewer profileren
 
-Het bestand is een ondersteuningsticket vanuit de portal. Neem de correlatie-ID van het foutbericht.
+Een ondersteuningsticket vanuit de portal Hallo-bestand. Neem Hallo correlatie-ID van de fout het Hallo-bericht.
 
 ## <a name="manual-installation"></a>Handmatige installatie
 
-Wanneer u de profiler configureert, worden de volgende updates zijn aangebracht aan de Web-App-instellingen. U kunt ze zelf doen handmatig als uw omgeving, bijvoorbeeld, vereist als uw toepassing wordt uitgevoerd in Azure App Service omgeving (as-omgeving):
+Bij het configureren van Hallo profiler zijn hello volgende updates aangebracht toohello van Web-App-instellingen. U kunt ze zelf doen handmatig als uw omgeving, bijvoorbeeld, vereist als uw toepassing wordt uitgevoerd in Azure App Service omgeving (as-omgeving):
 
-1. Open de instellingen in de blade web-app-beheer.
-2. Stel '.Net Framework-versie ' naar 4.6.
-3. Ingesteld 'Altijd aan' op.
-4. App-instelling toevoegen '__APPINSIGHTS_INSTRUMENTATIONKEY__' en de waarde ingesteld op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
+1. Open de instellingen in Hallo blade web-app besturingselement.
+2. Stel '.Net Framework-versie ' toov4.6.
+3. 'Altijd aan' tooOn ingesteld.
+4. App-instelling toevoegen '__APPINSIGHTS_INSTRUMENTATIONKEY__' en set Hallo waarde toohello dezelfde instrumentatiesleutel door Hallo SDK gebruikt.
 5. Open geavanceerde hulpprogramma's.
-6. Klik op "Ga' naar de Kudu-website openen.
-7. Selecteer in de website Kudu 'Site-uitbreidingen'.
+6. Klik op 'Ga' tooopen hello Kudu website.
+7. Selecteer 'Site-uitbreidingen' hello Kudu website.
 8. Installeer '__Application Insights__' uit de galerie.
-9. Start opnieuw op de web-app.
+9. Opnieuw opstarten Hallo web-app.
 
 ## <a id="aspnetcore"></a>ASP.NET Core-ondersteuning
 
-ASP.NET Core toepassing moet installeren Microsoft.ApplicationInsights.AspNetCore Nuget-pakket 2.1.0-beta6 of hoger werken met de Profiler. We bieden geen ondersteuning voor de lagere versies na 27-6/2017.
+ASP.NET Core toepassing moet tooinstall Microsoft.ApplicationInsights.AspNetCore Nuget-pakket 2.1.0-beta6 of hoger toowork Hello Profiler. We bieden geen ondersteuning voor lagere versies Hallo na 27-6/2017.
 
 ## <a name="next-steps"></a>Volgende stappen
 

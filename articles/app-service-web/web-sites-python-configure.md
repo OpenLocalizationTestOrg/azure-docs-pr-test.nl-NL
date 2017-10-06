@@ -1,5 +1,5 @@
 ---
-title: Python configureren met Azure App Service WebApps
+title: aaaConfiguring Python met Azure App Service Web Apps
 description: Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige webserver Gateway Interface (WSGI) compatibele Python-toepassing in Azure App Service Web Apps.
 services: app-service
 documentationcenter: python
@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 9683a1af13eeff364d3c4714f0b791324fd82659
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00d49fb01491e9adb4b6fededfb95669a8dbd485
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Python configureren met Azure App Service WebApps
 Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige Web Server Gateway Interface (WSGI) compatibele Python-toepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -27,24 +27,24 @@ Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van e
 Aanvullende functies van Git-implementatie, zoals virtuele omgeving en de installatie van het pakket met requirements.txt beschrijft.
 
 ## <a name="bottle-django-or-flask"></a>Bottle, Django of Flask?
-Azure Marketplace bevat sjablonen voor de frameworks Bottle, Django en Flask. Als u uw eerste web-app in Azure App Service ontwikkelt, of u niet bekend met Git bent, raden wij aan dat u deze zelfstudies, waaronder Stapsgewijze instructies volgt voor het bouwen van een werkende toepassing uit de galerie met Git-implementatie van Windows- of Mac:
+Hello Azure Marketplace bevat sjablonen voor Hallo Bottle, Django en Flask frameworks. Als u uw eerste web-app in Azure App Service ontwikkelt, of u niet bekend met Git bent, raden wij aan dat u deze zelfstudies, waaronder Stapsgewijze instructies volgt voor het bouwen van een werkende toepassing uit Hallo galerie met Git-implementatie in Windows of Mac:
 
 * [Web-apps maken met Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Web-apps maken met Django](web-sites-python-create-deploy-django-app.md)
 * [Web-apps maken met Flask](web-sites-python-create-deploy-flask-app.md)
 
 ## <a name="web-app-creation-on-azure-portal"></a>Web-Apps maken op Azure-Portal
-Deze zelfstudie wordt ervan uitgegaan van een bestaand Azure-abonnement en de toegang tot de Azure-Portal.
+Deze zelfstudie wordt ervan uitgegaan van een bestaande Azure-abonnement en toegang toohello Azure-Portal.
 
-Als u een bestaande web-app niet hebt, kunt u een van de [Azure Portal](https://portal.azure.com).  Klik op de knop Nieuw in de linkerbovenhoek en klik vervolgens op **Web en mobiel** > **Web-app**.
+Als u een bestaande web-app niet hebt, kunt u één van Hallo [Azure Portal](https://portal.azure.com).  Klik op de nieuwe knop Hallo in Hallo linksboven en klik vervolgens op **Web en mobiel** > **Web-app**.
 
 ## <a name="git-publishing"></a>GIT-publicatie
-Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service). Deze zelfstudie maakt gebruik van Git te maken, beheren en publiceren van onze Python-web-app in Azure App Service.
+Configureer Git-publicatie voor uw nieuwe web-app met behulp Hallo-instructies in [lokale Git-implementatie tooAzure App Service](app-service-deploy-local-git.md). Deze zelfstudie wordt gebruikgemaakt van Git toocreate, beheren en publiceren van onze Python web app tooAzure App Service.
 
-Zodra de Git-publicatie is ingesteld, wordt een Git-opslagplaats gemaakt en gekoppeld aan uw web-app. URL van de opslagplaats wordt weergegeven en kunt voortaan worden gebruikt om gegevens uit de lokale ontwikkelomgeving uiterste naar de cloud. Zorg ervoor dat een Git-client is geïnstalleerd en gebruik de instructies voor de push-inhoud van uw web-app in Azure App Service voor het publiceren van toepassingen via Git.
+Zodra de Git-publicatie is ingesteld, wordt een Git-opslagplaats gemaakt en gekoppeld aan uw web-app. Hallo-opslagplaats URL kan wordt weergegeven en voortaan gebruikte toopush gegevens uit Hallo lokale ontwikkeling omgeving toohello cloud. toopublish toepassingen via Git, Controleer of een Git-client is geïnstalleerd en gebruik Hallo instructies toopush uw web-app inhoud tooAzure App Service.
 
 ## <a name="application-overview"></a>Toepassingsoverzicht
-In de volgende secties worden de volgende bestanden worden gemaakt. Ze moeten worden geplaatst in de hoofdmap van de Git-opslagplaats.
+In de volgende secties Hallo worden Hallo volgende bestanden gemaakt. Ze moeten worden geplaatst in de hoofdmap Hallo van Hallo Git-opslagplaats.
 
     app.py
     requirements.txt
@@ -54,7 +54,7 @@ In de volgende secties worden de volgende bestanden worden gemaakt. Ze moeten wo
 
 
 ## <a name="wsgi-handler"></a>WSGI-Handler
-WSGI is een Python-standaard beschreven door [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definiëren van een interface tussen de webserver en Python. Dit biedt een gestandaardiseerde interface voor het schrijven van verschillende webtoepassingen en frameworks met behulp van Python. Populaire frameworks voor Python-web gebruik vandaag WSGI. Azure App Service Web Apps biedt die u ondersteuning voor dergelijke frameworks; Bovendien kunnen advanced-gebruikers ook schrijven hun eigen, zolang de aangepaste handler de specificatie WSGI richtlijnen volgt.
+WSGI is een Python-standaard beschreven door [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definiëren van een interface tussen de webserver Hallo en Python. Dit biedt een gestandaardiseerde interface voor het schrijven van verschillende webtoepassingen en frameworks met behulp van Python. Populaire frameworks voor Python-web gebruik vandaag WSGI. Azure App Service Web Apps biedt die u ondersteuning voor dergelijke frameworks; Bovendien kunnen advanced-gebruikers ook schrijven hun eigen zolang Hallo aangepaste handler Hallo WSGI specificatie richtlijnen volgt.
 
 Hier volgt een voorbeeld van een `app.py` waarmee wordt gedefinieerd met een aangepaste handler:
 
@@ -71,19 +71,19 @@ Hier volgt een voorbeeld van een `app.py` waarmee wordt gedefinieerd met een aan
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-U kunt deze toepassing lokaal met uitvoeren `python app.py`, bladert u naar `http://localhost:5555` in uw webbrowser.
+U kunt deze toepassing lokaal met uitvoeren `python app.py`, bladert u te`http://localhost:5555` in uw webbrowser.
 
 ## <a name="virtual-environment"></a>Virtuele omgeving
-Hoewel het bovenstaande voorbeeld-app niet alle externe pakketten vereist, is het waarschijnlijk dat uw toepassing enkele wordt vereist.
+Hoewel bovenstaande Hallo voorbeeld-app niet zijn voor alle externe pakketten vereist, is het waarschijnlijk dat uw toepassing enkele wordt vereist.
 
-Azure Git-implementatie ondersteunt om te beheren externe pakketafhankelijkheden, het maken van virtuele omgevingen.
+toohelp beheer van externe pakketafhankelijkheden, Azure Git-implementatie ondersteunt het Hallo maken van virtuele omgevingen.
 
-Als Azure een requirements.txt in de hoofdmap van de opslagplaats detecteert, wordt automatisch een virtuele omgeving met de naam gemaakt `env`. Dit gebeurt alleen bij de eerste implementatie of tijdens een implementatie na het geselecteerde Python runtime is gewijzigd.
+Als Azure een requirements.txt in de hoofdmap Hallo van Hallo-opslagplaats detecteert, wordt automatisch een virtuele omgeving met de naam gemaakt `env`. Dit gebeurt alleen bij de eerste implementatie Hallo of tijdens een implementatie na Hallo geselecteerde Python-runtime is gewijzigd.
 
-U wilt waarschijnlijk voor het maken van een virtuele omgeving lokaal voor ontwikkeling, maar niet opnemen in de Git-opslagplaats.
+U wilt waarschijnlijk toocreate een virtuele omgeving lokaal voor ontwikkeling, maar niet opnemen in de Git-opslagplaats.
 
 ## <a name="package-management"></a>Pakketbeheer
-Pakketten die worden vermeld in requirements.txt worden automatisch geïnstalleerd in de virtuele omgeving met behulp van pip. Dit gebeurt op elke implementatie, maar pip slaat de installatie over als u een pakket is al geïnstalleerd.
+Pakketten die worden vermeld in requirements.txt worden automatisch geïnstalleerd in de virtuele omgeving Hallo via pip. Dit gebeurt op elke implementatie, maar pip slaat de installatie over als u een pakket is al geïnstalleerd.
 
 Voorbeeld `requirements.txt`:
 
@@ -99,11 +99,11 @@ Voorbeeld `runtime.txt`:
 
 
 ## <a name="webconfig"></a>Web.config
-U moet maken van een web.config-bestand om op te geven hoe de-server aanvragen moet verwerken.
+U moet een web.config-bestand toospecify toocreate hoe Hallo-server aanvragen moet verwerken.
 
-Houd er rekening mee dat als er een web.x.y.config-bestand in de opslagplaats, waar x.y overeenkomt met de geselecteerde Python-runtime en vervolgens kopieert Azure automatisch het juiste bestand als web.config.
+Houd er rekening mee dat als er een web.x.y.config-bestand in de opslagplaats, waar x.y overeenkomt met Hallo Python-runtime geselecteerde en Azure automatisch de juiste bestand Hallo als web.config kopieert.
 
-De volgende voorbeelden van web.config is afhankelijk van een virtuele omgeving proxyscript die in de volgende sectie wordt beschreven.  Ze werken met de WSGI-handler die wordt gebruikt in het voorbeeld `app.py` hierboven.
+Hallo volgende web.config voorbeelden zijn afhankelijk van een virtuele omgeving proxyscript die wordt beschreven in de volgende sectie Hallo.  Ze werken met Hallo WSGI handler die wordt gebruikt in Hallo voorbeeld `app.py` hierboven.
 
 Voorbeeld `web.config` voor Python 2.7:
 
@@ -203,16 +203,16 @@ Voorbeeld `web.config` voor Python 3.4:
     </configuration>
 
 
-Statische bestanden wordt verwerkt door de webserver rechtstreeks, zonder tussenkomst van Python-code, voor betere prestaties.
+Statische bestanden wordt verwerkt door de webserver Hallo rechtstreeks, zonder tussenkomst van Python-code, voor betere prestaties.
 
-De locatie van de statische bestanden op schijf moet overeenkomen met de locatie in de URL in de bovenstaande voorbeelden. Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` dient het bestand op de schijf op `\static\site.css`.
+Hallo-locatie van statische bestanden op schijf Hallo moet overeenkomen met Hallo locatie in Hallo-URL in Hallo bovenstaande voorbeelden. Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` fungeert Hallo-bestand op de schijf op `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`is waar u de handler WSGI opgeven. In de bovenstaande voorbeelden hieraan `app.wsgi_app` omdat de handler een functie met de naam is `wsgi_app` in `app.py` in de hoofdmap.
+`WSGI_ALT_VIRTUALENV_HANDLER`is waar u Hallo WSGI handler opgeven. In Hallo bovenstaande voorbeelden, hieraan `app.wsgi_app` omdat Hallo-handler een functie met de naam is `wsgi_app` in `app.py` in Hallo-hoofdmap.
 
-`PYTHONPATH`kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving door te geven ze in requirements.txt installeert, moet u dient niet te wijzigen.
+`PYTHONPATH`kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving Hallo installeert door te geven ze in requirements.txt, toochange niet nodig deze.
 
 ## <a name="virtual-environment-proxy"></a>Virtuele omgeving Proxy
-Het volgende script wordt gebruikt voor het ophalen van de handler WSGI en het activeren van de virtuele omgeving en log-fouten. Het is ontworpen voor algemene en die wordt gebruikt zonder wijzigingen.
+Hallo script volgen gebruikte tooretrieve hello WSGI handler, Hallo virtuele omgeving en logboek fouten activeren. Het is ontworpen toobe algemene en die wordt gebruikt zonder wijzigingen.
 
 Inhoud van `ptvs_virtualenv_proxy.py`:
 
@@ -220,11 +220,11 @@ Inhoud van `ptvs_virtualenv_proxy.py`:
      #
      # Copyright (c) Microsoft Corporation. 
      #
-     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
-     # copy of the license can be found in the License.html file at the root of this distribution. If 
-     # you cannot locate the Apache License, Version 2.0, please send an email to 
-     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
-     # by the terms of the Apache License, Version 2.0.
+     # This source code is subject tooterms and conditions of hello Apache License, Version 2.0. A 
+     # copy of hello license can be found in hello License.html file at hello root of this distribution. If 
+     # you cannot locate hello Apache License, Version 2.0, please send an email too
+     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing toobe bound 
+     # by hello terms of hello Apache License, Version 2.0.
      #
      # You must not remove this notice, or any other, from this software.
      #
@@ -250,7 +250,7 @@ Inhoud van `ptvs_virtualenv_proxy.py`:
             return value.encode(sys.getfilesystemencoding())
 
     def log(txt):
-        """Logs fatal errors to a log file if WSGI_LOG env var is defined"""
+        """Logs fatal errors tooa log file if WSGI_LOG env var is defined"""
         log_file = os.environ.get('WSGI_LOG')
         if log_file:
             f = open(log_file, 'a+')
@@ -350,13 +350,13 @@ Inhoud van `ptvs_virtualenv_proxy.py`:
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
+Zie voor meer informatie, Hallo [Python Developer Center](/develop/python/).
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
 ## <a name="whats-changed"></a>Wat is er gewijzigd
-* Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Zie voor een handleiding toohello wijzigingen van de Websites tooApp Service: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Arduino verbinden met Azure IoT - les 1: download hulpprogramma''s (Windows) | Microsoft Docs'
-description: Download en installeer de benodigde hulpprogramma's en software voor de eerste voorbeeldtoepassing voor Adafruit Doezelaar M0 Wi-Fi in Windows 7 en hoger.
+title: 'Verbinding maken met Arduino tooAzure IoT - les 1: download hulpprogramma''s (Windows) | Microsoft Docs'
+description: Download en installeer de benodigde Hallo-hulpprogramma's en -software voor Hallo eerste voorbeeldtoepassing voor Adafruit Doezelaar M0 Wi-Fi in Windows 7 en hoger.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 5d27c016c4a74e31455e676b3c3070a8e262b21f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4dd946da6c84293987e166fd1d17fac117e94e4c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-windows-7-or-later"></a>Download de hulpprogramma's (Windows 7 of hoger)
+# <a name="get-hello-tools-windows-7-or-later"></a>Ophalen van Hallo hulpprogramma's (Windows 7 of hoger)
 
 > [!div class="op_single_selector"]
 > * [Windows 7 of hoger][windows]
@@ -32,60 +32,60 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="what-you-will-do"></a>Wat u doet
 
-Download de ontwikkelprogramma's en de software voor de eerste voorbeeldtoepassing voor uw kaart Adafruit Doezelaar M0 Wi-Fi Arduino.
+Hallo ontwikkelingsprogramma's en software voor eerste voorbeeldtoepassing voor uw kaart Adafruit Doezelaar M0 Wi-Fi Arduino Hallo Hallo downloaden.
 
-Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].
+Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].
 
 > [!NOTE]
-> Hoewel de programmeertaal van de belangrijkste logica Arduino, worden in de uitkomsten Node.js-hulpprogramma's om te bouwen en implementeren van de voorbeeldtoepassingen gebruikt.
+> Hoewel Hallo programmeertaal van logische Hallo Arduino is, wordt Node.js-hulpprogramma's worden gebruikt in Hallo uitkomsten toobuild en voorbeeldtoepassingen implementeren.
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 In dit artikel leert u het:
 
-* Klik hier voor meer informatie over het installeren van Git en Node.js.
-  * [GIT](https://git-scm.com) is een open-source gedistribueerd versiebeheersysteem. De voorbeeldtoepassing voor dit artikel wordt opgeslagen op Git.
+* Hoe tooinstall Git en Node.js.
+  * [GIT](https://git-scm.com) is een open-source gedistribueerd versiebeheersysteem. Hallo-voorbeeldtoepassing voor dit artikel wordt opgeslagen op Git.
   * [Node.js](https://nodejs.org/en/) is een JavaScript-runtime met een uitgebreide pakket-ecosysteem.
-* Hoe extra Node.js ontwikkelingsprogramma's installeren met NPM.
-  * De minimum versievereisten voor Node.js is 4.5 TNS.
-  * [NPM](https://www.npmjs.com) is een van de pakket-managers voor Node.js.
+* Hoe toouse NPM tooinstall extra Node.js ontwikkelingsprogramma's.
+  * Hallo minimum versievereisten voor Node.js is 4.5 TNS.
+  * [NPM](https://www.npmjs.com) is een van de Hallo pakket managers voor Node.js.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-Om deze bewerking niet voltooien, moet u het:
+toocomplete deze bewerking moet u:
 
-* Een internetverbinding om de ontwikkelprogramma's en de software te downloaden.
+* Een Internet verbinding toodownload Hallo ontwikkelingsprogramma's en software Hallo.
 * Een computer waarop Windows wordt uitgevoerd.
 
 ## <a name="install-git-and-nodejs"></a>Installeer Git en Node.js
 
-Klik op de onderstaande koppelingen wilt downloaden en installeren van Git en Node.js LTS voor Windows.
+Klik op onderstaande toodownload Hallo koppelingen en installeer Git en Node.js LTS voor Windows.
 
 * [Ophalen van Git voor Windows](https://git-scm.com/download/win/)
 * [Node.js TNS ophalen voor Windows](https://nodejs.org/en/)
 
 ## <a name="install-additional-nodejs-development-tools"></a>Extra hulpprogramma's voor Node.js-ontwikkeling
 
-Gebruik [gulp.js](http://gulpjs.com) voor de implementatie van de voorbeeldtoepassing op het mededelingenbord Arduino automatiseren.
+Gebruik [gulp.js](http://gulpjs.com) tooautomate Hallo implementatie van Hallo voorbeeld toepassing tooyour Arduino het mededelingenbord.
 
-Start een opdrachtprompt als beheerder. Installeer `gulp`, `device-discovery-cli` met de volgende opdracht in de terminal:
+Start een opdrachtprompt als beheerder. Installeer `gulp`, `device-discovery-cli` door het uitvoeren van de volgende opdracht in de terminal Hallo Hallo:
 
 ```bash
 npm install -g gulp device-discovery-cli
 ```
 
-Als u problemen hebt met het installeren van Node.js en deze extra Node.js ontwikkelprogramma's op uw computer, Zie de [probleemoplossingsgids] [ troubleshooting] voor oplossingen voor bekende problemen.
+Als u problemen hebt met het installeren van Node.js en deze extra Node.js ontwikkelprogramma's op uw computer, Zie Hallo [probleemoplossingsgids] [ troubleshooting] voor toocommon oplossingen voor problemen.
 
 ## <a name="install-visual-studio-code"></a>Visual Studio Code installeren
 
-[Download](https://code.visualstudio.com/docs/setup/windows) en Visual Studio Code installeren. Visual Studio Code is een eenvoudige maar krachtige broncode-editor voor Windows, Linux en Mac OS. U gebruikt deze editor verderop in de zelfstudie voor het bewerken van de voorbeeldcode.
+[Download](https://code.visualstudio.com/docs/setup/windows) en Visual Studio Code installeren. Visual Studio Code is een eenvoudige maar krachtige broncode-editor voor Windows, Linux en Mac OS. U gebruikt deze editor verderop in Hallo zelfstudie tooedit Hallo voorbeeldcode.
 
 ## <a name="summary"></a>Samenvatting
 
-U kunt de vereiste ontwikkelingsprogramma's en software voor de eerste voorbeeldtoepassing hebt geïnstalleerd. De volgende taak is het maken, implementeren en uitvoeren van de voorbeeldtoepassing op het mededelingenbord Arduino.
+U kunt Hallo vereist ontwikkelingsprogramma's en -software voor het eerste voorbeeldtoepassing hello hebt geïnstalleerd. de volgende taak Hallo is toocreate, implementeren en Hallo voorbeeldtoepassing uitvoeren op het mededelingenbord Arduino.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maken en implementeren van de voorbeeldtoepassing knipperen][create-and-deploy-the-blink-sample-application]
+[Hallo knipperen voorbeeldtoepassing maken en implementeren][create-and-deploy-the-blink-sample-application]
 <!-- Images and links -->
 
 [windows]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md

@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure App Service API Apps - zelfstudies | Microsoft Docs
-description: "Leer hoe u API Apps in Azure App Service kunt gebruiken om API's te ontwikkelen, hosten en gebruiken in de cloud en on-premises. Zelfstudies, video’s en andere documentatie."
+title: App Service - documentatie van de API-Apps - zelfstudies aaaAzure | Microsoft Docs
+description: "Ontdek hoe toouse API-Apps in Azure App Service-toodevelop hosten en API's in Hallo cloud en on-premises gebruiken. Zelfstudies, video’s en andere documentatie."
 services: app-service\api
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67334a0e0eb79c34aab60b4222977bc3a27611a2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service---api-apps-documentation"></a>Documentatie voor App Service - API Apps
 
-Leer hoe u API Apps in Azure App Service kunt gebruiken om API's te ontwikkelen, hosten en gebruiken in de cloud en on-premises. Zelfstudies, video's en andere documentatie laten zien hoe u API-apps kunt maken en implementeren.
+Ontdek hoe toouse API-Apps in Azure App Service-toodevelop hosten en API's in Hallo cloud en on-premises gebruiken. Zelfstudies, video's en andere documentatie laten zien hoe u API-apps kunt maken en implementeren.
 
 <ul class="panelContent cardsFTitle">
     <li>

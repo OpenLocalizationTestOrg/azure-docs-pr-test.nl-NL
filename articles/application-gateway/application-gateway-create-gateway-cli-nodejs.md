@@ -1,6 +1,6 @@
 ---
-title: Maken van een Azure Application Gateway - Azure CLI 1.0 | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI 1.0 in Resource Manager
+title: aaaCreate een Azure Application Gateway - Azure CLI 1.0 | Microsoft Docs
+description: Meer informatie over hoe toocreate een toepassingsgateway met behulp van Azure CLI 1.0 in Resource Manager Hallo
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3c0d2d96b6be404d0372d00f0deb2a32959ca419
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Een toepassingsgateway maken met behulp van de Azure CLI
+# <a name="create-an-application-gateway-by-using-hello-azure-cli"></a>Een toepassingsgateway maken met behulp van hello Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
@@ -33,18 +33,18 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Toepassingsgateway bevat de volgende functies van de toepassing-levering: HTTP load balancing, sessie cookies gebaseerde affiniteit en Secure Sockets Layer (SSL)-offload, aangepaste statuscontroles en ondersteuning voor meerdere locaties.
+Azure Application Gateway is een load balancer in laag 7. Het biedt failover, HTTP-aanvragen routeren tussen verschillende servers, ongeacht of deze op Hallo cloud of on-premises. Toepassingsgateway heeft Hallo levering toepassingsfuncties te volgen: HTTP load balancing, sessie cookies gebaseerde affiniteit en Secure Sockets Layer (SSL)-offload, aangepaste statuscontroles en ondersteuning voor meerdere locaties.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Voorwaarde: Installeer de Azure CLI
+## <a name="prerequisite-install-hello-azure-cli"></a>Voorwaarde: Installeer hello Azure CLI
 
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](../xplat-cli-install.md) en u moet [Meld u aan bij Azure](../xplat-cli-connect.md). 
+tooperform hello stappen in dit artikel, moet u te[hello Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI) installeren](../xplat-cli-install.md) en u moet te[tooAzure aanmelden](../xplat-cli-connect.md). 
 
 > [!NOTE]
 > Als u geen Azure-account hebt, moet u een. U kunt zich [hier aanmelden voor een gratis proefversie](../active-directory/sign-up-organization.md).
 
 ## <a name="scenario"></a>Scenario
 
-In dit scenario wordt informatie over het maken van een toepassingsgateway met Azure portal.
+In dit scenario leert u hoe een application gateway met toocreate hello Azure-portal.
 
 Dit scenario wordt:
 
@@ -53,41 +53,41 @@ Dit scenario wordt:
 * Maak een subnet met de naam subnet01 dat gebruikmaakt van 10.0.0.0/28 als CIDR-blok.
 
 > [!NOTE]
-> Aanvullende configuratie van de toepassingsgateway, met inbegrip van aangepaste health tests, adressen van de groep back-end en extra regels worden geconfigureerd nadat de toepassingsgateway is geconfigureerd en niet tijdens de eerste installatie.
+> Aanvullende configuratie van de toepassingsgateway hello, met inbegrip van aangepaste health tests, adressen van de groep back-end en extra regels worden geconfigureerd nadat de toepassingsgateway Hallo is geconfigureerd en niet tijdens de eerste installatie.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Azure Application Gateway vereist een eigen subnet. Zorg ervoor dat u onvoldoende adresruimte voor meerdere subnetten hebben laten bij het maken van een virtueel netwerk. Wanneer u een toepassingsgateway met een subnet implementeert, kunnen alleen andere Toepassingsgateways worden toegevoegd aan het subnet.
+Azure Application Gateway vereist een eigen subnet. Zorg ervoor dat u laat u genoeg ruimte adres toohave meerdere subnetten bij het maken van een virtueel netwerk. Wanneer u een subnet toepassingsgateway tooa implementeert, enige extra toepassingsgateways kunnen toobe toegevoegd worden toohello subnet.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Open de **Microsoft Azure-opdrachtprompt**, en zich aanmelden. 
+Open Hallo **Microsoft Azure-opdrachtprompt**, en zich aanmelden. 
 
 ```azurecli-interactive
 azure login
 ```
 
-Wanneer u in het voorgaande voorbeeld typt, wordt een code opgegeven. Ga naar https://aka.ms/devicelogin in een browser om terug te gaan met de aanmelding.
+Wanneer u Hallo voorgaande voorbeeld typt, wordt een code opgegeven. Navigeer toohttps://aka.ms/devicelogin in een browser toocontinue Hallo aanmeldingsproces.
 
 ![cmd tonen apparaat aanmelding][1]
 
-Voer de code die u hebt ontvangen in de browser. U wordt omgeleid naar een aanmeldingspagina.
+Voer in de browser Hallo Hallo-code die u hebt ontvangen. U staat op de aanmeldingspagina omgeleide tooa.
 
-![browser-code invoeren][2]
+![browser tooenter code][2]
 
-Zodra de code is ingevoerd. u bent aangemeld, sluit de browser om door te gaan op met het scenario.
+Zodra het Hallo-code is ingevoerd u bent aangemeld, sluiten Hallo browser toocontinue op met de Hallo scenario.
 
 ![aangemeld][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Overschakelen naar de modus Resource Manager
+## <a name="switch-tooresource-manager-mode"></a>TooResource Manager-modus schakelen
 
 ```azurecli-interactive
 azure config mode arm
 ```
 
-## <a name="create-the-resource-group"></a>De resourcegroep maken
+## <a name="create-hello-resource-group"></a>Hallo resourcegroep maken
 
-Voordat u de toepassingsgateway maakt, wordt een resourcegroep gemaakt voor de toepassingsgateway. Hieronder ziet u de opdracht.
+Voordat u de toepassingsgateway Hallo maakt, wordt een resourcegroep toocontain Hallo toepassingsgateway gemaakt. Hallo hieronder vindt u Hallo-opdracht.
 
 ```azurecli-interactive
 azure group create \
@@ -97,7 +97,7 @@ azure group create \
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Zodra de resourcegroep is gemaakt, wordt een virtueel netwerk gemaakt voor de toepassingsgateway.  In het volgende voorbeeld is de adresruimte als 10.0.0.0/16 zoals gedefinieerd in de notities bij de voorgaande scenario.
+Zodra de resourcegroep Hallo is gemaakt, wordt een virtueel netwerk gemaakt voor de toepassingsgateway Hallo.  Hallo-adresruimte is Hallo voorbeeld te volgen, als 10.0.0.0/16 zoals gedefinieerd in het voorgaande scenario notities Hallo.
 
 ```azurecli-interactive
 azure network vnet create \
@@ -109,7 +109,7 @@ azure network vnet create \
 
 ## <a name="create-a-subnet"></a>Een subnet maken
 
-Nadat het virtuele netwerk is gemaakt, wordt een subnet voor de toepassingsgateway toegevoegd.  Als u van plan bent gebruik toepassingsgateway met een web-app gehost in hetzelfde virtuele netwerk als de toepassingsgateway, zorg er dan voor dat onvoldoende ruimte is voor een ander subnet.
+Nadat het virtuele netwerk Hallo is gemaakt, wordt een subnet voor de toepassingsgateway Hallo toegevoegd.  Als u van plan bent toouse toepassingsgateway met een web-app gehost in Hallo hetzelfde virtuele netwerk als de toepassingsgateway hello, tooleave ervoor dat voldoende ruimte heeft voor een ander subnet worden.
 
 ```azurecli-interactive
 azure network vnet subnet create \
@@ -119,9 +119,9 @@ azure network vnet subnet create \
 --address-prefix 10.0.0.0/28 
 ```
 
-## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
+## <a name="create-hello-application-gateway"></a>Hallo toepassingsgateway maken
 
-Als het virtuele netwerk en het subnet zijn gemaakt, zijn de vereisten voor de toepassingsgateway zijn voltooid. Bovendien een eerder geëxporteerde pfx-certificaat en het wachtwoord voor het certificaat zijn vereist voor de volgende stap: het IP-adressen gebruikt voor de back-end zijn de IP-adressen voor uw back-endserver. Deze waarden kunnen worden persoonlijke IP-adressen in het virtuele netwerk, openbare IP-adressen of volledig gekwalificeerde domeinnamen voor uw back-endservers.
+Zodra Hallo virtueel netwerk en subnet worden gemaakt, zijn vereisten voor de toepassingsgateway Hallo Hallo voltooid. Bovendien een eerder geëxporteerde .pfx-bestand certificaat en het Hallo-wachtwoord voor Hallo certificaat zijn vereist voor stap Hallo: Hallo IP-adressen gebruikt voor back-end voor Hallo zijn Hallo IP-adressen voor uw back-endserver. Deze waarden mag ofwel persoonlijke IP-adressen in het virtuele netwerk hello, openbare IP-adressen of volledig gekwalificeerde domeinnamen voor uw back-endservers.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -143,16 +143,16 @@ azure network application-gateway create \
 ```
 
 > [!NOTE]
-> Voor een lijst met parameters die kan worden opgegeven tijdens het maken van de volgende opdracht uitvoeren: **netwerk van azure-toepassingsgateway maken--help**.
+> Voor een lijst met parameters die kan worden opgegeven tijdens het maken van Hallo volgende opdracht uitvoeren: **netwerk van azure-toepassingsgateway maken--help**.
 
-In dit voorbeeld maakt een basic-toepassingsgateway met standaardinstellingen voor de listener, back-endpool, back-end-http-instellingen en -regels. U kunt deze instellingen aanpassen aan uw implementatie wanneer het inrichten voltooid is, kunt wijzigen.
-Als u al uw webtoepassing gedefinieerd met behulp van de back endpool in de voorgaande stappen hebt uitgevoerd, eenmaal is gemaakt, begint taakverdeling.
+In dit voorbeeld maakt een basic-toepassingsgateway met standaardinstellingen voor het Hallo-listener, back-endpool, back-end-http-instellingen en -regels. U kunt deze instellingen toosuit uw implementatie wijzigen wanneer Hallo inrichten voltooid is.
+Als u al uw webtoepassing gedefinieerd met behulp van back-endpool in de vorige stappen, eenmaal is gemaakt, Hallo Hallo begint taakverdeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het maken van aangepaste statuscontroles in via [een aangepaste health test maken](application-gateway-create-probe-portal.md)
+Meer informatie over hoe toocreate aangepaste statuscontroles in via [een aangepaste health test maken](application-gateway-create-probe-portal.md)
 
-Informatie over het configureren van SSL-Offloading en nemen de kostbare SSL-ontsleuteling uit uw webservers in via [SSL-Offload configureren](application-gateway-ssl-arm.md)
+Meer informatie over hoe tooconfigure SSL-Offloading en los het Hallo kostbare SSL ontsleuteling uitgeschakeld in uw webservers in via [SSL-Offload configureren](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

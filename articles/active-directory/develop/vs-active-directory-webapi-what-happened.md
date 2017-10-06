@@ -1,6 +1,6 @@
 ---
-title: Wijzigingen die zijn aangebracht aan een project WebApi wanneer u verbinding met Azure AD maakt | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurt met uw project WebApi wanneer u verbinding met Azure AD maakt met behulp van Visual Studio
+title: aaaChanges aangebracht tooa WebApi project wanneer u verbinding maakt met tooAzure AD | Microsoft Docs
+description: Hierin wordt beschreven wat er gebeurt tooyour WebApi project wanneer u tooAzure AD verbinding maken met behulp van Visual Studio
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 086e5a9622cad681cd282345d97e0c28ee7de2fa
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1ea77b6c75b2dc273219fa6c43f02c7a7c5312ba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Wat is er gebeurd met mijn WebApi-project (Visual Studio Azure Active Directory verbonden service)
+# <a name="what-happened-toomy-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Wat is er gebeurd toomy WebApi-project (Visual Studio Azure Active Directory verbonden service)
 > [!div class="op_single_selector"]
 > * [Aan de slag](vs-active-directory-webapi-getting-started.md)
 > * [Wat is er gebeurd](vs-active-directory-webapi-what-happened.md)
@@ -50,30 +50,30 @@ ms.lasthandoff: 08/29/2017
 * `System.IdentityModel.Tokens.Jwt`
 
 ## <a name="code-changes"></a>Codewijzigingen
-### <a name="code-files-were-added-to-your-project"></a>Codebestanden zijn toegevoegd aan uw project
-Een verificatie-Opstartklasse **App_Start/Startup.Auth.cs** is toegevoegd aan uw project met starten van de logica voor Azure AD-verificatie.
+### <a name="code-files-were-added-tooyour-project"></a>Codebestanden zijn tooyour project toegevoegd
+Een verificatie-Opstartklasse **App_Start/Startup.Auth.cs** tooyour project met starten van de logica voor Azure AD-verificatie is toegevoegd.
 
-### <a name="startup-code-was-added-to-your-project"></a>Starten van de code is toegevoegd aan uw project
-Als u al een Opstartklasse in uw project de **configuratie** methode is bijgewerkt met een aanroep van `ConfigureAuth(app)`. Anders wordt is een Opstartklasse toegevoegd aan uw project.
+### <a name="startup-code-was-added-tooyour-project"></a>Starten van de code is tooyour project toegevoegd
+Als u al een Opstartklasse in uw project, Hallo **configuratie** methode is een aanroep van bijgewerkte tooinclude te`ConfigureAuth(app)`. Een Opstartklasse is anders tooyour project toegevoegd.
 
 ### <a name="your-appconfig-or-webconfig-file-has-new-configuration-values"></a>Uw app.config of web.config-bestand heeft de nieuwe configuratiewaarden.
-De volgende configuratie-items zijn toegevoegd.
+Hallo na configuratie-items zijn toegevoegd.
 
 ```
     <appSettings>
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+            <add key="ida:ClientId" value="ClientId from hello new Azure AD App" />
             <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
-            <add key="ida:Audience" value="The App ID Uri from the wizard" />
+            <add key="ida:Audience" value="hello App ID Uri from hello wizard" />
     </appSettings>`
 ```
 
 ### <a name="an-azure-ad-app-was-created"></a>Een Azure AD-App is gemaakt
-Een Azure AD-toepassing is gemaakt in de map die u hebt geselecteerd in de wizard.
+Een Azure AD-toepassing is gemaakt in het Hallo-map die u hebt geselecteerd in de wizard Hallo.
 
 [Meer informatie over Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Als ik gecontroleerd *afzonderlijke gebruikersaccounts verificatie uit te schakelen*, welke aanvullende wijzigingen zijn aangebracht aan mijn project?
-NuGet-pakket met verwijzingen zijn verwijderd en de bestanden zijn verwijderd en een back-up. Afhankelijk van de status van uw project, kunt u wellicht handmatig verwijderen van aanvullende verwijzingen of bestanden of code desgewenst wijzigen.
+## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-toomy-project"></a>Als ik gecontroleerd *afzonderlijke gebruikersaccounts verificatie uit te schakelen*, welke aanvullende wijzigingen zijn aangebracht toomy project?
+NuGet-pakket met verwijzingen zijn verwijderd en de bestanden zijn verwijderd en een back-up. Afhankelijk van de status van de Hallo van uw project, mogelijk hebt u toomanually aanvullende verwijzingen of bestanden verwijderen of wijzigen van de code naar gelang van toepassing.
 
 ### <a name="nuget-package-references-removed-for-those-present"></a>NuGet-pakket verwijzingen verwijderd (voor die aanwezig)
 * `Microsoft.AspNet.Identity.Core`
@@ -81,7 +81,7 @@ NuGet-pakket met verwijzingen zijn verwijderd en de bestanden zijn verwijderd en
 * `Microsoft.AspNet.Identity.Owin`
 
 ### <a name="code-files-backed-up-and-removed-for-those-present"></a>Codebestanden back-up gemaakt en verwijderd (voor die aanwezig)
-Elk van de volgende bestanden is een back-up en verwijderd uit het project. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap van de directory van het project.
+Elk van de volgende bestanden is een back-up en verwijderd uit het Hallo-project. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap Hallo van Hallo projectmap.
 
 * `App_Start\IdentityConfig.cs`
 * `Controllers\AccountController.cs`
@@ -90,14 +90,14 @@ Elk van de volgende bestanden is een back-up en verwijderd uit het project. Back
 * `Providers\ApplicationOAuthProvider.cs`
 
 ### <a name="code-files-backed-up-for-those-present"></a>Codebestanden back-up gemaakt (die aanwezig)
-Elk van de volgende bestanden is een back-up maken voordat het wordt vervangen. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap van de directory van het project.
+Elk van de volgende bestanden is een back-up maken voordat het wordt vervangen. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap Hallo van Hallo projectmap.
 
 * `Startup.cs`
 * `App_Start\Startup.Auth.cs`
 
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Als ik gecontroleerd *mapgegevens lezen*, welke aanvullende wijzigingen zijn aangebracht aan mijn project?
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Als u meer wijzigingen zijn aangebracht in uw app.config of web.config
-De volgende aanvullende configuratie-items zijn toegevoegd.
+## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-toomy-project"></a>Als ik gecontroleerd *mapgegevens lezen*, welke aanvullende wijzigingen zijn aangebracht toomy project?
+### <a name="additional-changes-were-made-tooyour-appconfig-or-webconfig"></a>Als u meer wijzigingen zijn aangebracht tooyour app.config of web.config
+Hallo zijn volgende aanvullende configuratie-items toegevoegd.
 
 ```
     <appSettings>
@@ -106,7 +106,7 @@ De volgende aanvullende configuratie-items zijn toegevoegd.
 ```
 
 ### <a name="your-azure-active-directory-app-was-updated"></a>Uw App in Azure Active Directory is bijgewerkt
-Uw App in Azure Active Directory is bijgewerkt met de *mapgegevens lezen* machtigingen en de sleutel is gemaakt is die wordt gebruikt als de *ida: wachtwoord* in de `web.config` bestand.
+Uw App in Azure Active Directory is een bijgewerkte tooinclude hello *mapgegevens lezen* machtigingen en de sleutel is gemaakt dat vervolgens is gebruikt als Hallo *ida: wachtwoord* in Hallo `web.config` bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Meer informatie over Azure Active Directory](https://azure.microsoft.com/services/active-directory/)

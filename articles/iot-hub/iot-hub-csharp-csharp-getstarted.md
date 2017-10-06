@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub (.NET) | Microsoft Docs
-description: Informatie over het verzenden van apparaat-naar-cloud-berichten naar Azure IoT Hub met behulp van IoT SDK's voor .NET. U maakt gesimuleerde apparaat- en service-apps om uw apparaat te registreren, berichten te verzenden en berichten uit IoT Hub te lezen.
+title: aaaGet gestart met Azure IoT Hub (.NET) | Microsoft Docs
+description: Meer informatie over hoe toosend apparaat-naar-cloud-berichten tooAzure IoT Hub met IoT SDK's voor .NET. Gesimuleerde apparaat en service-apps tooregister uw apparaat maken en berichten uit iothub berichten verzenden.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,66 +15,66 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 56cf14687411898ea0fa4ebb1782e18b3930809c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-device-to-your-iot-hub-using-net"></a>Uw apparaat verbinding laten maken met uw IoT Hub met .NET
+# <a name="connect-your-device-tooyour-iot-hub-using-net"></a>Verbinding maken met uw apparaat tooyour iothub met .NET
 
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Aan het eind van deze zelfstudie beschikt u over drie .NET-consoletoepassingen:
+Aan het einde van de Hallo van deze zelfstudie hebt u drie console .NET-toepassingen:
 
-* **CreateDeviceIdentity**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw apparaat-app kan worden verbonden.
-* **ReadDeviceToCloudMessages**: deze toepassing geeft de telemetrie weer die is verzonden door uw apparaat-app.
-* **SimulatedDevice**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt en verzendt iedere seconde een telemetriebericht via het MQTT-protocol.
+* **CreateDeviceIdentity**, die een apparaat-id maakt en gekoppelde beveiliging sleutel tooconnect app op uw apparaat.
+* **ReadDeviceToCloudMessages**, weergeven met Hallo telemetrie verzonden door de app op uw apparaat.
+* **SimulatedDevice**, die tooyour IoT-hub aan Hallo apparaat-id eerder hebt gemaakt, en verzendt een bericht telemetrie elke seconde met behulp van Hallo MQTT protocol.
 
-U kunt de Visual Studio-oplossing downloaden of klonen om zo de beschikking te krijgen over de drie apps van Github.
+U kunt downloaden of kloon van de Visual Studio-oplossing hello, waarin drie Hallo-apps vanuit Github.
 
 ```bash
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
 > [!NOTE]
-> Raadpleeg het artikel [Azure IoT-SDKs][lnk-hub-sdks] voor meer informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
+> Zie voor informatie over hello Azure IoT SDK's waarmee u toobuild kunt toorun toepassingen op apparaten en uw back-end oplossing, [Azure IoT SDK's][lnk-hub-sdks].
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie, moet u hello te volgen:
 
 * Visual Studio 2015 of Visual Studio 2017.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
+U hebt nu uw IoT-hub gemaakt en u hebt Hallo-hostnaam en verbindingsreeks van IoT Hub dat u nodig hebt toocomplete Hallo rest van deze handleiding.
 
 <a id="DeviceIdentity_csharp"></a>
 [!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
 
 <a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten ontvangen
-In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een IoT-hub toont een [Azure Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. In de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. Zie voor meer informatie over het verwerken van Event Hubs-berichten de zelfstudie [Aan de slag met Event Hubs][lnk-eventhubs-tutorial]. (Deze zelfstudie is van toepassing op eindpunten die compatibel zijn met event hubs in IoT Hub.)
+In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub kan lezen. Een iothub toont een [Azure Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt tooenable u tooread apparaat-naar-cloud-berichten. tookeep dingen eenvoudige, deze zelfstudie maakt u een basislezer die niet geschikt voor een implementatie met hoge doorvoer. toolearn hoe tooprocess apparaat-naar-cloud-berichten op grote schaal, Zie Hallo [apparaat-naar-cloud-berichten verwerken] [ lnk-process-d2c-tutorial] zelfstudie. Zie voor meer informatie over hoe tooprocess van van Event Hubs berichten Hallo [aan de slag met Event Hubs] [ lnk-eventhubs-tutorial] zelfstudie. (Deze zelfstudie is van toepassing toohello IoT Hub Event Hub-compatibele eindpunten.)
 
 > [!NOTE]
-> Het met Event Hub compatibele eindpunt voor het lezen van apparaat-naar-cloud-berichten maakt altijd gebruik van het AMQP-protocol.
+> Hallo Event Hub-compatibele eindpunt voor het lezen van apparaat-naar-cloudberichten altijd gebruikt Hallo AMQP-protocol.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **ReadDeviceToCloudMessages**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toohello huidige oplossing met behulp van Hallo **Console-App (.NET Framework)** projectsjabloon. Zorg ervoor dat .NET Framework-versie Hallo 4.5.1 of later. Naam Hallo project **ReadDeviceToCloudMessages**.
 
     ![Nieuw Windows Classic Desktop-project in Visual C#][10a]
 
-2. Klik in Solution Explorer met de rechtermuisknop op het project **ReadDeviceToCloudMessages** en klik vervolgens op **Manage NuGet Packages**.
+2. Klik in Solution Explorer met de rechtermuisknop op Hallo **ReadDeviceToCloudMessages** project en klik vervolgens op **NuGet-pakketten beheren**.
 
-3. In het venster **NuGet Package Manager** zoekt u **WindowsAzure.ServiceBus**. Accepteer de gebruikersvoorwaarden en klik op **Install**. Met deze procedure worden [Azure Service Bus][lnk-servicebus-nuget] en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd. Met dit pakket kan de toepassing verbinding maken met het eindpunt dat compatibel is met event hubs op uw IoT-hub.
+3. In Hallo **NuGet Package Manager** venster, zoekt u **WindowsAzure.ServiceBus**, selecteer **installeren**, en accepteer de gebruiksvoorwaarden Hallo. Deze procedure downloadt, installeert en voegt u een verwijzing te[Azure Service Bus][lnk-servicebus-nuget], inclusief alle afhankelijkheden ervan. Met dit pakket kan Hallo toepassing tooconnect toohello Event Hub-compatibele eindpunt op uw IoT-hub.
 
-4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
+4. Voeg de volgende Hallo `using` instructies boven Hallo Hallo **Program.cs** bestand:
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     using System.Threading;
     ```
 
-5. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke-aanduidingswaarde met de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de sectie Een IoT-hub maken.
+5. Hallo na toohello velden toevoegen **programma** klasse. Vervang Hallo tijdelijke aanduidingswaarde met IoT Hub-verbindingsreeks voor Hallo-hub die u hebt gemaakt in de sectie 'Een IoT-hub maken' Hallo Hallo.
 
     ```csharp
     static string connectionString = "{iothub connection string}";
@@ -82,7 +82,7 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
     static EventHubClient eventHubClient;
     ```
 
-6. Voeg de volgende methode toe aan de klasse **Program**:
+6. Hallo na methode toohello toevoegen **programma** klasse:
 
     ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
@@ -100,12 +100,12 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
     }
     ```
 
-    Deze methode gebruikt een exemplaar van **EventHubReceiver** om berichten te ontvangen van alle apparaat-naar-cloud ontvangstpartities van de IoT-hub. U geeft nu een `DateTime.Now` parameter door bij het maken van het object **EventHubReceiver**, zodat alleen berichten worden ontvangen die zijn verzonden nadat het object is gestart. Dit filter is handig in een testomgeving, omdat u zo de huidige reeks berichten kunt zien. In een productieomgeving moet de code ervoor zorgen dat alle berichten worden verwerkt. Zie voor meer informatie de zelfstudie [IoT Hub-apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial].
+    Deze methode gebruikt een **EventHubReceiver** exemplaar tooreceive berichten van alle Hallo IoT hub apparaat-naar-cloud ontvangstpartities. U geeft een `DateTime.Now` parameter bij het maken van Hallo **EventHubReceiver** object, zodat alleen verzonden nadat deze is gestart berichten worden ontvangen. Dit filter is handig in een testomgeving zodat u Hallo huidige reeks berichten kunt zien. In een productieomgeving moet uw code ervoor zorgen dat alle Hallo-berichten worden verwerkt. Zie voor meer informatie, Hallo zelfstudie [hoe tooprocess IoT Hub apparaat-naar-cloud-berichten][lnk-process-d2c-tutorial].
 
-7. Voeg tot slot de volgende regels toe aan de methode **Main**:
+7. Voeg regels toohello na Hallo **Main** methode:
 
     ```csharp
-    Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
+    Console.WriteLine("Receive messages. Ctrl-C tooexit.\n");
     eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
 
     var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
@@ -129,24 +129,24 @@ In dit gedeelte maakt u een .NET-consoletoepassing die apparaat-naar-cloud-beric
 
 ## <a name="create-a-device-app"></a>Een apparaat-app maken
 
-In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT Hub verzendt.
+In deze sectie maakt u een .NET consoletoepassing maken die een apparaat simuleert dat apparaat-naar-cloudberichten tooan iothub verzendt.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console App (.NET Framework)**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **SimulatedDevice**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toohello huidige oplossing met behulp van Hallo **Console-App (.NET Framework)** projectsjabloon. Zorg ervoor dat .NET Framework-versie Hallo 4.5.1 of later. Naam Hallo project **SimulatedDevice**.
 
     ![Nieuw Windows Classic Desktop-project in Visual C#][10b]
 
-2. Klik in Solution Explorer met de rechtermuisknop op het project **SimulatedDevice** en klik vervolgens op **Manage NuGet Packages**.
+2. Klik in Solution Explorer met de rechtermuisknop op Hallo **SimulatedDevice** project en klik vervolgens op **NuGet-pakketten beheren**.
 
-3. Klik in de **NuGet Package Manager** op **Browse** en zoek naar **Microsoft.Azure.Devices.Client**. Accepteer de gebruiksvoorwaarden en klik op **Install** om het **Microsoft.Azure.Devices.Client**-pakket te installeren. Met deze procedure worden het [Azure IoT Device SDK NuGet-pakket][lnk-device-nuget] en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
+3. In Hallo **NuGet Package Manager** Selecteer **Bladeren**, zoeken naar **Microsoft.Azure.Devices.Client**, selecteer **installeren** Hallo tooinstall **Microsoft.Azure.Devices.Client** Inpakken en accepteer de gebruiksvoorwaarden Hallo. Deze procedure downloadt, installeert en voegt u een verwijzing toohello [Azure IoT-device SDK NuGet-pakket] [ lnk-device-nuget] en de bijbehorende afhankelijkheden.
 
-4. Voeg aan het begin van het bestand **Program.cs** de volgende `using`-instructie toe:
+4. Voeg de volgende Hallo `using` instructie bovenaan Hallo Hallo **Program.cs** bestand:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Newtonsoft.Json;
     ```
 
-5. Voeg de volgende velden toe aan de klasse **Program**: Vervang `{iot hub hostname}` met de hostnaam van de IoT-hub die u in de sectie 'Een IoT-hub maken' hebt opgehaald. Vervang `{device key}` door de apparaatsleutel die u in de sectie 'Een apparaatidentiteit maken' hebt opgehaald.
+5. Hallo na toohello velden toevoegen **programma** klasse. Vervang `{iot hub hostname}` met Hallo IoT hub-hostnaam u in het gedeelte voor Hallo 'Een IoT-hub maken' hebt opgehaald. Vervang `{device key}` met Hallo apparaatsleutel die u hebt opgehaald in het gedeelte voor Hallo 'Een apparaat-id maken'.
 
     ```csharp
     static DeviceClient deviceClient;
@@ -154,7 +154,7 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
     static string deviceKey = "{device key}";
     ```
 
-6. Voeg de volgende methode toe aan de klasse **Program**:
+6. Hallo na methode toohello toevoegen **programma** klasse:
 
     ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
@@ -188,9 +188,9 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
     }
     ```
 
-    Met deze methode wordt elke seconde een nieuw apparaat-naar-cloud bericht verzonden. Het bericht bevat een JSON-geserialiseerd object met de apparaat-id en willekeurig gegenereerde nummers om een temperatuursensor te simuleren, en een vochtigheidssensor.
+    Met deze methode wordt elke seconde een nieuw apparaat-naar-cloud bericht verzonden. Hallo-bericht bevat een JSON-geserialiseerd object, met Hallo apparaat-ID en willekeurige cijfers toosimulate een temperatuursensor en een sensor vochtigheid.
 
-7. Voeg tot slot de volgende regels toe aan de methode **Main**:
+7. Voeg regels toohello na Hallo **Main** methode:
 
     ```csharp
     Console.WriteLine("Simulated device\n");
@@ -200,40 +200,40 @@ In deze sectie maakt u een .NET-consoletoepassing die een apparaat simuleert dat
     Console.ReadLine();
     ```
 
-    Met de **Create**-methode in een .NET Framework-app maakt u standaard een **DeviceClient**-exemplaar dat het AMQP-protocol gebruikt om te communiceren met IoT Hub. Als u het MQTT- of HTTP-protocol wilt gebruiken, moet u de **Create**-methode overschrijven. Zo kunt u zelf het protocol bepalen. UWP- en PCL-clients gebruiken standaard het HTTP-protocol. Als u het HTTP-protocol gebruikt, dient u ook het NuGet-pakket **Microsoft.AspNet.WebApi.Client** toe te voegen om uw project op te nemen in de naamruimte **System.Net.Http.Formatting**.
+    Standaard Hallo **maken** methode in een .NET Framework-app maakt een **DeviceClient** -exemplaar dat gebruikmaakt van Hallo AMQP-protocol toocommunicate met IoT Hub. toouse hello MQTT of HTTP-protocol gebruiken Hallo onderdrukking Hallo **maken** methode waarmee u toospecify Hallo-protocol. UWP en PCL clients Hallo HTTP-protocol standaard gebruikt. Als u Hallo HTTP-protocol gebruikt, moet u ook Hallo toevoegen **Microsoft.AspNet.WebApi.Client** NuGet-pakket tooyour project tooinclude hello **System.Net.Http.Formatting** naamruimte.
 
-In deze handleiding doorloopt u de stappen voor het maken van een IoT Hub-apparaat-app. U kunt ook de Visual Studio-extensie [Connected Service for Azure IoT Hub][lnk-connected-service] gebruiken om de benodigde code toe te voegen aan de apparaat-app.
+Deze zelfstudie leert u Hallo stappen toocreate een IoT Hub apparaat-app. U kunt ook Hallo [Connected Service for Azure IoT Hub] [ lnk-connected-service] Visual Studio-extensie tooadd Hallo benodigde code tooyour app voor het apparaat.
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
+> tookeep dingen eenvoudige, deze zelfstudie wordt niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].
 
-## <a name="run-the-apps"></a>De apps uitvoeren
+## <a name="run-hello-apps"></a>Hallo-apps uitvoeren
 
-U kunt nu de apps uitvoeren.
+U bent nu klaar toorun Hallo apps.
 
-1. Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Klik op **Multiple startup projects** en klik vervolgens op **Start** als de actie voor beide projecten **ProcessDeviceToCloudMessages** en **SimulatedDevice**.
+1. Klik in Solution Explorer, in Visual Studio, met de rechtermuisknop op uw oplossing en klik vervolgens op **Set StartUp projects**. Selecteer **meerdere opstartprojecten**, en selecteer vervolgens **Start** als actie voor beide Hallo Hallo **ReadDeviceToCloudMessages** en **SimulatedDevice** projecten.
 
     ![Eigenschappen van opstartprojecten][41]
 
-2. Druk op **F5** om beide apps uit te voeren. De console-uitvoer van de **SimulatedDevice**-app toont de berichten die uw apparaat-app verzendt naar uw IoT-hub. De console-uitvoer van de **ReadDeviceToCloudMessages**-app toont de berichten die uw IoT-hub ontvangt.
+2. Druk op **F5** toostart beide apps die worden uitgevoerd. console-uitvoer van Hallo Hallo **SimulatedDevice** app Hallo berichten app op uw apparaat tooyour iothub verzendt. console-uitvoer van Hallo Hallo **ReadDeviceToCloudMessages** app toont Hallo-berichten die uw IoT-hub ontvangt.
 
     ![Console-uitvoer van apps][42]
 
-3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:
+3. Hallo **gebruik** -tegel in Hallo [Azure-portal] [ lnk-portal] toont Hallo aantal verzonden berichten toohello IoT-hub:
 
     ![Tegel Usage in Azure Portal][43]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de apparaat-app in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub.
+In deze zelfstudie maakt u een IoT-hub geconfigureerd in hello Azure-portal en vervolgens een apparaat-id in de id-register Hallo iothub hebt gemaakt. U hebt deze apparaat-id tooenable Hallo apparaat app toosend apparaat-naar-cloudberichten toohello iothub gebruikt. Hebt u ook een app die wordt weergegeven Hallo-berichten dat is ontvangen door de Hallo iothub hebt gemaakt.
 
-Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
+toocontinue aan de slag met IoT Hub en tooexplore raadpleegt u andere IoT-scenario's:
 
 * [Verbinding maken met uw apparaat][lnk-connect-device]
 * [Aan de slag met apparaatbeheer][lnk-device-management]
 * [Aan de slag met IoT Edge][lnk-iot-edge]
 
-Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
+toolearn hoe tooextend uw IoT-oplossing en proces apparaat-naar-cloud-berichten op grote schaal, zien Hallo [apparaat-naar-cloud-berichten verwerken] [ lnk-process-d2c-tutorial] zelfstudie.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
