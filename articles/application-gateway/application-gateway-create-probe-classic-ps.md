@@ -1,6 +1,6 @@
 ---
-title: Maken van een aangepaste test - Azure Application Gateway - PowerShell-klassiek | Microsoft Docs
-description: Informatie over het maken van een aangepaste test voor Application Gateway met behulp van PowerShell in het klassieke implementatiemodel
+title: een aangepaste test - Azure Application Gateway - PowerShell-klassiek aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een aangepaste test voor Application Gateway met behulp van PowerShell in het klassieke implementatiemodel Hallo
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,62 +15,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68332367c99328bd6456b0c339923765637be986
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a><span data-ttu-id="a121f-103">Maak een aangepaste test voor Azure Application Gateway (klassiek) met behulp van PowerShell</span><span class="sxs-lookup"><span data-stu-id="a121f-103">Create a custom probe for Azure Application Gateway (classic) by using PowerShell</span></span>
+# <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a><span data-ttu-id="3ff21-103">Maak een aangepaste test voor Azure Application Gateway (klassiek) met behulp van PowerShell</span><span class="sxs-lookup"><span data-stu-id="3ff21-103">Create a custom probe for Azure Application Gateway (classic) by using PowerShell</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="a121f-104">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="a121f-104">Azure portal</span></span>](application-gateway-create-probe-portal.md)
-> * [<span data-ttu-id="a121f-105">Azure Resource Manager PowerShell</span><span class="sxs-lookup"><span data-stu-id="a121f-105">Azure Resource Manager PowerShell</span></span>](application-gateway-create-probe-ps.md)
-> * [<span data-ttu-id="a121f-106">Azure Classic PowerShell</span><span class="sxs-lookup"><span data-stu-id="a121f-106">Azure Classic PowerShell</span></span>](application-gateway-create-probe-classic-ps.md)
+> * [<span data-ttu-id="3ff21-104">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="3ff21-104">Azure portal</span></span>](application-gateway-create-probe-portal.md)
+> * [<span data-ttu-id="3ff21-105">Azure Resource Manager PowerShell</span><span class="sxs-lookup"><span data-stu-id="3ff21-105">Azure Resource Manager PowerShell</span></span>](application-gateway-create-probe-ps.md)
+> * [<span data-ttu-id="3ff21-106">Azure Classic PowerShell</span><span class="sxs-lookup"><span data-stu-id="3ff21-106">Azure Classic PowerShell</span></span>](application-gateway-create-probe-classic-ps.md)
 
-<span data-ttu-id="a121f-107">In dit artikel kunt u een aangepaste test toevoegen aan een bestaande application gateway met PowerShell.</span><span class="sxs-lookup"><span data-stu-id="a121f-107">In this article, you add a custom probe to an existing application gateway with PowerShell.</span></span> <span data-ttu-id="a121f-108">Aangepaste tests zijn handig voor toepassingen die de pagina controle van een specifieke status hebben, of voor toepassingen die een geslaagde reactie op de standaardwebtoepassing geen bieden.</span><span class="sxs-lookup"><span data-stu-id="a121f-108">Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.</span></span>
+<span data-ttu-id="3ff21-107">In dit artikel voegt u een aangepaste test tooan bestaande application gateway met PowerShell.</span><span class="sxs-lookup"><span data-stu-id="3ff21-107">In this article, you add a custom probe tooan existing application gateway with PowerShell.</span></span> <span data-ttu-id="3ff21-108">Aangepaste tests zijn handig voor toepassingen die de pagina controle van een specifieke status hebben, of voor toepassingen die een geslaagde reactie op Hallo standaardwebtoepassing geen bieden.</span><span class="sxs-lookup"><span data-stu-id="3ff21-108">Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on hello default web application.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="a121f-109">Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="a121f-109">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).</span></span> <span data-ttu-id="a121f-110">In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="a121f-110">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="a121f-111">U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.</span><span class="sxs-lookup"><span data-stu-id="a121f-111">Microsoft recommends that most new deployments use the Resource Manager model.</span></span> <span data-ttu-id="a121f-112">Lees [meer informatie over het uitvoeren van deze stappen met het Resource Manager-model](application-gateway-create-probe-ps.md).</span><span class="sxs-lookup"><span data-stu-id="a121f-112">Learn how to [perform these steps using the Resource Manager model](application-gateway-create-probe-ps.md).</span></span>
+> <span data-ttu-id="3ff21-109">Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="3ff21-109">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).</span></span> <span data-ttu-id="3ff21-110">In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel.</span><span class="sxs-lookup"><span data-stu-id="3ff21-110">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="3ff21-111">Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="3ff21-111">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span> <span data-ttu-id="3ff21-112">Meer informatie over hoe te[u deze stappen uitvoert met behulp van de Resource Manager-model Hallo](application-gateway-create-probe-ps.md).</span><span class="sxs-lookup"><span data-stu-id="3ff21-112">Learn how too[perform these steps using hello Resource Manager model](application-gateway-create-probe-ps.md).</span></span>
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a><span data-ttu-id="a121f-113">Een toepassingsgateway maken</span><span class="sxs-lookup"><span data-stu-id="a121f-113">Create an application gateway</span></span>
+## <a name="create-an-application-gateway"></a><span data-ttu-id="3ff21-113">Een toepassingsgateway maken</span><span class="sxs-lookup"><span data-stu-id="3ff21-113">Create an application gateway</span></span>
 
-<span data-ttu-id="a121f-114">Ga als volgt te werk om een toepassingsgateway te maken:</span><span class="sxs-lookup"><span data-stu-id="a121f-114">To create an application gateway:</span></span>
+<span data-ttu-id="3ff21-114">toocreate een toepassingsgateway:</span><span class="sxs-lookup"><span data-stu-id="3ff21-114">toocreate an application gateway:</span></span>
 
-1. <span data-ttu-id="a121f-115">Maak een toepassingsgatewayresource.</span><span class="sxs-lookup"><span data-stu-id="a121f-115">Create an application gateway resource.</span></span>
-2. <span data-ttu-id="a121f-116">Maak een XML-configuratiebestand of een configuratieobject.</span><span class="sxs-lookup"><span data-stu-id="a121f-116">Create a configuration XML file or a configuration object.</span></span>
-3. <span data-ttu-id="a121f-117">Voer de configuratie door voor de zojuist gemaakte toepassingsgatewayresource.</span><span class="sxs-lookup"><span data-stu-id="a121f-117">Commit the configuration to the newly created application gateway resource.</span></span>
+1. <span data-ttu-id="3ff21-115">Maak een toepassingsgatewayresource.</span><span class="sxs-lookup"><span data-stu-id="3ff21-115">Create an application gateway resource.</span></span>
+2. <span data-ttu-id="3ff21-116">Maak een XML-configuratiebestand of een configuratieobject.</span><span class="sxs-lookup"><span data-stu-id="3ff21-116">Create a configuration XML file or a configuration object.</span></span>
+3. <span data-ttu-id="3ff21-117">Doorvoeren Hallo configuratie toohello nieuw gemaakte toepassingsgatewayresource.</span><span class="sxs-lookup"><span data-stu-id="3ff21-117">Commit hello configuration toohello newly created application gateway resource.</span></span>
 
-### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a><span data-ttu-id="a121f-118">Een toepassingsgatewayresource maken met een aangepaste test</span><span class="sxs-lookup"><span data-stu-id="a121f-118">Create an application gateway resource with a custom probe</span></span>
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a><span data-ttu-id="3ff21-118">Een toepassingsgatewayresource maken met een aangepaste test</span><span class="sxs-lookup"><span data-stu-id="3ff21-118">Create an application gateway resource with a custom probe</span></span>
 
-<span data-ttu-id="a121f-119">Gebruik de cmdlet `New-AzureApplicationGateway` en vervang de waarden door uw eigen waarden om een gateway te maken.</span><span class="sxs-lookup"><span data-stu-id="a121f-119">To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own.</span></span> <span data-ttu-id="a121f-120">Er worden op dat moment nog geen kosten in rekening gebracht voor gebruik van de gateway.</span><span class="sxs-lookup"><span data-stu-id="a121f-120">Billing for the gateway does not start at this point.</span></span> <span data-ttu-id="a121f-121">De kosten zijn pas vanaf een latere stap van toepassing, wanneer de gateway wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="a121f-121">Billing begins in a later step, when the gateway is successfully started.</span></span>
+<span data-ttu-id="3ff21-119">Gebruik Hallo-gateway Hallo toocreate `New-AzureApplicationGateway` cmdlet, waarbij Hallo waarden vervangt door uw eigen.</span><span class="sxs-lookup"><span data-stu-id="3ff21-119">toocreate hello gateway, use hello `New-AzureApplicationGateway` cmdlet, replacing hello values with your own.</span></span> <span data-ttu-id="3ff21-120">Facturering voor Hallo-gateway op dit moment niet worden gestart.</span><span class="sxs-lookup"><span data-stu-id="3ff21-120">Billing for hello gateway does not start at this point.</span></span> <span data-ttu-id="3ff21-121">Facturering begint met een latere stap Hallo gateway is gestart.</span><span class="sxs-lookup"><span data-stu-id="3ff21-121">Billing begins in a later step, when hello gateway is successfully started.</span></span>
 
-<span data-ttu-id="a121f-122">In het volgende voorbeeld wordt een toepassingsgateway gemaakt met een virtueel netwerk met de naam testvnet1 en een subnet met de naam subnet-1.</span><span class="sxs-lookup"><span data-stu-id="a121f-122">The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".</span></span>
+<span data-ttu-id="3ff21-122">Hallo volgende voorbeeld wordt een application gateway met behulp van een virtueel netwerk 'testvnet1' en een subnet met de naam 'subnet 1' genoemd.</span><span class="sxs-lookup"><span data-stu-id="3ff21-122">hello following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".</span></span>
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-<span data-ttu-id="a121f-123">Gebruik de cmdlet `Get-AzureApplicationGateway` om te controleren of de gateway is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="a121f-123">To validate that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.</span></span>
+<span data-ttu-id="3ff21-123">toovalidate die Hallo gateway is gemaakt, kunt u Hallo `Get-AzureApplicationGateway` cmdlet.</span><span class="sxs-lookup"><span data-stu-id="3ff21-123">toovalidate that hello gateway was created, you can use hello `Get-AzureApplicationGateway` cmdlet.</span></span>
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> <span data-ttu-id="a121f-124">De standaardwaarde voor *InstanceCount* is 2 en de maximale waarde is 10.</span><span class="sxs-lookup"><span data-stu-id="a121f-124">The default value for *InstanceCount* is 2, with a maximum value of 10.</span></span> <span data-ttu-id="a121f-125">De standaardwaarde voor *GatewaySize* is Medium.</span><span class="sxs-lookup"><span data-stu-id="a121f-125">The default value for *GatewaySize* is Medium.</span></span> <span data-ttu-id="a121f-126">U kunt kiezen tussen een klein, middelgroot en groot.</span><span class="sxs-lookup"><span data-stu-id="a121f-126">You can choose between Small, Medium, and Large.</span></span>
+> <span data-ttu-id="3ff21-124">de standaardwaarde voor Hallo *InstanceCount* is 2 en de maximale waarde is 10.</span><span class="sxs-lookup"><span data-stu-id="3ff21-124">hello default value for *InstanceCount* is 2, with a maximum value of 10.</span></span> <span data-ttu-id="3ff21-125">de standaardwaarde voor Hallo *GatewaySize* is normaal.</span><span class="sxs-lookup"><span data-stu-id="3ff21-125">hello default value for *GatewaySize* is Medium.</span></span> <span data-ttu-id="3ff21-126">U kunt kiezen tussen een klein, middelgroot en groot.</span><span class="sxs-lookup"><span data-stu-id="3ff21-126">You can choose between Small, Medium, and Large.</span></span>
 > 
 > 
 
-<span data-ttu-id="a121f-127">*VirtualIPs* en *DnsName* zijn leeg, omdat de gateway nog niet is geopend.</span><span class="sxs-lookup"><span data-stu-id="a121f-127">*VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet.</span></span> <span data-ttu-id="a121f-128">Deze waarden worden gemaakt nadat de gateway uitgevoerd is.</span><span class="sxs-lookup"><span data-stu-id="a121f-128">These values are created once the gateway is in the running state.</span></span>
+<span data-ttu-id="3ff21-127">*VirtualIPs* en *DnsName* leeg worden weergegeven omdat het Hallo-gateway is nog niet gestart.</span><span class="sxs-lookup"><span data-stu-id="3ff21-127">*VirtualIPs* and *DnsName* are shown as blank because hello gateway has not started yet.</span></span> <span data-ttu-id="3ff21-128">Deze waarden worden gemaakt nadat Hallo gateway Hallo status actief is.</span><span class="sxs-lookup"><span data-stu-id="3ff21-128">These values are created once hello gateway is in hello running state.</span></span>
 
-### <a name="configure-an-application-gateway-by-using-xml"></a><span data-ttu-id="a121f-129">Een toepassingsgateway configureren met XML</span><span class="sxs-lookup"><span data-stu-id="a121f-129">Configure an application gateway by using XML</span></span>
+### <a name="configure-an-application-gateway-by-using-xml"></a><span data-ttu-id="3ff21-129">Een toepassingsgateway configureren met XML</span><span class="sxs-lookup"><span data-stu-id="3ff21-129">Configure an application gateway by using XML</span></span>
 
-<span data-ttu-id="a121f-130">In het volgende voorbeeld gebruikt u een XML-bestand om alle instellingen voor de toepassingsgateway te configureren en deze door te voeren voor de toepassingsgatewayresource.</span><span class="sxs-lookup"><span data-stu-id="a121f-130">In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.</span></span>  
+<span data-ttu-id="3ff21-130">In Hallo voorbeeld te volgen, gebruiken een XML-bestand tooconfigure alle instellingen voor de toepassingsgateway en ze toohello toepassingsgatewayresource doorvoeren.</span><span class="sxs-lookup"><span data-stu-id="3ff21-130">In hello following example, you use an XML file tooconfigure all application gateway settings and commit them toohello application gateway resource.</span></span>  
 
-<span data-ttu-id="a121f-131">Kopieer de volgende tekst naar Kladblok.</span><span class="sxs-lookup"><span data-stu-id="a121f-131">Copy the following text to Notepad.</span></span>
+<span data-ttu-id="3ff21-131">Kopieer Hallo tekst tooNotepad te volgen.</span><span class="sxs-lookup"><span data-stu-id="3ff21-131">Copy hello following text tooNotepad.</span></span>
 
 ```xml
 <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -136,39 +136,39 @@ Get-AzureApplicationGateway AppGwTest
 </ApplicationGatewayConfiguration>
 ```
 
-<span data-ttu-id="a121f-132">Bewerk de waarden tussen de haakjes voor de configuratie-items.</span><span class="sxs-lookup"><span data-stu-id="a121f-132">Edit the values between the parentheses for the configuration items.</span></span> <span data-ttu-id="a121f-133">Sla het bestand op met de bestandsextensie .xml.</span><span class="sxs-lookup"><span data-stu-id="a121f-133">Save the file with extension .xml.</span></span>
+<span data-ttu-id="3ff21-132">Hallo waarden tussen haakjes Hallo voor Hallo configuratie-items bewerken.</span><span class="sxs-lookup"><span data-stu-id="3ff21-132">Edit hello values between hello parentheses for hello configuration items.</span></span> <span data-ttu-id="3ff21-133">Hallo-bestand opslaan met de bestandsextensie .xml.</span><span class="sxs-lookup"><span data-stu-id="3ff21-133">Save hello file with extension .xml.</span></span>
 
-<span data-ttu-id="a121f-134">Het volgende voorbeeld ziet hoe u een configuratiebestand gebruiken om de toepassingsgateway taakverdeling van HTTP-verkeer via de openbare poort 80 en verzenden van netwerkverkeer naar de back-endpoort 80 tussen twee IP-adressen met behulp van een aangepaste test te stellen.</span><span class="sxs-lookup"><span data-stu-id="a121f-134">The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.</span></span>
+<span data-ttu-id="3ff21-134">Hallo volgende voorbeeld ziet u hoe een configuration file tooset up Hallo application gateway tooload toouse saldo HTTP-verkeer via de openbare poort 80 en netwerkverkeer tooback-endpoort 80 tussen twee IP-adressen met behulp van een aangepaste test verzenden.</span><span class="sxs-lookup"><span data-stu-id="3ff21-134">hello following example shows how toouse a configuration file tooset up hello application gateway tooload balance HTTP traffic on public port 80 and send network traffic tooback-end port 80 between two IP addresses by using a custom probe.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="a121f-135">Het protocolitem Http of Https is hoofdlettergevoelig.</span><span class="sxs-lookup"><span data-stu-id="a121f-135">The protocol item Http or Https is case-sensitive.</span></span>
+> <span data-ttu-id="3ff21-135">Hallo protocolitem Http of Https is hoofdlettergevoelig.</span><span class="sxs-lookup"><span data-stu-id="3ff21-135">hello protocol item Http or Https is case-sensitive.</span></span>
 
-<span data-ttu-id="a121f-136">Een nieuwe configuratie-item \<Probe\> wordt toegevoegd aan het configureren van aangepaste tests.</span><span class="sxs-lookup"><span data-stu-id="a121f-136">A new configuration item \<Probe\> is added to configure custom probes.</span></span>
+<span data-ttu-id="3ff21-136">Een nieuwe configuratie-item \<Probe\> tooconfigure aangepaste tests wordt toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="3ff21-136">A new configuration item \<Probe\> is added tooconfigure custom probes.</span></span>
 
-<span data-ttu-id="a121f-137">De configuratieparameters zijn:</span><span class="sxs-lookup"><span data-stu-id="a121f-137">The configuration parameters are:</span></span>
+<span data-ttu-id="3ff21-137">Hallo-configuratieparameters zijn:</span><span class="sxs-lookup"><span data-stu-id="3ff21-137">hello configuration parameters are:</span></span>
 
-|<span data-ttu-id="a121f-138">Parameter</span><span class="sxs-lookup"><span data-stu-id="a121f-138">Parameter</span></span>|<span data-ttu-id="a121f-139">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="a121f-139">Description</span></span>|
+|<span data-ttu-id="3ff21-138">Parameter</span><span class="sxs-lookup"><span data-stu-id="3ff21-138">Parameter</span></span>|<span data-ttu-id="3ff21-139">Beschrijving</span><span class="sxs-lookup"><span data-stu-id="3ff21-139">Description</span></span>|
 |---|---|
-|<span data-ttu-id="a121f-140">**Naam**</span><span class="sxs-lookup"><span data-stu-id="a121f-140">**Name**</span></span> |<span data-ttu-id="a121f-141">De referentienaam voor aangepaste test.</span><span class="sxs-lookup"><span data-stu-id="a121f-141">Reference name for custom probe.</span></span> |
-<span data-ttu-id="a121f-142">* **Protocol**</span><span class="sxs-lookup"><span data-stu-id="a121f-142">* **Protocol**</span></span> | <span data-ttu-id="a121f-143">Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).</span><span class="sxs-lookup"><span data-stu-id="a121f-143">Protocol used (possible values are HTTP or HTTPS).</span></span>|
-| <span data-ttu-id="a121f-144">**Host** en **pad**</span><span class="sxs-lookup"><span data-stu-id="a121f-144">**Host** and **Path**</span></span> | <span data-ttu-id="a121f-145">Volledige URL-pad dat wordt opgeroepen door de toepassingsgateway de status van het exemplaar te bepalen.</span><span class="sxs-lookup"><span data-stu-id="a121f-145">Complete URL path that is invoked by the application gateway to determine the health of the instance.</span></span> <span data-ttu-id="a121f-146">Bijvoorbeeld, hebt u een website http://contoso.com/, kan vervolgens aangepaste test worden geconfigureerd voor 'http://contoso.com/path/custompath.htm' voor de controle te hebben van een geslaagde reactie van de HTTP-test.</span><span class="sxs-lookup"><span data-stu-id="a121f-146">For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.</span></span>|
-| <span data-ttu-id="a121f-147">**Interval**</span><span class="sxs-lookup"><span data-stu-id="a121f-147">**Interval**</span></span> | <span data-ttu-id="a121f-148">Hiermee configureert u de controles van de test-interval in seconden.</span><span class="sxs-lookup"><span data-stu-id="a121f-148">Configures the probe interval checks in seconds.</span></span>|
-| <span data-ttu-id="a121f-149">**Time-out**</span><span class="sxs-lookup"><span data-stu-id="a121f-149">**Timeout**</span></span> | <span data-ttu-id="a121f-150">Hiermee definieert u de test-time-outwaarde voor de controle van een HTTP-antwoord.</span><span class="sxs-lookup"><span data-stu-id="a121f-150">Defines the probe time-out for an HTTP response check.</span></span>|
-| <span data-ttu-id="a121f-151">**UnhealthyThreshold**</span><span class="sxs-lookup"><span data-stu-id="a121f-151">**UnhealthyThreshold**</span></span> | <span data-ttu-id="a121f-152">Het aantal mislukte HTTP-antwoorden die nodig zijn voor de back-end-instantie als vlag *slecht*.</span><span class="sxs-lookup"><span data-stu-id="a121f-152">The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.</span></span>|
+|<span data-ttu-id="3ff21-140">**Naam**</span><span class="sxs-lookup"><span data-stu-id="3ff21-140">**Name**</span></span> |<span data-ttu-id="3ff21-141">De referentienaam voor aangepaste test.</span><span class="sxs-lookup"><span data-stu-id="3ff21-141">Reference name for custom probe.</span></span> |
+<span data-ttu-id="3ff21-142">* **Protocol**</span><span class="sxs-lookup"><span data-stu-id="3ff21-142">* **Protocol**</span></span> | <span data-ttu-id="3ff21-143">Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).</span><span class="sxs-lookup"><span data-stu-id="3ff21-143">Protocol used (possible values are HTTP or HTTPS).</span></span>|
+| <span data-ttu-id="3ff21-144">**Host** en **pad**</span><span class="sxs-lookup"><span data-stu-id="3ff21-144">**Host** and **Path**</span></span> | <span data-ttu-id="3ff21-145">Volledige URL-pad dat wordt opgeroepen door Hallo gateway toodetermine Hallo toepassingsstatus van het Hallo-exemplaar.</span><span class="sxs-lookup"><span data-stu-id="3ff21-145">Complete URL path that is invoked by hello application gateway toodetermine hello health of hello instance.</span></span> <span data-ttu-id="3ff21-146">Als u een http://contoso.com/ website hebt en vervolgens de aangepaste test Hallo kan worden geconfigureerd voor controleert 'http://contoso.com/path/custompath.htm' voor de test toohave geslaagde HTTP-antwoord.</span><span class="sxs-lookup"><span data-stu-id="3ff21-146">For example, if you have a website http://contoso.com/, then hello custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks toohave a successful HTTP response.</span></span>|
+| <span data-ttu-id="3ff21-147">**Interval**</span><span class="sxs-lookup"><span data-stu-id="3ff21-147">**Interval**</span></span> | <span data-ttu-id="3ff21-148">Hiermee configureert u Hallo test interval controles in seconden.</span><span class="sxs-lookup"><span data-stu-id="3ff21-148">Configures hello probe interval checks in seconds.</span></span>|
+| <span data-ttu-id="3ff21-149">**Time-out**</span><span class="sxs-lookup"><span data-stu-id="3ff21-149">**Timeout**</span></span> | <span data-ttu-id="3ff21-150">Hiermee definieert u Hallo test time-outwaarde voor de controle van een HTTP-antwoord.</span><span class="sxs-lookup"><span data-stu-id="3ff21-150">Defines hello probe time-out for an HTTP response check.</span></span>|
+| <span data-ttu-id="3ff21-151">**UnhealthyThreshold**</span><span class="sxs-lookup"><span data-stu-id="3ff21-151">**UnhealthyThreshold**</span></span> | <span data-ttu-id="3ff21-152">aantal mislukte HTTP-antwoorden Hallo nodig tooflag Hallo backend-exemplaar als *slecht*.</span><span class="sxs-lookup"><span data-stu-id="3ff21-152">hello number of failed HTTP responses needed tooflag hello back-end instance as *unhealthy*.</span></span>|
 
-<span data-ttu-id="a121f-153">Naam van de test wordt verwezen in de \<BackendHttpSettings\> configuratie om toe te wijzen welke back-end-adresgroep maakt gebruik van aangepaste test-instellingen.</span><span class="sxs-lookup"><span data-stu-id="a121f-153">The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which back-end pool uses custom probe settings.</span></span>
+<span data-ttu-id="3ff21-153">naam van de test Hello wordt verwezen in Hallo \<BackendHttpSettings\> configuratie tooassign welke back-end-pool aangepaste test-instellingen gebruikt.</span><span class="sxs-lookup"><span data-stu-id="3ff21-153">hello probe name is referenced in hello \<BackendHttpSettings\> configuration tooassign which back-end pool uses custom probe settings.</span></span>
 
-## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a><span data-ttu-id="a121f-154">Een aangepaste test toevoegen aan een bestaande application gateway</span><span class="sxs-lookup"><span data-stu-id="a121f-154">Add a custom probe to an existing application gateway</span></span>
+## <a name="add-a-custom-probe-tooan-existing-application-gateway"></a><span data-ttu-id="3ff21-154">Een aangepaste test tooan bestaande toepassingsgateway toevoegen</span><span class="sxs-lookup"><span data-stu-id="3ff21-154">Add a custom probe tooan existing application gateway</span></span>
 
-<span data-ttu-id="a121f-155">Wijzigen van de huidige configuratie van een toepassingsgateway drie stappen vereist: ophalen van het huidige XML-configuratiebestand, als u een aangepaste test wilt wijzigen en de toepassingsgateway configureren met de nieuwe XML-instellingen.</span><span class="sxs-lookup"><span data-stu-id="a121f-155">Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.</span></span>
+<span data-ttu-id="3ff21-155">Veranderende Hallo huidige configuratie van een toepassingsgateway zijn drie stappen vereist: ophalen van huidige XML-configuratiebestand hello, toohave een aangepaste test wijzigen en Hallo-toepassingsgateway met Hallo nieuwe XML-instellingen configureren.</span><span class="sxs-lookup"><span data-stu-id="3ff21-155">Changing hello current configuration of an application gateway requires three steps: Get hello current XML configuration file, modify toohave a custom probe, and configure hello application gateway with hello new XML settings.</span></span>
 
-1. <span data-ttu-id="a121f-156">Ophalen van het XML-bestand met behulp van `Get-AzureApplicationGatewayConfig`.</span><span class="sxs-lookup"><span data-stu-id="a121f-156">Get the XML file by using `Get-AzureApplicationGatewayConfig`.</span></span> <span data-ttu-id="a121f-157">Deze cmdlet exporteert u de configuratie-XML om toe te voegen testinstelling worden gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="a121f-157">This cmdlet exports the configuration XML to be modified to add a probe setting.</span></span>
+1. <span data-ttu-id="3ff21-156">Hallo XML-bestand ophalen met behulp van `Get-AzureApplicationGatewayConfig`.</span><span class="sxs-lookup"><span data-stu-id="3ff21-156">Get hello XML file by using `Get-AzureApplicationGatewayConfig`.</span></span> <span data-ttu-id="3ff21-157">Deze cmdlet uitvoer Hallo configuration XML toobe gewijzigd tooadd testinstelling.</span><span class="sxs-lookup"><span data-stu-id="3ff21-157">This cmdlet exports hello configuration XML toobe modified tooadd a probe setting.</span></span>
 
   ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path toofile>"
   ```
 
-1. <span data-ttu-id="a121f-158">Open het XML-bestand in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="a121f-158">Open the XML file in a text editor.</span></span> <span data-ttu-id="a121f-159">Voeg een `<probe>` sectie na `<frontendport>`.</span><span class="sxs-lookup"><span data-stu-id="a121f-159">Add a `<probe>` section after `<frontendport>`.</span></span>
+1. <span data-ttu-id="3ff21-158">Hallo XML-bestand openen in een teksteditor.</span><span class="sxs-lookup"><span data-stu-id="3ff21-158">Open hello XML file in a text editor.</span></span> <span data-ttu-id="3ff21-159">Voeg een `<probe>` sectie na `<frontendport>`.</span><span class="sxs-lookup"><span data-stu-id="3ff21-159">Add a `<probe>` section after `<frontendport>`.</span></span>
 
   ```xml
 <Probes>
@@ -184,7 +184,7 @@ Get-AzureApplicationGateway AppGwTest
 </Probes>
   ```
 
-  <span data-ttu-id="a121f-160">Toevoegen in de sectie backendHttpSettings van de XML-naam van de test zoals weergegeven in het volgende voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="a121f-160">In the backendHttpSettings section of the XML, add the probe name as shown in the following example:</span></span>
+  <span data-ttu-id="3ff21-160">Voeg in Hallo backendHttpSettings sectie Hallo XML Hallo test naam zoals weergegeven in het volgende voorbeeld Hallo:</span><span class="sxs-lookup"><span data-stu-id="3ff21-160">In hello backendHttpSettings section of hello XML, add hello probe name as shown in hello following example:</span></span>
 
   ```xml
     <BackendHttpSettings>
@@ -197,17 +197,17 @@ Get-AzureApplicationGateway AppGwTest
     </BackendHttpSettings>
   ```
 
-  <span data-ttu-id="a121f-161">Sla het XML-bestand.</span><span class="sxs-lookup"><span data-stu-id="a121f-161">Save the XML file.</span></span>
+  <span data-ttu-id="3ff21-161">Hallo XML-bestand opslaan.</span><span class="sxs-lookup"><span data-stu-id="3ff21-161">Save hello XML file.</span></span>
 
-1. <span data-ttu-id="a121f-162">De configuratie van de application gateway met het nieuwe XML-bestand bijwerken met behulp van `Set-AzureApplicationGatewayConfig`.</span><span class="sxs-lookup"><span data-stu-id="a121f-162">Update the application gateway configuration with the new XML file by using `Set-AzureApplicationGatewayConfig`.</span></span> <span data-ttu-id="a121f-163">Deze cmdlet werkt de toepassingsgateway van uw met de nieuwe configuratie.</span><span class="sxs-lookup"><span data-stu-id="a121f-163">This cmdlet updates your application gateway with the new configuration.</span></span>
+1. <span data-ttu-id="3ff21-162">Update Hallo toepassingsgateway configuratie met Hallo nieuwe XML-bestand met behulp van `Set-AzureApplicationGatewayConfig`.</span><span class="sxs-lookup"><span data-stu-id="3ff21-162">Update hello application gateway configuration with hello new XML file by using `Set-AzureApplicationGatewayConfig`.</span></span> <span data-ttu-id="3ff21-163">Deze cmdlet werkt uw toepassingsgateway met een nieuwe configuratie Hallo.</span><span class="sxs-lookup"><span data-stu-id="3ff21-163">This cmdlet updates your application gateway with hello new configuration.</span></span>
 
 ```powershell
-Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path toofile>"
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="a121f-164">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a121f-164">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3ff21-164">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="3ff21-164">Next steps</span></span>
 
-<span data-ttu-id="a121f-165">Als u configureren van Secure Sockets Layer (SSL)-offload wilt, Zie [een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).</span><span class="sxs-lookup"><span data-stu-id="a121f-165">If you want to configure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).</span></span>
+<span data-ttu-id="3ff21-165">Als u tooconfigure Secure Sockets Layer (SSL)-offload wilt, Zie [een toepassingsgateway voor SSL-offload configureren](application-gateway-ssl.md).</span><span class="sxs-lookup"><span data-stu-id="3ff21-165">If you want tooconfigure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).</span></span>
 
-<span data-ttu-id="a121f-166">Als u een toepassingsgateway wilt configureren voor gebruik met een interne load balancer, raadpleegt u [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Een toepassingsgateway met een interne load balancer (ILB) maken).</span><span class="sxs-lookup"><span data-stu-id="a121f-166">If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).</span></span>
+<span data-ttu-id="3ff21-166">Als u wilt dat tooconfigure een toouse application gateway met een interne load balancer, raadpleegt u [een toepassingsgateway maken met een interne load balancer (ILB)](application-gateway-ilb.md).</span><span class="sxs-lookup"><span data-stu-id="3ff21-166">If you want tooconfigure an application gateway toouse with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).</span></span>
 

@@ -16,8 +16,8 @@
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Gebeurtenissen vastleggen
-### [Azure Portal gebruiken om Event Hubs Capture in te schakelen](event-hubs-capture-enable-through-portal.md)
-### [Resource Manager-sjabloon gebruiken om Event Hubs Capture in te schakelen](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+### [Gebruik hello Azure portal tooenable Event Hubs vastleggen](event-hubs-capture-enable-through-portal.md)
+### [Gebruik van een Resource Manager-sjabloon tooenable Event Hubs vastleggen](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programmeergids](event-hubs-programming-guide.md)
 
 # Procedures
@@ -37,7 +37,7 @@
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)
 #### [Gegevens van Event Hubs vastleggen met behulp van Python](event-hubs-capture-python.md)
-### [PowerShell gebruiken om entiteiten in te richten](event-hubs-manage-with-ps.md) 
+### [Met behulp van PowerShell tooprovision entiteiten](event-hubs-manage-with-ps.md) 
 ### [Gegevens van Azure Diagnostics streamen met behulp van Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Event Hub maken en implementeren met een Resource Manager-sjabloon](event-hubs-resource-manager-namespace-event-hub.md)
 

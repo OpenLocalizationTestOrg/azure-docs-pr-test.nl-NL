@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Learning Seat LMS | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Learning Seat LMS.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Learning Seat LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,204 +13,204 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 877e0288fdd1f590acf064c204aff0741539b112
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc08aa444b85f35a4458768ac560ec663baa1c95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a><span data-ttu-id="1aa02-103">Zelfstudie: Azure Active Directory-integratie met Learning Seat LMS</span><span class="sxs-lookup"><span data-stu-id="1aa02-103">Tutorial: Azure Active Directory integration with Learning Seat LMS</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a><span data-ttu-id="b9284-103">Zelfstudie: Azure Active Directory-integratie met Learning Seat LMS</span><span class="sxs-lookup"><span data-stu-id="b9284-103">Tutorial: Azure Active Directory integration with Learning Seat LMS</span></span>
 
-<span data-ttu-id="1aa02-104">In deze zelfstudie leert u hoe Learning Seat LMS integreren met Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="1aa02-104">In this tutorial, you learn how to integrate Learning Seat LMS with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="b9284-104">In deze zelfstudie leert u hoe toointegrate Learning Seat LMS met Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="b9284-104">In this tutorial, you learn how toointegrate Learning Seat LMS with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="1aa02-105">Learning Seat LMS integreren met Azure AD biedt de volgende voordelen:</span><span class="sxs-lookup"><span data-stu-id="1aa02-105">Integrating Learning Seat LMS with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="b9284-105">Learning Seat LMS integreren met Azure AD biedt Hallo volgende voordelen:</span><span class="sxs-lookup"><span data-stu-id="b9284-105">Integrating Learning Seat LMS with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="1aa02-106">U kunt beheren in Azure AD die toegang tot Learning Seat LMS heeft</span><span class="sxs-lookup"><span data-stu-id="1aa02-106">You can control in Azure AD who has access to Learning Seat LMS</span></span>
-- <span data-ttu-id="1aa02-107">U kunt uw gebruikers automatisch ophalen aangemeld bij Learning Seat LMS (Single Sign-On) inschakelen met hun Azure AD-accounts</span><span class="sxs-lookup"><span data-stu-id="1aa02-107">You can enable your users to automatically get signed-on to Learning Seat LMS (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="1aa02-108">U kunt uw accounts op één centrale locatie - en de Azure-portal beheren</span><span class="sxs-lookup"><span data-stu-id="1aa02-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="b9284-106">U kunt beheren in Azure AD wie toegang tot tooLearning Seat LMS heeft</span><span class="sxs-lookup"><span data-stu-id="b9284-106">You can control in Azure AD who has access tooLearning Seat LMS</span></span>
+- <span data-ttu-id="b9284-107">U kunt uw gebruikers tooautomatically get aangemelde tooLearning Seat LMS (Single Sign-On) inschakelen met hun Azure AD-accounts</span><span class="sxs-lookup"><span data-stu-id="b9284-107">You can enable your users tooautomatically get signed-on tooLearning Seat LMS (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="b9284-108">U kunt uw accounts op één centrale locatie - hello Azure-portal beheren</span><span class="sxs-lookup"><span data-stu-id="b9284-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="1aa02-109">Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien.</span><span class="sxs-lookup"><span data-stu-id="1aa02-109">If you want to know more details about SaaS app integration with Azure AD, see.</span></span> <span data-ttu-id="1aa02-110">[Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="1aa02-110">[What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="b9284-109">Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie.</span><span class="sxs-lookup"><span data-stu-id="b9284-109">If you want tooknow more details about SaaS app integration with Azure AD, see.</span></span> <span data-ttu-id="b9284-110">[Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="b9284-110">[What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="1aa02-111">Vereisten</span><span class="sxs-lookup"><span data-stu-id="1aa02-111">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="b9284-111">Vereisten</span><span class="sxs-lookup"><span data-stu-id="b9284-111">Prerequisites</span></span>
 
-<span data-ttu-id="1aa02-112">Voor het configureren van Azure AD-integratie met Learning Seat LMS, moet u de volgende items:</span><span class="sxs-lookup"><span data-stu-id="1aa02-112">To configure Azure AD integration with Learning Seat LMS, you need the following items:</span></span>
+<span data-ttu-id="b9284-112">Azure AD-integratie met Learning Seat LMS tooconfigure, moet u Hallo volgende items:</span><span class="sxs-lookup"><span data-stu-id="b9284-112">tooconfigure Azure AD integration with Learning Seat LMS, you need hello following items:</span></span>
 
-- <span data-ttu-id="1aa02-113">Een Azure AD-abonnement</span><span class="sxs-lookup"><span data-stu-id="1aa02-113">An Azure AD subscription</span></span>
-- <span data-ttu-id="1aa02-114">Een Learning Seat LMS eenmalige aanmelding ingeschakeld abonnement</span><span class="sxs-lookup"><span data-stu-id="1aa02-114">A Learning Seat LMS single-sign on enabled subscription</span></span>
+- <span data-ttu-id="b9284-113">Een Azure AD-abonnement</span><span class="sxs-lookup"><span data-stu-id="b9284-113">An Azure AD subscription</span></span>
+- <span data-ttu-id="b9284-114">Een Learning Seat LMS eenmalige aanmelding ingeschakeld abonnement</span><span class="sxs-lookup"><span data-stu-id="b9284-114">A Learning Seat LMS single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="1aa02-115">Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.</span><span class="sxs-lookup"><span data-stu-id="1aa02-115">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="b9284-115">tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.</span><span class="sxs-lookup"><span data-stu-id="b9284-115">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="1aa02-116">Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:</span><span class="sxs-lookup"><span data-stu-id="1aa02-116">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="b9284-116">tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:</span><span class="sxs-lookup"><span data-stu-id="b9284-116">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="1aa02-117">Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.</span><span class="sxs-lookup"><span data-stu-id="1aa02-117">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="1aa02-118">Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="1aa02-118">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="b9284-117">Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.</span><span class="sxs-lookup"><span data-stu-id="b9284-117">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="b9284-118">Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="b9284-118">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="1aa02-119">Scenariobeschrijving</span><span class="sxs-lookup"><span data-stu-id="1aa02-119">Scenario description</span></span>
-<span data-ttu-id="1aa02-120">In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving.</span><span class="sxs-lookup"><span data-stu-id="1aa02-120">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="1aa02-121">Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:</span><span class="sxs-lookup"><span data-stu-id="1aa02-121">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="b9284-119">Scenariobeschrijving</span><span class="sxs-lookup"><span data-stu-id="b9284-119">Scenario description</span></span>
+<span data-ttu-id="b9284-120">In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving.</span><span class="sxs-lookup"><span data-stu-id="b9284-120">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="b9284-121">Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:</span><span class="sxs-lookup"><span data-stu-id="b9284-121">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="1aa02-122">Learning Seat LMS uit de galerie toevoegen</span><span class="sxs-lookup"><span data-stu-id="1aa02-122">Adding Learning Seat LMS from the gallery</span></span>
-2. <span data-ttu-id="1aa02-123">Configureren en testen van Azure AD eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="1aa02-123">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="b9284-122">Het toevoegen van Learning Seat LMS van Hallo-galerie</span><span class="sxs-lookup"><span data-stu-id="b9284-122">Adding Learning Seat LMS from hello gallery</span></span>
+2. <span data-ttu-id="b9284-123">Configureren en testen van Azure AD eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="b9284-123">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-learning-seat-lms-from-the-gallery"></a><span data-ttu-id="1aa02-124">Learning Seat LMS uit de galerie toevoegen</span><span class="sxs-lookup"><span data-stu-id="1aa02-124">Adding Learning Seat LMS from the gallery</span></span>
-<span data-ttu-id="1aa02-125">Voor het configureren van de integratie van Learning Seat LMS in Azure AD, moet u Learning Seat LMS uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.</span><span class="sxs-lookup"><span data-stu-id="1aa02-125">To configure the integration of Learning Seat LMS into Azure AD, you need to add Learning Seat LMS from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-learning-seat-lms-from-hello-gallery"></a><span data-ttu-id="b9284-124">Het toevoegen van Learning Seat LMS van Hallo-galerie</span><span class="sxs-lookup"><span data-stu-id="b9284-124">Adding Learning Seat LMS from hello gallery</span></span>
+<span data-ttu-id="b9284-125">tooconfigure hello integratie van Learning Seat LMS in Azure AD, moet u tooadd Learning Seat LMS uit Hallo galerie tooyour lijst met beheerde SaaS-apps.</span><span class="sxs-lookup"><span data-stu-id="b9284-125">tooconfigure hello integration of Learning Seat LMS into Azure AD, you need tooadd Learning Seat LMS from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="1aa02-126">**Als u wilt leren Seat LMS uit de galerie toevoegen, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="1aa02-126">**To add Learning Seat LMS from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="b9284-126">**tooadd Learning Seat LMS via Hallo gallery uitvoeren Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="b9284-126">**tooadd Learning Seat LMS from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1aa02-127">In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram.</span><span class="sxs-lookup"><span data-stu-id="1aa02-127">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="b9284-127">In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram.</span><span class="sxs-lookup"><span data-stu-id="b9284-127">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="1aa02-129">Navigeer naar **bedrijfstoepassingen**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-129">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="1aa02-130">Ga vervolgens naar **alle toepassingen**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-130">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="b9284-129">Navigeer te**bedrijfstoepassingen**.</span><span class="sxs-lookup"><span data-stu-id="b9284-129">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="b9284-130">Ga te**alle toepassingen**.</span><span class="sxs-lookup"><span data-stu-id="b9284-130">Then go too**All applications**.</span></span>
 
     ![Toepassingen][2]
     
-3. <span data-ttu-id="1aa02-132">Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="1aa02-132">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="b9284-132">de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="b9284-132">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Toepassingen][3]
 
-4. <span data-ttu-id="1aa02-134">Typ in het zoekvak **Learning Seat LMS**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-134">In the search box, type **Learning Seat LMS**.</span></span>
+4. <span data-ttu-id="b9284-134">Typ in het zoekvak Hallo **Learning Seat LMS**.</span><span class="sxs-lookup"><span data-stu-id="b9284-134">In hello search box, type **Learning Seat LMS**.</span></span>
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_search.png)
 
-5. <span data-ttu-id="1aa02-136">Selecteer in het deelvenster resultaten **Learning Seat LMS**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.</span><span class="sxs-lookup"><span data-stu-id="1aa02-136">In the results panel, select **Learning Seat LMS**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="b9284-136">Selecteer in het deelvenster resultaten hello, **Learning Seat LMS**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.</span><span class="sxs-lookup"><span data-stu-id="b9284-136">In hello results panel, select **Learning Seat LMS**, and then click **Add** button tooadd hello application.</span></span>
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="1aa02-137">Configureren en testen van Azure AD eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="1aa02-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="1aa02-138">In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met Learning Seat LMS op basis van een testgebruiker genaamd "Britta Simon."</span><span class="sxs-lookup"><span data-stu-id="1aa02-138">In this section, you configure and test Azure AD single sign-on with Learning Seat LMS based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="b9284-137">Configureren en testen van Azure AD eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="b9284-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="b9284-138">In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met Learning Seat LMS op basis van een testgebruiker genaamd "Britta Simon."</span><span class="sxs-lookup"><span data-stu-id="b9284-138">In this section, you configure and test Azure AD single sign-on with Learning Seat LMS based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="1aa02-139">Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Learning Seat LMS is aan een gebruiker in Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1aa02-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Learning Seat LMS is to a user in Azure AD.</span></span> <span data-ttu-id="1aa02-140">Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Learning Seat LMS tot stand worden gebracht.</span><span class="sxs-lookup"><span data-stu-id="1aa02-140">In other words, a link relationship between an Azure AD user and the related user in Learning Seat LMS needs to be established.</span></span>
+<span data-ttu-id="b9284-139">Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in Learning Seat LMS is tooa gebruiker in Azure AD.</span><span class="sxs-lookup"><span data-stu-id="b9284-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Learning Seat LMS is tooa user in Azure AD.</span></span> <span data-ttu-id="b9284-140">Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in Learning Seat LMS toobe tot stand gebracht.</span><span class="sxs-lookup"><span data-stu-id="b9284-140">In other words, a link relationship between an Azure AD user and hello related user in Learning Seat LMS needs toobe established.</span></span>
 
-<span data-ttu-id="1aa02-141">Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Learning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="1aa02-141">This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Learning Seat LMS.</span></span>
+<span data-ttu-id="b9284-141">Deze relatie koppeling wordt vastgesteld door het toewijzen van de waarde van Hallo Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** in Learning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="b9284-141">This link relationship is established by assigning hello value of hello **user name** in Azure AD as hello value of hello **Username** in Learning Seat LMS.</span></span>
 
-<span data-ttu-id="1aa02-142">Om te configureren en testen van Azure AD eenmalige aanmelding met Learning Seat LMS, moet u de volgende bouwstenen voltooien:</span><span class="sxs-lookup"><span data-stu-id="1aa02-142">To configure and test Azure AD single sign-on with Learning Seat LMS, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="b9284-142">tooconfigure en eenmalige aanmelding Azure AD-test met Learning Seat LMS, moet u toocomplete Hallo bouwstenen te volgen:</span><span class="sxs-lookup"><span data-stu-id="b9284-142">tooconfigure and test Azure AD single sign-on with Learning Seat LMS, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="1aa02-143">**[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.</span><span class="sxs-lookup"><span data-stu-id="1aa02-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="1aa02-144">**[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="1aa02-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="1aa02-145">**[Maken van een testgebruiker Learning Seat LMS](#creating-a-learnconnect-test-user)**  - Learning Seat LMS die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.</span><span class="sxs-lookup"><span data-stu-id="1aa02-145">**[Creating a Learning Seat LMS test user](#creating-a-learnconnect-test-user)** - to have a counterpart of Britta Simon in Learning Seat LMS that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="1aa02-146">**[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.</span><span class="sxs-lookup"><span data-stu-id="1aa02-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="1aa02-147">**[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.</span><span class="sxs-lookup"><span data-stu-id="1aa02-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="b9284-143">**[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.</span><span class="sxs-lookup"><span data-stu-id="b9284-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="b9284-144">**[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="b9284-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="b9284-145">**[Maken van een testgebruiker Learning Seat LMS](#creating-a-learnconnect-test-user)**  -toohave een equivalent van Britta Simon in Learning Seat LMS die gekoppelde toohello Azure AD-weergave van de gebruiker.</span><span class="sxs-lookup"><span data-stu-id="b9284-145">**[Creating a Learning Seat LMS test user](#creating-a-learnconnect-test-user)** - toohave a counterpart of Britta Simon in Learning Seat LMS that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="b9284-146">**[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.</span><span class="sxs-lookup"><span data-stu-id="b9284-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="b9284-147">**[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.</span><span class="sxs-lookup"><span data-stu-id="b9284-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="1aa02-148">Eenmalige aanmelding Azure AD configureren</span><span class="sxs-lookup"><span data-stu-id="1aa02-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="b9284-148">Eenmalige aanmelding Azure AD configureren</span><span class="sxs-lookup"><span data-stu-id="b9284-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="1aa02-149">In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Learning Seat LMS configureren.</span><span class="sxs-lookup"><span data-stu-id="1aa02-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Learning Seat LMS application.</span></span>
+<span data-ttu-id="b9284-149">In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing Learning Seat LMS configureren.</span><span class="sxs-lookup"><span data-stu-id="b9284-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Learning Seat LMS application.</span></span>
 
-<span data-ttu-id="1aa02-150">**Voor het configureren van Azure AD eenmalige aanmelding met Learning Seat LMS, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="1aa02-150">**To configure Azure AD single sign-on with Learning Seat LMS, perform the following steps:**</span></span>
+<span data-ttu-id="b9284-150">**tooconfigure eenmalige aanmelding Azure AD met Learning Seat LMS, Voer Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="b9284-150">**tooconfigure Azure AD single sign-on with Learning Seat LMS, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1aa02-151">In de Azure-portal op de **Learning Seat LMS** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-151">In the Azure portal, on the **Learning Seat LMS** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="b9284-151">In de Azure-portal op Hallo Hallo **Learning Seat LMS** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.</span><span class="sxs-lookup"><span data-stu-id="b9284-151">In hello Azure portal, on hello **Learning Seat LMS** application integration page, click **Single sign-on**.</span></span>
 
     ![Eenmalige aanmelding configureren][4]
 
-2. <span data-ttu-id="1aa02-153">Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.</span><span class="sxs-lookup"><span data-stu-id="1aa02-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="b9284-153">Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.</span><span class="sxs-lookup"><span data-stu-id="b9284-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_samlbase.png)
 
-3. <span data-ttu-id="1aa02-155">Op de **Learning Seat LMS domein en de URL's** sectie, voert u de volgende stappen uit als u wilt configureren, de toepassing in **IDP** modus gestart:</span><span class="sxs-lookup"><span data-stu-id="1aa02-155">On the **Learning Seat LMS Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:</span></span>
+3. <span data-ttu-id="b9284-155">Op Hallo **Learning Seat LMS domein en de URL's** sectie, voert u Hallo volgende stappen uit als u wilt dat tooconfigure Hallo toepassing in **IDP** modus gestart:</span><span class="sxs-lookup"><span data-stu-id="b9284-155">On hello **Learning Seat LMS Domain and URLs** section, perform hello following steps if you wish tooconfigure hello application in **IDP** initiated mode:</span></span>
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url.png)
 
-    <span data-ttu-id="1aa02-157">a.</span><span class="sxs-lookup"><span data-stu-id="1aa02-157">a.</span></span> <span data-ttu-id="1aa02-158">In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.learningseatlms.com`</span><span class="sxs-lookup"><span data-stu-id="1aa02-158">In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`</span></span>
+    <span data-ttu-id="b9284-157">a.</span><span class="sxs-lookup"><span data-stu-id="b9284-157">a.</span></span> <span data-ttu-id="b9284-158">In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://<subdomain>.learningseatlms.com`</span><span class="sxs-lookup"><span data-stu-id="b9284-158">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<subdomain>.learningseatlms.com`</span></span>
 
-    <span data-ttu-id="1aa02-159">b.</span><span class="sxs-lookup"><span data-stu-id="1aa02-159">b.</span></span> <span data-ttu-id="1aa02-160">In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`</span><span class="sxs-lookup"><span data-stu-id="1aa02-160">In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`</span></span>
+    <span data-ttu-id="b9284-159">b.</span><span class="sxs-lookup"><span data-stu-id="b9284-159">b.</span></span> <span data-ttu-id="b9284-160">In Hallo **antwoord-URL** textbox, typ een URL met Hallo patroon volgen:`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`</span><span class="sxs-lookup"><span data-stu-id="b9284-160">In hello **Reply URL** textbox, type a URL using hello following pattern: `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`</span></span>
 
-4. <span data-ttu-id="1aa02-161">Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:</span><span class="sxs-lookup"><span data-stu-id="1aa02-161">Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode:</span></span>
+4. <span data-ttu-id="b9284-161">Controleer **weergeven geavanceerde instellingen voor URL**, indien gewenst tooconfigure Hallo toepassing in **SP** modus gestart:</span><span class="sxs-lookup"><span data-stu-id="b9284-161">Check **Show advanced URL settings**, if you wish tooconfigure hello application in **SP** initiated mode:</span></span>
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_url2.png)
 
-    <span data-ttu-id="1aa02-163">In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.learningseatlms.com`</span><span class="sxs-lookup"><span data-stu-id="1aa02-163">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.learningseatlms.com`</span></span>
+    <span data-ttu-id="b9284-163">In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<subdomain>.learningseatlms.com`</span><span class="sxs-lookup"><span data-stu-id="b9284-163">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<subdomain>.learningseatlms.com`</span></span>
      
     > [!NOTE] 
-    > <span data-ttu-id="1aa02-164">Deze waarden zijn niet de werkelijke waarden.</span><span class="sxs-lookup"><span data-stu-id="1aa02-164">These values are not the real values.</span></span> <span data-ttu-id="1aa02-165">Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL.</span><span class="sxs-lookup"><span data-stu-id="1aa02-165">Update these values with the actual Identifier, Reply URL and Sign-On URL.</span></span> <span data-ttu-id="1aa02-166">Neem contact op met [Learning Seat ondersteuningsteam](http://help.learningseatlms.com/help) ophalen van deze waarden.</span><span class="sxs-lookup"><span data-stu-id="1aa02-166">Contact [Learning Seat support team](http://help.learningseatlms.com/help) to get these values.</span></span> 
+    > <span data-ttu-id="b9284-164">Deze waarden zijn niet Hallo echte waarden.</span><span class="sxs-lookup"><span data-stu-id="b9284-164">These values are not hello real values.</span></span> <span data-ttu-id="b9284-165">Bijwerken van deze waarden Hello werkelijke id, de antwoord-URL en de aanmeldings-URL.</span><span class="sxs-lookup"><span data-stu-id="b9284-165">Update these values with hello actual Identifier, Reply URL and Sign-On URL.</span></span> <span data-ttu-id="b9284-166">Neem contact op met [Learning Seat ondersteuningsteam](http://help.learningseatlms.com/help) tooget deze waarden.</span><span class="sxs-lookup"><span data-stu-id="b9284-166">Contact [Learning Seat support team](http://help.learningseatlms.com/help) tooget these values.</span></span> 
 
-5. <span data-ttu-id="1aa02-167">Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.</span><span class="sxs-lookup"><span data-stu-id="1aa02-167">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+5. <span data-ttu-id="b9284-167">Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens Hallo op uw computer.</span><span class="sxs-lookup"><span data-stu-id="b9284-167">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_certificate.png) 
 
-6. <span data-ttu-id="1aa02-169">Klik op **opslaan** knop.</span><span class="sxs-lookup"><span data-stu-id="1aa02-169">Click **Save** button.</span></span>
+6. <span data-ttu-id="b9284-169">Klik op **opslaan** knop.</span><span class="sxs-lookup"><span data-stu-id="b9284-169">Click **Save** button.</span></span>
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnconnect-tutorial/tutorial_general_400.png)
 
-7. <span data-ttu-id="1aa02-171">Eenmalige aanmelding configureren op **Learning Seat LMS** zijde, moet u de gedownloade verzenden **Metadata XML** naar [Learning Seat ondersteuningsteam](http://help.learningseatlms.com/help).</span><span class="sxs-lookup"><span data-stu-id="1aa02-171">To configure single sign-on on **Learning Seat LMS** side, you need to send the downloaded **Metadata XML** to [Learning Seat support team](http://help.learningseatlms.com/help).</span></span>
+7. <span data-ttu-id="b9284-171">tooconfigure eenmalige aanmelding op **Learning Seat LMS** zijde, moet u toosend Hallo gedownload **Metadata XML** te[Learning Seat ondersteuningsteam](http://help.learningseatlms.com/help).</span><span class="sxs-lookup"><span data-stu-id="b9284-171">tooconfigure single sign-on on **Learning Seat LMS** side, you need toosend hello downloaded **Metadata XML** too[Learning Seat support team](http://help.learningseatlms.com/help).</span></span>
 
 > [!TIP]
-> <span data-ttu-id="1aa02-172">U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!</span><span class="sxs-lookup"><span data-stu-id="1aa02-172">You can now read a concise version of these instructions inside the [Azure  portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="1aa02-173">Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan.</span><span class="sxs-lookup"><span data-stu-id="1aa02-173">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="1aa02-174">U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="1aa02-174">You can read more about the embedded documentation feature here: [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="b9284-172">U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.</span><span class="sxs-lookup"><span data-stu-id="b9284-172">You can now read a concise version of these instructions inside hello [Azure  portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="b9284-173">Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan.</span><span class="sxs-lookup"><span data-stu-id="b9284-173">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="b9284-174">U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD](https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="b9284-174">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="1aa02-175">Een Azure AD-testgebruiker maken</span><span class="sxs-lookup"><span data-stu-id="1aa02-175">Creating an Azure AD test user</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="b9284-175">Een Azure AD-testgebruiker maken</span><span class="sxs-lookup"><span data-stu-id="b9284-175">Creating an Azure AD test user</span></span>
 
-<span data-ttu-id="1aa02-176">Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="1aa02-176">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+<span data-ttu-id="b9284-176">Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="b9284-176">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Azure AD-gebruiker maken][100]
 
-<span data-ttu-id="1aa02-178">**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="1aa02-178">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="b9284-178">**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="b9284-178">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1aa02-179">In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.</span><span class="sxs-lookup"><span data-stu-id="1aa02-179">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="b9284-179">In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.</span><span class="sxs-lookup"><span data-stu-id="b9284-179">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="1aa02-181">Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-181">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="b9284-181">toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.</span><span class="sxs-lookup"><span data-stu-id="b9284-181">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="1aa02-183">Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="1aa02-183">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="b9284-183">Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.</span><span class="sxs-lookup"><span data-stu-id="b9284-183">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="1aa02-185">Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="1aa02-185">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="b9284-185">Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="b9284-185">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-learnconnect-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="1aa02-187">a.</span><span class="sxs-lookup"><span data-stu-id="1aa02-187">a.</span></span> <span data-ttu-id="1aa02-188">In de **naam** textbox type **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-188">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="b9284-187">a.</span><span class="sxs-lookup"><span data-stu-id="b9284-187">a.</span></span> <span data-ttu-id="b9284-188">In Hallo **naam** textbox type **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="b9284-188">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="1aa02-189">b.</span><span class="sxs-lookup"><span data-stu-id="1aa02-189">b.</span></span> <span data-ttu-id="1aa02-190">In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="1aa02-190">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="b9284-189">b.</span><span class="sxs-lookup"><span data-stu-id="b9284-189">b.</span></span> <span data-ttu-id="b9284-190">In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="b9284-190">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="1aa02-191">c.</span><span class="sxs-lookup"><span data-stu-id="1aa02-191">c.</span></span> <span data-ttu-id="1aa02-192">Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-192">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="b9284-191">c.</span><span class="sxs-lookup"><span data-stu-id="b9284-191">c.</span></span> <span data-ttu-id="b9284-192">Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.</span><span class="sxs-lookup"><span data-stu-id="b9284-192">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="1aa02-193">d.</span><span class="sxs-lookup"><span data-stu-id="1aa02-193">d.</span></span> <span data-ttu-id="1aa02-194">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-194">Click **Create**.</span></span>
+    <span data-ttu-id="b9284-193">d.</span><span class="sxs-lookup"><span data-stu-id="b9284-193">d.</span></span> <span data-ttu-id="b9284-194">Klik op **Create**.</span><span class="sxs-lookup"><span data-stu-id="b9284-194">Click **Create**.</span></span>
  
-### <a name="creating-a-learning-seat-lms-test-user"></a><span data-ttu-id="1aa02-195">Een testgebruiker Learning Seat LMS maken</span><span class="sxs-lookup"><span data-stu-id="1aa02-195">Creating a Learning Seat LMS test user</span></span>
+### <a name="creating-a-learning-seat-lms-test-user"></a><span data-ttu-id="b9284-195">Een testgebruiker Learning Seat LMS maken</span><span class="sxs-lookup"><span data-stu-id="b9284-195">Creating a Learning Seat LMS test user</span></span>
 
-<span data-ttu-id="1aa02-196">In deze sectie maakt maken u een gebruiker Britta Simon aangeroepen in Learning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="1aa02-196">In this section, you create a user called Britta Simon in Learning Seat LMS.</span></span> <span data-ttu-id="1aa02-197">Neem contact op met [Learning Seat ondersteuningsteam](http://help.learningseatlms.com/help) met de gebruikersgegevens naar de gebruikers in de toepassing Learning Seat LMS toevoegen.</span><span class="sxs-lookup"><span data-stu-id="1aa02-197">Contact [Learning Seat support team](http://help.learningseatlms.com/help) with all the user information to add the users in the Learning Seat LMS application.</span></span>
+<span data-ttu-id="b9284-196">In deze sectie maakt maken u een gebruiker Britta Simon aangeroepen in Learning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="b9284-196">In this section, you create a user called Britta Simon in Learning Seat LMS.</span></span> <span data-ttu-id="b9284-197">Neem contact op met [Learning Seat ondersteuningsteam](http://help.learningseatlms.com/help) met alle Hallo gebruiker informatie tooadd Hallo gebruikers in Hallo Learning Seat LMS toepassing.</span><span class="sxs-lookup"><span data-stu-id="b9284-197">Contact [Learning Seat support team](http://help.learningseatlms.com/help) with all hello user information tooadd hello users in hello Learning Seat LMS application.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="1aa02-198">Toewijzen van de testgebruiker Azure AD</span><span class="sxs-lookup"><span data-stu-id="1aa02-198">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="b9284-198">Toewijzen van de testgebruiker hello Azure AD</span><span class="sxs-lookup"><span data-stu-id="b9284-198">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="1aa02-199">In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Learning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="1aa02-199">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Learning Seat LMS.</span></span>
+<span data-ttu-id="b9284-199">In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen door het verlenen van toegang tooLearning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="b9284-199">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooLearning Seat LMS.</span></span>
 
 ![Gebruiker toewijzen][200] 
 
-<span data-ttu-id="1aa02-201">**Britta Simon om aan te wijzen Learning Seat LMS, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="1aa02-201">**To assign Britta Simon to Learning Seat LMS, perform the following steps:**</span></span>
+<span data-ttu-id="b9284-201">**tooassign Britta Simon tooLearning Seat LMS, Voer Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="b9284-201">**tooassign Britta Simon tooLearning Seat LMS, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1aa02-202">Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-202">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="b9284-202">In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.</span><span class="sxs-lookup"><span data-stu-id="b9284-202">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Gebruiker toewijzen][201] 
 
-2. <span data-ttu-id="1aa02-204">Selecteer in de lijst met toepassingen **Learning Seat LMS**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-204">In the applications list, select **Learning Seat LMS**.</span></span>
+2. <span data-ttu-id="b9284-204">Selecteer in de lijst met de toepassingen van Hallo **Learning Seat LMS**.</span><span class="sxs-lookup"><span data-stu-id="b9284-204">In hello applications list, select **Learning Seat LMS**.</span></span>
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnconnect-tutorial/tutorial_learnconnect_app.png) 
 
-3. <span data-ttu-id="1aa02-206">Klik in het menu aan de linkerkant op **gebruikers en groepen**.</span><span class="sxs-lookup"><span data-stu-id="1aa02-206">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="b9284-206">Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.</span><span class="sxs-lookup"><span data-stu-id="b9284-206">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Gebruiker toewijzen][202] 
 
-4. <span data-ttu-id="1aa02-208">Klik op **toevoegen** knop.</span><span class="sxs-lookup"><span data-stu-id="1aa02-208">Click **Add** button.</span></span> <span data-ttu-id="1aa02-209">Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="1aa02-209">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="b9284-208">Klik op **toevoegen** knop.</span><span class="sxs-lookup"><span data-stu-id="b9284-208">Click **Add** button.</span></span> <span data-ttu-id="b9284-209">Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="b9284-209">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Gebruiker toewijzen][203]
 
-5. <span data-ttu-id="1aa02-211">Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.</span><span class="sxs-lookup"><span data-stu-id="1aa02-211">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="b9284-211">Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.</span><span class="sxs-lookup"><span data-stu-id="b9284-211">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="1aa02-212">Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="1aa02-212">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="b9284-212">Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="b9284-212">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="1aa02-213">Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="1aa02-213">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="b9284-213">Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="b9284-213">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="1aa02-214">Testen van eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="1aa02-214">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="b9284-214">Testen van eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="b9284-214">Testing single sign-on</span></span>
 
-<span data-ttu-id="1aa02-215">In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.</span><span class="sxs-lookup"><span data-stu-id="1aa02-215">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span> 
+<span data-ttu-id="b9284-215">In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.</span><span class="sxs-lookup"><span data-stu-id="b9284-215">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span> 
 
-<span data-ttu-id="1aa02-216">Klik op de tegel Learning Seat LMS in het deelvenster toegang, u zal worden automatisch aangemeld bij uw toepassing Learning Seat LMS.</span><span class="sxs-lookup"><span data-stu-id="1aa02-216">Click the Learning Seat LMS tile in the Access Panel, you will be automatically signed-on to your Learning Seat LMS application.</span></span> <span data-ttu-id="1aa02-217">Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).</span><span class="sxs-lookup"><span data-stu-id="1aa02-217">For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).</span></span>
+<span data-ttu-id="b9284-216">Klik op Hallo Learning Seat LMS-tegel in Hallo paneel voor Apptoegang, kunt u zich automatisch aangemelde tooyour Learning Seat LMS toepassing.</span><span class="sxs-lookup"><span data-stu-id="b9284-216">Click hello Learning Seat LMS tile in hello Access Panel, you will be automatically signed-on tooyour Learning Seat LMS application.</span></span> <span data-ttu-id="b9284-217">Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).</span><span class="sxs-lookup"><span data-stu-id="b9284-217">For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="1aa02-218">Aanvullende bronnen</span><span class="sxs-lookup"><span data-stu-id="1aa02-218">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="b9284-218">Aanvullende bronnen</span><span class="sxs-lookup"><span data-stu-id="b9284-218">Additional resources</span></span>
 
-* [<span data-ttu-id="1aa02-219">Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="1aa02-219">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="1aa02-220">Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="1aa02-220">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="b9284-219">Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="b9284-219">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="b9284-220">Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="b9284-220">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

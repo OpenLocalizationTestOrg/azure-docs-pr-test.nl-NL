@@ -1,6 +1,6 @@
 ---
-title: Azure AD Services auth met OAuth2.0 conceptspecificatie op-andere gebruikers-Of-| Microsoft Docs
-description: In dit artikel wordt beschreven hoe het gebruik van HTTP-berichten voor het implementeren van services-verificatie met behulp van de OAuth2.0 op namens-stroom.
+title: aaaAzure AD service tooservice auth met OAuth2.0 conceptspecificatie op-andere gebruikers-Of-| Microsoft Docs
+description: Dit artikel wordt beschreven hoe toouse HTTP berichten tooimplement service tooservice verificatie met behulp van Hallo OAuth2.0 op namens-stroom.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,77 +15,77 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 55b7fcfe6c0223bddedd8d8fa2defcb5769b43c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
-De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
+# Service tooservice aanroept met behulp van gedelegeerde gebruikersidentiteit in Hallo op namens-stroom
+Hallo OAuth 2.0 On-Behalf-Of stroom fungeert Hallo gebruiksvoorbeeld waar een service of web-API wordt aangeroepen in een toepassing die op zijn beurt toocall moet een andere service of web-API. Hallo idee is toopropagate Hallo gedelegeerde gebruikersidentiteit en machtigingen via Hallo aanvraagketen. Voor Hallo middelste laag service toomake geverifieerde aanvragen toohello downstream-service moet deze toosecure een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker Hallo.
 
 ## Op-andere gebruikers-Of stroomdiagram
-Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-protocols-oauth-code.md). De toepassing is op dit moment een toegangstoken (token A) met de claims van de gebruiker en toestemming voor toegang tot de web-API (A-API) voor de middelste laag. API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
+Wordt ervan uitgegaan dat Hallo-gebruiker is geverifieerd op een toepassing met Hallo [autorisatiecodetoekenning OAuth 2.0](active-directory-protocols-oauth-code.md). Hallo-toepassing is op dit moment een toegangstoken (token A) met de claims en toestemming tooaccess Hallo middelste laag web API (A-API) van de gebruiker Hallo. Nu moet API A toomake een geverifieerde aanvraag toohello downstream web-API (API-B).
 
-Welke stappen volgen vormen van de On-namens-stroom en met behulp van het volgende diagram worden uitgelegd.
+Hallo stappen volgen Hallo op namens-stroom vormen en aan de hand Hallo van Hallo volgende diagram worden uitgelegd.
 
 ![OAuth2.0 op namens-stroom](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. De clienttoepassing indient een aanvraag bij API A met het token A.
-2. API-A met het eindpunt van de uitgifte van tokens Azure AD verifieert en vraagt een token voor toegang tot API B.
-3. Het eindpunt van de uitgifte van tokens Azure AD API A van referenties met een token valideert en problemen met het toegangstoken voor de API-B (token B).
-4. Het token B is ingesteld in de autorisatie-header van het verzoek om API B.
-5. Gegevens van de beveiligde bron wordt geretourneerd door de API B.
+1. Hallo-clienttoepassing maakt een aanvraag tooAPI A met Hallo token A.
+2. API-A verifieert toohello Azure AD uitgifte van tokens eindpunt en vraagt een token tooaccess API B.
+3. Hello Azure AD uitgifte van tokens eindpunt API A van referenties met een token valideert en problemen hello toegangstoken voor de API-B (token B).
+4. Hallo token B is ingesteld in Hallo autorisatie-header van Hallo aanvraag tooAPI B.
+5. Gegevens uit beveiligde resource hello wordt geretourneerd door de API B.
 
-## Registreren van de toepassing en service in Azure AD
-Registreer zowel de clienttoepassing en de middelste laag-service in Azure AD.
-### De service voor de middelste laag registreren
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
-3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
+## Hallo-toepassing en service in Azure AD registreren
+Registreer zowel client-toepassing hello en Hallo middelste laag service in Azure AD.
+### Hallo middelste laag service registreren
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. Op de bovenste balk hello, klikt u op voor uw account en Hallo **Directory** Kies Hallo Active Directory-tenant waar u wenst dat tooregister uw toepassing.
+3. Klik op **meer Services** in linkerkant nav Hallo en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **registratie van de nieuwe toepassing**.
-5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van de toepassing type set de aanmeldings-URL of Omleidings-URL naar de basis-URL. Klik op **maken** om de toepassing te maken.
-6. Kies uw toepassing tijdens het nog steeds in de Azure portal en klik op **instellingen**. Kies in het menu instellingen **sleutels** en toevoegen van een sleutel - selecteert u een sleutel duur van 1 jaar of 2 jaar. Wanneer u deze pagina, de waarde van de sleutel wordt weergegeven, kopiëren en opslaan van de waarde in een veilige locatie - moet u deze sleutel later naar de toepassing configureren in uw implementatie - waarde van deze sleutel wordt niet meer weergegeven, noch worden opgehaald door een andere manier, dus neem record zodra deze is zichtbaar zijn vanaf de Azure-Portal.
+5. Voer een beschrijvende naam voor de toepassing hello en Hallo-toepassingstype selecteren. Op basis van het toepassingstype Hallo set Hallo aanmeldings-URL of Omleidings-URL toohello basis-URL. Klik op **maken** toocreate Hallo-toepassing.
+6. Tijdens het nog hello Azure-portal, kiest u uw toepassing en klik op **instellingen**. Kies in het menu instellingen Hallo **sleutels** en toevoegen van een sleutel - selecteert u een sleutel duur van 1 jaar of 2 jaar. Wanneer u deze pagina opslaat, Hallo-sleutelwaarde wordt weergegeven, kopiëren en Hallo waarde opslaan op een veilige locatie - u deze later tooconfigure Hallo toepassing registersleutelinstellingen in uw implementatie moet - waarde van deze sleutel worden niet opnieuw weergegeven en ook niet worden opgehaald door een andere manier record dus u moet deze zodra deze zichtbaar zijn vanaf hello Azure-Portal is.
 
-### De clienttoepassing registreren
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op de bovenste balk op je account en klikt u onder de **Directory** kiest u de Active Directory-tenant waar u wilt uw toepassing registreren.
-3. Klik op **meer Services** in de nav linkerkant en kies **Azure Active Directory**.
+### Hallo client-toepassing registreren
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. Op de bovenste balk hello, klikt u op voor uw account en Hallo **Directory** Kies Hallo Active Directory-tenant waar u wenst dat tooregister uw toepassing.
+3. Klik op **meer Services** in linkerkant nav Hallo en kies **Azure Active Directory**.
 4. Klik op **App registraties** en kies **registratie van de nieuwe toepassing**.
-5. Geef een beschrijvende naam voor de toepassing en selecteer het toepassingstype. Op basis van de toepassing type set de aanmeldings-URL of Omleidings-URL naar de basis-URL. Klik op **maken** om de toepassing te maken.
-6. Machtigingen configureren voor uw toepassing - in het menu instellingen, kiest u de **vereist machtigingen** sectie, klikt u op **toevoegen**, klikt u vervolgens **selecteert u een API**, en typ de naam van de service voor de middelste laag in het tekstvak. Klik vervolgens op **Selecteer machtigingen** en selecteer ' toegang *servicenaam*'.
+5. Voer een beschrijvende naam voor de toepassing hello en Hallo-toepassingstype selecteren. Op basis van het toepassingstype Hallo set Hallo aanmeldings-URL of Omleidings-URL toohello basis-URL. Klik op **maken** toocreate Hallo-toepassing.
+6. Machtigingen configureren voor uw toepassing - in menu Hallo-instellingen, kiest u Hallo **vereist machtigingen** sectie, klikt u op **toevoegen**, klikt u vervolgens **selecteert u een API**, en type Hallo naam van Hallo middelste laag service in Hallo tekstvak. Klik vervolgens op **Selecteer machtigingen** en selecteer ' toegang *servicenaam*'.
 
 ### Bekende clienttoepassingen configureren
-In dit scenario heeft de middelste laag-service geen tussenkomst van de gebruiker om op te halen van de gebruiker toestemming voor toegang tot de downstream-API. Daarom moet de optie om toegang te verlenen aan de downstream-API worden gepresenteerd tevoren als onderdeel van de toestemming stap tijdens de verificatie.
-Om dit te bereiken, volg onderstaande stappen voor het binden expliciet de registratie van de clientapp in Azure AD met de registratie van de middelste laag-service, die de toestemming vereist door de client en de middelste laag in een dialoogvenster met één worden samengevoegd.
-1. Navigeer naar de middelste laag serviceregistratie en klik op **Manifest** om de manifest-editor te openen.
-2. Zoek in het manifest de `knownClientApplications` eigenschap matrix en de Client-ID van de clienttoepassing toevoegen als een element.
-3. Het manifest opslaan door te klikken op de opslagbewerking knop.
+In dit scenario heeft Hallo middelste laag service geen gebruiker interactie tooobtain Hallo van gebruiker toestemming geven tooaccess Hallo downstream-API. Daarom Hallo optie toogrant toegang toohello downstream API moet worden weergegeven als onderdeel van het Hallo toestemming stap tijdens de verificatie vooraf.
+tooachieve deze, volg de stappen hieronder tooexplicitly bind Hallo client van app-registratie in Azure AD met Hallo registratie van Hallo middelste laag service, die worden samengevoegd Hallo toestemming vereist zijn voor zowel de Hallo client als de middelste laag in een dialoogvenster met één Hallo.
+1. Registratie van de middelste laag service toohello navigeren en klik op **Manifest** tooopen Hallo manifest editor.
+2. Zoek in het manifest van de Hallo Hallo `knownClientApplications` eigenschap matrix en Client-ID van de clienttoepassing Hallo Hallo toevoegen als een element.
+3. Hallo manifest door te klikken op Hallo knop opslaan opslaan.
 
-## Token serviceaanvraag access-service
-Om aan te vragen een toegangstoken, moet u een HTTP POST naar de tenant-specifieke Azure AD-eindpunt met de volgende parameters.
+## Tooservice access token serviceaanvraag
+toorequest een toegangstoken maken voor een HTTP POST toohello tenantspecifieke Azure AD-eindpunt Hallo parameters te volgen.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-Er zijn twee gevallen, afhankelijk van of de clienttoepassing kiest om te worden beveiligd door een gedeeld geheim of een certificaat.
+Er zijn twee gevallen, afhankelijk van of de client-toepassing hello toobe beveiligd door een gedeeld geheim of een certificaat kiest.
 
 ### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
-Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang tot de volgende parameters:
+Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service toegang Hallo volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
-| client_id |Vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
-| client_secret |Vereist | De sleutel wordt geregistreerd voor de service aanroepen in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Resource |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |Vereist | Hallo type token Hallo-aanvraag. Voor een aanvraag met behulp van een JWT, moet Hallo waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| Verklaring |Vereist | Hallo-waarde van Hallo token dat wordt gebruikt in Hallo-aanvraag. |
+| client_id |Vereist | Hallo-App-ID toegewezen toohello aanroepen service tijdens de registratie met Azure AD. toofind hello, App-ID in hello Azure-beheerportal, klikt u op **Active Directory**, klikt u op Hallo directory en klik op de naam van de toepassing hello. |
+| client_secret |Vereist | Hallo-sleutel wordt geregistreerd voor Hallo service aanroepen in Azure AD. Deze waarde is moet opgemerkt op Hallo moment van inschrijving. |
+| Resource |Vereist | Hallo App ID URI Hallo service (beveiligde resource) ontvangen. toofind hello App ID URI, in hello Azure-beheerportal, klikt u op **Active Directory**, klikt u op Hallo directory, klik op de naam van de toepassing hello, **alle instellingen** en klik vervolgens op **eigenschappen** . |
+| requested_token_use |Vereist | Hiermee geeft u op hoe Hallo-aanvraag moet worden verwerkt. In Hallo op namens-stroom, Hallo-waarde moet **on_behalf_of**. |
+| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag Hallo. Voor het OpenID Connect, Hallo bereik **openid** moet worden opgegeven.|
 
 #### Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken voor de https://graph.windows.net web-API. De `client_id` de service identificeert die het toegangstoken aanvragen.
+Hallo volgende HTTP POST-aanvragen een toegangstoken voor Hallo https://graph.windows.net web-API. Hallo `client_id` Hallo service identificeert die Hallo toegangstoken aanvragen.
 
 ```
 // line breaks for legibility only
@@ -104,23 +104,23 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### Tweede geval: aanvraag voor toegang tot token met een certificaat
-Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volgende parameters:
+Een service-naar-service toegang tokenaanvraag met een certificaat bevat Hallo volgende parameters:
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
-| client_id |Vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
-| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
-| Resource |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |Vereist | Hallo type token Hallo-aanvraag. Voor een aanvraag met behulp van een JWT, moet Hallo waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| Verklaring |Vereist | Hallo-waarde van Hallo token dat wordt gebruikt in Hallo-aanvraag. |
+| client_id |Vereist | Hallo-App-ID toegewezen toohello aanroepen service tijdens de registratie met Azure AD. toofind hello, App-ID in hello Azure-beheerportal, klikt u op **Active Directory**, klikt u op Hallo directory en klik op de naam van de toepassing hello. |
+| client_assertion_type |Vereist |Hallo-waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Vereist | Een (een JSON Web Token) bewering die u toocreate nodig hebt en ondertekenen met het Hallo-certificaat geregistreerd als de referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) toolearn hoe tooregister uw certificaat en het Hallo-indeling van Hallo verklaring.|
+| Resource |Vereist | Hallo App ID URI Hallo service (beveiligde resource) ontvangen. toofind hello App ID URI, in hello Azure-beheerportal, klikt u op **Active Directory**, klikt u op Hallo directory, klik op de naam van de toepassing hello, **alle instellingen** en klik vervolgens op **eigenschappen** . |
+| requested_token_use |Vereist | Hiermee geeft u op hoe Hallo-aanvraag moet worden verwerkt. In Hallo op namens-stroom, Hallo-waarde moet **on_behalf_of**. |
+| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag Hallo. Voor het OpenID Connect, Hallo bereik **openid** moet worden opgegeven.|
 
-De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
+Hallo-parameters zijn bijna Hallo dezelfde net als bij Hallo Hallo aanvraag door een gedeeld geheim, behalve dat Hallo client_secret parameter wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 #### Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken voor de web-https://graph.windows.net API met een certificaat. De `client_id` de service identificeert die het toegangstoken aanvragen.
+Hallo na HTTP POST-aanvragen een toegangstoken voor Hallo https://graph.windows.net web-API met een certificaat. Hallo `client_id` Hallo service identificeert die Hallo toegangstoken aanvragen.
 
 ```
 // line breaks for legibility only
@@ -139,22 +139,22 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Antwoord token service-access-service
-Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
+## Service tooservice access token antwoord
+Een geslaagde reactie is een antwoord JSON OAuth 2.0 Hello parameters te volgen.
 
 | Parameter | Beschrijving |
 | --- | --- |
-| token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Bereik |Het bereik van toegang verleend in het token. |
-| expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
-| expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Resource |De App ID URI van de ontvangende service (beveiligde resource). |
-| access_token |Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om de ontvangende service te verifiëren. |
-| id_token |De aangevraagde id-token. De service aanroepen kunt deze gebruiken om te controleren van de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
-| refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
+| token_type |Hiermee wordt aangegeven Hallo type token waarde. Hallo alleen type dat ondersteunt Azure AD **Bearer**. Zie voor meer informatie over bearer-tokens Hallo [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| Bereik |Hallo-bereik van toegang verleend in Hallo-token. |
+| expires_in |Hallo-lengte van tijd Hallo toegangstoken is ongeldig (in seconden). |
+| expires_on |Hallo tijd wanneer Hallo toegangstoken is verlopen. Hallo datum wordt weergegeven als het aantal seconden Hallo vanaf 1970-01-01T0:0:0Z UTC tot verlooptijd Hallo. Deze waarde is gebruikte toodetermine Hallo levensduur van tokens in de cache. |
+| Resource |Hallo App ID URI Hallo service (beveiligde resource) ontvangen. |
+| access_token |Hallo aangevraagde toegangstoken. Hallo service aanroepen kunt dit token tooauthenticate toohello ontvangende service gebruiken. |
+| id_token |Hallo aangevraagde id. token. Hallo aanroepen van de service kunt gebruiken deze tooverify Hallo-gebruikers-id en beginnen met een sessie met de Hallo gebruiker. |
+| refresh_token |Hallo-vernieuwingstoken voor Hallo aangevraagd toegangstoken. Hallo aanroepen van de service kunt gebruiken dit token toorequest een andere toegangstoken nadat Hallo huidige toegangstoken is verlopen. |
 
 ### Geslaagd antwoord voorbeeld
-Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken voor de https://graph.windows.net web-API.
+Hallo volgende voorbeeld ziet u een geslaagd antwoord tooa aanvraag voor een toegangstoken voor Hallo https://graph.windows.net web-API.
 
 ```
 {
@@ -172,12 +172,12 @@ Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toeg
 ```
 
 ### Fout antwoord voorbeeld
-Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt als bij het verkrijgen van een toegangstoken voor de downstream-API als de downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication-server erop is ingesteld heeft. De service voor de middelste laag moet deze fout aan de clienttoepassing surface, zodat de clienttoepassing de interactie van de gebruiker om te voldoen aan het beleid voor voorwaardelijke toegang kunt bieden.
+Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt wanneer u probeert een toegangstoken tooacquire voor downstream Hallo-API als Hallo downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication-server erop is ingesteld heeft. Hallo middelste laag service moet deze fout toohello-clienttoepassing surface zodat de clienttoepassing Hallo Hallo gebruiker interactie toosatisfy Hallo voorwaardelijk toegangsbeleid kunt bieden.
 
 ```
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due tooa configuration change made by your administrator, or because you moved tooa new location, you must enroll in multi-factor authentication tooaccess 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -186,8 +186,8 @@ Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt als bij het ver
 }
 ```
 
-## Gebruik het toegangstoken voor toegang tot de beveiligde bron
-Nu de middelste laag-service kan het token verkregen hierboven geverifieerde aanvragen door het instellen van het token in aanbrengen de downstream web-API, gebruiken de `Authorization` header.
+## Gebruik Hallo access token tooaccess Hallo beveiligd resource
+Nu Hallo middelste laag service Hallo token verkregen hierboven toomake geverifieerde aanvragen toohello downstream kunt web-API, door de instelling Hallo-token in Hallo `Authorization` header.
 
 ### Voorbeeld
 ```
@@ -197,6 +197,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 ```
 
 ## Volgende stappen
-Meer informatie over het OAuth 2.0-protocol en een andere manier om uit te voeren services auth met clientreferenties.
-* [Service-verificatie met OAuth 2.0-client referenties grant in Azure AD-service](active-directory-protocols-oauth-service-to-service.md)
+Meer informatie over Hallo OAuth 2.0-protocol en een andere manier tooperform service tooservice auth met clientreferenties.
+* [Service tooservice auth met OAuth 2.0-client referenties grant in Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md)

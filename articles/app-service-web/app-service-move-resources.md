@@ -1,6 +1,6 @@
 ---
-title: Web-App Resources verplaatsen naar een andere resourcegroep
-description: Beschrijft de scenario's waarin kunt u Web-Apps en App-Services van een resourcegroep naar een andere.
+title: aaaMove bronnen voor Web-App tooanother resourcegroep
+description: Hallo-scenario's waarin u Web-Apps en App-Services van een resourcegroep tooanother verplaatsen kunt beschrijft.
 services: app-service
 documentationcenter: 
 author: ZainRizvi
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 931012fee656b7f8a4b2c225c38739a9171d3b2e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supported-move-configurations"></a><span data-ttu-id="15c82-103">Ondersteunde Move-configuraties</span><span class="sxs-lookup"><span data-stu-id="15c82-103">Supported Move Configurations</span></span>
-<span data-ttu-id="15c82-104">Kunt u Web-App van Azure-resources met behulp van de [Resource Manager verplaatsen Resources API](../azure-resource-manager/resource-group-move-resources.md).</span><span class="sxs-lookup"><span data-stu-id="15c82-104">You can move Azure Web App resources using the [Resource Manager Move Resources API](../azure-resource-manager/resource-group-move-resources.md).</span></span>
+# <a name="supported-move-configurations"></a><span data-ttu-id="12b2d-103">Ondersteunde Move-configuraties</span><span class="sxs-lookup"><span data-stu-id="12b2d-103">Supported Move Configurations</span></span>
+<span data-ttu-id="12b2d-104">U kunt Azure-Web-App-resources met behulp van Hallo verplaatsen [Resource Manager verplaatsen Resources API](../azure-resource-manager/resource-group-move-resources.md).</span><span class="sxs-lookup"><span data-stu-id="12b2d-104">You can move Azure Web App resources using hello [Resource Manager Move Resources API](../azure-resource-manager/resource-group-move-resources.md).</span></span>
 
-<span data-ttu-id="15c82-105">Azure Web Apps biedt momenteel ondersteuning voor de volgende move-scenario's:</span><span class="sxs-lookup"><span data-stu-id="15c82-105">Azure Web Apps currently supports the following move scenarios:</span></span>
+<span data-ttu-id="12b2d-105">Azure Web Apps ondersteunt momenteel Hallo verplaatsen scenario's te volgen:</span><span class="sxs-lookup"><span data-stu-id="12b2d-105">Azure Web Apps currently supports hello following move scenarios:</span></span>
 
-* <span data-ttu-id="15c82-106">De volledige inhoud van een resourcegroep (web-apps, app service-abonnementen en certificaten) naar een andere resourcegroep verplaatsen.</span><span class="sxs-lookup"><span data-stu-id="15c82-106">Move the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group.</span></span> 
+* <span data-ttu-id="12b2d-106">Hallo volledige inhoud van een resourcegroep (web-apps, app service-abonnementen en certificaten) verplaatsen tooanother resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="12b2d-106">Move hello entire contents of a resource group (web apps, app service plans, and certificates) tooanother resource group.</span></span> 
    > [!Note]
-   > <span data-ttu-id="15c82-107">De resourcegroep voor de bestemming kan geen Microsoft.Web bronnen in dit scenario bevatten.</span><span class="sxs-lookup"><span data-stu-id="15c82-107">The destination resource group can not contain any Microsoft.Web resources in this scenario.</span></span>
+   > <span data-ttu-id="12b2d-107">Hallo bestemming resourcegroep mag niet Microsoft.Web bronnen in dit scenario.</span><span class="sxs-lookup"><span data-stu-id="12b2d-107">hello destination resource group can not contain any Microsoft.Web resources in this scenario.</span></span>
 
-* <span data-ttu-id="15c82-108">Afzonderlijke web-apps naar een andere resourcegroep verplaatsen tijdens het hosten van ze nog steeds in de huidige app service-abonnement (het app service-abonnement blijft in de oude resourcegroep).</span><span class="sxs-lookup"><span data-stu-id="15c82-108">Move individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group).</span></span>
+* <span data-ttu-id="12b2d-108">Afzonderlijke web apps tooa andere resourcegroep verplaatsen tijdens het hosten van ze nog steeds in de huidige app service-abonnement (Hallo-app service plan blijft in de oude resourcegroep Hallo).</span><span class="sxs-lookup"><span data-stu-id="12b2d-108">Move individual web apps tooa different resource group, while still hosting them in their current app service plan (hello app service plan stays in hello old resource group).</span></span>
 
 

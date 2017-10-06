@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B-samenwerking code en voorbeelden van PowerShell | Microsoft Docs
+title: aaaAzure Active Directory B2B collaboration code en voorbeelden van PowerShell | Microsoft Docs
 description: Voorbeelden van code en PowerShell voor Azure Active Directory B2B-samenwerking
 services: active-directory
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: cae69f57627b3058bf96c3d1eea7dadc81147153
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8e4f66fcb50d190899304831ea7ccd2203c5468c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a><span data-ttu-id="b01c4-103">Azure Active Directory B2B-samenwerking code en PowerShell-voorbeelden</span><span class="sxs-lookup"><span data-stu-id="b01c4-103">Azure Active Directory B2B collaboration code and PowerShell samples</span></span>
+# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a><span data-ttu-id="12ae1-103">Azure Active Directory B2B-samenwerking code en PowerShell-voorbeelden</span><span class="sxs-lookup"><span data-stu-id="12ae1-103">Azure Active Directory B2B collaboration code and PowerShell samples</span></span>
 
-## <a name="powershell-example"></a><span data-ttu-id="b01c4-104">PowerShell-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="b01c4-104">PowerShell example</span></span>
-<span data-ttu-id="b01c4-105">U kunt bulk-uitnodiging externe gebruikers naar een organisatie van e-mailadressen die u hebt opgeslagen in een. CSV-bestand.</span><span class="sxs-lookup"><span data-stu-id="b01c4-105">You can bulk-invite external users to an organization from email addresses that you have stored in a .CSV file.</span></span>
+## <a name="powershell-example"></a><span data-ttu-id="12ae1-104">PowerShell-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="12ae1-104">PowerShell example</span></span>
+<span data-ttu-id="12ae1-105">U kunt bulk-uitnodiging externe gebruikers tooan organisatie van e-mailadressen die u hebt opgeslagen in een. CSV-bestand.</span><span class="sxs-lookup"><span data-stu-id="12ae1-105">You can bulk-invite external users tooan organization from email addresses that you have stored in a .CSV file.</span></span>
 
-1. <span data-ttu-id="b01c4-106">Bereid de. CSV-bestand Maak een nieuw CSV-bestand en noem deze invitations.csv.</span><span class="sxs-lookup"><span data-stu-id="b01c4-106">Prepare the .CSV file Create a new CSV file and name it invitations.csv.</span></span> <span data-ttu-id="b01c4-107">In dit voorbeeld wordt het bestand wordt opgeslagen in C:\data en bevat de volgende informatie:</span><span class="sxs-lookup"><span data-stu-id="b01c4-107">In this example, the file is saved in C:\data, and contains the following information:</span></span>
+1. <span data-ttu-id="12ae1-106">Hallo voorbereiden. CSV-bestand Maak een nieuw CSV-bestand en noem deze invitations.csv.</span><span class="sxs-lookup"><span data-stu-id="12ae1-106">Prepare hello .CSV file Create a new CSV file and name it invitations.csv.</span></span> <span data-ttu-id="12ae1-107">In dit voorbeeld Hallo-bestand wordt opgeslagen in C:\data en bevat Hallo volgende informatie:</span><span class="sxs-lookup"><span data-stu-id="12ae1-107">In this example, hello file is saved in C:\data, and contains hello following information:</span></span>
   
-  <span data-ttu-id="b01c4-108">Naam</span><span class="sxs-lookup"><span data-stu-id="b01c4-108">Name</span></span>                  |  <span data-ttu-id="b01c4-109">InvitedUserEmailAddress</span><span class="sxs-lookup"><span data-stu-id="b01c4-109">InvitedUserEmailAddress</span></span>
+  <span data-ttu-id="12ae1-108">Naam</span><span class="sxs-lookup"><span data-stu-id="12ae1-108">Name</span></span>                  |  <span data-ttu-id="12ae1-109">InvitedUserEmailAddress</span><span class="sxs-lookup"><span data-stu-id="12ae1-109">InvitedUserEmailAddress</span></span>
   --------------------- | --------------------------
-  <span data-ttu-id="b01c4-110">Gmail B2B genodigde</span><span class="sxs-lookup"><span data-stu-id="b01c4-110">Gmail B2B Invitee</span></span>     | b2binvitee@gmail.com
-  <span data-ttu-id="b01c4-111">Outlook B2B genodigde</span><span class="sxs-lookup"><span data-stu-id="b01c4-111">Outlook B2B invitee</span></span>   | b2binvitee@outlook.com
+  <span data-ttu-id="12ae1-110">Gmail B2B genodigde</span><span class="sxs-lookup"><span data-stu-id="12ae1-110">Gmail B2B Invitee</span></span>     | b2binvitee@gmail.com
+  <span data-ttu-id="12ae1-111">Outlook B2B genodigde</span><span class="sxs-lookup"><span data-stu-id="12ae1-111">Outlook B2B invitee</span></span>   | b2binvitee@outlook.com
 
 
-2. <span data-ttu-id="b01c4-112">Ophalen van de meest recente Azure AD PowerShell u de nieuwe cmdlets, moet u de bijgewerkte Azure AD PowerShell-module die u via downloaden kunt installeren [pagina van de Powershell-module-opheffen](https://www.powershellgallery.com/packages/AzureADPreview)</span><span class="sxs-lookup"><span data-stu-id="b01c4-112">Get the latest Azure AD PowerShell To use the new cmdlets, you must install the updated Azure AD PowerShell module, which you can download from [the Powershell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)</span></span>
+2. <span data-ttu-id="12ae1-112">Ophalen van de meest recente Azure AD PowerShell toouse Hallo Hallo nieuwe cmdlets, moet u de Azure AD PowerShell-module Hallo bijgewerkt, die u via downloaden kunt installeren [Hallo Powershell-module release pagina](https://www.powershellgallery.com/packages/AzureADPreview)</span><span class="sxs-lookup"><span data-stu-id="12ae1-112">Get hello latest Azure AD PowerShell toouse hello new cmdlets, you must install hello updated Azure AD PowerShell module, which you can download from [hello Powershell module's release page](https://www.powershellgallery.com/packages/AzureADPreview)</span></span>
 
-3. <span data-ttu-id="b01c4-113">Aanmelden bij uw tenancymodus</span><span class="sxs-lookup"><span data-stu-id="b01c4-113">Sign in to your tenancy</span></span>
+3. <span data-ttu-id="12ae1-113">Meld u aan tooyour tenancymodus</span><span class="sxs-lookup"><span data-stu-id="12ae1-113">Sign in tooyour tenancy</span></span>
 
     ```
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
-4. <span data-ttu-id="b01c4-114">Voer de PowerShell-cmdlet</span><span class="sxs-lookup"><span data-stu-id="b01c4-114">Run the PowerShell cmdlet</span></span>
+4. <span data-ttu-id="12ae1-114">Voer de PowerShell-cmdlet Hallo</span><span class="sxs-lookup"><span data-stu-id="12ae1-114">Run hello PowerShell cmdlet</span></span>
 
   ```
   $invitations = import-csv C:\data\invitations.csv
@@ -52,13 +52,13 @@ ms.lasthandoff: 07/11/2017
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
-<span data-ttu-id="b01c4-115">Deze cmdlet verzendt een uitnodiging voor de e-mailadressen in invitations.csv.</span><span class="sxs-lookup"><span data-stu-id="b01c4-115">This cmdlet sends an invitation to the email addresses in invitations.csv.</span></span> <span data-ttu-id="b01c4-116">Aanvullende functies van deze cmdlet:</span><span class="sxs-lookup"><span data-stu-id="b01c4-116">Additional features of this cmdlet include:</span></span>
-- <span data-ttu-id="b01c4-117">Aangepaste tekst in het e-mailbericht</span><span class="sxs-lookup"><span data-stu-id="b01c4-117">Customized text in the email message</span></span>
-- <span data-ttu-id="b01c4-118">Een weergavenaam voor de uitgenodigde gebruiker inclusief</span><span class="sxs-lookup"><span data-stu-id="b01c4-118">Including a display name for the invited user</span></span>
-- <span data-ttu-id="b01c4-119">Verzenden van berichten aan CCs of e-mailberichten helemaal onderdrukken</span><span class="sxs-lookup"><span data-stu-id="b01c4-119">Sending messages to CCs or suppressing email messages altogether</span></span>
+<span data-ttu-id="12ae1-115">Deze cmdlet verzendt een uitnodiging toohello e-mailadressen in invitations.csv.</span><span class="sxs-lookup"><span data-stu-id="12ae1-115">This cmdlet sends an invitation toohello email addresses in invitations.csv.</span></span> <span data-ttu-id="12ae1-116">Aanvullende functies van deze cmdlet:</span><span class="sxs-lookup"><span data-stu-id="12ae1-116">Additional features of this cmdlet include:</span></span>
+- <span data-ttu-id="12ae1-117">Aangepaste tekst in e-mailbericht Hallo</span><span class="sxs-lookup"><span data-stu-id="12ae1-117">Customized text in hello email message</span></span>
+- <span data-ttu-id="12ae1-118">Gebruiker met inbegrip van een weergavenaam voor Hallo uitgenodigd</span><span class="sxs-lookup"><span data-stu-id="12ae1-118">Including a display name for hello invited user</span></span>
+- <span data-ttu-id="12ae1-119">Verzenden van berichten tooCCs of e-mailberichten helemaal onderdrukken</span><span class="sxs-lookup"><span data-stu-id="12ae1-119">Sending messages tooCCs or suppressing email messages altogether</span></span>
 
-## <a name="code-sample"></a><span data-ttu-id="b01c4-120">Codevoorbeeld</span><span class="sxs-lookup"><span data-stu-id="b01c4-120">Code sample</span></span>
-<span data-ttu-id="b01c4-121">Hier ziet u hoe de uitnodiging-API aanroepen in de modus 'alleen app', de inwisselcode-URL voor de bron waarnaar u de gebruiker B2B uitnodigen ophalen.</span><span class="sxs-lookup"><span data-stu-id="b01c4-121">Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user.</span></span> <span data-ttu-id="b01c4-122">Het doel is om een aangepaste uitnodiging e-mail te verzenden.</span><span class="sxs-lookup"><span data-stu-id="b01c4-122">The goal is to send a custom invitation email.</span></span> <span data-ttu-id="b01c4-123">Het e-mailbericht samengesteld kan zijn, met een HTTP-client, zodat u kunt aanpassen hoe het eruit ziet en via Graph API versturen.</span><span class="sxs-lookup"><span data-stu-id="b01c4-123">The email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.</span></span>
+## <a name="code-sample"></a><span data-ttu-id="12ae1-120">Codevoorbeeld</span><span class="sxs-lookup"><span data-stu-id="12ae1-120">Code sample</span></span>
+<span data-ttu-id="12ae1-121">Hier laten we zien hoe toocall Hallo uitnodiging API in de modus 'alleen app', tooget Hallo inwisseling URL voor Hallo resource toowhich die u bent uitgenodigd Hallo B2B-gebruiker.</span><span class="sxs-lookup"><span data-stu-id="12ae1-121">Here we illustrate how toocall hello invitation API, in "app-only" mode, tooget hello redemption URL for hello resource toowhich you are inviting hello B2B user.</span></span> <span data-ttu-id="12ae1-122">Hallo-doel is toosend een uitnodiging voor een aangepaste e-mailadres.</span><span class="sxs-lookup"><span data-stu-id="12ae1-122">hello goal is toosend a custom invitation email.</span></span> <span data-ttu-id="12ae1-123">Hallo e samengesteld kan zijn, met een HTTP-client, zodat u kunt aanpassen hoe het eruit ziet en via Graph API versturen.</span><span class="sxs-lookup"><span data-stu-id="12ae1-123">hello email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.</span></span>
 
 ```
 namespace SampleInviteApp
@@ -82,34 +82,34 @@ namespace SampleInviteApp
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
  
         /// <summary>
-        ///  Authentication endpoint to get token.
+        ///  Authentication endpoint tooget token.
         /// </summary>
         static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
  
         /// <summary>
-        /// This is the tenantid of the tenant you want to invite users to.
+        /// This is hello tenantid of hello tenant you want tooinvite users to.
         /// </summary>
         private static readonly string TenantID = "";
  
         /// <summary>
-        /// This is the application id of the application that is registered in the above tenant.
-        /// The required scopes are available in the below link.
+        /// This is hello application id of hello application that is registered in hello above tenant.
+        /// hello required scopes are available in hello below link.
         /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
         /// </summary>
         private static readonly string TestAppClientId = "";
  
         /// <summary>
-        /// Client secret of the application.
+        /// Client secret of hello application.
         /// </summary>
         private static readonly string TestAppClientSecret = @"
  
         /// <summary>
-        /// This is the email address of the user you want to invite.
+        /// This is hello email address of hello user you want tooinvite.
         /// </summary>
         private static readonly string InvitedUserEmailAddress = @"";
  
         /// <summary>
-        /// This is the display name of the user you want to invite.
+        /// This is hello display name of hello user you want tooinvite.
         /// </summary>
         private static readonly string InvitedUserDisplayName = @"";
  
@@ -124,12 +124,12 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Create the invitation object.
+        /// Create hello invitation object.
         /// </summary>
-        /// <returns>Returns the invitation object.</returns>
+        /// <returns>Returns hello invitation object.</returns>
         private static Invitation CreateInvitation()
         {
-            // Set the invitation object.
+            // Set hello invitation object.
             Invitation invitation = new Invitation();
             invitation.InvitedUserDisplayName = InvitedUserDisplayName;
             invitation.InvitedUserEmailAddress = InvitedUserEmailAddress;
@@ -139,7 +139,7 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Send the guest user invite request.
+        /// Send hello guest user invite request.
         /// </summary>
         /// <param name="invitation">Invitation object.</param>
         private static void SendInvitation(Invitation invitation)
@@ -148,7 +148,7 @@ namespace SampleInviteApp
  
             HttpClient httpClient = GetHttpClient(accessToken);
  
-            // Make the invite call. 
+            // Make hello invite call. 
             HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
             content.Headers.Add("ContentType", "application/json");
             var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
@@ -157,10 +157,10 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Get the HTTP client.
+        /// Get hello HTTP client.
         /// </summary>
         /// <param name="accessToken">Access token</param>
-        /// <returns>Returns the Http Client.</returns>
+        /// <returns>Returns hello Http Client.</returns>
         private static HttpClient GetHttpClient(string accessToken)
         {
             // setup http client.
@@ -169,20 +169,20 @@ namespace SampleInviteApp
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             httpClient.DefaultRequestHeaders.Add("client-request-id", Guid.NewGuid().ToString());
             Console.WriteLine(
-                "CorrelationID for the request: {0}",
+                "CorrelationID for hello request: {0}",
                 httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
             return httpClient;
         }
  
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get hello access token for our application tootalk toomicrosoft graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns hello access token for our application tootalk toomicrosoft graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
  
-            // Get the access token for our application to talk to microsoft graph.
+            // Get hello access token for our application tootalk toomicrosoft graph.
             try
             {
                 AuthenticationContext testAuthContext =
@@ -194,7 +194,7 @@ namespace SampleInviteApp
             }
             catch (AdalException ex)
             {
-                Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
+                Console.WriteLine("An exception was thrown while fetching hello token: {0}.", ex);
                 throw;
             }
  
@@ -217,7 +217,7 @@ namespace SampleInviteApp
             public string InvitedUserEmailAddress { get; set; }
  
             /// <summary>
-            /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
+            /// Gets or sets a value indicating whether Invitation Manager should send hello email tooInvitedUser.
             /// </summary>
             public bool SendInvitationMessage { get; set; }
  
@@ -231,17 +231,17 @@ namespace SampleInviteApp
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="b01c4-124">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b01c4-124">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="12ae1-124">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="12ae1-124">Next steps</span></span>
 
-<span data-ttu-id="b01c4-125">Lees ook onze andere artikelen over Azure AD B2B-samenwerking:</span><span class="sxs-lookup"><span data-stu-id="b01c4-125">Browse our other articles on Azure AD B2B collaboration:</span></span>
+<span data-ttu-id="12ae1-125">Lees ook onze andere artikelen over Azure AD B2B-samenwerking:</span><span class="sxs-lookup"><span data-stu-id="12ae1-125">Browse our other articles on Azure AD B2B collaboration:</span></span>
 
-* [<span data-ttu-id="b01c4-126">Wat is Azure AD B2B-samenwerking?</span><span class="sxs-lookup"><span data-stu-id="b01c4-126">What is Azure AD B2B collaboration?</span></span>](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [<span data-ttu-id="b01c4-127">Gebruikerseigenschappen B2B-samenwerking</span><span class="sxs-lookup"><span data-stu-id="b01c4-127">B2B collaboration user properties</span></span>](active-directory-b2b-user-properties.md)
-* [<span data-ttu-id="b01c4-128">Een B2B-samenwerking-gebruiker toe te voegen aan een rol</span><span class="sxs-lookup"><span data-stu-id="b01c4-128">Adding a B2B collaboration user to a role</span></span>](active-directory-b2b-add-guest-to-role.md)
-* [<span data-ttu-id="b01c4-129">B2B-samenwerking uitnodigingen delegeren</span><span class="sxs-lookup"><span data-stu-id="b01c4-129">Delegate B2B collaboration invitations</span></span>](active-directory-b2b-delegate-invitations.md)
-* [<span data-ttu-id="b01c4-130">Dynamische groepen en B2B-samenwerking</span><span class="sxs-lookup"><span data-stu-id="b01c4-130">Dynamic groups and B2B collaboration</span></span>](active-directory-b2b-dynamic-groups.md)
-* [<span data-ttu-id="b01c4-131">SaaS-apps voor B2B-samenwerking configureren</span><span class="sxs-lookup"><span data-stu-id="b01c4-131">Configure SaaS apps for B2B collaboration</span></span>](active-directory-b2b-configure-saas-apps.md)
-* [<span data-ttu-id="b01c4-132">B2B-samenwerking gebruikerstokens</span><span class="sxs-lookup"><span data-stu-id="b01c4-132">B2B collaboration user tokens</span></span>](active-directory-b2b-user-token.md)
-* [<span data-ttu-id="b01c4-133">Gebruikersclaims voor B2B-samenwerking toewijzing</span><span class="sxs-lookup"><span data-stu-id="b01c4-133">B2B collaboration user claims mapping</span></span>](active-directory-b2b-claims-mapping.md)
-* [<span data-ttu-id="b01c4-134">Office 365 extern delen</span><span class="sxs-lookup"><span data-stu-id="b01c4-134">Office 365 external sharing</span></span>](active-directory-b2b-o365-external-user.md)
-* [<span data-ttu-id="b01c4-135">Huidige beperkingen voor B2B-samenwerking</span><span class="sxs-lookup"><span data-stu-id="b01c4-135">B2B collaboration current limitations</span></span>](active-directory-b2b-current-limitations.md)
+* [<span data-ttu-id="12ae1-126">Wat is Azure AD B2B-samenwerking?</span><span class="sxs-lookup"><span data-stu-id="12ae1-126">What is Azure AD B2B collaboration?</span></span>](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [<span data-ttu-id="12ae1-127">Gebruikerseigenschappen B2B-samenwerking</span><span class="sxs-lookup"><span data-stu-id="12ae1-127">B2B collaboration user properties</span></span>](active-directory-b2b-user-properties.md)
+* [<span data-ttu-id="12ae1-128">B2B-samenwerking tooa gebruikersrol toevoegen</span><span class="sxs-lookup"><span data-stu-id="12ae1-128">Adding a B2B collaboration user tooa role</span></span>](active-directory-b2b-add-guest-to-role.md)
+* [<span data-ttu-id="12ae1-129">B2B-samenwerking uitnodigingen delegeren</span><span class="sxs-lookup"><span data-stu-id="12ae1-129">Delegate B2B collaboration invitations</span></span>](active-directory-b2b-delegate-invitations.md)
+* [<span data-ttu-id="12ae1-130">Dynamische groepen en B2B-samenwerking</span><span class="sxs-lookup"><span data-stu-id="12ae1-130">Dynamic groups and B2B collaboration</span></span>](active-directory-b2b-dynamic-groups.md)
+* [<span data-ttu-id="12ae1-131">SaaS-apps voor B2B-samenwerking configureren</span><span class="sxs-lookup"><span data-stu-id="12ae1-131">Configure SaaS apps for B2B collaboration</span></span>](active-directory-b2b-configure-saas-apps.md)
+* [<span data-ttu-id="12ae1-132">B2B-samenwerking gebruikerstokens</span><span class="sxs-lookup"><span data-stu-id="12ae1-132">B2B collaboration user tokens</span></span>](active-directory-b2b-user-token.md)
+* [<span data-ttu-id="12ae1-133">Gebruikersclaims voor B2B-samenwerking toewijzing</span><span class="sxs-lookup"><span data-stu-id="12ae1-133">B2B collaboration user claims mapping</span></span>](active-directory-b2b-claims-mapping.md)
+* [<span data-ttu-id="12ae1-134">Office 365 extern delen</span><span class="sxs-lookup"><span data-stu-id="12ae1-134">Office 365 external sharing</span></span>](active-directory-b2b-o365-external-user.md)
+* [<span data-ttu-id="12ae1-135">Huidige beperkingen voor B2B-samenwerking</span><span class="sxs-lookup"><span data-stu-id="12ae1-135">B2B collaboration current limitations</span></span>](active-directory-b2b-current-limitations.md)

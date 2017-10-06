@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Event Hubs - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u met Event Hubs miljoenen gebeurtenissen per seconde kunt opnemen van verbonden IoT-apparaten en -toepassingen op een brede reeks platformen.
+title: aaaAzure documentatie in de Event-Hubs - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse Event Hubs tooingest miljoenen gebeurtenissen per seconde van IoT-apparaten en toepassingen op een uitgebreide reeks platforms verbonden.
 services: event-hubs
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b75a4f958f66afdbca2fc612e2359df241164818
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-documentation"></a>Documentatie over Event Hubs
 
-Leer hoe u Event Hubs kunt gebruiken voor het verzamelen en beheren van miljoenen gebeurtenissen per seconde van verbonden IoT-apparaten en -toepassingen. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u schaalbare opname kunt instellen voor gebeurtenissen van een brede reeks platformen.
+Meer informatie over hoe toouse Event Hubs toocollect en miljoenen gebeurtenissen per seconde van verbonden IoT-apparaten en toepassingen te beheren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u schaalbare opname kunt instellen voor gebeurtenissen van een brede reeks platformen.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Leer hoe u Event Hubs kunt gebruiken voor het verzamelen en beheren van miljoene
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met de programmeerhandleiding voor Event Hubs</h3>
+                        <h3>Aan de slag met Hallo-Programmeerhandleiding voor Event Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Leer hoe u Event Hubs kunt gebruiken voor het verzamelen en beheren van miljoene
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Aan de slag met Event Hubs met Azure Portal</h3>
+                        <h3>Aan de slag met Event Hubs met behulp van hello Azure-portal</h3>
                     </div>
                 </div>
             </div>

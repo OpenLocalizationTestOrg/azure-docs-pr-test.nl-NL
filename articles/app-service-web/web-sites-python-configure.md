@@ -1,5 +1,5 @@
 ---
-title: Python configureren met Azure App Service WebApps
+title: aaaConfiguring Python met Azure App Service Web Apps
 description: Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige webserver Gateway Interface (WSGI) compatibele Python-toepassing in Azure App Service Web Apps.
 services: app-service
 documentationcenter: python
@@ -15,36 +15,36 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 9683a1af13eeff364d3c4714f0b791324fd82659
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00d49fb01491e9adb4b6fededfb95669a8dbd485
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configuring-python-with-azure-app-service-web-apps"></a><span data-ttu-id="ac5e4-103">Python configureren met Azure App Service WebApps</span><span class="sxs-lookup"><span data-stu-id="ac5e4-103">Configuring Python with Azure App Service Web Apps</span></span>
-<span data-ttu-id="ac5e4-104">Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige Web Server Gateway Interface (WSGI) compatibele Python-toepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).</span><span class="sxs-lookup"><span data-stu-id="ac5e4-104">This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).</span></span>
+# <a name="configuring-python-with-azure-app-service-web-apps"></a><span data-ttu-id="5bdb7-103">Python configureren met Azure App Service WebApps</span><span class="sxs-lookup"><span data-stu-id="5bdb7-103">Configuring Python with Azure App Service Web Apps</span></span>
+<span data-ttu-id="5bdb7-104">Deze zelfstudie wordt beschreven opties voor het ontwerpen en configureren van een eenvoudige Web Server Gateway Interface (WSGI) compatibele Python-toepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).</span><span class="sxs-lookup"><span data-stu-id="5bdb7-104">This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).</span></span>
 
-<span data-ttu-id="ac5e4-105">Aanvullende functies van Git-implementatie, zoals virtuele omgeving en de installatie van het pakket met requirements.txt beschrijft.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-105">It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.</span></span>
+<span data-ttu-id="5bdb7-105">Aanvullende functies van Git-implementatie, zoals virtuele omgeving en de installatie van het pakket met requirements.txt beschrijft.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-105">It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.</span></span>
 
-## <a name="bottle-django-or-flask"></a><span data-ttu-id="ac5e4-106">Bottle, Django of Flask?</span><span class="sxs-lookup"><span data-stu-id="ac5e4-106">Bottle, Django or Flask?</span></span>
-<span data-ttu-id="ac5e4-107">Azure Marketplace bevat sjablonen voor de frameworks Bottle, Django en Flask.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-107">The Azure Marketplace contains templates for the Bottle, Django and Flask frameworks.</span></span> <span data-ttu-id="ac5e4-108">Als u uw eerste web-app in Azure App Service ontwikkelt, of u niet bekend met Git bent, raden wij aan dat u deze zelfstudies, waaronder Stapsgewijze instructies volgt voor het bouwen van een werkende toepassing uit de galerie met Git-implementatie van Windows- of Mac:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-108">If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:</span></span>
+## <a name="bottle-django-or-flask"></a><span data-ttu-id="5bdb7-106">Bottle, Django of Flask?</span><span class="sxs-lookup"><span data-stu-id="5bdb7-106">Bottle, Django or Flask?</span></span>
+<span data-ttu-id="5bdb7-107">Hello Azure Marketplace bevat sjablonen voor Hallo Bottle, Django en Flask frameworks.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-107">hello Azure Marketplace contains templates for hello Bottle, Django and Flask frameworks.</span></span> <span data-ttu-id="5bdb7-108">Als u uw eerste web-app in Azure App Service ontwikkelt, of u niet bekend met Git bent, raden wij aan dat u deze zelfstudies, waaronder Stapsgewijze instructies volgt voor het bouwen van een werkende toepassing uit Hallo galerie met Git-implementatie in Windows of Mac:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-108">If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from hello gallery using Git deployment from Windows or Mac:</span></span>
 
-* [<span data-ttu-id="ac5e4-109">Web-apps maken met Bottle</span><span class="sxs-lookup"><span data-stu-id="ac5e4-109">Creating web apps with Bottle</span></span>](web-sites-python-create-deploy-bottle-app.md)
-* [<span data-ttu-id="ac5e4-110">Web-apps maken met Django</span><span class="sxs-lookup"><span data-stu-id="ac5e4-110">Creating web apps with Django</span></span>](web-sites-python-create-deploy-django-app.md)
-* [<span data-ttu-id="ac5e4-111">Web-apps maken met Flask</span><span class="sxs-lookup"><span data-stu-id="ac5e4-111">Creating web apps with Flask</span></span>](web-sites-python-create-deploy-flask-app.md)
+* [<span data-ttu-id="5bdb7-109">Web-apps maken met Bottle</span><span class="sxs-lookup"><span data-stu-id="5bdb7-109">Creating web apps with Bottle</span></span>](web-sites-python-create-deploy-bottle-app.md)
+* [<span data-ttu-id="5bdb7-110">Web-apps maken met Django</span><span class="sxs-lookup"><span data-stu-id="5bdb7-110">Creating web apps with Django</span></span>](web-sites-python-create-deploy-django-app.md)
+* [<span data-ttu-id="5bdb7-111">Web-apps maken met Flask</span><span class="sxs-lookup"><span data-stu-id="5bdb7-111">Creating web apps with Flask</span></span>](web-sites-python-create-deploy-flask-app.md)
 
-## <a name="web-app-creation-on-azure-portal"></a><span data-ttu-id="ac5e4-112">Web-Apps maken op Azure-Portal</span><span class="sxs-lookup"><span data-stu-id="ac5e4-112">Web app creation on Azure Portal</span></span>
-<span data-ttu-id="ac5e4-113">Deze zelfstudie wordt ervan uitgegaan van een bestaand Azure-abonnement en de toegang tot de Azure-Portal.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-113">This tutorial assumes an existing Azure subscription and access to the Azure Portal.</span></span>
+## <a name="web-app-creation-on-azure-portal"></a><span data-ttu-id="5bdb7-112">Web-Apps maken op Azure-Portal</span><span class="sxs-lookup"><span data-stu-id="5bdb7-112">Web app creation on Azure Portal</span></span>
+<span data-ttu-id="5bdb7-113">Deze zelfstudie wordt ervan uitgegaan van een bestaande Azure-abonnement en toegang toohello Azure-Portal.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-113">This tutorial assumes an existing Azure subscription and access toohello Azure Portal.</span></span>
 
-<span data-ttu-id="ac5e4-114">Als u een bestaande web-app niet hebt, kunt u een van de [Azure Portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="ac5e4-114">If you do not have an existing web app, you can create one from the [Azure Portal](https://portal.azure.com).</span></span>  <span data-ttu-id="ac5e4-115">Klik op de knop Nieuw in de linkerbovenhoek en klik vervolgens op **Web en mobiel** > **Web-app**.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-115">Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.</span></span>
+<span data-ttu-id="5bdb7-114">Als u een bestaande web-app niet hebt, kunt u één van Hallo [Azure Portal](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="5bdb7-114">If you do not have an existing web app, you can create one from hello [Azure Portal](https://portal.azure.com).</span></span>  <span data-ttu-id="5bdb7-115">Klik op de nieuwe knop Hallo in Hallo linksboven en klik vervolgens op **Web en mobiel** > **Web-app**.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-115">Click hello NEW button in hello top left corner, then click **Web + Mobile** > **Web app**.</span></span>
 
-## <a name="git-publishing"></a><span data-ttu-id="ac5e4-116">GIT-publicatie</span><span class="sxs-lookup"><span data-stu-id="ac5e4-116">Git Publishing</span></span>
-<span data-ttu-id="ac5e4-117">Configureer Git-publicatie voor uw nieuwe web-app door de instructies te volgen in [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md) (Lokale Git-implementatie naar Azure App Service).</span><span class="sxs-lookup"><span data-stu-id="ac5e4-117">Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md).</span></span> <span data-ttu-id="ac5e4-118">Deze zelfstudie maakt gebruik van Git te maken, beheren en publiceren van onze Python-web-app in Azure App Service.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-118">This tutorial uses Git to create, manage, and publish our Python web app to Azure App Service.</span></span>
+## <a name="git-publishing"></a><span data-ttu-id="5bdb7-116">GIT-publicatie</span><span class="sxs-lookup"><span data-stu-id="5bdb7-116">Git Publishing</span></span>
+<span data-ttu-id="5bdb7-117">Configureer Git-publicatie voor uw nieuwe web-app met behulp Hallo-instructies in [lokale Git-implementatie tooAzure App Service](app-service-deploy-local-git.md).</span><span class="sxs-lookup"><span data-stu-id="5bdb7-117">Configure Git publishing for your newly created web app by following hello instructions at [Local Git Deployment tooAzure App Service](app-service-deploy-local-git.md).</span></span> <span data-ttu-id="5bdb7-118">Deze zelfstudie wordt gebruikgemaakt van Git toocreate, beheren en publiceren van onze Python web app tooAzure App Service.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-118">This tutorial uses Git toocreate, manage, and publish our Python web app tooAzure App Service.</span></span>
 
-<span data-ttu-id="ac5e4-119">Zodra de Git-publicatie is ingesteld, wordt een Git-opslagplaats gemaakt en gekoppeld aan uw web-app.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-119">Once Git publishing is set up, a Git repository will be created and associated with your web app.</span></span> <span data-ttu-id="ac5e4-120">URL van de opslagplaats wordt weergegeven en kunt voortaan worden gebruikt om gegevens uit de lokale ontwikkelomgeving uiterste naar de cloud.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-120">The repository's URL will be displayed and can henceforth be used to push data from the local development environment to the cloud.</span></span> <span data-ttu-id="ac5e4-121">Zorg ervoor dat een Git-client is geïnstalleerd en gebruik de instructies voor de push-inhoud van uw web-app in Azure App Service voor het publiceren van toepassingen via Git.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-121">To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web app content to Azure App Service.</span></span>
+<span data-ttu-id="5bdb7-119">Zodra de Git-publicatie is ingesteld, wordt een Git-opslagplaats gemaakt en gekoppeld aan uw web-app.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-119">Once Git publishing is set up, a Git repository will be created and associated with your web app.</span></span> <span data-ttu-id="5bdb7-120">Hallo-opslagplaats URL kan wordt weergegeven en voortaan gebruikte toopush gegevens uit Hallo lokale ontwikkeling omgeving toohello cloud.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-120">hello repository's URL will be displayed and can henceforth be used toopush data from hello local development environment toohello cloud.</span></span> <span data-ttu-id="5bdb7-121">toopublish toepassingen via Git, Controleer of een Git-client is geïnstalleerd en gebruik Hallo instructies toopush uw web-app inhoud tooAzure App Service.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-121">toopublish applications via Git, make sure a Git client is also installed and use hello instructions provided toopush your web app content tooAzure App Service.</span></span>
 
-## <a name="application-overview"></a><span data-ttu-id="ac5e4-122">Toepassingsoverzicht</span><span class="sxs-lookup"><span data-stu-id="ac5e4-122">Application Overview</span></span>
-<span data-ttu-id="ac5e4-123">In de volgende secties worden de volgende bestanden worden gemaakt.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-123">In the next sections, the following files are created.</span></span> <span data-ttu-id="ac5e4-124">Ze moeten worden geplaatst in de hoofdmap van de Git-opslagplaats.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-124">They should be placed in the root of the Git repository.</span></span>
+## <a name="application-overview"></a><span data-ttu-id="5bdb7-122">Toepassingsoverzicht</span><span class="sxs-lookup"><span data-stu-id="5bdb7-122">Application Overview</span></span>
+<span data-ttu-id="5bdb7-123">In de volgende secties Hallo worden Hallo volgende bestanden gemaakt.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-123">In hello next sections, hello following files are created.</span></span> <span data-ttu-id="5bdb7-124">Ze moeten worden geplaatst in de hoofdmap Hallo van Hallo Git-opslagplaats.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-124">They should be placed in hello root of hello Git repository.</span></span>
 
     app.py
     requirements.txt
@@ -53,10 +53,10 @@ ms.lasthandoff: 07/11/2017
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a><span data-ttu-id="ac5e4-125">WSGI-Handler</span><span class="sxs-lookup"><span data-stu-id="ac5e4-125">WSGI Handler</span></span>
-<span data-ttu-id="ac5e4-126">WSGI is een Python-standaard beschreven door [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definiëren van een interface tussen de webserver en Python.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-126">WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between the web server and Python.</span></span> <span data-ttu-id="ac5e4-127">Dit biedt een gestandaardiseerde interface voor het schrijven van verschillende webtoepassingen en frameworks met behulp van Python.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-127">It provides a standardized interface for writing various web applications and frameworks using Python.</span></span> <span data-ttu-id="ac5e4-128">Populaire frameworks voor Python-web gebruik vandaag WSGI.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-128">Popular Python web frameworks today use WSGI.</span></span> <span data-ttu-id="ac5e4-129">Azure App Service Web Apps biedt die u ondersteuning voor dergelijke frameworks; Bovendien kunnen advanced-gebruikers ook schrijven hun eigen, zolang de aangepaste handler de specificatie WSGI richtlijnen volgt.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-129">Azure App Service Web Apps gives you support for any such frameworks; in addition, advanced users can even author their own as long as the custom handler follows the WSGI specification guidelines.</span></span>
+## <a name="wsgi-handler"></a><span data-ttu-id="5bdb7-125">WSGI-Handler</span><span class="sxs-lookup"><span data-stu-id="5bdb7-125">WSGI Handler</span></span>
+<span data-ttu-id="5bdb7-126">WSGI is een Python-standaard beschreven door [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definiëren van een interface tussen de webserver Hallo en Python.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-126">WSGI is a Python standard described by [PEP 3333](http://www.python.org/dev/peps/pep-3333/) defining an interface between hello web server and Python.</span></span> <span data-ttu-id="5bdb7-127">Dit biedt een gestandaardiseerde interface voor het schrijven van verschillende webtoepassingen en frameworks met behulp van Python.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-127">It provides a standardized interface for writing various web applications and frameworks using Python.</span></span> <span data-ttu-id="5bdb7-128">Populaire frameworks voor Python-web gebruik vandaag WSGI.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-128">Popular Python web frameworks today use WSGI.</span></span> <span data-ttu-id="5bdb7-129">Azure App Service Web Apps biedt die u ondersteuning voor dergelijke frameworks; Bovendien kunnen advanced-gebruikers ook schrijven hun eigen zolang Hallo aangepaste handler Hallo WSGI specificatie richtlijnen volgt.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-129">Azure App Service Web Apps gives you support for any such frameworks; in addition, advanced users can even author their own as long as hello custom handler follows hello WSGI specification guidelines.</span></span>
 
-<span data-ttu-id="ac5e4-130">Hier volgt een voorbeeld van een `app.py` waarmee wordt gedefinieerd met een aangepaste handler:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-130">Here's an example of an `app.py` that defines a custom handler:</span></span>
+<span data-ttu-id="5bdb7-130">Hier volgt een voorbeeld van een `app.py` waarmee wordt gedefinieerd met een aangepaste handler:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-130">Here's an example of an `app.py` that defines a custom handler:</span></span>
 
     def wsgi_app(environ, start_response):
         status = '200 OK'
@@ -71,41 +71,41 @@ ms.lasthandoff: 07/11/2017
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-<span data-ttu-id="ac5e4-131">U kunt deze toepassing lokaal met uitvoeren `python app.py`, bladert u naar `http://localhost:5555` in uw webbrowser.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-131">You can run this application locally with `python app.py`, then browse to `http://localhost:5555` in your web browser.</span></span>
+<span data-ttu-id="5bdb7-131">U kunt deze toepassing lokaal met uitvoeren `python app.py`, bladert u te`http://localhost:5555` in uw webbrowser.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-131">You can run this application locally with `python app.py`, then browse too`http://localhost:5555` in your web browser.</span></span>
 
-## <a name="virtual-environment"></a><span data-ttu-id="ac5e4-132">Virtuele omgeving</span><span class="sxs-lookup"><span data-stu-id="ac5e4-132">Virtual Environment</span></span>
-<span data-ttu-id="ac5e4-133">Hoewel het bovenstaande voorbeeld-app niet alle externe pakketten vereist, is het waarschijnlijk dat uw toepassing enkele wordt vereist.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-133">Although the example app above doesn't require any external packages, it is likely that your application will require some.</span></span>
+## <a name="virtual-environment"></a><span data-ttu-id="5bdb7-132">Virtuele omgeving</span><span class="sxs-lookup"><span data-stu-id="5bdb7-132">Virtual Environment</span></span>
+<span data-ttu-id="5bdb7-133">Hoewel bovenstaande Hallo voorbeeld-app niet zijn voor alle externe pakketten vereist, is het waarschijnlijk dat uw toepassing enkele wordt vereist.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-133">Although hello example app above doesn't require any external packages, it is likely that your application will require some.</span></span>
 
-<span data-ttu-id="ac5e4-134">Azure Git-implementatie ondersteunt om te beheren externe pakketafhankelijkheden, het maken van virtuele omgevingen.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-134">To help manage external package dependencies, Azure Git deployment supports the creation of virtual environments.</span></span>
+<span data-ttu-id="5bdb7-134">toohelp beheer van externe pakketafhankelijkheden, Azure Git-implementatie ondersteunt het Hallo maken van virtuele omgevingen.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-134">toohelp manage external package dependencies, Azure Git deployment supports hello creation of virtual environments.</span></span>
 
-<span data-ttu-id="ac5e4-135">Als Azure een requirements.txt in de hoofdmap van de opslagplaats detecteert, wordt automatisch een virtuele omgeving met de naam gemaakt `env`.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-135">When Azure detects a requirements.txt in the root of the repository, it automatically creates a virtual environment named `env`.</span></span> <span data-ttu-id="ac5e4-136">Dit gebeurt alleen bij de eerste implementatie of tijdens een implementatie na het geselecteerde Python runtime is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-136">This only occurs on the first deployment, or during any deployment after the selected Python runtime has changed.</span></span>
+<span data-ttu-id="5bdb7-135">Als Azure een requirements.txt in de hoofdmap Hallo van Hallo-opslagplaats detecteert, wordt automatisch een virtuele omgeving met de naam gemaakt `env`.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-135">When Azure detects a requirements.txt in hello root of hello repository, it automatically creates a virtual environment named `env`.</span></span> <span data-ttu-id="5bdb7-136">Dit gebeurt alleen bij de eerste implementatie Hallo of tijdens een implementatie na Hallo geselecteerde Python-runtime is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-136">This only occurs on hello first deployment, or during any deployment after hello selected Python runtime has changed.</span></span>
 
-<span data-ttu-id="ac5e4-137">U wilt waarschijnlijk voor het maken van een virtuele omgeving lokaal voor ontwikkeling, maar niet opnemen in de Git-opslagplaats.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-137">You will probably want to create a virtual environment locally for development, but don't include it in your Git repository.</span></span>
+<span data-ttu-id="5bdb7-137">U wilt waarschijnlijk toocreate een virtuele omgeving lokaal voor ontwikkeling, maar niet opnemen in de Git-opslagplaats.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-137">You will probably want toocreate a virtual environment locally for development, but don't include it in your Git repository.</span></span>
 
-## <a name="package-management"></a><span data-ttu-id="ac5e4-138">Pakketbeheer</span><span class="sxs-lookup"><span data-stu-id="ac5e4-138">Package Management</span></span>
-<span data-ttu-id="ac5e4-139">Pakketten die worden vermeld in requirements.txt worden automatisch geïnstalleerd in de virtuele omgeving met behulp van pip.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-139">Packages listed in requirements.txt will be installed automatically in the virtual environment using pip.</span></span> <span data-ttu-id="ac5e4-140">Dit gebeurt op elke implementatie, maar pip slaat de installatie over als u een pakket is al geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-140">This happens on every deployment, but pip will skip installation if a package is already installed.</span></span>
+## <a name="package-management"></a><span data-ttu-id="5bdb7-138">Pakketbeheer</span><span class="sxs-lookup"><span data-stu-id="5bdb7-138">Package Management</span></span>
+<span data-ttu-id="5bdb7-139">Pakketten die worden vermeld in requirements.txt worden automatisch geïnstalleerd in de virtuele omgeving Hallo via pip.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-139">Packages listed in requirements.txt will be installed automatically in hello virtual environment using pip.</span></span> <span data-ttu-id="5bdb7-140">Dit gebeurt op elke implementatie, maar pip slaat de installatie over als u een pakket is al geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-140">This happens on every deployment, but pip will skip installation if a package is already installed.</span></span>
 
-<span data-ttu-id="ac5e4-141">Voorbeeld `requirements.txt`:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-141">Example `requirements.txt`:</span></span>
+<span data-ttu-id="5bdb7-141">Voorbeeld `requirements.txt`:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-141">Example `requirements.txt`:</span></span>
 
     azure==0.8.4
 
 
-## <a name="python-version"></a><span data-ttu-id="ac5e4-142">Python-versie</span><span class="sxs-lookup"><span data-stu-id="ac5e4-142">Python Version</span></span>
+## <a name="python-version"></a><span data-ttu-id="5bdb7-142">Python-versie</span><span class="sxs-lookup"><span data-stu-id="5bdb7-142">Python Version</span></span>
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-<span data-ttu-id="ac5e4-143">Voorbeeld `runtime.txt`:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-143">Example `runtime.txt`:</span></span>
+<span data-ttu-id="5bdb7-143">Voorbeeld `runtime.txt`:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-143">Example `runtime.txt`:</span></span>
 
     python-2.7
 
 
-## <a name="webconfig"></a><span data-ttu-id="ac5e4-144">Web.config</span><span class="sxs-lookup"><span data-stu-id="ac5e4-144">Web.config</span></span>
-<span data-ttu-id="ac5e4-145">U moet maken van een web.config-bestand om op te geven hoe de-server aanvragen moet verwerken.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-145">You'll need to create a web.config file to specify how the server should handle requests.</span></span>
+## <a name="webconfig"></a><span data-ttu-id="5bdb7-144">Web.config</span><span class="sxs-lookup"><span data-stu-id="5bdb7-144">Web.config</span></span>
+<span data-ttu-id="5bdb7-145">U moet een web.config-bestand toospecify toocreate hoe Hallo-server aanvragen moet verwerken.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-145">You'll need toocreate a web.config file toospecify how hello server should handle requests.</span></span>
 
-<span data-ttu-id="ac5e4-146">Houd er rekening mee dat als er een web.x.y.config-bestand in de opslagplaats, waar x.y overeenkomt met de geselecteerde Python-runtime en vervolgens kopieert Azure automatisch het juiste bestand als web.config.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-146">Note that if you have a web.x.y.config file in your repository, where x.y matches the selected Python runtime, then Azure will automatically copy the appropriate file as web.config.</span></span>
+<span data-ttu-id="5bdb7-146">Houd er rekening mee dat als er een web.x.y.config-bestand in de opslagplaats, waar x.y overeenkomt met Hallo Python-runtime geselecteerde en Azure automatisch de juiste bestand Hallo als web.config kopieert.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-146">Note that if you have a web.x.y.config file in your repository, where x.y matches hello selected Python runtime, then Azure will automatically copy hello appropriate file as web.config.</span></span>
 
-<span data-ttu-id="ac5e4-147">De volgende voorbeelden van web.config is afhankelijk van een virtuele omgeving proxyscript die in de volgende sectie wordt beschreven.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-147">The following web.config examples rely on a virtual environment proxy script, which is described in the next section.</span></span>  <span data-ttu-id="ac5e4-148">Ze werken met de WSGI-handler die wordt gebruikt in het voorbeeld `app.py` hierboven.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-148">They work with the WSGI handler used in the example `app.py` above.</span></span>
+<span data-ttu-id="5bdb7-147">Hallo volgende web.config voorbeelden zijn afhankelijk van een virtuele omgeving proxyscript die wordt beschreven in de volgende sectie Hallo.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-147">hello following web.config examples rely on a virtual environment proxy script, which is described in hello next section.</span></span>  <span data-ttu-id="5bdb7-148">Ze werken met Hallo WSGI handler die wordt gebruikt in Hallo voorbeeld `app.py` hierboven.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-148">They work with hello WSGI handler used in hello example `app.py` above.</span></span>
 
-<span data-ttu-id="ac5e4-149">Voorbeeld `web.config` voor Python 2.7:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-149">Example `web.config` for Python 2.7:</span></span>
+<span data-ttu-id="5bdb7-149">Voorbeeld `web.config` voor Python 2.7:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-149">Example `web.config` for Python 2.7:</span></span>
 
     <?xml version="1.0"?>
     <configuration>
@@ -155,7 +155,7 @@ ms.lasthandoff: 07/11/2017
     </configuration>
 
 
-<span data-ttu-id="ac5e4-150">Voorbeeld `web.config` voor Python 3.4:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-150">Example `web.config` for Python 3.4:</span></span>
+<span data-ttu-id="5bdb7-150">Voorbeeld `web.config` voor Python 3.4:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-150">Example `web.config` for Python 3.4:</span></span>
 
     <?xml version="1.0"?>
     <configuration>
@@ -203,28 +203,28 @@ ms.lasthandoff: 07/11/2017
     </configuration>
 
 
-<span data-ttu-id="ac5e4-151">Statische bestanden wordt verwerkt door de webserver rechtstreeks, zonder tussenkomst van Python-code, voor betere prestaties.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-151">Static files will be handled by the web server directly, without going through Python code, for improved performance.</span></span>
+<span data-ttu-id="5bdb7-151">Statische bestanden wordt verwerkt door de webserver Hallo rechtstreeks, zonder tussenkomst van Python-code, voor betere prestaties.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-151">Static files will be handled by hello web server directly, without going through Python code, for improved performance.</span></span>
 
-<span data-ttu-id="ac5e4-152">De locatie van de statische bestanden op schijf moet overeenkomen met de locatie in de URL in de bovenstaande voorbeelden.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-152">In the above examples, the location of the static files on disk should match the location in the URL.</span></span> <span data-ttu-id="ac5e4-153">Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` dient het bestand op de schijf op `\static\site.css`.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-153">This means that a request for `http://pythonapp.azurewebsites.net/static/site.css` will serve the file on disk at `\static\site.css`.</span></span>
+<span data-ttu-id="5bdb7-152">Hallo-locatie van statische bestanden op schijf Hallo moet overeenkomen met Hallo locatie in Hallo-URL in Hallo bovenstaande voorbeelden.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-152">In hello above examples, hello location of hello static files on disk should match hello location in hello URL.</span></span> <span data-ttu-id="5bdb7-153">Dit betekent dat een aanvraag voor `http://pythonapp.azurewebsites.net/static/site.css` fungeert Hallo-bestand op de schijf op `\static\site.css`.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-153">This means that a request for `http://pythonapp.azurewebsites.net/static/site.css` will serve hello file on disk at `\static\site.css`.</span></span>
 
-<span data-ttu-id="ac5e4-154">`WSGI_ALT_VIRTUALENV_HANDLER`is waar u de handler WSGI opgeven.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-154">`WSGI_ALT_VIRTUALENV_HANDLER` is where you specify the WSGI handler.</span></span> <span data-ttu-id="ac5e4-155">In de bovenstaande voorbeelden hieraan `app.wsgi_app` omdat de handler een functie met de naam is `wsgi_app` in `app.py` in de hoofdmap.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-155">In the above examples, it's `app.wsgi_app` because the handler is a function named `wsgi_app` in `app.py` in the root folder.</span></span>
+<span data-ttu-id="5bdb7-154">`WSGI_ALT_VIRTUALENV_HANDLER`is waar u Hallo WSGI handler opgeven.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-154">`WSGI_ALT_VIRTUALENV_HANDLER` is where you specify hello WSGI handler.</span></span> <span data-ttu-id="5bdb7-155">In Hallo bovenstaande voorbeelden, hieraan `app.wsgi_app` omdat Hallo-handler een functie met de naam is `wsgi_app` in `app.py` in Hallo-hoofdmap.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-155">In hello above examples, it's `app.wsgi_app` because hello handler is a function named `wsgi_app` in `app.py` in hello root folder.</span></span>
 
-<span data-ttu-id="ac5e4-156">`PYTHONPATH`kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving door te geven ze in requirements.txt installeert, moet u dient niet te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-156">`PYTHONPATH` can be customized, but if you install all your dependencies in the virtual environment by specifying them in requirements.txt, you shouldn't need to change it.</span></span>
+<span data-ttu-id="5bdb7-156">`PYTHONPATH`kan worden aangepast, maar als u alle afhankelijkheden in de virtuele omgeving Hallo installeert door te geven ze in requirements.txt, toochange niet nodig deze.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-156">`PYTHONPATH` can be customized, but if you install all your dependencies in hello virtual environment by specifying them in requirements.txt, you shouldn't need toochange it.</span></span>
 
-## <a name="virtual-environment-proxy"></a><span data-ttu-id="ac5e4-157">Virtuele omgeving Proxy</span><span class="sxs-lookup"><span data-stu-id="ac5e4-157">Virtual Environment Proxy</span></span>
-<span data-ttu-id="ac5e4-158">Het volgende script wordt gebruikt voor het ophalen van de handler WSGI en het activeren van de virtuele omgeving en log-fouten.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-158">The following script is used to retrieve the WSGI handler, activate the virtual environment and log errors.</span></span> <span data-ttu-id="ac5e4-159">Het is ontworpen voor algemene en die wordt gebruikt zonder wijzigingen.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-159">It is designed to be generic and used without modifications.</span></span>
+## <a name="virtual-environment-proxy"></a><span data-ttu-id="5bdb7-157">Virtuele omgeving Proxy</span><span class="sxs-lookup"><span data-stu-id="5bdb7-157">Virtual Environment Proxy</span></span>
+<span data-ttu-id="5bdb7-158">Hallo script volgen gebruikte tooretrieve hello WSGI handler, Hallo virtuele omgeving en logboek fouten activeren.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-158">hello following script is used tooretrieve hello WSGI handler, activate hello virtual environment and log errors.</span></span> <span data-ttu-id="5bdb7-159">Het is ontworpen toobe algemene en die wordt gebruikt zonder wijzigingen.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-159">It is designed toobe generic and used without modifications.</span></span>
 
-<span data-ttu-id="ac5e4-160">Inhoud van `ptvs_virtualenv_proxy.py`:</span><span class="sxs-lookup"><span data-stu-id="ac5e4-160">Contents of `ptvs_virtualenv_proxy.py`:</span></span>
+<span data-ttu-id="5bdb7-160">Inhoud van `ptvs_virtualenv_proxy.py`:</span><span class="sxs-lookup"><span data-stu-id="5bdb7-160">Contents of `ptvs_virtualenv_proxy.py`:</span></span>
 
      # ############################################################################
      #
      # Copyright (c) Microsoft Corporation. 
      #
-     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
-     # copy of the license can be found in the License.html file at the root of this distribution. If 
-     # you cannot locate the Apache License, Version 2.0, please send an email to 
-     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
-     # by the terms of the Apache License, Version 2.0.
+     # This source code is subject tooterms and conditions of hello Apache License, Version 2.0. A 
+     # copy of hello license can be found in hello License.html file at hello root of this distribution. If 
+     # you cannot locate hello Apache License, Version 2.0, please send an email too
+     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing toobe bound 
+     # by hello terms of hello Apache License, Version 2.0.
      #
      # You must not remove this notice, or any other, from this software.
      #
@@ -250,7 +250,7 @@ ms.lasthandoff: 07/11/2017
             return value.encode(sys.getfilesystemencoding())
 
     def log(txt):
-        """Logs fatal errors to a log file if WSGI_LOG env var is defined"""
+        """Logs fatal errors tooa log file if WSGI_LOG env var is defined"""
         log_file = os.environ.get('WSGI_LOG')
         if log_file:
             f = open(log_file, 'a+')
@@ -340,23 +340,23 @@ ms.lasthandoff: 07/11/2017
         return handler
 
 
-## <a name="customize-git-deployment"></a><span data-ttu-id="ac5e4-161">Git-implementatie aanpassen</span><span class="sxs-lookup"><span data-stu-id="ac5e4-161">Customize Git deployment</span></span>
+## <a name="customize-git-deployment"></a><span data-ttu-id="5bdb7-161">Git-implementatie aanpassen</span><span class="sxs-lookup"><span data-stu-id="5bdb7-161">Customize Git deployment</span></span>
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
-## <a name="troubleshooting---package-installation"></a><span data-ttu-id="ac5e4-162">Probleemoplossing - Installatie van pakketten</span><span class="sxs-lookup"><span data-stu-id="ac5e4-162">Troubleshooting - Package Installation</span></span>
+## <a name="troubleshooting---package-installation"></a><span data-ttu-id="5bdb7-162">Probleemoplossing - Installatie van pakketten</span><span class="sxs-lookup"><span data-stu-id="5bdb7-162">Troubleshooting - Package Installation</span></span>
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting---virtual-environment"></a><span data-ttu-id="ac5e4-163">Probleemoplossing - Virtuele omgeving</span><span class="sxs-lookup"><span data-stu-id="ac5e4-163">Troubleshooting - Virtual Environment</span></span>
+## <a name="troubleshooting---virtual-environment"></a><span data-ttu-id="5bdb7-163">Probleemoplossing - Virtuele omgeving</span><span class="sxs-lookup"><span data-stu-id="5bdb7-163">Troubleshooting - Virtual Environment</span></span>
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="ac5e4-164">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="ac5e4-164">Next steps</span></span>
-<span data-ttu-id="ac5e4-165">Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-165">For more information, see the [Python Developer Center](/develop/python/).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="5bdb7-164">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="5bdb7-164">Next steps</span></span>
+<span data-ttu-id="5bdb7-165">Zie voor meer informatie, Hallo [Python Developer Center](/develop/python/).</span><span class="sxs-lookup"><span data-stu-id="5bdb7-165">For more information, see hello [Python Developer Center](/develop/python/).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="ac5e4-166">Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-166">If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service.</span></span> <span data-ttu-id="ac5e4-167">U hebt geen creditcard nodig en u gaat geen verplichtingen aan.</span><span class="sxs-lookup"><span data-stu-id="ac5e4-167">No credit cards required; no commitments.</span></span>
+> <span data-ttu-id="5bdb7-166">Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-166">If you want tooget started with Azure App Service before signing up for an Azure account, go too[Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service.</span></span> <span data-ttu-id="5bdb7-167">U hebt geen creditcard nodig en u doet geen toezeggingen.</span><span class="sxs-lookup"><span data-stu-id="5bdb7-167">No credit cards required; no commitments.</span></span>
 > 
 > 
 
-## <a name="whats-changed"></a><span data-ttu-id="ac5e4-168">Wat is er gewijzigd</span><span class="sxs-lookup"><span data-stu-id="ac5e4-168">What's changed</span></span>
-* <span data-ttu-id="ac5e4-169">Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span><span class="sxs-lookup"><span data-stu-id="ac5e4-169">For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span></span>
+## <a name="whats-changed"></a><span data-ttu-id="5bdb7-168">Wat is er gewijzigd</span><span class="sxs-lookup"><span data-stu-id="5bdb7-168">What's changed</span></span>
+* <span data-ttu-id="5bdb7-169">Zie voor een handleiding toohello wijzigingen van de Websites tooApp Service: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span><span class="sxs-lookup"><span data-stu-id="5bdb7-169">For a guide toohello change from Websites tooApp Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)</span></span>
 
