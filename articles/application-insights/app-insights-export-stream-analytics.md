@@ -1,6 +1,6 @@
 ---
-title: Exporteren met behulp van de Stream Analytics uit Azure Application Insights | Microsoft Docs
-description: Stream Analytics kunt continu transformeren, filteren en doorsturen van de gegevens die u uit de Application Insights exporteren.
+title: aaaExport met Stream Analytics uit Azure Application Insights | Microsoft Docs
+description: Stream Analytics kunt continu transformeren, filter en route Hallo gegevens exporteren uit de Application Insights.
 services: application-insights
 documentationcenter: 
 author: noamben
@@ -13,138 +13,138 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.openlocfilehash: 6a84d8ff67c420ce712de905ab1172632502a863
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fda9b64f588c520833b2669eafdf650efc3de6be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Gebruik van Stream Analytics voor het verwerken van de geëxporteerde gegevens van Application Insights
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit de Application Insights](app-insights-export-telemetry.md). Stream Analytics kunt ophalen van gegevens uit verschillende bronnen. U kunt transformeren en filter de gegevens en vervolgens doorsturen naar een groot aantal Put.
+# <a name="use-stream-analytics-tooprocess-exported-data-from-application-insights"></a>Gebruik Stream Analytics tooprocess geëxporteerde gegevens van Application Insights
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is ideaal Hallo-hulpprogramma voor het verwerken van gegevens [geëxporteerd uit de Application Insights](app-insights-export-telemetry.md). Stream Analytics kunt ophalen van gegevens uit verschillende bronnen. U kunt transformeren en Hallo gegevens filteren en routeren vervolgens tooa diverse Put.
 
-In dit voorbeeld maakt u een netwerkadapter die worden gegevens uit de Application Insights, naam en het doorgesluisd naar Power BI sommige velden worden verwerkt.
+In dit voorbeeld maakt u een netwerkadapter die worden gegevens uit de Application Insights, naam en het doorgesluisd naar Power BI verwerkt aantal Hallo velden.
 
 > [!WARNING]
-> Er zijn veel beter en eenvoudiger [aanbevolen manieren Application Insights-gegevens weergeven in Power BI](app-insights-export-power-bi.md). Het pad hier geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens verwerken.
+> Er zijn veel beter en eenvoudiger [aanbevolen manieren toodisplay Application Insights-gegevens in Power BI](app-insights-export-power-bi.md). Hallo pad hier geïllustreerd is slechts een voorbeeld tooillustrate hoe tooprocess geëxporteerde gegevens.
 > 
 > 
 
-![Diagram voor exporteren via SA naar PBI blokkeren](./media/app-insights-export-stream-analytics/020.png)
+![Diagram voor exporteren via SA tooPBI blokkeren](./media/app-insights-export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Maken van opslag in Azure
-Continue export levert altijd gegevens aan een Azure Storage-account, dus u moet de opslag om eerst te maken.
+Continue export levert altijd gegevens tooan Azure Storage-account, dus u toocreate Hallo opslag eerst moet.
 
-1. Een 'klassiek' storage-account maken in uw abonnement in de [Azure-portal](https://portal.azure.com).
+1. Een 'klassiek' storage-account maken in uw abonnement in Hallo [Azure-portal](https://portal.azure.com).
    
    ![Kies nieuw, gegevens, opslag in Azure-portal](./media/app-insights-export-stream-analytics/030.png)
 2. Een container maken
    
-    ![In de nieuwe opslag Containers selecteren, klikt u op de tegel Containers en toevoegen](./media/app-insights-export-stream-analytics/040.png)
-3. De toegangssleutel voor opslag kopiëren
+    ![In de nieuwe opslag hello, Containers selecteren, klikt u op Hallo Containers tegel en klik vervolgens op toevoegen](./media/app-insights-export-stream-analytics/040.png)
+3. Hallo-toegangssleutel voor opslag kopiëren
    
-    U moet deze snel voor het instellen van de invoer van de stream analytics-service.
+    U hebt deze nodig snel tooset up Hallo invoer toohello stream analytics-service.
    
-    ![Instellingen, sleutels, open in de opslag, en een kopie van de primaire toegangssleutel](./media/app-insights-export-stream-analytics/045.png)
+    ![Instellingen, sleutels, open in Hallo opslag, en een kopie van de primaire toegangssleutel Hallo](./media/app-insights-export-stream-analytics/045.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Start de continue export naar Azure-opslag
+## <a name="start-continuous-export-tooazure-storage"></a>Continue export tooAzure opslag starten
 [Continue export](app-insights-export-telemetry.md) worden gegevens uit de Application Insights in Azure-opslag verplaatst.
 
-1. Blader naar de Application Insights-resource die u hebt gemaakt voor uw toepassing in de Azure-portal.
+1. Blader in hello Azure-portal, Application Insights-resource toohello die u hebt gemaakt voor uw toepassing.
    
     ![Kies Bladeren, Application Insights uw toepassing](./media/app-insights-export-stream-analytics/050.png)
 2. Maak een continue export.
    
     ![Instellingen voor continue Export toevoegen](./media/app-insights-export-stream-analytics/060.png)
 
-    Selecteer het opslagaccount dat u eerder hebt gemaakt:
+    Selecteer Hallo-opslagaccount die u eerder hebt gemaakt:
 
-    ![Stel de doelserver exporteren](./media/app-insights-export-stream-analytics/070.png)
+    ![Hallo exportbestemming instellen](./media/app-insights-export-stream-analytics/070.png)
 
-    Stel de typen gebeurtenissen die u wilt zien:
+    Hallo gebeurtenistypen gewenste toosee instellen:
 
     ![Gebeurtenistypen kiezen](./media/app-insights-export-stream-analytics/080.png)
 
 1. Laat een aantal gegevens worden verzameld. Terug zitten en toestaan dat uw toepassing een tijdje gebruiken. Telemetrie wordt geleverd in en ziet u statistische grafieken in [metrische explorer](app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md). 
    
-    En ook de gegevens worden geëxporteerd naar uw opslag. 
-2. Inspecteer de geëxporteerde gegevens. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / opslag. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster New Project en Visual C# / Cloud / ophalen van Microsoft Azure SDK voor .NET.)
+    En ook Hallo gegevens tooyour opslag worden geëxporteerd. 
+2. Hallo geëxporteerd gegevens te controleren. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / opslag. (Als u deze optie niet hebt, moet u tooinstall hello Azure SDK: Open het dialoogvenster Nieuw Project Hallo en Visual C# / Cloud / ophalen van Microsoft Azure SDK voor .NET.)
    
     ![](./media/app-insights-export-stream-analytics/04-data.png)
    
-    Noteer het algemene gedeelte van de padnaam die is afgeleid van de sleutel voor naam en instrumentatie van toepassing. 
+    Noteer Hallo deel van de padnaam hello, die is afgeleid van naam en instrumentation sleutel van Hallo van toepassing. 
 
-De gebeurtenissen worden geschreven naar de blob-bestanden in de JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus willen we gelezen gegevens van de gebeurtenis en de velden die we wilt filteren. Er zijn alle soorten wat die we met de gegevens doen kan, maar onze plan is vandaag de dag Stream Analytics gebruiken naar de gegevens met Power BI pipe.
+Hallo-gebeurtenissen worden tooblob bestanden geschreven in JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus willen we graag tooread Hallo gebeurtenisgegevens en filter Hallo velden die we willen. Er zijn alle soorten wat die we met de Hallo gegevens kan doen, maar onze plan is vandaag de dag toouse Stream Analytics toopipe Hallo gegevens tooPower BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics-exemplaar maken
-Van de [klassieke Azure Portal](https://manage.windowsazure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
+Van Hallo [klassieke Azure Portal](https://manage.windowsazure.com/)hello Azure Stream Analytics-service en selecteer een nieuwe Stream Analytics-taak maken:
 
 ![](./media/app-insights-export-stream-analytics/090.png)
 
 ![](./media/app-insights-export-stream-analytics/100.png)
 
-Als de nieuwe taak is gemaakt, vouwt u de details ervan:
+Als de nieuwe taak Hallo is gemaakt, vouwt u de details ervan:
 
 ![](./media/app-insights-export-stream-analytics/110.png)
 
 ### <a name="set-blob-location"></a>Locatie van de blob instellen
-Stel deze in op invoer van uw blob continue Export nemen:
+Deze tootake invoer van uw blob continue Export instellen:
 
 ![](./media/app-insights-export-stream-analytics/120.png)
 
-Nu moet u de primaire toegangssleutel van uw Opslagaccount die u eerder hebt genoteerd. Stel dit in als de sleutel van het Opslagaccount.
+Nu moet u Hallo primaire toegangssleutel van uw Opslagaccount die u eerder hebt genoteerd. Stel dit in als Hallo Opslagaccountsleutel.
 
 ![](./media/app-insights-export-stream-analytics/130.png)
 
 ### <a name="set-path-prefix-pattern"></a>Set pad voorvoegselpatroon
 ![](./media/app-insights-export-stream-analytics/140.png)
 
-**Zorg ervoor dat de datumnotatie ingesteld op jjjj-MM-DD (met streepjes).**
+**Worden ervoor tooset Hallo datumnotatie tooYYYY-MM-DD (met streepjes).**
 
-Het pad naar het voorvoegsel patroon geeft aan waar de invoerbestanden in Stream Analytics worden gevonden in de opslag. U moet worden ingesteld in overeenstemming met continue Export hoe de gegevens opslaat. Stel deze als volgt:
+Hallo pad voorvoegsel patroon geeft aan waar Stream Analytics Hallo invoerbestanden vindt in Hallo-opslag. U moet tooset het toocorrespond toohow continue Export Hallo-gegevens opslaat. Stel deze als volgt:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 In dit voorbeeld:
 
-* `webapplication27`de naam van de Application Insights-resource **alle kleine letters**.
-* `1234...`de instrumentatiesleutel van de Application Insights-resource is **weglaten streepjes**. 
-* `PageViews`is het type gegevens dat u wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
+* `webapplication27`Hallo-naam van Hallo Application Insights-resource **alle kleine letters**.
+* `1234...`de instrumentatiesleutel Hallo Hallo Application Insights-resource is **weglaten streepjes**. 
+* `PageViews`Hallo type gegevens dat u wilt dat tooanalyze. de beschikbare typen Hello, is afhankelijk van Hallo filter die u in de continue Export instellen. Bekijk Hallo geëxporteerde gegevens toosee Hallo andere beschikbare typen en Zie Hallo [exporteren gegevensmodel](app-insights-export-data-model.md).
 * `/{date}/{time}`een patroon er wordt letterlijk geschreven.
 
 > [!NOTE]
-> Inspecteer de opslag om ervoor te zorgen dat u het pad naar rechts.
+> Hallo opslag toomake zeker dat u direct Hallo pad controleren.
 > 
 > 
 
 ### <a name="finish-initial-setup"></a>De eerste installatie voltooien
-Bevestig de serialisatie-indeling:
+Bevestig Hallo serialisatie-indeling:
 
 ![Bevestigen en de wizard te sluiten](./media/app-insights-export-stream-analytics/150.png)
 
-De wizard te sluiten en wacht totdat de installatie te voltooien.
+Hallo wizard te sluiten en wachten op Hallo setup toocomplete.
 
 > [!TIP]
-> De voorbeeld-opdracht gebruiken om bepaalde gegevens te downloaden. Houd het als een voorbeeld van de test voor foutopsporing van uw query.
+> Hallo voorbeeld opdracht toodownload sommige gegevens gebruikt. Houd het als een voorbeeld test toodebug uw query.
 > 
 > 
 
-## <a name="set-the-output"></a>Stel de uitvoer
-Nu uw taak selecteren en instellen van de uitvoer.
+## <a name="set-hello-output"></a>Set Hallo-uitvoer
+Nu uw taak selecteren en instellen van Hallo uitvoer.
 
-![Selecteer het nieuwe kanaal, klikt u op de uitvoer, toevoegen, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Selecteer Nieuw kanaal hello, klikt u op de uitvoer, toevoegen, Power BI](./media/app-insights-export-stream-analytics/160.png)
 
-Geef uw **werk- of schoolaccount** voor het autoriseren van Stream Analytics voor toegang tot uw Power BI-bron. Vervolgens tot een naam voor de uitvoer en voor de Power BI-gegevensset doel en de tabel.
+Geef uw **werk- of schoolaccount** tooauthorize Stream Analytics tooaccess uw Power BI-resource. Vervolgens tot een naam voor uitvoer Hallo en voor Hallo doel Power BI gegevensset en tabel.
 
 ![Drie namen voorraad](./media/app-insights-export-stream-analytics/170.png)
 
-## <a name="set-the-query"></a>Instellen van de query
-De query bepaalt de vertaling van invoer om uit te voeren.
+## <a name="set-hello-query"></a>Set Hallo query
+Hallo query beheerst Hallo vertaling van invoer toooutput.
 
-![De taak te selecteren en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/180.png)
+![Hallo taak selecteren en klik op de Query. Plak Hallo voorbeeld hieronder.](./media/app-insights-export-stream-analytics/180.png)
 
-Gebruik de functie Test om te controleren dat u de uitvoer van de juiste krijgt. Geef deze de voorbeeldgegevens die u hebt gemaakt van de invoer-pagina. 
+Hallo Test functie toocheck ophalen van de juiste uitvoer hello gebruiken. Geef het Hallo-voorbeeldgegevens die u hebt gemaakt van Hallo invoer pagina. 
 
-### <a name="query-to-display-counts-of-events"></a>Query voor het aantal gebeurtenissen weergeven
+### <a name="query-toodisplay-counts-of-events"></a>Query toodisplay tellingen van gebeurtenissen
 Plak deze query:
 
 ```SQL
@@ -160,11 +160,11 @@ Plak deze query:
     GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
-* export-invoer is de alias die wordt gestuurd naar de stroom invoer
-* pbi-uitvoer is de uitvoeralias die is gedefinieerd
-* We gebruiken [buitenste toepassen GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) omdat de gebeurtenisnaam van de in een geneste JSON arrray is. Selecteer hervat vervolgens de naam van de gebeurtenis, samen met een telling van het aantal exemplaren met die naam aanwezig in de periode. De [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) component elementen gegroepeerd in perioden van 1 minuut.
+* export-invoer is Hallo alias gaven wij toohello Stroominvoer
+* pbi-uitvoer is Hallo uitvoeraliassen is gedefinieerd
+* We gebruiken [buitenste toepassen GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) omdat Hallo gebeurtenisnaam zich in een geneste JSON arrray. Selecteer uitgelicht Hallo Hallo vervolgens gebeurtenisnaam, samen met een telling van het aantal exemplaren met die naam aanwezig in Hallo periode Hallo. Hallo [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) component Hallo elementen gegroepeerd in perioden van 1 minuut.
 
-### <a name="query-to-display-metric-values"></a>Query voor metrische waarden weergeven
+### <a name="query-toodisplay-metric-values"></a>Query toodisplay metrische waarden
 ```SQL
 
     SELECT
@@ -179,9 +179,9 @@ Plak deze query:
 
 ``` 
 
-* Deze query ingezoomd in de telemetrie van de metrische gegevens ophalen van de tijd van de gebeurtenis en de metrische waarde. De metrische waarden zijn binnen een matrix, zodat we het buitenste toepassen GetElements-patroon gebruiken om op te halen van de rijen. 'myMetric' is de naam van de metrische gegevens in dit geval. 
+* Deze query ingezoomd in Hallo metrische gegevens telemetrie tooget Hallo gebeurtenistijd en Hallo metrische waarde. Hallo metrische waarden zijn binnen een matrix, zodat we Hallo buitenste toepassen GetElements patroon tooextract Hallo rijen gebruiken. 'myMetric' hello naam is van Hallo metrische gegevens in dit geval. 
 
-### <a name="query-to-include-values-of-dimension-properties"></a>Query voor het opnemen van waarden van de dimensie-eigenschappen
+### <a name="query-tooinclude-values-of-dimension-properties"></a>Query tooinclude waarden van de dimensie-eigenschappen
 ```SQL
 
     WITH flat AS (
@@ -201,22 +201,22 @@ Plak deze query:
 
 ```
 
-* Deze query bevat de waarden van de dimensie-eigenschappen zonder afhankelijk van een bepaalde dimensie wordt op een vaste index in de dimensiematrix.
+* Deze query bevat de waarden van eigenschappen zonder dimensie afhankelijk van een bepaalde dimensie wordt op een vaste index in een matrix dimensie Hallo Hallo.
 
-## <a name="run-the-job"></a>De taak uitvoeren
-U kunt een datum selecteren in het verleden om de taak uit te starten. 
+## <a name="run-hello-job"></a>Hallo-taak uitvoeren
+U kunt een datum selecteren in Hallo toostart Hallo taak in het verleden. 
 
-![De taak te selecteren en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/190.png)
+![Hallo taak selecteren en klik op de Query. Plak Hallo voorbeeld hieronder.](./media/app-insights-export-stream-analytics/190.png)
 
-Wacht totdat de taak wordt uitgevoerd.
+Wacht totdat het Hallo-taak wordt uitgevoerd.
 
 ## <a name="see-results-in-power-bi"></a>Weergeven van resultaten in Power BI
 > [!WARNING]
-> Er zijn veel beter en eenvoudiger [aanbevolen manieren Application Insights-gegevens weergeven in Power BI](app-insights-export-power-bi.md). Het pad hier geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens verwerken.
+> Er zijn veel beter en eenvoudiger [aanbevolen manieren toodisplay Application Insights-gegevens in Power BI](app-insights-export-power-bi.md). Hallo pad hier geïllustreerd is slechts een voorbeeld tooillustrate hoe tooprocess geëxporteerde gegevens.
 > 
 > 
 
-Power BI openen met uw werk of school-account en selecteer de gegevensset en de tabel die u hebt gedefinieerd als de uitvoer van de Stream Analytics-taak.
+Power BI met uw werk of schoolaccount, en selecteer Hallo gegevensset en tabel die u hebt gedefinieerd als uitvoer van de Stream Analytics-taak Hallo Hallo openen.
 
 ![Selecteer uw gegevensset en de velden in Power BI.](./media/app-insights-export-stream-analytics/200.png)
 
@@ -225,10 +225,10 @@ Nu kunt u deze gegevensset in rapporten en dashboards in [Power BI](https://powe
 ![Selecteer uw gegevensset en de velden in Power BI.](./media/app-insights-export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Zijn er geen gegevens?
-* Controleer dat u [datumnotatie instellen](#set-path-prefix-pattern) correct naar jjjj-MM-DD (met streepjes).
+* Controleer dat u [set Hallo datumnotatie](#set-path-prefix-pattern) correct tooYYYY-MM-DD (met streepjes).
 
 ## <a name="video"></a>Video
-Noam Ben Zeev laat zien hoe geëxporteerde gegevens met behulp van de Stream Analytics verwerken.
+Noam Ben Zeev ziet u hoe tooprocess gegevens met behulp van de Stream Analytics geëxporteerd.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
@@ -236,6 +236,6 @@ Noam Ben Zeev laat zien hoe geëxporteerde gegevens met behulp van de Stream Ana
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Continue export](app-insights-export-telemetry.md)
-* [Gedetailleerde gegevens model verwijzing voor de eigenschaptypen en waarden.](app-insights-export-data-model.md)
+* [Gedetailleerde gegevens model verwijzing voor Hallo eigenschaptypen en waarden.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 

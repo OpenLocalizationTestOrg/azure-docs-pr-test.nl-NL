@@ -1,6 +1,6 @@
 ---
-title: Acties en NotActions - Azure op rollen gebaseerde toegangsbeheer (RBAC) | Microsoft Docs
-description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC). De rollen worden continu toegevoegd, dus Controleer de nieuwheid documentatie.
+title: aaaActions en NotActions - Azure op rollen gebaseerde toegangsbeheer (RBAC) | Microsoft Docs
+description: Dit onderwerp beschrijft Hallo ingebouwde rollen voor op rollen gebaseerde toegangsbeheer (RBAC). Hallo-rollen worden continu toegevoegd, in dat geval selectievakje Hallo documentatie versheid.
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -16,35 +16,35 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0a4ef9923fe05ec38e968534951911eaa4440b88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
-Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
+Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over Hallo ingebouwde rollen die kunnen worden toegewezen toousers, groepen en services te volgen. U kunt Hallo definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) toofit Hallo specifieke behoeften van uw organisatie.
 
 ## <a name="roles-in-azure"></a>Rollen in Azure
-De volgende tabel bevat een korte beschrijving van de ingebouwde rollen. Klik op de naam van de rol voor een gedetailleerd overzicht van **acties** en **notactions** voor de rol. De **acties** eigenschap geeft u de toegestane acties op Azure-resources. Actie tekenreeksen kunnen jokertekens gebruiken. De **notactions** eigenschap geeft u de acties die zijn uitgesloten van de toegestane acties.
+Hallo volgende tabel bevat korte beschrijvingen van Hallo ingebouwde rollen. Klik op Hallo rol naam toosee Hallo gedetailleerde lijst met **acties** en **notactions** voor Hallo-rol. Hallo **acties** -eigenschap geeft op Hallo toegestane acties op Azure-resources. Actie tekenreeksen kunnen jokertekens gebruiken. Hallo **notactions** -eigenschap geeft op Hallo-acties die zijn uitgesloten van Hallo toegestane acties.
 
-De actie definieert wat voor soort bewerkingen die u kunt uitvoeren op een bepaald brontype. Bijvoorbeeld:
-- **Schrijven** kunt u PUT, POST, PATCH en DELETE-bewerkingen uit te voeren.
-- **Lees** kunt u GET-bewerkingen uitvoeren.
+Hallo-actie definieert wat voor soort kunt u bewerkingen op een bepaald brontype uitvoeren. Bijvoorbeeld:
+- **Schrijven** schakelt u tooperform PUT, POST, PATCH en VERWIJDERBEWERKINGEN.
+- **Lees** kunt u tooperform GET-bewerkingen.
 
-In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer u een rol aan een gebruiker toewijst, echter kunt u beperken de toegestane acties verder met het definiëren van een scope. Dit is handig als u ervoor iemand een medewerker van de Website, maar alleen voor één resourcegroep.
+In dit artikel komen alleen Hallo verschillende rollen die vandaag bestaan. Wanneer u een rol tooa gebruiker toewijst, echter kunt u beperken Hallo verdere acties door te definiëren van een bereik toegestaan. Dit is handig als u wilt dat toomake iemand een Website Inzender, maar alleen voor een resourcegroep.
 
 > [!NOTE]
-> De Azure roldefinities zijn voortdurend in ontwikkeling. In dit artikel is actueel zo mogelijk, maar u vindt altijd de meest recente definities van de rollen in Azure PowerShell. Gebruik de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet voor een lijst met alle beschikbare rollen. U kunt meteen voor het gebruik van een specifieke rol `(get-azurermroledefinition "<role name>").actions` of `(get-azurermroledefinition "<role name>").notactions` indien van toepassing. Gebruik [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) activiteiten van de lijst van specifieke Azure-resourceproviders.
+> Hello Azure roldefinities zijn voortdurend in ontwikkeling. In dit artikel te houden als toodate mogelijk, maar u kunt altijd vinden Hallo meest recente definities van de rollen in Azure PowerShell. Gebruik Hallo [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet toolist alle huidige rollen. U kunt meteen tooa specifieke via `(get-azurermroledefinition "<role name>").actions` of `(get-azurermroledefinition "<role name>").notactions` indien van toepassing. Gebruik [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) toolist bewerkingen van specifieke Azure-resourceproviders.
 
 
 | Rolnaam | Beschrijving |
 | --- | --- |
-| [API Management-Service Inzender](#api-management-service-contributor) |API Management-service en de API's kunt beheren |
-| [Rol Operator API Management-Service](#api-management-service-operator-role) | API Management-service, maar niet de API's zelf kunt beheren |
-| [Rol van API Management-Service lezer](#api-management-service-reader-role) | Alleen-lezen toegang tot API Management-service en API 's |
+| [API Management-Service Inzender](#api-management-service-contributor) |API Management-service en Hallo API's kunt beheren |
+| [Rol Operator API Management-Service](#api-management-service-operator-role) | API Management-service, maar niet Hallo API's zelf kunt beheren |
+| [Rol van API Management-Service lezer](#api-management-service-reader-role) | Alleen-lezentoegang tooAPI Management-service en -API 's |
 | [Application Insights-Onderdeelinzender](#application-insights-component-contributor) |Application Insights-onderdelen kunt beheren |
-| [Automation-Operator](#automation-operator) |Kunnen starten, stoppen, onderbreken en hervatten van taken |
+| [Automation-Operator](#automation-operator) |Kan toostart stoppen, onderbreken en hervatten van taken |
 | [Back-up Inzender](#backup-contributor) | Back-up in de Recovery Services-kluis kunnen beheren |
 | [Back-upoperator](#backup-operator) | Back-up met uitzondering van het verwijderen van back-up, in Recovery Services-kluis kunnen beheren |
 | [Back-lezer](#backup-reader) | Alle back-management-services kunt weergeven  |
@@ -73,20 +73,20 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [Site Recovery-Operator](#site-recovery-operator) | Failover en failback bewerkingen Site Recovery in de Recovery Services-kluis kunnen beheren |
 | [Site Recovery lezer](#site-recovery-reader) | Alle beheerbewerkingen van Site Recovery kunt weergeven  |
 | [SQL DB Contributor](#sql-db-contributor) |Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren |
-| [SQL Security Manager](#sql-security-manager) |Het beleid betrekking hebben op de beveiliging van SQL-servers en databases kunt beheren |
+| [SQL Security Manager](#sql-security-manager) |Hallo beleid betrekking hebben op de beveiliging van SQL-servers en -databases kunt beheren |
 | [SQL Server Inzender](#sql-server-contributor) |Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveiliging beheren |
 | [Klassieke Storage Account Inzender](#classic-storage-account-contributor) |Klassieke opslagaccounts kunt beheren |
 | [Storage-Account Inzender](#storage-account-contributor) |Storage-accounts kunnen beheren |
 | [Ondersteuning voor aanvraag Inzender](#support-request-contributor) | Kunt maken en beheren van aanvragen voor ondersteuning |
-| [Beheerder voor gebruikerstoegang](#user-access-administrator) |Gebruikerstoegang tot Azure-resources kunt beheren |
-| [Klassieke Virtual Machine Contributor](#classic-virtual-machine-contributor) |Klassieke virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren |
-| [Virtual Machine Contributor](#virtual-machine-contributor) |Beheren van virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden |
+| [Beheerder voor gebruikerstoegang](#user-access-administrator) |Gebruiker toegang tot tooAzure resources kunt beheren |
+| [Klassieke Virtual Machine Contributor](#classic-virtual-machine-contributor) |Klassieke virtuele machines, maar niet Hallo virtueel netwerk of opslag account toowhich die ze zijn verbonden kunt beheren |
+| [Virtual Machine Contributor](#virtual-machine-contributor) |Beheren van virtuele machines, maar niet Hallo virtuele netwerk of opslag account toowhich die ze zijn verbonden |
 | [Inzender voor klassieke netwerken](#classic-network-contributor) |Klassieke virtuele netwerken en gereserveerde IP's kunt beheren |
 | [Web Plan Inzender](#web-plan-contributor) |Kunt u web-abonnementen beheren |
-| [Website Inzender](#website-contributor) |Kunt beheren, websites, maar niet de web-abonnementen waaraan ze zijn verbonden |
+| [Website Inzender](#website-contributor) |Kan websites beheren, maar niet Hallo web plannen toowhich ze zijn verbonden |
 
 ## <a name="role-permissions"></a>Rolmachtigingen
-De volgende tabellen beschrijven de specifieke machtigingen toegekend aan elke rol. Het kan hierbij gaan **acties**, die machtigingen geven en **NotActions**, die ze beperken.
+Hallo beschrijven volgende tabellen Hallo specifieke machtigingen tooeach rol toegewezen. Het kan hierbij gaan **acties**, die machtigingen geven en **NotActions**, die ze beperken.
 
 ### <a name="api-management-service-contributor"></a>API Management-Service Inzender
 API Management-services kunt beheren
@@ -96,7 +96,7 @@ API Management-services kunt beheren
 | Microsoft.ApiManagement/Service/* |Maken en beheren van API Management-service |
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -107,16 +107,16 @@ API Management-services kunt beheren
 | **Acties** |  |
 | --- | --- |
 | Microsoft.ApiManagement/Service/*/read | Lees API Management-Service-exemplaren |
-| Microsoft.ApiManagement/Service/backup/action | Back-up API Management-Service op de opgegeven container in een opslagaccount opgegeven gebruiker |
+| Microsoft.ApiManagement/Service/backup/action | Back-up van API Management-Service toohello opgegeven container in een opslagaccount opgegeven gebruiker |
 | Microsoft.ApiManagement/Service/delete | Verwijderen van een exemplaar van API Management-Service |
 | Microsoft.ApiManagement/Service/managedeployments/action | Wijziging SKU/eenheden; toevoegen of verwijderen van regionale implementaties van API Management-Service |
 | Microsoft.ApiManagement/Service/read | Lezen van metagegevens voor een exemplaar van API Management-Service |
-| Microsoft.ApiManagement/Service/restore/action | API Management-Service van de opgegeven container in het opgegeven opslagaccount van een gebruiker herstellen |
+| Microsoft.ApiManagement/Service/restore/action | API Management-Service uit de opgegeven container Hallo in de storage-account opgegeven van een gebruiker herstellen |
 | Microsoft.ApiManagement/Service/updatehostname/action | Instellen, bijwerken of verwijderen van aangepaste domeinnamen voor een API Management-Service |
 | Microsoft.ApiManagement/Service/write | Maak een nieuw exemplaar van API Management-Service |
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -130,7 +130,7 @@ API Management-services kunt beheren
 | Microsoft.ApiManagement/Service/read | Lezen van metagegevens voor een exemplaar van API Management-Service |
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -144,13 +144,13 @@ Application Insights-onderdelen kunt beheren
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
 | Microsoft.Insights/components/* |Maken en beheren van Insights-onderdelen |
 | Microsoft.Insights/webtests/* |Maken en beheren van webtests |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="automation-operator"></a>Automation-operator
-Kunnen starten, stoppen, onderbreken en hervatten van taken
+Kan toostart stoppen, onderbreken en hervatten van taken
 
 | **Acties** |  |
 | --- | --- |
@@ -168,13 +168,13 @@ Kunnen starten, stoppen, onderbreken en hervatten van taken
 | Microsoft.Automation/automationAccounts/schedules/read |Automation-account planningen lezen |
 | Microsoft.Automation/automationAccounts/schedules/write |Automation-account schema's schrijven |
 | Microsoft.Insights/components/* |Maken en beheren van Insights-onderdelen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="backup-contributor"></a>Back-up Inzender
-Alle back-management-acties, met uitzondering van de Recovery Services-kluis maken en toegang geven aan anderen kunt beheren
+Alle back-management-acties, met uitzondering van de Recovery Services-kluis maken en geeft toegang tot tooothers kunt beheren
 
 | **Acties** | |
 | --- | --- |
@@ -183,14 +183,14 @@ Alle back-management-acties, met uitzondering van de Recovery Services-kluis mak
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Maken en beheren van back-containers in de back-fabrics van Recovery Services-kluis |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Back-uptaken exporteren naar een excel |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Maken en beheren van metagegevens met betrekking tot back-management |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Maken en beheren van meta gegevens gerelateerd toobackup management |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Maken en beheren van de resultaten van de Backup-beheertaken uit te voeren |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Back-beleidsregels maken en beheren |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Maken en beheren van items die u kunnen een back-up |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Maken en beheren van back-ups van items |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Maken en beheren van containers bewaren van back-artikelen |
-| Microsoft.RecoveryServices/Vaults/certificates/* | Maken en beheren van certificaten die zijn gerelateerd aan back-up in de Recovery Services-kluis |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Maken en beheren van uitgebreide informatie die betrekking hebben op de kluis |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Maken en beheren van certificaten gerelateerde toobackup in Recovery Services-kluis |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Maken en beheren van uitgebreide informatie betrekking toovault |
 | Microsoft.RecoveryServices/Vaults/read | Recovery services-kluizen lezen |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Beheren detectiebewerking aan voor het ophalen van een nieuw gemaakt containers |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Maken en beheren van identiteiten geregistreerde |
@@ -201,7 +201,7 @@ Alle back-management-acties, met uitzondering van de Recovery Services-kluis mak
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="backup-operator"></a>Back-upoperator
-Alle back-acties, behalve voor het maken van kluizen, back-up en geven toegang tot andere verwijderen kunt beheren
+Alle back-up beheeracties behalve kluizen maken, verwijderen van de back-up en geeft toegang tot tooothers kunt beheren
 
 | **Acties** | |
 | --- | --- |
@@ -218,21 +218,21 @@ Alle back-acties, behalve voor het maken van kluizen, back-up en geven toegang t
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Back-upitems houden-containers gelezen |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Back-uptaken exporteren naar een excel |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Lees metagegevens met betrekking tot back-management |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Lees metagegevens gerelateerde toobackup management |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Maken en beheren van de resultaten van de Backup-beheertaken uit te voeren |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Resultaten van de bewerkingen die worden uitgevoerd op de back-upbeleid lezen |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Back-upbeleid lezen |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Maken en beheren van items die u kunnen een back-up |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Alleen een back-up items |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Alleen een back-up containers bewaren van back-artikelen |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Lezen van uitgebreide informatie die betrekking hebben op de kluis |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Uitgebreide gegevens gerelateerd aan de kluis schrijven |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Uitgebreid lezen info gerelateerde toovault |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Uitgebreid schrijven info gerelateerde toovault |
 | Microsoft.RecoveryServices/Vaults/read | Recovery services-kluizen lezen |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Beheren detectiebewerking aan voor het ophalen van een nieuw gemaakt containers |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | De resultaten van het lezen van bewerking uitgevoerd op de geregistreerde items van de kluis |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Geregistreerde items van de kluis lezen |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Geregistreerde items naar de kluis schrijven |
-| Microsoft.RecoveryServices/Vaults/usages/read | Lees de informatie over het gebruik van de Recovery Services-kluis |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Resultaten van bewerking uitgevoerd op de geregistreerde items van de kluis Hallo lezen |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Geregistreerde items van de kluis Hallo lezen |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Geregistreerde items toovault schrijven |
+| Microsoft.RecoveryServices/Vaults/usages/read | Lees de informatie over het gebruik van Hallo die Recovery Services-kluis |
 | Microsoft.Resources/deployments/* | Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Lezen van resourcegroepen |
 | Microsoft.Storage/storageAccounts/read | Lezen van de storage-accounts |
@@ -252,18 +252,18 @@ Back-beheer in de Recovery Services-kluis kunt bewaken
 | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Lezen van de resultaten van de back-uptaken |
 | Microsoft.RecoveryServices/Vaults/backupJobs/read  | Lezen van de back-uptaken |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Back-uptaken exporteren naar een excel |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Lees metagegevens met betrekking tot back-management |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Lees metagegevens gerelateerde toobackup management |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Lees de back-beheer Bewerkingsresultaten |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Resultaten van de bewerkingen die worden uitgevoerd op de back-upbeleid lezen |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Back-upbeleid lezen |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Alleen een back-up items |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Alleen een back-up containers bewaren van back-artikelen |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Lezen van uitgebreide informatie die betrekking hebben op de kluis |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Uitgebreid lezen info gerelateerde toovault |
 | Microsoft.RecoveryServices/Vaults/read  | Recovery services-kluizen lezen |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Resultaat van de detectiebewerking aan voor het ophalen van een nieuw gemaakt containers lezen |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | De resultaten van het lezen van bewerking uitgevoerd op de geregistreerde items van de kluis |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Geregistreerde items van de kluis lezen |
-| Microsoft.RecoveryServices/Vaults/usages/read  |  Lees de informatie over het gebruik van de Recovery Services-kluis |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Resultaten van bewerking uitgevoerd op de geregistreerde items van de kluis Hallo lezen |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Geregistreerde items van de kluis Hallo lezen |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Lees de informatie over het gebruik van Hallo die Recovery Services-kluis |
 
 ### <a name="billing-reader"></a>Lezer facturering
 Alle factureringsgegevens kunt weergeven
@@ -282,7 +282,7 @@ BizTalk services kunt beheren
 | Microsoft.Authorization/*/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.BizTalkServices/BizTalk/* |Maken en beheren van BizTalk services |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -294,7 +294,7 @@ ClearDB MySQL-databases kunt beheren
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -320,7 +320,7 @@ Maken en beheren van de gegevensfactory en de onderliggende resources binnen dez
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.DataFactory/dataFactories/* |Maken en beheren van de gegevensfactory en de onderliggende resources binnen deze. |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -331,13 +331,13 @@ Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afslui
 | **Acties** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
-| Microsoft.Compute/availabilitySets/read |Lezen van de eigenschappen van beschikbaarheidssets |
-| Microsoft.Compute/virtualMachines/*/read |Lezen van de eigenschappen van een virtuele machine (VM-grootten, runtimestatus, VM-extensies, enz.) |
+| Microsoft.Compute/availabilitySets/read |Hallo-eigenschappen lezen van beschikbaarheidssets |
+| Microsoft.Compute/virtualMachines/*/read |Lezen van de Hallo eigenschappen van een virtuele machine (VM-grootten, runtimestatus, VM-extensies, enz.) |
 | Microsoft.Compute/virtualMachines/deallocate/action |Toewijzing van virtuele machines |
-| Microsoft.Compute/virtualMachines/read |De eigenschappen van een virtuele machine lezen |
+| Microsoft.Compute/virtualMachines/read |Hallo-eigenschappen van een virtuele machine lezen |
 | Microsoft.Compute/virtualMachines/restart/action |Virtuele machines opnieuw opstarten |
 | Microsoft.Compute/virtualMachines/start/action |Virtuele machines starten |
-| Microsoft.DevTestLab/*/read |Lezen van de eigenschappen van een testlab |
+| Microsoft.DevTestLab/*/read |Hallo-eigenschappen lezen van een testlab |
 | Microsoft.DevTestLab/labs/createEnvironment/action |Een testomgeving maken |
 | Microsoft.DevTestLab/labs/formulas/delete |Formules verwijderen |
 | Microsoft.DevTestLab/labs/formulas/read |Formules lezen |
@@ -345,11 +345,11 @@ Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afslui
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action |Labbeleidsregels evalueren |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |Deelnemen aan een load balancer back-end-adresgroep |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action |Deelnemen aan een load balancer binnenkomende NAT-regel |
-| Microsoft.Network/networkInterfaces/*/read |Lezen van de eigenschappen van een netwerkinterface (bijvoorbeeld alle load balancers die de netwerkinterface deel van uitmaakt) |
-| Microsoft.Network/networkInterfaces/join/action |Een virtuele Machine toevoegen aan een netwerkinterface |
+| Microsoft.Network/networkInterfaces/*/read |Hallo-eigenschappen van een netwerkinterface kan lezen (bijvoorbeeld alle Hallo load balancers Hallo netwerkinterface is een deel van) |
+| Microsoft.Network/networkInterfaces/join/action |Deelnemen aan een netwerkinterface van de virtuele Machine tooa |
 | Microsoft.Network/networkInterfaces/read |Netwerkinterfaces lezen |
 | Microsoft.Network/networkInterfaces/write |Netwerkinterfaces schrijven |
-| Microsoft.Network/publicIPAddresses/*/read |Lezen van de eigenschappen van een openbaar IP-adres |
+| Microsoft.Network/publicIPAddresses/*/read |Hallo-eigenschappen lezen van een openbaar IP-adres |
 | Microsoft.Network/publicIPAddresses/join/action |Lid worden van een openbaar IP-adres |
 | Microsoft.Network/publicIPAddresses/read |Lezen van het openbare IP-netwerkadressen |
 | Microsoft.Network/virtualNetworks/subnets/join/action |Een virtueel netwerk koppelen |
@@ -366,7 +366,7 @@ Kunnen DNS-zones en -records beheren.
 | Microsoft.Authorization/ \* /lezen |Lezen van rollen en roltoewijzingen |
 | Microsoft.Insights/alertRules/\* |Maken en beheren van regels voor waarschuwingen |
 | Microsoft.Network/dnsZones/\* |DNS-zones en records maken en beheren |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Lezen van de status van de resources |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Hallo-status van Hallo resources lezen |
 | Microsoft.Resources/deployments/\* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/\* |Maken en ondersteuningstickets beheren |
@@ -379,7 +379,7 @@ Azure DB die Cosmos-accounts kunnen beheren
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.DocumentDb/databaseAccounts/* |Maken en beheren van de DocumentDB-accounts |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -392,7 +392,7 @@ Intelligente systemen accounts kunnen beheren
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
 | Microsoft.IntelligentSystems/accounts/* |Intelligente systemen rekeningen maken en beheren |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -415,11 +415,11 @@ Kan alle bewakingsgegevens lezen en controle-instellingen bewerken. Zie ook [aan
 | Microsoft.Insights/AlertRules/* |Waarschuwingsregels voor lezen, schrijven, verwijderen. |
 | Microsoft.Insights/components/* |Onderdelen van de Application Insights lezen, schrijven, verwijderen. |
 | Microsoft.Insights/DiagnosticSettings/* |Diagnostische instellingen voor lezen, schrijven, verwijderen. |
-| Microsoft.Insights/eventtypes/* |Activiteitenlogboek gebeurtenissen (management gebeurtenissen) in een abonnement weergeven. Deze machtiging is van toepassing op de portal zowel programmatische toegang tot het activiteitenlogboek. |
-| Microsoft.Insights/LogDefinitions/* |Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. Lijst met logboekbestanden categorieën in het activiteitenlogboek. |
+| Microsoft.Insights/eventtypes/* |Activiteitenlogboek gebeurtenissen (management gebeurtenissen) in een abonnement weergeven. Deze machtiging is van toepassing tooboth programmatische en portal toegang toohello activiteitenlogboek. |
+| Microsoft.Insights/LogDefinitions/* |Deze machtiging is vereist voor gebruikers die toegang moeten hebben tot tooActivity logboeken via Hallo-portal. Lijst met logboekbestanden categorieën in het activiteitenlogboek. |
 | Microsoft.Insights/MetricDefinitions/* |Metrische definities (lijst met beschikbare metrische gegevens typen voor een resource) lezen. |
 | Microsoft.Insights/Metrics/* |Metrische gegevens voor een resource lezen. |
-| Microsoft.Insights/Register/Action |Registreer de provider Microsoft.Insights. |
+| Microsoft.Insights/Register/Action |Registreer Hallo Microsoft.Insights provider. |
 | Microsoft.Insights/webtests/* |Webtests Application Insights voor lezen, schrijven, verwijderen. |
 | Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Lezen/schrijven/verwijderen Log Analytics-oplossing packs. |
 | Microsoft.OperationalInsights/workspaces/savedSearches/* |Lezen/schrijven/verwijderen Log Analytics opgeslagen zoekopdrachten. |
@@ -435,7 +435,7 @@ Alle netwerkbronnen kunt beheren
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
 | Microsoft.Network/* |Maken en beheren van netwerken |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -447,7 +447,7 @@ Nieuwe Relic prestaties Toepassingsbeheer accounts en -toepassingen kunnen beher
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -475,7 +475,7 @@ Redis-caches kunt beheren
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Cache/redis/* |Maken en beheren van Redis-caches |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -487,7 +487,7 @@ Scheduler-taakverzamelingen kunt beheren
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Scheduler/jobcollections/* |Maken en beheren van jobverzamelingen |
@@ -500,7 +500,7 @@ Search-services kunt beheren
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Search/searchServices/* |Maken en beheren van de search-services |
@@ -516,23 +516,23 @@ Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren
 | Microsoft.ClassicCompute/virtualMachines/*/write |Configuratie voor virtuele machines schrijven |
 | Microsoft.ClassicNetwork/*/read |Configuratie-informatie lezen over klassiek netwerk |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Security/* |Beveiligingsonderdelen en -beleid maken en beheren |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery Inzender
-Alle beheeracties van Site Recovery, met uitzondering van de Recovery Services-kluis maken en toewijzen van rechten aan andere gebruikers kunnen beheren
+Alle beheeracties van Site Recovery, met uitzondering van de Recovery Services-kluis maken en toewijzen van toegang tot gebruikers van rechten tooother kunt beheren
 
 | **Acties** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Lezen van rollen en roltoewijzingen |
 | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
 | Microsoft.Network/virtualNetworks/read | Virtuele netwerken gelezen |
-| Microsoft.RecoveryServices/Vaults/certificates/write | Het referentiecertificaat van de kluis bijgewerkt |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Maken en beheren van uitgebreide informatie die betrekking hebben op de kluis |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Waarschuwingen voor de Recovery services-kluis lezen |
+| Microsoft.RecoveryServices/Vaults/certificates/write | Updates Hallo kluis referenties van het certificaat |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Maken en beheren van uitgebreide informatie betrekking toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Waarschuwingen voor Hallo Recovery services-kluis lezen |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration leestijd  | Meldingsconfiguratie voor lezen Recovery services-kluis |
 | Microsoft.RecoveryServices/Vaults/read | Lees Recovery Services-kluizen |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Beheren detectiebewerking aan voor het ophalen van een nieuw gemaakt containers |
@@ -546,22 +546,22 @@ Alle beheeracties van Site Recovery, met uitzondering van de Recovery Services-k
 | Microsoft.RecoveryServices/Vaults/storageConfig/* | Maken en beheren van configuratie van de opslag van de Recovery Services-kluis |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Lees Recovery Services-kluis token-informatie |
 | Microsoft.RecoveryServices/Vaults/usages/read | Details van het gebruik van een Recovery Services-kluis lezen |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* | Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Lezen van resourcegroepen |
 | Microsoft.Storage/storageAccounts/read | Lezen van de storage-accounts |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="site-recovery-operator"></a>Site Recovery-Operator
-Kan Failover en Failback kan maar niet andere Site Recovery management acties worden uitgevoerd of toegang toewijzen aan andere gebruikers
+Kan Failover en Failback kan maar niet andere Site Recovery management acties worden uitgevoerd of toegang tooother gebruikers toewijzen
 
 | **Acties** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Lezen van rollen en roltoewijzingen |
 | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
 | Microsoft.Network/virtualNetworks/read | Virtuele netwerken gelezen |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Lezen van uitgebreide informatie die betrekking hebben op de kluis |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Waarschuwingen voor de Recovery services-kluis lezen |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Uitgebreid lezen info gerelateerde toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Waarschuwingen voor Hallo Recovery services-kluis lezen |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration leestijd  | Meldingsconfiguratie voor lezen Recovery services-kluis |
 | Microsoft.RecoveryServices/Vaults/read | Lees Recovery Services-kluizen |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Beheren detectiebewerking aan voor het ophalen van een nieuw gemaakt containers |
@@ -569,7 +569,7 @@ Kan Failover en Failback kan maar niet andere Site Recovery management acties wo
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Geregistreerd voor een resource-containers gelezen |
 | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Replicatie-instellingen voor waarschuwingen lezen |
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Replicatiegebeurtenissen lezen |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Consistentie van de fabrics controleren |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Consistentie van Hallo fabrics controleren |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Lees replicatie-fabrics |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/actie | Replicatie-gateway opnieuw koppelen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Replicatie fabric certificaat vernieuwen |
@@ -587,7 +587,7 @@ Kan Failover en Failback kan maar niet andere Site Recovery management acties wo
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover, actie | Testfailover van een beveiligde item starten |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/actie | Het opruimen van een testfailover starten |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/actie | Niet-geplande failover van een beveiligde item starten |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/actie | De mobility-service bijwerken |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/actie | Hallo mobility-service bijwerken |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers replicationProtectionContainerMappings/leestijd | Beveiliging lezen container toewijzingen |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders leestijd | Lees Recovery Services-providers |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ refreshProvider-replicationRecoveryServicesProviders/actie | Vernieuw Recovery Services-provider |
@@ -606,7 +606,7 @@ Kan Failover en Failback kan maar niet andere Site Recovery management acties wo
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Lezen van configuratie van de opslag van een Recovery Services-kluis |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Lees Recovery Services-kluis token-informatie |
 | Microsoft.RecoveryServices/Vaults/usages/read | Details van het gebruik van een Recovery Services-kluis lezen |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* | Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Lezen van resourcegroepen |
 | Microsoft.Storage/storageAccounts/read | Lezen van de storage-accounts |
@@ -618,8 +618,8 @@ Kan de status van de Site Recovery in de Recovery Services-kluis bewaken en onde
 | **Acties** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Lezen van rollen en roltoewijzingen |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Lezen van uitgebreide informatie die betrekking hebben op de kluis |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Waarschuwingen voor de Recovery services-kluis lezen |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Uitgebreid lezen info gerelateerde toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Waarschuwingen voor Hallo Recovery services-kluis lezen |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration leestijd  | Meldingsconfiguratie voor lezen Recovery services-kluis |
 | Microsoft.RecoveryServices/Vaults/read  | Lees Recovery Services-kluizen |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Beheren detectiebewerking aan voor het ophalen van een nieuw gemaakt containers |
@@ -654,7 +654,7 @@ Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Sql/servers/databases/* |Maken en beheren van de SQL-databases |
@@ -672,13 +672,13 @@ Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 | Microsoft.Sql/servers/databases/securityMetrics/* |Metrische gegevens voor beveiliging kan niet worden bewerkt. |
 
 ### <a name="sql-security-manager"></a>SQL Security Manager
-Het beleid betrekking hebben op de beveiliging van SQL-servers en databases kunt beheren
+Hallo beleid betrekking hebben op de beveiliging van SQL-servers en -databases kunt beheren
 
 | **Acties** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Lees Microsoft autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Sql/servers/auditingPolicies/* |SQL server audit beleidsregels maken en beheren |
@@ -705,7 +705,7 @@ Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveilig
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Sql/servers/* |Maken en beheren van de SQL-servers |
@@ -732,27 +732,27 @@ Klassieke opslagaccounts kunt beheren
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.ClassicStorage/storageAccounts/* |Maken en beheren van de storage-accounts |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="storage-account-contributor"></a>Storage-Account Inzender
-Kan storage-accounts beheren, maar geen toegang tot deze.
+Kan storage-accounts beheren, maar geen toegang krijgen tot toothem.
 
 | **Acties** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Alle autorisatie lezen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
 | Microsoft.Insights/diagnosticSettings/* |Diagnostische instellingen beheren |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Storage/storageAccounts/* |Maken en beheren van de storage-accounts |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="support-request-contributor"></a>Ondersteuning voor aanvraag Inzender
-Kunt maken en beheren van ondersteuningstickets bij het abonnementsbereik
+Kunt maken en beheren van ondersteuningstickets bij Hallo abonnementsbereik
 
 | **Acties** |  |
 | --- | --- |
@@ -761,7 +761,7 @@ Kunt maken en beheren van ondersteuningstickets bij het abonnementsbereik
 | Microsoft.Resources/subscriptions/resourceGroups/read | Lezen van rollen en roltoewijzingen |
 
 ### <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
-Gebruikerstoegang tot Azure-resources kunt beheren
+Gebruiker toegang tot tooAzure resources kunt beheren
 
 | **Acties** |  |
 | --- | --- |
@@ -770,7 +770,7 @@ Gebruikerstoegang tot Azure-resources kunt beheren
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="classic-virtual-machine-contributor"></a>Klassieke Virtual Machine Contributor
-Klassieke virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren
+Klassieke virtuele machines, maar niet Hallo virtueel netwerk of opslag account toowhich die ze zijn verbonden kunt beheren
 
 | **Acties** |  |
 | --- | --- |
@@ -787,13 +787,13 @@ Klassieke virtuele machines, maar niet het virtuele netwerk of opslag account wa
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action |Lijst met sleutels voor opslagaccount |
 | Microsoft.ClassicStorage/storageAccounts/read |Klassieke opslagaccounts lezen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="virtual-machine-contributor"></a>Virtual Machine Contributor
-Beheren van virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden
+Beheren van virtuele machines, maar niet Hallo virtuele netwerk of opslag account toowhich die ze zijn verbonden
 
 | **Acties** |  |
 | --- | --- |
@@ -816,7 +816,7 @@ Beheren van virtuele machines, maar niet het virtuele netwerk of opslag account 
 | Microsoft.Network/publicIPAddresses/read |Lezen van het openbare IP-netwerkadressen |
 | Microsoft.Network/virtualNetworks/read |Virtuele netwerken gelezen |
 | Microsoft.Network/virtualNetworks/subnets/join/action |Virtueel netwerksubnetten toevoegen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Storage/storageAccounts/listKeys/action |Lijst met sleutels voor opslagaccount |
@@ -831,7 +831,7 @@ Klassieke virtuele netwerken en gereserveerde IP's kunt beheren
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.ClassicNetwork/* |Maken en beheren van klassieke netwerken |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
@@ -843,32 +843,32 @@ Kunt u web-abonnementen beheren
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 | Microsoft.Web/serverFarms/* |Maken en beheren van serverfarms |
 
 ### <a name="website-contributor"></a>Website Inzender
-Kunt beheren, websites, maar niet de web-abonnementen waaraan ze zijn verbonden
+Kan websites beheren, maar niet Hallo web plannen toowhich ze zijn verbonden
 
 | **Acties** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van autorisatie |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
 | Microsoft.Insights/components/* |Maken en beheren van Insights-onderdelen |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Status van resources Hallo lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 | Microsoft.Web/certificates/* |Maken en beheren van Websitecertificaten |
-| Microsoft.Web/listSitesAssignedToHostName/read |Lezen van de sites die zijn toegewezen aan een host-naam |
+| Microsoft.Web/listSitesAssignedToHostName/read |Lees sites toegewezen tooa hostnaam |
 | Microsoft.Web/serverFarms/join/action |Deelnemen aan serverfarms |
 | Microsoft.Web/serverFarms/read |Serverfarms lezen |
-| Microsoft.Web/sites/* |Maken en beheren van websites (maken van de site vereist ook schrijfmachtigingen in voor de bijbehorende App Service-Plan) |
+| Microsoft.Web/sites/* |Maken en beheren van websites (maken van de site vereist ook schrijven machtigingen toohello gekoppeld App Service-Plan) |
 
 ## <a name="see-also"></a>Zie ook
-* [Toegangsbeheer op basis van rollen](role-based-access-control-configure.md): aan de slag met RBAC in Azure portal.
-* [Aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md): informatie over het maken van aangepaste rollen aan uw behoeften toegang.
+* [Toegangsbeheer op basis van rollen](role-based-access-control-configure.md): aan de slag met RBAC in hello Azure-portal.
+* [Aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md): meer informatie over hoe toocreate aangepaste rollen toofit uw toegang moet.
 * [Maken van een geschiedenisrapport voor gewijzigde van toegang](role-based-access-control-access-change-history-report.md): bijhouden van wijzigen van roltoewijzingen in RBAC.
 * [Probleemoplossing voor toegangsbeheer op basis van rollen](role-based-access-control-troubleshooting.md): Profiteer van tips voor het oplossen van veelvoorkomende problemen.

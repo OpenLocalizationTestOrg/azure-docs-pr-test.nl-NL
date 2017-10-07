@@ -1,6 +1,6 @@
 ---
-title: Azure Functions timertrigger | Microsoft Docs
-description: Begrijpen hoe timer triggers in Azure Functions.
+title: timertrigger aaaAzure-functies | Microsoft Docs
+description: Begrijpen hoe toouse timer activeert in Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,26 +17,26 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 17fca22372dbc55d4684c8c099cc97923a7d3cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure Functions timertrigger
 
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Dit artikel wordt uitgelegd hoe u configureert en code timer triggers in Azure Functions. Azure Functions heeft een timer trigger binding waarmee u de functiecode op basis van een ingesteld schema uitvoeren. 
+Dit artikel wordt uitgelegd hoe timer tooconfigure en code in Azure Functions activeert. Azure Functions heeft een timer trigger binding waarmee u de functiecode op basis van een ingesteld schema uitvoeren. 
 
-De timertrigger ondersteunt meerdere exemplaren scale-out. Slechts één exemplaar van een bepaalde timerfunctie wordt uitgevoerd in alle exemplaren.
+Hallo timertrigger ondersteunt meerdere exemplaren scale-out. Slechts één exemplaar van een bepaalde timerfunctie wordt uitgevoerd in alle exemplaren.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a id="trigger"></a>
 
 ## <a name="timer-trigger"></a>Timertrigger
-De timertrigger aan een functie maakt gebruik van de volgende JSON-object in de `bindings` matrix van function.json:
+Hallo timer trigger tooa functie maakt gebruik van volgende JSON-object in Hallo Hallo `bindings` matrix van function.json:
 
 ```json
 {
@@ -47,22 +47,22 @@ De timertrigger aan een functie maakt gebruik van de volgende JSON-object in de 
 }
 ```
 
-De waarde van `schedule` is een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) die deze zes velden bevat: 
+waarde van Hallo `schedule` is een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) die deze zes velden bevat: 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
 >[!NOTE]   
->Veel van de cron-expressies die u online vinden weglaten de `{second}` veld. Als u van één van beide kopieert, moet u voor de extra aanpassen `{second}` veld. Zie voor specifieke voorbeelden [voorbeelden plannen](#examples) hieronder.
+>Veel van Hallo cron expressies u online vindt Hallo weglaten `{second}` veld. Als u van één van beide kopieert, moet u tooadjust voor extra Hallo `{second}` veld. Zie voor specifieke voorbeelden [voorbeelden plannen](#examples) hieronder.
 
-De standaardtijdzone gebruikt met de CRON-expressies is Coordinated Universal Time (UTC). Als u wilt dat de CRON-expressie op basis van een andere tijdzone, maakt u een nieuwe appinstelling voor de functie-app met de naam `WEBSITE_TIME_ZONE`. De waarde ingesteld op de naam van de gewenste tijdzone, zoals wordt weergegeven in de [Microsoft tijdzone Index](https://msdn.microsoft.com/library/ms912391.aspx). 
+Hallo standaardtijdzone gebruikt met Hallo CRON expressies wordt Coordinated Universal Time (UTC). de CRON-expressie op basis van een andere tijdzone toohave maakt een nieuwe appinstelling voor de functie-app met de naam `WEBSITE_TIME_ZONE`. Set Hallo toohello waardenaam Hallo gewenst tijdzone zoals weergegeven in Hallo [Microsoft tijdzone Index](https://msdn.microsoft.com/library/ms912391.aspx). 
 
-Bijvoorbeeld: *Eastern (standaardtijd)* UTC-05:00. Om uw timer fire activeren op 10:00 AM GMT elke dag, gebruikt u de volgende CRON-expressie die voor de UTC-tijdzone-accounts:
+Bijvoorbeeld: *Eastern (standaardtijd)* UTC-05:00. toohave uw timer geactiveerd fire op 10:00 AM GMT dagelijks gebruik Hallo CRON-expressie die voor de UTC-tijdzone-accounts te volgen:
 
 ```json
 "schedule": "0 0 15 * * *",
 ``` 
 
-U kunt ook kunt u een nieuwe appinstelling toevoegen voor de functie-app met de naam `WEBSITE_TIME_ZONE` en stel de waarde op **Eastern (standaardtijd)**.  De volgende CRON-expressie kan vervolgens worden gebruikt voor 10:00 AM GMT: 
+U kunt ook kunt u een nieuwe appinstelling toevoegen voor de functie-app met de naam `WEBSITE_TIME_ZONE` en stelt u Hallo waarde te**Eastern (standaardtijd)**.  Hallo na CRON-expressie kan vervolgens worden gebruikt voor 10:00 AM GMT: 
 
 ```json
 "schedule": "0 0 10 * * *",
@@ -72,39 +72,39 @@ U kunt ook kunt u een nieuwe appinstelling toevoegen voor de functie-app met de 
 <a name="examples"></a>
 
 ## <a name="schedule-examples"></a>Voorbeelden van de planning
-Hier volgen enkele voorbeelden van CRON-expressies die u kunt gebruiken voor de `schedule` eigenschap. 
+Hier volgen enkele voorbeelden van CRON-expressies die u voor Hallo gebruiken kunt `schedule` eigenschap. 
 
-Om de vijf minuten activeren:
+om de vijf minuten tootrigger:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Voor het activeren van één keer aan de bovenkant van elk uur:
+tootrigger eenmaal op Hallo boven aan elk uur:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Voor het activeren van elke twee uur:
+elke twee uur tootrigger:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Voor het activeren van één keer per uur van 9: 00 uur tot 5 PM:
+tootrigger één keer per uur van too5 09: 00 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Om te activeren op elke dag 9:30 uur:
+tootrigger op elke dag 9:30 uur:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Om te activeren om 9:30 AM elke weekdag:
+tootrigger om 9:30 AM elke weekdag:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
@@ -113,7 +113,7 @@ Om te activeren om 9:30 AM elke weekdag:
 <a name="usage"></a>
 
 ## <a name="trigger-usage"></a>Gebruik van de trigger
-Wanneer een functie van de trigger timer wordt opgeroepen, de [timerobject](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) wordt doorgegeven aan de functie. De volgende JSON is een voorbeeld-weergave van het timerobject. 
+Wanneer een functie van de trigger timer wordt opgeroepen, Hallo [timerobject](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) wordt doorgegeven in de Hallo-functie. Hallo is volgende JSON een voorbeeld-weergave van Hallo timer-object. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Wanneer een functie van de trigger timer wordt opgeroepen, de [timerobject](http
 <a name="sample"></a>
 
 ## <a name="trigger-sample"></a>Voorbeeld van de trigger
-Stel dat u hebt de volgende timertrigger in de `bindings` matrix van function.json:
+Stel dat er na timertrigger in Hallo Hallo `bindings` matrix van function.json:
 
 ```json
 {
@@ -141,7 +141,7 @@ Stel dat u hebt de volgende timertrigger in de `bindings` matrix van function.js
 }
 ```
 
-Zie het voorbeeld taalspecifieke die de timerobject om te zien leest of deze later wordt uitgevoerd.
+Zie Hallo taalspecifieke steekproef die het Hallo-timer object toosee leest of deze later wordt uitgevoerd.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)

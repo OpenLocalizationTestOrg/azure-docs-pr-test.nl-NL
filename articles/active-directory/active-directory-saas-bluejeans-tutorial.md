@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met BlueJeans | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en BlueJeans.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en BlueJeans.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 03bf65852b8d3cf14aebf155891a028db86e78d0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67613303a9f854afbf4619418cc1607d329caf94
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Zelfstudie: Azure Active Directory-integratie met BlueJeans
 
-In deze zelfstudie leert u hoe BlueJeans integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe toointegrate BlueJeans met Azure Active Directory (Azure AD).
 
-BlueJeans integreren met Azure AD biedt de volgende voordelen:
+BlueJeans integreren met Azure AD biedt Hallo volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot BlueJeans heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij BlueJeans (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die tooBlueJeans toegang heeft
+- U kunt uw gebruikers tooautomatically get aangemelde tooBlueJeans (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met BlueJeans, moet u de volgende items:
+Azure AD-integratie met BlueJeans tooconfigure, moet u Hallo volgende items:
 
 - Een Azure AD-abonnement
 - Een BlueJeans eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. BlueJeans uit de galerie toevoegen
+1. Het toevoegen van BlueJeans van Hallo-galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-bluejeans-from-the-gallery"></a>BlueJeans uit de galerie toevoegen
-Voor het configureren van de integratie van BlueJeans in Azure AD, moet u BlueJeans uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-bluejeans-from-hello-gallery"></a>Het toevoegen van BlueJeans van Hallo-galerie
+tooconfigure hello integratie van BlueJeans in Azure AD, moet u tooadd BlueJeans uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen BlueJeans uit de galerie, moet u de volgende stappen uitvoeren:**
+**tooadd BlueJeans via Hallo gallery uitvoeren Hallo stappen te volgen:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **BlueJeans**.
+4. Typ in het zoekvak Hallo **BlueJeans**.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_search.png)
 
-5. Selecteer in het deelvenster resultaten **BlueJeans**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+5. Selecteer in het deelvenster resultaten hello, **BlueJeans**, en klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met BlueJeans op basis van een testgebruiker genaamd "Britta Simon."
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in BlueJeans is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in BlueJeans tot stand worden gebracht.
+Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in BlueJeans is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in BlueJeans toobe tot stand gebracht.
 
-Wijs in BlueJeans, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+Wijs in BlueJeans, Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met BlueJeans, moet u de volgende bouwstenen voltooien:
+tooconfigure en eenmalige aanmelding Azure AD-test met BlueJeans, moet u toocomplete Hallo bouwstenen te volgen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker BlueJeans](#creating-a-bluejeans-test-user)**  - hebben een equivalent van Britta Simon in BlueJeans die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
+2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een testgebruiker BlueJeans](#creating-a-bluejeans-test-user)**  -toohave een equivalent van Britta Simon in BlueJeans die is gekoppeld toohello Azure AD-weergave van de gebruiker.
+4. **[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
+5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing BlueJeans configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing BlueJeans configureren.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met BlueJeans, moet u de volgende stappen uitvoeren:**
+**Azure AD tooconfigure eenmalige aanmelding met BlueJeans, Voer Hallo stappen te volgen:**
 
-1. In de Azure-portal op de **BlueJeans** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op Hallo Hallo **BlueJeans** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
  
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_samlbase.png)
 
-3. Op de **BlueJeans domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op Hallo **BlueJeans domein en de URL's** sectie, voert u Hallo stappen te volgen:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.BlueJeans.com`
+    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<companyname>.BlueJeans.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.BlueJeans.com`
+    b. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://<companyname>.BlueJeans.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [BlueJeans Client ondersteuningsteam](https://support.bluejeans.com/contact) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [BlueJeans Client ondersteuningsteam](https://support.bluejeans.com/contact) tooget deze waarden. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
 
@@ -125,17 +125,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bluejeans-tutorial/tutorial_general_400.png)
 
-6. Op de **BlueJeans configuratie** sectie, klikt u op **configureren BlueJeans** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, de URL van wijzigen wachtwoord en de SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op Hallo **BlueJeans configuratie** sectie, klikt u op **configureren BlueJeans** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL, de URL van wijzigen wachtwoord en de SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_configure.png) 
 
-7. In een ander browservenster geopend, moet u zich aanmelden bij uw **BlueJeans** bedrijf site als beheerder.
+7. Aanmelden in een ander browservenster tooyour **BlueJeans** bedrijf site als beheerder.
 
-8. Ga naar **ADMIN \> groepsinstellingen \> beveiliging**.
+8. Ga te**ADMIN \> groepsinstellingen \> beveiliging**.
    
    ![Beheerder](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 
-9. In de **beveiliging** sectie, voert u de volgende stappen uit:
+9. In Hallo **beveiliging** sectie, voert u Hallo stappen te volgen:
    
    ![SAML voor eenmalige aanmelding](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML voor eenmalige aanmelding")   
    
@@ -143,109 +143,109 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
   
    b. Selecteer **automatische inrichting inschakelen**.
 
-10. Gaan met de volgende stappen uit:
+10. Verplaatsen op Hello stappen te volgen:
 
     ![Pad van het certificaat](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "pad van het certificaat")
     
-    a. Klik op **bestand kiezen**, en vervolgens het gedownloade certificaat te uploaden.
+    a. Klik op **bestand kiezen**, en vervolgens Hallo gedownload certificaat te uploaden.
    
-    b. Plakken **SAML Single Sign-On Service-URL** in de **aanmeldings-URL** textbox.
+    b. Plakken **SAML Single Sign-On Service-URL** in Hallo **aanmeldings-URL** textbox.
    
-    c. Plakken **URL van wijzigen wachtwoord** in de **URL voor wachtwoord wijzigen** textbox.
+    c. Plakken **URL van wijzigen wachtwoord** in Hallo **URL voor wachtwoord wijzigen** textbox.
    
-    d. Plakken **Sign-Out URL** in de **afmelding URL** textbox.
+    d. Plakken **Sign-Out URL** in Hallo **afmelding URL** textbox.
 
-11. Gaan met de volgende stappen uit:
+11. Verplaatsen op Hello stappen te volgen:
     
     ![Wijzigingen opslaan](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "wijzigingen opslaan")
     
-    a. In de **gebruikers-id** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. In Hallo **gebruikers-id** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
    
-    b. In de **e** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. In Hallo **e** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
    
     c. Klik op **wijzigingen opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
 
 ![Azure AD-gebruiker maken][100]
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. In Hallo **Azure-portal**, op Hallo navigatiedeelvenster links, klikt u op **Azure Active Directory** pictogram.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen** en klik op **alle gebruikers**.
     
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+3. Hallo tooopen **gebruiker** dialoogvenster, klikt u op **toevoegen** op Hallo Hallo dialoogvenster bovenaan.
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+4. Op Hallo **gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:
  
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In Hallo **naam** textbox type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In Hallo **gebruikersnaam** textbox type Hallo **e-mailadres** van BrittaSimon.
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    c. Selecteer **wachtwoord weergeven** en schrijf Hallo-waarde van Hallo **wachtwoord**.
 
     d. Klik op **Create**.
  
 ### <a name="creating-a-bluejeans-test-user"></a>Een testgebruiker BlueJeans maken
 
-Om Azure AD-gebruikers zich aanmelden bij BlueJeans, moeten ze worden ingericht in BlueJeans.  
+Azure AD tooenable gebruikers toolog in tooBlueJeans, ze in BlueJeans moeten worden ingericht.  
 
 In geval van een BlueJeans is inrichting een handmatige taak.
 
-**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+**tooprovision een gebruikersaccounts uitvoeren Hallo volgende stappen:**
 
-1. Meld u aan bij uw **BlueJeans** bedrijf site als beheerder.
+1. Meld u bij tooyour **BlueJeans** bedrijf site als beheerder.
 
-2. Ga naar **ADMIN \> gebruikers beheren \> gebruiker toevoegen**.
+2. Ga te**ADMIN \> gebruikers beheren \> gebruiker toevoegen**.
    
    ![Beheerder](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
    
    >[!IMPORTANT]
-   >De **gebruiker toevoegen** tabblad is alleen beschikbaar als in de **tabblad Beveiliging**, **automatische inrichting inschakelen** is uitgeschakeld. 
+   >Hallo **gebruiker toevoegen** tabblad is alleen beschikbaar als in Hallo **tabblad Beveiliging**, **automatische inrichting inschakelen** is uitgeschakeld. 
    
-3. In de **gebruiker toevoegen** sectie, voert u de volgende stappen uit:
+3. In Hallo **gebruiker toevoegen** sectie, voert u Hallo stappen te volgen:
 
     ![Gebruiker toevoegen](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "gebruiker toevoegen")
     
-    a. Typ een **BlueJeans gebruikersnaam**, een **e-mailadres**, een **BlueJeans vergadering ID**, een **beheerder wachtwoordcode**, een **volledige naam**, wordt de **bedrijf** van een geldige AAD-account dat u inrichten in de bijbehorende tekstvakken wilt.
+    a. Typ een **BlueJeans gebruikersnaam**, een **e-mailadres**, een **BlueJeans vergadering ID**, een **beheerder wachtwoordcode**, een **volledige naam** , Hallo **bedrijf** van tekstvakken met betrekking tot een geldige AAD-account u wilt dat tooprovision in Hallo.
     
     b. Klik op **gebruiker toevoegen**.
 
 >[!NOTE]
->U kunt andere BlueJeans gebruiker account hulpmiddelen voor het maken of API's die is geleverd door BlueJeans aan inrichten AAD-gebruikersaccounts. 
+>U kunt andere BlueJeans gebruiker account hulpmiddelen voor het maken of API's die worden geleverd door BlueJeans tooprovision AAD-gebruikersaccounts. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan BlueJeans.
+In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen tooBlueJeans toegang verleent.
 
 ![Gebruiker toewijzen][200] 
 
-**Britta Simon om aan te wijzen BlueJeans, moet u de volgende stappen uitvoeren:**
+**tooassign Britta Simon tooBlueJeans, Voer Hallo stappen te volgen:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **BlueJeans**.
+2. Selecteer in de lijst met de toepassingen van Hallo **BlueJeans**.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
@@ -253,7 +253,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -261,14 +261,14 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
 
-Als u op de tegel BlueJeans in het deelvenster toegang, krijgt u de aanmeldingspagina van BlueJeans toepassing.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
+Als u op Hallo BlueJeans-tegel in Hallo Toegangsvenster, krijgt u de aanmeldingspagina van BlueJeans toepassing.
+Zie voor meer informatie over Hallo Toegangspaneel [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

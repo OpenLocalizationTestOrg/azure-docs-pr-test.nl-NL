@@ -1,6 +1,6 @@
 ---
-title: WordPress converteren naar meerdere locaties in Azure App Service
-description: Meer informatie over het maken van een bestaande web-app voor WordPress is gemaakt door de galerie in Azure en converteren naar WordPress implementatie voor meerdere locaties
+title: aaaConvert WordPress tooMultisite in Azure App Service
+description: Meer informatie over hoe tootake een bestaande WordPress-web-app via Hallo-galerie in Azure is gemaakt en converteert u deze tooWordPress implementatie voor meerdere locaties
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
@@ -14,118 +14,118 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 4a15fb5e97d2ca57e5883c07651c372c54021c92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1153f0a8043de875f081704cd0a124776758878c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>WordPress converteren naar meerdere locaties in Azure App Service
+# <a name="convert-wordpress-toomultisite-in-azure-app-service"></a>Converteren van WordPress tooMultisite in Azure App Service
 ## <a name="overview"></a>Overzicht
 *Door [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-In deze zelfstudie leert u een bestaande web-app voor WordPress is gemaakt door de galerie in Azure maken en deze omzetten in een implementatie voor meerdere locaties WordPress-installatie. Bovendien leert u hoe u een aangepast domein toewijzen aan elk van de subsites binnen uw installatie.
+In deze zelfstudie leert u hoe tootake een bestaande WordPress-web-app gemaakt door de galerie Hallo in Azure en omzetten in een implementatie voor meerdere locaties WordPress installeren. Bovendien leert u hoe tooassign een aangepast domein tooeach Hallo subsites in de installatie.
 
-Ervan wordt uitgegaan dat u een bestaande installatie van WordPress hebt. Volg de richtlijnen als u dit niet doet, [een WordPress-website maken vanuit de Azure-galerie][website-from-gallery].
+Ervan wordt uitgegaan dat u een bestaande installatie van WordPress hebt. Als u dit niet doet, volgt u Hallo richtlijn voor formaatbepaling in [een WordPress-website uit de galerie Hallo in Azure maken][website-from-gallery].
 
-Converteren van een bestaande WordPress één site installeren op meerdere locaties is doorgaans redelijk eenvoudig en veel van de eerste stappen die hier worden geleverd rechtstreeks vanuit de [maken van een netwerk] [ wordpress-codex-create-a-network] pagina op de [ WordPress Codex](http://codex.wordpress.org).
+Converteren van een bestaande WordPress tooMultisite van één site-installatie wordt doorgaans redelijk eenvoudig en veel van Hallo eerste stappen die hier afkomstig zijn direct van Hallo [maken van een netwerk] [ wordpress-codex-create-a-network] pagina op Hallo [WordPress Codex](http://codex.wordpress.org).
 
 Aan de slag.
 
 ## <a name="allow-multisite"></a>Implementatie voor meerdere locaties toestaan
-U moet eerst meerdere locaties via inschakelen de `wp-config.php` het bestand met de **WP\_toestaan\_implementatie voor meerdere locaties** constante. Er zijn twee methoden voor het bewerken van uw web-app-bestanden: de eerste is via de FTP- en de tweede via Git. Als u niet bekend met het instellen van deze methoden bent, raadpleegt u de volgende zelfstudies:
+U moet eerst tooenable implementatie voor meerdere locaties via Hallo `wp-config.php` bestand Hello **WP\_toestaan\_implementatie voor meerdere locaties** constante. Er zijn twee methoden tooedit uw web-app-bestanden: Hallo wordt eerst via de FTP- en Hallo tweede via Git. Als u niet bekend met het bent toosetup van deze methoden Raadpleeg toohello volgende zelfstudies:
 
 * [PHP-website met de MySQL- en FTP-][website-w-mysql-and-ftp-ftp-setup]
 * [PHP-website met de MySQL en Git][website-w-mysql-and-git-git-setup]
 
-Open de `wp-config.php` -bestand met een editor van uw keuze en voeg de volgende bovenstaande de `/* That's all, stop editing! Happy blogging. */` regel.
+Open Hallo `wp-config.php` -bestand met de Hallo-editor van uw keuze en voeg de volgende Hallo hierboven Hallo `/* That's all, stop editing! Happy blogging. */` regel.
 
     /* Multisite */
 
     define( 'WP_ALLOW_MULTISITE', true );
 
-Zorg dat het bestand opslaan en upload het naar de server!
+Of toosave Hallo het bestand zijn en upload het vorige toohello server!
 
 ## <a name="network-setup"></a>Netwerk instellen
-Meld u aan bij de *wp-beheerder* ruimte van uw web-app en u ziet een nieuw item onder de **extra** menu aangeroepen **netwerkinstellingen**. Klik op **netwerkinstellingen** en vult u de details van uw netwerk.
+Meld u bij toohello *wp-beheerder* ruimte van uw web-app en u ziet een nieuw item onder Hallo **hulpprogramma's** menu aangeroepen **netwerk instellen**. Klik op **netwerkinstellingen** en vul Hallo details van uw netwerk.
 
 ![Scherm voor het netwerk instellen][wordpress-network-setup]
 
-Deze zelfstudie wordt gebruikgemaakt van de *submappen* schema site omdat deze altijd werkt en we om de aangepaste domeinen van de bovenliggende verderop in de zelfstudie instellen. Echter, moet het mogelijk installatie van een subdomein installeren als u een domein via toewijzen voor de [Azure Portal](https://portal.azure.com) en jokerteken DNS correct setup.
+Deze zelfstudie wordt gebruikgemaakt van Hallo *submappen* schema site omdat deze altijd werkt en we om de aangepaste domeinen van de bovenliggende verderop in de zelfstudie Hallo instellen. Deze moet echter mogelijk toosetup een subdomein installeren als u een domein via Hallo toewijst [Azure Portal](https://portal.azure.com) en jokerteken DNS correct setup.
 
-Zie voor meer informatie over het subdomein tegenover submap instellingen de [soorten multisiteconfiguratie] [ wordpress-codex-types-of-networks] artikel op de WordPress-Codex.
+Submap instellingen Zie voor meer informatie over het subdomein tegenover Hallo [soorten multisiteconfiguratie] [ wordpress-codex-types-of-networks] artikel op Hallo WordPress Codex.
 
-## <a name="enable-the-network"></a>Het netwerk inschakelen
-Het netwerk is nu geconfigureerd in de database, maar er is een resterende stap in het inschakelen van de netwerkfunctionaliteit. Voltooi de `wp-config.php` instellingen en zorg ervoor dat `web.config` goed routeert elke site.
+## <a name="enable-hello-network"></a>Hallo netwerk inschakelen
+Hallo-netwerk is nu geconfigureerd in de database hello, maar er is een resterende stap tooenable Hallo netwerkfunctionaliteit. Hallo voltooien `wp-config.php` instellingen en zorg ervoor dat `web.config` correct routeert elke site.
 
-Wanneer u op de **installeren** knop op de *netwerkinstellingen* pagina WordPress probeert bij te werken de `wp-config.php` en `web.config` bestanden. U moet echter altijd de bestanden om te controleren of dat de updates met succes zijn controleren. Als dit niet het geval is, wordt dit scherm u met de vereiste updates worden geïnstalleerd. Bewerken en opslaan van de bestanden.
+Wanneer u op Hallo **installeren** knop op Hallo *netwerkinstellingen* pagina WordPress probeert tooupdate hello `wp-config.php` en `web.config` bestanden. U moet echter altijd controleren Hallo bestanden tooensure Hallo updates met succes zijn uitgevoerd. Als dat niet het geval is, wordt dit scherm u Hallo vereiste updates worden aangeboden. Bewerk en Hallo bestanden op te slaan.
 
-Nadat u back deze updates u moet af en meld in het dashboard wp-beheerder.
+Na het maken wordt deze updates moet u toolog af en meld back in Hallo wp-beheerder dashboard.
 
-Er worden nu een menu Extra op de admin-balk met het label **Mijn Sites**. Dit menu kunt u bepalen van uw nieuwe netwerk via de **netwerk Admin** dashboard.
+Er worden nu een menu Extra op Hallo beheerder balk met het label **Mijn Sites**. Dit menu kunt u toocontrol uw nieuwe netwerk via Hallo **netwerk Admin** dashboard.
 
 ## <a name="adding-custom-domains"></a>Toevoegen van aangepaste domeinen
-De [WordPress MU domein toewijzing] [ wordpress-plugin-wordpress-mu-domain-mapping] invoegtoepassing kunt u probleemloos aangepaste domeinen toevoegen aan een site in uw netwerk. Voor de invoegtoepassing correcte werking moet, u enkele aanvullende instellingen op de Portal en bij uw domeinregistrar doen.
+Hallo [WordPress MU domein toewijzing] [ wordpress-plugin-wordpress-mu-domain-mapping] invoegtoepassing kunt u een eenvoudig tooadd aangepaste domeinen tooany site in uw netwerk. Voor Hallo invoegtoepassing toooperate goed is, moet u toodo enkele aanvullende instellingen op Hallo Portal en bij uw domeinregistrar.
 
-## <a name="enable-domain-mapping-to-the-web-app"></a>Domein toewijzen aan de web-app
-De **vrije** [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan modus biedt geen ondersteuning voor het toevoegen van aangepaste domeinen aan Web-Apps. U moet overschakelen naar **gedeelde** of **standaard** modus. Om dit te doen:
+## <a name="enable-domain-mapping-toohello-web-app"></a>Domein toewijzing toohello web-app inschakelen
+Hallo **vrije** [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan modus biedt geen ondersteuning voor het toevoegen van aangepaste domeinen tooWeb Apps. U moet tooswitch te**gedeelde** of **standaard** modus. toodo dit:
 
-* Aanmelden bij de Azure-Portal en zoek uw web-app. 
-* Klik op de **opschalen** tabblad **instellingen**.
+* Meld u bij toohello Azure-Portal en zoek uw web-app. 
+* Klik op Hallo **opschalen** tabblad **instellingen**.
 * Onder **algemene**, selecteert u *gedeelde* of *STANDARD*
 * Klik op **opslaan**
 
-U wordt gevraagd om te controleren of de wijziging en bevestigt dat uw web-app kan nu kosten in rekening gebracht een, al naar gelang het verbruik en de andere configuratie die u instelt.
+U kunt wordt een bericht weergegeven waarin u wordt gevraagd tooverify Hallo wijzigen en uw web-app kan nu een kosten, afhankelijk van het gebruik in rekening gebracht en andere configuratieset Hallo bevestigen.
 
-Het duurt een paar seconden voor het verwerken van de nieuwe instellingen is nu een goed moment om het instellen van uw domein te starten.
+Het duurt een paar seconden tooprocess Hallo nieuwe instellingen, is dit nu een goed moment toostart-instellen van uw domein.
 
 ## <a name="verify-your-domain"></a>Verifieer uw domein
-Voordat u Azure Web Apps kunt u een domein worden toegewezen aan de site, moet u eerst controleren of u de autorisatie hebt voor het toewijzen van het domein. Om dit te doen, moet u een nieuwe CNAME-record toevoegen aan uw DNS-vermelding.
+Voordat u Azure Web Apps kunt u de site van een domein toohello toomap, moet u eerst tooverify Hallo autorisatie toomap Hallo-domein. toodo geval is, moet u een nieuwe CNAME-record tooyour DNS-vermelding toevoegen.
 
-* Aanmelden bij uw domein-DNS-beheer
+* Aanmelden van tooyour domein-DNS-beheer
 * Maakt een nieuwe CNAME *awverify*
-* Punt *awverify* naar *awverify. YOUR_DOMAIN.azurewebsites.NET*
+* Punt *awverify* te*awverify. YOUR_DOMAIN.azurewebsites.NET*
 
-Het kan even duren voordat de DNS-wijzigingen van kracht volledige, dus als u de volgende stappen werken niet onmiddellijk gaat koffie, maken en vervolgens keert u terug en probeer het opnieuw.
+Het kan even duren om Hallo DNS-wijzigingen toogo volledige kracht, dus als Hallo stappen werken niet onmiddellijk, gaat u koffie, maken en vervolgens keert u terug en probeer het opnieuw.
 
-## <a name="add-the-domain-to-the-web-app"></a>Het domein toevoegen aan de web-app
-Ga terug naar uw web-app via de Azure-Portal, klikt u op **instellingen**, en klik vervolgens op **aangepaste domeinen en SSL**.
+## <a name="add-hello-domain-toohello-web-app"></a>Hallo domein toohello web-app toevoegen
+Retour tooyour web-app via hello Azure-Portal klikt u op **instellingen**, en klik vervolgens op **aangepaste domeinen en SSL**.
 
-Wanneer de *SSL-instellingen* worden weergegeven, ziet u de velden waar u invoer op alle domeinen die u wilt toewijzen aan uw web-app. Als een domein is hier niet worden vermeld, is het niet mogelijk voor de toewijzing binnen WordPress, ongeacht hoe de domein-DNS ingesteld is.
+Wanneer Hallo *SSL-instellingen* worden weergegeven, ziet u Hallo velden waar u invoer op alle Hallo-domeinen die u wenst dat tooassign tooyour web-app. Als een domein is hier niet worden vermeld, is het niet mogelijk voor de toewijzing binnen WordPress, ongeacht hoe Hallo domein-DNS ingesteld is.
 
 ![Dialoogvenster aangepaste domeinen beheren][wordpress-manage-domains]
 
-Nadat u uw domein in het tekstvak te typen, Azure controleert of de CNAME-record dat u eerder hebt gemaakt. Als de DNS-server is niet volledig is doorgegeven, wordt een rode indicator wordt weergegeven. Als deze voltooid is, ziet u een groen vinkje. 
+Nadat u uw domein in het tekstvak hello te typen, controleert Azure Hallo CNAME-record die u eerder hebt gemaakt. Als Hallo DNS is niet volledig is doorgegeven, wordt een rode indicator wordt weergegeven. Als deze voltooid is, ziet u een groen vinkje. 
 
-Let op het IP-adres aan de onderkant van het dialoogvenster. U moet dit voor het instellen van de A-record voor uw domein.
+Let op Hallo die IP-adres onder Hallo van Hallo dialoogvenster weergegeven. U moet deze toosetup Hallo een record voor uw domein.
 
-## <a name="setup-the-domain-a-record"></a>Instellen van het domein een record
-Als de andere stappen voltooid zijn, kunt u kunt nu het domein toewijzen aan uw Azure-web-app in een DNS A-record. 
+## <a name="setup-hello-domain-a-record"></a>Hallo domein A-record instellen
+U kunt hello andere stappen is gelukt, nu Hallo domein tooyour Azure-web-app via een DNS A-record te toewijzen. 
 
-Het is belangrijk te weten hier die Azure-web-apps worden geaccepteerd CNAME zowel A-records, maar u *moet* gebruikmaken van een A-record voor de toewijzing van het juiste domein. Een CNAME kan niet worden doorgestuurd naar een andere CNAME, dit is wat Azure met YOUR_DOMAIN.azurewebsites.net voor u gemaakt.
+Het is belangrijk toonote hier die Azure-web-apps worden geaccepteerd CNAME zowel A-records, maar u *moet* een toewijzing van een record tooenable juiste domein gebruiken. Worden een CNAME kan niet doorgestuurd tooanother CNAME, dit is wat Azure met YOUR_DOMAIN.azurewebsites.net voor u gemaakt.
 
-Met behulp van het IP-adres van de vorige stap, terug naar uw DNS-beheer en de A-record wijst u aan dat IP-adres instellen.
+Met de Hallo IP-adres van de vorige stap hello, retourneren tooyour DNS-beheer en setup Hallo een record toopoint toothat IP-adres.
 
-## <a name="install-and-setup-the-plugin"></a>Installeren en instellen van de invoegtoepassing
-Implementatie voor meerdere locaties WordPress heeft momenteel geen ingebouwde methode om toe te wijzen van aangepaste domeinen. Er is echter een invoegtoepassing aangeroepen [WordPress MU domein toewijzing] [ wordpress-plugin-wordpress-mu-domain-mapping] waarmee de functionaliteit voor u worden toegevoegd. Aanmelden bij het netwerk Admin-gedeelte van uw site en installeer de **WordPress MU domein toewijzing** invoegtoepassing.
+## <a name="install-and-setup-hello-plugin"></a>Installeren en instellen Hallo-invoegtoepassing
+Implementatie voor meerdere locaties WordPress nog momenteel geen gebruikmaakt van een ingebouwde methode toomap aangepaste domeinen. Er is echter een invoegtoepassing aangeroepen [WordPress MU domein toewijzing] [ wordpress-plugin-wordpress-mu-domain-mapping] waarmee Hallo functionaliteit toegevoegd voor u. Meld u bij toohello netwerk Admin deel van uw site en installeer Hallo **WordPress MU domein toewijzing** invoegtoepassing.
 
-Na het installeren en activeren van de invoegtoepassing, gaat u naar **instellingen** > **domein toewijzing** voor het configureren van de invoegtoepassing. In het eerste tekstvak *IP-adres*, voer het IP-adres dat u gebruikt voor het instellen van de A-record voor het domein. Stel een *Domeinopties* u desire (de standaardwaarden zijn vaak fijn) en klik op **opslaan**.
+Nadat het installeren en activeren van de invoegtoepassing hello, gaat u naar **instellingen** > **domein toewijzing** tooconfigure Hallo-invoegtoepassing. In de eerste tekstvak hello, *IP-adres*, invoer Hallo IP-adres gebruikt van toosetup Hallo een record voor Hallo-domein. Stel een *Domeinopties* u wenst (Hallo zijn standaard vaak fijn) en klik op **opslaan**.
 
-## <a name="map-the-domain"></a>Het domein toewijzen
-Ga naar de **Dashboard** voor de site die u wilt toewijzen van het domein. Klik op **extra** > **domein toewijzing** en typt u het nieuwe domein in het tekstvak en klik op **toevoegen**.
+## <a name="map-hello-domain"></a>Hallo domein toewijzen
+Ga naar Hallo **Dashboard** voor Hallo-site die u wenst toomap Hallo-domein. Klik op **extra** > **domein toewijzing** en type Hallo nieuw domein in Hallo tekstvak en klik op **toevoegen**.
 
-Standaard wordt het nieuwe domein worden herschreven aan het domein van de site automatisch gegenereerd. Als u wilt dat alle verkeer dat wordt verzonden naar het nieuwe domein, Controleer de *primair domein voor deze blog* vak voordat u opslaat. U kunt een onbeperkt aantal domeinen toevoegen aan een site, maar slechts één primaire kan zijn.
+Standaard wordt het nieuwe domein Hallo herschreven toohello automatisch gegenereerde site domein te zijn. Als u wilt dat toohave alle verkeer dat wordt verzonden toohello nieuw domein, controleert u Hallo *primair domein voor deze blog* vak voordat u opslaat. U kunt een onbeperkt aantal domeinen tooa site toevoegen, maar slechts één primaire kan zijn.
 
 ## <a name="do-it-again"></a>Opnieuw doen
-Azure-Web-Apps kunt u een onbeperkt aantal domeinen toevoegen aan een web-app. Toevoegen van een ander domein, moet u uitvoeren van de **Verifieer uw domein** en **instellen van het domein een record** secties voor elk domein.    
+Azure-Web-Apps kunt u tooadd een onbeperkt aantal domeinen tooa web-app. tooadd een ander domein, moet u tooexecute hello **Verifieer uw domein** en **Setup Hallo domein A-record** secties voor elk domein.    
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
 ## <a name="whats-changed"></a>Wat is er gewijzigd
-* Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Zie voor een handleiding toohello wijzigingen van de Websites tooApp Service: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com

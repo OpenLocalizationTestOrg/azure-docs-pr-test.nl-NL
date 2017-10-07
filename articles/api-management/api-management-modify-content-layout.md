@@ -1,6 +1,6 @@
 ---
-title: Pagina-inhoud bewerken in de ontwikkelaarsportal in Azure API Management | Microsoft Docs
-description: Informatie over het bewerken van pagina-inhoud in de ontwikkelaarsportal in Azure API Management.
+title: aaaModify pagina-inhoud in de ontwikkelaarsportal Hallo in Azure API Management | Microsoft Docs
+description: Meer informatie over hoe tooedit-pagina-inhoud op Hallo ontwikkelaarsportal in Azure API Management.
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fd5a854e900d9512518643e593b1b59a0952621f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>De inhoud en opmaak van pagina’s bewerken in de ontwikkelaarsportal in Azure API Management
-Er zijn die manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:
+# <a name="modify-hello-content-and-layout-of-pages-on-hello-developer-portal-in-azure-api-management"></a>Hallo-inhoud en indeling van pagina's op Hallo ontwikkelaarsportal in Azure API Management wijzigen
+Er zijn drie manieren Hallo toocustomize ontwikkelaarsportal in Azure API Management:
 
-* [De inhoud van statische pagina's en pagina-indelingselementen bewerken][modify-content-layout] (uitgelegd in deze handleiding)
-* [De stijlen bijwerken die worden gebruikt voor pagina-elementen in de ontwikkelaarsportal][customize-styles]
-* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal][portal-templates] (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enz.)
+* [Hallo-inhoud van statische pagina's en pagina-elementen voor lay-out bewerken] [ modify-content-layout] (uitgelegd in deze handleiding)
+* [Update Hallo stijlen worden gebruikt voor pagina-elementen over Hallo-portal voor ontwikkelaars][customize-styles]
+* [Hallo-sjablonen die worden gebruikt voor pagina's die worden gegenereerd door Hallo portal wijzigen] [ portal-templates] (bijvoorbeeld API docs, producten, gebruikersverificatie, enz.)
 
 ## <a name="page-structure"> </a>Structuur van pagina's in de ontwikkelaarsportal
 
-De ontwikkelaarsportal is gebaseerd op een inhoudsbeheersysteem. De indeling van elke pagina is opgebouwd op basis van een reeks kleine pagina-elementen die ook wel widgets worden genoemd:
+Hallo developer-portal is gebaseerd op een inhoudsbeheersysteem. Hallo-indeling van elke pagina is opgebouwd op basis van de set met elementen van kleine pagina bekend als widgets:
 
 ![Paginastructuur in de ontwikkelaarsportal][api-management-customization-widget-structure]
 
 Alle widgets kunnen worden bewerkt. 
-* De belangrijkste inhoud die voor elke pagina anders is, staat in de widget Inhoud. Als u een pagina bewerkt, bewerkt u eigenlijk de inhoud van deze widget.
-* Alle elementen van pagina-indeling staan in de overige widgets. Als u wijzigingen aanbrengt aan deze widgets, worden die toegepast op alle pagina's. Deze widgets heten ook wel indelingswidgets.
+* Hallo core inhoud specifieke tooeach afzonderlijke pagina zich bevinden in Hallo 'Inhoud' widget. Bewerken van een pagina betekent Hallo inhoud van deze widget te bewerken.
+* Alle elementen voor pagina-indeling zijn met de resterende widgets Hallo opgenomen. Wijzigingen in widgets toothese tooall pagina's van toepassing. Ze zijn waarnaar wordt verwezen tooas 'widgets lay-out'.
 
-Voor de alledaagse paginabewerkingen bewerkt u meestal alleen de widget Inhoud. Er staat in deze widget meestal andere inhoud voor elke pagina.
+Dagelijkse pagina wijzigt bewerken voor meerdere meestal alleen inhoud widget Hallo waarvoor verschillende inhoud voor elke afzonderlijke pagina.
 
-## <a name="modify-layout-widget"> </a>De inhoud van een indelingswidget wijzigen
+## <a name="modify-layout-widget"></a>Aanpassen Hallo inhoud van een lay-widget
 
-Inhoud in de ontwikkelaarsportal wordt gewijzigd via de publicatieportal, die u kunt openen vanuit de Azure Portal. U opent deze door vanaf de servicewerkbalk van het API Management-exemplaar op **Publicatieportal** te klikken.
+Inhoud in de ontwikkelaarsportal hello wordt gewijzigd via Hallo publicatieportal, die toegankelijk is vanaf hello Azure-Portal. tooreach, klikt u op **publicatieportal** van Hallo service werkbalk van uw exemplaar van API Management.
 
 ![Publicatieportal][api-management-management-console]
 
-Als u de inhoud van deze widget wilt bewerken, klikt u op **Widgets** in het menu **Ontwikkelaarsportal** aan de linkerkant. In dit voorbeeld gaat u de inhoud van de widget Koptekst wijzigen. Selecteer de widget **Koptekst** in de lijst.
+tooedit hello inhoud van deze widget, klikt u op **Widgets** van Hallo **Ontwikkelaarsportal** menu aan de linkerkant Hallo. Voor dit voorbeeld kunt inhoud van Hallo Header widget Hallo wijzigen. Selecteer Hallo **Header** widget uit Hallo-lijst.
 
 ![Widget Koptekst][api-management-widgets-header]
 
-De inhoud van de header kan worden bewerkt vanuit het veld **Hoofdtekst**. Wijzig de tekst naar wens en klik vervolgens op **Opslaan** onder aan de pagina.
+Hallo-inhoud van Hallo-header kan worden bewerkt vanuit Hallo **hoofdtekst** veld. De tekst hello naar wens wijzigen en klik vervolgens op **opslaan** Hallo Hallo pagina onderaan in.
 
-U zou nu de nieuwe header op elke pagina moeten zien binnen de ontwikkelaarsportal.
+U moet nu kunnen toosee Hallo nieuwe header op elke pagina binnen Hallo-portal voor ontwikkelaars.
 
-> Als u de ontwikkelaarsportal wilt openen terwijl u zich in de publicatieportal bevindt, klikt u op **Ontwikkelaarsportal** in de bovenste balk.
+> tooopen hello developer-portal in de publicatieportal hello, klikt u op **ontwikkelaarsportal** in de bovenste balk Hallo.
 > 
 > 
 
-## <a name="edit-page-contents"> </a>De inhoud van een pagina bewerken
+## <a name="edit-page-contents"></a>Hello inhoud van een pagina bewerken
 
-Als u de lijst met alle bestaande inhoudspagina's wilt zien, klikt u op **Inhoud** in het menu **Ontwikkelaarsportal** in de publicatieportal.
+toosee hello lijst met alle bestaande inhoudspagina's, klikt u op **inhoud** van Hallo **ontwikkelaarsportal** menu in de publicatieportal Hallo.
 
 ![Inhoud beheren][api-management-customization-manage-content]
 
-Klik op de pagina **Welkom** om te bewerken wat wordt weergegeven op de startpagina van de ontwikkelaarsportal. Breng de gewenste wijzigingen aan, bekijk er indien nodig een voorbeeld van en klik vervolgens op **Nu publiceren** om ze voor iedereen zichtbaar te maken.
+Klik op Hallo **Welkom** tooedit pagina Wat wordt weergegeven op de startpagina Hallo van Hallo-portal voor ontwikkelaars. Breng wijzigingen Hallo, bekijk er indien nodig voorbeeld en klik vervolgens op **nu publiceren** toomake ze zichtbaar tooeveryone.
 
-> Op de startpagina wordt een speciale indeling gebruikt waardoor bovenaan een banner kan worden weergegeven. Deze banner kan niet worden bewerkt in de sectie **Inhoud**. Als u deze banner wilt bewerken, klikt u op **Widgets** in het menu **Ontwikkelaarsportal**, selecteert u **Startpagina** in de vervolgkeuzelijst **Huidige laag** en opent u het item **Banner** onder de sectie **Aanbevolen**. De inhoud van deze widget kan net zoals andere pagina's worden bewerkt.
+> Hallo-startpagina maakt gebruik van een speciale indeling waarmee het toodisplay een banner Hallo boven. Deze banner kan niet worden bewerkt vanuit Hallo **inhoud** sectie. tooedit dit standaardvaandel, klikt u op **Widgets** van Hallo **ontwikkelaarsportal** selecteert u **startpagina** van Hallo **huidige laag** vervolgkeuzelijst lijst en open vervolgens Hallo **Banner** item onder Hallo **sectie aanbevolen**. Hallo-inhoud van deze widget kunnen worden bewerkt net als andere pagina.
 > 
 > 
 
 ## <a name="next-steps"> </a>Volgende stappen
-* [De stijlen bijwerken die worden gebruikt voor pagina-elementen in de ontwikkelaarsportal][customize-styles]
-* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal][portal-templates] (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enz.)
+* [Update Hallo stijlen worden gebruikt voor pagina-elementen over Hallo-portal voor ontwikkelaars][customize-styles]
+* [Hallo-sjablonen die worden gebruikt voor pagina's die worden gegenereerd door Hallo portal wijzigen] [ portal-templates] (bijvoorbeeld API docs, producten, gebruikersverificatie, enz.)
 
 [Structure of developer portal pages]: #page-structure
-[Modifying the contents of a layout widget]: #modify-layout-widget
-[Edit the contents of a page]: #edit-page-contents
+[Modifying hello contents of a layout widget]: #modify-layout-widget
+[Edit hello contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
 [modify-content-layout]: api-management-modify-content-layout.md

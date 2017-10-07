@@ -1,6 +1,6 @@
 ---
-title: Trace-aanroepen met API-Inspector - Azure API Management | Microsoft Docs
-description: Informatie over het traceren van aanroepen met behulp van de API-Inspector in Azure API Management.
+title: aaaTrace aanroepen met API-Inspector - Azure API Management | Microsoft Docs
+description: Meer informatie over hoe tootrace aanroepen met Hallo API-Inspector in Azure API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b0c401caa8da1b789f6cfe5edf97a5f118d78f26
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Het gebruik van de API-Inspector te traceren aanroepen in Azure API Management
-API Management biedt een API-Inspector-hulpprogramma om u te helpen bij het opsporen en oplossen van uw API's. De API-Inspector via een programma kan worden gebruikt en kan ook rechtstreeks vanuit de portal voor ontwikkelaars worden gebruikt. 
+# <a name="how-toouse-hello-api-inspector-tootrace-calls-in-azure-api-management"></a>Hoe toouse Hallo API Inspector tootrace aanroept in Azure API Management
+API Management biedt een API-Inspector hulpprogramma toohelp u met het opsporen en oplossen van uw API's. Hallo API Inspector via een programma kan worden gebruikt en kan ook rechtstreeks vanuit de ontwikkelaarsportal hello worden gebruikt. 
 
-Naast de tracering bewerkingen, API-Inspector ook traceert [beleidsexpressie](https://msdn.microsoft.com/library/azure/dn910913.aspx) evaluaties. Zie voor een demonstratie [Cloud hebben betrekking op aflevering 177: meer API Management-functies](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot 21:00.
+Bovendien tootracing bewerkingen, API-Inspector ook traceert [beleidsexpressie](https://msdn.microsoft.com/library/azure/dn910913.aspx) evaluaties. Zie voor een demonstratie [Cloud hebben betrekking op aflevering 177: meer API Management-functies](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en too21:00 vooruit.
 
 Deze handleiding biedt een overzicht van het gebruik van API-Inspector.
 
 > [!NOTE]
-> API-Inspector traceringen worden alleen gegenereerd en beschikbaar gesteld voor aanvragen met abonnement sleutels die deel uitmaken van de [beheerder](api-management-howto-create-groups.md) account.
+> API-Inspector traceringen worden alleen gegenereerd en beschikbaar gesteld voor aanvragen met abonnement sleutels die deel uitmaken van toohello [beheerder](api-management-howto-create-groups.md) account.
 > 
 > 
 
-## <a name="trace-call"></a> API-Inspector gebruikt om te traceren, een aanroep
-Voor het gebruik van API-Inspector toevoegen een **ocp-apim-trace: true** aanvraagheader voor uw bewerking gesprek, en vervolgens downloaden en controleren van de tracering via de URL die is aangegeven door de **ocp-apim-trace-locatie** antwoordheader. Dit via programmacode kan worden uitgevoerd en is ook mogelijk rechtstreeks vanuit de portal voor ontwikkelaars.
+## <a name="trace-call"></a> Gebruik API-Inspector tootrace een aanroep
+API-Inspector toouse toevoegen een **ocp-apim-trace: true** header tooyour aanroepen, aanvragen en vervolgens downloaden en inspecteren Hallo trace met Hallo URL aangegeven door Hallo **ocp-apim-trace-locatie** antwoordheader. Dit kunt doen via programmacode en rechtstreeks vanuit de ontwikkelaarsportal Hallo kan worden uitgevoerd.
 
-Deze zelfstudie laat zien hoe u de API-Inspector trace-bewerkingen met behulp van de basisrekenmachine-API die is geconfigureerd in de [uw eerste API beheren](api-management-get-started.md) zelfstudie aan de slag. Als u dit nog niet hebt voltooid die zelfstudie duurt slechts enkele ogenblikken voor het importeren van de basisrekenmachine-API of kunt u een andere API keuze op, zoals de Echo-API. Elk service-exemplaar van API Management wordt al geconfigureerd geleverd met een Echo-API die kan worden gebruikt om te experimenteren met API Management en hier meer over te leren. De Echo-API retourneert terug ongeacht invoer is verzonden. Als u wilt gebruiken, kunt u een HTTP-term aanroept en de retourwaarde worden gewoon wat u hebt verzonden. 
+Deze zelfstudie laat zien hoe toouse Hallo API Inspector tootrace bewerkingen met behulp van de basisrekenmachine-API die is geconfigureerd in Hallo Hallo [uw eerste API beheren](api-management-get-started.md) zelfstudie aan de slag. Als u dit nog niet hebt voltooid die zelfstudie duurt slechts enkele ogenblikken tooimport hello basisrekenmachine-API of kunt u een andere API van uw keuze zoals Hallo Echo-API. Elk exemplaar van API Management-service wordt geleverd met een Echo-API die kan worden gebruikt tooexperiment met en meer informatie over API Management vooraf geconfigureerd. Hallo Echo-API retourneert terug ongeacht invoer tooit wordt verzonden. toouse, kunt u een HTTP-term aanroept en Hallo retourwaarde gewoon worden wat u hebt verzonden. 
 
-Om te beginnen, klikt u op **ontwikkelaarsportal** in de Azure-Portal voor uw API Management-service. Bewerkingen kunnen rechtstreeks vanuit de portal voor ontwikkelaars die biedt een handige manier om te bekijken en testen van de bewerkingen van een API worden aangeroepen.
+tooget gestart, klikt u op **ontwikkelaarsportal** in hello Azure-Portal voor uw API Management-service. Bewerkingen kunnen rechtstreeks vanuit het Hallo-portal voor ontwikkelaars die een handige manier tooview biedt worden aangeroepen en Hallo bewerkingen van een API testen.
 
-> Als u nog een exemplaar van API Management-service hebt gemaakt, Zie [API Management service-exemplaar maken] [ Create an API Management service instance] in de [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
+> Als u nog een exemplaar van API Management-service hebt gemaakt, Zie [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
 > 
 > 
 
 ![API Management-portal voor ontwikkelaars][api-management-developer-portal-menu]
 
-Klik op **API's** van het bovenste menu en klik op **basisrekenmachine**.
+Klik op **API's** van Hallo bovenste menu en klik vervolgens op **basisrekenmachine**.
 
 ![Echo-API][api-management-api]
 
-Klik op **Try it** om te proberen de **twee gehele getallen toevoegen** bewerking.
+Klik op **Try it** tootry hello **twee gehele getallen toevoegen** bewerking.
 
 ![Probeer het nu][api-management-open-console]
 
-Gebruik de standaardwaarde parameterwaarden en selecteert u de sleutel van het abonnement voor het product dat u gebruiken wilt vanaf de **abonnementssleutel** vervolgkeuzelijst.
+Voorkomen dat Hallo standaardparameterwaarden en selecteer Hallo abonnementssleutel voor Hallo product dat u wilt toouse hello **abonnementssleutel** vervolgkeuzelijst.
 
-In de portal voor ontwikkelaars standaard de **Ocp-Apim-Trace** header is al ingesteld op **true**. Deze header configureert u of er een tracering wordt gegenereerd.
+Standaard in Hallo developer portal Hallo **Ocp-Apim-Trace** header is al ingesteld te**true**. Deze header configureert u of er een tracering wordt gegenereerd.
 
 ![Verzenden][api-management-http-get]
 
-Klik op **verzenden** aanroepen van de bewerking.
+Klik op **verzenden** tooinvoke Hallo-bewerking.
 
 ![Verzenden][api-management-send-results]
 
-In het antwoord headers is een **ocp-apim-trace-locatie** met een waarde gelijkaardig aan het volgende voorbeeld.
+In het antwoord Hallo headers niet een **ocp-apim-trace-locatie** met een waarde van een vergelijkbare toohello voorbeeld te volgen.
 
 ```
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-De tracering kan worden gedownload vanaf de opgegeven locatie en gecontroleerd, zoals wordt beschreven in de volgende stap. Houd er rekening mee dat alleen de laatste 100 logboekvermeldingen worden opgeslagen en logboeklocaties opnieuw worden gebruikt in de draaihoek. In dat geval als u meer dan 100 aanroept met tracering ingeschakeld begint u met het uiteindelijk wordt overschreven de eerste traceringen aanwezig.
+Hallo-tracering kan worden gedownload vanaf Hallo opgegeven locatie en gecontroleerd, zoals wordt beschreven in de volgende stap Hallo. Houd er rekening mee dat alleen Hallo laatste 100 logboekvermeldingen worden opgeslagen en logboeklocaties opnieuw worden gebruikt in de draaihoek. In dat geval als u meer dan 100 aanroept met tracering ingeschakeld begint u met het uiteindelijk Hallo eerste traceringen erin wordt overschreven.
 
-## <a name="inspect-trace"></a>Inspecteer de tracering
-Om de waarden in de tracering controleren, downloaden de traceringsbestand van de **ocp-apim-trace-locatie** URL. Er is een tekstbestand in JSON-indeling en vermeldingen die lijken op het volgende voorbeeld bevat.
+## <a name="inspect-trace"></a>Hello trace controleren
+tooreview hello waarden in Hallo-tracering Hallo traceringsbestand downloaden van Hallo **ocp-apim-trace-locatie** URL. Dit is een tekstbestand in JSON-indeling en bevat vermeldingen vergelijkbare toohello voorbeeld te volgen.
 
 ```json
 {
@@ -144,7 +144,7 @@ Om de waarden in de tracering controleren, downloaden de traceringsbestand van d
                 "timestamp": "2015-06-23T19:51:35.2998610Z",
                 "elapsed": "00:00:00.0727522",
                 "data": {
-                    "message": "Request is being forwarded to the backend service.",
+                    "message": "Request is being forwarded toohello backend service.",
                     "request": {
                         "method": "GET",
                         "url": "http://calcapi.cloudapp.net/api/add?a=51&b=49",
@@ -219,7 +219,7 @@ Om de waarden in de tracering controleren, downloaden de traceringsbestand van d
                 "timestamp": "2015-06-23T19:51:35.4256650Z",
                 "elapsed": "00:00:00.1961112",
                 "data": {
-                    "message": "Response headers have been sent to the caller. Starting to stream the response body."
+                    "message": "Response headers have been sent toohello caller. Starting toostream hello response body."
                 }
             },
             {
@@ -227,7 +227,7 @@ Om de waarden in de tracering controleren, downloaden de traceringsbestand van d
                 "timestamp": "2015-06-23T19:51:35.4256650Z",
                 "elapsed": "00:00:00.1963155",
                 "data": {
-                    "message": "Response body streaming to the caller is complete."
+                    "message": "Response body streaming toohello caller is complete."
                 }
             }
         ]
@@ -236,14 +236,14 @@ Om de waarden in de tracering controleren, downloaden de traceringsbestand van d
 ```
 
 ## <a name="next-steps"> </a>Volgende stappen
-* Bekijk een demo voor tracering van beleidsexpressies in [Cloud hebben betrekking op aflevering 177: meer API Management-functies](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Vooruit tot 21:00 voor een overzicht van de demo.
+* Bekijk een demo voor tracering van beleidsexpressies in [Cloud hebben betrekking op aflevering 177: meer API Management-functies](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Vooruit too21:00 toosee Hallo demo.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky/player]
 > 
 > 
 
-[Use API Inspector to trace a call]: #trace-call
-[Inspect the trace]: #inspect-trace
+[Use API Inspector tootrace a call]: #trace-call
+[Inspect hello trace]: #inspect-trace
 [Next steps]: #next-steps
 
 [Configure API settings]: api-management-howto-create-apis.md#configure-api-settings

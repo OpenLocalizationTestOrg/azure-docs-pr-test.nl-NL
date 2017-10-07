@@ -1,6 +1,6 @@
 ---
-title: Native ClientApps - Azure AD publiceren | Microsoft Docs
-description: Bevat informatie over het inschakelen van native client-apps om te communiceren met Azure AD Connector voor toepassingsproxy om te bieden veilige externe toegang tot uw lokale apps.
+title: aaaPublish native client-apps - Azure AD | Microsoft Docs
+description: Bevat informatie over hoe tooenable native client-apps toocommunicate met Azure AD-Application Proxy Connector tooprovide veilige externe toegang tooyour lokale apps.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,32 +15,32 @@ ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bdaa5af6ff5331bc310499586615b48a864c3c5e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0ed2be217bf992f034d8321d5e66569b4cace24f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Native client-apps om te communiceren met de proxy toepassingen inschakelen
+# <a name="how-tooenable-native-client-apps-toointeract-with-proxy-applications"></a>Hoe tooenable native client-apps toointeract met proxy toepassingen
 
-Naast de webtoepassingen, worden Azure Active Directory-toepassingsproxy ook gebruikt voor het publiceren van native client-apps. Native client-apps verschillen van web-apps, omdat ze zijn geïnstalleerd op een apparaat, terwijl de web-apps via een browser worden geopend. 
+Azure Active Directory-toepassingsproxy kan toevoeging tooweb toepassingen, ook gebruikte toopublish native client-apps worden. Native client-apps verschillen van web-apps, omdat ze zijn geïnstalleerd op een apparaat, terwijl de web-apps via een browser worden geopend. 
 
 Toepassingsproxy ondersteunt native client-apps door overnemende Azure AD uitgegeven tokens die standaard autoriseren HTTP-headers zijn verzonden.
 
 ![Relatie tussen eindgebruikers, Azure Active Directory en gepubliceerde toepassingen](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-Gebruik de Azure AD-Verificatiebibliotheek, die zorgt voor verificatie en biedt ondersteuning voor veel client-omgevingen, systeemeigen toepassingen te publiceren. Toepassingsproxy in past de [systeemeigen toepassing aan Web-API-scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Dit artikel begeleidt u bij de vier stappen voor het publiceren van een systeemeigen toepassing met toepassingsproxy en de Azure AD-Verificatiebibliotheek. 
+Hello Azure AD-Verificatiebibliotheek, die zorgt voor verificatie en biedt ondersteuning voor veel client omgevingen, toopublish systeemeigen toepassingen gebruiken. Toepassingsproxy in Hallo past [systeemeigen toepassing tooWeb API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). Dit artikel begeleidt u bij Hallo vier stappen toopublish een systeemeigen toepassing met toepassingsproxy en hello Azure AD Authentication Library. 
 
 ## <a name="step-1-publish-your-application"></a>Stap 1: Uw toepassing publiceren
-Uw proxy-toepassing te publiceren, net als alle andere toepassingen en gebruikers toegang krijgen tot uw toepassing toe te wijzen. Zie voor meer informatie [publiceren van toepassingen met toepassingsproxy](active-directory-application-proxy-publish.md).
+Uw proxy-toepassing te publiceren, net als elke andere toepassing en toewijzen van gebruikers tooaccess uw toepassing. Zie voor meer informatie [publiceren van toepassingen met toepassingsproxy](active-directory-application-proxy-publish.md).
 
 ## <a name="step-2-configure-your-application"></a>Stap 2: Uw toepassing configureren
 Uw eigen toepassing als volgt configureren:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Navigeer naar **Azure Active Directory** > **App registraties**.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. Navigeer te**Azure Active Directory** > **App registraties**.
 3. Selecteer **registratie van de nieuwe toepassing**.
-4. Geef een naam voor uw toepassing, selecteert **systeemeigen** als het toepassingstype, en geef de omleidings-URI voor uw toepassing. 
+4. Geef een naam voor uw toepassing, selecteert **systeemeigen** als het toepassingstype hello, en geef Hallo omleidings-URI voor uw toepassing. 
 
    ![Maak een nieuwe app-registratie](./media/active-directory-application-proxy-native-client/create.png)
 5. Selecteer **Maken**.
@@ -48,50 +48,50 @@ Uw eigen toepassing als volgt configureren:
 Zie voor meer informatie over het maken van een nieuwe app-registratie, [toepassingen integreren met Azure Active Directory](.//develop/active-directory-integrating-applications.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>Stap 3: Verleen toegang tot andere toepassingen
-De systeemeigen toepassing worden blootgesteld aan andere toepassingen in uw directory inschakelen:
+## <a name="step-3-grant-access-tooother-applications"></a>Stap 3: Verlenen toegang tooother toepassingen
+Hallo systeemeigen toepassing toobe blootgesteld tooother toepassingen in uw directory inschakelen:
 
-1. Nog steeds in **App registraties**, selecteer de nieuwe systeemeigen toepassing die u zojuist hebt gemaakt.
+1. Nog steeds in **App registraties**, selecteer Hallo nieuwe systeemeigen toepassing die u zojuist hebt gemaakt.
 2. Selecteer **vereist machtigingen**.
 3. Selecteer **Toevoegen**.
-4. Open de eerste stap **selecteert u een API**.
-5. Gebruik de zoekbalk de toepassingsproxy-app die u hebt gepubliceerd in de eerste sectie vinden. Kies deze app en klik vervolgens op **Selecteer**. 
+4. Eerste stap van de Open Hallo **selecteert u een API**.
+5. Hallo zoeken balk toofind Hallo toepassingsproxy app gebruiken die u hebt gepubliceerd in de eerste sectie Hallo. Kies deze app en klik vervolgens op **Selecteer**. 
 
-   ![Zoeken naar de proxy-app](./media/active-directory-application-proxy-native-client/select_api.png)
-6. Open de tweede stap **machtigingen selecteren**.
-7. Gebruik de selectievakjes om uw eigen App toegang verlenen tot uw proxy-toepassing en klik vervolgens op **Selecteer**.
+   ![Zoeken naar Hallo proxy app](./media/active-directory-application-proxy-native-client/select_api.png)
+6. Tweede stap van de Open Hallo **machtigingen selecteren**.
+7. Hallo selectievakje toogrant uw toepassing systeemeigen toepassing toegang tooyour proxy gebruiken en klik vervolgens op **Selecteer**.
 
-   ![Toegang verlenen tot de proxy-app](./media/active-directory-application-proxy-native-client/select_perms.png)
+   ![Verleen toegang tooproxy app](./media/active-directory-application-proxy-native-client/select_perms.png)
 8. Selecteer **gedaan**.
 
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>Stap 4: De Active Directory Authentication Library bewerken
-De systeemeigen toepassingscode bewerken in de verificatiecontext van de Active Directory Authentication Library (ADAL) om op te nemen van de volgende tekst:
+## <a name="step-4-edit-hello-active-directory-authentication-library"></a>Stap 4: Hallo Active Directory Authentication Library bewerken
+Hallo systeemeigen toepassingscode bewerken in Hallo authentication context Hallo Active Directory Authentication Library (ADAL) tooinclude Hallo volgende tekst:
 
 ```
 // Acquire Access Token from AAD for Proxy Application
 AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
 AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
-        "<App ID of the Native app>",
-        new Uri("<Redirect Uri of the Native App>"),
+        "<App ID of hello Native app>",
+        new Uri("<Redirect Uri of hello Native App>"),
         PromptBehavior.Never);
 
-//Use the Access Token to access the Proxy Application
+//Use hello Access Token tooaccess hello Proxy Application
 HttpClient httpClient = new HttpClient();
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 ```
 
-De variabelen in de voorbeeldcode wordt vervangen als volgt:
+Hallo variabelen in de voorbeeldcode hello wordt vervangen als volgt:
 
-* **Tenant-ID** vindt u in de Azure-portal. Navigeer naar **Azure Active Directory** > **eigenschappen** en kopieer de map-ID. 
-* **Externe URL** is de front-URL die u hebt ingevoerd in de Proxy-toepassing. U vindt deze waarde, gaat u naar de **toepassingsproxy** sectie van de proxy-app.
-* **App-ID** van de systeemeigen app kunt u vinden op de **eigenschappen** pagina van de oorspronkelijke toepassing.
-* **Omleidings-URI van de systeemeigen app** vindt u op de **omleidings-URI's** pagina van de oorspronkelijke toepassing.
+* **Tenant-ID** vindt u in hello Azure-portal. Navigeer te**Azure Active Directory** > **eigenschappen** en kopiëren Hallo Directory-ID. 
+* **Externe URL** Hallo front-URL die u hebt ingevoerd in de Proxy-toepassing hello is. toofind dit waarde, navigeer toohello **toepassingsproxy** sectie van Hallo proxy app.
+* **App-ID** Hallo systeemeigen app vindt u op Hallo **eigenschappen** pagina van de systeemeigen toepassing hello.
+* **Omleidings-URI van de systeemeigen app Hallo** vindt u op Hallo **omleidings-URI's** pagina van de systeemeigen toepassing hello.
 
 
 ## <a name="see-also"></a>Zie ook
 
-Zie voor meer informatie over de stroom systeemeigen toepassing [systeemeigen toepassing aan web-API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+Zie voor meer informatie over Hallo systeemeigen toepassing stroom [systeemeigen toepassing tooweb API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Ga naar het [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/) voor nieuws en updates.
+Bekijk voor Hallo laatste nieuws en updates Hallo [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/)

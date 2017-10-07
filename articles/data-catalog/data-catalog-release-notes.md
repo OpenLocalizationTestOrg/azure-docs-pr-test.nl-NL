@@ -1,5 +1,5 @@
 ---
-title: Azure Data Catalog release-opmerkingen | Microsoft Docs
+title: Releaseopmerkingen voor Data Catalog aaaAzure | Microsoft Docs
 description: Releaseopmerkingen voor Azure Data Catalog.
 services: data-catalog
 documentationcenter: 
@@ -15,57 +15,57 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 661826f66020ba72a885c6b14522b53c8b469d20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-catalog-release-notes"></a>Azure Data Catalog release-opmerkingen
-## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Informatie voor 20 November 2015-release van Azure Data Catalog
+## <a name="notes-for-hello-november-20-2015-release-of-azure-data-catalog"></a>Opmerkingen voor Hallo 20 November 2015-release van Azure Data Catalog
 ### <a name="opening-data-sources-in-power-bi-desktop"></a>De gegevensbronnen openen in Power BI Desktop
-Wanneer u de optie 'Openen in Power BI Desktop' uit de **Azure Data Catalog** portal gebruikers kunnen ondervinden een van twee problemen in de Power BI Desktop-toepassing:
+Bij gebruik van Hallo 'Openen in Power BI Desktop' optie van Hallo **Azure Data Catalog** portal gebruikers kunnen ondervinden een van twee problemen in Power BI Desktop toepassing hello:
 
-* Een dialoogvenster met de titel 'Kan niet aan Open Document' wordt weergegeven
-* De Power BI Desktop-toepassing wordt geopend, maar het bestand is niet leeg zijn
+* Een dialoogvenster met Hallo titel 'Kan geen tooOpen Document' wordt weergegeven
+* Hallo Power BI Desktop-toepassing wordt geopend, maar het Hallo-bestand weergegeven toobe leeg
 
-Voor elke situatie kan het probleem worden opgelost door downloaden en installeren van de nieuwste versie van Power BI Desktop van [PowerBI.com](https://powerbi.com).
+Voor elke situatie Hallo probleem worden opgelost door downloaden en installeren van de meest recente versie van Power BI Desktop van Hallo [PowerBI.com](https://powerbi.com).
 
-## <a name="notes-for-the-november-13-2015-release-of-azure-data-catalog"></a>Informatie voor 13 November 2015-release van Azure Data Catalog
-### <a name="registering-and-connecting-to-teradata"></a>Registreren en te verbinden met de Teradata
-Bij het verbinden met de Teradata-gegevensbronnen gebruikers het juiste Teradata ODBC-stuurprogramma moeten hebben geïnstalleerd die overeenkomen met de bitness van de software die wordt gebruikt (32-bits of 64-bits).
+## <a name="notes-for-hello-november-13-2015-release-of-azure-data-catalog"></a>Opmerkingen voor Hallo 13 November 2015-release van Azure Data Catalog
+### <a name="registering-and-connecting-tooteradata"></a>Registreren en te verbinden tooTeradata
+Wanneer u verbinding maakt tooTeradata gegevensbronnen gebruikers moeten de juiste Teradata ODBC-stuurprogramma Hallo hebben geïnstalleerd die overeenkomen met de Hallo bitness (32-bits of 64-bits) van Hallo software wordt gebruikt.
 
-Vanaf deze datum ADC release is de meest recente [Teradata ODBC-stuurprogramma voor windows (versie 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatibel met Office 2013, maar niet met Office 2016.
+Vanaf deze ADC releasedatum, de meest recente Hallo [Teradata ODBC-stuurprogramma voor windows (versie 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatibel met Office 2013, maar niet met Office 2016.
 
-## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Informatie voor 13 juli 2015-release van Azure Data Catalog
-### <a name="registering-and-connecting-to-oracle-database"></a>Registreren en te verbinden met de Oracle-Database
-Bij het verbinden met de Oracle-Database-gegevensbronnen gebruikers moeten de juiste Oracle-stuurprogramma's die overeenkomen met de bitness van de software die wordt gebruikt (32-bits of 64-bits) hebt geïnstalleerd.
+## <a name="notes-for-hello-july-13-2015-release-of-azure-data-catalog"></a>Opmerkingen voor Hallo 13 juli 2015-release van Azure Data Catalog
+### <a name="registering-and-connecting-toooracle-database"></a>Registreren en te verbinden tooOracle Database
+Wanneer gegevens tooOracle-bronnen databasegebruikers verbinding moet hebben geïnstalleerd Hallo juiste Oracle stuurprogramma's die overeenkomen met de Hallo bitness (32-bits of 64-bits) van Hallo software wordt gebruikt.
 
-* De 32-bits Oracle-stuurprogramma's wordt gebruikt bij het registreren van Oracle-gegevensbronnen op een computer met Windows 32-bits
-* De 64-bits Oracle-stuurprogramma's wordt gebruikt bij het registreren van Oracle-gegevensbronnen op een computer met 64-bits Windows
-* Bij het verbinden met de Oracle-gegevensbronnen met Excel op een computer met de 32-bits versie van Microsoft Office, wordt inclusief op 64-bits Windows de 32-bits Oracle-stuurprogramma's gebruikt
-* Wanneer u verbinding maakt met de Oracle-gegevensbronnen met Excel op een computer met de 64-bits versie van Microsoft Office, worden de 64-bits Oracle-stuurprogramma's gebruikt
+* Bij het registreren van Oracle-gegevensbronnen op een computer met 32-bits Windows wordt hello 32-bits Oracle-stuurprogramma's gebruikt
+* Bij het registreren van Oracle-gegevensbronnen op een computer met 64-bits Windows wordt hello 64-bits Oracle-stuurprogramma's gebruikt
+* Wanneer u verbinding maakt tooOracle gegevensbronnen met Excel op een computer met Hallo 32-bits versie van Microsoft Office, wordt inclusief op 64-bits Windows hello 32-bits Oracle-stuurprogramma's gebruikt
+* Wanneer u verbinding maakt met gegevensbronnen tooOracle met Excel op een computer met Hallo 64-bits versie van Microsoft Office, worden Hallo 64-bits Oracle-stuurprogramma's gebruikt
 
-### <a name="registering-and-connecting-to-sql-server-reporting-services"></a>Registreren en te verbinden met SQL Server Reporting Services
-Ondersteuning voor gegevensbronnen van SQL Server Reporting Services (SSRS) is momenteel beperkt tot alleen servers Native-modus. Ondersteuning voor SQL Server Reporting Services in de modus SharePoint wordt uitgevoerd wordt in een latere versie toegevoegd.
+### <a name="registering-and-connecting-toosql-server-reporting-services"></a>Registreren en te verbinden tooSQL Server Reporting Services
+Ondersteuning voor gegevensbronnen van SQL Server Reporting Services (SSRS) is momenteel beperkt tooNative modus alleen servers. Ondersteuning voor SQL Server Reporting Services in de modus SharePoint wordt uitgevoerd wordt in een latere versie toegevoegd.
 
 ### <a name="opening-data-assets-in-excel"></a>Gegevensassets openen in Excel
-Bij het openen van gegevensassets in Microsoft Excel uit de **Azure Data Catalog** portal gebruikers mogelijk gevraagd met een **beveiligingsbericht Microsoft Excel** in het dialoogvenster. Dit is standaard, verwacht gedrag en gebruikers kunnen selecteren **inschakelen** om door te gaan.
+Wanneer u gegevensassets in Microsoft Excel opent vanuit Hallo **Azure Data Catalog** portal gebruikers mogelijk gevraagd met een **beveiligingsbericht Microsoft Excel** in het dialoogvenster. Dit is standaard, verwacht gedrag en gebruikers kunnen selecteren **inschakelen** toocontinue.
 
 Zie voor meer informatie [in- of uitschakelen van beveiligingswaarschuwingen over koppelingen en bestanden van verdachte websites](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### <a name="proxy-and-policy-configuration-and-data-source-registration"></a>Proxy- en beleid voor configuratie en gegevens registratie van gegevensbron
-Gebruikers kunnen ondervinden een situatie waarin ze zich aanmelden kunnen bij de Azure Data Catalog-portal, maar als ze proberen aan te melden op het hulpprogramma voor registratie dat een foutbericht weergegeven dat voorkomt ze dat zich aanmelden optreden.
+Gebruikers kunnen ondervinden een situatie waarin ze zich aanmelden kunnen op toohello Azure Data Catalog-portal, maar als ze proberen toolog op toohello hulpprogramma voor registratie die een foutbericht weergegeven dat voorkomt ze dat zich aanmelden optreden.
 
 Er zijn twee mogelijke oorzaken voor dit probleem gedrag:
 
-**1 oorzaak: Active Directory Federation Services configuration** formulierverificatie valideren gebruikersaanmeldingen op basis van Active Directory maakt gebruik van het registratiehulpprogramma van gegevensbronnen. Voor geslaagde aanmelding moet formulierverificatie zijn ingeschakeld in het globale verificatiebeleid door een Active Directory-beheerder.
+**1 oorzaak: Active Directory Federation Services configuration** hulpprogramma voor registratie van gegevensbronnen Hallo formulierverificatie toovalidate gebruikersaanmeldingen op basis van Active Directory wordt gebruikt. Voor geslaagde aanmelding moet formulierverificatie zijn ingeschakeld in Hallo Global Authentication Policy door een Active Directory-beheerder.
 
-In sommige gevallen is kan deze fout gebeuren wanneer de gebruiker op het bedrijfsnetwerk, of alleen wanneer de gebruiker verbinding maakt vanaf buiten het bedrijfsnetwerk. Het globale verificatiebeleid kunt verificatiemethoden afzonderlijk worden ingeschakeld voor het intranet en extranet-verbindingen. Aanmeldingsfouten kunnen optreden als formulierverificatie is niet ingeschakeld voor het netwerk van waaruit de gebruiker verbinding maakt.
+In sommige gevallen is kan deze fout gebeuren wanneer Hallo gebruiker op het bedrijfsnetwerk hello, of alleen wanneer Hallo gebruiker verbinding maakt vanaf externe Hallo-netwerk van bedrijf. Hallo algemeen verificatiebeleid kunt verificatie methoden toobe afzonderlijk ingeschakeld voor intranet en extranet-verbindingen. Aanmeldingsfouten kunnen optreden als formulierverificatie niet is ingeschakeld voor het Hallo-netwerk van welke Hallo gebruiker verbinding maakt.
 
 Zie voor meer informatie [Authenticatiebeleid configureren](https://technet.microsoft.com/library/dn486781.aspx).
 
-**Oorzaak 2: Proxy netwerkconfiguratie** als het bedrijfsnetwerk een proxyserver gebruikt, het registratiehulpprogramma wellicht geen verbinding maken met Azure Active Directory via de proxy. Gebruikers kunnen ervoor zorgen dat het registratiehulpprogramma door het hulpprogramma configuratiebestand, bewerken in deze sectie toe te voegen aan het bestand:
+**Oorzaak 2: Proxy netwerkconfiguratie** als Hallo bedrijfsnetwerk gebruikmaakt van een proxyserver, Hallo-hulpprogramma voor registratie kunnen tooconnect tooAzure Active Directory via Hallo proxy niet mogelijk. Gebruikers kunnen ervoor zorgen dat Hallo-hulpprogramma voor registratie door te bewerken van het hulpprogramma Hallo-configuratiebestand, deze sectie toohello-bestand toe te voegen:
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">
@@ -76,4 +76,4 @@ Zie voor meer informatie [Authenticatiebeleid configureren](https://technet.micr
       </system.net>
 
 
-Zoek het bestand RegistrationTool.exe.config, start het registratiehulpprogramma en open vervolgens het hulpprogramma Windows Taakbeheer. Op het tabblad Details in Taakbeheer met de rechtermuisknop op RegistrationTool.exe en kies bestandslocatie openen in het pop-upmenu.
+toolocate hello RegistrationTool.exe.config bestand Hallo-hulpprogramma voor registratie starten en open vervolgens Hallo Windows Taakbeheer hulpprogramma. Op tabblad met Details Hallo in Taakbeheer, met de rechtermuisknop op RegistrationTool.exe en kies bestandslocatie openen Hallo pop-upmenu.

@@ -1,6 +1,6 @@
 ---
-title: Aanmelden voor een .NET MVC-web-API met behulp van het Azure AD v2.0-eindpunt toevoegen | Microsoft Docs
-description: Het bouwen van een .NET MVC Web-Api die tokens van beide persoonlijke Microsoft-Account accepteert en werk- of schoolaccount accounts.
+title: aaaAdd aanmelden tooa .NET MVC-web-API met behulp van Azure AD v2.0-eindpunt Hallo | Microsoft Docs
+description: Hoe toobuild een .NET MVC Web-Api die tokens van beide persoonlijke Microsoft-Account en werk-of schoolaccounts accepteert.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b2d7bbfcd9218698f71e9dfdb1ad5d9ff8740f5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e517145422bb6e9368e82a7eef4a5c57cce530a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Een MVC-web-API beveiligen
-U kunt met Azure Active Directory het v2.0-eindpunt, beveiligen een Web-API met [OAuth 2.0](active-directory-v2-protocols.md) tokens, waardoor gebruikers met beide persoonlijke Microsoft-account openen en werk- of schoolaccount gebruikersaccounts aan veilige toegang tot uw Web-API.
+U kunt met Azure Active Directory Hallo v2.0-eindpunt beveiligen een Web-API met [OAuth 2.0](active-directory-v2-protocols.md) toegangstokens, waardoor gebruikers met beide persoonlijke Microsoft-account en werk- of schoolaccount accounts toosecurely toegang tot uw Web-API.
 
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt.  Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door Hallo v2.0-eindpunt.  toodetermine als Hallo v2.0-eindpunt, moet u meer informatie over [v2.0 beperkingen](active-directory-v2-limitations.md).
 >
 >
 
-In ASP.NET web-API's, kunt u dit doen met behulp van Microsoft OWIN middleware is opgenomen in .NET Framework 4.5.  We gebruiken hier OWIN voor het bouwen van een 'Takenlijst' MVC Web-API waarmee clients kunnen maken en taken te lezen uit de takenlijst van de gebruiker.  De web-API valideert dat inkomende aanvragen een ongeldig toegangstoken bevatten en alle aanvragen die niet zijn gevalideerd op een beveiligde route afwijzen.  Dit voorbeeld is gebouwd met behulp van Visual Studio 2015.
+In ASP.NET web-API's, kunt u dit doen met behulp van Microsoft OWIN middleware is opgenomen in .NET Framework 4.5.  We gebruiken hier OWIN toobuild een 'tooDo lijst' MVC Web-API waarmee clients toocreate weergeven en lezen taken van de takenlijst van de gebruiker.  Hallo-web-API valideert dat inkomende aanvragen een ongeldig toegangstoken bevatten en alle aanvragen die niet zijn gevalideerd op een beveiligde route afwijzen.  Dit voorbeeld is gebouwd met behulp van Visual Studio 2015.
 
 ## <a name="download"></a>Downloaden
-De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  Als u wilt volgen, kunt u [basis van de app downloaden als een ZIP-](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) of het geraamte:
+Hallo-code voor deze zelfstudie wordt bijgehouden [op GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  toofollow langs, kunt u [basis van Hallo app downloaden als een ZIP-](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) of kloon Hallo basisproject:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-De geraamte app omvat alle standaardcode voor een eenvoudige API, maar alle benodigde onderdelen identiteitsgerelateerde ontbreekt. Als u niet volgen wilt, kunt u in plaats daarvan klonen of [het voltooide voorbeeld downloaden](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
+Hallo geraamte app omvat alle Hallo standaardcode voor een eenvoudige API, maar alle Hallo identity-gerelateerde onderdelen ontbreken. Als u toofollow langs niet wilt, kunt u in plaats daarvan klonen of [Hallo voltooid voorbeeld downloaden](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -47,16 +47,16 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ## <a name="register-an-app"></a>Een app registreren
 Maakt een nieuwe app op [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of als volgt [gedetailleerde stappen](active-directory-v2-app-registration.md).  Zorg ervoor dat:
 
-* Noteer de **toepassings-Id** toegewezen aan uw app, moet u deze snel.
+* Noteer Hallo **toepassings-Id** toegewezen tooyour app, moet u deze snel.
 
-Deze visual studio-oplossing bevat ook een 'TodoListClient', dit een eenvoudige WPF-app is.  De TodoListClient wordt gebruikt om u te laten zien hoe een gebruiker zich aanmeldt en hoe een client aanvragen kunt geven tot uw Web-API.  In dit geval worden zowel de TodoListClient en de TodoListService vertegenwoordigd door dezelfde app.  Als u wilt de TodoListClient configureren, moet u ook:
+Deze visual studio-oplossing bevat ook een 'TodoListClient', dit een eenvoudige WPF-app is.  Hallo TodoListClient gebruikte toodemonstrate hoe een gebruiker zich aanmeldt is en hoe u een client kan verlenen tooyour Web API-aanvragen.  In dit geval Hallo TodoListClient zowel Hallo TodoListService worden vertegenwoordigd door Hallo dezelfde app.  tooconfigure Hallo TodoListClient, moet u ook:
 
-* Voeg de **Mobile** platform voor uw app.
+* Hallo toevoegen **Mobile** platform voor uw app.
 
 ## <a name="install-owin"></a>OWIN installeren
-Nu u een app hebt geregistreerd, moet u uw app instellen om te communiceren met het v2.0-eindpunt om te valideren van binnenkomende aanvragen en -tokens.
+Nu u een app hebt geregistreerd, moet u tooset van uw app toocommunicate met Hallo v2.0-eindpunt in de volgorde toovalidate inkomende aanvragen & tokens.
 
-* Om te beginnen, opent u de oplossing en de OWIN middleware NuGet-pakketten toevoegen aan het TodoListService-project met de Package Manager-Console.
+* toobegin, open Hallo oplossing en Hallo OWIN middleware NuGet-pakketten toohello TodoListService-project toevoegen met behulp van Hallo Package Manager-Console.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
@@ -66,8 +66,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## <a name="configure-oauth-authentication"></a>OAuth-verificatie configureren
-* Een OWIN-Opstartklasse toevoegen aan het project met de naam TodoListService `Startup.cs`.  Rechtermuisknop te klikken op het project op--> **toevoegen** --> **Nieuw Item** --> Zoek naar 'OWIN'.  De OWIN-middleware roept de `Configuration(…)`-methode aan als uw app wordt gestart.
-* Wijzig de klassendeclaratie naar `public partial class Startup` -we hebben u al deel uit van deze klasse geïmplementeerd in een ander bestand.  In de `Configuration(…)` methode, een aanroep van ConfgureAuth(...) verificatie voor uw web-app instellen.
+* Voeg een OWIN klasse toohello TodoListService opstartproject aangeroepen `Startup.cs`.  Rechtermuisknop te klikken op op Hallo project--> **toevoegen** --> **Nieuw Item** --> Zoek naar 'OWIN'.  Hallo OWIN middleware Hallo worden ingeroepen `Configuration(…)` methode als uw app wordt gestart.
+* Hallo klassendeclaratie ook wijzigen`public partial class Startup` -we hebben u al deel uit van deze klasse geïmplementeerd in een ander bestand.  In Hallo `Configuration(…)` methode, een aanroep van tooConfgureAuth(...) tooset van verificatie voor uw web-app maken.
 
 ```C#
 public partial class Startup
@@ -79,34 +79,34 @@ public partial class Startup
 }
 ```
 
-* Open het bestand `App_Start\Startup.Auth.cs` en implementeren van de `ConfigureAuth(…)` methode, waarmee de Web-API wordt ingesteld om te accepteren van tokens van het v2.0-eindpunt.
+* Open Hallo bestand `App_Start\Startup.Auth.cs` en implementeren van Hallo `ConfigureAuth(…)` methode die Hallo Web API tooaccept tokens van Hallo v2.0-eindpunt wordt ingesteld.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
         {
-                // In this app, the TodoListClient and TodoListService
-                // are represented using the same Application Id - we use
-                // the Application Id to represent the audience, or the
+                // In this app, hello TodoListClient and TodoListService
+                // are represented using hello same Application Id - we use
+                // hello Application Id toorepresent hello audience, or the
                 // intended recipient of tokens.
 
                 ValidAudience = clientId,
 
                 // In a real applicaiton, you might use issuer validation to
-                // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // verify that hello user's organization (if applicable) has
+                // signed up for hello app.  Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
 
-        // Set up the OWIN pipeline to use OAuth 2.0 Bearer authentication.
-        // The options provided here tell the middleware about the type of tokens
-        // that will be recieved, which are JWTs for the v2.0 endpoint.
+        // Set up hello OWIN pipeline toouse OAuth 2.0 Bearer authentication.
+        // hello options provided here tell hello middleware about hello type of tokens
+        // that will be recieved, which are JWTs for hello v2.0 endpoint.
 
-        // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
-        // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
+        // NOTE: hello usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
+        // metadata endpoint which is not supported by hello v2.0 endpoint.  Instead, this
+        // OpenIdConenctCachingSecurityTokenProvider can be used toofetch & use hello OpenIdConnect
         // metadata document.
 
         app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -116,7 +116,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Nu kunt u `[Authorize]` kenmerken ter bescherming van uw domeincontrollers en de acties met OAuth 2.0-bearer-verificatie.  Opmaken de `Controllers\TodoListController.cs` klasse met een tag autoriseren.  Hierdoor wordt de gebruiker zich aanmelden voor de toegang tot deze pagina geforceerd.
+* Nu kunt u `[Authorize]` tooprotect kenmerken uw domeincontrollers en de acties met OAuth 2.0-bearer-verificatie.  Hallo opmaken `Controllers\TodoListController.cs` klasse met een tag autoriseren.  Hierdoor moeten Hallo gebruiker toosign in voor de toegang tot deze pagina.
 
 ```C#
 [Authorize]
@@ -124,14 +124,14 @@ public class TodoListController : ApiController
 {
 ```
 
-* Wanneer een geautoriseerde beller is roept een van de `TodoListController` API's, de actie moet mogelijk toegang tot informatie over de aanroeper.  OWIN biedt toegang tot de claims binnen het bearer-token via de `ClaimsPrincpal` object.  
+* Wanneer een geautoriseerde beller is roept een Hallo `TodoListController` API's, Hallo actie mogelijk moet toegang tot tooinformation over Hallo aanroeper.  OWIN toegang toohello claims binnen Hallo bearer-token via Hallo levert `ClaimsPrincpal` object.  
 
 ```C#
 public IEnumerable<TodoItem> Get()
 {
-    // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
-    // NameIdentifier claim to serve as a key for the tasks in the data store.
+    // You can use hello ClaimsPrincipal tooaccess information about the
+    // user making hello call.  In this case, we use hello 'sub' or
+    // NameIdentifier claim tooserve as a key for hello tasks in hello data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
 
@@ -141,30 +141,30 @@ public IEnumerable<TodoItem> Get()
 }
 ```
 
-* Tot slot opent u de `web.config` bestand in de hoofdmap van het project TodoListService en voer de configuratiewaarden van uw in de `<appSettings>` sectie.
-  * Uw `ida:Audience` is de **toepassings-Id** van de app die u hebt ingevoerd in de portal.
+* Tot slot opent Hallo `web.config` bestand in de hoofdmap Hallo van Hallo TodoListService project en voer uw configuratiewaarden in Hallo `<appSettings>` sectie.
+  * Uw `ida:Audience` Hallo is **toepassings-Id** van Hallo-app die u hebt ingevoerd in Hallo-portal.
 
-## <a name="configure-the-client-app"></a>De client-app configureren
-Voordat u de Todo List-Service in actie zien kunt, moet u de Client Todo-lijst configureren zodat het kan tokens uit het v2.0-eindpunt ophalen en naar de service aanroepen.
+## <a name="configure-hello-client-app"></a>Hallo client-app configureren
+Voordat u Hallo Todo List-Service in actie zien kunt, moet u tooconfigure Hallo Todo lijst Client, zodat het kan tokens van Hallo v2.0-eindpunt verkrijgen en aanroepen toohello service maken.
 
-* Open in het project TodoListClient `App.config` en voer de configuratiewaarden van uw in de `<appSettings>` sectie.
-  * Uw `ida:ClientId` toepassings-Id die u hebt gekopieerd uit de portal.
+* Open in Hallo TodoListClient project `App.config` en voer de configuratiewaarden van uw in Hallo `<appSettings>` sectie.
+  * Uw `ida:ClientId` toepassings-Id die u hebt gekopieerd uit Hallo-portal.
 
-Ten slotte wilt opschonen, bouwen en uitvoeren van elk project!  U hebt nu een .NET MVC Web-API die tokens van beide persoonlijke Microsoft-accounts en werk-of schoolaccounts accepteert.  Meld u aan bij de TodoListClient en roept u uw web-api taken toevoegen aan de takenlijst van de gebruiker.
+Ten slotte wilt opschonen, bouwen en uitvoeren van elk project!  U hebt nu een .NET MVC Web-API die tokens van beide persoonlijke Microsoft-accounts en werk-of schoolaccounts accepteert.  Meld u aan bij Hallo TodoListClient en roept u de takenlijst web api tooadd taken toohello van uw gebruikers.
 
-Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden) [is opgegeven als een ZIP hier](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), of u kunt dit ook klonen vanuit GitHub:
+Ter referentie: voltooid Hallo voorbeeld (zonder uw configuratiewaarden) [is opgegeven als een ZIP hier](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), of u kunt dit ook klonen vanuit GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu verplaatsen naar andere onderwerpen.  U wilt proberen:
+U kunt nu verplaatsen naar andere onderwerpen.  U kunt tootry:
 
 [Een Web-API aanroept vanuit een Web-App >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
 Voor aanvullende bronnen voor uitchecken:
 
-* [De ontwikkelaarshandleiding v2.0 >>](active-directory-appmodel-v2-overview.md)
+* [Hallo v2.0 ontwikkelaarshandleiding >>](active-directory-appmodel-v2-overview.md)
 * [StackOverflow 'azure active directory'-tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Beveiligingsupdates voor onze producten downloaden
-We raden u aan in te stellen dat u meldingen ontvangt wanneer er beveiligingsincidenten optreden. Ga hiervoor naar [deze pagina](https://technet.microsoft.com/security/dd252948) en abonneer u op Security Advisory Alerts.
+We raden u meldingen van wanneer er beveiligingsincidenten door bezoeken optreden tooget [deze pagina](https://technet.microsoft.com/security/dd252948) en u te abonneren tooSecurity Advisory Alerts.

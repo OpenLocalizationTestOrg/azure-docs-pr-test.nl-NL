@@ -1,5 +1,5 @@
 ---
-title: .NET-traceerlogboeken in Application Insights verkennen
+title: aaaExplore traceerlogboeken .NET in Application Insights
 description: Zoeken naar Logboeken die worden gegenereerd met Trace, NLog en Log4Net.
 services: application-insights
 documentationcenter: .net
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
 ms.author: bwren
-ms.openlocfilehash: 68e03bf10167ecde675d62782de7063aea9e81d9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6bfcd9e5751c3656236d7eb2fc09321740171a70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET-traceerlogboeken in Application Insights verkennen
-Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing kunt u uw verzonden naar Logboeken hebben [Azure Application Insights][start], waar u kunt verkennen en ze te zoeken. Uw logboeken worden samengevoegd met de andere telemetrie die afkomstig zijn van uw toepassing, zodat de traceringen die zijn gekoppeld aan het onderhoud van de aanvraag van elke gebruiker te identificeren en ze met andere gebeurtenissen en de uitzonderingenrapporten correleren.
+Als u NLog, log4Net of System.Diagnostics.Trace voor diagnostische tracering in uw ASP.NET-toepassing kunt u uw logboeken verzonden te hebben[Azure Application Insights][start], waar u kunt verkennen en zoeken ze. Uw logboeken worden samengevoegd met andere Hallo telemetrie afkomstig zijn van uw toepassing, zodat u kunt identificeren Hallo traceringen die zijn gekoppeld aan het onderhoud van de aanvraag van elke gebruiker en ze te correleren met andere gebeurtenissen en de uitzonderingenrapporten.
 
 > [!NOTE]
-> Moet u de module toepassingslogboek vastleggen? Het is een nuttig adapter voor 3rd derden voorkomen, maar als u niet al gebruikt NLog, log4Net of System.Diagnostics.Trace, kunt u alleen aanroepen [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) rechtstreeks.
+> Moet u de logboekmodule vastleggen Hallo? Het is een nuttig adapter voor 3rd derden voorkomen, maar als u niet al gebruikt NLog, log4Net of System.Diagnostics.Trace, kunt u alleen aanroepen [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) rechtstreeks.
 >
 >
 
 ## <a name="install-logging-on-your-app"></a>Aanmelden met uw app installeren
 Uw framework voor logboekregistratie gekozen installeren in uw project. Dit moet resulteren in een vermelding in het app.config- of web.config.
 
-Als u van System.Diagnostics.Trace gebruikmaakt, moet u een vermelding toevoegen aan web.config:
+Als u van System.Diagnostics.Trace gebruikmaakt, moet u een vermelding tooweb.config tooadd:
 
 ```XML
 
@@ -47,28 +47,28 @@ Als u van System.Diagnostics.Trace gebruikmaakt, moet u een vermelding toevoegen
      </system.diagnostics>
    </configuration>
 ```
-## <a name="configure-application-insights-to-collect-logs"></a>Application Insights voor het verzamelen van logboeken configureren
-**[Application Insights toevoegen aan uw project](app-insights-asp-net.md)**  als u die nog niet hebt gedaan. Hier ziet u een optie om op te nemen van de logboekverzamelaar.
+## <a name="configure-application-insights-toocollect-logs"></a>Application Insights toocollect logboeken configureren
+**[Application Insights tooyour project toevoegen](app-insights-asp-net.md)**  als u die nog niet hebt gedaan. Hier ziet u een optie tooinclude Hallo-logboekverzamelaar.
 
-Of **Configure Application Insights** met de rechtermuisknop op het project in Solution Explorer. Selecteer de optie voor **trace verzamelen configureren**.
+Of **Configure Application Insights** met de rechtermuisknop op het project in Solution Explorer. Hallo-optie te selecteren**trace verzamelen configureren**.
 
 *Er zijn geen menu- of logboekbestand collector de optie Application Insights?* Probeer [probleemoplossing](#troubleshooting).
 
 ## <a name="manual-installation"></a>Handmatige installatie
-Gebruik deze methode als uw projecttype wordt niet ondersteund door de Application Insights-installatieprogramma (bijvoorbeeld een Windows desktop-project).
+Gebruik deze methode als uw projecttype wordt niet ondersteund door Hallo Application Insights-installatieprogramma (bijvoorbeeld een Windows desktop-project).
 
-1. Als u van plan bent om log4Net of NLog te gebruiken, kunt u deze in uw project installeren.
+1. Als u van plan toouse log4Net of NLog bent, kunt u deze in uw project installeren.
 2. Klik in Solution Explorer met de rechtermuisknop op uw project en kies **NuGet-pakketten beheren**.
 3. Naar Application Insights zoeken
-4. Selecteer het juiste pakket - een van:
+4. Selecteer de juiste pakket Hallo - een van:
 
-   * Microsoft.ApplicationInsights.TraceListener (om vast te leggen System.Diagnostics.Trace aanroepen)
-   * Microsoft.ApplicationInsights.EventSourceListener (vast te leggen EventSource gebeurtenissen)
-   * Microsoft.ApplicationInsights.EtwListener (om vast te leggen ETW-gebeurtenissen)
+   * Microsoft.ApplicationInsights.TraceListener (toocapture System.Diagnostics.Trace aanroepen)
+   * Microsoft.ApplicationInsights.EventSourceListener (toocapture EventSource gebeurtenissen)
+   * Microsoft.ApplicationInsights.EtwListener (toocapture ETW-gebeurtenissen)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
-Het NuGet-pakket installeert de benodigde assembly's en past tevens web.config of app.config.
+Hallo NuGet-pakket installeert de benodigde assembly Hallo en past tevens web.config of app.config.
 
 ## <a name="insert-diagnostic-log-calls"></a>Diagnostische logboeken aanroepen invoegen
 Als u System.Diagnostics.Trace gebruikt, wordt een aanroep van typische zou zijn:
@@ -80,7 +80,7 @@ Als u liever log4net of NLog:
     logger.Warn("Slow response - database01");
 
 ## <a name="using-eventsource-events"></a>Het gebruik van EventSource gebeurtenissen
-U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de `Microsoft.ApplicationInsights.EventSourceListener` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
+U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen toobe verzonden tooApplication Insights als traceringen. Installeer eerst Hallo `Microsoft.ApplicationInsights.EventSourceListener` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie Hallo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -90,13 +90,13 @@ U kunt configureren [System.Diagnostics.Tracing.EventSource](https://msdn.micros
     </Add>
 ```
 
-Voor elke bron, kunt u de volgende parameters instellen:
- * `Name`Hiermee geeft u de naam van de EventSource te verzamelen.
- * `Level`Hiermee geeft u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Optioneel) Hiermee geeft u de gehele waarde van combinaties van trefwoorden te gebruiken.
+U kunt voor elke bron Hallo volgende parameters instellen:
+ * `Name`Geeft de naam Hallo van Hallo EventSource toocollect.
+ * `Level`Hiermee geeft u Hallo niveau toocollect logboekregistratie. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords`(Optioneel) bevat trefwoorden combinaties toouse Hallo gehele getal.
 
 ## <a name="using-diagnosticsource-events"></a>Het gebruik van DiagnosticSource gebeurtenissen
-U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet-pakket. Bewerk vervolgens de `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
+U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) gebeurtenissen toobe verzonden tooApplication Insights als traceringen. Installeer eerst Hallo [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet-pakket. Bewerk vervolgens Hallo `TelemetryModules` sectie Hallo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -106,13 +106,13 @@ U kunt configureren [System.Diagnostics.DiagnosticSource](https://github.com/dot
     </Add>
 ```
 
-Voor elke DiagnosticSource die u traceren wilt, Voeg een vermelding met de `Name` -kenmerk ingesteld op de naam van uw DiagnosticSource.
+Voor elke DiagnosticSource gewenste tootrace, Voeg een vermelding Hello `Name` kenmerk toohello naam van uw DiagnosticSource instellen.
 
 ## <a name="using-etw-events"></a>Met behulp van ETW-gebeurtenissen
-U kunt configureren ETW-gebeurtenissen naar Application Insights als traceringen worden verzonden. Installeer eerst de `Microsoft.ApplicationInsights.EtwCollector` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie van de [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
+U kunt ETW-gebeurtenissen toobe tooApplication Insights verzonden als traceringen configureren. Installeer eerst Hallo `Microsoft.ApplicationInsights.EtwCollector` NuGet-pakket. Bewerk vervolgens `TelemetryModules` sectie Hallo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) bestand.
 
 > [!NOTE] 
-> ETW-gebeurtenissen kunnen alleen worden verzameld als het proces voor het hosten van de SDK wordt uitgevoerd onder een identiteit die lid is van 'Gebruikers prestatielogboek' of de groep Administrators.
+> ETW-gebeurtenissen kunnen alleen worden verzameld als Hallo proces hosting Hallo SDK wordt uitgevoerd onder een identiteit die lid is van 'Gebruikers prestatielogboek' of de groep Administrators.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
@@ -122,35 +122,35 @@ U kunt configureren ETW-gebeurtenissen naar Application Insights als traceringen
     </Add>
 ```
 
-Voor elke bron, kunt u de volgende parameters instellen:
- * `ProviderName`is de naam van de ETW-provider te verzamelen.
- * `ProviderGuid`Geeft de GUID van de ETW-provider moet worden verzameld, kunnen worden gebruikt in plaats van `ProviderName`.
- * `Level`Hiermee stelt u het logboekregistratieniveau te verzamelen. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(Optioneel) stelt de integerwaarde van combinaties van trefwoorden te gebruiken.
+U kunt voor elke bron Hallo volgende parameters instellen:
+ * `ProviderName`Hallo-naam van Hallo ETW-provider toocollect is.
+ * `ProviderGuid`Hiermee geeft u op Hallo GUID van Hallo ETW-provider toocollect kan worden gebruikt in plaats van `ProviderName`.
+ * `Level`Hiermee stelt u Hallo niveau toocollect logboekregistratie. Een van `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords`(Optioneel) sets Hallo sleutelwoord combinaties toouse gehele getal.
 
-## <a name="using-the-trace-api-directly"></a>De tracering API direct gebruik te maken
-U kunt rechtstreeks de Application Insights trace API aanroepen. De adapters logboekregistratie gebruiken deze API.
+## <a name="using-hello-trace-api-directly"></a>Hallo API Trace direct gebruik te maken
+U kunt rechtstreeks Hallo Application Insights trace-API aanroepen. Hallo logboekregistratie adapters deze API gebruikt.
 
 Bijvoorbeeld:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-U kunt relatief lange gegevens plaatsen in het bericht heeft als voordeel van TrackTrace. U kan bijvoorbeeld er postgegevens coderen.
+U kunt relatief lange gegevens plaatsen in het Hallo-bericht heeft als voordeel van TrackTrace. U kan bijvoorbeeld er postgegevens coderen.
 
-U kunt bovendien een urgentieniveau toevoegen aan het bericht. En net als andere telemetrie u eigenschapswaarden die u gebruiken kunt om te filteren of zoeken naar verschillende sets van traceringen kunt toevoegen. Bijvoorbeeld:
+Bovendien kunt u een bericht van ernst niveau tooyour toevoegen. En net als andere telemetrie u eigenschapswaarden waarmee u toohelp filter of zoeken naar verschillende sets van traceringen kunt kunt toevoegen. Bijvoorbeeld:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-Hiermee kunt u, zou [zoeken][diagnostic], gemakkelijk kunt uitfilteren alle berichten van een bepaalde ernstniveau met betrekking tot een bepaalde database.
+Hiermee kunt u, zou [zoeken][diagnostic], tooeasily uitfilteren alle Hallo-berichten van een bepaalde ernstniveau betreffende tooa bepaalde database.
 
 ## <a name="explore-your-logs"></a>Verken uw logboeken
 Uitvoeren van uw app ofwel in de foutopsporingsmodus of live implementeren.
 
-In de overzichtsblade van uw app in [de Application Insights-portal][portal], kies [Search][diagnostic].
+In de overzichtsblade van uw app in [Hallo Application Insights-portal][portal], kies [Search][diagnostic].
 
 ![Kies in de Application Insights zoeken](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
@@ -160,11 +160,11 @@ U kunt, bijvoorbeeld:
 
 * Filteren op logboektraceringen of op items met specifieke eigenschappen
 * Een specifiek item in detail te controleren.
-* Andere telemetrie met betrekking tot de dezelfde gebruikersaanvraag vinden (dat wil zeggen, met de dezelfde OperationId)
-* De configuratie van deze pagina als favoriet opslaan
+* Andere telemetrie betreffende toohello vinden dezelfde gebruikersaanvraag (Hallo dat wil zeggen, met dezelfde OperationId)
+* Hallo-configuratie van deze pagina als favoriet opslaan
 
 > [!NOTE]
-> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](app-insights-sampling.md)
+> **Een steekproef.** Als uw toepassing grote hoeveelheden gegevens verzendt en u Hallo Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, mag de functie voor adaptieve steekproeven Hallo werkt en slechts een percentage van uw telemetrie verzenden. [Meer informatie over steekproeven.](app-insights-sampling.md)
 >
 >
 
@@ -175,30 +175,30 @@ U kunt, bijvoorbeeld:
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 ### <a name="how-do-i-do-this-for-java"></a>Hoe kan ik deze voor Java?
-Gebruik de [Java logboek adapters](app-insights-java-trace-logs.md).
+Gebruik Hallo [Java logboek adapters](app-insights-java-trace-logs.md).
 
-### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Er is geen optie Application Insights in het contextmenu van project
-* Controle van Application Insights-hulpprogramma's zijn geïnstalleerd op deze machine ontwikkeling. In Visual Studio-menu Extra Zoek uitbreidingen en Updates, naar Application Insights Tools. Als deze niet in het tabblad geïnstalleerd, opent u het tabblad Online en installeer deze.
+### <a name="theres-no-application-insights-option-on-hello-project-context-menu"></a>Er is geen optie Application Insights in contextmenu Hallo-project
+* Controle van Application Insights-hulpprogramma's zijn geïnstalleerd op deze machine ontwikkeling. In Visual Studio-menu Extra Zoek uitbreidingen en Updates, naar Application Insights Tools. Als deze niet in Hallo geïnstalleerde tabblad, open het tabblad Online Hallo en installeer deze.
 * Dit wordt mogelijk een type project niet wordt ondersteund door de Application Insights-hulpprogramma's. Gebruik [handmatige installatie](#manual-installation).
 
-### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Er is geen optie logboek adapter in het configuratiehulpprogramma
-* U moet eerst installeren van het framework voor logboekregistratie.
+### <a name="no-log-adapter-option-in-hello-configuration-tool"></a>Geen optie logboek adapter Hallo-configuratieprogramma
+* Moet u eerst framework voor logboekregistratie van tooinstall Hallo.
 * Als u van System.Diagnostics.Trace gebruikmaakt, controleert u of u [geconfigureerd in `web.config` ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Hebt u de nieuwste versie van Application Insights hebt? In Visual Studio **extra** menu kiezen **uitbreidingen en Updates**, en open de **Updates** tabblad. Als u hulpprogramma's voor ontwikkelaars webanalyse aanwezig is, klikt u op om bij te werken.
+* Hebt u de meest recente versie Hallo van Application Insights hebt? In Visual Studio **extra** menu kiezen **uitbreidingen en Updates**, en open Hallo **Updates** tabblad. Als u hulpprogramma's voor ontwikkelaars webanalyse aanwezig is, klikt u op tooupdate deze.
 
 ### <a name="emptykey"></a>Een fout ophalen 'instrumentatiesleutel mag niet leeg zijn'
-Lijkt erop dat u de logboekregistratie adapter Nuget-pakket geïnstalleerd zonder Application Insights te installeren.
+Lijkt erop dat u Hallo adapter Nuget-pakket registreren zonder dat u installeert Application Insights hebt geïnstalleerd.
 
-Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U krijgt een dialoogvenster met een uitnodiging aan te melden bij Azure en maak een Application Insights-resource opnieuw of gebruik een bestaande. Die het probleem moet oplossen.
+Klik in Solution Explorer met de rechtermuisknop op `ApplicationInsights.config` en kies **Update Application Insights**. U krijgt een dialoogvenster met een uitnodiging toosign in tooAzure en maak een Application Insights-resource opnieuw of gebruik een bestaande. Die het probleem moet oplossen.
 
-### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Zie ik traceringen in diagnostische gegevens doorzoeken, maar niet de andere gebeurtenissen
-Het kan duren voor de gebeurtenissen en aanvragen voor ophalen via de pipeline.
+### <a name="i-can-see-traces-in-diagnostic-search-but-not-hello-other-events"></a>Ik kan Zie traceringen in diagnostische gegevens doorzoeken, maar niet Hallo andere gebeurtenissen
+Het kan duren voor alle Hallo-gebeurtenissen en aanvragen tooget via Hallo pipeline.
 
 ### <a name="limits"></a>Hoeveel gegevens behouden blijven?
-Verschillende factoren van invloed op de hoeveelheid gegevens behouden. Zie de [limieten](app-insights-api-custom-events-metrics.md#limits) sectie van de pagina klant gebeurtenis metrische gegevens voor meer informatie. 
+Verschillende factoren van invloed op Hallo en de hoeveelheid gegevens behouden. Zie Hallo [limieten](app-insights-api-custom-events-metrics.md#limits) sectie van de pagina van Hallo klant gebeurtenis metrische gegevens voor meer informatie. 
 
-### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Ik zie niet sommige van de logboekvermeldingen die ik verwacht
-Als uw toepassing grote hoeveelheden gegevens verzendt en u de Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, stuurt de functie voor adaptieve steekproeven mogelijk slechts een percentage van uw telemetrie. [Meer informatie over steekproeven.](app-insights-sampling.md)
+### <a name="im-not-seeing-some-of-hello-log-entries-that-i-expect"></a>Ik ben aantal logboekvermeldingen Hallo verwachte niet te zien
+Als uw toepassing grote hoeveelheden gegevens verzendt en u Hallo Application Insights-SDK voor ASP.NET-versie 2.0.0-beta3 of hoger gebruikt, mag de functie voor adaptieve steekproeven Hallo werkt en slechts een percentage van uw telemetrie verzenden. [Meer informatie over steekproeven.](app-insights-sampling.md)
 
 ## <a name="add"></a>Volgende stappen
 * [Beschikbaarheid en reactiesnelheid tests instellen][availability]

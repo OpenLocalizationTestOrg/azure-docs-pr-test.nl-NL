@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van een aangepaste Docker-afbeelding voor Azure-Web-App op Linux | Microsoft Docs
-description: Klik hier voor meer informatie over het gebruik van een aangepaste Docker-afbeelding voor Azure-Web-App op Linux.
+title: aaaHow toouse een aangepaste Docker-afbeelding voor Azure-Web-App op Linux | Microsoft Docs
+description: Hoe een aangepaste Docker toouse afbeelding voor Azure-Web-App op Linux.
 keywords: Azure app service, web-app, linux, docker, container
 services: app-service
 documentationcenter: 
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.openlocfilehash: 1458217a31c4781b28877c030a665f5b22819e13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8853095d0e1067cfea4297bbd23b622fe4a0d4db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-a-custom-docker-image-for-azure-web-app-on-linux"></a>Met behulp van een aangepaste Docker-afbeelding voor Azure-Web-App op Linux #
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-App Service biedt vooraf gedefinieerde toepassing stacks op Linux met ondersteuning voor specifieke versies, zoals PHP 7.0 en Node.js 4.5. Docker-containers op Linux-App Service gebruikt voor het hosten van deze vooraf gemaakte toepassing stacks. U kunt ook een aangepaste Docker-installatiekopie gebruiken voor het implementeren van uw web-app naar de stack van een toepassing die niet al is gedefinieerd in Azure. Aangepaste Docker-installatiekopieën kunnen worden gehost op ofwel een openbaar of particulier Docker-opslagplaats.
+App Service biedt vooraf gedefinieerde toepassing stacks op Linux met ondersteuning voor specifieke versies, zoals PHP 7.0 en Node.js 4.5. Op Linux-App Service gebruikt Docker-containers toohost deze kan toepassing stacks vooraf gebouwd. U kunt een aangepaste installatiekopie toodeploy voor Docker ook uw web-app tooan toepassing stack die niet al is gedefinieerd in Azure gebruiken. Aangepaste Docker-installatiekopieën kunnen worden gehost op ofwel een openbaar of particulier Docker-opslagplaats.
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Procedure: een aangepaste Docker-installatiekopie voor een web-app instellen
-U kunt de aangepaste Docker-afbeelding voor beide apps nieuwe en bestaande webs instellen. Wanneer u een web-app maken in Linux in de [Azure-portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux), klikt u op **configureren container** in te stellen van een aangepaste Docker-installatiekopie:
+U kunt aangepaste Docker-installatiekopie Hallo voor zowel nieuwe en bestaande webs apps instellen. Wanneer u een web-app maken in Linux in Hallo [Azure-portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux), klikt u op **configureren container** tooset een aangepaste Docker-installatiekopie:
 
 ![Aangepaste Docker-installatiekopie voor een nieuwe WebApp op Linux][1]
 
 
 ## <a name="how-to-use-a-custom-docker-image-from-docker-hub"></a>Procedure: een aangepaste installatiekopie van Docker van Docker-Hub gebruiken ##
-Gebruik een aangepaste installatiekopie Docker van Docker-Hub:
+toouse een aangepaste installatiekopie Docker van Docker-Hub:
 
-1. In de [Azure-portal](https://portal.azure.com), vervolgens uw web-app op Linux, niet vinden in **instellingen** klikt u op **Docker-Container**.
+1. In Hallo [Azure-portal](https://portal.azure.com), vervolgens uw web-app op Linux, niet vinden in **instellingen** klikt u op **Docker-Container**.
 
-2.  Selecteer **Docker Hub** als de **Afbeeldingsbron**, klik dan ofwel **openbare** of **persoonlijke** en typt u de **installatiekopie en optionele tagnaam**, zoals `node:4.5`. De **startopdracht** is set automatisch op basis van wat is gedefinieerd in de Docker-bestand, maar u kunt uw eigen opdrachten instellen.  
+2.  Selecteer **Docker Hub** als Hallo **Afbeeldingsbron**, klik dan ofwel **openbare** of **persoonlijke** en type Hallo **installatiekopie en optionele tagnaam**, zoals `node:4.5`. Hallo **startopdracht** is set automatisch op basis van wat is gedefinieerd in Hallo Docker-bestand, maar u kunt uw eigen opdrachten instellen.  
 
     ![Afbeelding van de openbare opslagplaats Docker Hub configureren][2]
 
-    Wanneer uw installatiekopie van een persoonlijke bibliotheek is, moet u ook de referenties van de Docker-Hub als invoeren (**aanmelding gebruikersnaam** en **wachtwoord**) voor de opslagplaats voor persoonlijke Docker-Hub.
+    Wanneer uw installatiekopie van een persoonlijke bibliotheek is, moet u ook tooenter hello Docker Hub referenties als (**aanmelding gebruikersnaam** en **wachtwoord**) voor Hallo persoonlijke Docker-Hub-opslagplaats.
 
     ![Afbeelding van de opslagplaats voor persoonlijke Docker Hub configureren][3]
 
-3. Nadat u de container hebt geconfigureerd, klikt u op **opslaan**.
+3. Nadat u de container Hallo hebt geconfigureerd, klikt u op **opslaan**.
 
-## <a name="how-to-use-a-docker-image-from-a-private-image-registry"></a>Het gebruik van een Docker-installatiekopie uit het register van een persoonlijke afbeelding ##
-Een aangepaste Docker-installatiekopie uit het register van een persoonlijke installatiekopie gebruiken:
+## <a name="how-toouse-a-docker-image-from-a-private-image-registry"></a>Hoe toouse een Docker een installatiekopie van een installatiekopie van het persoonlijke register ##
+een aangepaste Docker-installatiekopie uit het register van een installatiekopie van persoonlijke toouse:
 
-1. In de [Azure-portal](https://portal.azure.com), vervolgens uw web-app op Linux, niet vinden in **instellingen** klikt u op **Docker-Container**.
+1. In Hallo [Azure-portal](https://portal.azure.com), vervolgens uw web-app op Linux, niet vinden in **instellingen** klikt u op **Docker-Container**.
 
-2.  Klik op **persoonlijke register** als de **Afbeeldingsbron**. Voer de **installatiekopie en de optionele codenaam**, **Server-URL** voor het persoonlijke register, samen met de referenties (**aanmelding gebruikersnaam** en **wachtwoord**). Klik op **Opslaan**.
+2.  Klik op **persoonlijke register** als Hallo **Afbeeldingsbron**. Voer Hallo **installatiekopie en de optionele codenaam**, **Server-URL** voor persoonlijke register hello, samen met de Hallo referenties (**aanmelding gebruikersnaam** en **wachtwoord** ). Klik op **Opslaan**.
 
     ![Afbeelding van Docker uit persoonlijke register configureren][4]
 
 
-## <a name="how-to-set-the-port-used-by-your-docker-image"></a>Hoe: Stel de poort die wordt gebruikt door de Docker-afbeelding ##
+## <a name="how-to-set-hello-port-used-by-your-docker-image"></a>Hoe: Hallo-poort die wordt gebruikt door uw installatiekopie Docker instellen ##
 
-Wanneer u een aangepaste Docker-installatiekopie voor uw web-app gebruikt, kunt u de `WEBSITES_PORT` omgevingsvariabele in uw Dockerfile die wordt toegevoegd aan de gegenereerde container. Houd rekening met het volgende voorbeeld van een docker-bestand voor een Ruby toepassing:
+Wanneer u een aangepaste Docker-installatiekopie voor uw web-app gebruikt, kunt u Hallo `WEBSITES_PORT` omgevingsvariabele in uw Dockerfile, toohello gegenereerd container wordt toegevoegd. Overweeg het volgende voorbeeld van een docker-bestand voor een Ruby toepassing hello:
 
     FROM ruby:2.2.0
     RUN mkdir /app
@@ -71,49 +71,49 @@ Wanneer u een aangepaste Docker-installatiekopie voor uw web-app gebruikt, kunt 
     RUN bundle install
     CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-Op de laatste regel van de opdracht ziet u dat de omgevingsvariabele WEBSITES_PORT wordt doorgegeven tijdens runtime. Houd er rekening mee dat hoofdlettergebruik van belang in opdrachten is.
+U ziet op de laatste regel van de opdracht Hallo dat die Hallo WEBSITES_PORT-omgevingsvariabele wordt doorgegeven tijdens runtime. Houd er rekening mee dat hoofdlettergebruik van belang in opdrachten is.
 
-Eerder het platform werd gebruikt `PORT` app instelt, we van plan bent deze app instellen voor het gebruik afschaffen en voor het gebruik van verplaatsen `WEBSITES_PORT` uitsluitend.
+Eerder Hallo platform werd gebruikt `PORT` app instelt, we van plan bent toodeprecate Hallo Gebruik deze app instellen en verplaatsen toousing `WEBSITES_PORT` uitsluitend.
 
-Wanneer u een bestaande Docker-installatiekopie gemaakt door iemand anders gebruikt, moet u mogelijk een andere poort dan poort 80 voor de toepassing opgeven. Voeg een toepassingsinstelling met de naam voor het configureren van de poort `WEBSITES_PORT` met de waarde zoals hieronder wordt weergegeven:
+Wanneer u een bestaande Docker-installatiekopie gemaakt door iemand anders gebruikt, moet u mogelijk een andere poort dan poort 80 toospecify voor Hallo-toepassing. tooconfigure Hallo poort, het toevoegen van een benoemde toepassingsinstelling `WEBSITES_PORT` met Hallo waarde zoals hieronder wordt weergegeven:
 
 ![App-poortinstelling voor de installatiekopie van een aangepaste Docker configureren][6]
 
-## <a name="how-to-set-the-startup-time-for-your-docker-image"></a>Procedure: de opstarttijd van uw installatiekopie Docker instellen ##
+## <a name="how-to-set-hello-startup-time-for-your-docker-image"></a>Hoe: Hallo starten van de tijd voor uw installatiekopie Docker instellen ##
 
-Standaard, als uw container niet wordt gestart voordat 230 seconden, opnieuw het platform de container. Als uw aangepaste Docker-installatiekopie in meer dan 230 seconden wordt gestart, kunt u de `WEBSITES_CONTAINER_START_TIME_LIMIT` app instelt, de waarde voor deze instelling is in seconden, hierdoor kan de platform-Houd uw container uitgevoerd voordat u deze opnieuw. De standaardwaarde is 230 seconden en de maximale toegestane waarde is 600 seconden.
+Standaard, als uw container niet wordt gestart voordat 230 seconden opnieuw Hallo platform de container. Als uw aangepaste Docker-installatiekopie in meer dan 230 seconden wordt gestart, kunt u Hallo `WEBSITES_CONTAINER_START_TIME_LIMIT` instellen, app Hallo-waarde voor deze instelling is in seconden, wordt hierdoor Hallo platform behouden uw container uitgevoerd voordat u deze opnieuw. Hallo-standaardwaarde is 230 seconden en Hallo maximaal toegestane waarde is 600 seconden.
 
-## <a name="how-to-unmount-the-platform-provided-storage"></a>Hoe: ontkoppelen van de opgegeven platform-opslag ##
+## <a name="how-to-unmount-hello-platform-provided-storage"></a>Hoe: ontkoppelen Hallo platform opgegeven opslag ##
 
-Standaard wordt het platform een permanente storage-share te koppelen van de `\home\` directory. Als uw installatiekopie container niet nodig heeft voor een permanente share, kunt u uitschakelen dat opslag koppelen door in te stellen de `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app-instelling op `false`. U hebt nog steeds toegang tot deze opslag van de site scm en alle Docker-Logboeken (indien ingeschakeld) worden geschreven naar de logboekbestanden die worden gegenereerd door het platform.
+Standaard gekoppeld Hallo platform een permanente opslag share toohello `\home\` directory. Als uw installatiekopie container niet nodig heeft voor een permanente share, kunt u uitschakelen dat opslag koppelen door de instelling Hallo `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app instellen te`false`. U hebt nog altijd toegang tot toothat opslag van Hallo scm-site en alle Docker-Logboeken (indien ingeschakeld) toohello logboekbestanden gegenereerd door het Hallo-platform worden geschreven.
 
-## <a name="how-to-switch-back-to-using-a-built-in-image"></a>Hoe: Ga terug naar de met de installatiekopie van een ingebouwde ##
+## <a name="how-to-switch-back-toousing-a-built-in-image"></a>Hoe: gaat u terug toousing een installatiekopie van het ingebouwde ##
 
-Overschakelen van met een aangepaste installatiekopie voor het gebruik van een installatiekopie van het ingebouwde:
+tooswitch van het gebruik van een aangepaste installatiekopie toousing een ingebouwde installatiekopie:
 
-1. In de [Azure-portal](https://portal.azure.com), vervolgens uw web-app op Linux, niet vinden in **instellingen** klikt u op **App Service**.
+1. In Hallo [Azure-portal](https://portal.azure.com), vervolgens uw web-app op Linux, niet vinden in **instellingen** klikt u op **App Service**.
 
-2. Selecteer uw **Runtime Stack** wilt gebruiken voor de installatiekopie van het ingebouwde, klikt u vervolgens op **opslaan**. 
+2. Selecteer uw **Runtime Stack** toouse Hallo ingebouwde afbeelding, klikt u vervolgens op **opslaan**. 
 
 ![Afbeelding van de ingebouwde Docker configureren][5]
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen ##
 
-Als uw toepassing om te beginnen met uw aangepaste Docker-installatiekopie is mislukt, Controleer u dat de Docker-Logboeken in de map met logboekbestanden. U kunt toegang tot deze map via uw SCM-site of via de FTP.
-Logboek de `stdout` en `stderr` van de container, moet u inschakelen **Docker-Container logboekregistratie** onder **diagnostische logboeken**.
+Wanneer uw toepassing toostart door uw aangepaste Docker-installatiekopie mislukt, controleert u Hallo die docker Hallo logboekbestanden directory zich aanmeldt. U kunt toegang tot deze map via uw SCM-site of via de FTP.
+Hallo toolog `stdout` en `stderr` van de container, moet u tooenable **Docker-Container logboekregistratie** onder **diagnostische logboeken**.
 
 ![Logboekregistratie inschakelen][8]
 
-![Met behulp van Kudu Docker-logboeken weergeven][7]
+![Met behulp van Kudu tooview Docker-Logboeken][7]
 
-U toegang hebt tot de site SCM bij **geavanceerde hulpmiddelen** in de **ontwikkelingsprogramma's** menu.
+U toegang hebt tot Hallo SCM site uit **geavanceerde hulpmiddelen** in Hallo **ontwikkelingsprogramma's** menu.
 
 ## <a name="next-steps"></a>Volgende stappen ##
 
-Volg de volgende koppelingen aan de slag met Web-App op Linux.   
+Ga als volgt Hallo volgen koppelingen tooget de slag met Web-App op Linux.   
 
-* [Inleiding tot Azure-Web-App op Linux](./app-service-linux-intro.md)
+* [Inleiding tooAzure Web-App op Linux](./app-service-linux-intro.md)
 * [Met behulp van PM2-configuratie voor Node.js in Azure-Web-App op Linux](./app-service-linux-using-nodejs-pm2.md)
 * [Web-App op Linux Veelgestelde vragen over Azure App Service](app-service-linux-faq.md)
 

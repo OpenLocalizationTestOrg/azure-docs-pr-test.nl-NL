@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Evidence.com | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Evidence.com.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Evidence.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,208 +14,208 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: a9c474cfc648fc8a306d736c89a4813d82c133ea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: eed98c15dca8a6a77f0b5d407bb40ee0037fccad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Zelfstudie: Azure Active Directory-integratie met Evidence.com
 
-In deze zelfstudie leert u hoe Evidence.com integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe toointegrate Evidence.com met Azure Active Directory (Azure AD).
 
-Evidence.com integreren met Azure AD biedt de volgende voordelen:
+Evidence.com integreren met Azure AD biedt Hallo volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Evidence.com heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Evidence.com (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt beheren in Azure AD die tooEvidence.com toegang heeft.
+- U kunt uw gebruikers tooautomatically get aangemelde tooEvidence.com (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - hello Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Evidence.com, moet u de volgende items:
+Azure AD-integratie met Evidence.com tooconfigure, moet u Hallo volgende items:
 
 - Een Azure AD-abonnement
 - Een Evidence.com eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Evidence.com uit de galerie toevoegen
+1. Het toevoegen van Evidence.com van Hallo-galerie
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-evidencecom-from-the-gallery"></a>Evidence.com uit de galerie toevoegen
-Voor het configureren van de integratie van Evidence.com in Azure AD, moet u Evidence.com uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-evidencecom-from-hello-gallery"></a>Het toevoegen van Evidence.com van Hallo-galerie
+tooconfigure hello integratie van Evidence.com in Azure AD, moet u tooadd Evidence.com uit Hallo galerie tooyour lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Evidence.com uit de galerie, moet u de volgende stappen uitvoeren:**
+**tooadd Evidence.com via Hallo gallery uitvoeren Hallo stappen te volgen:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In Hallo  **[Azure-portal](https://portal.azure.com)**, Hallo linkernavigatievenster op, klik op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![Hello Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer te**bedrijfstoepassingen**. Ga te**alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![Hallo Enterprise toepassingen blade][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. de nieuwe toepassing tooadd, klikt u op **nieuwe toepassing** knop bovenaan Hallo van dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![knop voor nieuwe toepassing Hello][3]
 
-4. Typ in het zoekvak **Evidence.com**, selecteer **Evidence.com** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak Hallo **Evidence.com**, selecteer **Evidence.com** van resultaat deelvenster klik vervolgens op **toevoegen** knop tooadd Hallo-toepassing.
 
-    ![Evidence.com in de lijst met resultaten](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_addfromgallery.png)
+    ![Evidence.com in de lijst met resultaten Hallo](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Evidence.com op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Evidence.com is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Evidence.com tot stand worden gebracht.
+Voor één aanmelding toowork moet Azure AD tooknow welke Hallo equivalent in Evidence.com is tooa gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in Evidence.com toobe tot stand gebracht.
 
-Wijs in Evidence.com, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+Wijs in Evidence.com, Hallo-waarde van Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** tooestablish Hallo koppeling relatie.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Evidence.com, moet u de volgende bouwstenen voltooien:
+tooconfigure en eenmalige aanmelding Azure AD-test met Evidence.com, moet u toocomplete Hallo bouwstenen te volgen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Evidence.com](#create-a-evidencecom-test-user)**  - Evidence.com die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  -tootest Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Evidence.com](#create-a-evidencecom-test-user)**  -toohave een equivalent van Britta Simon in Evidence.com die is gekoppeld toohello Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de testgebruiker hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD eenmalige aanmelding.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  -tooverify Hallo of configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Evidence.com configureren.
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in hello Azure-portal en eenmalige aanmelding in uw toepassing Evidence.com configureren.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Evidence.com, moet u de volgende stappen uitvoeren:**
+**Azure AD tooconfigure eenmalige aanmelding met Evidence.com, Voer Hallo stappen te volgen:**
 
-1. In de Azure-portal op de **Evidence.com** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op Hallo Hallo **Evidence.com** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. Op Hallo **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** tooenable eenmalige aanmelding.
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_samlbase.png)
 
-3. Op de **Evidence.com domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op Hallo **Evidence.com domein en de URL's** sectie, voert u Hallo stappen te volgen:
 
     ![URL's en evidence.com domein eenmalige aanmelding informatie](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<yourtenant>.evidence.com`
+    a. In Hallo **aanmeldings-URL** textbox, typ een URL met Hallo patroon volgen:`https://<yourtenant>.evidence.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<yourtenant>.evidence.com`
+    b. In Hallo **id** textbox, typ een URL met Hallo patroon volgen:`https://<yourtenant>.evidence.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Evidence.com Client ondersteuningsteam](https://communities.taser.com/support/SupportContactUs?typ=LE) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Bijwerken van deze waarden Hello werkelijke aanmeldings-URL en -id. Neem contact op met [Evidence.com Client ondersteuningsteam](https://communities.taser.com/support/SupportContactUs?typ=LE) tooget deze waarden. 
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+4. Op Hallo **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het Hallo-certificaatbestand op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_certificate.png) 
+    ![Hallo certificaat downloadkoppeling](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_certificate.png) 
 
 5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-evidence-tutorial/tutorial_general_400.png)
 
-6. Op de **Evidence.com configuratie** sectie, klikt u op **configureren Evidence.com** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op Hallo **Evidence.com configuratie** sectie, klikt u op **configureren Evidence.com** tooopen **eenmalige aanmelding configureren** venster. Kopiëren Hallo **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van Hallo **Naslaggids punt.**
 
     ![Evidence.com configuratie](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_configure.png) 
 
-7. In een afzonderlijke browservenster, meld u aan bij uw Evidence.com tenant als beheerder en navigeer naar **Admin** tabblad
+7. In een afzonderlijke browservenster aanmelding tooyour Evidence.com tenant als beheerder en te navigeren**Admin** tabblad
 
 8. Klik op **Agency voor eenmalige aanmelding**
 
 9. Selecteer **SAML eenmalige aanmelding op basis van**
 
-10. Kopieer de **SAML entiteit-ID**, **SAML Single Sign-On Service-URL** en **Sign-Out URL** waarden die worden weergegeven in de Azure-portal en de overeenkomende velden in Evidence.com.
+10. Kopiëren Hallo **SAML entiteit-ID**, **SAML Single Sign-On Service-URL** en **Sign-Out URL** waarden in hello Azure-portal en de overeenkomende velden toohello in Evidence.com wordt weergegeven.
 
-11. Open uw gedownloade Certificate(Base64)-bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **beveiligingscertificaat** vak. 
+11. Open uw gedownloade Certificate(Base64)-bestand in Kladblok, kopieer Hallo inhoud ervan naar het Klembord en plak deze toohello **beveiligingscertificaat** vak. 
 
-12. Sla de configuratie in Evidence.com.
+12. Hallo-configuratie op te slaan in Evidence.com.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen Hallo lezen [Azure-portal](https://portal.azure.com), terwijl u Hallo-app instelt.  Na het toevoegen van deze app van Hallo **Active Directory > bedrijfstoepassingen** sectie, klikt u op Hallo **Single Sign-On** tabblad en toegang Hallo ingesloten documentatie via Hallo  **Configuratie** sectie Hallo onder aan. U kunt meer lezen over Hallo embedded-documentatie-functie hier: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Hallo-doel van deze sectie is toocreate een testgebruiker in hello Azure-portal Britta Simon aangeroepen.
 
    ![Een Azure AD-testgebruiker maken][100]
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. Klik in Azure-portal in het linkerdeelvenster Hallo Hallo op Hallo **Azure Active Directory** knop.
 
-    ![De Azure Active Directory-knop](./media/active-directory-saas-evidence-tutorial/create_aaduser_01.png)
+    ![Hello Azure Active Directory-knop](./media/active-directory-saas-evidence-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. toodisplay hello lijst met gebruikers door te gaan**gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-evidence-tutorial/create_aaduser_02.png)
+    ![Hallo 'Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-evidence-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. tooopen hello **gebruiker** in het dialoogvenster, klikt u op **toevoegen** Hallo boven aan het Hallo **alle gebruikers** in het dialoogvenster.
 
-    ![De knop toevoegen](./media/active-directory-saas-evidence-tutorial/create_aaduser_03.png)
+    ![knop voor Hallo toevoegen](./media/active-directory-saas-evidence-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In Hallo **gebruiker** dialoogvenster Voer Hallo stappen te volgen:
 
-    ![Het dialoogvenster gebruiker](./media/active-directory-saas-evidence-tutorial/create_aaduser_04.png)
+    ![het dialoogvenster Hallo-gebruiker](./media/active-directory-saas-evidence-tutorial/create_aaduser_04.png)
 
-    a. In de **naam** in het vak **BrittaSimon**.
+    a. In Hallo **naam** in het vak **BrittaSimon**.
 
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+    b. In Hallo **gebruikersnaam** type Hallo e-mailadres van de gebruiker Britta Simon vak.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer Hallo **wachtwoord weergeven** selectievakje en schrijf Hallo-waarde die wordt weergegeven in Hallo **wachtwoord** vak.
 
     d. Klik op **Create**.
  
 ### <a name="create-a-evidencecom-test-user"></a>Een testgebruiker Evidence.com maken
 
-Azure AD-gebruikers moeten kunnen aanmelden, als ze worden ingericht om toegang te krijgen in de toepassing Evidence.com. Deze sectie wordt beschreven hoe u Azure AD-gebruikersaccounts in Evidence.com maken
+Azure AD gebruikers toobe kunnen toosign in, als ze worden ingericht om toegang te krijgen in Hallo Evidence.com toepassing. Deze sectie wordt beschreven hoe toocreate Azure AD gebruikersaccounts in Evidence.com
 
-**Voor het inrichten van een gebruikersaccount in Evidence.com:**
+**een gebruikersaccount in Evidence.com tooprovision:**
 
 1. In een browservenster geopend, meld u bij uw bedrijf Evidence.com site als beheerder.
 
-2. Navigeer naar **Admin** tabblad.
+2. Navigeer te**Admin** tabblad.
 
 3. Klik op **gebruiker toevoegen**.
 
-4. Klik op de **toevoegen** knop.
+4. Klik op Hallo **toevoegen** knop.
 
-5. De **e-mailadres** van de toegevoegde gebruiker moet overeenkomen met de gebruikersnaam van de gebruikers in Azure AD die u wilt toegang geven. Als de gebruikersnaam en e-mailadres niet dezelfde waarde in uw organisatie, kunt u de **Evidence.com > kenmerken > eenmalige aanmelding** sectie van de Azure portal om te wijzigen van de nameidenitifer naar Evidence.com verzonden om te worden de e-mailadres.
+5. Hallo **e-mailadres** Hallo toegevoegd gebruiker moet overeenkomen met de gebruikersnaam Hallo Hallo gebruikers in Azure AD die u wenst dat toogive toegang. Als het Hallo-gebruikersnaam en e-mailadres zijn niet dezelfde waarde in uw organisatie hello, kunt u Hallo **Evidence.com > kenmerken > eenmalige aanmelding** sectie van hello Azure portal toochange hello nameidenitifer verzonden tooEvidence.com toobe Hallo e-mailadres.
 
-### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+### <a name="assign-hello-azure-ad-test-user"></a>Toewijzen van de testgebruiker hello Azure AD
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Evidence.com.
+In deze sectie kunt u Britta Simon toouse Azure eenmalige aanmelding inschakelen tooEvidence.com toegang verleent.
 
-![Toewijzen van de gebruikersrol][200] 
+![Hallo-gebruikersrollen toewijzen][200] 
 
-**Britta Simon om aan te wijzen Evidence.com, moet u de volgende stappen uitvoeren:**
+**tooassign Britta Simon tooEvidence.com, Voer Hallo stappen te volgen:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. In hello Azure-portal, Hallo toepassingen weergeven, openen en vervolgens toohello directoryweergave navigeren en ga te**bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Evidence.com**.
+2. Selecteer in de lijst met de toepassingen van Hallo **Evidence.com**.
 
-    ![De koppeling Evidence.com in de lijst met toepassingen](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_app.png)  
+    ![Hallo Evidence.com koppeling in de lijst met Hallo-toepassingen](./media/active-directory-saas-evidence-tutorial/tutorial_evidence.com_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant Hallo Hallo op **gebruikers en groepen**.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![de koppeling 'Gebruikers en groepen' Hallo][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+    ![Hallo toevoegen toewijzing deelvenster][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers Hallo.
 
 6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
@@ -223,14 +223,14 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van Hallo Toegangsvenster testen.
 
-Als u op de tegel Evidence.com in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Evidence.com.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
+Als u op Hallo Evidence.com tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Evidence.com toepassing.
+Zie voor meer informatie over het toegangsvenster [inleiding toohello Toegangspaneel](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

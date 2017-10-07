@@ -1,5 +1,5 @@
 ---
-title: Aanmeldingen na meerdere mislukte pogingen
+title: aaaSign aanmeldingen na meerdere mislukte pogingen
 description: Een rapport dat gebruikers die zich heeft aangemeld na meerdere opeenvolgende aanmelding bij pogingen mislukte aangeeft.
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: e55e0145adbdb1f41a8b8753d5555f20e96bf161
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 48d137dc3abf65287cb3b9ba8a6ff10340f6741f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-after-multiple-failures"></a>Aanmeldingen na meerdere mislukte pogingen
 Dit rapport geeft aan dat gebruikers die zich heeft aangemeld na meerdere opeenvolgende aanmelding bij pogingen mislukte. Mogelijke oorzaken zijn:
 
-* Gebruiker heeft hun wachtwoord vergeten</li><li>Gebruiker is het slachtoffer van een geslaagde wachtwoord raden brute force-aanvallen
+* Gebruiker heeft hun wachtwoord vergeten</li><li>Gebruiker is Hallo slachtoffer van een geslaagde wachtwoord raden beveiligingsaanval
 
-Resultaten van deze lijst ziet u het aantal opeenvolgende mislukte aanmeldpogingen gemaakt voordat de geslaagde aanmelden en een tijdstempel die is gekoppeld aan de eerste geslaagde aanmelden.
+Resultaten van dit rapport wordt weergegeven Hallo van aantal opeenvolgende mislukte aanmeldpogingen aangebracht voorafgaande toohello geslaagde aanmelden en een tijdstempel die is gekoppeld aan Hallo eerste geslaagde aanmelden.
 
-**Instellingen rapporteren**: U kunt het minimum aantal opeenvolgende mislukte aanmelding configureren in pogingen dat optreden moeten voordat deze kan worden weergegeven in het rapport. Wanneer u wijzigingen in deze instelling aanbrengt is het belangrijk te weten dat deze wijzigingen niet worden toegepast op alle bestaande mislukte aanmelding modules die momenteel weergegeven in het bestaande rapport. Ze zullen echter worden toegepast op alle toekomstige aanmeldingen. Wijzigingen in dit rapport kunnen alleen worden gemaakt door de gelicentieerde beheerders.
+**Instellingen rapporteren**: kunt u Hallo minimum aantal opeenvolgende mislukte aanmelding bij pogingen dat optreden moeten voordat deze kan worden weergegeven in Hallo rapport. Wanneer u wijzigingen toothis instelling voor het is belangrijk toonote deze wijzigingen worden niet toegepast tooany bestaande mislukte aanmeldingen die momenteel weergegeven in het bestaande rapport. Ze worden echter toegepaste tooall toekomstige aanmeldingen. Rapport over toothis kan alleen worden gemaakt door de gelicentieerde beheerders.
 
 ![Aanmeldingen na meerdere mislukte pogingen](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SDK voor .NET 3.0 Release-opmerkingen | Microsoft Docs
+title: aaaAzure SDK voor .NET 3.0 Release-opmerkingen | Microsoft Docs
 description: Azure SDK voor .NET 3.0 Release-opmerkingen
 services: app-service\web
 documentationcenter: .net
@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8970b4c9b64de40dc29a33d69006a00ae5e38a50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Azure SDK voor .NET 3.0 release-opmerkingen
 
-Dit onderwerp bevat de releaseopmerkingen voor versie 3.0 van de Azure SDK voor .NET.
+Dit onderwerp bevat de releaseopmerkingen voor versie 3.0 van hello Azure SDK voor .NET.
 
 ##<a name="azure-sdk-for-net-30-release-summary"></a>Azure SDK voor .NET 3.0 release samenvatting
 
 Releasedatum: 07-03/2017
  
-Geen recente wijzigingen in de Azure SDK 3.0 zijn geïntroduceerd in deze release. Er is geen upgradeproces nodig gebruikmaken van deze SDK met bestaande Cloud Service-projecten. Als u gebruik van de Azure SDK 3.0 zonder een upgradeproces, installeert Azure SDK 3.0 in dezelfde directory als de Azure SDK 2.9. Meest voor de onderdelen is niet veranderd met de primaire versie van 2.9 maar in plaats daarvan het build-nummer zojuist hebt bijgewerkt.
+Er zijn geen recente wijzigingen toohello Azure SDK 3.0 zijn geïntroduceerd in deze release. Er is ook geen tooleverage upgradeproces nodig deze SDK met bestaande Cloud Service-projecten. tooallow gebruik van Azure SDK 3.0 Hallo zonder een upgradeproces Azure SDK 3.0 installeert toohello dezelfde directory als de Azure SDK 2.9. De meeste Hallo-onderdelen is niet veranderd met Hallo hoofdversie van 2.9 maar Hallo build-nummer in plaats daarvan zojuist hebt bijgewerkt.
 
 ## <a name="visual-studio-2017-rtw"></a>Visual Studio 2017 RTW
 
-- In Visual Studio-2017 is deze versie van de Azure SDK voor .NET ingebouwd in de Azure-werkbelasting. Alle hulpprogramma's die u wilt ontwikkelen van Azure zal onderdeel zijn van Visual Studio 2017 voortaan. Voor Visual Studio 2015 steeds de SDK nog beschikbaar is via WebPI. We hebben Azure SDK voor .NET-versies voor Visual Studio 2013 stopgezet nu dat Visual Studio 2017 is vrijgegeven.
+- In Visual Studio-2017 is deze release van hello Azure SDK voor .NET ingebouwd in toohello Azure werkbelasting. Alle Hallo-hulpprogramma's, moet u toodo ontwikkelen van Azure zal onderdeel zijn van Visual Studio 2017 voortaan. Voor Visual Studio 2015 steeds Hallo SDK nog beschikbaar is via WebPI. We hebben Azure SDK voor .NET-versies voor Visual Studio 2013 stopgezet nu dat Visual Studio 2017 is vrijgegeven.
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-- Het gedrag voor het opslaan van slechts een gedeeltelijke verbindingsreeks met de sleutel vervangen door een token voor de verbindingsreeks voor opslag van Cloud Services-diagnostische gegevens wordt gewijzigd. De werkelijke opslagsleutel worden nu opgeslagen in de map van het gebruikersprofiel en kan dus de toegang kan worden beheerd. Visual Studio, leest van de opslagsleutel van gebruikersprofielmap voor lokale foutopsporing en publicatieproces. 
-- Visual Studio Online-team verbeterd in reactie op de wijziging die hierboven worden beschreven, de Azure Cloud Services-implementatiesjabloon taak zodat gebruikers de opslagsleutel voor het instellen van de extensie voor diagnostische gegevens bij het publiceren naar Azure in continue integratie en implementatie kunnen opgeven.
-- We hebben aangebracht voor het opslaan van beveiligde verbindingsreeks en tokeniseren voor Azure Diagnostics (af), om u te helpen bij het oplossen van problemen met configuratie over environements mogelijk.
+- Een gedeeltelijke verbindingsreeks gewijzigde Hallo gedrag tooonly opslaan met Hallo sleutel vervangen door een token voor de verbindingsreeks voor opslag van Cloud Services-diagnostische gegevens. de werkelijke opslagsleutel Hallo worden nu opgeslagen in de map gebruikersprofiel Hallo zodat de toegang kan worden beheerd. Visual Studio wordt Hallo-opslagsleutel lezen uit de map voor lokale foutopsporing en publicatieproces gebruikersprofiel. 
+- In het antwoord toohello wijziging die hierboven worden beschreven, team Visual Studio Online verbeterde hello Azure Cloud Services-implementatiesjabloon taak zodat gebruikers Hallo-opslagsleutel voor het instellen van de extensie voor diagnostische gegevens bij het publiceren van tooAzure in continue integratie kunnen opgeven en implementatie.
+- We hebben het mogelijke toostore beveiligde verbindingsreeks en tokeniseren voor Azure Diagnostics (af), het oplossen van problemen met configuratie over environements toohelp aangebracht.
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 virtuele machines
 
-- Visual Studio biedt nu ondersteuning voor het implementeren van Cloud-Services op OS-familie 5 (Windows Server 2016) virtuele machines. Voor bestaande cloudservices, kunt u uw instellingen voor het doel van de nieuwe OS-familie. Bij het maken van nieuwe cloudservices als u wilt maken van de service met .net 4.6 of hoger, wordt standaard de service voor het gebruik van de OS-familie 5.  Raadpleeg voor meer informatie de [Gastbesturingssysteemgroep ondersteunen tabel](../cloud-services/cloud-services-guestos-update-matrix.md).
+- Visual Studio ondersteunt nu implementeren Cloudservices tooOS familie 5 (Windows Server 2016) virtuele machines. Voor bestaande cloudservices, kunt u uw instellingen tootarget Hallo van nieuwe OS-familie. Bij het maken van nieuwe cloudservices als u ervoor kiest toocreate Hallo service met .net 4.6 of hoger, wordt standaard Hallo service toouse OS-familie 5.  Voor meer informatie kunt u bekijken Hallo [Gastbesturingssysteemgroep ondersteunen tabel](../cloud-services/cloud-services-guestos-update-matrix.md).
 
 ### <a name="known-issues"></a>Bekende problemen
 
-- Azure .NET SDK 3.0 geïntroduceerd om een probleem bij het verwijderen van Visual Studio 2017 in de configuratie van een gelijktijdige met Visual Studio 2015.  Als u de Azure SDK voor Visual Studio 2015 geïnstalleerd hebt, worden de Microsoft Azure-Opslagemulator en Microsoft Azure Compute-Emulator verwijderd als u Visual Studio 2017 verwijdert.  Het resultaat is een fout bij het maken en foutopsporing van nieuwe Cloud services-projecten in Visual Studio 2015. Om dit probleem oplossen, installeer de Azure-SDK van de Web Platform Installer.  Het probleem worden opgelost in een toekomstige update voor Visual Studio 2017.  .
+- Azure .NET SDK 3.0 geïntroduceerd om een probleem bij het verwijderen van Visual Studio 2017 in de configuratie van een gelijktijdige met Visual Studio 2015.  Als u hello Azure SDK voor Visual Studio 2015 geïnstalleerd hebt, wordt Hallo Microsoft Azure-Opslagemulator en Microsoft Azure Compute-Emulator verwijderd als u Visual Studio 2017 verwijdert.  Het resultaat is een fout bij het maken en foutopsporing van nieuwe Cloud services-projecten in Visual Studio 2015. In de order toofix dit probleem, hello Azure SDK uit Hallo Web Platform Installer te installeren.  Hallo probleem worden opgelost in een toekomstige update voor Visual Studio 2017.  .
 
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 

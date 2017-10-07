@@ -1,6 +1,6 @@
 ---
-title: Uw eerste functie maken vanuit Azure Portal | Microsoft Docs
-description: Leer hoe u uw eerste serverloze Azure-functie kunt maken met behulp van Azure Portal.
+title: uw eerste functie van Azure Portal Hallo aaaCreate | Microsoft Docs
+description: Meer informatie over hoe uw eerste Azure-functie voor het gebruik van zonder server worden uitgevoerd toocreate hello Azure-portal.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,59 +16,59 @@ ms.workload: na
 ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3ec1f278f21d89782137625aff200f07f15fd9fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 84283d7d4bc6015061946af4589f9a70ae61f36b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-function-in-the-azure-portal"></a>Uw eerste functie maken in Azure Portal
+# <a name="create-your-first-function-in-hello-azure-portal"></a>Maken van uw eerste functie in hello Azure-portal
 
-Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren. In dit onderwerp leert u hoe met Azure Functions een 'Hallo wereld-functie' in Azure Portal kunt maken.
+Azure Functions, kunt u uw code in een omgeving zonder server uitvoeren zonder toofirst een virtuele machine maken of een webtoepassing publiceert. In dit onderwerp informatie over hoe toouse functioneert toocreate een functie "Hallo wereld" in hello Azure-portal.
 
-![Functie-app maken in Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+![Functie-app maken in hello Azure-portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Meld u aan bij [Azure Portal](https://portal.azure.com/).
+Meld u bij toohello [Azure-portal](https://portal.azure.com/).
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 
-U moet een functie-app hebben die als host fungeert voor de uitvoering van uw functies. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. 
+U moet een functie-app toohost Hallo uitvoering van uw functies hebben. Met een functie-app kunt u functies groeperen in een logische eenheid, zodat u resources eenvoudiger kunt beheren, implementeren en delen. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-Vervolgens maakt u een functie in de nieuwe functie-app.
+Vervolgens maakt u een functie in nieuwe Hallo-functie-app.
 
 ## <a name="create-function"></a>Een door HTTP geactiveerde functie maken
 
-1. Vouw de nieuwe functie-app uit en klik vervolgens op de knop  **+**  naast **Functies**.
+1. Vouw uw nieuwe functie-app en klik op Hallo  **+**  knop naast te**functies**.
 
-2.  Selecteer op de pagina **Ga snel aan de slag** de optie **WebHook + API**, **Kies een taal** voor uw functie en klik op **Deze functie maken**. 
+2.  In Hallo **snel aan de slag** pagina **WebHook + API**, **een taal kiezen** voor uw functie en klik op **maken van deze functie** . 
    
-    ![De Quick Start van Azure Functions in Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+    ![Functies in Quick Start hello Azure-portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Een functie wordt gemaakt in de door u gekozen taal met de sjabloon voor een door HTTP geactiveerde functie. U kunt de nieuwe functie uitvoeren door een HTTP-aanvraag te verzenden.
+Een functie wordt gemaakt in uw gekozen taal met Hallo-sjabloon voor een functie HTTP is geactiveerd. U kunt de nieuwe functie Hallo uitvoeren door een HTTP-aanvraag te verzenden.
 
-## <a name="test-the-function"></a>De functie testen
+## <a name="test-hello-function"></a>Hallo functie testen
 
 1. Klik in de nieuwe functie op **</> Functie-URL ophalen**, selecteer **Standaard (functietoets)** en klik vervolgens op **Kopieer**. 
 
-    ![De functie-URL vanuit Azure Portal kopiëren](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+    ![Hallo function URL kopiëren van hello Azure-portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Plak de URL van de functie in de adresbalk van uw browser. Voeg de queryreeks `&name=<yourname>` toe aan het einde van deze URL en druk op de toets `Enter` op het toetsenbord om de aanvraag uit te voeren. Hier ziet u een voorbeeld van het antwoord dat wordt geretourneerd door de functie in de Edge-browser:
+2. Hallo function URL in de adresbalk van uw browser plakken. Hallo-queryreeks toevoegen `&name=<yourname>` toothis URL en druk op Hallo `Enter` sleutel op uw toetsenbord tooexecute Hallo-aanvraag. Hallo Hieronder volgt een voorbeeld van het Hallo-antwoord geretourneerd door de functie Hallo in de browser Edge Hallo:
 
-    ![Het antwoord van de functie in de browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+    ![De reactie van de functie in Hallo browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    De aanvraag-URL bevat een sleutel die standaard is vereist, en waarmee u via HTTP toegang hebt tot de functie.   
+    Hallo-aanvraag URL bevat een sleutel die is vereist, standaard tooaccess uw functie via HTTP.   
 
-3. Wanneer uw functie wordt uitgevoerd, wordt traceringsinformatie naar de logboeken geschreven. Als u de trace-uitvoer van de vorige uitvoering wilt zien, gaat u terug naar de functie in de portal en klikt u op de pijl-omhoog onder aan het scherm om de **logboeken** uit te klappen. 
+3. Wanneer de functie wordt uitgevoerd, is traceringsinformatie toohello Logboeken geschreven. toosee hello trace-uitvoer van de vorige uitvoering hello, tooyour functie in de portal Hallo retourneren en klik op Hallo pijl onderaan Hallo Hallo scherm tooexpand **logboeken**. 
 
-   ![De viewer voor functielogboeken in Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Functies melden viewer hello Azure-portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET web-app aan de slag | Microsoft Docs
+title: aaaAzure AD .NET web-app aan de slag | Microsoft Docs
 description: Maken van een .NET MVC-web-app die met Azure AD voor aanmelden integreert.
 services: active-directory
 documentationcenter: .net
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ac5d3e5cc28ead993e159d003244e6451acb0cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d3098c9e3d7e1916ccb110c703f501ae52e788f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>ASP.NET-web-app aanmelden en afmelden met Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Dankzij één aanmelden en afmelden met slechts een paar regels code, kunt Azure Active Directory (Azure AD) u eenvoudig kunt uitbesteden Identiteitsbeheer voor web-app. U kunt gebruikers in en uit de ASP.NET-web-apps ondertekenen met behulp van de Microsoft-implementatie van Open Web Interface voor .NET (OWIN) middleware. OWIN middleware community aangestuurde is opgenomen in .NET Framework 4.5. In dit artikel laat zien hoe OWIN te gebruiken:
+Dankzij één aanmelden en afmelden met slechts een paar regels code, kunt Azure Active Directory (Azure AD) u eenvoudig voor u toooutsource web-app identiteitsbeheer. U kunt gebruikers in en uit de ASP.NET-web-apps ondertekenen met behulp van Microsoft-implementatie Hallo van Open Web Interface voor .NET (OWIN) middleware. OWIN middleware community aangestuurde is opgenomen in .NET Framework 4.5. Dit artikel laat zien hoe toouse OWIN naar:
 
-* Meld u aan gebruikers voor web-apps met behulp van Azure AD als de id-provider.
+* Meld u aan gebruikers in tooweb apps met behulp van Azure AD als Hallo id-provider.
 * Bepaalde gebruikersgegevens weergeven.
-* Meld u aan gebruikers buiten de apps.
+* Meld u aan gebruikers buiten het Hallo-apps.
 
 ## <a name="before-you-get-started"></a>Voordat u aan de slag gaat
-* Download de [basis app](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) of download de [voltooide voorbeeld](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
-* U moet ook een Azure AD-tenant waarin de app te registreren. Als u geen Azure AD-tenant al hebt [Lees hoe u een](active-directory-howto-tenant.md).
+* Hallo downloaden [basis app](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) of downloaden Hallo [voltooide voorbeeld](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip).
+* U moet ook een Azure AD-tenant in welke tooregister Hallo-app. Als u geen Azure AD-tenant al hebt [meer informatie over hoe tooget een](active-directory-howto-tenant.md).
 
-Wanneer u klaar bent, voert u de procedures in de volgende vier secties.
+Wanneer u klaar bent, Hallo Hallo-procedures volgen in de volgende vier secties.
 
-## <a name="step-1-register-the-new-app-with-azure-ad"></a>Stap 1: De nieuwe app te registreren met Azure AD
-Voor het instellen van de app aan gebruikers worden geverifieerd, eerst registreren in de tenant door het volgende te doen:
+## <a name="step-1-register-hello-new-app-with-azure-ad"></a>Stap 1: Hallo nieuwe app te registreren met Azure AD
+tooset van Hallo app tooauthenticate gebruikers eerst registreren in de tenant door Hallo volgende te doen:
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op de accountnaam van uw op de bovenste balk. Onder de **Directory** , selecteert u de Active Directory-tenant waar u de app te registreren.
-3. Klik op **meer Services** in het linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
+2. Op de bovenste balk hello, klikt u op de accountnaam van uw. Onder Hallo **Directory** lijst, selecteer Hallo Active Directory-tenant waar u tooregister Hallo app.
+3. Klik op **meer Services** in Hallo linkerdeelvenster en selecteer vervolgens **Azure Active Directory**.
 4. Klik op **App registraties**, en selecteer vervolgens **toevoegen**.
-5. Volg de aanwijzingen voor het maken van een nieuwe **webtoepassing en/of WebAPI**.
-  * **Naam** beschrijving van de app voor gebruikers.
-  * **Aanmeldings-URL** is de basis-URL van de app. Standaard-URL voor het basisproject is https://localhost:44320 /.
-6. Nadat u de registratie hebt voltooid, wijst Azure AD de app een unieke toepassings-ID. Kopieer de waarde van de pagina moet worden gebruikt in de volgende secties.
-7. Van de **instellingen** -> **eigenschappen** pagina voor uw toepassing, het bijwerken van de App ID URI. De **App ID URI** is de unieke id voor de app. De naamgevingsconventie is `https://<tenant-domain>/<app-name>` (bijvoorbeeld `https://contoso.onmicrosoft.com/my-first-aad-app`).
+5. Ga als volgt Hallo vraagt toocreate een nieuwe **webtoepassing en/of WebAPI**.
+  * **Naam** Hallo app toousers beschrijft.
+  * **Aanmeldings-URL** Hallo basis-URL van de app Hallo is. Hallo geraamte van standaard-URL is https://localhost:44320 /.
+6. Nadat u Hallo-registratie hebt voltooid, wijst Azure AD Hallo app een unieke toepassings-ID. Hallo-waarde van Hallo app pagina toouse in de volgende secties Hallo kopiëren.
+7. Van Hallo **instellingen** -> **eigenschappen** pagina voor uw toepassing, Hallo App ID URI bijwerken. Hallo **App ID URI** is de unieke id voor Hallo-app. Hallo naamgevingsconventie is `https://<tenant-domain>/<app-name>` (bijvoorbeeld `https://contoso.onmicrosoft.com/my-first-aad-app`).
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>Stap 2: De app instellen voor de pijplijn OWIN-verificatie gebruiken
-In deze stap configureert u de OWIN-middleware voor gebruik van het OpenID Connect-verificatieprotocol. U kunt OWIN aan- en afmeldingsaanvragen te verzenden, gebruikerssessies te beheren, ophalen van gebruikersgegevens, enzovoort.
+## <a name="step-2-set-up-hello-app-toouse-hello-owin-authentication-pipeline"></a>Stap 2: Hallo app toouse hello OWIN-verificatiepijplijn instellen
+In deze stap configureert u Hallo OWIN middleware toouse hello OpenID Connect-verificatieprotocol. U gebruikt OWIN tooissue aanmelden en afmeldingsaanvragen te verzenden, gebruikerssessies te beheren, ophalen van gebruikersgegevens, enzovoort.
 
-1. Toevoegen om te beginnen, de OWIN middleware NuGet-pakketten aan het project met de Package Manager-Console.
+1. toobegin, Hallo OWIN middleware NuGet-pakketten toohello project toevoegen met behulp van Hallo Package Manager-Console.
 
      ```
      PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -60,8 +60,8 @@ In deze stap configureert u de OWIN-middleware voor gebruik van het OpenID Conne
      PM> Install-Package Microsoft.Owin.Host.SystemWeb
      ```
 
-2. Een OWIN-Opstartklasse toevoegen aan het project met de naam `Startup.cs`, met de rechtermuisknop op het project, selecteer **toevoegen**, selecteer **Nieuw Item**, en zoek vervolgens naar **OWIN**. De OWIN-middleware roept de **Configuration(...)**  methode wanneer de app wordt gestart.
-3. Wijzig de klassendeclaratie naar `public partial class Startup`. We hebben al deel uit van deze klasse geïmplementeerd voor u in een ander bestand. In de **Configuration(...)**  een aanroep van methode **ConfgureAuth(...)**  verificatie voor de app instellen.  
+2. een OWIN klasse toohello opstartproject aangeroepen tooadd `Startup.cs`, met de rechtermuisknop op het Hallo-project, selecteer **toevoegen**, selecteer **Nieuw Item**, en zoek vervolgens naar **OWIN**. Hallo OWIN middleware roept Hallo **Configuration(...)**  methode wanneer Hallo-app wordt gestart.
+3. Hallo klassendeclaratie ook wijzigen`public partial class Startup`. We hebben al deel uit van deze klasse geïmplementeerd voor u in een ander bestand. In Hallo **Configuration(...)**  methode te maken van een aanroep van**ConfgureAuth(...)**  tooset van verificatie voor Hallo-app.  
 
      ```C#
      public partial class Startup
@@ -73,7 +73,7 @@ In deze stap configureert u de OWIN-middleware voor gebruik van het OpenID Conne
      }
      ```
 
-4. Open het bestand App_Start\Startup.Auth.cs en implementeer de **ConfigureAuth(...)**  methode. De parameters die u opgeeft in *OpenIDConnectAuthenticationOptions* fungeren als coördinaten voor de app om te communiceren met Azure AD. U moet ook voor het instellen van de cookie-verificatie, omdat het OpenID Connect middleware gebruikmaakt van cookies op de achtergrond.
+4. Hallo App_Start\Startup.Auth.cs bestand openen en vervolgens implementeren Hallo **ConfigureAuth(...)**  methode. parameters die u opgeeft in Hallo *OpenIDConnectAuthenticationOptions* fungeren als coördinaten voor Hallo app toocommunicate met Azure AD. Tooset van Cookieverificatie, moet u ook omdat Hallo OpenID Connect middleware gebruikmaakt van cookies op Hallo achtergrond.
 
      ```C#
      public void ConfigureAuth(IAppBuilder app)
@@ -101,15 +101,15 @@ In deze stap configureert u de OWIN-middleware voor gebruik van het OpenID Conne
      }
      ```
 
-5. Open het bestand web.config in de hoofdmap van het project en voer vervolgens de configuratiewaarden in de `<appSettings>` sectie.
-  * `ida:ClientId`: De GUID die u hebt gekopieerd uit de Azure-portal in ' stap 1: de nieuwe app te registreren met Azure AD. "
-  * `ida:Tenant`: De naam van uw Azure AD-tenant (bijvoorbeeld: contoso.onmicrosoft.com).
-  * `ida:PostLogoutRedirectUri`: De indicator die Azure AD geeft aan waar een gebruiker wordt omgeleid nadat een afmelden aanvraag is voltooid.
+5. Hallo web.config-bestand openen in de hoofdmap Hallo van Hallo-project en Voer Hallo configuratiewaarden in Hallo `<appSettings>` sectie.
+  * `ida:ClientId`: Hallo GUID die u hebt gekopieerd uit hello Azure-portal in ' stap 1: registreren Hallo nieuwe app met Azure AD. "
+  * `ida:Tenant`: Hallo-naam van uw Azure AD-tenant (bijvoorbeeld: contoso.onmicrosoft.com).
+  * `ida:PostLogoutRedirectUri`: Hallo-indicator die Azure AD geeft aan waar een gebruiker wordt omgeleid nadat een afmelden aanvraag is voltooid.
 
-## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Stap 3: Gebruik OWIN om aan- en afmeldingsaanvragen te verzenden naar Azure AD
-De app is nu geconfigureerd om te communiceren met Azure AD met behulp van het OpenID Connect-verificatieprotocol. OWIN heeft afgehandeld dat alle gegevens van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies. Alles wat u hoeft alleen nog uw gebruikers kunnen aanmelden en afmelden geven.
+## <a name="step-3-use-owin-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a>Stap 3: Gebruik OWIN tooissue aan- en afmeldingsaanvragen tooAzure AD-aanvragen
+Hallo-app is nu correct geconfigureerde toocommunicate met Azure AD via Hallo OpenID Connect-verificatieprotocol. OWIN heeft afgehandeld alle details op Hallo van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies. Alles wat blijft toogive is uw gebruikers een manier toosign in en meld u af.
 
-1. U kunt labels in uw domeincontrollers te vereisen dat gebruikers zich aanmelden voordat ze toegang krijgen bepaalde pagina's tot te autoriseren. Om dit te doen, opent u Controllers\HomeController.cs en voeg vervolgens de `[Authorize]` label aan het Info-controller.
+1. U kunt labels in uw domeincontrollers toorequire gebruikers toosign in autoriseren voordat ze toegang krijgen bepaalde pagina's tot. toodo dus Controllers\HomeController.cs openen en voeg vervolgens Hallo `[Authorize]` tag toohello over controller.
 
      ```C#
      [Authorize]
@@ -118,7 +118,7 @@ De app is nu geconfigureerd om te communiceren met Azure AD met behulp van het O
        ...
      ```
 
-2. U kunt ook OWIN rechtstreeks uitgeven verificatieaanvragen van binnen uw code. Open Controllers\AccountController.cs om dit te doen. Klik in de acties SignIn() en SignOut() uitgeven uitdaging OpenID Connect afmelden aanvragen.
+2. U kunt ook OWIN toodirectly probleem verificatieaanvragen van binnen uw code. Hiertoe opent u toodo Controllers\AccountController.cs. Vervolgens in het vak Hallo SignIn() en SignOut() acties uitgeven OpenID Connect uitdaging afmelden aanvragen.
 
      ```C#
      public void SignIn()
@@ -137,7 +137,7 @@ De app is nu geconfigureerd om te communiceren met Azure AD met behulp van het O
      }
      ```
 
-3. Open Views\Shared\_LoginPartial.cshtml om weer te geven van de gebruiker de app aanmelden en afmelden koppelingen en de naam van de gebruiker in een weergave afdrukken.
+3. Open Views\Shared\_LoginPartial.cshtml tooshow Hallo gebruiker Hallo app aanmelden en afmelden koppelingen en tooprint uit Hallo gebruikersnaam in een weergave.
 
     ```HTML
     @if (Request.IsAuthenticated)
@@ -162,9 +162,9 @@ De app is nu geconfigureerd om te communiceren met Azure AD met behulp van het O
     ```
 
 ## <a name="step-4-display-user-information"></a>Stap 4: Gebruikersgegevens weergeven
-Als deze zich gebruikers met OpenID Connect verifieert, retourneert Azure AD een id_token naar de app die 'claims' of asserties over de gebruiker bevat. U kunt deze claims gebruiken voor het aanpassen van de app als volgt:
+Wanneer gebruikers met OpenID Connect geverifieerd, retourneert Azure AD een id_token toohello app dat 'claims' of asserties over Hallo gebruiker bevat. U kunt deze app claims toopersonalize hello gebruiken door Hallo volgende te doen:
 
-1. Open het bestand Controllers\HomeController.cs. U hebt toegang tot claims van de gebruiker in uw domeincontrollers via de `ClaimsPrincipal.Current` SPN-object.
+1. Hallo Controllers\HomeController.cs bestand openen. U hebt toegang tot Hallo gebruikersclaims in uw domeincontrollers via Hallo `ClaimsPrincipal.Current` SPN-object.
 
  ```C#
  public ActionResult About()
@@ -179,17 +179,17 @@ Als deze zich gebruikers met OpenID Connect verifieert, retourneert Azure AD een
  }
  ```
 
-2. Ontwikkel en voer de app. Als u dit nog niet hebt al een nieuwe gebruiker in uw tenant met een onmicrosoft.com-domein gemaakt, het is nu tijd om dit te doen. Dit doet u al volgt:
+2. Ontwikkel en Voer Hallo-app. Als u dit nog niet hebt al een nieuwe gebruiker in uw tenant met een onmicrosoft.com-domein gemaakt, is nu Hallo tijd toodo dus. Dit doet u al volgt:
 
-  a. Meld u aan met die gebruiker en houd er rekening mee hoe de identiteit van de gebruiker wordt weergegeven op de bovenste balk.
+  a. Meld u aan met die gebruiker en houd er rekening mee hoe Hallo gebruikersidentiteit is doorgevoerd op de bovenste balk Hallo.
 
   b. Meld u af en vervolgens weer aanmelden als een andere gebruiker in uw tenant.
 
   c. Als u in bijzonder ambitieuze een hebt, registreren en uitvoeren van een ander exemplaar van deze app (met een eigen clientId) en één aanmelding toe in actie bekijken.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een verwijzing naar [het voltooide voorbeeld](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (zonder uw configuratiewaarden).
+Zie voor een verwijzing naar [Hallo voltooid voorbeeld](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip) (zonder uw configuratiewaarden).
 
-U kunt nu verder met geavanceerdere onderwerpen. Probeer bijvoorbeeld [beveiligen van een Web-API met Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+U kunt nu op toomore geavanceerde onderwerpen verplaatsen. Probeer bijvoorbeeld [beveiligen van een Web-API met Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

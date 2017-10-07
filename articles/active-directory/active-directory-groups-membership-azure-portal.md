@@ -1,6 +1,6 @@
 ---
-title: De groepen die uw groep bij Azure Active Directory behoort beheren | Microsoft Docs
-description: Groepen kunnen andere Azure Active Directory-groepen bevatten. Hier volgt deze lidmaatschappen beheren.
+title: aaaManage hello groepen uw groep behoort tooin Azure Active Directory | Microsoft Docs
+description: Groepen kunnen andere Azure Active Directory-groepen bevatten. Hier ziet u hoe toomanage deze lidmaatschappen.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0a0a1967084de0968e1e802559f9cdfd7ca6ae4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Beheren welke groepen door een groep behoort in uw Azure Active Directory-tenant
-Groepen kunnen andere Azure Active Directory-groepen bevatten. Hier volgt deze lidmaatschappen beheren.
+# <a name="manage-toowhich-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Toowhich groepen die deel uitmaakt van een groep in uw Azure Active Directory-tenant beheren
+Groepen kunnen andere Azure Active Directory-groepen bevatten. Hier ziet u hoe toomanage deze lidmaatschappen.
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Hoe kan ik mijn groep deel uit van maakt groepen vinden?
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+## <a name="how-do-i-find-hello-groups-my-group-is-a-member-of"></a>Hoe kan ik mijn groep deel uit van maakt Hallo-groepen vinden?
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
    ![Gebruikersbeheer openen](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
-3. Op de **gebruikers en groepen** blade Selecteer **alle groepen**.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **alle groepen**.
 
-   ![De blade groepen openen](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
-4. Op de **gebruikers en groepen - alle groepen** blade, selecteert u een groep.
-5. Op de **groep - *groupname***  blade Selecteer **groepslidmaatschappen**.
+   ![Openen Hallo groepen blade](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
+4. Op Hallo **gebruikers en groepen - alle groepen** blade, selecteert u een groep.
+5. Op Hallo **groep - *groupname***  blade Selecteer **groepslidmaatschappen**.
 
-   ![Openen van de groep lidmaatschappen-blade](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-6. Uw groep toevoegen als lid van een andere groep, op de **Group - groepslidmaatschappen** blade, selecteer de **toevoegen** opdracht.
-7. Selecteer een groep in de **groep selecteren** blade en selecteer vervolgens de **Selecteer** knop aan de onderkant van de blade. U kunt uw groep toevoegen aan slechts één groep tegelijk. De **gebruiker** vak gefilterd op basis van overeenkomst van uw invoer voor een deel van de naam van een gebruiker of het apparaat weergegeven. Er is geen jokertekens worden in dit vak geaccepteerd.
+   ![Blade met lidmaatschappen Hallo openen](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
+6. tooadd uw groep als lid van een andere groep, op Hallo **Group - groepslidmaatschappen** blade, selecteer Hallo **toevoegen** opdracht.
+7. Selecteer een groep in Hallo **groep selecteren** blade en selecteer vervolgens Hallo **Selecteer** knop Hallo Hallo blade onderaan in. U kunt uw tooonly één groep tegelijk toevoegen. Hallo **gebruiker** vak filters Hallo weergeven op basis van overeenkomst van uw vermelding tooany een deel van naam van een gebruiker of apparaat. Er is geen jokertekens worden in dit vak geaccepteerd.
 
    ![Geen groepslidmaatschap toevoegen](./media/active-directory-groups-membership-azure-portal/add-group-membership.png)
-8. Verwijderen van uw groep als lid van een andere groep voor de **Group - groepslidmaatschappen** blade, selecteert u een groep.
-9. Op de ***groupname*** blade, selecteer de **verwijderen** opdracht in en Bevestig uw keuze bij de opdrachtprompt.
+8. tooremove uw groep als lid van een andere groep, op Hallo **Group - groepslidmaatschappen** blade, selecteert u een groep.
+9. Op Hallo ***groupname*** blade, selecteer Hallo **verwijderen** opdracht in en Bevestig uw keuze op Hallo-prompt.
 
    ![lidmaatschap opdracht verwijderen](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Wanneer u klaar bent met het wijzigen van groepslidmaatschappen voor uw groep, selecteert u **opslaan**.

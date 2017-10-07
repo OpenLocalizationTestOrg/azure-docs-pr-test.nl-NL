@@ -1,6 +1,6 @@
 ---
-title: Azure Automation Uitvoeren als-accounts maken | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u uw Automation-account bijwerkt en Uitvoeren als-accounts maakt met PowerShell of vanuit de portal.
+title: aaaCreate Automation Azure die Run As-accounts | Microsoft Docs
+description: Dit artikel wordt beschreven hoe tooupdate uw Automation-account in en Run As-accounts maken met PowerShell of vanuit het Hallo-portal.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
 ms.author: magoedte
-ms.openlocfilehash: eaf6eb49bbfe4572827fcc101d1f552b48ab91e6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 94eb54fa0b518056a726d17146c63411e248273b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uw Automation-account bijwerken met Uitvoeren als-accounts 
-In de volgende gevallen kunt u een bestaand Automation-account bijwerken vanuit de portal of met PowerShell:
+U kunt uw bestaande Automation-account via de portal Hallo bijwerken of PowerShell gebruiken als:
 
-* U maakt wel een Automation-account, maar geen Uitvoeren als-account.
-* U gebruikt al een Automation-account voor het beheer van Resource Manager-resources en u wilt het account bijwerken met het Uitvoeren als-account voor runbookverificatie.
-* U gebruikt al een Automation-account voor het beheer van klassieke resources en u wilt dit bijwerken, zodat u het klassieke Uitvoeren als-account kunt gebruiken in plaats van een nieuw account te maken, en uw runbooks en activa daarnaartoe te migreren.   
-* U wilt een Uitvoeren als-account maken en een klassiek Uitvoeren als-account via een certificaat dat is uitgegeven door de certificeringsinstantie van uw bedrijf.
+* U maakt een Automation-account maar weigeren toocreate Hallo Run As-account.
+* U al een Automation-account toomanage Resource Manager-resources gebruikt en gewenste tooupdate Hallo account tooinclude Hallo Run As-account voor de runbook-verificatie.
+* U al een Automation-account toomanage klassieke resources gebruikt en u wilt tooupdate het toouse Hallo klassieke Run As-account in plaats van een nieuw account maken en uw runbooks en activa tooit migreren.   
+* Toocreate wilt u een Run As- en klassieke Run As-account met behulp van een certificaat zijn uitgegeven door uw enterprise-certificeringsinstantie (CA).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Het script kan alleen worden uitgevoerd in Windows 10 en Windows Server 2016 met Azure Resource Manager-modules 3.0.0 en hoger. Uitvoeren wordt niet ondersteund in eerdere versies van Windows.
-* Azure PowerShell 1.0 en hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie over de PowerShell 1.0-release.
-* Een Automation-account waarnaar wordt verwezen als de waarde voor de parameter *– AutomationAccountName* en *- ApplicationDisplayName* in het volgende PowerShell-script.
+* Hallo-script kan worden uitgevoerd alleen op Windows 10 en Windows Server 2016 met Azure Resource Manager-modules 3.0.0 en hoger. Uitvoeren wordt niet ondersteund in eerdere versies van Windows.
+* Azure PowerShell 1.0 en hoger. Zie voor meer informatie over Hallo PowerShell 1.0 release [hoe tooinstall en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Een Automation-account waarnaar wordt verwezen als waarde voor Hallo Hallo *-AutomationAccountName* en *- ApplicationDisplayName* parameters in de volgende PowerShell-script Hallo.
 
-Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceGroup* en *AutomationAccountName*; dit zijn vereiste parameters voor de scripts:
+Hallo tooget waarden voor *SubscriptionID*, *ResourceGroup*, en *AutomationAccountName*, die de vereiste parameters voor Hallo script zijn, Hallo te volgen:
 
-1. Selecteer in Azure Portal uw Automation-account op de blade **Automation-account** en selecteer **Alle instellingen**.  
-2. Selecteer op de blade **Alle instellingen** onder **Accountinstellingen** de optie **Eigenschappen**. 
-3. Let op de waarden op de blade **Eigenschappen**.<br><br> ![De blade Eigenschappen voor het Automation-account](media/automation-create-runas-account/automation-account-properties.png)  
+1. In Hallo Azure-portal, selecteert u uw Automation-account op Hallo **Automation-account** blade en selecteer vervolgens **alle instellingen**.  
+2. Op Hallo **alle instellingen** blade onder **Accountinstellingen**, selecteer **eigenschappen**. 
+3. Houd er rekening mee Hallo waarden op Hallo **eigenschappen** blade.<br><br> ![blade 'Eigenschappen' Hello Automation-account](media/automation-create-runas-account/automation-account-properties.png)  
 
-### <a name="required-permissions-to-update-your-automation-account"></a>Machtigingen die zijn vereist om een Automation-account bij te werken
-Als u een Automation-account wilt bijwerken, moet u de volgende specifieke machtigingen en bevoegdheden hebben om dit onderwerp te voltooien.   
+### <a name="required-permissions-tooupdate-your-automation-account"></a>Vereiste machtigingen tooupdate uw Automation-account
+tooupdate een Automation-account, hebt u Hallo na specifieke rechten en machtigingen nodig toocomplete in dit onderwerp.   
  
-* Uw AD-gebruikersaccount moet worden toegevoegd aan een rol die machtigingen heeft die equivalent zijn aan de rol Inzender voor Microsoft.Automation-resources. Dit is beschreven in het artikel [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
-* Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) als de instelling App-registraties is ingesteld op **Ja**.  Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD. 
+* Uw AD-gebruikersaccount moet toobe toegevoegde tooa rol met de rol van Inzender gelijkwaardige toohello machtigingen voor Microsoft.Automation bronnen, zoals wordt beschreven in artikel [toegangsbeheer op basis van rollen in Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
+* Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) als Hallo App registraties instellen te is ingesteld**Ja**.  Als Hallo app registraties instellen te is ingesteld**Nee**, Hallo gebruiker deze bewerking moet een globale beheerder in Azure AD. 
 
-Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dat geval wordt de waarschuwing 'U bent niet gemachtigd om…' weergegeven op de blade **Automation-account toevoegen**. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
+Als u niet lid zijn van de Active Directory-exemplaar van Hallo abonnement voordat u toohello globale beheerder/SA-administrator-rol van Hallo abonnement worden toegevoegd, kunt u tooActive Directory wordt toegevoegd als gast. In dit geval ontvangt u een "u hebt geen machtigingen toocreate..." Waarschuwing voor Hallo **Automation-Account toevoegen** blade. Gebruikers die zijn toegevoegd toohello globale beheerder/SA-administrator-rol kan worden verwijderd uit Active Directory-exemplaar van het abonnement Hallo eerst en opnieuw toegevoegd toomake ze een volledige gebruiker in Active Directory. tooverify deze situatie van Hallo **Azure Active Directory** deelvenster in Azure portal, selecteer Hallo **gebruikers en groepen**, selecteer **alle gebruikers** en, nadat u Hallo selecteren specifieke gebruiker, schakelt **profiel**. waarde van Hallo Hallo **gebruikerstype** kenmerk onder Hallo gebruikersprofiel moet niet gelijk aan **Gast**.
 
-## <a name="create-run-as-account-from-the-portal"></a>Uitvoeren als-account maken vanuit de portal
-In deze sectie voert u de volgende stappen uit om een Azure Automation-account bij te werken vanuit Azure Portal.  U maakt de Uitvoeren als- en klassieke Uitvoeren als-accounts afzonderlijk, en als u geen resources in de klassieke Azure-portal hoeft te beheren, hoeft u alleen een Azure Uitvoeren als-account te maken.  
+## <a name="create-run-as-account-from-hello-portal"></a>Run As-account maken vanuit Hallo-portal
+In deze sectie volgende stappen tooupdate Hallo uw Azure Automation-account van uitvoeren hello Azure-portal.  U maakt Hallo uitvoeren als en klassieke Run As-accounts afzonderlijk, en als u geen bronnen in de klassieke Azure portal Hallo toomanage nodig hebt, kunt u alleen hello Azure uitvoeren als-account maken.  
 
-Tijdens dit proces worden de volgende items in uw Automation-account gemaakt.
+Hallo-proces maakt Hallo volgende items in uw Automation-account.
 
 **Voor Uitvoeren als-accounts:**
 
-* Er wordt een Azure AD-toepassing met een zelf-ondertekend certificaat gemaakt. Daarnaast wordt er voor de toepassing in Azure AD een service-principalaccount gemaakt en wordt aan dit account de rol Inzender toegewezen in uw huidige abonnement. U kunt deze instelling wijzigen in Eigenaar of een andere rol. Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie.
-* Er wordt een Automation-certificaatasset gemaakt met de naam *AzureRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door de Azure AD-toepassing.
-* Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de toepassing-id, tenant-id, abonnement-id en certificaatvingerafdruk.
+* Een Azure AD-toepassing met een zelfondertekend certificaat maakt, maakt een account voor de service-principal voor de toepassing hello in Azure AD en wijst de rol van Inzender Hallo voor Hallo-account in uw huidige abonnement. U kunt deze instelling tooOwner of een andere rol wijzigen. Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie.
+* Hiermee maakt u een Automation-certificaatasset met de naam *AzureRunAsCertificate* in Hallo opgegeven Automation-account. Hallo-certificaatasset bevat Hallo privésleutel voor certificaten die wordt gebruikt door de toepassing hello Azure AD.
+* Hiermee maakt u een Automation-verbindingsasset genaamd *AzureRunAsConnection* in Hallo opgegeven Automation-account. Hallo-verbindingsasset bevat Hallo applicationId, tenantId, subscriptionId en de vingerafdruk van certificaat.
 
 **Voor klassieke uitvoeren als-accounts:**
 
-* Er wordt een Automation-certificaatasset gemaakt met de naam *AzureClassicRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door het beheercertificaat.
-* Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureClassicRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de naam van het abonnement, de abonnements-id en de certificaatassetnaam.
+* Hiermee maakt u een Automation-certificaatasset met de naam *AzureClassicRunAsCertificate* in Hallo opgegeven Automation-account. Hallo-certificaatasset bevat Hallo privésleutel voor certificaten die door het Hallo-beheercertificaat gebruikt.
+* Hiermee maakt u een Automation-verbindingsasset genaamd *AzureClassicRunAsConnection* in Hallo opgegeven Automation-account. Hallo-verbindingsasset bevat Hallo abonnementsnaam, abonnements-id en naam van certificaat asset.
 
-1. Meld u aan bij Azure Portal met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
-2. Selecteer op de blade Automation-account de optie **Uitvoeren als-accounts** in de sectie **Accountinstellingen**.  
-3. Afhankelijk van welk account u nodig hebt, selecteert u **Uitvoeren als-account van Azure**  of **Klassiek Uitvoeren als-account van Azure**.  Na deze selectie wordt de blade **Uitvoeren als-account toevoegen** of **Klassiek Uitvoeren als-account toevoegen** weergegeven. Controleer de overzichtsgegevens en klik op **Maken** om verder te gaan met het maken van een Uitvoeren als-account.  
-4. Terwijl Azure het Uitvoeren als-account maakt, kunt u de voortgang volgen onder **Meldingen** in het menu en een banner waarin wordt vermeld dat het account wordt gemaakt.  Dit proces kan enkele minuten duren.  
+1. Meld u aan toohello Azure-portal met een account dat lid is van de rol Abonnementsbeheerders hello en medebeheerder van Hallo-abonnement.
+2. Selecteer in de blade van Hallo Automation-account, **Run As-Accounts** onder sectie Hallo **Accountinstellingen**.  
+3. Afhankelijk van welk account u nodig hebt, selecteert u **Uitvoeren als-account van Azure**  of **Klassiek Uitvoeren als-account van Azure**.  Na het selecteren van beide Hallo **toevoegen Azure uitvoeren als** of **toevoegen Azure Classic Run As-Account** blade wordt weergegeven en bekijk de overzichtsinformatie Hallo op **maken** tooproceed met Run As-account maken.  
+4. Terwijl Azure Hallo Run As-account maakt, kunt u de voortgang Hallo onder bijhouden **meldingen** van Hallo menu's en een banner wordt weergegeven waarin staat Hallo-account wordt gemaakt.  Dit kan enkele minuten toocomplete duren.  
 
 ## <a name="create-run-as-account-using-powershell-script"></a>Uitvoeren als-account maken met een PowerShell-script
-Dit PowerShell-script biedt ondersteuning voor de volgende configuraties:
+Deze PowerShell-script biedt ondersteuning voor Hallo volgende configuraties:
 
 * Een Uitvoeren als-account maken met een zelfondertekend certificaat.
 * Een Uitvoeren als-account en een klassiek Uitvoeren als-account maken met een zelfondertekend certificaat.
 * Een Uitvoeren als-account en een klassiek Uitvoeren als-account maken met een bedrijfscertificaat.
-* Een Uitvoeren als-account en een klassiek Uitvoeren als-account maken met een zelfondertekend certificaat in de cloud van Azure Government.
+* Een Run As-account en een klassieke Run As-account maken met behulp van een zelfondertekend certificaat in hello Azure Government cloud.
 
-Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volgende items.
+Afhankelijk van Hallo configuratieoptie die u selecteert, maakt Hallo script Hallo volgende items.
 
 **Voor Uitvoeren als-accounts:**
 
-* Er wordt een Azure AD-toepassing gemaakt die wordt geëxporteerd met het zelfondertekende certificaat of de openbare sleutel van het bedrijfscertificaat en een service-principalaccount voor deze toepassing in Azure AD. Daarnaast wordt voor dit account de rol Inzender toegewezen in uw huidige abonnement. U kunt deze instelling wijzigen in Eigenaar of een andere rol. Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie.
-* Er wordt een Automation-certificaatasset gemaakt met de naam *AzureRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door de Azure AD-toepassing.
-* Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de toepassing-id, tenant-id, abonnement-id en certificaatvingerafdruk.
+* Hiermee maakt u een Azure AD-toepassing toobe geëxporteerd met een zelf-ondertekend Hallo of openbare sleutel voor de enterprise-certificaat, maakt u een account voor de service-principal voor de toepassing hello in Azure AD en wijst de rol van inzender voor Hallo-account in uw huidige Hallo abonnement. U kunt deze instelling tooOwner of een andere rol wijzigen. Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie.
+* Hiermee maakt u een Automation-certificaatasset met de naam *AzureRunAsCertificate* in Hallo opgegeven Automation-account. Hallo-certificaatasset bevat Hallo privésleutel voor certificaten die wordt gebruikt door de toepassing hello Azure AD.
+* Hiermee maakt u een Automation-verbindingsasset genaamd *AzureRunAsConnection* in Hallo opgegeven Automation-account. Hallo-verbindingsasset bevat Hallo applicationId, tenantId, subscriptionId en de vingerafdruk van certificaat.
 
 **Voor klassieke uitvoeren als-accounts:**
 
-* Er wordt een Automation-certificaatasset gemaakt met de naam *AzureClassicRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door het beheercertificaat.
-* Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureClassicRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de naam van het abonnement, de abonnements-id en de certificaatassetnaam.
+* Hiermee maakt u een Automation-certificaatasset met de naam *AzureClassicRunAsCertificate* in Hallo opgegeven Automation-account. Hallo-certificaatasset bevat Hallo privésleutel voor certificaten die door het Hallo-beheercertificaat gebruikt.
+* Hiermee maakt u een Automation-verbindingsasset genaamd *AzureClassicRunAsConnection* in Hallo opgegeven Automation-account. Hallo-verbindingsasset bevat Hallo abonnementsnaam, abonnements-id en naam van certificaat asset.
 
 >[!NOTE]
-> Als u ervoor kiest om een klassiek Uitvoeren als-account te maken, moet u na het uitvoeren van het script het openbare certificaat (bestandsnaamextensie .cer) uploaden naar het beheerarchief voor het abonnement waarin het Automation-account is gemaakt.
+> Als u de optie voor het maken van een klassieke Run As-account nadat Hallo-script is uitgevoerd is uploaden Hallo openbaar certificaat (.cer bestandsnaamextensie) toohello management opslaan voor Hallo-abonnement dat Hallo Automation-account gemaakt in.
 > 
 
-1. Sla het volgende script op uw computer op. Sla het bestand in dit voorbeeld op met de bestandsnaam *New-RunAsAccount.ps1*.
+1. Hallo script volgen op uw computer opslaan. Sla het bestand in dit voorbeeld met Hallo filename *nieuw RunAsAccount.ps1*.
 
         #Requires -RunAsAdministrator
         Param (
@@ -164,7 +164,7 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
         $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
-        # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
+        # Sleep here for a few seconds tooallow hello service principal application toobecome active (ordinarily takes a few seconds)
         Sleep -s 15
         $NewRole = New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
         $Retries = 0;
@@ -195,7 +195,7 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
         $AzureRMProfileVersion= (Get-Module AzureRM.Profile).Version
         if (!(($AzureRMProfileVersion.Major -ge 3 -and $AzureRMProfileVersion.Minor -ge 0) -or ($AzureRMProfileVersion.Major -gt 3)))
         {
-            Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
+            Write-Error -Message "Please install hello latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
             return
         }
 
@@ -222,16 +222,16 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
         $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
         $ApplicationId=CreateServicePrincipal $PfxCert $ApplicationDisplayName
 
-        # Create the Automation certificate asset
+        # Create hello Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
 
-        # Populate the ConnectionFieldValues
+        # Populate hello ConnectionFieldValues
         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
 
-        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in hello Automation account. This connection uses hello service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
 
         if ($CreateClassicRunAsAccount) {
@@ -239,9 +239,9 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
              $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
              $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
              $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
-             $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                     "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
-                     "Then click Upload and upload the .cer format of #CERT#"
+             $UploadMessage = "Please upload hello .cer format of #CERT# toohello Management store by following hello steps below." + [Environment]::NewLine +
+                     "Log in toohello Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                     "Then click Upload and upload hello .cer format of #CERT#"
 
               if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
               $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
@@ -256,22 +256,22 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
               CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
         }
 
-        # Create the Automation certificate asset
+        # Create hello Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
-        # Populate the ConnectionFieldValues
+        # Populate hello ConnectionFieldValues
         $SubscriptionName = $subscription.Subscription.Name
         $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
-        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in hello Automation account. This connection uses hello service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
 
         Write-Host -ForegroundColor red $UploadMessage
         }
 
-2. Start op uw computer **Windows PowerShell** op vanaf het **Start**scherm met verhoogde gebruikersrechten.
-3. Ga vanuit de opdrachtregel-shell met verhoogde bevoegdheden naar de map die het script bevat dat u in stap 1 hebt gemaakt.  
-4. Voer het script uit met de parameterwaarden voor de configuratie die u nodig hebt.
+2. Start op uw computer **Windows PowerShell** van Hallo **Start** scherm met verhoogde gebruikersrechten.
+3. Van Hallo verhoogde opdrachtregel-shell, Ga toohello map die u hebt gemaakt in stap 1 Hallo-script bevat.  
+4. Hallo-script uitvoeren met behulp van de parameterwaarden Hallo voor Hallo-configuratie die u nodig hebt.
 
     **Een Uitvoeren als-account maken met een zelfondertekend certificaat**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false`
@@ -282,19 +282,19 @@ Afhankelijk van de configuratieoptie die u selecteert, maakt het script de volge
     **Een Uitvoeren als-account en een klassiek Uitvoeren als-account maken met een bedrijfscertificaat**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>`
 
-    **Een Uitvoeren als-account en een klassiek Uitvoeren als-account maken met een zelfondertekend certificaat in de cloud van Azure Government**  
+    **Een Run As-account en een klassieke Run As-account maken met behulp van een zelfondertekend certificaat in hello Azure Government cloud**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment`
 
     > [!NOTE]
-    > Nadat het script is uitgevoerd, wordt u gevraagd zich te verifiëren met Azure. Meld u aan met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
+    > Nadat het Hallo-script is uitgevoerd, kunt u zich na vragen aan gebruiker tooauthenticate met Azure. Aanmelden met een account dat lid is van Hallo abonnement beheerders rol en medebeheerder van Hallo-abonnement.
     >
     >
 
-Let op het volgende nadat het script is uitgevoerd:
-* Als u een klassiek Uitvoeren als-account hebt gemaakt met een zelfondertekend openbaar certificaat (.cer-bestand), wordt het door het script gemaakt en opgeslagen in de map met tijdelijke bestanden op uw computer, onder het gebruikersprofiel *%USERPROFILE%\AppData\Local\Temp*, dat u hebt gebruikt voor het uitvoeren van de PowerShell-sessie.
-* Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Volg de instructies voor het [uploaden van een API-beheercertificaat naar de klassieke Azure-portal](../azure-api-management-certs.md) en valideer de configuratie van de referenties met klassieke implementatieresources met behulp van de [Voorbeeldcode voor verificatie bij Resource Manager-resources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
-* Als u *geen* klassiek Uitvoeren als-account hebt gemaakt, verifieert u met Resource Manager-resources en valideert u de configuratie van de referenties met behulp van de [voorbeeldcode om verificatie met Service Management-resources uit te voeren](automation-verify-runas-authentication.md#automation-run-as-authentication).
+Nadat het Hallo-script met succes is uitgevoerd, let u op Hallo volgende:
+* Als u een klassieke Run As-account hebt gemaakt met een zelf-ondertekend openbaar certificaat (.cer-bestand), Hallo script wordt gemaakt en slaat deze toohello map met tijdelijke bestanden op uw computer onder Hallo gebruikersprofiel *%USERPROFILE%\AppData\Local\Temp*, die u gebruikt tooexecute Hallo PowerShell-sessie.
+* Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Hallo-instructies voor [een beheer-API certificaat toohello klassieke Azure-portal uploaden](../azure-api-management-certs.md), en vervolgens Hallo verwijzingsconfiguratie met resources van klassieke implementatie te valideren met behulp van Hallo [voorbeeldcode tooauthenticate met Azure Classic Deployment Resources](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Als u dit hebt gedaan *niet* klassieke Run As-account maken en verifiëren met Resource Manager-resources Hallo verwijzingsconfiguratie valideren met behulp van Hallo [voorbeeldcode voor verificatie met Service Management resources](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md) (Toepassingsobjecten en service-principalobjecten) voor meer informatie over service-principals.
-* Voor meer informatie over certificaten en Azure-services raadpleegt u [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Overzicht van certificaten voor Azure Cloud Services).
+* Voor meer informatie over Service-Principals te verwijzen[toepassingsobjecten en Service-Principal objecten](../active-directory/active-directory-application-objects.md).
+* Voor meer informatie over certificaten en Azure-services te verwijzen[certificaten voor Azure Cloud Services-overzicht](../cloud-services/cloud-services-certs-create.md).

@@ -1,6 +1,6 @@
 ---
-title: Een functie in Azure maken die wordt geactiveerd door wachtrijberichten | Microsoft Docs
-description: Gebruik Azure Functions voor het maken van een functie zonder server die wordt aangeroepen door berichten die zijn verzonden naar een Azure Storage-wachtrij.
+title: een functie in Azure geactiveerd door Wachtrijberichten aaaCreate | Microsoft Docs
+description: Gebruik Azure Functions toocreate een zonder server-functie die wordt opgeroepen door een berichten verzonden tooan Azure Storage-wachtrij.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 92a03154bf5a8945e2de9606afd138803c76fafe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e9501ed336b502eaeee3fa62ec4ae085c76de0ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Een door Azure Queue Storage geactiveerde functie maken
 
-Ontdek hoe u een functie maakt die wordt geactiveerd wanneer er berichten worden verzonden naar een Azure Storage-wachtrij.
+Meer informatie over hoe toocreate een functie die wordt geactiveerd wanneer berichten worden verzonden tooan Azure Storage-wachtrij.
 
-![Bekijk het bericht in de logboeken.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
+![Bericht wordt weergegeven in Logboeken Hallo.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-- De [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren.
+- Download en installeer Hallo [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
@@ -42,65 +42,65 @@ Ontdek hoe u een functie maakt die wordt geactiveerd wanneer er berichten worden
 
 ![De functie-app is gemaakt.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Vervolgens maakt u een functie in de nieuwe functie-app.
+Vervolgens maakt u een functie in nieuwe Hallo-functie-app.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-queue-triggered-function"></a>Een door een wachtrij geactiveerde functie maken
 
-1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
+1. Vouw de functie-app en klik op Hallo  **+**  knop naast te**functies**. Als dit eerste functie in uw app functie hello, selecteer **aangepaste functie**. De volledige set Hallo van functie-sjablonen worden weergegeven.
 
-    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+    ![Functies Quick Start-pagina in hello Azure-portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Selecteer de sjabloon **QueueTrigger** voor de gewenste taal en gebruik de instellingen die zijn opgegeven in de tabel.
+2. Selecteer Hallo **QueueTrigger** sjabloon voor de gewenste taal en Hallo-instellingen zoals opgegeven in de tabel hello gebruiken.
 
-    ![Maak de door de opslagwachtrij geactiveerde functie.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![De opslagfunctie wachtrij geactiveerd Hallo maken.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
     
     | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
-    | **Wachtrijnaam**   | myqueue-items    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
-    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
+    | **Wachtrijnaam**   | myqueue-items    | Naam van Hallo wachtrij tooconnect tooin uw Storage-account. |
+    | **Opslagaccountverbinding** | AzureWebJobStorage | U kunt Hallo storage-account verbinding is al wordt gebruikt door de functie-app gebruiken of een nieuwe maken.  |
     | **Een naam voor de functie opgeven** | Uniek in uw functie-app | Naam van deze door een wachtrij geactiveerde functie. |
 
-3. Klik op **Maken** om de functie te maken.
+3. Klik op **maken** toocreate uw functie.
 
-Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagwachtrij **myqueue-items**.
+Vervolgens maakt u verbinding tooyour Azure Storage-account en Hallo maken **rapportberichten items** storage-wachtrij.
 
-## <a name="create-the-queue"></a>De wachtrij maken
+## <a name="create-hello-queue"></a>Hallo wachtrij maken
 
-1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
+1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. U gebruikt deze referenties tooconnect toohello storage-account. Als u al uw storage-account hebt gekoppeld, slaat u toostep 4.
 
-    ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
+    ![Hallo Storage-account verbindingsreferenties ophalen.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
 
-1. Voer het hulpprogramma [Microsoft Azure Storage Explorer](http://storageexplorer.com/) uit, klik op het verbindingspictogram aan de linkerkant, kies **Een opslagaccountnaam en -sleutel gebruiken** en klik op **Volgende**.
+1. Hallo uitvoeren [Microsoft Azure Storage Explorer](http://storageexplorer.com/) hulpprogramma, klikt u op Hallo verbinding pictogram aan de linkerkant hello, kiest u **gebruik van een naam van het opslagaccount en de sleutel**, en klik op **volgende**.
 
-    ![Voer het hulpprogramma Storage Account Explorer uit.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
+    ![Hallo Account Opslagverkenner hulpprogramma uitvoeren.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
-1. Voer de **Accountnaam** en de **Accountsleutel** van stap 1 in. Klik op **Volgende** en vervolgens op **Verbinding maken**.
+1. Voer Hallo **accountnaam** en **accountsleutel** uit stap 1, klikt u op **volgende** en vervolgens **Connect**.
 
-    ![Voer de opslagreferenties in en maak verbinding.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
+    ![Geef referenties op Hallo opslag en verbinding maken.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Wachtrijen**, klik op **Wachtrij maken**, typ `myqueue-items` en druk op Enter.
+1. Vouw Hallo gekoppeld opslagaccount, met de rechtermuisknop op **wachtrijen**, klikt u op **wachtrij maken**, type `myqueue-items`, en druk op enter.
 
     ![Maak een opslagwachtrij.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
-Nu u een opslagwachtrij hebt, kunt u de functie testen door een bericht toe te voegen aan de wachtrij.
+Nu dat u een opslagwachtrij hebt, kunt u Hallo functie testen door een berichtenwachtrij toohello toe te voegen.
 
-## <a name="test-the-function"></a>De functie testen
+## <a name="test-hello-function"></a>Hallo functie testen
 
-1. Blader in Azure Portal naar de functie, vouw de **Logboeken** onderaan de pagina uit en zorg ervoor dat logboekstreaming niet wordt onderbroken.
+1. Terug in hello Azure-portal, vouw bladeren tooyour functie Hallo **logboeken** Hallo onderaan pagina Hallo en zorg ervoor dat in dit logboek streaming wordt niet onderbroken.
 
 1. Vouw in Storage Explorer uw opslagaccount, **Wachtrijen** en **myqueue-items** uit en klik vervolgens op **Bericht toevoegen**.
 
-    ![Voeg een bericht toe aan de wachtrij.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
+    ![Een berichtenwachtrij toohello toevoegen.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
 1. Typ uw "Hallo wereld"- bericht in **Berichttekst** en klik op **OK**.
 
-1. Wacht een paar seconden en ga vervolgens terug naar de functielogboeken en controleer of het nieuwe bericht is gelezen.
+1. Wacht een paar seconden en vervolgens gaat u terug tooyour functie Logboeken en controleer of dat nieuwe Hallo-bericht is gelezen uit de wachtrij Hallo.
 
-    ![Bekijk het bericht in de logboeken.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+    ![Bericht wordt weergegeven in Logboeken Hallo.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
-1. Klik in Storage Explorer op **Vernieuwen** en controleer of het bericht is verwerkt en niet langer in de wachtrij staat.
+1. Klik in Opslagverkenner op **vernieuwen** en controleer of het Hallo-bericht dat is verwerkt en is niet langer in de wachtrij Hallo.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -108,7 +108,7 @@ Nu u een opslagwachtrij hebt, kunt u de functie testen door een bericht toe te v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt een functie gemaakt die wordt uitgevoerd wanneer er een bericht wordt toegevoegd aan een opslagwachtrij.
+U kunt een functie die wordt uitgevoerd als er een bericht wordt toegevoegd tooa opslagwachtrij hebt gemaakt.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: MSDeploy met hostnaam en ssl-certificaat met een web-app implementeren
-description: Een Azure Resource Manager-sjabloon gebruiken voor het implementeren van een web-app met behulp van MSDeploy en aangepaste hostnaam en een SSL-certificaat instellen
+title: aaaDeploy een web-app met behulp van MSDeploy met hostnaam en ssl-certificaat
+description: Een web-app met behulp van MSDeploy en het instellen van de aangepaste hostnaam en een SSL-certificaat van een toodeploy Azure Resource Manager-sjabloon gebruiken
 services: app-service\web
 manager: erikre
 documentationcenter: 
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac13f4a7d14ae182e8e7ced5adff30491422d1e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Een web-app met MSDeploy, aangepaste hostnaam en SSL-certificaat implementeren
-Deze handleiding helpt bij het maken van de implementatie van een end-to-end voor een Azure-Web-App, gebruik van MSDeploy, evenals een aangepaste hostnaam en een SSL-certificaat toevoegen aan de ARM-sjabloon.
+Deze handleiding helpt bij het maken van de implementatie van een end-to-end voor een Azure-Web-App, gebruik van MSDeploy, evenals een aangepaste hostnaam en een SSL-certificaat toohello ARM-sjabloon toe te voegen.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ### <a name="create-sample-application"></a>Voorbeeld van een toepassing maken
-U implementeert een ASP.NET-webtoepassing. De eerste stap is om een eenvoudige webtoepassing te maken (of kunt u het gebruik van een bestaande - in dat geval kunt u deze stap overslaan).
+U implementeert een ASP.NET-webtoepassing. de eerste stap Hallo is een eenvoudige webtoepassing toocreate (of kunt u toouse een bestaande - in dat geval kunt u deze stap overslaan).
 
-Open Visual Studio 2015 en kies Bestand > Nieuw Project. Kies in het dialoogvenster dat verschijnt Web > ASP.NET-webtoepassing. Kies Web onder sjablonen en kies de MVC-sjabloon. Selecteer *verificatietype wijzigen* naar *geen verificatie*. Dit dient alleen voor de voorbeeldtoepassing zo eenvoudig mogelijk te maken.
+Open Visual Studio 2015 en kies Bestand > Nieuw Project. Kies in het Hallo-dialoogvenster dat verschijnt Web > ASP.NET-webtoepassing. Kies Web onder sjablonen en Hallo MVC-sjabloon kiezen. Selecteer *verificatietype wijzigen* te*geen verificatie*. Dit is slechts toomake Hallo voorbeeldtoepassing zo eenvoudig mogelijk.
 
-Op dit moment hebt u een eenvoudige ASP.Net web-app gereed om te gebruiken als onderdeel van uw implementatie.
+Op dit moment hebt u een eenvoudige ASP.Net web app gereed toouse als onderdeel van uw implementatie.
 
 ### <a name="create-msdeploy-package"></a>MSDeploy-pakket maken
-Volgende stap is het maken van het pakket voor het implementeren van de web-app in Azure. Om dit te doen, sla het project en voer de volgende vanaf de opdrachtregel:
+Volgende stap is toocreate Hallo pakket toodeploy Hallo web app tooAzure. toodo dit, opslaan van uw project en voer de volgende Hallo vanaf de opdrachtregel Hallo:
 
     msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
-Hiermee wordt een gecomprimeerde pakket onder de map PackageLocation gemaakt. De toepassing is nu gereed om te worden geïmplementeerd, die u kunt nu opbouwen uit een Azure Resource Manager-sjabloon dat doet.
+Hiermee maakt u een ingepakte pakket onder Hallo PackageLocation map. Hallo toepassing is nu gereed toobe geïmplementeerd, die u nu van een Azure Resource Manager-sjabloon toodo bouwen kunt die.
 
 ### <a name="create-arm-template"></a>ARM-sjabloon maken
 Eerst laten we beginnen met een eenvoudige ARM-sjabloon die u maakt een webtoepassing en een hosting plan (opmerking die parameters en variabelen niet als beknopt alternatief bevat weergegeven worden).
@@ -75,7 +75,7 @@ Eerst laten we beginnen met een eenvoudige ARM-sjabloon die u maakt een webtoepa
         }
     }
 
-Vervolgens moet u de resource voor de web-app om een geneste MSDeploy-resource te wijzigen. Hierdoor kunt u om te verwijzen naar het pakket eerder hebt gemaakt en Azure Resource Manager het pakket naar de Azure-Web-App implementeren met MSDeploy zien. Hieronder ziet u de bron Microsoft.Web/sites met de geneste MSDeploy-resource:
+Vervolgens moet u toomodify Hallo web app resource tootake een geneste MSDeploy-resource. Hiermee wordt de toestaan dat u tooreference Hallo pakket eerder hebt gemaakt en u vertelt Azure Resource Manager toouse MSDeploy toodeploy Hallo pakket toohello Azure-Web-App. Hallo hieronder vindt u Hallo Microsoft.Web/sites resource met Hallo genest MSDeploy resource:
 
     {
         "name": "[variables('webAppName')]",
@@ -117,13 +117,13 @@ Vervolgens moet u de resource voor de web-app om een geneste MSDeploy-resource t
         ]
     }
 
-Nu u ziet dat de resource MSDeploy duurt voordat een **packageUri** eigenschap die is gedefinieerd als volgt:
+Nu ziet u dat Hallo MSDeploy resource heeft een **packageUri** eigenschap die is gedefinieerd als volgt:
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Dit **packageUri** neemt de storage-account-uri die verwijst naar het opslagaccount waar u zult uploaden uw postcode pakket op. De Azure Resource Manager worden benut [Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md) voor het ophalen van het pakket naar beneden lokaal vanuit het opslagaccount wanneer u de sjabloon implementeert. Dit proces wordt uitgevoerd via een PowerShell-script die uploaden van het pakket en roept u de Azure Management-API voor het maken van de vereiste sleutels en geef die naar de sjabloon als parameters (*_artifactsLocation* en *_ artifactsLocationSasToken*). U moet de parameters definiëren voor de map en bestandsnaam van het pakket is geüpload naar onder de storage-container.
+Dit **packageUri** vergt Hallo storage-account-uri die wijst toohello storage-account waarin u uw postcode pakket aan wordt geüpload. Hello Azure Resource Manager worden benut als [Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md) toopull Hallo pakket omlaag lokaal vanuit Hallo opslagaccount wanneer u Hallo sjabloon implementeert. Dit proces wordt uitgevoerd via een PowerShell-script die Hallo-pakket te uploaden en aanroepen hello Azure Management API toocreate Hallo-sleutels vereist en die in de sjabloon Hallo doorgeven als parameters (*_artifactsLocation* en *_artifactsLocationSasToken*). Moet u toodefine parameters voor Hallo-map en bestandsnaam Hallo pakket geüploade toounder Hallo storage-container is.
 
-Vervolgens moet u in een andere geneste resource voor het instellen van de hostnaambindings wilt gebruiken voor een aangepast domein toevoegen. Moet u eerst om ervoor te zorgen dat u de hostnaam en het kan worden gecontroleerd door Azure dat jij de eigenaar ervan - Zie eigenaar [een aangepaste domeinnaam configureren in Azure App Service](app-service-web-tutorial-custom-domain.md). Wanneer dat is gebeurd, kunt u het volgende kunt toevoegen aan de sjabloon onder de sectie Microsoft.Web/sites resource:
+Vervolgens moet u tooadd in een andere geneste resource toosetup Hallo hostnaam bindingen tooleverage een aangepast domein. U gaat eerste nodig tooensure dat u Hallo-hostnaam bezit en toobe instellen geverifieerd door Azure dat jij de eigenaar ervan - Zie [een aangepaste domeinnaam configureren in Azure App Service](app-service-web-tutorial-custom-domain.md). Wanneer dat is gebeurd, kunt u Hallo tooyour sjabloon onder Hallo Microsoft.Web/sites resourcesectie volgende toevoegen:
 
     {
         "apiVersion": "2015-08-01",
@@ -139,7 +139,7 @@ Vervolgens moet u in een andere geneste resource voor het instellen van de hostn
         }
     }
 
-Tot slot moet u een andere bovenste niveau resource, Microsoft.Web/certificates toevoegen. Deze bron uw SSL-certificaat bevat en wordt aangelegd op hetzelfde niveau als uw web-app en hosting plannen.
+Tot slot moet u tooadd resource in een andere hoogste niveau, Microsoft.Web/certificates. Deze bron bevat uw SSL-certificaat en op hetzelfde niveau als uw web-app en hosting van plan bent Hallo aanwezig zal zijn.
 
     {
         "name": "[parameters('certificateName')]",
@@ -152,25 +152,25 @@ Tot slot moet u een andere bovenste niveau resource, Microsoft.Web/certificates 
         }
     }
 
-U moet een geldig SSL-certificaat hebben om het instellen van deze resource. Zodra u die geldig certificaat hebt moet u het pfx-bytes extraheren als een base64-tekenreeks. Een optie om op te halen dit is het gebruik van de volgende PowerShell-opdracht:
+U moet een geldig SSL-certificaat in de volgorde tooset u deze bron toohave. Zodra u die geldig certificaat hebt moet u tooextract Hallo pfx bytes als een base64-tekenreeks. Een optie tooextract dit toouse Hallo volgende PowerShell-opdracht is:
 
     $fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
     [System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
 
-U kan vervolgens dit als een parameter doorgeven aan de ARM-sjabloon voor implementatie.
+U kan vervolgens doorgegeven als een parameter tooyour ARM-sjabloon voor implementatie.
 
-De ARM-sjabloon is nu gereed.
+Op dit moment is Hallo ARM-sjabloon gereed.
 
 ### <a name="deploy-template"></a>Sjabloon implementeren
-De laatste stappen zijn om dit alles samenvoegen in een volledige end-to-end-implementatie. Om ervoor te implementatie gemakkelijker u gebruikmaken van kunt de **implementeren AzureResourceGroup.ps1** PowerShell-script dat wordt toegevoegd wanneer u een Azure-resourcegroepproject in Visual Studio om u te helpen maken bij het uploaden van alle artefacten die zijn vereist in de de sjabloon. Deze moet u een opslagaccount dat u wilt gebruiken tevoren hebt gemaakt. In dit voorbeeld gemaakt ik een account met gedeelde opslag voor de pakket.zip worden geüpload. Het script wordt gebruikmaken van AzCopy om het uploaden van het pakket naar het opslagaccount. U doorgeeft bij de locatie van de artefacten en het script worden alle bestanden in die map automatisch uploaden naar de benoemde storage-container. U hebt na het aanroepen van implementeren AzureResourceGroup.ps1 en werk vervolgens de SSL-bindingen als u wilt toewijzen van de aangepaste hostnaam vervolgens met de SSL-certificaat.
+Hallo laatste stappen zijn toopiece dit alles samenvoegen in een volledige end-to-end-implementatie. toomake implementatie gemakkelijker kunt u gebruikmaken van Hallo **implementeren AzureResourceGroup.ps1** PowerShell-script dat wordt toegevoegd wanneer u een Azure-resourcegroepproject in Visual Studio toohelp maken met uploaden van alle artefacten die zijn vereist in Hallo-sjabloon. Hiervoor moeten toohave u een opslagaccount dat u wilt dat toouse tevoren gemaakt. In dit voorbeeld moet ik een account met gedeelde opslag voor Hallo pakket.zip toobe geüpload gemaakt. Hallo-script wordt gebruikmaken van AzCopy tooupload Hallo pakket toohello storage-account. U doorgeeft bij de locatie van de artefacten en Hallo script worden alle bestanden in die map toohello storage-container met de naam automatisch uploaden. Na het aanroepen van implementeren AzureResourceGroup.ps1 hebt u toothen Hallo SSL-bindingen toomap Hallo aangepaste hostnaam voor uw SSL-certificaat.
 
-De volledige implementatie aanroepen van de implementeren ziet u de volgende PowerShell-AzureResourceGroup.ps1:
+Hallo PowerShell wordt weergegeven na volledige implementatie aanroepen Hallo implementeren Hallo-AzureResourceGroup.ps1:
 
     #Set resource group name
     $rgName = "Name-of-resource-group"
 
-    #call deploy-azureresourcegroup script to deploy web app
+    #call deploy-azureresourcegroup script toodeploy web app
 
     .\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
                                     -ResourceGroupName $rgName `
@@ -181,7 +181,7 @@ De volledige implementatie aanroepen van de implementeren ziet u de volgende Pow
                                     -TemplateParametersFile "web-app-deploy-parameters.json" `
                                     -ArtifactStagingDirectory "C:\path\to\packagefolder\"
 
-    #update web app to bind ssl certificate to hostname. This has to be done after creation above.
+    #update web app toobind ssl certificate toohostname. This has toobe done after creation above.
 
     $cert = Get-PfxCertificate -FilePath C:\path\to\certificate.pfx
 
@@ -195,5 +195,5 @@ De volledige implementatie aanroepen van de implementeren ziet u de volgende Pow
 
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
-Op dit moment uw toepassing moet zijn geïmplementeerd en moet u kunnen te bladeren via https://www.yourcustomdomain.com
+Op dit moment uw toepassing moet zijn geïmplementeerd en u moet kunnen toobrowse tooit via https://www.yourcustomdomain.com
 

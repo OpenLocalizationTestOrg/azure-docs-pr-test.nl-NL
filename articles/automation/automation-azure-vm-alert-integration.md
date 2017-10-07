@@ -1,6 +1,6 @@
 ---
-title: " Herstellen van de Azure VM waarschuwingen met Automation-Runbooks | Microsoft Docs"
-description: Dit artikel wordt beschreven hoe u waarschuwingen van de virtuele Machine van Azure integreren met Azure Automation-runbooks en automatisch oplossen van problemen
+title: aaa"Azure VM waarschuwingen met Automation-Runbooks oplossen | Microsoft Docs'
+description: In dit artikel laat zien hoe toointegrate virtuele Machine van Azure met Azure Automation-runbooks waarschuwingen en automatisch oplossen van problemen
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2016
 ms.author: csand;magoedte
-ms.openlocfilehash: 738959b8e1ee5da989bb996d1ce8148cbf912781
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c226368a5c4c51fbfb331f4b97f7f2f239e701c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Azure Automation-scenario: waarschuwingen van de virtuele machine in Azure oplossen
-Azure Automation en Azure Virtual Machines zijn beschikbaar voor een nieuwe functie waarmee u kunt de virtuele Machine (VM) waarschuwingen configureren om te Automation-runbooks worden uitgevoerd. Deze nieuwe mogelijkheid kunt u automatisch uit te voeren standaard in reactie op waarschuwingen van de virtuele machine, zoals het opnieuw te starten of stoppen van de virtuele machine.
+Azure Automation en Azure Virtual Machines hebben een nieuwe functie waarmee u tooconfigure virtuele Machine (VM) waarschuwingen toorun Automation-runbooks uitgebracht. Deze nieuwe mogelijkheid kunt u tooautomatically uit te voeren standaard in het antwoord tooVM waarschuwingen, zoals opnieuw te starten of stoppen Hallo VM.
 
-Voorheen tijdens het maken van de waarschuwingsregel VM kon u [opgeven van een Automation-webhook](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) aan een runbook om uit te voeren van het runbook wanneer de waarschuwing is geactiveerd. Maar vereist dit dat u voor het werk van het maken van het runbook, maken van de webhook voor het runbook en klik vervolgens kopiëren en plakken van de webhook tijdens het maken van de waarschuwingsregel. Met deze nieuwe versie is het proces is veel eenvoudiger omdat u een runbook rechtstreeks uit een lijst tijdens het maken van de waarschuwingsregel kiezen kunt en kunt u een automatiseringsaccount dat wordt uitgevoerd van het runbook of eenvoudig een account maken.
+Voorheen tijdens het maken van de waarschuwingsregel VM kon u te[opgeven van een Automation-webhook](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) tooa runbook in de volgorde toorun hello runbook wanneer Hallo waarschuwing geactiveerd. Maar vereist dit dat u toodo Hallo werk van Hallo runbook maken, Hallo webhook voor Hallo-runbook maken en vervolgens te kopiëren en plakken Hallo webhook tijdens het maken van de waarschuwingsregel. Met deze nieuwe versie is Hallo-proces is veel eenvoudiger omdat u een runbook rechtstreeks uit een lijst tijdens het maken van de waarschuwingsregel kiezen kunt en kunt u een automatiseringsaccount dat wordt Hallo runbook uitvoeren of een account gemakkelijk te maken.
 
-In dit artikel ziet we u hoe eenvoudig het is een Azure VM-waarschuwing instellen en configureren van een Automation-runbook moet worden uitgevoerd als de waarschuwing wordt geactiveerd. Voorbeeldscenario's bevatten een virtuele machine opnieuw te starten wanneer het geheugengebruik sommige als gevolg van een toepassing op de virtuele machine met een geheugenlek overschrijdt of een virtuele machine stoppen wanneer de gebruiker CPU-tijd minder dan 1% voor het afgelopen uur is en niet gebruikt wordt. Ook wordt uitgelegd hoe het automatisch maken van een service-principal in uw Automation-account vereenvoudigt het gebruik van runbooks in Azure waarschuwing herbemiddeling.
+In dit artikel wordt ziet u hoe eenvoudig het is tooset van een virtuele machine van Azure-waarschuwing en een Automation-runbook-toorun configureren wanneer Hallo waarschuwing wordt geactiveerd. Voorbeeldscenario's bevatten een virtuele machine opnieuw te starten wanneer het geheugengebruik Hallo sommige vanwege tooan toepassing op Hallo VM met een geheugenlek overschrijdt of een virtuele machine stoppen wanneer Hallo CPU Gebruikerstijd minder dan 1% voor het afgelopen uur is en niet gebruikt wordt. Ook wordt uitgelegd hoe Hallo automatisch maken van een service-principal in uw Automation-account vereenvoudigt Hallo gebruik van runbooks in Azure waarschuwing herbemiddeling.
 
 ## <a name="create-an-alert-on-a-vm"></a>Een waarschuwing op een virtuele machine maken
-Voer de volgende stappen uit voor het configureren van een waarschuwing als u wilt een runbook starten wanneer de drempel is voldaan.
+Voer Hallo volgende stappen tooconfigure een waarschuwing toolaunch een runbook wanneer de drempel is voldaan.
 
 > [!NOTE]
 > Met deze release alleen wordt ondersteund V2 virtuele machines en ondersteuning voor klassieke die virtuele machines wordt binnenkort toegevoegd.  
 > 
 > 
 
-1. Aanmelden bij de Azure-portal en klikt u op **virtuele Machines**.  
-2. Selecteer een van uw virtuele machines.  De virtuele machine dashboard blade wordt weergegeven en de **instellingen** blade rechts ervan.  
-3. Van de **instellingen** blade onder de sectie bewaking selecteren **waarschuwing regels**.
-4. Op de **waarschuwing regels** blade, klikt u op **waarschuwing toevoegen**.
+1. Meld u bij toohello Azure-portal en klikt u op **virtuele Machines**.  
+2. Selecteer een van uw virtuele machines.  Hallo virtuele machine dashboard blade worden weergegeven en Hallo **instellingen** blade tooits rechts.  
+3. Van Hallo **instellingen** blade onder Hallo bewaking sectie Selecteer **waarschuwing regels**.
+4. Op Hallo **waarschuwing regels** blade, klikt u op **waarschuwing toevoegen**.
 
-Hiermee opent u de **een waarschuwingsregel toevoegen** blade kunt u de voorwaarden voor de waarschuwing configureren en kiezen uit een of alle van de volgende opties: e-mailbericht verzenden naar iemand, gebruikt u een webhook om de waarschuwing naar een ander systeem doorsturen en/of een Automation-runbook worden uitgevoerd in reactie poging tot het probleem te herstellen.
+Hiermee opent u up Hallo **een waarschuwingsregel toevoegen** blade kunt u voorwaarden voor de waarschuwing Hallo Hallo configureren en kiezen uit een of meer van deze opties: toosomeone e-mailbericht verzenden, gebruikt u een systeem webhook tooforward Hallo waarschuwing tooanother en/of een Automation-runbook worden uitgevoerd in reactie poging tooremediate Hallo probleem.
 
 ## <a name="configure-a-runbook"></a>Een runbook configureren
-Selecteer voor het configureren van een runbook worden uitgevoerd wanneer de waarschuwingsdrempel van de VM wordt voldaan, **Automation-Runbook**. In de **runbook configureren** blade kunt u het runbook nu wordt uitgevoerd en het Automation-account voor het uitvoeren van het runbook in.
+tooconfigure een runbook toorun als Hallo VM waarschuwingsdrempel wordt voldaan, selecteer **Automation-Runbook**. In Hallo **runbook configureren** blade kunt u Hallo runbook toorun en Hallo Automation-account toorun hello runbook in.
 
 ![Configureer een Automation-runbook en een nieuw Automation-Account maken](media/automation-azure-vm-alert-integration/ConfigureRunbookNewAccount.png)
 
 > [!NOTE]
-> Voor deze release kunt u kiezen uit drie runbooks waarmee de service – VM starten, stoppen VM of VM verwijderen (verwijderen).  De mogelijkheid om te selecteren van andere runbooks of een van uw eigen runbooks zijn beschikbaar in een toekomstige release.
+> Voor deze release kunt u kiezen uit drie runbooks waarmee Hallo service – VM starten, stoppen VM of VM verwijderen (verwijderen).  Hallo mogelijkheid tooselect andere runbooks of een van uw eigen runbooks in een toekomstige release beschikbaar zijn.
 > 
 > 
 
-![Runbooks kiezen](media/automation-azure-vm-alert-integration/RunbooksToChoose.png)
+![Toochoose van Runbooks](media/automation-azure-vm-alert-integration/RunbooksToChoose.png)
 
-Nadat u een van de drie beschikbare runbooks, selecteert de **Automation-account** vervolgkeuzelijst wordt weergegeven en kunt u een automation-account als het runbook wordt uitgevoerd. Runbooks moeten worden uitgevoerd in de context van een [Automation-account](automation-security-overview.md) die zich in uw Azure-abonnement. U kunt een Automation-account dat u al hebt gemaakt, of u kunt een nieuw Automation-account voor u gemaakt.
+Nadat u een Hallo drie beschikbare runbooks selecteert, Hallo **Automation-account** vervolgkeuzelijst wordt weergegeven en kunt u een automation account Hallo runbook wordt uitgevoerd. Runbooks moeten toorun in Hallo context van een [Automation-account](automation-security-overview.md) die zich in uw Azure-abonnement. U kunt een Automation-account dat u al hebt gemaakt, of u kunt een nieuw Automation-account voor u gemaakt.
 
-De runbooks die worden geleverd worden geverifieerd bij Azure met behulp van een service-principal. Als u kiest voor het uitvoeren van het runbook in een van uw bestaande Automation-accounts, wordt we automatisch de service principal voor u gemaakt. Als u een nieuw automatiseringsaccount maakt, maakt wordt automatisch het account en de service-principal. In beide gevallen twee activa ook worden gemaakt in het Automation-account: de activa van een certificaat met de naam **AzureRunAsCertificate** en de activa van een verbinding met de naam **AzureRunAsConnection**. De runbooks gebruikt **AzureRunAsConnection** te verifiëren bij Azure om de actie voor beheer op basis van de virtuele machine uitvoeren.
+Hallo runbooks die worden geleverd verifiëren met een service-principal tooAzure. Als u toorun hello runbook in een van uw bestaande Automation-accounts kiest, wordt automatisch gemaakt Hallo service principal voor u. Als u toocreate een nieuw automatiseringsaccount kiest, wordt klikt u vervolgens we automatisch gemaakt Hallo-account en Hallo service-principal. In beide gevallen twee activa ook worden gemaakt in Hallo Automation-account de activa van een certificaat met de naam **AzureRunAsCertificate** en de activa van een verbinding met de naam **AzureRunAsConnection**. Hallo runbooks gebruikt **AzureRunAsConnection** tooauthenticate met Azure in volgorde tooperform Hallo management actie tegen Hallo VM.
 
 > [!NOTE]
-> De service-principal in het abonnementsbereik wordt gemaakt en is de rol Inzender toegewezen. Deze rol is vereist om het account moet gemachtigd zijn om uit te voeren van Automation-runbooks voor het beheren van virtuele Azure-machines.  Het maken van een account Automaton en/of de service-principal is een eenmalige gebeurtenis. Zodra ze zijn gemaakt, kunt u dat account kunt gebruiken voor het uitvoeren van runbooks voor andere virtuele machine van Azure-waarschuwingen.
+> Hallo service-principal in Hallo abonnementsbereik wordt gemaakt en rol van Inzender Hallo is toegewezen. Deze rol is vereist om Hallo account toohave machtiging toorun Automation-runbooks toomanage virtuele Azure-machines.  Hallo maken van een account Automaton en/of de service-principal is een eenmalige gebeurtenis. Zodra ze zijn gemaakt, kunt u dat account toorun runbooks voor andere virtuele machine van Azure-waarschuwingen.
 > 
 > 
 
-Wanneer u klikt op **OK** de waarschuwing is geconfigureerd en als u de optie voor het maken van een nieuw automatiseringsaccount hebt geselecteerd, samen met de service-principal wordt gemaakt.  Dit kan enkele seconden duren.  
+Wanneer u klikt op **OK** Hallo waarschuwing is geconfigureerd en als u Hallo optie toocreate een nieuw automatiseringsaccount hebt geselecteerd, samen met de service-principal hello wordt gemaakt.  Dit kan enkele seconden duren toocomplete.  
 
 ![Runbook wordt geconfigureerd](media/automation-azure-vm-alert-integration/RunbookBeingConfigured.png)
 
-Nadat de configuratie is voltooid ziet u de naam van het runbook worden weergegeven in de **een waarschuwingsregel toevoegen** blade.
+Nadat Hallo-configuratie is voltooid, ziet u Hallo de naam van Hallo runbook weergeven in Hallo **een waarschuwingsregel toevoegen** blade.
 
 ![Runbook is geconfigureerd](media/automation-azure-vm-alert-integration/RunbookConfigured.png)
 
-Klik op **OK** in de **een waarschuwingsregel toevoegen** blade en de waarschuwingsregel wordt gemaakt en wordt geactiveerd als de virtuele machine actief is.
+Klik op **OK** in Hallo **een waarschuwingsregel toevoegen** blade en Hallo waarschuwingsregel wordt gemaakt en wordt geactiveerd als Hallo virtuele machine actief is.
 
 ### <a name="enable-or-disable-a-runbook"></a>In- of uitschakelen van een runbook
-Als u een runbook dat is geconfigureerd voor een waarschuwing hebt, kunt u deze uitschakelen zonder te verwijderen van de runbookconfiguratie. Hiermee kunt u de waarschuwing actief houden en testen mogelijk enkele van de regels voor waarschuwingen en later opnieuw inschakelen het runbook.
+Als u een runbook dat is geconfigureerd voor een waarschuwing hebt, kunt u deze uitschakelen zonder te verwijderen van de runbookconfiguratie Hallo. Dit kunt u tookeep Hallo waarschuwing uitgevoerd en sommige Hallo waarschuwingsregels mogelijk te testen en later opnieuw inschakelen Hallo runbook.
 
 ## <a name="create-a-runbook-that-works-with-an-azure-alert"></a>Een runbook maken dat met een Azure-waarschuwing werkt
-Wanneer u een runbook als onderdeel van een Azure waarschuwingsregel kiest, moet het runbook bevatten logica voor het beheren van de gegevens van de waarschuwing die wordt doorgegeven aan deze.  Wanneer een runbook is geconfigureerd in een waarschuwingsregel, is een webhook gemaakt voor het runbook; Deze webhook wordt vervolgens gebruikt voor het runbook starten elke keer dat de waarschuwing wordt geactiveerd.  De werkelijke aanroep naar start het runbook is een HTTP POST-aanvraag naar de webhook-URL. De hoofdtekst van de POST-aanvraag bevat een JSON-indeling object dat nuttige eigenschappen die betrekking hebben op de waarschuwing bevat.  Zoals u hieronder zien kunt, bevat de waarschuwingsgegevens-gegevens, zoals de abonnements-id, resourceGroupName resourceName en resourceType.
+Wanneer u een runbook als onderdeel van een Azure waarschuwingsregel kiest, moet Hallo runbook toohave logica in het toomanage Hallo waarschuwingsgegevens die tooit wordt doorgegeven.  Wanneer een runbook is geconfigureerd in een waarschuwingsregel, is een webhook gemaakt voor runbook Hallo; Deze webhook is en gebruikte toostart Hallo runbook elke waarschuwing tijd Hallo-triggers.  Hallo werkelijke aanroep toostart hello runbook is een HTTP POST-aanvraag toohello webhook-URL. Hallo-hoofdtekst van Hallo POST-aanvraag bevat een JSON-indeling object dat nuttige eigenschappen gerelateerde toohello waarschuwing bevat.  Zoals u hieronder zien kunt, bevat de waarschuwingsgegevens Hallo-gegevens, zoals de abonnements-id, resourceGroupName resourceName en resourceType.
 
 ### <a name="example-of-alert-data"></a>Voorbeeld van waarschuwingsgegevens
 ```
@@ -115,11 +115,11 @@ Wanneer u een runbook als onderdeel van een Azure waarschuwingsregel kiest, moet
 }
 ```
 
-Wanneer de service Automation-webhook het HTTP POST-protocol ontvangt haalt gegevens van de waarschuwing en wordt doorgegeven aan het runbook in de WebhookData runbook-invoerparameter.  Hieronder ziet u een voorbeeldrunbook dat laat hoe gebruikt u de parameter WebhookData zien en ophalen van gegevens van de waarschuwing en deze gebruiken voor het beheren van de Azure resource die de waarschuwing heeft geactiveerd.
+Wanneer Hallo Automation-webhook-service Hallo HTTP POST ontvangt Hallo waarschuwingsgegevens extraheert en geeft deze door toohello runbook in runbookinvoerparameter WebhookData Hallo.  Hieronder vindt u een voorbeeldrunbook dat toont hoe toouse Hallo WebhookData-parameter en waarschuwingsgegevens Hallo uitpakken en toomanage hello Azure-resource die Hallo waarschuwing heeft geactiveerd worden gebruikt.
 
 ### <a name="example-runbook"></a>Voorbeeldrunbook
 ```
-#  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
+#  This runbook will restart an ARM (V2) VM in response tooan Azure VM alert.
 
 [OutputType("PSAzureOperationResponse")]
 
@@ -127,54 +127,54 @@ param ( [object] $WebhookData )
 
 if ($WebhookData)
 {
-    # Get the data object from WebhookData
+    # Get hello data object from WebhookData
     $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
-    # Assure that the alert status is 'Activated' (alert condition went from false to true)
-    # and not 'Resolved' (alert condition went from true to false)
+    # Assure that hello alert status is 'Activated' (alert condition went from false tootrue)
+    # and not 'Resolved' (alert condition went from true toofalse)
     if ($WebhookBody.status -eq "Activated")
     {
-        # Get the info needed to identify the VM
+        # Get hello info needed tooidentify hello VM
         $AlertContext = [object] $WebhookBody.context
         $ResourceName = $AlertContext.resourceName
         $ResourceType = $AlertContext.resourceType
         $ResourceGroupName = $AlertContext.resourceGroupName
         $SubId = $AlertContext.subscriptionId
 
-        # Assure that this is the expected resource type
+        # Assure that this is hello expected resource type
         Write-Verbose "ResourceType: $ResourceType"
         if ($ResourceType -eq "microsoft.compute/virtualmachines")
         {
             # This is an ARM (V2) VM
 
-            # Authenticate to Azure with service principal and certificate
+            # Authenticate tooAzure with service principal and certificate
             $ConnectionAssetName = "AzureRunAsConnection"
             $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null) {
-                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
+                throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in hello Automation account."
             }
             Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
             Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
-            # Restart the VM
+            # Restart hello VM
             Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
         } else {
             Write-Error "$ResourceType is not a supported resource type for this runbook."
         }
     } else {
-        # The alert status was not 'Activated' so no action taken
+        # hello alert status was not 'Activated' so no action taken
         Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
     }
 } else {
-    Write-Error "This runbook is meant to be started from an Azure alert only."
+    Write-Error "This runbook is meant toobe started from an Azure alert only."
 }
 ```
 
 ## <a name="summary"></a>Samenvatting
-Wanneer u een waarschuwing op een virtuele machine in Azure configureert, hebt u nu de mogelijkheid voor het configureren van eenvoudig een Automation-runbook om de herstelactie automatisch worden uitgevoerd wanneer de waarschuwing wordt geactiveerd. Voor deze release kunt u kiezen uit runbooks te starten, stoppen of verwijderen van een virtuele machine, afhankelijk van uw waarschuwing scenario. Dit is slechts een begin van het inschakelen van scenario's waarin u de acties die automatisch worden uitgevoerd wanneer een waarschuwing wordt geactiveerd (melding, het oplossen van problemen herstel) beheren.
+Wanneer u een waarschuwing op een virtuele machine in Azure configureert, hebt u nu Hallo mogelijkheid tooeasily configureren van een Automation runbook tooautomatically herstelactie uitvoeren wanneer het Hallo-waarschuwing wordt geactiveerd. Voor deze release kunt u kiezen uit runbooks toorestart, stoppen of verwijderen van een virtuele machine, afhankelijk van uw waarschuwing scenario. Dit is alleen Hallo begin van het inschakelen van scenario's waarbij u Hallo acties (melding, het oplossen van problemen herstel) die automatisch worden uitgevoerd wanneer een waarschuwing activeert beheren.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks
-* Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
-* Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
+* Zie tooget gestart met grafische runbooks [Mijn eerste grafische runbook](automation-first-runbook-graphical.md)
+* tooget gestart met PowerShell workflow-runbooks, Zie [Mijn eerste PowerShell workflow-runbook](automation-first-runbook-textual.md)
+* toolearn meer informatie over runbooktypen, hun voordelen en beperkingen, Zie [Azure Automation-runbooktypen](automation-runbook-types.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met API Apps en ASP.NET in App Service | Microsoft Docs
-description: Ontdek hoe u met behulp van Visual Studio 2015 een ASP.NET API-app maakt, implementeert en gebruikt in Azure App Service.
+title: aaaGet slag met API-Apps en ASP.NET in App Service | Microsoft Docs
+description: Ontdek hoe toocreate, implementeren en gebruiken van een ASP.NET API-app in Azure App Service met behulp van Visual Studio 2015.
 services: app-service\api
 documentationcenter: .net
 author: alexkarcher-msft
@@ -14,100 +14,100 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: alkarche
-ms.openlocfilehash: e8fbffde29efcdbb2f67362474061e9f6ee0d59d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3e90f1585907d183b0435c6cafc5585bc1e29ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-api-apps-aspnet-and-swagger-in-azure-app-service"></a>Aan de slag met API-apps, ASP.NET en Swagger in Azure App Service
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
-Dit is de eerste van een reeks zelfstudies die laten zien hoe u functies van Azure App Service kunt gebruiken die handig zijn voor het ontwikkelen en hosten van RESTful-API's.  In deze zelfstudie wordt ondersteuning voor API-metagegevens in Swagger-indeling besproken.
+Dit is Hallo eerst in een reeks zelfstudies die laten zien hoe toouse functies van Azure App Service die zijn handig voor het ontwikkelen en hosten van RESTful-API's.  In deze zelfstudie wordt ondersteuning voor API-metagegevens in Swagger-indeling besproken.
 
 U leert het volgende:
 
-* Het maken en implementeren van [API-apps](app-service-api-apps-why-best-platform.md) in Azure App Service met behulp van hulpprogramma's die zijn ingebouwd in Visual Studio 2015.
-* Het automatiseren van API-detectie met behulp van het Swashbuckle NuGet-pakket om Swagger API-metagegevens dynamisch te genereren.
-* Het gebruik van Swagger API-metagegevens voor het automatisch genereren van clientcode voor een API-app.
+* Hoe toocreate en implementeren van [API-apps](app-service-api-apps-why-best-platform.md) in Azure App Service met behulp van hulpprogramma's die zijn ingebouwd in Visual Studio 2015.
+* Hoe tooautomate API-detectie met behulp van Hallo Swashbuckle NuGet-pakket genereren toodynamically Swagger API-metagegevens.
+* Hoe toouse Swagger API-metagegevens tooautomatically clientcode genereren voor een API-app.
 
 ## <a name="sample-application-overview"></a>Overzicht van voorbeeldtoepassing
-In deze zelfstudie werkt u met een voorbeeld van een eenvoudige takenlijsttoepassing. De toepassing heeft een SPA-front-end (SPA staat voor 'Single-Page Application'), een ASP.NET-web-API als middelste laag en een ASP.NET-web-API als gegevenslaag.
+In deze zelfstudie werkt u met een voorbeeld van een eenvoudige takenlijsttoepassing. Hallo-toepassing heeft een front-end van één pagina (SPA application '), een ASP.NET Web API als middelste laag en een ASP.NET Web API als gegevenslaag.
 
 ![Diagram van API-apps-voorbeeldtoepassing](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
-Hier volgt een schermafbeelding van de [AngularJS](https://angularjs.org/)-front-end.
+Hier volgt een schermopname van het Hallo [AngularJS](https://angularjs.org/) front-end.
 
-![Voorbeeld van API-apps-takenlijsttoepassing](./media/app-service-api-dotnet-get-started/todospa.png)
+![Lijst met toepassingen toodo en API Apps-voorbeeld](./media/app-service-api-dotnet-get-started/todospa.png)
 
-De Visual Studio-oplossing omvat drie projecten:
+Hallo Visual Studio-oplossing omvat drie projecten:
 
 ![](./media/app-service-api-dotnet-get-started/projectsinse.png)
 
-* **ToDoListAngular** - de front end: een AngularJS SPA die de middelste laag aanroept.
-* **ToDoListAPI** - de middelste laag: een ASP.NET Web API-project dat de gegevenslaag aanroept om CRUD-bewerkingen uit te voeren op taken.
-* **ToDoListAPI** - de gegevenslaag: een ASP.NET Web API-project dat CRUD-bewerkingen uitvoert op taken.
+* **ToDoListAngular** -Hallo-front-end: een AngularJS SPA die Hallo middelste laag aanroept.
+* **ToDoListAPI** -Hallo middelste laag: een ASP.NET Web API-project die Hallo gegevenslaag tooperform CRUD-bewerkingen op taken aanroept.
+* **ToDoListDataAPI** -Hallo gegevenslaag: een ASP.NET Web API-project dat CRUD-bewerkingen op taken uitvoert.
 
-De architectuur met drie lagen is een van de vele architecturen die u kunt implementeren met behulp van API-apps en wordt hier alleen voor demonstratiedoeleinden gebruikt. Ter illustratie van de functies van API-apps is de code in elke laag zo eenvoudig mogelijk gehouden. De gegevenslaag maakt bijvoorbeeld voor persistentie gebruik van het geheugen van de server in plaats van een database.
+Hallo architectuur met drie lagen is een van de vele architecturen die u kunt implementeren met behulp van API Apps en wordt hier alleen voor demonstratiedoeleinden gebruikt. Hallo-code in elke laag is net zo eenvoudig als mogelijke toodemonstrate API Apps-functies. Hallo gegevenslaag gebruikt bijvoorbeeld geheugen van de server in plaats van een database als het mechanisme voor persistentie.
 
-Nadat u deze zelfstudie hebt voltooid, beschikt u over twee Web API-projecten die in de cloud worden uitgevoerd in App Service API-apps.
+Op het voltooien van deze zelfstudie hebt u Hallo twee Web API-projecten en uitgevoerd in de cloud Hallo in App Service API-apps.
 
-In de volgende zelfstudie in de reeks wordt de SPA-front-end in de cloud geïmplementeerd.
+Hallo volgende zelfstudie in de reeks Hallo implementeert Hallo SPA-front-end toohello cloud.
 
 ## <a name="prerequisites"></a>Vereisten
-* ASP.NET Web API: in de instructies in de zelfstudie wordt ervan uitgegaan dat u beschikt over basiskennis van het werken met ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.
+* ASP.NET Web API - instructies Hallo-zelfstudie wordt ervan uitgegaan dat u een elementaire kennis hebben van hoe toowork met ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) in Visual Studio.
 * Azure-account: u kunt [een gratis Azure-account openen](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Als u met Azure App Service aan de slag wilt voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Daar kunt u direct een eenvoudige, tijdelijke app maken in App Service. U hebt hiervoor **geen creditcard nodig** en bent nergens toe verplicht.
-* Visual Studio 2015 met de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/archive-net-downloads/): de SDK installeert automatisch Visual Studio 2015 als u dit nog niet hebt.
+    Als u wilt dat tooget gestart met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/). Daar kunt u direct een eenvoudige, tijdelijke app maken in App Service. U hebt hiervoor **geen creditcard nodig** en bent nergens toe verplicht.
+* Visual Studio 2015 met de Hallo [Azure SDK voor .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) -Hallo SDK installeert Visual Studio 2015 automatisch als u nog geen hebt.
   
   * Klik in Visual Studio op Help -> Over Microsoft Visual Studio en zorg ervoor dat 'Azure App Service Tools v2.9.1' of hoger is geïnstalleerd.
     
     ![Versie van Azure App Tools](./media/app-service-api-dotnet-get-started/apiversion.png)
     
     > [!NOTE]
-    > Afhankelijk van hoeveel van de SDK-afhankelijkheden u al op uw computer hebt staan, kan het installeren van de SDK lang duren, van enkele minuten tot een halfuur of meer.
+    > Afhankelijk van hoeveel van Hallo SDK-afhankelijkheden u al op uw computer hebt, kan installeren Hallo SDK lang duren, van enkele minuten tooa halfuur of meer.
     > 
     > 
 
-## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
-1. Download de opslagplaats [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list).
+## <a name="download-hello-sample-application"></a>Hallo-voorbeeldtoepassing downloaden
+1. Hallo downloaden [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) opslagplaats.
    
-    U kunt klikken op de knop **ZIP downloaden** of de opslagplaats klonen op uw lokale computer.
-2. Open de ToDoList-oplossing in Visual Studio 2015 of 2013.
+    U kunt klikken op Hallo **ZIP downloaden** knop of kloon Hallo-opslagplaats op uw lokale machine.
+2. Open de ToDoList-oplossing Hallo in Visual Studio 2015 of 2013.
    
-   1. Het is belangrijk dat u elke oplossing vertrouwt.
+   1. U moet tootrust elke oplossing.
          ![Beveiligingswaarschuwing](./media/app-service-api-dotnet-get-started/securitywarning.png)
-3. Maak de oplossing (CTRL + SHIFT + B) voor het herstellen van de NuGet-pakketten.
+3. Hallo-oplossing (CTRL + SHIFT + B) toorestore hello NuGet-pakketten maken.
    
-    Als u de toepassing in actie wilt zien voordat u deze implementeert, kunt u deze lokaal uitvoeren. Zorg ervoor dat ToDoListDataAPI uw opstartproject is en voer de oplossing uit. Er moet een 403 HTTP-fout in uw browser worden weergegeven.
+    Als u toosee Hallo toepassing in bewerking wilt voordat u deze implementeert, kunt u deze lokaal uitvoeren. Zorg ervoor dat de ToDoListDataAPI uw opstartproject en Voer Hallo-oplossing is. Verwachte toosee 403 HTTP-fout in uw browser.
 
 ## <a name="use-swagger-api-metadata-and-ui"></a>Swagger API-metagegevens en -gebruikersinterface gebruiken
-Ondersteuning voor [Swagger](http://swagger.io/) 2.0 API-metagegevens is ingebouwd in Azure App Service. Elke API-app kan een URL-eindpunt opgeven dat metagegevens retourneert voor de API in Swagger JSON-indeling. De metagegevens die vanuit dat eindpunt worden geretourneerd, kunnen worden gebruikt voor het genereren van clientcode.
+Ondersteuning voor [Swagger](http://swagger.io/) 2.0 API-metagegevens is ingebouwd in Azure App Service. Elke API-app kunt een URL-eindpunt dat metagegevens voor Hallo API in Swagger JSON-indeling retourneert opgeven. Hallo metagegevens geretourneerd vanuit dat eindpunt mag toogenerate clientcode gebruikt.
 
-Een ASP.NET Web API-project kan Swagger-metagegevens dynamisch genereren met behulp van het [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet-pakket. Het Swashbuckle NuGet-pakket is al geïnstalleerd in de ToDoListDataAPI- en ToDoListAPI-projecten die u hebt gedownload.
+Een ASP.NET Web API-project kan Swagger-metagegevens dynamisch genereren met behulp van Hallo [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet-pakket. Hallo Swashbuckle NuGet-pakket is al geïnstalleerd in Hallo ToDoListDataAPI- en ToDoListAPI-projecten die u hebt gedownload.
 
-In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegevens en probeert u een testgebruikersinterface uit die hierop is gebaseerd.
+In deze sectie van de zelfstudie Hallo u bekijkt hello gegenereerde Swagger 2.0-metagegevens en probeert u een testgebruikersinterface die is gebaseerd op Hallo Swagger-metagegevens.
 
-1. Stel het project ToDoListDataAPI (**niet** het project ToDoListAPI) in als opstartproject.
+1. Hallo ToDoListDataAPI project instellen (**niet** hello ToDoListAPI-project) als opstartproject Hallo.
    
     ![ToDoDataAPI instellen als opstartproject](./media/app-service-api-dotnet-get-started/startupproject.png)
-2. Druk op F5 of klik op **Fouten opsporen > Foutopsporing starten** om het project uit te voeren in de foutopsporingsmodus.
+2. Druk op F5 of klik op **fouten opsporen > Foutopsporing starten** toorun Hallo-project in de foutopsporingsmodus.
    
-    De browser wordt geopend en u ziet de foutpagina HTTP 403.
-3. Voeg in de adresbalk van uw browser `swagger/docs/v1` toe aan het einde van de regel en druk vervolgens op Enter. (De URL is `http://localhost:45914/swagger/docs/v1`.)
+    Hallo-browser wordt geopend en ziet u Hallo HTTP 403-foutpagina.
+3. Voeg in de adresbalk van uw browser `swagger/docs/v1` toohello einde van het Hallo-regel en druk vervolgens op ENTER. (Hallo-URL is `http://localhost:45914/swagger/docs/v1`.)
    
-    Dit is de standaard-URL die wordt gebruikt om Swashbuckle Swagger 2.0 JSON-metagegevens te retourneren voor de API.
+    Dit is standaard-URL Hallo door Swashbuckle tooreturn Swagger 2.0 JSON-metagegevens gebruikt voor Hallo API.
    
-    Als u Internet Explorer gebruikt, vraagt de browser u om een *v1.json*-bestand te downloaden.
+    Als u van Internet Explorer gebruikmaakt, Hallo browser wordt u gevraagd toodownload een *v1.json* bestand.
    
     ![JSON-metagegevens downloaden in Internet Explorer](./media/app-service-api-dotnet-get-started/iev1json.png)
    
-    Als u Chrome, Firefox of Edge gebruikt, wordt de JSON-code rechtstreeks in een browservenster weergegeven. Verschillende browsers verwerken JSON op een verschillende manier. Mogelijk ziet uw browservenster er daarom niet precies hetzelfde uit als in het voorbeeld.
+    Als u Chrome, Firefox of Edge gebruikt, wordt in Hallo browser Hallo JSON in Hallo browservenster weergegeven. Verschillende browsers verwerken JSON anders en uw browservenster mag niet precies hetzelfde uitzien als Hallo-voorbeeld.
    
     ![JSON-metagegevens in Chrome](./media/app-service-api-dotnet-get-started/chromev1json.png)
    
-    Het volgende voorbeeld toont de eerste sectie van de Swagger-metagegevens voor de API, met de definitie voor de Get-methode. Deze metagegevens sturen de Swagger-gebruikersinterface aan die u in de volgende stappen nodig hebt. U gebruikt deze verderop in de zelfstudie voor het automatisch genereren van clientcode.
+    Hallo volgende voorbeeld toont de eerste sectie Hallo van Hallo Swagger-metagegevens voor Hallo-API met Hallo definitie voor Hallo methode Get. Deze metagegevens is welke stations Hallo Swagger-gebruikersinterface die u in de volgende stappen uit Hallo gebruikt, en u deze in een volgende sectie van de zelfstudie tooautomatically Hallo gebruiken genereren van clientcode.
    
         {
           "swagger": "2.0",
@@ -143,8 +143,8 @@ In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegev
                 },
                 "deprecated": false
               },
-4. Sluit de browser en stop de foutopsporing van Visual Studio.
-5. Open in het project ToDoListDataAPI in **Solution Explorer** het bestand *App_Start\SwaggerConfig.cs*, blader naar regel 174 en verwijder het commentaarteken bij de volgende code.
+4. Sluit Hallo browser en stop de foutopsporing van Visual Studio.
+5. Project in Hallo ToDoListDataAPI in **Solution Explorer**Open Hallo *App_Start\SwaggerConfig.cs* file en schuif omlaag tooline 174 en het commentaar verwijderen Hallo code te volgen.
    
         /*
             })
@@ -152,192 +152,192 @@ In deze sectie van de zelfstudie bekijkt u de gegenereerde Swagger 2.0-metagegev
             {
         */
    
-    Het bestand *SwaggerConfig.cs* wordt gemaakt wanneer u het pakket Swashbuckle in een project installeert. Het bestand biedt diverse manieren om Swashbuckle te configureren.
+    Hallo *SwaggerConfig.cs* bestand wordt gemaakt wanneer u Hallo Swashbuckle-pakket in een project installeert. Hallo-bestand bevat een aantal manieren tooconfigure Swashbuckle.
    
-    Met de code waarbij u het commentaarteken hebt verwijderd, wordt de Swagger-gebruikersinterface ingeschakeld die u in de volgende stappen gebruikt. Wanneer u een Web API-project maakt met behulp van de API-app-projectsjabloon, wordt deze code als veiligheidsmaatregel standaard uitgecommentarieerd.
-6. Voer het project opnieuw uit.
-7. Voeg in de adresbalk van uw browser `swagger` toe aan het einde van de regel en druk vervolgens op Enter. (De URL is `http://localhost:45914/swagger`.)
-8. Wanneer de pagina van de Swagger-gebruikersinterface wordt weergegeven, klikt u op **ToDoList** om na te gaan welke methoden er beschikbaar zijn.
+    Hallo-code u hebt zonder opmerkingen schakelt Hallo Swagger-gebruikersinterface die u gebruikt in hello te volgen stappen. Wanneer u een Web API-project maakt met behulp van Hallo API-app-projectsjabloon, wordt deze code standaard uitgecommentarieerd als veiligheidsmaatregel.
+6. Hallo-project opnieuw uitgevoerd.
+7. Voeg in de adresbalk van uw browser `swagger` toohello einde van het Hallo-regel en druk vervolgens op ENTER. (Hallo-URL is `http://localhost:45914/swagger`.)
+8. Wanneer Hallo Swagger-gebruikersinterface pagina wordt weergegeven, klikt u op **ToDoList** toosee Hallo methoden beschikbaar.
    
     ![Beschikbare methoden in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/methods.png)
-9. Klik op de eerste knop **Get** in de lijst.
-10. Geef in de sectie **Parameters** een sterretje op als de waarde van de `owner`-parameter en klik vervolgens op **Try it out**.
+9. Klik eerst op Hallo **ophalen** knop in Hallo-lijst.
+10. In Hallo **Parameters** sectie, geeft u een sterretje als waarde Hallo Hallo `owner` parameter en klik vervolgens op **Try it out in**.
     
-    Als u in latere zelfstudies verificatie toevoegt, biedt de middelste laag de werkelijke gebruikers-id voor de gegevenslaag. Zolang de toepassing wordt uitgevoerd zonder dat verificatie is ingeschakeld, hebben alle taken een sterretje als eigenaar-id.
+    Wanneer u verificatie in latere zelfstudies toevoegt, geven de middelste laag Hallo toohello gegevenslaag voor Hallo werkelijke gebruikers-ID. Nu alle taken een sterretje als eigenaar-ID tijdens het Hallo-toepassing wordt uitgevoerd zonder verificatie is ingeschakeld.
     
     ![Try it out in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/gettryitout1.png)
     
-    De Swagger-gebruikersinterface roept deToDoList Get-methode aan en geeft de responscode en JSON-resultaten weer.
+    Hallo Swagger-gebruikersinterface roept Hallo ToDoList Get-methode en Hallo responscode en JSON-resultaten weergegeven.
     
     ![Resultaten van Try it out in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/gettryitout.png)
-11. Klik op **Post** en vervolgens op het vak onder **Model Schema**.
+11. Klik op **Post**, en klik vervolgens op Hallo vak onder **modelschema**.
     
-    Als u op het modelschema klikt, worden er gegevens ingevuld in het invoervak waarin u de waarde van parameter voor de Post-methode kunt opgeven. (Als dit in Internet Explorer niet werkt, probeert u een andere browser of voert u in de volgende stap de waarde van de parameter handmatig in.)  
+    Als u op Hallo model schema prefills Hallo invoervak waarin u de parameterwaarde Hallo voor Hallo Post-methode kunt opgeven. (Als dit niet in Internet Explorer werkt, een andere browser gebruikt of Hallo parameterwaarde handmatig invoeren in de volgende stap Hallo.)  
     
     ![Post voor Try it out in de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/post.png)
-12. Wijzig de JSON-code in het invoervak van de `todo`-parameter, zodat deze lijkt op het volgende voorbeeld of vervang deze door uw eigen beschrijvende tekst:
+12. Wijziging Hallo JSON in Hallo `todo` parameter invoer vak zodat het lijkt erop dat Hallo volgende voorbeeld of vervang deze door uw eigen beschrijvende tekst:
     
         {
           "ID": 2,
-          "Description": "buy the dog a toy",
+          "Description": "buy hello dog a toy",
           "Owner": "*"
         }
 13. Klik op **Try it out**.
     
-    De ToDoList-API retourneert een 204 HTTP-responscode waarmee wordt aangegeven dat de bewerking is geslaagd.
-14. Klik op de eerste **Get**-knop en klik vervolgens in die sectie van de pagina op de knop **Try it out**.
+    Hallo ToDoList-API retourneert een 204 HTTP-antwoordcode die slagen aangeeft.
+14. Klik eerst op Hallo **ophalen** knop en klik vervolgens in die sectie van de pagina Hallo op Hallo **Try it out in** knop.
     
-    De respons van de Get-methode bevat nu de nieuwe taak.
-15. Optioneel: probeer ook de methoden Put, Delete en Get by ID.
-16. Sluit de browser en stop de foutopsporing van Visual Studio.
+    Hallo antwoord van Get-methode bevat nu Hallo nieuw toodo item.
+15. Optioneel: Probeer ook Hallo Put, Delete, en Get by ID methoden.
+16. Sluit Hallo browser en stop de foutopsporing van Visual Studio.
 
-Swashbuckle werkt met elk ASP.NET Web API-project. Als u het genereren van Swagger-metagegevens wilt toevoegen aan een bestaand project, hoeft u hiervoor alleen het Swashbuckle-pakket te installeren.
+Swashbuckle werkt met elk ASP.NET Web API-project. Als u tooadd Swagger-metagegevens generatie tooan bestaand project wilt, gewoon Hallo Swashbuckle-pakket te installeren.
 
 > [!NOTE]
-> De Swagger-metagegevens bevatten voor elke API-bewerking een unieke id. Standaard kan Swashbuckle dubbele Swagger-bewerkings-id's genereren voor uw Web API-controllermethoden. Dit gebeurt als uw domeincontroller overbelaste HTTP-methoden bevat, zoals `Get()` en `Get(id)`. Zie [Door Swashbuckle gegenereerde API-definities aanpassen](app-service-api-dotnet-swashbuckle-customize.md) voor meer informatie over het afhandelen van overbelasting. Als u in Visual Studio een Web API-project maakt met de Azure-API-app-sjabloon, wordt er aan het bestand *SwaggerConfig.cs* automatisch code toegevoegd die unieke bewerkings-id's geneert.  
+> De Swagger-metagegevens bevatten voor elke API-bewerking een unieke id. Standaard kan Swashbuckle dubbele Swagger-bewerkings-id's genereren voor uw Web API-controllermethoden. Dit gebeurt als uw domeincontroller overbelaste HTTP-methoden bevat, zoals `Get()` en `Get(id)`. Zie voor meer informatie over hoe toohandle overloads [aanpassen door Swashbuckle gegenereerde API-definities](app-service-api-dotnet-swashbuckle-customize.md). Als u een Web API-project in Visual Studio met hello Azure API-App-sjabloon maakt, code die unieke bewerkings-id gegenereerd toohello wordt automatisch toegevoegd *SwaggerConfig.cs* bestand.  
 > 
 > 
 
-## <a id="createapiapp"></a> Een API-app in Azure maken en er code in implementeren
-In deze sectie gebruikt u de Azure-hulpprogramma's die in de wizard **Publish Web** van Visual Studio zijn geïntegreerd, voor het maken van een nieuwe API-app in Azure. Vervolgens implementeert u het project ToDoListDataAPI in de nieuwe API-app en roept u de API aan door de Swagger-gebruikersinterface uit te voeren.
+## <a id="createapiapp"></a>Een API-app in Azure maken en implementeren van code tooit
+In deze sectie gebruikt u Azure-hulpprogramma's die zijn geïntegreerd met Visual Studio Hallo **webpublicatie** wizard toocreate een nieuwe API-app in Azure. Vervolgens Hallo ToDoListDataAPI project toohello nieuwe API-app implementeren en Hallo API aanroepen door het uitvoeren van Hallo Swagger-gebruikersinterface.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het project ToDoListDataAPI. Klik vervolgens op **Publish**.
+1. In **Solution Explorer**, met de rechtermuisknop op Hallo ToDoListDataAPI project en klik vervolgens op **publiceren**.
    
     ![Klikken op Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu.png)
-2. Klik in de stap **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
+2. In Hallo **profiel** stap Hallo **webpublicatie** wizard, klikt u op **Microsoft Azure App Service**.
    
    ![Klikken op Azure App Service in de wizard Publish Web](./media/app-service-api-dotnet-get-started/selectappservice.png)
-3. Meld u aan bij uw Azure-account als u dit nog niet hebt gedaan. Vernieuw uw referenties als deze zijn verlopen.
-4. Kies in het dialoogvenster App Service bij **Subscription** het Azure-abonnement dat u wilt gebruiken en klik vervolgens op **New**.
+3. Meld u aan tooyour Azure-account als u dit nog niet hebt gedaan of vernieuw uw referenties als deze zijn verlopen.
+4. In het dialoogvenster App Service Hallo, kiest u hello Azure **abonnement** u toouse wilt en klik vervolgens op **nieuw**.
    
     ![Klikken op New in het dialoogvenster App Service](./media/app-service-api-dotnet-get-started/clicknew.png)
    
-    Het tabblad **Hosting** van het dialoogvenster **Create App Service** wordt weergegeven.
+    Hallo **Hosting** tabblad Hallo **Create App Service** dialoogvenster wordt weergegeven.
    
-    Omdat u een Web API-project implementeert waarin Swashbuckle is geïnstalleerd, neemt Visual Studio aan dat u een API-app wilt maken. Dit wordt aangegeven door de titel **API App Name** en door het feit dat de vervolgkeuzelijst **Change Type** is ingesteld op **API App**.
+    Omdat u een Web-API-project dat swashbuckle is geïnstalleerd implementeert, Visual Studio wordt ervan uitgegaan dat u wilt dat toocreate een API-App. Dit wordt aangegeven door Hallo **API App Name** title en door Hallo feit die Hallo **wijzigingstype** vervolgkeuzelijst is ingesteld, te**API-App**.
    
     ![App-type in het dialoogvenster App Service](./media/app-service-api-dotnet-get-started/apptype.png)
-5. Voer bij **API App Name** een naam in die uniek is in het domein *azurewebsites.net*. U kunt de standaardnaam accepteren die door Visual Studio wordt voorgesteld.
+5. Voer een **API App Name** die uniek is in Hallo *azurewebsites.net* domein. U kunt de standaardnaam Hallo die Visual Studio wordt voorgesteld accepteren.
    
-    Als u een naam opgeeft die iemand anders al gebruikt, ziet u aan de rechterkant een rood uitroepteken.
+    Als u een naam die iemand anders al gebruikt opgeeft, ziet u een rood uitroepteken toohello rechts.
    
-    De URL van de API-app wordt `{API app name}.azurewebsites.net`.
-6. Klik in de vervolgkeuzelijst **Resource Group** op **New** en voer vervolgens ToDoListGroup of desgewenst een andere naam in.
+    Hallo URL van Hallo API-app worden `{API app name}.azurewebsites.net`.
+6. In Hallo **resourcegroep** omlaag, klikt u op **nieuw**, en voer vervolgens 'ToDoListGroup' of een andere naam desgewenst.
    
-    Een resourcegroep is een verzameling Azure-resources, zoals web-apps, databases, virtuele machines, enzovoort.    Voor deze zelfstudie kunt u het beste een nieuwe resourcegroep maken. U kunt dan eenvoudig in één stap alle Azure-resources verwijderen die u tijdens de zelfstudie maakt.
+    Een resourcegroep is een verzameling Azure-resources, zoals web-apps, databases, virtuele machines, enzovoort.    Voor deze zelfstudie is het beste toocreate een nieuwe resourcegroep kunt dan eenvoudig toodelete in één stap die alle Azure-resources die u voor de zelfstudie Hallo maakt Hallo.
    
     In dit vak kunt u een bestaande [resourcegroep](../azure-resource-manager/resource-group-overview.md) selecteren of een nieuwe maken door een naam te typen die anders is dan alle bestaande resourcegroepen in uw abonnement.
-7. Klik naast de vervolgkeuzelijst **App Service Plan** op de knop **New**.
+7. Klik op Hallo **nieuw** knop volgende toohello **App Service-Plan** vervolgkeuzelijst.
    
-    De schermafbeelding toont voorbeeldwaarden voor **API App Name**, **Subscription** en **Resource Group**. De door u gebruikte waarden zijn anders.
+    Hallo Schermafbeelding toont voorbeeldwaarden voor **API App Name**, **abonnement**, en **resourcegroep** --de waarden zijn anders.
    
-    ![Het dialoogvenster Create App Service](./media/app-service-api-dotnet-get-started/createas.png)
+    ![Het dialoogvenster App Service maken](./media/app-service-api-dotnet-get-started/createas.png)
    
-    In de volgende stappen maakt u een App Service-plan voor de nieuwe resourcegroep. In een App Service-plan worden de rekenresources opgegeven op basis waarvan uw API-app wordt uitgevoerd. Als u bijvoorbeeld de gratis categorie hebt gekozen, wordt uw API-app uitgevoerd op basis van gedeelde virtuele machines. Bij sommige categorieën waar u voor betaalt, worden apps uitgevoerd via exclusieve virtuele machines. Zie [Overzicht van App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) voor informatie over App Service-plannen
-8. Geef in het dialoogvenster **Configure App Service Plan** de naam ToDoListPlan op. Desgewenst kunt u ook een andere naam gebruiken.
-9. Kies in de vervolgkeuzelijst **Location** de locatie die het dichtst bij u ligt.
+    In Hallo stappen maakt u een App Service-plan voor de nieuwe resourcegroep Hallo. Een App Service-plan bevat Hallo rekenresources die door uw API-app wordt uitgevoerd op. Bijvoorbeeld, als u de gratis laag hello, uw API-app wordt uitgevoerd op gedeelde virtuele machines, terwijl voor sommige betaald lagen deze wordt uitgevoerd via exclusieve virtuele machines. Zie [Overzicht van App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) voor informatie over App Service-plannen
+8. In Hallo **Configure App Service Plan** dialoogvenster 'ToDoListPlan' of een andere naam invoeren als u liever.
+9. In Hallo **locatie** vervolgkeuzelijst Kies Hallo locatie die het dichtst tooyou.
    
-    Met deze instelling bepaalt u in welk Azure-datacentrum uw app wordt uitgevoerd. Kies een locatie dicht bij u in de buurt om de [latentie](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090) te minimaliseren.
-10. Klik in de vervolgkeuzelijst **Size** op **Free**.
+    Met deze instelling bepaalt u in welk Azure-datacentrum uw app wordt uitgevoerd. Kies een locatie sluiten tooyou toominimize [latentie](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+10. In Hallo **grootte** omlaag, klikt u op **vrije**.
     
-    Voor deze zelfstudie levert de prijscategorie Free voldoende prestaties.
-11. Klik in het dialoogvenster **Configure App Service Plan** op **OK**.
+    Voor deze zelfstudie bieden Hallo gratis prijscategorie voldoende prestaties.
+11. In Hallo **Configure App Service Plan** dialoogvenster, klikt u op **OK**.
     
     ![Klikken op OK in het dialoogvenster Configure App Service Plan](./media/app-service-api-dotnet-get-started/configasp.png)
-12. Klik in het dialoogvenster **Create App Service** op **Create**.
+12. In Hallo **Create App Service** in het dialoogvenster, klikt u op **maken**.
     
     ![Klikken op Create in het dialoogvenster Create App Service](./media/app-service-api-dotnet-get-started/clickcreate.png)
     
-    Visual Studio maakt de API-app en een publicatieprofiel met alle vereiste instellingen voor de API-app. Vervolgens wordt de wizard **Publish Web** geopend. Deze wizard gebruikt u voor het implementeren van het project.
+    Visual Studio maakt Hallo API-app en een publicatieprofiel met alle vereiste Hallo-instellingen voor Hallo API-app. En vervolgens het openen van Hallo **webpublicatie** wizard, waar u toodeploy Hallo project.
     
-    De wizard **Publish Web** wordt geopend op het tabblad **Connection** (hieronder getoond).
+    Hallo **webpublicatie** wizard wordt geopend op Hallo **verbinding** tabblad (Zie hieronder).
     
-    Op het tabblad **Connection** verwijzen de instellingen bij **Server** en **Site name** naar uw API-app. **User name** en **Password** zijn implementatiereferenties die Azure voor u maakt. Na de implementatie opent Visual Studio een browservenster met de **doel-URL** (dat is de enige functie van **doel-URL**).  
+    Op Hallo **verbinding** tabblad hello **Server** en **sitenaam** instellingen punt tooyour API-app. Hallo **gebruikersnaam** en **wachtwoord** zijn implementatiereferenties die Azure voor u maakt. Na de implementatie opent Visual Studio een browser toohello **doel-URL** (oftewel Hallo enige doel van het **doel-URL**).  
 13. Klik op **Volgende**.
     
     ![Klikken op Next op het tabblad Connection van de wizard Publish Web](./media/app-service-api-dotnet-get-started/connnext.png)
     
-    Het volgende tabblad is het tabblad **Settings** (hieronder getoond). Hier kunt u het buildconfiguratietabblad wijzigen om een build voor foutopsporing te implementeren voor [foutopsporing op afstand](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). Het tabblad biedt ook diverse **opties voor het publiceren van bestanden**:
+    Hallo volgende tabblad is Hallo **instellingen** tabblad (Zie hieronder). Hier kunt u wijzigen Hallo build configuration tabblad toodeploy een foutopsporingsversie voor [foutopsporing op afstand](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). Hallo tabblad biedt ook diverse **opties voor het publiceren van bestand**:
     
     * Aanvullende bestanden op de bestemming verwijderen
     * Voorcompileren tijdens het publiceren
-    * Bestanden uitsluiten van de map App_Data
+    * Bestanden uitsluiten van de map App_Data Hallo
     
     Voor deze zelfstudie hebt u geen van deze opties nodig. Zie [Procedure: een webproject implementeren met behulp van publicatie met één klik in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) voor gedetailleerde uitleg over deze opties.
 14. Klik op **Volgende**.
     
     ![Klikken op Next op het tabblad Settings van de wizard Publish Web](./media/app-service-api-dotnet-get-started/settingsnext.png)
     
-    Hierna volgt het tabblad **Preview** (hieronder getoond), waar u kunt bekijken welke bestanden van uw project er naar de API-app worden gekopieerd. Wanneer u een project implementeert in een API-app die u al eerder had geïmplementeerd, worden alleen de gewijzigde bestanden gekopieerd. Als u een overzicht wilt zien van wat er wordt gekopieerd, klikt u op de knop **Start Preview**.
+    Hierna volgt Hallo **Preview** tabblad (Zie hieronder), waarmee u een kans toosee welke bestanden toobe gekopieerd van uw project toohello API-app gaat. Wanneer u een project tooan API-app die u hebt al geïmplementeerd tooearlier implementeert, worden alleen de gewijzigde bestanden gekopieerd. Als u een lijst met wat er wordt gekopieerd toosee wilt, kunt u Hallo **Start Preview** knop.
 15. Klik op **Publish**.
     
     ![Klikken op Publish op het tabblad Preview van de wizard Publish Web](./media/app-service-api-dotnet-get-started/clickpublish.png)
     
-    Visual Studio implementeert het project ToDoListDataAPI in de nieuwe API-app. In het venster **Output** wordt bevestigd dat de implementatie is geslaagd. Ook wordt de URL van de API-app in een browservenster geopend, waarna er een pagina wordt weergegeven met de melding dat de nieuwe API-app is gemaakt.
+    Visual Studio implementeert Hallo ToDoListDataAPI project toohello nieuwe API-app. Hallo **uitvoer** venster Logboeken geslaagde implementatie en een 'is gemaakt' pagina wordt weergegeven in een browser geopend venster toohello URL van Hallo API-app.
     
     ![Bevestiging van geslaagde implementatie in het venster Output](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
     
     ![Pagina met melding dat de nieuwe API-app is gemaakt](./media/app-service-api-dotnet-get-started/appcreated.png)
-16. Voeg 'swagger' toe aan de URL in de adresbalk van de browser en druk op Enter. (De URL is `http://{apiappname}.azurewebsites.net/swagger`.)
+16. 'Swagger' toohello URL toevoegen in de adresbalk van Hallo browser en druk op Enter. (Hallo-URL is `http://{apiappname}.azurewebsites.net/swagger`.)
     
-    De browser geeft dezelfde Swagger-gebruikersinterface weer die u eerder hebt gezien, maar deze wordt nu uitgevoerd in de cloud. Probeer de Get-methode uit en u zult zien dat u bent teruggekeerd naar de twee standaardtaken. De wijzigingen die u eerder hebt doorgevoerd, zijn in het geheugen van de lokale computer opgeslagen.
-17. Open de [Azure Portal](https://portal.azure.com/).
+    Hallo browser geeft dezelfde Swagger-gebruikersinterface die u eerder hebt gezien, maar nu wordt uitgevoerd in de cloud Hallo Hallo weer. Probeer Hallo Get-methode en u ziet dat je back toohello standaard 2 taakitems. Hallo-wijzigingen die u eerder hebt gemaakt zijn opgeslagen in het geheugen van de lokale computer Hallo.
+17. Open Hallo [Azure-portal](https://portal.azure.com/).
     
-    Azure Portal is een webinterface voor het beheer van Azure-bronnen zoals API-apps.
+    Hello Azure-portal is een webinterface voor het beheer van Azure-bronnen zoals API-apps.
 18. Klik op **Meer Services > App Services**.
     
     ![Bladeren door App Services](./media/app-service-api-dotnet-get-started/browseas.png)
-19. Zoek uw nieuwe API-app op op de blade **App Services** en klik erop. (In Azure Portal worden de vensters die aan de rechterkant worden geopend, *blades* genoemd.)
+19. In Hallo **App Services** blade zoeken en klikt u op uw nieuwe API-app. (In hello Azure-portal, windows dat toohello rechts openen genoemd *blades*.)
     
     ![De blade App Services](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
     
-    Er worden twee blades geopend. De eerste blade bevat een overzicht van de API-app. De tweede bevat een lange lijst met instellingen die u kunt bekijken en wijzigen.
-20. Ga op de blade **Instellingen** naar de sectie **API** en klik op **API-definitie**.
+    Er worden twee blades geopend. Een blade bevat een overzicht van Hallo API-app en een heeft een lange lijst met instellingen die u kunt weergeven en wijzigen.
+20. In Hallo **instellingen** blade, zoeken Hallo **API** sectie en klik op **API-definitie**.
     
     ![API-definitie op de blade Instellingen](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
     
-    Op de blade **API-definitie** kunt u de URL opgeven die de Swagger 2.0-metagegevens in JSON-indeling retourneert. Wanneer Visual Studio de API-app maakt, wordt de URL van de API-definitie ingesteld op de standaardwaarde voor door Swashbuckle gegenereerde metagegevens die u eerder hebt gezien. Dit zijn de basis-URL van de API-app plus `/swagger/docs/v1`.
+    Hallo **API-definitie** blade kunt u opgeven Hallo-URL die de metagegevens van Swagger 2.0 JSON-indeling retourneert. Als u Visual Studio Hallo API-app maakt, wordt Hallo API-definitie URL toohello-standaardwaarde voor door Swashbuckle gegenereerde metagegevens die u eerder hebt gezien dat Hallo API-app van de basis URL plus `/swagger/docs/v1`.
     
     ![URL van de API-definitie](./media/app-service-api-dotnet-get-started/apidefurl.png)
     
-    Wanneer u een API-app selecteert om er clientcode voor te genereren, worden de metagegevens door Visual Studio opgehaald via deze URL.
+    Wanneer u een API-app toogenerate client-code voor deze selecteert, haalt Visual Studio Hallo metagegevens van deze URL.
 
-## <a id="codegen"></a> Clientcode genereren voor de gegevenslaag
-Een van de voordelen van de integratie van Swagger in Azure API-apps is het automatisch genereren van code. Gegenereerde clientklassen maken het gemakkelijker code te schrijven die een API-app aanroepen.
+## <a id="codegen"></a>Genereren van clientcode voor Hallo gegevenslaag
+Een van de voordelen van de integratie van Swagger in Azure API-apps Hallo is automatisch genereren van code. Gegenereerde clientklassen maken het gemakkelijker toowrite-code die een API-app aanroept.
 
-Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende stappen gaat u deze verwijderen en opnieuw genereren om te leren hoe dit in zijn werk gaat.
+Hallo ToDoListAPI-project bevat al de clientcode Hallo gegenereerd, maar in de volgende stappen uit Hallo past u deze verwijderen en opnieuw genereren toosee hoe toodo Hallo genereren van code.
 
-1. Verwijder in Visual Studio **Solution Explorer** in het project ToDoListAPI de map *ToDoListDataAPI*. **Waarschuwing: verwijder alleen de map, niet het project ToDoListDataAPI.**
+1. In Visual Studio **Solution Explorer**in Hallo ToDoListAPI-project, Hallo verwijderen, *ToDoListDataAPI* map. **Waarschuwing: Alleen Hallo map, niet Hallo-project ToDoListDataAPI verwijderen.**
    
     ![Gegenereerde clientcode verwijderen](./media/app-service-api-dotnet-get-started/deletecodegen.png)
    
-    Deze map is gemaakt met behulp van het proces voor het genereren van code dat u zo dadelijk gaat doorlopen.
-2. Klik met de rechtermuisknop op het project ToDoListAPI en klik vervolgens op **Add > REST API Client**.
+    Deze map is gemaakt met behulp van Hallo codeproces voor het genereren waarmee u over toogo via bent.
+2. Met de rechtermuisknop op Hallo ToDoListAPI-project en klik vervolgens op **Add > REST API Client**.
    
     ![REST-API-client toevoegen in Visual Studio](./media/app-service-api-dotnet-get-started/codegenmenu.png)
-3. Klik in het dialoogvenster **Add REST API Client** op **Swagger URL**. Klik vervolgens op **Select Azure Asset**.
+3. In Hallo **Add REST API Client** in het dialoogvenster, klikt u op **Swagger URL**, en klik vervolgens op **Select Azure Asset**.
    
     ![Azure-asset selecteren](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
-4. Vouw in het dialoogvenster **App Service** de resourcegroep uit die u voor deze zelfstudie gebruikt en selecteer uw API-app. Klik vervolgens op **OK**.
+4. In Hallo **App Service** in het dialoogvenster vouwt u Hallo-resourcegroep die u voor deze zelfstudie en selecteer uw API-app en klik vervolgens op **OK**.
    
     ![API-app selecteren voor het genereren van code](./media/app-service-api-dotnet-get-started/codegenselect.png)
    
-    Als u terugkeert naar het dialoogvenster **Add REST API Client**, zult u zien dat in het tekstvak de URL-waarde van de API-definitie die u eerder in de portal zag, is ingevuld.
+    Merk op dat wanneer u toohello terugkeert **Add REST API Client** dialoogvenster Hallo tekstvak is ingevuld Hallo API-definitie URL-waarde die u eerder in de portal Hallo hebt gezien.
    
     ![URL van de API-definitie](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
    
    > [!TIP]
-   > Behalve via het bladerdialoogvenster kunt u de metagegevens voor het genereren van code ook ophalen door de URL direct in te voeren. Als u clientcode wilt genereren voordat u Azure implementeert, kunt u bovendien ook het volgende doen: voer het Web API-project lokaal uit, ga naar de URL die het Swagger JSON-bestand aanlevert, sla het bestand op en selecteer de optie **Select an existing Swagger metadata file**.
+   > Een andere manier tooget-metagegevens voor het genereren van code is tooenter Hallo URL rechtstreeks in plaats van het Hallo-bladervenster doorlopen. Of als u clientcode toogenerate wilt voordat u tooAzure implementeert, kan Hallo Web API-project lokaal uitvoeren, Ga toohello URL waarmee Hallo Swagger JSON-bestand, Hallo-bestand opslaan en hello gebruiken **Selecteer een bestaand bestand Swagger-metagegevens**optie.
    > 
    > 
-5. Klik in het dialoogvenster **Add REST API Client** op **OK**.
+5. In Hallo **Add REST API Client** in het dialoogvenster, klikt u op **OK**.
    
-    Visual Studio maakt een map met de naam van de API-app en genereert clientklassen.
+    Visual Studio maakt een map met de naam van Hallo API-app en genereert clientklassen.
    
     ![Codebestanden voor gegenereerde client](./media/app-service-api-dotnet-get-started/codegenfiles.png)
-6. Open in het project ToDoListAPI *Controllers\ToDoListController.cs* om de code op regel 40 te zien die de API aanroept met behulp van de gegenereerde client.
+6. Open in het project ToDoListAPI hello *Controllers\ToDoListController.cs* toosee Hallo code op de regel 40 die Hallo-API aanroept met behulp van de client Hallo gegenereerd.
    
-    Het volgende fragment toont hoe de code het clientobject instantieert en de Get-methode aanroept.
+    Hallo volgende fragment toont hoe Hallo code Hallo clientobject instantieert en aanroepen Hallo Get-methode.
    
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -359,45 +359,45 @@ Het project ToDoListAPI heeft de gegenereerde clientcode al, maar in de volgende
             }
         }
    
-    De constructorparameter haalt de eindpunt-URL uit de `toDoListDataAPIURL`-appinstelling. Deze waarde is in het bestand Web.config ingesteld op de lokale IIS Express URL van het API-project, zodat u de toepassing lokaal kunt uitvoeren. Als u de constructorparameter weglaat, wordt het standaardeindpunt de URL waaruit u de code hebt gegenereerd.
-7. De clientklasse wordt gegenereerd met een andere naam op basis van de naam van de API-app; wijzig de code in *Controllers\ToDoListController.cs*, zodat de typenaam overeenkomt met wat er in uw project is gegenereerd. Als de naam van uw API-app bijvoorbeeld ToDoListDataAPI071316 is, zou u deze code wijzigen:
+    Hallo-constructorparameter haalt Hallo eindpunt-URL van Hallo `toDoListDataAPIURL` app-instelling. In Hallo Web.config-bestand wordt die waarde set toohello lokale IIS Express URL Hallo API project, zodat u de toepassing hello lokaal kunt uitvoeren. Als u Hallo constructorparameter weglaat, is het standaardeindpunt Hallo Hallo-URL die u hebt gegenereerd Hallo code uit.
+7. De clientklasse wordt gegenereerd met een andere naam op basis van de naam van uw API-app; Hallo-code in wijzigen *Controllers\ToDoListController.cs* zodat hello typenaam overeenkomt met wat in uw project is gegenereerd. Als de naam van uw API-app bijvoorbeeld ToDoListDataAPI071316 is, zou u deze code wijzigen:
    
         private static ToDoListDataAPI NewDataAPIClient()
         {
             var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
-in deze:
+toothis:
 
         private static ToDoListDataAPI071316 NewDataAPIClient()
         {
             var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
-## <a name="create-an-api-app-to-host-the-middle-tier"></a>Een API-app maken voor het hosten van de middelste laag
-Eerder hebt u [de API-app voor de gegevenslaag gemaakt en er code in geïmplementeerd](#createapiapp).  Nu volgt u dezelfde procedure voor de API-app voor de middelste laag.
+## <a name="create-an-api-app-toohost-hello-middle-tier"></a>Een API-app toohost Hallo middelste laag maken
+Eerder u [Hallo gegevens laag API-app gemaakt en geïmplementeerd code tooit](#createapiapp).  Nu u Hallo Volg dezelfde procedure voor de middelste laag API-app Hallo.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het ToDoListAPI-project voor de middelste laag (niet op de ToDoListDataAPI voor de gegevenslaag) en klik vervolgens op **Publish**.
+1. In **Solution Explorer**, klik met de rechtermuisknop Hallo middelste laag ToDoListAPI-project (geen Hallo gegevenslaag ToDoListDataAPI) en klik vervolgens op **publiceren**.
    
     ![Klikken op Publish in Visual Studio](./media/app-service-api-dotnet-get-started/pubinmenu2.png)
-2. Klik op het tabblad **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
-3. Klik in het dialoogvenster **App Service** op **New**.
-4. Accepteer op het tabblad **Hosting** van het dialoogvenster **Create App Service** de standaardnaam bij **API App Name** of voer een andere naam in die uniek is in het domein *azurewebsites.net*.
-5. Kies in **Subscription** het Azure-abonnement dat u momenteel gebruikt.
-6. Kies in de vervolgkeuzelijst **Resource Group** dezelfde resourcegroep die u eerder hebt gemaakt.
-7. Kies in de vervolgkeuzelijst **App Service Plan** hetzelfde abonnement dat u eerder hebt gemaakt. Deze waarde wordt standaard ingesteld.
+2. In Hallo **profiel** tabblad Hallo **webpublicatie** wizard, klikt u op **Microsoft Azure App Service**.
+3. In Hallo **App Service** in het dialoogvenster, klikt u op **nieuw**.
+4. In Hallo **Hosting** tabblad Hallo **Create App Service** dialoogvenster vak, accepteer de standaardinstelling Hallo **API App Name** of geef een naam die uniek is in Hallo  *azurewebsites.NET* domein.
+5. Kies hello Azure **abonnement** u hebt gebruikt.
+6. In Hallo **resourcegroep** vervolgkeuzelijst, kiest u Hallo dezelfde resourcegroep die u eerder hebt gemaakt.
+7. In Hallo **App Service-abonnement** vervolgkeuzelijst, kiest u Hallo hetzelfde abonnement dat u eerder hebt gemaakt. Wordt standaard toothat waarde.
 8. Klik op **Create**.
    
-    Visual Studio maakt de API-app, maakt er een publicatieprofiel voor en geeft de stap **Connection** van de wizard **Publish Web** weer.
-9. Klik in de stap **Connection** van de wizard **Publish Web** op **Publish**.
+    Visual Studio maakt Hallo API-app, maakt er een publicatieprofiel voor en geeft weer Hallo **verbinding** stap Hallo **webpublicatie** wizard.
+9. In Hallo **verbinding** stap Hallo **webpublicatie** wizard, klikt u op **publiceren**.
    
-   Visual Studio implementeert het project TToDoListAPI in de nieuwe API-app en opent een browservenster met de URL van de API-app. Er wordt een pagina weergegeven met de melding dat het maken is gelukt.
+   Visual Studio Hallo ToDoListAPI-project toohello nieuwe API-app implementeert en een URL van de browser toohello van Hallo API-app wordt geopend. Hallo 'is gemaakt' pagina wordt weergegeven.
 
-## <a name="configure-the-middle-tier-to-call-the-data-tier"></a>De middelste laag configureren voor het aanroepen van de gegevenslaag
-Als u de API-app voor de middelste laag nu aanroept, probeert deze de gegevenslaag aan te roepen via de localhost-URL die zich nog in het bestand Web.config bevindt. In deze sectie kunt u de API-app-URL voor de gegevenslaag invoeren in een omgevingsinstelling in de API-app voor de middelste laag. Wanneer de code in de API-app voor de middelste laag de URL-instelling van de gegevenslaag ophaalt, overschrijft de omgevingsinstelling de inhoud van het bestand Web.config.
+## <a name="configure-hello-middle-tier-toocall-hello-data-tier"></a>Hallo middelste laag toocall Hallo-gegevenslaag configureren
+Als u de API-app voor Hallo middelste laag nu aangeroepen, probeert deze toocall Hallo-gegevenslaag met Hallo localhost-URL die wordt nog steeds Hallo Web.config-bestand. In deze sectie voert u Hallo gegevens laag API-app-URL in een omgevingsinstelling in Hallo middelste laag API-app. Wanneer hello code in de middelste laag API-app Hallo Hallo gegevens laag URL-instelling ophaalt, overschrijft Hallo omgevingsinstelling wat is er in Hallo Web.config-bestand.
 
-1. Ga naar de [Azure Portal](https://portal.azure.com/) en navigeer naar de blade **API-app** van de API-app die u als host voor het project TodoListAPI (middelste laag) hebt gemaakt.
-2. Klik op de blade **Instellingen** van de API-app op **Toepassingsinstellingen**.
-3. Ga op de blade **Toepassingsinstellingen** van de API-app omlaag naar de sectie **App-instellingen** en voeg de volgende sleutel en waarde toe. De waarde is de URL van de eerste API-app die u in deze zelfstudie hebt gepubliceerd.
+1. Ga toohello [Azure-portal](https://portal.azure.com/), en navigeert u vervolgens toohello **API-App** blade voor Hallo API-app die u hebt gemaakt project toohost Hallo-TodoListAPI (middelste laag).
+2. Hallo in API-App **instellingen** blade, klikt u op **toepassingsinstellingen**.
+3. Hallo in API-App **toepassingsinstellingen** blade, schuif omlaag toohello **appinstellingen** sectie en voeg de volgende Hallo sleutel en waarde. Hallo-waarde is Hallo-URL van Hallo eerste API-App die u in deze zelfstudie hebt gepubliceerd.
    
    | **Sleutel** | toDoListDataAPIURL |
    | --- | --- |
@@ -407,35 +407,35 @@ Als u de API-app voor de middelste laag nu aanroept, probeert deze de gegevensla
    
     ![Klikken op Opslaan in het gedeelte App-instellingen](./media/app-service-api-dotnet-get-started/asinportal.png)
    
-    Wanneer de code wordt uitgevoerd in Azure, overschrijft deze waarde de localhost-URL die zich in het Web.config-bestand bevindt.
+    Wanneer het Hallo-code wordt uitgevoerd in Azure, overschrijft deze waarde Hallo localhost-URL die zich in Hallo Web.config-bestand.
 
-## <a name="test"></a>Testen
-1. Open in een browservenster de URL van de nieuwe API-app voor de middelste laag die u zojuist hebt gemaakt voor ToDoListAPI. Klik hiertoe op de URL op de hoofdblade van de API-app in de portal.
-2. Voeg 'swagger' toe aan de URL in de adresbalk van de browser en druk op Enter. (De URL is `http://{apiappname}.azurewebsites.net/swagger`.)
+## <a name="test"></a>Test
+1. Blader in een browservenster toohello-URL van Hallo nieuwe middelste laag API-app die u zojuist hebt gemaakt voor ToDoListAPI. U kunt er ophalen door te klikken op Hallo-URL in de hoofdblade Hallo API-app in Hallo-portal.
+2. 'Swagger' toohello URL toevoegen in de adresbalk van Hallo browser en druk op Enter. (Hallo-URL is `http://{apiappname}.azurewebsites.net/swagger`.)
    
-    In de browser wordt dezelfde Swagger-gebruikersinterface weergegeven die u eerder hebt gezien voor ToDoListDataAPI. Nu is `owner` echter geen verplicht veld voor de Get-bewerking, omdat de API-app voor de middelste laag die waarde voor u naar de API-app voor de gegevenslaag verzendt. (Wanneer u de zelfstudies over verificatie volgt, verzendt de middelste laag werkelijke gebruikers-id’s voor de `owner`-parameter. In deze zelfstudie gebruiken we een hard gecodeerd sterretje.)
-3. Probeer de Get-methode en de andere methoden om te valideren dat de API-app voor de middelste laag de API-app voor de gegevenslaag op correcte wijze aanroept.
+    Hallo browser geeft Hallo dezelfde Swagger-gebruikersinterface die u eerder hebt gezien voor ToDoListDataAPI, maar nu `owner` is niet een verplicht veld voor Hallo Get-bewerking, omdat Hallo middelste laag API-app voor u die waarde toohello API app voor de gegevenslaag verzendt. (Als u zelfstudies over verificatie volgt hello, stuurt Hallo middelste laag werkelijke gebruikers-id's voor Hallo `owner` parameter; voor nu er wordt hard-coding van een sterretje.)
+3. Probeer Hallo Get-methode en hello andere methoden toovalidate die Hallo middelste laag API-app op correcte wijze aanroept Hallo gegevenslaag API-app.
    
     ![Get-methode van de Swagger-gebruikersinterface](./media/app-service-api-dotnet-get-started/midtierget.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u tijdens het doorlopen van deze zelfstudie tegen problemen aanloopt, vindt u hier enkele ideeën voor probleemoplossing.
 
-* Zorg ervoor dat u de nieuwste versie van de [Azure SDK voor .NET](http://go.microsoft.com/fwlink/?linkid=518003) gebruikt.
-* Twee van de projectnamen lijken erg op elkaar (ToDoListAPI, ToDoListDataAPI). Als dingen er tijdens het werken met een project niet zo uitzien als ze worden beschreven in de instructies, controleer dan of u het juiste project hebt geopend.
-* Gebruikt u een bedrijfsnetwerk en probeert u Azure App Service via een firewall te implementeren, zorg er dan voor dat de poorten 443 en 8172 zijn geopend voor Web Deploy. Als u deze poorten niet kunt openen, gebruik dan een andere implementatiemethode.  Zie [Een app implementeren in Azure App Service](../app-service-web/web-sites-deploy.md).
-* Fouten van het type 'Routenamen moeten uniek zijn': mogelijk doen deze zich voor als u per ongeluk het verkeerde project in een API-app implementeert en vervolgens later het juiste project implementeert. U corrigeert dergelijke fouten door het juiste project opnieuw in de API-app te implementeren en op het tabblad **Settings** van de wizard **Publish Web** de optie **Remove additional files at destination** te selecteren.
+* Zorg ervoor dat u de meest recente versie Hallo Hallo [Azure SDK voor .NET](http://go.microsoft.com/fwlink/?linkid=518003).
+* Twee van de projectnamen Hallo zijn elkaar (ToDoListAPI, ToDoListDataAPI). Als dingen niet zo uitzien zoals beschreven in Hallo instructies wanneer u met een project werkt, zorg er dan voor dat u de juiste Hallo-project hebt geopend.
+* Als u een bedrijfsnetwerk en toodeploy tooAzure App Service via een firewall probeert, zorg ervoor dat de poorten 443 en 8172 geopend voor Web Deploy zijn. Als u deze poorten niet kunt openen, gebruik dan een andere implementatiemethode.  Zie [implementeren van uw app tooAzure App Service](../app-service-web/web-sites-deploy.md).
+* Fouten 'routenamen moeten uniek zijn'--mogelijk doen deze als u per ongeluk Hallo verkeerde project tooan API-app implementeren en vervolgens de juiste één tooit Hallo later implementeren. toocorrect deze, de implementatie opnieuw Hallo juiste project toohello API-app en op Hallo **instellingen** tabblad Hallo **webpublicatie** wizard selecteert **verwijderen van aanvullende bestanden op de bestemming**.
 
-Wanneer uw ASP.NET-API-app eenmaal wordt uitgevoerd in Azure App Service, doet u er verstandig aan u te verdiepen in de Visual Studio-functies die het oplossen van problemen vereenvoudigen. Voor meer informatie over logboekregistratie, foutopsporing op afstand en meer raadpleegt u [Problemen met Azure App Service-apps in Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Nadat u uw ASP.NET-API-app uitgevoerd in Azure App Service hebt, kunt u toolearn meer over de functies van Visual Studio die probleemoplossing vereenvoudigen. Voor meer informatie over logboekregistratie, foutopsporing op afstand en meer raadpleegt u [Problemen met Azure App Service-apps in Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt gezien hoe u bestaande Web API-projecten in API-apps kunt implementeren, clientcode kunt genereren voor API-apps en API-apps vanuit .NET-clients kunt gebruiken. In de volgende zelfstudie in deze reeks ziet u hoe u [CORS kunt toepassen om API-apps vanuit JavaScript-clients te gebruiken](app-service-api-cors-consume-javascript.md).
+U hebt gezien hoe toodeploy bestaande Web-API-projecten tooAPI apps genereren van clientcode voor API-apps en API-apps vanuit .NET-clients gebruiken. Hallo volgende zelfstudie in deze reeks ziet u hoe te[CORS tooconsume API apps vanuit JavaScript-clients gebruiken](app-service-api-cors-consume-javascript.md).
 
-Zie de [Azure/AutoRest](https://github.com/azure/autorest)-opslagplaats op GitHub.com voor meer informatie over het genereren van clientcode. Open een [actie-item in de AutoRest-opslagplaats](https://github.com/azure/autorest/issues) voor hulp bij problemen met het gebruik van de gegenereerde client.
+Zie voor meer informatie over client-codegeneratie Hallo [Azure/AutoRest](https://github.com/azure/autorest) opslagplaats op GitHub.com. Voor hulp bij problemen met behulp van de client gegenereerd hello, opent u een [probleem in de AutoRest-opslagplaats Hallo](https://github.com/azure/autorest/issues).
 
-Als u geheel nieuwe API-app-projecten wilt maken, gebruikt u de **Azure-API-app**-sjabloon.
+Als u toocreate nieuwe API-app-projecten maken wilt, gebruikt u Hallo **Azure API-App** sjabloon.
 
 ![API-app-sjabloon in Visual Studio](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
-Gebruik van de **Azure-API-app**-projectsjabloon geeft hetzelfde resultaat als wanneer u de **lege** ASP.NET 4.5.2-sjabloon kiest, het selectievakje inschakelt om Web API-ondersteuning toe te voegen en vervolgens het Swashbuckle NuGet-pakket installeert. Daarnaast voegt de sjabloon Swashbuckle-configuratiecode toe die tot doel heeft om te voorkomen dat er dubbele Swagger-bewerkings-id's worden gemaakt. Nadat u een API-app-project hebt gemaakt, kunt u dit op dezelfde manier implementeren in een API-app als u in deze zelfstudie hebt gezien.
+Hallo **Azure API-App** projectsjabloon is gelijkwaardig toochoosing hello **leeg** ASP.NET 4.5.2-sjabloon sjabloon, te klikken op Hallo selectievakje tooadd Web API-ondersteuning en Hallo Swashbuckle NuGet-pakket installeert. Hallo-sjabloon wordt bovendien sommige Swashbuckle configuratie code ontworpen tooprevent Hallo maken van dubbele Swagger-bewerkings-id's toegevoegd. Als u een API-App-project hebt gemaakt, kunt u dit implementeren tooan API app Hallo dezelfde manier als u in deze zelfstudie hebt gezien.
 

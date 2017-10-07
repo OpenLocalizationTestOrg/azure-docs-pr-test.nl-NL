@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Notification Hub-binding | Microsoft Docs
-description: Het gebruik van Azure Notification Hub-binding in Azure Functions begrijpen.
+title: aaaAzure functies Notification Hub binding | Microsoft Docs
+description: Begrijpen hoe toouse Azure Notification Hub-binding in Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,39 +16,39 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: glenga
-ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d192424a8ec701d02f8bcb4aa4c1d189b20537a5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-notification-hub-output-binding"></a>Azure Functions Notification Hub uitvoer binding
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Dit artikel wordt uitgelegd hoe u configureert en bindingen van Azure Notification Hub code in Azure Functions. 
+Dit artikel wordt uitgelegd hoe Azure Notification Hub-bindingen voor tooconfigure en code in Azure Functions. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Uw functies kunnen verzenden van pushmeldingen in via een geconfigureerde Azure Notification Hub met een paar regels code. De Azure Notification Hub moet worden geconfigureerd voor het Platform meldingen Services (PNS) u wilt gebruiken. Zie voor meer informatie over het configureren van een Azure Notification Hub en ontwikkelen van een clienttoepassingen registreren om meldingen te ontvangen [aan de slag met Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) en klik op het doelplatform voor de client aan de bovenkant.
+Uw functies kunnen verzenden van pushmeldingen in via een geconfigureerde Azure Notification Hub met een paar regels code. Hello Azure Notification Hub moet echter worden geconfigureerd voor Hallo Platform meldingen Services (PNS) u wilt dat toouse. Zie voor meer informatie over het configureren van een Azure Notification Hub en een clienttoepassingen ontwikkelen die tooreceive meldingen registreren [aan de slag met Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) en klik op de client doelplatform op Hallo Boven.
 
-De meldingen die u verzendt zijn systeemeigen meldingen of Sjabloonmeldingen. Systeemeigen meldingen zoals geconfigureerd in een specifieke bericht-platform als doel de `platform` eigenschap van de uitvoer-binding. Een melding van de sjabloon kan worden gebruikt voor meerdere platforms.   
+Hallo-meldingen die u verzendt zijn systeemeigen meldingen of Sjabloonmeldingen. Systeemeigen meldingen gericht op een specifieke notification platform zoals geconfigureerd in Hallo `platform` eigenschap Hallo uitvoer binding. Een sjabloon melding gebruikte tootarget meerdere platforms kan worden.   
 
 ## <a name="notification-hub-output-binding-properties"></a>Notification hub uitvoer bindingeigenschappen
-Het bestand function.json biedt de volgende eigenschappen:
+Hallo function.json bestand biedt Hallo volgende eigenschappen:
 
-* `name`: Variabelenaam in functiecode gebruikt voor de notification hub-bericht.
-* `type`: moet worden ingesteld op *'notificationHub'*.
-* `tagExpression`: Code-expressies kunnen u opgeven dat meldingen worden geleverd aan een verzameling apparaten die zich hebben geregistreerd voor het ontvangen van meldingen die overeenkomen met de code-expressie.  Zie voor meer informatie [Routering en code-expressies](../notification-hubs/notification-hubs-tags-segment-push-message.md).
-* `hubName`: De naam van de notification hub-resource in de Azure-portal.
-* `connection`: Deze verbindingsreeks moet een **toepassingsinstelling** verbindingsreeks ingesteld op de *DefaultFullSharedAccessSignature* waarde voor uw notification hub.
-* `direction`: moet worden ingesteld op *'out'*. 
-* `platform`: De platform-eigenschap geeft het platform notification uw doelen melding. Dit moet een van de volgende waarden zijn:
-  * Standaard, als de eigenschap platform wordt weggelaten uit de uitvoer-binding kunnen Sjabloonmeldingen worden gebruikt als doel in elk platform dat is geconfigureerd op de Azure Notification Hub. Zie voor meer informatie over het gebruik van sjablonen in het algemeen verzenden cross-platform meldingen met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
-  * `apns`: De Apple Push Notification Service. Zie voor meer informatie over het configureren van de notification hub voor APNS en ontvangst van de melding in een client-app [pushmeldingen verzenden naar iOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
-  * `adm`: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van de notification hub voor ADM en ontvangst van de melding in een Kindle-app [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
-  * `gcm`: [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, dat de nieuwe versie van GCM is, wordt ook ondersteund. Zie voor meer informatie over het configureren van de notification hub voor GCM/FCM en ontvangst van de melding in een Android-clientapp [pushmeldingen verzenden naar Android met Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
-  * `wns`: [Windows Push Notification Services](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie over het configureren van de notification hub voor WNS en ontvangst van de melding in een Universal Windows Platform (UWP)-app [aan de slag met Notification Hubs voor universele Windows-Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
-  * `mpns`: [Microsoft Push Notification Service](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie over de notification hub configureren voor MPNS en ontvangst van de melding in een Windows Phone-app [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
+* `name`: Variabelenaam in functiecode gebruikt voor het Hallo-bericht van notification hub.
+* `type`: moet te worden ingesteld*'notificationHub'*.
+* `tagExpression`: Code-expressies kunnen u toospecify dat meldingen tooa set apparaten die zich hebben geregistreerd tooreceive meldingen die overeenkomen met de Hallo labelexpressie worden geleverd.  Zie voor meer informatie [Routering en code-expressies](../notification-hubs/notification-hubs-tags-segment-push-message.md).
+* `hubName`: De naam van Hallo notification hub-bron in hello Azure-portal.
+* `connection`: Deze verbindingsreeks moet een **toepassingsinstelling** verbindingsreeks instellen toohello *DefaultFullSharedAccessSignature* waarde voor uw notification hub.
+* `direction`: moet te worden ingesteld*'out'*. 
+* `platform`: Hallo platform-eigenschap geeft Hallo melding platform uw doelen melding. Moet een Hallo volgende waarden:
+  * Standaard als de eigenschap platform hello wordt weggelaten uit Hallo uitvoer binding, kunnen Sjabloonmeldingen worden gebruikt tootarget elk platform op Hallo Azure Notification Hub geconfigureerd. Zie voor meer informatie over het gebruik van sjablonen in het algemeen toosend cross-platform meldingen met een Azure Notification Hub [sjablonen](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+  * `apns`: De Apple Push Notification Service. Zie voor meer informatie over het configureren van Hallo notification hub voor APNS en het Hallo-bericht in een client-app krijgen [verzenden push notifications tooiOS met Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
+  * `adm`: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Zie voor meer informatie over het configureren van Hallo notification hub voor ADM en Hallo-bericht in een Kindle-app krijgen [aan de slag met Notification Hubs voor Kindle-apps](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
+  * `gcm`: [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, dat de nieuwe versie Hallo van GCM is, wordt ook ondersteund. Zie voor meer informatie over het configureren van Hallo notification hub voor GCM/FCM en Hallo melding in een Android-clientapp [verzenden push notifications tooAndroid met Azure Notification Hubs](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
+  * `wns`: [Windows Push Notification Services](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) die gericht is op Windows-platforms. Windows Phone 8.1 en hoger wordt ook ondersteund door WNS. Zie voor meer informatie over het configureren van Hallo notification hub voor WNS en het Hallo-bericht in een Universal Windows Platform (UWP)-app krijgen [aan de slag met Notification Hubs voor universele Windows-Platform-Apps](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+  * `mpns`: [Microsoft Push Notification Service](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx). Dit platform biedt ondersteuning voor Windows Phone 8 en eerdere Windows Phone-platforms. Zie voor meer informatie over Hallo notification hub configureren voor MPNS en Hallo-bericht in een Windows Phone-app krijgen [pushmeldingen verzenden met Azure Notification Hubs op Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
 
 Voorbeeld function.json:
 
@@ -70,17 +70,17 @@ Voorbeeld function.json:
 ```
 
 ## <a name="notification-hub-connection-string-setup"></a>Notification hub verbinding tekenreeks instellen
-U moet de verbindingsreeks voor de hub configureren voor het gebruik van een Notification hub-uitvoer binding. Dit kan worden gedaan op de *integreren* tabblad door de notification hub of u een nieuwe maakt. 
+toouse een Notification hub uitvoer binding, moet u de verbindingsreeks Hallo voor Hallo hub configureren. Dit kan worden gedaan op Hallo *integreren* tabblad door de notification hub of u een nieuwe maakt. 
 
-U kunt ook handmatig een verbindingsreeks voor een bestaande hub toevoegen door het toevoegen van een verbindingsreeks voor de *DefaultFullSharedAccessSignature* naar uw notification hub. Deze verbindingsreeks bevat de functie toegang toestemming om meldingsberichten te verzenden. De *DefaultFullSharedAccessSignature* gegevensbronwaarde toegankelijk is vanaf de **sleutels** knop op de hoofdblade van uw notification hub-resource in de Azure-portal. Om handmatig een verbindingsreeks voor uw hub toevoegen, gebruikt u de volgende stappen uit: 
+U kunt ook handmatig een verbindingsreeks voor een bestaande hub toevoegen door het toevoegen van een verbindingsreeks voor Hallo *DefaultFullSharedAccessSignature* tooyour notification hub. Deze verbindingsreeks biedt uw toegang functie machtiging toosend meldingen. Hallo *DefaultFullSharedAccessSignature* gegevensbronwaarde toegankelijk zijn vanuit Hallo **sleutels** knop op de hoofdblade Hallo van uw notification hub-resource in hello Azure-portal. toomanually toevoegen een verbindingsreeks voor uw hub, gebruik Hallo stappen te volgen: 
 
-1. Op de **functie-app** blade van de Azure-portal klikt u op **functie App-instellingen > Ga naar App Service-instellingen**.
-2. In de **instellingen** blade, klikt u op **toepassingsinstellingen**.
-3. Schuif omlaag naar de **appinstellingen** sectie en toevoegen van een benoemde vermelding voor *DefaultFullSharedAccessSignature* waarde voor uw notification hub.
-4. Verwijzen naar uw App tekenreeks naam van de instelling in de uitvoer-bindingen. Net als bij **MyHubConnectionString** gebruikt in het bovenstaande voorbeeld.
+1. Op Hallo **functie-app** blade van hello Azure-portal, klikt u op **functie App-instellingen > Ga tooApp Service-instellingen**.
+2. In Hallo **instellingen** blade, klikt u op **toepassingsinstellingen**.
+3. Schuif omlaag toohello **appinstellingen** sectie en toevoegen van een benoemde vermelding voor *DefaultFullSharedAccessSignature* waarde voor uw notification hub.
+4. Verwijzen naar uw App instellen van de tekenreeksnaam van de in Hallo uitvoer bindingen. Vergelijkbare te**MyHubConnectionString** in bovenstaande Hallo-voorbeeld gebruikt.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>Systeemeigen meldingen APNS met C# queue-triggers
-Dit voorbeeld ziet u het gebruik van typen die zijn gedefinieerd de [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) een systeemeigen APNS-melding te verzenden. 
+Dit voorbeeld ziet u hoe toouse typen gedefinieerd in Hallo [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) toosend een systeemeigen APNS-melding. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -94,15 +94,15 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // In this example hello queue item is a new user toobe processed in hello form of a JSON string with 
     // a "name" value.
     //
-    // The JSON format for a native APNS notification is ...
+    // hello JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
     log.Info($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
+    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants toobe added (" + 
                                         user.name + ")\" }}";
     log.Info($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
@@ -110,7 +110,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 ```
 
 ## <a name="gcm-native-notifications-with-c-queue-triggers"></a>Systeemeigen GCM-meldingen met C# queue-triggers
-Dit voorbeeld ziet u het gebruik van typen die zijn gedefinieerd de [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) een systeemeigen GCM-melding te verzenden. 
+Dit voorbeeld ziet u hoe toouse typen gedefinieerd in Hallo [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) toosend een systeemeigen GCM-melding. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -124,15 +124,15 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // In this example hello queue item is a new user toobe processed in hello form of a JSON string with 
     // a "name" value.
     //
-    // The JSON format for a native GCM notification is ...
+    // hello JSON format for a native GCM notification is ...
     // { "data": { "message": "notification message" }}  
 
     log.Info($"Sending GCM notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
+    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants toobe added (" + 
                                         user.name + ")\" }}";
     log.Info($"{gcmNotificationPayload}");
     await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
@@ -140,7 +140,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 ```
 
 ## <a name="wns-native-notifications-with-c-queue-triggers"></a>WNS systeemeigen meldingen met C# queue-triggers
-Dit voorbeeld ziet u het gebruik van typen die zijn gedefinieerd de [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) een systeemeigen WNS toast-melding te verzenden. 
+Dit voorbeeld ziet u hoe toouse typen gedefinieerd in Hallo [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) toosend een systeemeigen WNS toasten we melding. 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"
@@ -154,10 +154,10 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
+    // In this example hello queue item is a new user toobe processed in hello form of a JSON string with 
     // a "name" value.
     //
-    // The XML format for a native WNS toast notification is ...
+    // hello XML format for a native WNS toast notification is ...
     // <?xml version="1.0" encoding="utf-8"?>
     // <toast>
     //      <visual>
@@ -172,7 +172,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                                     "<toast><visual><binding template=\"ToastText01\">" +
                                         "<text id=\"1\">" + 
-                                            "A new user wants to be added (" + user.name + ")" + 
+                                            "A new user wants toobe added (" + user.name + ")" + 
                                         "</text>" +
                                     "</binding></visual></toast>";
 
@@ -210,7 +210,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 ```
 
 ## <a name="template-example-using-an-out-parameter"></a>Voorbeeld van de sjabloon met een out-parameter
-In dit voorbeeld wordt een melding verzonden op een [sjabloon registratie](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) die bevat een `message` aanduiding in de sjabloon.
+In dit voorbeeld wordt een melding verzonden op een [sjabloon registratie](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) die bevat een `message` aanduiding in Hallo-sjabloon.
 
 ```cs
 using System;
@@ -232,7 +232,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 ```
 
 ## <a name="template-example-with-asynchronous-function"></a>Voorbeeld van een sjabloon met asynchrone functie
-Als u van asynchrone code gebruikmaakt, zijn out-parameters niet toegestaan. In dit geval gebruiken `IAsyncCollector` te retourneren van de melding van uw sjabloon. De volgende code is een asynchrone voorbeeld van de bovenstaande code. 
+Als u van asynchrone code gebruikmaakt, zijn out-parameters niet toegestaan. In dit geval gebruiken `IAsyncCollector` tooreturn de melding van uw sjabloon. Hallo is volgende code een asynchrone voorbeeld van de bovenstaande Hallo-code. 
 
 ```cs
 using System;
@@ -243,20 +243,20 @@ public static async Task Run(string myQueueItem, IAsyncCollector<IDictionary<str
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    log.Info($"Sending Template Notification to Notification Hub");
+    log.Info($"Sending Template Notification tooNotification Hub");
     await notification.AddAsync(GetTemplateProperties(myQueueItem));    
 }
 
 private static IDictionary<string, string> GetTemplateProperties(string message)
 {
     Dictionary<string, string> templateProperties = new Dictionary<string, string>();
-    templateProperties["user"] = "A new user wants to be added : " + message;
+    templateProperties["user"] = "A new user wants toobe added : " + message;
     return templateProperties;
 }
 ```
 
 ## <a name="template-example-using-json"></a>Voorbeeld van de sjabloon met een JSON
-In dit voorbeeld wordt een melding verzonden op een [sjabloon registratie](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) die bevat een `message` aanduiding in de sjabloon met een geldig JSON-tekenreeks.
+In dit voorbeeld wordt een melding verzonden op een [sjabloon registratie](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) die bevat een `message` aanduiding in Hallo sjabloon met een geldig JSON-tekenreeks.
 
 ```cs
 using System;
@@ -269,7 +269,7 @@ public static void Run(string myQueueItem,  out string notification, TraceWriter
 ```
 
 ## <a name="template-example-using-notification-hubs-library-types"></a>Voorbeeld van de sjabloon met Notification Hubs bibliotheek typen
-Dit voorbeeld ziet u het gebruik van typen die zijn gedefinieerd de [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
+Dit voorbeeld ziet u hoe toouse typen gedefinieerd in Hallo [bibliotheek van Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). 
 
 ```cs
 #r "Microsoft.Azure.NotificationHubs"

@@ -1,6 +1,6 @@
 ---
-title: Bijwerken van Machine Learning-modellen met behulp van Azure Data Factory | Microsoft Docs
-description: Beschrijft hoe u voorspellende pijplijnen met behulp van Azure Data Factory en Azure Machine Learning maken
+title: Machine Learning-modellen aaaUpdate met behulp van Azure Data Factory | Microsoft Docs
+description: Hierin wordt beschreven hoe toocreate voorspellende pijplijnen met behulp van Azure Data Factory en Azure Machine Learning maken
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: e31a7a59d14de4382190b39bd70f3ddf6cf673ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6e5e4d2cfd245c7a9ed3bb9cdacca1f7f82b9620
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Azure Machine Learning-modellen Update Resource activiteit bijwerken
 
@@ -33,36 +33,36 @@ ms.lasthandoff: 07/11/2017
 > * [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
-In dit artikel is een aanvulling op de belangrijkste Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen met behulp van Azure Machine Learning en Azure Data Factory maken](data-factory-azure-ml-batch-execution-activity.md). Als u dit nog niet hebt gedaan, raadpleegt u de belangrijkste artikel voordat gelezen in dit artikel. 
+In dit artikel aanvullingen Hallo belangrijkste Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen met behulp van Azure Machine Learning en Azure Data Factory maken](data-factory-azure-ml-batch-execution-activity.md). Als u dit nog niet hebt gedaan, raadpleegt u de belangrijkste artikel Hallo voordat gelezen in dit artikel. 
 
 ## <a name="overview"></a>Overzicht
-Na verloop van tijd moeten de voorspellende modellen in de Azure ML experimenten score berekenen met behulp van de nieuwe invoergegevenssets worden retrained. Nadat u klaar bent met de retraining, die u wilt de score webservice bijwerken met de retrained ML-model. De gebruikelijke stappen voor het inschakelen van Azure ML-modellen voor retraining en bij te werken via webservices zijn:
+Na verloop van tijd moeten Hallo voorspellende modellen in hello Azure ML scoreprofiel experimenten toobe retrained met nieuwe invoergegevenssets. Wanneer u klaar bent met de retraining, wilt u tooupdate Hallo score berekenen voor webservice Hello retrained ML-model. Hallo gebruikelijke stappen tooenable retraining en bijwerken van Azure ML-modellen via webservices zijn:
 
 1. Maken van een experiment in [Azure ML Studio](https://studio.azureml.net).
-2. Wanneer u tevreden met het model bent, Azure ML Studio gebruiken voor het publiceren van webservices voor zowel de **trainingsexperiment** en score berekenen /**Voorspellend experiment**.
+2. Wanneer u tevreden met Hallo model bent, Azure ML Studio toopublish webservices gebruiken voor beide Hallo **trainingsexperiment** en score berekenen /**Voorspellend experiment**.
 
-De volgende tabel beschrijft de webservices die in dit voorbeeld gebruikt.  Zie [Retrain Machine Learning-modellen programmatisch](../machine-learning/machine-learning-retrain-models-programmatically.md) voor meer informatie.
+Hallo beschrijft volgende tabel Hallo-webservices in dit voorbeeld gebruikt.  Zie [Retrain Machine Learning-modellen programmatisch](../machine-learning/machine-learning-retrain-models-programmatically.md) voor meer informatie.
 
-- **Training webservice** - trainingsgegevens ontvangt en getraind modellen produceert. De uitvoer van de retraining is een bestand .ilearner in een Azure-blobopslag. De **standaard eindpunt** wordt automatisch gemaakt voor u wanneer u de training publiceert als een webservice experimenteren. U kunt meer eindpunten maken, maar het voorbeeld wordt alleen het standaardeindpunt.
-- **Score berekenen voor webservice** - voorbeelden zonder label gegevens ontvangt en voorspellingen maakt. De uitvoer van de voorspelling kan verschillende vormen, zoals een CSV-bestand of rijen in een Azure SQL database, afhankelijk van de configuratie van het experiment hebben. Het standaardeindpunt is automatisch voor u gemaakt wanneer u de Voorspellend experiment als een webservice publiceert. 
+- **Training webservice** - trainingsgegevens ontvangt en getraind modellen produceert. Hallo-uitvoer van Hallo retraining is een .ilearner-bestand in een Azure-blobopslag. Hallo **standaard eindpunt** wordt automatisch gemaakt voor u wanneer u Hallo training publiceert als een webservice experimenteren. U kunt meer eindpunten maken maar Hallo voorbeeld wordt alleen het standaardeindpunt Hallo.
+- **Score berekenen voor webservice** - voorbeelden zonder label gegevens ontvangt en voorspellingen maakt. Hallo-uitvoer van de voorspelling kan verschillende vormen, zoals een CSV-bestand of rijen in een Azure SQL database, afhankelijk van de configuratie Hallo van Hallo experiment hebben. Hallo standaardeindpunt wordt automatisch voor u gemaakt wanneer u een Voorspellend experiment Hallo als een webservice publiceert. 
 
-De volgende afbeelding ziet u de relatie tussen de trainings- en eindpunten in de Azure ML score.
+Hallo ziet volgende afbeelding u Hallo relatie tussen de trainings- en eindpunten in de Azure ML score.
 
 ![Webservices](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-U kunt aanroepen de **training webservice** met behulp van de **Azure ML-Batchuitvoeringsactiviteit**. Aanroepen van een webservice training is hetzelfde als het aanroepen van een Azure ML webservice (score berekenen voor web-service) voor scoreprofiel gegevens. De voorgaande secties uitgelegd hoe u een webservice Azure ML van een Azure Data Factory-pijplijn in detail worden aangeroepen. 
+Hallo kunnen worden aangeroepen **training webservice** met behulp van Hallo **Azure ML-Batchuitvoeringsactiviteit**. Aanroepen van een webservice training is hetzelfde als het aanroepen van een Azure ML webservice (score berekenen voor web-service) voor scoreprofiel gegevens. Hallo voorgaande secties behandeld hoe tooinvoke een webservice Azure ML uit een Azure Data Factory pijplijn in detail. 
 
-U kunt aanroepen de **score berekenen voor webservice** met behulp van de **Azure ML-Resourceactiviteit** de webservice bijwerken met het nieuwe getrainde model. De volgende voorbeelden bevatten definities van de gekoppelde service: 
+Hallo kunnen worden aangeroepen **score berekenen voor webservice** met behulp van Hallo **Resourceactiviteit voor Azure ML Update** tooupdate Hallo-webservice met Hallo zojuist getrainde model. Hallo volgen voorbeelden bevatten definities van de gekoppelde service: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Score berekenen voor web-service is een klassieke webservice
-Als de score webservice is een **klassieke webservice**, maken van de tweede **niet-standaard en bij te werken eindpunt** met behulp van de [Azure-portal](https://manage.windowsazure.com). Zie [eindpunten maken](../machine-learning/machine-learning-create-endpoint.md) artikel voor stappen. Nadat u het niet-standaard worden bijgewerkt eindpunt hebt gemaakt, kunt u de volgende stappen uitvoeren:
+Als Hallo score berekenen voor web-service is een **klassieke webservice**, Hallo tweede maken **niet-standaard en bij te werken eindpunt** met behulp van Hallo [Azure-portal](https://manage.windowsazure.com). Zie [eindpunten maken](../machine-learning/machine-learning-create-endpoint.md) artikel voor stappen. Nadat u Hallo niet standaard worden bijgewerkt eindpunt hebt gemaakt, Hallo stappen te volgen:
 
-* Klik op **BATCHUITVOERING** ophalen van de URI-waarde voor de **mlEndpoint** JSON-eigenschap.
-* Klik op **UPDATE RESOURCE** koppeling voor de URI-waarde voor de **updateResourceEndpoint** JSON-eigenschap. De API-sleutel is op de pagina endpoint zelf (in de rechterbenedenhoek).
+* Klik op **BATCHUITVOERING** tooget Hallo URI-waarde voor Hallo **mlEndpoint** JSON-eigenschap.
+* Klik op **UPDATE RESOURCE** tooget Hallo URI-waarde voor Hallo koppelen **updateResourceEndpoint** JSON-eigenschap. Hallo-API-sleutel is op Hallo eindpunt pagina zelf (in de rechterbenedenhoek Hallo).
 
 ![eindpunt bij te werken](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
-Het volgende voorbeeld bevat een voorbeeld JSON-definitie voor de AzureML gekoppelde service. De gekoppelde service gebruikt de apiKey voor authenticatie.  
+Hallo volgende voorbeeld bevat een voorbeeld JSON-definitie voor Hallo voor met AzureML gekoppelde service. Hallo gekoppelde service gebruikt Hallo apiKey voor authenticatie.  
 
 ```json
 {
@@ -79,20 +79,20 @@ Het volgende voorbeeld bevat een voorbeeld JSON-definitie voor de AzureML gekopp
 ```
 
 ## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>Score berekenen voor web-service is Azure Resource Manager-webservice 
-Als de webservice voor het nieuwe type-webservice dat toegang biedt tot een Azure Resource Manager-eindpunt is, hoeft u niet om toe te voegen van de tweede **niet-standaard** eindpunt. De **updateResourceEndpoint** is in de gekoppelde service van de indeling: 
+Als webservice Hallo Hallo nieuw type webservice die een Azure Resource Manager-eindpunt wordt is, hoeft u niet tooadd Hallo tweede **niet-standaard** eindpunt. Hallo **updateResourceEndpoint** in Hallo gekoppelde service van Hallo-indeling is: 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-U kunt waarden voor de houders plaats in de URL krijgen bij het opvragen van de web-service op de [Azure Machine Learning Web Services-Portal](https://services.azureml.net/). Het nieuwe type update resource eindpunt vereist een token van AAD (Azure Active Directory). Geef **servicePrincipalId** en **servicePrincipalKey**in voor met AzureML gekoppelde service. Zie [het service-principal maken en toewijzen van machtigingen voor het beheren van Azure-resource](../azure-resource-manager/resource-group-create-service-principal-portal.md). Hier volgt een voorbeeld van een definitie van AzureML gekoppelde service: 
+U kunt waarden voor de houders plaats in Hallo-URL krijgen bij het opvragen van de webservice Hallo op Hallo [Azure Machine Learning Web Services-Portal](https://services.azureml.net/). Hallo nieuwe type update resource eindpunt vereist een token van AAD (Azure Active Directory). Geef **servicePrincipalId** en **servicePrincipalKey**in voor met AzureML gekoppelde service. Zie [hoe toocreate service-principal en machtigingen toomanage Azure-resource toewijzen](../azure-resource-manager/resource-group-create-service-principal-portal.md). Hier volgt een voorbeeld van een definitie van AzureML gekoppelde service: 
 
 ```json
 {
     "name": "AzureMLLinkedService",
     "properties": {
         "type": "AzureML",
-        "description": "The linked service for AML web service.",
+        "description": "hello linked service for AML web service.",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": "xxxxxxxxxxxx",
@@ -105,22 +105,22 @@ U kunt waarden voor de houders plaats in de URL krijgen bij het opvragen van de 
 }
 ```
 
-Het volgende scenario biedt meer details. Er is een voorbeeld voor retraining en bijwerken van Azure ML-modellen van een Azure Data Factory-pijplijn.
+Hallo biedt volgende scenario meer details. Er is een voorbeeld voor retraining en bijwerken van Azure ML-modellen van een Azure Data Factory-pijplijn.
 
 ## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Scenario: retraining en bijwerken van een Azure ML-model
-Deze sectie vindt u een voorbeeldpijplijn die gebruikmaakt van de **Azure ML-Batchuitvoering activiteit** naar opnieuw een model te trainen. De pijplijn gebruikt ook de **Azure ML bijwerken Resource activiteit** het model in de scoreprofiel webservice bijwerken. De sectie bevat ook JSON codefragmenten voor alle gekoppelde services, gegevenssets en pijplijn in het voorbeeld.
+Deze sectie vindt u een voorbeeldpijplijn die gebruikmaakt van Hallo **Azure ML-Batchuitvoering activiteit** tooretrain een model. Hallo pijplijn gebruikt ook Hallo **resourceactiviteit voor Azure ML Update** tooupdate Hallo-model in Hallo score berekenen voor web-service. Hallo bevat ook aan JSON codefragmenten voor alle gekoppelde services, gegevenssets en pijplijn in voorbeeld Hallo Hallo.
 
-Hier volgt de diagramweergave van de voorbeeldpijplijn. Zoals u ziet, wordt de Azure ML-Batchuitvoeringsactiviteit haalt de invoer training en wordt de uitvoer van een training (iLearner-bestand). De Resourceactiviteit voor Azure ML Update duurt de uitvoer van deze training en updates van het model in het scoreprofiel web service-eindpunt. De Update Resourceactiviteit produceert geen uitvoer. De placeholderBlob is een dummy output dataset is vereist door de Azure Data Factory-service voor het uitvoeren van de pijplijn.
+Hier volgt de diagramweergave Hallo van Hallo-voorbeeldpijplijn. Zoals u ziet, hello Azure ML-Batchuitvoeringsactiviteit Hallo training invoer- en wordt de uitvoer van een training (iLearner-bestand). Hallo Resourceactiviteit voor Azure ML-Update wordt de uitvoer van deze training en updates Hallo Hallo webservice-eindpunt score-model. Hallo Update Resourceactiviteit produceert geen uitvoer. Hallo placeholderBlob is een dummy output dataset is vereist door hello Azure Data Factory-service toorun Hallo pijplijn.
 
 ![Pipeline-diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### <a name="azure-blob-storage-linked-service"></a>Azure Blob-opslag gekoppelde service:
-Azure Storage bevat de volgende gegevens:
+Hello Azure Storage bevat Hallo gegevens te volgen:
 
-* trainingsgegevens. De invoergegevens voor de webservice Azure ML-training.  
-* iLearner-bestand. De uitvoer van de webservice Azure ML-training. Dit bestand is ook de invoer voor de activiteit van de Update-Resource.  
+* trainingsgegevens. Hallo invoergegevens voor hello Azure ML training-webservice.  
+* iLearner-bestand. Hallo de uitvoer van hello Azure ML training-webservice. Dit bestand is ook Hallo invoer toohello resourceactiviteit voor Update.  
 
-Hier volgt de voorbeeld-JSON-definitie van de gekoppelde service:
+Hier volgt Hallo voorbeeld JSON-definitie van Hallo gekoppelde service:
 
 ```JSON
 {
@@ -135,7 +135,7 @@ Hier volgt de voorbeeld-JSON-definitie van de gekoppelde service:
 ```
 
 ### <a name="training-input-dataset"></a>Training invoergegevensset:
-De volgende gegevensset vertegenwoordigt de invoer trainingsgegevens voor de webservice Azure ML-training. Deze gegevensset neemt de Azure ML-Batchuitvoering activiteit als invoer.
+Hallo vertegenwoordigt volgende gegevensset Hallo invoer trainingsgegevens voor hello Azure ML training-webservice. Deze gegevensset neemt Hello Azure ML-Batchuitvoering activiteit als invoer.
 
 ```JSON
 {
@@ -166,7 +166,7 @@ De volgende gegevensset vertegenwoordigt de invoer trainingsgegevens voor de web
 ```
 
 ### <a name="training-output-dataset"></a>Uitvoergegevensset voor training:
-De volgende gegevensset vertegenwoordigt het iLearner-bestand voor uitvoer van de webservice Azure ML-training. De Azure ML-Batchuitvoeringsactiviteit produceert deze dataset. Deze gegevensset is ook de invoer voor de Azure ML Update Resource-activiteit.
+Hallo vertegenwoordigt volgende gegevensset Hallo uitvoer iLearner-bestand van hello Azure ML training-webservice. Hello Azure ML-Batchuitvoeringsactiviteit produceert deze dataset. Deze gegevensset is ook Hallo invoer toohello resourceactiviteit voor Azure ML-Update.
 
 ```JSON
 {
@@ -190,7 +190,7 @@ De volgende gegevensset vertegenwoordigt het iLearner-bestand voor uitvoer van d
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Gekoppelde service voor Azure ML training eindpunt
-De volgende JSON-fragment definieert een Azure Machine Learning gekoppelde service die naar het standaardeindpunt van de webservice training verwijst.
+Hallo volgende JSON-codefragment definieert een Azure Machine Learning gekoppelde service die toohello standaardeindpunt van Hallo training webservice verwijst.
 
 ```JSON
 {    
@@ -205,16 +205,16 @@ De volgende JSON-fragment definieert een Azure Machine Learning gekoppelde servi
 }
 ```
 
-In **Azure ML Studio**, doet u het volgende als u de waarden voor **mlEndpoint** en **apiKey**:
+In **Azure ML Studio**, Hallo volgende tooget waarden voor **mlEndpoint** en **apiKey**:
 
-1. Klik op **WEBSERVICES** in het menu links.
-2. Klik op de **training webservice** in de lijst met web-services.
-3. Klik op kopiëren naast **API-sleutel** in het tekstvak. De sleutel op het Klembord in de JSON van Data Factory-editor plakken.
-4. In de **Azure ML studio**, klikt u op **BATCHUITVOERING** koppeling.
-5. Kopieer de **aanvraag-URI** van de **aanvragen** sectie en plak deze in de JSON van Data Factory-editor.   
+1. Klik op **WEBSERVICES** op Hallo linkermenu.
+2. Klik op Hallo **training webservice** in de lijst Hallo van webservices.
+3. Klik op kopiëren naast te**API-sleutel** in het tekstvak. Hallo-sleutel op Hallo Klembord in Hallo Data Factory JSON-editor plakken.
+4. In Hallo **Azure ML studio**, klikt u op **BATCHUITVOERING** koppeling.
+5. Kopiëren Hallo **aanvraag-URI** van Hallo **aanvragen** sectie en plak deze in Hallo Data Factory JSON-editor.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Gekoppelde Service voor Azure ML bijwerkbare score-eindpunt:
-De volgende JSON-fragment definieert een Azure Machine Learning gekoppelde service die naar het niet-standaard worden bijgewerkt eindpunt van de score-webservice verwijst.  
+Hallo volgende JSON-codefragment definieert een Azure Machine Learning gekoppelde service die toohello niet standaard worden bijgewerkt eindpunt Hallo score berekenen voor webservice verwijst.  
 
 ```JSON
 {
@@ -234,7 +234,7 @@ De volgende JSON-fragment definieert een Azure Machine Learning gekoppelde servi
 ```
 
 ### <a name="placeholder-output-dataset"></a>Tijdelijke aanduiding voor uitvoergegevensset:
-Resourceactiviteit voor Azure ML-Update wordt geen uitvoer gegenereerd. Azure Data Factory vereist echter een uitvoergegevensset stimuleren van de planning van een pijplijn. Daarom gebruiken we een dummy/tijdelijke aanduiding voor gegevensset in dit voorbeeld.  
+Hallo resourceactiviteit voor Azure ML-Update wordt geen uitvoer gegenereerd. Azure Data Factory vereist echter een output dataset toodrive Hallo planning van een pijplijn. Daarom gebruiken we een dummy/tijdelijke aanduiding voor gegevensset in dit voorbeeld.  
 
 ```JSON
 {
@@ -257,7 +257,7 @@ Resourceactiviteit voor Azure ML-Update wordt geen uitvoer gegenereerd. Azure Da
 ```
 
 ### <a name="pipeline"></a>Pijplijn
-De pijplijn heeft twee activiteiten: **AzureMLBatchExecution** en **AzureMLUpdateResource**. De activiteit van de Azure ML-Batchuitvoering duurt de trainingsgegevens als invoer en een iLearner-bestand als uitvoer produceert. De activiteit roept de training webservice (trainingsexperiment weergegeven als een webservice) met de invoer trainingsgegevens en ontvangt van het ilearner-bestand van de webservice. De placeholderBlob is een dummy output dataset is vereist door de Azure Data Factory-service voor het uitvoeren van de pijplijn.
+Hallo pipeline heeft twee activiteiten: **AzureMLBatchExecution** en **AzureMLUpdateResource**. Hello Azure ML-Batchuitvoering activiteit duurt Hallo trainingsgegevens als invoer en een iLearner-bestand als uitvoer produceert. Hallo activiteit roept Hallo training webservice (trainingsexperiment weergegeven als een webservice) met Hallo invoer trainen van gegevens en Hallo ilearner-bestand van de webservice Hallo ontvangt. Hallo placeholderBlob is een dummy output dataset is vereist door hello Azure Data Factory-service toorun Hallo pijplijn.
 
 ![Pipeline-diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

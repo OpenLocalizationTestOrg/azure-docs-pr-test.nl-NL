@@ -1,6 +1,6 @@
 ---
-title: Uw eerste gegevensfactory bouwen (Azure Portal) | Microsoft Docs
-description: In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn met behulp van de Data Factory-editor in Azure Portal.
+title: aaaBuild uw eerste gegevensfactory (Azure-portal) | Microsoft Docs
+description: In deze zelfstudie maakt u een Azure Data Factory-voorbeeldpijplijn met behulp van de Data Factory-Editor in hello Azure-portal.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 9c958aecb841fa02349c6b9e5e1984f6ba4fb611
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc80776001b181a59c04d80d2e05c20b107a63f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Zelfstudie: uw eerste Azure-gegevensfactory bouwen met Azure Portal
 > [!div class="op_single_selector"]
@@ -30,86 +30,86 @@ ms.lasthandoff: 08/29/2017
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In dit artikel leert u hoe u [Azure Portal](https://portal.azure.com/) gebruikt voor het maken van uw eerste Azure-gegevensfactory. Als u de zelfstudie wilt volgen met andere hulpprogramma's/SDK's, selecteert u een van de opties uit de vervolgkeuzelijst. 
+In dit artikel leert u hoe toouse [Azure-portal](https://portal.azure.com/) toocreate uw eerste Azure-gegevensfactory. toodo hello zelfstudie met andere hulpprogramma's / SDK, selecteer een van de Hallo opties uit de vervolgkeuzelijst Hallo. 
 
-De pijplijn in deze zelfstudie heeft één activiteit: **HDInsight-componentactiviteit**. Deze activiteit voert een Hive-script uit op een Azure HDInsight-cluster dat invoergegevens transformeert om uitvoergegevens te produceren. De pijplijn is gepland on één keer per maand tussen de opgegeven begin- en eindtijd te worden uitgevoerd. 
+Hallo-pijplijn in deze zelfstudie is één activiteit: **HDInsight Hive-activiteit**. Deze activiteit wordt een hive-script uitgevoerd op een Azure HDInsight-cluster dat transformaties invoergegevens gegevens tooproduce uitvoer. Hallo pijplijn is geplande toorun wanneer een maand tussen Hallo begin- en eindtijden opgegeven. 
 
 > [!NOTE]
-> Met de gegevenspijplijn in deze zelfstudie worden invoergegevens getransformeerd in uitvoergegevens. Zie [Zelfstudie: gegevens kopiëren van Blob Storage naar SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor informatie over het kopiëren van gegevens met Azure Data Factory.
+> Hallo gegevens pijplijn in deze zelfstudie getransformeerd invoergegevens tooproduce uitvoergegevens. Voor een zelfstudie over het toocopy van gegevens met behulp van Azure Data Factory, Zie [zelfstudie: gegevens kopiëren van Blob Storage tooSQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie.
+> Een pijplijn kan meer dan één activiteit hebben. En u kunt twee activiteiten (één activiteit uitgevoerd na de andere) koppelen door de uitvoergegevensset Hallo van een activiteit instellen als de Hallo invoergegevensset Hallo andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-1. Lees het artikel [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) en voer de **vereiste** stappen uit.
-2. Dit artikel biedt geen conceptueel overzicht van de Azure Data Factory-service. Lees voor een gedetailleerd overzicht van de service het artikel [Inleiding tot Azure Data Factory](data-factory-introduction.md).  
+1. Lees [overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) artikel en volledige Hallo **vereiste** stappen.
+2. In dit artikel biedt geen conceptueel overzicht van hello Azure Data Factory-service. Het is raadzaam dat u doorloopt [inleiding tooAzure Data Factory](data-factory-introduction.md) voor een gedetailleerd overzicht van Hallo service het artikel.  
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
-Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. U begint in deze stap met het maken van de gegevensfactory.
+Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld invoergegevens een Kopieeractiviteit toocopy-gegevens van een doelgegevensopslagplaats tooa bron en het toorun in een HDInsight Hive-activiteit een Hive-script tootransform gegevens tooproduct uitvoer. Laten we beginnen met het maken van de gegevensfactory Hallo in deze stap.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **NIEUW** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**.
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com/).
+2. Klik op **nieuw** op Hallo menu links, klikt u op **gegevens en analyse**, en klik op **Data Factory**.
 
    ![Blade maken](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
-3. Voer op de blade **Nieuwe gegevensfactory** **GetStartedDF** in als naam.
+3. In Hallo **nieuwe gegevensfactory** blade Voer **GetStartedDF** voor Hallo naam.
 
    ![Blade voor een nieuwe gegevensfactory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u de volgende fout ontvangt: **Naam data factory “GetStartedDF” is niet beschikbaar**. Wijzig de naam van de datafactory (bijvoorbeeld yournameGetStartedDF) en probeer om opnieuw te maken. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   > Hallo-naam van hello Azure-gegevensfactory moet **globaal unieke**. Als u de foutmelding Hallo: **Data factory-naam 'GetStartedDF' is niet beschikbaar**. Hallo-naam van gegevensfactory hello (bijvoorbeeld Uwnaamgetstarteddf) wijzigen en probeer het opnieuw maken. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
    >
-   > De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als **DNS**-naam en wordt daarmee ook voor iedereen zichtbaar.
+   > Hallo-naam van de gegevensfactory Hallo mogelijk geregistreerd als een **DNS** naam in de toekomst Hallo en daarmee ook voor iedereen zichtbaar.
    >
    >
-4. Selecteer het **Azure-abonnement** waarvoor u de gegevensfactory wilt maken.
-5. Selecteer een bestaande **resourcegroep** of maak een resourcegroep. Maak voor deze zelfstudie een resourcegroep met de naam **ADFGetStartedRG**.
-6. Selecteer de **locatie** voor de gegevensfactory. Alleen regio's die worden ondersteund door de Data Factory-service worden weergegeven in de vervolgkeuzelijst.
-7. Selecteer **Vastmaken aan dashboard**. 
-8. Klik op de blade **Nieuwe gegevensfactory** op **Maken**.
+4. Selecteer Hallo **Azure-abonnement** waar u Hallo data factory toobe gemaakt.
+5. Selecteer een bestaande **resourcegroep** of maak een resourcegroep. Maak een resourcegroep met de naam voor Hallo-zelfstudie: **ADFGetStartedRG**.
+6. Selecteer Hallo **locatie** voor Hallo data factory. Regio's wordt ondersteund door Hallo Data Factory-service worden weergegeven in de vervolgkeuzelijst Hallo.
+7. Selecteer **pincode toodashboard**. 
+8. Klik op **maken** op Hallo **nieuwe gegevensfactory** blade.
 
    > [!IMPORTANT]
-   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.
+   > toocreate Data Factory-exemplaren, moet u lid zijn van Hallo [Data Factory Inzender](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rol op het niveau van de Hallo abonnement/resourcegroep.
    >
    >
-7. Op het dashboard ziet u de volgende tegel met de status: Gegevensfactory implementeren.    
+7. Op Hallo-dashboard ziet er Hallo tegel met de status: implementatie van de gegevensfactory.    
 
    ![Status van gegevensfactory maken](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
-8. Gefeliciteerd. U hebt uw eerste gegevensfactory gemaakt. Nadat de gegevensfactory is gemaakt, ziet u de gegevensfactorypagina. Hierop wordt de inhoud van de gegevensfactory weergegeven.     
+8. Gefeliciteerd. U hebt uw eerste gegevensfactory gemaakt. Nadat het Hallo-gegevensfactory is gemaakt, ziet u Hallo data factory-pagina waarop u inhoud van de gegevensfactory Hallo Hallo.     
 
     ![Blade Gegevensfactory](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
-Voordat u een pijplijn maakt in de gegevensfactory, moet u eerst enkele Data Factory-exemplaren maken. U maakt eerst gekoppelde services om gegevensopslag/berekeningen te koppelen aan uw gegevensopslag, vervolgens definieert u welke invoer- en uitvoergegevenssets de invoer- en uitvoergegevens in de gekoppelde gegevensopslag vertegenwoordigen en daarna maakt u de pijplijn met een activiteit waarvoor gebruik wordt gemaakt van die gegevenssets.
+Voordat u een pijplijn maakt in de gegevensfactory hello, moet u toocreate enkele Data Factory-entiteiten eerst. Maakt u eerst gekoppelde services toolink gegevens/berekeningen tooyour gegevens opslaan, definieert u welke invoer en uitvoer van gegevenssets toorepresent i/o-gegevens in de gekoppelde gegevensopslag en vervolgens Hallo pijplijn maken met een activiteit die gebruikmaakt van deze gegevenssets.
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap koppelt u uw Azure Storage-account en een on-demand Azure HDInsight-cluster aan uw gegevensfactory. Het Azure Storage-account bevat de in- en uitvoergegevens van de pijplijn in dit voorbeeld. De gekoppelde HDInsight-service wordt gebruikt om een Hive-script uit te voeren dat is opgegeven in de activiteit van de pijplijn in dit voorbeeld. Geef aan welk(e) [gegevensarchief](data-factory-data-movement-activities.md)/[rekenservices](data-factory-compute-linked-services.md) er in uw scenario worden gebruikt. Koppel die services aan de gegevensfactory door gekoppelde services te maken.  
+In deze stap koppelt u uw Azure-opslagaccount en een bellen op Azure HDInsight-cluster tooyour data factory. Hallo blokkeringen Hallo invoer en uitvoer-gegevens voor de pijplijn in dit voorbeeld hello Azure Storage-account. Hallo gekoppelde HDInsight-service is gebruikte toorun een Hive-script dat is opgegeven in de activiteit Hallo van Hallo pijplijn in dit voorbeeld. Bepalen wat [gegevensarchief](data-factory-data-movement-activities.md)/[compute-services](data-factory-compute-linked-services.md) worden gebruikt in uw scenario en koppelen van deze services toohello-gegevensfactory door gekoppelde services te maken.  
 
 ### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
-In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. Voor deze zelfstudie gebruikt u hetzelfde Azure Storage-account om invoer- en uitvoergegevens en het HQL-scriptbestand op te slaan.
+In deze stap koppelt u uw Azure Storage-account tooyour data factory. In deze zelfstudie gebruikt u Hallo dezelfde Azure-opslagaccount invoer-en uitvoergegevens toostore en Hallo HQL-script bestand.
 
-1. Klik op de blade **GEGEVENSFACTORY** van **GetStartedDF** op **Maken en implementeren**. U krijgt de Data Factory-editor te zien.
+1. Klik op **auteur en implementeren van** op Hallo **DATA FACTORY** blade voor **GetStartedDF**. U ziet Hallo Data Factory-Editor.
 
    ![Tegel ontwerpen en implementeren](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2. Klik op **Nieuwe gegevensopslag** en kies **Azure-opslag**.
 
    ![Nieuwe gegevensopslag - Azure Storage - menu](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
-3. U ziet het JSON-script voor het maken van een gekoppelde Azure Storage-service in de editor.
+3. U ziet Hallo JSON-script voor het maken van een Azure Storage gekoppelde service in Hallo-editor.
 
    ![Een gekoppelde Azure Storage-service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Vervang de **accountnaam** door de naam van uw Azure-opslagaccount en vervang de **accountsleutel** door de toegangssleutel van het Azure-opslagaccount. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van een toegangssleutel voor opslag.
-5. Klik op de opdrachtbalk op **Implementeren** om de gekoppelde service te implementeren.
+4. Vervang **accountnaam** met Hallo-naam van uw Azure storage-account en **accountsleutel** door de toegangssleutel Hallo van hello Azure storage-account. toolearn hoe tooget uw opslag heeft toegang tot sleutel, raadpleegt u Hallo informatie over hoe tooview, kopiëren en opnieuw genereren opslag toegangstoetsen in [uw opslagaccount beheren](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+5. Klik op **implementeren** op Hallo opdrachtbalk toodeploy Hallo gekoppelde service.
 
     ![Implementatieknop](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Wanneer de gekoppelde service is geïmplementeerd, verdwijnt het venster **Draft-1** en ziet u **AzureStorageLinkedService** in de structuurweergave links.
+   Nadat hello gekoppelde service is geïmplementeerd, Hallo **Draft-1** venster verdwijnt en ziet u **AzureStorageLinkedService** in Hallo structuurweergave Hallo links.
 
     ![Een gekoppelde opslagservice in het menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Een gekoppelde HDInsight-service maken
-In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. Het HDInsight-cluster wordt automatisch gemaakt tijdens runtime en wordt verwijderd wanneer het verwerken is voltooid en het cluster gedurende een opgegeven tijdsperiode niet actief is geweest.
+In deze stap maakt koppelen u een gegevensfactory op aanvraag HDInsight-cluster tooyour. Hallo HDInsight-cluster wordt automatisch gemaakt tijdens runtime en na het verwerken is voltooid en niet-actieve voor de opgegeven tijdsduur Hallo verwijderd.
 
-1. Klik in de **Data Factory-editor** op **... Meer** en op **Nieuwe berekening**. Selecteer vervolgens **On-demand HDInsight-cluster**.
+1. In Hallo **Data Factory-Editor**, klikt u op **... Meer** en op **Nieuwe berekening**. Selecteer vervolgens **On-demand HDInsight-cluster**.
 
     ![Nieuwe berekening](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
-2. Kopieer het onderstaande codefragment en plak het in het venster **Draft-1**. Het JSON-codefragment bevat de eigenschappen die worden gebruikt voor het maken van het on-demand HDInsight-cluster.
+2. Kopieer en plak de volgende codefragment toohello hello **Draft-1** venster. Hallo JSON-codefragment bevat de Hallo-eigenschappen die gebruikt toocreate hello HDInsight-cluster op de aanvraag zijn.
 
     ```JSON
     {
@@ -127,38 +127,38 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
     }
     ```
 
-    De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
+    Hallo bevat volgende tabel beschrijvingen van Hallo JSON-eigenschappen die in Hallo codefragment:
 
    | Eigenschap | Beschrijving |
    |:--- |:--- |
-   | ClusterSize |Geeft de grootte van het HDInsight-cluster aan. |
-   | TimeToLive | Geeft aan hoelang het HDInsight-cluster inactief moet zijn voordat het wordt verwijderd. |
-   | linkedServiceName | Geeft het opslagaccount aan dat wordt gebruikt voor het opslaan van de logboeken die door HDInsight worden gegenereerd. |
+   | ClusterSize |Hiermee wordt de grootte Hallo van Hallo HDInsight-cluster. |
+   | TimeToLive | Hiermee geeft u op dat niet-actieve tijd Hallo voor Hallo HDInsight-cluster, voordat deze wordt verwijderd. |
+   | linkedServiceName | Hiermee geeft u Hallo storage-account dat is gebruikt toostore Hallo logboeken die door HDInsight worden gegenereerd. |
 
-    Houd rekening met de volgende punten:
+    Houd er rekening mee Hallo volgende punten:
 
-   * Met de JSON maakt Data Factory voor u een HDInsight-cluster **op basis van Linux**. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
+   * Hallo Data Factory maakt een **op basis van Linux** HDInsight-cluster voor u Hello JSON. Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
    * U kunt **uw eigen HDInsight-cluster** gebruiken in plaats van een on-demand HDInsight-cluster. Zie [Gekoppelde HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie.
-   * Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
+   * Hallo HDInsight-cluster maakt een **standaardcontainer** in Hallo-blobopslag die u hebt opgegeven in Hallo JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer Hallo-cluster is verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment wordt verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Hallo-cluster wordt automatisch verwijderd als het Hallo-verwerking is voltooid.
 
-       Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+       Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u niet ze hoeft voor het oplossen van problemen met taken hello, kunt u toodelete ze tooreduce Hallo opslag kosten. Hallo-namen van deze containers worden als volgt: ' adf**naamvanuwgegevensfactory**-**linkedservicename**- datum '. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) toodelete containers in uw Azure-blobopslag.
 
      Zie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
-3. Klik op de opdrachtbalk op **Implementeren** om de gekoppelde service te implementeren.
+3. Klik op **implementeren** op Hallo opdrachtbalk toodeploy Hallo gekoppelde service.
 
     ![Gekoppelde on-demand HDInsight-service implementeren](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
-4. Controleer of u in de structuurweergave links zowel **AzureStorageLinkedService** als **HDInsightOnDemandLinkedService** ziet.
+4. Controleer of u beide **AzureStorageLinkedService** en **HDInsightOnDemandLinkedService** in Hallo structuurweergave Hallo links.
 
     ![Structuurweergave met gekoppelde services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Gegevenssets maken
-In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-verwerking vertegenwoordigen. Deze gegevenssets verwijzen naar de **AzureStorageLinkedService** die u eerder in deze zelfstudie hebt gemaakt. De gekoppelde service verwijst naar een Azure-opslagaccount en in de gegevenssets vindt u de container, map en bestandsnaam in de opslag van de invoer- en uitvoergegevens.   
+In deze stap maakt u gegevenssets toorepresent Hallo invoer maken en uitvoergegevens voor Hive-verwerking. Deze gegevenssets verwijzen toohello **AzureStorageLinkedService** u eerder in deze zelfstudie hebt gemaakt. Hallo gekoppelde service verwijst tooan Azure Storage-account en gegevenssets vindt u container, map en bestandsnaam in Hallo opslag van de invoer- en uitvoergegevens.   
 
 ### <a name="create-input-dataset"></a>Invoergegevensset maken
-1. Klik in de **Data Factory-editor** op **... Meer** op de opdrachtbalk, klik op **Nieuwe gegevensset** en selecteer **Azure-blobopslag**.
+1. In Hallo **Data Factory-Editor**, klikt u op **... Meer** op de opdrachtbalk hello, klikt u op **nieuwe gegevensset**, en selecteer **Azure Blob storage**.
 
     ![Nieuwe gegevensset](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. U maakt in het JSON-fragment een gegevensset met de naam **AzureBlobInput** die staat voor invoergegevens van een activiteit in de pijplijn. Daarbij geeft u op dat de invoergegevens zich bevinden in de blobcontainer met de naam **adfgetstarted** en de map met de naam **inputdata**.
+2. Kopieer en plak Hallo na codefragment toohello Draft-1-venster. Hallo JSON-codefragment maakt u maakt in een gegevensset met de naam **AzureBlobInput** die staat voor invoergegevens van een activiteit in Hallo pijplijn. Bovendien u opgeven dat Hallo invoergegevens in de blob-container Hallo aangeroepen bevinden zich **adfgetstarted** en Hallo map met de naam **inputdata**.
 
     ```JSON
     {
@@ -183,27 +183,27 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
         }
     }
     ```
-    De volgende tabel bevat beschrijvingen van de JSON-eigenschappen die in het codefragment worden gebruikt:
+    Hallo bevat volgende tabel beschrijvingen van Hallo JSON-eigenschappen die in Hallo codefragment:
 
    | Eigenschap | Beschrijving |
    |:--- |:--- |
-   | type |De eigenschap type wordt ingesteld op **AzureBlob**, omdat de gegevens zich in een Azure-blobopslag bevinden. |
-   | linkedServiceName |Deze eigenschap verwijst naar de **AzureStorageLinkedService** die u eerder hebt gemaakt. |
-   | folderPath | Deze eigenschap verwijst naar de blob**container** en de **map** die de blobs voor invoer bevat. | 
-   | fileName |Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle bestanden uit folderPath gekozen. In deze zelfstudie wordt alleen de **input.log** verwerkt. |
-   | type |Omdat de logboekbestanden tekstbestanden zijn, gebruiken we **TextFormat**. |
-   | columnDelimiter |Kolommen in de logboekbestanden worden gescheiden door een **komma (,) (`,`)** |
-   | frequency/interval |Als frequency wordt ingesteld op **Month** en het interval **1** is, betekent dit dat de invoersegmenten één keer per maand beschikbaar worden gemaakt. |
-   | external | Deze eigenschap wordt ingesteld op **true** als de invoergegevens niet worden gegenereerd door deze pijplijn. In deze zelfstudie wordt het bestand input.log niet gegenereerd door deze pijplijn, daarom hebben we de eigenschap ingesteld op true. |
+   | type |Hallo type wordt ingesteld te**AzureBlob** omdat de gegevens zich in een Azure blob storage. |
+   | linkedServiceName |Toohello verwijst **AzureStorageLinkedService** u eerder hebt gemaakt. |
+   | folderPath | Hiermee geeft u op Hallo blob **container** en Hallo **map** die invoer blobs bevat. | 
+   | fileName |Deze eigenschap is optioneel. Als u deze eigenschap niet opgeeft, worden alle Hallo-bestanden uit folderPath Hallo opgenomen. In deze zelfstudie alleen Hallo **input.log** wordt verwerkt. |
+   | type |Hallo-logboekbestanden tekstbestanden zijn, zodat we gebruiken **TextFormat**. |
+   | columnDelimiter |kolommen in Hallo logboekbestanden worden gescheiden door **kommateken (`,`)** |
+   | frequency/interval |frequentie ingesteld te**maand** en interval is **1**, wat betekent dat Hallo invoer segmenten maandelijks beschikbaar zijn. |
+   | external | Deze eigenschap is ingesteld, te**true** als Hallo invoergegevens niet worden gegenereerd door deze pijplijn. In deze zelfstudie Hallo input.log bestand niet worden gegenereerd door deze pipeline zodat we Hallo eigenschap tootrue instellen. |
 
     Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
-3. Klik op de opdrachtbalk op **Implementeren** om de zojuist gemaakte gegevensset te implementeren. U ziet de gegevensset in de structuurweergave links.
+3. Klik op **implementeren** op Hallo opdrachtbalk toodeploy Hallo nieuwe gegevensset. U ziet de gegevensset in Hallo structuurweergave links Hallo Hallo.
 
 ### <a name="create-output-dataset"></a>Uitvoergegevensset maken
-U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden opgeslagen in de Azure-blobopslag.
+U maakt nu Hallo gegevensset toorepresent Hallo uitvoer uitvoergegevens opgeslagen in hello Azure Blob-opslag.
 
-1. Klik in de **Data Factory-editor** op **... Meer** op de opdrachtbalk, klik op **Nieuwe gegevensset** en selecteer **Azure-blobopslag**.  
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. In het JSON-codefragment maakt u een gegevensset met de naam **AzureBlobOutput** en geeft u op welke gegevensstructuur er door het Hive-script wordt geproduceerd. Bovendien geeft u op dat de resultaten worden opgeslagen in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **partitioneddata**. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset op maandelijkse basis wordt geproduceerd.
+1. In Hallo **Data Factory-Editor**, klikt u op **... Meer** op de opdrachtbalk hello, klikt u op **nieuwe gegevensset**, en selecteer **Azure Blob storage**.  
+2. Kopieer en plak Hallo na codefragment toohello Draft-1-venster. Hallo JSON-codefragment maakt u maakt in een gegevensset met de naam **AzureBlobOutput**, en geeft u op Hallo van Hallo-gegevens die door Hallo Hive-script wordt geproduceerd. Bovendien u opgeven dat Hallo resultaten worden opgeslagen in blob-container Hallo aangeroepen **adfgetstarted** en Hallo map met de naam **partitioneddata**. Hallo **beschikbaarheid** sectie geeft die Hallo-uitvoergegevensset op maandelijkse basis wordt geproduceerd.
 
     ```JSON
     {
@@ -225,22 +225,22 @@ U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden op
       }
     }
     ```
-    Raadpleeg het gedeelte **Invoergegevensset maken** voor een beschrijving van deze eigenschappen. U stelt de externe eigenschap niet in op een uitvoergegevensset, omdat de gegevensset wordt geproduceerd door de Data Factory-service.
-3. Klik op de opdrachtbalk op **Implementeren** om de zojuist gemaakte gegevensset te implementeren.
-4. Controleer of de gegevensset is gemaakt.
+    Zie **hello invoergegevensset maken** sectie voor beschrijvingen van deze eigenschappen. U instelt geen Hallo externe eigenschap op een uitvoergegevensset omdat Hallo gegevensset wordt geproduceerd door Hallo Data Factory-service.
+3. Klik op **implementeren** op Hallo opdrachtbalk toodeploy Hallo nieuwe gegevensset.
+4. Controleer of dat deze Hallo gegevensset is gemaakt.
 
     ![Structuurweergave met gekoppelde services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-pipeline"></a>Pijplijn maken
-In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Het invoersegment wordt elke maand beschikbaar gesteld (frequentie: Maand, interval: 1), evenals het uitvoersegment. Ook de plannereigenschap van de activiteit wordt op maandelijks ingesteld. De instellingen voor de uitvoergegevensset en de activiteitenplanner moeten overeenkomen. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. De eigenschappen die in de volgende JSON worden gebruikt, worden aan het einde van dit gedeelte beschreven.
+In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. Invoersegment maandelijks beschikbaar is (frequency: Month, interval: 1), uitvoer segment wordt geproduceerd, maandelijks en Hallo scheduler-eigenschap voor activiteit Hallo toomonthly ook is ingesteld. Hallo-instellingen voor Hallo uitvoergegevensset en Hallo activiteitenplanner moeten overeenkomen met. Uitvoergegevensset is momenteel welke stations Hallo planning, dus u een uitvoergegevensset maken moet, zelfs als Hallo activiteit geen uitvoer produceert. Als Hallo activiteit geen invoer neemt, kunt u maken Hallo invoergegevensset overslaan. Hallo-eigenschappen die in de volgende JSON Hallo worden aan Hallo einde van deze sectie beschreven.
 
-1. Klik in de **Data Factory-editor** op **Ellips (...) Meer opdrachten**. Klik vervolgens op **Nieuwe pijplijn**.
+1. In Hallo **Data Factory-Editor**, klikt u op **weglatingsteken (...) Meer opdrachten** en klik vervolgens op **nieuwe pijplijn**.
 
     ![Knop Nieuw pijplijn](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1.
+2. Kopieer en plak Hallo na codefragment toohello Draft-1-venster.
 
    > [!IMPORTANT]
-   > Vervang **storageaccountname** door de naam van uw opslagaccount in de JSON.
+   > Vervang **storageaccountname** met de naam van uw opslagaccount in JSON Hallo Hallo.
    >
    >
 
@@ -289,111 +289,111 @@ In deze stap maakt u uw eerste pijplijn met een **HDInsightHive**-activiteit. He
     }
     ```
 
-    In het JSON-codefragment maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik wordt gemaakt van Hive om gegevens in een HDInsight-cluster te verwerken.
+    In de JSON-codefragment hello maakt u een pijplijn die bestaat uit een enkele activiteit waarvoor gebruik van Hive tooprocess gegevens op een HDInsight-cluster.
 
-    Het Hive-scriptbestand **partitionweblogs.hql** wordt opgeslagen in het Azure-opslagaccount (opgegeven door de scriptLinkedService met de naam **AzureStorageLinkedService**) en in de map **script** van de container **adfgetstarted**.
+    Hallo Hive-scriptbestand **partitionweblogs.hql**, wordt opgeslagen in hello Azure storage-account (Hallo door scriptLinkedService met de opgegeven **AzureStorageLinkedService**), en in  **script** map in container Hallo **adfgetstarted**.
 
-    Het gedeelte **defines** wordt gebruikt om de runtime-instellingen die worden doorgegeven aan het Hive-script op te geven als Hive-configuratiewaarden (bijvoorbeeld ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
+    Hallo **definieert** sectie is gebruikte toospecify Hallo runtime-instellingen die toohello hive-script worden doorgegeven als Hive-configuratiewaarden (bijvoorbeeld ${hiveconf: inputtable}, ${partitionedtable}).
 
-    Met de eigenschappen **start** en **end** van de pijplijn wordt opgegeven in welke periode de pijplijn actief is.
+    Hallo **start** en **end** eigenschappen van de pijplijn Hallo geeft Hallo actieve periode van Hallo-pijplijn.
 
-    In de activiteits-JSON geeft u op dat het Hive-script wordt uitgevoerd in de berekening die is opgegeven door de **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+    In Hallo activiteits-JSON geeft u opgeven dat Hallo Hive-script wordt uitgevoerd op Hallo berekening die is opgegeven door Hallo **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
-   > Zie 'Pijplijn JSON' in [Pijplijnen en activiteiten in Azure Data Factory](data-factory-create-pipelines.md) voor meer informatie over de JSON-eigenschappen die in het voorbeeld worden gebruikt.
+   > Zie 'Pijplijn-JSON' in [pijplijnen en activiteiten in Azure Data Factory](data-factory-create-pipelines.md) voor meer informatie over de JSON-eigenschappen die in Hallo-voorbeeld.
    >
    >
-3. Bevestig het volgende:
+3. Bevestig Hallo volgende:
 
-   1. Het bestand **Input.log** staat in de map **inputdata** van de container **adfgetstarted** in de Azure-blobopslag.
-   2. Het bestand **partitionweblogs.hql** staat in de map **script** van de container **adfgetstarted** in de Azure-blobopslag. Voltooi de vereiste stappen in [Overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) als deze bestanden niet worden weergegeven.
-   3. Controleer of u **storageaccountname** hebt vervangen door de naam van uw opslagaccount in de pijplijn-JSON.
-4. Klik op de opdrachtbalk op **Implementeren** om de pijplijn te implementeren. Aangezien de tijden voor **start** en **end** in het verleden vallen en **isPaused** is ingesteld op false, wordt de pijplijn (activiteit in de pijplijn) direct na het implementeren uitgevoerd.
-5. Controleer of de pijplijn in de structuurweergave wordt weergegeven.
+   1. **Input.log** bestand aanwezig is op Hallo **inputdata** map Hallo **adfgetstarted** container in hello Azure blob-opslag
+   2. **partitionweblogs.hql** bestand aanwezig is op Hallo **script** map Hallo **adfgetstarted** container in hello Azure blob-opslag. Volledige Hallo vereiste stappen voor het Hallo [overzicht van de zelfstudie](data-factory-build-your-first-pipeline.md) als u deze bestanden niet ziet.
+   3. Bevestig dat u hebt vervangen **storageaccountname** pijplijn met de naam van uw opslagaccount in Hallo Hallo JSON.
+4. Klik op **implementeren** op Hallo opdrachtbalk toodeploy Hallo pijplijn. Sinds Hallo **start** en **end** keren worden ingesteld in de afgelopen Hallo en **isPaused** set toofalse, Hallo pijplijn is (activiteit in de pijplijn Hallo) wordt uitgevoerd onmiddellijk nadat u hebt geïmplementeerd.
+5. Controleer of u Hallo pijplijn in de structuurweergave Hallo.
 
     ![Structuurweergave met de pijplijn](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 6. U hebt uw eerste pijplijn gemaakt!
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
 ### <a name="monitor-pipeline-using-diagram-view"></a>De pijplijn bewaken met Diagramweergave
-1. Klik op **X** om de blades van de Data Factory-editor te sluiten en om terug te keren naar de Data Factory-blade. Klik op **Diagram**.
+1. Klik op **X** tooclose Data Factory-Editor blades toonavigate back-toohello Data Factory-blade en klik op **Diagram**.
 
     ![Tegel Diagram](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
-2. In de diagramweergave ziet u een overzicht van de pijplijnen en gegevenssets die voor deze zelfstudie worden gebruikt.
+2. In de diagramweergave hello ziet u een overzicht van Hallo pijplijnen en gegevenssets die in deze zelfstudie worden gebruikt.
 
     ![Diagramweergave](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
-3. Als u alle activiteiten in de pijplijn wilt weergeven, klikt u met de rechtermuisknop op de pijplijn in het diagram. Klik vervolgens op Pijplijn openen.
+3. tooview alle activiteiten in de pijplijn voor hello, klik met de rechtermuisknop pijplijn in Hallo diagram en klikt u op pijplijn openen.
 
     ![Menu Pijplijn openen](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
-4. Bevestig dat u de HDInsightHive-activiteit in de pijplijn ziet.
+4. Controleer of u Hallo HDInsightHive-activiteit in Hallo pijplijn.
 
     ![Pijplijnweergave openen](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
-    Als u naar de vorige weergave wilt terugkeren, klikt u op **Gegevensfactory** in het koppelingenmenu bovenaan.
-5. Dubbelklik in de **diagramweergave** op de gegevensset **AzureBlobInput**. Controleer of het segment de status **Gereed** heeft. Het kan enkele minuten duren voordat het segment de status Gereed heeft. Als dit niet is gebeurd nadat u enige tijd hebt gewacht, controleert u of het invoerbestand (input.log) in de juiste container (adfgetstarted) en in de juiste map (inputdata) staat.
+    back-toonavigate toohello vorige weergave, klikt u op **Data factory** in Hallo breadcrumb menu Hallo bovenaan.
+5. In Hallo **diagramweergave**, dubbelklikt u op Hallo gegevensset **AzureBlobInput**. Bevestig dat segment Hallo **gereed** status. Het kan enkele minuten voor Hallo segment tooshow duren status Ready heeft. Als deze niet is gebeurd nadat u enige tijd wacht, ziet u of er Hallo invoerbestand (input.log in de juiste Hallo-container (adfgetstarted) en map (inputdata) geplaatst).
 
    ![Invoersegment met de status Gereed](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
-6. Klik op **X** om de blade **AzureBlobInput** te sluiten.
-7. Dubbelklik in de **diagramweergave** op de gegevensset **AzureBlobOutput**. U ziet het segment dat momenteel wordt verwerkt.
+6. Klik op **X** tooclose **AzureBlobInput** blade.
+7. In Hallo **diagramweergave**, dubbelklikt u op Hallo gegevensset **AzureBlobOutput**. U ziet dat Hallo-segment dat momenteel wordt verwerkt.
 
    ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-8. Als het verwerken is voltooid, ziet u dat het segment de status **Gereed** heeft.
+8. Wanneer het verwerken is voltooid, ziet u Hallo segment **gereed** status.
 
    ![Gegevensset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
    > [!IMPORTANT]
-   > Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom kunt u ervan uitgaan dat het **ongeveer 30 minuten** duurt voordat het segment in de pijplijn is verwerkt.
+   > Het maken van een on-demand HDInsight-cluster duurt normaal gesproken enige tijd (ongeveer 20 minuten). Daarom verwachten Hallo pipeline te laten **ongeveer 30 minuten** tooprocess Hallo segment.
    >
    >
 
-9. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
+9. Wanneer Hallo segment is in **gereed** staat, controleert u Hallo **partitioneddata** map in Hallo **adfgetstarted** container in uw blobopslag voor Hallo uitvoergegevens.  
 
    ![Uitvoergegevens](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-10. Klik op het segment voor details van het segment in de blade **Gegevenssegment**.
+10. Klik op Hallo segment toosee details over deze in een **gegevenssegment** blade.
 
    ![Details gegevenssegment](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-11. Klik in de lijst **Uitvoeringen van activiteit** op een activiteit die wordt uitgevoerd om details van een bepaalde activiteit die wordt uitgevoerd (Hive-activiteit in ons scenario) te bekijken in het venster **Details uitvoering van activiteit**.   
+11. Klik op een activiteit die wordt uitgevoerd in Hallo **activiteit wordt uitgevoerd lijst** toosee details over een activiteit (Hive-activiteit in ons scenario) uitgevoerd in een **details uitvoering van activiteit** venster.   
 
    ![Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
-   In de logboekbestanden ziet u de Hive-query die is uitgevoerd en de statusinformatie. Deze logboeken komen van pas bij het oplossen van problemen.
+   Uit Hallo-logboekbestanden ziet u Hallo Hive-query die is uitgevoerd en statusinformatie. Deze logboeken komen van pas bij het oplossen van problemen.
    Zie [Pijplijnen bewaken en beheren met Azure Portal-blades](data-factory-monitor-manage-pipelines.md) voor meer informatie.
 
 > [!IMPORTANT]
-> Het invoerbestand wordt verwijderd zodra het segment is verwerkt. Als u het segment dus opnieuw wilt uitvoeren of als u de zelfstudie opnieuw wilt doorlopen, uploadt u het invoerbestand (input.log) naar de map met invoergegevens van de container adfgetstarted.
+> Hallo-invoerbestand wordt verwijderd zodra het Hallo-segment is verwerkt. Als u toorerun Hallo segment of zelfstudie opnieuw hello, dus Hallo invoerbestand (input.log) toohello inputdata map van de container adfgetstarted Hallo uploadt.
 >
 >
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>De pijplijn bewaken met de app Bewaking en beheer
-U kunt de toepassing Bewaking en beheer ook gebruiken om uw pijplijnen te bewaken. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
+U kunt ook controleren en beheren van toepassing toomonitor uw pijplijnen. Zie [Azure Data Factory-pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
 
-1. Klik op de tegel **Bewaking en beheer** op de startpagina van uw gegevensfactory.
+1. Klik op **Monitor & beheren** tegel op Hallo-startpagina van uw gegevensfactory.
 
     ![De tegel Bewaking en beheer](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
-2. De toepassing **Bewaking en beheer** wordt weergegeven. Wijzig **Begintijd** en **Eindtijd** zodanig dat deze overeenkomen met de starttijd en de eindtijd van uw pijplijn. Klik vervolgens op **Toepassen**.
+2. De toepassing **Bewaking en beheer** wordt weergegeven. Wijziging Hallo **begintijd** en **eindtijd** toomatch start en eindtijd van de pijplijn en op **toepassen**.
 
     ![De app Bewaking en beheer](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
-3. Selecteer een activiteitsvenster in de lijst **Activiteitsvensters** voor details van dit venster.
+3. Selecteer een venster van de activiteit in Hallo **Activiteitsvensters** toosee details over deze lijst.
 
     ![Details van activiteitsvenster](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
 ## <a name="summary"></a>Samenvatting
-In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt voor het verwerken van gegevens. Dit hebt u gedaan door Hive-script uit te voeren op een HDInsight Hadoop-cluster. U hebt in de Azure Portal de Data Factory-editor gebruikt om de volgende stappen uit te voeren:  
+In deze zelfstudie maakt u een Azure data factory tooprocess gegevens gemaakt door het Hive-script uitvoeren op een HDInsight hadoop-cluster. U hebt gebruikt Hallo Data Factory-Editor in hello Azure portal toodo Hallo stappen te volgen:  
 
 1. U hebt een Azure-**gegevensfactory** gemaakt.
 2. U hebt twee **gekoppelde services** gemaakt:
-   1. Een gekoppelde **Azure Storage**-service om te koppelen aan de Azure-blobopslag die de invoer-/uitvoerbestanden van de gegevensfactory bevat.
-   2. Een gekoppelde on-demand **Azure HDInsight**-service om te koppelen aan een on-demand HDInsight Hadoop-cluster van de gegevensfactory. Azure Data Factory maakt op tijd een HDInsight Hadoop-cluster om invoergegevens te verwerken en uitvoergegevens te produceren.
-3. U hebt twee **gegevenssets** gemaakt, waarin de invoer- en uitvoergegevens van de HDInsight Hive-activiteit in de pijplijn worden beschreven.
+   1. **Azure Storage** gekoppelde service toolink uw Azure-blobopslag die invoer-/ uitvoerbestanden toohello data factory.
+   2. **Azure HDInsight** op aanvraag gekoppelde service toolink een bellen op HDInsight Hadoop-cluster toohello data factory. Azure Data Factory maakt een HDInsight Hadoop-cluster just in time tooprocess invoergegevens en uitvoergegevens produceren.
+3. Twee gemaakt **gegevenssets**, die invoer- en gegevens voor HDInsight Hive-activiteit in Hallo pijplijn worden beschreven.
 4. U hebt een **pijplijn** gemaakt met een **HDInsight Hive**-activiteit.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. Zie [Zelfstudie: gegevens van een Azure-blob kopiëren naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruik van een kopieeractiviteit om gegevens van een Azure-blob te kopiëren naar Azure SQL.
+In dit artikel hebt u een pijplijn gemaakt met een transformatieactiviteit (HDInsight-activiteit) waarvoor een Hive-script wordt uitgevoerd op een on-demand HDInsight-cluster. hoe de gegevens van een Kopieeractiviteit toocopy van een Azure Blob-tooAzure SQL, toouse zien toosee [zelfstudie: gegevens kopiëren van een Azure blob-tooAzure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Zie ook
 | Onderwerp | Beschrijving |
 |:--- |:--- |
-| [Pijplijnen](data-factory-create-pipelines.md) |Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in Azure Data Factory en in de wijze waarop u deze kunt gebruiken om end-to-end gegevensgestuurde werkstromen te maken voor uw scenario of bedrijf. |
+| [Pijplijnen](data-factory-create-pipelines.md) |In dit artikel helpt u begrijpen pijplijnen en activiteiten in Azure Data Factory en hoe toouse ze tooconstruct end-to-end gegevensgestuurde werkstromen voor uw scenario of bedrijf. |
 | [Gegevenssets](data-factory-create-datasets.md) |Op basis van dit artikel krijgt u inzicht in de gegevenssets in Azure Data Factory. |
-| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |In dit artikel wordt uitleg gegeven over de plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
-| [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |In dit artikel wordt beschreven hoe u pijplijnen bewaakt en beheert en hoe u fouten hierin oplost met de app voor bewaking en beheer. |
+| [Plannen en uitvoeren](data-factory-scheduling-and-execution.md) |Dit artikel wordt uitgelegd Hallo plannings- en uitvoeringsaspecten van het Azure Data Factory-toepassingsmodel. |
+| [Pijplijnen bewaken en beheren met de app voor bewaking en beheer](data-factory-monitor-manage-app.md) |Dit artikel wordt beschreven hoe toomonitor, beheren en fouten opsporen in pijplijnen met behulp van Hallo voor bewaking en beheer-App. |

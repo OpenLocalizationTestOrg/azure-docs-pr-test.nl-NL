@@ -1,6 +1,6 @@
 ---
-title: Detecteren gezichts- en Emotion met Azure Media Analytics | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe vlakken en emoties met Azure Media Analytics te detecteren.
+title: aaaDetect gezichts- en Emotion met Azure Media Analytics | Microsoft Docs
+description: In dit onderwerp wordt beschreven hoe toodetect bespreekt en emoties met Azure Media Analytics.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,45 +14,45 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: d7f3bc6c0d21db7adbb0c16c752d4ce49e99da5a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f58d81d82dde08a694cdb4d92c6bab6a40a9c157
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Face en Emotion met Azure Media Analytics detecteren
 ## <a name="overview"></a>Overzicht
-De **Azure Media Face detectie** Mediaprocessor (MP) kunt u tellen en zelfs te meten wat doelgroep deelname en reactie via bedacht bewegingen bijhouden. Deze service bevat twee functies: 
+Hallo **Azure Media Face detectie** Mediaprocessor (MP) kunt u toocount, de bewegingen bijhouden, en zelfs meter doelgroep deelname en reactie via bedacht. Deze service bevat twee functies: 
 
 * **Face-detectie**
   
-    Face-detectie zoekt en houdt menselijke vlakken binnen een video. Meerdere vlakken kunnen worden gedetecteerd en vervolgens worden bijgehouden als ze onderweg, met de metagegevens van de tijd en de locatie in een JSON-bestand geretourneerd. Tijdens de bijhouden, wordt geprobeerd een consistente ID geven tot de dezelfde face terwijl de persoon is navigeren op het scherm, zelfs als ze zijn ondervindt hinder van obstakels of kort het frame laat.
+    Face-detectie zoekt en houdt menselijke vlakken binnen een video. Meerdere vlakken kunnen worden gedetecteerd en vervolgens worden bijgehouden als ze onderweg, met Hallo-metagegevens en de locatie geretourneerd in een JSON-bestand. Tijdens de bijhouden, wordt geprobeerd toogive een consistente ID toohello dezelfde geconfronteerd terwijl Hallo persoon is navigeren op het scherm, zelfs als ze zijn ondervindt hinder van obstakels of kort Hallo frame laat.
   
   > [!NOTE]
-  > Deze service voert geen gezichtsherkenning. Een persoon die het frame verlaat of ondervindt voor wordt hinder van obstakels te lang krijgt een nieuwe ID wanneer ze terugkeren.
+  > Deze service voert geen gezichtsherkenning. Een persoon die Hallo frame verlaat of ondervindt voor wordt hinder van obstakels te lang krijgt een nieuwe ID wanneer ze terugkeren.
   > 
   > 
 * **Emotiedetectie**
   
-    Emotiedetectie is een optioneel onderdeel van de Processor Face Detection Media die analyse op meerdere emotionele kenmerken van de vlakken gedetecteerd retourneert, met inbegrip van gelukkig, sadness bang, volgt uitzien en meer. 
+    Emotiedetectie is een optioneel onderdeel van Hallo Face Detection Media Processor op dat analyse op meerdere emotionele kenmerken van Hallo vlakken gedetecteerd retourneert, met inbegrip van gelukkig, sadness bang, volgt uitzien en meer. 
 
-De **Azure Media Face detectie** MP is momenteel in Preview.
+Hallo **Azure Media Face detectie** MP is momenteel in Preview.
 
-Dit onderwerp bevat informatie over **Azure Media Face detectie** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET.
+Dit onderwerp bevat informatie over **Azure Media Face detectie** en ziet u hoe toouse met Media Services SDK voor .NET.
 
 ## <a name="face-detector-input-files"></a>Detectie-invoerbestanden geconfronteerd
-Videobestanden. Op dit moment wordt de volgende indelingen worden ondersteund: MP4 MOV en WMV.
+Videobestanden. Op dit moment Hallo volgende indelingen worden ondersteund: MP4 MOV en WMV.
 
 ## <a name="face-detector-output-files"></a>Detectie uitvoerbestanden geconfronteerd
-De face-API voor detectie en bijhouden biedt hoge precisie face locatie detectie en bijhouden die maximaal 64 menselijke vlakken in een video kan detecteren. Voorzijde vlakken bieden de beste resultaten, terwijl side vlakken en in kleine vlakken (kleiner dan of gelijk aan 24 x 24 pixels) mogelijk niet nauwkeurig.
+Hallo face detection en bijhouden API biedt hoge precisie face locatie detectie en bijhouden die up too64 menselijke vlakken in een video kan detecteren. Voorzijde vlakken bieden de beste resultaten Hallo tijdens vlakken kant- en kleine vlakken (minder dan of gelijk zijn aan too24x24 pixels) mogelijk niet nauwkeurig.
 
-De vlakken gedetecteerde en bijgehouden met coördinaten (links, top, breedte en hoogte) worden geretourneerd die de locatie van vlakken in de afbeelding in pixels, evenals een face-id die aangeeft dat afzonderlijke volgen. Face-id-nummers zijn kwetsbaar voor opnieuw omstandigheden worden ingesteld als de voorzijde face verloren is gegaan of elkaar overlappen in het kader waardoor bepaalde personen ophalen van meerdere id's toegewezen.
+Hallo gedetecteerde en bijgehouden vlakken worden geretourneerd met coördinaten (links, top, breedte en hoogte) Hallo-locatie van vlakken in Hallo afbeelding in pixels die aangeeft, evenals een face ID getal dat aangeeft dat afzonderlijke bijhouden Hallo. Face-id-nummers zijn foutgevoelige tooreset omstandigheden wanneer Hallo voorzijde face verloren is gegaan of elkaar overlappen in Hallo-frame, waardoor bepaalde personen ophalen van meerdere id's toegewezen.
 
-## <a id="output_elements"></a>Elementen van de JSON-bestand voor uitvoer
+## <a id="output_elements"></a>Elementen van Hallo uitvoer JSON-bestand
 
 [!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
-Face-detectie maakt gebruik van technieken van fragmentatie (waar de metagegevens kan worden opgedeeld in segmenten op basis van tijd en u kunt downloaden wat u nodig hebt) en segmentering (waar de gebeurtenissen worden opgedeeld geval ze te groot krijgen). Enkele eenvoudige berekeningen kunt u de gegevens transformeren. Bijvoorbeeld, als een gebeurtenis wordt gestart om 6300 (maten) met een tijdschaal van 2997 (ticks per seconde) en framesnelheid van vervolgens 29,97 (frames per seconde):
+Face-detectie maakt gebruik van technieken van fragmentatie (waarbij Hallo metagegevens kan worden opgesplitst in segmenten op basis van tijd en u kunt downloaden wat u nodig hebt) en segmentering (waarbij Hallo gebeurtenissen worden opgedeeld geval ze te groot krijgen). Enkele eenvoudige berekeningen kunt u Hallo gegevens transformeren. Bijvoorbeeld, als een gebeurtenis wordt gestart om 6300 (maten) met een tijdschaal van 2997 (ticks per seconde) en framesnelheid van vervolgens 29,97 (frames per seconde):
 
 * Start/tijdschaal = 2.1 seconden
 * Seconden x Framerate 63 frames =
@@ -62,7 +62,7 @@ Face-detectie maakt gebruik van technieken van fragmentatie (waar de metagegeven
 [Invoervideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
-Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. De volgende configuratie-definitie is slechts voor face detection.
+Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. Hallo na configuratie definitie is slechts voor face detection.
 
     {
       "version":"1.0",
@@ -77,7 +77,7 @@ Bij het maken van een taak met **Azure Media Face detectie**, moet u een configu
 | Modus |Snel - verwerking snel van de snelheid, maar minder nauwkeurig (standaard).|
 
 ### <a name="json-output"></a>JSON-uitvoer
-Het volgende voorbeeld van JSON-uitvoer is afgebroken.
+Voorbeeld van JSON-uitvoer na Hallo is afgebroken.
 
     {
     "version": 1,
@@ -131,7 +131,7 @@ Het volgende voorbeeld van JSON-uitvoer is afgebroken.
 [Invoervideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Taken configureren (standaardoptie)
-Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. De volgende configuratie voorinstelling geeft als u wilt maken op basis van de emotiedetectie JSON.
+Bij het maken van een taak met **Azure Media Face detectie**, moet u een configuratie-definitie opgeven. Hallo na configuratie voorinstelling geeft toocreate die JSON op basis van Hallo emotiedetectie.
 
     {
       "version": "1.0",
@@ -147,11 +147,11 @@ Bij het maken van een taak met **Azure Media Face detectie**, moet u een configu
 | Naam van kenmerk | Beschrijving |
 | --- | --- |
 | Modus |Vlakken: Komen alleen voor detectie.<br/>PerFaceEmotion: Retourneren emotion onafhankelijk voor elke face-detectie.<br/>AggregateEmotion: Return gemiddelde emotion waarden voor alle vlakken in frame. |
-| AggregateEmotionWindowMs |Gebruik deze optie als AggregateEmotion modus geselecteerd. Hiermee geeft u de lengte van video gebruikt voor het produceren van elk cumulatieve resultaat, in milliseconden. |
-| AggregateEmotionIntervalMs |Gebruik deze optie als AggregateEmotion modus geselecteerd. Hiermee geeft u aan met welke frequentie voor het produceren van statistische resultaten. |
+| AggregateEmotionWindowMs |Gebruik deze optie als AggregateEmotion modus geselecteerd. Hiermee geeft u Hallo lengte van video gebruikte tooproduce elk cumulatieve resultaat in milliseconden. |
+| AggregateEmotionIntervalMs |Gebruik deze optie als AggregateEmotion modus geselecteerd. Hiermee geeft u aan met welke frequentie tooproduce statistische functie resulteert. |
 
 #### <a name="aggregate-defaults"></a>Cumulatieve standaardinstellingen
-Hieronder worden aanbevolen waarden voor de cumulatieve venster en interval-instellingen. AggregateEmotionWindowMs mag niet langer zijn dan AggregateEmotionIntervalMs.
+Hieronder worden aanbevolen waarden voor statistische vensterfunctie hello en intervalinstellingen. AggregateEmotionWindowMs mag niet langer zijn dan AggregateEmotionIntervalMs.
 
 || Standaardinstellingen (s) | Min(s) | Max(s) |
 |--- | --- | --- | --- |
@@ -313,26 +313,26 @@ JSON-uitvoer voor cumulatieve emotion (afgekapt):
                  "fear": 0,
 
 ## <a name="limitations"></a>Beperkingen
-* De ondersteunde video-invoerindelingen zijn MP4 MOV en WMV.
-* Het bereik van de grootte waarneembaar face is 24 x 24 naar 2048 x 2048 pixels. De vlakken buiten dit bereik wordt niet gedetecteerd.
-* Voor elke video is het maximum aantal vlakken geretourneerd 64.
-* Sommige vlakken kunnen niet worden herkend vanwege technische moeilijkheden; bijvoorbeeld zeer grote face hoeken (head-ven) en grote Occlusie. Voorzijde en in de buurt binnen handbereik vlakken hebben de beste resultaten.
+* Hallo ondersteund video-invoerindelingen zijn MP4 MOV en WMV.
+* Hallo waarneembaar face grootte bereik is 24 x 24 too2048x2048 pixels. Hallo vlakken buiten dit bereik wordt niet gedetecteerd.
+* Maximum aantal vlakken geretourneerd Hallo is voor elke video 64.
+* Sommige vlakken mogelijk niet gedetecteerd vanwege tootechnical uitdagingen; bijvoorbeeld zeer grote face hoeken (head-ven) en grote Occlusie. Voorzijde en in de buurt binnen handbereik hebt Hallo krijgt de beste resultaten.
 
 ## <a name="net-sample-code"></a>Voorbeeldcode voor .NET
 
-De volgende programma toont hoe:
+Hallo volgende programma toont hoe:
 
-1. Maak een asset en upload een mediabestand naar de asset.
-2. Een taak maken met een face detection-taak op basis van een configuratiebestand met de volgende json-definitie. 
+1. Maak een asset en upload een mediabestand naar Hallo asset.
+2. Een taak maken met een face detection-taak op basis van een configuratiebestand met Hallo json-definitie te volgen. 
    
         {
             "version": "1.0"
         }
-3. De uitvoer JSON-bestanden downloaden. 
+3. Hallo uitvoer JSON-bestanden downloaden. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
+Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Voorbeeld
 
@@ -363,17 +363,17 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run the FaceDetection job.
+                // Run hello FaceDetection job.
                 var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
                                             @"C:\supportFiles\FaceDetection\config.json");
 
-                // Download the job output asset.
+                // Download hello job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
             }
 
             static IAsset RunFaceDetectionJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload the input media file to storage.
+                // Create an asset and upload hello input media file toostorage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My Face Detection Input Asset",
                     AssetCreationOptions.None);
@@ -381,38 +381,38 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My Face Detection Job");
 
-                // Get a reference to Azure Media Face Detector.
+                // Get a reference tooAzure Media Face Detector.
                 string MediaProcessorName = "Azure Media Face Detector";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from the specified file.
+                // Read configuration from hello specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with the encoding details, using a string preset.
+                // Create a task with hello encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My Face Detection Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify the input asset.
+                // Specify hello input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset to contain the results of the job.
+                // Add an output asset toocontain hello results of hello job.
                 task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
 
-                // Use the following event handler to check job progress.  
+                // Use hello following event handler toocheck job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch the job.
+                // Launch hello job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish.
+                // Check job execution and wait for job toofinish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, the event handling
+                // If job state is Error, hello event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

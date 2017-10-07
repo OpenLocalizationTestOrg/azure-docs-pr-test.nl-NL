@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met Hive-activiteit - Azure | Microsoft Docs
-description: Meer informatie over hoe u de Hive-activiteit in een Azure data factory kunt gebruiken voor Hive-query's uitvoeren op een op-verzoek/uw eigen HDInsight-cluster.
+title: aaaTransform-gegevens met behulp van Hive-activiteit - Azure | Microsoft Docs
+description: Meer informatie over hoe u Hallo Hive-activiteit in een Azure data factory toorun Hive-query's kunt gebruiken op een op-verzoek/uw eigen HDInsight-cluster.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: a3e9b2d0a8c851939acd228d8086ddfc9f38a4c1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 032400cdb8e8f9873f85b811b4ad7380f4410edf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformeer gegevens met Hive-activiteit in Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,10 +33,10 @@ ms.lasthandoff: 07/11/2017
 > * [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
-De HDInsight Hive-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) Hive-query's uitvoert op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
+Hallo HDInsight Hive-activiteit in een Gegevensfactory [pijplijn](data-factory-create-pipelines.md) Hive-query's uitvoert op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op Hallo [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en activiteiten voor gegevenstransformatie Hallo ondersteund toont.
 
 > [!NOTE] 
-> Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en voer de zelfstudie: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
+> Als u nieuwe tooAzure Data Factory, Lees [inleiding tooAzure Data Factory](data-factory-introduction.md) en zelfstudie Hallo: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -72,20 +72,20 @@ De HDInsight Hive-activiteit in een Data Factory [pijplijn](data-factory-create-
 ## <a name="syntax-details"></a>Details van de syntaxis
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| naam |Naam van de activiteit |Ja |
-| Beschrijving |Beschrijving van wat de activiteit wordt gebruikt |Nee |
+| naam |Naam van de activiteit Hallo |Ja |
+| description |Tekst die beschrijft wat Hallo-activiteit wordt gebruikt voor |Nee |
 | type |HDinsightHive |Ja |
-| Invoer |Invoer gebruikt door het Hive-activiteit |Nee |
-| uitvoer |Uitvoer geproduceerd door de Hive-activiteit |Ja |
-| linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in de Data Factory |Ja |
-| Script |Geef de inline Hive-script |Nee |
-| scriptpad |Het Hive-script opslaat in Azure blob storage en geef het pad naar het bestand. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
-| Hiermee worden gedefinieerd |Geef parameters op als sleutel-waardeparen voor verwijzende binnen het Hive-script met behulp van 'hiveconf' |Nee |
+| Invoer |Invoer gebruikt door Hallo Hive-activiteit |Nee |
+| uitvoer |Uitvoer geproduceerd door Hallo Hive-activiteit |Ja |
+| linkedServiceName |HDInsight-cluster voor verwijzing toohello is geregistreerd als een gekoppelde service in de Data Factory |Ja |
+| Script |Hallo Hive-script inline opgeven |Nee |
+| scriptpad |Hallo archief Hive-script in een Azure blob storage en geef Hallo pad toohello bestand. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. Hallo-bestandsnaam is hoofdlettergevoelig. |Nee |
+| Hiermee worden gedefinieerd |Geef parameters op als sleutel-waardeparen voor verwijzende binnen Hallo Hive-script met behulp van 'hiveconf' |Nee |
 
 ## <a name="example"></a>Voorbeeld
-Laten we eens een voorbeeld van een game logboeken analytics waar u de tijd die door gebruikers spelen van games gestart door uw bedrijf identificeren. 
+Laten we eens een voorbeeld van een game logboeken analytics waar u tooidentify Hallo tijd besteed door gebruikers spelen van games gestart door uw bedrijf. 
 
-Het volgende logboek is een game voorbeeldlogboek, komma (`,`) gescheiden en bevat de volgende velden: ProfileID, SessionStart, duur, SrcIPAddress en GameType.
+Hallo volgende logboek is een game voorbeeldlogboek, komma (`,`) gescheiden en bevat de volgende velden – ProfileID, SessionStart, duur, SrcIPAddress en GameType Hallo.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -95,7 +95,7 @@ Het volgende logboek is een game voorbeeldlogboek, komma (`,`) gescheiden en bev
 .....
 ```
 
-De **Hive-script** voor het verwerken van deze gegevens:
+Hallo **Hive-script** tooprocess deze gegevens:
 
 ```
 DROP TABLE IF EXISTS HiveSampleIn; 
@@ -122,18 +122,18 @@ Select
 FROM HiveSampleIn Group by ProfileID
 ```
 
-Voor het uitvoeren van deze Hive-script in een Data Factory-pijplijn, moet u het volgende doen
+tooexecute deze Hive-script in een Data Factory-pijplijn, moet u toodo Hallo volgende
 
-1. Maken van een gekoppelde service te registreren [uw eigen HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of Configureer [op aanvraag HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). We bellen deze gekoppelde service 'HDInsightLinkedService'.
-2. Maak een [gekoppelde service](data-factory-azure-blob-connector.md) voor het configureren van de verbinding met Azure-blobopslag die als host fungeert voor de gegevens. We bellen deze gekoppelde service 'StorageLinkedService'
-3. Maak [gegevenssets](data-factory-create-datasets.md) die verwijst naar de invoer- en uitvoergegevens. We bellen invoergegevensset 'HiveSampleIn' en de uitvoergegevensset 'HiveSampleOut'
-4. Kopieer de Hive-query als een bestand naar Azure Blob-opslag geconfigureerd in stap #2. Als de opslag voor het hosten van de gegevens af van de versie die als host fungeert voor deze query-bestand wijkt, een afzonderlijke gekoppelde Azure Storage-service maken en hiernaar wordt verwezen in de activiteit. Gebruik ** scriptPath ** om op te geven van het pad voor het hive-query-bestand en **scriptLinkedService** Azure-opslag met het scriptbestand opgeven. 
+1. Maken van een gekoppelde service tooregister [uw eigen HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of Configureer [op aanvraag HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). We bellen deze gekoppelde service 'HDInsightLinkedService'.
+2. Maak een [gekoppelde service](data-factory-azure-blob-connector.md) tooconfigure Hallo verbinding tooAzure blobopslag Hallo gegevens hosten. We bellen deze gekoppelde service 'StorageLinkedService'
+3. Maak [gegevenssets](data-factory-create-datasets.md) wijzen toohello invoer- en Hallo uitvoergegevens. We bellen Hallo invoergegevensset 'HiveSampleIn' en uitvoergegevensset 'HiveSampleOut' Hallo
+4. Hallo Hive-query als een bestand tooAzure Blob-opslag geconfigureerd in stap #2 kopiëren. Als opslag voor het hosten van gegevens Hallo Hallo van Hallo een host optreedt voor deze querybestand verschilt, een afzonderlijke gekoppelde Azure Storage-service maken en tooit in Hallo activiteit worden verwezen. Gebruik ** scriptPath ** toospecify Hallo pad toohive query-bestand en **scriptLinkedService** toospecify hello Azure-opslag met Hallo scriptbestand. 
    
    > [!NOTE]
-   > U kunt ook de Hive-script inline in de definitie van de activiteit opgeven met behulp van de **script** eigenschap. We raden niet aan deze methode als alle speciale tekens in het script in de JSON-document moet worden voorafgegaan en foutopsporing problemen kan veroorzaken. De aanbevolen procedure is stap #4.
+   > U kunt ook Hallo Hive-script inline in de definitie van de activiteit Hallo opgeven met behulp van Hallo **script** eigenschap. We raden deze methode niet als alle speciale tekens in Hallo script binnen Hallo JSON-document moet toobe escape-teken en mag oorzaak opsporen van problemen. Hallo aanbevolen procedure is toofollow stap #4.
    > 
    > 
-5. Een pijplijn maken met de HDInsightHive-activiteit. De activiteit processen/transformaties de gegevens.
+5. Een pijplijn maken met de Hallo HDInsightHive-activiteit. Hallo activiteit processen/transformaties Hallo-gegevens.
 
     ```JSON   
     {   
@@ -167,15 +167,15 @@ Voor het uitvoeren van deze Hive-script in een Data Factory-pijplijn, moet u het
         }
     }
     ```
-6. Implementeer de pijplijn. Zie [pijplijnen maken](data-factory-create-pipelines.md) artikel voor meer informatie. 
-7. De pijplijn met de data factory bewaking en beheer weergaven bewaken. Zie [controleren en beheren van de Data Factory-pijplijnen](data-factory-monitor-manage-pipelines.md) artikel voor meer informatie. 
+6. Implementeer Hallo pijplijn. Zie [pijplijnen maken](data-factory-create-pipelines.md) artikel voor meer informatie. 
+7. Hallo-pipeline met Hallo data factory-controle en beheerweergaven bewaken. Zie [controleren en beheren van de Data Factory-pijplijnen](data-factory-monitor-manage-pipelines.md) artikel voor meer informatie. 
 
 ## <a name="specifying-parameters-for-a-hive-script"></a>Parameters voor een Hive-script opgeven
-In dit voorbeeld game logboeken dagelijks in Azure Blob Storage zijn geconsumeerd en worden opgeslagen in een map die is gepartitioneerd met de datum en tijd. U wilt voorzien van het Hive-script en de locatie van de invoer dynamisch doorgeven tijdens runtime en ook produceren de uitvoer die is gepartitioneerd met de datum en tijd.
+In dit voorbeeld game logboeken dagelijks in Azure Blob Storage zijn geconsumeerd en worden opgeslagen in een map die is gepartitioneerd met de datum en tijd. U wilt tooparameterize Hallo Hive-script en Hallo invoermap locatie dynamisch doorgeven tijdens runtime en ook meerdere Hallo uitvoer gepartitioneerd met de datum en tijd.
 
-Als u wilt gebruiken met parameters Hive-script, doet u het volgende
+toouse geparametriseerde Hive-script, doet u Hallo na
 
-* Definieer de parameters in **definieert**.
+* Definieer de parameters Hallo in **definieert**.
 
     ```JSON  
     {
@@ -213,7 +213,7 @@ Als u wilt gebruiken met parameters Hive-script, doet u het volgende
       }
     }
     ```
-* In het Hive-Script verwijzen met de parameter via **${hiveconf:parameterName}**. 
+* In Hallo Hive-Script, verwijzen toohello met behulp van de parameter **${hiveconf:parameterName}**. 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

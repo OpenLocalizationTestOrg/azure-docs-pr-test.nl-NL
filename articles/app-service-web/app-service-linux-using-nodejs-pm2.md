@@ -1,5 +1,5 @@
 ---
-title: Met PM2 configuratie voor Node.js in Azure-Web-App op Linux | Microsoft Docs
+title: configuratie voor Node.js in Azure-Web-App op Linux aaaUsing PM2 | Microsoft Docs
 description: Met behulp van PM2-configuratie voor Node.js in Azure-Web-App op Linux
 keywords: Azure app service, web-app, nodejs, pm2, linux, oss
 services: app-service
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.openlocfilehash: 5002400a673e2c5cc4290bab488b839fb2282966
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 923783ffe656e01c43318899d1a656b553ebb5f2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-azure-web-app-on-linux"></a>PM2 configuratie gebruiken voor Node.js in Azure-Web-App op Linux
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-Als u de toepassing-stack ingesteld op Node.js voor Azure-Web-App op Linux, krijgt u de mogelijkheid om in te stellen van een Node.js opstartbestand, zoals weergegeven in de volgende afbeelding:
+Als u Hallo toepassing stack tooNode.js voor Azure-Web-App op Linux instellen, krijgt u Hallo optie tooset een Node.js-bestand voor opstarten zoals weergegeven in Hallo installatiekopie te volgen:
 
 ![Een Node.js-bestand voor opstarten][1]
 
-U kunt deze optie gebruiken om een van de volgende taken:
+U kunt deze optie toodo een Hallo taken te volgen:
 
-* Geef het opstartscript voor uw Node.js-app (bijvoorbeeld: /bin/server.js).
-* Geef de PM2 configuratiebestand moet worden gebruikt voor uw Node.js-app (bijvoorbeeld: /foo/process.json).
+* Geef het opstartscript Hallo voor uw Node.js-app (bijvoorbeeld: /bin/server.js).
+* Geef Hallo PM2 configuration file toouse voor uw Node.js-app (bijvoorbeeld: /foo/process.json).
   
   > [!NOTE]
-  > Als u wilt dat uw Node.js-processen worden automatisch opnieuw opgestart wanneer bepaalde bestanden zijn gewijzigd, gebruikt u de configuratie van de PM2. Uw toepassing won't anders wordt opnieuw opgestart na ontvangst van meldingen (bijvoorbeeld wanneer uw toepassingscode gewijzigd).
+  > Als u uw Node.js-processen toorestart automatisch wilt wanneer bepaalde bestanden zijn gewijzigd, moet u Hallo PM2 configuratie gebruiken. Uw toepassing won't anders wordt opnieuw opgestart na ontvangst van meldingen (bijvoorbeeld wanneer uw toepassingscode gewijzigd).
   > 
   > 
 
-U kunt de Node.js controleren [verwerken bestand documentatie](http://pm2.keymetrics.io/docs/usage/application-declaration/) voor alle opties maar volgende is een voorbeeld van wat u kunt gebruiken als uw bestand process.json:
+U kunt controleren Hallo Node.js [verwerken bestand documentatie](http://pm2.keymetrics.io/docs/usage/application-declaration/) voor alle opties hello, maar hier een voorbeeld volgt van wat u als uw bestand process.json gebruiken kunt:
 
         {
           "name"        : "worker",
@@ -56,12 +56,12 @@ U kunt de Node.js controleren [verwerken bestand documentatie](http://pm2.keymet
           }
         }
 
-Belangrijke opmerkingen in deze configuratie zijn:
+Belangrijke opmerkingen toonote in deze configuratie zijn:
 
-* De scripteigenschap '' geeft startscript van uw toepassing.
-* De eigenschap 'exemplaren' bepaalt hoeveel exemplaren van het knooppunt proces te starten. Als u uw toepassing op grotere virtuele machines die meerdere kernen hebben uitvoert, is het een goed idee om uw resources maximaliseren door een hogere waarde hier.
-* De matrix 'volgen' geeft alle bestanden die u het proces van het knooppunt voor het opnieuw opstarten wilt als ze wijzigen.
-* Voor de 'watch_options' moet u momenteel 'usePolling' opgeeft als waar vanwege de manier waarop die de inhoud van uw toepassing is gekoppeld.
+* de eigenschap 'script' Hello geeft startscript van uw toepassing.
+* Hallo 'exemplaren'-eigenschap geeft aan hoeveel exemplaren van Hallo knooppunt proces toolaunch. Als u uw toepassing op grotere virtuele machines die meerdere kernen hebben uitvoert, is het een goed idee toomaximize uw resources door een hogere waarde hier.
+* Hallo 'volgen' matrix geeft alle bestanden die u toorestart Hallo knooppunt proces voor wilt zien wanneer ze wijzigen.
+* Voor 'watch_options' hello moet momenteel u toospecify 'usePolling' als waar vanwege Hallo manier die de inhoud van uw toepassing is gekoppeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Wat is Azure-Web-App op Linux?](app-service-linux-intro.md)

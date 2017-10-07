@@ -1,6 +1,6 @@
 ---
-title: Werken met proxy's in Azure Functions | Microsoft Docs
-description: Overzicht van het gebruik van Azure Functions-proxy 's
+title: aaaWork met proxy's in Azure Functions | Microsoft Docs
+description: Overzicht van hoe toouse Azure Functions-proxy's
 services: functions
 documentationcenter: 
 author: mattchenderson
@@ -14,107 +14,107 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: mahender
-ms.openlocfilehash: 102e54627a8fee721d3ed85e86a8009e706bb5b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d94c89e8f8f2d2c771b01bae142bf9a4f3b7f2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Werken met Azure Functions-proxy's (preview)
 
 > [!NOTE] 
-> Azure Functions-proxy's is momenteel in preview. Het is gratis terwijl in preview, maar standaardfuncties facturering is van toepassing op de proxy-uitvoeringen. Zie voor meer informatie [prijzen van Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+> Azure Functions-proxy's is momenteel in preview. Het is gratis terwijl in preview, maar standaardfuncties facturering tooproxy uitvoeringen toegepast. Zie voor meer informatie [prijzen van Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-In dit artikel wordt uitgelegd hoe configureren en werken met Azure Functions-proxy's. Met deze functie kunt u eindpunten op de functie-app die zijn geïmplementeerd door een andere resource. U kunt deze proxy's gebruiken om een grote API in meerdere functie-apps (zoals in een microservice-architectuur), terwijl u nog steeds één API-gebied voor clients.
+Dit artikel wordt uitgelegd hoe tooconfigure en werken met Azure Functions-proxy's. Met deze functie kunt u eindpunten op de functie-app die zijn geïmplementeerd door een andere resource. Terwijl u nog steeds één API-gebied voor clients kunt u deze toobreak proxy's een grote API in meerdere functie-apps (zoals in een microservice-architectuur).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 
 ## <a name="enable"></a>Azure Functions-proxy's inschakelen
 
-Proxy's worden niet standaard ingeschakeld. U kunt proxy's kunt maken, terwijl de functie is uitgeschakeld, maar ze niet kan worden uitgevoerd. Als u wilt inschakelen op proxy's, het volgende doen:
+Proxy's worden niet standaard ingeschakeld. U kunt de proxy's maken bij het Hallo-functie is uitgeschakeld, maar ze niet kan worden uitgevoerd. tooenable proxy's, Hallo te volgen:
 
-1. Open de [Azure-portal], en gaat u naar de functie-app.
+1. Open Hallo [Azure-portal], en ga tooyour functie-app.
 2. Selecteer **werken app-instellingen**.
-3. Switch **inschakelen Azure Functions-proxy's (preview)** naar **op**.
+3. Switch **inschakelen Azure Functions-proxy's (preview)** te**op**.
 
-U kunt ook hier retourneren voor het bijwerken van de proxy-runtime, nieuwe functies beschikbaar komen.
+U kunt ook teruggaan hier tooupdate Hallo proxy runtime nieuwe functies beschikbaar komen.
 
 
 ## <a name="create"></a>Maken van een proxy
 
-Deze sectie wordt beschreven hoe u een proxy in de portal functies maken.
+Deze sectie leest u hoe toocreate een proxy in Hallo Functions-portal.
 
-1. Open de [Azure-portal], en gaat u naar de functie-app.
-2. Selecteer in het linkerdeelvenster **nieuwe proxy**.
+1. Open Hallo [Azure-portal], en ga tooyour functie-app.
+2. Selecteer in het linkerdeelvenster Hallo **nieuwe proxy**.
 3. Geef een naam voor de proxy.
-4. Het eindpunt dat wordt weergegeven op deze functie-app configureren door te geven de **Routesjabloon** en **HTTP-methoden**. Deze parameters zich gedragen volgens de regels voor [HTTP-triggers].
-5. Stel de **back-end-URL** naar een ander eindpunt. Dit eindpunt kan een functie in een andere functie-app, of andere API kan zijn. De waarde niet hoeft te worden statische en deze kan verwijzen naar [toepassingsinstellingen] en [parameters van de aanvraag van de oorspronkelijke client].
+4. Hallo-eindpunt dat wordt weergegeven op deze functie-app configureren door te geven van Hallo **Routesjabloon** en **HTTP-methoden**. Deze parameters zich gedragen volgens toohello regels voor [HTTP-triggers].
+5. Set Hallo **back-end-URL** tooanother eindpunt. Dit eindpunt kan een functie in een andere functie-app, of andere API kan zijn. Hallo waarde hoeft niet toobe statisch en deze kan verwijzen naar [toepassingsinstellingen] en [parameters uit de oorspronkelijke clientaanvraag Hallo].
 6. Klik op **Create**.
 
-De proxy bestaat nu als een nieuw eindpunt op functie-app. Vanuit het clientperspectief van een is het equivalent zijn aan een HttpTrigger in Azure Functions. U kunt uw nieuwe proxy uitproberen door te kopiëren van de Proxy-URL en testen van het met uw favoriete HTTP-client.
+De proxy bestaat nu als een nieuw eindpunt op functie-app. Vanuit het clientperspectief van een is het equivalent tooan HttpTrigger in Azure Functions. U kunt uw nieuwe proxy uitproberen door Hallo Proxy URL kopiëren en testen van het met uw favoriete HTTP-client.
 
 ## <a name="modify-requests-responses"></a>Aanvragen en antwoorden wijzigen
 
-U kunt met Azure Functions-proxy's, aanvragen en antwoorden van de back-end wijzigen. Deze transformaties kunnen variabelen gebruiken zoals gedefinieerd in [variabelen gebruiken].
+U kunt aanvragen tooand reacties van de back-end Hallo wijzigen met Azure Functions-proxy's. Deze transformaties kunnen variabelen gebruiken zoals gedefinieerd in [variabelen gebruiken].
 
-### <a name="modify-backend-request"></a>De back-end-aanvraag wijzigen
+### <a name="modify-backend-request"></a>Hallo back-end aanvraag wijzigen
 
-Standaard wordt de back-end-aanvraag geïnitialiseerd als een kopie van de oorspronkelijke aanvraag. Naast het instellen van de back-end-URL, kunt u wijzigingen aanbrengt aan de HTTP-methode, kopteksten en queryreeksparameters. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen] en [parameters van de aanvraag van de oorspronkelijke client].
+Hallo back-end-aanvraag is standaard geïnitialiseerd als een kopie van de oorspronkelijke aanvraag Hallo. Bovendien toosetting Hallo back-end-URL, kunt u wijzigingen toohello HTTP-methode, headers en querytekenreeksparameters. Hallo gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen] en [parameters uit de oorspronkelijke clientaanvraag Hallo].
 
-Er is momenteel geen portal ervaring voor het wijzigen van de back-end-aanvragen. Zie voor meer informatie over het toepassen van deze mogelijkheid van proxies.json, [definiëren van een object requestOverrides].
+Er is momenteel geen portal ervaring voor het wijzigen van de back-end-aanvragen. toolearn hoe tooapply deze mogelijkheid van proxies.json, Zie [definiëren van een object requestOverrides].
 
-### <a name="modify-response"></a>Het antwoord worden gewijzigd
+### <a name="modify-response"></a>Hallo-antwoord worden gewijzigd
 
-Het antwoord van de client wordt standaard geïnitialiseerd als een kopie van het back-end-antwoord. U kunt wijzigingen aanbrengen statuscode, reden, kopteksten en hoofdtekst van het antwoord. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen], [parameters van de aanvraag van de oorspronkelijke client], en [parameters uit het antwoord van de back-end].
+Standaard is antwoord Hallo-client als een kopie van het antwoord van de back-end Hallo geïnitialiseerd. U kunt wijzigingen toohello van code voor antwoordstatus, reden, kopteksten en hoofdtekst. Hallo gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen], [parameters uit de oorspronkelijke clientaanvraag Hallo], en [parameters uit het antwoord van de back-end Hallo].
 
-Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. Zie voor meer informatie over het toepassen van deze mogelijkheid van proxies.json, [definiëren van een object responseOverrides].
+Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. toolearn hoe tooapply deze mogelijkheid van proxies.json, Zie [definiëren van een object responseOverrides].
 
 ## <a name="using-variables"></a>Variabelen gebruiken
 
-De configuratie voor een proxy hoeft niet statisch. U kunt het gebruik van variabelen in de oorspronkelijke aanvraag, back-end antwoord of toepassingsinstellingen voorwaarde.
+Hallo-configuratie voor een proxy hoeft niet toobe statisch. U kunt deze voorwaarde toouse variabelen van de oorspronkelijke aanvraag hello, back-end-antwoord Hallo of toepassingsinstellingen.
 
 ### <a name="request-parameters"></a>Aanvraagparameters verwijzing
 
-U kunt de aanvraagparameters gebruiken als invoer voor de eigenschap van de back-end-URL of als onderdeel van het wijzigen van aanvragen en antwoorden. Sommige parameters kunnen afhankelijk zijn van de Routesjabloon die opgegeven in de base proxyconfiguratie en anderen kunnen afkomstig zijn uit de eigenschappen van de binnenkomende aanvraag.
+U kunt parameters van de aanvraag als eigenschap toohello back-end-URL-ingangen of als onderdeel van het wijzigen van aanvragen en antwoorden. Sommige parameters kunnen afhankelijk zijn van Hallo Routesjabloon die opgegeven in de base proxyconfiguratie Hallo en anderen kunnen afkomstig zijn uit de eigenschappen voor inkomende hello-aanvraag.
 
 #### <a name="route-template-parameters"></a>Route-Sjabloonparameters
-Parameters die worden gebruikt in de Routesjabloon zijn beschikbaar voor worden verwezen met de naam. De parameternamen moeten tussen accolades ({}).
+Parameters die worden gebruikt in de Routesjabloon Hallo zijn beschikbaar toobe waarnaar wordt verwezen door de naam. Hallo parameternamen zijn tussen accolades ({}).
 
-Bijvoorbeeld, als een proxy heeft een Routesjabloon zoals `/pets/{petId}`, de URL van de back-end kan de waarde van bevatten `{petId}`als in `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. Als het Routesjabloon wordt beëindigd in een jokerteken, zoals `/api/{*restOfPath}`, de waarde `{restOfPath}` is een tekenreeksrepresentatie van de resterende padsegmenten van de binnenkomende aanvraag.
+Bijvoorbeeld, als een proxy heeft een Routesjabloon zoals `/pets/{petId}`, Hallo back-end-URL kan bevatten Hallo-waarde van `{petId}`als in `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. Als Routesjabloon hello wordt beëindigd in een jokerteken, zoals `/api/{*restOfPath}`, Hallo waarde `{restOfPath}` is een tekenreeksrepresentatie van Hallo resterende padsegmenten van inkomende hello-aanvraag.
 
 #### <a name="additional-request-parameters"></a>Aanvullende aanvraagparameters
-Naast de sjabloonparameters route kunnen configuratiewaarden in de volgende waarden worden gebruikt:
+Bovendien toohello Sjabloonparameters routeren, Hallo volgende waarden kan worden gebruikt in configuratiewaarden:
 
-* **{request.method}** : De HTTP-methode die wordt gebruikt op de oorspronkelijke aanvraag.
-* **{request.headers. \<HeaderName is opgeslagen\>}**: een header die kan worden gelezen vanaf de oorspronkelijke aanvraag. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
-* **{request.querystring. \<ParameterName\>}**: een queryreeksparameter opgeven die kan worden gelezen vanaf de oorspronkelijke aanvraag. Vervang  *\<ParameterName\>*  met de naam van de parameter die u wilt lezen. Als de parameter niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{request.method}** : HTTP-methode die wordt gebruikt op de oorspronkelijke aanvraag Hallo Hallo.
+* **{request.headers. \<HeaderName is opgeslagen\>}**: een header die kan worden gelezen vanaf de oorspronkelijke aanvraag Hallo. Vervang  *\<HeaderName is opgeslagen\>*  met Hallo-naam van dat u wilt dat tooread Hallo-header. Als het Hallo-header wordt niet geleverd op Hallo aanvraag, worden Hallo waarde Hallo lege tekenreeks.
+* **{request.querystring. \<ParameterName\>}**: een queryreeksparameter opgeven die kan worden gelezen vanaf de oorspronkelijke aanvraag Hallo. Vervang  *\<ParameterName\>*  met Hallo naam van de gewenste tooread Hallo-parameter. Als het Hallo-parameter niet is opgenomen op Hallo aanvraag, worden Hallo waarde Hallo lege tekenreeks.
 
 ### <a name="response-parameters"></a>Verwijzing naar back-end antwoord parameters
 
-Antwoord parameters kunnen worden gebruikt als onderdeel van het wijzigen van het antwoord op de client. De volgende waarden kunnen worden gebruikt in configuratiewaarden:
+Antwoord parameters kunnen worden gebruikt als onderdeel van het Hallo-antwoord toohello client wijzigen. Hallo volgende waarden kan worden gebruikt in configuratiewaarden:
 
-* **{backend.response.statusCode}** : De HTTP-statuscode die op de back-end-antwoord wordt geretourneerd.
-* **{backend.response.statusReason}** : De HTTP-reden dat wordt geretourneerd van het back-end-antwoord.
-* **{backend.response.headers. \<HeaderName is opgeslagen\>}**: een koptekst die kan worden gelezen uit het antwoord van de back-end. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{backend.response.statusCode}** : HTTP-statuscode geretourneerd op antwoord van de back-end Hallo Hallo.
+* **{backend.response.statusReason}** : Hallo HTTP reden dat op antwoord van de back-end Hallo wordt geretourneerd.
+* **{backend.response.headers. \<HeaderName is opgeslagen\>}**: een header die kan worden gelezen vanaf de back-end-antwoord Hallo. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van Hallo header Hallo gewenste tooread. Als het Hallo-header wordt niet geleverd op Hallo aanvraag, worden Hallo waarde Hallo lege tekenreeks.
 
 ### <a name="use-appsettings"></a>Toepassingsinstellingen-verwijzing
 
-U kunt ook verwijzen naar [toepassingsinstellingen gedefinieerd voor de functie-app](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) door de naam van de instelling tussen procenttekens (%).
+U kunt ook verwijzen naar [toepassingsinstellingen gedefinieerd voor de functie-app Hallo](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) door Hallo Instellingsnaam tussen procenttekens (%).
 
-Bijvoorbeeld, een back-end-URL van *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST %" vervangen door de waarde van de instelling ORDER_PROCESSING_HOST zou hebben.
+Bijvoorbeeld, een back-end-URL van *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST %" vervangen door de waarde Hallo van Hallo ORDER_PROCESSING_HOST instelling zou hebben.
 
 > [!TIP] 
-> Toepassingsinstellingen voor back-end-hosts gebruiken wanneer u meerdere implementaties of testomgeving. Op die manier kunt u ervoor zorgen dat u altijd communiceren met de juiste back-end voor deze omgeving communiceren.
+> Toepassingsinstellingen voor back-end-hosts gebruiken wanneer u meerdere implementaties of testomgeving. Op die manier kunt u ervoor zorgen dat u altijd praten toohello terugkeren beëindigen voor die omgeving.
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
-De proxy's die u configureert, worden opgeslagen in een bestand proxies.json, dat in de hoofdmap van een functie app-map bevindt zich. U kunt handmatig bewerken van dit bestand en implementeren als onderdeel van uw app als u een van de [implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) die functies worden ondersteund. De functie moet [ingeschakeld](#enable) het bestand moet worden verwerkt. 
+Hallo-proxy's die u configureert, worden opgeslagen in een proxies.json-bestand bevindt zich in de hoofdmap Hallo van een functie app-map. U handmatig dit bestand bewerken en implementeren als onderdeel van uw app als u een Hallo [implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) die functies worden ondersteund. Hallo-functie moet [ingeschakeld](#enable) voor Hallo bestand toobe verwerkt. 
 
 > [!TIP] 
-> Als u geen hebt ingesteld een van de methoden voor het implementeren, kunt u ook werken met het bestand proxies.json in de portal. Ga naar de functie-app, selecteer **platformfuncties**, en selecteer vervolgens **App Service-Editor**. Door dit te doen, kunt u de volledige structuur van uw app functie weergeven en brengt wijzigingen.
+> Als u hebt niet een van de methoden voor het implementeren van hello, kunt u ook werken met Hallo proxies.json bestand in Hallo-portal. Ga tooyour functie-app, selecteer **platformfuncties**, en selecteer vervolgens **App Service-Editor**. U kunt op deze manier Hallo hele bestandsstructuur van uw app functie bekijken en brengt wijzigingen aan.
 
-Proxies.JSON wordt gedefinieerd door een object proxy's, die bestaan uit benoemde proxy's en de bijbehorende definities. Eventueel, als uw editor ondersteunt, kunt u verwijzen naar een [JSON-schema](http://json.schemastore.org/proxies) voor de codevoltooiing. Een voorbeeld van een bestand kan er als volgt uitzien:
+Proxies.JSON wordt gedefinieerd door een object proxy's, die bestaan uit benoemde proxy's en de bijbehorende definities. Eventueel, als uw editor ondersteunt, kunt u verwijzen naar een [JSON-schema](http://json.schemastore.org/proxies) voor de codevoltooiing. Een voorbeeld van een bestand lijkt Hallo volgende:
 
 ```json
 {
@@ -131,29 +131,29 @@ Proxies.JSON wordt gedefinieerd door een object proxy's, die bestaan uit benoemd
 }
 ```
 
-Elke proxy heeft een beschrijvende naam, zoals *proxy1* in het voorgaande voorbeeld. Het bijbehorende proxy definitie van object wordt gedefinieerd door de volgende eigenschappen:
+Elke proxy heeft een beschrijvende naam, zoals *proxy1* in het voorgaande voorbeeld Hallo. Hallo bijbehorende proxy definitie van object wordt gedefinieerd door Hallo volgende eigenschappen:
 
-* **matchCondition**: vereist--een object voor het definiëren van de aanvragen die de uitvoering van deze proxy activeren. Deze twee eigenschappen die worden gedeeld met bevat [HTTP-triggers]:
-    * _methoden_: een matrix van de HTTP-methoden die de proxy reageert op. Als deze niet is opgegeven, wordt de proxy reageert op HTTP-methoden worden op de route.
-    * _route_: vereist--definieert het Routesjabloon beheren die aanvragen URL's van uw proxy reageert op. In tegenstelling tot in de HTTP-triggers is er geen standaardwaarde.
-* **backendUri**: de URL van de back-end-resource waarnaar de aanvraag via proxy moet. Deze waarde kan verwijzen naar toepassingsinstellingen en parameters van de aanvraag van de oorspronkelijke client. Als deze eigenschap niet opgenomen is, wordt Azure Functions reageert met een HTTP 200 OK.
-* **requestOverrides**: een object dat transformaties de back-end-aanvraag bepaalt. Zie [definiëren van een object requestOverrides].
-* **responseOverrides**: een object dat transformaties aan de reactie van de client bepaalt. Zie [definiëren van een object responseOverrides].
+* **matchCondition**: vereist--een object definiëren Hallo-aanvragen die Hallo uitvoering van deze proxy activeren. Deze twee eigenschappen die worden gedeeld met bevat [HTTP-triggers]:
+    * _methoden_: een matrix van Hallo HTTP-methoden die Hallo proxy reageert op. Als deze niet is opgegeven, reageert Hallo proxy tooall HTTP-methoden op Hallo route.
+    * _route_: vereist--definieert Hallo-Routesjabloon beheren die aanvragen URL's van uw proxy reageert op. In tegenstelling tot in de HTTP-triggers is er geen standaardwaarde.
+* **backendUri**: Hallo-URL van Hallo back-end-resource toowhich Hallo aanvraag moet via proxy. Deze waarde kan verwijzen naar toepassingsinstellingen en parameters van de oorspronkelijke clientaanvraag Hallo. Als deze eigenschap niet opgenomen is, wordt Azure Functions reageert met een HTTP 200 OK.
+* **requestOverrides**: een object dat transformaties toohello back-end-aanvraag bepaalt. Zie [definiëren van een object requestOverrides].
+* **responseOverrides**: een object dat transformaties toohello client antwoord bepaalt. Zie [definiëren van een object responseOverrides].
 
 > [!NOTE] 
-> De eigenschap route Azure Functions-proxy's worden niet door de eigenschap routePrefix van de host-configuratie van functies. Als u opnemen een voorvoegsel zoals /api wilt, moet worden opgenomen in de route-eigenschap.
+> Hallo route eigenschap Azure Functions-proxy's worden niet door Hallo routePrefix eigenschap van hostconfiguratie Hallo-functies. Als u een voorvoegsel zoals /api tooinclude wilt, moet worden opgenomen in Hallo route-eigenschap.
 
 ### <a name="requestOverrides"></a>Een object requestOverrides definiëren
 
-Het object requestOverrides definieert wijzigingen aangebracht aan de aanvraag toen de back-end-bron wordt aangeroepen. Het object wordt gedefinieerd door de volgende eigenschappen:
+Hallo requestOverrides object definieert toohello aanvraag voor wijzigingen als Hallo back-end bron wordt aangeroepen. Hallo-object wordt gedefinieerd door Hallo volgende eigenschappen:
 
-* **backend.Request.Method**: de HTTP-methode die wordt gebruikt voor het aanroepen van de back-end.
-* **backend.Request.QueryString. \<ParameterName\>**: een queryreeksparameter opgeven die kan worden ingesteld voor het aanroepen van de back-end. Vervang  *\<ParameterName\>*  met de naam van de parameter die u wilt instellen. Als de lege tekenreeks is opgegeven, wordt de parameter niet opgenomen in de back-end-aanvraag.
-* **backend.Request.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor het aanroepen van de back-end. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de koptekst niet opgenomen in de back-end-aanvraag.
+* **backend.Request.Method**: Hallo HTTP-methode die is gebruikt toocall Hallo back-end.
+* **backend.Request.QueryString. \<ParameterName\>**: een queryreeksparameter opgeven die kan worden ingesteld voor Hallo toohello back-end-aanroep. Vervang  *\<ParameterName\>*  met Hallo naam van de gewenste tooset Hallo-parameter. Als Hallo lege tekenreeks is opgegeven, wordt Hallo-parameter is niet opgenomen op Hallo back-end-aanvraag.
+* **backend.Request.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor Hallo toohello back-end-aanroep. Vervang  *\<HeaderName is opgeslagen\>*  met Hallo-naam van dat u wilt dat tooset Hallo-header. Als u een lege tekenreeks Hallo opgeeft, wordt Hallo-header is niet opgenomen op Hallo back-end-aanvraag.
 
-Waarden kunnen verwijzen naar toepassingsinstellingen en parameters van de aanvraag van de oorspronkelijke client.
+Waarden kunnen verwijzen naar toepassingsinstellingen en parameters van de oorspronkelijke clientaanvraag Hallo.
 
-Een voorbeeldconfiguratie kan er als volgt uitzien:
+Een voorbeeldconfiguratie lijkt Hallo volgende:
 
 ```json
 {
@@ -176,16 +176,16 @@ Een voorbeeldconfiguratie kan er als volgt uitzien:
 
 ### <a name="responseOverrides"></a>Een object responseOverrides definiëren
 
-Het object requestOverrides definieert wijzigingen die zijn aangebracht aan de reactie die wordt doorgegeven aan de client. Het object wordt gedefinieerd door de volgende eigenschappen:
+Hallo requestOverrides object definieert wijzigingen die zijn aangebracht toohello antwoord back toohello client is verstreken. Hallo-object wordt gedefinieerd door Hallo volgende eigenschappen:
 
-* **response.statusCode**: de HTTP-statuscode moet worden geretourneerd naar de client.
-* **response.statusReason**: de HTTP-reden wordt geretourneerd naar de client.
-* **Response.BODY**: de tekenreeksrepresentatie van de instantie moet worden geretourneerd naar de client.
-* **Response.headers. \<HeaderName is opgeslagen\>**: een header die kan worden ingesteld voor het antwoord op de client. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt instellen. Als u een lege tekenreeks opgeeft, wordt de koptekst niet opgenomen in het antwoord.
+* **response.statusCode**: Hallo HTTP status code toobe toohello client geretourneerd.
+* **response.statusReason**: Hallo HTTP reden woordgroep toobe toohello client geretourneerd.
+* **Response.BODY**: Hallo tekenreeksweergave van Hallo hoofdtekst toobe toohello client geretourneerd.
+* **Response.headers. \<HeaderName is opgeslagen\>**: een koptekst voor Hallo antwoord toohello client kan worden ingesteld. Vervang  *\<HeaderName is opgeslagen\>*  met Hallo-naam van dat u wilt dat tooset Hallo-header. Als u een lege tekenreeks Hallo opgeeft, is niet Hallo-header op antwoord Hallo opgenomen.
 
-Waarden kunnen verwijzen naar toepassingsinstellingen, de parameters van de aanvraag van de oorspronkelijke client en de parameters van het back-end-antwoord.
+Waarden kunnen verwijzen naar toepassingsinstellingen, parameters uit de oorspronkelijke clientaanvraag Hallo en parameters uit Hallo back-end-antwoord.
 
-Een voorbeeldconfiguratie kan er als volgt uitzien:
+Een voorbeeldconfiguratie lijkt Hallo volgende:
 
 ```json
 {
@@ -205,15 +205,15 @@ Een voorbeeldconfiguratie kan er als volgt uitzien:
 }
 ```
 > [!NOTE] 
-> In dit voorbeeld wordt de instantie wordt ingesteld rechtstreeks, dus er is geen `backendUri` eigenschap nodig is. Het voorbeeld ziet hoe u Azure Functions-proxy's kunt gebruiken voor mocking API's.
+> In dit voorbeeld Hallo-instantie wordt ingesteld rechtstreeks, dus er is geen `backendUri` eigenschap nodig is. Hallo-voorbeeld ziet u hoe u Azure Functions-proxy's kunt gebruiken voor mocking API's.
 
 [Azure-portal]: https://portal.azure.com
 [HTTP-triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
-[Modify the back-end request]: #modify-backend-request
-[Modify the response]: #modify-response
+[Modify hello back-end request]: #modify-backend-request
+[Modify hello response]: #modify-response
 [definiëren van een object requestOverrides]: #requestOverrides
 [definiëren van een object responseOverrides]: #responseOverrides
 [toepassingsinstellingen]: #use-appsettings
 [variabelen gebruiken]: #using-variables
-[parameters van de aanvraag van de oorspronkelijke client]: #request-parameters
-[parameters uit het antwoord van de back-end]: #response-parameters
+[parameters uit de oorspronkelijke clientaanvraag Hallo]: #request-parameters
+[parameters uit het antwoord van de back-end Hallo]: #response-parameters

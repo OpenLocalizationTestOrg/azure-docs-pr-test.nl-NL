@@ -1,6 +1,6 @@
 ---
-title: Cloud App Discovery-registerinstellingen voor proxyservices | Microsoft Docs
-description: Het doel van dit onderwerp is om te voorzien van de stappen die u moet uitvoeren om in te stellen de vereiste poort op de computers waarop de Cloud App Discovery-agent wordt uitgevoerd.
+title: aaaCloud App Discovery-registerinstellingen voor Proxy Services | Microsoft Docs
+description: Hallo-doel van dit onderwerp is tooperform tooset Hallo vereist poort op Hallo van computers Hallo Cloud App Discovery agent tooprovide u Hello stappen die u nodig hebt.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ea15dc9a9f20a296e622c8fb1011f7ee99de3e99
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bb1fe20016459160b4f67cb0125b1781a0260c4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Cloud App Discovery-registerinstellingen voor proxyservices
-De Cloud App Discovery-agent is standaard geconfigureerd om alleen de poorten 80 of 443 te gebruiken. Als u van plan bent over het installeren van Cloud App Discovery in een omgeving met een proxyserver die van een aangepaste poort (geen 80 of 443 gebruikmaakt), moet u de agents voor het gebruik van deze poort configureren. De configuratie is gebaseerd op een registersleutel.
+Hallo Cloud App Discovery agent is standaard geconfigureerd toouse alleen Hallo poorten 80 of 443. Als u van plan bent over het installeren van Cloud App Discovery in een omgeving met een proxyserver die van een aangepaste poort (geen 80 of 443 gebruikmaakt), moet u tooconfigure uw agents toouse deze poort. Hallo-configuratie is gebaseerd op een registersleutel.
 
-Het doel van dit onderwerp is om te voorzien van de stappen die u moet uitvoeren om in te stellen de vereiste poort op de computers waarop de Cloud App Discovery-agent wordt uitgevoerd.
+Hallo-doel van dit onderwerp is tooperform tooset Hallo vereist poort op Hallo van computers Hallo Cloud App Discovery agent tooprovide u Hello stappen die u nodig hebt.
 
-**Voor het wijzigen van de poort die wordt gebruikt door de computer waarop de Cloud App Discovery-agent wordt uitgevoerd, moet u de volgende stappen uitvoeren:**
+**toomodify Hallo poort wordt gebruikt door het Hallo-computers Hallo Cloud App Discovery agent, Voer Hallo stappen te volgen:**
 
-1. Start de Registereditor. <br> ![Uitvoeren](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
-2. Ga naar of maak de volgende registersleutel: <br> **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint** 
+1. Start Hallo Register-editor. <br> ![Voer](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
+2. Navigeer tooor maken Hallo volgende registersleutel: <br> **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint** 
 3. Maak een nieuwe **met meerdere tekenreeksen** waarde met de naam **poorten**. ![Nieuw](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
-4. Openen van de **met meerdere tekenreeksen bewerken** dialoogvenster, dubbelklik op de waarde van de poorten.
-5. Typ de volgende waarden in het tekstvak voor waarde-gegevens en alle aangepaste poorten die worden gebruikt door uw organisatie toevoegen: <br><br>
+4. Hallo tooopen **met meerdere tekenreeksen bewerken** dialoogvenster, dubbelklik op Hallo poorten waarde.
+5. In Hallo waarde gegevens textbox, typt u Hallo waarden te volgen en voeg alle aangepaste poorten die worden gebruikt door uw organisatie: <br><br>
    **80** <br>
    **8080** <br>
    **8118** <br>
@@ -45,7 +45,7 @@ Het doel van dit onderwerp is om te voorzien van de stappen die u moet uitvoeren
    **443** <br>
    **1110** <br><br>
    ![Met meerdere tekenreeksen bewerken](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
-6. Klik op **OK** sluiten de **met meerdere tekenreeksen bewerken** dialoogvenster.
+6. Klik op **OK** tooclose hello **met meerdere tekenreeksen bewerken** dialoogvenster.
 
 **Aanvullende resources**
 

@@ -1,6 +1,6 @@
 ---
-title: Cloud App Discovery beveiligings- en privacyoverwegingen | Microsoft Docs
-description: Dit onderwerp beschrijft de beveiliging en privacy overwegingen ten aanzien van Cloud App Discovery.
+title: aaaCloud App detectie beveiligings- en privacyoverwegingen | Microsoft Docs
+description: Dit onderwerp beschrijft Hallo beveiliging en privacy overwegingen gerelateerde tooCloud App Discovery.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,68 +14,68 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 1510b7a91d7eea4d16d781299bc9948da4324c51
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 33659e85bd2cf4294e443512e69a85401f7c53f8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Cloud App Discovery beveiligings- en privacyoverwegingen
-Microsoft hecht groot belang om uw privacy te beschermen en beveiliging van uw gegevens tijdens de levering van software en services die u helpen de beveiliging van uw organisatie beheren.  
-We erkennen dat wanneer u uw gegevens naar anderen, belasten dat vertrouwensrelatie strengere beveiliging technische investeringen en kennis back-vereist.
-Microsoft voldoet aan de strikte naleving en richtlijnen voor beveiliging van beveiligde software development lifecycle procedures voor het besturingssysteem van een service.  
+Microsoft is doorgevoerd tooprotecting uw privacy en beveiliging van uw gegevens tijdens de levering van software en services die u helpen Hallo beveiliging van uw organisatie beheren.  
+We erkennen dat wanneer u uw gegevens tooothers belasten, vertrouwensrelatie strengere beveiliging engineering investeringen en expertise tooback vereist deze.
+Microsoft voldoet toostrict compatibiliteit en richtlijnen voor beveiliging van beveiligde software development lifecycle procedures toooperating een service.  
 Beveiliging en bescherming van gegevens is een topprioriteit bij Microsoft.
 
 Dit onderwerp wordt uitgelegd hoe gegevens die worden verzameld, verwerkt en beveiligd binnen Azure Active Directory Cloud App Discovery
 
 ## <a name="overview"></a>Overzicht
 Cloud App Discovery is een functie van Azure AD en wordt gehost in Microsoft Azure.  
-De Cloud App Discovery endpoint agent wordt gebruikt voor het verzamelen van detectiegegevens van de toepassing van beheerde IT-machines.  
-De verzamelde gegevens wordt veilig via een versleuteld kanaal verzonden naar de Azure AD Cloud App Discovery-service.  
-De Cloud App Discovery-gegevens voor een organisatie wordt vervolgens weergegeven in de Azure-portal. 
+Hallo Cloud App Discovery endpoint agent is gebruikte toocollect toepassing discovery-gegevens van beheerde IT-machines.  
+Hallo verzamelde gegevens worden verzonden veilig via een versleuteld kanaal toohello Azure AD Cloud App Discovery-service.  
+Hallo Cloud App Discovery-gegevens voor een organisatie is zichtbaar in hello Azure-portal. 
 
 ![De werking van Cloud App Discovery](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) 
 
-De volgende secties volgen van de stroom van gegevens en wordt beschreven hoe deze worden beveiligd, omdat deze van uw organisatie hebt verplaatst naar de Cloud App Discovery-service en uiteindelijk naar de Cloud App Discovery-portal.
+Hallo volgende secties Volg Hallo stroom van gegevens en wordt beschreven hoe deze worden beveiligd omdat het van uw organisatie toohello Cloud App Discovery-service en uiteindelijk toohello Cloud App Discovery-portal wordt verplaatst.
 
 ## <a name="collecting-data-from-your-organization"></a>Verzamelen van gegevens van uw organisatie
-Om te gebruiken Azure Active Directory Cloud App discovery-functies voor het verkrijgen van inzicht in de toepassingen die worden gebruikt door werknemers in uw organisatie, moet u eerst de Azure AD Cloud App Discovery endpoint agent implementeren op computers in uw organisatie.
+In de volgorde toouse Azure Active Directory van Cloud App discovery functie tooget inzichten in Hallo-toepassingen die worden gebruikt door werknemers in uw organisatie moet u toofirst hello Azure AD Cloud App Discovery endpoint agent toomachines in uw organisatie te implementeren.
 
-Beheerders van de Azure Active Directory-tenant (of hun gemachtigde) kunnen het agent-installatiepakket downloaden van de Azure-portal. De agent kan worden handmatig geïnstalleerd of geïnstalleerd via meerdere computers in de organisatie via SCCM of Groepsbeleid.
+Beheerders van Azure Active Directory-tenant hello (of hun gemachtigde) kunnen Hallo agent-installatiepakket downloaden van hello Azure-portal. Hallo-agent kan worden handmatig geïnstalleerd of geïnstalleerd via meerdere computers in Hallo organisatie via SCCM of Groepsbeleid.
 
 Zie voor meer instructies voor de implementatie-opties [Cloud App Discovery Groepsbeleid Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx).
 
 
-### <a name="data-collected-by-the-agent"></a>Gegevens die worden verzameld door de agent
-De gegevens die worden beschreven in de onderstaande lijst is verzameld door de agent als een verbinding wordt gemaakt met een webtoepassing. De gegevens worden alleen verzameld voor de toepassingen die de beheerder heeft geconfigureerd voor detectie.  
-U kunt de lijst met cloud-apps die de agent via de Cloud App Discovery-blade in de Microsoft bewaakt bewerken [Azure-portal](https://portal.azure.com/)onder **instellingen**->**gegevensverzameling** -> **App-verzameling lijst**. Zie voor meer informatie [ophalen van de slag met Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+### <a name="data-collected-by-hello-agent"></a>Gegevens die worden verzameld door Hallo-agent
+Hallo-gegevens die worden beschreven in de onderstaande lijst van Hallo worden verzameld door Hallo agent als een verbinding tooa webtoepassing is gemaakt. Hallo gegevens worden alleen verzameld voor deze toepassingen of Hallo beheerder is geconfigureerd voor detectie.  
+U kunt de lijst Hallo van cloud-apps die agent monitors via Hallo Cloud App Discovery-blade in Hallo Microsoft hello bewerken [Azure-portal](https://portal.azure.com/)onder **instellingen**->**gegevens Verzameling**->**App-verzameling lijst**. Zie voor meer informatie [ophalen van de slag met Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 
 **Informatie categorie**: gebruikersgegevens  
 **Beschrijving**:  
-De Windows-gebruikersnaam van het proces dat een aanvraag met de doel-webtoepassing gemaakt (bijvoorbeeld: DOMEIN\gebruikersnaam) en de Windows Security ID (SID) van de gebruiker.
+Hallo Windows-gebruikersnaam van Hallo-proces dat een aanvraag toohello doel webtoepassing gemaakt (bijvoorbeeld: DOMEIN\gebruikersnaam) en de Windows SID (Security Identifier) van de gebruiker Hallo Hallo.
 
 **Informatie categorie**: de verwerking van gegevens  
 **Beschrijving**:  
-De naam van het proces dat de aanvraag heeft ingediend met de doel-webtoepassing (bijvoorbeeld: 'iexplore.exe')
+Hallo-naam van Hallo-proces dat Hallo aanvraag toohello doelwebtoepassing gemaakt (bijvoorbeeld: 'iexplore.exe')
 
 **Informatie categorie**: computerinformatie  
 **Beschrijving**:  
-De NetBIOS-computernaam waarop de agent is geïnstalleerd.
+Hallo NetBIOS-computernaam op welke Hallo-agent is geïnstalleerd.
 
 **Informatie categorie**: informatie over App-verkeer  
 **Beschrijving**: 
 
-De volgende informatie voor verbinding:
+Hallo verbindingsgegevens te volgen:
 
-* De bron (lokale computer) en doel-IP-adressen en poortnummers
-* Het openbare IP-adres van de organisatie via welke de aanvraag gedeeld wordt.
-* De tijd van de aanvraag
-* De hoeveelheid verkeer verzonden en ontvangen
-* De IP-versie (4 of 6)
-* Voor de TLS-verbindingen: de host-naam van het doel van de Servernaamindicatie-extensie of het servercertificaat.
+* Hallo bron (lokale computer) en doel-IP-adressen en poortnummers
+* Hallo openbare IP-adres van Hallo organisatie via welke Hallo aanvraag uitvalt.
+* Hallo-tijd van aanvraag Hallo
+* Hallo verkeersvolume verzonden en ontvangen
+* Hallo IP-versie (4 of 6)
+* Voor de TLS-verbindingen: Hallo doel-hostnaam van Hallo Servernaamindicatie extensie of Hallo-servercertificaat.
 
-De volgende HTTP-gegevens:
+Hallo HTTP-gegevens te volgen:
 
 * Methode (GET, POST, enz.)
 * Protocol (HTTP/1.1, enz.)
@@ -86,77 +86,77 @@ De volgende HTTP-gegevens:
 * Verwijzende site URL-gegevens (met uitzondering van de query-tekenreeks)
 
 > [!NOTE]
-> De bovenstaande HTTP-gegevens worden verzameld voor alle niet-versleutelde verbindingen.
-> Voor de TLS-verbindingen, wordt deze informatie alleen vastgelegd wanneer de instelling 'Diepe inspectie' is ingeschakeld in de portal. 'ON' is de instelling standaard.
+> Hallo bovenstaande HTTP-gegevens worden verzameld voor alle niet-versleutelde verbindingen.
+> TLS-verbindingen, wordt deze informatie alleen vastgelegd, wanneer Hallo 'Diepe inspectie' is ingeschakeld in Hallo-portal. 'ON' is Hallo-instelling standaard.
 > Zie voor meer informatie hieronder en [ophalen van de slag met Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 > 
 > 
 
-Naast de gegevens die de agent over de activiteit op het netwerk verzamelt, ook anonieme worden gegevens verzameld over de software en hardware-configuratie, foutenrapporten en informatie over hoe de agent wordt gebruikt.
+Bovendien toohello gegevens die Hallo agent verzamelt over netwerkactiviteit hello, verzamelt ook anonieme gegevens over het Hallo-software en hardware-configuratie, foutenrapporten en informatie over hoe Hallo-agent wordt gebruikt.
 
 
-### <a name="how-the-agent-works"></a>De werking van de agent
-Installatie van de agent bevat twee onderdelen:
+### <a name="how-hello-agent-works"></a>De werking van Hallo-agent
+installatie van de agent Hallo bevat twee onderdelen:
 
 * Een onderdeel van de gebruikersmodus
 * Een onderdeel in kernelmodus stuurprogramma (Windows Filtering Platform stuurprogramma)
 
-Wanneer de agent wordt eerst geïnstalleerd worden op de computer die vervolgens wordt een beveiligde verbinding met de Cloud App Discovery-service een vertrouwd certificaat voor computer-specifieke opgeslagen.  
-Configuratie van beleid voor de agent periodiek opgehaald uit de Cloud App Discovery-service via deze beveiligde verbinding.  
-Het beleid bevat informatie over welke cloudtoepassingen bewaken en Hiermee wordt aangegeven of Automatische updates moet worden ingeschakeld, onder andere.
+Toen Hallo-agent is geïnstalleerd een vertrouwd certificaat voor computer-specifieke worden opgeslagen op Hallo machine waarin het gebruikt vervolgens tooestablish een beveiligde verbinding met de Hallo Cloud App Discovery-service.  
+Hallo agent haalt periodiek beleidsconfiguratie van Hallo Cloud App Discovery-service via deze beveiligde verbinding.  
+Hallo beleid bevat informatie over welke cloud-toepassingen toomonitor en Hiermee wordt aangegeven of Automatische updates moet worden ingeschakeld, onder andere.
 
-Als het internetverkeer wordt verzonden en ontvangen op de virtuele machine van Internet Explorer en Chrome, de agent voor Cloud App Discovery analyseert het verkeer en haalt de metagegevens van de relevante (Zie de **gegevens verzameld door de agent** sectie hierboven).  
-Elke minuut uploadt de agent u de metagegevens van de verzamelde naar de Cloud App Discovery-service via een versleuteld kanaal.
+Als het internetverkeer wordt verzonden en ontvangen op de machine Hallo van Internet Explorer en Chrome, Hallo Cloud App Discovery agent Hallo verkeer analyseert en uitgepakt Hallo relevante metagegevens (Zie Hallo **gegevens verzameld door de agent Hallo** sectie hierboven).  
+Elke minuut bestandsuploads Hallo agent Hallo verzamelde metagegevens toohello Cloud App Discovery-service via een versleuteld kanaal.
 
-Het stuurprogrammaonderdeel versleuteld verkeer onderschept en zelf wordt ingevoegd in de versleutelde gegevensstroom. Meer informatie in de **gegevens van de versleutelde verbindingen (met diepe inspectie) onderscheppen** hieronder.
+Hallo stuurprogramma onderdeel intercepts Hallo versleuteld verkeer en voegt zelf in gecodeerde Hallo-stroom. Meer informatie in Hallo **gegevens van de versleutelde verbindingen (met diepe inspectie) onderscheppen** hieronder.
 
 ### <a name="respecting-user-privacy"></a>Privacy van gebruikers te respecteren
-Ons doel is de beheerders van de hulpprogramma's voor het instellen van de balans tussen gedetailleerde beeldverwerkingstoepassingen in toepassing gebruiks- en privacy geschikt is voor hun organisatie te bieden. Daartoe bieden we de volgende knoppen op de instellingenpagina in de Portal:
+Ons doel is tooprovide beheerders Hallo extra tooset Hallo balans tussen gedetailleerde beeldverwerkingstoepassingen in toepassing gebruiks- en privacy geschikt is voor hun organisatie. einde toothat, bieden we Hallo knoppen in de instellingenpagina Hallo in Hallo Portal volgen:
 
-* **Gegevensverzameling**: beheerders kunnen kiezen om op te geven welke toepassingen of ze krijgen discovery-gegevens willen voor categorieën.
-* **Met diepe inspectie**: beheerders kunnen hebt gekozen om op te geven als de agent verzamelt HTTP-verkeer voor SSL/TLS-verbindingen (aka **'Diepe inspectie'**). Meer informatie over dit in de volgende sectie.
-* **Toestemming geven opties**: beheerders kunnen de Cloud App Discovery-portal gebruiken om te kiezen of gebruikers van de gegevensverzameling door de agent en of het nodig van de gebruiker toestemming geven voordat de agent wordt gestart voor het verzamelen van gebruikersgegevens.
+* **Gegevensverzameling**: beheerders kunnen toospecify kiezen welke toepassingen of toepassingscategorieën ze willen tooget discovery-gegevens op.
+* **Met diepe inspectie**: beheerders kunnen toospecify gekozen als Hallo agent verzamelt HTTP-verkeer voor SSL/TLS-verbindingen (aka **'Diepe inspectie'**). Meer informatie over dit in de volgende sectie Hallo.
+* **Toestemming geven opties**: beheerders kunnen gebruikmaken van Hallo Cloud App Discovery portal toochoose of toonotify gebruikers Hallo verzamelen van gegevens door Hallo-agent en of toorequire gebruiker toestemming geven voordat het Hallo-agent wordt gestart met het verzamelen van gebruikersgegevens.
 
-De Cloud App Discovery endpoint agent verzamelt alleen de informatie die wordt beschreven in de **gegevens verzameld door de agent** sectie hierboven.
+Hallo Cloud App Discovery endpoint agent verzamelt alleen Hallo informatie die wordt beschreven in Hallo **gegevens verzameld door de agent Hallo** sectie hierboven.
 
 ### <a name="intercepting-data-from-encrypted-connections-deep-inspection"></a>Gegevens van de versleutelde verbindingen (met diepe inspectie) onderscheppen
-Zoals eerder vermeld, kunnen beheerders de agent voor het bewaken van gegevens van versleutelde verbindingen ('diepe inspectie') configureren. TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) is een van de meest gangbare protocollen in gebruik is op het Internet vandaag. Door het versleutelen van communicatie met TLS, kan een client een vertrouwelijk communicatiekanaal met een webserver; maken. TLS bevat essentiële beveiliging voor het doorgeven van referenties voor verificatie en voorkomen dat de openbaarmaking van gevoelige informatie.
+Zoals eerder vermeld, kunnen beheerders Hallo agent toomonitor gegevens van de versleutelde verbindingen ('diepe inspectie') configureren. TLS ([Transport Layer Security](https://msdn.microsoft.com/library/windows/desktop/aa380516%28v=vs.85%29.aspx)) is een van de Hallo vandaag meest gangbare protocollen op Hallo Internet gebruikt. Door het versleutelen van communicatie met TLS, kan een client een vertrouwelijk communicatiekanaal met een webserver; maken. TLS bevat essentiële beveiliging voor het doorgeven van referenties voor verificatie en voorkomen dat Hallo openbaarmaking van gevoelige informatie.
 
-Terwijl het end-to-end beveiligde versleutelde kanaal geleverd door TLS kunt u belangrijke en privacybescherming, wordt het protocol vaak doelwit voor schadelijke of slechte doeleinden. Veel dus in feite wordt die TLS vaak genoemd 'universal firewall-bypass-protocol'. De hoofdmap van het probleem is dat de meeste firewalls kan niet controleren van TLS-communicatie, omdat de toepassingslaag-gegevens worden versleuteld met SSL. Weten, aanvallers vaak maken gebruik van TLS voor het leveren van schadelijke nettoladingen aan een gebruiker die erop kunnen vertrouwen dat zelfs de meest intelligent toepassingslaag firewalls volledig blind in TLS zijn en moeten de TLS-communicatie tussen hosts gewoon relay. Eindgebruikers vaak maken gebruik van TLS om over te slaan toegangsbeheer afgedwongen door hun zakelijke firewalls en proxyservers bevinden, met behulp van deze verbinding maken en voor niet-TLS tunnelingprotocollen via de firewall die anders mogelijk geblokkeerd door het beleid voor openbare proxy's.
+Tijdens het Hallo-end-to-end veilig versleutelde kanaal geleverd door TLS kunt belangrijke beveiligings- en privacy, is vaak het Hallo-protocol doelwit voor schadelijke of slechte doeleinden. Zoveel dus in feite TLS wordt vaak aangeduid tooas Hallo "universal firewall-bypass protocol". Hallo-hoofdmap van het Hallo-probleem is dat de meeste firewalls niet kan tooinspect TLS communicatie omdat Hallo toepassingslaag gegevens worden versleuteld met SSL. Weten, aanvallers vaak maken gebruik van TLS toodeliver schadelijke nettoladingen tooa gebruiker erop vertrouwen dat zelfs Hallo meest intelligent toepassingslaag firewalls volledig blind tooTLS zijn en moeten de TLS-communicatie tussen hosts gewoon relay. Eindgebruikers kunnen gebruikmaken van vaak afgedwongen door hun zakelijke firewalls en proxyservers bevinden, met het tooconnect toopublic-proxy's en voor niet-TLS tunnelingprotocollen via Hallo firewall die anders mogelijk geblokkeerd door het beleid voor toegangsbeheer van toobypass van TLS.
 
-Met diepe inspectie kan de agent voor Cloud App Discovery om te fungeren als een vertrouwde man-in-the-middle. Wanneer een clientaanvraag wordt gedaan voor toegang tot een beveiligde HTTPS-bron, het stuurprogramma Endpoint Agent de verbinding onderschept en er wordt dat een nieuwe verbinding met de doelserver om te worden opgehaald van de SSL-certificaat namens de client. De agent vervolgens wordt gecontroleerd of het certificaat kan worden vertrouwd (door te controleren of deze niet is ingetrokken en er andere certificaat controles worden uitgevoerd) en als deze op te geven, klikt u vervolgens de Endpoint Agent kopieert de gegevens van het servercertificaat en maakt een eigen server certificaat--bekend als een certificaat worden onderschept--die gegevens. Het certificaat worden onderschept is ondertekend op het moment door de agent eindpunt met een basiscertificaat dat in het vertrouwde certificaatarchief van Windows is geïnstalleerd. Dit zelfondertekende basiscertificaat is niet exporteerbaar gemarkeerd en is ACL moest beheerders. Het is bedoeld om u te verlaten nooit de machine waarop deze is gemaakt. Wanneer de eindgebruiker clienttoepassing het certificaat worden onderschept ontvangt, wordt deze het vertrouwen omdat het de certificaatketen helemaal tot aan het basiscertificaat met succes kunt valideren. Dit proces is voornamelijk transparant uit oogpunt van een eindgebruiker met enkele aanvullende opmerkingen zoals hieronder wordt beschreven.
+Met diepe inspectie kan Hallo Cloud App Discovery agent tooact als een vertrouwde man-in-the-middle. Wanneer een clientaanvraag wordt gedaan tooaccess een HTTPS beveiligde resource, Hallo Endpoint Agent stuurprogramma Hallo verbinding onderschept en er wordt een nieuwe verbinding toohello bestemming server tooretrieves de SSL-certificaat namens Hallo-client. Hallo-agent vervolgens controleert of Hallo certificaat kan worden vertrouwd (door te controleren of deze niet is ingetrokken en er andere certificaat controles worden uitgevoerd), en als deze slaagt, Hallo Endpoint Agent vervolgens Hallo informatie opgehaald van het servercertificaat Hallo en maakt een eigen servercertificaat--bekend als een certificaat worden onderschept--die gegevens. Hallo onderschept certificaat is ondertekend op het moment door Hallo endpoint agent met een basiscertificaat dat in het vertrouwde certificaatarchief voor Windows hello is geïnstalleerd. Dit zelfondertekende basiscertificaat is niet exporteerbaar gemarkeerd en ACL tooadministrators was. Is het beoogde toonever laat Hallo machine waarop deze is gemaakt. Wanneer de clienttoepassing Hallo eindgebruiker Hallo onderschept certificaat ontvangt, wordt deze het vertrouwen omdat deze kan met succes Hallo certificaatketen alle Hallo toohello manier basiscertificaat. Dit proces is voornamelijk transparant uit oogpunt van een eindgebruiker met enkele aanvullende opmerkingen zoals hieronder wordt beschreven.
 
-Doordat diepe inspectie Cloud App Discovery Endpoint Agent ontsleutelen en inspecteren communicatie TLS versleuteld, zodat de service Ruis reduceren en inzicht bieden over het gebruik van de versleutelde cloud-apps.
+Doordat diepe inspectie Hallo Cloud App Discovery Endpoint Agent kunt ontsleutelen en TLS versleutelde communicatie, zodat Hallo service tooreduce ruis controleren en inzicht bieden over Hallo informatie over het gebruik van cloud-apps Hallo versleuteld.
 
 #### <a name="a-word-of-caution"></a>Waarschuwing
-Voordat u met diepe inspectie inschakelt, wordt sterk aangeraden dat u uw bedoelingen uw juridische en HR afdelingen communiceren en hun toestemming verkrijgen. Persoonlijke gecodeerde communicatie van de eindgebruiker te bekijken, kan een gevoelige onderwerp, zijn voor de hand. Voordat u een productie uitrollen grondige inspectie, Controleer of de beveiliging van uw bedrijf en beleidsregels voor aanvaardbaar gebruik zijn bijgewerkt om aan te geven dat gecodeerde communicatie worden gecontroleerd. Melding voor gebruikers en uitsluiting van sites geacht gevoelige (bijvoorbeeld Bank- en medische sites) kunnen ook nodig zijn als u Cloud Appdetectie configureren zodat ze te controleren. Zoals eerder vermeld, kunnen beheerders de Cloud App Discovery-portal gebruiken om te kiezen of gebruikers van de gegevensverzameling door de agent een melding ontvangen, en of u toestemming van de gebruiker vereist voordat de agent wordt gestart met het verzamelen van gebruikersgegevens.
+Voordat u met diepe inspectie inschakelt, wordt sterk aangeraden dat u uw bedoelingen tooyour juridische en HR afdelingen communiceren en hun toestemming verkrijgen. Persoonlijke gecodeerde communicatie van de eindgebruiker te bekijken, kan een gevoelige onderwerp, zijn voor de hand. Tooindicate die versleuteld communicatie worden gecontroleerd voordat een productie uitrollen van grondige inspectie, Controleer of de beveiliging van uw bedrijf en beleidsregels voor aanvaardbaar gebruik zijn bijgewerkt. Melding voor gebruikers en uitsluiting van sites geacht gevoelige (bijvoorbeeld Bank- en medische sites) kunnen ook nodig zijn als u Cloud App Discovery toomonitor configureert deze. Zoals eerder vermeld, kunnen beheerders gebruiken Hallo Cloud App Discovery portal toochoose of toonotify gebruikers Hallo verzamelen van gegevens door Hallo-agent en of toorequire gebruiker toestemming geven voordat het Hallo-agent wordt gestart met het verzamelen van gebruikersgegevens.
 
 ### <a name="known-issues-and-drawbacks"></a>Bekende problemen en nadelen
-Er zijn enkele gevallen waarbij de eindgebruiker mogelijk van invloed op TLS onderschept:
+Er zijn enkele gevallen waarbij de eindgebruiker Hallo mogelijk van invloed op TLS onderschept:
 
-* Uitgebreide validatie (EV)-certificaten weergeven de adresbalk van de webbrowser groen om te fungeren als een visuele aanwijzing dat u een vertrouwde website bezoeken. TLS inspectie EV geen duplicaat in het certificaat dat deze aan de client, uitgeeft zodat de websites die gebruikmaken van validatiecertificaten werken normaal, maar de adresbalk groen weergegeven.  
-* Openbare sleutel vastmaken (ook wel bekend als het certificaat vastmaken) zijn ontworpen om te helpen om gebruikers te beschermen tegen man-in-the-middle-aanvallen en rogue certificeringsinstanties. Wanneer het basiscertificaat voor een vastgezette site komt niet overeen met een van de bekende goede CA, wordt de verbinding met een fout geweigerd in de browser. Omdat TLS worden onderschept, in feite een man-in-the-middle, mislukken deze verbindingen.
-* Als gebruikers op het vergrendelingspictogram in de browser adres balk browser om te controleren van de site-informatie, zien ze een keten eindigt op de certificeringsinstantie die wordt gebruikt voor het ondertekenen van certificaat van de website, maar in plaats daarvan een certificaatketen eindigt met het Windows vertrouwd certificaatarchief.
+* De adresbalk Hallo van Hallo web browser groen tooact weergegeven uitgebreide validatie EV) certificaten (als een visuele aanwijzing dat u een vertrouwde website bezoeken. TLS-inspectie EV in deze toohello client, uitgeeft zodat de websites die gebruikmaken van validatiecertificaten werken normaal Hallo-certificaat niet dupliceren maar Hallo adresbalk geen groen weergegeven.  
+* Openbare sleutel vastmaken (ook wel bekend als het certificaat vastmaken) zijn ontworpen toohelp om gebruikers te beschermen tegen man-in-the-middle-aanvallen en rogue certificeringsinstanties. Wanneer Hallo-basiscertificaat voor een vastgezette site komt niet overeen met een bekende goede CA hello, weigert Hallo browser Hallo verbinding met een fout. Omdat TLS worden onderschept, in feite een man-in-the-middle, mislukken deze verbindingen.
+* Als gebruikers op Hallo vergrendelingspictogram in Hallo browser adres balk browser tooinspect Hallo site-informatie, zien ze een keten eindigt op de certificeringsinstantie Hallo toosign Hallo websitecertificaat gebruikt, maar in plaats daarvan een certificaatketen eindigt met Windows hello vertrouwde certificaatarchief.
 
-Als u de instanties van deze problemen, we bijhouden van cloudservices- en clienttoepassingen bekend zijn bij gebruik uitgebreide validatie of vastmaken van openbare sleutel en de Endpoint Agent instrueren om te voorkomen dat betrokken verbindingen onderscheppen. Zelfs in dergelijke gevallen echter nog steeds ontvangt u meldingen van het gebruik van deze cloud-apps en de hoeveelheid gegevens die worden overgedragen, maar omdat ze niet grondige geïnspecteerd, geen informatie over hoe de apps die zijn gebruikt zijn beschikbaar.
+tooreduce hello instanties van deze problemen, we bijhouden cloudservices en clienttoepassingen toouse bekend uitgebreide validatie of vastmaken van openbare sleutel en instrueert u Hallo Endpoint Agent tooavoid betrokken verbindingen onderscheppen. Zelfs in dergelijke gevallen echter nog steeds ontvangt u meldingen van Hallo gebruik van deze cloud-apps en Hallo hoeveelheid gegevens die worden overgedragen, maar omdat ze niet grondige geïnspecteerd geen details over het gebruik Hallo apps zijn beschikbaar zullen zijn.
 
-## <a name="sending-data-to-cloud-app-discovery"></a>Verzenden van gegevens naar de Cloud App Discovery
-Nadat de metagegevens zijn verzameld door de agent, wordt het tijdelijk opgeslagen op de computer voor maximaal één minuut of totdat de gegevens in de cache heeft een grootte van 5MB bereikt. Het is vervolgens gecomprimeerd en verzonden via een beveiligde verbinding met de Cloud App Discovery-service.
+## <a name="sending-data-toocloud-app-discovery"></a>Verzenden van gegevens tooCloud App Discovery
+Als metagegevens zijn verzameld door Hallo-agent, het opgeslagen in de cache op de machine Hallo voor up tooone minuut of tot Hallo een grootte van 5MB gegevens in de cache heeft bereikt. Het is vervolgens gecomprimeerd en verzonden via een beveiligde verbinding toohello Cloud App Discovery-service.
 
-Als de agent kan niet communiceren met de Cloud App Discovery-service voor een of andere reden is, worden de verzamelde metagegevens worden opgeslagen in een lokaal bestandscache die alleen toegankelijk zijn voor bevoegde gebruikers op de computer (zoals de groep Administrators).  
-De agent probeert automatisch opnieuw te verzenden van de metagegevens in cache totdat deze is ontvangen door de Cloud App Discovery-service.
+Als Hallo-agent kan geen toocommunicate Hello Cloud App Discovery-service om welke reden, hello verzamelde metagegevens worden opgeslagen in een lokaal bestandscache die alleen toegankelijk zijn voor bevoegde gebruikers op Hallo-machine (zoals de groep Administrators Hallo).  
+Hallo-agent automatisch pogingen tooresend Hallo in cache opgeslagen metagegevens totdat deze is ontvangen door Hallo Cloud App Discovery-service.
 
-## <a name="receiving-the-data-at-the-service-end"></a>Ontvangen van de gegevens aan het einde van de service
-De agents voor Cloud App Discovery-service met behulp van de machine specifieke certificaat voor clientverificatie bovengenoemde en verzendt gegevens via een versleuteld kanaal worden geverifieerd.  
-Analysepijplijn van de Cloud App Discovery-service verwerkt metagegevens voor elke klant afzonderlijk door het partitioneren van het logisch via alle stadia van de pijplijn analytics.
-De metagegevens van de geanalyseerde stations diverse rapporten in de portal.
+## <a name="receiving-hello-data-at-hello-service-end"></a>Ontvangen van gegevens aan Hallo service einde Hallo
+Hallo-agents verifiëren toohello Cloud App Discovery-service gebruikt Hallo machine specifieke certificaat voor clientverificatie bovengenoemde en stuurt gegevens via een versleuteld kanaal.  
+Hallo Cloud App Discovery service analysepijplijn processen metagegevens voor elke klant afzonderlijk door het partitioneren van het logisch via alle fasen van het Hallo-analysepijplijn.
+Hallo geanalyseerd metagegevens stations Hallo diverse rapporten in Hallo-portal.
 
-De niet-verwerkte metagegevens en de metagegevens van de geanalyseerde opgeslagen gedurende 180 dagen. Bovendien kunnen klanten ervoor kiezen om vast te leggen van de geanalyseerde metagegevens in een Azure blob storage-account van hun keuze.
-Dit is handig voor offline-analyse van metagegevens, evenals langer bewaren van de gegevens.
+niet-verwerkte metagegevens Hallo en geanalyseerd Hallo metagegevens worden opgeslagen voor too180 dagen. Klanten kunnen bovendien toocapture hallo geanalyseerd metagegevens kiezen in een Azure blob storage-account van hun keuze.
+Dit is handig voor offline-analyse van metagegevens, evenals langer bewaren van gegevens van Hallo.
 
-## <a name="accessing-the-data-using-the-azure-portal"></a>Toegang tot de gegevens met behulp van de Azure-portal
-In een poging de metagegevens die zijn verzameld om veilig te houden, standaard hebben alleen globale beheerders van de tenant die toegang tot de Cloud App Discovery-functie in de Azure portal.  
-Beheerders kunnen echter kiezen deze toegang verlenen aan andere gebruikers of groepen overdragen.
+## <a name="accessing-hello-data-using-hello-azure-portal"></a>Toegang tot Hallo-gegevens met behulp van hello Azure-portal
+In een inspanning tookeep Hallo metagegevens verzameld veilige, alleen globale beheerders van Hallo tenant hebben standaard toegang toohello Cloud App Discovery-functie in hello Azure-portal.  
+Beheerders kunnen echter toodelegate kiezen deze toegang tooother gebruikers of groepen.
 
 > [!NOTE]
 > Zie voor meer informatie [ophalen van de slag met Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
@@ -164,7 +164,7 @@ Beheerders kunnen echter kiezen deze toegang verlenen aan andere gebruikers of g
 > 
 
 
-Elke gebruiker toegang tot de gegevens in de portal moet beschikken over een Azure AD Premium-licentie.
+Geen toegang tot Hallo gebruikersgegevens in Hallo-portal, moet beschikken over een Azure AD Premium-licentie.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 * [Hoe kan ik cloudapps die worden gebruikt in mijn organisatie detecteren](active-directory-cloudappdiscovery-whatis.md)

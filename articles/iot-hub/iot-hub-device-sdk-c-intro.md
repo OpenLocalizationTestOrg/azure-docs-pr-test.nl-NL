@@ -1,6 +1,6 @@
 ---
-title: Het apparaat met Azure IoT SDK voor C | Microsoft Docs
-description: Aan de slag met het apparaat met Azure IoT SDK voor C en informatie over het maken van apps voor apparaten die communiceren met een IoT-hub.
+title: aaaThe Azure IoT-device SDK voor C | Microsoft Docs
+description: Aan de slag met hello Azure IoT-device SDK voor C en meer informatie over hoe toocreate apps op apparaten die communiceren met een IoT-hub.
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -14,108 +14,108 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 459b630f28fe48064f4ba280974f3fdbdb82f0a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9e20742e6ea513c124bfaf28f02f6fba86170daf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-apparaat SDK voor C
 
-De **Azure IoT-device SDK** is een set van bibliotheken die zijn ontworpen voor het vereenvoudigen van het proces van het verzenden van berichten naar en ontvangen van berichten uit de **Azure IoT Hub** service. Er zijn verschillende variaties van de SDK, elke die gericht is op een specifiek platform, maar in dit artikel beschrijft de **Azure IoT-device SDK voor C**.
+Hallo **Azure IoT-device SDK** is een set van bibliotheken ontworpen toosimplify Hallo proces voor het verzenden van berichten tooand die berichten ontvangt van Hallo **Azure IoT Hub** service. Er zijn verschillende variaties Hallo SDK, elke die gericht is op een specifiek platform, maar dit artikel wordt beschreven Hallo **Azure IoT-device SDK voor C**.
 
-Het apparaat met Azure IoT SDK voor C is geschreven in C ANSI (C99) om te maximaliseren draagbaarheid. Deze functie stelt de bibliotheken geschikt bewerkingen uitvoeren op meerdere platforms en apparaten, vooral wanneer het minimaliseren van schijf en geheugengebruik is een prioriteit.
+Hello Azure IoT-device SDK voor C is geschreven in C ANSI (C99) toomaximize draagbaarheid. Deze functie stelt Hallo bibliotheken geschikt toooperate op meerdere platforms en apparaten, vooral wanneer het minimaliseren van schijf- en geheugengebruik is een prioriteit.
 
-Er zijn een breed scala aan platforms waarop de SDK is getest (Zie de [Azure gecertificeerd voor IoT-apparaat catalogus](https://catalog.azureiotsuite.com/) voor meer informatie). Hoewel dit artikel scenario's van voorbeeldcode uitgevoerd op het Windows-platform bevat, is de code die wordt beschreven in dit artikel is identiek in het bereik van de ondersteunde platforms.
+Er zijn een breed scala aan op welke Hallo SDK is getest platforms (Zie Hallo [Azure gecertificeerd voor IoT-apparaat catalogus](https://catalog.azureiotsuite.com/) voor meer informatie). Hoewel dit artikel scenario's van voorbeeldcode uitgevoerd op Windows-platform hello bevat, is Hallo-code die wordt beschreven in dit artikel is identiek voor Hallo bereik van de ondersteunde platforms.
 
-In dit artikel maakt u kennis met de architectuur van het apparaat met Azure IoT SDK voor C. Dit laat zien hoe de apparaatbibliotheek initialiseren en berichten ontvangen gegevens verzenden naar IoT Hub. De informatie in dit artikel moet voldoende aan de slag met de SDK, maar bevat ook koppelingen naar aanvullende informatie over de bibliotheken.
+In dit artikel vindt u toohello architectuur van hello Azure IoT-device SDK voor C. Dit laat zien hoe tooinitialize Hallo apparaatbibliotheek gegevens tooIoT Hub te verzenden en berichten ontvangen. Hallo-informatie in dit artikel moet voldoende tooget gestart met behulp van Hallo SDK, maar bevat ook aanwijzers tooadditional informatie over Hallo-bibliotheken.
 
 ## <a name="sdk-architecture"></a>SDK-architectuur
 
-U vindt de [ **Azure IoT-device SDK voor C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats en de weergave details van de API in de [C-API-referentiemateriaal](https://azure.github.io/azure-iot-sdk-c/index.html).
+U vindt Hallo [ **Azure IoT-device SDK voor C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats en de weergave details van Hallo API in Hallo [C-API-referentiemateriaal](https://azure.github.io/azure-iot-sdk-c/index.html).
 
-De meest recente versie van de bibliotheken vindt u in de **master** branche van de opslagplaats:
+meest recente versie van bibliotheken Hallo Hallo vindt u in Hallo **master** branche van Hallo opslagplaats:
 
   ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
-* De core-implementatie van de SDK is in de **iothub\_client** map met de implementatie van de onderste laag API in de SDK: de **IoTHubClient** bibliotheek. De **IoTHubClient** bibliotheek bevat API's implementeren onbewerkte berichten voor het verzenden van berichten naar IoT Hub en ontvangen van berichten uit IoT Hub. Wanneer u deze bibliotheek, bent u verantwoordelijk voor het implementeren van bericht serialisatie, maar andere details voor de communicatie met IoT Hub worden afgehandeld.
-* De **serialisatiefunctie** map hulpfuncties en voorbeelden die laten hoe u gegevens serialiseren zien voordat naar Azure IoT Hub worden verzonden met behulp van de clientbibliotheek bevat. Het gebruik van de serializer is niet verplicht en uw gemak is opgegeven. Gebruik de **serialisatiefunctie** wanneer u een model waarin de gegevens worden verzonden naar IoT Hub en de berichten die u verwacht te ontvangen van deze bibliotheek, definiëren. Als het model is gedefinieerd, biedt de SDK u een API-gebied waarmee u eenvoudig werken met de apparaat-naar-cloud-en cloud-naar-apparaat zonder dat u de details van de serialisatie. De bibliotheek is afhankelijk van andere open-source bibliotheken die implementeren met behulp van protocollen zoals MQTT en AMQP transport.
-* De **IoTHubClient** bibliotheek, is afhankelijk van andere open-source bibliotheken:
-  * De [Azure C gedeeld hulpprogramma](https://github.com/Azure/azure-c-shared-utility) bibliotheek, waardoor algemene functionaliteit voor basistaken (zoals tekenreeksen, bewerkingen en i/o) over diverse Azure-gerelateerde C SDK's nodig.
-  * De [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) bibliotheek die een client-side '-implementatie van AMQP die zijn geoptimaliseerd voor resource beperkte apparaten.
-  * De [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) bibliotheek is een algemene bibliotheek implementatie van het protocol MQTT en geoptimaliseerd voor resource beperkte apparaten.
+* Hallo core Hallo SDK wordt Hallo **iothub\_client** map waarin het Hallo-implementatie van Hallo API laag in Hallo SDK: Hallo **IoTHubClient** bibliotheek. Hallo **IoTHubClient** bibliotheek bevat API's implementeren onbewerkte messaging voor berichten tooIoT Hub verzenden en ontvangen van berichten uit IoT Hub. Wanneer u deze bibliotheek, bent u verantwoordelijk voor het implementeren van bericht serialisatie, maar andere details voor de communicatie met IoT Hub worden afgehandeld.
+* Hallo **serialisatiefunctie** map hulpfuncties en voorbeelden waarin u kunt hoe gegevens zien voor het verzenden van Iothub met behulp van tooAzure tooserialize Hallo-clientbibliotheek bevat. Hallo-gebruik van Hallo serialisatiefunctie is niet verplicht en uw gemak is opgegeven. Hallo toouse **serialisatiefunctie** bibliotheek, definieert u een model waarmee hello gegevens toosend tooIoT Hub en Hallo-berichten tooreceive hieruit verwacht. Zodra het Hallo-model is gedefinieerd, Hallo SDK biedt u een API-gebied waarmee u tooeasily werk met apparaat-naar-cloud en cloud-naar-apparaatberichten zonder dat u Hallo serialisatie details. Hallo-bibliotheek is afhankelijk van andere open-source bibliotheken die implementeren met behulp van protocollen zoals MQTT en AMQP transport.
+* Hallo **IoTHubClient** bibliotheek, is afhankelijk van andere open-source bibliotheken:
+  * Hallo [Azure C gedeeld hulpprogramma](https://github.com/Azure/azure-c-shared-utility) bibliotheek, waardoor algemene functionaliteit voor basistaken (zoals tekenreeksen, bewerkingen en i/o) over diverse Azure-gerelateerde C SDK's nodig.
+  * Hallo [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) bibliotheek die een client-side '-implementatie van AMQP die zijn geoptimaliseerd voor resource beperkte apparaten.
+  * Hallo [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) bibliotheek is een algemene bibliotheek implementatie Hallo MQTT-protocol en geoptimaliseerd voor resource beperkte apparaten.
 
-Gebruik van deze bibliotheken is gemakkelijker te begrijpen door te kijken voorbeeldcode. De volgende secties helpt u stapsgewijs door verschillende van de voorbeeldtoepassingen die zijn opgenomen in de SDK. In dit scenario moet bieden u een goed idee voor de verschillende mogelijkheden van de architectuur van de SDK en een inleiding tot de werking van de API's.
+Gebruik van deze bibliotheken is eenvoudiger toounderstand door te kijken voorbeeldcode. Hallo uit te voeren doorlopen diverse Hallo voorbeeldtoepassingen die zijn opgenomen in Hallo SDK. In dit scenario geeft u een goede voor Hallo kunt u verschillende mogelijkheden van Hallo architectuur lagen van Hallo SDK en een inleiding toohow Hallo-API's werken.
 
-## <a name="before-you-run-the-samples"></a>Voordat u de controles uitvoeren
+## <a name="before-you-run-hello-samples"></a>Voordat u voorbeelden van Hallo uitvoeren
 
-Voordat u de voorbeelden in de Azure IoT-device SDK voor C uitvoeren kunt, moet u [geen exemplaar maken van de service IoT Hub](iot-hub-create-through-portal.md) in uw Azure-abonnement. Voltooi de volgende taken:
+Voordat u Hallo voorbeelden in hello Azure IoT-device SDK voor C uitvoeren kunt, moet u [geen exemplaar maken van Hallo service IoT Hub](iot-hub-create-through-portal.md) in uw Azure-abonnement. Voltooi Hallo taken te volgen:
 
 * Uw ontwikkelomgeving voorbereiden
 * Apparaat-referenties ophalen.
 
 ### <a name="prepare-your-development-environment"></a>Uw ontwikkelomgeving voorbereiden
 
-Pakketten zijn beschikbaar voor algemene platforms (zoals NuGet voor Windows of apt_get voor Debian en Ubuntu) en de voorbeelden gebruiken deze pakketten indien beschikbaar. In sommige gevallen moet u Compileer de SDK voor of op uw apparaat. Als u Compileer de SDK wilt, Zie [uw ontwikkelingsomgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in de GitHub-opslagplaats.
+Pakketten zijn beschikbaar voor algemene platforms (zoals NuGet voor Windows of apt_get voor Debian en Ubuntu) en Hallo voorbeelden gebruiken deze pakketten indien beschikbaar. In sommige gevallen moet u toocompile Hallo SDK voor of op uw apparaat. Als u toocompile Hallo SDK moet, Zie [uw ontwikkelingsomgeving voorbereiden](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in Hallo GitHub-opslagplaats.
 
-Als u de voorbeeldcode van de toepassing, een kopie van de SDK te downloaden vanuit GitHub. Een exemplaar van de bron van de **master** vertakking van de [GitHub-opslagplaats](https://github.com/Azure/azure-iot-sdk-c).
+tooobtain hello toepassing voorbeeldcode, download een exemplaar van Hallo SDK vanuit GitHub. Uw exemplaar van Hallo bron ophalen van Hallo **master** vertakking van Hallo [GitHub-opslagplaats](https://github.com/Azure/azure-iot-sdk-c).
 
 
-### <a name="obtain-the-device-credentials"></a>De referenties van het apparaat ophalen
+### <a name="obtain-hello-device-credentials"></a>Hallo apparaat referenties ophalen
 
-Nu dat u de voorbeeldcode van de bron hebt, is het volgende wat te doen om op te halen van een set referenties apparaat. Voor een apparaat kunnen toegang krijgen tot een IoT-hub, moet u eerst het apparaat toevoegen aan de id-register van IoT Hub. Als u uw apparaat toevoegt, krijgt u een set referenties voor apparaten die u nodig hebt voor het apparaat verbinding kunnen maken met de IoT-hub. De voorbeeldtoepassingen die wordt besproken in de volgende sectie verwacht dat deze referenties in de vorm van een **apparaat verbindingsreeks**.
+Nu dat u de voorbeeldcode Hallo hebt, is de volgende dingen toodo hello tooget een set referenties apparaat. Voor een apparaat toobe kunnen tooaccess een IoT-hub, moet u eerst Hallo apparaat toohello id-register IoT Hub toevoegen. Als u uw apparaat toevoegt, krijgt u een set referenties voor apparaten die u nodig hebt voor Hallo apparaat toobe kunnen tooconnect toohello iothub. Hallo-voorbeeldtoepassingen die is beschreven in de volgende sectie Hallo verwachten deze referenties in Hallo vorm van een **apparaat verbindingsreeks**.
 
-Er zijn verschillende open-source hulpprogramma's voor het beheren van uw IoT-hub.
+Er zijn verschillende open-source hulpprogramma's voor toohelp beheren van uw IoT-hub.
 
 * Een Windows-toepassing aangeroepen [apparaat explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 * Een node.js platformoverschrijdende CLI-hulpprogramma aangeroepen [iothub explorer](https://github.com/azure/iothub-explorer).
 
-Deze zelfstudie wordt gebruikgemaakt van de grafische *apparaat explorer* hulpprogramma. U kunt ook de *iothub explorer* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
+Deze zelfstudie wordt een grafische Hallo *apparaat explorer* hulpprogramma. U kunt ook Hallo *iothub explorer* hulpprogramma als u liever toouse een CLI-hulpprogramma.
 
-Het programma voor apparaat explorer gebruikt de bibliotheken van de service Azure IoT voor diverse functies uitvoeren op IoT Hub, inclusief het toevoegen van apparaten. Als u het apparaat explorer-hulpprogramma gebruiken voor het toevoegen van een apparaat, krijgt u een verbindingsreeks voor uw apparaat. U moet deze verbindingsreeks om uit te voeren van de voorbeeldtoepassingen.
+Hallo apparaat explorer hulpprogramma gebruikt hello Azure IoT service bibliotheken tooperform diverse functies op IoT Hub, inclusief het toevoegen van apparaten. Als u Hallo apparaat explorer hulpprogramma tooadd een apparaat gebruikt, krijgt u een verbindingsreeks voor uw apparaat. U moet deze verbinding tekenreeks toorun Hallo voorbeeldtoepassingen.
 
-Als u niet bekend met het programma voor apparaat explorer bent, geeft de volgende procedure wordt beschreven hoe gebruikt om een apparaat toevoegt en een apparaat-verbindingsreeks ophalen.
+Als u niet bekend met Hallo apparaat explorer hulpprogramma bent, Hallo na procedure beschrijft hoe toouse het tooadd een apparaat en een apparaat-verbindingsreeks ophalen.
 
-Zie het installeren van het programma voor apparaat explorer [de Explorer-apparaat gebruiken voor IoT Hub-apparaten](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+hulpprogramma voor tooinstall Hallo apparaat explorer, Zie [hoe toouse apparaat Explorer Hallo voor IoT Hub-apparaten](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-Wanneer u het programma uitvoert, ziet u deze interface:
+Wanneer u Hallo-programma uitvoert, ziet u deze interface:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Voer uw **IoT Hub-verbindingsreeks** in het eerste veld en klikt u op **Update**. Deze stap configureert u het hulpprogramma zodat deze met IoT Hub communiceren kan.
+Voer uw **IoT Hub-verbindingsreeks** in Hallo eerst veld en klikt u op **Update**. Deze stap Hallo hulpprogramma zodanig geconfigureerd dat met IoT Hub communiceren kan.
 
-Wanneer de IoT Hub-verbindingsreeks is geconfigureerd, klikt u op de **Management** tabblad:
+Wanneer Hallo IoT Hub-verbindingsreeks is geconfigureerd, klikt u op Hallo **Management** tabblad:
 
   ![](media/iot-hub-device-sdk-c-intro/04-ManagementTab.PNG)
 
-Dit tabblad is waar het beheren van de apparaten in uw IoT-hub geregistreerd.
+Dit tabblad is waar het beheer van Hallo-apparaten die zijn geregistreerd in uw IoT-hub.
 
-U maakt een apparaat door te klikken op de **maken** knop. Er wordt een dialoogvenster weergegeven met een reeks vooraf ingestelde sleutels (primair en secundair). Voer een **apparaat-ID** en klik vervolgens op **maken**.
+U maakt een apparaat door te klikken op Hallo **maken** knop. Er wordt een dialoogvenster weergegeven met een reeks vooraf ingestelde sleutels (primair en secundair). Voer een **apparaat-ID** en klik vervolgens op **maken**.
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
-Wanneer het apparaat is gemaakt, weergeven de apparaten updates met alle geregistreerde apparaten, inclusief de waarschuwing die u zojuist hebt gemaakt. Als u met de rechtermuisknop op het nieuwe apparaat, ziet u dit menu:
+Wanneer het Hallo-apparaat is gemaakt, weergeven Hallo apparaten updates met alle Hallo ingeschreven apparaten, met inbegrip van Hallo die u zojuist hebt gemaakt. Als u met de rechtermuisknop op het nieuwe apparaat, ziet u dit menu:
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-Als u ervoor kiest **Kopieer de verbindingsreeks voor geselecteerde apparaat**, de verbindingsreeks van het apparaat naar het Klembord is gekopieerd. Houd een kopie van de verbindingsreeks van het apparaat. U moet bij het uitvoeren van de voorbeeldtoepassingen die in de volgende secties beschreven.
+Als u ervoor kiest **Kopieer de verbindingsreeks voor geselecteerde apparaat**, Hallo apparaat-verbindingsreeks is gekopieerde toohello Klembord. Houd een kopie van de verbindingsreeks Hallo-apparaat. U moet bij het uitvoeren van de voorbeeldtoepassingen Hallo beschreven in Hallo uit te voeren.
 
-Wanneer u de bovenstaande stappen hebt voltooid, bent u klaar om te beginnen met het uitvoeren van sommige code. Beide voorbeelden hebben een constante aan de bovenkant van de belangrijkste bron-bestand waarmee u een verbindingsreeks invoeren. Bijvoorbeeld, de bijbehorende regel van de **iothub\_client\_voorbeeld\_mqtt** toepassing wordt weergegeven als volgt.
+Wanneer u Hallo bovenstaande stappen hebt voltooid, bent u klaar toostart waarop bepaalde code wordt uitgevoerd. Beide voorbeelden hebben een constante Hallo Hallo belangrijkste bron-bestand waarmee u een verbindingsreeks tooenter bovenaan in. Bijvoorbeeld Hallo bijbehorende regel van Hallo **iothub\_client\_voorbeeld\_mqtt** toepassing wordt weergegeven als volgt.
 
 ```c
 static const char* connectionString = "[device connection string]";
 ```
 
-## <a name="use-the-iothubclient-library"></a>Gebruik de IoTHubClient-bibliotheek
+## <a name="use-hello-iothubclient-library"></a>Hallo IoTHubClient library gebruiken
 
-Binnen de **iothub\_client** map in de [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) -opslagplaats, er is een **voorbeelden** map waarin een toepassing met de naam **iothub\_client\_voorbeeld\_mqtt**.
+Binnen Hallo **iothub\_client** map in Hallo [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) -opslagplaats, er is een **voorbeelden** map waarin een toepassing met de naam **iothub\_client\_voorbeeld\_mqtt**.
 
-De Windows-versie van de **iothub\_client\_voorbeeld\_mqtt** toepassing bevat de volgende Visual Studio-oplossing:
+versie van Windows Hello Hallo **iothub\_client\_voorbeeld\_mqtt** toepassing bevat Hallo Visual Studio-oplossing te volgen:
 
   ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
 
 > [!NOTE]
-> Als u dit project in Visual Studio 2017 opent, accepteert u de aanwijzingen voor het stelt u het project naar de nieuwste versie.
+> Als u dit project in Visual Studio 2017 openen, Hallo prompts tooretarget Hallo project toohello meest recente versie accepteren.
 
 Deze oplossing bevat een project. Er zijn vier NuGet-pakketten in deze oplossing is geïnstalleerd:
 
@@ -124,18 +124,18 @@ Deze oplossing bevat een project. Er zijn vier NuGet-pakketten in deze oplossing
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-Moet u altijd de **Microsoft.Azure.C.SharedUtility** wanneer u met de SDK werkt-pakket. Dit voorbeeld wordt de protocollen MQTT-protocol gebruikt, dus u moet bevatten de **Microsoft.Azure.umqtt** en **Microsoft.Azure.IoTHub.MqttTransport** pakketten (Er zijn equivalent pakketten voor AMQP en HTTP). Omdat in dit voorbeeld worden de **IoTHubClient** bibliotheek, moet u ook de **Microsoft.Azure.IoTHub.IoTHubClient** -pakket in uw oplossing.
+Moet u altijd Hallo **Microsoft.Azure.C.SharedUtility** wanneer u met Hallo SDK werkt-pakket. Dit voorbeeld Hallo MQTT protocol gebruikt, moet u daarom Hallo opnemen **Microsoft.Azure.umqtt** en **Microsoft.Azure.IoTHub.MqttTransport** pakketten (Er zijn equivalent pakketten voor AMQP en HTTP ). Omdat Hallo-voorbeeld Hallo gebruikt **IoTHubClient** bibliotheek, moet u ook Hallo **Microsoft.Azure.IoTHub.IoTHubClient** -pakket in uw oplossing.
 
-U vindt de uitvoering voor de voorbeeldtoepassing in de **iothub\_client\_voorbeeld\_mqtt.c** bronbestand.
+U vindt Hallo-implementatie voor de voorbeeldtoepassing Hallo in Hallo **iothub\_client\_voorbeeld\_mqtt.c** bronbestand.
 
-De volgende stappen gebruikt deze voorbeeldtoepassing u stapsgewijs door het wat nodig is om het gebruik van de **IoTHubClient** bibliotheek.
+Hallo volgende stappen wordt gebruikt in dit voorbeeld toepassing toowalk u via wat is vereist toouse hello **IoTHubClient** bibliotheek.
 
-### <a name="initialize-the-library"></a>De bibliotheek initialiseren
+### <a name="initialize-hello-library"></a>Hallo-bibliotheek initialiseren
 
 > [!NOTE]
-> Voordat u begint te werken met de bibliotheken, moet u wellicht initialisaties platform-specifieke uitvoeren. Als u wilt gebruiken AMQP op Linux moet u bijvoorbeeld de OpenSSL-bibliotheek initialiseren. De voorbeelden in de [GitHub-opslagplaats](https://github.com/Azure/azure-iot-sdk-c) Roep de hulpprogrammafunctie **platform\_init** wanneer de client wordt gestart en roep de **platform\_deinit**functie voordat u afsluit. Deze functies zijn gedefinieerd in het platform.h header-bestand. Bekijk de definities van deze functies voor uw doelplatform in de [opslagplaats](https://github.com/Azure/azure-iot-sdk-c) om te bepalen of u moet de van de platform-specifieke initialisatiecode opnemen in de client.
+> Voordat u begint te werken met Hallo-bibliotheken, moet u mogelijk tooperform initialisaties platform-specifieke. Als u van plan toouse AMQP Linux bent moet u bijvoorbeeld Hallo OpenSSL bibliotheek initialiseren. voorbeelden in Hallo Hallo [GitHub-opslagplaats](https://github.com/Azure/azure-iot-sdk-c) Hallo hulpprogrammafunctie aanroepen **platform\_init** wanneer Hallo van client wordt gestart en roep Hallo **platform\_deinit**  functie voordat u afsluit. Deze functies zijn gedefinieerd in Hallo platform.h header-bestand. Hallo definities van deze functies voor uw doelplatform in Hallo onderzoeken [opslagplaats](https://github.com/Azure/azure-iot-sdk-c) toodetermine noodzaak tooinclude van de platform-specifieke initialisatiecode in de client.
 
-Als u wilt werken met de bibliotheken, moet u eerst een IoT Hub client ingang toewijzen:
+werkt met bibliotheken hello, toostart toewijzen eerst een client-ingang van IoT Hub:
 
 ```c
 if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol)) == NULL)
@@ -147,16 +147,16 @@ else
     ...
 ```
 
-U doorgeven een kopie van de apparaat-verbindingsreeks die u hebt verkregen via het programma voor apparaat explorer aan deze functie. U ook opgeven de te gebruiken communicatieprotocol. In dit voorbeeld wordt MQTT maar AMQP en HTTP zijn ook opties.
+U doorgeven een kopie van de verbindingsreeks voor Hallo apparaat die u hebt verkregen via Hallo apparaat explorer hulpprogramma toothis functie. U ook opgeven Hallo communicatie protocol toouse. In dit voorbeeld wordt MQTT maar AMQP en HTTP zijn ook opties.
 
-Wanneer u hebt een geldige **IOTHUB\_CLIENT\_verwerken**, kunt u beginnen met het aanroepen van de API's om te verzenden en ontvangen van berichten naar en van IoT-Hub.
+Wanneer u hebt een geldige **IOTHUB\_CLIENT\_verwerken**, u kunt beginnen met het aanroepen van Hallo-API's toosend en tooand berichten uit IoT Hub ontvangt.
 
 ### <a name="send-messages"></a>Berichten verzenden
 
-De voorbeeldtoepassing stelt een lus berichten verzenden naar uw IoT-hub. Het volgende codefragment:
+Hallo-voorbeeldtoepassing stelt u een lus toosend berichten tooyour IoT-hub. Hallo codefragment te volgen:
 
 - Hiermee maakt u een bericht.
-- Voegt een eigenschap toe aan het bericht.
+- Voegt een eigenschap toohello-bericht.
 - Verzendt een bericht.
 
 Maak eerst een bericht weergegeven:
@@ -188,7 +188,7 @@ do
             }
             else
             {
-                (void)printf("IoTHubClient_LL_SendEventAsync accepted message [%d] for transmission to IoT Hub.\r\n", (int)iterator);
+                (void)printf("IoTHubClient_LL_SendEventAsync accepted message [%d] for transmission tooIoT Hub.\r\n", (int)iterator);
             }
         }
     }
@@ -199,7 +199,7 @@ do
 } while (g_continueRunning);
 ```
 
-Telkens wanneer u een bericht verzendt, Geef een verwijzing naar een callbackfunctie die wordt aangeroepen wanneer de gegevens worden verzonden. In dit voorbeeld wordt de callbackfunctie wordt aangeroepen **SendConfirmationCallback**. Het volgende fragment toont deze callback-functie:
+Telkens wanneer u een bericht verzendt, Geef een verwijzing tooa callback-functie die wordt aangeroepen wanneer het Hallo-gegevens worden verzonden. In dit voorbeeld Hallo callback-functie is aangeroepen **SendConfirmationCallback**. Hallo volgende fragment toont deze callback-functie:
 
 ```c
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -212,11 +212,11 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Let op de aanroep van de **IoTHubMessage\_vernietigen** wanneer u klaar bent met het bericht. Deze functie maakt tijdens het maken van het bericht toegewezen resources vrij.
+Houd er rekening mee Hallo aanroep toohello **IoTHubMessage\_vernietigen** werkt wanneer u met het Hallo-bericht bent klaar. Deze functie wordt vrijgemaakt Hallo-resources toegewezen tijdens het maken van het Hallo-bericht.
 
 ### <a name="receive-messages"></a>Berichten ontvangen
 
-Het bericht is een asynchrone bewerking. Ten eerste kunt u de callback om aan te roepen wanneer het apparaat een bericht ontvangt registreren:
+Het bericht is een asynchrone bewerking. Eerst registreren Hallo callback tooinvoke wanneer Hallo apparaat een bericht weergegeven ontvangt:
 
 ```c
 if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext) != IOTHUB_CLIENT_OK)
@@ -229,13 +229,13 @@ else
 ...
 ```
 
-De laatste parameter is een ongeldig aanwijzer naar elke gewenste. In het voorbeeld is een verwijzing naar een geheel getal, maar wordt een verwijzing naar een complexere gegevensstructuur. Deze parameter kunt de functie voor retouraanroepen bewerkingen uitvoeren op gedeelde staat met de aanroeper van deze functie.
+de laatste parameter Hallo is een aanwijzer void toowhatever die u wilt. In Hallo voorbeeld is een aanwijzer tooan geheel getal, maar het mogelijk een wijzer tooa complexere gegevensstructuur. Deze parameter kunt Hallo callback functie toooperate op gedeelde staat met Hallo aanroeper van deze functie.
 
-Wanneer het apparaat een bericht ontvangt, wordt de geregistreerde callback-functie wordt aangeroepen. Deze functie voor retouraanroepen opgehaald:
+Wanneer het Hallo-apparaat een bericht ontvangt, is hello geregistreerde callback-functie aangeroepen. Deze functie voor retouraanroepen opgehaald:
 
-* De bericht-id en de correlatie-id van het bericht.
-* De inhoud van het bericht.
-* Alle aangepaste eigenschappen van het bericht.
+* Hallo-bericht-id en correlatie-id van het Hallo-bericht.
+* Hallo-berichtinhoud.
+* Alle aangepaste eigenschappen van het Hallo-bericht.
 
 ```c
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -261,19 +261,19 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
     // Message content
     if (IoTHubMessage_GetByteArray(message, (const unsigned char**)&buffer, &size) != IOTHUB_MESSAGE_OK)
     {
-        (void)printf("unable to retrieve the message data\r\n");
+        (void)printf("unable tooretrieve hello message data\r\n");
     }
     else
     {
         (void)printf("Received Message [%d]\r\n Message ID: %s\r\n Correlation ID: %s\r\n Data: <<<%.*s>>> & Size=%d\r\n", *counter, messageId, correlationId, (int)size, buffer, (int)size);
-        // If we receive the work 'quit' then we stop running
+        // If we receive hello work 'quit' then we stop running
         if (size == (strlen("quit") * sizeof(char)) && memcmp(buffer, "quit", size) == 0)
         {
             g_continueRunning = false;
         }
     }
 
-    // Retrieve properties from the message
+    // Retrieve properties from hello message
     mapProperties = IoTHubMessage_Properties(message);
     if (mapProperties != NULL)
     {
@@ -302,34 +302,34 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Gebruik de **IoTHubMessage\_GetByteArray** functie voor het ophalen van het bericht dat in dit voorbeeld een tekenreeks is.
+Gebruik Hallo **IoTHubMessage\_GetByteArray** functie tooretrieve Hallo-bericht, die in dit voorbeeld een tekenreeks is.
 
-### <a name="uninitialize-the-library"></a>Initialisatie van de bibliotheek
+### <a name="uninitialize-hello-library"></a>Initialisatie Hallo-bibliotheek
 
-Wanneer u gebeurtenissen verzenden en ontvangen berichten bent klaar, kunt u initialisatie van de IoT-bibliotheek. Voert de volgende functie-oproep om dit te doen:
+Wanneer u klaar bent met gebeurtenissen verzenden en ontvangen van berichten, kunt u Hallo IoT bibliotheek initialisatie. toodo uitgeven dus Hallo functieaanroep te volgen:
 
 ```
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-Deze aanroep is vrijgemaakt van de resources die eerder zijn toegewezen door de **IoTHubClient\_CreateFromConnectionString** functie.
+Deze aanroep Hallo-resources eerder toegewezen door Hallo vrijgemaakt **IoTHubClient\_CreateFromConnectionString** functie.
 
-Zoals u ziet, is het eenvoudig verzenden en ontvangen berichten met de **IoTHubClient** bibliotheek. De bibliotheek verwerkt de details van de communicatie met IoT Hub, met inbegrip van de te gebruiken protocol (vanuit het perspectief van de ontwikkelaar, is dit een eenvoudige configuratieoptie).
+Zoals u ziet het is gemakkelijk toosend en berichten ontvangen met Hallo **IoTHubClient** bibliotheek. Hallo-bibliotheek verwerkt Hallo details voor de communicatie met IoT Hub, met inbegrip van welke toouse protocol (dit is vanuit het perspectief van de Hallo Hallo Developer wordt een eenvoudige configuratieoptie).
 
-De **IoTHubClient** bibliotheek biedt ook nauwkeurige controle over hoe u voor het serialiseren van de gegevens die uw apparaat met IoT Hub verzendt. In sommige gevallen is dit niveau van controle een voordeel, maar er is een implementatie details die u niet wilt betrokken zijn bij. Als dit het geval is, kunt u met behulp van de **serialisatiefunctie** bibliotheek, die in de volgende sectie wordt beschreven.
+Hallo **IoTHubClient** bibliotheek biedt ook nauwkeurige controle over hoe tooserialize Hallo gegevens uw apparaat tooIoT Hub verzendt. In sommige gevallen is dit niveau van controle een voordeel, maar is de details van een implementatie die u niet toobe betrokken wilt bij. Als dit Hallo geval is, kunt u met behulp van Hallo **serialisatiefunctie** bibliotheek die wordt beschreven in de volgende sectie Hallo.
 
-## <a name="use-the-serializer-library"></a>Gebruik de serialisatiefunctie-bibliotheek
+## <a name="use-hello-serializer-library"></a>Hallo serialisatiefunctie bibliotheek gebruiken
 
-Conceptueel gezien de **serialisatiefunctie** bibliotheek bevindt zich boven de **IoTHubClient** bibliotheek in de SDK. Dit maakt gebruik van de **IoTHubClient** -bibliotheek voor de onderliggende communicatie met IoT Hub, maar het voegt modellering mogelijkheden die de last van omgaan met bericht serialisatie van de ontwikkelaar verwijderen. Hoe deze bibliotheek werkt best wordt geïllustreerd door een voorbeeld.
+Conceptueel Hallo **serialisatiefunctie** bibliotheek bevindt zich bovenaan Hallo **IoTHubClient** bibliotheek in Hallo SDK. Hierbij Hallo **IoTHubClient** -bibliotheek voor communicatie met IoT Hub, maar de onderliggende hello modellering mogelijkheden die Hallo last van omgaan met bericht serialisatie van de ontwikkelaar Hallo verwijderen toevoegt. Hoe deze bibliotheek werkt best wordt geïllustreerd door een voorbeeld.
 
-In de **serialisatiefunctie** map in de [azure-iot-sdk-c-opslagplaats](https://github.com/Azure/azure-iot-sdk-c), is een **voorbeelden** map waarin een toepassing met de naam **simplesample\_mqtt**. De Windows-versie van dit voorbeeld bevat de volgende Visual Studio-oplossing:
+Hallo binnen **serialisatiefunctie** map in Hallo [azure-iot-sdk-c-opslagplaats](https://github.com/Azure/azure-iot-sdk-c), is een **voorbeelden** map waarin een toepassing met de naam **simplesample \_mqtt**. Hallo Windows-versie van dit voorbeeld bevat Hallo Visual Studio-oplossing te volgen:
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
 
 > [!NOTE]
-> Als u dit project in Visual Studio 2017 opent, accepteert u de aanwijzingen voor het stelt u het project naar de nieuwste versie.
+> Als u dit project in Visual Studio 2017 openen, Hallo prompts tooretarget Hallo project toohello meest recente versie accepteren.
 
-Net als bij het vorige voorbeeld, bevat deze een enkele NuGet-pakketten:
+Net als bij het vorige voorbeeld hello, bevat deze een enkele NuGet-pakketten:
 
 * Microsoft.Azure.C.SharedUtility
 * Microsoft.Azure.IoTHub.MqttTransport
@@ -337,15 +337,15 @@ Net als bij het vorige voorbeeld, bevat deze een enkele NuGet-pakketten:
 * Microsoft.Azure.IoTHub.Serializer
 * Microsoft.Azure.umqtt
 
-U kunt de meeste van deze pakketten in het vorige voorbeeld hebt gezien, maar **Microsoft.Azure.IoTHub.Serializer** is er nieuw. Dit pakket is vereist wanneer u de **serialisatiefunctie** bibliotheek.
+U hebt gezien de meeste van deze pakketten in de vorige steekproef hello, maar **Microsoft.Azure.IoTHub.Serializer** is er nieuw. Dit pakket is vereist wanneer u Hallo **serialisatiefunctie** bibliotheek.
 
-U vindt de uitvoering van de voorbeeldtoepassing in de **simplesample\_mqtt.c** bestand.
+U vindt implementatie van de voorbeeldtoepassing Hallo Hallo in Hallo **simplesample\_mqtt.c** bestand.
 
-De volgende secties vindt u via de belangrijkste onderdelen van dit voorbeeld.
+Hallo volgende secties helpt u stapsgewijs door Hallo sleutel delen van dit voorbeeld.
 
-### <a name="initialize-the-library"></a>De bibliotheek initialiseren
+### <a name="initialize-hello-library"></a>Hallo-bibliotheek initialiseren
 
-Aan de slag met de **serialisatiefunctie** bibliotheek, aanroepen van de initialisatie van de API's:
+werken met Hallo toostart **serialisatiefunctie** bibliotheek aanroep Hallo initialisatie API's:
 
 ```c
 if (serializer_init(NULL) != SERIALIZER_OK)
@@ -374,13 +374,13 @@ else
 ...
 ```
 
-De aanroep van de **serialisatiefunctie\_init** functie is een eenmalige aanroep en de onderliggende bibliotheek wordt geïnitialiseerd. Roep vervolgens de **IoTHubClient\_LLE\_CreateFromConnectionString** functie, die is de API hetzelfde als in de **IoTHubClient** voorbeeld. Deze aanroep Hiermee stelt u de verbindingsreeks van uw apparaat (deze aanroep is ook waar u het protocol kiest u wilt gebruiken). Dit voorbeeld MQTT als het transport gebruikt, maar kan AMQP of HTTP gebruiken.
+Hallo aanroep toohello **serialisatiefunctie\_init** functie is een eenmalige aanroep en initialiseert Hallo onderliggende bibliotheek. Roep vervolgens Hallo **IoTHubClient\_LLE\_CreateFromConnectionString** functie, die is dezelfde API zoals in Hallo Hallo **IoTHubClient** voorbeeld. Deze aanroep Hiermee stelt u de verbindingsreeks van uw apparaat (deze aanroep is ook waarin u Hallo protocol kiezen gewenste toouse). Dit voorbeeld MQTT als Hallo transport gebruikt, maar kan AMQP of HTTP gebruiken.
 
-Tenslotte roept de **maken\_MODEL\_exemplaar** functie. **WeatherStation** is de naamruimte van het model en **ContosoAnemometer** is de naam van het model. Zodra de model-exemplaar is gemaakt, kunt u het verzenden en ontvangen van berichten. Het is echter belangrijk om te begrijpen wat een model is.
+Tenslotte roept Hallo **maken\_MODEL\_exemplaar** functie. **WeatherStation** is Hallo-naamruimte van Hallo model en **ContosoAnemometer** Hallo-naam van het Hallo-model. Zodra Hallo model exemplaar is gemaakt, kunt u deze toostart verzenden en ontvangen van berichten. Het is echter belangrijk toounderstand welk model is.
 
-### <a name="define-the-model"></a>Het model definiëren
+### <a name="define-hello-model"></a>Hallo model definiëren
 
-Een model in de **serialisatiefunctie** bibliotheek definieert de berichten die uw apparaat met IoT Hub verzenden kunt en de berichten, zogenaamde *acties* in de modelleertaal die het kan ontvangen. U definieert een model met behulp van een set van C macro's als in de **simplesample\_mqtt** voorbeeldtoepassing:
+Een model in Hallo **serialisatiefunctie** bibliotheek definieert Hallo-berichten dat uw apparaat tooIoT Hub en Hallo-berichten verzenden kunt, zogenaamde *acties* in Hallo modelleertaal op het kan ontvangen. U definieert een model met behulp van een set van C macro's zoals Hallo in **simplesample\_mqtt** voorbeeldtoepassing:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -396,29 +396,29 @@ WITH_ACTION(SetAirResistance, int, Position)
 END_NAMESPACE(WeatherStation);
 ```
 
-De **BEGINT\_NAAMRUIMTE** en **END\_NAAMRUIMTE** macro's zowel de naamruimte van het model als een argument nemen. Verwacht wordt dat alles tussen deze macro's is de definitie van het model of modellen en de gegevensstructuren die de modellen gebruiken.
+Hallo **BEGINT\_NAAMRUIMTE** en **END\_NAAMRUIMTE** macro's beide Hallo-naamruimte van Hallo model als een argument nemen. Verwacht wordt dat is alles tussen deze macro's Hallo definitie van uw model of modellen en Hallo-gegevensstructuren die Hallo modellen gebruiken.
 
-In dit voorbeeld is een enkelvoudig model aangeroepen **ContosoAnemometer**. Dit model definieert twee soorten gegevens waarmee u uw apparaat met IoT Hub verzenden kunt: **DeviceId** en **windsnelheid**. Definieert ook drie acties (berichten) die het apparaat kan ontvangen: **TurnFanOn**, **TurnFanOff**, en **SetAirResistance**. Elk gegevenselement in de heeft een type en elke actie heeft een naam (en desgewenst een set parameters).
+In dit voorbeeld is een enkelvoudig model aangeroepen **ContosoAnemometer**. Dit model definieert twee soorten gegevens kan uw apparaat tooIoT Hub verzenden: **DeviceId** en **windsnelheid**. Definieert ook drie acties (berichten) die het apparaat kan ontvangen: **TurnFanOn**, **TurnFanOff**, en **SetAirResistance**. Elk gegevenselement in de heeft een type en elke actie heeft een naam (en desgewenst een set parameters).
 
-De gegevens en acties die zijn gedefinieerd in het model definiëren een API-gebied die u kunt gebruiken voor het verzenden van berichten naar IoT Hub en reageren op berichten die naar het apparaat verzonden. Door een voorbeeld van het gebruik van dit model best begrijpen.
+Hallo-gegevens en acties die zijn gedefinieerd in Hallo model definiëren een API-gebied dat u gebruik kunt toosend berichten tooIoT Hub en toomessages verzonden toohello apparaat reageren. Door een voorbeeld van het gebruik van dit model best begrijpen.
 
 ### <a name="send-messages"></a>Berichten verzenden
 
-Het model definieert de gegevens die u met IoT Hub verzenden kunt. In dit voorbeeld dat betekent een van de twee gegevensitems gedefinieerd met behulp van de **WITH_DATA** macro. Er zijn verschillende stappen nodig om te verzenden **DeviceId** en **windsnelheid** waarden naar een iothub. De eerste is het instellen van de gegevens die u wilt verzenden:
+Hallo model definieert Hallo gegevens u tooIoT Hub kunt verzenden. In dit voorbeeld dit betekent dat een Hallo twee gegevensitems die zijn gedefinieerd met behulp van Hallo **WITH_DATA** macro. Er zijn verschillende stappen vereist toosend **DeviceId** en **windsnelheid** waarden tooan IoT-hub. Hallo is eerst tooset Hallo gegevens die u wilt dat toosend:
 
 ```c
 myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-Het model dat u eerder hebt gedefinieerd, kunt u de waarden instellen door leden van een **struct**. Vervolgens serialiseren het bericht dat u wilt verzenden:
+Hallo model dat u eerder hebt gedefinieerd kunt u tooset Hallo waarden door leden van een **struct**. Vervolgens serialiseren gewenste toosend Hallo-bericht:
 
 ```c
 unsigned char* destination;
 size_t destinationSize;
 if (SERIALIZE(&destination, &destinationSize, myWeather->DeviceId, myWeather->WindSpeed) != CODEFIRST_OK)
 {
-    (void)printf("Failed to serialize\r\n");
+    (void)printf("Failed tooserialize\r\n");
 }
 else
 {
@@ -427,7 +427,7 @@ else
 }
 ```
 
-Deze code de apparaat-naar-cloud naar een buffer serialiseert (waarnaar wordt verwezen door **bestemming**). De code roept vervolgens de **sendMessage** functie het bericht te verzenden naar IoT Hub:
+Deze code serialiseert Hallo apparaat-naar-cloud tooa buffer (waarnaar wordt verwezen door **bestemming**). Hallo code roept vervolgens Hallo **sendMessage** toosend Hallo-bericht tooIoT Hub werken:
 
 ```c
 static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -436,17 +436,17 @@ static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsign
     IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
     if (messageHandle == NULL)
     {
-        printf("unable to create a new IoTHubMessage\r\n");
+        printf("unable toocreate a new IoTHubMessage\r\n");
     }
     else
     {
         if (IoTHubClient_LL_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)(uintptr_t)messageTrackingId) != IOTHUB_CLIENT_OK)
         {
-            printf("failed to hand over the message to IoTHubClient");
+            printf("failed toohand over hello message tooIoTHubClient");
         }
         else
         {
-            printf("IoTHubClient accepted the message for delivery\r\n");
+            printf("IoTHubClient accepted hello message for delivery\r\n");
         }
         IoTHubMessage_Destroy(messageHandle);
     }
@@ -455,7 +455,7 @@ static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsign
 ```
 
 
-De tweede op de laatste parameter van **IoTHubClient\_LLE\_SendEventAsync** is een verwijzing naar een callback-functie die wordt aangeroepen wanneer de gegevens is verzonden. Hier volgt de callback-functie in de steekproef:
+tweede toolast-parameter van Hallo **IoTHubClient\_LLE\_SendEventAsync** is een verwijzing tooa callback-functie die wordt aangeroepen wanneer het Hallo-gegevens is verzonden. Hier volgt Hallo callback-functie in Hallo-voorbeeld:
 
 ```c
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -468,25 +468,25 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-De tweede parameter is een aanwijzer naar gebruikerscontext; de aanwijzer dezelfde doorgegeven aan **IoTHubClient\_LLE\_SendEventAsync**. In dit geval de context is een eenvoudige Prestatiemeter gebruiken, maar dit alles kan zijn.
+de tweede parameter Hallo is een aanwijzer toouser context; Hallo dezelfde aanwijzer te doorgegeven**IoTHubClient\_LLE\_SendEventAsync**. In dit geval Hallo-context is een eenvoudige Prestatiemeter gebruiken, maar dit alles kan zijn.
 
-Dit is alles wat er is naar het verzenden van apparaat-naar-cloud-berichten. Het enige dat links ten aanzien van is berichten ontvangen.
+Dit is alles wat er is toosending apparaat-naar-cloud-berichten. Hallo alleen wat toocover links, is hoe tooreceive berichten.
 
 ### <a name="receive-messages"></a>Berichten ontvangen
 
-Ontvangen een bericht werkt op dezelfde manier naar de berichten manier werken in de **IoTHubClient** bibliotheek. U registreert eerst een callback-functie van het bericht:
+Ontvangen van een bericht werkt op dezelfde manier toohello werkwijze berichten in Hallo **IoTHubClient** bibliotheek. U registreert eerst een callback-functie van het bericht:
 
 ```c
 if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather) != IOTHUB_CLIENT_OK)
 {
-    printf("unable to IoTHubClient_SetMessageCallback\r\n");
+    printf("unable tooIoTHubClient_SetMessageCallback\r\n");
 }
 else
 {
 ...
 ```
 
-U schrijft vervolgens de callbackfunctie die wordt aangeroepen wanneer een bericht wordt ontvangen:
+U schrijft vervolgens Hallo callbackfunctie die wordt aangeroepen wanneer een bericht wordt ontvangen:
 
 ```c
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -496,7 +496,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
     size_t size;
     if (IoTHubMessage_GetByteArray(message, &buffer, &size) != IOTHUB_MESSAGE_OK)
     {
-        printf("unable to IoTHubMessage_GetByteArray\r\n");
+        printf("unable tooIoTHubMessage_GetByteArray\r\n");
         result = IOTHUBMESSAGE_ABANDONED;
     }
     else
@@ -505,7 +505,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
         char* temp = malloc(size + 1);
         if (temp == NULL)
         {
-            printf("failed to malloc\r\n");
+            printf("failed toomalloc\r\n");
             result = IOTHUBMESSAGE_ABANDONED;
         }
         else
@@ -524,9 +524,9 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-Deze code is standaardtekst--hetzelfde is voor een oplossing. Deze functie het bericht ontvangt, en zorgt voor de routering naar de betreffende functie via de aanroep van de het **EXECUTE\_opdracht**. De aangeroepen functie is op dit moment hangt af van de definitie van de acties in uw model.
+Deze code is standaardtekst--deze heeft dezelfde Hallo voor een oplossing. Deze functie het Hallo-bericht ontvangt, en zorgt voor routering toohello juiste functie via Hallo aanroep te**EXECUTE\_opdracht**. aangeroepen Hallo-functie is op dit moment hangt af van het Hallo-definitie van Hallo-acties in uw model.
 
-Wanneer u een actie in het model definieert, bent u verplicht voor het implementeren van een functie die wordt aangeroepen wanneer het apparaat het bijbehorende bericht ontvangt. Bijvoorbeeld, als het model is gedefinieerd met deze actie:
+Wanneer u een actie in het model definiëren, bent u klaar vereist tooimplement een functie die wordt aangeroepen wanneer het apparaat het bijbehorende Hallo-bericht ontvangt. Bijvoorbeeld, als het model is gedefinieerd met deze actie:
 
 ```c
 WITH_ACTION(SetAirResistance, int, Position)
@@ -538,18 +538,18 @@ Een functie met deze handtekening definiëren:
 EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {
     (void)device;
-    (void)printf("Setting Air Resistance Position to %d.\r\n", Position);
+    (void)printf("Setting Air Resistance Position too%d.\r\n", Position);
     return EXECUTE_COMMAND_SUCCESS;
 }
 ```
 
-Houd er rekening mee hoe de naam van de functie overeenkomt met de naam van de actie in het model en dat de parameters van de functie overeenkomen met de opgegeven parameters voor de actie. De eerste parameter is altijd vereist en bevat een verwijzing naar het exemplaar van het model.
+Houd er rekening mee hoe Hallo-naam van de functie Hallo overeenkomt met Hallo-naam van Hallo actie in Hallo model en dat Hallo parameters van functie Hallo Hallo parameters opgegeven voor de Hallo actie. de eerste parameter Hallo is altijd vereist en een exemplaar van de wijzer toohello van uw model bevat.
 
-Wanneer het apparaat een bericht dat overeenkomt met deze handtekening ontvangt, wordt de overeenkomende functie is aangeroepen. Daarom in combinatie met de code van de standaardtekst opnemen **IoTHubMessage**, ontvangen van berichten is slechts een kwestie van het definiëren van een eenvoudige functie voor elke actie in het model is gedefinieerd.
+Wanneer Hallo apparaat een bericht dat overeenkomt met deze handtekening ontvangt, wordt de overeenkomende functie Hallo genoemd. Daarom in combinatie met tooinclude Hallo standaardtekst code uit **IoTHubMessage**, ontvangen van berichten is slechts een kwestie van het definiëren van een eenvoudige functie voor elke actie in het model is gedefinieerd.
 
-### <a name="uninitialize-the-library"></a>Initialisatie van de bibliotheek
+### <a name="uninitialize-hello-library"></a>Initialisatie Hallo-bibliotheek
 
-Wanneer u klaar bent met het verzenden van gegevens en berichten ontvangt kunt u initialisatie van de IoT-bibliotheek:
+Wanneer u klaar bent met gegevens verzenden en ontvangen van berichten, kunt u Hallo IoT bibliotheek initialisatie:
 
 ```c
 ...
@@ -560,15 +560,15 @@ Wanneer u klaar bent met het verzenden van gegevens en berichten ontvangt kunt u
 serializer_deinit();
 ```
 
-Elk van deze drie functies wordt uitgelijnd met de drie initialisatie van de functies die eerder zijn beschreven. Het aanroepen van deze API's zorgt ervoor dat u eerder toegewezen resources vrij.
+Elk van deze drie functies wordt uitgelijnd met Hallo drie initialisatie van de functies die eerder zijn beschreven. Het aanroepen van deze API's zorgt ervoor dat u eerder toegewezen resources vrij.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel de basisbeginselen van het gebruik van de bibliotheken in waarvoor de **Azure IoT-device SDK voor C**. Dit u geleverd met voldoende gegevens om te begrijpen wat opgenomen in de SDK, de architectuur en hoe u aan de slag met de Windows-voorbeelden. Het volgende artikel blijft de beschrijving van de SDK door uitleg over [meer informatie over de bibliotheek IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
+In dit artikel gedekt Hallo grondbeginselen van het gebruik van Hallo-bibliotheken in Hallo **Azure IoT-device SDK voor C**. Dit u geleverd met voldoende informatie toounderstand wat opgenomen in Hallo SDK, de architectuur en hoe het werken met Hallo Windows voorbeelden van tooget wordt gestart. het volgende artikel Hallo Hallo beschrijving van Hallo SDK blijft door waarin wordt uitgelegd [meer over Hallo IoTHubClient library](iot-hub-device-sdk-c-iothubclient.md).
 
-Zie voor meer informatie over het ontwikkelen voor IoT Hub, de [Azure IoT SDK's][lnk-sdks].
+toolearn meer informatie over het ontwikkelen voor IoT Hub, Zie Hallo [Azure IoT SDK's][lnk-sdks].
 
-Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
+toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
 
 * [Een apparaat simuleren met Azure IoT rand][lnk-iotedge]
 

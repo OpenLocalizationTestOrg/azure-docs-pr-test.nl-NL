@@ -1,6 +1,6 @@
 ---
-title: Een aangepaste regel maken in Azure IoT Suite | Microsoft Docs
-description: Het maken van een aangepaste regel in een vooraf geconfigureerde IoT Suite-oplossing.
+title: aaaCreate een aangepaste regel in Azure IoT Suite | Microsoft Docs
+description: Hoe toocreate een aangepaste regel in een IoT-Suite vooraf geconfigureerde oplossing voor.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: d58c27234ea05a82aaa3e8d72f70c1449980df09
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6c5bb2ca54f3f17b99ad482e727c8e9fa28d7fe5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Een aangepaste regel maken in de vooraf geconfigureerde oplossing voor externe controle
+# <a name="create-a-custom-rule-in-hello-remote-monitoring-preconfigured-solution"></a>Maak een aangepaste regel in Hallo vooraf geconfigureerde oplossing voor externe controle
 
 ## <a name="introduction"></a>Inleiding
 
-In de vooraf geconfigureerde oplossingen, configureert u [regels waarmee wordt geactiveerd wanneer een telemetrie waarde voor een apparaat een specifieke drempel bereikt][lnk-builtin-rule]. [Gebruik dynamische telemetrie met externe controle vooraf geconfigureerde oplossing] [ lnk-dynamic-telemetry] wordt beschreven hoe u kunt aangepaste telemetrie waarden toevoegen, zoals *ExternalTemperature* aan uw oplossing. In dit artikel laat zien hoe aangepaste regel maken voor dynamische telemetrie typen in uw oplossing.
+In Hallo vooraf geconfigureerde oplossingen, configureert u [regels waarmee wordt geactiveerd wanneer een telemetrie waarde voor een apparaat een specifieke drempel bereikt][lnk-builtin-rule]. [Gebruik dynamische telemetrie met vooraf geconfigureerde oplossing voor externe controle Hallo] [ lnk-dynamic-telemetry] wordt beschreven hoe u kunt aangepaste telemetrie waarden toevoegen, zoals *ExternalTemperature* tooyour oplossing. Dit artikel laat zien hoe de aangepaste regel toocreate voor dynamische telemetrie typen in uw oplossing.
 
-Deze zelfstudie wordt een eenvoudige Node.js gesimuleerd apparaat om dynamische telemetrie verzendt naar de back-end van de vooraf geconfigureerde oplossing te genereren. U voegt u aangepaste regels in de **RemoteMonitoring** Visual Studio-oplossing en implementeren van deze aangepaste back-end voor uw Azure-abonnement.
+Deze zelfstudie wordt een eenvoudige Node.js gesimuleerd apparaat toogenerate dynamische telemetrie toosend toohello vooraf geconfigureerde oplossing voor back-end. U voegt u aangepaste regels in Hallo **RemoteMonitoring** Visual Studio-oplossing en implementeren van deze tooyour aangepaste back-end van Azure-abonnement.
 
-Voor deze zelfstudie hebt u het volgende nodig:
+toocomplete deze zelfstudie hebt u nodig:
 
 * Een actief Azure-abonnement. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure][lnk_free_trial] voor meer informatie.
-* [Node.js] [ lnk-node] versie 0.12.x of hoger naar een gesimuleerd apparaat maakt.
-* Visual Studio 2015 of Visual Studio 2017 te wijzigen van de vooraf geconfigureerde oplossing terug eindigen met uw nieuwe regels.
+* [Node.js] [ lnk-node] versie 0.12.x of hoger toocreate een gesimuleerd apparaat.
+* Visual Studio 2015 of Visual Studio 2017 toomodify Hallo vooraf geconfigureerde back-end oplossing met uw nieuwe regels.
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-Noteer de naam van de oplossing die u hebt gekozen voor uw implementatie. Verderop in deze zelfstudie moet u de naam van deze oplossing.
+Noteer Hallo oplossing die u hebt gekozen voor uw implementatie. Verderop in deze zelfstudie moet u de naam van deze oplossing.
 
 [!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
-U kunt de Node.js-consoletoepassing stoppen wanneer u hebt geverifieerd dat het verzendt **ExternalTemperature** telemetrie naar de vooraf geconfigureerde oplossing. Houd het consolevenster open omdat u deze Node.js-consoletoepassing opnieuw uitvoeren nadat u de aangepaste regel aan de oplossing toevoegen.
+U kunt Hallo Node.js-consoletoepassing stoppen wanneer u hebt geverifieerd dat het verzendt **ExternalTemperature** telemetrie toohello vooraf geconfigureerde oplossing. Houd Hallo-consolevenster open omdat u deze Node.js-consoletoepassing opnieuw uitvoeren nadat u Hallo aangepaste regel toohello oplossing toevoegen.
 
 ## <a name="rule-storage-locations"></a>Opslaglocaties voor regel
 
 Informatie over de regels worden bewaard op twee locaties:
 
-* **DeviceRulesNormalizedTable** tabel – deze tabel bevat een genormaliseerde verwijzing naar de regels die zijn gedefinieerd door de portal van de oplossing. Als de oplossingsportal apparaat regels weergegeven, wordt deze tabel voor de regeldefinities opgevraagd.
-* **DeviceRules** blob – deze blob slaat de regels die zijn gedefinieerd voor alle apparaten geregistreerd en is gedefinieerd als een verwijzing naar de invoer voor de Azure Stream Analytics-taken.
+* **DeviceRulesNormalizedTable** tabel – deze tabel bevat een genormaliseerde toohello regels die zijn gedefinieerd door de oplossingsportal Hallo verwijzen. Wanneer apparaat regels wordt weergegeven in de oplossingsportal hello, hiervoor wordt deze tabel voor Hallo regeldefinities.
+* **DeviceRules** blob – deze blob slaat alle Hallo regels gedefinieerd voor alle apparaten geregistreerd en is gedefinieerd als een verwijzing invoer toohello Azure Stream Analytics-taken.
  
-Wanneer u een bestaande regel bijwerken of een nieuwe regel in de oplossingsportal definiëren, zijn de tabel en de blob bijgewerkt, zodat de wijzigingen. De regeldefinitie weergegeven in de portal is afkomstig uit de tabel-store en de regeldefinitie waarnaar wordt verwezen door de Stream Analytics-taken afkomstig zijn van de blob. 
+Wanneer u een bestaande regel bijwerken of een nieuwe regel in de oplossingsportal Hallo definiëren, zijn Hallo tabel als de blob bijgewerkte tooreflect Hallo wijzigingen. Hallo regel definitie weergegeven in de portal Hallo afkomstig van Hallo tabel store en Hallo regel definitie waarnaar wordt verwezen door de Stream Analytics-taken Hallo afkomstig is van Hallo blob. 
 
-## <a name="update-the-remotemonitoring-visual-studio-solution"></a>Update de RemoteMonitoring Visual Studio-oplossing
+## <a name="update-hello-remotemonitoring-visual-studio-solution"></a>Hallo RemoteMonitoring Visual Studio-oplossing bijwerken
 
-De volgende stappen ziet u hoe u wijzigt de RemoteMonitoring Visual Studio-oplossing voor het opnemen van een nieuwe regel die gebruikmaakt van de **ExternalTemperature** telemetrie vanaf het gesimuleerde apparaat verzonden:
+Hallo volgende stappen ziet u hoe toomodify Hallo RemoteMonitoring Visual Studio-oplossing tooinclude een nieuwe regel die gebruikmaakt van Hallo **ExternalTemperature** telemetrie vanaf het gesimuleerde apparaat Hallo verzonden:
 
-1. Als u dit nog niet hebt gedaan, kloon de **azure-iot-remote-monitoring** opslagplaats naar een geschikte locatie op uw lokale computer met de volgende Git-opdracht:
+1. Als u nog niet hebt gedaan, kloon Hallo **azure-iot-remote-monitoring** opslagplaats tooa geschikte locatie op uw lokale machine Hallo volgende Git-opdracht gebruiken:
 
     ```
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 
-2. Open in Visual Studio het bestand RemoteMonitoring.sln in uw lokale exemplaar van de **azure-iot-remote-monitoring** opslagplaats.
+2. Open in Visual Studio Hallo RemoteMonitoring.sln bestand in uw lokale exemplaar van Hallo **azure-iot-remote-monitoring** opslagplaats.
 
-3. Open het bestand Infrastructure\Models\DeviceRuleBlobEntity.cs en voeg een **ExternalTemperature** eigenschap als volgt:
+3. Open Hallo bestand Infrastructure\Models\DeviceRuleBlobEntity.cs en voeg een **ExternalTemperature** eigenschap als volgt:
 
     ```csharp
     public double? Temperature { get; set; }
@@ -72,7 +72,7 @@ De volgende stappen ziet u hoe u wijzigt de RemoteMonitoring Visual Studio-oplos
     public double? ExternalTemperature { get; set; }
     ```
 
-4. Voeg in hetzelfde bestand, een **ExternalTemperatureRuleOutput** eigenschap als volgt:
+4. In hetzelfde bestand hello, het toevoegen van een **ExternalTemperatureRuleOutput** eigenschap als volgt:
 
     ```csharp
     public string TemperatureRuleOutput { get; set; }
@@ -80,7 +80,7 @@ De volgende stappen ziet u hoe u wijzigt de RemoteMonitoring Visual Studio-oplos
     public string ExternalTemperatureRuleOutput { get; set; }
     ```
 
-5. Open het bestand Infrastructure\Models\DeviceRuleDataFields.cs en voeg de volgende **ExternalTemperature** eigenschap na de bestaande **vochtigheid** eigenschap:
+5. Open Hallo bestand Infrastructure\Models\DeviceRuleDataFields.cs en voeg de volgende Hallo **ExternalTemperature** eigenschap na Hallo bestaande **vochtigheid** eigenschap:
 
     ```csharp
     public static string ExternalTemperature
@@ -89,7 +89,7 @@ De volgende stappen ziet u hoe u wijzigt de RemoteMonitoring Visual Studio-oplos
     }
     ```
 
-6. Werk in hetzelfde bestand de **_availableDataFields** methode om te nemen **ExternalTemperature** als volgt:
+6. In hetzelfde bestand hello, Hallo bijwerken **_availableDataFields** methode tooinclude **ExternalTemperature** als volgt:
 
     ```csharp
     private static List<string> _availableDataFields = new List<string>
@@ -98,7 +98,7 @@ De volgende stappen ziet u hoe u wijzigt de RemoteMonitoring Visual Studio-oplos
     };
     ```
 
-7. Open het bestand Infrastructure\Repository\DeviceRulesRepository.cs en wijzig de **BuildBlobEntityListFromTableRows** methode als volgt:
+7. Hallo-bestand Infrastructure\Repository\DeviceRulesRepository.cs opent en wijzigt Hallo **BuildBlobEntityListFromTableRows** methode als volgt:
 
     ```csharp
     else if (rule.DataField == DeviceRuleDataFields.Humidity)
@@ -113,29 +113,29 @@ De volgende stappen ziet u hoe u wijzigt de RemoteMonitoring Visual Studio-oplos
     }
     ```
 
-## <a name="rebuild-and-redeploy-the-solution"></a>Opnieuw maken en implementeren van de oplossing.
+## <a name="rebuild-and-redeploy-hello-solution"></a>Opnieuw maken en implementeren van Hallo-oplossing.
 
-U kunt nu de bijgewerkte oplossing implementeren voor uw Azure-abonnement.
+U kunt nu implementeren Hallo bijgewerkt oplossing tooyour Azure-abonnement.
 
-1. Open een opdrachtprompt met verhoogde bevoegdheid en navigeer naar de hoofdmap van de lokale kopie van de azure-iot-remote-monitoring-opslagplaats.
+1. Open een opdrachtprompt met verhoogde bevoegdheid en navigeer toohello hoofdmap van het lokale exemplaar van azure-iot-remote-monitoring Hallo-opslagplaats.
 
-2. Voor het implementeren van uw bijgewerkte oplossing, voer de volgende opdracht vervangen door **{implementatienaam}** met de naam van de implementatie van uw vooraf geconfigureerde oplossing die u eerder hebt genoteerd:
+2. toodeploy uw bijgewerkte-oplossing, Voer Hallo na opdracht vervangen door **{implementatienaam}** met Hallo-naam van de implementatie van uw vooraf geconfigureerde oplossing die u eerder hebt genoteerd:
 
     ```
     build.cmd cloud release {deployment name}
     ```
 
-## <a name="update-the-stream-analytics-job"></a>Bijwerken van de Stream Analytics-taak
+## <a name="update-hello-stream-analytics-job"></a>Update Hallo Stream Analytics-taak
 
-Wanneer de implementatie voltooid is, kunt u de Stream Analytics-taak voor het gebruik van de nieuwe regeldefinities bijwerken.
+Wanneer het Hallo-implementatie is voltooid, kunt u Hallo Stream Analytics-taak toouse Hallo nieuwe regeldefinities bijwerken.
 
-1. Ga in de Azure-portal naar de resourcegroep die uw resources vooraf geconfigureerde oplossing bevat. Deze resourcegroep heeft dezelfde naam die u hebt opgegeven voor de oplossing tijdens de implementatie.
+1. Navigeer in hello Azure-portal, toohello resourcegroep die uw resources vooraf geconfigureerde oplossing bevat. Deze resourcegroep heeft Hallo dezelfde servernaam die u hebt opgegeven voor de oplossing tijdens de implementatie van Hallo Hallo.
 
-2. Navigeer naar de {implementatienaam}-regels Stream Analytics-taak. 
+2. Navigeer toohello {implementatienaam}-regels Stream Analytics-taak. 
 
-3. Klik op **stoppen** stoppen van de Stream Analytics-taak wordt uitgevoerd. (U moet wachten voor de streaming-taak stoppen voordat u kunt de query bewerken).
+3. Klik op **stoppen** toostop Hallo Stream Analytics-taak wordt uitgevoerd. (U moet wachten Hallo streaming-taak toostop voordat u kunt Hallo query bewerken).
 
-4. Klik op **Query**. De query om op te nemen bewerken de **Selecteer** -instructie voor **ExternalTemperature**. Het volgende voorbeeld toont de volledige query met de nieuwe **Selecteer** instructie:
+4. Klik op **Query**. Hallo query tooinclude Hallo bewerken **Selecteer** -instructie voor **ExternalTemperature**. Hallo volgende voorbeeld ziet u de volledige query Hallo Hello nieuwe **Selecteer** instructie:
 
     ```
     WITH AlarmsData AS 
@@ -190,39 +190,39 @@ Wanneer de implementatie voltooid is, kunt u de Stream Analytics-taak voor het g
     FROM AlarmsData
     ```
 
-5. Klik op **opslaan** wijzigen van de query voor bijgewerkte regel.
+5. Klik op **opslaan** toochange Hallo regel query bijgewerkt.
 
-6. Klik op **Start** starten van de Stream Analytics-taak opnieuw uit te voeren.
+6. Klik op **Start** toostart Hallo Stream Analytics-taak opnieuw uit te voeren.
 
-## <a name="add-your-new-rule-in-the-dashboard"></a>De nieuwe regel toevoegen in het dashboard
+## <a name="add-your-new-rule-in-hello-dashboard"></a>De nieuwe regel toevoegen in Hallo-dashboard
 
-U kunt nu toevoegen de **ExternalTemperature** regel met een apparaat in het dashboard van de oplossing.
+U kunt nu Hallo toevoegen **ExternalTemperature** regel tooa apparaat in Hallo oplossing dashboard.
 
-1. Navigeer naar de portal van de oplossing.
+1. Toohello oplossingsportal navigeert.
 
-2. Navigeer naar de **apparaten** Configuratiescherm.
+2. Navigeer toohello **apparaten** Configuratiescherm.
 
-3. Zoek het aangepaste apparaat u hebt gemaakt die verzendt **ExternalTemperature** Telemetrie en klik op de **Apparaatdetails** -scherm, klikt u op **regel toevoegen**.
+3. Zoek Hallo aangepaste apparaat u hebt gemaakt die verzendt **ExternalTemperature** Telemetrie en op Hallo **Apparaatdetails** -scherm, klikt u op **regel toevoegen**.
 
 4. Selecteer **ExternalTemperature** in **gegevensveld**.
 
-5. Stel **drempelwaarde** tot 56. Klik vervolgens op **regels opslaan en weergeven**.
+5. Stel **drempelwaarde** too56. Klik vervolgens op **regels opslaan en weergeven**.
 
-6. Ga terug naar het dashboard om de geschiedenis van waarschuwingen weer te geven.
+6. Geschiedenis van toohello dashboard tooview Hallo waarschuwingen retourneren.
 
-7. In het consolevenster u opengelaten, start u de Node.js-consoletoepassing om te beginnen met verzenden **ExternalTemperature** telemetrische gegevens.
+7. In Hallo consolevenster u opengelaten beginnen met het Hallo Node.js console app toobegin verzenden **ExternalTemperature** telemetrische gegevens.
 
-8. U ziet dat de **geschiedenis van waarschuwingen** tabel ziet u nieuwe alarmen wanneer de nieuwe regel wordt geactiveerd.
+8. U ziet dat Hallo **geschiedenis van waarschuwingen** tabel ziet u nieuwe alarmen wanneer de nieuwe regel hello wordt geactiveerd.
  
 ## <a name="additional-information"></a>Aanvullende informatie
 
-Het wijzigen van de operator  **>**  complexer en zich verder uitstrekt dan de stappen in deze zelfstudie. Terwijl u de Stream Analytics-taak voor het gebruik van de operator die u wijzigen kunt, opgetreden bij het weergeven die operator in de oplossingsportal is een complexere taak. 
+Veranderende Hallo operator  **>**  complexer en zich verder uitstrekt dan Hallo stappen in deze zelfstudie. U kunt Hallo Stream Analytics-taak toouse ongeacht operator die u wilt wijzigen, opgetreden bij het weergeven die operator in de oplossingsportal Hallo is een complexere taak. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt gezien hoe u aangepaste regels maakt, kunt u meer informatie over de vooraf geconfigureerde oplossingen:
+Nu dat u hebt gezien hoe toocreate aangepaste regels, kunt u meer informatie over Hallo vooraf geconfigureerde oplossingen:
 
-- [Logic App verbinden met uw Azure IoT Suite Remote Monitoring vooraf geconfigureerde oplossing][lnk-logic-app]
-- [Metagegevens van apparaten informatie in de externe controle vooraf geconfigureerde oplossing][lnk-devinfo].
+- [Logische App tooyour Azure IoT Suite Remote Monitoring vooraf geconfigureerde oplossing verbinden][lnk-logic-app]
+- [Metagegevens van apparaten informatie in het Hallo externe controle vooraf geconfigureerde oplossing][lnk-devinfo].
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 

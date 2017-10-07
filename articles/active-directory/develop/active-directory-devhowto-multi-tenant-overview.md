@@ -1,5 +1,5 @@
 ---
-title: Het bouwen van een app waarvoor Azure AD-gebruiker kunt aanmelden | Microsoft Docs
+title: aaaHow toobuild een app waarvoor Azure AD-gebruiker kunt aanmelden | Microsoft Docs
 description: Stapsgewijze instructies voor het ontwikkelen van een toepassing die kunnen Meld u aan een gebruiker van een Azure Active Directory-tenant, ook wel bekend als een multitenant-toepassing.
 services: active-directory
 documentationcenter: 
@@ -15,61 +15,61 @@ ms.workload: identity
 ms.date: 04/26/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f1c79fa7e3b0e160487b5941741f6a6c677c6b81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 123ea8125fa3c308ce0f124cc58e85ec28d476d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Aanmelden met een Azure Active Directory (AD) gebruiker met behulp van het patroon toepassing met meerdere tenants
-Als u een Software als een servicetoepassing voor veel organisaties te bieden, kunt u uw toepassing te accepteren, aanmeldingen vanaf elke Azure AD-tenant kunt configureren.  Dit heet in Azure AD maken van uw toepassing meerdere tenants.  Gebruikers in een Azure AD-tenant zich aan te melden bij uw toepassing na ermee akkoord dat hun account gebruiken met uw toepassing.  
+# <a name="how-toosign-in-any-azure-active-directory-ad-user-using-hello-multi-tenant-application-pattern"></a>Hoe toosign aan alle Azure Active Directory (AD) gebruiker met Hallo patroon toepassing met meerdere tenants
+Als u een Software als een Service-toepassing toomany organisaties bieden, kunt u uw toepassing tooaccept aanmeldingen vanaf elke Azure AD-tenant kunt configureren.  Dit heet in Azure AD maken van uw toepassing meerdere tenants.  Gebruikers in een Azure AD-tenant zich kunnen toosign in tooyour toepassing na ermee akkoord dat toouse voor hun rekening met uw toepassing.  
 
-Als er een bestaande toepassing die heeft een eigen accountsysteem of andere vormen van de aanmeldingspagina van andere cloudproviders ondersteunt, is toe te voegen Azure AD aanmelden van een tenant eenvoudig. Uw app registreren, aanmelden code via OAuth2, OpenID Connect of SAML toevoegen en een knop 'Aanmelding In met Microsoft' zijn ingesteld voor uw toepassing. Klik op de knop volgende voor meer informatie over de huisstijl van uw toepassing.
+Als er een bestaande toepassing die heeft een eigen accountsysteem of andere vormen van de aanmeldingspagina van andere cloudproviders ondersteunt, is toe te voegen Azure AD aanmelden van een tenant eenvoudig. Uw app registreren, aanmelden code via OAuth2, OpenID Connect of SAML toevoegen en een knop 'Aanmelding In met Microsoft' zijn ingesteld voor uw toepassing. Klik op volgende knop toolearn meer over de huisstijl van uw toepassing hello.
 
 [! [Knop aanmelden] [AAD-aanmeldingspagina]][AAD-App-Branding]
 
-In dit artikel wordt ervan uitgegaan dat u al bekend bent met het bouwen van een toepassing voor één tenant voor Azure AD.  Als u niet bent, head back-up op de [developer guide startpagina] [ AAD-Dev-Guide] en probeer een van onze snel aan de slag!
+In dit artikel wordt ervan uitgegaan dat u al bekend bent met het bouwen van een toepassing voor één tenant voor Azure AD.  Als u niet bent, head back-up toohello [developer guide startpagina] [ AAD-Dev-Guide] en probeer een van onze snel aan de slag!
 
-Er zijn vier eenvoudige stappen om te converteren van uw toepassing naar een Azure AD-multitenant-app:
+Er zijn vier eenvoudige stappen tooconvert van uw toepassing in een Azure AD-multitenant-app:
 
-1. De toepassingsregistratie van uw om multitenant bijwerken
-2. Werk uw code voor het verzenden van aanvragen naar de/Common eindpunt 
-3. Werk uw code voor het afhandelen van meerdere waarden van de certificaatverlener
+1. Bijwerken van uw toepassing registratie toobe meerdere tenants
+2. Werk uw code toosend aanvragen toohello/Common eindpunt 
+3. Werk uw code toohandle meerdere verlener waarden
 4. Gebruikers- en -beheerder toestemming begrijpen en geschikte codewijzigingen aanbrengen
 
-Bekijk elke stap in detail. U kunt ook meteen naar gaan [deze lijst met voorbeelden van meerdere tenants][AAD-Samples-MT].
+Bekijk elke stap in detail. U kunt ook direct door te gaan[deze lijst met voorbeelden van meerdere tenants][AAD-Samples-MT].
 
-## <a name="update-registration-to-be-multi-tenant"></a>Registratie voor multitenant bijwerken
-Web-app/API registraties in Azure AD zijn standaard één tenant.  U kunt uw inschrijving multitenant maken met de schakeloptie 'Meerdere verpachte' zoeken op de eigenschappenpagina van de registratie van uw toepassing in de [Azure-portal] [ AZURE-portal] en instellen op "Ja".
+## <a name="update-registration-toobe-multi-tenant"></a>Registratie toobe multitenant bijwerken
+Web-app/API registraties in Azure AD zijn standaard één tenant.  U kunt uw inschrijving multitenant maken door het zoeken Hallo 'meerdere verpachte' overschakelen op de eigenschappenpagina Hallo van uw toepassing registreren in Hallo [Azure-portal] [ AZURE-portal] en te 'Ja' instellen.
 
-Vergeet niet, voordat een toepassing kan worden gemaakt op meerdere tenants Azure AD is vereist voor de App ID URI van de toepassing globaal uniek zijn. De App ID URI is een van de manieren waarop die een toepassing in protocolberichten wordt geïdentificeerd.  Voor een toepassing voor één tenant is het voldoende voor de URI van de App-ID moet uniek zijn binnen deze tenant.  Voor een toepassing met meerdere tenants moet het wereldwijd uniek zodat Azure AD de toepassing op alle huurders kan vinden.  Globale uniekheid wordt afgedwongen door de App ID URI in een hostnaam die overeenkomt met een geverifieerde domein voor de Azure AD-tenant.  Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com een geldige App ID URI zou worden `https://contoso.onmicrosoft.com/myapp`.  Als uw tenant had een geverifieerde domein voor `contoso.com`, moet een geldige App ID URI zou ook `https://contoso.com/myapp`.  Instellen van een toepassing als multitenant mislukt als de App ID URI niet dit patroon volgen.
+Vergeet niet, voordat een toepassing kan worden gemaakt op meerdere tenants Azure AD vereist Hallo App ID URI van Hallo toepassing toobe globaal uniek zijn. Hallo App ID URI is Hallo manieren die een toepassing in protocolberichten wordt geïdentificeerd.  Voor een toepassing voor één tenant is het voldoende voor Hallo App ID URI toobe uniek zijn binnen deze tenant.  Voor een toepassing met meerdere tenants moet het wereldwijd uniek zodat Azure AD-toepassing hello over alle huurders kan vinden.  Globale uniekheid wordt afgedwongen door te vereisen Hallo App ID URI toohave een host-naam die overeenkomt met een geverifieerde domein voor hello Azure AD-tenant.  Bijvoorbeeld, als Hallo-naam van uw tenant contoso.onmicrosoft.com en vervolgens een geldig is App-ID-URI zou zijn `https://contoso.onmicrosoft.com/myapp`.  Als uw tenant had een geverifieerde domein voor `contoso.com`, moet een geldige App ID URI zou ook `https://contoso.com/myapp`.  Instellen van een toepassing als multitenant mislukt als Hallo App ID URI niet dit patroon volgen.
 
-Native clientregistraties zijn multitenant standaard.  U hoeft niet te doen om u te maken van een systeemeigen client registratie multitenant-toepassing.
+Native clientregistraties zijn multitenant standaard.  U hoeft niet tootake elke actie toomake een native client application registration meerdere tenants.
 
-## <a name="update-your-code-to-send-requests-to-common"></a>Werk uw code voor het verzenden van aanvragen naar/Common
-In een toepassing één tenant worden aanmeldingsaanvragen verzonden naar de tenant-aanmelden-eindpunt. Voor contoso.onmicrosoft.com kan het eindpunt zou zijn:
+## <a name="update-your-code-toosend-requests-toocommon"></a>Uw code toosend aanvragen te gemeenschappelijke bijwerken
+In een toepassing één tenant aanmeldingsaanvragen toohello-tenant aanmelden eindpunt verzonden. Voor contoso.onmicrosoft.com kan Hallo eindpunt zou zijn:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
-Aanvragen die worden verzonden naar een tenant-eindpunt kunnen aanmelden gebruikers (of gasten) in deze tenant naar toepassingen in deze tenant.  Met een multitenant-toepassing weet de toepassing niet vooraf welke tenant de gebruiker is, zodat u aanvragen naar een tenant-eindpunt kan niet verzenden.  In plaats daarvan worden aanvragen verzonden naar een eindpunt dat multiplexes over alle Azure AD-tenants:
+Aanvragen verzonden tooa-tenant-eindpunt kunt aanmelden gebruikers (of gasten) in die tooapplications tenant in deze tenant.  Met een multitenant-toepassing hello toepassing niet weet wat tenant Hallo-gebruiker is, zodat u kunt geen verzenden aanvragen vooraf tooa-tenant-eindpunt.  Aanvragen verzonden in plaats daarvan tooan-eindpunt dat multiplexes over alle Azure AD-tenants:
 
     https://login.microsoftonline.com/common
 
-Azure AD ontvangt wanneer een aanvraag op de/Common eindpunt, op het de gebruiker zich aanmeldt en als gevolg hiervan detecteert welke tenant afkomstig van de gebruiker is.  De/gemeenschappelijk eindpunt werkt met alle van de verificatieprotocollen die wordt ondersteund door Azure AD: OpenID Connect, OAuth 2.0 SAML 2.0 en WS-Federation.
+Azure AD ontvangt wanneer een aanvraag op Hallo/gemeenschappelijk eindpunt het Hallo-gebruiker zich aanmeldt en als gevolg welke tenant Hallo gebruiker detecteert uit.  Hallo/gemeenschappelijk eindpunt werkt met alle Hallo verificatieprotocollen ondersteund door Azure AD: OpenID Connect, OAuth 2.0 SAML 2.0 en WS-Federation.
 
-Het antwoord aanmelden op de toepassing wordt vervolgens bevat een token dat de gebruiker voorstelt.  De waarde van de verlener in het token geeft een toepassing aan welke tenant afkomstig van de gebruiker is.  Wanneer een antwoord geretourneerd van de/Common eindpunt, de waarde van de verlener in het token overeen met tenant van de gebruiker.  Het is belangrijk te weten de/Common eindpunt is niet een tenant en is niet een verlener, is alleen een multiplexer.  Wanneer u/Common gebruikt, wordt de logica in uw toepassing om tokens te valideren moet worden bijgewerkt om rekening. 
+Hallo aanmelden antwoord toohello toepassing vervolgens bevat een token dat Hallo gebruiker voorstelt.  Hallo verlener waarde in Hallo token Hiermee geeft u een toepassing wat Hallo huurder gebruiker afkomstig is van.  Wanneer een antwoord geretourneerd van Hallo-gemeenschappelijk eindpunt, Hallo verlener waarde in Hallo-token van de gebruiker toohello tenant overeen.  Het is belangrijk toonote Hallo/gemeenschappelijk eindpunt is niet een tenant en is niet een verlener en is alleen een multiplexer.  Wanneer u/Common, moet Hallo logica in uw toepassing toovalidate tokens toobe bijgewerkt tootake dit in aanmerking. 
 
-Zoals eerder gezegd, moeten multitenant-toepassingen bieden ook een consistente ervaring voor aanmelding voor gebruikers, de Azure AD-toepassing huisstijl richtlijnen te volgen. Klik op de knop volgende voor meer informatie over de huisstijl van uw toepassing.
+Zoals eerder vermeld, multitenant-toepassingen ook een consistente ervaring voor aanmelding voor gebruikers bieden moeten, Hallo volgende huisstijl richtlijnen voor Azure AD-toepassing. Klik op volgende knop toolearn meer over de huisstijl van uw toepassing hello.
 
 [! [Knop aanmelden] [AAD-aanmeldingspagina]][AAD-App-Branding]
 
-Laten we het gebruik van de/Common eindpunt en de implementatie van uw code in meer detail.
+Laten we bij het gebruik van Hallo/Common Hallo eindpunt en de implementatie van uw code in meer detail.
 
-## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Werk uw code voor het afhandelen van meerdere waarden van de certificaatverlener
+## <a name="update-your-code-toohandle-multiple-issuer-values"></a>Werk uw code toohandle meerdere verlener waarden
 Webtoepassingen en web-API's ontvangen en valideren van tokens van Azure AD.  
 
 > [!NOTE]
-> Terwijl systeemeigen clienttoepassingen aanvragen en ontvangen van tokens van Azure AD, ze dit doen voor het verzenden van deze API's, waar ze worden gevalideerd.  Systeemeigen toepassingen tokens wordt niet gevalideerd en moeten ze behandelen als ondoorzichtige.
+> Hoewel systeemeigen clienttoepassingen aanvragen en tokens van Azure AD ontvangen, ze in dat geval toosend doen ze tooAPIs, waar ze worden gevalideerd.  Systeemeigen toepassingen tokens wordt niet gevalideerd en moeten ze behandelen als ondoorzichtige.
 > 
 > 
 
@@ -77,106 +77,106 @@ We bekijken op hoe een toepassing tokens valideert het ontvangt van Azure AD.  E
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
-en gebruik ze zoals bouwen van een metagegevens-URL (in dit geval OpenID Connect):
+en gebruik deze tooconstruct, zoals een metagegevens-URL (in dit geval OpenID Connect):
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
 
-voor het downloaden van twee kritieke stukjes informatie die worden gebruikt om tokens te valideren: de tenant het ondertekenen van sleutels en waarde van de verlener.  Elke Azure AD-tenant heeft de waarde van een unieke verlener van het formulier:
+toodownload twee kritieke stukjes informatie die gebruikt toovalidate tokens zijn: Hallo tenant het ondertekenen van sleutels en waarde van de verlener.  Elke Azure AD-tenant heeft de waarde van een unieke verlener Hallo vorm:
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
-de GUID-waarde is waar de rename-safe versie van de tenant-ID van de tenant.  Als u op in de voorgaande link in de metagegevens voor `contoso.onmicrosoft.com`, ziet u deze waarde van de verlener in het document.
+Hallo GUID-waarde is waar Hallo rename-safe versie van de tenant-ID van de tenant Hallo Hallo.  Als je op Hallo voorafgaand aan de metagegevens van de koppeling voor `contoso.onmicrosoft.com`, kunt u deze waarde van de verlener in Hallo document bekijken.
 
-Als een toepassing voor één tenant een token valideert, controleert deze de handtekening van het token tegen de ondertekeningssleutels uit het metagegevensdocument. Hiermee om te controleren of de waarde van de verlener in het token overeenkomt met de versie die is gevonden in het metagegevensdocument.
+Als een toepassing voor één tenant een token valideert, controleert deze Hallo handtekening van Hallo token tegen Hallo ondertekeningssleutels uit Hallo metagegevensdocument. Hierdoor kunnen deze toomake ervoor Hallo verlener waarde in Hallo token komt overeen met Hallo een die is gevonden in het document Hallo-metagegevens.
 
-Sinds de/Common eindpunt komt niet overeen met een tenant en is een verlener niet wanneer u de waarde van de verlener in de metagegevens voor onderzoeken/algemene hieraan een sjablonen URL in plaats van een werkelijke waarde:
+Sinds Hallo/algemene wordt eindpunt tooa tenant komt niet overeen en een verlener niet wanneer u bekijkt hello verlener waarde in Hallo-metagegevens voor/algemene hieraan een sjablonen URL in plaats van een werkelijke waarde:
 
     https://sts.windows.net/{tenantid}/
 
-Daarom een multitenant-toepassing kan niet worden gevalideerd tokens door die overeenkomt met de waarde van de verlener in de metagegevens met de `issuer` waarde in het token.  Een toepassing met meerdere tenants logica om te bepalen welke verlener waarden geldig zijn en zijn niet nodig, op basis van de tenant-id-gedeelte van de waarde van de verlener.  
+Daarom een multitenant-toepassing kan niet worden gevalideerd tokens door die overeenkomt met de Hallo verlener waarde in de metagegevens Hallo Hello `issuer` waarde in het Hallo-token.  Een toepassing met meerdere tenants logica toodecide welke verlener waarden geldig zijn en zijn niet nodig, op basis van Hallo tenant-id-gedeelte van Hallo verlener waarde.  
 
-Bijvoorbeeld als een multitenant-toepassing alleen kunt aanmelden van specifieke tenants die zich hebben geregistreerd voor de service, deze moet controleert de verlener waarde of de `tid` claimwaarde in het token om ervoor te zorgen dat de tenant is in de lijst van abonnees.  Als een multitenant-toepassing alleen omgaat met personen niet beslissingen eventuele toegang op basis van tenants, vervolgens kan worden genegeerd de verlener-waarde kan worden overgeslagen.
+Bijvoorbeeld, als een multitenant-toepassing alleen kunt aanmelden van specifieke tenants die zich hebben geregistreerd voor de service, vervolgens deze moet controleren Hallo verlener waarde of Hallo `tid` claimwaarde in Hallo token toomake ervoor dat de tenant is in de lijst met abonnees.  Als een multitenant-toepassing alleen omgaat met personen niet beslissingen eventuele toegang op basis van tenants, vervolgens kan worden genegeerd Hallo verlener waarde kan worden overgeslagen.
 
-In de voorbeelden van meerdere tenants in de [verwante inhoud](#related-content) sectie aan het einde van dit artikel, verlener validatie is uitgeschakeld, zodat elke Azure AD-tenant aan te melden.
+In de voorbeelden van meerdere tenants Hallo in Hallo [verwante inhoud](#related-content) sectie aan Hallo einde van dit artikel wordt de verlener validatie is uitgeschakeld tooenable elke Azure AD-tenant toosign in.
 
-Nu bekijken we de ervaring van de gebruiker voor gebruikers die multitenant-toepassingen aanmeldt zich.
+Nu we bekijken Hallo gebruikerservaring voor gebruikers die in toepassingen met toomulti-tenant aanmeldt zich.
 
 ## <a name="understanding-user-and-admin-consent"></a>Wat gebruikers- en toestemming van de beheerder
-Voor een gebruiker zich aanmeldt bij een toepassing in Azure AD, moet de toepassing worden weergegeven in de tenant van de gebruiker.  Hierdoor kan de organisatie voor handelingen zoals uniek beleid toepassen wanneer gebruikers van de tenant zich aanmeldt bij de toepassing.  Voor een toepassing voor één tenant is deze registratie eenvoudig; Dit is de die plaatsvindt tijdens de registratie van de toepassing in de [Azure-portal][AZURE-portal].
+Voor een gebruiker toosign in tooan toepassing in Azure AD, moet de toepassing hello worden weergegeven in van de gebruiker van het Hallo-tenant.  Hierdoor kunnen toodo zoiets als unieke beleidsregels toepassen wanneer gebruikers vanaf hun tenant zich toohello toepassing hello organisatie.  Voor een toepassing voor één tenant is deze registratie eenvoudig; Dit is een die optreedt wanneer u Hallo toepassing in Hallo registreren Hallo [Azure-portal][AZURE-portal].
 
-Voor een toepassing met meerdere tenants woont de initiële registratie voor de toepassing in de Azure AD-tenant die wordt gebruikt door de ontwikkelaar.  Wanneer een gebruiker van een andere tenant zich aanmeldt bij de toepassing voor de eerste keer Azure AD wordt gevraagd om de machtigingen die zijn aangevraagd door de toepassing toestemming.  Als ze toestemming geeft, wordt aangeroepen voor een weergave van de toepassing een *service-principal* in van de gebruiker-tenant is gemaakt en aanmelden kan worden voortgezet. In de map die de gebruiker toestemming voor de toepassing registreert, wordt ook een overdracht gemaakt. Zie [toepassingsobjecten en Service-Principal objecten] [ AAD-App-SP-Objects] voor meer informatie over de toepassing toepassings- en ServicePrincipal objecten en hun relatie met elkaar.
+Voor een multitenant-toepassing woont hello initiële registratie voor de toepassing hello in hello Azure AD-tenant die wordt gebruikt door de ontwikkelaar Hallo.  Wanneer een gebruiker van een andere tenant zich aanmeldt toohello-toepassing voor Hallo eerst, Azure AD wordt gevraagd deze tooconsent toohello machtigingen door de toepassing hello is aangevraagd.  Als ze toestemming geeft, wordt een weergave van de toepassing hello aangeroepen een *service-principal* in wordt gemaakt van gebruiker tenant Hallo en aanmelden kan worden voortgezet. Een overdracht wordt ook in Hallo-map die u Hallo van de gebruiker toestemming toohello toepassing registreert gemaakt. Zie [toepassingsobjecten en Service-Principal objecten] [ AAD-App-SP-Objects] voor meer informatie over van de toepassing hello toepassings- en ServicePrincipal objecten en hun relatie tooeach andere.
 
-![Instemmen met één laag app][Consent-Single-Tier] 
+![Toestemming toosingle laag app][Consent-Single-Tier] 
 
-Deze ervaring toestemming wordt beïnvloed door de machtigingen die zijn aangevraagd door de toepassing.  Azure AD ondersteunt twee soorten app alleen-lezen en gedelegeerde machtigingen:
+Deze ervaring toestemming wordt beïnvloed door het Hallo-machtigingen die zijn aangevraagd door toepassing hello.  Azure AD ondersteunt twee soorten app alleen-lezen en gedelegeerde machtigingen:
 
-* Een gedelegeerde machtigingen verleent een toepassing die de mogelijkheid om te fungeren als een aangemelde gebruiker voor een subset van de bewerkingen van de gebruiker kunt doen.  Bijvoorbeeld, kunt u verlenen een toepassing gedelegeerde machtigingen voor het lezen van de aangemelde gebruiker kalender.
-* Een app alleen-lezen-machtiging is verleend rechtstreeks aan de identiteit van de toepassing.  Bijvoorbeeld, kunt u een toepassing app alleen-lezen toestemming geven om te lezen van de lijst met gebruikers in een tenant, ongeacht wie is aangemeld bij de toepassing.
+* Een gedelegeerde machtigingen verleent een toepassing hello mogelijkheid tooact als een aangemelde gebruiker voor een subset van Hallo dingen Hallo gebruiker kunt doen.  U kunt bijvoorbeeld een toepassing hello gedelegeerde machtigingen tooread Hallo ondertekend in de agenda gebruiker verlenen.
+* Een app alleen-lezen-machtiging verleend rechtstreeks toohello identiteit van de toepassing hello.  U kunt bijvoorbeeld een toepassing hello app alleen-lezen tooread Hallo lijst met machtigingen van gebruikers in een tenant, ongeacht wie is ondertekend in toohello toepassing verlenen.
 
-Sommige machtigingen kunnen door een gewone gebruiker wil terwijl anderen toestemming van de tenantbeheerder vereisen. 
+Sommige machtigingen mag instemming tooby een gewone gebruiker, terwijl andere gebruikers toestemming van de tenantbeheerder vereisen. 
 
 ### <a name="admin-consent"></a>Beheerder toestemming
-Machtigingen voor alleen-App moeten altijd toestemming van de tenantbeheerder.  Als uw toepassing een machtiging app alleen worden aangevraagd en een gebruiker probeert aan te melden bij de toepassing, wordt een foutbericht weergegeven dat de gebruiker is niet kunnen toestemming geven.
+Machtigingen voor alleen-App moeten altijd toestemming van de tenantbeheerder.  Als uw toepassing een machtiging app alleen worden aangevraagd en een gebruiker toosign in toohello toepassing probeert, wordt een foutbericht weergegeven Hallo gebruiker kunnen tooconsent wordt niet weergegeven.
 
-Bepaalde gedelegeerde machtigingen, ook verplichten toestemming van de tenantbeheerder.  De mogelijkheid om terug te schrijven naar Azure AD als een van de tenantbeheerder toestemming nodig om de aangemelde gebruiker.  Als de app alleen-lezen-machtigingen als een gewone gebruiker probeert aan te melden bij een toepassing die aanvragen van een gedelegeerd machtiging die beheerder-toestemming nodig om wordt uw toepassing een foutbericht.  Een machtiging vereist of admin toestemming wordt bepaald door de ontwikkelaar die de resource gepubliceerd en kan worden gevonden in de documentatie voor de resource.  Koppelingen naar informatie over de beschikbare machtigingen voor de Azure AD Graph API en Microsoft Graph API zijn de [verwante inhoud](#related-content) sectie van dit artikel.
+Bepaalde gedelegeerde machtigingen, ook verplichten toestemming van de tenantbeheerder.  Bijvoorbeeld, nodig Hallo mogelijkheid toowrite back tooAzure AD als een gebruiker aangemeld Hallo toestemming om een tenantbeheerder.  Net als de app alleen-lezen-machtigingen als een gewone gebruiker probeert toosign in tooan-toepassing waarin een gedelegeerde machtiging die beheerder-toestemming nodig om wordt uw toepassing een foutbericht.  Een machtiging vereist of admin toestemming wordt bepaald door Hallo-ontwikkelaar die Hallo resource gepubliceerd en kan worden gevonden in het Hallo-documentatie voor Hallo resource.  Koppelingen beschrijven Hallo beschikbare machtigingen voor hello Azure AD Graph API en Microsoft Graph API in Hallo zijn tootopics [verwante inhoud](#related-content) sectie van dit artikel.
 
-Als uw toepassing gebruikmaakt van machtigingen die toestemming van de beheerder vereisen, moet u een gebaar zoals een knop of koppeling hebben waar de beheerder de actie kan initiëren.  De aanvraag de toepassing verzendt voor deze actie is een gebruikelijke OAuth2/OpenID Connect autorisatieaanvraag, maar bevat die ook de `prompt=admin_consent` querytekenreeksparameter.  Als de beheerder heeft ingestemd en de service-principal in de tenant van de klant gemaakt, volgende aanmelden aanvragen hoeft niet de `prompt=admin_consent` parameter. Omdat de beheerder heeft besloten dat de machtigingen die zijn aangevraagd, worden geaccepteerd, wordt er geen andere gebruikers in de tenant wordt gevraagd om toestemming vanaf dat moment.
+Als uw toepassing machtigingen waarvoor u toestemming van de beheerder worden gebruikt, moet u toohave een gebaar zoals een knop of de koppeling waar Hallo beheerder Hallo actie kan initiëren.  uw toepassing verzonden voor deze actie is een gebruikelijke OAuth2/OpenID Connect autorisatieaanvraag, maar die omvat ook Hallo Hallo-aanvraag `prompt=admin_consent` querytekenreeksparameter.  Zodra de Hallo beheerder heeft ingestemd en Hallo service-principal in van de klant Hallo tenant wordt gemaakt, volgende aanmelden aanvragen hoeft geen Hallo `prompt=admin_consent` parameter. Aangezien Hallo beheerder heeft besloten Hallo aangevraagd machtigingen worden geaccepteerd, wordt er geen andere gebruikers in uw tenant Hallo gevraagd toestemming vanaf dat moment.
 
-De `prompt=admin_consent` parameter kan ook worden gebruikt door toepassingen die machtigingen die niet te worden admin toestemming hoeven te vragen. Dit gebeurt wanneer de toepassing een ervaring waar de tenant admin vereist 'aanmeldt' tijdstip en wordt geen enkele andere gebruikers om toestemming wordt gevraagd vanaf dat moment op.
+Hallo `prompt=admin_consent` parameter kan ook worden gebruikt door toepassingen die machtigingen die niet te worden admin toestemming hoeven te vragen. Dit gebeurt wanneer de toepassing hello vereist een ervaring waar tenantbeheerder Hallo 'aanmeldt' een tijdstip en wordt geen enkele andere gebruikers om toestemming wordt gevraagd vanaf dat moment op.
 
-Als beheerder toestemming nodig om een toepassing en een beheerder zich aanmeldt, maar de `prompt=admin_consent` parameter niet is verzonden, moet de beheerder heeft tot de toepassing wordt toestemming **alleen voor hun gebruikersaccount**.  Gewone gebruikers nog steeds zich niet aanmelden en toestemming geven tot de toepassing.  Dit is handig als u de tenantbeheerder bieden de mogelijkheid om te verkennen van uw toepassing wilt voordat u andere gebruikers toegang toestaat.
+Als beheerder toestemming nodig om een toepassing en een beheerder zich bij, maar hello aanmeldt `prompt=admin_consent` parameter niet is verzonden, Hallo beheerder wordt met succes toohello toepassing toestemming **alleen voor hun gebruikersaccount**.  Gewone gebruikers zich nog steeds niet kan toosign in en toestemming toohello toepassing.  Dit is handig als u wilt toogive hello tenant administrator Hallo mogelijkheid tooexplore van uw toepassing voordat u andere gebruikers toegang toestaat.
 
-Een tenantbeheerder kan de mogelijkheid voor reguliere gebruikers om toestemming voor toepassingen kunt uitschakelen.  Als deze mogelijkheid is uitgeschakeld, is altijd admin toestemming vereist voor de toepassing worden ingesteld in de tenant.  Als u wilt uw toepassing te testen met toestemming van de normale gebruiker uitgeschakeld, vindt u de configuratieswitch in de Azure AD-tenant configuratiesectie van de [Azure-portal][AZURE-portal].
+Een tenantbeheerder kan Hallo mogelijkheid voor reguliere gebruikers tooconsent tooapplications uitschakelen.  Als deze mogelijkheid is uitgeschakeld, is altijd admin toestemming vereist voor Hallo toepassing toobe is ingesteld in het Hallo-tenant.  Als u wilt dat uw toepassing met toestemming van de normale gebruiker uitgeschakeld tootest, kunt u vinden Hallo configuratieswitch in hello Azure AD-tenant configuratiesectie Hallo [Azure-portal][AZURE-portal].
 
 > [!NOTE]
-> Sommige toepassingen kunnen een ervaring waarbij reguliere gebruikers zich in eerste instantie toestemming te geven en later de toepassing kan betrekking hebben op de beheerder en vraag machtigingen waarvoor u toestemming van de beheerder.  Er is geen manier om dit te doen met de registratie van een enkele toepassing in Azure AD vandaag.  De komende Azure AD-v2-eindpunt wordt kunnen toepassingen worden machtigingen voor aanvragen tijdens runtime, in plaats van tijdens registratie, waarmee u dit scenario.  Zie voor meer informatie de [Ontwikkelaarshandleiding voor Azure AD App Model v2][AAD-V2-Dev-Guide].
+> Sommige toepassingen kunnen een ervaring waar reguliere gebruikers kunnen tooconsent in eerste instantie en hoger Hallo-toepassing kan betrekking hebben op Hallo beheerder en machtigingen voor aanvragen die toestemming van de beheerder vereisen.  Er is geen toodo manier dit met een enkele toepassing registreren in Azure AD vandaag.  Hallo toekomstige Azure AD-v2-eindpunt kunt toepassingen toorequest machtigingen tijdens runtime, in plaats van tijdens registratie, waarmee u dit scenario.  Zie voor meer informatie, Hallo [Ontwikkelaarshandleiding voor Azure AD App Model v2][AAD-V2-Dev-Guide].
 > 
 > 
 
 ### <a name="consent-and-multi-tier-applications"></a>Toepassingen toestemming en meerdere lagen
-Uw toepassing heeft mogelijk meerdere lagen, elk vertegenwoordigd door een eigen registratie in Azure AD.  Bijvoorbeeld: een systeemeigen toepassing die een web-API aanroept of een webtoepassing die een web-API aanroept.  In beide gevallen vraagt de client (systeemeigen app of web-app) machtigingen voor het aanroepen van de resource (web-API).  Voor de client om te worden in de tenant van de klant heeft ingestemd, worden alle bronnen waarvoor deze machtigingen aanvragen moeten al bestaan in de tenant van de klant.  Als dit probleem niet wordt voldaan, wordt Azure AD een plaatsingsfout dat de resource eerst moet worden toegevoegd.
+Uw toepassing heeft mogelijk meerdere lagen, elk vertegenwoordigd door een eigen registratie in Azure AD.  Bijvoorbeeld: een systeemeigen toepassing die een web-API aanroept of een webtoepassing die een web-API aanroept.  In beide gevallen vraagt Hallo-client (systeemeigen app of web-app) machtigingen toocall Hallo resource (web-API).  Voor Hallo client toobe ingestemd is in een klant tenant, worden alle resources toowhich vraagt deze machtigingen moet al bestaan in van de klant Hallo-tenant.  Als dit probleem niet wordt voldaan, retourneert Azure AD een fout die resource Hallo moet eerst worden toegevoegd.
 
 **Meerdere lagen in een enkel tenant**
 
-Dit kan een probleem zijn als uw logische toepassing uit twee of meer toepassing registraties, bijvoorbeeld een afzonderlijke client en een resource bestaat.  Hoe krijgt u de resource in de tenant klant eerste?  Azure AD bevat informatie over deze aanvraag doordat de client als bron om te worden ingestemd in één stap. De totale som van de machtigingen die zijn aangevraagd door de client en de resource op de pagina toestemming, ziet de gebruiker.  Om dit gedrag, registratie van de toepassing van de resource vergezeld gaan van de App-ID van de client als een `knownClientApplications` in het toepassingsmanifest.  Bijvoorbeeld:
+Dit kan een probleem zijn als uw logische toepassing uit twee of meer toepassing registraties, bijvoorbeeld een afzonderlijke client en een resource bestaat.  Hoe krijg u Hallo resource in Hallo klant tenant eerste?  In dit geval doordat de client heeft betrekking op Azure AD en resource toobe ingestemd in één stap. Hallo gebruiker ziet totaal Hallo Hallo machtigingen die zijn aangevraagd door zowel de Hallo client als de resource op Hallo toestemming pagina.  tooenable dit gedrag van de bron van het Hallo-toepassing registreren vergezeld van Hallo client App-ID als een `knownClientApplications` in het toepassingsmanifest.  Bijvoorbeeld:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-Deze eigenschap kan worden bijgewerkt via de resource [van toepassingsmanifest][AAD-App-Manifest]. Dit wordt geïllustreerd in een meerlaagse systeemeigen client voorbeeld-web-API aanroepen in de [verwante inhoud](#related-content) sectie aan het einde van dit artikel. Het volgende diagram biedt een overzicht van toestemming voor een app met meerdere lagen geregistreerd in een enkel tenant:
+Deze eigenschap kan worden bijgewerkt via de Hallo resource [van toepassingsmanifest][AAD-App-Manifest]. Dit wordt geïllustreerd in een meerlaagse native client voorbeeld-web-API aanroepen in Hallo [verwante inhoud](#related-content) sectie op Hallo einde van dit artikel. Hallo biedt volgende diagram een overzicht van toestemming voor een app met meerdere lagen geregistreerd in een enkel tenant:
 
-![Instemmen met meerdere lagen bekende client-app][Consent-Multi-Tier-Known-Client] 
+![Toestemming geven toomulti laag bekende client-app][Consent-Multi-Tier-Known-Client] 
 
 **Meerdere lagen in meerdere tenants**
 
-Een vergelijkbaar aanvraag gebeurt er als de verschillende lagen van een toepassing in verschillende tenants zijn geregistreerd.  Neem bijvoorbeeld het geval van het bouwen van een systeemeigen clienttoepassing die de Office 365 Exchange Online-API aanroept.  Het ontwikkelen van de systeemeigen toepassing en hoger voor de systeemeigen toepassing voor uitvoering in een klant-tenant en moet de Exchange Online service-principal aanwezig zijn.  In dit geval moeten de ontwikkelaar en de klant aanschaffen Exchange Online voor de service-principal gemaakt in hun tenants.  
+Een vergelijkbaar aanvraag gebeurt er als Hallo verschillende lagen van een toepassing in verschillende tenants zijn geregistreerd.  Denk bijvoorbeeld Hallo-aanvraag van het bouwen van een systeemeigen clienttoepassing die Hallo Office 365 Exchange Online-API aanroept.  toodevelop hello native toepassing en hoger voor Hallo systeemeigen toepassing toorun in een klant-tenant, Hallo Exchange Online service-principal moet aanwezig zijn.  In dit geval moeten hello ontwikkelaar en de klant aanschaffen Exchange Online voor Hallo service principal toobe gemaakt in hun tenants.  
 
-In het geval van een API gebouwd door een organisatie dan Microsoft, moet de ontwikkelaar van de API bieden een manier voor klanten om toestemming van de toepassing in hun klanten tenants. Er is het aanbevolen ontwerp voor de 3e ontwikkelaars aan het bouwen van de API zodat deze kan ook worden gebruikt als een webclient voor het implementeren van aanmelding:
+In geval van een API gebouwd door een organisatie dan Microsoft hello moet Hallo developer Hallo API tooprovide een manier voor hun klanten tooconsent Hallo-toepassing in hun klanten tenants. Hallo aanbevolen ontwerp voor Hallo 3e partij developer toobuild Hallo API zodanig is dat ook als een registratie web client tooimplement fungeren kan:
 
-1. Volg de vorige secties om te controleren of dat de API implementeert de registratiecode/multitenant-toepassingsvereisten
-2. Naast het blootstellen van de API-scopes en-rollen, zorg ervoor dat de registratie bevat de ' aanmelden en gebruikersprofiel lezen ' Azure AD-machtiging (die standaard)
-3. Een sign-in/sign-up-to-date pagina implementeren in de webclient na de [admin toestemming](#admin-consent) richtlijnen besproken. 
-4. Zodra de gebruiker akkoord naar de toepassing gaat, de service principal en toestemming delegering koppelingen worden gemaakt in de tenant en de oorspronkelijke toepassing kan tokens ophalen voor de API
+1. Ga als volgt Hallo eerdere secties tooensure Hallo API implementeert Hallo multitenant toepassingsvereisten registratiecode /
+2. Bovendien tooexposing Hallo van API-scopes en-rollen, Controleer Hallo registratie bevat Hallo ' aanmelden en gebruikersprofiel lezen ' Azure AD-machtiging (die standaard)
+3. Een sign-in/sign-up-to-date pagina implementeren in Hallo webclient, Hallo na [admin toestemming](#admin-consent) richtlijnen besproken. 
+4. Zodra het Hallo-gebruiker akkoord gaat toohello toepassing, hello service principal en toestemming delegering koppelingen worden gemaakt in de tenant en systeemeigen toepassing hello tokens voor Hallo API kan ophalen
 
-Het volgende diagram biedt een overzicht van toestemming voor een app met meerdere lagen geregistreerd in verschillende tenants:
+Hallo volgende diagram biedt een overzicht van toestemming voor een app met meerdere lagen geregistreerd in verschillende tenants:
 
-![Instemmen met meerdere partijen app met meerdere lagen][Consent-Multi-Tier-Multi-Party] 
+![Toestemming toomulti lagen met meerdere partijen app][Consent-Multi-Tier-Multi-Party] 
 
 ### <a name="revoking-consent"></a>Toestemming intrekken
-Gebruikers en beheerders kunnen toestemming aan uw toepassing op elk gewenst moment intrekken:
+Gebruikers en beheerders kunnen toestemming tooyour toepassing op elk gewenst moment intrekken:
 
-* Gebruikers toegang tot afzonderlijke toepassingen intrekken door het verwijderen van hun [toegang Configuratiescherm toepassingen] [ AAD-Access-Panel] lijst.
-* Beheerders toegang tot toepassingen intrekken door deze te verwijderen van Azure AD via de Azure AD-management-sectie van de [Azure-portal][AZURE-portal].
+* Gebruikers in te trekken toegang tooindividual toepassingen door het verwijderen van hun [toegang Configuratiescherm toepassingen] [ AAD-Access-Panel] lijst.
+* Beheerders tooapplications toegang intrekken door deze te verwijderen van Azure AD dat gebruikmaakt van hello Azure AD-sectie in management Hallo [Azure-portal][AZURE-portal].
 
-Als een beheerder met een toepassing voor alle gebruikers in een tenant instemt, intrekken niet gebruikers afzonderlijk toegang.  Alleen de beheerder kan toegang intrekken en alleen voor de gehele toepassing.
+Als een beheerder tooan-toepassing voor alle gebruikers in een tenant instemt, intrekken niet gebruikers afzonderlijk toegang.  Alleen Hallo beheerder toegang kan intrekken en alleen voor de hele toepassing hello.
 
 ### <a name="consent-and-protocol-support"></a>Toestemming en protocolondersteuning
-Toestemming wordt ondersteund in Azure AD via de OAuth, OpenID Connect, WS-Federation en SAML-protocollen.  De SAML- en WS-Federation-protocollen bieden geen ondersteuning voor de `prompt=admin_consent` parameter, zodat de beheerder toestemming is alleen mogelijk via OAuth en OpenID Connect.
+Toestemming wordt ondersteund in Azure AD via Hallo OAuth, OpenID Connect, WS-Federation en SAML-protocollen.  Hallo SAML- en WS-Federation-protocollen ondersteunen geen Hallo `prompt=admin_consent` parameter, zodat de beheerder toestemming is alleen mogelijk via OAuth en OpenID Connect.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Multitenant-toepassingen en toegangstokens-Caching
-Multitenant-toepassingen kunnen ook om aan te roepen API's die zijn beveiligd door Azure AD-toegangstokens ophalen.  Een veelvoorkomende fout bij het gebruik van de Active Directory Authentication Library (ADAL) met een multitenant-toepassing is in eerste instantie te vragen van een token voor een gebruiker die met/Common reactie ontvangen en vervolgens een daaropvolgende token voor de gebruiker ook met/Common aanvragen.  Omdat het antwoord van Azure AD afkomstig is van een tenant niet-algemene, ADAL plaatst het token afkomstig is van de tenant. De volgende aanroep/Common ophalen van een toegangstoken voor de gebruiker de cachevermelding Cachemissers en de gebruiker wordt gevraagd opnieuw aanmelden.  Om te voorkomen dat de cache ontbreekt, zorg volgende aanroepen voor een gebruiker al aangemeld zijn aangebracht aan de tenant-eindpunt.
+Multitenant-toepassingen kunnen ook toegang tokens toocall API's die zijn beveiligd door Azure AD ophalen.  Een veelvoorkomende fout bij het gebruik van Hallo Active Directory Authentication Library (ADAL) met een multitenant-toepassing is tooinitially aanvraag een token voor een gebruiker die met/Common, reactie ontvangen en vervolgens een daaropvolgende token voor de gebruiker ook met/Common aanvragen.  Omdat het antwoord van Azure AD Hallo afkomstig is van een tenant niet-algemene, ADAL Hallo token afkomstig is van Hallo tenant in de cache opslaat. Hallo volgende aanroepen te gemeenschappelijke tooget een toegangstoken voor Hallo gebruiker missers Hallo-cachevermelding en Hallo gebruiker is na vragen aan gebruiker toosign in het opnieuw.  Zorg ervoor dat volgende aanroepen voor een gebruiker al aangemeld bestaan tooavoid ontbrekende Hallo cache, toohello-tenant-eindpunt.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe een toepassing bouwt die een gebruiker van een Azure Active Directory-tenant kunt aanmelden. Na het inschakelen van eenmalige aanmelding tussen uw app en Azure Active Directory, kunt u ook uw toepassing voor toegang tot API's die worden weergegeven door de Microsoft-bronnen, zoals Office 365 bijwerken. U kunt een persoonlijke ervaring dus aanbieden in uw toepassing bijvoorbeeld contextuele informatie weergegeven voor de gebruikers, zoals hun profielfoto of hun volgende afspraak voor de kalender. Voor meer informatie over het maken van API-aanroepen naar Azure Active Directory en Office 365-services zoals Exchange, SharePoint, OneDrive, OneNote, planning, Excel en meer, gaat u naar: [Microsoft Graph API][MSFT-Graph-overview].
+In dit artikel hebt u geleerd hoe toobuild een toepassing die een gebruiker van een Azure Active Directory-tenant kunt aanmelden. Na het inschakelen van eenmalige aanmelding tussen uw app en Azure Active Directory, kunt u ook uw toepassing tooaccess API's die worden weergegeven door de Microsoft-bronnen, zoals Office 365 bijwerken. U kunt een persoonlijke ervaring dus aanbieden in uw toepassing bijvoorbeeld contextuele informatie toohello gebruikers, zoals hun profielfoto of hun volgende afspraak voor de kalender weergegeven. toolearn meer informatie over het maken van API-aanroepen tooAzure Active Directory en Office 365-services zoals Exchange, SharePoint, OneDrive, OneNote, planning, aan Excel en meer, gaat u naar: [Microsoft Graph API][MSFT-Graph-overview].
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
@@ -185,11 +185,11 @@ In dit artikel hebt u geleerd hoe een toepassing bouwt die een gebruiker van een
 * [Handleiding voor Azure AD-ontwikkelaars][AAD-Dev-Guide]
 * [Toepassingsobjecten en Service-Principal-objecten][AAD-App-SP-Objects]
 * [Toepassingen integreren met Azure Active Directory][AAD-Integrating-Apps]
-* [Overzicht van het Framework toestemming][AAD-Consent-Overview]
+* [Overzicht van Hallo Framework toestemming geven][AAD-Consent-Overview]
 * [Microsoft Graph API-Machtigingsbereiken][MSFT-Graph-permision-scopes]
 * [Azure AD Graph API-Machtigingsbereiken][AAD-Graph-Perm-Scopes]
 
-Gebruik de volgende sectie met opmerkingen om uw feedback en help ons verfijnen en onze content vorm.
+Gebruik Hallo opmerkingen sectie tooprovide feedback te volgen en help ons verfijnen en onze content vorm.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

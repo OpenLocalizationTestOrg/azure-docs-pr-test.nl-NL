@@ -1,7 +1,7 @@
 ---
-title: Wizard opnieuw uitvoeren van de Azure AD Connect installeren | Microsoft Docs
-description: Wordt uitgelegd hoe de installatiewizard werkt de tweede keer dat u deze uitvoert.
-keywords: De Azure AD Connect-installatiewizard kunt u de tweede keer dat u het uitvoeren van onderhoudsinstellingen configureren
+title: Opnieuw uit te voeren hello Azure AD Connect-installatiewizard | Microsoft Docs
+description: Wordt uitgelegd hoe Hallo-installatiewizard werkt Hallo tweede keer dat u deze uitvoert.
+keywords: Hello Azure AD Connect-installatiewizard kunt u de tweede keer dat u het uitvoeren van onderhoud instellingen Hallo configureren
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 83cc74aca471ef9b4f65f7f3582e3e48d3d81cfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synchronisatie: uitvoeren van de installatiewizard van een tweede keer
-De eerste keer dat u de wizard Azure AD Connect-installatie uitvoert begeleidt het u bij het configureren van uw installatie. Als u de installatiewizard opnieuw uitvoert, biedt opties voor onderhoud.
+# <a name="azure-ad-connect-sync-running-hello-installation-wizard-a-second-time"></a>Azure AD Connect-synchronisatie: Hallo-installatiewizard een tweede keer uitgevoerd
+Hallo u eerste keer hello Azure AD Connect-installatiewizard uitvoert deze laat zien hoe u tooconfigure uw installatie. Als u de installatiewizard Hallo opnieuw uitvoert, biedt opties voor onderhoud.
 
-U kunt de installatiewizard vinden in het startmenu met de naam **Azure AD Connect**.
+U vindt Hallo-installatiewizard in Hallo Startmenu met de naam **Azure AD Connect**.
 
 ![Het menu Start](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
 
-Wanneer u de installatiewizard te starten, ziet u een pagina met deze opties:
+Wanneer u Hallo-installatiewizard te starten, ziet u een pagina met deze opties:
 
 ![Pagina met een lijst van extra taken](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Als u AD FS hebt geïnstalleerd met Azure AD Connect, hebt u nog meer opties. De aanvullende opties die u hebt voor AD FS zijn gedocumenteerd in [ADFS management](active-directory-aadconnect-federation-management.md#manage-ad-fs).
+Als u AD FS hebt geïnstalleerd met Azure AD Connect, hebt u nog meer opties. aanvullende opties die u hebt voor AD FS zijn gedocumenteerd in Hallo [ADFS management](active-directory-aadconnect-federation-management.md#manage-ad-fs).
 
-Selecteer een van de taken en klik op **volgende** om door te gaan.
+Selecteer een van de Hallo taken en klikt u op **volgende** toocontinue.
 
 > [!IMPORTANT]
-> Terwijl u de installatiewizard open zijn, worden alle bewerkingen in de synchronisatie-engine onderbroken. Zorg ervoor dat u de installatiewizard sluiten als u uw wijzigingen in de configuratie hebt voltooid.
+> Terwijl u Hallo-installatiewizard open zijn, worden alle bewerkingen in de synchronisatie-engine Hallo onderbroken. Zorg ervoor dat u de installatiewizard Hallo sluiten als u uw wijzigingen in de configuratie hebt voltooid.
 >
 >
 
@@ -46,45 +46,45 @@ Deze optie biedt een overzicht van de momenteel geconfigureerde opties.
 
 ![Pagina met een lijst met alle opties en hun status](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
-Klik op **vorige** om terug te gaan. Als u selecteert **afsluiten**, u de installatiewizard sluit.
+Klik op **vorige** toogo terug. Als u selecteert **afsluiten**, u Hallo-installatiewizard sluit.
 
 ## <a name="customize-synchronization-options"></a>Opties voor synchronisatie aanpassen
-Deze optie wordt gebruikt om de configuratie van de synchronisatie te wijzigen. Er is een subset van de opties in het installatiepad van aangepaste configuratie. U ziet deze optie ook als u snelle installatie in eerste instantie worden gebruikt.
+Deze optie is configuratie gebruikte toomake wijzigingen toohello-synchronisatie. Er is een subset van de opties in het installatiepad van Hallo aangepaste configuratie. U ziet deze optie ook als u snelle installatie in eerste instantie worden gebruikt.
 
 * [Toevoegen van meer mappen](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Zie voor het verwijderen van een map [verwijderen van een Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
 * [Wijzigen van domein en OE filteren](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
 * Filteren van de groep verwijderen.
 * [Optionele functies wijzigen](active-directory-aadconnect-get-started-custom.md#optional-features).
 
-De overige opties uit de eerste installatie kunnen niet worden gewijzigd en zijn niet beschikbaar. Deze opties zijn:
+Hallo andere opties van de eerste installatie Hallo kunnen niet worden gewijzigd en zijn niet beschikbaar. Deze opties zijn:
 
-* Het kenmerk moet worden gebruikt voor userPrincipalName en sourceAnchor wijzigen.
-* Wijzig de gekoppelde methode voor objecten van ander forest.
+* Hallo kenmerk toouse voor userPrincipalName en sourceAnchor wijzigen.
+* Lid worden van de methode voor objecten van een ander forest Hallo wijzigen.
 * Filteren op basis van een groep inschakelen.
 
 ## <a name="refresh-directory-schema"></a>Directory-schema vernieuwen
-Deze optie wordt gebruikt als u het schema hebt gewijzigd in een van uw on-premises AD DS-forests. Bijvoorbeeld, u mogelijk Exchange geïnstalleerd of bijgewerkt naar een Windows Server 2012-schema met apparaatobjecten. In dit geval moet u instrueren Azure AD Connect opnieuw lezen van het schema van AD DS en bijwerken van de cache. Deze actie wordt ook de synchronisatie-regels opnieuw gegenereerd. Als u de Exchange-schema als voorbeeld toevoegt, wordt de synchronisatie-regels voor Exchange worden toegevoegd aan de configuratie.
+Deze optie wordt gebruikt als u Hallo schema hebt gewijzigd in een van uw on-premises AD DS-forests. Bijvoorbeeld, kan ook Exchange zijn geïnstalleerd of bijgewerkt schema met apparaatobjecten tooa Windows Server 2012. In dit geval moet tooinstruct Azure AD Connect tooread Hallo schema opnieuw uit AD DS en de cache niet bijwerken. Deze actie wordt ook Hallo Sync regels opnieuw gegenereerd. Als u Hallo Exchange-schema, bijvoorbeeld toevoegt, worden Hallo Sync regels voor Exchange toohello configuratie toegevoegd.
 
-Wanneer u deze optie selecteert, worden de mappen in uw configuratie weergegeven. U kunt de standaardinstelling behouden en Vernieuw alle forests of selectie enkele ervan.
+Wanneer u deze optie selecteert, worden alle Hallo mappen in uw configuratie weergegeven. U kunt Hallo standaardinstelling behouden en Vernieuw alle forests of selectie ervan opheffen enkele ervan.
 
-![Pagina met een lijst met alle mappen in de omgeving](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
+![Pagina met een lijst met alle mappen in Hallo-omgeving](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>Faseringsmodus configureren
-Deze optie kunt u inschakelen en uitschakelen van de faseringsmodus op de server. Meer informatie over modus en hoe deze wordt gebruikt voor gefaseerde installatie vindt u in [Operations](active-directory-aadconnectsync-operations.md#staging-mode).
+Deze optie kunt u tooenable en schakel de faseringsmodus op Hallo server uit. Meer informatie over modus en hoe deze wordt gebruikt voor gefaseerde installatie vindt u in [Operations](active-directory-aadconnectsync-operations.md#staging-mode).
 
-De optie ziet als tijdelijke momenteel is ingeschakeld of uitgeschakeld:  
-![Optie dat ook de huidige status van de faseringsmodus wordt weergegeven](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
+Hallo-optie ziet als tijdelijke momenteel is ingeschakeld of uitgeschakeld:  
+![Optie die ook Hallo huidige status van de faseringsmodus wordt weergegeven](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
 
-Selecteer deze optie om de status wijzigt, en selecteer of schakel het selectievakje uit.  
-![Optie dat ook de huidige status van de faseringsmodus wordt weergegeven](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
+toochange Hallo status, selecteer deze optie en selecteren of selectie Hallo selectievakje.  
+![Optie die ook Hallo huidige status van de faseringsmodus wordt weergegeven](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>Gebruikersaanmelding wijzigen
-Deze optie kunt u wijzigen van Wachtwoordsynchronisatie in Federatie of andersom. U kunt niet wijzigen naar **niet configureert**.
+Deze optie kunt u toochange van wachtwoord sync toofederation of Hallo andersom. U niet te wijzigen**niet configureert**.
 
 Zie voor meer informatie over deze optie [gebruikersaanmelding](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de configuratiemodel dat wordt gebruikt door Azure AD Connect-synchronisatie in [Understanding declaratieve inrichting](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Meer informatie over Hallo configuratiemodel gebruikt door Azure AD Connect-synchronisatie in [Understanding declaratieve inrichting](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Overzichtsonderwerpen**
 

@@ -1,6 +1,6 @@
 ---
-title: Gebruiker profielsjablonen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van het gebruikersprofiel pagina's in de ontwikkelaarsportal in Azure API Management.
+title: aaa "profielsjablonen van de gebruiker in Azure API Management | Microsoft Docs'
+description: Meer informatie over hoe toocustomize Hallo inhoud van het gebruikersprofiel Hallo-pagina's in Azure API Management Hallo developer-Portal.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9a11bd5800068a5725ab2f099043993bff0b28d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f153b310221164809acf58e4af236928ceb41d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Gebruiker profielsjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Azure API Management biedt dat u Hallo mogelijkheid toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en het Hallo-editor naar keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [ De glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunnen u de inhoud van de gebruiker profiel pagina's in de ontwikkelaarsportal aanpassen.  
+ Hallo-sjablonen in deze sectie kunt u toocustomize Hallo inhoud van Hallo gebruiker profiel's in Hallo-portal voor ontwikkelaars.  
   
 -   [Profiel](#Profile)  
   
@@ -34,10 +34,10 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 -   [Update-accountgegevens](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie Hallo, maar onderwerp toochange vanwege toocontinuous verbeteringen zijn. U kunt Hallo live standaardsjablonen in Hallo developer-portal door te navigeren toohello gewenst afzonderlijke sjablonen weergeven. Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="Profile"></a>Profiel  
- De **profiel** sjabloon kunt u de Gebruikersprofielsectie van de pagina gebruikersprofiel in de ontwikkelaarsportal aanpassen.  
+ Hallo **profiel** sjabloon kunt u toocustomize Hallo Gebruikersprofielsectie Hallo van profielpagina van gebruiker in Hallo-portal voor ontwikkelaars.  
   
  ![Pagina gebruikersprofiel](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM gebruikersprofiel pagina")  
   
@@ -99,21 +99,21 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ### <a name="data-model"></a>Gegevensmodel  
   
 > [!NOTE]
->  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
+>  Hallo [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen Hallo dezelfde gegevens modelleren en Hallo ontvangen delen dezelfde sjabloongegevens.  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Voornaam|Tekenreeks|De voornaam van de huidige gebruiker.|  
-|Achternaam|Tekenreeks|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|Tekenreeks|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|Tekenreeks|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|Tekenreeks|Relatieve URL om analytics voor de huidige gebruiker weer te geven.|  
-|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
-|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|Tekenreeks|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|Tekenreeks|De relatieve URL moet de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
-|canChangePassword|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker hun wachtwoord kan wijzigen.|  
-|isSystemUser|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
+|Voornaam|Tekenreeks|De voornaam van de huidige gebruiker Hallo.|  
+|Achternaam|Tekenreeks|De achternaam van de huidige gebruiker Hallo.|  
+|Bedrijfsnaam|Tekenreeks|bedrijfsnaam van de huidige gebruiker Hallo Hallo.|  
+|addresserEmail|Tekenreeks|E-mailadres van de huidige gebruiker Hallo.|  
+|developersUsageStatisticsLinkk|Tekenreeks|Relatieve URL tooview analytics voor de huidige gebruiker Hallo.|  
+|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|Hallo-abonnementen voor de huidige gebruiker Hallo.|  
+|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|Hallo-toepassingen van de huidige gebruiker Hallo.|  
+|changePasswordUrl|Tekenreeks|Hallo relatieve URL toochange Hallo huidige wachtwoord van gebruiker.|  
+|changeNameOrEmailUrl|Tekenreeks|relatieve URL toochange Hallo-naam en e-mailadres voor de huidige gebruiker Hallo Hallo.|  
+|canChangePassword|Booleaanse waarde|Hiermee wordt aangegeven of kan de huidige gebruiker Hallo hun wachtwoord wijzigen.|  
+|isSystemUser|Booleaanse waarde|Of Hallo-huidige gebruiker lid is van een van de ingebouwde Hallo [groepen](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -130,7 +130,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -153,7 +153,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -182,7 +182,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="Subscriptions"></a>Abonnementen  
- De **abonnementen** sjabloon kunt u het gedeelte Abonnementen van de pagina gebruikersprofiel in de ontwikkelaarsportal aanpassen.  
+ Hallo **abonnementen** sjabloon kunt u toocustomize Hallo abonnementen sectie van Hallo pagina gebruikersprofiel in Hallo-portal voor ontwikkelaars.  
   
  ![Abonnement op de gebruikerspagina](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM op de pagina gebruiker abonnement")  
   
@@ -313,28 +313,28 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- Deze sjabloon kan gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Deze sjabloon kunt Hallo volgende [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [abonnement annuleren](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
 > [!NOTE]
->  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
+>  Hallo [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen Hallo dezelfde gegevens modelleren en Hallo ontvangen delen dezelfde sjabloongegevens.  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Voornaam|Tekenreeks|De voornaam van de huidige gebruiker.|  
-|Achternaam|Tekenreeks|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|Tekenreeks|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|Tekenreeks|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|Tekenreeks|Relatieve URL om analytics voor de huidige gebruiker weer te geven.|  
-|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
-|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|Tekenreeks|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|Tekenreeks|De relatieve URL moet de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
-|canChangePassword|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker hun wachtwoord kan wijzigen.|  
-|isSystemUser|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
+|Voornaam|Tekenreeks|De voornaam van de huidige gebruiker Hallo.|  
+|Achternaam|Tekenreeks|De achternaam van de huidige gebruiker Hallo.|  
+|Bedrijfsnaam|Tekenreeks|bedrijfsnaam van de huidige gebruiker Hallo Hallo.|  
+|addresserEmail|Tekenreeks|E-mailadres van de huidige gebruiker Hallo.|  
+|developersUsageStatisticsLinkk|Tekenreeks|Relatieve URL tooview analytics voor de huidige gebruiker Hallo.|  
+|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|Hallo-abonnementen voor de huidige gebruiker Hallo.|  
+|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|Hallo-toepassingen van de huidige gebruiker Hallo.|  
+|changePasswordUrl|Tekenreeks|Hallo relatieve URL toochange Hallo huidige wachtwoord van gebruiker.|  
+|changeNameOrEmailUrl|Tekenreeks|relatieve URL toochange Hallo-naam en e-mailadres voor de huidige gebruiker Hallo Hallo.|  
+|canChangePassword|Booleaanse waarde|Hiermee wordt aangegeven of kan de huidige gebruiker Hallo hun wachtwoord wijzigen.|  
+|isSystemUser|Booleaanse waarde|Of Hallo-huidige gebruiker lid is van een van de ingebouwde Hallo [groepen](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -351,7 +351,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -374,7 +374,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -403,7 +403,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="Applications"></a>Toepassingen  
- De **toepassingen** sjabloon kunt u het gedeelte Abonnementen van de pagina gebruikersprofiel in de ontwikkelaarsportal aanpassen.  
+ Hallo **toepassingen** sjabloon kunt u toocustomize Hallo abonnementen sectie van Hallo pagina gebruikersprofiel in Hallo-portal voor ontwikkelaars.  
   
  ![Gebruiker toepassingen accountpagina](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM gebruikersaccount pagina met toepassingen")  
   
@@ -476,28 +476,28 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- Deze sjabloon kan gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Deze sjabloon kunt Hallo volgende [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [App-acties](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Gegevensmodel  
   
 > [!NOTE]
->  De [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen voor het gegevensmodel met dezelfde delen en ontvangen van dezelfde sjabloongegevens.  
+>  Hallo [profiel](#Profile), [toepassingen](#Applications), en [abonnementen](#Subscriptions) sjablonen Hallo dezelfde gegevens modelleren en Hallo ontvangen delen dezelfde sjabloongegevens.  
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Voornaam|Tekenreeks|De voornaam van de huidige gebruiker.|  
-|Achternaam|Tekenreeks|De achternaam van de huidige gebruiker.|  
-|Bedrijfsnaam|Tekenreeks|De naam van het bedrijf van de huidige gebruiker.|  
-|addresserEmail|Tekenreeks|E-mailadres van de huidige gebruiker.|  
-|developersUsageStatisticsLinkk|Tekenreeks|Relatieve URL om analytics voor de huidige gebruiker weer te geven.|  
-|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|De abonnementen voor de huidige gebruiker.|  
-|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|De toepassingen van de huidige gebruiker.|  
-|changePasswordUrl|Tekenreeks|De relatieve URL van de huidige gebruiker-wachtwoord te wijzigen.|  
-|changeNameOrEmailUrl|Tekenreeks|De relatieve URL moet de naam en e-mailadres voor de huidige gebruiker wijzigen.|  
-|canChangePassword|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker hun wachtwoord kan wijzigen.|  
-|isSystemUser|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker is lid van een van de ingebouwde [groepen](api-management-key-concepts.md#groups).|  
+|Voornaam|Tekenreeks|De voornaam van de huidige gebruiker Hallo.|  
+|Achternaam|Tekenreeks|De achternaam van de huidige gebruiker Hallo.|  
+|Bedrijfsnaam|Tekenreeks|bedrijfsnaam van de huidige gebruiker Hallo Hallo.|  
+|addresserEmail|Tekenreeks|E-mailadres van de huidige gebruiker Hallo.|  
+|developersUsageStatisticsLinkk|Tekenreeks|Relatieve URL tooview analytics voor de huidige gebruiker Hallo.|  
+|abonnementen|Verzameling van [abonnement](api-management-template-data-model-reference.md#Subscription) entiteiten.|Hallo-abonnementen voor de huidige gebruiker Hallo.|  
+|toepassingen|Verzameling van [toepassing](api-management-template-data-model-reference.md#Application) entiteiten.|Hallo-toepassingen van de huidige gebruiker Hallo.|  
+|changePasswordUrl|Tekenreeks|Hallo relatieve URL toochange Hallo huidige wachtwoord van gebruiker.|  
+|changeNameOrEmailUrl|Tekenreeks|relatieve URL toochange Hallo-naam en e-mailadres voor de huidige gebruiker Hallo Hallo.|  
+|canChangePassword|Booleaanse waarde|Hiermee wordt aangegeven of kan de huidige gebruiker Hallo hun wachtwoord wijzigen.|  
+|isSystemUser|Booleaanse waarde|Of Hallo-huidige gebruiker lid is van een van de ingebouwde Hallo [groepen](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
   
@@ -514,7 +514,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -537,7 +537,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -566,7 +566,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ##  <a name="UpdateAccountInfo"></a>Update-accountgegevens  
- De **Uodate accountgegevens** sjabloon kunt u voor het aanpassen van de **accountgegevens bijwerken** pagina in de portal voor ontwikkelaars.  
+ Hallo **Uodate accountgegevens** sjabloon kunt u toocustomize hello **accountgegevens bijwerken** pagina in het Hallo-portal voor ontwikkelaars.  
   
  ![Info pagina Developer Portal sjablonen voor gebruikersaccounts](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM Info pagina Developer Portal sjablonen voor gebruikersaccounts")  
   
@@ -623,4 +623,4 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).

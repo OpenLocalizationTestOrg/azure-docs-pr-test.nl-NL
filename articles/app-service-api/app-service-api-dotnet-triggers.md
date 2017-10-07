@@ -1,6 +1,6 @@
 ---
-title: App Service API-app-triggers | Microsoft Docs
-description: Triggers implementeren in een API-App in Azure App Service
+title: aaaApp Service API-app-triggers | Microsoft Docs
+description: Hoe tooimplement activeert in een API-App in Azure App Service
 services: logic-apps
 documentationcenter: .net
 author: guangyang
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
-ms.openlocfilehash: 3ddfb142e7f1a47e2a8564387da785acf36fa61f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d6b6a942a23c0a93987e9c48b69ecc739bfd814
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-api-app-triggers"></a>API-app-triggers voor Azure App Service
 > [!NOTE]
-> Deze versie van het artikel is van toepassing op API apps-2014-12-01-preview-schemaversie.
+> Deze versie van Hallo artikel geldt tooAPI apps 2014-12-01-preview-schemaversie.
 >
 >
 
 ## <a name="overview"></a>Overzicht
-In dit artikel wordt uitgelegd hoe API app-triggers implementeren en gebruiken van een logische app.
+Dit artikel wordt uitgelegd hoe tooimplement API app getriggerd en gebruiken van een logische app.
 
-Alle van de codefragmenten in dit onderwerp worden gekopieerd van de [FileWatcher API-App-codevoorbeeld](http://go.microsoft.com/fwlink/?LinkId=534802).
+Alle Hallo codefragmenten in dit onderwerp worden gekopieerd van Hallo [FileWatcher API-App-codevoorbeeld](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-Merk op dat u wilt downloaden van de volgende nuget-pakket voor de code in dit artikel om te bouwen en uitvoeren: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+Opmerking moet u toodownload Hallo volgende nuget-pakket voor Hallo-code in dit artikel toobuild en voer: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## <a name="what-are-api-app-triggers"></a>Wat API app-triggers zijn?
-Het is een veelvoorkomend scenario voor een API-app zodat clients van de API-app de juiste actie in reactie op de gebeurtenis ondernemen kunnen een gebeurtenis wordt gestart. Het mechanisme voor op basis van REST-API die ondersteuning biedt voor dit scenario wordt een API-app-trigger genoemd.
+Is een veelvoorkomend scenario voor een API-app toofire een gebeurtenis zodat clients van de API-app Hallo antwoord toohello gebeurtenis Hallo passende maatregelen kunnen nemen. Hallo op basis van REST-API-mechanisme die ondersteuning biedt voor dit scenario wordt een API-app-trigger genoemd.
 
-Bijvoorbeeld, Stel dat uw clientcode maakt gebruik van de [Twitter-Connector-API-app](../connectors/connectors-create-api-twitter.md) en uw code nodig zijn voor een actie die op basis van nieuwe tweets die bepaalde woorden bevatten. U mogelijk in dit geval een poll of push trigger instellen om deze behoefte.
+Bijvoorbeeld, Stel dat uw clientcode maakt gebruik van Hallo [Twitter-Connector-API-app](../connectors/connectors-create-api-twitter.md) en uw code moet tooperform een actie op basis van nieuwe tweets die bepaalde woorden bevatten. In dit geval wordt u mogelijk instellen een poll of push trigger toofacilitate deze behoefte.
 
 ## <a name="poll-trigger-versus-push-trigger"></a>Poll-trigger versus push-signaal
 Op dit moment kunnen worden twee soorten triggers ondersteund:
 
-* Poll-trigger - Client controleert de API-app voor melding van een gebeurtenis die is verwijderd
-* Push-signaal - Client wordt door de API-app geïnformeerd wanneer een gebeurtenis wordt gestart
+* Poll-trigger - Client worden opgevraagd Hallo API-app voor melding van een gebeurtenis die is verwijderd
+* Push-signaal - Client wordt door Hallo API-app geïnformeerd wanneer een gebeurtenis wordt gestart
 
 ### <a name="poll-trigger"></a>Poll-trigger
-Een poll-trigger is geïmplementeerd als een reguliere REST-API en poll-om op te halen van de melding wordt verwacht dat de clients (zoals een logische app). Terwijl de client de status behouden kan, is de poll-trigger zelf staatloze.
+Een poll-trigger is geïmplementeerd als een reguliere REST-API en de toopoll clients (zoals een logische app) verwacht in volgorde tooget melding. Tijdens het Hallo-client kan de status behouden, is Hallo poll trigger zelf staatloze.
 
-De volgende gegevens over de aanvraag en antwoord pakketten illustratie van enkele belangrijke aspecten van het contract van de trigger poll:
+Hallo volgende informatie met betrekking tot hello-pakketten voor aanvraag- en ziet u enkele belangrijke aspecten van Hallo poll trigger contract:
 
 * Aanvraag
   * HTTP-methode: ophalen
   * Parameters
-    * triggerState - deze optionele parameter kan clients opgeven dat hun status, zodat de poll-trigger goed beslissen om terug te keren melding of niet op basis van de opgegeven status.
+    * triggerState - deze optionele parameter kan clients toospecify hun status, zodat die poll trigger Hallo goed kunt bepalen of tooreturn melding of niet op basis van Hallo status opgegeven.
     * API-specifieke parameters
 * Antwoord
-  * Statuscode **200** - aanvraag geldig is en er is een melding van de trigger. De inhoud van de melding worden de antwoordtekst. Een header 'Opnieuw proberen na' in het antwoord geeft aan dat er aanvullende kennisgeving gegevens met een aanroep van de volgende aanvraag moet worden opgehaald.
-  * Statuscode **202** - aanvraag is geldig, maar er is geen nieuwe melding van de trigger.
-  * Statuscode **4xx** -aanvraag is niet geldig. De client moet de aanvraag niet opnieuw proberen.
-  * Statuscode **5xx** -aanvraag heeft geleid tot een interne serverfout en/of een tijdelijk probleem. De client moet de aanvraag opnieuw te proberen.
+  * Statuscode **200** - aanvraag geldig is en er is een melding van Hallo-trigger. Hallo-inhoud van het Hallo-melding worden Hallo antwoordtekst. Een header 'Opnieuw proberen na' hello antwoord geeft aan dat er aanvullende kennisgeving gegevens met een aanroep van de volgende aanvraag moet worden opgehaald.
+  * Statuscode **202** - aanvraag is geldig, maar er is geen nieuwe melding van Hallo-trigger.
+  * Statuscode **4xx** -aanvraag is niet geldig. Hallo-client moet Hallo-aanvraag niet opnieuw proberen.
+  * Statuscode **5xx** -aanvraag heeft geleid tot een interne serverfout en/of een tijdelijk probleem. Hallo-client moet Hallo aanvraag opnieuw.
 
-Het volgende codefragment is een voorbeeld van het implementeren van een poll-trigger.
+Hallo volgende codefragment is een voorbeeld van hoe een poll tooimplement activeren.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -71,54 +71,54 @@ Het volgende codefragment is een voorbeeld van het implementeren van een poll-tr
         // Additional parameters
         string searchPattern = "*")
     {
-        // Check to see whether there is any file touched after the timestamp.
+        // Check toosee whether there is any file touched after hello timestamp.
         var lastTriggerTimeUtc = DateTime.Parse(triggerState).ToUniversalTime();
         var touchedFiles = Directory.EnumerateFiles(rootPath, searchPattern, SearchOption.AllDirectories)
             .Select(f => FileInfoWrapper.FromFileInfo(new FileInfo(f)))
             .Where(fi => fi.LastAccessTimeUtc > lastTriggerTimeUtc);
 
-        // If there are files touched after the timestamp, return their information.
+        // If there are files touched after hello timestamp, return their information.
         if (touchedFiles != null && touchedFiles.Count() != 0)
         {
-            // Extension method provided by the AppService service SDK.
+            // Extension method provided by hello AppService service SDK.
             return this.Request.EventTriggered(new { files = touchedFiles });
         }
-        // If there are no files touched after the timestamp, tell the caller to poll again after 1 mintue.
+        // If there are no files touched after hello timestamp, tell hello caller toopoll again after 1 mintue.
         else
         {
-            // Extension method provided by the AppService service SDK.
+            // Extension method provided by hello AppService service SDK.
             return this.Request.EventWaitPoll(new TimeSpan(0, 1, 0));
         }
     }
 
-Als u wilt testen deze trigger poll, de volgende stappen uit:
+tootest deze poll activeert, als volgt te werk:
 
-1. Implementeer de API-App met een verificatie-instelling van **openbare anonieme**.
-2. Roep de **touch** bewerking touch van een bestand. De volgende afbeelding toont een voorbeeld van een aanvraag via Postman.
+1. Hallo API App met een verificatie-instelling van implementeren **openbare anonieme**.
+2. Hallo aanroepen **touch** bewerking tootouch een bestand. Hallo volgende afbeelding toont een voorbeeld van een aanvraag via Postman.
    ![Touch-bewerking via Postman aanroepen](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Roep de poll-trigger met de **triggerState** parameter ingesteld op een tijdstempel vóór stap 2. De volgende afbeelding toont de voorbeeld-aanvraag via Postman.
+3. Hallo poll trigger Hello aanroepen **triggerState** parameterset tooa tijdstempel voorafgaande tooStep #2. Hallo toont volgende afbeelding Hallo voorbeeld van een aanvraag via Postman.
    ![Poll-Trigger via Postman aanroepen](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### <a name="push-trigger"></a>Push-signaal
-Een push-signaal is geïmplementeerd als een reguliere REST-API die meldingen verstuurd naar clients die zich hebben geregistreerd wilt worden gewaarschuwd als specifieke gebeurtenissen worden gestart.
+Een push-signaal is geïmplementeerd als een reguliere REST-API die pushes meldingen tooclients die zich hebben geregistreerd toobe een melding wanneer er specifieke gebeurtenissen gestart.
 
-De volgende gegevens over de aanvraag en antwoord pakketten illustratie van enkele belangrijke aspecten van de push-trigger-contract.
+Hallo informatie met betrekking tot hello-pakketten voor aanvraag- en volgende illustratie van enkele belangrijke aspecten van Hallo push trigger contract.
 
 * Aanvraag
   * HTTP-methode: plaatsen
   * Parameters
-    * triggerId: vereist - ondoorzichtige tekenreeks (zoals een GUID) voor de registratie van een push-trigger.
-    * callbackUrl: vereist - URL van de callback moet worden aangeroepen wanneer de gebeurtenis wordt gestart. De aanroep is een eenvoudige HTTP POST-aanroep.
+    * triggerId: vereist - ondoorzichtig tekenreeks (zoals een GUID) dat vertegenwoordigt de registratie van een push-signaal Hallo.
+    * callbackUrl: vereist - URL van Hallo callback tooinvoke wanneer Hallo gebeurtenis wordt gestart. Hallo-aanroep is een eenvoudige HTTP POST-aanroep.
     * API-specifieke parameters
 * Antwoord
-  * Statuscode **200** -aanvraag voor het registreren van de client is geslaagd.
-  * Statuscode **4xx** -aanvraag is niet geldig. De client moet de aanvraag niet opnieuw proberen.
-  * Statuscode **5xx** -aanvraag heeft geleid tot een interne serverfout en/of een tijdelijk probleem. De client moet de aanvraag opnieuw te proberen.
+  * Statuscode **200** -aanvraag tooregister client voltooid.
+  * Statuscode **4xx** -aanvraag is niet geldig. Hallo-client moet Hallo-aanvraag niet opnieuw proberen.
+  * Statuscode **5xx** -aanvraag heeft geleid tot een interne serverfout en/of een tijdelijk probleem. Hallo-client moet Hallo aanvraag opnieuw.
 * Terugbellen
   * HTTP-methode: POST
   * Aanvraagtekst: berichtinhoud.
 
-Het volgende codefragment is een voorbeeld van het implementeren van een push-signaal:
+Hallo volgende codefragment is een voorbeeld van hoe een push tooimplement activeren:
 
     // Implement a push trigger.
     [HttpPut]
@@ -126,14 +126,14 @@ Het volgende codefragment is een voorbeeld van het implementeren van een push-si
     public HttpResponseMessage TouchedFilesPushTrigger(
         // triggerId is an opaque string.
         string triggerId,
-        // A helper class provided by the AppService service SDK.
-        // Here it defines the input of the push trigger is a string and the output to the callback is a FileInfoWrapper object.
+        // A helper class provided by hello AppService service SDK.
+        // Here it defines hello input of hello push trigger is a string and hello output toohello callback is a FileInfoWrapper object.
         [FromBody]TriggerInput<string, FileInfoWrapper> triggerInput)
     {
-        // Register the trigger to some trigger store.
+        // Register hello trigger toosome trigger store.
         triggerStore.RegisterTrigger(triggerId, rootPath, triggerInput);
 
-        // Extension method provided by the AppService service SDK indicating the registration is completed.
+        // Extension method provided by hello AppService service SDK indicating hello registration is completed.
         return this.Request.PushTriggerRegistered(triggerInput.GetCallback());
     }
 
@@ -165,53 +165,53 @@ Het volgende codefragment is een voorbeeld van het implementeren van een push-si
         public void RegisterTrigger(string triggerId, string rootPath,
             TriggerInput<string, FileInfoWrapper> triggerInput)
         {
-            // Use FileSystemWatcher to listen to file change event.
+            // Use FileSystemWatcher toolisten toofile change event.
             var filter = string.IsNullOrEmpty(triggerInput.inputs) ? "*" : triggerInput.inputs;
             var watcher = new FileSystemWatcher(rootPath, filter);
             watcher.IncludeSubdirectories = true;
             watcher.EnableRaisingEvents = true;
             watcher.NotifyFilter = NotifyFilters.LastAccess;
 
-            // When some file is changed, fire the push trigger.
+            // When some file is changed, fire hello push trigger.
             watcher.Changed +=
                 (sender, e) => watcher_Changed(sender, e,
                     Runtime.FromAppSettings(),
                     triggerInput.GetCallback());
 
-            // Assoicate the FileSystemWatcher object with the triggerId.
+            // Assoicate hello FileSystemWatcher object with hello triggerId.
             _store[triggerId] = watcher;
 
         }
 
-        // Fire the assoicated push trigger when some file is changed.
+        // Fire hello assoicated push trigger when some file is changed.
         void watcher_Changed(object sender, FileSystemEventArgs e,
-            // AppService runtime object needed to invoke the callback.
+            // AppService runtime object needed tooinvoke hello callback.
             Runtime runtime,
-            // The callback to invoke.
+            // hello callback tooinvoke.
             ClientTriggerCallback<FileInfoWrapper> callback)
         {
-            // Helper method provided by AppService service SDK to invoke a push trigger callback.
+            // Helper method provided by AppService service SDK tooinvoke a push trigger callback.
             callback.InvokeAsync(runtime, FileInfoWrapper.FromFileInfo(new FileInfo(e.FullPath)));
         }
     }
 
-Als u wilt testen deze trigger poll, de volgende stappen uit:
+tootest deze poll activeert, als volgt te werk:
 
-1. Implementeer de API-App met een verificatie-instelling van **openbare anonieme**.
-2. Blader naar [http://requestb.in/](http://requestb.in/) voor het maken van een RequestBin die als de URL van uw retouraanroep fungeert.
-3. Aanroepen van de push-trigger met een GUID als **triggerId** en de URL RequestBin als **callbackUrl**.
+1. Hallo API App met een verificatie-instelling van implementeren **openbare anonieme**.
+2. Te bladeren[http://requestb.in/](http://requestb.in/) toocreate een RequestBin die als de URL van uw retouraanroep fungeert.
+3. Hallo push trigger met een GUID als aanroepen **triggerId** en RequestBin URL als Hallo **callbackUrl**.
    ![Push-signaal via Postman aanroepen](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Roep de **touch** bewerking touch van een bestand. De volgende afbeelding toont een voorbeeld van een aanvraag via Postman.
+4. Hallo aanroepen **touch** bewerking tootouch een bestand. Hallo volgende afbeelding toont een voorbeeld van een aanvraag via Postman.
    ![Touch-bewerking via Postman aanroepen](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Controleer de RequestBin om te bevestigen dat de callback van de trigger push is aangeroepen met de eigenschap uitvoer.
+5. Controleer Hallo RequestBin tooconfirm die Hallo push trigger retouraanroep wordt aangeroepen met de eigenschap uitvoer.
    ![Poll-Trigger via Postman aanroepen](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### <a name="describe-triggers-in-api-definition"></a>Beschrijven triggers in API-definitie
-Nadat de triggers implementeren en uw API-app implementeren naar Azure, gaat u naar de **API-definitie** blade in de Azure preview-portal en u ziet triggers worden automatisch herkend in de gebruikersinterface wordt aangedreven door de Swagger 2.0 API-definitie van de API-app.
+Ga na Hallo triggers implementeren en uw tooAzure API-app implementeren, toohello **API-definitie** blade in hello Azure preview-portal en u ziet triggers worden automatisch herkend in Hallo-gebruikersinterface die wordt aangedreven door Hello Swagger 2.0 API-definitie van Hallo API-app.
 
 ![API-definitie-Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-Als u op de **downloaden Swagger** knop en opent u het JSON-bestand, ziet u resultaten die vergelijkbaar is met het volgende:
+Als u klikt op Hallo **downloaden Swagger** knop en open Hallo JSON-bestand, ziet u de resultaten vergelijkbare toohello te volgen:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -228,20 +228,20 @@ Als u op de **downloaden Swagger** knop en opent u het JSON-bestand, ziet u resu
       }
     }
 
-De eigenschap extension **x-ms-schedular-trigger** is hoe triggers worden beschreven in de API-definitie en automatisch door de API-app-gateway wordt toegevoegd wanneer u via de gateway van de API-definitie aanvragen als de aanvraag voor een van de de volgende criteria. (U kunt ook deze eigenschap handmatig toevoegen.)
+Hallo uitbreidingseigenschap **x-ms-schedular-trigger** is hoe triggers worden beschreven in de API-definitie en automatisch door Hallo API app gateway wordt toegevoegd wanneer u Hallo API-definitie via Hallo gateway aanvragen als Hallo tooone van aanvragen Hallo criteria te volgen. (U kunt ook deze eigenschap handmatig toevoegen.)
 
 * Poll-trigger
-  * Als de HTTP-methode is **ophalen**.
-  * Als de **operationId** eigenschap bevat de tekenreeks **trigger**.
-  * Als de **parameters** eigenschap bevat een parameter met een **naam** eigenschap ingesteld op **triggerState**.
+  * Als HTTP-methode Hallo **ophalen**.
+  * Als hello **operationId** eigenschap bevat Hallo tekenreeks **trigger**.
+  * Als hello **parameters** eigenschap bevat een parameter met een **naam** eigenschappenset te**triggerState**.
 * Push-signaal
-  * Als de HTTP-methode is **plaatsen**.
-  * Als de **operationId** eigenschap bevat de tekenreeks **trigger**.
-  * Als de **parameters** eigenschap bevat een parameter met een **naam** eigenschap ingesteld op **triggerId**.
+  * Als HTTP-methode Hallo **plaatsen**.
+  * Als hello **operationId** eigenschap bevat Hallo tekenreeks **trigger**.
+  * Als hello **parameters** eigenschap bevat een parameter met een **naam** eigenschappenset te**triggerId**.
 
 ## <a name="use-api-app-triggers-in-logic-apps"></a>API app-triggers gebruiken in Logic apps
-### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>Weergeven en configureren van app-triggers voor API in de ontwerpfunctie voor Logic apps
-Als u een logische app in dezelfde resourcegroep bevinden als de API-app maakt, kunt u zich kunt toevoegen aan het designer-canvas gewoon door erop te klikken. De volgende afbeeldingen illustreren dit:
+### <a name="list-and-configure-api-app-triggers-in-hello-logic-apps-designer"></a>Weergeven en configureren van de API app-triggers in Hallo Logic apps ontwerpen
+Als u een logische app in Hallo maken dezelfde resourcegroep als Hallo API-app, kunt u zich kunt tooadd het toohello designer-canvas gewoon door erop te klikken. Hallo volgende afbeeldingen illustreren dit:
 
 ![Triggers in Logic App-ontwerper](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
@@ -250,15 +250,15 @@ Als u een logische app in dezelfde resourcegroep bevinden als de API-app maakt, 
 ![Push-signaal in Logic App-ontwerper configureren](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
 ## <a name="optimize-api-app-triggers-for-logic-apps"></a>API-app-triggers voor Logic apps optimaliseren
-Nadat u triggers aan een API-app toevoegt, zijn er enkele dingen die u doen kunt om de ervaring te verbeteren wanneer u de API-app in een logische app.
+Nadat u triggers tooan API-app toevoegt, zijn er enkele dingen die u kunt tooimprove Hallo ervaring kunt doen wanneer Hallo API-app in een logische app.
 
-Bijvoorbeeld, de **triggerState** parameter voor de poll-triggers moet worden ingesteld op de volgende expressie in de logische app. Deze expressie moet de laatste aanroep van de trigger van de logische app evalueren en die waarde retourneren.  
+Bijvoorbeeld: Hallo **triggerState** parameter voor de poll-triggers toohello na expressie in Hallo logische app moet worden ingesteld. Deze expressie moet evalueren Hallo laatste aanroep van de trigger Hallo van Hallo logische app en dat de waarde retourneren.  
 
     @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-Opmerking: Voor een uitleg van de functies die in de bovenstaande expressie worden gebruikt, Raadpleeg de documentatie op [Logic App werkstroom Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+Opmerking: Voor een uitleg van Hallo-functies in de bovenstaande Hallo-expressie gebruikt, Raadpleeg de documentatie toohello op [Logic App werkstroom Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Logic app-gebruikers moeten de expressie hierboven voor de **triggerState** parameter tijdens het gebruik van de trigger. Het is mogelijk dat deze waarde vooraf ingesteld door de ontwerper Logic app via de eigenschap extension **x-ms-scheduler-aanbeveling**.  De **x-ms-zichtbaarheid** uitbreidingseigenschap kan worden ingesteld op een waarde van *interne* zodat de parameter zelf niet in de ontwerpfunctie wordt weergegeven.  Het volgende fragment illustreert die.
+Logic app-gebruikers tooprovide Hallo expressie hierboven nodig voor Hallo **triggerState** parameter tijdens het Hallo-trigger gebruikt. Het is mogelijk toohave voorinstelling deze waarde door Hallo Logic app-ontwerper via de eigenschap extension Hallo **x-ms-scheduler-aanbeveling**.  Hallo **x-ms-zichtbaarheid** uitbreidingseigenschap tooa waarde kan worden ingesteld *interne* zodat Hallo parameter zelf niet wordt weergegeven op Hallo designer.  Hallo volgende codefragment ziet u dat.
 
     "/api/Messages/poll": {
       "get": {
@@ -278,11 +278,11 @@ Logic app-gebruikers moeten de expressie hierboven voor de **triggerState** para
       }
     }
 
-Voor de push-triggers de **triggerId** parameter moet een unieke identificatie van de logische app. Aanbevolen wordt deze eigenschap instellen op de naam van de werkstroom met behulp van de volgende expressie:
+Voor de push-triggers Hallo **triggerId** parameter moet een unieke identificatie Hallo logische app. Een aanbevolen procedure is tooset deze toohello eigenschapsnaam van Hallo werkstroom met behulp van Hallo expressie te volgen:
 
     @workflow().name
 
-Met behulp van de **x-ms-scheduler-aanbeveling** en **x-ms-zichtbaarheid** eigenschappen van de extensie in de API-definitie, de API-app kunt overbrengen naar de ontwerpfunctie Logic app worden automatisch ingesteld deze expressie voor de de gebruiker.
+Met behulp van Hallo **x-ms-scheduler-aanbeveling** en **x-ms-zichtbaarheid** eigenschappen van de extensie in de API-definitie, Hallo API-app kunnen overbrengen toohello Logic app designer tooautomatically dit instellen expressie voor het Hallo-gebruiker.
 
         "parameters":[  
           {  
@@ -296,11 +296,11 @@ Met behulp van de **x-ms-scheduler-aanbeveling** en **x-ms-zichtbaarheid** eigen
 
 
 ### <a name="add-extension-properties-in-api-defintion"></a>Eigenschappen van de extensie in API-definition toevoegen
-Informatie over aanvullende metagegevens - zoals de uitbreidingseigenschappen **x-ms-scheduler-aanbeveling** en **x-ms-zichtbaarheid** -kunnen worden toegevoegd in de API-definition op twee manieren: statisch of dynamisch.
+Informatie over aanvullende metagegevens - zoals Hallo uitbreidingseigenschappen **x-ms-scheduler-aanbeveling** en **x-ms-zichtbaarheid** -kunnen worden toegevoegd in Hallo API-definition op twee manieren: statisch of dynamisch.
 
-Voor statische metagegevens kunt u direct bewerken de */metadata/apiDefinition.swagger.json* -bestand in uw project en de eigenschappen handmatig toevoegen.
+Voor statische metagegevens kunt u direct Hallo bewerken */metadata/apiDefinition.swagger.json* -bestand in uw project en Hallo eigenschappen handmatig toevoegen.
 
-Voor API-apps met dynamische metagegevens, kunt u het bestand SwaggerConfig.cs voor het toevoegen van een bewerking met het filter dat deze uitbreidingen kunt toevoegen.
+Voor API-apps met dynamische metagegevens, kunt u Hallo SwaggerConfig.cs bestand tooadd een bewerking met het filter dat deze uitbreidingen kunt toevoegen.
 
     GlobalConfiguration.Configuration
         .EnableSwagger(c =>
@@ -311,9 +311,9 @@ Voor API-apps met dynamische metagegevens, kunt u het bestand SwaggerConfig.cs v
             }
 
 
-Hier volgt een voorbeeld van hoe deze klasse kan worden geïmplementeerd om te vergemakkelijken van het scenario dynamisch metagegevens.
+Hallo Hier volgt een voorbeeld van hoe deze klasse geïmplementeerd toofacilitate Hallo dynamische metagegevens scenario kan zijn.
 
-    // Add extension properties on the triggerState parameter
+    // Add extension properties on hello triggerState parameter
     public class TriggerStateFilter : IOperationFilter
     {
 
@@ -331,8 +331,8 @@ Hier volgt een voorbeeld van hoe deze klasse kan worden geïmplementeerd om te v
                     }
 
                     // add 2 vendor extensions
-                    // x-ms-visibility: set to 'internal' to signify this is an internal field
-                    // x-ms-scheduler-recommendation: set to a value that logic app can use
+                    // x-ms-visibility: set too'internal' toosignify this is an internal field
+                    // x-ms-scheduler-recommendation: set tooa value that logic app can use
                     triggerStateParam.vendorExtensions.Add("x-ms-visibility", "internal");
                     triggerStateParam.vendorExtensions.Add("x-ms-scheduler-recommendation",
                                                            "@coalesce(triggers()?.outputs?.body?['triggerState'], '')");

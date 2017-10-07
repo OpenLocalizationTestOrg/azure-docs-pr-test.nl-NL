@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van back-end-services met behulp van client certificaatverificatie - Azure API Management | Microsoft Docs
-description: Informatie over het beveiligen van back-end-services met behulp van verificatie van clientcertificaten in Azure API Management.
+title: aaaSecure back-end-services met behulp van verificatie van clientcertificaten - Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toosecure back-end-services met behulp van client-certificaat gebaseerde verificatie in Azure API Management.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,101 +14,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 565bb61044fed1158944202c36e8abe30edf5729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Het beveiligen van back-end-services met behulp van client certificaatverificatie in Azure API Management
-API Management biedt de mogelijkheid voor het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten. Deze handleiding wordt beschreven hoe u voor het beheren van certificaten in de publicatieportal van API en het configureren van een API voor het gebruik van een certificaat voor toegang tot de back-end-service.
+# <a name="how-toosecure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Hoe toosecure back-end-services met behulp van client-certificaat gebaseerde verificatie in Azure API Management
+API Management biedt Hallo mogelijkheid toosecure access toohello back-end-service van een API met behulp van clientcertificaten. Deze handleiding wordt getoond hoe toomanage certificaten in de publicatieportal Hallo API en hoe een API tooconfigure toouse een tooaccess certificaat de back-endservice.
 
-Zie voor meer informatie over het beheren van certificaten met behulp van API Management REST API [Azure API Management REST API certificaat entiteit][Azure API Management REST API Certificate entity].
+Zie voor meer informatie over het beheren van certificaten met behulp van API Management REST API Hallo [Azure API Management REST API certificaat entiteit][Azure API Management REST API Certificate entity].
 
 ## <a name="prerequisites"></a>Vereisten
-Deze handleiding laat zien hoe uw API Management-service-exemplaar voor het gebruik van verificatie van clientcertificaten voor toegang tot de back-end-service voor een API te configureren. Voordat u de stappen in dit onderwerp, hebt u uw back-end-service die is geconfigureerd voor verificatie van clientcertificaten ([certificaatverificatie in Azure WebSites configureren Raadpleeg dit artikel] [ to configure certificate authentication in Azure WebSites refer to this article]), en hebben toegang tot het certificaat en het wachtwoord voor het certificaat voor het uploaden van in de publicatieportal van API Management.
+Deze handleiding wordt getoond hoe tooconfigure uw API Management-service-exemplaar toouse client certificaat verificatie tooaccess Hallo back-end-service voor een API. Voordat de volgende Hallo stappen in dit onderwerp, moet u beschikken over uw back-end-service die is geconfigureerd voor verificatie van clientcertificaten ([tooconfigure certificaat verificatie in Azure WebSites verwijzen toothis artikel] [ tooconfigure certificate authentication in Azure WebSites refer toothis article]), en toohello certificaat en Hallo wachtwoord voor toegang tot Hallo-certificaat voor het uploaden van in de publicatieportal van API Management Hallo hebben.
 
 ## <a name="step1"></a>Een certificaat uploaden
-Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voor uw API Management-service. Hiermee gaat u naar de publicatieportal van API Management.
+tooget gestart, klikt u op **publicatieportal** in hello Azure-Portal voor uw API Management-service. Hiermee gaat u toohello API Management-publicatieportal.
 
 ![API-publicatieportal][api-management-management-console]
 
-> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
+> Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken] [ Create an API Management service instance] in Hallo [aan de slag met Azure API Management] [ Get started with Azure API Management] zelfstudie.
 > 
 > 
 
-Klik op **beveiliging** van de **API Management** menu aan de linkerkant en klik op **clientcertificaten**.
+Klik op **beveiliging** van Hallo **API Management** menu op Hallo linkerkant en klik op **clientcertificaten**.
 
 ![Clientcertificaten][api-management-security-client-certificates]
 
-Als u wilt een nieuw certificaat uploaden, klikt u op **certificaat uploaden**.
+een nieuw certificaat tooupload klikt u op **certificaat uploaden**.
 
 ![Certificaat uploaden][api-management-upload-certificate]
 
-Blader naar uw certificaat en voer vervolgens het wachtwoord voor het certificaat.
+Blader tooyour certificaat en vervolgens Hallo wachtwoord invoeren voor Hallo certificaat.
 
-> Het certificaat moet **.pfx** indeling. Zelfondertekende certificaten zijn toegestaan.
+> Hallo-certificaat moet **.pfx** indeling. Zelfondertekende certificaten zijn toegestaan.
 > 
 > 
 
 ![Certificaat uploaden][api-management-upload-certificate-form]
 
-Klik op **uploaden** om het certificaat te uploaden.
+Klik op **uploaden** tooupload Hallo certificaat.
 
-> Wachtwoord voor het certificaat wordt op dit moment gevalideerd. Als dit onjuist is wordt een foutbericht weergegeven.
+> Hallo certificaatwachtwoord wordt op dit moment gevalideerd. Als dit onjuist is wordt een foutbericht weergegeven.
 > 
 > 
 
 ![Certificaat geüpload][api-management-certificate-uploaded]
 
-Zodra het certificaat is geüpload, wordt deze weergegeven op de **clientcertificaten** tabblad. Als er meerdere certificaten, moet u een notitie van het onderwerp of de laatste vier tekens van de vingerafdruk die worden gebruikt voor het certificaat te selecteren bij het configureren van een API voor het gebruik van certificaten, zoals beschreven in de volgende [configureren van een API gebruiken een clientcertificaat voor gatewayverificatie] [ Configure an API to use a client certificate for gateway authentication] sectie.
+Zodra het Hallo-certificaat is geüpload, wordt deze weergegeven op Hallo **clientcertificaten** tabblad. Als er meerdere certificaten, noteer Hallo onderwerp of laatste vier tekens van Hallo-vingerafdruk die gebruikte tooselect Hallo certificaat bij het configureren van een API-toouse certificaten, zoals beschreven in de volgende Hallo Hallo [configureren een API-toouse een clientcertificaat voor gatewayverificatie] [ Configure an API toouse a client certificate for gateway authentication] sectie.
 
-> Als u wilt uitschakelen validatie van certificaatketen wanneer u bijvoorbeeld een zelfondertekend certificaat, volg de stappen in deze Veelgestelde vragen [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
+> tooturn uit de validatie van certificaatketen wanneer u bijvoorbeeld een zelfondertekend certificaat Volg Hallo stappen in deze Veelgestelde vragen [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
 > 
 > 
 
 ## <a name="step1a"></a>Een clientcertificaat verwijderen
-Als u wilt een certificaat wilt verwijderen, klikt u op **verwijderen** naast het gewenste certificaat.
+toodelete een certificaat, klik op **verwijderen** naast Hallo gewenste certificaat.
 
 ![Certificaat verwijderen][api-management-certificate-delete]
 
-Klik op **Ja, deze verwijderen** om te bevestigen.
+Klik op **Ja, deze verwijderen** tooconfirm.
 
 ![De verwijdering bevestigen][api-management-confirm-delete]
 
-Als het certificaat gebruikt door een API wordt en vervolgens een waarschuwing wordt weergegeven. Als u wilt verwijderen van het certificaat moet u eerst het certificaat verwijderen uit alle API's die zijn geconfigureerd voor gebruik.
+Als het Hallo-certificaat wordt gebruikt door een API, wordt een scherm waarschuwing weergegeven. toodelete hello certificaat, moet u eerst Hallo verwijderen van het certificaat van een API's die zijn geconfigureerd toouse deze.
 
 ![De verwijdering bevestigen][api-management-confirm-delete-policy]
 
-## <a name="step2"></a>Een API voor het gebruik van een certificaat voor gatewayverificatie configureren
-Klik op **API's** van de **API Management** menu aan de linkerkant op de naam van de gewenste API en klik op de **beveiliging** tabblad.
+## <a name="step2"></a>Een API-toouse een clientcertificaat voor gatewayverificatie configureren
+Klik op **API's** van Hallo **API Management** menu op Hallo links, klikt u op de naam Hallo van Hallo gewenst API en op Hallo **beveiliging** tabblad.
 
 ![API-beveiliging][api-management-api-security]
 
-Selecteer **clientcertificaten** van de **met referenties** vervolgkeuzelijst.
+Selecteer **clientcertificaten** van Hallo **met referenties** vervolgkeuzelijst.
 
 ![Clientcertificaten][api-management-mutual-certificates]
 
-Selecteer het gewenste certificaat van de **clientcertificaat** vervolgkeuzelijst. Als er meerdere certificaten kunt u het onderwerp of de laatste vier tekens van de vingerafdruk zoals aangegeven in de vorige sectie om te bepalen van het juiste certificaat kijken.
+Selecteer Hallo gewenste certificaat van Hallo **clientcertificaat** vervolgkeuzelijst. Als er meerdere certificaten kunt u bekijkt hello onderwerp of Hallo laatste vier tekens van Hallo vingerafdruk zoals aangegeven in Hallo vorige sectie toodetermine Hallo juiste certificaat.
 
 ![Selecteer het certificaat][api-management-select-certificate]
 
-Klik op **opslaan** wijzigen van de configuratie opslaan in de API.
+Klik op **opslaan** toosave Hallo-configuratie wijzigen toohello API.
 
-> Deze wijziging wordt onmiddellijk van kracht en aanroepen naar de bewerkingen van deze API gebruikt het certificaat te verifiëren op de back-endserver.
+> Deze wijziging wordt onmiddellijk van kracht en aanroepen toooperations van die API gebruikt Hallo certificaat tooauthenticate op Hallo back-endserver.
 > 
 > 
 
 ![Sla de wijzigingen van de API][api-management-save-api]
 
-> Wanneer een certificaat voor gatewayverificatie voor de back-end-service van een API is opgegeven, wordt een onderdeel van het beleid voor die API en kunnen worden weergegeven in de beleidseditor.
+> Wanneer een certificaat voor gatewayverificatie voor Hallo back-end-service van een API is opgegeven, wordt het onderdeel van het Hallo-beleid voor die API en kunnen worden weergegeven in de beleidseditor Hallo.
 > 
 > 
 
 ![Certificaatbeleid][api-management-certificate-policy]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over andere manieren voor het beveiligen van uw back-endservice zoals HTTP basic of gedeelde geheime-verificatie, de volgende video.
+Uw back-endservice zoals HTTP basic of gedeelde geheime-verificatie, Zie voor meer informatie over andere manieren toosecure Hallo video te volgen.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
 > 
@@ -130,10 +130,10 @@ Zie voor meer informatie over andere manieren voor het beveiligen van uw back-en
 
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 [API Management policy reference]: api-management-policy-reference.md
@@ -142,13 +142,13 @@ Zie voor meer informatie over andere manieren voor het beveiligen van uw back-en
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[tooconfigure certificate authentication in Azure WebSites refer toothis article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configure an API to use a client certificate for gateway authentication]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
+[Configure an API toouse a client certificate for gateway authentication]: #step2
+[Test hello configuration by calling an operation in hello Developer Portal]: #step3
 [Next steps]: #next-steps
 
 

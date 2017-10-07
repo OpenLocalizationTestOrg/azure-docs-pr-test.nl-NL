@@ -1,6 +1,6 @@
 ---
-title: Wijzigingen in een MVC-project, wanneer u verbinding met Azure AD maakt | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurt met uw MVC-project wanneer u verbinding met Azure AD maakt met behulp van Visual Studio verbonden services
+title: Wanneer u verbinding maakt met tooAzure AD aaaChanges aangebracht tooa MVC-project | Microsoft Docs
+description: Hierin wordt beschreven wat er gebeurt tooyour MVC-project wanneer u tooAzure AD verbinding maken met behulp van Visual Studio verbonden services
 services: active-directory
 documentationcenter: na
 author: kraigb
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 095411a7fc854f4dce11921adb0f57c5389a8e13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5e6d4ce5331eacca5fc83429017ae454fadcc8e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Wat is er gebeurd met mijn MVC-project (Visual Studio Azure Active Directory verbonden service)?
+# <a name="what-happened-toomy-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Wat is er gebeurd toomy MVC-project (Visual Studio Azure Active Directory verbonden service)?
 > [!div class="op_single_selector"]
 > * [Aan de slag](vs-active-directory-dotnet-getting-started.md)
 > * [Wat is er gebeurd](vs-active-directory-dotnet-what-happened.md)
@@ -52,28 +52,28 @@ ms.lasthandoff: 08/29/2017
 * **System.Runtime.Serialization**
 
 ## <a name="code-has-been-added"></a>Code is toegevoegd
-### <a name="code-files-were-added-to-your-project"></a>Codebestanden zijn toegevoegd aan uw project
-Een verificatie-Opstartklasse **App_Start/Startup.Auth.cs** is toegevoegd aan uw project met starten van de logica voor Azure AD-verificatie. Ook een controllerklasse, Controllers/AccountController.cs is toegevoegd die bevat **SignIn()** en **SignOut()** methoden. Ten slotte een gedeeltelijke weergave **Views/Shared/_LoginPartial.cshtml** is toegevoegd met de actiekoppeling van een voor aanmelding/SignOut.
+### <a name="code-files-were-added-tooyour-project"></a>Codebestanden zijn tooyour project toegevoegd
+Een verificatie-Opstartklasse **App_Start/Startup.Auth.cs** tooyour project met starten van de logica voor Azure AD-verificatie is toegevoegd. Ook een controllerklasse, Controllers/AccountController.cs is toegevoegd die bevat **SignIn()** en **SignOut()** methoden. Ten slotte een gedeeltelijke weergave **Views/Shared/_LoginPartial.cshtml** is toegevoegd met de actiekoppeling van een voor aanmelding/SignOut.
 
-### <a name="startup-code-was-added-to-your-project"></a>Starten van de code is toegevoegd aan uw project
-Als u al een Opstartklasse in uw project de **configuratie** methode is bijgewerkt met een aanroep van **ConfigureAuth(app)**. Anders wordt is een Opstartklasse toegevoegd aan uw project.
+### <a name="startup-code-was-added-tooyour-project"></a>Starten van de code is tooyour project toegevoegd
+Als u al een Opstartklasse in uw project, Hallo **configuratie** methode is een aanroep van bijgewerkte tooinclude te**ConfigureAuth(app)**. Een Opstartklasse is anders tooyour project toegevoegd.
 
 ### <a name="your-appconfig-or-webconfig-has-new-configuration-values"></a>Uw app.config of web.config heeft nieuwe configuratiewaarden
-De volgende configuratie-items zijn toegevoegd.
+Hallo na configuratie-items zijn toegevoegd.
 
     <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+        <add key="ida:ClientId" value="ClientId from hello new Azure AD App" />
         <add key="ida:AADInstance" value="https://login.microsoftonline.com/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
+        <add key="ida:Domain" value="hello selected Azure AD Domain" />
+        <add key="ida:TenantId" value="hello Id of your selected Azure AD Tenant" />
         <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
     </appSettings>
 
 ### <a name="an-azure-active-directory-ad-app-was-created"></a>Een Azure Active Directory (AD)-App is gemaakt
-Een Azure AD-toepassing is gemaakt in de map die u hebt geselecteerd in de wizard.
+Een Azure AD-toepassing is gemaakt in het Hallo-map die u hebt geselecteerd in de wizard Hallo.
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Als ik gecontroleerd *afzonderlijke gebruikersaccounts verificatie uit te schakelen*, welke aanvullende wijzigingen zijn aangebracht aan mijn project?
-NuGet-pakket met verwijzingen zijn verwijderd en de bestanden zijn verwijderd en een back-up. Afhankelijk van de status van uw project, kunt u wellicht handmatig verwijderen van aanvullende verwijzingen of bestanden of code desgewenst wijzigen.
+## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-toomy-project"></a>Als ik gecontroleerd *afzonderlijke gebruikersaccounts verificatie uit te schakelen*, welke aanvullende wijzigingen zijn aangebracht toomy project?
+NuGet-pakket met verwijzingen zijn verwijderd en de bestanden zijn verwijderd en een back-up. Afhankelijk van de status van de Hallo van uw project, mogelijk hebt u toomanually aanvullende verwijzingen of bestanden verwijderen of wijzigen van de code naar gelang van toepassing.
 
 ### <a name="nuget-package-references-removed-for-those-present"></a>NuGet-pakket verwijzingen verwijderd (voor die aanwezig)
 * **Microsoft.AspNet.Identity.Core**
@@ -81,7 +81,7 @@ NuGet-pakket met verwijzingen zijn verwijderd en de bestanden zijn verwijderd en
 * **Microsoft.AspNet.Identity.Owin**
 
 ### <a name="code-files-backed-up-and-removed-for-those-present"></a>Codebestanden back-up gemaakt en verwijderd (voor die aanwezig)
-Elk van de volgende bestanden is een back-up en verwijderd uit het project. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap van de directory van het project.
+Elk van de volgende bestanden is een back-up en verwijderd uit het Hallo-project. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap Hallo van Hallo projectmap.
 
 * **App_Start\IdentityConfig.cs**
 * **Controllers\ManageController.cs**
@@ -89,14 +89,14 @@ Elk van de volgende bestanden is een back-up en verwijderd uit het project. Back
 * **Models\ManageViewModels.cs**
 
 ### <a name="code-files-backed-up-for-those-present"></a>Codebestanden back-up gemaakt (die aanwezig)
-Elk van de volgende bestanden is een back-up maken voordat het wordt vervangen. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap van de directory van het project.
+Elk van de volgende bestanden is een back-up maken voordat het wordt vervangen. Back-upbestanden bevinden zich in een map 'Back-up' in de hoofdmap Hallo van Hallo projectmap.
 
 * **Startup.cs**
 * **App_Start\Startup.auth.cs**
 * **Controllers\AccountController.cs**
 * **Views\Shared\_LoginPartial.cshtml**
 
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Als ik gecontroleerd *mapgegevens lezen*, welke aanvullende wijzigingen zijn aangebracht aan mijn project?
+## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-toomy-project"></a>Als ik gecontroleerd *mapgegevens lezen*, welke aanvullende wijzigingen zijn aangebracht toomy project?
 Aanvullende verwijzingen zijn toegevoegd.
 
 ### <a name="additional-nuget-package-references"></a>Aanvullende naslaginformatie voor NuGet-pakket
@@ -119,20 +119,20 @@ Aanvullende verwijzingen zijn toegevoegd.
 * **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
 * **System.Spatial**
 
-### <a name="additional-code-files-were-added-to-your-project"></a>Aanvullende codebestanden zijn toegevoegd aan uw project
-Twee bestanden zijn toegevoegd ter ondersteuning van token opslaan in cache: **Models\ADALTokenCache.cs** en **Models\ApplicationDbContext.cs**.  Een extra domeincontroller en de weergave zijn toegevoegd ter illustratie van toegang tot gebruikersprofielgegevens met Azure graph API's.  Deze bestanden zijn **Controllers\UserProfileController.cs** en **Views\UserProfile\Index.cshtml**.
+### <a name="additional-code-files-were-added-tooyour-project"></a>Aanvullende bestanden van de Code zijn tooyour project toegevoegd
+Er zijn twee bestanden toegevoegd toosupport token opslaan in cache: **Models\ADALTokenCache.cs** en **Models\ApplicationDbContext.cs**.  Een extra domeincontroller en de weergave zijn tooillustrate toegang tot gebruikersprofielgegevens met Azure graph API's toegevoegd.  Deze bestanden zijn **Controllers\UserProfileController.cs** en **Views\UserProfile\Index.cshtml**.
 
-### <a name="additional-startup-code-was-added-to-your-project"></a>Aanvullende starten van de code is toegevoegd aan uw project
-In de **startup.auth.cs** bestand, een nieuwe **OpenIdConnectAuthenticationNotifications** object is toegevoegd aan de **meldingen** lid is van de  **OpenIdConnectAuthenticationOptions**.  Dit is het inschakelen van de OAuth-code ontvangen en het uitwisselen van een toegangstoken.
+### <a name="additional-startup-code-was-added-tooyour-project"></a>Aanvullende opstartcode is tooyour project toegevoegd
+In Hallo **startup.auth.cs** bestand, een nieuwe **OpenIdConnectAuthenticationNotifications** object werd toegevoegd toohello **meldingen** lid is van Hallo  **OpenIdConnectAuthenticationOptions**.  Dit is tooenable Hallo OAuth code ontvangen en het uitwisselen van een toegangstoken.
 
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Als u meer wijzigingen zijn aangebracht in uw app.config of web.config
-De volgende aanvullende configuratie-items zijn toegevoegd.
+### <a name="additional-changes-were-made-tooyour-appconfig-or-webconfig"></a>Als u meer wijzigingen zijn aangebracht tooyour app.config of web.config
+Hallo zijn volgende aanvullende configuratie-items toegevoegd.
 
     <appSettings>
         <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
     </appSettings>
 
-De volgende configuratiesecties en de verbindingsreeks zijn toegevoegd.
+Hallo zijn volgende configuratiesecties en de verbindingsreeks toegevoegd.
 
     <configSections>
         <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
@@ -154,7 +154,7 @@ De volgende configuratiesecties en de verbindingsreeks zijn toegevoegd.
 
 
 ### <a name="your-azure-active-directory-app-was-updated"></a>Uw App in Azure Active Directory is bijgewerkt
-Uw App in Azure Active Directory is bijgewerkt met de *mapgegevens lezen* machtigingen en de sleutel is gemaakt is die wordt gebruikt als de *ida: ClientSecret* in de  **Web.config** bestand.
+Uw App in Azure Active Directory is een bijgewerkte tooinclude hello *mapgegevens lezen* machtigingen en de sleutel is gemaakt dat vervolgens is gebruikt als Hallo *ida: ClientSecret* in Hallo  **Web.config** bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Meer informatie over Azure Active Directory](https://azure.microsoft.com/services/active-directory/)

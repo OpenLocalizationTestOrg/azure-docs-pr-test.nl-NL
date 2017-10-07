@@ -1,6 +1,6 @@
 ---
-title: Data Lake Analytics Java SDK gebruiken om toepassingen te ontwikkelen | Microsoft Docs
-description: Azure Data Lake Analytics Java SDK gebruiken om toepassingen te ontwikkelen
+title: aaaUse Data Lake Analytics Java SDK toodevelop toepassingen | Microsoft Docs
+description: Azure Data Lake Analytics Java SDK toodevelop toepassingen gebruiken
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d975812fe659ed34ee9befd37ee7c0bf50d3414
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Aan de slag met Azure Data Lake Analytics met Java-SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Informatie over het gebruik van Azure Data Lake Analytics Java SDK een Azure Data Lake-account maken en basisbewerkingen uitvoert, zoals maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, en werken met taken. Zie voor meer informatie over Data Lake [Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Informatie over hoe toouse Hallo toocreate Azure Data Lake Analytics Java SDK een Azure Data Lake-account en basisbewerkingen uitvoert, zoals maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, en werken met taken. Zie voor meer informatie over Data Lake [Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-In deze zelfstudie maakt ontwikkelen u een Java-consoletoepassing die bevat voorbeelden van algemene beheertaken alsook testgegevens maken en verzenden van een taak.  Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie.
+In deze zelfstudie maakt ontwikkelen u een Java-consoletoepassing die bevat voorbeelden van algemene beheertaken alsook testgegevens maken en verzenden van een taak.  toogo via Hallo dezelfde zelfstudie met behulp van andere ondersteunde hulpprogramma's, klikt u op Hallo tabbladen op Hallo boven aan deze sectie.
 
 ## <a name="prerequisites"></a>Vereisten
 * Java Development Kit (JDK) 8 (met Java-versie 1.8).
-* IntelliJ of een andere geschikte Java-ontwikkelomgeving. Dit is optioneel, maar wordt wel aanbevolen. In onderstaande instructies wordt IntelliJ gebruikt.
+* IntelliJ of een andere geschikte Java-ontwikkelomgeving. Dit is optioneel, maar wordt wel aanbevolen. Hallo onderstaande instructies wordt IntelliJ gebruikt.
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op. Zie [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Een Active Directory-toepassing en service-principal maken met de portal) voor meer informatie over AAD-toepassingen en instructies voor het verkrijgen van een client-ID. Zodra u de toepassing hebt gemaakt en de sleutel hebt gegenereerd, zullen de antwoord-URI en sleutel ook beschikbaar zijn vanuit de portal.
+* Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op. Voor meer informatie over AAD-toepassingen en instructies over het tooget een client-ID, Zie [een Active Directory-toepassing en service-principal maken met portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). Hallo antwoord-URI en sleutel ook zijn beschikbaar via de portal Hallo zodra u hebt Hallo toepassing gemaakt en sleutel gegenereerd.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hoe verifieer ik met Azure Active Directory?
-In onderstaand codefragment vindt u code voor **niet-interactieve** verificatie, waarbij de toepassing zijn eigen referenties verstrekt.
+onderstaande Hallo codefragment vindt u code voor **niet-interactieve** verificatie, waarbij Hallo toepassing eigen referenties verstrekt.
 
-Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te maken in Azure. Het wordt **ten zeerste aangeraden** dat u deze toepassing voor het doel van deze zelfstudie alleen Inzender-rechten geeft voor een nieuwe, ongebruikte en lege resourcegroep in uw Azure-abonnement.
+U moet toogive uw toepassing machtiging toocreate resources in Azure voor deze zelfstudie toowork. Het is **ten zeerste aangeraden** u alleen deze toepassing Inzender machtigingen tooa nieuwe, ongebruikte en lege resourcegroep in uw Azure-abonnement voor de toepassing hello van deze zelfstudie geeft.
 
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
-1. Open IntelliJ en maak een nieuw Java-project met de **Command Line Application**-sjabloon.
-2. Klik met de rechtermuisknop op het project aan de linkerkant van het scherm en klik op **Add Framework Support** (Framework-ondersteuning toevoegen). Kies **Maven** en klik op **OK**.
-3. Open het zojuist gemaakte bestand **pom.xml** en voeg het volgende tekstfragment toe tussen de tag **\</version>** en de tag **\</project>**:
+1. Open IntelliJ en maak een nieuw Java-project met behulp van Hallo **Command Line Application** sjabloon.
+2. Met de rechtermuisknop op het Hallo-project aan de linkerkant Hallo van het scherm en klikt u op **Framework-ondersteuning toevoegen**. Kies **Maven** en klik op **OK**.
+3. Open Hallo nieuw gemaakte **'pom.xml'** bestand en Voeg na tekstfragment tussen Hallo Hallo  **\</version >** tag en Hallo  **\< /project >** tag:
 
     >[!NOTE]
-    >Deze stap is tijdelijk totdat de Azure Data Lake Analytics-SDK beschikbaar in Maven is. Dit artikel wordt bijgewerkt wanneer de SDK beschikbaar in Maven is. Alle toekomstige updates voor deze SDK komen beschikbaar via Maven.
+    >Deze stap is tijdelijk totdat hello Azure Data Lake Analytics SDK beschikbaar in Maven is. In dit artikel wordt bijgewerkt zodra Hallo SDK beschikbaar in Maven is. Alle toekomstige updates toothis SDK is beschikbaar via Maven.
     >
 
         <repositories>
@@ -95,13 +95,13 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
-4. Ga naar **bestand**, klikt u vervolgens **instellingen**, klikt u vervolgens **bouwen**, **uitvoering**, **implementatie**. Selecteer **Build Tools**, **Maven**, **importeren**. Controleer vervolgens **Import Maven projects automatisch**.
-5. Open **Main.java** en vervang het bestaande codeblok door de volgende code. Geef ook de waarden voor parameters die in het codefragment worden genoemd, zoals **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_ resourceGroupName** en vervang de tijdelijke aanduidingen voor **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, en  **ABONNEMENT-ID**.
+4. Ga te**bestand**, vervolgens **instellingen**, klikt u vervolgens **bouwen**, **uitvoering**, **implementatie**. Selecteer **Build Tools**, **Maven**, **importeren**. Controleer vervolgens **Import Maven projects automatisch**.
+5. Open **Main.java** en vervang Hallo bestaande codeblok Hello de volgende code. Geef ook Hallo waarden voor parameters die worden genoemd, zoals in het codefragment hello, **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_ resourceGroupName** en vervang de tijdelijke aanduidingen voor **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, en  **ABONNEMENT-ID**.
 
-    Deze code doorloopt van het proces van het Data Lake Store en Data Lake Analytics-accounts maken, het maken van bestanden in de store, een taak wordt uitgevoerd, taakstatus ophalen, taakuitvoer downloaden en tot slot de account wordt verwijderd.
+    Deze code gaat via Hallo-proces voor het maken van Data Lake Store en Data Lake Analytics-accounts, het maken van bestanden in archief Hallo, een taak wordt uitgevoerd, taakstatus ophalen, taakuitvoer downloaden en tot slot Hallo-account wordt verwijderd.
 
    > [!NOTE]
-   > Er is een bekend probleem met de Azure Data Lake-service.  Als de voorbeeldapp wordt onderbroken of als er een fout in optreedt, moet u de Data Lake Store- & Data Lake Analytics-accounts die door het script worden gemaakt mogelijk handmatig verwijderen.  Als u niet vertrouwd bent met de Portal, leest u eerst [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voordat u aan de slag gaat.
+   > Er is een bekend probleem met hello Azure Data Lake-Service.  Als de voorbeeld-app Hallo wordt onderbroken of er een fout optreedt, moet u mogelijk toomanually verwijderen Hallo Data Lake Store & Data Lake Analytics-accounts die Hallo script maakt.  Als u niet bekend met Hallo Portal bent, Hallo [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) handleiding krijgt u aan de slag.
    >
    >
 
@@ -149,9 +149,9 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
                 _subId =  "<SUBSCRIPTION-ID>";
                 _clientId = "<CLIENT-ID>";
 
-                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
+                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring hello application client secret, rather than hard-coding it in hello source code.
 
-                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
+                String localFolderPath = "C:\\local_path\\"; // TODO: Change this tooany unused, new, empty folder on your local machine.
 
                 // Authenticate
                 ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
@@ -176,14 +176,14 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
                 WaitForNewline("Accounts displayed.", "Creating files.");
 
                 // Create a file in Data Lake Store: input1.csv
-                // TODO: these change order in the next patch
+                // TODO: these change order in hello next patch
                 byte[] bytesContents = "123,abc".getBytes();
                 _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, "/input1.csv", bytesContents, true);
 
                 WaitForNewline("File created.", "Submitting a job.");
 
-                // Submit a job to Data Lake Analytics
-                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob");
+                // Submit a job tooData Lake Analytics
+                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input too@\"/output1.csv\" USING Outputters.Csv();", "testJob");
                 WaitForNewline("Job submitted.", "Getting job status.");
 
                 // Wait for job completion and output job status
@@ -219,13 +219,13 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
                 _adlaClient.setSubscriptionId(_subId);
             }
 
-            // Helper function to show status and wait for user input
+            // Helper function tooshow status and wait for user input
             public static void WaitForNewline(String reason, String nextAction)
             {
                 if (nextAction == null)
                     nextAction = "";
 
-                System.out.println(reason + "\r\nPress ENTER to continue...");
+                System.out.println(reason + "\r\nPress ENTER toocontinue...");
                 try{System.in.read();}
                 catch(Exception e){}
 
@@ -262,12 +262,12 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
                 adlaParameters.setName(_adlaAccountName);
                 adlaParameters.setProperties(adlaProperties);
 
-                    /* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+                    /* If this line generates an error message like "hello deep update for property 'DataLakeStoreAccounts' is not supported", please delete hello ADLS and ADLA accounts via hello portal and re-run your script. */
 
                 _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
             }
 
-            //todo: this changes in the next version of the API
+            //todo: this changes in hello next version of hello API
             public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
 
@@ -307,7 +307,7 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
             }
 
             // Submit a U-SQL job by providing script contents.
-            // Returns the job ID
+            // Returns hello job ID
             public static UUID SubmitJobByScript(String script, String jobName) throws IOException, CloudException {
                 UUID jobId = java.util.UUID.randomUUID();
                 USqlJobProperties properties = new USqlJobProperties();
@@ -340,12 +340,12 @@ Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te ma
             }
         }
 
-1. Volg de aanwijzingen om de toepassing uit te voeren en te voltooien.
+1. Volg Hallo prompts toorun en volledige Hallo-toepassing.
 
 ## <a name="see-also"></a>Zie ook
-* Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.
-* Zie [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md) voor een complexere query.
-* Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) om aan de slag te gaan met het ontwikkelen van U-SQL-toepassingen.
-* Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) om U-SQL te leren.
+* toosee Hallo dezelfde zelfstudie met een ander hulpprogramma, klikt u op Hallo-tabselectors op Hallo Hallo pagina bovenaan.
+* Zie voor een complexere query toosee [websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* tooget gestart met het ontwikkelen van U-SQL-toepassingen, Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+* toolearn U-SQL, Zie [aan de slag met Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md), en [naslaginformatie U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.
-* Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.
+* Zie tooget een overzicht van Data Lake Analytics [overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md).

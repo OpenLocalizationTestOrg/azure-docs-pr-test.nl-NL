@@ -1,6 +1,6 @@
 ---
-title: Uitgeven van sjablonen in Azure API Management | Microsoft Docs
-description: Informatie over het aanpassen van de inhoud van het probleem pagina's in de ontwikkelaarsportal in Azure API Management.
+title: aaaIssue sjablonen in Azure API Management | Microsoft Docs
+description: Meer informatie over hoe toocustomize Hallo inhoud Hallo probleem pagina's in de ontwikkelaarsportal Hallo in Azure API Management.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e13344df198bca4f73c75fa58221436b94e2f258
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e12902e52c164f73902a97f15ea550790dfecf1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Probleem sjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Azure API Management biedt dat u Hallo mogelijkheid toocustomize Hallo inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en het Hallo-editor naar keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [ De glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit tooconfigure Hallo inhoud van het Hallo-pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunnen u de inhoud van het probleem pagina's in de ontwikkelaarsportal aanpassen.  
+ Hallo-sjablonen in deze sectie kunt u toocustomize Hallo inhoud van Hallo probleem's in het Hallo-portal voor ontwikkelaars.  
   
 -   [Lijst met kwesties](#IssueList)  
   
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie Hallo, maar onderwerp toochange vanwege toocontinuous verbeteringen zijn. U kunt Hallo live standaardsjablonen in Hallo developer-portal door te navigeren toohello gewenst afzonderlijke sjablonen weergeven. Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).  
   
 ##  <a name="IssueList"></a>Lijst met kwesties  
- De **probleem lijst** sjabloon kunt u de hoofdtekst van de pagina van de lijst met probleem in de ontwikkelaarsportal aanpassen.  
+ Hallo **probleem lijst** sjabloon kunt u toocustomize Hallo hoofdtekst van Hallo probleem lijstpagina in het Hallo-portal voor ontwikkelaars.  
   
  ![Lijst Ontwikkelaarsportal uitgeven](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM probleem lijst Developer-Portal")  
   
@@ -88,7 +88,7 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```  
   
 ### <a name="controls"></a>Besturingselementen  
- De `Issue list` sjabloon mogelijk gebruikt u de volgende [pagina besturingselementen](api-management-page-controls.md).  
+ Hallo `Issue list` sjabloon mogelijk gebruikt u de volgende Hallo [pagina besturingselementen](api-management-page-controls.md).  
   
 -   [besturingselement voor paginering](api-management-page-controls.md#paging-control)  
   
@@ -96,10 +96,10 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|Problemen|Verzameling van [probleem](api-management-template-data-model-reference.md#Issue) entiteiten.|De problemen die zichtbaar is voor de huidige gebruiker.|  
-|Zoekresultaten oproepen|[Wisselgeheugengebruik](api-management-template-data-model-reference.md#Paging) entiteit.|De paginerings-informatie voor de verzameling van toepassingen.|  
-|IsAuthenticated|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker is aangemeld bij de portal voor ontwikkelaars.|  
-|CanReportIssues|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker machtigingen naar het bestand een probleem heeft.|  
+|Problemen|Verzameling van [probleem](api-management-template-data-model-reference.md#Issue) entiteiten.|Hallo problemen zichtbaar toohello huidige gebruiker.|  
+|Zoekresultaten oproepen|[Wisselgeheugengebruik](api-management-template-data-model-reference.md#Paging) entiteit.|Hallo paginering informatie voor de verzameling van Hallo-toepassingen.|  
+|IsAuthenticated|Booleaanse waarde|Hallo-huidige gebruiker wordt aangegeven of aangemelde toohello developer-portal.|  
+|CanReportIssues|Booleaanse waarde|Hiermee wordt aangegeven of de huidige gebruiker Hallo machtigingen toofile er een probleem is.|  
 |Search|Tekenreeks|Deze eigenschap is afgeschaft en mag niet worden gebruikt.|  
   
 ### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
@@ -110,8 +110,8 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
         {  
             "Id": "5702b68bb16653124c8f9ba7",  
             "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
+            "Title": "I couldn't figure out how tooconnect my application toohello API",  
+            "Description": "I'm having trouble connecting my application toohello backend API.",  
             "SubscriptionDeveloperName": "Clayton",  
             "IssueState": "Proposed",  
             "ReportedOn": "2016-04-04T18:46:35.64",  
@@ -134,4 +134,4 @@ Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [hoe toocustomize API Management-portal voor ontwikkelaars met behulp van sjablonen Hallo](api-management-developer-portal-templates.md).

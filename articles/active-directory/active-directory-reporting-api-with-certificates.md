@@ -1,6 +1,6 @@
 ---
-title: Gegevens opvragen met de rapportage-API van Azure AD met certificaten | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory's.
+title: aaaGet gegevens met Azure AD rapportage-API met certificaten Hallo | Microsoft Docs
+description: Legt uit hoe toouse hello Azure AD rapportage-API met referenties tooget certificaatgegevens van Directory's zonder tussenkomst van de gebruiker.
 services: active-directory
 documentationcenter: 
 author: ramical
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2017
 ms.author: ramical
-ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00ddfaefe32ea6ae48f276c974a17ddcf84f7894
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Gegevens ophalen met de rapportage-API van Azure AD met certificaten
-In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory's. 
+# <a name="get-data-using-hello-azure-ad-reporting-api-with-certificates"></a>Gegevens hello Azure AD-rapportage-API gebruiken met certificaten ophalen
+Dit artikel wordt beschreven hoe toouse hello Azure AD rapportage-API met referenties tooget certificaatgegevens van Directory's zonder tussenkomst van de gebruiker. 
 
-## <a name="use-the-azure-ad-reporting-api"></a>De rapportage-API voor Azure AD gebruiken 
-U moet de volgende stappen uitvoeren voordat u de rapportage-API van Azure AD kunt gebruiken:
+## <a name="use-hello-azure-ad-reporting-api"></a>Gebruik hello Azure AD rapportage-API 
+Azure AD rapportage-API is vereist dat Hallo stappen te voltooien:
  *  Vereiste onderdelen installeren
- *  Het certificaat instellen in uw app
+ *  Hallo-certificaat in uw app instellen
  *  Een toegangstoken opvragen
- *  Het toegangstoken gebruiken om de Graph API aan te roepen
+ *  Hallo access token toocall Hallo Graph API gebruiken
 
 Zie [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Rapportage-API-module gebruiken) voor meer informatie over broncode. 
 
 ### <a name="install-prerequisites"></a>Vereiste onderdelen installeren
-Azure AD PowerShell V2 en de module AzureADUtils moeten zijn geïnstalleerd.
+U moet toohave Azure AD PowerShell V2 en AzureADUtils-module geïnstalleerd.
 
-1. Download en installeer Azure AD Powershell V2 met behulp van de instructies in [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
-2. Download de Azure AD Utils-module van [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
+1. Download en installeer Azure AD Powershell V2, Hallo instructies te volgen op [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
+2. Download hello Azure AD Utils module op basis van [AzureAD/azure-Active Directory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
   Deze module biedt verschillende cmdlets, waaronder:
-   * De nieuwste versie van ADAL met Nuget
+   * Hallo meest recente versie van Nuget met ADAL
    * Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL
    * Afhandeling van pagina's met zoekresultaten door Graph API
 
-**De Azure AD Utils-module installeren:**
+**tooinstall hello Utils van Azure AD-module:**
 
-1. Maak een directory voor het opslaan van de module met hulpprogramma's (bijvoorbeeld c:\azureAD) en downloadt de module in GitHub.
-2. Open een PowerShell-sessie en ga naar de directory die u net hebt gemaakt. 
-3. Importeer de module en installeer deze met de cmdlet Install-AzureADUtilsModule in het pad van de PowerShell-module. 
+1. Maken van een directory toosave Hallo hulpprogramma's-module (bijvoorbeeld c:\azureAD) en Hallo module vanuit GitHub downloaden.
+2. Open een PowerShell-sessie en gaat u toohello directory die u zojuist hebt gemaakt. 
+3. Hallo-module importeren en installeer het in Hallo PowerShell-module pad met de cmdlet Install-AzureADUtilsModule Hallo. 
 
-De sessie moet er ongeveer uitzien zoals op dit scherm:
+Hallo-sessie ziet vergelijkbare toothis scherm:
 
   ![Windows Powershell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
 
-### <a name="set-the-certificate-in-your-app"></a>Het certificaat instellen in uw app
-1. Als u al een app hebt, vraagt u de bijbehorende object-id op uit Azure Portal. 
+### <a name="set-hello-certificate-in-your-app"></a>Hallo-certificaat in uw app instellen
+1. Als u een app al hebt, moet u de Object-ID ophalen van hello Azure-Portal. 
 
   ![Azure Portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
 
-2. Open een PowerShell-sessie en maak verbinding met Azure AD via de cmdlet Connect-AzureAD.
+2. Open een PowerShell-sessie en tooAzure AD verbinding maken met de cmdlet Hallo Connect-AzureAD.
 
   ![Azure Portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
 
-3. Gebruik de cmdlet New-AzureADApplicationCertificateCredential van AzureADUtils om er een certificaatreferentie aan toe te voegen. 
+3. Hallo nieuw AzureADApplicationCertificateCredential cmdlet van AzureADUtils tooadd een certificaat referentie tooit gebruiken. 
 
 >[!Note]
->U moet de object-id van de toepassing opgeven die u eerder hebt opgevraagd, evenals het certificaatobject (vraag dit op met behulp van het Cert:-station).
+>U moet tooprovide Hallo toepassing Object-ID die u eerder hebt vastgelegd, evenals Hallo certificaatobject (ophalen deze met Hallo Cert: station).
 >
 
 
@@ -72,24 +72,24 @@ De sessie moet er ongeveer uitzien zoals op dit scherm:
   
 ### <a name="get-an-access-token"></a>Een toegangstoken opvragen
 
-U kunt een toegangstoken opvragen met de cmdlet Get-AzureADGraphAPIAccessTokenFromCert van AzureADUtils. 
+tooget een toegangstoken Hallo Get AzureADGraphAPIAccessTokenFromCert cmdlet van AzureADUtils gebruiken. 
 
 >[!NOTE]
->Gebruik de toepassings-id en niet de object-id die u in de laatste sectie hebt gebruikt.
+>U moet toouse Hallo toepassings-ID in plaats van de Object-ID die u hebt gebruikt in de laatste sectie Hallo Hallo.
 >
 
  ![Azure Portal](./media/active-directory-report-api-with-certificates/application-id.png)
 
-### <a name="use-the-access-token-to-call-the-graph-api"></a>Het toegangstoken gebruiken om de Graph API aan te roepen
+### <a name="use-hello-access-token-toocall-hello-graph-api"></a>Hallo access token toocall Hallo Graph API gebruiken
 
-U kunt nu het script maken. Hieronder ziet u een voorbeeld waarin de cmdlet Invoke-AzureADGraphAPIQuery van AzureADUtils wordt gebruikt. Met deze cmdlet worden meerdere pagina's met zoekresultaten verwerkt, waarna deze resultaten naar de PowerShell-pijplijn worden verstuurd. 
+U kunt nu Hallo script maken. Hieronder vindt u een voorbeeld met de cmdlet Invoke-AzureADGraphAPIQuery Hallo van Hallo AzureADUtils. Deze cmdlet verwerkt met meerdere pagina's met zoekresultaten en stuurt vervolgens deze resultaten toohello PowerShell-pijplijn. 
 
  ![Azure Portal](./media/active-directory-report-api-with-certificates/script-completed.png)
 
-U bent nu klaar om te gaan exporteren naar een CSV-bestand en dit bestand op te slaan in een SIEM-systeem. U kunt uw script ook verpakken in een geplande taak om periodiek gegevens van Azure AD op te halen uit uw tenant zonder dat u toepassingssleutels hoeft op te slaan in de broncode. 
+U bent nu klaar tooexport tooa CSV en slaat tooa SIEM-systeem. U kunt ook inpakken uw script in een geplande taak tooget Azure AD-gegevens van uw tenant periodiek zonder toostore toepassing sleutels in de broncode Hallo. 
 
 ## <a name="next-steps"></a>Volgende stappen
-[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (De grondbeginselen van Azure-identiteitsbeheer)<br>
+[Hallo grondbeginselen van Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
 
 
 

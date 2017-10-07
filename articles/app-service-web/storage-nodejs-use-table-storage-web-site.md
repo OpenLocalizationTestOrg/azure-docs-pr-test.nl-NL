@@ -1,6 +1,6 @@
 ---
-title: Node.js-web-app met de Azure-tabelservice
-description: Deze zelfstudie leert u hoe de Azure Table-service gebruiken voor het opslaan van gegevens van een Node.js-toepassing die wordt gehost in Azure App Service Web Apps.
+title: aaaNode.js web-app met behulp van hello Azure Table-Service
+description: Deze zelfstudie leert u hoe toouse hello Azure Table service toostore gegevens van een Node.js-toepassing die wordt gehost in Azure App Service Web Apps.
 tags: azure-portal
 services: app-service\web, storage
 documentationcenter: nodejs
@@ -15,35 +15,35 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.openlocfilehash: 3252914934c1084a165fa39ee983d3039e04d567
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f6e08335b4c7f62f7b3994287edd586860cb7135
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="nodejs-web-app-using-the-azure-table-service"></a>Node.js-web-app met de Azure-tabelservice
+# <a name="nodejs-web-app-using-hello-azure-table-service"></a>Node.js web-app met behulp van hello Azure Table-Service
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie leert u hoe u tabel-service van Azure Data Management opslaan en gebruiken van gegevens uit een [knooppunt] toepassing wordt gehost [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web-Apps. Deze zelfstudie wordt ervan uitgegaan dat u hebt enige ervaring met knooppunt en [Git].
+Deze zelfstudie leert u hoe de tabelservice toouse geleverd door Azure Data Management toostore en toegang tot gegevens uit een [knooppunt] toepassing wordt gehost [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web-Apps. Deze zelfstudie wordt ervan uitgegaan dat u hebt enige ervaring met knooppunt en [Git].
 
 U leert:
 
-* Hoe de knooppunt-modules installeren met npm (Pakketbeheer knooppunt)
-* Werken met de Azure Table-service
-* Het gebruik van de Azure CLI voor het maken van een web-app.
+* Hoe toouse npm (Pakketbeheer knooppunt) tooinstall Hallo knooppunt modules
+* Hoe toowork met hello Azure Table-service
+* Hoe toouse hello Azure CLI toocreate een web-app.
 
-Door deze zelfstudie te volgen, bouwt u een eenvoudige web gebaseerde 'takenlijst'-toepassing die u kunt maken, ophalen en uitvoeren van taken. De taken worden opgeslagen in de tabel-service.
+Door deze zelfstudie te volgen, bouwt u een eenvoudige web gebaseerde 'takenlijst'-toepassing die u kunt maken, ophalen en uitvoeren van taken. Hallo-taken worden opgeslagen in Hallo tabel-service.
 
-Hier volgt de voltooide toepassing:
+Dit is de toepassing hello voltooid:
 
 ![Een webpagina een leeg tasklist weergeven][node-table-finished]
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
+> Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de instructies in dit artikel uitvoert, zorg ervoor dat u het volgende zijn geïnstalleerd hebt:
+Zorg ervoor dat er Hallo volgende zijn geïnstalleerd voordat Hallo-instructies in dit artikel:
 
 * [knooppunt] versie 0.10.24 of hoger
 * [Git]
@@ -51,46 +51,46 @@ Voordat u de instructies in dit artikel uitvoert, zorg ervoor dat u het volgende
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="create-a-storage-account"></a>Een opslagaccount maken
-Een Azure-opslagaccount maken. De app wordt dit account gebruiken voor het opslaan van de taakitems.
+Een Azure-opslagaccount maken. Hallo-app gebruikt deze account toostore Hallo-taakitems.
 
-1. Meld u aan bij de [Azure-Portal](https://portal.azure.com/).
-2. Klik op de **nieuw** pictogram aan de onderkant van de portal links, klikt u op **gegevens en opslag** > **opslag**. Geef het storage-account een unieke naam en maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md) voor.
+1. Meld u aan bij Hallo [Azure Portal](https://portal.azure.com/).
+2. Klik op Hallo **nieuw** pictogram op Hallo onder, links van de Hallo-portal, klikt u op **gegevens en opslag** > **opslag**. Hallo storage-account een unieke naam geven en maak een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md) voor.
    
       ![Knop Nieuw](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
    
-    Wanneer het opslagaccount is gemaakt, de **meldingen** knop knippert een groene **geslaagd** en het opslagaccount blade geopend om weer te geven dat hoort bij de nieuwe resourcegroep die u hebt gemaakt.
-3. Klik op het opslagaccount blade **instellingen** > **sleutels**. De primaire toegangssleutel naar het Klembord kopiëren.
+    Wanneer Hallo storage-account is gemaakt, Hallo **meldingen** knop knippert een groene **geslaagd** en blade Hallo van het opslagaccount is geopend dat deze deel uitmaakt van de nieuwe resource toohello tooshow groep die u hebt gemaakt.
+3. Klik op Hallo van het opslagaccount blade **instellingen** > **sleutels**. Hallo primaire sleutel toohello Klembord kopiëren.
    
     ![Toegangstoets][portal-storage-access-keys]
 
 ## <a name="install-modules-and-generate-scaffolding"></a>Modules installeren en steigers genereren
-In deze sectie wordt u een nieuw knooppunttoepassing maken en npm module pakketten moeten worden toegevoegd. Voor deze toepassing gebruikt u de [Express] en [Azure] modules. De Express-module biedt een framework Model-View-Controller voor knooppunt terwijl de modules die Azure biedt verbinding met de tabel-service.
+In deze sectie wordt u een nieuw knooppunttoepassing maken en npm tooadd module pakketten. Voor deze toepassing gaat u Hallo [Express] en [Azure] modules. Hallo Express-module biedt een framework Model-View-Controller voor knooppunt, tijdens het Hallo Azure modules connectivity toohello tabel-service biedt.
 
 ### <a name="install-express-and-generate-scaffolding"></a>Express installeren en steigers genereren
-1. Maak een nieuwe map met de naam vanaf de opdrachtregel **tasklist** en Ga naar de map.  
-2. Voer de volgende opdracht voor het installeren van de Express-module.
+1. Maak een nieuwe map met de naam vanaf de opdrachtregel Hallo **tasklist** en switch toothat directory.  
+2. Voer Hallo opdracht tooinstall Hallo Express module te volgen.
    
         npm install express-generator@4.2.0 -g
    
-    Afhankelijk van het besturingssysteem moet u mogelijk plaatsen 'sudo ' uitgebreid voor de opdracht:
+    Afhankelijk van het Hallo-besturingssysteem moet u tooput 'sudo ' uitgebreid voor Hallo-opdracht:
    
         sudo npm install express-generator@4.2.0 -g
    
-    De uitvoer lijkt op het volgende voorbeeld:
+    Hallo-uitvoer wordt weergegeven vergelijkbaar toohello voorbeeld te volgen:
    
         express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
         ├── mkdirp@0.3.5
         └── commander@1.3.2 (keypress@0.1.0)
    
    > [!NOTE]
-   > De '-g' parameter wordt de module globaal geïnstalleerd. Op die manier kunnen we gebruiken **snelle** voor het genereren van web-app steigers zonder aanvullende padinformatie typen.
+   > Hallo '-g' parameter Hallo module globaal installeert. Op die manier kunnen we gebruiken **snelle** toogenerate web app steigers zonder tootype in extra padinformatie.
    > 
    > 
-3. Voer voor het maken van de steiger voor de toepassing de **snelle** opdracht:
+3. toocreate hello steigers voor toepassing hello, Voer Hallo **snelle** opdracht:
    
         express
    
-    De uitvoer van deze opdracht ziet er ongeveer als volgt uitzien:
+    Hallo-uitvoer van deze opdracht wordt vergelijkbaar toohello volgt weergegeven:
    
            create : .
            create : ./package.json
@@ -113,19 +113,19 @@ In deze sectie wordt u een nieuw knooppunttoepassing maken en npm module pakkett
            install dependencies:
              $ cd . && npm install
    
-           run the app:
+           run hello app:
              $ DEBUG=my-application ./bin/www
    
-    U hebt nu verschillende nieuwe mappen en bestanden in de **tasklist** directory.
+    U hebt nu verschillende nieuwe mappen en bestanden in Hallo **tasklist** directory.
 
 ### <a name="install-additional-modules"></a>Aanvullende modules installeren
-Een van de bestanden die **snelle** maakt is **package.json**. Dit bestand bevat een lijst met afhankelijkheden van de module. Later, wanneer u de toepassing naar App Service Web Apps implementeert, bepaalt dit bestand welke modules moeten worden geïnstalleerd op Azure.
+Een van de Hallo bestanden die **snelle** maakt is **package.json**. Dit bestand bevat een lijst met afhankelijkheden van de module. Later, wanneer u Hallo toepassing tooApp Service Web Apps implementeert, bepaalt dit bestand welke modules moeten toobe geïnstalleerd op Azure.
 
-Vanaf de opdrachtregel, voer de volgende opdracht voor het installeren van de modules die zijn beschreven in de **package.json** bestand. U wilt gebruiken 'sudo ' uitgebreid.
+Van Hallo opdrachtregelprogramma, Voer Hallo na de opdracht tooinstall Hallo modules dat wordt beschreven in Hallo **package.json** bestand. Mogelijk moet u toouse 'sudo ' uitgebreid.
 
     npm install
 
-De uitvoer van deze opdracht ziet er ongeveer als volgt uitzien:
+Hallo-uitvoer van deze opdracht wordt vergelijkbaar toohello volgt weergegeven:
 
     debug@0.7.4 node_modules\debug
 
@@ -136,13 +136,13 @@ De uitvoer van deze opdracht ziet er ongeveer als volgt uitzien:
     [...]
 
 
-Geef vervolgens de volgende opdracht voor het installeren van de [azure], [knooppunt uuid], [nconf] en [asynchrone] modules:
+Geef vervolgens de volgende opdracht tooinstall Hallo Hallo [azure], [knooppunt uuid], [nconf] en [asynchrone] modules:
 
     npm install azure-storage node-uuid async nconf --save
 
-De **--opslaan** vlag voegt vermeldingen voor deze modules naar de **package.json** bestand.
+Hallo **--opslaan** vlag voegt vermeldingen voor deze modules toohello **package.json** bestand.
 
-De uitvoer van deze opdracht ziet er ongeveer als volgt uitzien:
+Hallo-uitvoer van deze opdracht wordt vergelijkbaar toohello volgt weergegeven:
 
     async@0.9.0 node_modules\async
 
@@ -156,11 +156,11 @@ De uitvoer van deze opdracht ziet er ongeveer als volgt uitzien:
     [...]
 
 
-## <a name="create-the-application"></a>De toepassing maken
-Nu we gaan de toepassing te bouwen.
+## <a name="create-hello-application"></a>Hallo-toepassing maken
+Nu we klaar toobuild Hallo-toepassing.
 
 ### <a name="create-a-model"></a>Een model maken
-Een *model* is een object dat de gegevens in uw toepassing vertegenwoordigt. Het enige model is voor de toepassing een taakobject een item in de takenlijst vertegenwoordigt. Taken hebben de volgende velden:
+Een *model* is een object dat de gegevens in uw toepassing hello vertegenwoordigt. Hallo alleen model is voor de toepassing hello, een taakobject een item in de takenlijst Hallo vertegenwoordigt. Taken een Hallo velden te volgen:
 
 * PartitionKey
 * RowKey
@@ -168,16 +168,16 @@ Een *model* is een object dat de gegevens in uw toepassing vertegenwoordigt. Het
 * categorie (tekenreeks)
 * voltooid (Booleaanse waarde)
 
-**PartitionKey** en **RowKey** als tabelsleutels worden gebruikt door de Tabelservice. Zie voor meer informatie [inzicht in het Tabelservice-gegevensmodel](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+**PartitionKey** en **RowKey** worden gebruikt door Hallo Tabelservice als tabelsleutels. Zie voor meer informatie [Understanding Hallo Tabelservice-gegevensmodel](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-1. In de **tasklist** directory, maak een nieuwe map met de naam **modellen**.
-2. In de **modellen** directory, maak een nieuw bestand met de naam **task.js**. Dit bestand bevat het model voor de taken die zijn gemaakt door uw toepassing.
-3. Aan het begin van de **task.js** bestand, voeg de volgende code om te verwijzen naar de vereiste bibliotheken:
+1. In Hallo **tasklist** directory, maak een nieuwe map met de naam **modellen**.
+2. In Hallo **modellen** directory, maak een nieuw bestand met de naam **task.js**. Dit bestand bevat Hallo-model voor Hallo-taken die zijn gemaakt door uw toepassing.
+3. Aan begin Hallo Hallo **task.js** bestand, het toevoegen van Hallo code tooreference vereist bibliotheken te volgen:
    
         var azure = require('azure-storage');
           var uuid = require('node-uuid');
         var entityGen = azure.TableUtilities.entityGenerator;
-4. Voeg de volgende code om te definiëren en exporteren van het taakobject. Dit object is verantwoordelijk voor het verbinden met de tabel.
+4. Hallo volgende toodefine code en exporteren van het taakobject Hallo toevoegen. Dit object is verantwoordelijk voor het verbinden van toohello tabel.
    
           module.exports = Task;
    
@@ -191,7 +191,7 @@ Een *model* is een object dat de gegevens in uw toepassing vertegenwoordigt. Het
             }
           });
         };
-5. Voeg de volgende code om te definiëren van aanvullende methoden voor het taakobject waardoor er interactie met gegevens die zijn opgeslagen in de tabel:
+5. Toevoegen Hallo code toodefine extra methoden volgen op Hallo taakobject, waardoor er interactie met gegevens die zijn opgeslagen in de tabel Hallo:
    
         Task.prototype = {
           find: function(query, callback) {
@@ -207,7 +207,7 @@ Een *model* is een object dat de gegevens in uw toepassing vertegenwoordigt. Het
    
           addItem: function(item, callback) {
             self = this;
-            // use entityGenerator to set types
+            // use entityGenerator tooset types
             // NOTE: RowKey must be a string type, even though
             // it contains a GUID in this example.
             var itemDescriptor = {
@@ -241,13 +241,13 @@ Een *model* is een object dat de gegevens in uw toepassing vertegenwoordigt. Het
             });
           }
         }
-6. Sla op en sluit de **task.js** bestand.
+6. Opslaan en sluiten Hallo **task.js** bestand.
 
 ### <a name="create-a-controller"></a>Maak een domeincontroller
-Een *controller* HTTP-aanvragen worden verwerkt op en geeft u het HTML-antwoord.
+Een *controller* HTTP-aanvragen worden verwerkt en rendert Hallo HTML-antwoord.
 
-1. In de **tasklist/routes** directory, maak een nieuw bestand met de naam **tasklist.js** en open het in een teksteditor.
-2. Voeg de volgende code toe aan het bestand **tasklist.js**. Dit wordt geladen met de azure- en async-modules die worden gebruikt door **tasklist.js**. Hiermee ook definieert u de **TaskList** functie die wordt doorgegeven een exemplaar van de **taak** object eerder:
+1. In Hallo **tasklist/routes** directory, maak een nieuw bestand met de naam **tasklist.js** en open het in een teksteditor.
+2. Hallo code te volgen toevoegen**tasklist.js**. Dit wordt geladen hello azure en async-modules die worden gebruikt door **tasklist.js**. Hiermee definieert u ook Hallo **TaskList** functie die een exemplaar van Hallo wordt doorgegeven **taak** object eerder:
    
         var azure = require('azure-storage');
         var async = require('async');
@@ -258,7 +258,7 @@ Een *controller* HTTP-aanvragen worden verwerkt op en geeft u het HTML-antwoord.
         function TaskList(task) {
           this.task = task;
         }
-4. Voeg de volgende methoden om te **TaskList**:
+4. Toevoegen van de volgende methoden te Hallo**TaskList**:
    
         TaskList.prototype = {
           showTasks: function(req, res) {
@@ -303,8 +303,8 @@ Een *controller* HTTP-aanvragen worden verwerkt op en geeft u het HTML-antwoord.
         }
 
 ### <a name="modify-appjs"></a>App.js wijzigen
-1. Van de **tasklist** directory, open de **app.js** bestand. Dit bestand is gemaakt door het uitvoeren van de **snelle** opdracht.
-2. Toevoegen aan het begin van het bestand, het volgende om te laden van de azure-module, de naam van de tabel, partitiesleutel en de storage-referenties die worden gebruikt door het volgende voorbeeld:
+1. Van Hallo **tasklist** directory, open Hallo **app.js** bestand. Dit bestand is gemaakt door het uitvoeren van Hallo **snelle** opdracht.
+2. Toevoegen aan het begin van de Hallo van Hallo-bestand, Hallo tooload hello azure module, set Hallo tabelnaam partitiesleutel en set Hallo opslag referenties op die in dit voorbeeld te volgen:
    
         var azure = require('azure-storage');
         var nconf = require('nconf');
@@ -316,15 +316,15 @@ Een *controller* HTTP-aanvragen worden verwerkt op en geeft u het HTML-antwoord.
         var accountKey = nconf.get("STORAGE_KEY");
    
    > [!NOTE]
-   > nconf laadt de configuratiewaarden van beide omgevingsvariabelen of de **config.json** bestand, dat we later gaan maken.
+   > nconf laadt Hallo configuratiewaarden van omgevingsvariabelen of Hallo **config.json** bestand, dat we later gaan maken.
    > 
    > 
-3. In het bestand app.js, bladert u omlaag naar waar u de volgende regel zien:
+3. In het bestand app.js hello, schuif naar beneden toowhere u ziet Hallo volgende regel:
    
         app.use('/', routes);
         app.use('/users', users);
    
-    Vervang de bovenstaande regels door de code hieronder wordt weergegeven. Hiermee wordt een exemplaar van initialiseren <strong>taak</strong> met een verbinding met uw storage-account. Dit wordt doorgegeven aan de <strong>TaskList</strong>, die wordt gebruikt om communicatie met de tabel-service:
+    Hallo boven regels vervangen door Hallo-code hieronder wordt weergegeven. Hiermee wordt een exemplaar van initialiseren <strong>taak</strong> met een verbinding tooyour storage-account. Dit wordt doorgegeven toohello <strong>TaskList</strong>, welke gebruiken deze toocommunicate Hello tabelservice:
    
         var TaskList = require('./routes/tasklist');
         var Task = require('./models/task');
@@ -334,11 +334,11 @@ Een *controller* HTTP-aanvragen worden verwerkt op en geeft u het HTML-antwoord.
         app.get('/', taskList.showTasks.bind(taskList));
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
-4. Sla de **app.js** bestand.
+4. Hallo opslaan **app.js** bestand.
 
-### <a name="modify-the-index-view"></a>Wijzig de weergave index
-1. Open de **tasklist/views/index.jade** bestand in een teksteditor.
-2. Vervang de volledige inhoud van het bestand door de volgende code. Hiermee definieert u een weergave die bestaande taken weergegeven en bevat een formulier voor het toevoegen van nieuwe taken en bestaande bestanden markeren als voltooid.
+### <a name="modify-hello-index-view"></a>Hallo index weergave wijzigen
+1. Open Hallo **tasklist/views/index.jade** bestand in een teksteditor.
+2. Vervang de volledige inhoud van de Hallo van Hallo-bestand met de volgende code Hallo. Hiermee definieert u een weergave die bestaande taken weergegeven en bevat een formulier voor het toevoegen van nieuwe taken en bestaande bestanden markeren als voltooid.
    
         extends layout
    
@@ -378,12 +378,12 @@ Een *controller* HTTP-aanvragen worden verwerkt op en geeft u het HTML-antwoord.
             button.btn(type="submit") Add item
 3. Opslaan en sluiten **index.jade** bestand.
 
-### <a name="modify-the-global-layout"></a>De indeling van de globale wijzigen
-De **layout.jade** bestand de **weergaven** map is een algemene sjabloon voor andere **.jade** bestanden. In deze stap wijzigt u het gebruik van [Twitter Bootstrap](https://github.com/twbs/bootstrap), dit is een werkset waarmee u gemakkelijk voor het ontwerpen van een nice ogende web-app.
+### <a name="modify-hello-global-layout"></a>Hallo globale indeling wijzigen
+Hallo **layout.jade** bestand in Hallo **weergaven** map is een algemene sjabloon voor andere **.jade** bestanden. In deze stap wijzigt u deze toouse [Twitter Bootstrap](https://github.com/twbs/bootstrap), dit is een werkset waarmee u eenvoudig toodesign nice ogende web-app.
 
-Downloaden en uitpakken van de bestanden voor [Twitter Bootstrap](http://getbootstrap.com/). Kopieer de **bootstrap.min.css** bestand van de Bootstrap **css** map in de **openbare/stylesheets** map van uw toepassing.
+Downloaden en uitpakken van bestanden voor Hallo [Twitter Bootstrap](http://getbootstrap.com/). Kopiëren Hallo **bootstrap.min.css** bestand van Hallo Bootstrap **css** map in Hallo **openbare/stylesheets** map van uw toepassing.
 
-Van de **weergaven** map, open **layout.jade** en vervang de volledige inhoud door het volgende:
+Van Hallo **weergaven** map, open **layout.jade** en vervang de volledige inhoud Hallo door Hallo volgende:
 
     doctype html
     html
@@ -398,7 +398,7 @@ Van de **weergaven** map, open **layout.jade** en vervang de volledige inhoud do
         block content
 
 ### <a name="create-a-config-file"></a>Een configuratiebestand maken
-Als u wilt uitvoeren van de app hebt we lokaal, Azure Storage-referenties in een configuratiebestand plaatsen. Maak een bestand met de naam **config.json* * met de volgende JSON:
+Hallo-app lokaal toorun we je Azure Storage-referenties in een configuratiebestand plaatsen. Maak een bestand met de naam **config.json* * Hello JSON te volgen:
 
     {
         "STORAGE_NAME": "<storage account name>",
@@ -407,7 +407,7 @@ Als u wilt uitvoeren van de app hebt we lokaal, Azure Storage-referenties in een
         "TABLE_NAME": "tasks"
     }
 
-Vervang **opslagaccountnaam** rekening met de naam van de opslag die u eerder hebt gemaakt en vervang **toegangssleutel voor opslag** met de primaire toegangssleutel voor uw opslagaccount. Bijvoorbeeld:
+Vervang **opslagaccountnaam** rekening met de naam van opslag Hallo Hallo u eerder hebt gemaakt en vervang **toegangssleutel voor opslag** met Hallo primaire toegangssleutel voor uw opslagaccount. Bijvoorbeeld:
 
     {
         "STORAGE_NAME": "nodejsappstorage",
@@ -416,77 +416,77 @@ Vervang **opslagaccountnaam** rekening met de naam van de opslag die u eerder he
         "TABLE_NAME": "tasks"
     }
 
-Sla dit bestand *hoger niveau van één map* dan de **tasklist** map als volgt:
+Sla dit bestand *hoger niveau van één map* dan Hallo **tasklist** map als volgt:
 
     parent/
       |-- config.json
       |-- tasklist/
 
-De reden hiervoor is om te voorkomen dat het configuratiebestand controleren in broncodebeheer, waar mogelijk komen openbare. Wanneer we de app in Azure implementeert, gebruiken we omgevingsvariabelen in plaats van een configuratiebestand.
+Hallo reden om dit te doen is tooavoid Hallo-configuratiebestand controleren in broncodebeheer, waar mogelijk komen openbare. Wanneer we Hallo app tooAzure implementeert, gebruiken we omgevingsvariabelen in plaats van een configuratiebestand.
 
-## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
-Testen van de toepassing op uw lokale computer, moet u de volgende stappen uitvoeren:
+## <a name="run-hello-application-locally"></a>Hallo-toepassing lokaal uitvoeren
+tootest hello toepassing op uw lokale machine uitvoeren Hallo stappen te volgen:
 
-1. Vanaf de opdrachtregel, wijzig de mappen op de **tasklist** directory.
-2. Gebruik de volgende opdracht om de toepassing lokaal te starten:
+1. Wijzig vanaf de opdrachtregel Hallo, mappen toohello **tasklist** directory.
+2. Gebruik Hallo opdracht toolaunch Hallo toepassing lokaal te volgen:
    
         npm start
-3. Open een webbrowser en navigeer naar http://127.0.0.1:3000.
+3. Open een webbrowser en navigeer toohttp://127.0.0.1:3000.
    
-    Een webpagina die vergelijkbaar is met het volgende voorbeeld wordt weergegeven.
+    Een webpagina vergelijkbare toohello volgende voorbeeld wordt weergegeven.
    
     ![Een webpagina een leeg tasklist weergeven][node-table-finished]
-4. Voer een naam en categorie voor het maken van een nieuwe taakitem en klik op **Item toevoegen**. 
-5. Voor een taak markeren als voltooid, Controleer **Complete** en klik op **taken bijwerken**.
+4. een nieuwe taakitem toocreate Voer een naam en categorie en klik op **Item toevoegen**. 
+5. een taak als voltooid, Controleer toomark **Complete** en klik op **taken bijwerken**.
    
-    ![Een installatiekopie van het nieuwe item in de lijst met taken][node-table-list-items]
+    ![Een afbeelding van Hallo nieuw item in de lijst Hallo van taken][node-table-list-items]
 
-Zelfs als de toepassing lokaal wordt uitgevoerd, wordt het opslaan van gegevens in de Azure Table-service.
+Hoewel Hallo toepassing lokaal wordt uitgevoerd, wordt het opslaan van gegevens van Hallo in hello Azure Table-service.
 
-## <a name="deploy-your-application-to-azure"></a>Uw toepassing in Azure implementeren
-De stappen in deze sectie de Azure-opdrachtregelprogramma's gebruiken om u te maken van een nieuwe web-app in App Service, en gebruik vervolgens Git om uw toepassing te implementeren. U moet een Azure-abonnement hebben om deze stappen uitvoert.
+## <a name="deploy-your-application-tooazure"></a>Uw toepassing tooAzure implementeren
+Hallo stappen in deze sectie hello Azure-opdrachtregelprogramma's toocreate een nieuwe web-app in App Service gebruiken en gebruik vervolgens Git toodeploy uw toepassing. tooperform deze stappen hebt u een Azure-abonnement.
 
 > [!NOTE]
-> Deze stappen kunnen ook worden uitgevoerd met behulp van de [Azure Portal](https://portal.azure.com/). Zie [bouwen en implementeren van een Node.js-web-app in Azure App Service].
+> Deze stappen kunnen ook worden uitgevoerd met behulp van Hallo [Azure Portal](https://portal.azure.com/). Zie [bouwen en implementeren van een Node.js-web-app in Azure App Service].
 > 
-> Als dit de eerste web-app die u hebt gemaakt, moet u de Azure Portal gebruiken om deze toepassing te implementeren.
+> Als dit Hallo eerste web-app die u hebt gemaakt, moet u deze toepassing hello Azure Portal toodeploy gebruiken.
 > 
 > 
 
-Om te beginnen, installeert u de [Azure CLI] met de volgende opdracht vanaf de opdrachtregel:
+tooget gestart, installeer Hallo [Azure CLI] hiertoe de volgende opdracht uit vanaf de opdrachtregel Hallo Hallo:
 
     npm install azure-cli -g
 
 ### <a name="import-publishing-settings"></a>Publicatie-instellingen importeren
 In deze stap downloadt u een bestand met gegevens over uw abonnement.
 
-1. Voer de volgende opdracht in:
+1. Voer Hallo volgende opdracht:
    
         azure login
    
-    Met deze opdracht wordt gestart van een browser en gaat u naar de downloadpagina. Als u wordt gevraagd, meldt u zich aan met het account dat is gekoppeld aan uw Azure-abonnement.
+    Deze opdracht wordt gestart van een browser en toohello downloadpagina navigeert. Als u wordt gevraagd, kunt u aanmelden met Hallo-account die is gekoppeld aan uw Azure-abonnement.
    
-    <!-- ![The download page][download-publishing-settings] -->
+    <!-- ![hello download page][download-publishing-settings] -->
    
-    Downloaden van het bestand begint automatisch; Als dit niet het geval is, kunt u de koppeling aan het begin van de pagina handmatig het bestand te downloaden. Sla het bestand op en noteer het pad.
-2. Voer de volgende opdracht om de instellingen te importeren:
+    Hallo-bestand downloaden begint automatisch; Als dit niet het geval is, kunt u op Hallo begin van Hallo toomanually downloaden Hallo wisselbestand Hallo-koppeling. Hallo bestands- en Opmerking Hallo bestandspad opslaan.
+2. Voer Hallo opdracht tooimport Hallo-instellingen te volgen:
    
         azure account import <path-to-file>
    
-    Geef het pad en de naam van het gedownloade instellingenbestand publishing in de vorige stap.
-3. Als de instellingen worden geïmporteerd, verwijdert u het instellingenbestand publiceren. Het is niet meer nodig en gevoelige informatie met betrekking tot uw Azure-abonnement bevat.
+    Hallo pad en de naam van de door u gedownloade instellingenbestand publiceren in de vorige stap Hallo Hallo opgeven.
+3. Nadat het Hallo-instellingen worden geïmporteerd, verwijdert u Hallo bestand publicatie-instellingen. Het is niet meer nodig en gevoelige informatie met betrekking tot uw Azure-abonnement bevat.
 
 ### <a name="create-an-app-service-web-app"></a>Een App Service-web-app maken
-1. Vanaf de opdrachtregel, wijzig de mappen op de **tasklist** directory.
-2. Gebruik de volgende opdracht voor het maken van een nieuwe web-app.
+1. Wijzig vanaf de opdrachtregel Hallo, mappen toohello **tasklist** directory.
+2. Gebruik Hallo opdracht toocreate een nieuwe web-app te volgen.
    
         azure site create --git
    
-    U wordt gevraagd om de web-app-naam en locatie. Geef een unieke naam en selecteer dezelfde geografische locatie als uw Azure Storage-account.
+    U wordt gevraagd voor Hallo web-app-naam en locatie. Geef een unieke naam en selecteer Hallo dezelfde geografische locatie bevinden als uw Azure Storage-account.
    
-    De `--git` parameter maakt u een Git-opslagplaats in Azure voor deze web-app. Deze ook een Git-opslagplaats in de huidige map initialiseert als er geen bestaat en voegt een [Git remote] met de naam 'azure', waarmee de toepassing publiceren in Azure. Ten slotte wordt het maken van een **web.config** bestand, dat instellingen die door Azure worden gebruikt om als host knooppunt toepassingen bevat. Als u weglaat de `--git` parameter, maar de map bevat een Git-opslagplaats, de opdracht wordt nog steeds maken 'azure' externe.
+    Hallo `--git` parameter maakt u een Git-opslagplaats in Azure voor deze web-app. Deze ook een Git-opslagplaats in de huidige map Hallo initialiseert als er geen bestaat en voegt een [Git remote] met de naam 'azure', die de gebruikte toopublish Hallo toepassing tooAzure is. Ten slotte wordt het maken van een **web.config** bestand, dat instellingen die worden gebruikt door Azure toohost knooppunt toepassingen bevat. Als u Hallo weglaat `--git` parameter, maar Hallo directory bevat een Git-opslagplaats, Hallo opdracht maakt nog steeds 'azure' hello afstand.
    
-    Zodra deze opdracht is voltooid, ziet u uitvoer ziet er als volgt. Houd er rekening mee dat de regel die beginnen met **Website gemaakt op** de URL voor de web-app bevat.
+    Zodra deze opdracht is voltooid, ziet u uitvoer vergelijkbare toohello volgende. Houd er rekening mee dat Hallo regels die beginnen met **Website gemaakt op** Hallo-URL voor Hallo web-app bevat.
    
         info:   Executing command site create
         help:   Need a site name
@@ -502,33 +502,33 @@ In deze stap downloadt u een bestand met gegevens over uw abonnement.
         info:   site create command OK
    
    > [!NOTE]
-   > Als dit de eerste App Service web-app voor uw abonnement, wordt u gevraagd de Azure Portal gebruiken om te maken van de web-app. Zie voor meer informatie [bouwen en implementeren van een Node.js-web-app in Azure App Service].
+   > Als dit Hallo eerste App Service web-app voor uw abonnement, kunt u zich gebruiksaanwijzing toouse hello Azure Portal toocreate Hallo web-app. Zie voor meer informatie [bouwen en implementeren van een Node.js-web-app in Azure App Service].
    > 
    > 
 
 ### <a name="set-environment-variables"></a>De omgevingsvariabelen instellen
-In deze stap maakt toevoegt u omgevingsvariabelen aan de configuratie van uw web-app in Azure.
-Voer de volgende gegevens vanaf de opdrachtregel:
+In deze stap voegt u configuratie voor de omgeving variabelen tooyour web-app in Azure.
+Voer vanaf de opdrachtregel Hallo Hallo volgende in:
 
     azure site appsetting add
         STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
-Vervang  **<storage account name>**  rekening met de naam van de opslag die u eerder hebt gemaakt en vervang  **<storage access key>**  met de primaire toegangssleutel voor uw opslagaccount. (Gebruik dezelfde waarden als de config.json-bestand dat u eerder hebt gemaakt.)
+Vervang  **<storage account name>**  rekening met de naam van opslag Hallo Hallo u eerder hebt gemaakt en vervang  **<storage access key>**  met Hallo primaire toegangssleutel voor uw opslagaccount. (Gebruik Hallo dezelfde waarden als Hallo config.json-bestand dat u eerder hebt gemaakt.)
 
-U kunt ook omgevingsvariabelen instellen de [Azure Portal](https://portal.azure.com/):
+U kunt ook omgevingsvariabelen instellen in Hallo [Azure Portal](https://portal.azure.com/):
 
-1. De web-app-blade geopend door te klikken op **Bladeren** > **Web-Apps** > de naam van uw web-app.
+1. Hallo van web-app-blade geopend door te klikken op **Bladeren** > **Web-Apps** > de naam van uw web-app.
 2. Klik op de blade van uw web-app **alle instellingen** > **toepassingsinstellingen**.
    
      <!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
-3. Schuif omlaag naar de **appinstellingen** sectie en de sleutel/waarde-paren toe te voegen.
+3. Schuif omlaag toohello **appinstellingen** sectie en Hallo sleutel/waarde-paren toe te voegen.
    
      ![App-instellingen](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
 4. Klik op **OPSLAAN**.
 
-### <a name="publish-the-application"></a>De toepassing publiceren
-De codebestanden doorvoeren in Git en vervolgens push naar azure/master voor het publiceren van de app.
+### <a name="publish-hello-application"></a>Hallo toepassing publiceren
+toopublish hello app Hallo code bestanden tooGit doorvoeren en vervolgens push tooazure/master.
 
 1. Stel de implementatiereferenties van uw.
    
@@ -537,24 +537,24 @@ De codebestanden doorvoeren in Git en vervolgens push naar azure/master voor het
    
         git add .
         git commit -m "adding files"
-3. Push het doorvoeren naar de App Service-web-app:
+3. Push Hallo doorvoeren toohello App Service-web-app:
    
         git push azure master
    
-    Gebruik **master** als de doel-vertakking. Aan het einde van de implementatie ziet u een instructie die vergelijkbaar is met het volgende voorbeeld:
+    Gebruik **master** als Hallo doel vertakking. Aan het einde van de Hallo Hallo-implementatie ziet u een instructie vergelijkbare toohello voorbeeld te volgen:
    
-        To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
+        toohttps://username@tabletasklist.azurewebsites.net/TableTasklist.git
           * [new branch]      master -> master
-4. Zodra de push-bewerking is voltooid, bladert u naar de web-app-URL die eerder zijn geretourneerd door de `azure create site` opdracht om uw toepassing weer te geven.
+4. Zodra Hallo push-bewerking is voltooid, bladeren toohello web app-URL die eerder geretourneerd door Hallo `azure create site` opdracht tooview uw toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-Hoewel de stappen in dit artikel wordt beschreven met behulp van de tabel-Service gegevens op te slaan, kunt u ook gebruiken [MongoDB](https://mlab.com/azure/). 
+Tijdens het Hallo-stappen in dit artikel wordt beschreven met behulp van Hallo Tabelservice toostore gegevens, kunt u ook gebruiken [MongoDB](https://mlab.com/azure/). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 [Azure CLI]
 
 ## <a name="whats-changed"></a>Wat is er gewijzigd
-* Als u van Websites wilt overstappen op App Service, raadpleegt u de volgende handleiding: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Zie voor een handleiding toohello wijzigingen van de Websites tooApp Service: [Azure App Service en de invloed ervan op bestaande Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- URLs -->
 
@@ -576,7 +576,7 @@ Hoewel de stappen in dit artikel wordt beschreven met behulp van de tabel-Servic
 
 [Azure Portal]: https://portal.azure.com
 
-[Create and deploy a Node.js application to an Azure Web Site]: app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application tooan Azure Web Site]: app-service-web-get-started-nodejs.md
 
 <!-- Image References -->
 

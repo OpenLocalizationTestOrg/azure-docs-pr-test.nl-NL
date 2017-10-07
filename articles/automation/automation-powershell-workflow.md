@@ -1,6 +1,6 @@
 ---
-title: Leren van PowerShell-werkstroom voor Azure Automation | Microsoft Docs
-description: In dit artikel is bedoeld als een snelle les voor auteurs bekend zijn met PowerShell om te weten over de specifieke verschillen tussen PowerShell en PowerShell-werkstroom en concepten die van toepassing op de Automation-runbooks.
+title: aaaLearning PowerShell-werkstroom voor Azure Automation | Microsoft Docs
+description: In dit artikel is bedoeld als een snelle les voor auteurs bekend bent met PowerShell toounderstand Hallo specifieke verschillen tussen PowerShell en PowerShell-werkstroom en concepten van toepassing tooAutomation runbooks.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 4de812c7f863e42a6ed10c2312d61b8377e06431
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 362c504eb96d31b99a826b128e6a591beecaa084
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Leren van de belangrijkste concepten voor Windows PowerShell-werkstroom voor Automation-runbooks 
-Azure Automation-Runbooks worden geïmplementeerd als Windows PowerShell-werkstromen.  Een Windows PowerShell-werkstroom is vergelijkbaar met een Windows PowerShell-script, maar heeft enkele belangrijke verschillen die kunnen verwarrend zijn naar een nieuwe gebruiker.  Hoewel dit artikel is bedoeld om te schrijven met behulp van PowerShell-werkstroom runbooks, wordt u aangeraden dat u runbooks met behulp van PowerShell, tenzij u controlepunten moet schrijven.  Er zijn verschillende syntaxisverschillen bij het ontwerpen van PowerShell Workflow-runbooks en deze verschillen vereisen iets meer werk effectieve werkstromen te schrijven.  
+Azure Automation-Runbooks worden geïmplementeerd als Windows PowerShell-werkstromen.  Een Windows PowerShell-werkstroom is vergelijkbaar tooa Windows PowerShell-script, maar heeft enkele belangrijke verschillen die verwarrend tooa nieuwe gebruiker worden kunnen.  In dit artikel is bedoeld toohelp schrijven van runbooks met behulp van PowerShell workflow, wordt u aangeraden dat u runbooks met behulp van PowerShell, tenzij u controlepunten moet schrijven.  Er zijn verschillende syntaxisverschillen bij het ontwerpen van PowerShell Workflow-runbooks en deze verschillen vereisen iets meer werk toowrite effectieve workflows.  
 
-Een werkstroom is een opeenvolging van geprogrammeerde, verbonden stappen waarmee langlopende taken uitvoeren of de coördinatie vereisen van meerdere stappen op meerdere apparaten of beheerde knooppunten. De voordelen van een werkstroom op een normaal script omvatten de mogelijkheid een actie tegen meerdere apparaten tegelijkertijd uitvoeren en de mogelijkheid om automatisch te herstellen van fouten. Een Windows PowerShell-werkstroom is een Windows PowerShell-script dat gebruikmaakt van Windows Workflow Foundation. Terwijl de werkstroom is geschreven met Windows PowerShell-syntaxis en gelanceerd door Windows PowerShell, wordt deze verwerkt door Windows Workflow Foundation.
+Een werkstroom is een opeenvolging van geprogrammeerde, verbonden stappen waarmee langlopende taken uitvoeren of Hallo coördinatie van meerdere stappen vereisen op meerdere apparaten of beheerde knooppunten. Hallo voordelen van een werkstroom op een normaal script omvatten Hallo mogelijkheid toosimultaneously uitvoeren van een actie tegen meerdere apparaten en Hallo mogelijkheid tooautomatically herstellen van fouten. Een Windows PowerShell-werkstroom is een Windows PowerShell-script dat gebruikmaakt van Windows Workflow Foundation. Tijdens het Hallo-werkstroom is geschreven met Windows PowerShell-syntaxis en gelanceerd door Windows PowerShell, wordt deze verwerkt door Windows Workflow Foundation.
 
-Zie voor meer informatie over de onderwerpen in dit artikel [aan de slag met Windows PowerShell-werkstroom](http://technet.microsoft.com/library/jj134242.aspx).
+Zie voor meer informatie over de onderwerpen in dit artikel Hallo [aan de slag met Windows PowerShell-werkstroom](http://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Algemene structuur van een werkstroom
-De eerste stap bij het converteren van een PowerShell-script naar een PowerShell-werkstroom is insluitende deze met de **werkstroom** sleutelwoord.  Een werkstroom begint met de **werkstroom** trefwoord gevolgd door de hoofdtekst van het script tussen accolades. De naam van de werkstroom volgt het **werkstroom** trefwoord zoals getoond in de volgende syntaxis:
+Hallo eerste stap tooconverting een PowerShell-script tooa PowerShell workflow is tussen hello **werkstroom** sleutelwoord.  Een werkstroom begint met de Hallo **werkstroom** trefwoord gevolgd door de instantie Hallo van Hallo script tussen accolades. Hallo-naam van Hallo werkstroom volgt Hallo **werkstroom** trefwoord zoals getoond in Hallo de volgende syntaxis:
 
     Workflow Test-Workflow
     {
        <Commands>
     }
 
-De naam van de werkstroom moet overeenkomen met de naam van het Automation-runbook. Als het runbook wordt geïmporteerd, wordt de bestandsnaam moet overeenkomen met de Werkstroomnaam en moet eindigen op *.ps1*.
+Hallo-naam van Hallo werkstroom moet overeenkomen met de Hallo-naam van Hallo Automation-runbook. Als Hallo runbook wordt ingevoerd, wordt Hallo filename moet overeenkomen met de naam van de werkstroom Hallo en moet eindigen op *.ps1*.
 
-U kunt parameters toevoegen aan de werkstroom met de **Param** sleutelwoord net zoals een script.
+tooadd parameters toohello werkstroom, gebruik Hallo **Param** sleutelwoord net zoals u zou tooa script doen.
 
 ## <a name="code-changes"></a>Codewijzigingen
-PowerShell-werkstroom code ziet er bijna identiek aan de code van de PowerShell-script, met uitzondering van enkele belangrijke wijzigingen.  De volgende secties worden de wijzigingen die u moet aanbrengen in een PowerShell-script voor het in een werkstroom uit te voeren.
+PowerShell-werkstroom code lijkt scriptcode van bijna identiek tooPowerShell, met uitzondering van enkele belangrijke wijzigingen aangebracht.  Hallo volgende secties beschrijven wijzigingen moet u toomake tooa PowerShell-script voor het toorun in een werkstroom.
 
 ### <a name="activities"></a>Activiteiten
-Een activiteit is een specifieke taak in een werkstroom. Net zoals een script uit een of meer opdrachten bestaat, bestaat een werkstroom uit een of meer activiteiten die worden uitgevoerd in een reeks. Windows PowerShell-werkstroom converteert automatisch veel van de Windows PowerShell-cmdlets voor activiteiten tijdens het uitvoeren van een werkstroom. Wanneer u een van deze cmdlets in uw runbook opgeeft, wordt de bijbehorende activiteit uitgevoerd door Windows Workflow Foundation. Voor die cmdlets zonder een bijbehorende activiteit Windows PowerShell Workflow voert automatisch de cmdlet uit binnen een [InlineScript](#inlinescript) activiteit. Er is een set cmdlets die zijn uitgesloten en kan niet worden gebruikt in een werkstroom, tenzij u ze expliciet in een InlineScript blok opneemt. Zie voor meer informatie over deze begrippen [met behulp van activiteiten in Script Workflows](http://technet.microsoft.com/library/jj574194.aspx).
+Een activiteit is een specifieke taak in een werkstroom. Net zoals een script uit een of meer opdrachten bestaat, bestaat een werkstroom uit een of meer activiteiten die worden uitgevoerd in een reeks. Windows PowerShell-werkstroom converteert automatisch veel van Windows PowerShell-cmdlets tooactivities Hallo wanneer deze een werkstroom wordt uitgevoerd. Wanneer u een van deze cmdlets in uw runbook opgeeft, wordt door Windows Workflow Foundation Hallo bijbehorende activiteit uitgevoerd. Voor die cmdlets zonder een bijbehorende activiteit Windows PowerShell Workflow voert automatisch Hallo cmdlet binnen een [InlineScript](#inlinescript) activiteit. Er is een set cmdlets die zijn uitgesloten en kan niet worden gebruikt in een werkstroom, tenzij u ze expliciet in een InlineScript blok opneemt. Zie voor meer informatie over deze begrippen [met behulp van activiteiten in Script Workflows](http://technet.microsoft.com/library/jj574194.aspx).
 
-Werkstroomactiviteiten delen een set met algemene parameters voor het configureren van hun werking. Zie voor meer informatie over de algemene werkstroomparameters [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Werkstroomactiviteiten delen een aantal gemeenschappelijke parameters tooconfigure hun werking. Zie voor meer informatie over algemene werkstroomparameters hello [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Positionele parameters
 U kunt positieparameters niet gebruiken met activiteiten en cmdlets in een werkstroom.  Dit betekent dat is dat u de namen van parameters moet gebruiken.
 
-Neem bijvoorbeeld de volgende code waarmee alle actieve services opgehaald.
+Denk bijvoorbeeld Hallo na de code die alle actieve services krijgt.
 
      Get-Service | Where-Object {$_.Status -eq "Running"}
 
-Als u deze code in een werkstroom uitvoert probeert, ontvangt u een bericht zoals "parameterset kan niet worden omgezet met behulp van de opgegeven benoemde parameters."  Geef de parameternaam zoals in het volgende om dit te corrigeren.
+Als u deze code in een werkstroom toorun probeert, ontvangen een bericht zoals "Parameter set kan niet worden omgezet met behulp van Hallo opgegeven benoemde parameters."  toocorrect dit Hallo parameternaam zoals in de volgende Hallo bieden.
 
     Workflow Get-RunningServices
     {
@@ -62,14 +62,14 @@ Als u deze code in een werkstroom uitvoert probeert, ontvangt u een bericht zoal
     }
 
 ### <a name="deserialized-objects"></a>Gedeserialiseerde objecten
-Objecten in werkstromen worden gedeserialiseerd.  Dit betekent dat de eigenschappen zijn nog steeds beschikbaar, maar niet de methoden.  Neem bijvoorbeeld de volgende PowerShell-code die een service met de methode stoppen van het object van de Service wordt gestopt.
+Objecten in werkstromen worden gedeserialiseerd.  Dit betekent dat de eigenschappen zijn nog steeds beschikbaar, maar niet de methoden.  Denk bijvoorbeeld Hallo volgende PowerShell-code die een service met de methode voor het stoppen van Service-object Hallo Hallo stopt.
 
     $Service = Get-Service -Name MyService
     $Service.Stop()
 
-Als u uitvoeren in een werkstroom wilt, ontvangt u een foutmelding verschijnt "de methodeaanroep wordt niet ondersteund in een Windows PowerShell-werkstroom."  
+Als u toorun dit in een werkstroom probeert, ontvangt u een foutmelding verschijnt "de methodeaanroep wordt niet ondersteund in een Windows PowerShell-werkstroom."  
 
-Een mogelijkheid is het inpakken van deze twee regels code in een [InlineScript](#inlinescript) blokkeren in dat geval $Service een serviceobject in het blok is.
+Een mogelijkheid is toowrap deze twee regels code in een [InlineScript](#inlinescript) blokkeren in dat geval $Service zou een serviceobject binnen Hallo-blok zijn.
 
     Workflow Stop-Service
     {
@@ -79,7 +79,7 @@ Een mogelijkheid is het inpakken van deze twee regels code in een [InlineScript]
         }
     }
 
-Een andere optie is het gebruik van een andere cmdlet die dezelfde functionaliteit als de methode uitvoert als deze beschikbaar is.  In ons voorbeeld de cmdlet Stop-Service biedt dezelfde functionaliteit als de methode stoppen en u kunt het volgende gebruiken voor een werkstroom.
+Een andere optie toouse is een andere cmdlet die uitvoert Hallo dezelfde functionaliteit als Hallo-methode, als deze beschikbaar is.  In ons voorbeeld Hallo Service stoppen cmdlet Hallo biedt dezelfde functionaliteit als de methode stoppen hello, en u kunt gebruiken om de volgende Hallo voor een werkstroom.
 
     Workflow Stop-MyService
     {
@@ -89,16 +89,16 @@ Een andere optie is het gebruik van een andere cmdlet die dezelfde functionalite
 
 
 ## <a name="inlinescript"></a>InlineScript
-De **InlineScript** activiteit is handig wanneer u een of meer opdrachten uitvoeren als traditionele PowerShell-script in plaats van PowerShell-werkstroom.  Terwijl de opdrachten in een werkstroom voor verwerking naar de Windows Workflow Foundation worden verzonden, worden door Windows PowerShell-opdrachten in een InlineScript-blok verwerkt.
+Hallo **InlineScript** activiteit is handig als u toorun een of meer opdrachten als traditionele PowerShell-script in plaats van PowerShell-werkstroom moet.  Terwijl de opdrachten in een werkstroom worden tooWindows Workflow Foundation worden verzonden voor verwerking, worden door Windows PowerShell-opdrachten in een InlineScript-blok verwerkt.
 
-InlineScript gebruikt van de volgende syntaxis hieronder weergegeven.
+InlineScript gebruikt Hallo syntaxis hieronder weergegeven.
 
     InlineScript
     {
       <Script Block>
     } <Common Parameters>
 
-Uitvoer kunt van een InlineScript u terugkeren door de uitvoer toe te wijzen aan een variabele. Het volgende voorbeeld een service stopt en vervolgens de naam van de service levert.
+Uitvoer kunt van een InlineScript u terugkeren door Hallo uitvoer tooa variabele toewijzen. Hello volgende voorbeeld wordt een service wordt gestopt en vervolgens levert Hallo servicenaam.
 
     Workflow Stop-MyService
     {
@@ -112,7 +112,7 @@ Uitvoer kunt van een InlineScript u terugkeren door de uitvoer toe te wijzen aan
     }
 
 
-U kunt waarden doorgeven in een InlineScript-blok, maar moet u **$Using** bereikaanpassingsfunctie.  Het volgende voorbeeld is identiek aan het vorige voorbeeld, behalve dat de servicenaam is opgegeven door een variabele.
+U kunt waarden doorgeven in een InlineScript-blok, maar moet u **$Using** bereikaanpassingsfunctie.  Hallo volgende voorbeeld is het vorige voorbeeld identieke toohello, behalve dat hello servicenaam geleverd door een variabele.
 
     Workflow Stop-MyService
     {
@@ -128,18 +128,18 @@ U kunt waarden doorgeven in een InlineScript-blok, maar moet u **$Using** bereik
     }
 
 
-Tijdens het InlineScript-activiteiten mogelijk kritieke in bepaalde werkstromen, ze bieden geen ondersteuning voor werkstroom constructies en mag alleen worden gebruikt wanneer dat nodig is om de volgende redenen:
+Tijdens het InlineScript-activiteiten mogelijk kritieke in bepaalde werkstromen, ze bieden geen ondersteuning voor werkstroom constructies en mag alleen worden gebruikt wanneer dat nodig is voor de volgende redenen Hallo:
 
-* U kunt geen gebruiken [controlepunten](#checkpoints) in een InlineScript-blok. Als er een fout optreedt in het blok, moet het worden hervat vanaf het begin van het blok.
+* U kunt geen gebruiken [controlepunten](#checkpoints) in een InlineScript-blok. Als er een fout optreedt in Hallo blok, moet het worden hervat vanaf Hallo Hallo blok.
 * U kunt geen gebruiken [parallelle uitvoering](#parallel-processing) binnen een InlineScriptBlock.
-* InlineScript dit beïnvloedt de schaalbaarheid van de werkstroom omdat deze de Windows PowerShell-sessie voor de hele lengte van het InlineScript-blok bevat.
+* InlineScript dit beïnvloedt de schaalbaarheid van de werkstroom Hallo omdat deze Windows PowerShell-sessie voor de gehele lengte van de InlineScript-blok Hallo HALLO hallo bevat.
 
 Zie voor meer informatie over het gebruik van InlineScript [Windows PowerShell-opdrachten in een werkstroom](http://technet.microsoft.com/library/jj574197.aspx) en [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Parallelle verwerking
-Een voordeel van het Windows PowerShell-werkstromen is de mogelijkheid voor het uitvoeren van een reeks opdrachten parallel in plaats van opeenvolgend net als bij een typische script.
+Een voordeel van Windows PowerShell-werkstromen is Hallo mogelijkheid tooperform een reeks opdrachten parallel in plaats van opeenvolgend zoals bij een typische script.
 
-U kunt de **parallelle** sleutelwoord voor het maken van een scriptblok is opgegeven met meerdere opdrachten die gelijktijdig worden uitgevoerd. Dit maakt gebruik van de volgende syntaxis hieronder weergegeven. In dit geval starten activiteit1 en activiteit2 op hetzelfde moment. Activiteit3 start pas als zowel activiteit1 en activiteit2 zijn voltooid.
+U kunt Hallo **parallelle** sleutelwoord toocreate een scriptblok is opgegeven met meerdere opdrachten die gelijktijdig worden uitgevoerd. Dit maakt gebruik van Hallo syntaxis hieronder weergegeven. In dit geval activiteit1 en activiteit2 begint bij Hallo hetzelfde moment. Activiteit3 start pas als zowel activiteit1 en activiteit2 zijn voltooid.
 
     Parallel
     {
@@ -149,13 +149,13 @@ U kunt de **parallelle** sleutelwoord voor het maken van een scriptblok is opgeg
     <Activity3>
 
 
-Neem bijvoorbeeld het volgende PowerShell-opdrachten die meerdere bestanden naar een netwerkbestemming kopiëren.  Deze opdrachten worden opeenvolgend uitgevoerd zodanig dat één bestand met het kopiëren eindigen moet voordat de volgende wordt gestart.     
+Denk bijvoorbeeld Hallo volgende PowerShell-opdrachten die meerdere bestanden tooa netwerk doel kopiëren.  Deze opdrachten worden opeenvolgend uitgevoerd zodanig dat één bestand met het kopiëren eindigen moet voordat naast hello wordt gestart.     
 
     Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
     Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
     Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
-De volgende werkstroom wordt deze opdrachten parallel uitgevoerd, zodat ze allemaal op hetzelfde moment kopiëren starten.  Pas nadat ze alle zijn wordt gekopieerd het voltooiingsbericht is weergegeven.
+Hallo volgende werkstroom wordt uitgevoerd deze dezelfde parallel opdrachten zodat deze alle beginnen met het kopiëren op Hallo van dezelfde tijd.  Pas nadat ze alle zijn gekopieerd Hallo voltooiingsbericht weergegeven.
 
     Workflow Copy-Files
     {
@@ -170,7 +170,7 @@ De volgende werkstroom wordt deze opdrachten parallel uitgevoerd, zodat ze allem
     }
 
 
-U kunt de **ForEach-Parallel** constructie om opdrachten proces voor elk item in een verzameling gelijktijdig te. De items in de verzameling worden parallel verwerkt, terwijl de opdrachten in het scriptblok worden opeenvolgend uitgevoerd. Dit maakt gebruik van de volgende syntaxis hieronder weergegeven. In dit geval starten activiteit1 op hetzelfde moment voor alle items in de verzameling. Voor elk item start activiteit2 nadat activiteit1 voltooid. Activiteit3 start pas als zowel activiteit1 en activiteit2 zijn voltooid voor alle items.
+U kunt Hallo **ForEach-Parallel** tooprocess-opdrachten voor elk item in een verzameling gelijktijdig te maken. Hallo-items in Hallo verzameling worden parallel verwerkt tijdens het Hallo-opdrachten in Hallo-scriptblok worden opeenvolgend uitgevoerd. Dit maakt gebruik van Hallo syntaxis hieronder weergegeven. In dit geval activiteit1 begint bij Hallo dezelfde tijd voor alle items in de verzameling Hallo. Voor elk item start activiteit2 nadat activiteit1 voltooid. Activiteit3 start pas als zowel activiteit1 en activiteit2 zijn voltooid voor alle items.
 
     ForEach -Parallel ($<item> in $<collection>)
     {
@@ -179,7 +179,7 @@ U kunt de **ForEach-Parallel** constructie om opdrachten proces voor elk item in
     }
     <Activity3>
 
-Het volgende voorbeeld is vergelijkbaar met het vorige voorbeeld parallel bestanden zijn gekopieerd.  In dit geval wordt een bericht weergegeven voor elk bestand nadat deze zijn gekopieerd.  Pas nadat ze alle zijn volledig gekopieerd is het uiteindelijke voltooiingsbericht weergegeven.
+Hallo volgende voorbeeld is vergelijkbaar toohello vorige voorbeeld parallel bestanden zijn gekopieerd.  In dit geval wordt een bericht weergegeven voor elk bestand nadat deze zijn gekopieerd.  Alleen nadat ze alle zijn volledig gekopieerd uiteindelijke voltooiing het Hallo-bericht weergegeven.
 
     Workflow Copy-Files
     {
@@ -195,13 +195,13 @@ Het volgende voorbeeld is vergelijkbaar met het vorige voorbeeld parallel bestan
     }
 
 > [!NOTE]
-> We raden niet onderliggende runbooks parallel uitgevoerd, omdat dit onbetrouwbare resultaten is weergegeven.  De uitvoer van het onderliggende runbook soms wordt niet weergegeven en instellingen in een onderliggend runbook kunnen invloed hebben op de andere parallelle onderliggende runbooks
+> We raden niet onderliggende runbooks parallel uitgevoerd, omdat dit is toogive onbetrouwbare resultaten weergegeven.  Hallo uitvoer van Hallo onderliggend runbook soms wordt niet weergegeven en kunnen invloed hebben op de instellingen in een onderliggend runbook andere runbooks parallelle onderliggende hello
 >
 
 ## <a name="checkpoints"></a>Controlepunten
-Een *controlepunt* is een momentopname van de huidige status van de werkstroom met de huidige waarde voor variabelen en eventuele gegenereerde uitvoer naar dat punt. Als een werkstroom in een fout eindigt of is onderbroken, wordt klikt u vervolgens de volgende keer dat deze wordt uitgevoerd gestart vanaf de laatste controlepunt in plaats van het begin van de worfklow.  U kunt een controlepunt instellen in een werkstroom met de **Checkpoint-Workflow** activiteit.
+Een *controlepunt* is een momentopname van huidige status van de Hallo van Hallo werkstroom met de huidige waarde Hallo voor variabelen en de gegenereerde toothat punt uitvoer. Als een werkstroom in een fout eindigt of is onderbroken, wordt vervolgens Hallo volgende keer dat deze wordt uitgevoerd dat deze gestart vanaf de laatste controlepunt in plaats van Hallo Hallo worfklow is gestart.  U kunt een controlepunt instellen in een werkstroom met Hallo **Checkpoint-Workflow** activiteit.
 
-In de volgende voorbeeldcode treedt een fout op na activiteit2 waardoor de werkstroom moet worden beëindigd. Wanneer de werkstroom opnieuw wordt uitgevoerd, wordt er door het uitvoeren van activiteit2 aangezien dit vlak nadat het laatste controlepunt instellen is gestart.
+In Hallo voorbeeldcode te volgen, wordt een uitzondering optreedt nadat de werkstroom tooend activiteit2 waardoor Hallo. Wanneer de werkstroom Hallo opnieuw wordt uitgevoerd, wordt er door het uitvoeren van activiteit2 aangezien dit vlak nadat het laatste controlepunt Hallo ingesteld is gestart.
 
     <Activity1>
     Checkpoint-Workflow
@@ -209,9 +209,9 @@ In de volgende voorbeeldcode treedt een fout op na activiteit2 waardoor de werks
     <Exception>
     <Activity3>
 
-U moet controlepunten in een werkstroom instellen na activiteiten die foutgevoelig uitzondering zijn en mag geen herhaalde als de werkstroom wordt hervat. De werkstroom kan bijvoorbeeld een virtuele machine maken. U kunt een controlepunt instellen, zowel voor en na de opdrachten voor het maken van de virtuele machine. Als het aanmaken mislukt, zou klikt u vervolgens de opdrachten worden herhaald als de werkstroom opnieuw wordt gestart. Als de worfklow mislukt nadat de aanmaak slaagt, wordt klikt u vervolgens de virtuele machine niet opnieuw worden gemaakt wanneer de werkstroom wordt hervat.
+U moet controlepunten in een werkstroom instellen na activiteiten die foutgevoelig tooexception mogelijk en mag geen herhaalde als Hallo werkstroom wordt hervat. De werkstroom kan bijvoorbeeld een virtuele machine maken. U kunt een controlepunt instellen, zowel voor en na Hallo opdrachten toocreate Hallo virtuele machine. Als Hallo maken is mislukt, zou vervolgens Hallo opdrachten worden herhaald als Hallo werkstroom opnieuw wordt gestart. Als Hallo worfklow mislukt nadat Hallo aanmaak slaagt, wordt klikt u vervolgens Hallo virtuele machine niet opnieuw worden gemaakt wanneer Hallo werkstroom wordt hervat.
 
-Het volgende voorbeeld worden meerdere bestanden gekopieerd naar een netwerklocatie en stelt een controlepunt na elk bestand.  Als de netwerklocatie verbroken wordt, klikt u vervolgens beëindigd de werkstroom in fout.  Wanneer opnieuw wordt gestart, wordt deze hervat op het laatste controlepunt, wat betekent dat alleen de bestanden die al is gekopieerd worden overgeslagen.
+Hallo volgt meerdere bestanden tooa netwerklocatie kopieert en stelt een controlepunt na elk bestand.  Als de netwerklocatie Hallo verloren gegaan is, vervolgens eindigt Hallo werkstroom in fout.  Wanneer opnieuw wordt gestart, wordt deze hervat op Hallo laatste controlepunt, wat betekent dat alleen Hallo-bestanden die al is gekopieerd worden overgeslagen.
 
     Workflow Copy-Files
     {
@@ -227,9 +227,9 @@ Het volgende voorbeeld worden meerdere bestanden gekopieerd naar een netwerkloca
         Write-Output "All files copied."
     }
 
-Omdat de username-verwijzingen zijn niet permanent opgeslagen nadat u de [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activiteit of na het laatste controlepunt, moet u de referenties die null zijn en halen ze vervolgens opnieuw uit de store asset na instellen  **Suspend-Workflow** of controlepunt wordt aangeroepen.  Anders wordt het volgende foutbericht weergegeven: *de werkstroomtaak kan niet worden hervat, ofwel omdat persistentie gegevens kan niet worden opgeslagen volledig of opgeslagen gegevens persistentie is beschadigd. U moet de werkstroom opnieuw.*
+Omdat de referenties van de gebruikersnaam worden niet persistent na het aanroepen van Hallo [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activiteit of na de laatste controlepunt hello, u moet tooset Hallo referenties toonull en vervolgens terugzetten opnieuw uit Hallo asset store na  **Suspend-Workflow** of controlepunt wordt aangeroepen.  Anders krijgt u Hallo volgende foutbericht weergegeven: *Hallo werkstroomtaak kan niet worden hervat, ofwel omdat persistentie gegevens kan niet worden opgeslagen volledig of opgeslagen gegevens persistentie is beschadigd. U moet Hallo werkstroom opnieuw.*
 
-De volgende dezelfde code laat zien hoe dit in uw PowerShell Workflow-runbooks te verwerken.
+Hallo volgen dezelfde code laat zien hoe toohandle dit in uw PowerShell Workflow-runbooks.
 
     workflow CreateTestVms
     {
@@ -240,9 +240,9 @@ De volgende dezelfde code laat zien hoe dit in uw PowerShell Workflow-runbooks t
 
        foreach ($VmName in $VmsToCreate)
          {
-          # Do work first to create the VM (code not shown)
+          # Do work first toocreate hello VM (code not shown)
 
-          # Now add the VM
+          # Now add hello VM
           New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
           # Checkpoint so that VM creation is not repeated if workflow suspends
@@ -256,7 +256,7 @@ De volgende dezelfde code laat zien hoe dit in uw PowerShell Workflow-runbooks t
 
 Dit is niet vereist als u zich verifiëren met behulp van een Run As-account geconfigureerd met een service-principal.  
 
-Zie voor meer informatie over controlepunten [controlepunten toevoegen aan een Scriptwerkstroom](http://technet.microsoft.com/library/jj574114.aspx).
+Zie voor meer informatie over controlepunten [controlepunten toevoegen tooa Scriptwerkstroom](http://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
+* tooget gestart met PowerShell workflow-runbooks, Zie [Mijn eerste PowerShell workflow-runbook](automation-first-runbook-textual.md)

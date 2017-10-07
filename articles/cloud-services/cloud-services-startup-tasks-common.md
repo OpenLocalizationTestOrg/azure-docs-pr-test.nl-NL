@@ -1,6 +1,6 @@
 ---
-title: Algemene starten van de taken voor Cloudservices | Microsoft Docs
-description: Enkele voorbeelden van algemene starten van de taken die u wilt uitvoeren in uw cloud services-web-rol of functie worker biedt.
+title: aaaCommon starten van de taken voor Cloudservices | Microsoft Docs
+description: Bevat enkele voorbeelden van algemene beheertaken voor opstarten kunt u tooperform in uw cloud services-Webrol of werkrol.
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: cee23da5b089b02bfc0ef10afd60f0f2272585b1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c80fac4079439410dfc3795e4bce0fbc07dbbfab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Algemene taken voor Cloud-Service starten
-Dit artikel vindt enkele voorbeelden van algemene starten van de taken die u wilt uitvoeren in uw cloudservice. Starten van de taken kunt u bewerkingen uitvoeren voordat een rol wordt gestart. Bewerkingen die u wilt uitvoeren bevatten voor het installeren van een onderdeel, registreren van COM-onderdelen, registersleutels instellen of starten van een langdurige proces. 
+Dit artikel vindt u enkele voorbeelden van algemene beheertaken voor opstarten kunt u tooperform in uw cloudservice. U kunt opstarten taken tooperform operations voordat een rol wordt gestart. Wilt u misschien tooperform bewerkingen bevatten een onderdeel te installeren, het registreren van COM-onderdelen, registersleutels instellen of starten van een langdurige proces. 
 
-Zie [in dit artikel](cloud-services-startup-tasks.md) over de werking van starten van de taken en specifiek het maken van de vermeldingen die een taak starten definiëren.
+Zie [in dit artikel](cloud-services-startup-tasks.md) toounderstand de werking van starten van de taken en specifiek hoe toocreate Hallo vermeldingen die een taak starten definiëren.
 
 > [!NOTE]
-> Starten van de taken zijn niet van toepassing op virtuele Machines, alleen op Cloud Service-Web- en werkrollen.
+> Starten van de taken zijn niet van toepassing tooVirtual Machines, alleen tooCloud Service-Web- en werkrollen.
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Omgevingsvariabelen definiëren voordat een rol wordt gestart
-Als u omgevingsvariabelen die zijn gedefinieerd voor een specifieke taak nodig hebt, gebruikt de [omgeving] -element in de [taak] element.
+Als u omgevingsvariabelen die zijn gedefinieerd voor een specifieke taak moet, gebruikt u Hallo [omgeving] -element in Hallo [taak] element.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -47,7 +47,7 @@ Als u omgevingsvariabelen die zijn gedefinieerd voor een specifieke taak nodig h
 </ServiceDefinition>
 ```
 
-Variabelen kunt ook een [geldige Azure XPath-waarde](cloud-services-role-config-xpath.md) om te verwijzen naar iets over de implementatie. In plaats van de `value` kenmerk, het definiëren van een [RoleInstanceValue] onderliggend element.
+Variabelen kunt ook een [geldige Azure XPath-waarde](cloud-services-role-config-xpath.md) tooreference iets over Hallo-implementatie. In plaats van Hallo `value` kenmerk, het definiëren van een [RoleInstanceValue] onderliggend element.
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -57,22 +57,22 @@ Variabelen kunt ook een [geldige Azure XPath-waarde](cloud-services-role-config-
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Starten van IIS met AppCmd.exe configureren
-De [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) opdrachtregelprogramma kan worden gebruikt voor het beheren van IIS-instellingen bij het opstarten op Azure. *AppCmd.exe* handige, opdrachtregel toegang biedt tot configuratie-instellingen voor gebruik in het starten van de taken in Azure. Met behulp van *AppCmd.exe*, Website-instellingen kunnen worden toegevoegd, gewijzigd of verwijderd voor toepassingen en sites.
+Hallo [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) opdrachtregelprogramma mag gebruikte toomanage IIS-instellingen bij het opstarten op Azure. *AppCmd.exe* handige, opdrachtregelprogramma tooconfiguration toegangsinstellingen voor gebruik in het starten van de taken in Azure biedt. Met behulp van *AppCmd.exe*, Website-instellingen kunnen worden toegevoegd, gewijzigd of verwijderd voor toepassingen en sites.
 
-Er zijn echter enkele dingen die u moet letten in het gebruik van *AppCmd.exe* als een taak starten:
+Er zijn echter enkele dingen toowatch uit voor in het gebruik van Hallo *AppCmd.exe* als een taak starten:
 
 * Starten van de taken kunnen meer dan één keer worden uitgevoerd tussen opnieuw wordt opgestart. Bijvoorbeeld, wanneer een rol wordt gerecycled.
-* Als een *AppCmd.exe* actie meer dan één keer wordt uitgevoerd, kan er een fout gegenereerd. Wilt u bijvoorbeeld een sectie toevoegen *Web.config* tweemaal genereren een fout.
+* Als een *AppCmd.exe* actie meer dan één keer wordt uitgevoerd, kan er een fout gegenereerd. Bijvoorbeeld een sectie tooadd te probeert*Web.config* tweemaal genereren een fout.
 * Starten van de taken mislukken als ze een afsluitcode dan nul retourneren of **errorlevel**. Bijvoorbeeld, wanneer *AppCmd.exe* wordt een fout gegenereerd.
 
-Het is raadzaam om te controleren de **errorlevel** na het aanroepen *AppCmd.exe*, dit is eenvoudig te doen als u de aanroep van inpakt *AppCmd.exe* met een *.cmd* bestand. Als u een bekende detecteren **errorlevel** antwoord, u kunt deze negeren of terug doorgeven.
+Het is een goede gewoonte toocheck hello **errorlevel** na het aanroepen *AppCmd.exe*, dit is eenvoudig toodo als u Hallo aanroep te laten teruglopen*AppCmd.exe* met een *.cmd*  bestand. Als u een bekende detecteren **errorlevel** antwoord, u kunt deze negeren of terug doorgeven.
 
-De waarde voor errorlevel geretourneerd door *AppCmd.exe* worden weergegeven in het bestand winerror.h en kunnen ook worden weergegeven op [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+Hallo errorlevel geretourneerd door *AppCmd.exe* in Hallo winerror.h bestand worden vermeld en kunnen ook worden weergegeven op [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
 
-### <a name="example-of-managing-the-error-level"></a>Voorbeeld van het beheer van het foutniveau van de
-In dit voorbeeld voegt u een sectie compressie en een compressie-vermelding voor JSON voor de *Web.config* bestand met de foutafhandeling en logboekregistratie.
+### <a name="example-of-managing-hello-error-level"></a>Voorbeeld van het beheer van Hallo foutniveau
+In dit voorbeeld voegt een sectie compressie en de compressie-vermelding voor JSON toohello *Web.config* bestand met de foutafhandeling en logboekregistratie.
 
-De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weergegeven, zoals instelling de [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) kenmerk `elevated` geven *AppCmd.exe* voldoende machtigingen om te wijzigen van de instellingen in de *Web.config* bestand:
+Hallo relevante secties Hallo [ServiceDefinition.csdef] bestand hier worden weergegeven, die bestaan uit het instellen van Hallo [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) te kenmerk`elevated` toogive *AppCmd.exe*  voldoende machtigingen toochange Hallo instellingen in Hallo *Web.config* bestand:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -85,21 +85,21 @@ De relevante secties van de [ServiceDefinition.csdef] bestand hier worden weerge
 </ServiceDefinition>
 ```
 
-De *Startup.cmd* batch-bestand gebruikt *AppCmd.exe* toevoegen van een sectie compressie en een compressie-vermelding voor JSON naar de *Web.config* bestand. De verwachte **errorlevel** van 183 is ingesteld op nul met behulp van de CONTROLEER. EXE-opdrachtregelprogramma. Onverwachte errorlevels zijn StartupErrorLog.txt aangemeld.
+Hallo *Startup.cmd* batch-bestand gebruikt *AppCmd.exe* tooadd een sectie compressie en de compressie-vermelding voor JSON toohello *Web.config* bestand. Hallo verwacht **errorlevel** van 183 toozero Hallo controleren met is ingesteld. EXE-opdrachtregelprogramma. Onverwachte errorlevels zijn geregistreerde tooStartupErrorLog.txt.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   *** Add a compression section toohello Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
+REM   ERRORLEVEL 183 occurs when trying tooadd a section that already exists. This error is expected if this
 REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
-REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
-REM   command will safely set the ERRORLEVEL to zero.
+REM   task. toohandle this situation, set hello ERRORLEVEL toozero by using hello Verify command. hello Verify
+REM   command will safely set hello ERRORLEVEL toozero.
 IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
 
-REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
+REM   If hello ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO Error adding a compression section to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
+    ECHO Error adding a compression section toohello Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
     GOTO ErrorExit
 )
 
@@ -107,7 +107,7 @@ REM   *** Add compression for json. ***
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
-    ECHO Error adding the JSON compression type to the Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
+    ECHO Error adding hello JSON compression type toohello Web.config file. >> "%TEMP%\StartupLog.txt" 2>&1
     GOTO ErrorExit
 )
 
@@ -116,7 +116,7 @@ EXIT /b 0
 
 REM   *** Log error and exit ***
 :ErrorExit
-REM   Report the date, time, and ERRORLEVEL of the error.
+REM   Report hello date, time, and ERRORLEVEL of hello error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
 TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
 ECHO An error occurred during startup. ERRORLEVEL = %ERRORLEVEL% >> "%TEMP%\StartupLog.txt" 2>&1
@@ -124,13 +124,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Firewallregels toevoegen
-In Azure zijn er effectief twee firewalls. De eerste firewall bepaalt verbindingen tussen de virtuele machine en de buitenwereld. Deze firewall wordt bepaald door de [eindpunten] -element in de [ServiceDefinition.csdef] bestand.
+In Azure zijn er effectief twee firewalls. de eerste firewall Hallo bepaalt verbindingen tussen Hallo virtuele machine en Hallo buiten world. Deze firewall wordt beheerd door Hallo [eindpunten] -element in Hallo [ServiceDefinition.csdef] bestand.
 
-De tweede firewall bepaalt verbindingen tussen de virtuele machine en de processen op dat de virtuele machine. Deze firewall kan worden beheerd door de `netsh advfirewall firewall` opdrachtregelprogramma.
+de tweede firewall Hallo bepaalt verbindingen tussen Hallo virtuele machine en Hallo processen binnen dat de virtuele machine. Deze firewall kan worden beheerd door Hallo `netsh advfirewall firewall` opdrachtregelprogramma.
 
-Azure maakt firewallregels voor de processen binnen uw rollen gestart. Bijvoorbeeld, wanneer u een service of programma start, maakt Azure automatisch de benodigde firewallregels om toe te staan of de service te communiceren met Internet. Als u een service die wordt gestart door een proces buiten uw rol (zoals een COM +-service of een Windows-taak plannen) maakt, moet u handmatig een firewallregel voor toegang tot deze service te maken. Deze firewall-regels kunnen worden gemaakt met behulp van een taak starten.
+Azure maakt firewallregels voor Hallo processen binnen uw rollen gestart. Bijvoorbeeld, wanneer u een service of programma start, maakt Azure automatisch Hallo nodig firewall-regels tooallow die service toocommunicate Hello Internet. Als u een service die wordt gestart door een proces buiten uw rol (zoals een COM +-service of een Windows-taak plannen) maakt, moet u echter toomanually maken van een firewall regel tooallow access toothat service. Deze firewall-regels kunnen worden gemaakt met behulp van een taak starten.
 
-Een starten van de taak die wordt gemaakt van een firewallregel moet hebben een [executionContext][taak] van **verhoogde**. Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
+Een starten van de taak die wordt gemaakt van een firewallregel moet hebben een [executionContext][taak] van **verhoogde**. Starten van de taak toohello na Hallo toevoegen [ServiceDefinition.csdef] bestand.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -143,7 +143,7 @@ Een starten van de taak die wordt gemaakt van een firewallregel moet hebben een 
 </ServiceDefinition>
 ```
 
-Als u wilt de firewallregel toevoegen, moet u de juiste `netsh advfirewall firewall` opdrachten in het batchbestand opstarten. In dit voorbeeld vereist de taak starten van de beveiliging en versleuteling voor TCP-poort 80.
+tooadd hello firewallregel, moet u relevante Hallo `netsh advfirewall firewall` opdrachten in het batchbestand opstarten. In dit voorbeeld vereist Hallo starten van de taak beveiliging en versleuteling voor TCP-poort 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -151,16 +151,16 @@ REM   Add a firewall rule in a startup task.
 REM   Add an inbound rule requiring security and encryption for TCP port 80 traffic.
 netsh advfirewall firewall add rule name="Require Encryption for Inbound TCP/80" protocol=TCP dir=in localport=80 security=authdynenc action=allow >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   If an error occurred, return the errorlevel.
+REM   If an error occurred, return hello errorlevel.
 EXIT /B %errorlevel%
 ```
 
 ## <a name="block-a-specific-ip-address"></a>Een specifiek IP-adres blokkeren
-U kunt de toegang van een Azure-web-rol op een reeks opgegeven IP-adressen beperken door het wijzigen van de IIS **web.config** bestand. U moet ook een opdrachtbestand waarmee wordt ontgrendeld gebruiken de **ipSecurity** sectie van de **ApplicationHost.config** bestand.
+U kunt een Azure-web-rol toegang tooa set opgegeven IP-adressen beperken door het wijzigen van de IIS **web.config** bestand. U moet ook een opdrachtbestand waarmee wordt ontgrendeld Hallo toouse **ipSecurity** sectie Hallo **ApplicationHost.config** bestand.
 
-Voor het ontgrendelen van de **ipSecurity** sectie van de **ApplicationHost.config** bestand, een opdrachtbestand maken dat wordt uitgevoerd op de rol is gestart. Maak een map op het hoofdniveau van de Webrol aangeroepen **opstarten** en maak in deze map een batchbestand aangeroepen **startup.cmd**. Dit bestand toevoegen aan uw Visual Studio-project en de eigenschappen instellen op **kopie altijd** om ervoor te zorgen dat is opgenomen in het pakket.
+toodo ontgrendelen Hallo **ipSecurity** sectie Hallo **ApplicationHost.config** bestand, een opdrachtbestand maken dat wordt uitgevoerd op de rol is gestart. Maak een map op Hallo hoogste niveau van de Webrol aangeroepen **opstarten** en maak in deze map een batchbestand aangeroepen **startup.cmd**. Dit bestand tooyour Visual Studio-project toevoegen en stel de Hallo te**kopie altijd** tooensure dat is opgenomen in het pakket.
 
-Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
+Starten van de taak toohello na Hallo toevoegen [ServiceDefinition.csdef] bestand.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -173,7 +173,7 @@ Voeg de volgende opstarttaak naar de [ServiceDefinition.csdef] bestand.
 </ServiceDefinition>
 ```
 
-Deze opdracht kunt toevoegen de **startup.cmd** bestand:
+Toevoegen van deze opdracht toohello **startup.cmd** bestand:
 
 ```cmd
 @echo off
@@ -183,18 +183,18 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 ```
 
-Met deze taak wordt de **startup.cmd** batchbestand worden uitgevoerd telkens als de Webrol is geïnitialiseerd, zorgt u ervoor dat de vereiste **ipSecurity** sectie is opgeheven.
+Met deze taak wordt Hallo **startup.cmd** batch-bestand toobe uitgevoerd telkens als de Webrol Hallo is geïnitialiseerd, waarbij u ervoor zorgt dat Hallo vereist **ipSecurity** sectie is opgeheven.
 
-Wijzig tot slot de [system.webServer sectie](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) uw Webrol **web.config** bestand toevoegen van een lijst met IP-adressen die toegang, zoals wordt weergegeven in het volgende voorbeeld:
+Wijzig tot slot Hallo [system.webServer sectie](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) uw Webrol **web.config** bestand tooadd een lijst met IP-adressen die toegang, zoals wordt weergegeven in Hallo voorbeeld te volgen:
 
-De configuratie van dit voorbeeld **kunt** alle IP-adressen voor toegang tot de server met uitzondering van de twee gedefinieerd
+De configuratie van dit voorbeeld **kunt** alle IP-adressen tooaccess Hallo server behalve Hallo twee gedefinieerd
 
 ```xml
 <system.webServer>
     <security>
     <!--Unlisted IP addresses are granted access-->
     <ipSecurity>
-        <!--The following IP addresses are denied access-->
+        <!--hello following IP addresses are denied access-->
         <add allowed="false" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="false" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -202,14 +202,14 @@ De configuratie van dit voorbeeld **kunt** alle IP-adressen voor toegang tot de 
 </system.webServer>
 ```
 
-De configuratie van dit voorbeeld **weigert** alle IP-adressen van de toegang tot de server, met uitzondering van de twee gedefinieerd.
+De configuratie van dit voorbeeld **weigert** alle IP-adressen van toegang tot de server hello, met uitzondering van Hallo twee gedefinieerd.
 
 ```xml
 <system.webServer>
     <security>
     <!--Unlisted IP addresses are denied access-->
     <ipSecurity allowUnlisted="false">
-        <!--The following IP addresses are granted access-->
+        <!--hello following IP addresses are granted access-->
         <add allowed="true" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="true" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -218,42 +218,42 @@ De configuratie van dit voorbeeld **weigert** alle IP-adressen van de toegang to
 ```
 
 ## <a name="create-a-powershell-startup-task"></a>Een PowerShell starten van de taak maken
-Windows PowerShell-scripts, kunnen niet worden aangeroepen rechtstreeks vanuit de [ServiceDefinition.csdef] bestand, maar ze kunnen worden aangeroepen vanuit een batchbestand opstarten.
+Windows PowerShell-scripts, kunnen niet worden aangeroepen rechtstreeks vanuit Hallo [ServiceDefinition.csdef] bestand, maar ze kunnen worden aangeroepen vanuit een batchbestand opstarten.
 
-Niet-ondertekende scripts niet wordt uitgevoerd in PowerShell (standaard). Tenzij u uw script ondertekent, moet u PowerShell als u wilt uitvoeren van niet-ondertekende scripts configureren. Niet-ondertekende scripts uitvoeren de **ExecutionPolicy** moet worden ingesteld op **onbeperkt**. De **ExecutionPolicy** instelt dat u gebruik is op basis van de versie van Windows PowerShell.
+Niet-ondertekende scripts niet wordt uitgevoerd in PowerShell (standaard). Tenzij u uw script ondertekent, moet u tooconfigure PowerShell toorun niet-ondertekende scripts. toorun niet-ondertekende scripts, hello **ExecutionPolicy** te moet worden ingesteld**onbeperkt**. Hallo **ExecutionPolicy** instelt dat u gebruik is gebaseerd op Hallo-versie van Windows PowerShell.
 
 ```cmd
-REM   Run an unsigned PowerShell script and log the output
+REM   Run an unsigned PowerShell script and log hello output
 PowerShell -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   If an error occurred, return the errorlevel.
+REM   If an error occurred, return hello errorlevel.
 EXIT /B %errorlevel%
 ```
 
-Als u een Gastbesturingssysteem dat wordt uitgevoerd, PowerShell 2.0 of 1.0 die u kunt afdwingen dat versie 2 om uit te voeren, en als niet beschikbaar is, wordt versie 1 gebruiken.
+Als u een Gastbesturingssysteem dat wordt uitgevoerd, PowerShell 2.0 of 1.0 u versie 2 toorun kunt afdwingen, en als niet beschikbaar is, wordt versie 1 gebruiken.
 
 ```cmd
-REM   Attempt to set the execution policy by using PowerShell version 2.0 syntax.
+REM   Attempt tooset hello execution policy by using PowerShell version 2.0 syntax.
 PowerShell -Version 2.0 -ExecutionPolicy Unrestricted .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   If PowerShell version 2.0 isn't available. Set the execution policy by using the PowerShell
+REM   If PowerShell version 2.0 isn't available. Set hello execution policy by using hello PowerShell
 IF %ERRORLEVEL% EQU -393216 (
    PowerShell -Command "Set-ExecutionPolicy Unrestricted" >> "%TEMP%\StartupLog.txt" 2>&1
    PowerShell .\startup.ps1 >> "%TEMP%\StartupLog.txt" 2>&1
 )
 
-REM   If an error occurred, return the errorlevel.
+REM   If an error occurred, return hello errorlevel.
 EXIT /B %errorlevel%
 ```
 
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>Maken van bestanden in lokale opslag van een taak starten
-U kunt een resource voor lokale opslag gebruiken voor het opslaan van bestanden die zijn gemaakt met het starten van de taak die later worden geopend door uw toepassing.
+U kunt een lokale opslag resource toostore gebruiken bestanden die zijn gemaakt met het starten van de taak die later worden geopend door uw toepassing.
 
-Toevoegen voor het maken van de bron van de lokale opslag, een [LocalResources] sectie aan de [ServiceDefinition.csdef] -bestand en voeg vervolgens de [LocalStorage] onderliggend element. Geeft de bron van de lokale opslag een unieke naam en de juiste grootte voor het starten van de taak.
+toocreate Hallo resource voor lokale opslag, het toevoegen van een [LocalResources] sectie toohello [ServiceDefinition.csdef] -bestand en voeg vervolgens Hallo [LocalStorage] onderliggend element. Geeft een unieke naam en de juiste grootte Hallo lokale opslagresource voor het starten van de taak.
 
-Als u een resource voor lokale opslag in uw taak starten, moet u een omgevingsvariabele om te verwijzen naar de lokale resource opslaglocatie maken. Vervolgens kunnen de taak starten en de toepassing bestanden lezen en schrijven naar de bron van de lokale opslag.
+een bron van de lokale opslag in uw opstarttaak toouse, moet u toocreate een Resourcelocatie omgeving variabele tooreference Hallo lokale opslag. Vervolgens Hallo opstarttaak Hallo toepassing zijn en kunnen tooread en bestanden toohello lokale opslagbron schrijven.
 
-De relevante secties van de **ServiceDefinition.csdef** bestand worden hier weergegeven:
+Hallo relevante secties Hallo **ServiceDefinition.csdef** bestand worden hier weergegeven:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -277,22 +277,22 @@ De relevante secties van de **ServiceDefinition.csdef** bestand worden hier weer
 </ServiceDefinition>
 ```
 
-Als u bijvoorbeeld dit **Startup.cmd** batch-bestand gebruikt de **PathToStartupStorage** omgevingsvariabele voor het maken van het bestand **MyTest.txt** op de locatie van lokale opslag.
+Als u bijvoorbeeld dit **Startup.cmd** gebruikt Hallo batchbestand **PathToStartupStorage** omgeving variabele toocreate Hallo bestand **MyTest.txt** op Hallo lokale opslag locatie.
 
 ```cmd
 REM   Create a simple text file.
 
-ECHO This text will go into the MyTest.txt file which will be in the    >  "%PathToStartupStorage%\MyTest.txt"
-ECHO path pointed to by the PathToStartupStorage environment variable.  >> "%PathToStartupStorage%\MyTest.txt"
-ECHO The contents of the PathToStartupStorage environment variable is   >> "%PathToStartupStorage%\MyTest.txt"
+ECHO This text will go into hello MyTest.txt file which will be in hello    >  "%PathToStartupStorage%\MyTest.txt"
+ECHO path pointed tooby hello PathToStartupStorage environment variable.  >> "%PathToStartupStorage%\MyTest.txt"
+ECHO hello contents of hello PathToStartupStorage environment variable is   >> "%PathToStartupStorage%\MyTest.txt"
 ECHO "%PathToStartupStorage%".                                          >> "%PathToStartupStorage%\MyTest.txt"
 
-REM   Exit the batch file with ERRORLEVEL 0.
+REM   Exit hello batch file with ERRORLEVEL 0.
 
 EXIT /b 0
 ```
 
-U kunt lokale opslagmap openen vanaf de Azure SDK met behulp van de [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
+U kunt lokale opslagmap openen vanaf hello Azure SDK met behulp van Hallo [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -300,12 +300,12 @@ string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.
 string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStoragePath, "MyTestFile.txt"));
 ```
 
-## <a name="run-in-the-emulator-or-cloud"></a>Uitgevoerd in de emulator of de cloud
-U kunt uw opstarttaak verschillende stappen uitvoeren wanneer deze wordt uitgevoerd in de cloud in vergelijking met wanneer het zich in de rekenemulator hebben. U wilt bijvoorbeeld een nieuw exemplaar van uw SQL-gegevens gebruiken alleen bij het uitvoeren in de emulator. Of u kunt doen prestatieoptimalisatie voor de cloud die u niet hoeft te doen wanneer uitgevoerd in de emulator.
+## <a name="run-in-hello-emulator-or-cloud"></a>In het Hallo-emulator of cloud worden uitgevoerd
+U kunt uw verschillende stappen uitvoeren wanneer deze wordt uitgevoerd in de Hallo cloud vergeleken toowhen zich in de rekenemulator hello opstarttaak hebben. U kunt bijvoorbeeld, toouse een nieuw exemplaar van uw SQL-gegevens alleen bij uitvoering in Hallo-emulator. Of u wilt dat toodo prestatieoptimalisatie voor Hallo cloud hoeft u niet toodo bij uitvoering in Hallo-emulator.
 
-Dit kunnen verschillende acties uitvoeren op de rekenemulator en de cloud kunt u doen met het maken van een omgevingsvariabele in de [ServiceDefinition.csdef] bestand. U test die omgevingsvariabele voor een waarde in uw taak starten.
+Deze mogelijkheid tooperform verschillende acties op Hallo rekenemulator en Hallo cloud kan worden uitgevoerd door het maken van een omgevingsvariabele in Hallo [ServiceDefinition.csdef] bestand. U test die omgevingsvariabele voor een waarde in uw taak starten.
 
-Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. De waarde van de **% ComputeEmulatorRunning %** omgevingsvariabele is `true` wanneer u gebruikmaakt van de rekenemulator en `false` wanneer u gebruikmaakt van de cloud.
+Hallo omgevingsvariabele toocreate Hallo toevoegen [variabele]/[RoleInstanceValue] element en het maken van een XPath-waarde van `/RoleEnvironment/Deployment/@emulated`. waarde van Hallo Hallo **% ComputeEmulatorRunning %** omgevingsvariabele is `true` bij uitvoering op Hallo-rekenemulator en `false` bij uitvoering op Hallo cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -327,23 +327,23 @@ Voor het maken van de omgevingsvariabele toevoegen de [variabele]/[RoleInstanceV
 </ServiceDefinition>
 ```
 
-Controleer de taak kan nu de **% ComputeEmulatorRunning %** omgevingsvariabele andere acties uit te voeren op basis van de vraag of de rol wordt uitgevoerd in de cloud of de emulator. Hier volgt een cmd-shell-script waarmee wordt gecontroleerd of deze omgevingsvariabele.
+Hallo taak controleren nu Hallo **% ComputeEmulatorRunning %** omgeving variabele tooperform verschillende acties op basis van of Hallo-functie wordt uitgevoerd in Hallo cloud of Hallo emulator. Hier volgt een cmd-shell-script waarmee wordt gecontroleerd of deze omgevingsvariabele.
 
 ```cmd
-REM   Check if this task is running on the compute emulator.
+REM   Check if this task is running on hello compute emulator.
 
 IF "%ComputeEmulatorRunning%" == "true" (
-    REM   This task is running on the compute emulator. Perform tasks that must be run only in the compute emulator.
+    REM   This task is running on hello compute emulator. Perform tasks that must be run only in hello compute emulator.
 ) ELSE (
-    REM   This task is running on the cloud. Perform tasks that must be run only in the cloud.
+    REM   This task is running on hello cloud. Perform tasks that must be run only in hello cloud.
 )
 ```
 
 
 ## <a name="detect-that-your-task-has-already-run"></a>Detecteren of de taak al is uitgevoerd
-De rol kan niet opnieuw starten van de taken opnieuw uit te voeren waardoor start recyclen. Er is geen vlag die aangeeft dat een taak al is uitgevoerd op de host VM. Mogelijk hebt u een aantal taken waarbij het maakt niet uit dat ze meerdere keren worden uitgevoerd. U kunt echter uitvoeren in een situatie waarin u wilt voorkomen dat een taak meerdere keren wordt uitgevoerd.
+Hallo-rol kan recycle zonder waardoor uw taken starten toorun opnieuw opgestart. Er is geen vlag tooindicate die een taak is al uitgevoerd op Hallo hosten van virtuele machine. Mogelijk hebt u een aantal taken waarbij het maakt niet uit dat ze meerdere keren worden uitgevoerd. Echter, u kunt uitvoeren in een situatie waarin u tooprevent moet een taak meer dan één keer worden uitgevoerd.
 
-De eenvoudigste manier om te detecteren of er al een taak is uitgevoerd, is voor het maken van een bestand in de **% TEMP %** map wanneer de taak geslaagd is en zoeken naar deze aan het begin van de taak. Hier volgt een voorbeeld cmd shell-script dat die voor u uitvoert.
+het eenvoudigste manier toodetect Hello, die een taak heeft al een bestand in Hallo toocreate is **% TEMP %** map wanneer het Hallo-taak is voltooid en bekijk voor Hallo starten van Hallo-taak. Hier volgt een voorbeeld cmd shell-script dat die voor u uitvoert.
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
@@ -357,13 +357,13 @@ ECHO Running XYZ >> "%TEMP%\StartupLog.txt" 2>&1
 "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
 IF %ERRORLEVEL% EQU 0 (
-  REM   The application installed without error. Create a file to indicate that the task
-  REM   does not need to be run again.
+  REM   hello application installed without error. Create a file tooindicate that hello task
+  REM   does not need toobe run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file tooindicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
 
 ) ELSE (
-  REM   An error occurred. Log the error and exit with the error code.
+  REM   An error occurred. Log hello error and exit with hello error code.
 
   DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
   TIME /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -382,15 +382,15 @@ EXIT /B 0
 Hier volgen enkele aanbevolen procedures die u volgen moet wanneer de taak voor uw web- of worker-rol configureert.
 
 ### <a name="always-log-startup-activities"></a>Meld u altijd starten van activiteiten
-Visual Studio biedt geen een foutopsporingsprogramma stap batchbestanden, dus is het raadzaam om zo veel mogelijk gegevens ophalen over de werking van de batch-bestanden mogelijk wilt uitvoeren. Logboekregistratie van de uitvoer van de batch-bestanden, beide **stdout** en **stderr**, krijgt u belangrijke informatie bij het opsporen en oplossen van batch-bestanden. Aan te melden beide **stdout** en **stderr** naar de StartupLog.txt bestand in de map waarnaar wordt verwezen door de **% TEMP %** omgevingsvariabele, Voeg tekst toe `>>  "%TEMP%\\StartupLog.txt" 2>&1` aan het einde van specifieke regels die u wilt registreren. Bijvoorbeeld, om het uitvoeren van setup.exe in de **% PathToApp1Install** directory:
+Visual Studio biedt geen een foutopsporingsprogramma toostep via batchbestanden, dus is het goed tooget zo veel mogelijk gegevens over Hallo werking van batch-bestanden mogelijk. Hallo-uitvoer van de batch-bestanden logboekregistratie beide **stdout** en **stderr**, kunt u belangrijke informatie geven bij het toodebug en los van de batch-bestanden. beide toolog **stdout** en **stderr** toohello StartupLog.txt bestand in Hallo directory verwijzen tooby hello **% TEMP %** omgevingsvariabele tekst hello toevoegen`>>  "%TEMP%\\StartupLog.txt" 2>&1`toohello einde van de specifieke regels u wilt dat toolog. Bijvoorbeeld: tooexecute setup.exe in Hallo **% PathToApp1Install** directory:
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-Als u wilt uw XML-vereenvoudigen, kunt u een wrapper *cmd* bestand die alle uw opstarten aanroept taken samen met de logboekregistratie en zorgt ervoor dat elke onderliggende-taak deelt de dezelfde omgevingsvariabelen.
+toosimplify uw XML-gegevens, kunt u een wrapper *cmd* bestand die alle uw opstarten aanroept taken samen met de logboekregistratie en zorgt ervoor dat elke onderliggende taak shares Hallo dezelfde omgevingsvariabelen.
 
-Wellicht vindt u het vervelend dat moet worden gebruikt `>> "%TEMP%\StartupLog.txt" 2>&1` aan het einde van elke taak starten. U kunt de taak logboekregistratie afdwingen door het maken van een wrapper die verantwoordelijk is voor logboekregistratie voor u. Deze wrapper roept het echte batchbestand dat u wilt uitvoeren. Elke uitvoer van het doelbestand voor de batch wordt omgeleid naar de *Startuplog.txt* bestand.
+Soms is het echter toouse irritante `>> "%TEMP%\StartupLog.txt" 2>&1` op Hallo einde van elke taak starten. U kunt de taak logboekregistratie afdwingen door het maken van een wrapper die verantwoordelijk is voor logboekregistratie voor u. Deze wrapper roept echte batchbestand Hallo gewenste toorun. Elke uitvoer van de doel-batchbestand Hallo worden omgeleid toohello *Startuplog.txt* bestand.
 
-Het volgende voorbeeld laat zien hoe alle uitvoer omleiden van een starten van de batch-bestand. In dit voorbeeld wordt het ServerDefinition.csdef maakt een taak gestart die aanroept *logwrap.cmd*. *logwrap.cmd* aanroepen *Startup2.cmd*, alle uitvoer naar omleiden **% TEMP %\\StartupLog.txt**.
+Hallo volgende voorbeeld ziet u hoe u alle tooredirect de uitvoer van een starten van de batch-bestand. In dit voorbeeld Hallo ServerDefinition.csdef maakt een taak gestart die aanroept *logwrap.cmd*. *logwrap.cmd* aanroepen *Startup2.cmd*, alle uitvoer te leiden**% TEMP %\\StartupLog.txt**.
 
 ServiceDefinition.cmd:
 
@@ -405,15 +405,15 @@ ServiceDefinition.cmd:
 ```cmd
 @ECHO OFF
 
-REM   logwrap.cmd calls passed in batch file, redirecting all output to the StartupLog.txt log file.
+REM   logwrap.cmd calls passed in batch file, redirecting all output toohello StartupLog.txt log file.
 
 ECHO [%date% %time%] == START logwrap.cmd ============================================== >> "%TEMP%\StartupLog.txt" 2>&1
 ECHO [%date% %time%] Running %1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   Call the child command batch file, redirecting all output to the StartupLog.txt log file.
+REM   Call hello child command batch file, redirecting all output toohello StartupLog.txt log file.
 START /B /WAIT %1 >> "%TEMP%\StartupLog.txt" 2>&1
 
-REM   Log the completion of child command.
+REM   Log hello completion of child command.
 ECHO [%date% %time%] Done >> "%TEMP%\StartupLog.txt" 2>&1
 
 IF %ERRORLEVEL% EQU 0 (
@@ -425,8 +425,8 @@ IF %ERRORLEVEL% EQU 0 (
 
 ) ELSE (
 
-   REM   Log the error.
-   ECHO [%date% %time%] An error occurred. The ERRORLEVEL = %ERRORLEVEL%.  >> "%TEMP%\StartupLog.txt" 2>&1
+   REM   Log hello error.
+   ECHO [%date% %time%] An error occurred. hello ERRORLEVEL = %ERRORLEVEL%.  >> "%TEMP%\StartupLog.txt" 2>&1
    ECHO [%date% %time%] == END logwrap.cmd ================================================ >> "%TEMP%\StartupLog.txt" 2>&1
    ECHO.  >> "%TEMP%\StartupLog.txt" 2>&1
    EXIT /B %ERRORLEVEL%
@@ -439,11 +439,11 @@ IF %ERRORLEVEL% EQU 0 (
 ```cmd
 @ECHO OFF
 
-REM   This is the batch file where the startup steps should be performed. Because of the
+REM   This is hello batch file where hello startup steps should be performed. Because of the
 REM   way Startup2.cmd was called, all commands and their outputs will be stored in the
-REM   StartupLog.txt file in the directory pointed to by the TEMP environment variable.
+REM   StartupLog.txt file in hello directory pointed tooby hello TEMP environment variable.
 
-REM   If an error occurs, the following command will pass the ERRORLEVEL back to the
+REM   If an error occurs, hello following command will pass hello ERRORLEVEL back toothe
 REM   calling batch file.
 
 ECHO [%date% %time%] Some log information about this task
@@ -452,7 +452,7 @@ ECHO [%date% %time%] Some more log information about this task
 EXIT %ERRORLEVEL%
 ```
 
-Voorbeeld van uitvoer in de **StartupLog.txt** bestand:
+Voorbeeld van uitvoer in Hallo **StartupLog.txt** bestand:
 
 ```txt
 [Mon 10/17/2016 20:24:46.75] == START logwrap.cmd ============================================== 
@@ -464,42 +464,42 @@ Voorbeeld van uitvoer in de **StartupLog.txt** bestand:
 ```
 
 > [!TIP]
-> De **StartupLog.txt** bestand bevindt zich in de *C:\Resources\temp\\{rol-id} \RoleTemp* map.
+> Hallo **StartupLog.txt** bestand bevindt zich in Hallo *C:\Resources\temp\\{rol-id} \RoleTemp* map.
 > 
 > 
 
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Set executionContext op de juiste wijze voor opstarttaken
-Bevoegdheden voor het starten van de taak op de juiste wijze ingesteld. Soms moeten taken starten met verhoogde bevoegdheden uitvoeren, ondanks dat de rol wordt uitgevoerd met normale bevoegdheden.
+Stel bevoegdheden op de juiste wijze voor Hallo starten van de taak. Soms moeten starten van de taken uitvoeren met verhoogde bevoegdheden Hoewel Hallo-rol wordt uitgevoerd met normale bevoegdheden.
 
-De [executionContext][taak] kenmerk Hiermee stelt u de bevoegdheden van de taak starten. Met behulp van `executionContext="limited"` betekent dat het starten van de taak heeft dezelfde toegangsrechten als de rol. Met behulp van `executionContext="elevated"` betekent dat de taak starten van de administrator-bevoegdheden heeft, waardoor de opstarttaak beheerderstaken uitvoeren zonder dat de administrator-bevoegdheden voor uw rol.
+Hallo [executionContext][taak] kenmerk machtigingsniveau Hallo van Hallo starten van de taak wordt ingesteld. Met behulp van `executionContext="limited"` betekent Hallo starten van de taak heeft Hallo hetzelfde niveau van bevoegdheden als Hallo-rol. Met behulp van `executionContext="elevated"` betekent Hallo opstarttaak administrator-bevoegdheden heeft, kunnen de Hallo opstarten taak tooperform beheerderstaken zonder administrator-bevoegdheden tooyour rol toekennen.
 
-Een voorbeeld van een taak gestart die zijn verhoogde bevoegdheden vereist is een taak gestart die gebruikmaakt van **AppCmd.exe** om IIS te configureren. **AppCmd.exe** vereist `executionContext="elevated"`.
+Een voorbeeld van een taak gestart die zijn verhoogde bevoegdheden vereist is een taak gestart die gebruikmaakt van **AppCmd.exe** tooconfigure IIS. **AppCmd.exe** vereist `executionContext="elevated"`.
 
-### <a name="use-the-appropriate-tasktype"></a>Gebruik de juiste taskType
-De [taskType][taak] kenmerk bepaalt de manier waarop het starten van de taak wordt uitgevoerd. Er zijn drie waarden: **eenvoudige**, **achtergrond**, en **voorgrond**. De taken en achtergrond asynchroon worden gestart en vervolgens de eenvoudige taken synchroon uitgevoerd één tegelijk.
+### <a name="use-hello-appropriate-tasktype"></a>Gebruik de juiste taskType Hallo
+Hallo [taskType][taak] kenmerk bepaalt Hallo manier Hallo starten van de taak wordt uitgevoerd. Er zijn drie waarden: **eenvoudige**, **achtergrond**, en **voorgrond**. Hallo en achtergrond taken zijn gestart asynchroon en vervolgens Hallo eenvoudige taken synchroon uitgevoerd één tegelijk.
 
-Met **eenvoudige** starten van de taken, kunt u de volgorde waarin de taken worden uitgevoerd door de volgorde waarin de taken worden weergegeven in het bestand ServiceDefinition.csdef instellen. Als een **eenvoudige** taak eindigt met een afsluitcode dan nul en vervolgens de procedure opstarten stopt en de rol wordt niet gestart.
+Met **eenvoudige** starten van de taken, kunt u Hallo in welke volgorde Hallo taken uitgevoerd door Hallo volgorde welke Hallo taken worden opgenomen in Hallo ServiceDefinition.csdef bestand instellen. Als een **eenvoudige** taak eindigt met een niet-nul afsluitcode en vervolgens opstarten procedure stopt Hallo en Hallo-rol niet gestart.
 
-Het verschil tussen **achtergrond** starten van de taken en **voorgrond** starten van de taken is dat **voorgrond** taken houden de functie die wordt uitgevoerd totdat de  **voorgrond** taak is geëindigd. Dit betekent ook dat wanneer de **voorgrond** taak vastloopt of crasht, de functie niet gerecycled totdat de **voorgrond** taak wordt geforceerd gesloten. Om deze reden **achtergrond** taken worden aanbevolen voor het starten van de asynchrone taken alleen u deze functie van moet de **voorgrond** taak.
+verschil tussen Hallo **achtergrond** starten van de taken en **voorgrond** starten van de taken is dat **voorgrond** taken houden Hallo rol uitgevoerd totdat Hallo  **voorgrond** taak is geëindigd. Dit betekent ook dat als hello **voorgrond** taak vastloopt of crasht, Hallo-rol niet gerecycled tot Hallo **voorgrond** taak wordt geforceerd gesloten. Om deze reden **achtergrond** taken worden aanbevolen voor het starten van de asynchrone taken alleen u deze functie Hallo moet **voorgrond** taak.
 
 ### <a name="end-batch-files-with-exit-b-0"></a>Einde batch-bestanden met de AFSLUITCODE /B 0
-De rol wordt alleen gestart als de **errorlevel** van elk van uw eenvoudige starten van de taak is aan nul. Niet alle programma's instellen de **errorlevel** (afsluitcode) correct, dus het batchbestand moet eindigen met een `EXIT /B 0` als alles goed is uitgevoerd.
+Hallo rol wordt alleen gestart als hello **errorlevel** van elk van uw eenvoudige starten van de taak is aan nul. Niet alle programma's ingesteld Hallo **errorlevel** (afsluitcode) correct, dus Hallo batch-bestand moet eindigen met een `EXIT /B 0` als alles goed is uitgevoerd.
 
-Een ontbrekende `EXIT /B 0` aan het einde van een starten van de batch-bestand is een veelvoorkomende oorzaak van de functies die niet worden gestart.
+Een ontbrekende `EXIT /B 0` Hallo einde van een starten van de batch-bestand is een veelvoorkomende oorzaak van de functies die niet worden gestart.
 
 > [!NOTE]
-> Ik opgevallen dat geneste batch bestanden soms vastlopen wanneer u de `/B` parameter. U kunt om ervoor te zorgen dat dit probleem blijft hangen niet gebeurt als een ander batchbestand het huidige batchbestand roept, zoals als u de [logboek wrapper](#always-log-startup-activities). U kunt weglaten de `/B` parameter in dit geval.
+> Ik opgevallen dat geneste batch bestanden soms vastlopen wanneer u Hallo `/B` parameter. Desgewenst kunt u ervoor dat dit probleem blijft hangen niet gebeurt als een ander batchbestand het huidige batchbestand roept, zoals als u Hallo toomake [logboek wrapper](#always-log-startup-activities). U kunt Hallo weglaten `/B` parameter in dit geval.
 > 
 > 
 
-### <a name="expect-startup-tasks-to-run-more-than-once"></a>Starten van de taken uitvoeren meer dan één keer verwacht
-Niet alle rol recyclet zijn opnieuw worden opgestart, maar alle rol recyclet omvatten alle starten van de taken uitgevoerd. Dit betekent dat starten van de taken kunnen moet worden meerdere keren opnieuw wordt gestart zonder problemen uitgevoerd. Dit wordt besproken de [voorgaande sectie](#detect-that-your-task-has-already-run).
+### <a name="expect-startup-tasks-toorun-more-than-once"></a>Starten van de taken toorun meer dan één keer verwacht
+Niet alle rol recyclet zijn opnieuw worden opgestart, maar alle rol recyclet omvatten alle starten van de taken uitgevoerd. Dit betekent dat starten van de taken kunnen toorun meerdere keren tussen opnieuw wordt opgestart zonder problemen moeten zijn. Dit wordt besproken in Hallo [voorgaande sectie](#detect-that-your-task-has-already-run).
 
-### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Lokale opslag gebruiken voor het opslaan van bestanden die moeten worden geopend in de rol
-Als u wilt kopiëren of een bestand maken tijdens het starten van de taak die vervolgens toegankelijk is voor uw rol, moet dit bestand in de lokale opslag worden geplaatst. Zie de [voorgaande sectie](#create-files-in-local-storage-from-a-startup-task).
+### <a name="use-local-storage-toostore-files-that-must-be-accessed-in-hello-role"></a>Lokale opslag toostore bestanden die moeten worden geopend in de rol hello gebruiken
+Als u wilt dat toocopy of maak een bestand tijdens het starten van de taak die vervolgens toegankelijk tooyour rol, wordt dat bestand moet worden geplaatst in de lokale opslag. Zie Hallo [voorgaande sectie](#create-files-in-local-storage-from-a-startup-task).
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de cloud [service model- en -pakket](cloud-services-model-and-package.md)
+Bekijk Hallo cloud [service model- en -pakket](cloud-services-model-and-package.md)
 
 Meer informatie over het [taken](cloud-services-startup-tasks.md) werken.
 

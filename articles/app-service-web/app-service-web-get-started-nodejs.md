@@ -1,5 +1,5 @@
 ---
-title: Een Node.js-web-app maken in Azure | Microsoft Docs
+title: een Node.js-web-app in Azure aaaCreate | Microsoft Docs
 description: Implementeer in enkele minuten uw eerste Node.js-app (Hallo wereld) in Azure App Service Web Apps.
 services: app-service\web
 documentationcenter: 
@@ -15,26 +15,26 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ce845da09a7c088b8a2ba29b818a46a3b41aa4e7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 163edf83b2353755fc9fa2d75aed489038cf7c81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een Node.js-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Node.js in de web-app te implementeren.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstartgids toont hoe toodeploy een Node.js-app tooAzure Web-Apps. Maken van Hallo web-app met behulp van Hallo [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u Git toodeploy voorbeeld Node.js-code toohello web-app gebruiken.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.   
+U kunt stappen Hallo onder het gebruik van een Mac-, Windows- of Linux-machine. Zodra het Hallo-vereisten zijn geïnstalleerd, duurt het ongeveer vijf minuten toocomplete Hallo stappen.   
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+toocomplete deze snelstartgids:
 
 * [Git installeren](https://git-scm.com/)
 * [Node.js en NPM installeren](https://nodejs.org/)
@@ -43,41 +43,41 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="download-the-sample"></a>Het voorbeeld downloaden
+## <a name="download-hello-sample"></a>Hallo voorbeeld downloaden
 
-Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
+Voer in een terminalvenster Hallo opdracht tooclone Hallo voorbeeld-app-opslagplaats tooyour lokale computer te volgen.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Dit terminalvenster gebruikt u om alle opdrachten in deze Quickstart uit te voeren.
+U gebruikt deze toorun terminalvenster alle Hallo-opdrachten in deze snelstartgids.
 
-Ga naar de map die de voorbeeldcode bevat.
+Toohello map waarin de voorbeeldcode Hallo wijzigen.
 
 ```bash
 cd nodejs-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
+## <a name="run-hello-app-locally"></a>Hallo-app lokaal uitvoeren
 
-Voer de toepassing lokaal uit door een terminalvenster te openen en met het script `npm start` de ingebouwde Node.js HTTP-server te starten.
+Hallo-toepassing lokaal uitvoeren door te openen, een terminalvenster en Hallo `npm start` script toolaunch Hallo is ingebouwd in Node.js-HTTP-server.
 
 ```bash
 npm start
 ```
 
-Open een webbrowser en ga naar de voorbeeld-app op http://localhost:1337.
+Open een webbrowser en navigeer toohello voorbeeld-app op http://localhost: 1337.
 
-Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
+U ziet Hallo **Hallo wereld** bericht van Hallo voorbeeld-app in Hallo pagina weergegeven.
 
 ![Voorbeeld-app die lokaal wordt uitgevoerd](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
-Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
+Druk in uw terminalvenster op **Ctrl + C** tooexit Hallo-webserver.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -93,11 +93,11 @@ U hebt een lege, nieuwe web-app gemaakt in Azure.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 23, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (21/21), done.
 Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
 Total 23 (delta 8), reused 7 (delta 1)
@@ -119,62 +119,62 @@ remote: Copying file: 'process.json'
 remote: Deleting file: 'hostingstart.html'
 remote: Ignoring: .git
 remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
+remote: Node.js versions available on hello platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
+remote: Selected node.js version 6.9.1. Use package.json file toochoose a different version.
 remote: Selected npm version 3.10.8
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net:443/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Bladeren naar de app
+## <a name="browse-toohello-app"></a>Toohello app bladeren
 
-Blader naar de geïmplementeerde toepassing via uw webbrowser.
+Bladeren toohello toepassing via uw webbrowser geïmplementeerd.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-De Node.js-voorbeeldcode wordt uitgevoerd in een web-app van Azure App Service.
+Hallo voorbeeldcode Node.js wordt uitgevoerd in een Azure App Service-web-app.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in App Service.
+**Gefeliciteerd!** U hebt uw eerste tooApp Node.js-app Service geïmplementeerd.
 
-## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
+## <a name="update-and-redeploy-hello-code"></a>Bijwerken en implementeren van Hallo-code
 
-Open met een teksteditor het bestand `index.js` binnen de Node.js-app en breng een kleine wijziging aan in de tekst in de aanroep naar `response.end`:
+Met een teksteditor openen Hallo `index.js` bestand in Hallo Node.js-app en een kleine wijziging toohello tekst te maken in de aanroep van de Hallo`response.end`:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Leg uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
+Uw wijzigingen in Git en vervolgens push Hallo code wijzigingen tooAzure.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Als de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en klikt u op Vernieuwen.
+Als de implementatie is voltooid, overschakelen back toohello browservenster geopend in Hallo **bladeren toohello app** stap en klik op vernieuwen.
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
-Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
+Ga toohello <a href="https://portal.azure.com" target="_blank">Azure-portal</a> toomanage Hallo web-app die u hebt gemaakt.
 
-Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+In het linkermenu hello, klikt u op **App Services**, en klik vervolgens op Hallo-naam van uw Azure-web-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Navigatie in de portal tooAzure web-app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
 
 ![App Service-blade in Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+Hallo linkermenu biedt verschillende pagina's voor het configureren van uw app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

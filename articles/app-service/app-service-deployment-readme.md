@@ -1,6 +1,6 @@
 ---
-title: Implementatie van toepassingen in Azure App Service
-description: Meer informatie over het implementeren van toepassingen met App Service-werk
+title: aaaDeploying toepassingen tooAzure App Service
+description: Meer informatie over de werking van tooDeploy toepassingen tooApp Service
 keywords: App service, azure app service implementeren, implementatie
 services: app-service
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 347e8b5177eac8e08ab0dea701b736b86d23904a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 925341e12daf3cb05b25199f5c5218e82f062f70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-deployment-overview"></a>Overzicht van de Azure App Service-implementatie
-Azure App Service biedt een uitgebreide en geïntegreerde functie ingesteld voor het maken van werkstromen voor de implementatie van krachtige en flexibele. Opties, zoals continue integratie of lokale broncodebeheer publiceert, WebDeploy en FTP kan gebruikmaken van App-implementatie. De aanbevolen methode voor productie-app-implementatie is implementatiesleuf wisselen. Implementatiesites vertegenwoordigen faserings- en integratie omgevingen die zijn gekoppeld aan apps die productie. Implementatiesites kunnen worden geconfigureerd en toegepast op webverkeer voor validatie en verkeer worden ingewisseld op aanvraag voor implementatie naar de productieomgeving geen uitvaltijd en geautomatiseerde opgewarmd. De stappen van een werkstroom voor de implementatie kunnen eenvoudig via release management producten zoals Visual Studio Release Management worden geautomatiseerd. Dit is handig voor coördinatie met een andere oplossing resources (bijvoorbeeld gegevens opslaan), terugkeerpatroon en replicatie over meerdere van de implementatie. 
+Azure App Service biedt een uitgebreide en geïntegreerde functieset toosupport krachtige en flexibele implementatiewerkstromen maken. Opties, zoals continue integratie of lokale broncodebeheer publiceert, WebDeploy en FTP kan gebruikmaken van App-implementatie. Hallo aanbevolen methode voor productie-app-implementatie is implementatiesleuf wisselen. Implementatiesites vertegenwoordigen faserings- en integratie omgevingen die zijn gekoppeld aan apps die productie. Implementatiesites kunnen worden geconfigureerd en toegepast op webverkeer voor validatie en verkeer worden ingewisseld op aanvraag voor implementatie tooproduction met niets uitvaltijd en geautomatiseerde opgewarmd. Hallo stappen van een implementatiewerkstroom kunnen eenvoudig via release management producten zoals Visual Studio Release Management worden geautomatiseerd. Dit is handig voor coördinatie met een andere oplossing resources (bijvoorbeeld gegevens opslaan), terugkeerpatroon en replicatie over meerdere van de implementatie. 
 
 [!INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 

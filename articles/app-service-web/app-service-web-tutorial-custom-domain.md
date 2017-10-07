@@ -1,6 +1,6 @@
 ---
-title: Een bestaande aangepaste DNS-naam toegewezen aan Azure Web Apps | Microsoft Docs
-description: Informatie over het toevoegen van een bestaande aangepaste DNS-domeinnaam (vanity domein) aan een web-app, back-end voor mobiele app of API-app in Azure App Service.
+title: een bestaande aangepaste DNS-server aaaMap naam tooAzure Web-Apps | Microsoft Docs
+description: Meer informatie over hoe tooadd een bestaand domein voor aangepaste DNS-naam (vanity domein) tooa web-app, back-end voor mobiele app of API-app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 973cda462e8d258cc848e1036891c7f8af043102
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2c4eea3c56c758ca11355554321ffa52dd2c6b9d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Een bestaande aangepaste DNS-naam toegewezen aan Azure-Web-Apps
+# <a name="map-an-existing-custom-dns-name-tooazure-web-apps"></a>Toewijzen van een bestaande aangepaste DNS-naam tooAzure Web-Apps
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze zelfstudie laat zien hoe u een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze zelfstudie leert u hoe toomap een bestaande aangepaste DNS-Server name tooAzure Web-Apps.
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 In deze zelfstudie leert u het volgende:
 
@@ -35,66 +35,66 @@ In deze zelfstudie leert u het volgende:
 > * Toewijzen van een jokertekendomein (bijvoorbeeld `*.contoso.com`) met behulp van een CNAME-record
 > * Domein-toewijzing met scripts automatiseren
 
-U kunt ofwel een **CNAME-record** of een **een record** toewijzen van een aangepaste DNS-naam in App Service. 
+U kunt ofwel een **CNAME-record** of een **een record** toomap een aangepaste DNS-naam tooApp Service. 
 
 > [!NOTE]
 > Het is raadzaam dat u een CNAME voor alle aangepaste DNS-namen, behalve een hoofddomein (bijvoorbeeld `contoso.com`).
 
-Zie voor het migreren van een live site en de DNS-domeinnaam in App Service, [een actieve DNS-naam migreren naar Azure App Service](app-service-custom-domain-name-migrate.md).
+toomigrate een live site en de DNS-domein naam tooApp Service, Zie [migreren van een actieve DNS-naam tooAzure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+toocomplete in deze zelfstudie:
 
 * [Een App Service-app maken](/azure/app-service/), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
-* Een domeinnaam kopen en controleer of dat u toegang hebt tot het register DNS voor uw domeinprovider (zoals GoDaddy).
+* Een domeinnaam kopen en controleer of dat u toegang toohello DNS-register hebt voor uw domeinprovider (zoals GoDaddy).
 
-  Bijvoorbeeld, om toe te voegen DNS-vermeldingen voor `contoso.com` en `www.contoso.com`, moet u kunnen de DNS-instellingen configureren voor de `contoso.com` hoofddomein.
+  Bijvoorbeeld: tooadd DNS-vermeldingen voor `contoso.com` en `www.contoso.com`, moet u kunnen tooconfigure Hallo DNS-instellingen voor Hallo `contoso.com` hoofddomein.
 
   > [!NOTE]
-  > Als u een bestaand domein, Geef een naam, kunt u geen [aanschaffen van een domein met de Azure portal](custom-dns-web-site-buydomains-web-app.md). 
+  > Als u een bestaand domein, Geef een naam, kunt u geen [aanschaffen van een domein via Azure portal Hallo](custom-dns-web-site-buydomains-web-app.md). 
 
-## <a name="prepare-the-app"></a>De app voorbereiden
+## <a name="prepare-hello-app"></a>Hallo app voorbereiden
 
-Een aangepaste DNS-naam toewijzen aan een web-app, de web-app van [App Service-abonnement](https://azure.microsoft.com/pricing/details/app-service/) moet een betaald laag (**gedeelde**, **Basic**, **standaard**, of  **Premium**). In deze stap maakt ervoor u zorgen dat de App Service-app is in de ondersteunde prijscategorie.
+een aangepaste DNS-naam tooa van web-app, web-app Hallo toomap [App Service-abonnement](https://azure.microsoft.com/pricing/details/app-service/) moet een betaald laag (**gedeelde**, **Basic**, **standaard**, of  **Premium**). In deze stap maakt ervoor u zorgen dat Hallo App Service-app in Hallo is prijscategorie ondersteund.
 
-### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+### <a name="sign-in-tooazure"></a>Meld u aan tooAzure
 
-Open de [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-account.
+Open Hallo [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-account.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Navigeer naar de app in de Azure portal
+### <a name="navigate-toohello-app-in-hello-azure-portal"></a>Navigeer in hello Azure-portal toohello app
 
-Selecteer in het menu links **App Services**, en selecteer vervolgens de naam van de app.
+Selecteer in het linkermenu Hallo **App Services**, en selecteer vervolgens de naam Hallo van Hallo-app.
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/select-app.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-U ziet de beheerpagina van de App Service-app.  
+U ziet de pagina voor het beheren van App Service-app Hallo Hallo.  
 
 <a name="checkpricing"></a>
 
-### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
+### <a name="check-hello-pricing-tier"></a>Hallo prijscategorie controleren
 
-Schuif in de navigatiebalk links van de app-pagina naar de **instellingen** sectie en selecteer **opschalen (App Service-abonnement)**.
+Schuif in Hallo linkernavigatiebalk van de pagina app hello, toohello **instellingen** sectie en selecteer **opschalen (App Service-abonnement)**.
 
 ![Omhoog schalen-menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-De huidige tier van de app wordt gemarkeerd door een rand. Controleer of de app is niet in de **vrije** laag. Aangepaste DNS wordt niet ondersteund in de **vrije** laag. 
+de huidige tier Hallo-app wordt door een rand gemarkeerd. Controleren of die Hallo-app niet Hallo toomake **vrije** laag. Aangepaste DNS wordt niet ondersteund in Hallo **vrije** laag. 
 
 ![Controleer de prijscategorie](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Als de App Service-abonnement niet **vrije**, sluit de **Kies uw prijscategorie** pagina en doorgaan met [toewijzen van een CNAME-record](#cname).
+Hallo App Service-abonnement is niet als **vrije**, sluit Hallo **Kies uw prijscategorie** pagina en te overslaan[toewijzen van een CNAME-record](#cname).
 
 <a name="scaleup"></a>
 
-### <a name="scale-up-the-app-service-plan"></a>De App Service-abonnement opschalen
+### <a name="scale-up-hello-app-service-plan"></a>Hallo opschalen met App Service-abonnement
 
-Selecteer een van de lagen niet vrij (**gedeelde**, **Basic**, **standaard**, of **Premium**). 
+Selecteer een van de Hallo-free lagen (**gedeelde**, **Basic**, **standaard**, of **Premium**). 
 
 Klik op **Selecteren**.
 
 ![Controleer de prijscategorie](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
-Wanneer u de volgende melding ziet, is de schaalbewerking is voltooid.
+Wanneer u de volgende kennisgeving Hallo ziet, is Hallo schaalbewerking is voltooid.
 
 ![Schaal bewerking bevestigen](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
@@ -102,49 +102,49 @@ Wanneer u de volgende melding ziet, is de schaalbewerking is voltooid.
 
 ## <a name="map-a-cname-record"></a>Toewijzen van een CNAME-record
 
-In de zelfstudie voorbeeld voegt u toe een CNAME-record voor de `www` subdomein (bijvoorbeeld `www.contoso.com`).
+In de zelfstudie voorbeeld hello, u een CNAME-record voor Hallo toevoegen `www` subdomein (bijvoorbeeld `www.contoso.com`).
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a>De CNAME-record maken
+### <a name="create-hello-cname-record"></a>Hallo CNAME-record maken
 
-Voeg een CNAME-record voor een subdomein toewijzen aan de app standaard hostnaam (`<app_name>.azurewebsites.net`).
+Voeg een CNAME-record toomap een subdomein toohello app standaard hostnaam (`<app_name>.azurewebsites.net`).
 
-Voor de `www.contoso.com` domein voorbeeld, Voeg een CNAME-record dat is toegewezen, de naam van de `www` naar `<app_name>.azurewebsites.net`.
+Voor Hallo `www.contoso.com` domein voorbeeld, Voeg een CNAME-record die Hallo-naam toegewezen `www` te`<app_name>.azurewebsites.net`.
 
-Nadat u de CNAME toevoegt, wordt de pagina DNS-records lijkt op het volgende voorbeeld:
+Nadat u Hallo CNAME toegevoegd, ziet de pagina Hallo DNS-records Hallo voorbeeld te volgen:
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>De toewijzing van de CNAME-record in Azure inschakelen
+### <a name="enable-hello-cname-record-mapping-in-azure"></a>Hallo CNAME-record toewijzen in Azure inschakelen
 
-Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **aangepaste domeinen**. 
+Selecteer in de Hallo Hallo op de pagina app linkernavigatiebalk in hello Azure-portal, **aangepaste domeinen**. 
 
 ![Aangepast domein menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-In de **aangepaste domeinen** pagina van de app toevoegen de volledig gekwalificeerde aangepaste DNS-naam (`www.contoso.com`) aan de lijst.
+In Hallo **aangepaste domeinen** pagina van het Hallo-app toevoegen Hallo FQDN aangepaste DNS-naam (`www.contoso.com`) toohello lijst.
 
-Selecteer de  **+**  pictogram naast **hostnaam toevoegen**.
+Selecteer Hallo  **+**  pictogram volgende te**hostnaam toevoegen**.
 
 ![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Typ de volledig gekwalificeerde domeinnaam dat u een CNAME-record, zoals toegevoegd `www.contoso.com`. 
+Type Hallo volledig gekwalificeerde domeinnaam dat u een CNAME-record, zoals toegevoegd `www.contoso.com`. 
 
 Selecteer **valideren**.
 
-De **hostnaam toevoegen** knop wordt geactiveerd. 
+Hallo **hostnaam toevoegen** knop wordt geactiveerd. 
 
-Zorg ervoor dat **hostnaam recordtype** is ingesteld op **CNAME (www.example.com of elk subdomein)**.
+Zorg ervoor dat **hostnaam recordtype** te is ingesteld,**CNAME (www.example.com of elk subdomein)**.
 
 Selecteer **hostnaam toevoegen**.
 
-![DNS-naam toevoegen aan de app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![DNS-naam toohello app toevoegen](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Het kan even duren voor de nieuwe hostnaam worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor het bijwerken van de gegevens.
+Het kan even duren voor Hallo nieuwe hostnaam toobe weerspiegeld in Hallo-app **aangepaste domeinen** pagina. Vernieuw Hallo browser tooupdate Hallo gegevens.
 
 ![CNAME-record is toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Als u een stap gemist of hebt u een typefout gemaakt ergens eerder, ziet u een fout bij verificatie van aan de onderkant van de pagina.
+Als u een stap gemist of hebt u een typefout gemaakt ergens eerder, ziet u een verificatiefout Hallo Hallo pagina onderaan in.
 
 ![Fout bij verificatie](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
@@ -152,69 +152,69 @@ Als u een stap gemist of hebt u een typefout gemaakt ergens eerder, ziet u een f
 
 ## <a name="map-an-a-record"></a>Toewijzen van een A-record
 
-In de zelfstudie voorbeeld voegt u toe een A-record voor het hoofddomein (bijvoorbeeld `contoso.com`). 
+Hallo zelfstudie bijvoorbeeld u een A-record voor het hoofddomein Hallo toevoegen (bijvoorbeeld `contoso.com`). 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Kopiëren van de app IP-adres
+### <a name="copy-hello-apps-ip-address"></a>Kopiëren van de app Hallo IP-adres
 
-Als u wilt een A-record toewijzen, moet u het externe IP-adres van de app. U vindt dit IP-adres in van de app **aangepaste domeinen** pagina in de Azure-portal.
+toomap een A-record, moet u het externe IP-adres Hallo-app. U vindt dit IP-adres in van de app Hallo **aangepaste domeinen** pagina in hello Azure-portal.
 
-Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **aangepaste domeinen**. 
+Selecteer in de Hallo Hallo op de pagina app linkernavigatiebalk in hello Azure-portal, **aangepaste domeinen**. 
 
 ![Aangepast domein menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-In de **aangepaste domeinen** pagina, kopieert u de app IP-adres.
+In Hallo **aangepaste domeinen** pagina, te kopiëren van de app Hallo IP-adres.
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-a-record"></a>De A-record maken
+### <a name="create-hello-a-record"></a>Hallo-A-record maken
 
-Als u wilt een A-record toewijzen aan een app, App-Service vereist **twee** DNS-records:
+toomap een A-record tooan-app Service-App vereist **twee** DNS-records:
 
-- Een **A** record toewijzen aan IP-adres van de app.
-- Een **TXT** record toewijzen aan de app standaard hostnaam `<app_name>.azurewebsites.net`. App Service gebruikt deze record alleen tijdens de configuratie, om te controleren of de eigenaar van het aangepaste domein. Nadat u uw aangepaste domein is gevalideerd en geconfigureerd in App Service, kunt u deze TXT-record verwijderen. 
+- Een **A** Noteer toomap toohello app IP-adres.
+- Een **TXT** toomap toohello app standaard hostnaam vastleggen `<app_name>.azurewebsites.net`. App Service gebruikt deze record alleen tijdens de configuratie, tooverify dat u Hallo aangepast domein bezit. Nadat u uw aangepaste domein is gevalideerd en geconfigureerd in App Service, kunt u deze TXT-record verwijderen. 
 
-Voor de `contoso.com` domein bijvoorbeeld de A- en TXT-records overeenkomstig de volgende tabel maken (`@` vertegenwoordigt doorgaans het hoofddomein). 
+Voor Hallo `contoso.com` domein bijvoorbeeld Hallo A en TXT-records volgens de volgende tabel toohello maken (`@` doorgaans vertegenwoordigt hoofddomein Hallo). 
 
 | Recordtype | Host | Waarde |
 | - | - | - |
-| A | `@` | IP-adres uit [kopiëren van de app IP-adres](#info) |
+| A | `@` | IP-adres uit [kopie Hallo app IP-adres](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
-Wanneer de records worden toegevoegd, wordt de pagina DNS-records lijkt op het volgende voorbeeld:
+Wanneer Hallo records worden toegevoegd, ziet er Hallo pagina DNS-records Hallo voorbeeld te volgen:
 
 ![Pagina DNS-records](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>De toewijzing van een record in de app inschakelen
+### <a name="enable-hello-a-record-mapping-in-hello-app"></a>Hallo de toewijzing van een record in Hallo app inschakelen
 
-Terug in de app **aangepaste domeinen** pagina in de Azure portal, het toevoegen van de volledig gekwalificeerde aangepaste DNS-naam (bijvoorbeeld `contoso.com`) aan de lijst.
+Terug in Hallo-app **aangepaste domeinen** pagina in hello Azure-portal, het toevoegen van Hallo FQDN aangepaste DNS-naam (bijvoorbeeld `contoso.com`) toohello lijst.
 
-Selecteer de  **+**  pictogram naast **hostnaam toevoegen**.
+Selecteer Hallo  **+**  pictogram volgende te**hostnaam toevoegen**.
 
 ![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
-Typ de volledig gekwalificeerde domeinnaam dat u de A-record, zoals geconfigureerd `contoso.com`.
+Type Hallo volledig gekwalificeerde domeinnaam Hallo A-record voor, zoals wordt geconfigureerd `contoso.com`.
 
 Selecteer **valideren**.
 
-De **hostnaam toevoegen** knop wordt geactiveerd. 
+Hallo **hostnaam toevoegen** knop wordt geactiveerd. 
 
-Zorg ervoor dat **hostnaam recordtype** is ingesteld op **een record (example.com)**.
+Zorg ervoor dat **hostnaam recordtype** te is ingesteld,**een record (example.com)**.
 
 Selecteer **hostnaam toevoegen**.
 
-![DNS-naam toevoegen aan de app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+![DNS-naam toohello app toevoegen](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Het kan even duren voor de nieuwe hostnaam worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor het bijwerken van de gegevens.
+Het kan even duren voor Hallo nieuwe hostnaam toobe weerspiegeld in Hallo-app **aangepaste domeinen** pagina. Vernieuw Hallo browser tooupdate Hallo gegevens.
 
 ![Een record die is toegevoegd](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-Als u een stap gemist of hebt u een typefout gemaakt ergens eerder, ziet u een fout bij verificatie van aan de onderkant van de pagina.
+Als u een stap gemist of hebt u een typefout gemaakt ergens eerder, ziet u een verificatiefout Hallo Hallo pagina onderaan in.
 
 ![Fout bij verificatie](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
@@ -222,61 +222,61 @@ Als u een stap gemist of hebt u een typefout gemaakt ergens eerder, ziet u een f
 
 ## <a name="map-a-wildcard-domain"></a>Een jokertekendomein toewijzen
 
-In de zelfstudie voorbeeld, wijst u een [jokertekens DNS-naam](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (bijvoorbeeld `*.contoso.com`) naar de App Service-app door een CNAME-record toe te voegen. 
+In de zelfstudie voorbeeld Hallo, wijst u een [jokertekens DNS-naam](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (bijvoorbeeld `*.contoso.com`) toohello App Service-app door een CNAME-record toe te voegen. 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-### <a name="create-the-cname-record"></a>De CNAME-record maken
+### <a name="create-hello-cname-record"></a>Hallo CNAME-record maken
 
-Voeg een CNAME-record de jokertekennaam van een om toe te wijzen hostnaam van de app-standaard (`<app_name>.azurewebsites.net`).
+Voeg een CNAME-record toomap een jokerteken naam toohello app standaard hostnaam (`<app_name>.azurewebsites.net`).
 
-Voor de `*.contoso.com` domein bijvoorbeeld de CNAME-record wordt de naam toewijzen `*` naar `<app_name>.azurewebsites.net`.
+Voor Hallo `*.contoso.com` domein bijvoorbeeld Hallo CNAME-record wordt wijst de naam van de Hallo `*` te`<app_name>.azurewebsites.net`.
 
-Wanneer de CNAME wordt toegevoegd, ziet de pagina DNS-records in het volgende voorbeeld:
+Wanneer Hallo CNAME wordt toegevoegd, ziet er Hallo pagina DNS-records Hallo voorbeeld te volgen:
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>De toewijzing van de CNAME-record in de app inschakelen
+### <a name="enable-hello-cname-record-mapping-in-hello-app"></a>Hallo CNAME-record toewijzing in Hallo app inschakelen
 
-U kunt nu elk subdomein dat overeenkomt met de jokertekennaam naar de app toevoegen (bijvoorbeeld `sub1.contoso.com` en `sub2.contoso.com` overeen met `*.contoso.com`). 
+U kunt nu elk subdomein dat overeenkomt met de Hallo jokertekens naam toohello app toevoegen (bijvoorbeeld `sub1.contoso.com` en `sub2.contoso.com` overeen met `*.contoso.com`). 
 
-Selecteer in het linkernavigatievenster van de app-pagina in de Azure portal **aangepaste domeinen**. 
+Selecteer in de Hallo Hallo op de pagina app linkernavigatiebalk in hello Azure-portal, **aangepaste domeinen**. 
 
 ![Aangepast domein menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Selecteer de  **+**  pictogram naast **hostnaam toevoegen**.
+Selecteer Hallo  **+**  pictogram volgende te**hostnaam toevoegen**.
 
 ![Hostnaam toevoegen](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Typ een FQDN-naam die overeenkomt met het jokertekendomein (bijvoorbeeld `sub1.contoso.com`), en selecteer vervolgens **valideren**.
+Typ een FQDN-naam die overeenkomt met de Hallo jokertekendomein (bijvoorbeeld `sub1.contoso.com`), en selecteer vervolgens **valideren**.
 
-De **hostnaam toevoegen** knop wordt geactiveerd. 
+Hallo **hostnaam toevoegen** knop wordt geactiveerd. 
 
-Zorg ervoor dat **hostnaam recordtype** is ingesteld op **CNAME-record (www.example.com of elk subdomein)**.
+Zorg ervoor dat **hostnaam recordtype** te is ingesteld,**CNAME-record (www.example.com of elk subdomein)**.
 
 Selecteer **hostnaam toevoegen**.
 
-![DNS-naam toevoegen aan de app.](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+![DNS-naam toohello app toevoegen](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Het kan even duren voor de nieuwe hostnaam worden weergegeven in de app **aangepaste domeinen** pagina. Vernieuw de browser voor het bijwerken van de gegevens.
+Het kan even duren voor Hallo nieuwe hostnaam toobe weerspiegeld in Hallo-app **aangepaste domeinen** pagina. Vernieuw Hallo browser tooupdate Hallo gegevens.
 
-Selecteer de  **+**  pictogram opnieuw naar een andere hostnaam die overeenkomt met het jokertekendomein toevoegen. Bijvoorbeeld, Voeg `sub2.contoso.com`.
+Selecteer Hallo  **+**  pictogram opnieuw tooadd een andere hostnaam die overeenkomt met de Hallo jokertekendomein. Bijvoorbeeld, Voeg `sub2.contoso.com`.
 
 ![CNAME-record is toegevoegd](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 ## <a name="test-in-browser"></a>In de browser testen
 
-Blader naar de DNS-namen die u eerder hebt geconfigureerd (bijvoorbeeld `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, en `sub2.contoso.com`).
+Blader toohello DNS-namen die u eerder hebt geconfigureerd (bijvoorbeeld `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, en `sub2.contoso.com`).
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
 ## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
 
-U kunt beheer van aangepaste domeinen met behulp van scripts, automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview). 
+U kunt beheer van aangepaste domeinen met behulp van scripts, automatiseren met behulp van Hallo [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="azure-cli"></a>Azure CLI 
 
-De volgende opdracht voegt een geconfigureerde aangepaste DNS-naam naar een App Service-app. 
+Hallo volgende opdracht voegt een geconfigureerde aangepaste DNS-naam tooan App Service-app. 
 
 ```bash 
 az appservice web config hostname add \
@@ -285,11 +285,11 @@ az appservice web config hostname add \
     --name <fully_qualified_domain_name> 
 ``` 
 
-Zie voor meer informatie [een aangepast domein toewijzen aan een web-app](scripts/app-service-cli-configure-custom-domain.md). 
+Zie voor meer informatie [toewijzen van een aangepast domein tooa web-app](scripts/app-service-cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
-De volgende opdracht voegt een geconfigureerde aangepaste DNS-naam naar een App Service-app. 
+Hallo volgende opdracht voegt een geconfigureerde aangepaste DNS-naam tooan App Service-app. 
 
 ```PowerShell  
 Set-AzureRmWebApp `
@@ -298,7 +298,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Zie voor meer informatie [een aangepast domein toewijzen aan een web-app](scripts/app-service-powershell-configure-custom-domain.md).
+Zie voor meer informatie [toewijzen van een aangepast domein tooa web-app](scripts/app-service-powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -310,7 +310,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een jokertekendomein toewijzen met behulp van een CNAME-record
 > * Domein-toewijzing met scripts automatiseren
 
-Ga naar de volgende zelfstudie voor meer informatie over hoe u een aangepaste SSL-certificaat binden aan een web-app.
+De volgende zelfstudie toolearn toohello gaan hoe toobind een aangepaste SSL-certificaat tooa web-app.
 
 > [!div class="nextstepaction"]
-> [Een bestaande aangepaste SSL-certificaat binden aan Azure-Web-Apps](app-service-web-tutorial-custom-ssl.md)
+> [Binden van een bestaande aangepaste SSL-certificaat tooAzure Web-Apps](app-service-web-tutorial-custom-ssl.md)

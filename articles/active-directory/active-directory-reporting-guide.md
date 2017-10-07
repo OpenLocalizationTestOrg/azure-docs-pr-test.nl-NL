@@ -1,5 +1,5 @@
 ---
-title: Handleiding voor rapportage van Azure Active Directory | Microsoft Docs
+title: Active Directory-rapportage Guide aaaAzure | Microsoft Docs
 description: Een handleiding met alle artikelen met Azure Active Directory-rapportage
 services: active-directory
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2017
 ms.author: femila;markvi
-ms.openlocfilehash: 3d790908125416424d6ec55b9d96ca8339c1f245
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 27892417fff1d35d8aaa980b13ef799a7b06b15c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-reporting-guide"></a>Handleiding voor rapportage van Azure Active Directory
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 * [Azure Active Directory-rapportage - preview](active-directory-reporting-azure-portal.md)
-* [Aan de slag met de Azure AD rapportage-API](active-directory-reporting-api-getting-started.md)
+* [Aan de slag met Azure AD rapportage-API Hallo](active-directory-reporting-api-getting-started.md)
 * [Azure Active Directory-rapportage controlegebeurtenissen](active-directory-reporting-audit-events.md)
 * [Bewaren van Azure Active Directory-rapportage](active-directory-reporting-retention.md)
 

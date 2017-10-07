@@ -1,6 +1,6 @@
 ---
-title: Azure-container register opslagplaatsen | Microsoft Docs
-description: "Het gebruik van Azure Container register-opslagplaatsen voor Docker-installatiekopieën"
+title: aaaAzure container register opslagplaatsen | Microsoft Docs
+description: "Hoe toouse Azure Container register opslagplaatsen voor Docker-installatiekopieën"
 services: container-registry
 documentationcenter: 
 author: cristy
@@ -13,43 +13,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: cristyg
-ms.openlocfilehash: 06b809c31cecef1714f60d04657eb74c611be8cb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 108622c565e41777fbb1fc9da9a01168abc7a7fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-registry-repositories"></a>Register-opslagplaatsen voor Azure-container
 
-Azure container register kunt u installatiekopieën van de container opslaan in de opslagplaatsen. Afbeeldingen in de opslagplaatsen opslaat, kunt u groepen van installatiekopieën (of de versie van afbeeldingen) in een geïsoleerde omgeving hebben. U kunt deze opslagplaatsen opgeven wanneer u push-installatiekopieën toe aan het register.
+Azure-container register kunt u toostore container afbeeldingen in de opslagplaatsen. Afbeeldingen in de opslagplaatsen opslaat, kunt u groepen van installatiekopieën (of de versie van afbeeldingen) in een geïsoleerde omgeving hebben. U kunt deze opslagplaatsen opgeven wanneer u push-installatiekopieën tooyour register.
 
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure-containerregister**: maak een containerregister in uw Azure-abonnement. Gebruik bijvoorbeeld [Azure Portal](container-registry-get-started-portal.md) of de [Azure-CLI 2.0](container-registry-get-started-azure-cli.md).
-* **Docker-CLI**: installeer de [Docker-engine](https://docs.docker.com/engine/installation/) om uw lokale computer als een Docker-host in te stellen en de Docker-CLI-opdrachten te gebruiken.
-* **Pull-installatiekopie van een** - Pull-een afbeelding uit het register met openbare Docker-Hub, het labelen en dit doorgeven aan het register. Voor instructies voor het pushen en installatiekopieën pull, Zie [Push Docker-installatiekopie in Azure persoonlijke register](container-registry-get-started-docker-cli.md).
+* **Azure-containerregister**: maak een containerregister in uw Azure-abonnement. Gebruik bijvoorbeeld Hallo [Azure-portal](container-registry-get-started-portal.md) of Hallo [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
+* **Docker CLI** -tooset van uw lokale computer als een Docker-host en toegang Hallo Docker CLI-opdrachten, installeren [Docker-Engine](https://docs.docker.com/engine/installation/).
+* **Pull-installatiekopie van een** - Pull-een afbeelding uit het register van Hallo openbare Docker-Hub, het labelen en dit tooyour register doorgeven. Voor instructies voor het pushen en installatiekopieën pull, Zie [Push Docker installatiekopie tooAzure persoonlijke register](container-registry-get-started-docker-cli.md).
 
 
-## <a name="viewing-repositories-in-the-portal"></a>Opslagplaatsen weergeven in de Portal
+## <a name="viewing-repositories-in-hello-portal"></a>Opslagplaatsen in Hallo Portal weergeven
 
-Zodra u installatiekopieën toe aan het register van de container gepusht hebt, kunt u een overzicht van de opslagplaatsen die als host fungeert voor de afbeeldingen in de Azure-portal.
+Als u installatiekopieën tooyour container register hebt gedrukt, kunt u een overzicht van Hallo-opslagplaatsen Hallo afbeeldingen in hello Azure-portal te hosten.
 
-Als u de stappen in de [Push Docker-installatiekopie in Azure persoonlijke register](container-registry-get-started-docker-cli.md) artikel, u hebt nu een Nginx-installatiekopie in het register van de container. Als onderdeel van de instructies, moet u een naamruimte voor de installatiekopie hebt opgegeven. In het onderstaande voorbeeld pushes de opdracht de installatiekopie van het NGinx naar de opslagplaats 'voorbeelden':
+Als u de stappen Hallo in Hallo gevolgd [Docker Push installatiekopie tooAzure persoonlijke register](container-registry-get-started-docker-cli.md) artikel, u hebt nu een Nginx-installatiekopie in het register van de container. Als onderdeel van het Hallo-instructies, moet u een naamruimte voor de installatiekopie van het Hallo hebt opgegeven. In onderstaande Hallo voorbeeld pushes Hallo opdracht Hallo NGinx toohello 'voorbeelden' installatiekopieopslagplaats:
 
 ```
 docker push myregistry.azurecr.io/samples/nginx
 ```
- Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Met deze functie kunt u verzamelingen van installatiekopieën maken die gerelateerd zijn aan een specifieke app, of verzamelingen apps die gerelateerd zijn aan specifieke ontwikkelingsteams of operationele teams. Voor meer informatie over opslagplaatsen in container registers Zie [registers voor persoonlijke Docker-container in Azure](container-registry-intro.md).
+ Azure Container Registry ondersteunt naamruimten voor opslagplaatsen op meerdere niveaus. Deze functie kunt u toogroup verzamelingen van installatiekopieën gerelateerde tooa specifieke app of een verzameling van apps toospecific ontwikkeling of operationele teams. Zie tooread meer informatie over opslagplaatsen in container-registers [registers voor persoonlijke Docker-container in Azure](container-registry-intro.md).
 
-De container register-opslagplaatsen weergeven:
+register-opslagplaatsen voor tooview Hallo container
 
-1. Aanmelden bij Azure Portal
-2. Op de **Azure Container register** blade, selecteert u het register die u wilt onderzoeken
-3. Klik op de blade register **opslagplaatsen** om een lijst weer van alle opslagplaatsen en hun afbeeldingen
-4. (Optioneel) Selecteer een specifieke installatiekopie voor een overzicht van tags
+1. Meld u bij toohello Azure-portal
+2. Op Hallo **Azure Container register** blade, selecteer Hallo register gewenst tooinspect
+3. Klik op Hallo register blade **opslagplaatsen** toosee een lijst met alle Hallo-opslagplaatsen en hun installatiekopieën
+4. (Optioneel) Selecteer een specifieke installatiekopie toosee labels
 
-![Opslagplaatsen in de portal](./media/container-registry-repositories/container-registry-repositories.png)
+![Opslagplaatsen in Hallo-portal](./media/container-registry-repositories/container-registry-repositories.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u de basisprincipes kent, kunt u uw register gaan gebruiken. Begin bijvoorbeeld met het implementeren van containerinstallatiekopieën op een [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)-cluster.
+Nu u weet Hallo basisbeginselen, bent u klaar toostart met behulp van het register! Bijvoorbeeld, beginnen met het implementeren van de container installatiekopieën tooan [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/) cluster.

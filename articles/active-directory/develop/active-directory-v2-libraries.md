@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-verificatiebibliotheken voor v2.0 | Microsoft Docs
-description: Compatibel clientbibliotheken en server middleware bibliotheken en -gerelateerde bibliotheek, bron en voorbeelden koppelingen, voor het Azure Active Directory v2.0-eindpunt.
+title: aaaAzure Active Directory v2.0-verificatiebibliotheken | Microsoft Docs
+description: Compatibel clientbibliotheken en server middleware bibliotheken en -gerelateerde bibliotheek, bron en voorbeelden koppelingen voor hello Azure Active Directory v2.0-eindpunt.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,45 +15,45 @@ ms.workload: identity
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c8dc0fab1a4da2bf9ae1463cb5e17fc2c2b12e5c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7affdaac3a087b951d54d96fa68edde2a065172
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory-verificatiebibliotheken voor v2.0
-Het Azure Active Directory (Azure AD) v2.0-eindpunt biedt ondersteuning voor de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. U kunt verschillende bibliotheken van Microsoft en andere organisaties gebruiken met het v2.0-eindpunt.
+Hello Azure Active Directory (Azure AD) v2.0-eindpunt ondersteunt Hallo industriestandaard OAuth 2.0 als OpenID Connect 1.0-protocol. U kunt verschillende bibliotheken van Microsoft en andere organisaties met Hallo v2.0-eindpunt.
 
-Wanneer u een toepassing die gebruikmaakt van het v2.0-eindpunt maakt, wordt aangeraden dat u bibliotheken die zijn geschreven door protocol domein experts die een methodologie Security Development Lifecycle (SDL) zoals volgen [de gevolgd door Microsoft][Microsoft-SDL]. Als u aan de hand-code-ondersteuning voor de protocollen besluit, wordt aangeraden SDL methodologie volgen en aandacht besteedt aan de beveiligingsoverwegingen in de specificaties standaarden voor elk protocol.
+Wanneer u een toepassing die gebruikmaakt van Hallo v2.0-eindpunt maakt, wordt aangeraden dat u bibliotheken die zijn geschreven door protocol domein experts die een methodologie Security Development Lifecycle (SDL) zoals volgen [Hallo een gevolgd door Microsoft] [Microsoft-SDL]. Als u toohand code ondersteuning voor Hallo protocollen besluit, wordt aangeraden SDL methodologie volgen en aandacht besteedt toohello beveiligingsoverwegingen in Hallo standaarden specificaties voor elk protocol.
 
 ## <a name="types-of-libraries"></a>Typen bibliotheken
 Azure AD v2.0 werkt met twee soorten bibliotheken:
 
-* **Clientbibliotheken**. Systeemeigen clients en servers kunnen clientbibliotheken toegangstokens voor het aanroepen van een resource, zoals Microsoft Graph ophalen.
-* **Server middleware bibliotheken**. Web-apps gebruiken server middleware bibliotheken voor gebruikersaanmelding. Web-API's gebruiken server middleware bibliotheken om tokens die worden verzonden door de systeemeigen clients of door andere servers te valideren.
+* **Clientbibliotheken**. Systeemeigen clients en servers gebruiken client bibliotheken tooget toegangstokens voor het aanroepen van een resource, zoals Microsoft Graph.
+* **Server middleware bibliotheken**. Web-apps gebruiken server middleware bibliotheken voor gebruikersaanmelding. Web-API's gebruiken server middleware bibliotheken toovalidate tokens die zijn verzonden door de systeemeigen clients of andere servers.
 
 ## <a name="library-support"></a>Bibliotheek-ondersteuning
-Omdat u kunt alle standaarden compatibele bibliotheek kiezen kunt wanneer u het v2.0-eindpunt, is het belangrijk te weten waar u voor ondersteuning. Neem contact op met de eigenaar van de bibliotheek voor problemen en functie-aanvragen in de bibliotheek-code. Neem contact op met Microsoft voor problemen en functie-aanvragen in de protocolimplementatie aan servicezijde.
+Omdat u kunt alle standaarden compatibele bibliotheek kiezen kunt wanneer u Hallo v2.0-eindpunt, is het belangrijk tooknow waar toogo voor ondersteuning. Neem contact op met Hallo bibliotheek eigenaar voor problemen en functie-aanvragen in de bibliotheek-code. Neem contact op met Microsoft voor problemen en functieaanvragen in Hallo aan servicezijde protocolimplementatie.
 
 Bibliotheken zijn twee categorieën van ondersteuning:
 
 * **Microsoft ondersteunde**. Microsoft biedt oplossingen voor deze bibliotheken en SDL heeft gedaan innen op deze bibliotheken.
-* **Compatibel**. Microsoft heeft getest deze bibliotheken in basisscenario's en bevestigd dat ze met het v2.0-eindpunt werken. Microsoft biedt geen oplossingen voor deze bibliotheken en een overzicht van deze bibliotheken niet uitgevoerd. Problemen en functie-aanvragen moeten worden omgeleid naar de bibliotheek open source-project.
+* **Compatibel**. Microsoft heeft getest deze bibliotheken in basisscenario's en bevestigd dat ze met Hallo v2.0-eindpunt werken. Microsoft biedt geen oplossingen voor deze bibliotheken en een overzicht van deze bibliotheken niet uitgevoerd. Problemen en functie-aanvragen moeten gerichte toohello-bibliotheek open source-project.
 
-Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met het v2.0-eindpunt werken.
+Zie voor een lijst met bibliotheken die met het v2.0-eindpunt Hallo werken Hallo volgende secties in dit artikel.
 
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft ondersteunde clientbibliotheken
 
 > [!IMPORTANT]
-> De MSAL preview bibliotheken zijn geschikt voor gebruik in een productieomgeving. We bieden dezelfde productie niveau ondersteuning voor deze bibliotheken zoals wij onze huidige productie-bibliotheken (ADAL doen). Tijdens de preview kunnen we wijzigingen aanbrengen in de API MSAL indeling van de interne cache en andere mechanismen van deze bibliotheken zonder voorafgaande kennisgeving u moet te laten samen met oplossingen voor problemen of verbeterde functies. Dit mogelijk invloed op uw toepassing. Bijvoorbeeld, kan een wijziging in de cache-indeling van uw gebruikers, zoals het vereisen dat ze opnieuw aanmelden invloed. Een wijziging in de API moet u mogelijk het bijwerken van uw code. Wanneer we de algemene beschikbaarheid release die we moet u bijwerken naar de versie van de algemene beschikbaarheid binnen zes maanden opgeeft, als toepassingen die zijn geschreven met behulp van een preview werkt-versie van de bibliotheek niet meer.
+> Hallo MSAL preview bibliotheken zijn geschikt voor gebruik in een productieomgeving. We bieden dezelfde productie-ondersteuning voor deze bibliotheken Hallo zoals wij onze huidige productie-bibliotheken (ADAL doen). Tijdens de preview Hallo mogelijk maken we wijzigingen toohello MSAL API, indeling van de interne cache, en andere mechanismen van deze bibliotheken zonder voorafgaande kennisgeving, wat u zult nodig tootake samen met oplossingen voor problemen of verbeterde functies. Dit mogelijk invloed op uw toepassing. Bijvoorbeeld, kan een wijziging toohello cache-indeling van uw gebruikers, zoals het vereisen dat ze toosign in opnieuw invloed. Een wijziging in de API kan tooupdate u uw code nodig. Wanneer wij algemene beschikbaarheid release is verplicht tooupdate toohello algemene beschikbaarheid versie binnen zes maanden hello bieden, als toepassingen die zijn geschreven met behulp van een preview werkt-versie van de bibliotheek niet meer.
 
 | Platform | Bibliotheek | Downloaden | Broncode | Voorbeeld | Naslaginformatie
 | --- | --- | --- | --- | --- | --- |
 | .NET-client, Windows Store UWP, Xamarin iOS en Android | MSAL .NET (Preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Bureaublad-App](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | Javascript | MSAL.js (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [App met één pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
 | voor iOS, Mac OS | MSAL (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS-App](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
-| Android | MSAL (Preview) | [De centrale opslagplaats](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android-App](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
+| Android | MSAL (Preview) | [Hallo centrale opslagplaats](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android-App](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft ondersteund server middleware bibliotheken
 
@@ -78,12 +78,12 @@ Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met h
 | Platform | Bibliotheeknaam | Geteste versie | Broncode | Voorbeeld |
 |:---:|:---:|:---:|:---:|:---:|
 | Java | [Notulist Java scribejava](https://github.com/scribejava/scribejava) | [Versie 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
-| PHP | [De PHP-League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 versie](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
+| PHP | [Hallo PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 versie](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
 | Python Flask |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |[Web-app](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-Zie voor meer informatie over het Azure AD v2.0-eindpunt, de [overzicht van Azure AD app model v2.0][AAD-App-Model-V2-Overview].
+Zie voor meer informatie over hello Azure AD v2.0-eindpunt Hallo [overzicht van Azure AD app model v2.0][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

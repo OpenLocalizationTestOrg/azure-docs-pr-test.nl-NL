@@ -1,6 +1,6 @@
 ---
-title: Django en MySQL in Azure met Python Tools 2.2 for Visual Studio
-description: Leer hoe u de Python Tools for Visual Studio gebruikt om een Django-web-app te maken waarin gegevens worden opgeslagen in een MySQL-database, en deze vervolgens in Azure App Service-web-apps te implementeren.
+title: aaaDjango en MySQL in Azure met Python Tools 2.2 voor Visual Studio
+description: Informatie over hoe toouse hello Python-Tools voor Visual Studio toocreate een Django-web-app die gegevens opslaat in een MySQL-database-exemplaar en deze tooAzure App Service Web Apps te implementeren.
 services: app-service\web
 documentationcenter: python
 author: huguesv
@@ -14,63 +14,63 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
-ms.openlocfilehash: fd85337ecdc638a4c18065a0ce94f697da8197f1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1597c391d20c8e8ef629b4e4d05c9eb64c83bffc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Django en MySQL in Azure met Python Tools 2.2 for Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-In deze zelfstudie gebruikt u [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) om een eenvoudige poll-web-app te maken met een van de PTVS-voorbeeldsjablonen. U leert hoe u een MySQL-service gebruikt die wordt gehost in Azure, hoe u de web-app kunt configureren voor het gebruik van MySQL en hoe u de web-app publiceert naar [Azure App Service-web-apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+In deze zelfstudie gebruikt u [Python-Tools voor Visual Studio](https://www.visualstudio.com/vs/python) toocreate een eenvoudige web-app met een van de PTVS-voorbeeldsjablonen Hallo worden opgevraagd. U leert hoe toouse een MySQL-service wordt gehost op Azure, hoe tooconfigure Hallo web app toouse MySQL en hoe Hallo toopublish web-app te[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 > [!NOTE]
-> De informatie in deze zelfstudie is ook beschikbaar in de volgende video:
+> Hallo informatie in deze zelfstudie is ook beschikbaar in de volgende video Hallo:
 > 
 > [PTVS 2.1: Django-app met MySQL][video]
 > 
 > 
 
-Raadpleeg het [Python Developer Center] voor meer artikelen over het ontwikkelen van Azure App Service-web-apps met PTVS met behulp van Bottle-, Flask- en Django-webframeworks, met Azure Table Storage-, MySQL- en SQL Database-services. Dit artikel is gericht op App Service, maar voor het ontwikkelen van [Azure Cloud Services] volgt u soortgelijk stappen.
+Zie Hallo [Python Developer Center] voor meer artikelen over ontwikkeling met Azure App Service Web Apps met PTVS met behulp van Bottle Flask- en Django-webframeworks, met Azure Table Storage, MySQL en SQL Database-services. Dit artikel is gericht op App Service, Hallo stappen zijn vergelijkbaar bij het ontwikkelen van [Azure Cloud Services].
 
 ## <a name="prerequisites"></a>Vereisten
 * Visual Studio 2015
 * [Python 2.7 32-bits] of [Python 3.4 32-bits]
 * [Python Tools 2.2 for Visual Studio]
-* [Python Tools 2.2 for Visual Studio Samples VSIX]
+* [Python-Tools 2.2 voor Visual Studio Samples VSIX]
 * [Azure SDK-tools voor VS 2015]
 * Django 1.9 of hoger
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-<!-- This note should not render as part of the the previous include. -->
+<!-- This note should not render as part of hello hello previous include. -->
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. Er is geen creditcard vereist en u bent nergens toe verplicht.
+> Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. Er is geen creditcard vereist en u bent nergens toe verplicht.
 > 
 > 
 
-## <a name="create-the-project"></a>Het project maken
-In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsjabloon. U maakt een virtuele omgeving en installeert de vereiste pakketten. U maakt een lokale database met behulp van sqlite. Vervolgens voert u de toepassing lokaal uit.
+## <a name="create-hello-project"></a>Hallo-Project maken
+In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsjabloon. U maakt een virtuele omgeving en installeert de vereiste pakketten. U maakt een lokale database met behulp van sqlite. Vervolgens voert u lokaal Hallo-toepassing.
 
 1. Selecteer in Visual Studio **File**, **New Project**.
-2. De projectsjablonen uit de [Python Tools 2.2 for Visual Studio Samples VSIX] zijn beschikbaar onder **Python**, **Samples**. Selecteer **Polls Django Web Project** en klik op OK om het project te maken.
+2. Hallo projectsjablonen uit Hallo [Python-Tools 2.2 voor Visual Studio Samples VSIX] zijn beschikbaar onder **Python**, **voorbeelden**. Selecteer **Polls Django Web Project** en klik op OK toocreate Hallo project.
    
-    ![Het dialoogvenster New Project](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
-3. U wordt gevraagd om externe pakketten te installeren. Selecteer **Install into a virtual environment**.
+    ![Het dialoogvenster Nieuw project](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
+3. U zult na vragen aan gebruiker tooinstall externe pakketten. Selecteer **Install into a virtual environment**.
    
     ![Het dialoogvenster External Packages](./media/web-sites-python-ptvs-django-mysql/PollsDjangoExternalPackages.png)
-4. Selecteer **Python 2.7** of **Python 3.4** als basisinterpreter.
+4. Selecteer **Python 2.7** of **Python 3.4** als Hallo basisinterpreter.
    
     ![Het dialoogvenster Add Virtual Environment](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
-5. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Python**. Selecteer vervolgens **Django Migrate**.  Selecteer vervolgens **Django Create Superuser**.
-6. Hiermee wordt in de projectmap een Django-beheerconsole en een sqlite-database gemaakt. Volg de aanwijzingen voor het maken van een gebruiker.
-7. Controleer of de toepassing werkt, door te drukken op `F5`.
-8. Klik in de navigatiebalk bovenaan op **Log in**.
+5. In **Solution Explorer**, met de rechtermuisknop op Hallo projectknooppunt en selecteer **Python**, en selecteer vervolgens **Django migreren**.  Selecteer vervolgens **Django Create Superuser**.
+6. Hiermee opent u een Django-beheerconsole en maakt u een sqlite-database in de projectmap Hallo. Ga als volgt Hallo prompts toocreate een gebruiker.
+7. Controleer of de toepassing hello door te drukken werkt `F5`.
+8. Klik op **aanmelden** van de navigatiebalk Hallo Hallo boven.
    
     ![Django-navigatiebalk](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalMenu.png)
-9. Voer de referenties in voor de gebruiker die u hebt gemaakt tijdens het synchroniseren van de database.
+9. Voer Hallo referenties voor u gemaakt tijdens het synchroniseren van de database Hallo Hallo-gebruiker.
    
     ![Aanmeldscherm](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalLogin.png)
 10. Klik op **Create Sample Polls**.
@@ -81,26 +81,26 @@ In deze sectie maakt u een Visual Studio-project met behulp van een voorbeeldsja
      ![Stemmen in voorbeeld-polls](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
 ## <a name="create-a-mysql-database"></a>Een MySQL-database maken
-Voor de database maakt u een gehoste ClearDB MySQL-database in Azure.
+Voor Hallo-database maakt u een gehoste ClearDB MySQL-database in Azure.
 
 Als alternatief kunt u uw eigen virtuele machine maken die wordt uitgevoerd in Azure, en vervolgens MySQL zelf installeren en beheren.
 
 U kunt een database maken met een gratis abonnement. Ga hiervoor als volgt te werk.
 
-1. Meld u aan bij de [Azure Portal].
-2. Klik boven in het navigatiedeelvenster achtereenvolgens op **NIEUW**, **Gegevens en opslag** en **MySQL-database**.
-3. Configureer de nieuwe MySQL-database door een nieuwe resourcegroep te maken en hiervoor de juiste locatie te selecteren.
-4. Nadat de MySQL-database is gemaakt, klikt u op de databaseblade op **Eigenschappen**.
-5. Gebruik de knop Kopiëren om de waarde van **VERBINDINGSREEKS** op het klembord te plaatsen.
+1. Meld u bij toohello [Azure Portal].
+2. Hallo boven in het navigatiedeelvenster hello, klikt u op **nieuw**, klikt u vervolgens op **gegevens en opslag**, en klik vervolgens op **MySQL-Database**.
+3. Hallo nieuwe MySQL-database configureren door een nieuwe resourcegroep maken en selecteer Hallo juiste locatie.
+4. Zodra het Hallo MySQL-database is gemaakt, klikt u op **eigenschappen** in Hallo databaseblade.
+5. Gebruik Hallo kopie knop tooput Hallo waarde van **VERBINDINGSREEKS** op Hallo Klembord.
 
-## <a name="configure-the-project"></a>Het project configureren
-In deze sectie configureert u de web-app voor het gebruik van de MySQL-database die u zojuist hebt gemaakt. U kunt ook extra Python-pakketten installeren die vereist zijn voor het gebruik van MySQL-databases met Django. Vervolgens voert u de web-app lokaal uit.
+## <a name="configure-hello-project"></a>Hallo Project configureren
+In deze sectie configureert u de web-app toouse Hallo MySQL-database die u zojuist hebt gemaakt. U kunt ook extra Python-pakketten vereist toouse MySQL-databases met Django installeren. Vervolgens voert u lokaal Hallo web-app.
 
-1. Open in Visual Studio **settings.py** vanuit de map *ProjectName*. Plak de verbindingsreeks tijdelijk in de editor. De verbindingsreeks heeft de volgende indeling:
+1. Open in Visual Studio **settings.py**, van Hallo *ProjectName* map. Plak tijdelijk Hallo-verbindingsreeks in Hallo-editor. Hallo-verbindingsreeks is in deze indeling:
    
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
    
-    Wijzig de standaarddatabase **ENGINE** voor het gebruik van MySQL en stel de waarden voor **NAME**, **USER**, **PASSWORD** en **HOST** van de **CONNECTIONSTRING** in.
+    Wijziging Hallo standaarddatabase **ENGINE** toouse MySQL en stel de waarden voor Hallo **naam**, **gebruiker**, **wachtwoord** en  **HOST** van Hallo **CONNECTIONSTRING**.
    
         DATABASES = {
             'default': {
@@ -112,39 +112,39 @@ In deze sectie configureert u de web-app voor het gebruik van de MySQL-database 
                 'PORT': '',
             }
         }
-2. Klik onder **Python-omgevingen** in Solution Explorer met de rechtermuisknop op de virtuele omgeving en selecteer **Install Python Package**.
-3. Installeer het pakket `mysqlclient` met behulp van **pip**.
+2. Klik in Solution Explorer onder **Python-omgevingen**, met de rechtermuisknop op de virtuele omgeving Hallo en selecteert u **Install Python Package**.
+3. Hallo-pakket installeren `mysqlclient` met **pip**.
    
     ![Het dialoogvenster Install Package](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
-4. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Python**. Selecteer vervolgens **Django Migrate**.  Selecteer vervolgens **Django Create Superuser**.
+4. In **Solution Explorer**, met de rechtermuisknop op Hallo projectknooppunt en selecteer **Python**, en selecteer vervolgens **Django migreren**.  Selecteer vervolgens **Django Create Superuser**.
    
-    Hiermee maakt u de tabellen voor de MySQL-database die u in de vorige sectie hebt gemaakt. Volg de aanwijzingen voor het maken van een gebruiker. De gebruiker hoeft niet dezelfde te zijn als de gebruiker in de sqlite-database die in de eerste sectie van dit artikel is gemaakt.
-5. Voer de toepassing uit met `F5`. Polls die zijn gemaakt met **Create Sample Polls** en de gegevens die zijn ingediend via stemmen, worden geserialiseerd in de MySQL-database.
+    Hiermee wordt Hallo tabellen voor Hallo u hebt gemaakt in de vorige sectie Hallo MySQL-database gemaakt. Ga als volgt Hallo prompts toocreate een gebruiker die geen toomatch Hallo gebruiker in Hallo sqlite-database gemaakt in de eerste sectie Hallo van dit artikel.
+5. Voer de toepassing hello met `F5`. Polls die zijn gemaakt met **Create Sample Polls** en het Hallo-gegevens die zijn ingediend via stemmen, worden geserialiseerd in Hallo MySQL-database.
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>De web-app publiceren naar Azure App Service
-De Azure SDK voor .NET biedt een eenvoudige manier om uw web-app in Azure App Service te implementeren.
+## <a name="publish-hello-web-app-tooazure-app-service"></a>Hallo web app tooAzure App Service publiceren
+Hello Azure .NET SDK biedt een eenvoudige manier toodeploy uw web-app tooAzure App Service.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer **Publiceren**.
+1. In **Solution Explorer**, met de rechtermuisknop op Hallo projectknooppunt en selecteer **publiceren**.
    
     ![Het dialoogvenster Publish Web](./media/web-sites-python-ptvs-django-mysql/PollsCommonPublishWebSiteDialog.png)
 2. Klik op **Microsoft Azure App Service**.
-3. Klik op **Nieuw** om een nieuwe web-app te maken.
-4. Vul de volgende velden in en klik op **Maken**:
+3. Klik op **nieuw** toocreate een nieuwe web-app.
+4. Vul Hallo velden te volgen en klik op **maken**:
    
    * **Web-appnaam**
    * **App Service-plan**
    * **Resourcegroep**
    * **Regio**
-   * Laat **Databaseserver** ingesteld op **Geen database**.
+   * Laat **databaseserver** instellen te**geen database**
 5. Accepteer alle overige standaardwaarden en klik op **Publiceren**.
-6. De gepubliceerde web-app wordt automatisch geopend in uw webbrowser. De web-app hoort nu correct te werken met behulp van de **MySQL**-database gehost in Azure.
+6. De webbrowser wordt automatisch geopend toohello gepubliceerde web-app. U ziet Hallo web-app werkt zoals verwacht, met behulp van Hallo **MySQL** database gehost in Azure.
    
     ![Webbrowser](./media/web-sites-python-ptvs-django-mysql/PollsDjangoAzureBrowser.png)
    
-    Gefeliciteerd. U hebt uw op MySQL gebaseerde web-app gepubliceerd naar Azure.
+    Gefeliciteerd. U hebt uw tooAzure MySQL gebaseerde web-app gepubliceerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Volg deze koppelingen voor meer informatie over Python Tools for Visual Studio, Django en MySQL.
+Volg deze koppelingen toolearn meer over Python-Tools voor Visual Studio, Django en MySQL.
 
 * [Documentatie Python Tools voor Visual Studio]
   * [Webprojecten]
@@ -153,7 +153,7 @@ Volg deze koppelingen voor meer informatie over Python Tools for Visual Studio, 
 * [Documentatie bij Django]
 * [MySQL]
 
-Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
+Zie voor meer informatie, Hallo [Python Developer Center](/develop/python/).
 
 <!--Link references-->
 
@@ -165,7 +165,7 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 [Azure Portal]: https://portal.azure.com
 [Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python-Tools 2.2 voor Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK-tools voor VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bits]: http://go.microsoft.com/fwlink/?LinkId=517191

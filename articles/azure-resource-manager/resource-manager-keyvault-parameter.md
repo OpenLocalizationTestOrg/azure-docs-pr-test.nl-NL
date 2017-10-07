@@ -1,6 +1,6 @@
 ---
-title: Sleutelkluis geheim met Resource Manager-sjabloon | Microsoft Docs
-description: Laat zien hoe een geheim van een sleutelkluis als parameter doorgeven tijdens de implementatie.
+title: aaaKey kluis geheim met Resource Manager-sjabloon | Microsoft Docs
+description: Toont hoe een geheim van een sleutel toopass vault als parameter tijdens de implementatie.
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1ca72599e67e79d42a3d430dbb13e89ea7265334
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0bb7760c95b3b4ef34c9e5cc2e3421be56b5e5e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-key-vault-to-pass-secure-parameter-value-during-deployment"></a>De Sleutelkluis gebruiken voor veilige parameterwaarde worden doorgegeven tijdens de implementatie
+# <a name="use-key-vault-toopass-secure-parameter-value-during-deployment"></a>Sleutelkluis toopass beveiligde parameterwaarde gebruiken tijdens de implementatie
 
-Wanneer u een beveiligde waarde (zoals een wachtwoord) als een parameter doorgeven tijdens de implementatie moet, kunt u de waarde van de ophalen een [Azure Key Vault](../key-vault/key-vault-whatis.md). De waarde wordt opgehaald door te verwijzen naar de sleutelkluis en geheim in de parameter-bestand. De waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. U hoeft niet de waarde handmatig invoeren voor het geheim telkens wanneer die u de resources implementeren. De sleutelkluis kan bestaan in een ander abonnement dan de resourcegroep die u implementeert. Wanneer u verwijst naar de sleutelkluis, omvatten u de abonnement-ID.
+Wanneer u een beveiligde waarde (zoals een wachtwoord) toopass als parameter tijdens de implementatie moet, kunt u ophalen Hallo-waarde van een [Azure Key Vault](../key-vault/key-vault-whatis.md). U Hallo waarde wordt opgehaald door te verwijzen naar Hallo sleutelkluis en geheim in de parameterbestand. Hallo-waarde is nooit beschikbaar gemaakt, omdat u alleen verwijzen naar de sleutelkluis-ID. U hoeft geen toomanually Voer Hallo-waarde voor Hallo geheim telkens wanneer u Hallo resources implementeren. Hallo sleutelkluis kan bestaan in een ander abonnement dan Hallo-resourcegroep die u implementeert. Wanneer u verwijst naar de sleutelkluis hello, opnemen u Hallo abonnements-ID.
 
-Wanneer u de sleutelkluis maakt, stelt de *enabledForTemplateDeployment* eigenschap *true*. Deze waarde instelt op true, toestaan u toegang van Resource Manager-sjablonen tijdens de implementatie.  
+Bij het maken van de sleutelkluis Hallo Hallo ingesteld *enabledForTemplateDeployment* eigenschap te*true*. Deze waarde tootrue instelt, toestaan u toegang van Resource Manager-sjablonen tijdens de implementatie.  
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Een sleutelkluis en geheim implementeren
 
-Maakt een sleutelkluis en een geheim, gebruikmaken van Azure CLI of PowerShell. U ziet dat de sleutelkluis is ingeschakeld voor de sjabloonimplementatie van de. 
+een sleutelkluis toocreate en geheim gebruiken van Azure CLI of PowerShell. U ziet dat sleutelkluis Hallo voor sjabloonimplementatie is ingeschakeld. 
 
 Gebruik voor Azure CLI:
 
@@ -53,14 +53,14 @@ $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
 
-## <a name="enable-access-to-the-secret"></a>Toegang tot het geheim inschakelen
+## <a name="enable-access-toohello-secret"></a>Toegang toohello geheim inschakelen
 
-Of u een nieuwe sleutelkluis of een bestaande gebruikt, zorg ervoor dat de implementatie van de sjabloon gebruiker toegang het geheim tot. Het implementeren van een sjabloon die verwijst naar een geheim gebruiker moet beschikken over de `Microsoft.KeyVault/vaults/deploy/action` machtiging voor de sleutelkluis. De [eigenaar](../active-directory/role-based-access-built-in-roles.md#owner) en [Inzender](../active-directory/role-based-access-built-in-roles.md#contributor) beide rollen deze toegang verlenen. U kunt ook maken een [aangepaste rol](../active-directory/role-based-access-control-custom-roles.md) die deze machtiging verleent en de gebruiker toevoegen aan die rol. Zie voor meer informatie over het toevoegen van een gebruiker aan een rol [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](../active-directory/active-directory-users-assign-role-azure-portal.md).
+Of u van een nieuwe sleutelkluis of een bestaande gebruikmaakt, zorg ervoor dat Hallo-gebruiker Hallo-sjabloon implementeren Hallo geheim toegang. Hallo gebruiker implementeren van een sjabloon die verwijst naar een geheim hebben Hallo `Microsoft.KeyVault/vaults/deploy/action` machtiging voor Hallo sleutelkluis. Hallo [eigenaar](../active-directory/role-based-access-built-in-roles.md#owner) en [Inzender](../active-directory/role-based-access-built-in-roles.md#contributor) beide rollen deze toegang verlenen. U kunt ook maken een [aangepaste rol](../active-directory/role-based-access-control-custom-roles.md) die deze machtiging verleent en Hallo toothat gebruikersrol toevoegen. Zie voor meer informatie over het toevoegen van een gebruikersrol tooa [tooadministrator rollen in Azure Active Directory voor een gebruiker toewijzen](../active-directory/active-directory-users-assign-role-azure-portal.md).
 
 
 ## <a name="reference-a-secret-with-static-id"></a>Verwijst naar een geheim met statische-ID
 
-De sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een andere sjabloon. Dat komt doordat **u verwijzen naar de sleutelkluis in de parameter-bestand niet in de sjabloon.** Bijvoorbeeld, implementeert u de volgende sjabloon een SQL-database met een administrator-wachtwoord. De wachtwoordparameter is ingesteld op een veilige tekenreeks. Maar de sjabloon geeft geen waar die waarde worden opgehaald.
+Hallo-sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een andere sjabloon. Dat komt doordat **u verwijzen naar de sleutelkluis Hallo Hallo parameterbestand, niet Hallo sjabloon.** Bijvoorbeeld, implementeert Hallo na sjabloon een SQL-database met een administrator-wachtwoord. De wachtwoordparameter Hallo is tooa veilige tekenreeks ingesteld. Maar Hallo sjabloon geeft geen waar die waarde worden opgehaald.
 
 ```json
 {
@@ -146,7 +146,7 @@ De sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een ande
 }
 ```
 
-Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterbestand een parameter die overeenkomt met de naam van de parameter in de sjabloon. De waarde van parameter verwijst naar het geheim van de sleutelkluis. U verwijzen naar het geheim door het doorgeven van de resource-id van de sleutelkluis en de naam van het geheim. In het volgende voorbeeld wordt het geheim sleutelkluis moet al bestaan en u een statische waarde opgeven voor de bron-ID.
+Maak nu een parameterbestand voor Hallo voorafgaand aan de sjabloon. In het parameterbestand hello, moet u een parameter die overeenkomt met de naam van Hallo-parameter in de sjabloon Hallo Hallo opgeven. Hallo-parameterwaarde, verwijst naar Hallo geheim Hallo sleutelkluis. U verwijzen naar Hallo geheim door Hallo resource-id van de sleutelkluis hello en Hallo-naam van Hallo geheim. Hallo sleutelkluis geheim moet al bestaan in Hallo voorbeeld te volgen, en u een statische waarde opgeven voor de bron-ID.
 
 ```json
 {
@@ -194,9 +194,9 @@ Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterb
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Verwijst naar een geheim met dynamische ID
 
-De vorige sectie hebt u geleerd hoe u een statisch resource-ID voor de sleutelkluis-geheim doorgeven. In sommige gevallen moet u echter verwijzen naar een sleutelkluis geheim dat varieert op basis van de huidige implementatie. In dat geval kunt u niet vastleggen de bron-ID in het parameterbestand. Helaas kan niet u dynamisch genereren de resource-ID in het parameterbestand Sjabloonexpressies zijn niet toegestaan in het parameterbestand.
+Hallo vorige sectie hebt u geleerd hoe toopass een statische resource-ID voor de sleutel Hallo geheim kluis. In sommige gevallen moet u echter tooreference een sleutelkluis geheim dat varieert op basis van de huidige implementatie Hallo. U kunt in dat geval niet vastleggen Hallo resource-ID in het parameterbestand Hallo. Helaas kan niet u dynamisch genereren Hallo resource-ID in het parameterbestand Hallo Sjabloonexpressies zijn niet toegestaan in het parameterbestand Hallo.
 
-Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, moet u de resource die het geheim in een geneste sjabloon moet verplaatsen. In de sjabloon master u de geneste sjabloon toevoegen en geeft u in een parameter die de dynamisch gegenereerde resource-id bevat.
+toodynamically hello resource-ID voor een geheim sleutelkluis genereren, moet u Hallo resource die Hallo geheim in een geneste sjabloon moet verplaatsen. In de sjabloon master u Hallo geneste sjabloon toevoegen en geeft u in een parameter met de Hallo dynamisch gegenereerd bron-ID.
 
 ```json
 {

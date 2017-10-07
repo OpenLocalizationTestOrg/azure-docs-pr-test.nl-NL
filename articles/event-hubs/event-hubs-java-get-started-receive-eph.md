@@ -1,5 +1,5 @@
 ---
-title: Ontvangen van gebeurtenissen van Azure Event Hubs met behulp van Java | Microsoft Docs
+title: aaaReceive gebeurtenissen van Azure Event Hubs met behulp van Java | Microsoft Docs
 description: Aan de slag ontvangen van Event Hubs met behulp van Java
 services: event-hubs
 documentationcenter: 
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 05414a22e6616296752c678bb0af887d6f070c12
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ontvangen van gebeurtenissen van Azure Event Hubs met Java
 
 
 ## <a name="introduction"></a>Inleiding
-Event Hubs is een zeer schaalbaar systeem die kan worden miljoenen gebeurtenissen per seconde opnemen voor het inschakelen van een toepassing te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster.
+Event Hubs is een zeer schaalbaar systeem zodat kan miljoenen gebeurtenissen per seconde voor het inschakelen van een toepassing tooprocess opnemen en analyseren van Hallo enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster.
 
-Zie voor meer informatie de [overzicht van Event Hubs][Event Hubs overview].
+Zie voor meer informatie, Hallo [overzicht van Event Hubs][Event Hubs overview].
 
-Deze zelfstudie laat zien hoe gebeurtenissen ontvangen in een event hub met een consoletoepassing die is geschreven in Java.
+Deze zelfstudie laat zien hoe tooreceive gebeurtenissen in een event hub met een consoletoepassing die is geschreven in Java.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om deze zelfstudie hebt voltooid, moet u de volgende vereisten:
+In volgorde toocomplete in deze zelfstudie, moet u Hallo volgende vereisten:
 
 * Een Java-ontwikkelomgeving. Voor deze zelfstudie gaan we ervan uit [Eclipse](https://www.eclipse.org/).
 * Een actief Azure-account. <br/>Als u geen account hebt, kunt u binnen een paar minuten een gratis account maken. Zie <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Gratis proefversie van Azure</a> voor meer informatie.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Berichten ontvangen met EventProcessorHost in Java
 
-**EventProcessorHost** is een Javaklasse die ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten beheren en parallelle ontvangst van deze Event Hubs. EventProcessorHost gebruikt, splitsen u gebeurtenissen over meerdere ontvangers, zelfs wanneer deze wordt gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van EventProcessorHost gedemonstreerd voor één ontvanger.
+**EventProcessorHost** is een Javaklasse die ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten beheren en parallelle ontvangst van deze Event Hubs. EventProcessorHost gebruikt, splitsen u gebeurtenissen over meerdere ontvangers, zelfs wanneer deze wordt gehost in verschillende knooppunten. Dit voorbeeld ziet u hoe toouse EventProcessorHost voor één ontvanger.
 
 ### <a name="create-a-storage-account"></a>Een opslagaccount maken
-Als u wilt gebruiken EventProcessorHost, hebt u een [Azure Storage-account][Azure Storage account]:
+toouse EventProcessorHost, hebt u een [Azure Storage-account][Azure Storage account]:
 
-1. Meld u aan bij de [Azure-portal][Azure portal], en klik op **+ nieuw** aan de linkerkant van het scherm.
-2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**. Typ op de blade **Opslagaccount maken** een naam voor het opslagaccount. Voltooi de rest van de velden, selecteer de gewenste regio en klik vervolgens op **maken**.
+1. Meld u aan toohello [Azure-portal][Azure portal], en klik op **+ nieuw** aan de linkerkant Hallo van welkomstscherm.
+2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**. In Hallo **storage-account maken** blade een naam voor het Hallo-opslagaccount. Voltooi de rest Hallo Hallo velden, selecteer de gewenste regio en klik op **maken**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Klik op het zojuist gemaakte opslagaccount en klik vervolgens op **Toegangssleutels beheren**:
+3. Klik op nieuw gemaakte Hallo storage-account en klik vervolgens op **toegangssleutels beheren**:
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Kopieer de primaire toegangssleutel naar een tijdelijke locatie, voor gebruik verderop in deze zelfstudie.
+    Kopieer Hallo primaire sleutel tooa tijdelijke locatie, toouse verderop in deze zelfstudie.
 
-### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Maak een Java-project met behulp van EventProcessorHost
-De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven centrale opslagplaats][Maven Package], en kan worden verwezen met de volgende afhankelijkheid declaratie binnen uw Maven projectbestand:    
+### <a name="create-a-java-project-using-hello-eventprocessor-host"></a>Een Java-project met behulp van Hallo EventProcessor Host maken
+Hallo Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit Hallo [Maven centrale opslagplaats][Maven Package], en kan worden verwezen met Hallo na afhankelijkheid declaratie binnen uw Maven project-bestand:    
 
 ```xml
 <dependency>
@@ -76,9 +76,9 @@ De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-p
 </dependency>
 ```
 
-Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebrachte JAR-bestanden uit expliciet verkrijgen de [Maven centrale opslagplaats] [ Maven Package] of van [het distributiepunt release op GitHub ](https://github.com/Azure/azure-event-hubs/releases).  
+Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht Hallo JAR-bestanden expliciet ophalen uit Hallo [Maven centrale opslagplaats] [ Maven Package] of van [release-distributiepunt op Hallo GitHub](https://github.com/Azure/azure-event-hubs/releases).  
 
-1. Maak voor het volgende voorbeeld eerst een nieuw Maven-project voor een console/shell-toepassing in uw favoriete Java-ontwikkelomgeving. De klasse wordt aangeroepen `ErrorNotificationHandler`.     
+1. Voor Hallo voorbeeld te volgen, moet u eerst een nieuw Maven-project voor een console/shell-toepassing maken in uw favoriete Java-ontwikkelomgeving. Hallo-klasse wordt aangeroepen `ErrorNotificationHandler`.     
    
     ```java
     import java.util.function.Consumer;
@@ -93,7 +93,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
         }
     }
     ```
-2. Gebruik de volgende code om een nieuwe klasse te maken met de naam `EventProcessor`.
+2. Gebruik Hallo volgende code toocreate aangeroepen voor een nieuwe klasse `EventProcessor`.
    
     ```java
     import com.microsoft.azure.eventhubs.EventData;
@@ -146,7 +146,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
         }
     }
     ```
-3. Maak een meer klasse aangeroepen `EventProcessorSample`, met de volgende code.
+3. Maak een meer klasse aangeroepen `EventProcessorSample`met Hallo volgende code.
    
     ```java
     import com.microsoft.azure.eventprocessorhost.*;
@@ -192,7 +192,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
                 }
             }
    
-            System.out.println("Press enter to stop");
+            System.out.println("Press enter toostop");
             try
             {
                 System.in.read();
@@ -211,7 +211,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
         }
     }
     ```
-4. De volgende velden vervangen door de waarden gebruikt bij het maken van het event hub- en storage-account.
+4. Vervang Hallo velden te volgen met Hallo waarden gebruikt wanneer u Hallo event hub en storage-account hebt gemaakt.
    
     ```java
     final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -225,12 +225,12 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
     ```
 
 > [!NOTE]
-> In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. Voor een betere doorvoer wordt aangeraden dat u meerdere exemplaren van EventProcessorHost, bij voorkeur op afzonderlijke computers uitvoeren.  Dit biedt ook de redundantie. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor EventProcessorHost-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd.
+> In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. tooincrease doorvoer, wordt aangeraden dat u meerdere exemplaren van EventProcessorHost, bij voorkeur op afzonderlijke computers uitvoeren.  Dit biedt ook de redundantie. In deze gevallen ontvangen Hallo die verschillende exemplaren automatisch wordt samen met elkaar in volgorde tooload saldo Hallo gebeurtenissen. Als u wilt dat meerdere ontvangers tooeach proces *alle* Hallo gebeurtenissen, moet u Hallo **ConsumerGroup** concept. Wanneer gebeurtenissen ontvangen van andere computers, het mogelijk handig toospecify namen voor EventProcessorHost-exemplaren op basis van Hallo machines (of rollen) die worden geïmplementeerd.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
+U meer informatie over Event Hubs via Hallo koppelingen te volgen:
 
 * [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)
 * [Een Event Hub maken](event-hubs-create.md)

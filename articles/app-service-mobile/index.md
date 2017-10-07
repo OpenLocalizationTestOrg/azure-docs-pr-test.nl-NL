@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Mobile Apps - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over hoe u Mobile Apps in Azure App Service kunt gebruiken voor het bouwen en hosten van systeemeigen iOS-, Android- of Windows-apps, of platformoverschrijdende apps met behulp van Xamarin of Cordova.
+title: aaaAzure documentatie in Mobile Apps - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse Mobile Apps in Azure App Service toobuild en host systeemeigen iOS, Android of Windows-apps of platformoverschrijdende apps met Xamarin- of Cordova.
 services: app-service\mobile
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f660922fa2f7d5d21b4e6678233792ad6cb84041
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09b103b274c66f515d9a34bbdcb54cf0ff3a035a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="mobile-apps-documentation"></a>Documentatie voor Mobile Apps
 
-Meer informatie over hoe u Mobile Apps in Azure App Service kunt gebruiken voor het bouwen van systeemeigen iOS-, Android- of Windows-apps, of platformoverschrijdende apps met behulp van Xamarin of Cordova. Zelfstudies, video's en Client SDK-documentatie laten zien hoe u de back-end voor een mobiele app bouwt en host.
+Meer informatie over hoe toouse Mobile Apps in Azure App Service toobuild systeemeigen iOS, Android of Windows-apps of platformoverschrijdende apps met Xamarin- of Cordova. Zelfstudies, video's en SDK-documentatie voor client laten zien u hoe toobuild en host Hallo back-end voor mobiele Apps.
 
 <ul class="panelContent cardsFTitle">
     <li>

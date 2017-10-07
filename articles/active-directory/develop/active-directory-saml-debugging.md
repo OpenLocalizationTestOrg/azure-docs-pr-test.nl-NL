@@ -1,6 +1,6 @@
 ---
-title: Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory | Microsoft Docs
-description: 'Meer informatie over fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory '
+title: aaaHow toodebug op basis van SAML eenmalige aanmelding tooapplications in Azure Active Directory | Microsoft Docs
+description: 'Meer informatie over hoe toodebug op basis van SAML eenmalige aanmelding tooapplications in Azure Active Directory '
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -15,27 +15,27 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 31447d597296bac57481dc2acb4a95ee3a104161
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 846c7b3497c8842947c5b406f4362b9e06785b14
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory
-Wanneer een toepassing op basis van SAML-integratie foutopsporing, is het vaak nuttig zijn voor het gebruik van een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) om te zien van de SAML-aanvraag, de SAML-reactie en de werkelijke SAML-token dat is uitgegeven aan de toepassing. Door in het SAML-token, kunt u ervoor zorgen dat alle vereiste kenmerken, de gebruikersnaam in het SAML-onderwerp en de URI van de verlener afkomstig via zoals verwacht.
+# <a name="how-toodebug-saml-based-single-sign-on-tooapplications-in-azure-active-directory"></a>Hoe toodebug op basis van SAML eenmalige aanmelding tooapplications in Azure Active Directory
+Wanneer een toepassing op basis van SAML-integratie foutopsporing, is het vaak nuttig toouse een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) toosee Hallo SAML-aanvraag, Hallo SAML-reactie en Hallo werkelijke SAML-token dat is uitgegeven toohello toepassing. Door te onderzoeken Hallo SAML-token, kunt u ervoor dat alle Hallo kenmerken verplichte, Hallo gebruikersnaam in Hallo SAML onderwerp en Hallo verlener URI afkomstig zijn via zoals verwacht.
 
 ![][1]
 
-Het antwoord van Azure AD met het SAML-token is doorgaans een die plaatsvindt na een HTTP 302-omleiding van https://login.windows.net en wordt verzonden naar de geconfigureerde **antwoord-URL** van de toepassing. 
+Hallo reactie van Azure AD met Hallo SAML-token is doorgaans Hallo die na een HTTP 302-omleiding van https://login.windows.net plaatsvindt en verzonden toohello geconfigureerd **antwoord-URL** van Hallo-toepassing. 
 
-U kunt het SAML-token weergeven door deze regel te selecteren en vervolgens te klikken op de **Inspectors > webformulieren** tabblad in het rechterpaneel. Van daaruit met de rechtermuisknop op de **SAMLResponse** waarde en selecteert u **verzenden naar TextWizard**. Selecteer vervolgens **van Base64** van de **transformeren** menu voor het decoderen van het token en de inhoud weergeven.
+U kunt Hallo SAML-token weergeven door deze regel te selecteren Hallo **Inspectors > webformulieren** tabblad in het rechterpaneel Hallo. Met de rechtermuisknop op Hallo van daaruit **SAMLResponse** waarde en selecteert u **tooTextWizard verzenden**. Selecteer vervolgens **van Base64** van Hallo **transformeren** menu toodecode Hallo token en de inhoud ervan bekijken.
 
-**Opmerking**: overzicht van de inhoud van deze HTTP-aanvraag Fiddler u mogelijk gevraagd te configureren van de ontsleuteling van HTTPS-verkeer, wat u moet doen.
+**Opmerking**: toosee Hallo inhoud van deze HTTP-aanvragen, Fiddler u tooconfigure ontsleuteling van HTTPS-verkeer, u moet mogelijk gevraagd toodo.
 
 ## <a name="related-articles"></a>Verwante artikelen
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../active-directory-saas-custom-apps.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
-* [Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md)
+* [Eenmalige aanmelding tooapplications die zich niet in de Azure Active Directory-toepassingsgalerie Hallo configureren](../active-directory-saas-custom-apps.md)
+* [Hoe tooCustomize Claims uitgegeven hello SAML-Token voor Pre-Integrated Apps](active-directory-saml-claims-customization.md)
 
 <!--Image references-->
 [1]: ../media/active-directory-saml-debugging/fiddler.png

@@ -1,6 +1,6 @@
 ---
-title: CORS-ondersteuning in App Service | Microsoft Docs
-description: Informatie over het gebruik van CORS-ondersteuning in Azure App Service.
+title: aaaCORS ondersteuning in App Service | Microsoft Docs
+description: Meer informatie over hoe toouse CORS in Azure Azure App Service ondersteunen.
 services: app-service\api
 documentationcenter: .net
 author: alexkarcher-msft
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: alkarche
-ms.openlocfilehash: f8373cf5b2e06e6c71bce51cd9e9d5123eea7cfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c229378b75840bc0f7b2eefc3df3031233f9b494
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consume-an-api-app-from-javascript-using-cors"></a>Een API-app van JavaScript gebruiken met CORS
-App Service biedt ingebouwde ondersteuning voor [CORS (Cross Origin Resource Sharing)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), waarmee JavaScript-clients aanroepen tussen domeinen kunnen maken naar API's die worden gehost in API-apps. Met App Service kunt u CORS-toegang tot uw API configureren zonder dat u in de API code hoeft te schrijven.
+App Service biedt ingebouwde ondersteuning voor [Cross Origin Resource delen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), waarmee JavaScript-clients toomake tussen domeinen aanroepen tooAPIs die worden gehost in API-apps. App Service kunt u CORS toegang tooyour API configureren zonder de code schrijven in uw API.
 
 Dit artikel bestaat uit twee gedeelten:
 
-* Eerst wordt in de sectie [CORS configureren](#corsconfig) in grote lijnen uitgelegd hoe u CORS configureert voor een API-app, web-app of mobiele app. Deze informatie heeft ook betrekking op alle frameworks die door App Service worden ondersteund, waaronder .NET, Node.js en Java. 
-* Vanaf de sectie [Vervolg van de zelfstudie Aan de slag met .NET](#tutorialstart) is het artikel een zelfstudie. Hierin leert u hoe CORS-ondersteuning wordt toegepast, door voort te bouwen op wat u hebt gedaan in [de eerste zelfstudie Aan de slag met API Apps](app-service-api-dotnet-get-started.md). 
+* Hallo [hoe tooconfigure CORS](#corsconfig) sectie wordt uitgelegd hoe u algemene tooconfigure CORS voor API-app, web-app of mobiele app. Het is evenveel van toepassing tooall frameworks die worden ondersteund door App Service, waaronder .NET, Node.js en Java. 
+* Beginnen met Hallo [u doorgaat zelfstudies .NET-aan de slag Hallo](#tutorialstart) sectie Hallo artikel is een zelfstudie leert u hoe CORS-ondersteuning door te bouwen op wat u hebt gedaan wordt [Hallo eerste API-Apps zelfstudie aan de slag ](app-service-api-dotnet-get-started.md). 
 
-## <a id="corsconfig"></a>CORS configureren in Azure App Service
-U kunt CORS configureren in Azure Portal of met behulp van de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-hulpprogramma's.
+## <a id="corsconfig"></a>Hoe tooconfigure CORS in Azure App Service
+U kunt CORS configureren in hello Azure-portal of met behulp van [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) hulpprogramma's.
 
-#### <a name="configure-cors-in-the-azure-portal"></a>CORS configureren in Azure Portal
-1. Ga in een browser naar de [Azure Portal](https://portal.azure.com/).
-2. Klik op **App Services** en vervolgens op de naam van de API-app.
+#### <a name="configure-cors-in-hello-azure-portal"></a>CORS configureren in hello Azure-portal
+1. Ga in een browser toohello [Azure-portal](https://portal.azure.com/).
+2. Klik op **App Services**, en klik vervolgens op Hallo-naam van uw API-app.
    
     ![De API-app in de portal selecteren](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
-3. Ga op de blade **Instellingen**, die rechts naast de blade **API-app** wordt geopend, naar de sectie **API** en klik vervolgens op **CORS**.
+3. In Hallo **instellingen** blade die wordt geopend toohello rechts van Hallo **API-app** blade, zoeken Hallo **API** sectie en klik vervolgens op **CORS**.
    
    ![CORS selecteren op de blade Instellingen](./media/app-service-api-cors-consume-javascript/clicksettings.png)
-4. Voer in het tekstvak de URL of URL's in waarvan JavaScript-aanroepen afkomstig mogen zijn.
+4. Voer in het tekstvak Hallo Hallo URL of URL's die u wilt dat tooallow JavaScript-aanroepen toocome uit.
 
-    Als u uw JavaScript-toepassing bijvoorbeeld hebt geïmplementeerd in een web-app met de naam todolistangular, voert u 'https://todolistangular.azurewebsites.net' in. Als alternatief kunt u een sterretje (*) invoeren als u wilt opgeven dat alle domeinen worden geaccepteerd.
+    Bijvoorbeeld, als u uw JavaScript toepassing tooa web-app met de naam todolistangular hebt geïmplementeerd, voert u 'https://todolistangular.azurewebsites.net' in. Als alternatief kunt u een sterretje (*) toospecify dat alle domeinen worden geaccepteerd.
 
 
 1. Klik op **Opslaan**.
    
    ![Op Opslaan klikken](./media/app-service-api-cors-consume-javascript/corsinportal.png)
    
-   Nadat u op **Opslaan** hebt geklikt, accepteert de API-app JavaScript-aanroepen vanuit de opgegeven URL's.
+   Nadat u op **opslaan**, accepteert Hallo API-app JavaScript-aanroepen vanuit Hallo opgegeven URL's.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>CORS configureren met de Azure Resource Manager-hulpprogramma's
-U kunt CORS ook configureren voor een API-app met behulp van [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) in opdrachtregelhulpprogramma's zoals [Azure PowerShell](/powershell/azureps-cmdlets-docs) en de [Azure CLI](../cli-install-nodejs.md). 
+U kunt CORS ook configureren voor een API-app met behulp van [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) in opdrachtregelhulpprogramma's zoals [Azure PowerShell](/powershell/azureps-cmdlets-docs) en Hallo [Azure CLI](../cli-install-nodejs.md). 
 
-Voor een voorbeeld van een Azure Resource Manager-sjabloon die de CORS-eigenschap instelt, opent u het [bestand azuredeploy.json in de opslagplaats voor de voorbeeldtoepassing uit deze zelfstudie](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Ga naar het gedeelte van de sjabloon die lijkt op het volgende voorbeeld:
+Voor een voorbeeld van een Azure Resource Manager-sjabloon die Hallo CORS-eigenschap instelt, opent u Hallo [bestand azuredeploy.json in Hallo-opslagplaats voor de voorbeeldtoepassing uit deze zelfstudie](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Hallo-sectie van het Hallo-sjabloon die lijkt op het volgende voorbeeld Hallo vinden:
 
         "cors": {
             "allowedOrigins": [
@@ -61,15 +61,15 @@ Voor een voorbeeld van een Azure Resource Manager-sjabloon die de CORS-eigenscha
             ]
         }
 
-## <a id="tutorialstart"></a> Vervolg van de zelfstudie Aan de slag met .NET
-Als u de reeks Aan de slag met Node.js of Java voor API-apps volgt, hebt u de Aan de slag-reeks nu voltooid. Ga naar de sectie [Volgende stappen](#next-steps) voor suggesties voor meer informatiebronnen over API Apps.
+## <a id="tutorialstart"></a>U kunt doorgaan Hallo .NET aan de slag-zelfstudie
+Als u Hallo Node.js of Java reeks aan de slag voor API-apps volgt, hebt u voltooide Hallo gestart reeks ophalen. Overslaan toohello [Vervolgstappen](#next-steps) sectie toofind-suggesties voor meer informatiebronnen over API-Apps.
 
-De rest van dit artikel is een vervolg van de reeks Aan de slag met .NET. Er wordt van uitgegaan dat u [de eerste zelfstudie](app-service-api-dotnet-get-started.md) met succes hebt voltooid.
+Hallo rest van dit artikel is een vervolg van de reeks aan de slag met .NET Hallo en wordt ervan uitgegaan dat u met succes voltooid [Hallo eerste zelfstudie](app-service-api-dotnet-get-started.md).
 
-## <a name="deploy-the-todolistangular-project-to-a-new-web-app"></a>Het project ToDoListAngular implementeren in een nieuwe web-app
-In [de eerste zelfstudie](app-service-api-dotnet-get-started.md) hebt u een API-app voor de middelste laag en een API-app voor de gegevenslaag gemaakt. In deze zelfstudie maakt u een SPA-web-app (SPA staat voor 'Single-Page Application') die de API-app voor de middelste laag aanroept. Voor de SPA moet u CORS inschakelen in de API-app voor de middelste laag. 
+## <a name="deploy-hello-todolistangular-project-tooa-new-web-app"></a>Hallo project tooa nieuwe web-app ToDoListAngular implementeren
+In [Hallo eerste zelfstudie](app-service-api-dotnet-get-started.md), u een van de middelste laag API-app en een API app voor de gegevenslaag gemaakt. In deze zelfstudie maakt u een web-app (SPA) single-page application die aanroepen Hallo middelste laag API-app. U hebt tooenable CORS op Hallo middelste laag API-app voor Hallo SPA toowork. 
 
-In de [voorbeeldtoepassing ToDoList](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) is het project ToDoListAngular een eenvoudige AngularJS-client die het ToDoListAPI Web API-project voor de middelste laag aanroept. De JavaScript-code in het bestand *app/scripts/todoListSvc.js* roept de API aan met behulp van de AngularJS HTTP-provider. 
+In Hallo [voorbeeldtoepassing ToDoList](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list), Hallo ToDoListAngular project is een eenvoudige AngularJS-client die het ToDoListAPI Web API-project voor Hallo middelste laag aanroept. JavaScript-code in Hallo Hallo *app/scripts/todoListSvc.js* bestand Hallo-API aanroept met behulp van Hallo AngularJS HTTP-provider. 
 
         angular.module('todoApp')
         .factory('todoListSvc', ['$http', function ($http) {
@@ -90,42 +90,42 @@ In de [voorbeeldtoepassing ToDoList](https://github.com/Azure-Samples/app-servic
             };
         }]);
 
-### <a name="create-a-new-web-app-for-the-todolistangular-project"></a>Een nieuwe web-app maken voor het project ToDoListAngular
-De procedure voor het maken van een nieuwe App Service-web-app en het vervolgens implementeren hiervan in een project is vergelijkbaar met wat u hebt gezien voor [het maken en implementeren van een API-app in de eerste zelfstudie van deze reeks](app-service-api-dotnet-get-started.md#createapiapp). Het enige verschil is dat het type app **Web-app** is in plaats van **API-app**.  Zie voor schermafbeeldingen van de dialoogvensters 
+### <a name="create-a-new-web-app-for-hello-todolistangular-project"></a>Een nieuwe web-app voor Hallo ToDoListAngular project maken
+Hallo toocreate procedure een nieuwe App Service-web-app en het implementeren van een project tooit is vergelijkbaar toowhat die u hebt gezien voor [maken en implementeren van een API-app in de eerste zelfstudie van deze reeks Hallo](app-service-api-dotnet-get-started.md#createapiapp). Hallo alleen verschil dat Hallo app-type is is **Web-App** in plaats van **API-App**.  Zie voor schermafbeeldingen van Hallo dialoogvensters, 
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het project ToDoListAngular. Klik vervolgens op **Publish**.
-2. Klik op het tabblad **Profile** van de wizard **Publish Web** op **Microsoft Azure App Service**.
-3. Klik in het dialoogvenster **App Service** op **New**.
-4. Voer op het tabblad **Hosting** van het dialoogvenster **Create App Service** in het veld **Web App Name** een naam in die uniek is in het domein *azurewebsites.net*. 
-5. Kies in **Subscription** het Azure-abonnement waarmee u wilt werken.
-6. Kies in de vervolgkeuzelijst **Resource Group** dezelfde resourcegroep die u eerder hebt gemaakt.
-7. Kies in de vervolgkeuzelijst **App Service Plan** hetzelfde abonnement dat u eerder hebt gemaakt. 
+1. In **Solution Explorer**, met de rechtermuisknop op Hallo ToDoListAngular project en klik vervolgens op **publiceren**.
+2. In Hallo **profiel** tabblad Hallo **webpublicatie** wizard, klikt u op **Microsoft Azure App Service**.
+3. In Hallo **App Service** in het dialoogvenster, klikt u op **nieuw**.
+4. In Hallo **Hosting** tabblad Hallo **Create App Service** dialoogvenster Voer een **Web-Appnaam** die uniek is in Hallo *azurewebsites.net* een domein. 
+5. Kies hello Azure **abonnement** gewenste toowork met.
+6. In Hallo **resourcegroep** vervolgkeuzelijst Hallo Kies dezelfde resourcegroep die u eerder hebt gemaakt.
+7. In Hallo **App Service-abonnement** vervolgkeuzelijst Kies Hallo hetzelfde abonnement dat u eerder hebt gemaakt. 
 8. Klik op **Create**.
    
-    Visual Studio maakt de web-app, maakt er een publicatieprofiel voor en geeft de stap **Connection** van de wizard **Publish Web** weer.
+    Visual Studio maakt Hallo web-app, maakt er een publicatieprofiel voor en geeft weer Hallo **verbinding** stap Hallo **webpublicatie** wizard.
    
-    Klik nog niet op **Publish**. In de volgende sectie configureert u de nieuwe web-app om de API-app voor de middelste laag aan te roepen die wordt uitgevoerd in de App Service. 
+    Klik nog niet op **Publish**. Hallo volgende sectie, configureert u Hallo nieuwe web-app toocall Hallo middelste laag API-app die wordt uitgevoerd in App Service. 
 
-### <a name="set-the-middle-tier-url-in-web-app-settings"></a>De URL voor de middelste laag instellen in de instellingen voor web-apps
-1. Ga naar de [Azure Portal](https://portal.azure.com/) en navigeer vervolgens naar de blade **Web-app** voor de web-app die u hebt gemaakt als host voor het (front-end-)project TodoListAngular.
+### <a name="set-hello-middle-tier-url-in-web-app-settings"></a>Hallo-URL voor de middelste laag instellen in instellingen voor web-app
+1. Ga toohello [Azure-portal](https://portal.azure.com/), en navigeert u vervolgens toohello **Web-App** blade voor Hallo web-app die u hebt gemaakt (toohost hello front-end) project TodoListAngular.
 2. Klik op **Instellingen > Toepassingsinstellingen**.
-3. Geef in de sectie **App-instellingen** de volgende sleutel en waarde op:
+3. In Hallo **appinstellingen** sectie, voeg Hallo volgende sleutel en waarde:
    
    | Sleutel | Waarde | Voorbeeld |
    | --- | --- | --- |
    | toDoListAPIURL |https://{de naam van uw API-app voor de middelste laag}.azurewebsites.net |https://todolistapi0121.azurewebsites.net |
 4. Klik op **Opslaan**.
    
-    Wanneer de code in Azure wordt uitgevoerd, overschrijft deze waarde de localhost-URL die zich in het *Web.config*-bestand bevindt. 
+    Wanneer het Hallo-code wordt uitgevoerd in Azure, overschrijft deze waarde Hallo localhost-URL die zich in Hallo *Web.config* bestand. 
    
-    De code die de instellingswaarde krijgt, bevindt zich in *index.cshtml*:
+    Hallo-code die de instellingswaarde Hallo krijgt *index.cshtml*:
    
         <script type="text/javascript">
             var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
         </script>
         <script src="app/scripts/todoListSvc.js"></script>
    
-    De code in *todoListSvc.js* maakt gebruik van de instelling:
+    Hallo-code in *todoListSvc.js* Hallo-instelling wordt gebruikt:
    
         return {
             getItems : function(){
@@ -148,60 +148,60 @@ De procedure voor het maken van een nieuwe App Service-web-app en het vervolgens
             }
         };
 
-### <a name="deploy-the-todolistangular-web-project-to-the-new-web-app"></a>Het webproject ToDoListAngular implementeren in een nieuwe web-app
-* Klik in Visual Studio in de stap **Connection** van de wizard **Publish Web** op **Publish**.
+### <a name="deploy-hello-todolistangular-web-project-toohello-new-web-app"></a>Hallo web project toohello nieuwe web-app ToDoListAngular implementeren
+* In Visual Studio in Hallo **verbinding** stap Hallo **webpublicatie** wizard, klikt u op **publiceren**.
   
-   Visual Studio implementeert het project ToDoListAngular in de nieuwe web-app en opent een browservenster met de URL van de web-app. 
+   Visual Studio Hallo ToDoListAngular project toohello nieuwe web-app implementeert en een URL van de browser toohello van Hallo web-app wordt geopend. 
 
-### <a name="test-the-application-without-cors-enabled"></a>De toepassing testen zonder dat CORS is ingeschakeld
-1. Open in uw browser het consolevenster van de ontwikkelhulpprogramma’s.
-2. Klik in het browservenster waarin de AngularJS-gebruikersinterface wordt weergegeven, op de koppeling **To Do List**.
+### <a name="test-hello-application-without-cors-enabled"></a>Hallo toepassing testen zonder dat CORS is ingeschakeld
+1. Open in uw browser hulpprogramma's voor ontwikkelaars Hallo-consolevenster.
+2. In het browservenster Hallo die Hallo AngularJS UI wordt weergegeven, klikt u op Hallo **tooDo lijst** koppeling.
    
-    De JavaScript-code probeert de API-app voor de middelste laag aan te roepen, maar de aanroep mislukt omdat de front-end in een ander domein wordt uitgevoerd dan de back-end. In het consolevenster van de ontwikkelhulpprogramma’s van de browser wordt een cross-origin-foutbericht weergegeven.
+    Hallo JavaScript-code probeert toocall Hallo middelste laag API-app, maar Hallo-aanroep is mislukt omdat Hallo-front-end wordt uitgevoerd in een ander domein dan Hallo terug end. Hallo van de Console hulpprogramma's voor ontwikkelaars browservenster weergegeven een cross-origin-foutbericht.
    
     ![Cross-origin-foutbericht](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
-## <a name="configure-cors-for-the-middle-tier-api-app"></a>CORS configureren voor de API-app voor de middelste laag
-In deze sectie configureert u de CORS-instelling in Azure voor ToDoListAPI, de API-app voor de middelste laag. Met deze instelling kan de API-app voor de middelste laag JavaScript-aanroepen ontvangen van de web-app die u hebt gemaakt voor het project ToDoListAngular.
+## <a name="configure-cors-for-hello-middle-tier-api-app"></a>CORS configureren voor de middelste laag Hallo API-app
+In deze sectie configureert u Hallo CORS-instelling in Azure voor Hallo middelste laag API-app ToDoListAPI. Deze instelling kunt Hallo middelste laag API app tooreceive JavaScript-aanroepen vanuit Hallo web-app die u hebt gemaakt voor de project ToDoListAngular Hallo.
 
-1. Ga in een browser naar de [Azure Portal](https://portal.azure.com/).
-2. Klik op **App Services** en vervolgens op de API-app ToDoListAPI (middelste laag).
+1. Ga in een browser toohello [Azure-portal](https://portal.azure.com/).
+2. Klik op **App Services**, en klik vervolgens op Hallo ToDoListAPI (middelste laag) API-app.
    
     ![De API-app in de portal selecteren](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
-3. Ga op de blade **Instellingen**, die rechts naast de blade **API-app** wordt geopend, naar de sectie **API** en klik vervolgens op **CORS**.
+3. In Hallo **instellingen** blade die wordt geopend toohello rechts van Hallo **API-app** blade, zoeken Hallo **API** sectie en klik vervolgens op **CORS**.
    
    ![CORS selecteren in de portal](./media/app-service-api-cors-consume-javascript/clicksettings.png)
-4. Voer in het tekstvak de URL voor de web-app ToDoListAngular (front-end) in. Hebt u het project ToDoListAngular bijvoorbeeld geïmplementeerd voor een web-app met de naam todolistangular0121, dan staat u aanroepen toe van de URL `https://todolistangular0121.azurewebsites.net`.
+4. Voer in het tekstvak hello, Hallo-URL voor Hallo ToDoListAngular (front-end) web-app. Bijvoorbeeld, u Hallo project tooa web-app ToDoListAngular met de naam todolistangular0121 hebt geïmplementeerd, staat u aanroepen toe van Hallo URL `https://todolistangular0121.azurewebsites.net`.
    
-   Als alternatief kunt u een sterretje (*) invoeren als u wilt opgeven dat alle domeinen worden geaccepteerd.
+   Als alternatief kunt u een sterretje (*) toospecify dat alle domeinen worden geaccepteerd.
 5. Klik op **Opslaan**.
    
    ![Op Opslaan klikken](./media/app-service-api-cors-consume-javascript/corsinportal.png)
    
-   Nadat u op **Opslaan** hebt geklikt, accepteert de API-app JavaScript-aanroepen vanuit de opgegeven URL. Op deze schermafbeelding accepteert de API-app ToDoListAPI0223 JavaScript-clientaanroepen van de web-app ToDoListAngular.
+   Nadat u op **opslaan**, accepteert Hallo API-app JavaScript-aanroepen vanuit Hallo URL opgegeven. In deze schermafbeelding accepteert Hallo API-app ToDoListAPI0223 JavaScript-clientaanroepen van web-app ToDoListAngular Hallo.
 
-### <a name="test-the-application-with-cors-enabled"></a>De toepassing testen met CORS ingeschakeld
-* Open een browservenster met de HTTPS-URL van de web-app. 
+### <a name="test-hello-application-with-cors-enabled"></a>Hallo toepassing testen met CORS ingeschakeld
+* Open een browser toohello HTTPS-URL van Hallo web-app. 
   
-    De toepassing staat u nu toe taken te bekijken, toe te voegen, te bewerken en te verwijderen. 
+    Deze toepassing hello kunt u weergeven, toevoegen, bewerken en verwijderen van taken. 
   
-    ![Takenlijstpagina van voorbeeld-app](./media/app-service-api-cors-consume-javascript/corssuccess.png)
+    ![tooDo lijstpagina van de voorbeeld-app](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
 ## <a name="app-service-cors-versus-web-api-cors"></a>App Service CORS versus Web API CORS
-In een Web API-project kunt u het [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet-pakket installeren om in de code op te geven vanuit welke domeinen uw API JavaScript-aanroepen accepteert.
+In een Web API-project, installeert u Hallo [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet-pakket toospecify in welke domeinen uw API JavaScript-accepteert van aanroepen code.
 
 Ondersteuning voor Web API CORS biedt meer flexibiliteit dan ondersteuning voor App Service CORS. Zo kunt u in de code voor verschillende actiemethoden verschillende toegestane bronnen opgeven. Voor App Service CORS kunt u voor alle methoden van uw API-app slechts één set toegestane bronnen opgeven.
 
 > [!NOTE]
-> Gebruik Web API CORS en App Service CORS niet samen in één API-app. Doet u dit toch, dan krijgt App Service CORS voorrang en heeft Web API CORS geen effect. Als u bijvoorbeeld in App Service één brondomein inschakelt en in uw Web API-code alle brondomeinen, accepteert uw Azure API-app alleen aanroepen van het domein dat u in Azure hebt opgegeven.
+> Probeer niet toouse zowel Web API CORS en App Service CORS in één API-app. Doet u dit toch, dan krijgt App Service CORS voorrang en heeft Web API CORS geen effect. Bijvoorbeeld, als u één brondomein in App Service inschakelt en inschakelen van alle domeinen in uw Web-API-code, accepteert uw Azure-API-app alleen aanroepen vanuit Hallo domein dat u in Azure hebt opgegeven.
 > 
 > 
 
-### <a name="how-to-enable-cors-in-web-api-code"></a>CORS inschakelen in de web API-code
-De volgende stappen geven een overzicht van het proces voor het inschakelen van ondersteuning voor Web API CORS. Zie [Cross-origin-aanvragen inschakelen in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) voor meer informatie.
+### <a name="how-tooenable-cors-in-web-api-code"></a>Hoe tooenable CORS in Web-API-code
+Hallo stappen geven een overzicht van Hallo-proces voor het inschakelen van Web API CORS-ondersteuning. Zie [Cross-origin-aanvragen inschakelen in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) voor meer informatie.
 
-1. Installeer in een Web API-project het [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet-pakket.
-2. Voeg een `config.EnableCors()`coderegel in de **Register**-methode van de **WebApiConfig**-klasse toe, zoals in het volgende voorbeeld. 
+1. Installeren in een Web-API-project Hallo [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet-pakket.
+2. Omvatten een `config.EnableCors()` coderegel in Hallo **registreren** methode Hallo **WebApiConfig** klasse, zoals in het volgende voorbeeld Hallo. 
    
         public static class WebApiConfig
         {
@@ -209,7 +209,7 @@ De volgende stappen geven een overzicht van het proces voor het inschakelen van 
             {
                 // Web API configuration and services
    
-                // The following line enables you to control CORS by using Web API code
+                // hello following line enables you toocontrol CORS by using Web API code
                 config.EnableCors();
    
                 // Web API routes
@@ -222,7 +222,7 @@ De volgende stappen geven een overzicht van het proces voor het inschakelen van 
                 );
             }
         }
-3. Voeg in uw Web API-controller een `using`-instructie voor de `System.Web.Http.Cors`-naamruimte toe en voeg het `EnableCors`-kenmerk toe aan de controllerklasse of aan afzonderlijke actiemethoden. In het volgende voorbeeld geldt CORS-ondersteuning voor de gehele controller.
+3. Voeg in uw Web-API-controller een `using` -instructie voor Hallo `System.Web.Http.Cors` naamruimte, en voeg Hallo `EnableCors` kenmerk toohello-controller klasse of tooindividual actiemethoden. In de Hallo voorbeeld te volgen, geldt CORS-ondersteuning toohello gehele controller.
    
         namespace ToDoListAPI.Controllers 
         {
@@ -231,7 +231,7 @@ De volgende stappen geven een overzicht van het proces voor het inschakelen van 
             public class ToDoListController : ApiController
 
 ## <a name="using-azure-api-management-with-api-apps"></a>Azure API Management gebruiken met API-apps
-Als u Azure API Management met een API-app gebruikt, configureert u CORS in API Management in plaats van in de API-app. Zie de volgende bronnen voor meer informatie:
+Als u Azure API Management met een API-app gebruikt, configureert u CORS in API Management in plaats van in Hallo API-app. Zie voor meer informatie Hallo resources te volgen:
 
 * [Overzicht van Azure API Management (video: CORS begint bij 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
 * [API Management-beleid voor meerdere domeinen](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
@@ -239,13 +239,13 @@ Als u Azure API Management met een API-app gebruikt, configureert u CORS in API 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als u een probleem ervaart tijdens het doorlopen van deze zelfstudie, vindt hier u enkele ideeën voor probleemoplossing.
 
-* Zorg ervoor dat u de nieuwste versie van de [Azure SDK voor .NET voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) gebruikt.
-* Zorg ervoor dat u `https` hebt ingevoerd in de CORS-instelling en dat u `https` gebruikt om de front-end web-app uit te voeren.
-* Zorg ervoor dat u de CORS-instelling hebt ingevoerd in de API voor de middelste laag en niet in de front-end web-app.
-* Als u CORS zowel in de toepassingscode als in Azure App Service configureert, houd er dan rekening mee dat de App Service CORS-instelling overschrijft wat u in de toepassingscode doet. 
+* Zorg ervoor dat u de meest recente versie Hallo Hallo [Azure SDK voor .NET voor Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
+* Zorg ervoor dat u hebt ingevoerd `https` in Hallo CORS-instelling en zorg ervoor dat u gebruikt `https` toorun Hallo front-end web-app.
+* Zorg ervoor dat het ingevoerde Hallo CORS-instelling in Hallo middelste laag API-app, niet in Hallo front-end web-app.
+* Als u CORS in de toepassingscode en Azure App Service configureren bent, houd er rekening mee dat Hallo-App Service CORS-instelling overschrijft wat u doet in de toepassingscode. 
 
-Zie [Problemen met Azure App Service-apps in Visual Studio oplossen](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md) voor meer informatie over de functies van Visual Studio die probleemoplossing vereenvoudigen.
+Zie toolearn meer informatie over de functies van Visual Studio die probleemoplossing vereenvoudigen [problemen Azure App Service-apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u gezien hoe u App Service CORS-ondersteuning kunt inschakelen, zodat client-JavaScript-code een API kan aanroepen in een ander domein. Lees voor meer informatie over API-apps de [Kennismaking met verificatie in App Service](../app-service/app-service-authentication-overview.md) en ga vervolgens naar de zelfstudie [Gebruikersverificatie voor API-apps](app-service-api-dotnet-user-principal-auth.md).
+In dit artikel hebt u gezien hoe App Service CORS tooenable ondersteunen, zodat de client-JavaScript-code een API kan aanroepen in een ander domein. meer informatie over API-apps Lees Hallo toolearn [tooauthentication Inleiding in App Service](../app-service/app-service-authentication-overview.md), en ga toohello [gebruikersverificatie voor API-apps](app-service-api-dotnet-user-principal-auth.md) zelfstudie.
 

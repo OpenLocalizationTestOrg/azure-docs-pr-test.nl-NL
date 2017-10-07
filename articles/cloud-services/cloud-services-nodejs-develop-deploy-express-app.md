@@ -1,6 +1,6 @@
 ---
-title: Web-App snelle (Node.js) | Microsoft Docs
-description: Een zelfstudie die is gebaseerd op de cloud service-zelfstudie en laat zien hoe u de Express-module.
+title: aaaWeb App snelle (Node.js) | Microsoft Docs
+description: Een zelfstudie die is gebaseerd op Hallo cloud service zelfstudie en laat zien hoe toouse Hallo Express-module.
 services: cloud-services
 documentationcenter: nodejs
 author: TomArcher
@@ -14,110 +14,110 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 91921bfbe137eeca9a110d4cb18eb57b46b0060e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Een Node.js-webtoepassing met een snelle op een Azure Cloud Service bouwen
-Node.js bevat een minimale set van de functionaliteit in de runtime core.
-Ontwikkelaars gebruiken vaak 3e partij modules aanvullende functionaliteit kan bieden bij het ontwikkelen van een Node.js-toepassing. In deze zelfstudie maakt u een nieuwe toepassing met de [Express] [ Express] module waarmee een MVC-framework biedt voor het maken van Node.js-webtoepassingen.
+Node.js bevat een minimale set van de functionaliteit in Hallo core runtime.
+Ontwikkelaars vaak 3e partij modules tooprovide aanvullende functionaliteit gebruiken bij het ontwikkelen van een Node.js-toepassing. In deze zelfstudie maakt u een nieuwe toepassing met behulp van Hallo [Express] [ Express] module waarmee een MVC-framework biedt voor het maken van Node.js-webtoepassingen.
 
-Een schermopname van de voltooide toepassing lager is dan:
+Een schermopname van de toepassing hello voltooid lager is dan:
 
-![Een webbrowser waarin Welkom in Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+![Een webbrowser waarin Welkom tooExpress in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="create-a-cloud-service-project"></a>Een Cloud Service-Project maken
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-Voer de volgende stappen voor het maken van een nieuw cloudserviceproject met de naam 'expressapp':
+Uitvoeren van de volgende Hallo toocreate stappen een nieuwe cloudserviceproject met de naam 'expressapp':
 
-1. Van de **startmenu** of **startscherm**, zoeken naar **Windows PowerShell**. Ten slotte de met de rechtermuisknop op **Windows PowerShell** en selecteer **als Administrator uitvoeren**.
+1. Van Hallo **startmenu** of **startscherm**, zoeken naar **Windows PowerShell**. Ten slotte de met de rechtermuisknop op **Windows PowerShell** en selecteer **als Administrator uitvoeren**.
    
     ![Azure PowerShell-pictogram](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-2. Wijzig de mappen op de **c:\\knooppunt** directory en voer de volgende opdrachten voor het maken van een nieuwe oplossing met de naam **expressapp** en een Webrol met de naam **WebRole1**:
+2. Wijzig de mappen toohello **c:\\knooppunt** directory en voer vervolgens de volgende opdrachten toocreate een nieuwe oplossing met de naam Hallo **expressapp** en een Webrol met de naam **WebRole1** :
    
         PS C:\node> New-AzureServiceProject expressapp
         PS C:\Node\expressapp> Add-AzureNodeWebRole
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
     > [!NOTE]
-    > Standaard **Add-AzureNodeWebRole** maakt gebruik van een oudere versie van Node.js. De **Set AzureServiceProjectRole** instructie hiervoor Hiermee geeft u Azure v0.10.21 van knooppunt gebruiken.  Noteer dat de parameters zijn hoofdlettergevoelig.  U kunt controleren of de juiste versie van Node.js is geselecteerd door het controleren van de **engines** eigenschap in **WebRole1\package.json**.
+    > Standaard **Add-AzureNodeWebRole** maakt gebruik van een oudere versie van Node.js. Hallo **Set AzureServiceProjectRole** instructie hiervoor Hiermee geeft u Azure toouse v0.10.21 van knooppunt.  Houd er rekening mee Hallo parameters zijn hoofdlettergevoelig.  U kunt controleren of de juiste versie Hallo van Node.js is geselecteerd door te controleren Hallo **engines** eigenschap in **WebRole1\package.json**.
     > 
     > 
 
 ## <a name="install-express"></a>Express installeren
-1. De Express-generator installeren door de volgende opdracht:
+1. Hallo Express-generator door uitgifte van Hallo volgende opdracht installeren:
    
         PS C:\node\expressapp> npm install express-generator -g
    
-    De uitvoer van de npm-opdracht zijn vergelijkbaar met het onderstaande resultaat. 
+    Hallo-uitvoer van Hallo npm opdracht ziet er vergelijkbaar toohello resultaat hieronder. 
    
-    ![Windows PowerShell weergeven van de uitvoer van de npm installeren snelle opdracht.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
-2. Wijzig de mappen op de **WebRole1** directory en gebruik de express-opdracht voor het genereren van een nieuwe toepassing:
+    ![Windows PowerShell weergeven Hallo uitvoer van Hallo npm snelle opdracht installeren.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
+2. Wijzig de mappen toohello **WebRole1** directory en gebruik Hallo snelle opdracht toogenerate een nieuwe toepassing:
    
         PS C:\node\expressapp\WebRole1> express
    
-    U wordt gevraagd uw eerdere toepassing overschrijven. Voer **y** of **Ja** om door te gaan. Snelle genereert het bestand app.js en de mappenstructuur van een voor het bouwen van uw toepassing.
+    U na vragen aan gebruiker toooverwrite uw eerdere toepassing zijn. Voer **y** of **Ja** toocontinue. Express wordt gegenereerd Hallo app.js bestands- en de mappenstructuur van een voor het bouwen van uw toepassing.
    
-    ![De uitvoer van de snelle opdracht](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
-3. Voer de volgende opdracht voor het installeren van extra afhankelijkheden die zijn gedefinieerd in het package.json-bestand:
+    ![Hallo-uitvoer van Hallo snelle opdracht](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
+3. tooinstall extra afhankelijkheden gedefinieerd in Hallo package.json-bestand, Voer Hallo volgende opdracht:
    
        PS C:\node\expressapp\WebRole1> npm install
    
-   ![De uitvoer van de npm-installatieopdracht](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
-4. Gebruik de volgende opdracht om te kopiëren de **bin/www** van het bestand in **server.js**. Dit is de service in de cloud vindt het toegangspunt dat voor deze toepassing.
+   ![Hallo-uitvoer van Hallo npm installatieopdracht](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
+4. Gebruik Hallo volgende opdracht toocopy hello **bin/www** bestand te**server.js**. Dit is dus cloudservice Hallo Hallo toegangspunt voor deze toepassing kunt vinden.
    
        PS C:\node\expressapp\WebRole1> copy bin/www server.js
    
-   Nadat u deze opdracht is voltooid, hebt u een **server.js** bestand in de map WebRole1.
-5. Wijzig de **server.js** verwijderen van een van de '.' tekens uit de volgende regel.
+   Nadat u deze opdracht is voltooid, hebt u een **server.js** bestand in map Hallo WebRole1.
+5. Hallo wijzigen **server.js** tooremove een Hallo '.' tekens bevatten uit Hallo volgt regel.
    
        var app = require('../app');
    
-   Na deze wijziging, de regel moet worden weergegeven als volgt.
+   Na deze wijziging, Hallo regel moet worden weergegeven als volgt.
    
        var app = require('./app');
    
-   Deze wijziging is vereist omdat het bestand is verplaatst (voorheen **bin/www**,) in dezelfde map als het appbestand dat vereist is. Nadat u deze wijziging, sla de **server.js** bestand.
-6. Gebruik de volgende opdracht voor het uitvoeren van de toepassing in de Azure-emulator:
+   Deze wijziging is vereist omdat we Hallo-bestand is verplaatst (voorheen **bin/www**,) toohello dezelfde directory als Hallo app-bestand wordt vereist. Nadat u deze wijziging, opslaan Hallo **server.js** bestand.
+6. Gebruik Hallo opdracht toorun Hallo toepassing in hello Azure-emulator te volgen:
    
        PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
    
-    ![Een webpagina met Welkom om uit te drukken.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
+    ![Een webpagina met Welkom tooexpress.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
-## <a name="modifying-the-view"></a>De weergave wijzigen
-Wijzig nu de weergave om het bericht 'Welkom naar Express in Azure' weer te geven.
+## <a name="modifying-hello-view"></a>Hallo weergave wijzigen
+Nu wijzigen Hallo weergave toodisplay Hallo-bericht 'Welkom tooExpress in Azure'.
 
-1. Voer de volgende opdracht om de index.jade-bestand te openen:
+1. Voer Hallo opdrachtbestand tooopen hello index.jade te volgen:
    
        PS C:\node\expressapp\WebRole1> notepad views/index.jade
    
-   ![De inhoud van het bestand index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![Hallo-inhoud van Hallo index.jade bestand.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade is de standaard weergave-engine wordt gebruikt door toepassingen van Express. Zie voor meer informatie over Jade weergave-engine [http://jade-lang.com][http://jade-lang.com].
-2. De laatste regel van tekst wijzigen door toe te voegen **in Azure**.
+   Jade is Hallo standaard weergave-engine wordt gebruikt door toepassingen van Express. Zie voor meer informatie over Jade weergave-engine Hallo [http://jade-lang.com][http://jade-lang.com].
+2. Hallo laatste regel van tekst wijzigen door toe te voegen **in Azure**.
    
-   ![Het bestand index.jade de laatste regel leest: p Welkom bij de \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
-3. Sla het bestand op en sluit u Kladblok af.
+   ![Hallo index.jade bestand, de laatste regel Hallo leest: p Welkom te\#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+3. Hallo-bestand opslaan en sluit u Kladblok af.
 4. Vernieuw de browser en ziet u uw wijzigingen.
    
-   ![Een browservenster met de pagina bevat Welkom bij de snelle in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
+   ![Een browservenster Hallo pagina bevat Welkom tooExpress in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
-Na de toepassing testen, gebruiken de **Stop AzureEmulator** cmdlet om te stoppen van de emulator.
+Gebruik na testtoepassing Hallo Hallo **Stop AzureEmulator** cmdlet toostop Hallo-emulator.
 
-## <a name="publishing-the-application-to-azure"></a>Publiceren van de toepassing in Azure
-In het venster Azure PowerShell gebruiken de **Publish-AzureServiceProject** cmdlet voor het implementeren van de toepassing naar een cloudservice
+## <a name="publishing-hello-application-tooazure"></a>Publishing Hallo toepassing tooAzure
+Gebruik in hello Azure PowerShell-venster Hallo **Publish-AzureServiceProject** cmdlet toodeploy hello tooa cloud toepassingsservice
 
     PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpressapp -Location "East US" -Launch
 
-Zodra de implementatiebewerking is voltooid, wordt uw browser openen en de webpagina weergegeven.
+Zodra het Hallo-implementatie is voltooid, wordt uw browser openen en Hallo webpagina weergegeven.
 
-![Een webbrowser om de Express-pagina weer te geven. De URL geeft aan dat het nu wordt gehost op Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+![Een webbrowser om Hallo Express pagina weer te geven. Hallo URL geeft dat het nu wordt gehost op Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het [Node.js Developer Center](/develop/nodejs/) voor meer informatie.
+Zie voor meer informatie, Hallo [Node.js Developer Center](/develop/nodejs/).
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/

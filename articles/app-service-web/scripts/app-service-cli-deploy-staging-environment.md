@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - web-app maken en implementeren van code in een testomgeving | Microsoft Docs
-description: Azure CLI-voorbeeldscript - web-app maken en implementeren van code in een testomgeving
+title: aaaAzure voorbeeldscript CLI - web-app maken en implementeren van code tooa staging-omgeving | Microsoft Docs
+description: Azure CLI-voorbeeldscript - web-app maken en implementeren van code tooa staging-omgeving
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,32 +16,32 @@ ms.topic: sample
 ms.date: 06/19/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d586b50258c32e44f55859aad0a89475e9e4d2eb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cd07f5eda31041effd7b7334f5ecc04e6c1a0514
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Een web-app maken en implementeren van code in een testomgeving
+# <a name="create-a-web-app-and-deploy-code-tooa-staging-environment"></a>Een web-app maken en implementeren van code tooa staging-omgeving
 
-Dit voorbeeldscript maakt u een web-app in App Service met een extra implementatiesleuf naam 'staging', en implementeert u een voorbeeld-app in de sleuf 'staging'.
+Dit voorbeeldscript maakt u een web-app in App Service met een extra implementatiesleuf "fasering" genoemd, en implementeert u een voorbeeld-app toohello 'fasering' sleuf.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-azurecli-interactive[belangrijkste](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "een web-app maken en implementeren van code in een testomgeving")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Create a web app and deploy code tooa staging environment")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -55,6 +55,6 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Extra-App Service CLI scriptvoorbeelden vindt u in de [Azure App Service-documentatie](../app-service-cli-samples.md).
+Extra-App Service CLI scriptvoorbeelden kunnen u vinden in Hallo [Azure App Service-documentatie](../app-service-cli-samples.md).

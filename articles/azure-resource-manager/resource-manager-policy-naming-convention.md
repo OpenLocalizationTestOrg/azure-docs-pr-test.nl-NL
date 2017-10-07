@@ -1,5 +1,5 @@
 ---
-title: Azure-resource-beleid voor naamconventies | Microsoft Docs
+title: bronbeleid aaaAzure voor naamconventies | Microsoft Docs
 description: Beschrijving van het Azure Resource Manager-beleid voor de naamgeving van de resource.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8384b231263fb694aed8b936a953d5c0ca31e71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Resource-beleid toepassen op namen en tekst
-Dit onderwerp bevat verschillende [bronbeleid](resource-manager-policy.md) u kunt toepassen om vast te stellen conventies naming en tekst. Deze beleidsregels consistentie voor resourcenamen en labelwaarden. 
+Dit onderwerp bevat verschillende [bronbeleid](resource-manager-policy.md) u tooestablish naming en tekst conventies kunt toepassen. Deze beleidsregels consistentie voor resourcenamen en labelwaarden. 
 
 ## <a name="set-naming-convention-with-wildcard"></a>Stel naamconventie met jokerteken
-Het volgende voorbeeld ziet u het gebruik van jokertekens, die wordt ondersteund door de **zoals** voorwaarde. De voorwaarde aangeeft dat als de naam komt overeen met de genoemde patroon (namePrefix\*nameSuffix) klikt u vervolgens de aanvraag weigeren:
+Hallo volgende voorbeeld ziet u Hallo gebruik van jokertekens, die wordt ondersteund door Hallo **zoals** voorwaarde. Hallo voorwaarde aangegeven dat als hello naam komt overeen met de genoemde patroon hello (namePrefix\*nameSuffix) vervolgens weigeren Hallo-aanvraag:
 
 ```json
 {
@@ -42,7 +42,7 @@ Het volgende voorbeeld ziet u het gebruik van jokertekens, die wordt ondersteund
 
 ## <a name="set-naming-convention-with-pattern"></a>Stel de naamgevingsconventie met patroon
 
-Resourcenamen overeenkomen met een patroon gebruikt u de voorwaarde van de overeenkomst. Het volgende voorbeeld vereist namen beginnen met `contoso` en zes aanvullende letters bevatten:
+toospecify of resourcenamen overeenkomen met een patroon, gebruik Hallo overeenkomen met de voorwaarde. Hallo volgende voorbeeld vereist dat namen toostart met `contoso` en zes aanvullende letters bevatten:
 
 ```json
 {
@@ -60,7 +60,7 @@ Resourcenamen overeenkomen met een patroon gebruikt u de voorwaarde van de overe
 
 ## <a name="set-date-pattern-for-tag-value"></a>Patroon voor de labelwaarde datum instellen
 
-Als u wilt een patroon van de datum van het gebruik van twee cijfers, streepjes, drie letters, streepjes en vier cijfers vereisen:
+een datum-patroon van twee cijfers, streepjes, drie letters, streepjes en vier cijfers gebruik toorequire:
 
 ```json
 {
@@ -75,6 +75,6 @@ Als u wilt een patroon van de datum van het gebruik van twee cijfers, streepjes,
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden), moet u de beleidsdefinitie maken en toewijzen aan een bereik. Het bereik mag een abonnement, resourcegroep of resource. Als u wilt toewijzen beleid via de portal, Zie [gebruik Azure-portal toewijzen en beheren van bronbeleid](resource-manager-policy-portal.md). Als u wilt toewijzen beleid via REST API, PowerShell of Azure CLI, Zie [toewijzen en beheren van beleid via script](resource-manager-policy-create-assign.md). 
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
+* Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden Hallo), u moet toocreate hello beleidsdefinitie en wijs deze tooa bereik. Hallo bereik mag een abonnement, resourcegroep of resource. tooassign beleid via de portal hello, Zie [gebruik Azure portal tooassign en beheren van bronbeleid](resource-manager-policy-portal.md). tooassign beleid via REST API, PowerShell of Azure CLI, Zie [toewijzen en beheren van beleid via script](resource-manager-policy-create-assign.md). 
+* Abonnementen voor instructies over hoe ondernemingen tooeffectively Resource Manager kunt beheren, Zie [Azure enterprise scaffold - prescriptieve abonnement governance](resource-manager-subscription-governance.md).
 

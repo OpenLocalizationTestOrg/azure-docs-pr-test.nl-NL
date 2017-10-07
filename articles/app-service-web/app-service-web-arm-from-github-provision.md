@@ -1,6 +1,6 @@
 ---
-title: Een web-app die is gekoppeld aan een GitHub-opslagplaats implementeren | Microsoft Docs
-description: Gebruik een Azure Resource Manager-sjabloon voor het implementeren van een web-app met een project van een GitHub-opslagplaats.
+title: aaaDeploy een web-app die is gekoppeld tooa GitHub-opslagplaats | Microsoft Docs
+description: Gebruik een Azure Resource Manager-sjabloon toodeploy een web-app met een project van een GitHub-opslagplaats.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: 77064802814296d0c21f004534e4264d2f97252e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b23416c4c06a60991517e6ee4cd82bebc5a9d73
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-web-app-linked-to-a-github-repository"></a>Een web-app die is gekoppeld aan een GitHub-opslagplaats implementeren
-In dit onderwerp leert u het maken van een Azure Resource Manager-sjabloon die u implementeert een web-app die is gekoppeld aan een project in een GitHub-opslagplaats. U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+# <a name="deploy-a-web-app-linked-tooa-github-repository"></a>Een web-app gekoppelde tooa GitHub-opslagplaats implementeren
+In dit onderwerp leert u hoe toocreate een Azure Resource Manager-sjabloon die u implementeert een web-app die is gekoppeld tooa-project in een GitHub-opslagplaats. U leert hoe toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd. U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Zie voor de volledige sjabloon [Web App gekoppeld aan de sjabloon GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
+Zie voor de volledige sjabloon hello, [Web App gekoppelde tooGitHub sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="what-you-will-deploy"></a>Wat u wilt implementeren
-Met deze sjabloon implementeert u een web-app met de code van een project in GitHub.
+Met deze sjabloon implementeert u een web-app met Hallo-code van een project in GitHub.
 
-Klik op de volgende knop om de implementatie automatisch uit te voeren:
+toorun implementatie automatisch Hallo, klikt u op de knop volgende Hallo:
 
-[![Implementeren in Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![TooAzure implementeren](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="repourl"></a>repoURL
-De URL van de GitHub-opslagplaats met het project te implementeren. Deze parameter bevat een standaardwaarde, maar deze waarde is alleen bedoeld voor hoe u de URL opgeven voor de opslagplaats. U kunt deze waarde gebruiken bij het testen van de sjabloon, maar u wilt en geef de URL van uw eigen opslagplaats bij het werken met de sjabloon.
+Hallo-URL voor de GitHub-opslagplaats die Hallo project toodeploy bevat. Deze parameter bevat een standaardwaarde, maar deze waarde is alleen bedoeld tooshow u hoe tooprovide URL Hallo voor opslagplaats. U kunt deze waarde gebruiken bij het testen Hallo-sjabloon, maar u zult tooprovide Hallo URL uw eigen opslagplaats bij het werken met Hallo-sjabloon.
 
     "repoURL": {
         "type": "string",
@@ -48,23 +48,23 @@ De URL van de GitHub-opslagplaats met het project te implementeren. Deze paramet
     }
 
 ### <a name="branch"></a>Filialen
-De branche van de opslagplaats gebruiken bij het implementeren van de toepassing. De standaardwaarde is master, maar u kunt opgeven dat de naam van elke vertakking in de opslagplaats die u wilt implementeren.
+Hallo-vertakking van Hallo opslagplaats toouse bij het implementeren van Hallo-toepassing. de standaardwaarde Hallo master is, maar u Hallo-naam van elke vertakking in Hallo opslagplaats kunt opgeven dat u wenst dat toodeploy.
 
     "branch": {
         "type": "string",
         "defaultValue": "master"
     }
 
-## <a name="resources-to-deploy"></a>Resources om te implementeren
+## <a name="resources-toodeploy"></a>Resources toodeploy
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="web-app"></a>Web-app
-Maakt de web-app die is gekoppeld aan het project in GitHub. 
+Hiermee maakt u Hallo web-app die is gekoppeld toohello-project in GitHub. 
 
-U de naam van de web-app via de **siteName** parameter en de locatie van de web-app via de **siteLocation** parameter. In de **dependsOn** element, de sjabloon definieert de web-app als afhankelijk van de service die als host fungeert voor plan. Omdat dit afhankelijk van het hosting plan is, wordt de web-app niet gemaakt totdat het hosting plan is voltooid, wordt gemaakt. De **dependsOn** element wordt alleen gebruikt om op te geven van de implementatievolgorde. Als u de web-app als afhankelijk van de hosting-planning niet inschakelt, Azure Resource Doorberekeningsfuncties zal proberen te maken van beide resources op hetzelfde moment en u kunt een fout kan optreden als de web-app is gemaakt voordat het hosting plan.
+U Hallo-naam van de web-app via Hallo Hallo **siteName** parameter en locatie van web-app via Hallo HALLO hallo **siteLocation** parameter. In Hallo **dependsOn** element Hallo sjabloon definieert Hallo web-app als afhankelijk van Hallo-service die als host fungeert voor plan. Omdat dit afhankelijk van Hallo plan hosten is, is niet Hallo web-app gemaakt tot Hallo die als host fungeert voor plan is voltooid, wordt gemaakt. Hallo **dependsOn** element wordt alleen gebruikt toospecify implementatievolgorde. Als u web-app als afhankelijk hosting plan Hallo Hallo niet inschakelt, probeert Azure Resource Doorberekeningsfuncties toocreate beide resources op Hallo dezelfde tijd en u een foutbericht ontvangen als Hallo web-app is gemaakt voordat Hallo hosting-plan.
 
-De web-app heeft ook een onderliggende resource die is gedefinieerd in **resources** hieronder. Deze onderliggende resource definieert bron voor het project met de web-app wordt geïmplementeerd. In deze sjabloon is broncodebeheer gekoppeld aan een bepaalde GitHub-opslagplaats. De GitHub-opslagplaats is gedefinieerd met de code **'RepoUrl': 'https://github.com/davidebbo-test/Mvc52Application.git'** u mogelijk harde code de URL van de opslagplaats wanneer u maken van een sjabloon die herhaaldelijk een project implementeert wilt terwijl slechts het minimum aantal parameters.
-In plaats van hard-coding van de URL van de opslagplaats, kunt u een parameter voor de URL van de opslagplaats toevoegen en gebruiken van die waarde voor de **RepoUrl** eigenschap.
+Hallo-web-app heeft ook een onderliggende resource die is gedefinieerd in **resources** hieronder. Deze onderliggende resource definieert broncodebeheer voor Hallo-project met Hallo web-app wordt geïmplementeerd. In deze sjabloon is Hallo broncodebeheer gekoppelde tooa bepaalde GitHub-opslagplaats. Hallo GitHub-opslagplaats is gedefinieerd door code Hallo **'RepoUrl': 'https://github.com/davidebbo-test/Mvc52Application.git'** u URL van de opslagplaats vastleggen Hallo mogelijk als u wilt dat toocreate een sjabloon die herhaaldelijk implementeert een één project tijdens het minimum aantal parameters Hallo vereisen.
+In plaats van hard-coding van Hallo URL opslagplaats, kunt u een parameter voor de URL van de opslagplaats Hallo toevoegen en gebruiken van die waarde voor Hallo **RepoUrl** eigenschap.
 
     {
       "apiVersion": "2015-08-01",
@@ -94,7 +94,7 @@ In plaats van hard-coding van de URL van de opslagplaats, kunt u een parameter v
       ]
     }
 
-## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
+## <a name="commands-toorun-deployment"></a>Opdrachten toorun implementatie
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -109,7 +109,7 @@ In plaats van hard-coding van de URL van de opslagplaats, kunt u een parameter v
     az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE] 
-> Zie voor de inhoud van de parameters-JSON-bestand, [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
+> Zie voor de inhoud van Hallo parameters JSON-bestand, [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).
 >
 >
 

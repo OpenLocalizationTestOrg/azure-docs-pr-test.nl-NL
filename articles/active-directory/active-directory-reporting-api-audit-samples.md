@@ -1,6 +1,6 @@
 ---
-title: Rapportage van Azure Active Directory controleren API samples | Microsoft Docs
-description: Hoe u aan de slag met de Azure Active Directory rapportage-API
+title: API-voorbeelden aaaAzure Active Directory-rapportage audit | Microsoft Docs
+description: Hoe tooget gestart Hello Azure Active Directory rapportage-API
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,30 +15,30 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6e3e127fbdc228ff0535be64fe4a4a696731a897
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6ada8a7184d7baacaba5ba9c1b9130653b1cf7fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory-rapportage audit API-voorbeelden
-In dit onderwerp maakt deel uit van een verzameling van onderwerpen over de Azure Active Directory rapportage-API.  
-Rapportage van Azure AD biedt u een API waarmee u toegang krijgt tot controlegegevens met code of gerelateerde hulpprogramma's.
-Het bereik van dit onderwerp is om te voorzien van voorbeeldcode voor de **audit API**.
+In dit onderwerp maakt deel uit van een verzameling van onderwerpen over hello Azure Active Directory rapportage-API.  
+Rapportage van Azure AD biedt u een API waarmee u tooaccess controlegegevens met code of gerelateerde hulpprogramma's.
+Hallo bereik van dit onderwerp is tooprovide u met voorbeeld de code voor Hallo **audit API**.
 
 Zie:
 
 * [Controlelogboeken](active-directory-reporting-azure-portal.md#activity-reports) voor meer conceptuele informatie
-* [Aan de slag met Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md) voor meer informatie over de rapportage-API.
+* [Aan de slag met Azure Active Directory Reporting API Hallo](active-directory-reporting-api-getting-started.md) voor meer informatie over Hallo rapportage-API.
 
 Voor vragen, problemen of feedback, neem contact op met [AAD rapportage Help](mailto:aadreportinghelp@microsoft.com).
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de voorbeelden in dit onderwerp kunt, u moet voltooien de [vereisten voor toegang tot de Azure AD rapportage-API](active-directory-reporting-api-prerequisites.md).  
+Voordat u Hallo voorbeelden in dit onderwerp gebruiken kunt, moet u toocomplete hello [vereisten tooaccess hello Azure AD reporting API](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="known-issue"></a>Bekende problemen
-App-verificatie werkt niet als uw tenant in het gebied EU is. Gebruik gebruikersverificatie voor het openen van de Audit-API als tijdelijke oplossing totdat het probleem worden opgelost. 
+App-verificatie werkt niet als uw tenant in Hallo EU-regio. Gebruik gebruikersverificatie voor het openen van Hallo Audit-API als tijdelijke oplossing totdat dit probleem Hallo worden opgelost. 
 
 ## <a name="powershell-script"></a>PowerShell-script
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
@@ -49,14 +49,14 @@ App-verificatie werkt niet als uw tenant in het gebied EU is. Gebruik gebruikers
     $loginURL       = "https://login.microsoftonline.com"     # AAD Instance; for example https://login.microsoftonline.com
     $tenantdomain   = "your-tenant-domain.onmicrosoft.com"    # AAD Tenant; for example, contoso.onmicrosoft.com
     $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
-    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
+    $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' toodecrement minutes, for example
     Write-Output "Searching for events starting $7daysago"
 
     # Create HTTP header, get an OAuth2 access token based on client id, secret and tenant domain
     $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
     $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-    # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
+    # Parse audit report items, save output toofile(s): auditX.json, where X = 0 thru n for number of nextLink pages
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
@@ -64,15 +64,15 @@ App-verificatie werkt niet als uw tenant in het gebied EU is. Gebruik gebruikers
 
         # loop through each query page (1 through n)
         Do{
-            # display each event on the console window
+            # display each event on hello console window
             Write-Output "Fetching data using Uri: $url"
             $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
             foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
                 Write-Output ($event | ConvertTo-Json)
             }
 
-            # save the query page to an output file
-            Write-Output "Save the output to a file audit$i.json"
+            # save hello query page tooan output file
+            Write-Output "Save hello output tooa file audit$i.json"
             $myReport.Content | Out-File -FilePath audit$i.json -Force
             $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
             $i = $i+1
@@ -81,14 +81,14 @@ App-verificatie werkt niet als uw tenant in het gebied EU is. Gebruik gebruikers
         Write-Host "ERROR: No Access Token"
         }
 
-    Write-Host "Press any key to continue ..."
+    Write-Host "Press any key toocontinue ..."
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-### <a name="executing-the-powershell-script"></a>Het PowerShell-script uitvoeren
-Zodra u klaar bent met het script bewerken, uitvoeren en controleren of de verwachte gegevens van de Audit rapport Logboeken wordt geretourneerd.
+### <a name="executing-hello-powershell-script"></a>Hallo PowerShell-script uitvoeren
+Eenmaal u hebt bewerkt Hallo-script uitvoeren en controleren dat die Hallo verwachte gegevens van Hallo controlerapport logboeken worden geretourneerd.
 
-Het script retourneert de uitvoer van het auditrapport in JSON-indeling. Maakt ook een `audit.json` bestand met dezelfde uitvoer. U kunt experimenteren door het script als u gegevens van andere rapporten en uitcommentarieer de output-indelingen u niet hoeft wilt wijzigen.
+Hallo-script retourneert de uitvoer van Hallo controlerapport in JSON-indeling. Maakt ook een `audit.json` bestand Hello dezelfde uitvoer. U kunt experimenteren door Hallo script tooreturn gegevens van andere rapporten en het commentaar Hallo-uitvoerindelingen die niet hoeven te passen.
 
 ## <a name="bash-script"></a>Bash-scripts
     #!/bin/bash
@@ -121,7 +121,7 @@ Het script retourneert de uitvoer van het auditrapport in JSON-indeling. Maakt o
 ## <a name="python-script"></a>Python-script
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
-    # This requires the Python Requests module: http://docs.python-requests.org
+    # This requires hello Python Requests module: http://docs.python-requests.org
 
     import requests
     import datetime
@@ -147,7 +147,7 @@ Het script retourneert de uitvoer van het auditrapport in JSON-indeling. Maakt o
         print "ERROR: Couldn't get access token"
         sys.exit(1)
 
-    # Use the access token to make the API request
+    # Use hello access token toomake hello API request
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
@@ -164,7 +164,7 @@ Het script retourneert de uitvoer van het auditrapport in JSON-indeling. Maakt o
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wilt u de voorbeelden in dit onderwerp aanpassen? Bekijk de [Azure Active Directory-audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md). 
-* Als u wilt dat een volledig overzicht van het gebruik van de Azure Active Directory rapportage-API. Raadpleeg [aan de slag met de Azure Active Directory-rapportage API](active-directory-reporting-api-getting-started.md).
-* Als u meer informatie over Azure Active Directory-rapportage wilt, raadpleegt u de [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+* Wilt u toocustomize Hallo voorbeelden in dit onderwerp? Bekijk Hallo [Azure Active Directory-audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md). 
+* Als u wilt dat een volledig overzicht van het gebruik van toosee Hallo van Azure Active Directory rapportage-API, Zie [aan de slag met Azure Active Directory-rapportage API Hallo](active-directory-reporting-api-getting-started.md).
+* Als u toofind voor meer informatie over Azure Active Directory-rapportage wilt, Zie Hallo [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
 

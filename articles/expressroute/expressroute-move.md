@@ -1,6 +1,6 @@
 ---
-title: ExpressRoute-circuits verplaatsen van klassiek naar Resource Manager | Microsoft Docs
-description: Deze pagina bevat een overzicht van wat u moet weten over het overbruggen van het klassieke en het Resource Manager-implementatiemodel.
+title: aaaMoving ExpressRoute-circuits van klassieke tooResource Manager | Microsoft Docs
+description: Deze pagina bevat een overzicht van wat u moet tooknow over het overbruggen van Hallo-classic en Hallo Resource Manager-implementatiemodel.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c901d2cda01aec409b528d29fc937ac6afaea511
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute-circuits verplaatsen van het klassieke naar het Resource Manager-implementatiemodel
-Dit artikel bevat een overzicht van wat het betekent om een Azure ExpressRoute-circuit te verplaatsen van het klassieke naar het Azure Resource Manager-implementatiemodel.
+# <a name="moving-expressroute-circuits-from-hello-classic-toohello-resource-manager-deployment-model"></a>ExpressRoute-circuits verplaatsen van Hallo klassieke toohello Resource Manager-implementatiemodel
+Dit artikel bevat een overzicht van wat het betekent toomove een Azure ExpressRoute-circuit vanuit het Hallo-classic toohello Azure Resource Manager-implementatiemodel.
 
-U kunt één ExpressRoute-circuit gebruiken om verbinding te maken met virtuele netwerken die zijn geïmplementeerd in het klassieke en het Resource Manager-implementatiemodel. Een ExpressRoute-circuit kan nu, ongeacht de manier waarop deze is gemaakt, via beide implementatiemodellen worden gekoppeld aan virtuele netwerken.
+U kunt een enkel ExpressRoute-circuit tooconnect toovirtual netwerken die zijn geïmplementeerd in de klassieke Hallo en Hallo Resource Manager-implementatiemodel. Een ExpressRoute-circuit, ongeacht de manier waarop deze is gemaakt, kan nu toovirtual netwerken via beide implementatiemodellen koppelen.
 
-![Een ExpressRoute-circuit dat via beide implementatiemodellen wordt gekoppeld aan virtuele netwerken](./media/expressroute-move/expressroute-move-1.png)
+![Een ExpressRoute-circuit die is gekoppeld aan toovirtual netwerken via beide implementatiemodellen](./media/expressroute-move/expressroute-move-1.png)
 
-## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>ExpressRoute-circuits die zijn gemaakt in het klassieke implementatiemodel
-ExpressRoute-circuits die zijn gemaakt in het klassieke implementatiemodel moeten eerst naar het Resource Manager-implementatiemodel worden verplaatst om connectiviteit met zowel het klassieke als het Resource Manager-implementatiemodel in te schakelen. Er is geen connectiviteitsonderbreking of -verlies wanneer een verbinding wordt verplaatst. Alle koppelingen van circuit naar virtueel netwerk in het klassieke implementatiemodel (binnen hetzelfde abonnement en overlappend abonnement) blijven behouden.
+## <a name="expressroute-circuits-that-are-created-in-hello-classic-deployment-model"></a>ExpressRoute-circuits die zijn gemaakt in het klassieke implementatiemodel Hallo
+ExpressRoute-circuits die zijn gemaakt in het klassieke implementatiemodel Hallo moeten toobe verplaatst toohello Resource Manager deployment model eerste tooenable connectiviteit tooboth Hallo klassieke en het Hallo Resource Manager implementatiemodellen. Er is geen connectiviteitsonderbreking of -verlies wanneer een verbinding wordt verplaatst. Alle netwerkkoppelingen van circuit naar virtueel in het klassieke implementatiemodel hello (Hallo binnen hetzelfde abonnement en overlappend abonnement) blijven behouden.
 
-Wanneer de verbinding is verplaatst, werkt het ExpressRoute-circuit exact zoals een ExpressRoute-circuit dat is gemaakt in het Resource Manager-implementatiemodel. Nu kunt u verbinding maken met virtuele netwerken in het Resource Manager- implementatiemodel.
+Nadat Hallo verplaatsing is is voltooid, Hallo ExpressRoute-circuit zoekt, wordt uitgevoerd en werkt precies zoals een ExpressRoute-circuit dat is gemaakt in Hallo Resource Manager-implementatiemodel. U kunt nu verbindingen toovirtual netwerken maken in Hallo Resource Manager-implementatiemodel.
 
-Wanneer een ExpressRoute-circuit is verplaatst naar het Resource Manager-implementatiemodel, kunt u de levenscyclus van het ExpressRoute-circuit alleen beheren met het Resource Manager-implementatiemodel. Dit betekent dat u handelingen, zoals het toevoegen, bijwerken, verwijderen van peerings, het bijwerken van circuiteigenschappen (zoals bandbreedte, SKU en factureringstype) en het bijwerken en verwijderen van circuits alleen kunt uitvoeren in het Resource Manager-implementatiemodel. Raadpleeg onderstaande sectie over circuits die zijn gemaakt in het Resource Manager-implementatiemodel, voor meer informatie over hoe u de toegang tot beide implementatiemodellen kunt beheren.
+Nadat een ExpressRoute-circuit verplaatst toohello Resource Manager-implementatiemodel is, kunt u de levenscyclus Hallo Hallo ExpressRoute-circuit alleen met behulp van de Resource Manager-implementatiemodel Hallo beheren. Dit betekent dat u bewerkingen zoals het toevoegen/verwijderen van peerings, het bijwerken van circuiteigenschappen (zoals bandbreedte, SKU en factureringstype) en het verwijderen van circuits alleen in Hallo Resource Manager-implementatiemodel kunt uitvoeren. Raadpleeg onderstaande toohello sectie over circuits die zijn gemaakt in het Resource Manager-implementatiemodel Hallo voor meer informatie over hoe u toegang tooboth implementatiemodellen kunt beheren.
 
-U hebt uw connectiviteitsprovider niet nodig om de verplaatsing uit te voeren.
+U beschikt niet over tooinvolve uw connectiviteit provider tooperform Hallo verplaatsen.
 
-## <a name="expressroute-circuits-that-are-created-in-the-resource-manager-deployment-model"></a>ExpressRoute-circuits die zijn gemaakt in het Resource Manager-implementatiemodel
-U kunt ExpressRoute-circuits die zijn gemaakt in het Resource Manager-implementatiemodel inschakelen voor toegang vanuit beide implementatiemodellen. Elk ExpressRoute-circuit in uw abonnement kan worden ingeschakeld voor toegang vanuit beide implementatiemodellen.
+## <a name="expressroute-circuits-that-are-created-in-hello-resource-manager-deployment-model"></a>ExpressRoute-circuits die zijn gemaakt in Hallo Resource Manager-implementatiemodel
+U kunt ExpressRoute-circuits die zijn gemaakt in Hallo Resource Manager deployment model toobe toegankelijk vanuit beide implementatiemodellen kunt inschakelen. Elk ExpressRoute-circuit in uw abonnement kan worden ingeschakeld toobe toegankelijk vanuit beide implementatiemodellen.
 
-* ExpressRoute-circuits die zijn gemaakt in het Resource Manager-implementatiemodel hebben standaard geen toegang tot het klassieke implementatiemodel.
-* ExpressRoute-circuits die van het klassieke implementatiemodel zijn verplaatst naar Resource Manager-implementatiemodel zijn standaard toegankelijk vanuit beide implementatiemodellen.
-* Een ExpressRoute-circuit heeft altijd toegang tot het Resource Manager-implementatiemodel, ongeacht of het is gemaakt in het Resource Manager- of klassieke implementatiemodel. Dat betekent dat u virtuele netwerken die in het Resource Manager-implementatiemodel zijn gemaakt, kunt koppelen door de instructies te volgen in [how to link virtual networks](expressroute-howto-linkvnet-arm.md) (Virtuele netwerken koppelen).
-* De toegang tot het klassieke implementatiemodel wordt gecontroleerd met de parameter **allowClassicOperations** in het ExpressRoute-circuit.
+* ExpressRoute-circuits die zijn gemaakt in Hallo Resource Manager-implementatiemodel hebt geen toegang tot toohello klassieke implementatiemodel standaard.
+* ExpressRoute-circuits die zijn verplaatst van Hallo classic deployment model toohello Resource manager-implementatiemodel zijn toegankelijk vanuit beide implementatiemodellen standaard.
+* Een ExpressRoute-circuit heeft altijd toegang toohello Resource Manager-implementatiemodel, ongeacht of deze is gemaakt in Hallo Resource Manager- of klassieke implementatiemodel. Dit betekent dat kunt u verbindingen toovirtual netwerken die zijn gemaakt in Hallo resourcemanager-implementatiemodel door de volgende instructies op [hoe virtuele netwerken toolink](expressroute-howto-linkvnet-arm.md).
+* Toegang toohello klassieke implementatiemodel wordt gecontroleerd door Hallo **allowClassicOperations** parameter in Hallo ExpressRoute-circuit.
 
 > [!IMPORTANT]
-> Alle quota die zijn beschreven op de pagina [service limits](../azure-subscription-service-limits.md) (Servicelimieten) zijn van toepassing. Zo kan een standaardcircuit maximaal 10 virtuele netwerkkoppelingen/-verbindingen tussen zowel het klassieke als het Resource Manager-implementatiemodel hebben.
+> Alle quota die zijn beschreven op Hallo [Servicelimieten](../azure-subscription-service-limits.md) pagina van toepassing. Als u bijvoorbeeld kunt een standaard circuit maximaal 10 virtuele netwerkkoppelingen /-verbindingen voor zowel klassieke Hallo als Hallo Resource Manager-implementatiemodel hebben.
 > 
 > 
 
-## <a name="controlling-access-to-the-classic-deployment-model"></a>Toegang tot het klassieke implementatiemodel beheren
-U kunt één ExpressRoute-circuit inschakelen om te worden gekoppeld aan virtuele netwerken in beide implementatiemodellen, door de parameter **allowClassicOperations** van het ExpressRoute-circuit in te stellen.
+## <a name="controlling-access-toohello-classic-deployment-model"></a>Toegang toohello klassieke implementatiemodel beheren
+U kunt een enkel ExpressRoute-circuit toolink toovirtual netwerken in beide implementatiemodellen inschakelen door de instelling Hallo **allowClassicOperations** parameter Hallo ExpressRoute-circuit.
 
-Wanneer u **allowClassicOperations** instelt op TRUE, kunt u virtuele netwerken vanuit beide implementatiemodellen koppelen aan het ExpressRoute-circuit. U kunt een koppeling maken met een virtueel netwerk in het klassieke implementatiemodel door de richtlijnen te volgen in [how to link virtual networks in the classic deployment model](expressroute-howto-linkvnet-classic.md) (Een virtueel netwerk koppelen in het klassieke implementatiemodel). U kunt een koppeling maken met een virtueel netwerk in het Resource Manager-implementatiemodel door de richtlijnen te volgen in [how to link virtual networks in the Resource Manager deployment model](expressroute-howto-linkvnet-arm.md) (Een virtueel netwerk koppelen in het Resource Manager-implementatiemodel).
+Instelling **allowClassicOperations** tooTRUE kunt u toolink virtuele netwerken vanuit beide implementatie modellen toohello ExpressRoute-circuit. U kunt toovirtual netwerken in het klassieke implementatiemodel Hallo koppelen door de volgende richtlijnen op [hoe toolink virtuele netwerken in het klassieke implementatiemodel Hallo](expressroute-howto-linkvnet-classic.md). U kunt toovirtual netwerken in Hallo Resource Manager-implementatiemodel door de volgende richtlijnen te koppelen op [hoe toolink virtuele netwerken in Resource Manager-implementatiemodel Hallo](expressroute-howto-linkvnet-arm.md).
 
-Wanneer u **allowClassicOperations** instelt op FALSE, wordt de toegang tot het circuit vanuit het klassieke implementatiemodel geblokkeerd. Alle koppelingen met virtuele netwerken in het klassieke implementatiemodel blijven echter behouden. In dit geval is het ExpressRoute-circuit niet zichtbaar in het klassieke implementatiemodel.
+Instelling **allowClassicOperations** tooFALSE toegang blokkeert toohello circuit Hallo klassieke implementatiemodel. Alle koppelingen met virtuele netwerken in het klassieke implementatiemodel Hallo blijven echter behouden. In dit geval is Hallo ExpressRoute-circuit niet zichtbaar in het klassieke implementatiemodel Hallo.
 
-## <a name="supported-operations-in-the-classic-deployment-model"></a>Ondersteunde bewerkingen in het klassieke implementatiemodel
-De volgende klassieke bewerkingen worden ondersteund in een ExpressRoute-circuit als **allowClassicOperations** is ingesteld op TRUE:
+## <a name="supported-operations-in-hello-classic-deployment-model"></a>Ondersteunde bewerkingen in het klassieke implementatiemodel Hallo
+Hallo volgende klassieke bewerkingen worden ondersteund in een ExpressRoute circuit als **allowClassicOperations** tooTRUE is ingesteld:
 
 * ExpressRoute-circuitgegevens verkrijgen
-* Koppelingen tussen virtuele netwerken en klassieke virtuele netwerken maken, bijwerken, verkrijgen en verwijderen
+* Virtueel netwerk maken, bijwerken, verkrijgen/verwijderen koppelingen tooclassic virtuele netwerken
 * Autorisaties voor koppelingen met virtuele netwerken voor abonnementoverschrijdende connectiviteit maken, bijwerken, verkrijgen en verwijderen
 
-U kunt de volgende klassieke bewerkingen niet uitvoeren als **allowClassicOperations** is ingesteld op TRUE:
+U kunt Hallo volgende klassieke bewerkingen niet uitvoeren wanneer **allowClassicOperations** tooTRUE is ingesteld:
 
 * BGP-peerings (Border Gateway Protocol) maken, bijwerken, verkrijgen of verwijderen voor persoonlijke of openbare Azure-peerings en Microsoft-peerings
 * ExpressRoute-circuits verwijderen
 
-## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Communicatie tussen het klassieke en het Resource Manager-implementatiemodel
-Het ExpressRoute-circuit fungeert als een brug tussen het klassieke en het Resource Manager-implementatiemodel. Verkeer tussen virtuele machines in virtuele netwerken in het klassieke implementatiemodel en die in virtuele netwerken in het Resource Manager-implementatiemodel stroomt via ExpressRoute als beide virtuele netwerken zijn gekoppeld aan hetzelfde ExpressRoute-circuit.
+## <a name="communication-between-hello-classic-and-hello-resource-manager-deployment-models"></a>Communicatie tussen Hallo-classic en Hallo Resource Manager-implementatiemodel
+Hallo ExpressRoute-circuit fungeert als een brug tussen Hallo-classic en Hallo Resource Manager-implementatiemodel. Verkeer tussen virtuele machines in virtuele netwerken in het klassieke implementatiemodel Hallo en die in virtuele netwerken in Hallo Resource Manager-implementatiemodel stroomt via ExpressRoute als beide virtuele netwerken gekoppeld toohello zijn hetzelfde ExpressRoute-circuit.
 
-Cumulatieve doorvoer wordt beperkt door de doorvoercapaciteit van de gateway van het virtueel netwerk. Verkeer komt de netwerken van de connectiviteitsprovider of uw netwerken in dergelijke gevallen niet binnen. De verkeersstroom tussen de virtuele netwerken vindt volledig plaats in het Microsoft-netwerk.
+Cumulatieve doorvoer wordt beperkt door Hallo doorvoercapaciteit van de virtuele netwerkgateway Hallo. Verkeer komt niet Hallo connectiviteitsprovider netwerken of uw netwerken in dergelijke gevallen invoeren. Verkeer tussen Hallo virtuele netwerken vindt volledig plaats in Hallo Microsoft-netwerk.
 
-## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Toegang tot resources in openbare Azure-peering en Microsoft-peering
-U blijft zonder onderbreking toegang houden tot resources die doorgaans toegankelijk zijn via openbare Azure-peering en Microsoft-peering.  
+## <a name="access-tooazure-public-and-microsoft-peering-resources"></a>Toegang tooAzure openbare en Microsoft-peering bronnen
+U kunt tooaccess resources die doorgaans toegankelijk zijn via openbare Azure-peering en Microsoft-peering zonder onderbreking blijven.  
 
 ## <a name="whats-supported"></a>Wat wordt er ondersteund
 In deze sectie wordt beschreven wat er wordt ondersteund voor ExpressRoute-circuits:
 
-* U kunt één ExpressRoute-circuit gebruiken voor toegang tot virtuele netwerken die zijn geïmplementeerd in het klassieke en het Resource Manager-implementatiemodel.
-* U kunt een ExpressRoute-circuit verplaatsen van het klassieke naar het Resource Manager-implementatiemodel Wanneer het is verplaatst, werkt het ExpressRoute-circuit net als elk ander ExpressRoute-circuit dat is gemaakt in het Resource Manager-implementatiemodel.
-* U kunt alleen het ExpressRoute-circuit verplaatsen. Met deze bewerking kunt u geen circuitkoppelingen, virtuele netwerken of VPN-gateways verplaatsen.
-* Wanneer een ExpressRoute-circuit is verplaatst naar het Resource Manager-implementatiemodel, kunt u de levenscyclus van het ExpressRoute-circuit alleen beheren met het Resource Manager-implementatiemodel. Dit betekent dat u handelingen, zoals het toevoegen, bijwerken, verwijderen van peerings, het bijwerken van circuiteigenschappen (zoals bandbreedte, SKU en factureringstype) en het bijwerken en verwijderen van circuits alleen kunt uitvoeren in het Resource Manager-implementatiemodel.
-* Het ExpressRoute-circuit fungeert als een brug tussen het klassieke en het Resource Manager-implementatiemodel. Verkeer tussen virtuele machines in virtuele netwerken in het klassieke implementatiemodel en die in virtuele netwerken in het Resource Manager-implementatiemodel stroomt via ExpressRoute als beide virtuele netwerken zijn gekoppeld aan hetzelfde ExpressRoute-circuit.
-* Abonnementoverschrijdende connectiviteit wordt ondersteund in zowel het klassieke als het Resource Manager-implementatiemodel.
-* Nadat u een ExpressRoute-circuit uit het klassieke model naar het model van Azure Resource Manager hebt verplaatst, kunt u [de virtuele netwerken die zijn gekoppeld aan het ExpressRoute-circuit migreren](expressroute-migration-classic-resource-manager.md).
+* U kunt een enkel ExpressRoute-circuit tooaccess virtuele netwerken die zijn geïmplementeerd in Hallo-classic en Hallo Resource Manager-implementatiemodel.
+* U kunt een ExpressRoute-circuit verplaatsen van Hallo klassieke toohello Resource Manager-implementatiemodel. Nadat deze is verplaatst, Hallo ExpressRoute-circuit lijkt werkt en voert zoals elk ander ExpressRoute-circuit dat is gemaakt in Hallo Resource Manager-implementatiemodel.
+* U kunt alleen Hallo ExpressRoute-circuit verplaatsen. Met deze bewerking kunt u geen circuitkoppelingen, virtuele netwerken of VPN-gateways verplaatsen.
+* Nadat een ExpressRoute-circuit verplaatst toohello Resource Manager-implementatiemodel is, kunt u de levenscyclus Hallo Hallo ExpressRoute-circuit alleen met behulp van de Resource Manager-implementatiemodel Hallo beheren. Dit betekent dat u bewerkingen zoals het toevoegen/verwijderen van peerings, het bijwerken van circuiteigenschappen (zoals bandbreedte, SKU en factureringstype) en het verwijderen van circuits alleen in Hallo Resource Manager-implementatiemodel kunt uitvoeren.
+* Hallo ExpressRoute-circuit fungeert als een brug tussen Hallo-classic en Hallo Resource Manager-implementatiemodel. Verkeer tussen virtuele machines in virtuele netwerken in het klassieke implementatiemodel Hallo en die in virtuele netwerken in Hallo Resource Manager-implementatiemodel stroomt via ExpressRoute als beide virtuele netwerken gekoppeld toohello zijn hetzelfde ExpressRoute-circuit.
+* Abonnementoverschrijdende connectiviteit wordt ondersteund in zowel klassieke Hallo en Hallo Resource Manager-implementatiemodel.
+* Nadat u een ExpressRoute-circuit van Hallo klassieke model toohello Azure Resource Manager-model verplaatsen, kunt u [migreren Hallo virtuele netwerken gekoppelde toohello ExpressRoute-circuit](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Wat wordt er niet ondersteund
 In deze sectie wordt beschreven wat er niet wordt ondersteund voor ExpressRoute-circuits:
 
-* Het beheer van de levenscyclus van een ExpressRoute-circuit vanuit het klassieke implementatiemodel.
-* RBAC-ondersteuning (Role-Based Access Control - op rollen gebaseerd toegangsbeheer) voor het klassieke implementatiemodel. U kunt geen RBAC-besturing uitvoeren voor een circuit in het klassieke implementatiemodel. Een beheerder/co-beheerder van het abonnement kan virtuele netwerken koppelen aan of loskoppelen van het circuit.
+* Hallo levenscyclus van een ExpressRoute-circuit vanuit het klassieke implementatiemodel Hallo beheren.
+* Op rollen gebaseerde toegangsbeheer (RBAC) ondersteuning voor het klassieke implementatiemodel Hallo. U kunt RBAC besturingselementen tooa circuit niet uitvoeren in het klassieke implementatiemodel Hallo. Een beheerder/CO van Hallo abonnement kunt koppelen aan of ontkoppelen van virtuele netwerken toohello circuit.
 
 ## <a name="configuration"></a>Configuratie
-Volg de instructies in [Een ExpressRoute-circuit verplaatsen van het klassieke naar het Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).
+Hallo instructies die worden beschreven in [een ExpressRoute-circuit verplaatsen van Hallo klassieke toohello Resource Manager-implementatiemodel](expressroute-howto-move-arm.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [De virtuele netwerken die zijn gekoppeld aan het ExpressRoute-circuit uit het klassieke model migreren naar het model van Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
+* [Hallo virtuele netwerken gekoppelde toohello ExpressRoute-circuit migreren van Hallo klassieke model toohello Azure Resource Manager-model](expressroute-migration-classic-resource-manager.md)
 * Voor informatie over werkstromen raadpleegt u [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md) (Werkstromen voor de inrichting van ExpressRoute-circuits en circuittoestanden).
-* Ga als volgt te werk om uw ExpressRoute-verbinding te configureren:
+* tooconfigure uw ExpressRoute-verbinding:
   
   * [Een ExpressRoute-circuit maken](expressroute-howto-circuit-arm.md)
   * [Routering configureren](expressroute-howto-routing-arm.md)
-  * [Een virtueel netwerk koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md)
+  * [Koppelen van een virtueel netwerk tooan ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Inrichten van een web-app die gebruikmaakt van een SQL-Database
-description: Gebruik een Azure Resource Manager-sjabloon voor het implementeren van een web-app met een SQL-Database.
+title: aaaProvision een web-app die gebruikmaakt van een SQL-Database
+description: Gebruik een Azure Resource Manager-sjabloon toodeploy een web-app met een SQL-Database.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: cc34f684f8c50e95a62cb7b04fd2ddce5deb68d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 189c0122d201e88f15013bf241d66652ef23df4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="provision-a-web-app-with-a-sql-database"></a>Inrichten van een web-app met een SQL-Database
-In dit onderwerp leert u hoe u een Azure Resource Manager-sjabloon die u een webtoepassing en SQL-Database implementeert maken. U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd. U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.
+In dit onderwerp leert u hoe toocreate een Azure Resource Manager-sjabloon die u een webtoepassing en SQL-Database implementeert. U leert hoe toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd. U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten.
 
 Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Zie voor meer informatie over het implementeren van apps [een complexe toepassing zoals verwacht in Azure implementeert](app-service-deploy-complex-application-predictably.md).
 
-Zie voor de volledige sjabloon [Web-App met SQL Database-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+Zie voor de volledige sjabloon hello, [Web-App met SQL Database-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,29 +41,29 @@ In deze sjabloon gaat u implementeren:
 * Regels voor waarschuwingen
 * App Insights
 
-Klik op de volgende knop om de implementatie automatisch uit te voeren:
+toorun implementatie automatisch Hallo, klikt u op de knop volgende Hallo:
 
-[![Implementeren in Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![TooAzure implementeren](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## <a name="parameters-to-specify"></a>Parameters opgeven
+## <a name="parameters-toospecify"></a>Parameters toospecify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="administratorlogin"></a>administratorLogin
-De accountnaam moet worden gebruikt voor de beheerder van de database.
+Hallo account naam toouse voor serverbeheerder Hallo-database.
 
     "administratorLogin": {
       "type": "string"
     }
 
 ### <a name="administratorloginpassword"></a>administratorLoginPassword
-Het wachtwoord moet worden gebruikt voor de beheerder van de database.
+Hallo wachtwoord toouse voor serverbeheerder Hallo-database.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
 ### <a name="databasename"></a>DatabaseName
-De naam van de nieuwe database maken.
+Hallo-naam van de nieuwe database toocreate Hallo.
 
     "databaseName": {
       "type": "string",
@@ -71,7 +71,7 @@ De naam van de nieuwe database maken.
     }
 
 ### <a name="collation"></a>Sortering
-De databasesortering moet worden gebruikt voor het juiste gebruik van tekens van bestuur.
+Hallo database sortering toouse voor van bestuur Hallo juiste gebruik van tekens.
 
     "collation": {
       "type": "string",
@@ -79,7 +79,7 @@ De databasesortering moet worden gebruikt voor het juiste gebruik van tekens van
     }
 
 ### <a name="edition"></a>Editie
-Het type van de database te maken.
+Hallo-type van de database toocreate.
 
     "edition": {
       "type": "string",
@@ -90,12 +90,12 @@ Het type van de database te maken.
         "Premium"
       ],
       "metadata": {
-        "description": "The type of database to create."
+        "description": "hello type of database toocreate."
       }
     }
 
 ### <a name="maxsizebytes"></a>maxSizeBytes
-De maximale grootte in bytes, voor de database.
+Hallo maximale grootte, in bytes, voor Hallo-database.
 
     "maxSizeBytes": {
       "type": "string",
@@ -103,7 +103,7 @@ De maximale grootte in bytes, voor de database.
     }
 
 ### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
-De naam overeenkomt met het prestatieniveau voor de editie. 
+Hallo naam bijbehorende toohello prestatieniveau voor de editie. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,12 +118,12 @@ De naam overeenkomt met het prestatieniveau voor de editie.
         "P3"
       ],
       "metadata": {
-        "description": "Describes the performance level for Edition"
+        "description": "Describes hello performance level for Edition"
       }
     }
 
 ## <a name="variables-for-names"></a>Variabelen voor de namen
-Deze sjabloon bevat variabelen die namen die worden gebruikt in de sjabloon te maken. De variabele waarden gebruikt de **uniqueString** functie voor het genereren van een naam op van de resource-id.
+Deze sjabloon bevat variabelen die namen die worden gebruikt in Hallo-sjabloon maken. Hallo waarden van variabelen gebruiken Hallo **uniqueString** toogenerate een naam op van de id van de resourcegroep Hallo werken.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,9 +132,9 @@ Deze sjabloon bevat variabelen die namen die worden gebruikt in de sjabloon te m
     },
 
 
-## <a name="resources-to-deploy"></a>Resources om te implementeren
+## <a name="resources-toodeploy"></a>Resources toodeploy
 ### <a name="sql-server-and-database"></a>SQL Server en Database
-Maakt een nieuwe SQL Server en database. De naam van de server is opgegeven in de **serverName** parameter en de opgegeven locatie in de **serverLocation** parameter. Wanneer u de nieuwe server maakt, moet u een aanmeldingsnaam en wachtwoord opgeven voor de beheerder van de database. 
+Maakt een nieuwe SQL Server en database. Hallo-naam van Hallo-server is opgegeven in Hallo **serverName** parameter en Hallo locatie die is opgegeven in Hallo **serverLocation** parameter. Wanneer u de nieuwe server Hallo maakt, moet u een aanmeldingsnaam en wachtwoord voor de databasebeheerder server Hallo opgeven. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -373,7 +373,7 @@ Maakt een nieuwe SQL Server en database. De naam van de server is opgegeven in d
       },
       "properties": {
         "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
-        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
+        "description": "[concat('hello average CPU is high across all hello instances of ', variables('hostingPlanName'))]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -407,7 +407,7 @@ Maakt een nieuwe SQL Server en database. De naam van de server is opgegeven in d
       },
       "properties": {
         "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
-        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
+        "description": "[concat('hello HTTP queue for hello instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -446,7 +446,7 @@ Maakt een nieuwe SQL Server en database. De naam van de server is opgegeven in d
       }
     }
 
-## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
+## <a name="commands-toorun-deployment"></a>Opdrachten toorun implementatie
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -462,6 +462,6 @@ Maakt een nieuwe SQL Server en database. De naam van de server is opgegeven in d
     az resource deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE]
-> Zie voor de inhoud van de parameters-JSON-bestand, [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
+> Zie voor de inhoud van Hallo parameters JSON-bestand, [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
 >
 >

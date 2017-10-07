@@ -1,6 +1,6 @@
 ---
-title: Nieuwe gebruikers toevoegen aan Azure Active Directory | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u nieuwe gebruikers kunt toevoegen of gebruikersinformatie kunt wijzigen in Azure Active Directory.
+title: aaaAdd nieuwe gebruikers tooAzure Active Directory | Microsoft Docs
+description: Legt uit hoe nieuwe gebruikers tooadd gebruikersgegevens in Azure Active Directory of wijzigen.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand;jeffsta
 ms.reviewer: jeffsta
-ms.openlocfilehash: bfe0c556d94d50207a23d2e3984371fb602e9406
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c4a156ea31b81202bb0d0ac224afbfc3f1785532
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-new-users-to-azure-active-directory"></a>Nieuwe gebruikers toevoegen aan Azure Active Directory (Engelstalig artikel)
+# <a name="add-new-users-tooazure-active-directory"></a>Toevoegen van nieuwe gebruikers tooAzure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-users-create-azure-portal.md)
 > * [Klassieke Azure Portal](active-directory-create-users.md)
 >
 >
 
-In dit artikel wordt uitgelegd hoe u nieuwe gebruikers toevoegen in uw organisatie in Azure Active Directory (Azure AD). 
+Dit artikel wordt uitgelegd hoe tooadd nieuwe gebruikers in uw organisatie in Azure Active Directory (Azure AD) Hallo. 
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
    ![Openen gebruikers en groepen](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
-3. Op de **gebruikers en groepen** blade Selecteer **alle gebruikers**, en selecteer vervolgens **toevoegen**.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **alle gebruikers**, en selecteer vervolgens **toevoegen**.
 
-   ![De opdracht Add selecteren](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
-4. Voer details voor de gebruiker, zoals **naam** en **gebruikersnaam**. Het domeingedeelte van de naam van de gebruikersnaam moet de eerste standaarddomeinnaam domain name 'foo.onmicrosoft.com' of een geverifieerde, niet-gefedereerde domeinnaam zoals 'contoso.com'.
-5. Kopieer of het wachtwoord van de gebruiker gegenereerde anders opmerking zodat u deze informatie aan de gebruiker verstrekt kunt nadat dit proces voltooid is.
-6. U kunt desgewenst openen en vul de informatie in de **profiel** blade de **groepen** blade of de **functie Directory** blade voor de gebruiker. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen.
-7. Op de **gebruiker** blade Selecteer **maken**.
-8. Het gegenereerde wachtwoord naar de nieuwe gebruiker veilig distribueren zodat de gebruiker zich kan aanmelden.
+   ![Hallo Add-opdracht selecteren](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
+4. Voer details voor de gebruiker hello, zoals **naam** en **gebruikersnaam**. Hallo domeingedeelte van Hallo-gebruikersnaam moet Hallo initiële standaard de naam 'foo.onmicrosoft.com' domein domeinnaam of een geverifieerde, niet-gefedereerde domeinnaam zoals 'contoso.com'.
+5. Kopiëren of anderszins Opmerking Hallo gegenereerd gebruikerswachtwoord zodat u deze informatie toohello gebruiker verstrekt kunt nadat dit proces voltooid is.
+6. U kunt desgewenst openen en Hallo gegevens invult in Hallo **profiel** blade, Hallo **groepen** blade of Hallo **functie Directory** blade voor Hallo gebruiker. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen.
+7. Op Hallo **gebruiker** blade Selecteer **maken**.
+8. Hallo gegenereerd wachtwoord toohello nieuwe gebruiker veilig distribueren zodat hello gebruiker kunt aanmelden.
 
 ### <a name="next-steps"></a>Volgende stappen
 * [Een externe gebruiker toevoegen](active-directory-users-create-external-azure-portal.md)
-* [Opnieuw instellen van het wachtwoord van een gebruiker in de nieuwe Azure portal](active-directory-users-reset-password-azure-portal.md)
+* [Wachtwoord van een gebruiker in de nieuwe Azure portal Hallo opnieuw instellen](active-directory-users-reset-password-azure-portal.md)
 * [Informatie over de werkzaamheden van een gebruiker wijzigen](active-directory-users-work-info-azure-portal.md)
 * [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 * [Verwijderen van een gebruiker in uw Azure AD](active-directory-users-delete-user-azure-portal.md)
-* [Een gebruiker toewijzen aan een rol in uw Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Een gebruikersrol tooa toewijzen in uw Azure AD](active-directory-users-assign-role-azure-portal.md)

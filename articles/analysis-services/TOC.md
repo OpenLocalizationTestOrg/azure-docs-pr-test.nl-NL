@@ -2,7 +2,7 @@
 ## [Wat is Azure Analysis Services?](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 ## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
-## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
+## [Verbinding maken met tooon-premises gegevensbronnen](analysis-services-gateway.md)
 ## [Compatibiliteitsniveau](analysis-services-compat-level.md)
 ## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 
@@ -12,7 +12,7 @@
 ## [Een model implementeren vanuit Visual Studio](analysis-services-deploy.md)
 ## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 
-# Uitleg 
+# Hoe te
 ## [Een server beheren](analysis-services-manage.md)
 ## [Databasegebruikers beheren](analysis-services-database-users.md)
 ## [Serverbeheerders beheren](analysis-services-server-admins.md)

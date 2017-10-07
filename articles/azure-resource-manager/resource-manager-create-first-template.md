@@ -1,6 +1,6 @@
 ---
-title: Eerste Azure Resource Manager-sjabloon maken | Microsoft Docs
-description: Een stapsgewijze handleiding voor het maken van uw eerste Azure Resource Manager-sjabloon. U leert hoe u de sjabloonverwijzing voor een opslagaccount gebruikt om een sjabloon te maken.
+title: de eerste Azure Resource Manager-sjabloon aaaCreate | Microsoft Docs
+description: Een stapsgewijze handleiding toocreating uw eerste Azure Resource Manager-sjabloon. Hier ziet u hoe toouse verwijzing naar de sjabloon voor een sjabloon storage account toocreate Hallo Hallo.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 92e6d6bb7094fe0e4537ee080704967862804bdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Uw eerste Azure Resource Manager-sjabloon maken en implementeren
-In dit onderwerp worden de stappen beschreven voor het maken van uw eerste Azure Resource Manager-sjabloon. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](resource-group-overview.md) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen. Zie [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md) als u een sjabloon voor bestaande resources wilt maken.
+In dit onderwerp leidt u door Hallo stappen voor het maken van uw eerste Azure Resource Manager-sjabloon. Resource Manager-sjablonen zijn JSON-bestanden die Hallo resources moet u toodeploy voor uw oplossing definiëren. toounderstand hello concepten die horen bij het implementeren en beheren van uw Azure-oplossingen, Zie [overzicht van Azure Resource Manager](resource-group-overview.md). Als u bestaande resources hebt en tooget een sjabloon voor deze bronnen wilt, raadpleegt u [een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
 
-U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio Code](https://code.visualstudio.com/) is een lichte, open-source, platformoverschrijdende code-editor. U wordt sterk aangeraden om Visual Studio Code te gebruiken voor het maken van Resource Manager-sjablonen. In dit onderwerp wordt ervan uitgegaan dat u VS Code gebruikt. Als u een andere JSON-editor (zoals Visual Studio) hebt, kunt u die editor gebruiken.
+toocreate en herzien sjablonen, moet u een JSON-editor. [Visual Studio Code](https://code.visualstudio.com/) is een lichte, open-source, platformoverschrijdende code-editor. U wordt sterk aangeraden om Visual Studio Code te gebruiken voor het maken van Resource Manager-sjablonen. In dit onderwerp wordt ervan uitgegaan dat u VS Code gebruikt. Als u een andere JSON-editor (zoals Visual Studio) hebt, kunt u die editor gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -31,13 +31,13 @@ U hebt een JSON-editor nodig om sjablonen te maken en reviseren. [Visual Studio 
 
 ## <a name="create-template"></a>Sjabloon maken
 
-Laten we beginnen met een eenvoudige sjabloon waarmee een opslagaccount in uw abonnement wordt geïmplementeerd.
+Laten we beginnen met een eenvoudige sjabloon waarmee een tooyour voor opslagaccountabonnement wordt geïmplementeerd.
 
 1. Selecteer **Bestand** > **Nieuw bestand**. 
 
    ![Nieuw bestand](./media/resource-manager-create-first-template/new-file.png)
 
-2. Kopieer en plak de volgende JSON-syntaxis in het bestand:
+2. Kopieer en plak de volgende JSON-syntaxis in het bestand Hallo:
 
    ```json
    {
@@ -65,17 +65,17 @@ Laten we beginnen met een eenvoudige sjabloon waarmee een opslagaccount in uw ab
    }
    ```
 
-   Er gelden enkele beperkingen voor opslagaccountnamen waardoor ze moeilijk in te stellen zijn. De naam moet tussen de 3 en 24 tekens lang zijn, alleen cijfers en kleine letters bevatten en uniek zijn. In de voorgaande sjabloon wordt de functie [uniqueString](resource-group-template-functions-string.md#uniquestring) gebruikt om een hashwaarde te genereren. Het voorvoegsel *opslag* wordt toegevoegd om deze hashwaarde meer betekenis te geven. 
+   Namen van opslagaccounts zijn enkele beperkingen waardoor ze moeilijk tooset. Hallo-naam moet tussen 3 en 24 tekens lang, gebruik alleen cijfers en kleine letters en uniek zijn. Hallo voorgaande sjabloon worden gebruikt voor Hallo [uniqueString](resource-group-template-functions-string.md#uniquestring) werken toogenerate een hash-waarde. toogive deze hash waarde meer betekenis: Hallo voorvoegsel wordt toegevoegd *opslag*. 
 
-3. Sla dit bestand als **azuredeploy.json** op in een lokale map.
+3. Sla dit bestand als **azuredeploy.json** tooa lokale map.
 
    ![Sjabloon opslaan](./media/resource-manager-create-first-template/save-template.png)
 
 ## <a name="deploy-template"></a>Sjabloon implementeren
 
-U kunt deze sjabloon nu implementeren. U kunt PowerShell of Azure CLI gebruiken om een resourcegroep te maken. Vervolgens implementeert u een opslagaccount in deze resourcegroep.
+U gereed toodeploy deze sjabloon zijn. U PowerShell of Azure CLI toocreate een resourcegroep. Vervolgens implementeert u een opslaggroep account toothat resource.
 
-* Gebruik voor PowerShell de volgende opdrachten uit de map met de sjabloon:
+* Gebruik Hallo volgende opdrachten uit Hallo-map met de Hallo-sjabloon voor PowerShell:
 
    ```powershell
    Login-AzureRmAccount
@@ -84,7 +84,7 @@ U kunt deze sjabloon nu implementeren. U kunt PowerShell of Azure CLI gebruiken 
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-* Gebruik voor een lokale installatie van Azure CLI de volgende opdrachten uit de map met de sjabloon:
+* Gebruik voor een lokale installatie van Azure CLI Hallo volgende opdrachten uit Hallo-map met de Hallo sjabloon:
 
    ```azurecli
    az login
@@ -93,19 +93,19 @@ U kunt deze sjabloon nu implementeren. U kunt PowerShell of Azure CLI gebruiken 
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Wanneer de implementatie is voltooid, bevindt het opslagaccount zich in de resourcegroep.
+Wanneer de implementatie is voltooid, wordt uw storage-account bestaat in de resourcegroep Hallo.
 
 ## <a name="deploy-template-from-cloud-shell"></a>Sjabloon implementeren vanuit Cloud Shell
 
-U kunt [Cloud Shell](../cloud-shell/overview.md) gebruiken om de Azure CLI-opdrachten voor het implementeren van uw sjabloon uit te voeren. U moet de sjabloon echter eerst in de bestandsshare voor Cloud Shell laden. Als u Cloud Shell niet hebt gebruikt, raadpleegt u [Overzicht van Azure Cloud Shell](../cloud-shell/overview.md) voor informatie over het instellen.
+U kunt [Cloud Shell](../cloud-shell/overview.md) toorun hello Azure CLI-opdrachten voor het implementeren van uw sjabloon. Echter, moet u eerst uw sjabloon in laden Hallo bestandsshare voor uw Cloud-Shell. Als u Cloud Shell niet hebt gebruikt, raadpleegt u [Overzicht van Azure Cloud Shell](../cloud-shell/overview.md) voor informatie over het instellen.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).   
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com).   
 
-2. Selecteer de Cloud Shell-resourcegroep. Het naampatroon is `cloud-shell-storage-<region>`.
+2. Selecteer de Cloud Shell-resourcegroep. Hallo naampatroon is `cloud-shell-storage-<region>`.
 
    ![Resourcegroep selecteren](./media/resource-manager-create-first-template/select-cs-resource-group.png)
 
-3. Selecteer het opslagaccount voor Cloud Shell.
+3. Hallo storage-account selecteren voor uw Cloud-Shell.
 
    ![Opslagaccount selecteren](./media/resource-manager-create-first-template/select-storage.png)
 
@@ -113,7 +113,7 @@ U kunt [Cloud Shell](../cloud-shell/overview.md) gebruiken om de Azure CLI-opdra
 
    ![Bestanden selecteren](./media/resource-manager-create-first-template/select-files.png)
 
-5. Selecteer de bestandsshare voor Cloud Shell. Het naampatroon is `cs-<user>-<domain>-com-<uniqueGuid>`.
+5. Selecteer Hallo bestandsshare voor Cloud-Shell. Hallo naampatroon is `cs-<user>-<domain>-com-<uniqueGuid>`.
 
    ![Bestandsshare selecteren](./media/resource-manager-create-first-template/select-file-share.png)
 
@@ -137,24 +137,24 @@ U kunt [Cloud Shell](../cloud-shell/overview.md) gebruiken om de Azure CLI-opdra
 
    ![Bestand uploaden](./media/resource-manager-create-first-template/upload-files.png)
 
-11. Open de prompt.
+11. Open Hallo-prompt.
 
    ![Cloud Shell openen](./media/resource-manager-create-first-template/start-cloud-shell.png)
 
-12. Voer de volgende opdrachten in Cloud Shell in:
+12. Voer de volgende opdrachten in de Cloud Shell Hallo Hallo:
 
    ```azurecli
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
    ```
 
-Wanneer de implementatie is voltooid, bevindt het opslagaccount zich in de resourcegroep.
+Wanneer de implementatie is voltooid, wordt uw storage-account bestaat in de resourcegroep Hallo.
 
-## <a name="customize-the-template"></a>De sjabloon aanpassen
+## <a name="customize-hello-template"></a>Hallo-sjabloon aanpassen
 
-De sjabloon werkt goed, maar is niet flexibel. Deze implementeert altijd een lokaal redundante opslag in Zuid-centraal VS. De naam is altijd *Opslag* gevolgd door een hashwaarde. Voeg parameters toe aan de sjabloon om ervoor te zorgen dat u deze voor verschillende scenario's kunt gebruiken.
+Hallo sjabloon werkt goed samen, maar het is niet flexibel. Altijd implementeert u een lokaal redundante opslag tooSouth VS-midden. de naam van de Hallo is altijd *opslag* gevolgd door een hash-waarde. tooenable Hallo-sjabloon voor verschillende scenario's met parameters toohello sjabloon toevoegen.
 
-In het volgende voorbeeld wordt de sectie Parameters weergegeven met twee parameters. Met de eerste parameter `storageSKU` kunt u het type redundantie opgeven. Hiermee beperkt u de waarden die kunnen worden doorgegeven, tot waarden die geldig zijn voor een opslagaccount. Er wordt ook een standaardwaarde opgegeven. De tweede parameter `storageNamePrefix` is ingesteld om een maximum aantal van 11 tekens toe te staan. Hiermee wordt een standaardwaarde opgegeven.
+Hallo ziet volgende voorbeeld Hallo parameters sectie met twee parameters. de eerste parameter Hallo `storageSKU` kunt u toospecify Hallo type redundantie. Deze wordt beperkt door Hallo-waarden die u kunt doorgeven in toovalues die geldig voor een opslagaccount zijn. Er wordt ook een standaardwaarde opgegeven. tweede parameter Hallo `storageNamePrefix` set tooallow maximaal 11 tekens is. Hiermee wordt een standaardwaarde opgegeven.
 
 ```json
 "parameters": {
@@ -169,7 +169,7 @@ In het volgende voorbeeld wordt de sectie Parameters weergegeven met twee parame
     ],
     "defaultValue": "Standard_LRS",
     "metadata": {
-      "description": "The type of replication to use for the storage account."
+      "description": "hello type of replication toouse for hello storage account."
     }
   },
   "storageNamePrefix": {
@@ -177,13 +177,13 @@ In het volgende voorbeeld wordt de sectie Parameters weergegeven met twee parame
     "maxLength": 11,
     "defaultValue": "storage",
     "metadata": {
-      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      "description": "hello value toouse for starting hello storage account name. Use only lowercase letters and numbers."
     }
   }
 },
 ```
 
-Voeg in de sectie Variabelen een variabele in met de naam `storageName`. Deze combineert de voorvoegselwaarde van de parameters met een hashwaarde van de functie [uniqueString](resource-group-template-functions-string.md#uniquestring). Deze maakt gebruik van de functie [toLower](resource-group-template-functions-string.md#tolower) om alle tekens te converteren naar kleine letters.
+Voeg een variabele met de naam in gedeelte variabelen Hallo `storageName`. Het voorvoegsel op Hallo van Hallo parameters en een hash van Hallo combineert [uniqueString](resource-group-template-functions-string.md#uniquestring) functie. Hierbij Hallo [toLower](resource-group-template-functions-string.md#tolower) tooconvert alle tekens toolowercase werken.
 
 ```json
 "variables": {
@@ -191,7 +191,7 @@ Voeg in de sectie Variabelen een variabele in met de naam `storageName`. Deze co
 },
 ```
 
-Als u deze nieuwe waarden wilt gebruiken voor uw opslagaccount, wijzigt u de resourcedefinitie:
+toouse deze nieuwe waarden voor uw opslagaccount, wijzig de resourcedefinitie Hallo:
 
 ```json
 "resources": [
@@ -210,11 +210,11 @@ Als u deze nieuwe waarden wilt gebruiken voor uw opslagaccount, wijzigt u de res
 ],
 ```
 
-U ziet nu dat de naam van het opslagaccount is ingesteld op de variabele die u hebt toegevoegd. De naam van de SKU is ingesteld op de waarde van de parameter. De locatie is ingesteld op dezelfde locatie als de resourcegroep.
+U ziet dat Hallo naam van het opslagaccount hello toohello variabele die u hebt toegevoegd nu is ingesteld. Hallo SKU-naam is toohello waarde van parameter Hallo ingesteld. Hallo vestiging dezelfde locatie als de resourcegroep Hallo Hallo.
 
 Sla het bestand op. 
 
-Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit:
+Na het voltooien van Hallo stappen in dit artikel is de sjabloon nu ziet eruit als:
 
 ```json
 {
@@ -232,7 +232,7 @@ Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit
       ],
       "defaultValue": "Standard_LRS",
       "metadata": {
-        "description": "The type of replication to use for the storage account."
+        "description": "hello type of replication toouse for hello storage account."
       }
     },   
     "storageNamePrefix": {
@@ -240,7 +240,7 @@ Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit
       "maxLength": 11,
       "defaultValue": "storage",
       "metadata": {
-        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+        "description": "hello value toouse for starting hello storage account name. Use only lowercase letters and numbers."
       }
     }
   },
@@ -267,7 +267,7 @@ Na het voltooien van de stappen in dit artikel ziet uw sjabloon er als volgt uit
 
 ## <a name="redeploy-template"></a>Sjabloon opnieuw implementeren
 
-Implementeer de sjabloon opnieuw met verschillende waarden.
+Implementeer opnieuw Hallo sjabloon met verschillende waarden.
 
 Gebruik voor PowerShell:
 
@@ -281,7 +281,7 @@ Gebruik voor Azure CLI:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Upload voor Cloud Shell de gewijzigde sjabloon naar de bestandsshare. Overschrijf het bestaande bestand. Gebruik vervolgens deze opdracht:
+Upload de gewijzigde sjabloon toohello file share voor Hallo Cloud-Shell. Hallo bestaand bestand overschrijven. Gebruik vervolgens Hallo volgende opdracht:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
@@ -289,7 +289,7 @@ az group deployment create --resource-group examplegroup --template-file clouddr
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Schoon de geïmplementeerd resources, wanneer u deze niet meer nodig hebt, op door de resourcegroep te verwijderen.
+Wanneer deze niet langer nodig is, Hallo resources die u hebt geïmplementeerd door het verwijderen van resourcegroep Hallo opschonen.
 
 Gebruik voor PowerShell:
 
@@ -304,6 +304,6 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over de structuur van een sjabloon.
-* Zie [Storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts) (Sjabloonverwijzing voor opslagaccounts) voor meer informatie over de eigenschappen van een opslagaccount.
-* Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
+* Zie toolearn meer informatie over het Hallo-structuur van een sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+* Zie toolearn over de eigenschappen voor een opslagaccount hello [opslagaccounts sjabloonverwijzing](/azure/templates/microsoft.storage/storageaccounts).
+* tooview voltooid sjablonen voor verschillende soorten oplossingen, Zie Hallo [Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/).

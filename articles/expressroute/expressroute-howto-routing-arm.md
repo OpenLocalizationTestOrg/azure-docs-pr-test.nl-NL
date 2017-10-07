@@ -1,6 +1,6 @@
 ---
-title: 'Het configureren van routering (peering) voor een ExpressRoute-circuit: Resource Manager: PowerShell: Azure | Microsoft Docs'
-description: Dit artikel begeleidt u stapsgewijs door de procedure voor het maken en inrichten van de persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. In dit artikel leest u hoe u de status controleert en peerings voor uw circuit bijwerkt of verwijdert.
+title: 'Hoe tooconfigure routering (peering) voor een ExpressRoute-circuit: Resource Manager: PowerShell: Azure | Microsoft Docs'
+description: Dit artikel begeleidt u bij Hallo stappen voor het maken en inrichten Hallo persoonlijke, openbare en Microsoft-peering van een ExpressRoute-circuit. Dit artikel leest u hoe de status van toocheck hello, bijwerken of verwijderen van peerings voor uw circuit.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: af68955b78239832e413e1b59e033d7d3da8d599
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: eb3ddf5c05a086ac3e22c64417e51381ef465921
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Maken en wijzigen van de peering voor een ExpressRoute-circuit met PowerShell
 
-In dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit in het Resource Manager-implementatiemodel met behulp van PowerShell. U kunt ook controleren van de status, update of delete en inrichting ervan ongedaan peerings voor een ExpressRoute-circuit. Als u een andere methode gebruiken om te werken met uw circuit wilt, selecteert u een artikel uit de volgende lijst:
+In dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor een ExpressRoute-circuit in Hallo Resource Manager-implementatiemodel met behulp van PowerShell. U kunt ook controleren Hallo status, update of delete en inrichting ervan ongedaan peerings voor een ExpressRoute-circuit. Als u wilt dat een andere methode toowork toouse met uw circuit, selecteert u een artikel in Hallo volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -37,69 +37,69 @@ In dit artikel helpt u bij het maken en beheren van routeringsconfiguratie voor 
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
-* U moet de meest recente versie van de Azure Resource Manager PowerShell-cmdlets. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie. 
-* Zorg dat u de pagina met [vereisten](expressroute-prerequisites.md), de pagina over [routeringsvereisten](expressroute-routing.md) en de pagina over [werkstromen](expressroute-workflows.md) hebt gelezen voordat u begint met de configuratie.
-* U moet een actief ExpressRoute-circuit hebben. Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Het ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld om te kunnen uitvoeren van de cmdlets in dit artikel.
+* U moet de meest recente versie Hallo van hello Azure Resource Manager PowerShell-cmdlets. Zie voor meer informatie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview). 
+* Zorg ervoor dat u Hallo hebt bekeken [vereisten](expressroute-prerequisites.md) pagina hello [routeringsvereisten](expressroute-routing.md) pagina en Hallo [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+* U moet een actief ExpressRoute-circuit hebben. Hallo-instructies te volgen[maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en Hallo circuit inschakelen door de connectiviteitsprovider voordat u verder gaat. Hallo ExpressRoute-circuit moet zich in een status ingericht en zijn ingeschakeld voor u toobe kunnen toorun Hallo cmdlets in dit artikel.
 
-Deze instructies zijn alleen van toepassing op circuits die zijn gemaakt met serviceproviders die services met Laag-2-connectiviteit aanbieden. Als u gebruikmaakt van een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureren en beheren van routering voor u.
+Deze instructies zijn alleen van toepassing toocircuits gemaakt met serviceproviders die services voor Layer 2-connectiviteit aanbieden. Als u gebruikmaakt van een serviceprovider die beheerde laag-3-services (meestal een IPVPN, zoals MPLS), uw connectiviteitsprovider configureren en beheren van routering voor u.
 
 > [!IMPORTANT]
-> Op dit moment bieden we nog geen peerings aan die door serviceproviders worden geconfigureerd via de beheerportal van de service. Deze mogelijkheid zal binnenkort worden ingeschakeld. Neem contact op met uw serviceprovider voordat u BGP-peerings configureert.
+> We momenteel doen nog geen peerings geconfigureerd door serviceproviders via Hallo service management portal. Deze mogelijkheid zal binnenkort worden ingeschakeld. Neem contact op met uw serviceprovider voordat u BGP-peerings configureert.
 > 
 > 
 
-U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. U moet er echter wel voor zorgen dat u de configuratie van elke peering een voor een voltooit. 
+U kunt een, twee of alle drie de peerings (Azure privé, Azure openbaar en Microsoft) voor een ExpressRoute-circuit configureren. U kunt peerings configureren in elke gewenste volgorde. Echter, moet u ervoor zorgen dat Hallo configuratie van elke peering een tegelijk te voltooien. 
 
 ## <a name="azure-private-peering"></a>Persoonlijke Azure-peering
 
-Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de Azure persoonlijke peering configuratie voor een ExpressRoute-circuit.
+Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van hello Azure configuratie van persoonlijke peering voor een ExpressRoute-circuit.
 
-### <a name="to-create-azure-private-peering"></a>Persoonlijke Azure-peering maken
+### <a name="toocreate-azure-private-peering"></a>toocreate persoonlijke Azure-peering
 
-1. Importeer de PowerShell-module voor ExpressRoute.
+1. Importeer Hallo PowerShell-module voor ExpressRoute.
 
-  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
+  Moet u het meest recente PowerShell installer Hallo van installeren [PowerShell Gallery](http://www.powershellgallery.com/) en hello Azure Resource Manager-modules importeren in Hallo PowerShell-sessie in de volgorde toostart met Hallo ExpressRoute-cmdlets. U moet toorun PowerShell als beheerder.
 
   ```powershell
   Install-Module AzureRM
   Install-AzureRM
   ```
 
-  Alle AzureRM.*-modules binnen het bereik van de bekende semantische versie importeren.
+  Importeer alle AzureRM.*-modules Hallo binnen Hallo bekende semantische versiebereik.
 
   ```powershell
   Import-AzureRM
   ```
 
-  U kunt ook gewoon een bepaalde module binnen het bereik van de bekende semantische versie importeren.
+  U kunt ook gewoon een bepaalde module binnen Hallo bekend bereik semantische versie importeren.
 
   ```powershell
   Import-Module AzureRM.Network 
   ```
 
-  Aanmelden bij uw account.
+  Meld u aan tooyour-account.
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Selecteer het abonnement dat u wilt maken van ExpressRoute-circuit.
+  Selecteer Hallo abonnement u wilt dat toocreate ExpressRoute-circuit.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.
 
-  Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het circuit inrichten door de connectiviteitsprovider.
+  Ga als volgt Hallo instructies toocreate een [ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het inrichten door de connectiviteitsprovider Hallo.
 
-  Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert blijven echter uw configuratie met behulp van de volgende stappen.
-3. Controleer het ExpressRoute-circuit is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
+  Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteit provider tooenable Azure persoonlijke peering voor u aanvragen. In dat geval hoeft u niet toofollow instructies in de volgende secties Hallo. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert, maar de configuratie met behulp van de volgende stappen Hallo blijven.
+3. Controleer de ExpressRoute-circuit toomake Hallo is ingericht en ook ingeschakeld. Gebruik Hallo voorbeeld te volgen:
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  Het antwoord is vergelijkbaar met het volgende voorbeeld:
+  Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -124,15 +124,15 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   ServiceKey                       : **************************************
   Peerings                         : []
   ```
-4. Configureer persoonlijke Azure-peering voor het circuit. Zorg ervoor dat u de volgende items hebt voordat u verdergaat met de volgende stappen:
+4. Configureer persoonlijke Azure-peering voor Hallo circuit. Zorg ervoor dat u de volgende items voordat u met de volgende stappen Hallo verdergaat Hallo hebt:
 
-  * Een /30-subnet voor de primaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
-  * Een /30-subnet voor de secundaire koppeling. Het subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+  * Een/30 subnet voor de primaire koppeling Hallo. Hallo-subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
+  * Een/30 subnet voor de secundaire koppeling Hallo. Hallo-subnet moet deel uitmaken van een adresruimte gereserveerd voor virtuele netwerken niet.
+  * Een geldige VLAN-ID tooestablish deze peering. Zorg ervoor dat er geen andere peering in Hallo circuit Hallo maakt gebruik van dezelfde VLAN-ID.
   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken. U kunt een persoonlijk AS-nummer voor deze peering gebruiken. Zorg dat u niet 65515 gebruikt.
-  * **Optionele -** een MD5-hash, als u ervoor kiest een te gebruiken.
+  * **Optionele -** een MD5-hash, als u ervoor toouse een kiest.
 
-  Gebruik het volgende voorbeeld voor het configureren van persoonlijke Azure-peering voor uw circuit:
+  Gebruik Hallo voorbeeld tooconfigure Azure persoonlijke peering voor uw circuit te volgen:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -140,7 +140,7 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-  Als u gebruiken een MD5-hash wilt, gebruikt u het volgende voorbeeld:
+  Als u een MD5-hash toouse kiest, gebruikt u Hallo voorbeeld te volgen:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
@@ -151,9 +151,9 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   > 
   >
 
-### <a name="to-view-azure-private-peering-details"></a>De details van persoonlijke Azure-peering weergeven
+### <a name="tooview-azure-private-peering-details"></a>tooview Azure persoonlijke peering details
 
-U kunt configuratie-informatie krijgen met behulp van het volgende voorbeeld:
+U kunt configuratie-informatie krijgen met behulp van Hallo voorbeeld te volgen:
 
 ```powershell
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -161,9 +161,9 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 ```
 
-### <a name="to-update-azure-private-peering-configuration"></a>De configuratie van persoonlijke Azure-peering bijwerken
+### <a name="tooupdate-azure-private-peering-configuration"></a>tooupdate Azure configuratie van persoonlijke peering
 
-U kunt elk deel van de configuratie in het volgende voorbeeld bijwerken. In dit voorbeeld wordt de VLAN-ID van het circuit wordt bijgewerkt van 100 tot 500.
+U kunt elk deel van Hallo-configuratie met behulp van de volgende voorbeeld Hallo bijwerken. In dit voorbeeld wordt Hallo VLAN-ID van het circuit Hallo van 100 too500 bijgewerkt.
 
 ```powershell
 Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -171,12 +171,12 @@ Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-azure-private-peering"></a>Persoonlijke Azure-peering verwijderen
+### <a name="toodelete-azure-private-peering"></a>toodelete persoonlijke Azure-peering
 
-U kunt de peeringconfiguratie verwijderen door het uitvoeren van het volgende voorbeeld:
+U kunt de peeringconfiguratie verwijderen door het uitvoeren van Hallo voorbeeld te volgen:
 
 > [!WARNING]
-> U moet ervoor zorgen dat alle virtuele netwerken losgekoppeld van het ExpressRoute-circuit zijn voordat u dit voorbeeld. 
+> U moet ervoor zorgen dat alle virtuele netwerken losgekoppeld van Hallo ExpressRoute-circuit zijn voordat u dit voorbeeld. 
 > 
 > 
 
@@ -188,13 +188,13 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="azure-public-peering"></a>Openbare Azure-peering
 
-Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de Azure openbare peering configuratie voor een ExpressRoute-circuit.
+Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van hello Azure configuratie van openbare peering voor een ExpressRoute-circuit.
 
-### <a name="to-create-azure-public-peering"></a>Openbare Azure-peering maken
+### <a name="toocreate-azure-public-peering"></a>toocreate openbare Azure-peering
 
-1. Importeer de PowerShell-module voor ExpressRoute.
+1. Importeer Hallo PowerShell-module voor ExpressRoute.
 
-  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
+  Moet u het meest recente PowerShell installer Hallo van installeren [PowerShell Gallery](http://www.powershellgallery.com/) en hello Azure Resource Manager-modules importeren in Hallo PowerShell-sessie in de volgorde toostart met Hallo ExpressRoute-cmdlets. U moet toorun PowerShell als beheerder.
 
   ```powershell
   Install-Module AzureRM
@@ -202,41 +202,41 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   Install-AzureRM
 ```
 
-  Alle AzureRM.*-modules binnen het bereik van de bekende semantische versie importeren.
+  Importeer alle AzureRM.*-modules Hallo binnen Hallo bekende semantische versiebereik.
 
   ```powershell
   Import-AzureRM
   ```
 
-  U kunt ook gewoon een bepaalde module binnen het bereik van de bekende semantische versie importeren.
+  U kunt ook gewoon een bepaalde module binnen Hallo bekend bereik semantische versie importeren.
 
   ```powershell
   Import-Module AzureRM.Network
 ```
 
-  Aanmelden bij uw account.
+  Meld u aan tooyour-account.
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Selecteer het abonnement dat u wilt maken van ExpressRoute-circuit.
+  Selecteer Hallo abonnement u wilt dat toocreate ExpressRoute-circuit.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.
 
-  Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het circuit inrichten door de connectiviteitsprovider.
+  Ga als volgt Hallo instructies toocreate een [ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het inrichten door de connectiviteitsprovider Hallo.
 
-  Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert blijven echter uw configuratie met behulp van de volgende stappen.
-3. Controleer of de ExpressRoute circuit is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
+  Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteit provider tooenable Azure persoonlijke peering voor u aanvragen. In dat geval hoeft u niet toofollow instructies in de volgende secties Hallo. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert, maar de configuratie met behulp van de volgende stappen Hallo blijven.
+3. Controleer Hallo ExpressRoute-circuit tooensure is ingericht en ook ingeschakeld. Gebruik Hallo voorbeeld te volgen:
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  Het antwoord is vergelijkbaar met het volgende voorbeeld:
+  Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -261,15 +261,15 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   ServiceKey                       : **************************************
   Peerings                         : []
   ```
-4. Configureer openbare Azure-peering voor het circuit. Zorg ervoor dat u hebt de volgende informatie beschikt voordat u verder.
+4. Configureer openbare Azure-peering voor Hallo circuit. Zorg ervoor dat u de volgende informatie voordat u verder Hallo hebt.
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+  * Een/30 subnet voor de primaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+  * Een/30 subnet voor de secundaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn.
+  * Een geldige VLAN-ID tooestablish deze peering. Zorg ervoor dat er geen andere peering in Hallo circuit Hallo maakt gebruik van dezelfde VLAN-ID.
   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * **Optionele -** een MD5-hash, als u ervoor kiest een te gebruiken.
+  * **Optionele -** een MD5-hash, als u ervoor toouse een kiest.
 
-  Het volgende voorbeeld voor het configureren van openbare Azure-peering voor uw circuit uitvoert
+  Hallo na voorbeeld tooconfigure openbare peering voor uw circuit Azure uitvoeren
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
@@ -277,7 +277,7 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-  Als u gebruiken een MD5-hash wilt, gebruikt u het volgende voorbeeld:
+  Als u een MD5-hash toouse kiest, gebruikt u Hallo voorbeeld te volgen:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
@@ -290,9 +290,9 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de A
   > 
   >
 
-### <a name="to-view-azure-public-peering-details"></a>De details van openbare Azure-peering weergeven
+### <a name="tooview-azure-public-peering-details"></a>tooview Azure openbare peering details
 
-U kunt met de volgende cmdlet configuratiedetails krijgen:
+U kunt met behulp van de volgende cmdlet Hallo configuratiedetails krijgen:
 
 ```powershell
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -300,9 +300,9 @@ U kunt met de volgende cmdlet configuratiedetails krijgen:
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### <a name="to-update-azure-public-peering-configuration"></a>De configuratie van openbare Azure-peering bijwerken
+### <a name="tooupdate-azure-public-peering-configuration"></a>configuratie van openbare peering Azure tooupdate
 
-U kunt elk deel van de configuratie in het volgende voorbeeld bijwerken. In dit voorbeeld wordt wordt de VLAN-ID van het circuit van 200 bijgewerkt op 600.
+U kunt elk deel van Hallo-configuratie met behulp van de volgende voorbeeld Hallo bijwerken. In dit voorbeeld wordt Hallo VLAN-ID van het circuit Hallo van 200 too600 bijgewerkt.
 
 ```powershell
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
@@ -310,9 +310,9 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-azure-public-peering"></a>Openbare Azure-peering verwijderen
+### <a name="toodelete-azure-public-peering"></a>toodelete openbare Azure-peering
 
-U kunt de peeringconfiguratie verwijderen door het uitvoeren van het volgende voorbeeld:
+U kunt de peeringconfiguratie verwijderen door het uitvoeren van Hallo voorbeeld te volgen:
 
 ```powershell
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
@@ -321,18 +321,18 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="microsoft-peering"></a>Microsoft-peering
 
-Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de configuratie voor de Microsoft-peering voor een ExpressRoute-circuit.
+Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen configuratie Hallo Microsoft-peering gebruiken voor een ExpressRoute-circuit.
 
 > [!IMPORTANT]
-> Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd, voordat u 1 augustus 2017 hebben alle service voorvoegsels die worden geadverteerd via de Microsoft-peering, zelfs als routefilters zijn niet gedefinieerd. Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd op of na 1 augustus 2017 geen geen voorvoegsels aangekondigd totdat een routefilter is gekoppeld aan het circuit. Zie voor meer informatie [configureren van een routefilter voor Microsoft-peering](how-to-routefilter-powershell.md).
+> Eerdere tooAugust 1 Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd, 2017 hebben alle service voorvoegsels die worden geadverteerd via Hallo Microsoft-peering, zelfs als routefilters zijn niet gedefinieerd. Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd op of na 1 augustus 2017 geen geen voorvoegsels aangekondigd totdat een routefilter wordt aangesloten toohello circuit. Zie voor meer informatie [configureren van een routefilter voor Microsoft-peering](how-to-routefilter-powershell.md).
 > 
 > 
 
-### <a name="to-create-microsoft-peering"></a>Microsoft-peering maken
+### <a name="toocreate-microsoft-peering"></a>toocreate Microsoft-peering
 
-1. Importeer de PowerShell-module voor ExpressRoute.
+1. Importeer Hallo PowerShell-module voor ExpressRoute.
 
-  U moet het meest recente installatieprogramma installeren vanuit de [PowerShell Gallery](http://www.powershellgallery.com/) en de Azure Resource Manager-modules importeren in de PowerShell-sessie om de ExpressRoute-cmdlets te kunnen gebruiken. U moet PowerShell tevens uitvoeren als beheerder.
+  Moet u het meest recente PowerShell installer Hallo van installeren [PowerShell Gallery](http://www.powershellgallery.com/) en hello Azure Resource Manager-modules importeren in Hallo PowerShell-sessie in de volgorde toostart met Hallo ExpressRoute-cmdlets. U moet toorun PowerShell als beheerder.
 
   ```powershell
   Install-Module AzureRM
@@ -340,41 +340,41 @@ Deze sectie helpt u bij het maken, verkrijgen, bijwerken en verwijderen van de c
   Install-AzureRM
   ```
 
-  Alle AzureRM.*-modules binnen het bereik van de bekende semantische versie importeren.
+  Importeer alle AzureRM.*-modules Hallo binnen Hallo bekende semantische versiebereik.
 
   ```powershell
   Import-AzureRM
   ```
 
-  U kunt ook gewoon een bepaalde module binnen het bereik van de bekende semantische versie importeren.
+  U kunt ook gewoon een bepaalde module binnen Hallo bekend bereik semantische versie importeren.
 
   ```powershell
   Import-Module AzureRM.Network
   ```
 
-  Aanmelden bij uw account.
+  Meld u aan tooyour-account.
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Selecteer het abonnement dat u wilt maken van ExpressRoute-circuit.
+  Selecteer Hallo abonnement u wilt dat toocreate ExpressRoute-circuit.
 
   ```powershell
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Maak een ExpressRoute-circuit.
 
-  Volg de instructies voor het [maken van een ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het circuit inrichten door de connectiviteitsprovider.
+  Ga als volgt Hallo instructies toocreate een [ExpressRoute-circuit](expressroute-howto-circuit-arm.md) en laat het inrichten door de connectiviteitsprovider Hallo.
 
-  Als uw connectiviteitsprovider beheerde Laag-3-services biedt, kunt u de connectiviteitsprovider vragen om persoonlijke Azure-peering voor u in te schakelen. In dat geval hoeft u de instructies in de volgende secties niet te volgen. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert blijven echter uw configuratie met behulp van de volgende stappen.
-3. Controleer het ExpressRoute-circuit is ingericht en ook ingeschakeld. Gebruik het volgende voorbeeld:
+  Als uw connectiviteitsprovider beheerde laag-3-services biedt, kunt u uw connectiviteit provider tooenable Azure persoonlijke peering voor u aanvragen. In dat geval hoeft u niet toofollow instructies in de volgende secties Hallo. Als uw connectiviteitsprovider routering voor u, na het maken van het circuit niet beheert, maar de configuratie met behulp van de volgende stappen Hallo blijven.
+3. Controleer de ExpressRoute-circuit toomake Hallo is ingericht en ook ingeschakeld. Gebruik Hallo voorbeeld te volgen:
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  Het antwoord is vergelijkbaar met het volgende voorbeeld:
+  Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -399,18 +399,18 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ServiceKey                       : **************************************
   Peerings                         : []
   ```
-4. Configureer Microsoft-peering voor het circuit. Zorg ervoor dat u over de volgende informatie beschikt voordat u verder gaat.
+4. Configureer Microsoft-peering voor Hallo circuit. Zorg ervoor dat er Hallo volgende informatie voordat u verder.
 
-  * Een /30-subnet voor de primaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
-  * Een /30-subnet voor de secundaire koppeling. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
-  * Een geldige VLAN-id waarop u deze peering wilt instellen. Controleer of er geen andere peering in het circuit is die dezelfde VLAN-id gebruikt.
+  * Een/30 subnet voor de primaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
+  * Een/30 subnet voor de secundaire koppeling Hallo. Dit moet een geldig openbaar IPv4-voorvoegsel zijn waarvan u eigenaar bent en dat is geregistreerd in een RIR/IRR.
+  * Een geldige VLAN-ID tooestablish deze peering. Zorg ervoor dat er geen andere peering in Hallo circuit Hallo maakt gebruik van dezelfde VLAN-ID.
   * AS-nummer voor peering. U kunt 2-bytes en 4-bytes AS-nummers gebruiken.
-  * Geadverteerde voorvoegsels: u moet een lijst verstrekken van alle voorvoegsels die u via de BGP-sessie wilt adverteren. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u van plan bent een reeks voorvoegsels verzenden, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten voor u zijn geregistreerd in een RIR/IRR.
-  * **Optionele -** klant-ASN: als u voorvoegsels adverteert die niet zijn geregistreerd op de AS-nummer peering, kunt u het AS-nummer waaraan ze zijn geregistreerd.
-  * Naam van routeringsregister: u kunt het RIR/IRR opgeven waarbij het AS-nummer en de voorvoegsels zijn geregistreerd.
-  * **Optionele -** een MD5-hash, als u ervoor kiest een te gebruiken.
+  * Geadverteerde voorvoegsels: U moet een lijst verstrekken van alle voorvoegsels die u van plan bent tooadvertise via Hallo BGP-sessie. Alleen openbare IP-adresvoorvoegsels worden geaccepteerd. Als u een reeks voorvoegsels toosend plant, kunt u een door komma's gescheiden lijst verzenden. Deze voorvoegsels moeten geregistreerde tooyou in een RIR / IRR.
+  * **Optionele -** klant-ASN: als u voorvoegsels adverteert die niet zijn ingeschreven toohello peering als getal, kunt u Hallo opgeven als getal toowhich ze zijn geregistreerd.
+  * Naam van Routeringsregister: Kunt u Hallo RIR / IRR met betrekking tot welke Hallo als number en prefixes zijn geregistreerd.
+  * **Optionele -** een MD5-hash, als u ervoor toouse een kiest.
 
-   Gebruik het volgende voorbeeld voor het Microsoft-peering voor uw circuit te configureren:
+   Gebruik Hallo voorbeeld tooconfigure Microsoft-peering voor uw circuit te volgen:
 
   ```powershell
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -418,9 +418,9 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-### <a name="to-get-microsoft-peering-details"></a>De details van Microsoft-peering ophalen
+### <a name="tooget-microsoft-peering-details"></a>details van tooget Microsoft-peering
 
-U kunt krijgen configuratiegegevens wilt weergeven in het volgende voorbeeld:
+U kunt krijgen configuratiegegevens wilt weergeven Hallo voorbeeld te volgen:
 
 ```powershell
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -428,9 +428,9 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-update-microsoft-peering-configuration"></a>Configuratie van Microsoft-peering bijwerken
+### <a name="tooupdate-microsoft-peering-configuration"></a>configuratie van tooupdate Microsoft-peering
 
-U kunt elk deel van de configuratie in het volgende voorbeeld bijwerken:
+U kunt elk deel van Hallo-configuratie met Hallo volgt bijwerken:
 
 ```powershell
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -438,9 +438,9 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRo
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-microsoft-peering"></a>Microsoft-peering verwijderen
+### <a name="toodelete-microsoft-peering"></a>toodelete Microsoft-peering
 
-U kunt de peeringconfiguratie verwijderen door de volgende cmdlet:
+U kunt de peeringconfiguratie verwijderen door het uitvoeren van de volgende cmdlet Hallo:
 
 ```powershell
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
@@ -450,7 +450,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volgende stap, [Een VNet koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md).
+Volgende stap, [koppelen van een VNet tooan ExpressRoute-circuit](expressroute-howto-linkvnet-arm.md).
 
 * Voor meer informatie over ExpressRoute-werkstromen raadpleegt u [ExpressRoute workflows](expressroute-workflows.md) (ExpressRoute-werkstromen).
 * Voor meer informatie over circuitpeering raadpleegt u [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (ExpressRoute-circuits en -routeringsdomeinen).

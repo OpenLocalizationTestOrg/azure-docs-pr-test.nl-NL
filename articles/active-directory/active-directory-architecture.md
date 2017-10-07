@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory-architectuur begrijpen | Microsoft Docs
-description: Hierin wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert via Azure Active Directory
+title: aaaUnderstand Azure Active Directory-architectuur | Microsoft Docs
+description: Wordt uitgelegd wat een Azure AD-tenant is, en hoe toomanage Azure via Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: markvi
-ms.openlocfilehash: 50dad848cfbdab7f5b1fff0fcec3b5f754e6ae74
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 799943c012dcc309907ed3c36372038a0aad222a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory-architectuur begrijpen
-Met Azure AD (Azure Active Directory) kunt u veilig de toegang tot Azure-services en -resources beheren voor uw gebruikers. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) voor meer informatie over de functies van Azure AD.
+Azure Active Directory (Azure AD) kunt u toosecurely toegang tooAzure services en resources voor uw gebruikers beheren. Azure AD omvat een volledige suite met mogelijkheden voor identiteitsbeheer. Zie [Wat is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) voor meer informatie over de functies van Azure AD.
 
-Met Azure AD kunt u gebruikers en groepen maken en beheren, en machtigingen inschakelen om toegang tot bedrijfsresources te verlenen of te weigeren. Zie [The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (De grondbeginselen van Azure-identiteitsbeheer) voor meer informatie over identiteitsbeheer.
+In Azure AD, kunt u maken en beheren van gebruikers en groepen uit en machtigingen tooallow inschakelen en tooenterprise resources voor de toegang weigert. Zie voor meer informatie over identity management [Hallo grondbeginselen van Azure identiteitsbeheer](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity).
 
 ## <a name="azure-ad-architecture"></a>Azure AD-architectuur
-De geografisch verspreide architectuur van Azure AD combineert uitgebreide controle, geautomatiseerde omleidingen, failover en herstelmogelijkheden. Hierdoor kunnen we onze klanten beschikbaarheid en prestaties op bedrijfsniveau bieden.
+Azure AD geografisch verspreide architectuur combineert uitgebreide bewaking, het omleiden van geautomatiseerde, failover en herstelfuncties ons toodeliver op bedrijfsniveau beschikbaarheid en prestaties tooour klanten in staat.
 
-In dit artikel worden de volgende elementen van de architectuur besproken:
+Hallo na architectuur elementen worden in dit artikel behandeld:
  *  Servicearchitectuurontwerp
  *  Schaalbaarheid 
  *  Continue beschikbaarheid
  *  Datacenters
 
 ### <a name="service-architecture-design"></a>Servicearchitectuurontwerp
-De meest voorkomende manier om een schaalbaar, maximaal beschikbaar en gegevensrijk systeem te bouwen, is met onafhankelijke bouwstenen of schaaleenheden voor de Azure AD-gegevenslaag. Schaaleenheden worden *partities* genoemd. 
+Hallo meest voorkomende manier toobuild een schaalbare, maximaal beschikbare, gegevens rich-systeem via onafhankelijke bouwstenen of schaaleenheden voor de gegevenslaag hello Azure AD is, schaaleenheden heten *partities*. 
 
-De gegevenslaag heeft meerdere front-end-services die mogelijkheden bieden voor lezen/schrijven. In het onderstaande diagram ziet u hoe de onderdelen van een partitie met één map worden verdeeld over geografisch verspreide datacenters. 
+Hallo gegevenslaag heeft diverse front-end-services die de mogelijkheid hebben alleen-lezen. Hallo diagram hieronder ziet u hoe Hallo onderdelen van een één-mappartitie in datacenters geografisch verdeeld worden gedistribueerd. 
 
   ![Partities met één map](./media/active-directory-architecture/active-directory-architecture.png)
 
-De onderdelen van Azure AD-architectuur omvatten een primaire replica en secundaire replica's.
+Hallo-onderdelen van Azure AD-architectuur zijn een replica van primaire en secundaire replica's.
 
 **Primaire replica**
 
-De *primaire replica* ontvangt alle *schrijfbewerkingen* voor de partitie waarbij deze hoort. Alle schrijfbewerkingen worden onmiddellijk gerepliceerd naar een secundaire replica in een ander datacenter, voordat de aanroeper een melding van slagen ontvangt. Op deze manier wordt de geografisch redundante duurzaamheid van schrijfbewerkingen verzekerd.
+Hallo *primaire replica* ontvangt alle *schrijft* voor Hallo partitie hoort bij. Een bewerking wordt onmiddellijk gerepliceerde tooa secundaire replica in een ander datacenter voordat er wordt teruggekeerd geslaagd toohello beller, zodat geografisch redundante duurzaamheid van schrijfbewerkingen schrijven.
 
 **Secundaire replica's**
 
-Alle *leesbewerkingen* in een map worden afgehandeld vanuit *secundaire replica's*, die zich in datacenters op verschillende fysieke locaties bevinden. Er zijn veel secundaire replica's, omdat gegevens asynchroon worden gerepliceerd. Leesbewerkingen in een map, zoals verificatieaanvragen, worden afgehandeld vanuit datacenters in de buurt van onze klanten. De secundaire replica's zijn verantwoordelijk voor de schaalbaarheid van leesbewerkingen.
+Alle *leesbewerkingen* in een map worden afgehandeld vanuit *secundaire replica's*, die zich in datacenters op verschillende fysieke locaties bevinden. Er zijn veel secundaire replica's, omdat gegevens asynchroon worden gerepliceerd. Directory leest, zoals verificatieaanvragen worden van datacenters die klanten sluiten tooour verwerkt. Hallo secundaire replica's zijn verantwoordelijk voor lezen schaalbaarheid.
 
 ### <a name="scalability"></a>Schaalbaarheid
 
-Schaalbaarheid is de mogelijkheid van een service om uit te breiden en zo te voldoen aan groeiende prestatievereisten. Schaalbaarheid van schrijfbewerkingen wordt bereikt door de gegevens te partitioneren. Schaalbaarheid van leesbewerkingen wordt bereikt door gegevens uit één partitie te repliceren naar meerdere secundaire replica's over de hele wereld.
+Schaalbaarheid is Hallo mogelijkheid van een service tooexpand toomeet toenemende prestatie-eisen. Schaalbaarheid wordt bereikt door het partitioneren van Hallo gegevens worden geschreven. Lees schaalbaarheid wordt bereikt door het repliceren van gegevens uit één partitie toomultiple secundaire replica's die over het hele Hallo wereld.
 
-Aanvragen van Directory-toepassingen worden meestal omgeleid naar het datacenter waar ze zich fysiek het dichtst bij bevinden. Schrijfbewerkingen worden transparant omgeleid naar de primaire replica voor lees-/schrijfconsistentie. Secundaire replica's breiden de schaal van partities aanzienlijk uit, omdat in de mappen doorgaans leesbewerkingen worden afgehandeld.
+Aanvragen van directory-toepassingen zijn doorgaans gerouteerde toohello datacenter die ze fysiek die het dichtst bij. Schrijfbewerkingen zijn transparant omgeleide toohello primaire replica tooprovide lezen-schrijven consistentie. Secundaire replica's uitbreiden aanzienlijk Hallo schaal van partities omdat Hallo mappen meestal voor leesbewerkingen meestal Hallo zijn.
 
-Directory-toepassingen maken verbinding met de dichtstbijzijnde datacenters. Hierdoor worden de prestaties verbeterd, wat uitschalen mogelijk maakt. Omdat een mappartitie meerdere secundaire replica's kan hebben, kunnen deze secundaire replica's dichter bij Directory-clients worden geplaatst. Alleen interne Directory-serviceonderdelen die veel schrijfbewerkingen afhandelen, zijn rechtstreeks gericht op de actieve primaire replica.
+Directory-toepassingen verbinding toohello dichtstbijzijnde datacenters. Hierdoor worden de prestaties verbeterd, wat uitschalen mogelijk maakt. Aangezien een mappartitie veel secundaire replica's hebben kan, kunnen secundaire replica's dichter toohello directory-clients worden geplaatst. Alleen interne directory service-onderdelen die rechtstreeks wegschrijven-intensieve doel Hallo active primaire replica.
 
 ### <a name="continuous-availability"></a>Continue beschikbaarheid
 
-Beschikbaarheid (of bedrijfstijd) definieert de mogelijkheid van een systeem om ononderbroken actief te zijn. De sleutel tot de hoge beschikbaarheid van Azure AD is dat onze services snel verkeer kunnen verplaatsen tussen meerdere geografisch verspreide datacenters. Elk datacenter is onafhankelijk. Dit maakt het gebruik van gedecorreleerde foutmodi mogelijk.
+Definieert de Hallo mogelijkheid van een ononderbroken system tooperform beschikbaarheid (of bedrijfstijd). Hallo sleutel tooAzure AD van hoge beschikbaarheid is dat onze services snel verkeer via meerdere geografisch verspreide datacenters kunnen veranderen. Elk datacenter is onafhankelijk. Dit maakt het gebruik van gedecorreleerde foutmodi mogelijk.
 
-Het ontwerp van Azure AD-partities is vereenvoudigd in vergelijking met het AD-ontwerp voor bedrijven, wat essentieel is voor het opschalen van het systeem. We maken gebruik van een single-master-ontwerp dat een zorgvuldig geregisseerd en deterministisch failoverproces omvat voor de primaire replica.
+Azure AD partitie ontwerp is vereenvoudigd vergeleken toohello enterprise AD-ontwerp, wat van essentieel belang voor het schalen van Hallo-systeem. We maken gebruik van een single-master-ontwerp dat een zorgvuldig geregisseerd en deterministisch failoverproces omvat voor de primaire replica.
 
 **Fouttolerantie**
 
-Een systeem is beschikbaarder als het tolerant is voor fouten in hardware, software en het netwerk. Voor elke mappartitie bestaat een maximaal beschikbare hoofdreplica: de primaire replica. Op deze replica worden alleen schrijfbewerkingen naar de partitie uitgevoerd. Deze replica wordt voortdurend en nauwlettend gecontroleerd. Indien er een fout wordt gedetecteerd, kunnen schrijfbewerkingen onmiddellijk worden verplaatst naar een andere replica (die dan de nieuwe primaire replica wordt). Tijdens de failover kan er een verlies van schrijfbeschikbaarheid optreden. Dit duurt meestal maar 1-2 minuten. De leesbeschikbaarheid wordt gedurende deze tijd niet beïnvloed.
+Een systeem is meer beschikbaar als het fouttolerante toohardware-, netwerk- en fouten. Voor elke partitie op Hallo directory, de replica van een maximaal beschikbare master bestaat: Hallo primaire replica. Alleen schrijfbewerkingen toohello partitie worden uitgevoerd op deze replica. Deze replica wordt voortdurend en nauw bewaakt en schrijfbewerkingen onmiddellijk verplaatste tooanother replica kunnen worden (die wordt Hallo nieuwe primaire) als er een storing wordt gedetecteerd. Tijdens de failover kan er een verlies van schrijfbeschikbaarheid optreden. Dit duurt meestal maar 1-2 minuten. De leesbeschikbaarheid wordt gedurende deze tijd niet beïnvloed.
 
-Leesbewerkingen (die vele malen vaker voorkomen dan schrijfbewerkingen) worden alleen opgeslagen in secundaire replica's. Aangezien secundaire replica's idempotent zijn, kan het verlies van een van de replica's in een bepaalde partitie eenvoudig worden gecompenseerd door de leesbewerkingen naar een andere replica te leiden. Meestal is dit dan een replica in hetzelfde datacenter.
+Leesbewerkingen (dat schrijfbewerkingen outnumber door bruikbare) gaat alleen toosecondary replica's. Omdat secundaire replica's idempotent zijn, verlies van een één replica in een bepaalde partitie eenvoudig wordt gecompenseerd door Hallo leesbewerkingen tooanother replica, meestal in Hallo hetzelfde datacenter.
 
 **Duurzaamheid van gegevens**
 
-Een schrijfbewerking wordt definitief doorgevoerd in ten minste twee datacenters vóórdat deze wordt bevestigd. Dit gebeurt door de schrijfbewerking eerst door te voeren op de primaire replica en vervolgens onmiddellijk naar ten minste één ander datacenter te repliceren. Dit zorgt ervoor dat een eventueel onherstelbaar verlies van het datacenter dat voor de primaire replica als host fungeert, niet resulteert in gegevensverlies.
+Een schrijfbewerking is blijvend doorgevoerd tooat minimaal twee datacenters eerdere tooit wordt bevestigd. Dit gebeurt door eerst doorvoeren Hallo schrijven op Hallo van primaire en vervolgens onmiddellijk repliceren Hallo schrijven tooat minimaal één andere Datacenter. Dit zorgt ervoor dat een potentieel onherstelbare gegevensverlies Hallo data center hosting Hallo primaire niet leidt verlies van gegevens tot.
 
-In Azure AD is sprake van een [RTO (beoogde hersteltijd)](https://en.wikipedia.org/wiki/Recovery_time_objective) van nul voor het uitgeven van tokens en voor leesbewerkingen in mappen, en van slechts enkele minuten (ongeveer 5) voor schrijfbewerkingen in mappen. Er geldt ook een [RPO (herstelpuntdoel)](https://en.wikipedia.org/wiki/Recovery_point_objective) van nul en tijdens failovers gaan er geen gegevens verloren.
+Azure AD onderhoudt een nul [herstel tijd Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) voor uitgifte van tokens en directory leest en schrijft in volgorde van minuten (~ 5 minuten) RTO voor directory Hallo. Er geldt ook een [RPO (herstelpuntdoel)](https://en.wikipedia.org/wiki/Recovery_point_objective) van nul en tijdens failovers gaan er geen gegevens verloren.
 
 ### <a name="data-centers"></a>Datacenters
 
-Azure AD-replica's worden opgeslagen in datacenters over de hele wereld. Zie [Azure-datacenters](https://azure.microsoft.com/en-us/overview/datacenters) voor meer informatie.
+Azure AD-replica's worden opgeslagen in de gehele Hallo wereld datacenters. Zie [Azure-datacenters](https://azure.microsoft.com/en-us/overview/datacenters) voor meer informatie.
 
-Azure AD werkt met verschillende datacenters met de volgende kenmerken:
+Azure AD werkt via datacenters Hello volgende kenmerken:
 
- * De gatewayservice omvat verificatie, Graph en andere AD-services. De taakverdeling van deze services wordt via de gateway beheerd. Als er via transactionele tests beschadigde servers worden gedetecteerd, wordt er automatisch een failover uitgevoerd. Op basis van deze tests wordt het verkeer dynamisch via de gateway naar de goede datacenters geleid.
- * Voor *leesbewerkingen* beschikt de map over secundaire replica's en bijbehorende front-end-services in een actief-actief-configuratie die in meerdere datacenters actief is. Mocht er een storing optreden die een heel datacenter treft, dan wordt het verkeer automatisch naar een ander datacenter geleid.
- *  Voor *schrijfbewerkingen* vindt voor de map failover plaats van de primaire (hoofd)replica naar verschillende datacenters, via geplande failoverprocedures (de nieuwe primaire replica wordt gesynchroniseerd naar de oude) of via failoverprocedures voor noodgevallen. Duurzaamheid van gegevens wordt bereikt door een willekeurige doorvoering te repliceren naar minstens twee datacenters.
+ * Verificatie, grafiek en andere AD-services zich achter Hallo Gateway-service. Hallo Gateway beheert taakverdeling van deze services. Als er via transactionele tests beschadigde servers worden gedetecteerd, wordt er automatisch een failover uitgevoerd. Op basis van deze statuscontroles, routeert Hallo Gateway dynamisch verkeer toohealthy datacenters.
+ * Voor *leest*, Hallo directory heeft secundaire replica's en bijbehorende front-end-services in een actief / actief-configuratie die in meerdere datacenters. In geval van een storing van een heel datacentrum worden verkeer automatisch gerouteerde tooa verschillende datacenter.
+ *  Voor *schrijft*, Hallo directory wordt failover primaire (master) replica via datacenters via geplande (nieuwe primaire is gesynchroniseerde tooold primaire) of noodgevallen failover-procedures. Gegevens duurzaamheid wordt bereikt door het repliceren van een commit tooat minimaal twee-datacenters.
 
 **Gegevensconsistentie**
 
-Het mapmodel wordt gekenmerkt door uiteindelijke consistentie. Een typisch probleem met verspreide asynchrone replicatiesystemen is dat de gegevens die van een bepaalde replica worden geretourneerd, mogelijk niet zijn bijgewerkt. 
+Hallo directory model is een van de uiteindelijke consistentie. Een typische probleem met gedistribueerde asynchroon replicerende systemen is geretourneerd van een replica 'name' Hallo-gegevens mogelijk niet up toodate. 
 
-Met behulp van een secundaire replica biedt Azure AD lees-/schrijfconsistentie voor toepassingen door schrijfbewerkingen naar de primaire replica te leiden en ze tegelijkertijd terug te halen naar de secundaire replica.
+Azure AD levert de consistentie van de lezen-schrijven voor toepassingen die gericht is op een secundaire replica door de primaire replica van schrijfbewerkingen toohello Routering en synchroon binnenhalen Hallo schrijft terug toohello secundaire replica.
 
-Voor toepassingsschrijfbewerkingen met behulp van de Graph-API of Azure AD wordt geen affiniteit onderhouden met een mapreplica voor lees-/schrijfconsistentie. De Azure AD Graph-service onderhoudt een logische sessie die affiniteit heeft met een secundaire replica die wordt gebruikt voor leesbewerkingen. Affiniteit wordt vastgelegd in een replicatoken dat met de Graph-service in cache wordt geplaatst met behulp van een gedistribueerde cache. Dit token wordt vervolgens gebruikt voor verdere bewerkingen in dezelfde logische sessie. 
+Toepassing worden geschreven met behulp van Hallo Graph API van Azure AD gescheiden affiniteit tooa directory replica voor alleen-lezen consistentie te handhaven. Hello Azure AD Graph service onderhoudt een logische-sessie met affiniteit tooa secundaire replica gebruikt voor leesbewerkingen; affiniteit is vastgelegd in een "replica token' Hallo grafiek service caches met behulp van een gedistribueerde cache. Dit token wordt vervolgens gebruikt voor verdere bewerkingen in Hallo dezelfde logische sessie. 
 
  >[!NOTE]
- >Schrijfbewerkingen worden onmiddellijk gerepliceerd naar de secundaire replica waarop de leesbewerkingen van de logische sessie zijn weggeschreven.
+ >Schrijfbewerkingen onmiddellijk worden gerepliceerd toohello secundaire replica toowhich Hallo logische sessie van leesbewerkingen zijn uitgegeven.
  >
 
 **Back-upbeveiliging**
 
-De map implementeert voorlopig verwijderen, in plaats van definitief, voor gebruikers en tenants, wat eenvoudig herstel mogelijk maakt wanneer items per ongeluk worden verwijderd door een klant. Als uw tenantbeheerder per ongeluk gebruikers verwijdert, kunnen zij dit gemakkelijk ongedaan maken en de verwijderde gebruikers terugzetten. 
+Hallo directory implementeert voorlopig verwijderd, in plaats van vaste verwijderen, klikt u voor gebruikers en tenants voor eenvoudig herstel in geval van een onopzettelijk verwijderen door de klant. Als uw tenantbeheerder per ongeluk gebruikers verwijdert, kunnen ze gemakkelijk ongedaan maken en herstellen van gebruikers Hallo verwijderd. 
 
 Met Azure AD worden dagelijkse back-ups van alle gegevens geïmplementeerd. Daarom kunnen gegevens bindend worden teruggezet in het geval van logische verwijderingen of beschadigingen. Voor onze gegevenslagen wordt gebruikgemaakt van codes voor het corrigeren van fouten, zodat er kan worden gecontroleerd op fouten en bepaalde typen schijffouten automatisch kunnen worden gecorrigeerd.
 
@@ -109,11 +109,11 @@ Met Azure AD worden dagelijkse back-ups van alle gegevens geïmplementeerd. Daar
 
 Voor het uitvoeren van een service met een hoge beschikbaarheid zijn uitstekende mogelijkheden voor metrische gegevens en controle vereist. Met Azure AD worden belangrijke metrische gegevens met betrekking tot de status van de service voortdurend geanalyseerd voor elk van de services. Metrische gegevens, controle en waarschuwingen worden doorlopend ontwikkeld en verfijnd voor elk scenario, zowel binnen de afzonderlijke Azure AD-service als op serviceoverstijgend niveau.
 
-Als een Azure AD-service niet werkt zoals verwacht, wordt er onmiddellijk actie ondernomen om de functionaliteit zo snel mogelijk te herstellen. Van alle metrische gegevens die met Azure AD worden bijgehouden, is de snelheid waarmee problemen van klanten of problemen met live-sites worden gedetecteerd en opgelost, het belangrijkste. We investeren veel in controle en waarschuwingen om de detectietijd (TTD-doel: < 5 minuten) te minimaliseren en in operationele paraatheid om de hersteltijd (TTM-doel: < 30 minuten) zo kort mogelijk te houden.
+Als u een Azure AD-service werkt niet zoals verwacht, neemt er onmiddellijk actie toorestore functionaliteit zo snel mogelijk. Hallo belangrijkste metrische gegevens van Azure AD-nummers is hoe snel we kunt opsporen en verhelpen van een klant of live site probleem. We investeren sterk in bewaking en waarschuwingen toominimize tijd toodetect (TTD doel: < 5 minuten) en de gereedheid van de operationele toominimize tijd toomitigate (TTM doel: < 30 minuten).
 
 **Veilige bewerkingen**
 
-We gebruiken operationele besturingselementen zoals MFA (Multi-Factor Authentication), zowel voor elke bewerking afzonderlijk als om alle bewerkingen te controleren. Daarnaast gebruiken we een Just-in-time-elevationsysteem om de benodigde tijdelijke toegang te verlenen voor alle operationele taken op aanvraag die momenteel worden uitgevoerd. Zie [De vertrouwde cloud](https://azure.microsoft.com/en-us/support/trust-center) voor meer informatie.
+We gebruiken operationele besturingselementen zoals MFA (Multi-Factor Authentication), zowel voor elke bewerking afzonderlijk als om alle bewerkingen te controleren. We gebruiken bovendien een just-in-time-uitbreiding toogrant benodigde tijdelijke toegang tot het systeem voor elke operationele taak op verzoek voortdurend. Zie voor meer informatie [Hallo Cloud vertrouwde](https://azure.microsoft.com/en-us/support/trust-center).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Ontwikkelaarshandleiding voor Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)

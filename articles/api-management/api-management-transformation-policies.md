@@ -1,6 +1,6 @@
 ---
-title: Azure API Management-claimtransformatiebeleidsinstellingen | Microsoft Docs
-description: Meer informatie over de claimtransformatiebeleidsinstellingen beschikbaar voor gebruik in Azure API Management.
+title: claimtransformatiebeleidsinstellingen aaaAzure-API Management | Microsoft Docs
+description: Meer informatie over Hallo claimtransformatiebeleidsinstellingen beschikbaar voor gebruik in Azure API Management.
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2891cc52d0017b717b3c12a98bc4941b5fd7ea78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Dit onderwerp bevat een verwijzing voor Hallo API Management-beleidsregels te volgen. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="TransformationPolicies"></a>Claimtransformatiebeleidsinstellingen  
   
--   [JSON converteren naar XML](api-management-transformation-policies.md#ConvertJSONtoXML) : zet aanvraag of antwoord body van JSON naar XML.  
+-   [Converteren van JSON tooXML](api-management-transformation-policies.md#ConvertJSONtoXML) : zet aanvraag of antwoord body van JSON tooXML.  
   
--   [XML niet converteren naar JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) : zet aanvraag of antwoord body van XML naar JSON.  
+-   [Converteren van XML-tooJSON](api-management-transformation-policies.md#ConvertXMLtoJSON) : zet aanvraag of antwoord body van XML-tooJSON.  
   
 -   [Zoeken en vervangen tekenreeks in de hoofdtekst](api-management-transformation-policies.md#Findandreplacestringinbody) - zoeken naar een subtekenreeks aanvraag of antwoord en wordt vervangen door een andere subtekenreeks.  
   
--   [URL's in de inhoud te maskeren](api-management-transformation-policies.md#MaskURLSContent) -koppelingen herschrijft (maskers) in het antwoord body zodat deze naar de equivalente koppeling via de gateway verwijzen.  
+-   [URL's in de inhoud te maskeren](api-management-transformation-policies.md#MaskURLSContent) -koppelingen herschrijft (maskers) antwoord Hallo body zodat ze equivalente koppeling toohello via Hallo gateway wijst.  
   
--   [Stel de back-endservice](api-management-transformation-policies.md#SetBackendService) -wijzigingen van de back-endservice voor de binnenkomende aanvraag.  
+-   [Instellen van de back-endservice](api-management-transformation-policies.md#SetBackendService) -back-endservice Hallo voor de binnenkomende aanvraag wordt gewijzigd.  
   
--   [Instantie ingesteld](api-management-transformation-policies.md#SetBody) -Hiermee stelt u de berichttekst voor binnenkomende en uitgaande aanvragen.  
+-   [Instantie ingesteld](api-management-transformation-policies.md#SetBody) -hoofdtekst van het Hallo-bericht voor binnenkomende en uitgaande aanvragen ingesteld.  
   
--   [Set HTTP-header](api-management-transformation-policies.md#SetHTTPheader) : een waarde wordt toegewezen aan een bestaande antwoord en/of de aanvraag-header of voegt een nieuwe antwoord en/of de aanvraag-header.  
+-   [Set HTTP-header](api-management-transformation-policies.md#SetHTTPheader) : een waarde tooan bestaande antwoord en/of de aanvraagheader wijst of voegt een nieuwe antwoord en/of de aanvraag-header.  
   
 -   [Querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) - wordt toegevoegd, vervangt de waarde van of verwijderd van de aanvraag queryreeksparameter opgeven.  
   
--   [Herschrijven van URL](api-management-transformation-policies.md#RewriteURL) -converteert van een aanvraag-URL van de openbare vorm aan het formulier dat werd verwacht door de webservice.  
+-   [Herschrijven van URL](api-management-transformation-policies.md#RewriteURL) -zet u een aanvraag-URL van de openbare formulier toohello vorm werd verwacht door Hallo-webservice.  
   
--   [XML met behulp van een XSLT transformeren](api-management-transformation-policies.md#XSLTransform) -geldt een XSL-transformatie voor XML in de hoofdtekst van de aanvraag of antwoord.  
+-   [XML met behulp van een XSLT transformeren](api-management-transformation-policies.md#XSLTransform) -een XSL-transformatie tooXML in de hoofdtekst van de aanvraag of antwoord van de Hallo van toepassing is.  
   
-##  <a name="ConvertJSONtoXML"></a>JSON naar XML converteren  
- De `json-to-xml` beleid converteert de hoofdtekst van een aanvraag of antwoord van JSON naar XML.  
+##  <a name="ConvertJSONtoXML"></a>JSON tooXML converteren  
+ Hallo `json-to-xml` beleid zet de hoofdtekst van een aanvraag of antwoord van de JSON-tooXML.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -78,18 +78,18 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />convert-inhoud type-json - alleen als response Content-Type-header aanwezigheid van JSON aangeeft.|Ja|N.v.t.|  
-|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als JSON is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|De waarde True|  
+|toepassen|Hallo-kenmerk moet worden ingesteld als tooone Hallo waarden te volgen.<br /><br /> conversie - altijd - altijd van toepassing.<br />convert-inhoud type-json - alleen als response Content-Type-header aanwezigheid van JSON aangeeft.|Ja|N.v.t.|  
+|Overweeg-accepteren-header|Hallo-kenmerk moet worden ingesteld als tooone Hallo waarden te volgen.<br /><br /> -waar - conversie van toepassing als JSON is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|De waarde True|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** binnenkomende, uitgaande, bij fouten  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
-##  <a name="ConvertXMLtoJSON"></a>XML niet converteren naar JSON  
- De `xml-to-json` beleid converteert de hoofdtekst van een aanvraag of antwoord van XML naar JSON. Dit beleid kan worden gebruikt voor API's op basis van de back-end van een alleen-XML-webservices moderniseren.  
+##  <a name="ConvertXMLtoJSON"></a>XML-tooJSON converteren  
+ Hallo `xml-to-json` beleid zet de hoofdtekst van een aanvraag of antwoord van de XML-tooJSON. Dit beleid kan worden gebruikt toomodernize API's op basis van de back-end van een alleen-XML-webservices.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -121,24 +121,24 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|type|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -javascript-vriendelijk - de geconverteerde JSON heeft een formulier beschrijvende voor ontwikkelaars van JavaScript.<br />de geconverteerde JSON weerspiegelt - direct - structuur van het oorspronkelijke XML-document.|Ja|N.v.t.|  
-|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />convert - inhoud-type-xml - alleen als response Content-Type-header aanwezigheid van XML aangeeft.|Ja|N.v.t.|  
-|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als XML is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|De waarde True|  
+|type|Hallo-kenmerk moet worden ingesteld als tooone Hallo waarden te volgen.<br /><br /> Hallo - javascript-vriendelijk - geconverteerd JSON heeft een formulier beschrijvende tooJavaScript ontwikkelaars.<br />-direct - duidt hello geconverteerde JSON op Hallo van het oorspronkelijke XML-document-structuur.|Ja|N.v.t.|  
+|toepassen|Hallo-kenmerk moet worden ingesteld als tooone Hallo waarden te volgen.<br /><br /> -altijd - altijd converteren.<br />convert - inhoud-type-xml - alleen als response Content-Type-header aanwezigheid van XML aangeeft.|Ja|N.v.t.|  
+|Overweeg-accepteren-header|Hallo-kenmerk moet worden ingesteld als tooone Hallo waarden te volgen.<br /><br /> -waar - conversie van toepassing als XML is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|De waarde True|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** binnenkomende, uitgaande, bij fouten  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="Findandreplacestringinbody"></a>Zoeken en vervangen tekenreeks in de hoofdtekst  
- De `find-and-replace` beleid vindt u een aanvraag of antwoord subtekenreeks en vervangen door een andere subtekenreeks.  
+ Hallo `find-and-replace` beleid vindt u een aanvraag of antwoord subtekenreeks en vervangen door een andere subtekenreeks.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
-<find-and-replace from="what to replace" to="replacement" />  
+<find-and-replace from="what tooreplace" to="replacement" />  
 ```  
   
 ### <a name="example"></a>Voorbeeld  
@@ -157,21 +157,21 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Van|De tekenreeks om naar te zoeken.|Ja|N.v.t.|  
-|tot|De vervangende tekenreeks. Geef de vervangende tekenreekslengte van nul als u wilt verwijderen van de zoekreeks.|Ja|N.v.t.|  
+|Van|Hallo tekenreeks toosearch voor.|Ja|N.v.t.|  
+|tot|Hallo vervangende tekenreeks. Geef de vervangende tekenreeks tooremove Hallo zoeken tekenreekslengte van nul.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="MaskURLSContent"></a>Masker URL's in de inhoud  
- De `redirect-content-urls` beleid herschrijft koppelingen in de hoofdtekst van antwoord (maskers) zodat deze naar de equivalente koppeling via de gateway verwijzen. Gebruik in de sectie uitgaande antwoord hoofdtekst koppelingen zodat deze verwijzen naar de gateway opnieuw te schrijven. Gebruik in de binnenkomende sectie voor een tegenovergestelde effect.  
+ Hallo `redirect-content-urls` beleid herschrijft (maskers) koppelingen in de antwoordtekst Hallo zodat ze equivalente koppeling toohello via Hallo gateway wijst. Gebruik in Hallo uitgaande sectie toore schrijven antwoord hoofdtekst koppelingen toomake ze punt toohello gateway. Gebruik in Hallo inkomende sectie voor een tegenovergestelde effect.  
   
 > [!NOTE]
->  Dit beleid verandert niet een headerwaarden, zoals `Location` headers. Koptekst om waarden te wijzigen, gebruikt u de [set-header](api-management-transformation-policies.md#SetHTTPheader) beleid.  
+>  Dit beleid verandert niet een headerwaarden, zoals `Location` headers. de headerwaarden toochange hello gebruiken [set-header](api-management-transformation-policies.md#SetHTTPheader) beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -192,19 +192,19 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Omleidings-inhoud-URL 's|Hoofdelement.|Ja|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** binnenkomende, uitgaande  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="SetBackendService"></a>Back-end-service instellen  
- Gebruik de `set-backend-service` beleid een inkomende aanvraag omleiden naar een andere back-end dan de opgegeven in de API-instellingen voor de bewerking. Dit beleid verandert de back-end service basis-URL van de inkomende aanvraag in de versie opgegeven in het beleid.  
+ Gebruik Hallo `set-backend-service` beleid tooredirect een binnenkomende aanvraag tooa andere back-end dan Hallo één in Hallo API-instellingen voor de bewerking is opgegeven. Dit beleid wijzigingen Hallo back-end service basis-URL van het binnenkomende aanvraag toohello hello, een opgegeven in het Hallo-beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
-<set-backend-service base-url="base URL of the backend service" />  
+<set-backend-service base-url="base URL of hello backend service" />  
 ```  
   
 ### <a name="example"></a>Voorbeeld  
@@ -227,13 +227,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
     </outbound>  
 </policies>  
 ```  
-In dit voorbeeld routeert set back-end service beleid aanvragen op basis van de versiewaarde in de queryreeks doorgegeven aan een andere back-endservice dan een opgegeven in de API.
+In dit voorbeeld Hallo routeert beleid instellen back-end-service aanvragen op basis van Hallo versiewaarde doorgegeven Hallo query tekenreeks tooa andere back-endservice dan Hallo Hallo voor een opgegeven in de API.
   
-In eerste instantie is de back-end service basis-URL afgeleid van de instellingen voor de API. Dus de aanvraag-URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` wordt `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` waar `http://contoso.com/api/10.4/` is de back-end-service-URL opgegeven in de API-instellingen.  
+In eerste instantie Hallo service basis-URL is afgeleid van de instellingen voor de API Hallo-back-end. Dus Hallo aanvraag-URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` wordt `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` waar `http://contoso.com/api/10.4/` Hallo back-end-service URL is opgegeven in de Hallo API-instellingen.  
   
-Wanneer de [< kiezen\> ](api-management-advanced-policies.md#choose) beleidsverklaring wordt toegepast. de back-end service basis-URL mag wijzigen opnieuw toekennen aan `http://contoso.com/api/8.2` of `http://contoso.com/api/9.1`, afhankelijk van de waarde van de queryparameter van de versie-aanvraag. Bijvoorbeeld, als de waarde is `"2013-15"` de laatste aanvraag URL wordt `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Wanneer Hallo [< kiezen\> ](api-management-advanced-policies.md#choose) beleidsverklaring wordt toegepast Hallo back-end service basis-URL kan wijzigen opnieuw te`http://contoso.com/api/8.2` of `http://contoso.com/api/9.1`, afhankelijk van het Hallo-waarde van Hallo versie aanvraag-queryparameter. Bijvoorbeeld, als hello waarde is `"2013-15"` Hallo van de laatste aanvraag URL wordt `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
-Als verdere transformatie van de aanvraag gewenste, andere is [claimtransformatiebeleidsinstellingen](api-management-transformation-policies.md#TransformationPolicies) kan worden gebruikt. Om bijvoorbeeld te verwijderen van de version-queryparameter nu dat de aanvraag wordt gerouteerd naar een versie specifieke back-end van de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) beleid kan worden gebruikt voor het versiekenmerk nu redundante verwijderen.  
+Als verdere transformatie van Hallo-aanvraag gewenste, andere is [claimtransformatiebeleidsinstellingen](api-management-transformation-policies.md#TransformationPolicies) kan worden gebruikt. Bijvoorbeeld tooremove Hallo versie query parameter nu dat hello aanvraag wordt gerouteerd tooa versie specifieke back-end hello [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) beleid gebruikte tooremove Hallo nu redundante version-kenmerk kan worden.  
   
 ### <a name="example"></a>Voorbeeld  
   
@@ -247,7 +247,7 @@ Als verdere transformatie van de aanvraag gewenste, andere is [claimtransformati
     </outbound>  
 </policies>  
 ```  
-In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric back-end van de queryreeks userId gebruikt als de partitiesleutel en de primaire replica van de partitie.  
+In dit voorbeeld Hallo beleid routes Hallo aanvraag tooa service fabric back-end Hallo Hallo userId queryreeks gebruikt als partitiesleutel Hallo en primaire replica van Hallo-partitie.  
 
 ### <a name="elements"></a>Elementen  
   
@@ -260,33 +260,33 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |basis-url|Nieuwe back-end service basis-URL.|Nee|N.v.t.|  
-|back-end-id|Id van de back-end om naar te routeren.|Nee|N.v.t.|  
-|SF partitiesleutel|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Gebruikt voor het omzetten van een specifieke partitie van de service voor naamomzetting.|Nee|N.v.t.|  
-|SF-replica-type|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Bepaalt of de aanvraag moet gaan naar de primaire of secundaire replica van een partitie. |Nee|N.v.t.|    
-|SF-resolve-voorwaarde|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Voorwaarde te identificeren als de aanroep naar Service Fabric-back-end moet worden herhaald met nieuwe resolutie.|Nee|N.v.t.|    
-|SF-service-exemplaar-name|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Kan service-exemplaren tijdens runtime te wijzigen. |Nee|N.v.t.|    
+|back-end-id|Id van Hallo back-end tooroute aan.|Nee|N.v.t.|  
+|SF partitiesleutel|Alleen van toepassing wanneer het Hallo-back-end is een Service Fabric-service en wordt opgegeven met behulp van back-end-id. Een specifieke partitie van de service voor naamomzetting Hallo tooresolve gebruikt.|Nee|N.v.t.|  
+|SF-replica-type|Alleen van toepassing wanneer het Hallo-back-end is een Service Fabric-service en wordt opgegeven met behulp van back-end-id. Bepaalt of het Hallo-aanvraag toohello primaire of secundaire replica van een partitie moet gaan. |Nee|N.v.t.|    
+|SF-resolve-voorwaarde|Alleen van toepassing wanneer de back-end voor Hallo is een Service Fabric-service. Voorwaarde te identificeren heeft als Hallo tooService Fabric back-end aanroepen toobe herhaald met nieuwe resolutie.|Nee|N.v.t.|    
+|SF-service-exemplaar-name|Alleen van toepassing wanneer de back-end voor Hallo is een Service Fabric-service. Kan toochange service-exemplaren tijdens runtime. |Nee|N.v.t.|    
 
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** back-end voor binnenkomend verkeer  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="SetBody"></a>Set-instantie  
- Gebruik de `set-body` in te stellen van de berichttekst voor binnenkomende en uitgaande aanvragen. Voor toegang tot de berichttekst kunt u de `context.Request.Body` eigenschap of de `context.Response.Body`, afhankelijk van of het beleid is in de sectie binnenkomend of uitgaand.  
+ Gebruik Hallo `set-body` beleid tooset Hallo berichttekst voor binnenkomende en uitgaande aanvragen. tooaccess Hallo berichttekst kunt u Hallo `context.Request.Body` eigenschap of Hallo `context.Response.Body`, afhankelijk van of Hallo-beleid in een Hallo is binnenkomend of uitgaand sectie.  
   
 > [!IMPORTANT]
->  Opmerking die standaard bij het openen van het bericht met behulp van body `context.Request.Body` of `context.Response.Body`, de oorspronkelijke berichttekst verloren en wordt door te retourneren van de hoofdtekst terug in de expressie moet worden ingesteld. Instellen dat de inhoud van de hoofdtekst wordt bewaard, de `preserveContent` -parameter voor `true` bij het openen van het bericht. Als `preserveContent` is ingesteld op `true` en een andere instantie wordt geretourneerd door de expressie de hoofdtekst van het geretourneerde wordt gebruikt.  
+>  Denk eraan dat standaard als u toegang hebben tot Hallo bericht hoofdtekst met `context.Request.Body` of `context.Response.Body`, oorspronkelijke welkomstbericht hoofdtekst verloren en wordt door te retourneren Hallo hoofdtekst terug in Hallo-expressie moet worden ingesteld. inhoud, toopreserve Hallo-instantie ingesteld Hallo `preserveContent` parameter te`true` bij het openen van het Hallo-bericht. Als `preserveContent` te is ingesteld,`true` en een andere instantie wordt geretourneerd door het Hallo-expressie Hallo geretourneerd instantie wordt gebruikt.  
 >   
->  Houd rekening met de volgende overwegingen wanneer u de `set-body` beleid.  
+>  Houd er rekening mee Hallo volgende overwegingen wanneer u Hallo `set-body` beleid.  
 >   
->  -   Als u de `set-body` beleid om te retourneren van een nieuwe of bijgewerkte instantie die u hoeft niet in te stellen `preserveContent` naar `true` omdat u de inhoud van de nieuwe expliciet levert.  
-> -   Behouden van de inhoud van een reactie op in de inkomende pijplijn logisch niet omdat er nog geen reactie is.  
-> -   Behouden van de inhoud van een aanvraag in de uitgaande pijplijn logisch niet omdat de aanvraag al is verzonden naar de back-end op dit moment.  
+>  -   Als u van Hallo gebruikmaakt `set-body` beleid tooreturn een nieuwe of bijgewerkte instantie hoeft u niet tooset `preserveContent` te`true` omdat u de nieuwe inhoud Hallo expliciet levert.  
+> -   Hallo-inhoud van een reactie behouden bij Hallo inkomende pijplijn logisch niet omdat er nog geen reactie is.  
+> -   Hallo-inhoud van een aanvraag behouden in de uitgaande pijplijn Hallo logisch niet omdat Hallo aanvraag al is verzonden toohello back-end op dit moment.  
 > -   Als dit beleid wordt gebruikt wanneer er geen berichttekst, bijvoorbeeld in een inkomende GET een uitzondering opgetreden.  
   
- Zie voor meer informatie de `context.Request.Body`, `context.Response.Body`, en de `IMessage` secties in de [Context variabele](api-management-policy-expressions.md#ContextVariables) tabel.  
+ Zie voor meer informatie, Hallo `context.Request.Body`, `context.Response.Body`, en Hallo `IMessage` secties in Hallo [Context variabele](api-management-policy-expressions.md#ContextVariables) tabel.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -302,7 +302,7 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 <set-body>Hello world!</set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Voorbeeld van de toegang tot de instantie als een tekenreeks. Houd er rekening mee dat we bewaard de oorspronkelijke aanvraagtekst blijven zodat we deze later in de pijplijn.
+#### <a name="example-accessing-hello-body-as-a-string-note-that-we-are-preserving-hello-original-request-body-so-that-we-can-access-it-later-in-hello-pipeline"></a>Voorbeeld van de toegang tot Hallo instantie als een tekenreeks. Houd er rekening mee dat we Hallo oorspronkelijke aanvraagtekst behouden zodat we deze later in Hallo pijplijn.
   
 ```xml  
 <set-body>  
@@ -316,7 +316,7 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 </set-body>  
 ```  
   
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot de instantie een JObject. Merk op dat omdat we niet reserveren van de oorspronkelijke aanvraagtekst, toegang tot het verderop in de pijplijn zal leiden tot een uitzondering.  
+#### <a name="example-accessing-hello-body-as-a-jobject-note-that-since-we-are-not-reserving-hello-original-request-body-accesing-it-later-in-hello-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot een JObject Hallo instantie. Merk op dat omdat we niet reserveren van een Hallo oorspronkelijke aanvraagtekst, toegang tot het verderop in de pijplijn Hallo zal leiden tot een uitzondering.  
   
 ```xml  
 <set-body>   
@@ -332,10 +332,10 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 ```  
   
 #### <a name="filter-response-based-on-product"></a>Reactie op basis van product filteren  
- Dit voorbeeld ziet u hoe u inhoud filteren van door gegevenselementen te verwijderen uit het antwoord ontvangen van de back-endservice bij gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit te 34:30. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
+ Dit voorbeeld ziet u hoe tooperform filteren op inhoud door het verwijderen van elementen uit Hallo antwoord ontvangen van de back-endservice Hallo bij gebruik van Hallo `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en too34:30 vooruit. Start op 31:50 toosee een overzicht van [Hallo donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.  
   
 ```xml  
-<!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->  
+<!-- Copy this snippet into hello outbound section tooremove a number of data elements from hello response received from hello backend service based on hello name of hello api product -->  
 <choose>  
   <when condition="@(context.Response.StatusCode == 200 && context.Product.Name.Equals("Starter"))">  
     <set-body>@{  
@@ -351,17 +351,17 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 ```  
 
 ### <a name="using-liquid-templates-with-set-body"></a>Vloeibare sjablonen gebruiken bij set-instantie 
-De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [vloeibare](https://shopify.github.io/liquid/basics/introduction/) templating taal transfom de hoofdtekst van een aanvraag of antwoord. Dit kan zeer effectief zijn als u moet de indeling van uw bericht volledig vorm zijn.
+Hallo `set-body` beleid kan worden geconfigureerd toouse hello [vloeibare](https://shopify.github.io/liquid/basics/introduction/) templating taal tootransfom Hallo hoofdtekst van een aanvraag of antwoord. Dit kan zeer effectief zijn als u toocompletely wijzigen van de vorm Hallo indeling van uw bericht moet zijn.
 
 > [!IMPORTANT]
-> De implementatie van vloeistof gebruikt in de `set-body` beleid is geconfigureerd in de 'C#-modus'. Dit is vooral belangrijk bij het uitvoeren van bewerkingen zoals filteren. Als u bijvoorbeeld met een datumfilter vereist het gebruik van Pascal hoofd- en C#-datum notatie, bijvoorbeeld:
+> implementatie van vloeistof gebruikt in Hallo Hallo `set-body` beleid is geconfigureerd in de 'C#-modus'. Dit is vooral belangrijk bij het uitvoeren van bewerkingen zoals filteren. Als u bijvoorbeeld met een datumfilter vereist Hallo-gebruik van Pascal hoofd- en C#-datum notatie, bijvoorbeeld:
 >
 > {{body.foo.startDateTime| Datum: 'yyyyMMddTHH:mm:ddZ'}}
 
 > [!IMPORTANT]
-> Gebruiken om correct binden aan een XML-hoofdtekst met de vloeibare sjabloon, een `set-header` beleid Content-Type instellen op application/xml, text/xml (of een type eindigend op + xml), een JSON-hoofdtekst, het application/json, text/json (of een type eindigend op + json) moet worden.
+> Gebruik in volgorde toocorrectly bind tooan XML-hoofdtekst met vloeibare Hallo-sjabloon, een `set-header` beleid tooset Content-Type tooeither application/xml, text/xml (of een type eindigend op + xml); voor een JSON-hoofdtekst dit moet application/json, text/json (of een type beëindigen met + json).
 
-#### <a name="convert-json-to-soap-using-a-liquid-template"></a>JSON naar SOAP met een vloeibare sjabloon converteren
+#### <a name="convert-json-toosoap-using-a-liquid-template"></a>JSON-tooSOAP met een vloeibare sjabloon converteren
 ```xml
 <set-body template="liquid">
     <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -388,15 +388,15 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [vloeibar
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|set-instantie|Hoofdelement. Bevat de platte tekst of een expressies die een instantie retourneert.|Ja|  
+|set-instantie|Hoofdelement. Hallo platte tekst of een expressie die het retourneert een instantie bevat.|Ja|  
 
 ### <a name="properties"></a>Eigenschappen  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|sjabloon|Gebruikt de modus templating die het beleid instellen instantie wordt uitgevoerd te wijzigen. Momenteel is de enige ondersteunde waarde:<br /><br />-vloeibare - de hoofdtekst-beleid instellen gebruikt de vloeibare templating-engine |Nee|vloeistof|  
+|sjabloon|In de set hoofdtekst beleid Hallo gebruikte toochange hello templating modus uitgevoerd. Op dit moment is alleen ondersteund Hallo-waarde:<br /><br />Hallo - vloeibare - set hoofdtekst beleid wordt Hallo vloeibare templating-engine gebruikt |Nee|vloeistof|  
 
-Voor toegang tot informatie over de aanvraag en antwoord, kan de vloeibare sjabloon worden verbonden met een context-object met de volgende eigenschappen: <br />
+Voor toegang tot informatie over het Hallo-aanvraag en -antwoord, kunt Hallo vloeibare sjabloon tooa context-object met de volgende eigenschappen Hallo binden: <br />
 <pre>context.
     Request.
         Url
@@ -437,22 +437,22 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="SetHTTPheader"></a>Set HTTP-header  
- De `set-header` beleid wordt een waarde toegewezen aan een bestaande antwoord en/of de aanvraag-header of voegt een nieuwe antwoord en/of de aanvraag-header.  
+ Hallo `set-header` beleid wijst een waarde tooan bestaande antwoord en/of de aanvraag-header of voegt een nieuwe antwoord en/of de aanvraag-header.  
   
- Voegt een lijst met HTTP-headers in een HTTP-bericht. Wanneer in een inkomende pijplijn geplaatst, wordt de HTTP-headers voor de aanvraag wordt doorgegeven aan de doelservice ingesteld in dit beleid. Wanneer in een uitgaande pijplijn geplaatst, wordt in dit beleid wordt de HTTP-headers voor de reactie wordt verzonden naar de gateway-client ingesteld.  
+ Voegt een lijst met HTTP-headers in een HTTP-bericht. Wanneer in een inkomende pijplijn geplaatst, wordt dit beleid ingesteld Hallo HTTP-headers voor aanvraag van Hallo toohello doelservice doorgegeven. Wanneer in een uitgaande pijplijn geplaatst, wordt dit beleid ingesteld Hallo HTTP-headers voor antwoord Hallo toohello gatewayclient worden verzonden.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
 <set-header name="header name" exists-action="override | skip | append | delete">  
-    <value>value</value> <!--for multiple headers with the same name add additional value elements-->  
+    <value>value</value> <!--for multiple headers with hello same name add additional value elements-->  
 </set-header>  
 ```  
   
@@ -466,11 +466,11 @@ OriginalUrl.
 </set-header>  
 ```  
   
-#### <a name="forward-context-information-to-the-backend-service"></a>Contextinformatie naar de back-endservice doorsturen  
- In dit voorbeeld laat zien hoe beleid op het niveau van de API op te geven contextinformatie voor de back-endservice toepassen. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot en met 10:30. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.  
+#### <a name="forward-context-information-toohello-backend-service"></a>Context informatie toohello back-endservice doorsturen  
+ Dit voorbeeld toont hoe beleid voor tooapply Hallo API toosupply context informatie toohello back-endservice niveau. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en too10:30 vooruit. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de ontwikkelaarsportal Hallo waar u Hallo-beleid op het werk kunt zien.  
   
 ```xml  
-<!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->  
+<!-- Copy this snippet into hello inbound element tooforward some context information, user id and hello region hello gateway is hosted in, toohello backend service for logging or evaluation -->  
 <set-header name="x-request-context-data" exists-action="override">  
   <value>@(context.User.Id)</value>  
   <value>@(context.Deployment.Region)</value>  
@@ -484,30 +484,30 @@ OriginalUrl.
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |set-header|Hoofdelement.|Ja|  
-|waarde|Hiermee geeft u de waarde van de header moet worden ingesteld. Voor meerdere headers met dezelfde naam extra toevoegen `value` elementen.|Ja|  
+|waarde|Hiermee wordt de waarde Hallo van Hallo header toobe set. Voor meerdere headers met de Hallo dezelfde naam toevoegen extra `value` elementen.|Ja|  
   
 ### <a name="properties"></a>Eigenschappen  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
-|naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N.v.t.|  
+|Er bestaat actie|Geeft aan welke actie tootake Hallo-header is al opgegeven. Dit kenmerk moet een van de volgende waarden Hallo hebben.<br /><br /> -onderdrukkingswaarde - vervangt Hallo van bestaande Hallo-header.<br />-skip - vervangen Hallo bestaande header-waarde niet.<br />-toevoeg - Hallo waarde toohello bestaande header-waarde wordt toegevoegd.<br />Hallo-header verwijdert - delete - van Hallo-aanvraag.<br /><br /> Als de waarde te`override` opnemen van meerdere vermeldingen met Hallo dezelfde resulteert in het Hallo-header wordt ingesteld volgens tooall-vermeldingen (die wordt vermeld meerdere keren) naam; alleen de vermelde waarden worden ingesteld in Hallo resultaat.|Nee|overschrijven|  
+|naam|Geeft de naam van Hallo header toobe set.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="SetQueryStringParameter"></a>Querytekenreeksparameter instellen  
- De `set-query-parameter` beleid wordt toegevoegd, vervangt de waarde van, of verwijderingen querytekenreeksparameter aanvragen. Kan worden gebruikt voor het doorgeven van de query parameters verwacht door de back endservice die zijn optioneel of nooit voorkomen in de aanvraag.  
+ Hallo `set-query-parameter` beleid wordt toegevoegd, vervangt de waarde van, of verwijderingen querytekenreeksparameter aanvragen. Kan worden gebruikt toopass werd verwacht door de back-endservice Hallo queryparameters die zijn optioneel of nooit aanwezig zijn op Hallo-aanvraag.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
 ```xml  
 <set-query-parameter name="param name" exists-action="override | skip | append | delete">  
-    <value>value</value> <!--for multiple parameters with the same name add additional value elements-->  
+    <value>value</value> <!--for multiple parameters with hello same name add additional value elements-->  
 </set-query-parameter>  
 ```  
   
@@ -521,16 +521,16 @@ OriginalUrl.
   <parameter name="api-key" exists-action="skip">  
     <value>12345678901</value>  
   </parameter>  
-  <!-- for multiple parameters with the same name add additional value elements -->  
+  <!-- for multiple parameters with hello same name add additional value elements -->  
 </set-query-parameter>  
   
 ```  
   
-#### <a name="forward-context-information-to-the-backend-service"></a>Contextinformatie naar de back-endservice doorsturen  
- In dit voorbeeld laat zien hoe beleid op het niveau van de API op te geven contextinformatie voor de back-endservice toepassen. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot en met 10:30. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.  
+#### <a name="forward-context-information-toohello-backend-service"></a>Context informatie toohello back-endservice doorsturen  
+ Dit voorbeeld toont hoe beleid voor tooapply Hallo API toosupply context informatie toohello back-endservice niveau. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en too10:30 vooruit. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de ontwikkelaarsportal Hallo waar u Hallo-beleid op het werk kunt zien.  
   
 ```xml  
-<!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->  
+<!-- Copy this snippet into hello inbound element tooforward a piece of context, product name in this example, toohello backend service for logging or evaluation -->  
 <set-query-parameter name="x-product-name" exists-action="override">  
   <value>@(context.Product.Name)</value>  
 </set-query-parameter>  
@@ -544,33 +544,33 @@ OriginalUrl.
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |query-set-parameter|Hoofdelement.|Ja|  
-|waarde|Hiermee geeft u de waarde van de query-parameter moet worden ingesteld. Voor meerdere queryparameters met dezelfde naam extra toevoegen `value` elementen.|Ja|  
+|waarde|Hiermee geeft u Hallo-waarde van Hallo query parameterset toobe. Voor meerdere queryparameters Hello dezelfde naam toevoegen extra `value` elementen.|Ja|  
   
 ### <a name="properties"></a>Eigenschappen  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de queryparameter is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande parameter.<br />-skip: de waarde van de bestaande query-parameter niet vervangen.<br />-toevoeg - voegt u de waarde met de waarde van de bestaande query.<br />de queryparameter verwijdert - delete - uit de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de query-parameter worden ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
-|naam|Hiermee geeft u de naam van de queryparameter moet worden ingesteld.|Ja|N.v.t.|  
+|Er bestaat actie|Geeft aan welke actie tootake Hallo queryparameter is al opgegeven. Dit kenmerk moet een van de volgende waarden Hallo hebben.<br /><br /> -onderdrukkingswaarde - vervangt Hallo van bestaande Hallo-parameter.<br />-skip - vervangen Hallo waarde van de bestaande queryparameter niet.<br />-toevoeg - voegt Hallo waarde toohello bestaande waarde van de queryparameter.<br />de queryparameter Hallo verwijdert - delete - uit Hallo-aanvraag.<br /><br /> Als de waarde te`override` opnemen van meerdere vermeldingen met Hallo dezelfde resulteert in een queryparameter hello wordt ingesteld volgens tooall-vermeldingen (die wordt vermeld meerdere keren) naam; alleen de vermelde waarden worden ingesteld in Hallo resultaat.|Nee|overschrijven|  
+|naam|Geeft de naam van Hallo query parameterset toobe.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** back-end voor binnenkomend verkeer  
   
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="RewriteURL"></a>Herschrijven van URL 's  
- De `rewrite-uri` beleid omgezet in een aanvraag-URL van de openbare vorm het formulier dat werd verwacht door de webservice, zoals wordt weergegeven in het volgende voorbeeld.  
+ Hallo `rewrite-uri` beleid zet een aanvraag-URL van de openbare formulier toohello vorm verwacht door de webservice hello, zoals wordt weergegeven in het volgende voorbeeld Hallo.  
   
 -   Openbare URL-`http://api.example.com/storenumber/ordernumber`  
   
 -   Aanvraag-URL-`http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`  
   
- Dit beleid kan worden gebruikt wanneer een menselijke en/of beschrijvende browser-URL moet worden omgezet in de URL-indeling verwacht door de webservice. Dit beleid moet alleen worden toegepast bij het blootstellen van een andere URL-indeling, zoals schone URL's, RESTful-URL's, gebruiksvriendelijke URL's of Zoekmachineoptimalisatie gebruiksvriendelijke URL's die zijn uitsluitend structurele URL's die niet een queryreeks bevatten en in plaats daarvan alleen het pad van de resource (na het schema en de autoriteit) bevatten. Dit wordt vaak gedaan voor fraaie uiterlijk, bruikbaarheid of zoekmachine optimaliseringsdoeleinden (Zoekmachineoptimalisatie).  
+ Dit beleid kan worden gebruikt wanneer een menselijke en/of beschrijvende browser-URL moet worden omgezet in URL-indeling Hallo werd verwacht door de webservice Hallo. Dit beleid moet alleen toegepast wanneer een andere URL-indeling, zoals schone URL's, RESTful-URL's, gebruiksvriendelijke URL's of Zoekmachineoptimalisatie gebruiksvriendelijke URL's die zijn uitsluitend structurele URL's die niet een queryreeks bevatten en in plaats daarvan bevatten alleen Hallo pad Hallo blootstellen toobe resource (na Hallo schema- en Hallo). Dit wordt vaak gedaan voor fraaie uiterlijk, bruikbaarheid of zoekmachine optimaliseringsdoeleinden (Zoekmachineoptimalisatie).  
   
 > [!NOTE]
->  U kunt alleen queryreeksparameters met het beleid toevoegen. U kunt geen extra Sjabloonparameters voor pad toevoegen in de URL herschrijven.  
+>  U kunt alleen queryreeksparameters met behulp van Hallo beleid toevoegen. U kunt geen toevoegen extra Sjabloonparameters pad in Hallo herschrijven van URL's.  
 
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -592,7 +592,7 @@ OriginalUrl.
 </policies>  
 ```  
 ```xml
-<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set too/get?a={b} -->
 <policies>  
     <inbound>  
         <base />  
@@ -605,7 +605,7 @@ OriginalUrl.
 <!-- Resulting URL will be /put?c=d -->
 ```  
 ```xml
-<!-- Assuming incoming request is /get?a=b&c=d and operation template is set to /get?a={b} -->
+<!-- Assuming incoming request is /get?a=b&c=d and operation template is set too/get?a={b} -->
 <policies>  
     <inbound>  
         <base />  
@@ -628,18 +628,18 @@ OriginalUrl.
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|sjabloon|De werkelijke web service-URL met een queryreeks-parameters. Wanneer u expressies gebruikt, is het gehele getal moet een expressie.|Ja|N.v.t.|  
-|kopiëren niet-overeenkomende parameters|Hiermee geeft u op of de binnenkomende aanvraag niet aanwezig in de oorspronkelijke URL sjabloon queryparameters worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|De waarde True|  
+|sjabloon|Hallo werkelijke webservice-URL met een queryreeks-parameters. Bij gebruik van expressies moet Hallo gehele getal een expressie.|Ja|N.v.t.|  
+|kopiëren niet-overeenkomende parameters|Geeft aan of binnenkomende aanvraag Hallo niet aanwezig in de oorspronkelijke URL sjabloon Hallo queryparameters toohello URL die is gedefinieerd door Hallo herschrijven sjabloon worden toegevoegd|Nee|De waarde True|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
   
 -   **Beleid scopes:** product, API-bewerking  
   
 ##  <a name="XSLTransform"></a>XML met behulp van een XSLT transformeren  
- De `Transform XML using an XSLT` beleid geldt een XSL-transformatie voor XML in de hoofdtekst van de aanvraag of antwoord.  
+ Hallo `Transform XML using an XSLT` beleid van toepassing is een XSL-transformatie tooXML in de hoofdtekst van de aanvraag of antwoord van de Hallo.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -692,11 +692,11 @@ OriginalUrl.
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |XSL-transformatie|Hoofdelement.|Ja|  
-|Parameter|Gebruikt voor het definiëren van variabelen die worden gebruikt in de transformatie|Nee|  
-|xsl: Stylesheet|Hoofdelement opmaakmodel. Ga als volgt de standaard alle elementen en kenmerken die zijn gedefinieerd binnen [XSLT-specificatie](http://www.w3.org/TR/xslt)|Ja|  
+|Parameter|Gebruikte toodefine variabelen die worden gebruikt in Hallo transformatie|Nee|  
+|xsl: Stylesheet|Hoofdelement opmaakmodel. Alle elementen en kenmerken die zijn gedefinieerd binnen Volg Hallo standaard [XSLT-specificatie](http://www.w3.org/TR/xslt)|Ja|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Dit beleid kan worden gebruikt in het volgende beleid Hallo [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** binnenkomende, uitgaande  
   

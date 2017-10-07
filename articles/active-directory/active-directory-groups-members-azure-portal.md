@@ -1,6 +1,6 @@
 ---
-title: De leden voor een groep in Azure Active Directory beheren | Microsoft Docs
-description: Toevoegen of verwijderen van gebruikers en apparaten uit een groep in Azure Active Directory
+title: aaaManage hello leden voor een groep in Azure Active Directory | Microsoft Docs
+description: Hoe tooadd of gebruikers en apparaten verwijderen uit een groep in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,36 +15,36 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4cb16ee63828003da251423a04736f7174dd4896
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Groepslidmaatschap voor gebruikers in uw Azure Active Directory-tenant beheren
-In dit artikel wordt uitgelegd hoe u voor het beheren van de leden voor een groep in Azure Active Directory (Azure AD).
+Dit artikel wordt uitgelegd hoe toomanage Hallo leden voor een groep in Azure Active Directory (Azure AD).
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>Hoe ik de leden vinden en ze beheren?
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+## <a name="how-do-i-find-hello-members-and-manage-them"></a>Hoe ik Hallo leden zoeken en deze beheren?
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
    ![Gebruikersbeheer openen](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. Op de **gebruikers en groepen** blade Selecteer **alle groepen**.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **alle groepen**.
 
-   ![De blade groepen openen](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. Op de **gebruikers en groepen - alle groepen** blade, selecteert u een groep.
-5. Op de **groep - *groupname***  blade Selecteer **leden**.
+   ![Openen Hallo groepen blade](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
+4. Op Hallo **gebruikers en groepen - alle groepen** blade, selecteert u een groep.
+5. Op Hallo **groep - *groupname***  blade Selecteer **leden**.
 
-   ![De blade leden openen](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. Leden toevoegen aan de groep op de **groep - leden** blade Selecteer **leden toevoegen**.
+   ![Openen Hallo leden blade](./media/active-directory-groups-members-azure-portal/view-group-members.png)
+6. tooadd leden toohello groep op Hallo **groep - leden** blade Selecteer **leden toevoegen**.
 
    ![De opdracht leden toevoegen](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. Op de **leden** blade, selecteer een of meer gebruikers of apparaten aan de groep wilt toevoegen en selecteer de **Selecteer** knop aan de onderkant van de blade aan toe te voegen aan de groep. De **gebruiker** vak gefilterd op basis van overeenkomst van uw invoer voor een deel van de naam van een gebruiker of het apparaat weergegeven. Er is geen jokertekens worden in dit vak geaccepteerd.
-8. Leden verwijderen uit de groep op de **groep - leden** blade, selecteert u een lid.
-9. Op de ***membername*** blade, selecteer de **verwijderen** opdracht in en Bevestig uw keuze bij de opdrachtprompt.
+7. Op Hallo **leden** blade, selecteert u een of meer gebruikers of apparaten tooadd toohello groep en selecteer Hallo **Selecteer** knop Hallo Hallo blade tooadd onder aan deze groep toohello. Hallo **gebruiker** vak filters Hallo weergeven op basis van overeenkomst van uw vermelding tooany een deel van naam van een gebruiker of apparaat. Er is geen jokertekens worden in dit vak geaccepteerd.
+8. tooremove leden uit de groep hello, op Hallo **groep - leden** blade, selecteert u een lid.
+9. Op Hallo ***membername*** blade, selecteer Hallo **verwijderen** opdracht in en Bevestig uw keuze op Hallo-prompt.
 
    ![Verwijder leden opdracht](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. Wanneer u klaar bent met het wijzigen van de leden van de groep, selecteert u **opslaan**.
+10. Wanneer u klaar bent met het wijzigen van leden voor Hallo groep, selecteert u **opslaan**.
 
 ## <a name="additional-information"></a>Aanvullende informatie
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.

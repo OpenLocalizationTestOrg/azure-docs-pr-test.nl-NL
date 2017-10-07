@@ -1,6 +1,6 @@
 ---
-title: Aanroepen van opgeslagen procedure uit Azure Data Factory-Kopieeractiviteit | Microsoft Docs
-description: Informatie over het aanroepen van een opgeslagen procedure in Azure SQL Database of SQL Server van een kopieeractiviteit Azure Data Factory.
+title: aaaInvoke opgeslagen procedure van Azure Data Factory-Kopieeractiviteit | Microsoft Docs
+description: "Meer informatie over hoe de activiteit voor het kopiëren van een opgeslagen procedure in Azure SQL Database of SQL Server uit een Azure Data Factory tooinvoke."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: af6e4a57e726598c266ee766656aa2cc22e374e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 986377118afb8c08607c2325fcc3ab00b3de9268
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Aanroepen van opgeslagen procedure uit kopieeractiviteit in Azure Data Factory
-Bij het kopiëren van gegevens in [SQL Server](data-factory-sqlserver-connector.md) of [Azure SQL Database](data-factory-azure-sql-connector.md), kunt u de **SqlSink** in een kopieeractiviteit om aan te roepen, een opgeslagen procedure. U kunt gebruiken de opgeslagen procedure voor het uitvoeren van extra verwerking (samenvoegen kolommen, opzoeken van waarden, invoegen in meerdere tabellen, enz.) is vereist voordat u gegevens in de doeltabel. Deze functie wordt gebruikgemaakt van [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx). 
+Bij het kopiëren van gegevens in [SQL Server](data-factory-sqlserver-connector.md) of [Azure SQL Database](data-factory-azure-sql-connector.md), kunt u Hallo **SqlSink** in kopiëren activiteit tooinvoke een opgeslagen procedure. U kunt toouse Hallo opgeslagen procedure tooperform is verdere verwerking (samenvoegen kolommen, opzoeken van waarden, invoegen in meerdere tabellen, enz.) is vereist voordat u gegevens in de doeltabel toohello invoegt. Deze functie wordt gebruikgemaakt van [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx). 
 
-Het volgende voorbeeld ziet u hoe aan te roepen, een opgeslagen procedure in een SQL Server-database van een Data Factory-pijplijn (kopieeractiviteit):  
+Hallo volgende voorbeeld ziet u hoe tooinvoke een opgeslagen procedure in een SQL Server-database van een Data Factory-pijplijn (kopieeractiviteit):  
 
 ## <a name="output-dataset-json"></a>Uitvoergegevensset JSON
-In de uitvoergegevensset JSON stelt u de **type** naar: **SqlServerTable**. Stel deze in op **AzureSqlTable** voor gebruik met een Azure SQL database. De waarde voor **tableName** eigenschap moet overeenkomen met de naam van de eerste parameter van de opgeslagen procedure.  
+Stel in Hallo uitvoergegevensset JSON Hallo **type** naar: **SqlServerTable**. Stel deze in te**AzureSqlTable** toouse met een Azure SQL database. waarde voor Hallo **tableName** eigenschap moet overeenkomen met de naam van de eerste parameter van Hallo opgeslagen procedure Hallo.  
 
 ```json
 {
@@ -45,7 +45,7 @@ In de uitvoergegevensset JSON stelt u de **type** naar: **SqlServerTable**. Stel
 ```
 
 ## <a name="sqlsink-section-in-copy-activity-json"></a>De sectie SqlSink in kopieeractiviteit JSON
-Definieer de **SqlSink** sectie als volgt in de JSON van de kopieeractiviteit. Als u wilt een opgeslagen procedure aanroepen tijdens het invoegen van gegevens in de doel-sink-database, kunt u waarden opgeven voor zowel **SqlWriterStoredProcedureName** en **SqlWriterTableType** eigenschappen. Zie voor beschrijvingen van deze eigenschappen [SqlSink-sectie in het SQL Server-connector artikel](data-factory-sqlserver-connector.md#sqlsink).
+Hallo definiëren **SqlSink** sectie in Hallo kopie activiteits-JSON als volgt. een opgeslagen procedure bij het invoegen van gegevens in Hallo sink/het doel-database, tooinvoke waarden opgeven voor zowel **SqlWriterStoredProcedureName** en **SqlWriterTableType** eigenschappen. Zie voor beschrijvingen van deze eigenschappen [SqlSink-sectie in Hallo SQL Server-connector artikel](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -64,7 +64,7 @@ Definieer de **SqlSink** sectie als volgt in de JSON van de kopieeractiviteit. A
 ```
 
 ## <a name="stored-procedure-definition"></a>Definitie van de opgeslagen procedure 
-Definieer de opgeslagen procedure met dezelfde naam als in uw database **SqlWriterStoredProcedureName**. De opgeslagen procedure verwerkt invoergegevens uit de gegevensopslag van de bron en voegt de gegevens in een tabel in de doeldatabase. De naam van de eerste parameter van de opgeslagen procedure moet overeenkomen met de tabelnaam die wordt gedefinieerd in de gegevensset JSON (Marketing).
+In de database definiëren Hallo opgeslagen procedure met dezelfde naam als Hallo **SqlWriterStoredProcedureName**. Hallo opgeslagen procedure invoergegevens van brongegevensarchief Hallo verwerkt en voegt de gegevens in een tabel in de doeldatabase Hallo. Hallo-naam van de eerste parameter Hallo van opgeslagen procedure moet overeenkomen met de Hallo tableName gedefinieerd in de gegevensset Hallo JSON (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -77,7 +77,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>De typedefinitie van de tabel
-Definieer het tabeltype met dezelfde naam als in uw database **SqlWriterTableType**. Het schema van het type moet overeenkomen met het schema van de invoergegevensset.
+In de database definiëren Hallo tabeltype met dezelfde naam als Hallo **SqlWriterTableType**. Hallo-schema van Hallo tabeltype moet overeenkomen met de Hallo-schema van de invoergegevensset Hallo.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -87,7 +87,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de volgende connector artikelen die voor volledige JSON-voorbeelden: 
+Controleer Hallo connector artikelen die voor JSON-voorbeelden worden voltooid na: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

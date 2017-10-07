@@ -1,6 +1,6 @@
 ---
-title: Rapportage van Azure Active Directory automatisch account gebruikersinrichting voor SaaS-toepassingen | Microsoft Docs
-description: Informatie over het controleren van de status van automatische gebruikersaccount inrichten en het oplossen van de inrichting van afzonderlijke gebruikers.
+title: Rapportage van Azure Active Directory automatisch gebruikersaccount inrichten tooSaaS toepassingen | Microsoft Docs
+description: Meer informatie over hoe toocheck Hallo status van automatische gebruikersaccount inrichten en hoe tootroubleshoot Hallo inrichting van afzonderlijke gebruikers.
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,120 +14,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 86b9a3d93745045904c6038583b9bc6ebac5667e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5dcf9e5dbaacf3a2c81183c5d81e331858671b86
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over automatische gebruikers account inrichten
 
 
-Azure Active Directory bevat een [gebruikersaccount-service inricht](active-directory-saas-app-provisioning.md) die helpt om de inrichting ongedaan inrichting van gebruikersaccounts in de SaaS-apps en andere systemen, omwille van de levenscyclus van end-to-end identiteitsbeheer automatiseren. Azure AD biedt ondersteuning voor vooraf geïntegreerde gebruikers inrichten van connectors voor alle toepassingen en systemen in de sectie 'Aanbevolen' van de [Azure AD-toepassingsgalerie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory bevat een [gebruikersaccount-service inricht](active-directory-saas-app-provisioning.md) die helpt om Hallo inrichting ongedaan van de inrichting van gebruikersaccounts in de SaaS-apps en andere systemen, Hallo doel-end-to-end-identity lifecycle automatiseren beheer. Azure AD biedt ondersteuning voor vooraf geïntegreerde gebruikers inrichten van connectors voor alle Hallo toepassingen en systemen in de sectie 'Aanbevolen' Hallo Hallo [Azure AD-toepassingsgalerie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
-Dit artikel wordt beschreven hoe u controleert de status van het inrichten nadat ze zijn ingesteld en het oplossen van de inrichting van afzonderlijke gebruikers en groepen.
+Dit artikel wordt beschreven hoe toocheck Hallo status van inrichting nadat ze zijn ingesteld, en taken tootroubleshoot Hallo inrichting van afzonderlijke gebruikers en groepen.
 
 ## <a name="overview"></a>Overzicht
 
-Inrichting connectors zijn voornamelijk ingesteld en geconfigureerd met behulp van de [Azure-beheerportal](https://portal.azure.com), door de [documentatie opgegeven](active-directory-saas-tutorial-list.md) voor de toepassing waarin het inrichten van het account vereist is. Zodra de geconfigureerde en actieve worden inrichten voor een toepassing gerapporteerd over het gebruik van een van twee methoden:
+Inrichting connectors zijn voornamelijk ingesteld en geconfigureerd met behulp van Hallo [Azure-beheerportal](https://portal.azure.com), door de volgende Hallo [documentatie opgegeven](active-directory-saas-tutorial-list.md) voor Hallo-toepassing waarbij gebruikersaccount inrichten gewenst is. Zodra de geconfigureerde en actieve worden inrichten voor een toepassing gerapporteerd over het gebruik van een van twee methoden:
 
-* **Azure-beheerportal** -in dit artikel beschrijft voornamelijk bij het ophalen van rapportgegevens uit de [Azure-beheerportal](https://portal.azure.com), waarmee u zowel een overzichtsrapport inrichten als gedetailleerde inrichting controlelogboeken voor een bepaalde toepassing.
+* **Azure-beheerportal** -in dit artikel beschrijft voornamelijk bij het ophalen van rapportgegevens uit Hallo [Azure-beheerportal](https://portal.azure.com), waarmee u zowel een overzichtsrapport inrichten als gedetailleerde inrichten controlelogboeken voor een bepaalde toepassing.
 
-* **Audit API** -Azure Active Directory biedt ook een Audit-API die basisfunctionaliteit voor programmatische voor het ophalen van de gedetailleerde inrichting controlelogboeken. Zie [Azure Active Directory-audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) voor documentatie over het gebruik van deze API. Terwijl dit artikel het gebruik van de API niet specifiek omvat, dit de typen gebeurtenissen die zijn vastgelegd in het controlelogboek inrichting toegelicht.
+* **Audit API** -Azure Active Directory biedt ook een Audit API schakelt programmatische voor het ophalen van Hallo inrichting gedetailleerde controlelogboeken. Zie [Azure Active Directory-audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) voor specifieke toousing documentatie deze API. Terwijl dit artikel niet specifiek hoe toouse API hello omvat, het Hallo typen gebeurtenissen die zijn vastgelegd in het controlelogboek Hallo inrichting toegelicht.
 
 ### <a name="definitions"></a>Definities
 
-In dit artikel maakt gebruik van de volgende termen, zoals hieronder gedefinieerd:
+In dit artikel maakt gebruik van Hallo termen, zoals hieronder gedefinieerd, te volgen:
 
-* **Bronsysteem** -de opslagplaats van gebruikers die de Azure AD-service inricht synchroniseert uit. Azure Active Directory is het bronsysteem voor het merendeel van de vooraf geïntegreerde connectors inrichten, zijn echter enkele uitzonderingen (voorbeeld: Workday inkomende synchronisatie).
+* **Bronsysteem** -Hallo-opslagplaats voor gebruikers die Azure AD-inrichting service Hallo synchroniseert uit. Azure Active Directory is het bronsysteem Hallo voor Hallo meerderheid van de vooraf geïntegreerde connectors inrichting, zijn echter enkele uitzonderingen (voorbeeld: Workday inkomende synchronisatie).
 
-* **Doelsysteem** -de opslagplaats van gebruikers die de Azure AD-service inricht voor synchroniseert. Dit is doorgaans een SaaS-toepassing (voorbeelden: Salesforce, ServiceNow, Google Apps, Dropbox voor bedrijven), maar in sommige gevallen kan een on-premises systeem, zoals Active Directory (voorbeeld: Workday inkomende synchronisatie naar Active Directory).
+* **Doelsysteem** -opslagplaats van gebruikers die Azure AD-inrichting service Hallo Hallo synchroniseert op. Dit is doorgaans een SaaS-toepassing (voorbeelden: Salesforce, ServiceNow, Google Apps, Dropbox voor bedrijven), maar in sommige gevallen kan een on-premises systeem, zoals Active Directory (voorbeeld: Workday inkomende synchronisatie tooActive Directory).
 
 
-## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Inrichting van rapporten van de Azure-beheerportal ophalen
+## <a name="getting-provisioning-reports-from-hello-azure-management-portal"></a>Inrichting van rapporten van hello Azure-beheerportal ophalen
 
-Voor het ophalen van rapportgegevens voor een bepaalde toepassing inrichten, starten door het starten van de [Azure-beheerportal](https://portal.azure.com) en bladeren naar de Enterprise-toepassing waarvoor de inrichting is geconfigureerd. Bijvoorbeeld, als u gebruikers wilt uitbreiden LinkedIn inricht, is het pad navigatie gedetailleerde informatie over de toepassing:
+tooget rapport Inrichtingsgegevens voor een bepaalde toepassing starten door het starten van Hallo [Azure-beheerportal](https://portal.azure.com) en bladeren door toohello bedrijfstoepassing waarvoor inrichting is geconfigureerd. Als u gebruikers tooLinkedIn uitbreiden inricht, is bijvoorbeeld Hallo navigatie pad toohello App-details:
 
 **Azure Active Directory > bedrijfstoepassingen > alle toepassingen > LinkedIn uitbreiden**
 
-Hier kunt u toegang hebt tot het overzichtsrapport voor het inrichten en de inrichting controlelogboeken, beide die hieronder worden beschreven.
+Hier kunt u toegang hebt tot het overzichtsrapport voor Hallo inrichten en inrichting controlelogboeken Hallo, beide die hieronder worden beschreven.
 
 
 ### <a name="provisioning-summary-report"></a>Het overzichtsrapport voor inrichting
 
-Het overzichtsrapport voor inrichting is zichtbaar in de **inrichten** tabblad voor de opgegeven toepassing. Bevindt het zich in de sectie synchronisatiedetails onder **instellingen**, en biedt de volgende informatie:
+Hallo overzichtsrapport inrichting is zichtbaar in Hallo **inrichten** tabblad voor de opgegeven toepassing. Bevindt het zich in de sectie van de informatie over de synchronisatie Hallo onder **instellingen**, en biedt de volgende informatie Hallo:
 
-* Het totale aantal gebruikers en groepen op die zijn gesynchroniseerd en zijn momenteel in het bereik voor het inrichten van tussen de bron en het doelsysteem.
+* Hallo totaal aantal gebruikers en groepen op die zijn gesynchroniseerd en zijn momenteel in het bereik voor het inrichten van tussen Hallo bronsysteem en Hallo doelsysteem.
 
-* De laatste keer dat de synchronisatie is uitgevoerd. Synchronisaties optreden doorgaans elke 20-40 minuten nadat een volledige synchronisatie is voltooid.
+* Hallo laatste tijd Hallo synchronisatie is uitgevoerd. Synchronisaties optreden doorgaans elke 20-40 minuten nadat een volledige synchronisatie is voltooid.
 
 * Of er een initiële volledige synchronisatie is voltooid.
 
-* Wel of niet tijdens het inrichtingsproces in quarantaine zijn geplaatst en wat de oorzaak van de quarantaine-status is bijvoorbeeld (kan niet communiceren met het doelsysteem vanwege ongeldige Administrator-referenties)
+* Wel of niet Hallo inrichtingsproces in quarantaine zijn geplaatst en welke Hallo reden voor de status van de quarantaine Hallo is bijvoorbeeld (fout toocommunicate met doelsysteem vanwege tooinvalid beheerdersreferenties)
 
-Het overzichtsrapport voor de inrichting, moet de eerste plaats admins uiterlijk bij het controleren van de operationele status van de taak.
+Hallo inrichting overzichtsrapport moet Hallo eerste plaats admins uiterlijk toocheck op de operationele status van de taak Hallo Hallo.
 
  ![Het overzichtsrapport voor](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
 ### <a name="provisioning-audit-logs"></a>Inrichting controlelogboeken
-Alle activiteiten die worden uitgevoerd door de inrichting-service worden geregistreerd in de Azure AD-auditlogboeken kunnen worden weergegeven in de **controlelogboeken** tabblad onder de **Account inrichten** categorie. Geregistreerde activiteit gebeurtenistypen zijn onder andere:
+Alle activiteiten uitgevoerd door Hallo-service inricht worden vastgelegd in de controlelogboeken hello Azure AD, die kunnen worden bekeken in Hallo **controlelogboeken** tabblad onder Hallo **Account inrichten** categorie. Geregistreerde activiteit gebeurtenistypen zijn onder andere:
 
-* **Gebeurtenissen importeren** -een 'import' gebeurtenis vastgelegd elke keer dat de Azure AD-service inricht informatie over een afzonderlijke gebruiker of groep van een bronsysteem of het doelsysteem haalt. Tijdens de synchronisatie worden gebruikers opgehaald uit het bronsysteem eerst met de resultaten die zijn vastgelegd als 'importeren' gebeurtenissen. De overeenkomende id's van de opgehaalde gebruikers worden vervolgens een query uitgevoerd op het doelsysteem om te controleren of ze bestaan, met de resultaten ook als 'importeren' gebeurtenissen vastgelegd. Deze gebeurtenissen opnemen alle toegewezen gebruikerskenmerken en hun waarden die zichtbaar zijn voor de Azure AD-service op het moment van de gebeurtenis inricht. 
+* **Gebeurtenissen importeren** -telkens inrichting hello Azure AD-service informatie over een afzonderlijke gebruiker of groep uit een bronsysteem of doelsysteem haalt wordt een 'import' gebeurtenis vastgelegd. Tijdens de synchronisatie worden gebruikers opgehaald uit het bronsysteem Hallo eerst met Hallo resultaten als 'importeren' gebeurtenissen vastgelegd. Hallo overeenkomende id's van gebruikers Hallo opgehaald worden vervolgens een query uitgevoerd op Hallo doel system toocheck indien aanwezig, met Hallo resultaten ook vastgelegd als 'importeren' gebeurtenissen. Deze gebeurtenissen opnemen alle toegewezen gebruikerskenmerken en hun waarden die zijn zichtbaar voor inrichting hello Azure AD-service bij Hallo Hallo gebeurtenis. 
 
-* **Synchronisatie regel gebeurtenissen** - deze gebeurtenissen rapporteren over de resultaten van de toewijzingsregels kenmerk en een bereik filters geconfigureerd nadat gebruikersgegevens is geïmporteerd en geëvalueerd op basis van de bron en doel-systemen. Bijvoorbeeld, als een gebruiker in een bronsysteem wordt geacht binnen het bereik van de inrichting en dat niet bestaat in het doelsysteem aangenomen en vervolgens deze gebeurtenis die registreert wordt de gebruiker ingericht in het doelsysteem. 
+* **Synchronisatie regel gebeurtenissen** - deze gebeurtenissen rapporteert over Hallo resultaten van de toewijzingsregels Hallo-kenmerk en een bereik filters geconfigureerd nadat gebruikersgegevens is geïmporteerd en geëvalueerd op basis van Hallo bron en doel-systemen. Bijvoorbeeld, als een gebruiker in een bronsysteem wordt geacht toobe binnen het bereik van de inrichting en veronderstelde toonot aanwezig zijn in het doelsysteem hello, worden vervolgens deze gebeurtenis legt vast dat Hallo gebruiker ingericht in het doelsysteem Hallo. 
 
-* **Gebeurtenissen exporteren** -een "export" gebeurtenis vastgelegd elke keer dat de Azure AD-service inricht schrijft een account of groep van een gebruikersobject voor het doelsysteem. Deze gebeurtenissen opnemen alle gebruikerskenmerken en de waarden die zijn geschreven door de Azure AD-service op het moment van de gebeurtenis inricht. Als er een fout opgetreden is tijdens het schrijven van het gebruikersobject-account of groep naar het doelsysteem, wordt deze hier weergegeven.
+* **Gebeurtenissen exporteren** -een "export" gebeurtenis vastgelegd elke keer inrichting hello Azure AD-service een gebruiker of de groep object tooa doelsysteem schrijft. Deze gebeurtenissen opnemen alle gebruikerskenmerken en hun waarden die zijn geschreven Hallo inrichting Azure AD-service op Hallo moment van Hallo-gebeurtenis. Als er een fout opgetreden is tijdens het schrijven van Hallo gebruiker account of groep object toohello doelsysteem, wordt deze hier weergegeven.
 
-* **Escrow gebeurtenissen verwerken** -proces borgen optreden wanneer de inrichting service een fout aangetroffen tijdens een poging een bewerking en probeer het opnieuw met een interval van back-off tijd wordt gestart. Telkens wanneer die een inrichtingsbewerking buiten gebruik werd gesteld, wordt een 'escrow' gebeurtenis vastgelegd.
+* **Escrow gebeurtenissen verwerken** -proces borgen optreden wanneer hello inrichten service een fout aangetroffen tijdens een poging een bewerking en activiteiten in een interval van back-off Hallo tijd tooretry begint. Telkens wanneer die een inrichtingsbewerking buiten gebruik werd gesteld, wordt een 'escrow' gebeurtenis vastgelegd.
 
-Bij het onderzoeken van de inrichting van gebeurtenissen voor een afzonderlijke gebruiker, de normaal gebeurtenissen in deze volgorde:
+Wanneer inrichting gebeurtenissen voor een afzonderlijke gebruiker bekijkt, Hallo normaal gebeurtenissen in deze volgorde:
 
-1. Importeren van gebeurtenis: gebruiker wordt opgehaald uit het bronsysteem.
+1. Importeren van gebeurtenis: gebruiker wordt opgehaald uit het bronsysteem Hallo.
 
-2. Importeren van gebeurtenis: doelsysteem om te controleren op de aanwezigheid van de opgehaalde gebruiker wordt gevraagd.
+2. Importeren van gebeurtenis: doelsysteem is van de query toocheck Hallo bestaan van de gebruiker Hallo opgehaald.
 
-3. Regel synchronisatiegebeurtenis: gebruikersgegevens van de bron en doel-systemen worden geëvalueerd op basis van het geconfigureerde kenmerk mapping regels en bereikfilters om te bepalen welke actie, indien van toepassing, moet worden uitgevoerd.
+3. Regel synchronisatiegebeurtenis: gebruikersgegevens van de bron en doel-systemen worden geëvalueerd op basis van Hallo geconfigureerd kenmerk mapping regels en filters toodetermine scoping welke actie, indien van toepassing, moet worden uitgevoerd.
 
-4. Gebeurtenis exporteren: als de regel synchronisatiegebeurtenis bepaald dat een actie moet worden uitgevoerd (bijvoorbeeld toevoegen, bijwerken, verwijderen), en vervolgens de resultaten van de actie in een Export-gebeurtenis worden vastgelegd.
+4. Gebeurtenis exporteren: als de regel synchronisatiegebeurtenis Hallo bepaald dat een actie moet worden uitgevoerd (bijvoorbeeld toevoegen, bijwerken, verwijderen), en vervolgens Hallo resultaten van Hallo actie worden vastgelegd in een Export-gebeurtenis.
 
 ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
 
 ### <a name="looking-up-provisioning-events-for-a-specific-user"></a>Opzoeken van de inrichting van gebeurtenissen voor een specifieke gebruiker
 
-De meest voorkomende gebruiksvoorbeeld voor de inrichting controlelogboeken is om te controleren van de status van de inrichting van een afzonderlijk gebruikersaccount. De laatste inrichting gebeurtenissen voor een specifieke gebruiker opzoeken:
+Hallo is meest voorkomende gebruiksvoorbeeld voor Hallo controlelogboeken inrichting toocheck Hallo status van een afzonderlijk gebruikersaccount inrichten. toolook hello laatste inrichting gebeurtenissen voor een specifieke gebruiker:
 
-1. Ga naar de **controlelogboeken** sectie.
+1. Ga toohello **controlelogboeken** sectie.
 
-2. Van de **categorie** selecteert u **Account inrichten**.
+2. Van Hallo **categorie** selecteert u **Account inrichten**.
 
-3. In de **datumbereik** menu, selecteer het datumbereik dat u zoeken wilt,
+3. In Hallo **datumbereik** menu, selecteer Hallo datumbereik dat u wilt dat toosearch,
 
-4. In de **Search** balk, voert u de gebruikers-ID van de gebruiker die u wilt zoeken. De indeling van de id-waarde moet overeenkomen met wat u hebt geselecteerd als de primaire overeenkomende ID in de configuratie van de toewijzing (bijvoorbeeld userPrincipalName of werknemer-ID-nummer). De waarde van de ID die vereist zijn zichtbaar in de kolom doel(en).
+4. In Hallo **Search** balk, Hallo gebruikersnaam invoeren van Hallo gebruiker gewenste toosearch voor. Hallo-indeling van de id-waarde moet overeenkomen met wat u hebt geselecteerd als primaire overeenkomende ID in Hallo kenmerk toewijzingsconfiguratie (bijvoorbeeld userPrincipalName of werknemer-ID-nummer) Hallo. Hallo id-waarde is vereist, zijn zichtbaar in Hallo doel(en) kolom.
 
-5. Druk op Enter om te zoeken. De meest recente gebeurtenissen in de inrichting eerst geretourneerd.
+5. Druk op Enter toosearch. meest recente gebeurtenissen inrichting Hallo eerst geretourneerd.
 
-6. Als er gebeurtenissen worden geretourneerd, noteert u de activiteitstypen en of ze is gelukt of mislukt. Als er geen resultaten worden geretourneerd, dan betekent dit dat de gebruiker bestaat niet, of is niet nog gedetecteerd bij het inrichtingsproces als een volledige synchronisatie is nog niet voltooid.
+6. Als er gebeurtenissen zijn geretourneerd, houd er rekening mee Hallo activiteitstypen en of ze is geslaagd of mislukt. Als er geen resultaten worden geretourneerd, dan betekent dit dat Hallo gebruiker bestaat niet, of nog niet is gedetecteerd door Hallo inrichtingsproces als een volledige synchronisatie is nog niet voltooid.
 
-7. Klik op afzonderlijke gebeurtenissen om uitgebreide details, met inbegrip van alle eigenschappen van de gebruiker die zijn opgehaald, geëvalueerd of geschreven als onderdeel van de gebeurtenis te bekijken.
+7. Klik op afzonderlijke gebeurtenissen tooview uitgebreide informatie, zoals de alle eigenschappen van de gebruiker die zijn opgehaald, geëvalueerd of als onderdeel van de gebeurtenis Hallo geschreven.
 
 
-### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Tips voor het weergeven van de controlelogboeken van de inrichting
+### <a name="tips-for-viewing-hello-provisioning-audit-logs"></a>Tips voor het weergeven van Hallo controlelogboeken inrichten
 
-Voor de beste leesbaarheid in de Azure portal, selecteer de **kolommen** knop en kies deze kolommen:
+Selecteer voor de beste leesbaarheid in hello Azure-portal Hallo **kolommen** knop en kies deze kolommen:
 
-* **Datum** -geeft de datum van de gebeurtenis heeft plaatsgevonden.
-* **Doel(en)** -ziet u de app en gebruikers-ID die de onderdelen van de gebeurtenis zijn.
-* **Activiteit** -het activiteitstype, zoals eerder beschreven.
-* **Status** - of de gebeurtenis is voltooid of niet.
-* **Statusreden** -een overzicht van wat er gebeurd in de inrichting gebeurtenis is.
+* **Datum** -toont Hallo Hallo gebeurtenis is opgetreden.
+* **Doel(en)** -Hallo-app en gebruikers-ID die Hallo onderwerpen van Hallo gebeurtenis bevat.
+* **Activiteit** -Hallo activiteitstype, zoals eerder beschreven.
+* **Status** - of Hallo gebeurtenis is voltooid of niet.
+* **Statusreden** -een overzicht van wat is er gebeurd in Hallo gebeurtenis inrichten.
 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-De inrichting samenvatting rapport en audit logboeken spelen een belangrijke rol helpen beheerders verschillende gebruikersaccount inrichten problemen oplossen.
+Hallo inrichting samenvatting rapport en audit logboeken spelen een belangrijke rol helpen beheerders verschillende gebruikersaccount inrichten problemen oplossen.
 
-Zie voor instructies over het oplossen van problemen met Automatische gebruikersaanvragen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers van een toepassing](active-directory-application-provisioning-content-map.md).
+Voor instructies voor het scenario's gebaseerde tootroubleshoot automatisch gebruikers inrichten, Zie [problemen bij het configureren en inrichten van gebruikers tooan toepassing](active-directory-application-provisioning-content-map.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende resources

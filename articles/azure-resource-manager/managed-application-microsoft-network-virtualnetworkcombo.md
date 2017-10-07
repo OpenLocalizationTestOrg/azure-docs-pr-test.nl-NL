@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing VirtualNetworkCombo UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Network.VirtualNetworkCombo UI-element voor beheerde Azure-toepassingen
+title: Beheerde toepassing VirtualNetworkCombo UI-element aaaAzure | Microsoft Docs
+description: Beschrijft Hallo Microsoft.Network.VirtualNetworkCombo UI-element voor beheerde Azure-toepassingen
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 8bb255b76ac5c3de570fa569a1cfb3ee953f9687
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b0fa5360d93306f7a814723f77e42540bdaaa9f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI-element
 Een groep besturingselementen voor het selecteren van een nieuw of bestaand virtueel netwerk. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](managed-application-publishing.md).
@@ -25,8 +25,8 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand virt
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
 
-- In de bovenste draadmodel heeft de gebruiker een nieuw virtueel netwerk verzameld, zodat de gebruiker de naam en adres voorvoegsel elk subnet kan aanpassen. Subnetten configureren is in dit geval optioneel.
-- In de draadmodel onder een bestaand virtueel netwerk op de gebruiker heeft gekozen zodat de gebruiker elk subnet dat is vereist voor de implementatiesjabloon moet worden toegewezen aan een bestaand subnet. Subnetten configureren is in dit geval vereist.
+- In de bovenste draadmodel hello, heeft Hallo gebruiker een nieuw virtueel netwerk verzameld zodat Hallo gebruiker elk subnet naam en adres voorvoegsel kan aanpassen. Subnetten configureren is in dit geval optioneel.
+- In Hallo onderaan draadmodel, Hallo gebruiker heeft gekozen een bestaand virtueel netwerk, zodat Hallo gebruiker moet worden toegewezen elk subnet Hallo-implementatiesjabloon bestaand subnet tooan vereist. Subnetten configureren is in dit geval vereist.
 
 ## <a name="schema"></a>Schema
 ```json
@@ -82,15 +82,15 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand virt
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- Als opgegeven, voorvoegsel van de grootte van de eerste niet-overlappende adres `defaultValue.addressPrefixSize` automatisch op basis van de bestaande virtuele netwerken in het abonnement van de gebruiker wordt bepaald.
-- De standaardwaarde voor `defaultValue.name` en `defaultValue.addressPrefixSize` is **null**.
-- `constraints.minAddressPrefixSize`moet worden opgegeven. Een bestaande virtuele netwerken met een adresruimte die kleiner is dan de opgegeven waarde zijn niet beschikbaar voor selectie.
+- Indien opgegeven, de eerste niet-overlappende adresvoorvoegsel met een grootte van Hallo `defaultValue.addressPrefixSize` automatisch op basis van de bestaande virtuele netwerken in het abonnement van de gebruiker hello wordt bepaald.
+- de standaardwaarde voor Hallo `defaultValue.name` en `defaultValue.addressPrefixSize` is **null**.
+- `constraints.minAddressPrefixSize`moet worden opgegeven. Een bestaande virtuele netwerken met een adresruimte die kleiner is dan hello opgegeven waarde zijn niet beschikbaar voor selectie.
 - `subnets`Er moet worden opgegeven en `constraints.minAddressPrefixSize` voor elk subnet moet worden opgegeven.
-- Wanneer u een nieuw virtueel netwerk maakt, adresvoorvoegsel voor elk subnet wordt automatisch berekend op het virtuele netwerk adresvoorvoegsel en de respectieve `addressPrefixSize`.
+- Wanneer u een nieuw virtueel netwerk maakt, adresvoorvoegsel voor elk subnet wordt automatisch berekend op Hallo van het virtuele netwerk adresvoorvoegsel en de respectieve `addressPrefixSize`.
 - Wanneer u een bestaande virtuele netwerk, kleiner is dan de respectieve subnetten `constraints.minAddressPrefixSize` zijn niet beschikbaar voor selectie. Bovendien, indien opgegeven, subnetten die bevatten geen ten minste `minAddressCount` beschikbare adressen zijn niet beschikbaar voor selectie.
-De standaardwaarde is **0**. Om ervoor te zorgen dat de beschikbare adressen aaneengesloten zijn, geef **true** voor `requireContiguousAddresses`. De standaardwaarde is **true**.
+de standaardwaarde Hallo is **0**. tooensure die Hallo beschikbare adressen zijn aaneengesloten, geeft u **true** voor `requireContiguousAddresses`. de standaardwaarde Hallo is **true**.
 - Maken van subnetten in een bestaand virtueel netwerk wordt niet ondersteund.
-- Als `options.hideExisting` is **true**, de gebruiker een bestaand virtueel netwerk niet kiezen. De standaardwaarde is **false**.
+- Als `options.hideExisting` is **true**, Hallo gebruiker een bestaand virtueel netwerk niet kiezen. de standaardwaarde Hallo is **false**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 ```json
@@ -115,6 +115,6 @@ De standaardwaarde is **0**. Om ervoor te zorgen dat de beschikbare adressen aan
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](managed-application-overview.md).
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Zie voor een inleiding toomanaged toepassingen, [overzicht van Azure Managed toepassing](managed-application-overview.md).
+* Zie voor een inleiding toocreating UI definities [aan de slag met CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](managed-application-createuidefinition-elements.md).

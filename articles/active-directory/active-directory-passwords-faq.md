@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b3fab99ff9fab5bc67fa70113dc5b06fac775b09
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d04a9efeb3b35421aa605cadb2aa25f656a4d515
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
-Hier volgen enkele veelgestelde vragen voor alle bewerkingen die betrekking hebben op wachtwoord opnieuw instellen.
+Hallo na worden enkele veelgestelde vragen voor alle bewerkingen die betrekking hebben toopassword opnieuw instellen.
 
-Als er een algemene vraag over Azure AD en zelf uw wachtwoord opnieuw instellen, die niet wordt beantwoord hier, kunt u vragen de community om hulp op de [Azure Ad-forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Leden van de community opnemen Engineers, Product Managers, MVP's en fellow IT-Professionals.
+Als er een algemene vraag over Azure AD en zelf uw wachtwoord opnieuw instellen, die niet wordt beantwoord hier, kunt u vragen Hallo community om hulp op Hallo [Azure Ad-forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Leden van de community Hallo opnemen Engineers, Product Managers, MVP's en fellow IT-Professionals.
 
-Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
+Deze Veelgestelde vragen opgesplitst Hallo uit te voeren:
 
 * [**Vragen over het registreren voor wachtwoord opnieuw instellen**](#password-reset-registration)
 * [**Vragen over wachtwoordherstel**](#password-reset)
@@ -39,12 +39,12 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 ## <a name="password-reset-registration"></a>Registratie voor wachtwoord opnieuw instellen
 * **V: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
-  > **A:** Ja, zoals wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, kunnen ze naar de portal van de registratie voor wachtwoord opnieuw instellen op http://aka.ms/ssprsetup registreren hun verificatiegegevens. Gebruikers kunnen ook registreren door te gaan naar het toegangspaneel bij http://myapps.microsoft.com, te klikken op het profieltabblad en te klikken op het Register voor de optie wachtwoord opnieuw instellen.
+  > **A:** Ja, zoals wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, kunnen ze toohello registratie voor wachtwoord opnieuw instellen-portal op http://aka.ms/ssprsetup tooregister hun verificatiegegevens. Gebruikers kunnen ook registreren door toohello-Toegangsvenster gaan bij http://myapps.microsoft.com, tabblad Hallo-profiel en Hallo registreren voor wachtwoordherstel optie klikken.
   >
   >
 * **V: kan ik wachtwoord opnieuw instellen van gegevens definiëren namens mijn gebruikers?**
 
-  > **A:** Ja, u kunt dit doen met Azure AD Connect, PowerShell, de [Azure-portal](https://portal.azure.com), of de beheerder van Office-portal. Zie voor meer informatie het artikel [gegevens die worden gebruikt door Azure AD selfservice voor wachtwoordherstel](active-directory-passwords-data.md).
+  > **A:** Ja, u kunt dit doen met Azure AD Connect PowerShell Hallo [Azure-portal](https://portal.azure.com), of Hallo beheerder van Office-portal. Zie voor meer informatie artikel Hallo [gegevens die worden gebruikt door Azure AD selfservice voor wachtwoordherstel](active-directory-passwords-data.md).
   >
   >
 * **V: kan ik gegevens voor vragen over de beveiliging van on-premises synchroniseren?**
@@ -54,57 +54,57 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   >
 * **V: kunnen mijn gebruikers gegevens registreren zodanig dat deze gegevens door andere gebruikers niet zien?**
 
-  > **A:** Ja, wanneer gebruikers zich registreren voor gegevens met behulp van de Wachtwoordregistratieportal opnieuw instellen dat het wordt opgeslagen in persoonlijke verificatie velden die alleen zichtbaar voor globale beheerders en de gebruiker.
+  > **A:** Ja, wanneer gebruikers zich registreren voor gegevens met behulp van Hallo opnieuw instellen-Portal voor Wachtwoordregistratie is opgeslagen in persoonlijke verificatie velden die alleen zichtbaar zijn door de gebruiker globale beheerders en Hallo.
     >
     > [!NOTE]
-    > Als een **Azure Administrator-account** registreert hun telefoonnummer verificatie deze ook worden ingevuld in het veld mobiele telefoon en zichtbaar is.
+    > Als een **Azure Administrator-account** registreert hun telefoonnummer verificatie deze ook worden ingevuld in het veld van de mobiele telefoon Hallo en zichtbaar is.
     >
   >
   >
-* **V: Mijn gebruikers hoeft te worden geregistreerd voordat ze kunnen voor wachtwoordherstel gebruiken?**
+* **V: Mijn gebruikers hebt toobe geregistreerd voordat ze kunnen voor wachtwoordherstel gebruiken?**
 
-  > **A:** Nee, als u onvoldoende verificatiegegevens namens hen definieert, gebruikers niet hoeven te registreren. Wachtwoord opnieuw moet worden ingesteld als u hebt opgeslagen gegevens in de juiste velden in de map juist opgemaakt.
+  > **A:** Nee, als u onvoldoende verificatiegegevens namens hen definieert, gebruikers hebben geen tooregister. Wachtwoord opnieuw moet worden ingesteld als u hebt opgeslagen gegevens in de juiste velden in de map Hallo Hallo juist opgemaakt.
   >
   >
-* **V: kan ik synchroniseren of instellen van de telefoon voor authenticatie, authenticatie-e-mailadres of andere telefoon voor authenticatie velden namens mijn gebruikers?**
+* **V: kan ik synchroniseren of instellen van de telefoon voor authenticatie, authenticatie E-mail of andere telefoon voor authenticatie velden Hallo namens mijn gebruikers?**
 
   > **A:** dit niet mogelijk is vandaag de dag.
   >
   >
-* **V: hoe de portal voor wachtwoordregistratie weet welke opties mijn gebruikers?**
+* **V: hoe Hallo-portal voor wachtwoordregistratie weet welke opties tooshow Mijn gebruikers?**
 
-  > **A:** de registratieportal voor wachtwoordherstel alleen ziet u de opties die u hebt ingeschakeld voor uw gebruikers. Deze opties zijn gevonden onder de sectie gebruiker opnieuw instellen wachtwoordbeleid van uw directory configureren tabblad. Dit betekent bijvoorbeeld dat als u vragen over de beveiliging niet inschakelt, klikt u vervolgens gebruikers zich niet kunnen registreren voor die optie.
+  > **A:** Hallo wachtwoordherstel registratieportal alleen toont Hallo opties die u hebt ingeschakeld voor uw gebruikers. Deze opties zijn gevonden onder de sectie van de gebruiker opnieuw instellen wachtwoordbeleid van uw directory configureren tabblad Hallo. Dit betekent bijvoorbeeld dat als u vragen over de beveiliging niet inschakelt, klikt u vervolgens gebruikers zich niet kunnen tooregister voor die optie.
   >
   >
 * **V: wanneer een gebruiker als beschouwd ingeschreven?**
 
-  > **A:** een gebruiker wordt beschouwd geregistreerd voor SSPR, wanneer zij hebben geregistreerd ten minste de **aantal methoden die zijn vereist om in te stellen** die u hebt ingesteld in de [Azure-portal](https://portal.azure.com).
+  > **A:** een gebruiker wordt beschouwd geregistreerd voor SSPR, wanneer zij hebben geregistreerd ten minste Hallo **aantal methoden vereist tooreset** die u hebt ingesteld in Hallo [Azure-portal](https://portal.azure.com).
   >
   >
 ## <a name="password-reset"></a>Wachtwoord opnieuw instellen
-* **V: hoe lang moet ik wachten om te ontvangen van een e-mail, SMS of telefoongesprek van wachtwoord opnieuw instellen?**
+* **V: hoe lang moet ik tooreceive wachten een e-mail, SMS of telefoongesprek van wachtwoord opnieuw instellen?**
 
-  > **A:** SMS-berichten, e-mailadres en telefoongesprekken moet binnenkomen in onder één minuut, met het normale geval wordt de 5-20 seconden.
-    >Als u de melding niet binnen deze tijd ontvangt:
+  > **A:** SMS-berichten, e-mailadres en telefoongesprekken moet binnenkomen in onder één minuut aan normale Hallo-aanvraag wordt 5-20 seconden.
+    >Als u hiervan geen melding voor Hallo binnen deze tijd:
         > * Controleer de map Ongewenste e-mail.
-        > * Controleer het nummer of de e-mailadres waarmee contact wordt opgenomen is die u verwacht.
-        > * Controleer dat de verificatiegegevens in de map is juist opgemaakt.
+        > * Hallo nummer of e-mailbericht waarmee contact wordt opgenomen is Hallo een die u verwacht.
+        > * Controleer Hallo verificatiegegevens in de directory Hallo is juist opgemaakt.
                 >     * Voorbeeld: "+ 1 4255551234' of 'user@contoso.com'
   >
   >
 * **V: welke talen worden ondersteund door het wachtwoord opnieuw instellen?**
 
-  > **A:** -gebruikersinterface voor het wachtwoord opnieuw instellen van SMS-berichten en telefoongesprekken in dezelfde talen worden ondersteund in Office 365 worden gelokaliseerd.
+  > **A:** Hallo wachtwoordherstel gebruikersinterface SMS-berichten en stem aanroepen zijn gelokaliseerd in Hallo dezelfde talen die worden ondersteund in Office 365.
   >
   >
-* **V: welke onderdelen van de ervaring van wachtwoord opnieuw instellen wanneer ik ingesteld organisatie huisstijl in mijn directory ophalen huisstijl het tabblad configureren?**
+* **V: welke onderdelen van Hallo wachtwoord opnieuw instellen van ervaring ophalen huisstijl wanneer ik ingesteld organisatie huisstijl in mijn directory het tabblad configureren?**
 
-  > **A:** de portal voor wachtwoord opnieuw instellen, ziet u het logo van uw organisatie en kunt u configureren van de contact op met uw beheerder koppeling om te verwijzen naar een aangepaste e-mailadres of URL. Een e-mailbericht dat wordt verzonden door het wachtwoord opnieuw instellen van uw organisatie logo, de kleuren, de naam in de hoofdtekst van het e-mailbericht bevat en aangepast met de naam van.
+  > **A:** hello wachtwoordresetportal ziet u het logo van uw organisatie en kunt u tooconfigure Hallo Neem contact op met uw beheerder koppeling toopoint tooa aangepaste e-mailadres of URL. Een e-mailbericht dat wordt verzonden door het wachtwoord opnieuw instellen van uw organisatie logo, de kleuren, de naam bevat in Hallo hoofdtekst van e-mail Hallo en aangepast met de naam van.
   >
   >
-* **V: hoe kan ik mijn gebruikers opleiden waar u om hun wachtwoord opnieuw instellen?**
+* **V: hoe kan ik mijn moet u gebruikers informeren over waar toogo tooreset hun wachtwoorden?**
 
-  > **A:** kunt u uw gebruikers rechtstreeks naar https://passwordreset.microsoftonline.com verzenden of u kunt de opdracht op te geven de **heeft geen toegang tot uw accountkoppeling** gevonden op eventuele werk of School-aanmeldingspagina. U kunt deze koppelingen ook publiceren op een locatie die gemakkelijk toegankelijk is voor uw gebruikers.
+  > **A:** kunt u uw gebruikers toohttps://passwordreset.microsoftonline.com rechtstreeks verzenden, of u kunt opgeven dat ze tooclick hello **heeft geen toegang tot uw accountkoppeling** gevonden op eventuele werk of School-aanmeldingspagina. U kunt deze koppelingen ook publiceren in een plaats eenvoudig toegankelijk tooyour gebruikers.
   >
   >
 * **V: kan ik deze pagina vanaf een mobiel apparaat gebruiken?**
@@ -119,7 +119,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   >
 * **V: hoe kan ik wachtwoordherstel rechtstreeks in mijn gebruiker aanmelden Bureaubladervaring worden geïntegreerd?**
 
-  > **A:** als u een Azure AD Premium-klant bent, kunt u Microsoft Identity Manager installeren zonder extra kosten en implementeren van de on-premises-oplossing wachtwoord opnieuw instellen om te voldoen aan deze vereiste.
+  > **A:** als u een Azure AD Premium-klant bent, kunt u Microsoft Identity Manager installeren zonder extra kosten en implementeren van Hallo lokale wachtwoord opnieuw instellen van oplossing toomeet deze vereiste.
   >
   >
 * **V: kan ik andere beveiligingsvragen voor verschillende talen instellen?**
@@ -127,9 +127,9 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   > **A:** dit niet mogelijk is vandaag de dag.
   >
   >
-* **V: hoe zoveel mogelijk vragen kunnen we configureren voor de verificatie-optie beveiligingsvragen**
+* **V: hoe zoveel mogelijk vragen kunt we voor Hallo beveiligingsvragen verificatieoptie configureren?**
 
-  > **A:** kunt u maximaal 20 aangepaste beveiligingsvragen in de [Azure-portal](https://portal.azure.com).
+  > **A:** kunt u aangepaste beveiligingsvragen too20 in Hallo [Azure-portal](https://portal.azure.com).
   >
   >
 * **V: hoe lang mogelijk beveiligingsvragen?**
@@ -137,105 +137,105 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   > **A:** beveiligingsvragen mogelijk tussen 3 en 200 tekens bevatten.
   >
   >
-* **V: hoe lang mogelijk antwoorden op beveiligingsvragen?**
+* **V: hoe lang mogelijk antwoorden toosecurity vragen?**
 
-  > **A:** antwoorden mogelijk 3 tot 40 tekens lang zijn.
+  > **A:** antwoorden mogelijk 3 too40 tekens lang zijn.
   >
   >
-* **V: zijn dubbele antwoorden op beveiligingsvragen afgewezen?**
+* **V: zijn afgewezen dubbele antwoorden toosecurity vragen?**
 
-  > **A:** Ja, er dubbele antwoorden op beveiligingsvragen afwijzen.
+  > **A:** Ja, er dubbele antwoorden toosecurity vragen afwijzen.
   >
   >
-* **V: kan registreren van een gebruiker de dezelfde beveiligingsvraag het meer dan één keer?**
+* **V: kan Hallo het registreren van een gebruiker dezelfde beveiligingsvraag het meer dan één keer?**
 
   > **A:** Nee, wanneer een gebruiker zich registreert voor een bepaald criterium, ze kunnen niet worden geregistreerd voor deze vraag een tweede keer.
   >
   >
-* **V: is het mogelijk is de ondergrens van beveiligingsvragen voor registratie instellen en resetten?**
+* **V: is het mogelijk tooset de ondergrens van beveiligingsvragen voor registratie en opnieuw instellen?**
 
   > **A:** Ja, een limiet kan worden ingesteld voor registratie en een andere voor het opnieuw instellen. 3-5-beveiligingsvragen mogelijk zijn vereist voor inschrijving en 3-5 mogelijk zijn vereist voor opnieuw instellen.
   >
   >
-* **V: als een gebruiker meer dan het maximum aantal vragen dat vereist is om in te stellen is geregistreerd, hoe beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
+* **V: als een gebruiker meer dan het maximum aantal vragen vereist tooreset Hallo is geregistreerd, hoe beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
 
-  > **A:** N beveiligingsvragen willekeurig geselecteerd van het totale aantal vragen dat een gebruiker is geregistreerd, waarbij N staat voor de **aantal vragen dat vereist is om in te stellen**. Bijvoorbeeld, als een gebruiker 5 beveiligingsvragen geregistreerd heeft, maar alleen 3 nodig zijn om in te stellen, zijn 3 van de 5 willekeurig geselecteerd en gepresenteerd op opnieuw instellen. Als de gebruiker de antwoorden op de vragen verkeerde ontvangt, wordt het selectieproces om te voorkomen dat vraag hammering optreedt.
+  > **A:** N beveiliging vragen willekeurig geselecteerd uit Hallo kunt u het totaal aantal vragen een gebruiker is geregistreerd, waarbij N staat voor Hallo **aantal vragen vereist tooreset**. Bijvoorbeeld, als een gebruiker 5 beveiligingsvragen geregistreerd heeft, maar alleen 3 vereiste tooreset zijn, zijn 3 Hallo 5 willekeurig geselecteerd en gepresenteerd op opnieuw instellen. Als het Hallo-gebruiker afkomstig Hallo-antwoorden toohello vragen verkeerde, optreedt Hallo selectieproces tooprevent vraag hammering.
   >
   >
 * **V: heb u voorkomen dat gebruikers vaak in een korte periode voor wachtwoordherstel probeert?**
 
-  > **A:** Ja, er zijn ingebouwd in het wachtwoord opnieuw instellen om te beveiligen tegen misbruik beveiligingsfuncties. Gebruikers kunnen alleen proberen opnieuw instellen van 5 wachtwoordpogingen binnen een uur voordat ze worden geblokkeerd voor 24 uur. Gebruikers kunnen alleen proberen te valideren een telefoonnummer 5 maal binnen een uur voordat ze worden geblokkeerd voor 24 uur. Gebruikers kunnen alleen een één verificatiemethode proberen 5 maal binnen een uur voordat ze worden geblokkeerd voor 24 uur.
+  > **A:** Ja, er zijn ingebouwd in het wachtwoord opnieuw instellen van tooprotect tegen misbruik beveiligingsfuncties. Gebruikers kunnen alleen proberen opnieuw instellen van 5 wachtwoordpogingen binnen een uur voordat ze worden geblokkeerd voor 24 uur. Gebruikers kunnen toovalidate een telefoonnummer alleen proberen 5 maal binnen een uur voordat ze worden geblokkeerd voor 24 uur. Gebruikers kunnen alleen een één verificatiemethode proberen 5 maal binnen een uur voordat ze worden geblokkeerd voor 24 uur.
   >
   >
-* **V: voor hoe lang de e-mail en SMS eenmalige wachtwoordcode geldig zijn?**
+* **V: voor hoe lang Hallo e-mail en SMS eenmalige wachtwoordcode geldig zijn?**
 
-  > **A:** de levensduur van de sessie voor wachtwoordherstel is 105 minuten. Vanaf het begin van de bewerking van wachtwoord opnieuw instellen van heeft de gebruiker 105 minuten hun wachtwoord opnieuw instellen. De e-mail en SMS eenmalige wachtwoordcode zijn ongeldig nadat deze periode is verstreken.
+  > **A:** Hallo levensduur van de sessie voor wachtwoordherstel is 105 minuten. Vanaf Hallo Hallo wachtwoordherstel bewerking, Hallo gebruiker 105 minuten tooreset hun wachtwoord heeft. Hallo zijn e-mail en SMS eenmalige wachtwoordcode ongeldig nadat deze periode is verstreken.
   >
   >
 
 ## <a name="password-change"></a>Wachtwoord wijzigen
-* **V: waar moeten Mijn gebruikers hun wachtwoord moeten wijzigen gaan?**
+* **V: waar moeten Mijn gebruikers gaan toochange hun wachtwoorden?**
 
-  > **A:** gebruikers kunnen hun wachtwoord wijzigen waar ze hun profielfoto of pictogram ziet (zoals in de rechterbovenhoek van hun [Office 365](https://portal.office.com) of [Toegangspaneel](https://myapps.microsoft.com) optreedt. Gebruikers kunnen hun wachtwoorden op wijzigen de [Toegangspaneel profielpagina](https://account.activedirectory.windowsazure.com/r#/profile). Gebruikers kunnen ook worden gevraagd hun wachtwoord moeten wijzigen automatisch op de Azure AD in het scherm als hun wachtwoord is verlopen. Ten slotte gebruikers mogelijk gaat u naar de [Azure AD-wachtwoord wijzigen Portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) rechtstreeks als ze willen hun wachtwoord wijzigen.
+  > **A:** gebruikers kunnen hun wachtwoord wijzigen waar ze hun profielfoto of pictogram ziet (zoals in Hallo rechterbovenhoek van hun [Office 365](https://portal.office.com) of [Toegangspaneel](https://myapps.microsoft.com) optreedt. Gebruikers kunnen hun wachtwoord wijzigen vanaf Hallo [Toegangspaneel profielpagina](https://account.activedirectory.windowsazure.com/r#/profile). Gebruikers kunnen ook worden toochange gevraagd hun wachtwoord automatisch hello Azure AD in het scherm als hun wachtwoord is verlopen. Ten slotte gebruikers toohello kunnen navigeren [Azure AD-wachtwoord wijzigen Portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) rechtstreeks desgewenst toochange hun wachtwoorden.
   >
   >
-* **V: kunnen mijn gebruikers worden gewaarschuwd in de Office-Portal wanneer hun on-premises wachtwoord is verlopen?**
+* **V: kunnen mijn gebruikers worden gewaarschuwd in Office-Portal Hallo wanneer hun on-premises wachtwoord is verlopen?**
 
-  > **A:** dit vandaag is mogelijk als u AD FS gebruikt door de volgende instructies te volgen: [wachtwoord beleid Claims verzenden met AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Als u synchronisatie van wachtwoordhash, is dit niet mogelijk vandaag. Dit is omdat we niet wachtwoordbeleid van on-premises synchroniseren zodat het is niet mogelijk om te posten verlopen-meldingen naar cloud ervaringen. In beide gevallen is het ook mogelijk te [Waarschuw gebruikers waarvan de wachtwoorden bijna verlopen zijn met behulp van PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** dit vandaag is mogelijk als u van AD FS gebruikmaakt door hier Hallo-instructies te volgen: [wachtwoord beleid Claims verzenden met AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Als u synchronisatie van wachtwoordhash, is dit niet mogelijk vandaag. Dit is omdat we synchroniseert geen wachtwoordbeleid van on-premises, zodat het is niet mogelijk voor ons toopost verlopen-meldingen toocloud optreedt. In beide gevallen is het ook mogelijk te[Waarschuw gebruikers waarvan de wachtwoorden over tooexpire worden met behulp van PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 
 ## <a name="password-management-reports"></a>Wachtwoord-rapporten
-* **V: hoe lang duurt het voor de gegevens worden weergegeven op de wachtwoord-rapporten?**
+* **V: hoe lang duurt het voor gegevens tooshow up op Hallo wachtwoord-rapporten?**
 
-  > **A:** gegevens op de wachtwoord-rapporten moet worden weergegeven in 5-10 minuten. Deze sommige gevallen is het een uur duren kan om te worden weergegeven.
+  > **A:** gegevens op Hallo wachtwoord-rapporten moet worden weergegeven in 5-10 minuten. Het aantal exemplaren het tooappear van tooan uur kan duren.
   >
   >
-* **V: hoe kan ik de wachtwoord-rapporten filteren?**
+* **V: hoe kan ik Hallo wachtwoord-rapporten filteren?**
 
-  > **A:** kunt u de wachtwoord-rapporten filteren door te klikken op het Vergrootglas kleine uiterst rechts van de kolomlabels boven aan het rapport. Als u doen uitgebreidere filteren wilt, kunt u het rapport naar excel en maak een draaitabel kunt downloaden.
+  > **A:** kunt u Hallo wachtwoord-rapporten filteren op Hallo kleine Vergrootglas toohello uiterst rechts van de kolomlabels hello, aan de bovenkant Hallo van Hallo-rapport te klikken. Als u toodo uitgebreidere filteren wilt, kunt u downloaden Hallo rapport tooexcel en een draaitabel maken.
   >
   >
-* **V: Wat is het maximum aantal gebeurtenissen in de wachtwoord-rapporten worden opgeslagen?**
+* **V: wat Hallo kunt u het maximum aantal gebeurtenissen is in Hallo wachtwoord-rapporten worden opgeslagen?**
 
-  > **A:** maximaal 75.000 wachtwoord opnieuw instellen of het wachtwoord opnieuw instellen van inschrijving gebeurtenissen worden opgeslagen in de wachtwoord-rapporten, back-spanning maximaal 30 dagen.  We werken als u dit aantal zodanig dat meer gebeurtenissen wilt uitbreiden.
+  > **A:** Up too75, 000 wachtwoord opnieuw instellen of het wachtwoord opnieuw instellen van registratie gebeurtenissen worden opgeslagen in Hallo wachtwoord-rapporten, maakt u een back-up van too30 dagen-spanning.  We werken tooexpand dit nummer tooinclude meer gebeurtenissen.
   >
   >
-* **V: hoe ver terug de wachtwoordbeheer rapporten gaan doen?**
+* **V: hoe ver terug Hallo wachtwoord-rapporten gaan?**
 
-  > **A:** de wachtwoordbeheer rapporten weergeven-bewerkingen plaatsvinden in de afgelopen 30 dagen. Op dit moment als u nodig hebt om deze gegevens te archiveren kunt u periodiek de rapporten downloaden en opslaan op een andere locatie.
+  > **A:** Hallo wachtwoordbeheer rapporten weergeven bewerkingen plaatsvinden binnen Hallo afgelopen 30 dagen. Op dit moment als u deze gegevens tooarchive moet kunt u downloaden Hallo rapporten periodiek en deze opslaan op een andere locatie.
   >
   >
-* **V: is er een maximale aantal rijen dat kan worden weergegeven op de wachtwoord-rapporten?**
+* **V: is er een maximale aantal rijen dat kan worden weergegeven op Hallo wachtwoord-rapporten?**
 
-  > **A:** Ja, maximaal 75.000 rijen kan worden weergegeven op een van de wachtwoord-rapporten, of ze worden weergegeven in de gebruikersinterface of wordt gedownload.
+  > **A:** Ja, maximaal 75.000 rijen kan worden weergegeven op een van de Hallo wachtwoord-rapporten of worden ze weergegeven Hallo UI of wordt gedownload.
   >
   >
-* **V: is er een API voor toegang tot het wachtwoord opnieuw instellen of de registratie rapportagegegevens?**
+* **V: is er een API-tooaccess Hallo wachtwoord opnieuw instellen of registratie rapportagegegevens?**
 
-  > **A:** Ja, Zie de volgende documentatie voor meer informatie over hoe u toegang hebt tot de rapportage van de gegevensstroom voor wachtwoordherstel.  [Informatie over wachtwoordherstel rapportages programmatisch toegang tot](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Ja, Zie Hallo na documentatie toolearn reporting gegevensstroom hoe u toegang hebt tot Hallo-wachtwoord instellen.  [Meer informatie over hoe tooaccess wachtwoordherstel rapportagegebeurtenissen programmatisch](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
 ## <a name="password-writeback"></a>Wachtwoord terugschrijven
-* **V: hoe werkt wachtwoord terugschrijven achter de schermen?**
+* **V: hoe werkt wachtwoord terugschrijven achter de schermen Hallo?**
 
-  > **A:** Zie [de werking van wachtwoord terugschrijven](active-directory-passwords-writeback.md) voor een uitleg van wat er gebeurt als u terugschrijven van wachtwoord en hoe gegevens via het systeem loopt terug naar uw on-premises-omgeving inschakelen.
+  > **A:** Zie [de werking van wachtwoord terugschrijven](active-directory-passwords-writeback.md) voor een uitleg van wat er gebeurt als u terugschrijven van wachtwoord en hoe gegevens loopt via Hallo systeem terug naar uw on-premises-omgeving inschakelen.
   >
   >
-* **V: hoe lang duurt wachtwoord terugschrijven voordat werken?  Is er een vertraging synchronisatie zoals met wachtwoordhashsynchronisatie?**
+* **V: hoe lang duurt wachtwoord terugschrijven toowork  Is er een vertraging synchronisatie zoals met wachtwoordhashsynchronisatie?**
 
-  > **A:** wachtwoord terugschrijven is snel. Het is een synchrone pijplijn die fundamenteel anders dan de synchronisatie van wachtwoordhash werkt. Wachtwoord terugschrijven kan gebruikers realtime feedback over het succes van hun wachtwoord opnieuw instellen of wijzigen van de bewerking. De gemiddelde tijd voor een geslaagde write-back van een wachtwoord is onder 500 ms.
+  > **A:** wachtwoord terugschrijven is snel. Het is een synchrone pijplijn die fundamenteel anders dan de synchronisatie van wachtwoordhash werkt. Wachtwoord terugschrijven kan gebruikers tooget realtime feedback over geslaagde Hallo van hun wachtwoord opnieuw instellen of wijzigen van de bewerking. Hallo gemiddelde tijd voor een geslaagde write-back van een wachtwoord is onder 500 ms.
   >
   >
 * **V: hoe wordt mijn account/toegang tot de cloud getroffen als mijn lokale account is uitgeschakeld?**
 
-  > **A:** als uw lokale ID is uitgeschakeld, uw cloud-ID/access worden ook uitgeschakeld op de volgende synchronisatie-interval via AAD Connect byt standaard is dit elke 30 minuten.
+  > **A:** als uw lokale ID is uitgeschakeld, uw cloud-ID/access worden ook uitgeschakeld op de volgende synchronisatie-interval Hallo via AAD Connect byt standaard is dit elke 30 minuten.
   >
   >
-* **V: als mijn lokale account wordt beperkt door een beleid on-premises Active Directory-wachtwoord, houdt SSPR zich aan dit beleid wanneer ik het wachtwoord wijzigen?**
+* **V: als mijn lokale account wordt beperkt door een beleid on-premises Active Directory-wachtwoord, houdt SSPR zich aan dit beleid wanneer ik Hallo wachtwoord wijzigen?**
 
-  > **A:** Ja, SSPR is afhankelijk van en houdt zich aan de on-premises AD-wachtwoordbeleid, met inbegrip van typische wachtwoordbeleid van de AD-domein, evenals alle fijnmazige wachtwoordbeleid dat is bestemd voor een bepaalde gebruiker gedefinieerd.
+  > **A:** Ja, SSPR is afhankelijk van en houdt zich aan Hallo lokale AD-wachtwoordbeleid, met inbegrip van AD-domein wachtwoord standaardbeleid, evenals alle gedefinieerde fijnmazige wachtwoordbeleid gericht tooa toegekend.
   >
   >
 * **V: wat typen accounts werkt wachtwoord terugschrijven voor?**
@@ -250,21 +250,21 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   >
 * **V: wachtwoord terugschrijven veilig is?  Hoe kan ik dat ik won't ingebroken zijn?**
 
-  > **A:** Ja, Write-back van wachtwoord is beveiligd. Bekijk meer informatie over de vier beveiligingslagen geïmplementeerd door de service van de Write-back van wachtwoord, de [wachtwoord terugschrijven beveiligingsmodel](active-directory-passwords-writeback.md#password-writeback-security-model) sectie in de werking van wachtwoord terugschrijven.
+  > **A:** Ja, Write-back van wachtwoord is beveiligd. tooread meer informatie over Hallo vier beveiligingslagen die door Hallo wachtwoord terugschrijven service is geïmplementeerd, bekijk Hallo [wachtwoord terugschrijven beveiligingsmodel](active-directory-passwords-writeback.md#password-writeback-security-model) sectie in de werking van wachtwoord terugschrijven.
   >
   >
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
+Hallo volgende koppelingen vindt u aanvullende informatie met betrekking tot het wachtwoord opnieuw instellen met behulp van Azure AD
 
 * [**Snel starten**](active-directory-passwords-getting-started.md): aan de slag met self-service wachtwoordbeheer van Azure AD 
 * [**Licentieverlening**](active-directory-passwords-licensing.md): uw Azure AD-licentieverlening configureren
-* [**Gegevens**](active-directory-passwords-data.md): informatie over de gegevens die nodig zijn en hoe deze worden gebruikt voor wachtwoordbeheer
-* [**Implementatie**](active-directory-passwords-best-practices.md): SSPR plannen en implementeren voor uw gebruikers op basis van de hier gegeven informatie
-* [**Aanpassen**](active-directory-passwords-customize.md): het uiterlijk van de ervaring van self-service voor wachtwoordherstel aanpassen voor uw bedrijf.
+* [**Gegevens** ](active-directory-passwords-data.md) - begrijpen Hallo-gegevens die nodig is en hoe deze wordt gebruikt voor wachtwoordbeheer
+* [**Implementatie** ](active-directory-passwords-best-practices.md) -plannen en implementeren van SSPR tooyour gebruikers via Hallo richtlijnen hier gevonden
+* [**Aanpassen** ](active-directory-passwords-customize.md) -Hallo uiterlijk Hallo SSPR ervaring voor uw bedrijf aanpassen.
 * [**Rapportage**](active-directory-passwords-reporting.md): detecteren of, waar en wanneer uw gebruikers de functionaliteit voor self-service voor wachtwoordherstel gebruiken
 * [**Beleid**](active-directory-passwords-policy.md): Azure AD-wachtwoordbeleid begrijpen en instellen
 * [**Write-back van wachtwoord**](active-directory-passwords-writeback.md): hoe werkt write-back van wachtwoord met uw on-premises directory
-* [**Gedetailleerde technische informatie**](active-directory-passwords-how-it-works.md): neem een kijkje achter de schermen om te begrijpen hoe het werkt
-* [**Probleemoplossing**](active-directory-passwords-troubleshoot.md): informatie over het oplossen van algemene problemen die optreden bij de self-service voor wachtwoordherstel
+* [**Technische diepgaand** ](active-directory-passwords-how-it-works.md) -Ga achter Hallo gordijn toounderstand hoe het werkt
+* [**Problemen met** ](active-directory-passwords-troubleshoot.md) -informatie over hoe tooresolve algemene problemen zien we met SSPR

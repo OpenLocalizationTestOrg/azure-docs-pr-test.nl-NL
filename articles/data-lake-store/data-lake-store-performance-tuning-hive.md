@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Store Hive prestaties afstemmen richtlijnen | Microsoft Docs
+title: Data Lake Store Hive-prestaties afstemmen richtlijnen aaaAzure | Microsoft Docs
 description: Azure Data Lake Store Hive prestaties afstemmen richtlijnen
 services: data-lake-store
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e44daeb6ad3b64e893c709df63b56444a330729f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Prestaties afstemmen richtlijnen voor Hive in HDInsight en Azure Data Lake Store
 
-De standaardinstellingen zijn ingesteld om te voorzien in veel verschillende gebruiksscenario goede prestaties.  Voor i/o-intensieve query's kan Hive voor betere prestaties met ADLS worden afgestemd.  
+Hallo standaardinstellingen zijn tooprovide goede prestaties ingesteld op veel verschillende gebruiksscenario.  Voor i/o-intensieve query's kan Hive regelmatig tooget betere prestaties bij ADLS zijn.  
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een Azure Data Lake Store-account**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight-cluster** met toegang tot een Data Lake Store-account. Zie [een HDInsight-cluster maken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
-* **Uitvoeren van Hive in HDInsight**.  Zie voor meer informatie over het uitvoeren van Hive-taken in HDInsight, [op HDInsight Hive gebruiken] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
+* **Een Azure Data Lake Store-account**. Voor instructies over het toocreate één, Zie [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
+* **Azure HDInsight-cluster** met toegang tooa Data Lake Store-account. Zie [een HDInsight-cluster maken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor Hallo-cluster.
+* **Uitvoeren van Hive in HDInsight**.  toolearn over het uitvoeren van Hive-taken in HDInsight, Zie [op HDInsight Hive gebruiken] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
 * **Prestaties afstemmen richtlijnen op ADLS**.  Raadpleeg voor algemene prestaties concepten, [Data Lake Store prestaties afstemmen richtlijnen](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parameters
 
-Hier volgen de belangrijkste instellingen af te stemmen voor verbeterde ADLS-prestaties:
+Hier volgen Hallo belangrijkste instellingen tootune voor verbeterde ADLS-prestaties:
 
-* **hive.tez.container.Size** – de hoeveelheid geheugen die wordt gebruikt door elke taken
+* **hive.tez.container.Size** – hello en de hoeveelheid geheugen die door elke taken worden gebruikt
 
 * **grootte van tez.Grouping.min** : minimale grootte van elke toewijzen
 
@@ -44,27 +44,27 @@ Hier volgen de belangrijkste instellingen af te stemmen voor verbeterde ADLS-pre
 
 * **hive.Exec.reducer.bytes.per.reducer** : grootte van elke reducer
 
-**hive.tez.container.Size** -de grootte van de container bepaalt hoeveel geheugen beschikbaar is voor elke taak.  Dit is de belangrijkste invoer voor het beheren van de concurrency in Hive.  
+**hive.tez.container.Size** -Hallo container grootte bepaalt hoeveel geheugen beschikbaar is voor elke taak.  Dit is de belangrijkste invoer Hallo voor beheren Hallo gelijktijdigheid in Hive.  
 
-**grootte van tez.Grouping.min** – deze parameter kunt u de minimale grootte van elke mapper instellen.  Als het aantal mappers die Tez kiest kleiner dan de waarde van deze parameter is, wordt de hier ingestelde waarde gebruikt op Tez.  
+**grootte van tez.Grouping.min** – deze parameter kunt u tooset Hallo minimale grootte van elke toewijzen.  Als het aantal mappers die Tez kiest Hallo kleiner dan Hallo-waarde van deze parameter is, gebruik Tez hier ingestelde Hallo-waarde.  
 
-**grootte van tez.Grouping.Max** : de parameter kunt u de maximale grootte van elke mapper instellen.  Als het aantal mappers die Tez kiest groter dan de waarde van deze parameter is, wordt de hier ingestelde waarde gebruikt op Tez.  
+**grootte van tez.Grouping.Max** – Hallo parameter kunt u tooset Hallo maximale grootte van elke toewijzen.  Als het aantal mappers die Tez kiest Hallo groter dan Hallo-waarde van deze parameter is, gebruik Tez hier ingestelde Hallo-waarde.  
 
-**hive.Exec.reducer.bytes.per.reducer** – deze parameter wordt de grootte van elke reducer ingesteld.  Standaard is elke reducer 256MB.  
+**hive.Exec.reducer.bytes.per.reducer** – Hallo grootte van elke reducer door deze parameter wordt ingesteld.  Standaard is elke reducer 256MB.  
 
 ## <a name="guidance"></a>Richtlijnen
 
-**Stel hive.exec.reducer.bytes.per.reducer** : de standaardwaarde goed werkt wanneer de gegevens is gedecomprimeerd.  Voor gegevens die zijn gecomprimeerd, moet u de grootte van de reducer beperken.  
+**Stel hive.exec.reducer.bytes.per.reducer** – Hallo standaardwaarde goed werkt wanneer Hallo gegevens is gedecomprimeerd.  Voor gegevens die zijn gecomprimeerd, moet u de grootte van de Hallo van Hallo reducer beperken.  
 
-**Stel hive.tez.container.size** – In elk knooppunt geheugen wordt opgegeven door yarn.nodemanager.resource.memory mb en moet worden correct is ingesteld op HDI-cluster standaard.  Zie voor meer informatie over het instellen van het juiste geheugen in YARN [boeken](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Stel hive.tez.container.size** – In elk knooppunt geheugen wordt opgegeven door yarn.nodemanager.resource.memory mb en moet worden correct is ingesteld op HDI-cluster standaard.  Zie voor meer informatie over het instellen van de juiste geheugen Hallo in YARN [boeken](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
-I/o-intensieve werkbelastingen kunnen profiteren van meer parallelle uitvoering door de grootte van de container Tez verlagen. Hiermee geeft u de gebruiker meer containers waardoor gelijktijdigheid van taken.  Sommige Hive-query's vereisen echter een aanzienlijke hoeveelheid geheugen (bijvoorbeeld MapJoin).  Als de taak beschikt niet over voldoende geheugen, krijgt u een out-of geheugen-uitzondering tijdens runtime.  Als u buiten geheugen uitzonderingen ontvangt, moet u het geheugen verhogen.   
+I/o-intensieve werkbelastingen kunnen profiteren van meer parallelle uitvoering door Hallo Tez container verkleinen. Hiermee geeft u Hallo gebruiker meer containers waardoor gelijktijdigheid van taken.  Sommige Hive-query's vereisen echter een aanzienlijke hoeveelheid geheugen (bijvoorbeeld MapJoin).  Als het Hallo-taak beschikt niet over voldoende geheugen, krijgt u een out-of geheugen-uitzondering tijdens runtime.  Als u buiten geheugen uitzonderingen ontvangt, moet u Hallo geheugen verhogen.   
 
-Het aantal gelijktijdige taken die worden uitgevoerd of parallelle uitvoering wordt begrensd worden door het totale YARN-geheugen.  Het aantal YARN-containers worden uitgevoerd, bepalen hoeveel gelijktijdige taken kunnen uitvoeren.  Als u de YARN-geheugen per knooppunt zoekt, kunt u naar Ambari gaan.  Navigeer naar YARN en Raadpleeg het tabblad Configs.  Het geheugen YARN wordt in dit venster weergegeven.  
+Hallo aantal gelijktijdige taken die worden uitgevoerd of parallelle uitvoering wordt begrensd worden door Hallo totale YARN-geheugen.  Hallo aantal YARN-containers worden uitgevoerd, bepalen hoeveel gelijktijdige taken kunnen uitvoeren.  toofind hello YARN geheugen per knooppunt, kunt u tooAmbari gaan.  Navigeer tooYARN en Hallo Configs tabblad bekijkt.  Hallo YARN geheugen wordt weergegeven in dit venster.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-De sleutel voor het verbeteren van de prestaties met ADLS is de concurrency zo veel mogelijk verhogen.  Tez berekent automatisch het aantal taken die moet worden gemaakt, dus u niet hoeft in te stellen.   
+Hallo sleutel tooimproving prestaties met ADLS is tooincrease Hallo gelijktijdigheid zo veel mogelijk.  Tez berekent automatisch het aantal taken die moeten worden gemaakt, dus u niet tooset hoeft Hallo deze.   
 
 ## <a name="example-calculation"></a>Voorbeeld van de berekening
 
@@ -77,13 +77,13 @@ Stel dat u hebt een cluster met 8 knooppunten D14.
 ## <a name="limitations"></a>Beperkingen
 **ADLS-beperking** 
 
-Wanneer u de grenzen van de bandbreedte die worden geleverd door ADLS UIf raakt, u zou gaan om te zien van de mislukte taken. Dit kan worden geïdentificeerd door observeren bandbreedteregeling fouten in de logboeken van de taak.  U kunt de parallelle uitvoering verlagen door de Tez-container vergroten.  Als u meer gelijktijdigheid van taken bij uw werk nodig, neem dan contact met ons.   
+UIf bereikt van Hallo beperkt bandbreedte opgegeven door ADLS, zou u taakfouten toosee start. Dit kan worden geïdentificeerd door observeren bandbreedteregeling fouten in de logboeken van de taak.  U kunt Hallo parallelle uitvoering verlagen door de Tez-container vergroten.  Als u meer gelijktijdigheid van taken bij uw werk nodig, neem dan contact met ons.   
 
-Om te zien als u zijn ophalen beperkt, moet u de opdracht debug logboekregistratie aan de clientzijde inschakelen. Hier ziet u hoe u dat kunt doen:
+toocheck als u zijn ophalen beperkt, moet u aan de clientzijde Hallo logboekregistratie voor foutopsporing tooenable Hallo. Hier ziet u hoe u dat kunt doen:
 
-1. De volgende eigenschap plaatsen in de eigenschappen log4j in de Hive-configuratie. Dit kan worden gedaan vanuit de weergave Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG alle knooppunten/start de service opnieuw voor de configuratie door te voeren.
+1. Put hello eigenschap in Hallo log4j eigenschappen in de Hive-configuratie te volgen. Dit kan worden gedaan vanuit de weergave Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG alle Hallo knooppunten /-service opnieuw starten voor Hallo config tootake effect.
 
-2. Als u beperkt ophalen, ziet u de 429 HTTP-foutcode in de hive-logboekbestand. Het hive-logboekbestand bevindt zich in /tmp/&lt;gebruiker&gt;/hive.log
+2. Als u beperkt ophalen, ziet u Hallo 429 HTTP-foutcode in Hallo hive-logboekbestand. Hallo hive-logboekbestand bevindt zich in /tmp/&lt;gebruiker&gt;/hive.log
 
 ## <a name="further-information-on-hive-tuning"></a>Meer informatie over het afstemmen van Hive
 

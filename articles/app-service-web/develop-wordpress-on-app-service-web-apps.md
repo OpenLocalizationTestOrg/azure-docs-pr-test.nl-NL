@@ -1,6 +1,6 @@
 ---
-title: Het ontwikkelen van WordPress in Azure App Service
-description: Meer informatie over de aanbevolen procedures voor het ontwikkelen en schalen van WordPress in Azure.
+title: aaaDeveloping WordPress in Azure App Service
+description: Informatie over Hallo aanbevolen procedures voor het ontwikkelen en schalen WordPress in Azure.
 keywords: App service, azure app service, schaal wordpress, schaalbare wordpress, wordpress
 services: app-service
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: sunbuild
-ms.openlocfilehash: eeaafd4ba27709b0f2203035c2a7ae85aeea545f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d865416e9439adb1fb146569d4ee6355f86598c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="developing-wordpress-on-azure-app-service"></a>Het ontwikkelen van WordPress in Azure App Service
 [!INCLUDE [app-service-blueprint-guide-for-wordpress](../../includes/app-service-blueprint-guide-for-wordpress.md)]

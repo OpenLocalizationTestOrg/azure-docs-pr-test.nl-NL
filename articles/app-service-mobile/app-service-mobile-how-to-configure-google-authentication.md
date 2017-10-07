@@ -1,6 +1,6 @@
 ---
-title: Het configureren van Google-verificatie voor uw toepassing App Services
-description: Informatie over het configureren van Google-verificatie voor uw App Services-toepassing.
+title: aaaHow tooconfigure Google-verificatie voor uw toepassing App Services
+description: Meer informatie over hoe tooconfigure Google-verificatie voor uw App Services-toepassing.
 services: app-service
 documentationcenter: 
 author: mattchenderson
@@ -14,44 +14,44 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: d6c1707f67d986487e5a45e76ffc9a02ddf16eb1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9175c40b78c859e9e191504c41cd0bb9a3380ccd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Het configureren van uw App Service-toepassing gebruik van Google aanmelding
+# <a name="how-tooconfigure-your-app-service-application-toouse-google-login"></a>Hoe tooconfigure uw App Service-toepassing toouse Google aanmelding
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Dit onderwerp leest u over het configureren van Azure App Service voor het gebruik van Google als een verificatieprovider.
+Dit onderwerp leest u hoe tooconfigure Azure App Service toouse Google als een verificatieprovider.
 
-U moet een Google-account met een geverifieerde e-mailadres hebben voor de procedure in dit onderwerp. Als u een nieuw Google-account wilt maken, gaat u naar [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+toocomplete Hallo-procedure in dit onderwerp, moet u een Google-account met een geverifieerde e-mailadres hebben. toocreate een nieuw Google-account, gaat u te[accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 ## <a name="register"></a>Uw toepassing registreren met Google
-1. Meld u aan bij de [Azure-portal], en navigeer naar uw toepassing. Kopieer uw **URL**, die u later gebruiken voor het configureren van uw Google-app.
-2. Navigeer naar de [Google API's](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, meld u aan met de referenties van uw Google-account, klikt u op **Project maken**, bieden een **projectnaam**, klikt u vervolgens op **maken**.
+1. Meld u aan toohello [Azure-portal], en ga tooyour toepassing. Kopieer uw **URL**, die u later tooconfigure uw Google-app gebruiken.
+2. Navigeer toohello [Google API's](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, meld u aan met de referenties van uw Google-account, klikt u op **Project maken**, bieden een **projectnaam**, klikt u vervolgens op  **Maak**.
 3. Onder **sociale API's** klikt u op **Google + API** en vervolgens **inschakelen**.
-4. In het linkernavigatievenster **referenties** > **OAuth toestemming scherm**, selecteer vervolgens uw **e-mailadres**, voer een **Productnaam**, en klik op **opslaan**.
-5. In de **referenties** tabblad **referenties maken** > **OAuth-Clientidentiteit**, selecteer daarna **webtoepassing**.
-6. Plak de App Service **URL** u eerder hebt gekopieerd in **geautoriseerd JavaScript oorsprongen**, plak uw omleiding URI in **geautoriseerd omleidings-URI**. De omleidings-URI is de URL van uw toepassing toegevoegd aan het pad */.auth/login/google/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/google/callback`. Zorg ervoor dat u van het HTTPS-schema gebruikmaakt. Klik vervolgens op **Maken**.
-7. Maak een notitie van de waarden van de client-ID en clientgeheim op het volgende scherm.
+4. In de linkernavigatiebalk, Hallo **referenties** > **OAuth toestemming scherm**, selecteer vervolgens uw **e-mailadres**, voer een **Productnaam**, en klik op **opslaan**.
+5. In Hallo **referenties** tabblad **referenties maken** > **OAuth-Clientidentiteit**, selecteer daarna **webtoepassing**.
+6. Plakken Hallo App Service **URL** u eerder hebt gekopieerd in **geautoriseerd JavaScript oorsprongen**, plak uw redirect URI in **omleidings-URI is gemachtigd**. Omleidings-URI Hallo-URL van uw toepassing met het Hallo-pad toegevoegd is Hallo */.auth/login/google/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/google/callback`. Zorg ervoor dat u van Hallo HTTPS-schema gebruikmaakt. Klik vervolgens op **Maken**.
+7. Op het volgende scherm hello, noteer Hallo waarden van Hallo client-ID en client geheim.
 
     > [!IMPORTANT]
-    > Het clientgeheim is een belangrijke beveiligingsreferentie. Dit geheim met anderen delen of deze te distribueren vanuit een clienttoepassing niet.
+    > Hallo clientgeheim is een belangrijke beveiligingsreferentie. Dit geheim met anderen delen of deze te distribueren vanuit een clienttoepassing niet.
 
 
-## <a name="secrets"></a>Informatie Google toevoegen aan uw toepassing
-1. Terug in de [Azure-portal], gaat u naar uw toepassing. Klik op **instellingen**, en vervolgens **verificatie / autorisatie**.
-2. Als de verificatie / autorisatie-functie niet is ingeschakeld, schakelt u de schakeloptie voor **op**.
-3. Klik op **Google**. Plak in de App-ID en App-geheim waarden die u eerder hebt verkregen en optioneel in staat alle scopes die vereist zijn voor uw toepassing. Klik vervolgens op **OK**.
+## <a name="secrets"></a>Toevoegen Google informatie tooyour toepassing
+1. Terug in Hallo [Azure-portal], tooyour toepassing navigeren. Klik op **instellingen**, en vervolgens **verificatie / autorisatie**.
+2. Als Hallo verificatie / autorisatie-functie niet is ingeschakeld, schakelt u Hallo switch te**op**.
+3. Klik op **Google**. Plak in Hallo App-ID en App-geheim waarden die u eerder hebt verkregen en optioneel in staat alle scopes die vereist zijn voor uw toepassing. Klik vervolgens op **OK**.
    
    ![][1]
    
-   Standaard-App Service biedt verificatie maar wordt niet geautoriseerde toegang beperkt tot uw site-inhoud en API's. U moet gebruikers machtigen in uw app-code.
-4. (Optioneel) Instellen om toegang te beperken tot uw site tot alleen gebruikers die zijn geverifieerd door Google, **te ondernemen actie wanneer de aanvraag is niet geverifieerd** naar **Google**. Dit vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid naar Google voor verificatie.
+   Standaard-App Service biedt verificatie maar niet beperkt geautoriseerde toegang tooyour site-inhoud en API's. U moet gebruikers machtigen in uw app-code.
+4. (Optioneel) toorestrict toegang tooyour site tooonly gebruikers zijn geverifieerd door Google en ingesteld **tootake actie wanneer de aanvraag is niet geverifieerd** te**Google**. Dit vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid tooGoogle voor verificatie.
 5. Klik op **Opslaan**.
 
-U bent nu klaar voor gebruik van Google voor verificatie in uw app.
+U bent nu klaar toouse Google voor verificatie in uw app.
 
 ## <a name="related-content"></a>Verwante inhoud
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
