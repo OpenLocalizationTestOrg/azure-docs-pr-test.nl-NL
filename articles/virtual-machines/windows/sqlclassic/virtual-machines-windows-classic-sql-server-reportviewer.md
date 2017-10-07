@@ -1,6 +1,6 @@
 ---
-title: ReportViewer gebruiken in een website | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe u een Microsoft Azure-website met de Visual Studio ReportViewer-besturingselement dat wordt een rapport dat is opgeslagen op een Microsoft Azure virtuele Machine.
+title: aaaUse ReportViewer in een website | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe toobuild een Microsoft Azure-website met Hallo Visual Studio ReportViewer-besturingselement dat wordt een rapport opgeslagen op een Microsoft Azure virtuele Machine.
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -15,74 +15,74 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8e0729d6657f96c32a9ac7dffdff7745ff92b48d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>ReportViewer gebruiken op een in Azure gehoste website
 > [!IMPORTANT] 
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken.
 
-U kunt een Microsoft Azure-website met de Visual Studio ReportViewer-besturingselement dat wordt een rapport dat is opgeslagen op een Microsoft Azure virtuele Machine maken. Het ReportViewer-besturingselement is in een webtoepassing dat u met behulp van de ASP.NET-webtoepassing toepassingssjabloon maken.
+U kunt een Microsoft Azure-website met de Hallo Visual Studio ReportViewer-besturingselement dat een rapport dat is opgeslagen op een Microsoft Azure virtuele Machine wordt maken. Hallo ReportViewer-besturingselement is in een webtoepassing dat u met behulp van Hallo toepassingssjabloon voor ASP.NET-webtoepassing maken.
 
 > [!IMPORTANT]
-> De ASP.NET MVC-webtoepassing sjablonen bieden geen ondersteuning voor het ReportViewer-besturingselement.
+> Hallo ASP.NET MVC-webtoepassing sjablonen bieden geen ondersteuning voor Hallo ReportViewer-besturingselement.
 
-Als u wilt opnemen ReportViewer in uw Microsoft Azure-website, moet u de volgende taken uitvoeren.
+tooincorporate ReportViewer in uw Microsoft Azure-website, moet u toocomplete Hallo taken te volgen.
 
-* **Voeg** assembly's aan het implementatiepakket
+* **Voeg** assembly's toohello implementatiepakket
 * **Configureer** verificatie en autorisatie
-* **Publiceren** de ASP.NET-webtoepassing naar Azure
+* **Publiceren** Hallo ASP.NET Web application tooAzure
 
 ## <a name="prerequisites"></a>Vereisten
-Raadpleeg de sectie 'algemene aanbevelingen en best practices' in [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md).
+Raadpleeg Hallo 'algemene aanbevelingen en best practices'-sectie in [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md).
 
 > [!NOTE]
-> Besturingselementen van rapportviewer zijn verzonden met Visual Studio, Standard Edition of hoger. Als u Web Developer Express Edition gebruikt, moet u de [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) ReportViewer runtime functies te kunnen gebruiken.
+> Besturingselementen van rapportviewer zijn verzonden met Visual Studio, Standard Edition of hoger. Als u Hallo Web Developer Express Edition gebruikt, moet u Hallo installeren [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) toouse hello ReportViewer runtime-onderdelen.
 > 
 > ReportViewer geconfigureerd in de van de lokale verwerkingsmodus wordt niet ondersteund in Microsoft Azure.
 
-## <a name="adding-assemblies-to-the-deployment-package"></a>Assembly's toe te voegen aan het implementatiepakket
-Wanneer u uw ASP.NET-toepassing on-premises host, wordt de rapportviewer assembly's meestal rechtstreeks in de global assemblycache (GAC) van de IIS-server worden geïnstalleerd tijdens de installatie van Visual Studio en rechtstreeks door de toepassing toegankelijk. Echter, wanneer u uw ASP.NET-toepassing in de cloud host, Microsoft Azure is niet toegestaan niets om te worden geïnstalleerd in de GAC, daarom moet u ervoor zorgen dat de ReportViewer-assembly's zijn lokaal beschikbaar voor uw toepassing. U kunt dit doen door verwijzingen naar deze in uw project toevoegen en configureren zodat ze kunnen lokaal worden gekopieerd.
+## <a name="adding-assemblies-toohello-deployment-package"></a>Assembly's toohello implementatiepakket toevoegen
+Wanneer u uw ASP.NET-toepassing on-premises host, Hallo ReportViewer-assembly's worden meestal geïnstalleerd rechtstreeks in Hallo globale assembly-cache (GAC) van Hallo IIS-server tijdens de installatie van Visual Studio en toegankelijk zijn voor de toepassing hello rechtstreeks. Hallo ReportViewer-assembly's zijn echter lokaal voor uw toepassing beschikbaar wanneer u host uw ASP.NET-toepassing in Microsoft Azure Hallo cloud staat niet toe dat alles toobe geïnstalleerd in Hallo GAC, dus moet u ervoor zorgen. U kunt dit doen door verwijzingen toothem in uw project toevoegen en configureren toobe lokaal gekopieerd.
 
-Maakt gebruik de volgende assembly's in de modus externe verwerking van het ReportViewer-besturingselement:
+Hallo ReportViewer-besturingselement gebruikt in de modus externe verwerking Hallo assembly's te volgen:
 
-* **Microsoft.ReportViewer.WebForms.dll**: bevat de code ReportViewer, die u wilt gebruiken, ReportViewer in uw pagina. Een verwijzing voor deze assembly wordt toegevoegd aan uw project wanneer u een ReportViewer-besturingselement naar een ASP.NET-pagina in uw project neerzetten.
-* **Microsoft.ReportViewer.Common.dll**: bevat klassen die door het ReportViewer-besturingselement wordt gebruikt tijdens de uitvoering. Het is niet automatisch toegevoegd aan uw project.
+* **Microsoft.ReportViewer.WebForms.dll**: Hallo ReportViewer-code bevat, die u moet toouse ReportViewer in uw pagina. Een verwijzing voor deze assembly wordt tooyour project toegevoegd wanneer u een ReportViewer-besturingselement naar een ASP.NET-pagina in uw project neerzetten.
+* **Microsoft.ReportViewer.Common.dll**: bevat klassen die worden gebruikt door Hallo ReportViewer-besturingselement tijdens runtime. Deze is tooyour project niet automatisch toegevoegd.
 
-### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Een verwijzing naar Microsoft.ReportViewer.Common toevoegen
-* Met de rechtermuisknop op uw project **verwijzingen** uit en selecteer **verwijzing toevoegen**, selecteert u de assembly in het tabblad .NET en klikt u op **OK**.
+### <a name="tooadd-a-reference-toomicrosoftreportviewercommon"></a>een verwijzing tooMicrosoft.ReportViewer.Common tooadd
+* Met de rechtermuisknop op uw project **verwijzingen** uit en selecteer **verwijzing toevoegen**, Hallo assembly in Hallo .NET tabblad selecteren en op **OK**.
 
-### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>De assembly's lokaal toegankelijk te maken met uw ASP.NET-toepassing
-1. In de **verwijzingen** map, klikt u op de assembly Microsoft.ReportViewer.Common zodat de bijbehorende eigenschappen worden weergegeven in het deelvenster Properties.
-2. Stel in het deelvenster Properties **lokale kopie** op True.
+### <a name="toomake-hello-assemblies-locally-accessible-by-your-aspnet-application"></a>toomake Hallo-assembly's lokaal toegankelijk zijn voor uw ASP.NET-toepassing
+1. In Hallo **verwijzingen** map, klikt u op Hallo Microsoft.ReportViewer.Common assembly zodat de eigenschappen in Hallo eigenschappendeelvenster worden weergegeven.
+2. In het deelvenster Hallo eigenschappen instellen **lokale kopie** tooTrue.
 3. Herhaal stap 1 en 2 voor Microsoft.ReportViewer.WebForms.
 
-### <a name="to-get-reportviewer-language-pack"></a>Taalpakket voor ReportViewer ophalen
-1. Installeer de juiste Microsoft Report Viewer 2012 Runtime herdistribueerbaar pakket van [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386).
-2. Selecteer de taal in de vervolgkeuzelijst en de pagina wordt omgeleid naar de bijbehorende downloadpagina voor center.
-3. Klik op **downloaden** om het downloaden van ReportViewerLP.exe te starten.
-4. Nadat u ReportViewerLP.exe downloaden, klikt u op **uitvoeren** onmiddellijk installeren of klik op **opslaan** wilt opslaan op uw computer. Als u op **opslaan**, vergeet niet de naam van de map waar u het bestand opslaat.
-5. Zoek de map waar u het bestand opgeslagen. Met de rechtermuisknop op ReportViewerLP.exe, klikt u op **als administrator uitvoeren**, en klik vervolgens op **Ja**.
-6. Na het uitvoeren van ReportViewerLP.exe, ziet u de c:\windows\assembly heeft de bronbestanden **Microsoft.ReportViewer.Webforms.Resources** en **Microsoft.ReportViewer.Common.Resources**.
+### <a name="tooget-reportviewer-language-pack"></a>tooget ReportViewer Language Pack
+1. Installeer Hallo juiste Microsoft Report Viewer 2012 Runtime distributiepakket van [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386).
+2. Selecteer Hallo taal uit de vervolgkeuzelijst Hallo en Hallo pagina omgeleide toohello bijbehorende download center pagina opgehaald.
+3. Klik op **downloaden** toostart Hallo downloaden van ReportViewerLP.exe.
+4. Nadat u ReportViewerLP.exe downloaden, klikt u op **uitvoeren** tooinstall onmiddellijk, of klik op **opslaan** toosave het tooyour computer. Als u op **opslaan**, houd er rekening mee Hallo-naam van Hallo-map waar u Hallo bestand opslaan.
+5. Zoek Hallo map waar u Hallo-bestand opgeslagen. Met de rechtermuisknop op ReportViewerLP.exe, klikt u op **als administrator uitvoeren**, en klik vervolgens op **Ja**.
+6. Na het uitvoeren van ReportViewerLP.exe, ziet u Hallo c:\windows\assembly heeft Hallo bronbestanden **Microsoft.ReportViewer.Webforms.Resources** en **Microsoft.ReportViewer.Common.Resources** .
 
-### <a name="to-configure-for-localized-reportviewer-control"></a>Om te configureren voor gelokaliseerde ReportViewer-besturingselement
-1. Download en installeer het herdistribueerbare pakket Microsoft Report Viewer 2012 Runtime door de hierboven opgegeven instructies te volgen.
-2. Maak <language> map in het project en kopieer de bijbehorende resource assemblybestanden er. Worden de bronbestanden van de assembly moet worden gekopieerd: **Microsoft.ReportViewer.Webforms.Resources.dll** en **Microsoft.ReportViewer.Common.Resources.dll**. De bronbestanden van de assembly selecteren en in het deelvenster Properties instellen **naar uitvoermap kopiëren** naar '**altijd kopiëren**'.
-3. De cultuur & UICulture ingesteld voor het webproject. Zie voor meer informatie over het instellen van de cultuur en gebruikersinterfacecultuur voor een ASP.NET-webpagina [hoe: de cultuur en gebruikersinterfacecultuur instellen voor ASP.NET-webpagina globalisatie](http://go.microsoft.com/fwlink/?LinkId=237461).
+### <a name="tooconfigure-for-localized-reportviewer-control"></a>tooconfigure voor gelokaliseerde ReportViewer-besturingselement
+1. Download en installeer herdistribueerbaar pakket van Hallo Microsoft Report Viewer 2012 Runtime door de volgende Hallo hierboven opgegeven instructies.
+2. Maak <language> map in het project en kopieer Hallo Hallo assembly bronbestanden bevat die is gekoppeld. Hallo resource assembly bestanden toobe gekopieerd zijn: **Microsoft.ReportViewer.Webforms.Resources.dll** en **Microsoft.ReportViewer.Common.Resources.dll**. Hallo assembly bronbestanden selecteren en in deelvenster Hallo eigenschappen instellen **tooOutput Directory kopiëren** te '**altijd kopiëren**'.
+3. Stel hello cultuur & UICulture voor Hallo-webproject. Voor meer informatie over hoe tooset Hallo cultuur en gebruikersinterfacecultuur voor een ASP.NET-webpagina zien [How to: Set Hallo cultuur en gebruikersinterfacecultuur voor ASP.NET-webpagina globalisatie](http://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Verificatie en autorisatie configureren
-ReportViewer moet de juiste referenties gebruiken om te verifiëren met de rapportserver en de referenties voor toegang tot de rapporten die u wilt dat door de rapportserver moeten worden geautoriseerd. Zie voor informatie over het verifiëren van het witboek [Reporting Services report viewer-besturingselement en Microsoft Azure virtuele machine op basis van rapportservers](https://msdn.microsoft.com/library/azure/dn753698.aspx).
+Hallo ReportViewer moet toouse correcte referenties tooauthenticate met de rapportserver Hallo en Hallo referenties moeten worden geautoriseerd door Hallo tooaccess Hallo rapporten van report server die u wilt. Zie voor informatie over verificatie Hallo witboek [Reporting Services report viewer-besturingselement en Microsoft Azure virtuele machine op basis van rapportservers](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
-## <a name="publish-the-aspnet-web-application-to-azure"></a>Publiceer de ASP.NET-webtoepassing naar Azure
-Zie voor instructies over het publiceren van een ASP.NET-webtoepassing naar Azure [hoe: migreren en publiceren van een webtoepassing naar Azure vanuit Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) en [aan de slag met Web-Apps en ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
+## <a name="publish-hello-aspnet-web-application-tooazure"></a>Hallo tooAzure van ASP.NET-webtoepassing toepassing publiceren
+Zie voor instructies over het publiceren van een ASP.NET-webtoepassing toepassing tooAzure [hoe: migreren en publiceren van een webtoepassing tooAzure vanuit Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) en [aan de slag met Web-Apps en ASP.NET](../../../app-service-web/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
-> Als de opdracht Azure implementatieproject toevoegen of Azure Cloud Service-Project toevoegen niet wordt weergegeven in het snelmenu in Solution Explorer, moet u wellicht de doel-framework voor het project wijzigen in .NET Framework 4.
+> Als hello Azure implementatieproject toevoegen of Azure Cloud Service-Project toevoegen-opdracht niet wordt weergegeven in het snelmenu Hallo in Solution Explorer, moet u mogelijk toochange Hallo doel-framework voor Hallo project too.NET Framework 4.
 > 
-> De twee opdrachten bieden in wezen dezelfde functionaliteit. Een of andere de opdracht wordt weergegeven in het snelmenu afhankelijk van welke versie van de Microsoft Azure-SDK die u hebt geïnstalleerd.
+> Hallo twee opdrachten in wezen bieden dezelfde functionaliteit Hallo. Een of Hallo andere opdracht wordt weergegeven in het snelmenu hello, afhankelijk van welke versie van Microsoft Azure SDK Hallo die u hebt geïnstalleerd.
 > 
 > 
 
@@ -91,5 +91,5 @@ Zie voor instructies over het publiceren van een ASP.NET-webtoepassing naar Azur
 
 [SQL Server Business Intelligence in virtuele machines van Azure](../classic/ps-sql-bi.md)
 
-[PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus](../classic/ps-sql-report.md)
+[Gebruik PowerShell tooCreate een Azure VM met een Native modus Report Server](../classic/ps-sql-report.md)
 

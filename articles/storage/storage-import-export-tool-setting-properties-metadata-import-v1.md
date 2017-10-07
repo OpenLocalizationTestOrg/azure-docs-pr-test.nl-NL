@@ -1,6 +1,6 @@
 ---
-title: Instellen van eigenschappen en metagegevens met behulp van Azure Import/Export - v1 | Microsoft Docs
-description: Informatie over het opgeven van de eigenschappen en metagegevens worden ingesteld op de bestemming blobs bij het uitvoeren van de Azure-hulpprogramma voor importeren/exporteren voor het voorbereiden van uw schijven. Dit verwijst naar v1 van het hulpprogramma voor importeren/exporteren.
+title: aaaSetting eigenschappen en metagegevens met behulp van Azure Import/Export - v1 | Microsoft Docs
+description: Meer informatie over hoe de eigenschappen en metagegevens toobe toospecify ingesteld op Hallo bestemming blobs wanneer uitgevoerd hello Azure-hulpprogramma voor importeren/exporteren tooprepare uw schijven. Dit verwijst toov1 Hallo hulpprogramma voor importeren/exporteren.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 6455ce57572f9ec36d0ebae88c1ddd9f40f237bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 66e55c2076fbcda9b78302f17b5ff2cf96bb24e7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="setting-properties-and-metadata-during-the-import-process"></a>Eigenschappen en metagegevens instellen tijdens het importproces
-Wanneer u het hulpprogramma Microsoft Azure Import/Export voorbereiden van uw schijven uitvoert, kunt u eigenschappen en metagegevens worden ingesteld op de doel-blobs. Volg deze stappen:  
+# <a name="setting-properties-and-metadata-during-hello-import-process"></a>Instellen van eigenschappen en metagegevens tijdens Hallo importeren
+Wanneer u op uw stations Hallo Microsoft Azure-hulpprogramma voor importeren/exporteren tooprepare uitvoert, kunt u eigenschappen en metagegevens toobe ingesteld op Hallo bestemming blobs. Volg deze stappen:  
   
-1.  Maak een tekstbestand op uw lokale computer waarmee u de namen en waarden blob eigenschappen ingesteld.  
+1.  Eigenschappen van de blob tooset, maak een tekstbestand op uw lokale computer waarmee u de namen en waarden.  
   
-2.  Maak een tekstbestand op uw lokale computer waarmee metagegevens namen en waarden blobmetagegevens stelt.  
+2.  tooset blob-metagegevens, maak een tekstbestand op uw lokale computer waarmee metagegevens namen en waarden.  
   
-3.  Het volledige pad doorgeven aan een of beide van deze bestanden naar de Azure-hulpprogramma voor importeren/exporteren als onderdeel van de `PrepImport` bewerking.  
+3.  Hallo volledig pad tooone of beide van deze bestanden toohello Azure-hulpprogramma voor importeren/exporteren doorgeven als onderdeel van Hallo `PrepImport` bewerking.  
   
 > [!NOTE]
->  Wanneer u een bestand eigenschappen of metagegevens als onderdeel van een sessie exemplaar opgeeft, worden deze eigenschappen of metagegevens zijn ingesteld voor elke blob die is geïmporteerd als onderdeel van die sessie kopiëren. Als u opgeven van een andere set eigenschappen of metagegevens voor enkele van de blobs wordt geïmporteerd wilt, moet u een afzonderlijk exemplaar om sessie te maken met andere eigenschappen of bestanden met metagegevens.  
+>  Wanneer u een bestand eigenschappen of metagegevens als onderdeel van een sessie exemplaar opgeeft, worden deze eigenschappen of metagegevens zijn ingesteld voor elke blob die is geïmporteerd als onderdeel van die sessie kopiëren. Als u een andere set eigenschappen of metagegevens toospecify voor een aantal Hallo BLOB's worden geïmporteerd wilt, moet u een afzonderlijke kopiëren een sessie met andere eigenschappen of bestanden met metagegevens toocreate.  
   
 ## <a name="specify-blob-properties-in-a-text-file"></a>Blob-eigenschappen opgeven in een tekstbestand  
-Blob als eigenschappen wilt opgeven, een lokaal tekstbestand maken en XML-bestand dat wordt opgegeven namen van eigenschappen als elementen en eigenschapswaarden als waarden bevatten. Hier volgt een voorbeeld waarin sommige eigenschapswaarden:  
+Eigenschappen van de blob toospecify, een lokaal tekstbestand maken en XML waarmee de namen van eigenschappen als elementen en eigenschapswaarden als waarden bevatten. Hier volgt een voorbeeld waarin sommige eigenschapswaarden:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -44,10 +44,10 @@ Blob als eigenschappen wilt opgeven, een lokaal tekstbestand maken en XML-bestan
 </Properties>  
 ```
   
-Sla het bestand op een lokale locatie zoals `C:\WAImportExport\ImportProperties.txt`.  
+Hallo tooa lokale bestandslocatie zoals opslaan `C:\WAImportExport\ImportProperties.txt`.  
   
 ## <a name="specify-blob-metadata-in-a-text-file"></a>Blobmetagegevens opgeven in een tekstbestand  
-Op dezelfde manier als wilt opgeven blobmetagegevens, maakt u een lokaal tekstbestand met namen van metagegevens als elementen en metagegevenswaarden als waarden. Hier volgt een voorbeeld waarin enkele metagegevenswaarden:  
+Op deze manier toospecify blob-metagegevens, maakt u een lokaal tekstbestand met namen van metagegevens als elementen en metagegevenswaarden als waarden. Hier volgt een voorbeeld waarin enkele metagegevenswaarden:  
   
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -58,10 +58,10 @@ Op dezelfde manier als wilt opgeven blobmetagegevens, maakt u een lokaal tekstbe
 </Metadata>  
 ```
   
-Sla het bestand op een lokale locatie zoals `C:\WAImportExport\ImportMetadata.txt`.  
+Hallo tooa lokale bestandslocatie zoals opslaan `C:\WAImportExport\ImportMetadata.txt`.  
   
-## <a name="create-a-copy-session-including-the-properties-or-metadata-files"></a>Een kopieersessie met inbegrip van de eigenschappen of bestanden met metagegevens maken  
-Wanneer u het hulpprogramma Azure Import/Export voorbereiden van de import-taak uitvoert, geeft u het eigenschappenbestand op de opdrachtregel met behulp van de `PropertyFile` parameter. Geef het metagegevensbestand op de opdrachtregel met behulp van de `/MetadataFile` parameter. Hier volgt een voorbeeld waarin beide bestanden:  
+## <a name="create-a-copy-session-including-hello-properties-or-metadata-files"></a>Een kopie sessie inclusief Hallo eigenschappen of bestanden met metagegevens maken  
+Wanneer u hello Azure-hulpprogramma voor importeren/exporteren tooprepare Hallo import-taak uitvoert, geef Hallo eigenschappenbestand op Hallo-opdrachtregel met behulp van Hallo `PropertyFile` parameter. Geef Hallo metagegevensbestand op Hallo-opdrachtregel met behulp van Hallo `/MetadataFile` parameter. Hier volgt een voorbeeld waarin beide bestanden:  
   
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  

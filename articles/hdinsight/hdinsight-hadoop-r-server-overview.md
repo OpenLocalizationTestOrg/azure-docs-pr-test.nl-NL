@@ -1,6 +1,6 @@
 ---
-title: Inleiding op Azure HDInsight R Server | Microsoft Docs
-description: Informatie over het R Server op HDInsight gebruiken voor het maken van toepassingen voor big data-analyse.
+title: aaaIntroduction rondleiding Server op Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse R Server op HDInsight-toepassingen toocreate voor big data-analyse.
 services: hdinsight
 documentationcenter: 
 author: bradsev
@@ -15,91 +15,91 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: daf7b70a15748d66510a04da370f39c5f26eb4ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-#<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
+#<a name="introduction-toor-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding rondleiding Server en open-source R mogelijkheden in HDInsight
 
-Microsoft R Server is beschikbaar als een Implementatieoptie wanneer u een HDInsight-clusters in Azure maken. Deze nieuwe mogelijkheid biedt gegevenswetenschappers en statistici R programmeurs op aanvraag toegang tot schaalbare, gedistribueerde methoden van analyses in HDInsight.
+Microsoft R Server is beschikbaar als een Implementatieoptie wanneer u een HDInsight-clusters in Azure maken. Deze nieuwe mogelijkheid biedt gegevenswetenschappers en statistici R programmeurs met toegang op aanvraag tooscalable, gedistribueerde methoden van analyses in HDInsight.
 
-Clusters kunnen worden aangepast op de juiste wijze aan de projecten en taken bij de hand en vervolgens verwijderd wanneer ze niet meer nodig zijn. Omdat ze onderdeel van Azure HDInsight zijn, is deze clusters worden geleverd met 24/7 ondersteuning op bedrijfsniveau, een SLA van 99,9% beschikbaarheid en de mogelijkheid te integreren met andere onderdelen in het Azure-ecosysteem.
+Clusters kunnen worden aangepast op de juiste wijze toohello projecten en taken bij de hand en vervolgens verwijderd wanneer ze niet meer nodig zijn. Omdat ze onderdeel van Azure HDInsight zijn, wordt deze clusters worden geleverd met ondersteuning op bedrijfsniveau 24/7, een SLA van 99,9% beschikbaarheid en Hallo mogelijkheid toointegrate met andere onderdelen in hello Azure-ecosysteem.
 
-Op HDInsight R Server biedt de nieuwste mogelijkheden voor analyses op basis van R op gegevenssets van vrijwel elke grootte, in Azure Blob of Data Lake storage geladen. Aangezien R Server is gebouwd op open-source R, de R-toepassingen die u bouwt gebruik kunnen maken van de open-source R-pakketten 8000 +. De routines in ScaleR, van Microsoft big analytics gegevenspakket opgenomen met R Server, zijn ook beschikbaar.
+Op HDInsight R Server biedt de nieuwste mogelijkheden voor analyses op basis van R Hallo op gegevenssets van vrijwel elke grootte, geladen tooeither Azure Blob of Data Lake storage. Aangezien R Server is gebouwd op open-source R, Hallo R gebaseerde toepassingen die u bouwt gebruik kunnen maken van Hallo 8000 + open-source R-pakketten. Hallo-routines in ScaleR, van Microsoft big analytics gegevenspakket opgenomen met R Server, zijn ook beschikbaar.
 
-Het edge-knooppunt van een cluster is een handige locatie verbinding maken met het cluster en voor het uitvoeren van uw R-scripts. Met een edge-knooppunt hebt u de optie van de parallelized gedistribueerde functies van ScaleR over de kernen van de edge-knooppunt server wordt uitgevoerd. U kunt ook deze uitvoeren op de knooppunten van het cluster met behulp van ScaleR Hadoop kaart verminderen of Spark compute-contexten.
+Hallo edge-knooppunt van een cluster biedt een handige locatie tooconnect toohello cluster en toorun uw R-scripts. Met een edge-knooppunt hebt u Hallo optie actief Hallo geparallelliseerde gedistribueerd functies van ScaleR over Hallo kernen van Hallo edge-knooppunt server. U kunt ook uitvoeren ze via Hallo knooppunten van het Hallo-cluster met behulp van ScaleR verminderen van Hadoop-kaart of Spark compute-contexten.
 
-De modellen of voorspellingen waarmee het resultaat van de analyses kan worden gedownload voor gebruik van lokale. Ze kunnen ook worden geoperationaliseerd elders in Azure, met name via [Azure Machine Learning Studio](http://studio.azureml.net) [webservice](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md).
+Hallo modellen of voorspellingen waarmee het resultaat van de analyses kan worden gedownload voor gebruik van lokale. Ze kunnen ook worden geoperationaliseerd elders in Azure, met name via [Azure Machine Learning Studio](http://studio.azureml.net) [webservice](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-r-on-hdinsight"></a>Aan de slag met R in HDInsight
-Als u wilt opnemen R Server in een HDInsight-cluster, moet u het type van de cluster R Server bij het maken van een HDInsight-cluster met de Azure portal. Het type R Server-cluster bevat R Server op de gegevensknooppunten van het cluster en op een edge-knooppunt dat als een zone landingspagina voor analyses op basis van een R Server fungeert. Zie [aan de slag met op HDInsight R Server](hdinsight-hadoop-r-server-get-started.md) voor een overzicht over het maken van het cluster.
+tooinclude R Server in een HDInsight-cluster, moet u de Hallo clustertype R Server selecteren bij het maken van een HDInsight-cluster met behulp van hello Azure-portal. Hallo type R Server-cluster bevat R Server op Hallo gegevensknooppunten van het Hallo-cluster en op een edge-knooppunt dat als een zone landingspagina voor analyses op basis van een R Server fungeert. Zie [aan de slag met op HDInsight R Server](hdinsight-hadoop-r-server-get-started.md) voor een overzicht over hoe toocreate Hallo cluster.
 
 ## <a name="learn-about-data-storage-options"></a>Meer informatie over opties voor opslag van gegevens
-Standaard opslag voor het bestandssysteem HDFS van HDInsight-clusters kan worden gekoppeld aan een Azure Storage-account of een Azure Data Lake store. Deze koppeling zorgt ervoor dat de gegevens worden geüpload naar het cluster opslag tijdens de analyse persistent wordt gemaakt. Er zijn verschillende hulpmiddelen voor het verwerken van de gegevensoverdracht naar de opslagoptie die u selecteert, met inbegrip van de portal-gebaseerde uploaden faciliteit van het opslagaccount en de [AzCopy](../storage/common/storage-use-azcopy.md) hulpprogramma.
+Standaard opslag voor Hallo HDFS-bestandssysteem van het HDInsight-clusters kan worden gekoppeld aan een Azure Storage-account of een Azure Data Lake store. Deze koppeling zorgt ervoor dat de gegevens worden geüpload toohello clusteropslag tijdens de analyse persistent is gemaakt. Er zijn verschillende hulpmiddelen voor het verwerken van Hallo gegevensoverdracht toohello opslagoptie die u, inclusief Hallo op basis van de portal uploaden faciliteit van Hallo storage-account en Hallo selecteert [AzCopy](../storage/common/storage-use-azcopy.md) hulpprogramma.
 
-U hebt de mogelijkheid toegang toe te voegen aan extra Blob en Data lake slaat tijdens het inrichtingsproces ongeacht de primaire opslagoptie gebruikt cluster. Zie [aan de slag met op HDInsight R Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) voor informatie over het toevoegen van toegang tot extra accounts. Zie de aanvullende [Azure Storage-opties voor R Server op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) artikel voor meer informatie over het gebruik van meerdere opslagaccounts.
+U hebt de optie Hallo toegang tooadditional Blob en Data lake winkels toe te voegen tijdens het Hallo-cluster inrichtingsproces ongeacht Hallo primaire opslagoptie in gebruik. Zie [aan de slag met op HDInsight R Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) voor informatie over het toevoegen van toegangsaccounts tooadditional. Zie de aanvullende Hallo [Azure Storage-opties voor R Server op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) artikel toolearn meer over het gebruik van meerdere opslagaccounts.
 
-U kunt ook [Azure Files](../storage/files/storage-how-to-use-files-linux.md) als een opslagoptie voor gebruik op de edge-knooppunt. Azure Files kunt u een bestandsshare die is gemaakt in Azure Storage naar het bestandssysteem van Linux te koppelen. Zie voor meer informatie over deze opties voor het opslaan van gegevens voor R Server op HDInsight-cluster [Azure Storage-opties voor clusters op HDInsight R Server](hdinsight-hadoop-r-server-storage.md).
+U kunt ook [Azure Files](../storage/files/storage-how-to-use-files-linux.md) als een opslagoptie voor gebruik op Hallo edge-knooppunt. Azure Files kunt u toomount een bestandsshare die is gemaakt in Azure Storage toohello Linux-bestandssysteem. Zie voor meer informatie over deze opties voor het opslaan van gegevens voor R Server op HDInsight-cluster [Azure Storage-opties voor clusters op HDInsight R Server](hdinsight-hadoop-r-server-storage.md).
 
-## <a name="access-r-server-on-the-cluster"></a>-R Server op het cluster
-U kunt verbinding maken met R Server op de edge-knooppunt met een browser, mits u hebt gekozen om op te nemen RStudio Server tijdens het inrichtingsproces. Als u niet hebt geïnstalleerd het bij het inrichten van het cluster, kunt u deze later toevoegen. Zie voor meer informatie over het installeren van RStudio Server nadat een cluster is gemaakt, [RStudio-Server installeren op HDInsight-clusters](hdinsight-hadoop-r-server-install-r-studio.md). U kunt ook verbinding maken met het R-Server met behulp van SSH/PuTTY toegang tot de R-console. 
+## <a name="access-r-server-on-hello-cluster"></a>Toegang R Server op Hallo-cluster
+U kunt de Server op Hallo edge-knooppunt met een browser, mits u tooinclude RStudio Server hebt gekozen tijdens het inrichtingsproces Hallo rondleiding verbinden. Als u niet hebt geïnstalleerd het bij het inrichten van Hallo-cluster, kunt u deze later toevoegen. Zie voor meer informatie over het installeren van RStudio Server nadat een cluster is gemaakt, [RStudio-Server installeren op HDInsight-clusters](hdinsight-hadoop-r-server-install-r-studio.md). U kunt ook toohello R Server verbinden via SSH/PuTTY tooaccess Hallo R-console. 
 
 ## <a name="develop-and-run-r-scripts"></a>Ontwikkelen en uitvoeren van scripts R
-De R-scripts u maken en uitvoeren kunnen van de 8000 + open-source R-pakketten naast de geparallelliseerde en gedistribueerde routines in de bibliotheek ScaleR gebruiken. In het algemeen een script dat wordt uitgevoerd met R Server op de edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen worden die stappen die nodig zijn om aan te roepen, een functie ScaleR met een compute-context die is ingesteld op Hadoop-kaart (RxHadoopMR) verminderen of Spark (RxSpark). De functie wordt in dit geval wordt uitgevoerd in een gedistribueerde manier over die (taak)-gegevensknooppunten van het cluster die gekoppeld aan de gegevens waarnaar wordt verwezen zijn. Zie voor meer informatie over de verschillende rekenscenario context opties [Compute context opties voor R Server op HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
+Hallo R scripts u maken en uitvoeren, kunnen u elk Hallo 8000 + open-source R-pakketten in toevoeging toohello geparallelliseerde en routines die beschikbaar zijn in Hallo ScaleR bibliotheek gedistribueerd. In het algemeen een script dat wordt uitgevoerd met R Server op Hallo edge-knooppunt uitgevoerd binnen Hallo R-interpreter op dat knooppunt. Hallo-uitzonderingen zijn die stappen die nodig toocall een ScaleR-functie met een compute-context die tooHadoop kaart verkleinen (RxHadoopMR) of Spark (RxSpark) is ingesteld. Hallo-functie wordt in dit geval wordt uitgevoerd in een gedistribueerde manier over die (taak) gegevensknooppunten Hallo cluster die gekoppeld aan Hallo gegevens waarnaar wordt verwezen zijn. Zie voor meer informatie over opties voor verschillende rekenscenario context Hallo [Compute context opties voor R Server op HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
 
 ## <a name="operationalize-a-model"></a>Mogelijk een model maken
-Wanneer uw gegevens modelleren voltooid is, kunt u het model om te maken van voorspellingen voor nieuwe gegevens vanuit Azure en on-premises operationeel te maken. Dit proces staat bekend als het score berekenen. Score berekenen kan worden gedaan in HDInsight, Azure Machine Learning of on-premises.
+Wanneer uw gegevens modelleren voltooid is, kunt u Hallo model toomake voorspellingen voor nieuwe gegevens vanuit Azure en on-premises operationeel te maken. Dit proces staat bekend als het score berekenen. Score berekenen kan worden gedaan in HDInsight, Azure Machine Learning of on-premises.
 
 ### <a name="score-in-hdinsight"></a>Score in HDInsight
-Als u wilt beoordelen in HDInsight, een R-functie die het model voor het maken van voorspellingen voor een nieuw gegevensbestand dat u hebt geladen naar uw opslagaccount aanroept te schrijven. Sla de voorspellingen terug naar het opslagaccount. U kunt de routine op aanvraag uitvoeren op de edge-knooppunt van het cluster of met behulp van een geplande taak.  
+tooscore in HDInsight, een R-functie die uw model toomake voorspellingen voor een nieuw gegevensbestand dat u tooyour storage-account hebt geladen aanroept schrijven. Sla Hallo voorspellingen back toohello storage-account. U kunt Hallo routinematige op aanvraag uitvoeren op Hallo edge-knooppunt van het cluster of met behulp van een geplande taak.  
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Score in Azure Machine Learning eigen (AML)
-Als u wilt beoordelen via een webservice AML, gebruiken de open-source Azure Machine Learning-R-pakket bekend als [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) voor het publiceren van uw model als een Azure-web-service. Dit pakket is voor het gemak vooraf geïnstalleerd zijn op de edge-knooppunt. Vervolgens de faciliteiten in Machine Learning gebruiken voor het maken van een gebruikersinterface voor de webservice en vervolgens de webservice aanroepen naar behoefte voor score berekenen.
+met behulp van een webservice AML, gebruik Hallo tooscore open Azure Machine Learning-R-bronpakket bekend als [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) toopublish uw model als een Azure-web-service. Dit pakket is voor het gemak vooraf geïnstalleerd zijn op Hallo edge-knooppunt. Vervolgens Hallo faciliteiten in Machine Learning toocreate een gebruikersinterface voor de webservice hello gebruiken en vervolgens om aan te roepen Hallo-webservice die nodig zijn voor score berekenen.
 
-Als u deze optie kiest, moet u eventuele modelobjecten ScaleR converteren naar modelobjecten equivalent open source-voor gebruik met de webservice. Gebruik ScaleR afdwingen functies, zoals `as.randomForest()` voor ensemble-modellen, voor deze conversie.
+Als u deze optie kiest, moet u tooconvert ScaleR model objecten tooequivalent open source-modelobjecten voor gebruik met Hallo-webservice. Gebruik ScaleR afdwingen functies, zoals `as.randomForest()` voor ensemble-modellen, voor deze conversie.
 
 ### <a name="score-on-premises"></a>Score lokale
-Om te beoordelen op lokale na het maken van uw model, kunt u serialiseren van het model in R, downloaden, de serialisatie van het en vervolgens worden gebruikt voor score berekenen voor nieuwe gegevens. U kunt met behulp van de eerder beschreven in aanpak beoordeling van nieuwe gegevens [scores in HDInsight](#scoring-in-hdinsight) of met behulp van [DeployR](https://deployr.revolutionanalytics.com/).
+tooscore on-premises na het maken van uw model serialiseren Hallo-model in R, download, deserialiseren deze, en vervolgens worden gebruikt voor score berekenen voor nieuwe gegevens. U kunt met behulp van de eerder beschreven in Hallo-benadering beoordeling van nieuwe gegevens [scores in HDInsight](#scoring-in-hdinsight) of met behulp van [DeployR](https://deployr.revolutionanalytics.com/).
 
-## <a name="maintain-the-cluster"></a>Het cluster onderhouden
+## <a name="maintain-hello-cluster"></a>Hallo cluster onderhouden
 ### <a name="install-and-maintain-r-packages"></a>Installeren en onderhouden van R-pakketten
-De R-pakketten die u gebruikt de meeste zijn vereist op de edge-knooppunt sinds het meeste werk uw R-scripts uitvoeren er. Als u wilt aanvullende R-pakketten op de edge-knooppunt installeert, kunt u de gebruikelijke `install.packages()` methode in R.
+Hallo R-pakketten die u gebruikt de meeste zijn vereist op de edge-knooppunt Hallo sinds het meeste werk uw R-scripts uitvoeren er. tooinstall aanvullende R-pakketten op Hallo edge-knooppunt, kunt u Hallo gebruikelijke `install.packages()` methode in R.
 
-Als u zojuist hebt gebruikt routines uit de bibliotheek ScaleR in het cluster, hoeft niet normaal gesproken u voor het installeren van extra R-pakketten op de gegevensknooppunten. U moet echter extra pakketten voor de ondersteuning van het gebruik van **rxExec** of **RxDataStep** worden uitgevoerd op de gegevensknooppunten.
+Als u alleen routines uit Hallo ScaleR bibliotheek over Hallo-cluster, hoeft meestal niet tooinstall extra R-pakketten op Hallo gegevensknooppunten. U moet echter extra pakketten toosupport Hallo gebruik van **rxExec** of **RxDataStep** op Hallo gegevensknooppunten kan worden uitgevoerd.
 
-In dergelijke gevallen kunnen de extra pakketten met een scriptactie worden geïnstalleerd nadat u het cluster hebt gemaakt. Zie voor meer informatie [maken van een HDInsight-cluster met R Server](hdinsight-hadoop-r-server-get-started.md).   
+In dergelijke gevallen kan extra hello-pakketten worden geïnstalleerd met een scriptactie nadat u Hallo cluster hebt gemaakt. Zie voor meer informatie [maken van een HDInsight-cluster met R Server](hdinsight-hadoop-r-server-get-started.md).   
 
 ### <a name="change-hadoop-map-reduce-memory-settings"></a>Hadoop-kaart verminderen geheugeninstellingen wijzigen
-Een cluster kan worden aangepast voor het wijzigen van de hoeveelheid geheugen die beschikbaar is voor R Server tijdens het uitvoeren van een taak kaart verminderen. Voor het wijzigen van een cluster door de Apache Ambari-gebruikersinterface die beschikbaar is via de Azure portal blade voor uw cluster te gebruiken. Zie voor instructies over toegang tot de Ambari UI voor uw cluster [HDInsight-clusters beheren met de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md).
+Een cluster kan worden gewijzigd toochange Hallo hoeveelheid geheugen die beschikbaar rondleiding Server tijdens het uitvoeren van een taak kaart verminderen. een cluster toomodify gebruiken Hallo Apache Ambari gebruikersinterface die beschikbaar is via hello Azure portalblade voor uw cluster. Zie voor instructies over hoe tooaccess Ambari UI Hallo voor uw cluster [beheren HDInsight-clusters met Ambari-Webgebruikersinterface Hallo](hdinsight-hadoop-manage-ambari.md).
 
-Het is ook mogelijk om te wijzigen van de hoeveelheid geheugen die beschikbaar is voor R Server met behulp van Hadoop-switches in de aanroep naar **RxHadoopMR** als volgt:
+Het is ook mogelijk toochange Hallo hoeveelheid geheugen die beschikbaar rondleiding Server met behulp van Hadoop-switches in Hallo aanroep te**RxHadoopMR** als volgt:
 
     hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
 
 ### <a name="scale-your-cluster"></a>Een cluster schalen
-Een bestaand cluster kan worden geschaald omhoog of omlaag via de portal. Door te schalen, krijgt u de extra capaciteit die u voor grotere verwerkingstaken wellicht of u kunt schalen weer een cluster als deze niet actief is. Zie voor instructies over het schalen van een cluster [HDInsight-clusters beheren](hdinsight-administer-use-portal-linux.md).
+Een bestaand cluster kan worden geschaald omhoog of omlaag via Hallo-portal. Door te schalen, krijgt u Hallo extra capaciteit die u voor grotere verwerkingstaken wellicht of u kunt schalen weer een cluster als deze niet actief is. Voor instructies over het tooscale een cluster, Zie [HDInsight-clusters beheren](hdinsight-administer-use-portal-linux.md).
 
-### <a name="maintain-the-system"></a>Het systeem onderhouden
-Onderhoud OS patches en andere updates toe te passen wordt uitgevoerd op de onderliggende Linux VM's in een HDInsight-cluster buiten kantooruren. Onderhoud wordt gewoonlijk gedaan om 3:30 uur (op basis van de lokale tijd voor de virtuele machine) elke maandag en donderdag. Updates worden zodanig dat ze geen invloed heeft op meer dan een kwartaal van het cluster tegelijkertijd uitgevoerd.  
+### <a name="maintain-hello-system"></a>Hallo systeem onderhouden
+Onderhoud tooapply OS patches en andere updates wordt uitgevoerd op Hallo onderliggende virtuele Linux-machines in een HDInsight-cluster buiten kantooruren. Onderhoud wordt gewoonlijk gedaan om 3:30 uur (gebaseerd op Hallo lokale tijd voor Hallo VM) elke maandag en donderdag. Updates worden zodanig dat ze geen invloed heeft op meer dan een kwartaal van Hallo cluster tegelijkertijd uitgevoerd.  
 
-Aangezien de hoofdknooppunten redundant zijn en niet alle gegevensknooppunten zijn beïnvloed, vertragen alle taken die worden uitgevoerd tijdens deze periode. Ze moeten nog steeds uitgevoerd worden voltooid, maar. Alle aangepaste software- of lokale gegevens die u hebt blijft behouden over deze gebeurtenissen onderhoud tenzij er een onherstelbare fout optreedt waarvoor cluster opnieuw opbouwen.
+Aangezien Hallo hoofdknooppunten redundant zijn en niet alle gegevensknooppunten zijn beïnvloed, vertragen alle taken die worden uitgevoerd tijdens deze periode. Ze moeten echter nog steeds toocompletion, uitgevoerd. Alle aangepaste software- of lokale gegevens die u hebt blijft behouden over deze gebeurtenissen onderhoud tenzij er een onherstelbare fout optreedt waarvoor cluster opnieuw opbouwen.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Meer informatie over IDE-opties voor R Server op een HDInsight-cluster
-Het Linux-edge-knooppunt van een HDInsight-cluster is de zone landingspagina voor op basis van het R-analyse. Bieden een standaardoptie voor het installeren van de community-versie van recente versies van HDInsight [RStudio Server](https://www.rstudio.com/products/rstudio-server/) op de edge-knooppunt als een browser gebaseerde IDE. Gebruik van RStudio Server als een IDE voor de ontwikkeling en uitvoering van scripts R aanzienlijk meer productief zijn dan het gebruik van alleen de R-console. Als u niet RStudio Server toevoegen hebt bij het maken van het cluster maar wilt deze later toevoegen en vervolgens Zie [R Studio-Server installeren op een HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
+Hallo Linux edge-knooppunt van een HDInsight-cluster is Hallo aanvoer zone voor op basis van het R-analyse. Bieden een standaardoptie voor het installeren van de community-versie Hallo van recente versies van HDInsight [RStudio Server](https://www.rstudio.com/products/rstudio-server/) op Hallo edge-knooppunt als een browser gebaseerde IDE. Gebruik van RStudio Server als een IDE voor Hallo ontwikkeling en uitvoering van scripts R aanzienlijk meer productief zijn dan het gebruik van alleen Hallo R-console. Als u niet tooadd RStudio Server hebt gekozen bij Hallo cluster maakt, maar tooadd wilt dat deze later vervolgens ziet [R Studio-Server installeren op een HDInsight-clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
 
-Een andere optie voor volledige IDE is een bureaublad IDE installeren en deze gebruiken voor toegang tot het cluster door gebruik te maken van een externe Map verminderen of Spark compute context. Opties zijn onder andere Microsoft [R-Tools voor Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) RStudio, en Walware's op basis van Eclipse [StatET](http://www.walware.de/goto/statet).
+Een andere optie voor volledige IDE tooinstall is een bureaublad IDE en gebruik ze tooaccess Hallo cluster door gebruik te maken van een externe Map verminderen of Spark compute context. Opties zijn onder andere Microsoft [R-Tools voor Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) RStudio, en Walware's op basis van Eclipse [StatET](http://www.walware.de/goto/statet).
 
-Ten slotte kunt u de console R Server op de edge-knooppunt openen door te typen **R** achter de opdrachtprompt Linux na verbinding maakt via SSH of PuTY. Wanneer u de console-interface, is het handiger om te een teksteditor voor het ontwikkelen van R-script uitvoeren in een ander venster en knippen en plakken van secties van het script in de console R zo nodig.
+Ten slotte kunt u Hallo R Server-console op de edge-knooppunt Hallo openen door te typen **R** op Hallo Linux-opdrachtregel na verbinding maakt via SSH of PuTY. Wanneer u de interface van de console hello, handige toorun is een teksteditor voor het ontwikkelen van R-script in een ander venster en knippen en secties van het script in Hallo R console plakken als nodig is.
 
 ## <a name="learn-about-pricing"></a>Meer informatie over prijzen
-De kosten die gekoppeld aan een HDInsight-cluster met R Server zijn zijn manier gestructureerd als de kosten voor de standaard HDInsight-clusters. Ze zijn gebaseerd op de grootte van de onderliggende virtuele machines in de naam, de gegevens en de edge-knooppunten, met de toevoeging van een opwaartse core uur. Zie voor meer informatie over prijzen voor HDInsight en de beschikbaarheid van een gratis proefversie van 30 dagen [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+Hallo kosten die gekoppeld aan een HDInsight zijn-cluster met R Server zijn op dezelfde manier gestructureerd toohello kosten voor Hallo HDInsight-clusters. Ze zijn gebaseerd op Hallo grootte van virtuele machines via het Hallo-naam, gegevens en edge-knooppunten, met Hallo toevoeging van een opwaartse core uur onderliggende hello. Zie voor meer informatie over prijzen voor HDInsight en Hallo beschikbaarheid van een gratis proefversie van 30 dagen [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende onderwerpen voor meer informatie over het gebruik van R Server met HDInsight-clusters:
+toolearn meer informatie over hoe toouse R Server met HDInsight-clusters, Zie Hallo volgende onderwerpen:
 
 * [Aan de slag met op HDInsight R Server](hdinsight-hadoop-r-server-get-started.md)
-* [RStudio Server toevoegen aan HDInsight (indien niet geïnstalleerd tijdens het maken van het cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
+* [RStudio Server tooHDInsight toevoegen (indien niet geïnstalleerd tijdens het maken van de cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Opties voor compute-context voor R Server op HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Opties voor Azure-opslag voor R Server op HDInsight](hdinsight-hadoop-r-server-storage.md)

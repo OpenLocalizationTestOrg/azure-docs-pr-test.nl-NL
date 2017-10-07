@@ -1,6 +1,6 @@
 ---
-title: Gegevens verplaatsen van DB2 met behulp van Azure Data Factory | Microsoft Docs
-description: Meer informatie over het verplaatsen van gegevens uit een lokale DB2-database met behulp van Azure Data Factory-Kopieeractiviteit
+title: gegevens van de aaaMove van DB2 met behulp van Azure Data Factory | Microsoft Docs
+description: Meer informatie over hoe toomove gegevens uit een lokale DB2-database met behulp van Azure Data Factory-Kopieeractiviteit
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 6a89cc44724dbb5b46a9e89d6da24d9b35ddbbef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 696ac059be644cb3901c37d2fc746e0682c65a1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Gegevens verplaatsen van DB2 met behulp van Azure Data Factory-Kopieeractiviteit
-Dit artikel wordt beschreven hoe u kunt Kopieeractiviteit in Azure Data Factory om gegevens van een lokale DB2-database kopiëren naar een gegevensopslag. U kunt gegevens kopiëren naar een archief dat wordt vermeld als een ondersteunde sink in de [activiteiten voor gegevensverplaatsing Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats) artikel. In dit onderwerp is gebaseerd op het Data Factory-artikel dat geeft een overzicht van de verplaatsing van gegevens met behulp van de Kopieeractiviteit en geeft een lijst van de store-combinaties van ondersteunde gegevens. 
+Dit artikel wordt beschreven hoe u de Kopieeractiviteit in Azure Data Factory toocopy gegevens van een gegevensarchief voor lokale DB2-database tooa kunt gebruiken. U kunt kopiëren tooany gegevensopslag die wordt vermeld als een ondersteunde sink in Hallo [activiteiten voor gegevensverplaatsing Data Factory](data-factory-data-movement-activities.md#supported-data-stores-and-formats) artikel. In dit onderwerp is gebaseerd op Hallo Data Factory-artikel, dat geeft een overzicht van de verplaatsing van gegevens met behulp van de Kopieeractiviteit en lijsten Hallo ondersteund data store combinaties. 
 
-Data Factory ondersteunt momenteel alleen zwevend gegevens uit een DB2-database naar een [ondersteunde sink gegevensarchief](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Verplaatsen van gegevens van andere gegevens worden opgeslagen op een DB2 database wordt niet ondersteund.
+Data Factory ondersteunt momenteel alleen zwevend gegevens uit een DB2-database tooa [ondersteunde sink gegevensarchief](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Verplaatsen van gegevens van andere gegevens worden opgeslagen tooa DB2-database wordt niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
-Data Factory ondersteunt verbindingen met een lokale DB2-database met behulp van de [data management gateway](data-factory-data-management-gateway.md). Zie voor stapsgewijze instructies voor het instellen van de data gateway pijplijn om uw gegevens te verplaatsen, de [gegevens verplaatsen van on-premises naar cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel.
+Data Factory ondersteunt verbindende tooan lokale DB2-database met behulp van Hallo [data management gateway](data-factory-data-management-gateway.md). Stapsgewijze instructies tooset Hallo gateway upgegevens toomove met uw gegevens pipeline, kunt u Hallo [verplaatsen van gegevens uit de lokale toocloud](data-factory-move-data-between-onprem-and-cloud.md) artikel.
 
-Een gateway is vereist, zelfs als de DB2 wordt gehost op Azure IaaS VM. U kunt de gateway installeren op de dezelfde IaaS VM als gegevensopslag. Als de gateway verbinding met de database maken kan, kunt u de gateway installeren op een andere virtuele machine.
+Een gateway is vereist, zelfs als hello DB2 op Azure IaaS VM gehost wordt. U kunt Hallo gateway installeren op Hallo dezelfde IaaS VM als Hallo-gegevensarchief. Als Hallo gateway verbinding toohello database maken kunt, kunt u Hallo gateway installeren op een andere virtuele machine.
 
-Data management gateway biedt een ingebouwde DB2-stuurprogramma, dus u een stuurprogramma hoeft voor het kopiëren van gegevens van DB2 handmatig installeren.
+Hallo data management gateway biedt een ingebouwd DB2-stuurprogramma, zodat u niet moet toomanually installeert een stuurprogramma toocopy gegevens uit een DB2.
 
 > [!NOTE]
-> Zie voor tips over het oplossen van de verbinding en gateway problemen met de [gateway problemen](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) artikel.
+> Zie voor tips over het oplossen van de verbinding en gateway problemen Hallo [gateway problemen](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) artikel.
 
 
 ## <a name="supported-versions"></a>Ondersteunde versies
-De Data Factory DB2-connector ondersteunt de volgende IBM DB2-platforms en versies met gedistribueerd relationele Database architectuur (DRDA) SQL toegang Manager versie 9, 10 en 11:
+Hallo Data Factory DB2-connector ondersteunt Hallo IBM DB2-platformen en versies met gedistribueerd relationele Database architectuur (DRDA) SQL toegang Manager versie 9, 10 en 11 te volgen:
 
 * IBM DB2 voor z-/ OS-versie 11.1
 * IBM DB2 voor z-/ OS-versie 10.1
@@ -48,79 +48,79 @@ De Data Factory DB2-connector ondersteunt de volgende IBM DB2-platforms en versi
 * IBM DB2 voor LUW versie 10.1
 
 > [!TIP]
-> Als u het foutbericht 'het pakket overeenkomt met de aanvraag voor een SQL-instructie uitvoeren is niet gevonden. SQLSTATE = 51002 SQLCODE =-805, ' de reden hiervoor is een benodigde pakket is niet gemaakt voor de normale gebruiker van het besturingssysteem. Volg deze instructies voor het type DB2-dit probleem op te lossen:
-> - DB2 voor i (AS400): een hoofdgebruiker maken van de verzameling voor de normale gebruiker voordat de kopieerbewerking wordt uitgevoerd, kunnen. Gebruik de opdracht voor het maken van de verzameling:`create collection <username>`
-> - DB2 voor z-/ OS of LUW: gebruik een account met hoge bevoegdheden--hoofdgebruiker of beheerder met pakket-instanties en BIND, BINDADD, EXECUTE verlenen aan openbare machtigingen--de kopie eenmaal wordt uitgevoerd. Het benodigde pakket wordt automatisch gemaakt tijdens het kopiëren. U kunt daarna terug naar de normale gebruiker schakelen voor uw volgende kopie wordt uitgevoerd.
+> Als u Hallo 'hello pakket bijbehorende tooan SQL-instructie aanvraag voor het uitvoeren is niet gevonden foutbericht. SQLSTATE 805-51002 SQLCODE =, = "hello reden hiervoor is een benodigde pakket is niet gemaakt voor normale gebruiker Hallo op Hallo OS. tooresolve dit probleem, volgt u deze instructies voor het type DB2:
+> - DB2 voor i (AS400): laat een hoofdgebruiker Hallo verzameling voor normale gebruiker Hallo voordat u Kopieeractiviteit maken. toocreate hello verzameling Hallo-opdracht gebruiken:`create collection <username>`
+> - DB2 voor z-/ OS of LUW: gebruik een account met hoge bevoegdheden--hoofdgebruiker of beheerder met pakket-instanties en BIND, BINDADD, moeten de MACHTIGINGEN EXECUTE tooPUBLIC--toorun Hallo eenmaal kopiëren. Hallo benodigde pakket wordt automatisch gemaakt tijdens het Hallo kopiëren. Daarna kunt u back-toohello normale gebruiker schakelen voor uw volgende kopie wordt uitgevoerd.
 
 ## <a name="getting-started"></a>Aan de slag
-U kunt een pijplijn maken met een kopieeractiviteit om gegevens te verplaatsen van een on-premises DB2-gegevensopslag met behulp van verschillende hulpprogramma's en API's: 
+U kunt een pijplijn maken met een kopie activiteit toomove gegevens uit een on-premises DB2-gegevensopslag met behulp van verschillende hulpprogramma's en API's: 
 
-- Er is de eenvoudigste manier om een pijplijn maken met de Wizard kopiëren van Azure Data Factory. Zie voor een snel overzicht over het maken van een pijplijn met behulp van de Wizard kopiëren, de [zelfstudie: een pijplijn maken met behulp van de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md). 
-- U kunt ook hulpprogramma's gebruiken voor het maken van een pijplijn, met inbegrip van de Azure-portal, Visual Studio, Azure PowerShell, een Azure Resource Manager-sjabloon, de .NET API en de REST-API. Zie voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit de [Kopieeractiviteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Hallo gemakkelijkste manier toocreate een pijplijn is toouse hello Azure Data Factory-Wizard voor kopiëren. Zie voor een snel overzicht over het maken van een pijplijn met behulp van de Wizard kopiëren Hallo Hallo [zelfstudie: een pijplijn maken met behulp van de Wizard kopiëren Hallo](data-factory-copy-data-wizard-tutorial.md). 
+- U kunt ook extra toocreate een pijplijn, met inbegrip van hello Azure-portal, Visual Studio, Azure PowerShell, een Azure Resource Manager-sjabloon, Hallo .NET API en Hallo REST-API. Zie voor stapsgewijze instructies toocreate een pijplijn met een kopieeractiviteit, Hallo [Kopieeractiviteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
+Of u Hallo-hulpprogramma's of API's gebruiken, kunt u Hallo stappen toocreate een pijplijn die verplaatst gegevens uit een brongegevens tooa sink data store opslaan na uitvoeren:
 
-1. Gekoppelde services om te koppelen van de invoer en uitvoer van de opgeslagen gegevens aan uw gegevensfactory maken.
-2. Maak gegevenssets vertegenwoordigen de invoer- en -gegevens voor de kopieerbewerking. 
+1. Gekoppelde services toolink en uitvoergegevens winkels tooyour een gegevensfactory maken.
+2. Maakt u gegevenssets toorepresent invoer en uitvoergegevens voor Hallo kopieerbewerking. 
 3. Een pijplijn maken met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. 
 
-Wanneer u de Wizard kopiëren, de JSON-definities voor de Data Factory gekoppelde worden services, gegevenssets en pijplijn entiteiten automatisch voor u gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van de .NET API) gebruikt, kunt u de Data Factory-entiteiten definiëren met behulp van de JSON-indeling. De [JSON-voorbeeld: gegevens kopiëren van DB2 naar Azure Blob storage](#json-example-copy-data-from-db2-to-azure-blob) ziet u de JSON-definities voor de Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren uit een on-premises DB2-gegevensopslag.
+Wanneer u Hallo Wizard kopiëren JSON-definities voor Hallo Data Factory gekoppelde services, worden gegevenssets en pijplijn entiteiten automatisch voor u gemaakt. Wanneer u hulpprogramma's of API's (met uitzondering van Hallo .NET API) gebruikt, kunt u Data Factory-entiteiten Hallo definiëren met behulp van Hallo JSON-indeling. Hallo [JSON-voorbeeld: gegevens kopiëren van DB2 tooAzure blobopslag](#json-example-copy-data-from-db2-to-azure-blob) toont Hallo JSON definities voor Hallo Data Factory-entiteiten die gebruikt toocopy gegevens uit een on-premises DB2-gegevensopslag zijn.
 
-De volgende secties bieden details over de JSON-eigenschappen die worden gebruikt voor het definiëren van de Data Factory-entiteiten die specifiek voor een DB2-gegevensarchief zijn.
+Hallo volgende secties bevatten informatie over Hallo JSON-eigenschappen die zijn gebruikt toodefine Hallo Data Factory-entiteiten die specifieke tooa DB2-gegevensarchief zijn.
 
 ## <a name="db2-linked-service-properties"></a>DB2 gekoppelde service-eigenschappen
-De volgende tabel bevat de JSON-eigenschappen die specifiek voor een service DB2 gekoppeld zijn.
+Hallo volgende tabel geeft een lijst Hallo JSON-eigenschappen die specifiek tooa DB2 gekoppelde service zijn.
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **type** |Deze eigenschap moet worden ingesteld op **OnPremisesDB2**. |Ja |
-| **Server** |De naam van de DB2-server. |Ja |
-| **database** |De naam van de DB2-database. |Ja |
-| **schema** |De naam van het schema in de DB2-database. Deze eigenschap is hoofdlettergevoelig. |Nee |
-| **authenticationType** |Het type verificatie dat wordt gebruikt voor het verbinding maken met de DB2-database. De mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
-| **gebruikersnaam** |De naam voor het gebruikersaccount als u basisverificatie of Windows-verificatie gebruikt. |Nee |
-| **wachtwoord** |Het wachtwoord voor het gebruikersaccount. |Nee |
-| **gatewayName** |De naam van de gateway die voor de Data Factory-service gebruiken moet voor verbinding met de lokale DB2-database. |Ja |
+| **type** |Deze eigenschap te moet worden ingesteld**OnPremisesDB2**. |Ja |
+| **Server** |Hallo-naam van Hallo DB2-server. |Ja |
+| **database** |Hallo-naam van Hallo DB2-database. |Ja |
+| **schema** |Hallo-naam van het Hallo-schema in Hallo DB2-database. Deze eigenschap is hoofdlettergevoelig. |Nee |
+| **authenticationType** |Hallo type verificatie dat is gebruikt tooconnect toohello DB2-database. Hallo mogelijke waarden zijn: anoniem, basis en Windows. |Ja |
+| **gebruikersnaam** |Hallo-naam voor de gebruikersaccount Hallo als u basisverificatie of Windows-verificatie gebruikt. |Nee |
+| **wachtwoord** |Hallo-wachtwoord voor gebruikersaccount Hallo. |Nee |
+| **gatewayName** |Hallo-naam van Hallo-gateway die Hallo Data Factory-service moet tooconnect toohello lokale DB2-database gebruiken. |Ja |
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
-Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties, zoals **structuur**, **beschikbaarheid**, en de **beleid** voor een gegevensset JSON zijn identiek voor alle gegevensset typen (Azure SQL, Azure Blob storage, Azure Table storage enzovoort).
+Zie voor een lijst met eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets en Hallo secties, Hallo [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties, zoals **structuur**, **beschikbaarheid**, en Hallo **beleid** voor een gegevensset JSON zijn identiek voor alle gegevensset typen (Azure SQL, Azure Blob storage, Azure Table opslag, enzovoort).
 
-De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over de locatie van de gegevens in het gegevensarchief. De **typeProperties** sectie voor een gegevensset van het type **RelationalTable**, waaronder de gegevensset DB2 heeft de volgende eigenschap:
+Hallo **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie over Hallo-locatie van gegevens in het gegevensarchief Hallo Hallo. Hallo **typeProperties** sectie voor een gegevensset van het type **RelationalTable**, waarop Hallo DB2 gegevensset bevat, heeft de volgende eigenschap Hallo:
 
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| **tableName** |De naam van de tabel in de DB2-database-instantie waarnaar de gekoppelde service verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als de **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
+| **tableName** |Hallo-naam van de tabel Hallo in Hallo DB2-database-instantie die Hallo gekoppelde service verwijst. Deze eigenschap is hoofdlettergevoelig. |Nee (als hello **query** eigenschap van de kopieeractiviteit van een van het type **RelationalSource** is opgegeven) |
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
-Zie voor een lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van de activiteiten kopiëren zijn de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen van de activiteit, zoals kopiëren **naam**, **beschrijving**, **invoer** tabel **levert** tabel en **beleid**, zijn beschikbaar voor alle typen activiteiten. De eigenschappen die beschikbaar zijn in de **typeProperties** sectie van de activiteit voor elk activiteitstype. Voor de Kopieeractiviteit, wordt de eigenschappen variëren afhankelijk van de soorten gegevensbronnen en Put.
+Zie voor een lijst met eigenschappen die beschikbaar zijn voor het definiëren van de activiteiten kopiëren en Hallo secties, Hallo [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen van de activiteit, zoals kopiëren **naam**, **beschrijving**, **invoer** tabel **levert** tabel en **beleid**, zijn beschikbaar voor alle typen activiteiten. eigenschappen die beschikbaar in Hallo zijn Hallo **typeProperties** sectie van de activiteit Hallo voor elk activiteitstype. Voor de Kopieeractiviteit, wordt Hallo eigenschappen variëren afhankelijk van Hallo soorten gegevensbronnen en Put.
 
-Voor de Kopieeractiviteit, wanneer de bron van het type **RelationalSource** (waaronder DB2), de volgende eigenschappen beschikbaar zijn in de **typeProperties** sectie:
+Voor de Kopieeractiviteit wanneer Hallo bron van het type **RelationalSource** (waaronder DB2), Hallo volgende eigenschappen beschikbaar zijn in Hallo **typeProperties** sectie:
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| **query** |Gebruik de aangepaste query om de gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als de **tableName** eigenschap van een dataset is opgegeven) |
+| **query** |Hallo aangepaste query tooread Hallo gegevens gebruikt. |SQL-query-tekenreeks. Bijvoorbeeld: `"query": "select * from "MySchema"."MyTable""` |Nee (als hello **tableName** eigenschap van een dataset is opgegeven) |
 
 > [!NOTE]
-> Schema- en tabelnamen zijn hoofdlettergevoelig. In de query-instructie, moet u de namen van eigenschappen met behulp van "" (dubbele aanhalingstekens). Bijvoorbeeld:
+> Schema- en tabelnamen zijn hoofdlettergevoelig. In de query-instructie hello, moet u de namen van eigenschappen met behulp van "" (dubbele aanhalingstekens). Bijvoorbeeld:
 >
 > ```sql
 > "query": "select * from "DB2ADMIN"."Customers""
 > ```
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON-voorbeeld: gegevens kopiëren van DB2 naar Azure Blob-opslag
-In dit voorbeeld bevat definities van de voorbeeld-JSON die u een pijplijn maken kunt met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). In het voorbeeld ziet u hoe gegevens uit een DB2-database kopiëren naar de Blob-opslag. Gegevens kunnen echter worden gekopieerd naar [alle ondersteunde gegevens opslaan sink-type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van Azure Data Factory-Kopieeractiviteit.
+## <a name="json-example-copy-data-from-db2-tooazure-blob-storage"></a>JSON-voorbeeld: gegevens kopiëren van DB2 tooAzure Blob-opslag
+In dit voorbeeld bevat definities van de JSON voorbeeld kunt u een pijplijn toocreate door Hallo gebruiken [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Hallo-voorbeeld ziet u hoe toocopy gegevens uit een DB2-database tooBlob opslag. Echter gegevens te kunnen worden gekopieerd[alle ondersteunde gegevens opslaan sink-type](data-factory-data-movement-activities.md#supported-data-stores-and-formats) met behulp van Azure Data Factory-Kopieeractiviteit.
 
-Het voorbeeld heeft de volgende Data Factory-entiteiten:
+Hallo voorbeeld heeft Hallo Data Factory-entiteiten te volgen:
 
 - Een DB2 gekoppelde service van het type [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
 - Een Azure Blob-opslag gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - Invoer [gegevensset](data-factory-create-datasets.md) van het type [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-- Een [pijplijn](data-factory-create-pipelines.md) met een kopieeractiviteit die gebruikmaakt van de [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) eigenschappen
+- Een [pijplijn](data-factory-create-pipelines.md) met een kopieeractiviteit die gebruikmaakt van Hallo [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) eigenschappen
 
-Het voorbeeld kopieert gegevens van de resultaten van een query in een DB2-database naar een Azure-blob per uur. De JSON-eigenschappen die worden gebruikt in de steekproef die worden beschreven in de secties die, de definities van de entiteit volgen.
+Hallo voorbeeld gegevens worden gekopieerd van de resultaten van een query in een DB2-database tooan Azure blob per uur. Hallo JSON-eigenschappen die worden gebruikt in de steekproef Hallo worden Hallo die in secties Hallo entiteit definities beschreven.
 
-Als eerste stap, installeren en configureren van een data gateway. Instructies vindt u in de [verplaatsen van gegevens tussen lokale locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel.
+Als eerste stap, installeren en configureren van een data gateway. Instructies vindt u in Hallo [verplaatsen van gegevens tussen lokale locaties en cloud](data-factory-move-data-between-onprem-and-cloud.md) artikel.
 
 **DB2 gekoppelde service**
 
@@ -158,9 +158,9 @@ Als eerste stap, installeren en configureren van een data gateway. Instructies v
 
 **Invoergegevensset DB2**
 
-Het voorbeeld wordt ervan uitgegaan dat u een tabel in DB2 MijnTabel "" met een kolom met het label 'tijdstempel' voor het gegevenstype van de reeks tijd hebt gemaakt.
+Hallo-voorbeeld wordt ervan uitgegaan dat u een tabel in DB2 MijnTabel "" met een kolom met het label 'tijdstempel' hello tijd reeks gegevens hebt gemaakt.
 
-De **externe** eigenschap is ingesteld op 'true'. Deze instelling informeert de Data Factory-service dat deze gegevensset extern is aan de gegevensfactory en niet wordt geproduceerd door een activiteit in de gegevensfactory. U ziet dat de **type** eigenschap is ingesteld op **RelationalTable**.
+Hallo **externe** eigenschap is ingesteld te 'true'. Deze instelling informeert Hallo Data Factory-service dat deze gegevensset externe toohello gegevensfactory en niet door een activiteit in de gegevensfactory hello wordt geproduceerd. U ziet dat Hallo **type** eigenschap is ingesteld, te**RelationalTable**.
 
 
 ```json
@@ -188,7 +188,7 @@ De **externe** eigenschap is ingesteld op 'true'. Deze instelling informeert de 
 
 **Azure Blob-uitvoergegevensset**
 
-Gegevens worden geschreven naar een nieuwe blob elk uur door in te stellen de **frequentie** eigenschap in op "Uur" en de **interval** eigenschap in op 1. De **folderPath** eigenschap voor de blob dynamisch wordt geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Het mappad maakt gebruik van het jaar, maand, dag en uur delen van de begintijd.
+Gegevens worden geschreven tooa nieuwe blob elk uur door Hallo instelling **frequentie** eigenschap te "Uur" en Hallo **interval** eigenschap too1. Hallo **folderPath** eigenschap voor Hallo blob dynamisch wordt geëvalueerd op basis van de begintijd Hallo van Hallo-segment dat wordt verwerkt. mappad Hallo Hallo jaar, maand, dag en uur delen van de begintijd Hallo gebruikt.
 
 ```json
 {
@@ -246,15 +246,15 @@ Gegevens worden geschreven naar een nieuwe blob elk uur door in te stellen de **
 }
 ```
 
-**Pijplijn voor de kopieeractiviteit**
+**Pijplijn voor de kopieeractiviteit Hallo**
 
-De pijplijn bevat een kopieeractiviteit dat is geconfigureerd voor gebruik van de opgegeven invoer- en uitvoergegevenssets en die is gepland voor elk uur uitgevoerd. In de JSON-definitie voor de pijplijn de **bron** type is ingesteld op **RelationalSource** en de **sink** type is ingesteld op **BlobSink**. De SQL-query die is opgegeven voor de **query** eigenschap selecteert u de gegevens uit de tabel 'Orders'.
+Hallo pijplijn bevat een kopieeractiviteit die is geconfigureerd toouse opgegeven invoer- en uitvoergegevenssets en geplande toorun elk uur is. Hallo in JSON-definitie voor de pijplijn Hallo Hallo, **bron** type is ingesteld, te**RelationalSource** en Hallo **sink** type is ingesteld, te**BlobSink**. Hallo SQL-query is opgegeven voor Hallo **query** eigenschap Hallo gegevens uit de tabel 'Orders' hello selecteert.
 
 ```json
 {
     "name": "CopyDb2ToBlob",
     "properties": {
-        "description": "pipeline for the copy activity",
+        "description": "pipeline for hello copy activity",
         "activities": [
             {
                 "type": "Copy",
@@ -295,12 +295,12 @@ De pijplijn bevat een kopieeractiviteit dat is geconfigureerd voor gebruik van d
 ```
 
 ## <a name="type-mapping-for-db2"></a>Toewijzing van het type voor DB2
-Zoals vermeld in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel Kopieeractiviteit voert automatische typeconversies van brontype naar het opvangen van type met behulp van de volgende benadering voor in twee stappen:
+Zoals vermeld in Hallo [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel Kopieeractiviteit automatische typeconversies van brontype type toosink uitvoert met behulp van Hallo benadering in twee stappen te volgen:
 
-1. Converteren van een systeemeigen brontype naar een .NET-type
-2. Converteren van een .NET-type naar een systeemeigen sink-type
+1. Converteren van een systeemeigen bron type tooa .NET-type
+2. Converteren van een .NET type tooa systeemeigen sink-type
 
-De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteert de gegevens uit een DB2-type naar een .NET-type:
+Hallo worden volgende toewijzingen gebruikt wanneer de Kopieeractiviteit converteert Hallo gegevens uit een DB2 type tooa .NET-type:
 
 | Type DB2-database | .NET framework-type |
 | --- | --- |
@@ -345,11 +345,11 @@ De volgende toewijzingen worden gebruikt wanneer de Kopieeractiviteit converteer
 | XML |Byte] |
 | CHAR |Tekenreeks |
 
-## <a name="map-source-to-sink-columns"></a>Bron van de kaart opvangen kolommen
-Zie voor informatie over het toewijzen van kolommen in de bron-gegevensset aan kolommen in de gegevensset sink, [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-toosink-columns"></a>Bronkolommen toosink toewijzen
+hoe toomap kolommen in Hallo bron gegevensset toocolumns in Hallo sink gegevensset, Zie toolearn [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-reads-from-relational-sources"></a>Herhaalbare leesbewerkingen van relationele bronnen
-Wanneer u gegevens uit een relationele gegevensopslag kopiëren, moet rekening houden om te voorkomen dat ongewenste resultaten herhaalbaarheid. In Azure Data Factory, kunt u een segment handmatig opnieuw. U kunt ook configureren met de nieuwe poging **beleid** eigenschap voor een gegevensset naar een segment opnieuw uitvoeren wanneer een fout optreedt. Zorg ervoor dat dezelfde gegevens is gelezen, ongeacht hoe vaak het segment opnieuw wordt uitgevoerd en ongeacht hoe u het segment opnieuw uitvoeren. Zie voor meer informatie [Repeatable leest uit relationele bronnen](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Wanneer u gegevens uit een relationele gegevensopslag kopiëren, moet u herhaalbaarheid rekening tooavoid ongewenste resultaten. In Azure Data Factory, kunt u een segment handmatig opnieuw. U kunt ook Hallo opnieuw configureren **beleid** eigenschap voor een gegevensset toorerun een segment wanneer er een fout optreedt. Zorg ervoor dat Hallo dezelfde gegevens gelezen ongeacht hoe vaak Hallo segment is opnieuw uitvoeren en ongeacht hoe u Hallo segment opnieuw uitvoeren. Zie voor meer informatie [Repeatable leest uit relationele bronnen](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestaties en afstemmen
-Meer informatie over de belangrijkste factoren die invloed hebben op de prestaties van de Kopieeractiviteit en manieren om te optimaliseren in de [handleiding afstemmen en uitvoering van de activiteit](data-factory-copy-activity-performance.md).
+Meer informatie over de belangrijkste factoren die invloed hebben op prestaties van de Kopieeractiviteit en manieren toooptimize prestaties in Hallo Hallo [handleiding afstemmen en uitvoering van de activiteit](data-factory-copy-activity-performance.md).

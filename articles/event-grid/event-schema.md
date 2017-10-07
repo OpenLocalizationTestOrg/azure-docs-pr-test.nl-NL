@@ -1,6 +1,6 @@
 ---
-title: Azure Event raster gebeurtenis schema
-description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen met Azure Event raster.
+title: aaaAzure gebeurtenis raster gebeurtenis schema
+description: Hallo-eigenschappen die beschikbaar zijn voor gebeurtenissen met Azure Event raster beschrijft.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,34 +8,34 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: babanisa
-ms.openlocfilehash: 9e3c7b31ef23b29827d7184dc033227685ed92f8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 37178a5650b93fd9072d9cff3333aae14b2a2ba7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-grid-event-schema"></a>Gebeurtenis raster gebeurtenis schema
 
-Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen. Gebeurtenissen bestaan uit een set van vijf vereiste tekenreekseigenschappen en een vereiste **gegevens** object. De eigenschappen gelden voor alle gebeurtenissen vanaf een willekeurige uitgever. De **gegevens** object bevat eigenschappen die specifiek voor elke uitgever zijn. Deze eigenschappen zijn specifiek voor de resourceprovider, zoals opslag of Event Hubs voor systeemonderwerpen.
+Dit artikel bevat Hallo eigenschappen en het schema voor gebeurtenissen. Gebeurtenissen bestaan uit een set van vijf vereiste tekenreekseigenschappen en een vereiste **gegevens** object. Hallo-eigenschappen zijn algemene tooall gebeurtenissen van een willekeurige uitgever. Hallo **gegevens** object bevat eigenschappen die specifiek tooeach publisher zijn. Deze eigenschappen zijn voor systeemonderwerpen, specifieke toohello-resourceprovider, zoals opslag- of Event Hubs.
 
-Gebeurtenissen worden verzonden naar Azure gebeurtenis raster in een matrix die meerdere gebeurtenisobjecten kan bevatten. Als er slechts één gebeurtenis, heeft de matrix een lengte van 1. 
+Gebeurtenissen worden tooAzure gebeurtenis raster verzonden in een matrix die meerdere gebeurtenisobjecten kan bevatten. Als er slechts één gebeurtenis, heeft Hallo matrix een lengte van 1. 
  
 ## <a name="event-properties"></a>Eigenschappen van gebeurtenis
 
-Alle gebeurtenissen bevat dezelfde volgende bovenste niveau gegevens.
+Alle gebeurtenissen bevat Hallo dezelfde na het hoogste niveau gegevens.
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | Tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. |
-| Onderwerp | Tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | Tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | Tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
-| id | Tekenreeks | De unieke id voor de gebeurtenis. |
-| Gegevens | object | Gebeurtenisgegevens die specifiek zijn voor de resourceprovider. |
+| Onderwerp | Tekenreeks | Volledige resource pad toohello gebeurtenisbron. Dit veld is niet beschrijfbaar. |
+| Onderwerp | Tekenreeks | Publisher gedefinieerde pad toohello gebeurtenis onderwerp. |
+| EventType | Tekenreeks | Een van de Hallo typen gebeurtenissen voor deze gebeurtenisbron geregistreerd. |
+| eventTime | Tekenreeks | Hallo tijd Hallo gebeurtenis wordt gegenereerd op basis van UTC-tijd Hallo-provider. |
+| id | Tekenreeks | De unieke id voor Hallo-gebeurtenis. |
+| Gegevens | object | Specifieke toohello resourceprovider gebeurtenisgegevens. |
 
 ## <a name="available-event-sources"></a>Beschikbare gebeurtenisbronnen
 
-De volgende bronnen van gebeurtenissen publiceren gebeurtenissen voor consumptie via gebeurtenis raster:
+Hallo volgende gebeurtenisbronnen publiceren gebeurtenissen voor consumptie via gebeurtenis raster:
 
 * Resourcegroepen (beheerbewerkingen)
 * Azure-abonnementen (beheerbewerkingen)
@@ -126,7 +126,7 @@ Resourcegroepen kunnen nu verzenden management gebeurtenissen van Azure Resource
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Gebeurtenissen van Event Hubs zijn momenteel alleen verzonden wanneer een bestand wordt automatisch verzonden naar de opslag met de functie vastleggen.
+Gebeurtenissen van Event Hubs zijn momenteel alleen verzonden wanneer een bestand met de Hallo vastleggen functie toostorage automatisch wordt verzonden.
 
 ### <a name="available-event-types"></a>Typen beschikbare gebeurtenissen
 
@@ -134,7 +134,7 @@ Gebeurtenissen van Event Hubs zijn momenteel alleen verzonden wanneer een bestan
 
 ### <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Deze voorbeeldgebeurtenis ziet u het schema van een Event Hubs-gebeurtenis die optreedt wanneer vastleggen wordt een bestand opgeslagen. 
+Deze voorbeeldgebeurtenis toont Hallo-schema van een Event Hubs-gebeurtenis die optreedt wanneer vastleggen wordt een bestand opgeslagen. 
 
 ```json
 [
@@ -173,7 +173,7 @@ Azure Blob Storage afgeschermd voorbeeld met registratie van integratie met gebe
 
 ### <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Deze voorbeeldgebeurtenis ziet u het schema van een opslag-gebeurtenis die optreedt wanneer een blob is gemaakt. 
+Deze voorbeeldgebeurtenis toont Hallo-schema van een opslag-gebeurtenis die optreedt wanneer een blob is gemaakt. 
 
 ```json
 [
@@ -206,11 +206,11 @@ Deze voorbeeldgebeurtenis ziet u het schema van een opslag-gebeurtenis die optre
 
 ## <a name="custom-topics"></a>Aangepaste-onderwerpen
 
-De nettolading van de gegevens van uw aangepaste gebeurtenissen wordt gedefinieerd door u en mag juiste indeling heeft JSON. De gegevens van het hoogste niveau moet dezelfde velden als standaard resource gedefinieerd gebeurtenissen bevatten. Bij het publiceren van gebeurtenissen naar aangepaste onderwerpen kunt u overwegen modelleren van de houder van uw gebeurtenissen voor Routering en filteren.
+Hallo nettolading met gegevens van uw aangepaste gebeurtenissen wordt gedefinieerd door u en mag juiste indeling heeft JSON. Hallo bovenste niveau gegevens moet dezelfde als standaard resource gedefinieerd gebeurtenissen velden Hallo bevatten. Bij het publiceren van gebeurtenissen toocustom onderwerpen kunt u overwegen modelleren Hallo onderwerp van uw tooaid gebeurtenissen in Routering en filteren.
 
 ### <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Het volgende voorbeeld ziet u een gebeurtenis voor een aangepaste onderwerp:
+Hallo volgende voorbeeld ziet u een gebeurtenis voor een aangepaste onderwerp:
 ````json
 [
   {
@@ -230,5 +230,5 @@ Het volgende voorbeeld ziet u een gebeurtenis voor een aangepaste onderwerp:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
-* Zie voor meer informatie over het maken van een gebeurtenis raster-abonnement, [gebeurtenis raster abonnement schema](subscription-creation-schema.md).
+* Zie voor een inleiding-tooEvent raster [wat gebeurtenis raster is?](overview.md)
+* Zie toolearn over het maken van een abonnement gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).

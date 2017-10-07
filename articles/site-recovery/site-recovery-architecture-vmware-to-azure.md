@@ -1,6 +1,6 @@
 ---
-title: Hoe werkt VMware-replicatie naar Azure in Azure Site Recovery? | Microsoft Docs
-description: "Dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het repliceren van on-premises VMware-VM’s en fysieke servers naar Azure met de Azure Site Recovery-service"
+title: aaaHow werkt VMware replicatie tooAzure in Azure Site Recovery? | Microsoft Docs
+description: In dit artikel biedt een overzicht van de onderdelen en -architectuur gebruikt bij het repliceren van on-premises virtuele VMware-machines en fysieke servers tooAzure Hello Azure Site Recovery-service
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -16,74 +16,74 @@ ms.date: 05/29/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: vmware-walkthrough-architecture
-ms.openlocfilehash: 81f02c1277ae8a2c377ca0d6db67ec4211e9aa5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f0fb834f8b251640f97e4d0163b2b9e54de691e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-does-vmware-replication-to-azure-work-in-site-recovery"></a>Hoe werkt VMware-replicatie naar Azure in Site Recovery?
+# <a name="how-does-vmware-replication-tooazure-work-in-site-recovery"></a>Hoe werkt VMware replicatie tooAzure in Site Recovery?
 
-In dit artikel worden de onderdelen en processen beschreven die betrokken zijn bij het repliceren van on-premises virtuele VMware-machines en fysieke Windows- of Linux-servers naar Azure met de [Azure Site Recovery](site-recovery-overview.md)-service.
+Dit artikel wordt beschreven Hallo-onderdelen en processen die betrokken zijn bij het repliceren van on-premises VMware-virtuele machines en fysieke Windows of Linux-servers, tooAzure met Hallo [Azure Site Recovery](site-recovery-overview.md) service.
 
-Wanneer u fysieke on-premises servers naar Azure wilt repliceren, gebruikt u dezelfde onderdelen en processen als bij VMware VM-replicatie. Houd echter de volgende verschillen in gedachten:
+Wanneer u fysieke on-premises servers tooAzure repliceert, Hallo maakt gebruik van replicatie ook dezelfde onderdelen en -processen VMware VM-replicatie, met deze verschillen:
 
-- U kunt als configuratieserver een fysieke server gebruiken in plaats van een virtuele VMware-machine.
-- U hebt een on-premises VMware-infrastructuur nodig voor failback. U kunt geen failback uitvoeren naar een fysieke computer.
+- U kunt een fysieke server gebruiken voor de configuratieserver Hallo in plaats van een VMware VM.
+- U hebt een on-premises VMware-infrastructuur nodig voor failback. U kunt back tooa fysieke machine niet afkeuren.
 
-Eventuele opmerkingen kunt u onderaan dit artikel plaatsen of vragen stellen op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Eventuele opmerkingen onder Hallo van dit artikel plaatsen of vragen in Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="architectural-components"></a>Architectuuronderdelen
 
-Er zijn een aantal onderdelen die zijn betrokken bij het repliceren van virtuele VMware-machines en fysieke servers naar Azure.
+Er zijn een aantal onderdelen betrokken bij het repliceren van virtuele VMware-machines en fysieke servers tooAzure.
 
 **Onderdeel** | **Locatie** | **Details**
 --- | --- | ---
-**Azure** | U hebt in Azure een Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Gerepliceerde gegevens worden opgeslagen in het opslagaccount. Azure-VM’s worden gemaakt met de gerepliceerde gegevens bij failover van uw on-premises site. De Azure-VM's maken verbinding met het virtuele Azure-netwerk wanneer ze worden gemaakt.
-**Configuratieserver** | Eén lokale beheerserver (VMWare VM) die alle voor de implementatie benodigde on-premises onderdelen uitvoert, met inbegrip van de configuratieserver, processerver, hoofddoelserver | Het configuratieserveronderdeel coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
- **Processerver**:  | standaard geïnstalleerd op de configuratieserver. | Fungeert als replicatiegateway. Dit onderdeel ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en codering, en verzendt ze naar de Azure-opslag.<br/><br/> De processerver verwerkt ook de push-installatie van de Mobility-service naar beveiligde computers en voert automatische detectie van virtuele VMware-machines uit.<br/><br/> Naarmate uw implementatie groeit, kunt u extra, afzonderlijk toegewezen processervers toevoegen om het toenemende replicatieverkeer af te handelen.
- **Hoofddoelserver** | Standaard geïnstalleerd op de on-premises configuratieserver. | Hier worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.<br/><br/> Als de hoeveelheid failbackverkeer hoog is, kunt u een afzonderlijke hoofddoelserver voor failback implementeren.
-**VMware-servers** | Virtuele VMware-machines worden gehost op vSphere ESXi-servers. Het wordt aangeraden om een vCenter-server te gebruiken om de hosts te beheren. | U voegt VMware-servers toe aan uw Recovery Services-kluis.
-**Gerepliceerde machines** | De Mobility-service wordt geïnstalleerd op elke virtuele VMware-machine die u wilt repliceren. Deze kan handmatig worden geïnstalleerd op elke computer, of met een push-installatie van de processerver.
+**Azure** | U hebt in Azure een Azure-account, een Azure-opslagaccount en een Azure-netwerk nodig. | Gerepliceerde gegevens worden opgeslagen in Hallo storage-account en Azure VM's zijn gemaakt met Hallo gerepliceerde gegevens bij een storing van uw on-premises site. Hallo virtuele Azure-machines verbinding toohello virtuele Azure-netwerk maken wanneer ze worden gemaakt.
+**Configuratieserver** | Een enkel de lokale management server (VMWare VM) die alle Hallo on-premises onderdelen die nodig zijn voor het Hallo-implementatie, inclusief de configuratieserver hello, processerver, hoofddoelserver wordt uitgevoerd | Hallo configuratieserveronderdeel coördineert de communicatie tussen de on-premises en Azure en beheert gegevensreplicatie.
+ **Processerver**:  | Op de configuratieserver Hallo standaard geïnstalleerd. | Fungeert als replicatiegateway. Replicatiegegevens ontvangt, optimaliseert met caching, compressie en codering en verzendt het tooAzure opslag.<br/><br/> Hallo processerver ook push-installatie van de machines tooprotected Hallo Mobility-service verwerkt en wordt automatische detectie van virtuele VMware-machines uitgevoerd.<br/><br/> Naarmate uw implementatie groeit, kunt u extra, afzonderlijk toegewezen proces servers toohandle grotere hoeveelheden replicatieverkeer kunt toevoegen.
+ **Hoofddoelserver** | Standaard geïnstalleerd op Hallo lokale configuratie-server. | Hier worden de replicatiegegevens tijdens de failback vanuit Azure afgehandeld.<br/><br/> Als de hoeveelheid failbackverkeer hoog is, kunt u een afzonderlijke hoofddoelserver voor failback implementeren.
+**VMware-servers** | Virtuele VMware-machines worden gehost op vSphere ESXi-servers en het is raadzaam een vCenter server toomanage Hallo-hosts. | U toevoegen VMware servers tooyour Recovery Services-kluis.
+**Gerepliceerde machines** | Hallo Mobility-service wordt geïnstalleerd op elke VMware virtuele machine die u wilt dat tooreplicate. Dit kan handmatig worden geïnstalleerd op elke computer of met een push-installatie van de processerver Hallo.
 
-Meer informatie over de implementatievereisten en de vereisten voor elk van deze onderdelen vindt u in de [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md).
+Meer informatie over de implementatievereisten Hallo en vereisten voor elk van deze onderdelen in Hallo [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md).
 
-**Afbeelding 1: onderdelen van VMware naar Azure**
+**Afbeelding 1: VMware tooAzure onderdelen**
 
 ![Onderdelen](./media/site-recovery-components/arch-enhanced.png)
 
 ## <a name="replication-process"></a>Replicatieproces
 
-1. U stelt de implementatie, met inbegrip van Azure-onderdelen, en een Recovery Services-kluis in. In de kluis geeft u de replicatiebron en het replicatiedoel op, stelt u de configuratieserver in, voegt u VMware-servers toe, maakt u een replicatiebeleid, implementeert u de Mobility-service, schakelt u de replicatie in en voert u een failovertest uit.
-2.  Machines beginnen met de replicatie volgens het replicatiebeleid. Een initiële kopie van de gegevens wordt gerepliceerd naar Azure Storage.
-4. De replicatie van deltaverschillen naar Azure begint nadat de initiële replicatie is voltooid. Bijgehouden wijzigingen voor een machine worden opgeslagen in een .hrl-bestand.
-    - Replicerende machines communiceren met de configuratieserver op inkomende HTTPS-poort 443 voor replicatie.
-    - Replicerende machines verzenden replicatiegegevens naar de processerver op inkomende HTTPS-poort 9443 (kan worden geconfigureerd).
-    - De configuratieserver coördineert het replicatiebeheer met Azure via de uitgaande HTTPS-poort 443.
-    - De processerver ontvangt gegevens van de bronmachines, optimaliseert en versleutelt deze gegevens en verzendt ze naar Azure Storage via de uitgaande poort 443.
-    - Als u consistentie tussen meerdere VM's inschakelt, communiceren machines in de replicatiegroep met elkaar via poort 20004. Meerdere VM’s worden gebruikt als u meerdere machines groepeert in de replicatiegroepen die crashconsistent en app-consistent herstelpunten delen bij failover. Dit is handig als machines dezelfde workload gebruiken en consistent moeten zijn.
-5. Verkeer wordt via internet gerepliceerd naar de openbare eindpunten van Azure Storage. U kunt ook [openbare peering](../expressroute/expressroute-circuit-peerings.md#public-peering) van Azure ExpressRoute gebruiken. Het repliceren van verkeer via een site-naar-site-VPN van een on-premises site naar Azure wordt niet ondersteund.
+1. U instellen kunt het Hallo-implementatie, inclusief Azure onderdelen en een Recovery Services-kluis. U opgeven in de kluis Hallo Hallo replicatiebron en doel, instellen van de configuratieserver hello, VMware-servers toevoegen, maak een replicatiebeleid voor, Hallo Mobility-service implementeren, replicatie inschakelen en een testfailover uitvoeren.
+2.  Machines starten in overeenstemming met het replicatiebeleid Hallo repliceren en een initiële kopie van de gegevens Hallo tooAzure gerepliceerde opslag.
+4. Replicatie van verschillen wijzigingen tooAzure begint nadat Hallo initiële replicatie is voltooid. Bijgehouden wijzigingen voor een machine worden opgeslagen in een .hrl-bestand.
+    - Replicerende machines communiceren met de configuratieserver Hallo op poort 443 voor HTTPS binnenkomend verkeer voor replicatiebeheer.
+    - Replicerende machines verzenden replicatie gegevens toohello processerver op poort HTTPS 9443 binnenkomende (kan worden geconfigureerd).
+    - Hallo configuratieserver ingedeeld replicatiebeheer met Azure via poort 443 voor HTTPS uitgaand.
+    - Hallo processerver ontvangt gegevens van bronmachines, optimaliseert versleutelt en verzendt het tooAzure opslag via poort 443 uitgaand.
+    - Als u de consistentie tussen meerdere VM's inschakelt, klikt u vervolgens communiceren machines in replicatiegroep Hallo met elkaar via poort 20004. Meerdere VM’s worden gebruikt als u meerdere machines groepeert in de replicatiegroepen die crashconsistent en app-consistent herstelpunten delen bij failover. Dit is handig als machines worden uitgevoerd Hallo dezelfde werkbelasting en toobe consistent nodig.
+5. Verkeer tooAzure gerepliceerde opslag openbare eindpunten, is afgelopen Hallo internet. U kunt ook [openbare peering](../expressroute/expressroute-circuit-peerings.md#public-peering) van Azure ExpressRoute gebruiken. Het repliceren van verkeer via een VPN site-naar-site van een lokale site tooAzure wordt niet ondersteund.
 
-**Afbeelding 2: replicatie van VMware naar Azure**
+**Afbeelding 2: VMware tooAzure replicatie**
 
 ![Verbeterd](./media/site-recovery-components/v2a-architecture-henry.png)
 
 ## <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
-1. Wanneer u hebt gecontroleerd of de testfailover is geslaagd, kunt u naar behoefte niet-geplande failovers naar Azure uitvoeren. Geplande failover wordt niet ondersteund.
-2. U kunt een failover van één machine uitvoeren of [herstelplannen](site-recovery-create-recovery-plans.md) maken om failovers van meerdere virtuele machines uit te voeren.
-3. Wanneer u een failover uitvoert, worden er replica-VM's gemaakt in Azure. U geeft een failover toegang tot de workload via de replica van de Azure-VM.
-4. Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoeren. U stelt een infrastructuur voor failback in, start de replicatie van de machine vanaf de secundaire site naar de primaire site en voert een niet-geplande failover uit vanaf de secundaire site. Nadat u deze failover doorvoert, worden de gegevens teruggeplaatst op de on-premises site en moet u de replicatie naar Azure opnieuw inschakelen. [Meer informatie](site-recovery-failback-azure-to-vmware.md)
+1. Nadat u dat de testfailover werkt verifieert zoals verwacht, kunt u niet-geplande failovers tooAzure uitvoeren zoals vereist. Geplande failover wordt niet ondersteund.
+2. U kunt één machine failover of maken [herstelplannen](site-recovery-create-recovery-plans.md), toofail over meerdere virtuele machines.
+3. Wanneer u een failover uitvoert, worden er replica-VM's gemaakt in Azure. U doorvoeren een failover toostart toegang tot Hallo werkbelasting van Hallo replica virtuele machine van Azure.
+4. Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoeren. U een failback-infrastructuur instellen, Hallo machine repliceren vanaf primaire Hallo secundaire site-toohello en een niet-geplande failover uitvoeren van de secundaire site Hallo. Nadat u deze failover doorvoert, gegevens worden nu back on-premises en moet u tooenable replicatie tooAzure opnieuw. [Meer informatie](site-recovery-failback-azure-to-vmware.md)
 
 Er zijn enkele vereisten voor een failback:
 
 
-- **Tijdelijke processerver in Azure**: als u na een failover een failback vanuit Azure wilt uitvoeren, moet u een virtuele Azure-machine hebben geconfigureerd als processerver, om de replicatie vanuit Azure af te handelen. U kunt deze virtuele machine verwijderen wanneer de failback is voltooid.
-- **VPN-verbinding**: voor de failback moet u een VPN-verbinding (of Azure ExpressRoute) hebben ingesteld van het Azure-netwerk naar de on-premises site.
-- **Afzonderlijke on-premises hoofddoelserver**: op de on-premises hoofddoelserver wordt de failback afgehandeld. De hoofddoelserver wordt standaard op de beheerserver geïnstalleerd, maar als u een failback van grotere hoeveelheden verkeer uitvoert, kunt u voor dit doel beter een afzonderlijke on-premises hoofddoelserver instellen.
-- **Failbackbeleid**: als u wilt repliceren naar de on-premises site, hebt u een failbackbeleid nodig. Dit wordt automatisch gemaakt wanneer u uw replicatiebeleid maakt.
-- **VMware-infrastructuur**: u moet een failback uitvoeren naar een lokale virtuele VMware-machine. Dit betekent dat u een on-premises VMware-infrastructuur nodig hebt, zelfs als u fysieke on-premises servers naar Azure repliceert.
+- **Tijdelijke processerver in Azure**: als u wilt dat toofail failback vanuit Azure na een failover moet u tooset van een Azure-VM die is geconfigureerd als processerver, toohandle replicatie van Azure. U kunt deze virtuele machine verwijderen wanneer de failback is voltooid.
+- **VPN-verbinding**: voor failback u moet een VPN-verbinding (of Azure ExpressRoute) instellen uit hello Azure toohello lokale netwerksite.
+- **Afzonderlijke on-premises hoofddoelserver**: Hallo lokale hoofddoelserver wordt de failback afgehandeld. Hallo hoofddoelserver wordt standaard op Hallo-beheerserver geïnstalleerd, maar als u failback van grotere hoeveelheden verkeer bent mislukken moet u instellen een afzonderlijke on-premises hoofddoelserver voor dit doel.
+- **Beleid voor failback**: tooreplicate back tooyour lokale site, moet u een beleid voor failback. Dit wordt automatisch gemaakt wanneer u uw replicatiebeleid maakt.
+- **VMware-infrastructuur**: U moet een failback uit op tooan lokale VMware VM. Dit betekent dat u moet een on-premises VMware-infrastructuur, zelfs als u lokale fysieke servers tooAzure repliceert.
 
 **Afbeelding 3: failback van VMware/fysieke failback**
 
@@ -92,4 +92,4 @@ Er zijn enkele vereisten voor een failback:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md) controleren
+Bekijk Hallo [ondersteuningsmatrix](site-recovery-support-matrix-to-azure.md)

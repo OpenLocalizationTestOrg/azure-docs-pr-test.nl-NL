@@ -1,6 +1,6 @@
 ---
-title: Aanroepen van REST-eindpunten met HTTP- en Swagger-connector voor Azure Logic Apps | Microsoft Docs
-description: Verbinding maken met de REST-eindpunten vanuit logic apps via Swagger met de HTTP- + Swagger connector
+title: aaaCall REST-eindpunten met HTTP- en Swagger-connector voor Azure Logic Apps | Microsoft Docs
+description: Verbinding maken met tooREST eindpunten vanuit logic apps via Swagger met Hallo HTTP + Swagger-connector
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -15,81 +15,81 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: baaa57689ff41fcd052f9d86086e36619ddec46e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>Aan de slag met de HTTP- + Swagger actie
+# <a name="get-started-with-hello-http--swagger-action"></a>Aan de slag met Hallo HTTP + Swagger-actie
 
-U kunt geen klas connector maken voor een willekeurig eindpunt REST via een [Swagger-document](https://swagger.io) bij het gebruik van de HTTP- + Swagger actie in de werkstroom van uw logische app. U kunt logische apps voor het aanroepen van een REST-eindpunt met een uitstekende Logic App-ontwerper ervaring ook uitbreiden.
+Kunt u een uitstekende connector tooany REST-eindpunt via een [Swagger-document](https://swagger.io) wanneer u Hallo HTTP + Swagger actie gebruikt in uw logische app-werkstroom. U kunt logische apps toocall ook een REST-eindpunt met een uitstekende Logic App-ontwerper ervaring uitbreiden.
 
-Zie voor meer informatie over het maken van logische apps met connectors, [maken van een nieuwe logische app](../logic-apps/logic-apps-create-a-logic-app.md).
+hoe toocreate logic apps met connectors, Zie toolearn [maken van een nieuwe logische app](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Gebruik HTTP + Swagger als een trigger of een actie
 
-De HTTP- + de Swagger activeren en de actie werken op dezelfde manier als de [HTTP-actie](connectors-native-http.md) maar bieden een betere ervaring in Logic App-ontwerper bij het blootstellen van de structuur van de API en de uitvoer van de [Swagger-metagegevens](https://swagger.io). U kunt ook HTTP gebruiken + Swagger connector als een trigger. Als u implementeren, een polling-trigger wilt, volgt u het polling-patroon dat wordt beschreven in [maken van aangepaste API's om aan te roepen andere API's, services en systemen van logic apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+Hallo HTTP + Swagger-trigger en action werk dezelfde als Hallo Hallo [HTTP-actie](connectors-native-http.md) maar bieden een betere ervaring in Logic App-ontwerper bij het blootstellen van Hallo API structuur en uitvoer van Hallo [Swagger-metagegevens](https://swagger.io) . U kunt ook Hallo HTTP + Swagger-connector gebruiken als een trigger. Als u een polling-trigger tooimplement wilt, volgen Hallo polling-patroon dat wordt beschreven in [maken van aangepaste API's toocall andere API's, services en systemen van logische apps](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 Meer informatie over [logic app triggers en acties](connectors-overview.md).
 
-Hier volgt een voorbeeld van het gebruik van de HTTP-+ Swagger-bewerkings-als een actie in een werkstroom in een logische app.
+Hier volgt een voorbeeld van hoe toouse Hallo HTTP + Swagger bewerking als een actie in een werkstroom in een logische app.
 
-1. Selecteer de **nieuwe stap** knop.
+1. Selecteer Hallo **nieuwe stap** knop.
 2. Selecteer **een actie toevoegen**.
-3. Typ in het zoekvak actie **swagger** aan de lijst het HTTP-Swagger-actie.
+3. Typ in het zoekvak Hallo actie, **swagger** toolist Hallo HTTP + Swagger in te grijpen.
    
     ![Selecteer HTTP + Swagger actie](./media/connectors-native-http-swagger/using-action-1.png)
-4. Typ de URL voor een Swagger-document:
+4. Type Hallo-URL voor een Swagger-document:
    
-   * Om te werken vanuit Logic App Designer, moet de URL een HTTPS-eindpunt en CORS is ingeschakeld.
-   * Als de Swagger-document niet aan deze vereiste voldoen, kunt u [Azure Storage met CORS ingeschakeld](#hosting-swagger-from-storage) voor het opslaan van het document.
-5. Klik op **volgende** om te lezen en weergeven van de Swagger-document.
-6. Voeg in de parameters die vereist voor de HTTP-aanroep zijn.
+   * toowork van Hallo Logic App-ontwerper, Hallo-URL moet een HTTPS-eindpunt en CORS is ingeschakeld.
+   * Als Hallo Swagger-document niet aan deze vereiste voldoen, kunt u [Azure Storage met CORS ingeschakeld](#hosting-swagger-from-storage) toostore Hallo-document.
+5. Klik op **volgende** tooread en render van Hallo Swagger-document.
+6. In de parameters die vereist voor Hallo HTTP-aanroep zijn toevoegen.
    
     ![HTTP-bewerking voltooien](./media/connectors-native-http-swagger/using-action-2.png)
-7. Als u wilt opslaan en publiceren van uw logische app, klikt u op **opslaan** op designer werkbalk.
+7. toosave en uw logische app publiceren, klikt u op **opslaan** op designer werkbalk.
 
 ### <a name="host-swagger-from-azure-storage"></a>Host Swagger uit Azure Storage
-Het is raadzaam om te verwijzen naar een Swagger-document dat niet wordt gehost of die niet voldoen aan de beveiliging en cross-origin-vereisten voor de designer. U lost dit probleem, kunt u de Swagger-document opslaan in Azure Storage en inschakelen van CORS om te verwijzen naar het document.  
+U kunt een Swagger-document dat niet wordt gehost of die niet voldoen aan de Hallo beveiligings- en cross-origin-vereisten voor Hallo designer tooreference. tooresolve dit probleem kunt u Hallo Swagger-document opslaan in Azure Storage en inschakelen van CORS tooreference Hallo-document.  
 
-Hier volgen de stappen voor het maken, configureren en opslaan van documenten Swagger in Azure Storage:
+Hier volgen Hallo stappen toocreate, configureren en Swagger documenten opslaan in Azure Storage:
 
-1. [Een Azure storage-account maken met Azure Blob storage](../storage/common/storage-create-storage-account.md). Als u deze stap, stel de machtigingen op **openbare toegang**.
+1. [Een Azure storage-account maken met Azure Blob storage](../storage/common/storage-create-storage-account.md). tooperform deze stap, machtigingen instellen te**openbare toegang**.
 
-2. CORS inschakelen in de blob. 
+2. CORS inschakelen op Hallo blob. 
 
-   U kunt gebruiken om automatisch te configureren met deze instelling, [dit PowerShell-script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+   tooautomatically deze instelling configureert, kunt u [dit PowerShell-script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
-3. Het Swagger-bestand uploaden naar de blob. 
+3. Hallo Swagger-bestand toohello blob uploaden. 
 
-   U kunt uitvoeren in deze stap van de [Azure-portal](https://portal.azure.com) of vanuit een hulpprogramma zoals [Azure Opslagverkenner](http://storageexplorer.com/).
+   U kunt deze stap uitvoeren via Hallo [Azure-portal](https://portal.azure.com) of vanuit een hulpprogramma zoals [Azure Opslagverkenner](http://storageexplorer.com/).
 
-4. Verwijzen naar een HTTPS-koppeling in het document in Azure Blob-opslag. 
+4. Verwijzen naar een document HTTPS koppeling toohello in Azure Blob-opslag. 
 
-   De koppeling maakt gebruik van deze indeling:
+   Hallo-koppeling gebruikt deze indeling:
 
    `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## <a name="technical-details"></a>Technische details
-Hieronder vindt u de details voor de triggers en acties die in het volgende HTTP- + Swagger connector ondersteunt.
+Hieronder vindt u details Hallo voor Hallo triggers en acties die dit HTTP + Swagger connector ondersteunt.
 
 ## <a name="http--swagger-triggers"></a>HTTP- + Swagger-triggers
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die gedefinieerd in een logische app te starten. [Meer informatie over triggers.](connectors-overview.md) De HTTP- + Swagger connector heeft een trigger.
+Een trigger is een gebeurtenis die kan worden gebruikt toostart Hallo werkstroom die gedefinieerd in een logische app. [Meer informatie over triggers.](connectors-overview.md) Hallo HTTP + Swagger connector heeft een trigger.
 
 | Trigger | Beschrijving |
 | --- | --- |
-| HTTP- + Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
+| HTTP- + Swagger |De aanroep van een HTTP- en antwoordinhoud Hallo retourneren |
 
 ## <a name="http--swagger-actions"></a>HTTP- + Swagger-acties
-Een actie is een bewerking die wordt uitgevoerd door de werkstroom die gedefinieerd in een logische app. [Meer informatie over acties.](connectors-overview.md) De HTTP- + Swagger connector heeft een mogelijke actie.
+Een actie is een bewerking die wordt uitgevoerd door Hallo werkstroom die gedefinieerd in een logische app. [Meer informatie over acties.](connectors-overview.md) Hallo HTTP + Swagger connector heeft een mogelijke actie.
 
 | Actie | Beschrijving |
 | --- | --- |
-| HTTP- + Swagger |Maken van een HTTP-aanroep en de antwoordinhoud wordt geretourneerd |
+| HTTP- + Swagger |De aanroep van een HTTP- en antwoordinhoud Hallo retourneren |
 
 ### <a name="action-details"></a>Actiedetails
-De HTTP- + Swagger connector wordt geleverd met een mogelijke actie. Hieronder vindt u informatie over elk van de acties, hun vereiste en optionele invoervelden en de bijbehorende uitvoerdetails die gekoppeld aan hun gebruik zijn.
+Hallo HTTP + Swagger connector wordt geleverd met een mogelijke actie. Hieronder vindt u informatie over elk van de Hallo acties, de vereiste en optionele invoervelden en Hallo uitvoerdetails die gekoppeld aan hun gebruik zijn overeenkomt.
 
 #### <a name="http--swagger"></a>HTTP- + Swagger
 Controleer een uitgaande HTTP-aanvraag met hulp van Swagger-metagegevens.
@@ -97,11 +97,11 @@ Een sterretje (*) betekent een verplicht veld.
 
 | Weergavenaam | De naam van eigenschap | Beschrijving |
 | --- | --- | --- |
-| Methode * |Methode |HTTP-term moet worden gebruikt. |
-| URI * |URI |De URI voor de HTTP-aanvraag. |
-| Headers |Headers |Een JSON-object van het HTTP-headers te nemen. |
-| Hoofdtekst |Hoofdtekst |De hoofdtekst van de HTTP-aanvraag. |
-| Authentication |Verificatie |De verificatie moet worden gebruikt voor de aanvraag. Zie voor meer informatie de [HTTP connector](connectors-native-http.md#authentication). |
+| Methode * |Methode |HTTP-term toouse. |
+| URI * |URI |De URI voor Hallo HTTP-aanvraag. |
+| Headers |Headers |Een JSON-object van het HTTP-headers tooinclude. |
+| Hoofdtekst |Hoofdtekst |Hallo hoofdtekst van de HTTP-aanvraag. |
+| Authentication |Verificatie |Verificatie toouse voor aanvraag. Zie voor meer informatie, Hallo [HTTP connector](connectors-native-http.md#authentication). |
 
 **Uitvoerdetails**
 
@@ -114,7 +114,7 @@ HTTP-antwoord
 | Statuscode |int |HTTP-statuscode |
 
 ### <a name="http-responses"></a>HTTP-antwoorden
-Bij het aanroepen op diverse acties, krijgt u mogelijk bepaalde antwoorden. Hier volgt een tabel staat aangegeven van de bijbehorende antwoorden en beschrijvingen.
+Bij het maken van aanroepen toovarious acties, krijgt u mogelijk bepaalde antwoorden. Hier volgt een tabel staat aangegeven van de bijbehorende antwoorden en beschrijvingen.
 
 | Naam | Beschrijving |
 | --- | --- |

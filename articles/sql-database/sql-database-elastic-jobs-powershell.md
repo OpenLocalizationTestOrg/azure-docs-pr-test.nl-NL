@@ -1,6 +1,6 @@
 ---
-title: Maken en beheren van elastische taken met behulp van PowerShell | Microsoft Docs
-description: PowerShell gebruikt voor het beheren van Azure SQL Database-groepen
+title: aaaCreate en beheren van elastische taken met behulp van PowerShell | Microsoft Docs
+description: PowerShell toomanage Azure SQL Database-groepen gebruikt
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: b4c97e8f51581f9a3f7c5a8d8e82562255fe7b48
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f6c18aecfa7e8c0b102a3b7cd2f266f5542ae400
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Maken en beheren van de SQL-Database van de elastische taken met behulp van PowerShell (preview)
 
-De PowerShell-APIs voor **elastische Database taken** (in preview) kunt u definiëren van een groep met databases op basis waarvan de scripts worden uitgevoerd. In dit artikel laat zien hoe maken en beheren van **elastische Database taken** met PowerShell-cmdlets. Zie [elastische taken overzicht](sql-database-elastic-jobs-overview.md). 
+Hallo PowerShell APIs voor **elastische Database taken** (in preview) kunt u definiëren van een groep met databases op basis waarvan de scripts worden uitgevoerd. Dit artikel laat zien hoe toocreate en beheren van **elastische Database taken** met PowerShell-cmdlets. Zie [elastische taken overzicht](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
-* Een set databases die zijn gemaakt met de hulpprogramma's van elastische Database. Zie [aan de slag met hulpprogramma's voor elastische Database](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Een set databases die zijn gemaakt met Hallo-hulpprogramma's voor elastische Database. Zie [aan de slag met hulpprogramma's voor elastische Database](sql-database-elastic-scale-get-started.md).
+* Azure PowerShell. Zie voor gedetailleerde informatie [hoe tooinstall en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * **Elastische Database taken** PowerShell pakket: Zie [elastische Database installeren taken](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecteer uw Azure-abonnement
-Om het abonnement te selecteren moet u uw abonnements-Id (**- SubscriptionId**) of de naam van abonnement (**- SubscriptionName**). U kunt uitvoeren als u meerdere abonnementen hebt de **Get-AzureRmSubscription** cmdlet en kopieert u de informatie over het gewenste abonnement uit de resultatenset is ingesteld. Zodra u de abonnementsgegevens van uw hebt, voer de volgende cmdlet als u dit abonnement de standaard, namelijk het doel voor het maken en beheren van taken:
+tooselect hello abonnement, moet u uw abonnements-Id (**- SubscriptionId**) of de naam van abonnement (**- SubscriptionName**). Als u meerdere abonnementen hebt kunt u Hallo uitvoeren **Get-AzureRmSubscription** cmdlet en kopieer Hallo gewenst abonnementsgegevens van Hallo resultatenset. Zodra u hebt uw abonnementsgegevens, Hallo commandlet tooset na dit abonnement uitgevoerd als Hallo standaard, namelijk Hallo doel voor het maken en beheren van taken:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
-De [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) wordt aanbevolen voor gebruik ontwikkelen en uitvoeren van PowerShell-scripts uitvoeren op de elastische Database-taken.
+Hallo [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) wordt aanbevolen voor gebruik toodevelop en PowerShell-scripts uitvoeren op Hallo elastische Database taken uitvoeren.
 
 ## <a name="elastic-database-jobs-objects"></a>Elastische taken databaseobjecten
-De volgende tabel geeft een lijst van alle objecttypen van **elastische Database taken** samen met de beschrijving en de relevante PowerShell APIs.
+Hallo volgende Tabellijsten uit alle objecttypen Hallo van **elastische Database taken** samen met de beschrijving en de relevante PowerShell APIs.
 
 <table style="width:100%">
   <tr>
@@ -48,14 +48,14 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
   </tr>
   <tr>
     <td>Referentie</td>
-    <td>Gebruikersnaam en het wachtwoord moet worden gebruikt wanneer verbinding maken met databases voor uitvoering van scripts of de toepassing van DACPACs. <p>Het wachtwoord wordt versleuteld vóór het verzenden naar en opslaan in de database van de elastische Database-taken.  Het wachtwoord worden ontsleuteld door de service elastische Database-taken via de referentie is gemaakt en dat is geüpload van het script voor installatie.</td>
+    <td>Gebruikersnaam en wachtwoord toouse bij het verbinden van toodatabases voor uitvoering van scripts of de toepassing van DACPACs. <p>Hallo-wachtwoord is versleuteld voordat tooand opslaan in Hallo elastische taken van de Database-database worden verzonden.  Hallo-wachtwoord worden ontsleuteld door Hallo Hallo referentie gemaakt en dat is geüpload van het script voor installatie Hallo elastische taken van de Database-service.</td>
     <td><p>Get-AzureSqlJobCredential</p>
     <p>Nieuwe AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
     <td>Script</td>
-    <td>Transact-SQL-script moet worden gebruikt voor uitvoering tussen databases.  Het script moet worden gemaakt voor de idempotent worden omdat de service wordt opnieuw geprobeerd de uitvoering van het script op fouten.
+    <td>Toobe van Transact-SQL-script gebruikt voor uitvoering tussen databases.  Hallo script moet opgestelde toobe idempotent omdat het Hallo-service wordt opnieuw geprobeerd de uitvoering van script Hallo bij fouten.
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -67,7 +67,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 
   <tr>
     <td>DACPAC</td>
-    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">-Gegevenslaagtoepassing </a> pakket moet worden toegepast voor databases.
+    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">-Gegevenslaagtoepassing </a> toobe toegepast tussen databases van het pakket.
 
     </td>
     <td>
@@ -78,7 +78,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
   </tr>
   <tr>
     <td>Database-doel</td>
-    <td>Database- en de naam die verwijst naar een Azure SQL Database.
+    <td>Database- en geef een naam aan wijzen tooan Azure SQL Database.
 
     </td>
     <td>
@@ -88,7 +88,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
   </tr>
   <tr>
     <td>Doel van shard-kaart</td>
-    <td>De combinatie van een doel van de database en een referentie om te worden gebruikt om informatie opgeslagen in een elastische Database shard-toewijzing te bepalen.
+    <td>Combinatie van een doel van de database en een referentie-toobe gebruikt toodetermine informatie opgeslagen in een elastische Database shard-toewijzing.
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
@@ -98,7 +98,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
   </tr>
 <tr>
     <td>Doel van de aangepaste verzameling</td>
-    <td>Gedefinieerde groep met databases gezamenlijk gebruiken voor uitvoering.</td>
+    <td>Gedefinieerde groep databases toocollectively gebruiken voor uitvoering.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
     <p>Nieuwe AzureSqlJobTarget</p>
@@ -116,7 +116,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 <tr>
     <td>Job</td>
     <td>
-    <p>Definitie van de parameters voor een taak die kan worden gebruikt voor het activeren van uitvoering of om te voldoen aan een schema.</p>
+    <p>Definitie van de parameters voor een taak die gebruikt tootrigger uitvoering of toofulfill een planning worden kunnen.</p>
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
@@ -128,7 +128,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 <tr>
     <td>Uitvoeren van taak</td>
     <td>
-    <p>Container van taken die nodig zijn om te voldoen aan het uitvoeren van een script of een DACPAC toepassen op een doel met referenties voor databaseverbindingen met fouten verwerkt overeenkomstig een beleid kan worden uitgevoerd.</p>
+    <p>Container van de benodigde toofulfill taken uitvoeren van een script of toepassen van een DACPAC tooa doel met referenties voor databaseverbindingen met fouten in overeenstemming tooan uitvoeringsbeleid behandeld.</p>
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
@@ -140,8 +140,8 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 <tr>
     <td>Uitvoering van de taak taak</td>
     <td>
-    <p>De eenheid van werk om te voldoen aan een taak.</p>
-    <p>Als een taak kan niet met succes uitvoeren, wordt de resulterende uitzonderingsbericht vastgelegd en een nieuwe, overeenkomende projecttaak worden gemaakt en uitgevoerd volgens het opgegeven uitvoeringsbeleid.</p></p>
+    <p>De eenheid van werk toofulfill een taak.</p>
+    <p>Als een taak niet kunnen toosuccessfully uitvoeren, Hallo resulterende uitzondering vastgelegd en een nieuwe, overeenkomende projecttaak worden gemaakt en uitgevoerd in overeenstemming toohello opgegeven uitvoeringsbeleid.</p></p>
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
@@ -166,7 +166,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 <tr>
     <td>Planning</td>
     <td>
-    <p>Specificatie voor het uitvoeren van plaatsvinden in een interval van terugkerende of één keer op basis van tijd.</p>
+    <p>Specificatie voor uitvoering tootake plaats in een interval van terugkerende of één keer op basis van tijd.</p>
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
@@ -178,7 +178,7 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 <tr>
     <td>Taak wordt geactiveerd</td>
     <td>
-    <p>Een toewijzing tussen een taak en een schema wilt uitvoeren volgens de planning van de taak.</p>
+    <p>Een toewijzing tussen een taak en een planning tootrigger taakuitvoering volgens planning toohello.</p>
     </td>
     <td>
     <p>Nieuwe AzureSqlJobTrigger</p>
@@ -188,50 +188,50 @@ De volgende tabel geeft een lijst van alle objecttypen van **elastische Database
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Ondersteunde elastische Database taken groeperen typen
-De taak uitgevoerd (T-SQL) Transact-SQL-scripts of de toepassing van DACPACs in een groep van databases. Wanneer een taak wordt verzonden om te worden uitgevoerd in een groep met databases, de taak 'wordt uitgebreid' de in onderliggende taken waarbij elk de aangevraagde uitgevoerd op een individuele database in de groep uitvoert. 
+Hallo-taak uitgevoerd (T-SQL) Transact-SQL-scripts of de toepassing van DACPACs in een groep van databases. Wanneer een taak verzonden toobe uitgevoerd wordt via aangevraagd een groep van databases, Hallo-taak 'breidt' hello naar onderliggende taken waarbij elk Hallo uitvoert uitgevoerd op een individuele database in het Hallo-groep. 
 
 Er zijn twee typen groepen die u kunt maken: 
 
-* [Shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) groep: als een taak wordt verzonden naar een shard-toewijzing met als doel, de taak query de shard-kaart om te bepalen van de huidige set shards en maakt vervolgens onderliggende taken voor elke shard in de shard-toewijzing.
-* Verzamelgroep voor de aangepaste: een aangepaste set van databases gedefinieerd. Wanneer een taak is bedoeld voor een aangepaste verzameling, wordt gemaakt onderliggende taken voor elke database die momenteel in de verzameling aangepaste.
+* [Shard-toewijzing](sql-database-elastic-scale-shard-map-management.md) groep: wanneer een taak verzonden tootarget een shard-toewijzing is, Hallo taak Hallo shard-toewijzing toodetermine vraagt de huidige set shards en maakt vervolgens onderliggende taken voor elke shard in Hallo shard-toewijzing.
+* Verzamelgroep voor de aangepaste: een aangepaste set van databases gedefinieerd. Wanneer een taak is bedoeld voor een aangepaste verzameling, wordt gemaakt onderliggende taken voor elke database die momenteel in een aangepaste verzameling Hallo.
 
-## <a name="to-set-the-elastic-database-jobs-connection"></a>Taken voor het instellen van de elastische Database verbinding
-Een verbinding moet worden ingesteld op de taken *beheer database* voorafgaand aan de taken API's gebruikt. Deze cmdlet uitvoert, activeert een referentie-venster moet worden aanvragen van de gebruikersnaam en wachtwoord die zijn gemaakt tijdens de installatie van de elastische Database taken weergegeven. Alle voorbeelden in dit onderwerp wordt ervan uitgegaan dat al deze eerste stap is uitgevoerd.
+## <a name="tooset-hello-elastic-database-jobs-connection"></a>tooset hello elastische taken voor databaseverbinding
+Een verbinding moet toobe set toohello taken *beheer database* voorafgaande toousing Hallo taken API's. Deze cmdlet uitvoert, activeert een referentie venster toopop up aanvragen Hallo-gebruikersnaam en wachtwoord die zijn gemaakt tijdens de installatie van de taken van de elastische Database. Alle voorbeelden in dit onderwerp wordt ervan uitgegaan dat al deze eerste stap is uitgevoerd.
 
-Open een verbinding met de elastische Database taken:
+Open een verbinding toohello elastische Database taken:
 
     Use-AzureSqlJobConnection -CurrentAzureSubscription 
 
-## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Versleutelde referenties binnen de taken voor elastische Database
-Databasereferenties kunnen worden ingevoegd in de taken *beheer database* met het wachtwoord dat is versleuteld. Het is nodig voor het opslaan van referenties in voor het inschakelen van de taken worden uitgevoerd op een later tijdstip (met behulp van de taakschema's).
+## <a name="encrypted-credentials-within-hello-elastic-database-jobs"></a>Versleutelde referenties binnen Hallo-taken voor elastische Database
+Databasereferenties kunnen worden ingevoegd in Hallo taken *beheer database* met het wachtwoord dat is versleuteld. Is het nodig toostore referenties tooenable taken toobe uitgevoerd op een later tijdstip (met behulp van de taakschema's).
 
-Versleuteling werkt via een certificaat gemaakt als onderdeel van het script voor installatie. Het installatiescript maakt en uploadt het certificaat in de Azure-Cloudservice voor het ontsleutelen van de opgeslagen gecodeerde wachtwoorden. De Azure Cloud Service later slaat de openbare sleutel in de taken *beheer database* waardoor de interface PowerShell API of de klassieke Azure-Portal voor het versleutelen van een opgegeven wachtwoord zonder het certificaat moet lokaal zijn geïnstalleerd.
+Versleuteling werkt via een certificaat gemaakt als onderdeel van het script voor installatie Hallo. Hallo installatiescript maakt en uploads Hallo certificaat in hello Azure Cloud Service voor het ontsleutelen van Hallo opgeslagen gecodeerde wachtwoorden. Hello Azure Cloud Service later slaat de openbare sleutel Hallo binnen Hallo taken *beheer database* waardoor Hallo PowerShell API of de klassieke Azure-Portal interface tooencrypt een verstrekte wachtwoord zonder Hallo certificaat toobe lokaal zijn geïnstalleerd.
 
-De referentie-wachtwoorden zijn versleuteld en beveiligd van gebruikers met alleen-lezentoegang voor elastische Database taken objecten. Maar het is mogelijk dat een kwaadwillende gebruiker met lees-/ schrijftoegang tot elastische Database taken objecten om op te halen van een wachtwoord. Referenties zijn ontworpen om opnieuw worden gebruikt voor uitvoering. Referenties worden doorgegeven aan de doeldatabases bij het tot stand brengen van verbindingen. Er zijn momenteel geen beperkingen op de doeldatabases die worden gebruikt voor elke referentie, kwaadwillende gebruiker kan een database-doel voor een database onder het beheer van de kwaadwillende gebruiker toevoegen. De gebruiker kan vervolgens een taak die gericht is op deze database voor het verkrijgen van de referentie-wachtwoord starten.
+Hallo referentie wachtwoorden zijn versleuteld en beveiligd van gebruikers met alleen-lezentoegang tooElastic databaseobjecten taken. Maar het is mogelijk dat een kwaadwillende gebruiker met lees-/ schrijftoegang tooElastic Database taken objecten tooextract een wachtwoord. Referenties zijn ontworpen toobe hele taak uitvoeringen gebruikt. Referenties worden tootarget databases doorgegeven bij het tot stand brengen van verbindingen. Er zijn momenteel geen beperkingen op Hallo doeldatabases gebruikt voor elke referentie, kwaadwillende gebruiker kan een database-doel voor een database onder het beheer van Hallo kwaadwillende gebruiker toevoegen. Hallo-gebruiker kan vervolgens een taak die gericht is op deze database toogain Hallo referentie wachtwoord starten.
 
 Aanbevolen beveiligingsprocedures voor elastische Database taken omvatten:
 
-* Gebruik van de API's naar vertrouwde personen te beperken.
-* Referenties hoeven de minimaal benodigde bevoegdheden nodig zijn voor de taak met taak uitvoeren.  Meer informatie ziet u binnen dit [autorisatie en machtigingen](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN-artikel.
+* Informatie over het gebruik van Hallo-API's tootrusted personen wordt beperkt.
+* Referenties hebt Hallo minimale bevoegdheden nodig tooperform Hallo-taak.  Meer informatie ziet u binnen dit [autorisatie en machtigingen](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN-artikel.
 
-### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Een versleutelde referentie voor de taakuitvoering van de voor databases maken
-Een nieuwe versleutelde referentie maken de [ **cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) vraagt om een gebruikersnaam en wachtwoord die kan worden doorgegeven aan de [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+### <a name="toocreate-an-encrypted-credential-for-job-execution-across-databases"></a>toocreate een versleutelde referentie voor het uitvoeren van de taak voor databases
+een nieuwe versleuteld toocreate referenties, hello [ **cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) vraagt om een gebruikersnaam en wachtwoord die kan worden doorgegeven toohello [ **nieuw AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential
     $credential = New-AzureSqlJobCredential -Credential $databaseCredential -CredentialName $credentialName
     Write-Output $credential
 
-### <a name="to-update-credentials"></a>Referenties bijwerken
-Wanneer wachtwoorden wijzigen, gebruikt de [ **cmdlet Set-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential) en stel de **CredentialName** parameter.
+### <a name="tooupdate-credentials"></a>tooupdate referenties
+Wanneer wachtwoorden wijzigen, gebruikt u Hallo [ **cmdlet Set-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential) en set Hallo **CredentialName** parameter.
 
     $credentialName = "{Credential Name}"
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
 
-## <a name="to-define-an-elastic-database-shard-map-target"></a>Een elastische Database shard-toewijzing doel definiëren
-Uitvoeren van een taak op alle databases in een set shard (gemaakt met behulp van [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md)), een shard-toewijzing gebruiken als het doel van de database. Dit voorbeeld vereist een shard-toepassing gemaakt met behulp van de clientbibliotheek voor elastische Database. Zie [aan de slag met elastische Database extra voorbeeld](sql-database-elastic-scale-get-started.md).
+## <a name="toodefine-an-elastic-database-shard-map-target"></a>een elastische Database shard-toewijzing doel toodefine
+een taak op alle databases in een set shard tooexecute (gemaakt met behulp van [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md)), een shard-toewijzing met als doel voor Hallo-database gebruiken. Dit voorbeeld vereist een shard-toepassing gemaakt met behulp van Hallo-clientbibliotheek voor elastische Database. Zie [aan de slag met elastische Database extra voorbeeld](sql-database-elastic-scale-get-started.md).
 
-De shard kaart manager-database moet worden ingesteld als het doel van een database en vervolgens de specifieke shard-toewijzing moet worden opgegeven als een doel.
+Hallo shard kaart manager-database moet worden ingesteld als het doel van een database en vervolgens Hallo specifieke shard-toewijzing moet worden opgegeven als een doel.
 
     $shardMapCredentialName = "{Credential Name}"
     $shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -242,9 +242,9 @@ De shard kaart manager-database moet worden ingesteld als het doel van een datab
     Write-Output $shardMapTarget
 
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Maken van een T-SQL-Script voor uitvoering tussen databases
-Bij het maken van T-SQL-scripts voor de uitvoering van het is raadzaam om te bouwen om te worden [idempotent](https://en.wikipedia.org/wiki/Idempotence) en robuuste tegen fouten. Elastische Database-taken opnieuw uitvoeren van het script als een fout optreedt, ongeacht de indeling van de fout wordt aangetroffen die worden uitgevoerd.
+Bij het maken van T-SQL-scripts voor de uitvoering van het is raadzaam toobuild ze toobe [idempotent](https://en.wikipedia.org/wiki/Idempotence) en robuuste tegen fouten. Elastische Database-taken opnieuw uitvoeren van het script als een fout optreedt, ongeacht het Hallo-classificatie van Hallo fout wordt aangetroffen die worden uitgevoerd.
 
-Gebruik de [ **cmdlet New-AzureSqlJobContent** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) maken en opslaan van een script voor uitvoering en stel de **- ContentName** en **- CommandText** parameters.
+Gebruik Hallo [ **cmdlet New-AzureSqlJobContent** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) toocreate en opslaan van een script voor uitvoering en stel Hallo **- ContentName** en **- CommandText**parameters.
 
     $scriptName = "Create a TestTable"
 
@@ -264,21 +264,21 @@ Gebruik de [ **cmdlet New-AzureSqlJobContent** ](/powershell/module/elasticdatab
     Write-Output $script
 
 ### <a name="create-a-new-script-from-a-file"></a>Een nieuw script maken vanuit een bestand
-Als de T-SQL-script is gedefinieerd in een bestand, gebruikt u dit voor het importeren van het script:
+Als Hallo T-SQL-script is gedefinieerd in een bestand, moet u dit tooimport Hallo-script gebruiken:
 
     $scriptName = "My Script Imported from a File"
-    $scriptPath = "{Path to SQL File}"
+    $scriptPath = "{Path tooSQL File}"
     $scriptCommandText = Get-Content -Path $scriptPath
     $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
     Write-Output $script
 
-### <a name="to-update-a-t-sql-script-for-execution-across-databases"></a>Bijwerken van een T-SQL-script voor uitvoering tussen databases
-Deze PowerShell-script de T-SQL-opdrachttekst voor een bestaand script-updates.
+### <a name="tooupdate-a-t-sql-script-for-execution-across-databases"></a>tooupdate een T-SQL-script voor uitvoering tussen databases
+Deze updates PowerShell-script Hallo T-SQL-opdrachttekst voor een bestaand script.
 
-Stel de volgende variabelen in overeenstemming met de definitie van de gewenste script moet worden ingesteld:
+Set Hallo variabelen tooreflect Hallo gewenst script definitie toobe set te volgen:
 
     $scriptName = "Create a TestTable"
-    $scriptUpdateComment = "Adding AdditionalInformation column to TestTable"
+    $scriptUpdateComment = "Adding AdditionalInformation column tooTestTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
     BEGIN
@@ -299,13 +299,13 @@ Stel de volgende variabelen in overeenstemming met de definitie van de gewenste 
     INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
     GO"
 
-### <a name="to-update-the-definition-to-an-existing-script"></a>Bijwerken van de definitie voor een bestaand script
+### <a name="tooupdate-hello-definition-tooan-existing-script"></a>tooupdate hello definitie tooan bestaand script
     Set-AzureSqlJobContentDefinition -ContentName $scriptName -CommandText $scriptCommandText -Comment $scriptUpdateComment 
 
-## <a name="to-create-a-job-to-execute-a-script-across-a-shard-map"></a>Een taak voor het uitvoeren van een script in een shard-toewijzing te maken
+## <a name="toocreate-a-job-tooexecute-a-script-across-a-shard-map"></a>toocreate een taak tooexecute een script in een shard-toewijzing
 Deze PowerShell-script start een taak voor uitvoering van een script dat op elke shard in een elastische Schaalfunctionaliteit van shard-toewijzing.
 
-Stel de volgende variabelen in overeenstemming met de gewenste script en de doelserver:
+Set Hallo na variabelen tooreflect Hallo gewenst script en het doel:
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -317,30 +317,30 @@ Stel de volgende variabelen in overeenstemming met de gewenste script en de doel
     $job = New-AzureSqlJob -ContentName $scriptName -CredentialName $credentialName -JobName $jobName -TargetId $shardMapTarget.TargetId
     Write-Output $job
 
-## <a name="to-execute-a-job"></a>Als een taak wilt uitvoeren
+## <a name="tooexecute-a-job"></a>een taak tooexecute
 Deze PowerShell-script wordt een bestaande taak uitgevoerd:
 
-Update de volgende variabele in overeenstemming met de naam van de gewenste taak hebt uitgevoerd:
+Hallo variabele tooreflect Hallo gewenst taak naam toohave uitgevoerd na bijwerken:
 
     $jobName = "{Job Name}"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
     Write-Output $jobExecution
 
-## <a name="to-retrieve-the-state-of-a-single-job-execution"></a>De status van de taakuitvoering van een enkele ophalen
-Gebruik de [ **cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution) en stel de **JobExecutionId** parameter om de status van de taakuitvoering weer te geven.
+## <a name="tooretrieve-hello-state-of-a-single-job-execution"></a>tooretrieve hello status van het uitvoeren van een enkele taak
+Gebruik Hallo [ **cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution) en set Hallo **JobExecutionId** parameter tooview Hallo status van taak kan worden uitgevoerd.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
     Write-Output $jobExecution
 
-Gebruik van dezelfde **Get-AzureSqlJobExecution** cmdlet uit met de **voor IncludeChildren** -parameter voor de status van onderliggende taak uitvoeringen, namelijk de specifieke status voor elke taak uitgevoerd op elke database weergeven gericht door de taak.
+Gebruik dezelfde Hallo **Get-AzureSqlJobExecution** cmdlet Hello **voor IncludeChildren** namelijk Hallo specifieke status voor elke taak uitvoeren voor elke parameter tooview Hallo status van onderliggende taak uitvoeringen, de database is gericht door Hallo-taak.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions 
 
-## <a name="to-view-the-state-across-multiple-job-executions"></a>De status tussen uitvoeringen van meerdere taak weergeven
-De [ **cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) heeft meerdere optionele parameters die kunnen worden gebruikt om meerdere taak uitvoeringen, gefilterd via de opgegeven parameters weer te geven. Het volgende voorbeeld toont een aantal mogelijke manieren waarop Get-AzureSqlJobExecution gebruiken:
+## <a name="tooview-hello-state-across-multiple-job-executions"></a>tooview hello staat tussen meerdere taak uitvoeringen
+Hallo [ **cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) heeft meerdere optionele parameters die gebruikt toodisplay worden kunnen meerdere taak uitvoeringen, gefilterd via Hallo opgegeven parameters. Hallo hieronder toont een aantal Hallo mogelijke manieren toouse Get-AzureSqlJobExecution:
 
 Alle actieve taken voor de bovenste niveau uitvoeringen ophalen:
 
@@ -375,7 +375,7 @@ Alle taken die gericht is op een opgegeven aangepaste verzameling, met inbegrip 
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
-Ophalen van de lijst van de taak taak uitvoeringen binnen een specifieke taak kan worden uitgevoerd:
+Hallo-lijst met taak taak uitvoeringen binnen het uitvoeren van een specifieke taak ophalen:
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -383,14 +383,14 @@ Ophalen van de lijst van de taak taak uitvoeringen binnen een specifieke taak ka
 
 Taak uitvoeren taakdetails ophalen:
 
-De volgende PowerShell-script kan worden gebruikt om de details van een taak uitvoering van taken, die bijzonder nuttig is bij het opsporen van fouten in uitvoering weer te geven.
+Hallo volgende PowerShell-script kan gebruikte tooview Hallo details van een taak uitvoering van taken, die bijzonder nuttig is bij het opsporen van fouten in uitvoering zijn.
 
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
 
-## <a name="to-retrieve-failures-within-job-task-executions"></a>Storingen in uitvoering taak ophalen
-De **JobTaskExecution object** bevat een eigenschap voor de levenscyclus van de taak samen met een berichteigenschap. Als de uitvoering van de taak een taak is mislukt, de levenscyclus van de eigenschap wordt ingesteld op *mislukt* en de berichteigenschap zal worden ingesteld op de resulterende uitzonderingsbericht en de stack. Als een taak is mislukt, is het belangrijk om de details van taken waarvoor is mislukt voor een bepaalde taak weer te geven.
+## <a name="tooretrieve-failures-within-job-task-executions"></a>tooretrieve storingen in taak taak uitvoeringen
+Hallo **JobTaskExecution object** bevat een eigenschap voor de levenscyclus van taak samen met een berichteigenschap Hallo Hallo. Als de uitvoering van de taak een taak is mislukt, Hallo lifecycle eigenschap te worden ingesteld*mislukt* en wordt de berichteigenschap Hallo ingesteld resulterende uitzonderingsbericht toohello en de stack. Als een taak is mislukt, is het belangrijk tooview Hallo details van de taken die voor een bepaalde taak is mislukt.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -402,8 +402,8 @@ De **JobTaskExecution object** bevat een eigenschap voor de levenscyclus van de 
             }
         }
 
-## <a name="to-wait-for-a-job-execution-to-complete"></a>Wachttijd voor het uitvoeren van een taak te voltooien
-De volgende PowerShell-script kan worden gebruikt om te wachten op een taak te voltooien:
+## <a name="toowait-for-a-job-execution-toocomplete"></a>toowait voor een taak uitvoeren toocomplete
+Hallo volgende PowerShell-script kan gebruikte toowait voor een taak taak toocomplete zijn:
 
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
@@ -413,14 +413,14 @@ Elastische Database taken ondersteunt het maken van aangepaste uitvoeringsbeleid
 
 Uitvoeringsbeleidsregels toestaan op dit moment voor het definiëren van:
 
-* Naam: Id voor het uitvoeringsbeleid.
+* Naam: Id voor het uitvoeringsbeleid Hallo.
 * De time-out van de taak: Totale tijd voordat een taak met elastische taken van de Database, worden geannuleerd.
-* Eerste Interval voor opnieuw proberen: Interval moet worden gewacht voordat de eerste poging.
-* Maximale Interval voor opnieuw proberen: Cap intervallen voor opnieuw proberen te gebruiken.
-* Opnieuw proberen Interval Backoff Coefficient: Coefficient die wordt gebruikt voor het berekenen van de volgende interval tussen nieuwe pogingen.  De volgende formule wordt gebruikt: (eerste Interval voor opnieuw proberen) * Math.pow ((Interval Backoff Coefficient) (nummer van pogingen) - 2). 
-* Maximum aantal pogingen: Het maximum aantal probeer het opnieuw probeert uit te voeren in een job.
+* Eerste Interval voor opnieuw proberen: Interval toowait voordat de eerste poging.
+* Maximale Interval voor opnieuw proberen: Cap van opnieuw intervallen toouse.
+* Probeer het opnieuw Interval Backoff Coefficient: Coefficient gebruikt toocalculate Hallo volgende interval tussen nieuwe pogingen.  Hallo volgende formule gebruikt: (eerste Interval voor opnieuw proberen) * Math.pow ((Interval Backoff Coefficient) (nummer van pogingen) - 2). 
+* Maximum aantal pogingen: Hallo maximum aantal nieuwe pogingen pogingen tooperform in een job.
 
-Het standaarduitvoeringsbeleid maakt gebruik van de volgende waarden:
+Hallo standaarduitvoeringsbeleid Hallo volgende waarden gebruikt:
 
 * Naam: Standaarduitvoeringsbeleid
 * De time-out van de taak: 1 week
@@ -429,7 +429,7 @@ Het standaarduitvoeringsbeleid maakt gebruik van de volgende waarden:
 * Coefficient Interval opnieuw proberen: 2
 * Maximum aantal pogingen: 2.147.483.647
 
-Maak de gewenste uitvoeringsbeleid:
+Hallo gewenst uitvoeringsbeleid maken:
 
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
@@ -442,7 +442,7 @@ Maak de gewenste uitvoeringsbeleid:
     Write-Output $executionPolicy
 
 ### <a name="update-a-custom-execution-policy"></a>Een aangepaste uitvoeringsbeleid bijwerken
-Werk het gewenste uitvoeringsbeleid om bij te werken:
+Hallo gewenst uitvoering beleid tooupdate bijwerken:
 
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
@@ -454,65 +454,65 @@ Werk het gewenste uitvoeringsbeleid om bij te werken:
     Write-Output $updatedExecutionPolicy
 
 ## <a name="cancel-a-job"></a>Een taak annuleren
-Elastische Database taken ondersteunt aanvragen van de annulering van taken.  Als taken voor elastische Database een annuleringsverzoek voor een taak die momenteel wordt uitgevoerd detecteert, wordt geprobeerd de taak te stoppen.
+Elastische Database taken ondersteunt aanvragen van de annulering van taken.  Als taken voor elastische Database een annuleringsverzoek voor een taak die momenteel wordt uitgevoerd detecteert, wordt geprobeerd toostop Hallo taak.
 
 Er zijn twee verschillende manieren dat elastische Database taken een annulering kan uitvoeren:
 
-1. Annuleren taken momenteel worden uitgevoerd: als een annulering wordt gedetecteerd, terwijl een taak die momenteel wordt uitgevoerd, een annulering wordt geprobeerd binnen het momenteel wordt uitgevoerd aspect van de taak.  Bijvoorbeeld: als er een langdurige query die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, zal er een poging om de query te annuleren.
-2. Nieuwe pogingen taak annuleren: als een annulering wordt gedetecteerd door de besturingselement-thread voordat een taak voor uitvoering wordt gestart, de besturingselement-thread wordt voorkomen dat de taak starten en declareren van de aanvraag als geannuleerd.
+1. Annuleren taken momenteel worden uitgevoerd: als een annulering wordt gedetecteerd, terwijl een taak die momenteel wordt uitgevoerd, een annulering wordt geprobeerd binnen Hallo aspect van Hallo taak momenteel wordt uitgevoerd.  Bijvoorbeeld: als er een langdurige query die momenteel wordt uitgevoerd wanneer een annulering wordt uitgevoerd, zal er een poging toocancel Hallo-query.
+2. Nieuwe pogingen taak annuleren: als een annulering wordt gedetecteerd door Hallo besturingselement thread voordat een taak voor uitvoering wordt gestart, Hallo besturingselement threads wordt voorkomen Hallo taak starten en Hallo aanvraag declareren als geannuleerd.
 
-Als een taak annulering is aangevraagd voor een bovenliggende taak, wordt de annuleringsaanvraag gehonoreerd voor de bovenliggende taak en alle bijbehorende onderliggende taken.
+Als een taak annulering is aangevraagd voor een bovenliggende taak, wordt Hallo annuleringsverzoek ingewilligd voor Hallo bovenliggende taak en alle bijbehorende onderliggende taken.
 
-Gebruik hiervoor een annuleringsaanvraag indienen, de [ **cmdlet Stop AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) en stel de **JobExecutionId** parameter.
+toosubmit een annuleringsverzoek gebruiken Hallo [ **cmdlet Stop AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) en set Hallo **JobExecutionId** parameter.
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## <a name="to-delete-a-job-and-job-history-asynchronously"></a>Verwijderen van een taak en Taakgeschiedenis asynchroon
-Elastische taken van de Database biedt ondersteuning voor asynchrone verwijderen van jobs. Een taak kan worden gemarkeerd voor verwijdering en het systeem de taak en de taakgeschiedenis wordt verwijderd nadat alle uitvoeringen van de taak voor de taak hebt voltooid. Het systeem wordt niet automatisch uitvoeringen van de actieve taak geannuleerd.  
+## <a name="toodelete-a-job-and-job-history-asynchronously"></a>een taak toodelete en Taakgeschiedenis asynchroon
+Elastische taken van de Database biedt ondersteuning voor asynchrone verwijderen van jobs. Een taak kan worden gemarkeerd voor verwijdering en Hallo system Hallo taak en de taakgeschiedenis wordt verwijderd nadat alle taak uitvoeringen voor Hallo taak hebt voltooid. Hallo-systeem wordt niet automatisch uitvoeringen van de actieve taak geannuleerd.  
 
-Aanroepen [ **Stop AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) uitvoeringen van de actieve taak annuleren.
+Aanroepen [ **Stop AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) toocancel actieve taak uitvoeringen.
 
-Gebruiken om te verwijderen van een taak activeren, de [ **cmdlet Remove-AzureSqlJob** ](/powershell/module/elasticdatabasejobs/remove-azuresqljob) en stel de **JobName** parameter.
+tootrigger taak verwijderen, gebruik Hallo [ **cmdlet Remove-AzureSqlJob** ](/powershell/module/elasticdatabasejobs/remove-azuresqljob) en set Hallo **JobName** parameter.
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
 
-## <a name="to-create-a-custom-database-target"></a>Om het doel van een aangepaste database te maken
-U kunt aangepaste database doelen voor directe uitvoering of voor insluiting in een aangepaste database wilt definiëren. Bijvoorbeeld, omdat **elastische pools** zijn nog niet rechtstreeks ondersteund met behulp van PowerShell APIs, kunt u een aangepaste database doel en de aangepaste database verzameling target dit alle databases in de pool omvat.
+## <a name="toocreate-a-custom-database-target"></a>het doel van een aangepaste database toocreate
+U kunt aangepaste database doelen voor directe uitvoering of voor insluiting in een aangepaste database wilt definiëren. Bijvoorbeeld, omdat **elastische pools** zijn nog niet rechtstreeks ondersteund met behulp van PowerShell APIs, kunt u een aangepaste database doel en de aangepaste database verzameling doel op die alle Hallo-databases in de groep Hallo omvat.
 
-De volgende variabelen in overeenstemming met de gewenste databasegegevens instellen:
+Hallo variabelen tooreflect Hallo gewenst databasegegevens volgende instellen:
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
-## <a name="to-create-a-custom-database-collection-target"></a>Om een doel van de verzameling aangepaste database te maken
-Gebruik de [ **nieuw AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet voor het definiëren van een doel van de verzameling aangepaste database zodat kan worden uitgevoerd via meerdere gedefinieerde database doelen. Na het maken van een databasegroep, kunnen de databases worden gekoppeld aan het doel van de aangepaste verzameling.
+## <a name="toocreate-a-custom-database-collection-target"></a>een verzameling aangepaste database doel toocreate
+Gebruik Hallo [ **nieuw AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet toodefine een aangepaste database verzameling doel tooenable uitvoering tussen meerdere gedefinieerde database doelen. Na het maken van een databasegroep, kunnen de databases worden gekoppeld aan Hallo aangepaste verzameling doel.
 
-Stel de volgende variabelen in overeenstemming met de configuratie van de gewenste aangepaste verzameling doel:
+Stel Hallo variabelen tooreflect Hallo gewenste aangepaste verzameling doelconfiguratie te volgen:
 
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
-### <a name="to-add-databases-to-a-custom-database-collection-target"></a>Databases toevoegen aan een doel van de verzameling aangepaste database
-Een database toevoegen aan een specifieke aangepaste verzameling gebruik de [ **toevoegen AzureSqlJobChildTarget** ](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget) cmdlet.
+### <a name="tooadd-databases-tooa-custom-database-collection-target"></a>tooadd databases tooa aangepaste database verzameling doel
+een database tooa specifieke aangepaste verzameling tooadd gebruiken Hallo [ **toevoegen AzureSqlJobChildTarget** ](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget) cmdlet.
 
     $databaseServerName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
-#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Bekijk de databases binnen een verzameling aangepaste database doel
-Gebruik de [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet voor het ophalen van de onderliggende databases binnen een doel van de verzameling aangepaste database. 
+#### <a name="review-hello-databases-within-a-custom-database-collection-target"></a>Hallo-databases binnen een doel van de verzameling aangepaste database controleren
+Gebruik Hallo [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet tooretrieve Hallo onderliggende databases binnen een doel van de verzameling aangepaste database. 
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
     Write-Output $childTargets
 
-### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Een taak voor het uitvoeren van een script voor een doel van de verzameling aangepaste database maken
-Gebruik de [ **nieuw AzureSqlJob** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) cmdlet een taak op basis van een groep met databases die zijn gedefinieerd door een doel van de verzameling aangepaste database te maken. Elastische taken van de Database wordt de taak uitbreiden naar meerdere onderliggende taken elke overeenkomt met een database die is gekoppeld aan het doel van de verzameling aangepaste database en zorg ervoor dat het script wordt uitgevoerd tegen elke database. Ook is het belangrijk dat scripts idempotent zijn flexibel omgaan met nieuwe pogingen worden.
+### <a name="create-a-job-tooexecute-a-script-across-a-custom-database-collection-target"></a>Een taak tooexecute van een script voor een doel van de verzameling aangepaste database maken
+Gebruik Hallo [ **nieuw AzureSqlJob** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) cmdlet toocreate een taak op basis van een groep met databases die zijn gedefinieerd door een doel van de verzameling aangepaste database. Elastische taken van de Database wordt Hallo taak uitbreiden naar meerdere onderliggende taken elke overeenkomstige tooa-database die is gekoppeld aan Hallo aangepaste database verzameling doel en zorg ervoor dat Hallo script wordt uitgevoerd tegen elke database. Ook is het belangrijk dat scripts idempotent toobe robuuste tooretries zijn.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -523,13 +523,13 @@ Gebruik de [ **nieuw AzureSqlJob** ](/powershell/module/elasticdatabasejobs/new-
     Write-Output $job
 
 ## <a name="data-collection-across-databases"></a>Gegevens verzamelen over databases
-Een taak kunt u een query uitvoeren in een groep van databases en de resultaten naar een specifieke tabel verzenden. De tabel kan worden opgevraagd achteraf om te zien van het queryresultaat van elke database. Dit biedt een asynchrone methode voor het uitvoeren van een query tussen meerdere databases. Mislukte pogingen worden automatisch verwerkt via de nieuwe pogingen.
+U kunt een taak tooexecute een query gebruiken in een groep met databases en Hallo resultaten tooa specifieke tabel verzenden. Hallo tabel kan worden opgevraagd na Hallo feit toosee Hallo queryresultaat van elke database. Dit biedt een asynchrone methode tooexecute een query tussen meerdere databases. Mislukte pogingen worden automatisch verwerkt via de nieuwe pogingen.
 
-De opgegeven doeltabel wordt automatisch gemaakt als deze nog niet bestaat. De nieuwe tabel komt overeen met het schema van de geretourneerde resultatenset. Als meerdere resultatensets worden geretourneerd door een script, wordt taken voor elastische Database alleen het eerste verzonden naar de doeltabel.
+de opgegeven doeltabel Hallo worden automatisch gemaakt als deze nog niet bestaat. de nieuwe tabel Hallo komt overeen met schema Hallo Hallo heeft een resultatenset geretourneerd. Als meerdere resultatensets worden geretourneerd door een script, verzendt elastische Database taken alleen Hallo eerste toohello doeltabel.
 
-De volgende PowerShell-script een script wordt uitgevoerd en de resultaten in een opgegeven tabel verzamelt. Dit script wordt ervan uitgegaan dat een T-SQL-script is gemaakt waarmee een enkelvoudig resultaat wordt verkregen set levert en dat er een doel van de verzameling aangepaste database is gemaakt.
+Hallo volgende PowerShell-script een script wordt uitgevoerd en verzamelt de resultaten in een opgegeven tabel. Dit script wordt ervan uitgegaan dat een T-SQL-script is gemaakt waarmee een enkelvoudig resultaat wordt verkregen set levert en dat er een doel van de verzameling aangepaste database is gemaakt.
 
-Dit script maakt gebruik van de [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet. Stel de parameters voor het script, referenties en uitvoering van doel:
+Dit script maakt gebruik van Hallo [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet. Hallo parameters instellen voor script, referenties en uitvoering van doel:
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -542,8 +542,8 @@ Dit script maakt gebruik van de [ **Get-AzureSqlJobTarget** ](/powershell/module
     $destinationTableName = "{Destination Table Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-### <a name="to-create-and-start-a-job-for-data-collection-scenarios"></a>Maken en start een taak voor scenario's voor het verzamelen van gegevens
-Dit script maakt gebruik van de [ **Start AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution) cmdlet.
+### <a name="toocreate-and-start-a-job-for-data-collection-scenarios"></a>toocreate en start een taak voor scenario's voor het verzamelen van gegevens
+Dit script maakt gebruik van Hallo [ **Start AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution) cmdlet.
 
     $job = New-AzureSqlJob -JobName $jobName 
     -CredentialName $executionCredentialName 
@@ -558,8 +558,8 @@ Dit script maakt gebruik van de [ **Start AzureSqlJobExecution** ](/powershell/m
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
 
-## <a name="to-schedule-a-job-execution-trigger"></a>Een taak uitvoeren trigger plannen
-De volgende PowerShell-script kan worden gebruikt voor het maken van een terugkerend schema. Dit script maakt gebruik van een minuut interval maar [ **nieuw AzureSqlJobSchedule** ](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) biedt ook ondersteuning voor parameters - DayInterval, - HourInterval, - MonthInterval, en -WeekInterval. Schema's die slechts één keer worden uitgevoerd, kunnen worden gemaakt door doorgeven - eenmalige.
+## <a name="tooschedule-a-job-execution-trigger"></a>een taak uitvoeren trigger tooschedule
+Hallo volgende PowerShell-script kan worden gebruikt toocreate een terugkerend schema. Dit script maakt gebruik van een minuut interval maar [ **nieuw AzureSqlJobSchedule** ](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) biedt ook ondersteuning voor parameters - DayInterval, - HourInterval, - MonthInterval, en -WeekInterval. Schema's die slechts één keer worden uitgevoerd, kunnen worden gemaakt door doorgeven - eenmalige.
 
 Maak een nieuwe planning:
 
@@ -572,10 +572,10 @@ Maak een nieuwe planning:
     -StartTime $startTime 
     Write-Output $schedule
 
-### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>Om een taak uitgevoerd op een tijdschema te activeren
-Een trigger voor de taak kan worden gedefinieerd als een taak uitgevoerd volgens een tijdschema hebben. De volgende PowerShell-script kan worden gebruikt voor het maken van een trigger taak.
+### <a name="tootrigger-a-job-executed-on-a-time-schedule"></a>een taak uitgevoerd op een tijdschema tootrigger
+Een trigger voor de taak kan worden gedefinieerd toohave uitgevoerd volgens tooa tijdschema van een taak. Hallo volgende PowerShell-script kan worden gebruikt toocreate een trigger taak.
 
-Gebruik [nieuw AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) en stel de volgende variabelen in overeenstemming met de gewenste taak en planning:
+Gebruik [nieuw AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) en set Hallo variabelen toocorrespond toohello gewenste taak en planning:
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -584,8 +584,8 @@ Gebruik [nieuw AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-az
     -JobName $jobName
     Write-Output $jobTrigger
 
-### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Verwijderen van een associatie met geplande taak wordt uitgevoerd volgens schema stoppen
-Als u wilt stoppen met het uitvoeren van terugkerende taak via een trigger taak, kan de trigger taak worden verwijderd. Verwijderen van een trigger taak om te stoppen van een taak uit te voeren volgens een schema met de [ **cmdlet Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger).
+### <a name="tooremove-a-scheduled-association-toostop-job-from-executing-on-schedule"></a>tooremove een geplande koppeling toostop taak wordt uitgevoerd volgens schema
+toodiscontinue taakuitvoering via een taak worden geactiveerd, Hallo taak trigger opnieuw optreedt, kan worden verwijderd. Verwijderen van een taak trigger toostop een taak uit te voeren volgens tooa schema met behulp van Hallo [ **cmdlet Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger).
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -593,38 +593,38 @@ Als u wilt stoppen met het uitvoeren van terugkerende taak via een trigger taak,
     -ScheduleName $scheduleName 
     -JobName $jobName
 
-### <a name="retrieve-job-triggers-bound-to-a-time-schedule"></a>Taak triggers die zijn gebonden aan een tijdschema ophalen
-De volgende PowerShell-script kan worden gebruikt om te verkrijgen en weergeven van de taak triggers geregistreerd voor een bepaald tijdschema.
+### <a name="retrieve-job-triggers-bound-tooa-time-schedule"></a>Triggers gebonden tooa tijd taakschema ophalen
+Hallo volgende PowerShell-script kan worden gebruikt tooobtain en Hallo taak triggers geregistreerde tooa bepaald tijdschema weergeven.
 
     $scheduleName = "{Schedule Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -ScheduleName $scheduleName
     Write-Output $jobTriggers
 
-### <a name="to-retrieve-job-triggers-bound-to-a-job"></a>Voor het ophalen van de taak triggers die is gebonden aan een taak
-Gebruik [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) verkrijgen en schema's met een geregistreerde taak weergegeven.
+### <a name="tooretrieve-job-triggers-bound-tooa-job"></a>tooretrieve taak triggers gebonden tooa taak
+Gebruik [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) tooobtain en weergave van schema's met een geregistreerde taak.
 
     $jobName = "{Job Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
     Write-Output $jobTriggers
 
-## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>Maken van een toepassing-gegevenslaagtoepassingen (DACPAC) voor uitvoering voor databases
-Zie het maken van een DACPAC [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). Gebruik voor het implementeren van een DACPAC de [cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). De DACPAC moet toegankelijk zijn voor de service. Het beste een gemaakte DACPAC uploaden naar Azure Storage en maak een [Shared Access Signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md) voor de DACPAC.
+## <a name="toocreate-a-data-tier-application-dacpac-for-execution-across-databases"></a>een toepassing-gegevenslaagtoepassingen (DACPAC) voor uitvoering tussen databases toocreate
+Zie een DACPAC toocreate [Data-Tier applications](https://msdn.microsoft.com/library/ee210546.aspx). een DACPAC toodeploy gebruiken Hallo [cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). Hallo DACPAC moet toegankelijk toohello service. Het is aanbevolen tooupload een gemaakte DACPAC tooAzure opslag en maak een [Shared Access Signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md) voor Hallo DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
     $dacpac = New-AzureSqlJobContent -DacpacUri $dacpacUri -ContentName $dacpacName 
     Write-Output $dacpac
 
-### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>Een toepassing-gegevenslaagtoepassingen (DACPAC) voor uitvoering tussen databases bijwerken
-Bestaande DACPACs geregistreerd binnen een elastische Database taken kunnen worden bijgewerkt om te verwijzen naar een nieuwe URI's. Gebruik de [ **cmdlet Set-AzureSqlJobContentDefinition** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) geregistreerd DACPAC de DACPAC-URI op een bestaande bijwerken:
+### <a name="tooupdate-a-data-tier-application-dacpac-for-execution-across-databases"></a>een toepassing-gegevenslaagtoepassingen (DACPAC) voor uitvoering tussen databases tooupdate
+Bestaande DACPACs geregistreerd binnen een elastische Database taken kunnen worden bijgewerkt toopoint toonew URI's. Gebruik Hallo [ **cmdlet Set-AzureSqlJobContentDefinition** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) tooupdate hello DACPAC URI op een bestaande DACPAC geregistreerd:
 
     $dacpacName = "{Dacpac Name}"
     $newDacpacUri = "{Uri}"
     $updatedDacpac = Set-AzureSqlJobDacpacDefinition -ContentName $dacpacName -DacpacUri $newDacpacUri
     Write-Output $updatedDacpac
 
-## <a name="to-create-a-job-to-apply-a-data-tier-application-dacpac-across-databases"></a>Een taak voor het toepassen van een toepassing-gegevenslaagtoepassingen (DACPAC) voor databases te maken
-Nadat een DACPAC binnen elastische taken van de Database is gemaakt, kunt u een taak gemaakt voor het toepassen van de DACPAC voor een groep met databases. De volgende PowerShell-script kan worden gebruikt voor het maken van een taak DACPAC via een aangepaste verzameling van databases:
+## <a name="toocreate-a-job-tooapply-a-data-tier-application-dacpac-across-databases"></a>een taak tooapply een toepassing-gegevenslaagtoepassingen (DACPAC) voor databases toocreate
+Nadat een DACPAC binnen elastische taken van de Database is gemaakt, kan een taak kan tooapply hello DACPAC in een groep met databases worden gemaakt. Hallo volgende PowerShell-script kan gebruikte toocreate een taak DACPAC via een aangepaste verzameling van databases zijn:
 
     $jobName = "{Job Name}"
     $dacpacName = "{Dacpac Name}"

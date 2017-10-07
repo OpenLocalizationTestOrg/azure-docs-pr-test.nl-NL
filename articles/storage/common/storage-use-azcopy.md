@@ -1,6 +1,6 @@
 ---
-title: "Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy in Windows | Microsoft Docs"
-description: "De AzCopy op Windows-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens of naar blob, table en de inhoud van bestand. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage."
+title: aaaCopy of verplaats gegevens tooAzure opslag met AzCopy in Windows | Microsoft Docs
+description: "Hallo AzCopy gebruiken op Windows-hulpprogramma toomove of een kopie van gegevens tooor van blob, table en de inhoud van bestand. Kopiëren van gegevens tooAzure opslag van lokale bestanden of kopiëren van gegevens binnen of tussen opslagaccounts. Eenvoudig uw gegevens tooAzure opslag migreren."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 9806697747b2409d4bd0ae19dc0b9fe01f500dc0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a063a0380b7b8e6b212d0cec276f7d0f421936ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevensoverdracht met het AzCopy in Windows
-AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens naar en van Microsoft Azure Blob-, bestands- en tabel opslag met behulp van eenvoudige opdrachten met optimale prestaties. U kunt gegevens van het ene object naar de andere kopiëren binnen uw opslagaccount of tussen opslagaccounts.
+# <a name="transfer-data-with-hello-azcopy-on-windows"></a>Gegevensoverdracht met Hallo AzCopy in Windows
+AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens tooand van Microsoft Azure Blob-, bestands- en tabel opslag met behulp van eenvoudige opdrachten met optimale prestaties. U kunt gegevens kopiëren van een object tooanother binnen uw opslagaccount of tussen opslagaccounts.
 
 Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Windows is gebouwd met .NET Framework en Windows-stijl biedt opdrachtregelopties. [AzCopy op Linux](storage-use-azcopy-linux.md) is gebouwd met .NET Core Framework die gericht is op Linux-platforms biedt POSIX-stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Windows.
 
 ## <a name="download-and-install-azcopy"></a>Downloaden en installeren van AzCopy
 ### <a name="azcopy-on-windows"></a>AzCopy in Windows
-Download de [meest recente versie van AzCopy op Windows](http://aka.ms/downloadazcopy).
+Hallo downloaden [meest recente versie van AzCopy op Windows](http://aka.ms/downloadazcopy).
 
 #### <a name="installation-on-windows"></a>Installatie op Windows
-Na de installatie van AzCopy op Windows met behulp van het installatieprogramma, open een opdrachtvenster en navigeer naar de installatiemap van AzCopy op uw computer - waar de `AzCopy.exe` uitvoerbare bestand zich bevindt. Indien gewenst, kunt u de installatielocatie van AzCopy toevoegen aan het systeempad. AzCopy is standaard geïnstalleerd te `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` of `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+Na de installatie van AzCopy op Windows installer hello gebruiken, open een opdrachtvenster en navigeer toohello AzCopy-installatiemap op uw computer - waar hello `AzCopy.exe` uitvoerbare bestand zich bevindt. Indien gewenst, kunt u Hallo AzCopy locatie tooyour system installatiepad kunt toevoegen. AzCopy is standaard te`%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` of `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## <a name="writing-your-first-azcopy-command"></a>Schrijven van uw eerste AzCopy-opdracht
-De algemene syntaxis voor opdrachten van AzCopy is:
+Hallo basic syntaxis voor opdrachten van AzCopy is:
 
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-De volgende voorbeelden ziet een aantal scenario's voor het kopiëren van gegevens naar en van Microsoft Azure Blobs, bestanden en tabellen. Raadpleeg de [AzCopy Parameters](#azcopy-parameters) sectie voor een gedetailleerde beschrijving van de parameters in elk voorbeeld gebruikt.
+Hallo volgen voorbeelden laten zien dat verschillende scenario's voor het kopiëren van gegevens tooand van Microsoft Azure Blobs, bestanden en tabellen. Raadpleeg toohello [AzCopy Parameters](#azcopy-parameters) sectie voor een gedetailleerde beschrijving van het Hallo-parameters die worden gebruikt in elk voorbeeld.
 
 ## <a name="blob-download"></a>BLOB: downloaden
 ### <a name="download-single-blob"></a>Enkele blobs downloaden
@@ -48,7 +48,7 @@ De volgende voorbeelden ziet een aantal scenario's voor het kopiëren van gegeve
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Houd er rekening mee dat als de map `C:\myfolder` niet bestaat, AzCopy maakt het en downloaden `abc.txt ` naar de nieuwe map.
+Houd er rekening mee dat als Hallo map `C:\myfolder` niet bestaat, AzCopy maakt het en downloaden `abc.txt ` in Hallo nieuwe map.
 
 ### <a name="download-single-blob-from-secondary-region"></a>Downloaden van één blob van de secundaire regio
 
@@ -64,7 +64,7 @@ Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingesch
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 ```
 
-Stel dat de volgende BLOB's zich bevinden in de opgegeven container:  
+Wordt ervan uitgegaan dat de volgende Hallo BLOB's zich bevinden in de opgegeven container Hallo:  
 
     abc.txt
     abc1.txt
@@ -72,7 +72,7 @@ Stel dat de volgende BLOB's zich bevinden in de opgegeven container:
     vd1\a.txt
     vd1\abcd.txt
 
-Na het opnieuw downloaden, de map `C:\myfolder` bevat de volgende bestanden:
+Na de bewerking van de download hello, Hallo directory `C:\myfolder` omvat Hallo volgende bestanden:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -88,7 +88,7 @@ Als u geen optie opgeeft `/S`, geen blobs worden gedownload.
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
 ```
 
-Stel dat de volgende BLOB's zich bevinden in de opgegeven container. Alle blobs die beginnen met het voorvoegsel `a` worden gedownload:
+Wordt ervan uitgegaan dat de volgende Hallo BLOB's zich bevinden in de opgegeven container Hallo. Alle blobs vanaf Hallo voorvoegsel `a` worden gedownload:
 
     abc.txt
     abc1.txt
@@ -97,27 +97,27 @@ Stel dat de volgende BLOB's zich bevinden in de opgegeven container. Alle blobs 
     vd1\a.txt
     vd1\abcd.txt
 
-Na het opnieuw downloaden, de map `C:\myfolder` bevat de volgende bestanden:
+Na de bewerking van de download hello, Hallo map `C:\myfolder` bevat Hallo volgende bestanden:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Het voorvoegsel is van toepassing op de virtuele map die het eerste deel van de blob-naam. In het bovenstaande voorbeeld de virtuele map komt niet overeen met het opgegeven voorvoegsel, zodat deze niet is gedownload. Bovendien, als de optie `\S` niet is opgegeven, AzCopy biedt niet alle blobs downloaden.
+Hallo-voorvoegsel is van toepassing toohello virtuele map, die Hallo eerste deel van Hallo blob-naam uitmaakt. In het bovenstaande voorbeeld hello, Hallo virtuele map komt niet overeen met het opgegeven voorvoegsel hello, zodat deze niet is gedownload. Bovendien, als hello optie `\S` niet is opgegeven, AzCopy biedt niet alle blobs downloaden.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>De tijd laatste wijziging van de geëxporteerde bestanden moet hetzelfde zijn als de bron-blobs instellen
+### <a name="set-hello-last-modified-time-of-exported-files-toobe-same-as-hello-source-blobs"></a>Hallo tijd laatste wijziging van de geëxporteerde bestanden toobe instellen hetzelfde als de bron blobs Hallo
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
 ```
 
-U kunt ook BLOB's uitsluiten van de downloadbewerking op basis van hun tijd voor het laatst is gewijzigd. Bijvoorbeeld, als u wilt uitsluiten waarvan laatst gewijzigd om blobs is dezelfde of nieuwer is dan het doelbestand toevoegen de `/XN` optie:
+U kunt ook BLOB's uitsluiten van Hallo downloaden van de bewerking op basis van hun tijd voor het laatst is gewijzigd. Bijvoorbeeld, als u tooexclude blobs waarvan laatst gewijzigd-tijd Hallo dezelfde of een nieuwer is dan het doelbestand hello wilt is, toevoegen Hallo `/XN` optie:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 ```
 
-Of als u wilt uitsluiten van blobs waarvan laatst gewijzigd om de dezelfde of een ouder is dan het doelbestand toevoegen de `/XO` optie:
+Of als u tooexclude blobs waarvan laatst gewijzigd-tijd Hallo dezelfde of een ouder is dan het doelbestand hello wilt is, toe te voegen Hallo `/XO` optie:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
@@ -130,15 +130,15 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 ```
 
-Als de opgegeven bestemming-container niet bestaat, wordt AzCopy maakt en uploadt het bestand in de App.
+Als Hallo opgegeven bestemmingscontainer niet bestaat, AzCopy wordt deze gemaakt en uploads Hallo bestand in de App.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Bestand uploaden naar virtuele map
+### <a name="upload-single-file-toovirtual-directory"></a>Enkel bestand toovirtual directory uploaden
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-Als de opgegeven virtuele map niet bestaat, AzCopy uploadt het bestand in de naam van de virtuele map (*bijvoorbeeld*, `vd/abc.txt` in het bovenstaande voorbeeld).
+Als Hallo virtuele map bestaat niet opgegeven, AzCopy uploadt Hallo bestand tooinclude Hallo virtuele map in de naam (*bijvoorbeeld*, `vd/abc.txt` in bovenstaande Hallo voorbeeld).
 
 ### <a name="upload-all-files"></a>Alle bestanden uploaden
 
@@ -146,7 +146,7 @@ Als de opgegeven virtuele map niet bestaat, AzCopy uploadt het bestand in de naa
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 ```
 
-Optie `/S` wordt de inhoud van de opgegeven map geüpload naar Blob storage recursief, wat betekent dat alle submappen en de bestanden ook worden geüpload. Bijvoorbeeld, wordt ervan uitgegaan dat de volgende bestanden bevinden zich in map `C:\myfolder`:
+Optie `/S` uploads Hallo inhoud Hallo opgegeven directory tooBlob opslag recursief, wat betekent dat alle submappen en de bestanden ook worden geüpload. Voor het exemplaar wordt ervan uitgegaan dat de volgende Hallo bestanden bevinden zich in map `C:\myfolder`:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -154,7 +154,7 @@ Optie `/S` wordt de inhoud van de opgegeven map geüpload naar Blob storage recu
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-Nadat de uploadbewerking van bevat de container de volgende bestanden:
+Na het Hallo-uploadbewerking bevat Hallo container Hallo volgende bestanden:
 
     abc.txt
     abc1.txt
@@ -162,7 +162,7 @@ Nadat de uploadbewerking van bevat de container de volgende bestanden:
     subfolder\a.txt
     subfolder\abcd.txt
 
-Als u geen optie opgeeft `/S`, AzCopy biedt recursief niet uploaden. Nadat de uploadbewerking van bevat de container de volgende bestanden:
+Als u geen optie opgeeft `/S`, AzCopy biedt recursief niet uploaden. Na het Hallo-uploadbewerking bevat Hallo container Hallo volgende bestanden:
 
     abc.txt
     abc1.txt
@@ -174,7 +174,7 @@ Als u geen optie opgeeft `/S`, AzCopy biedt recursief niet uploaden. Nadat de up
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 ```
 
-Wordt ervan uitgegaan dat de volgende bestanden bevinden zich in map `C:\myfolder`:
+Wordt ervan uitgegaan dat de volgende Hallo bestanden bevinden zich in map `C:\myfolder`:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -183,7 +183,7 @@ Wordt ervan uitgegaan dat de volgende bestanden bevinden zich in map `C:\myfolde
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-Nadat de uploadbewerking van bevat de container de volgende bestanden:
+Na het Hallo-uploadbewerking bevat Hallo container Hallo volgende bestanden:
 
     abc.txt
     abc1.txt
@@ -197,14 +197,14 @@ Als u geen optie opgeeft `/S`, AzCopy uploadt alleen blobs die zich niet in een 
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Geef het MIME-inhoudstype van een bestemmings-blob
-AzCopy wordt standaard ingesteld van het type inhoud van een bestemmings-blob naar `application/octet-stream`. Vanaf versie 3.1.0, kunt u expliciet opgeven het inhoudstype via de optie `/SetContentType:[content-type]`. Deze syntaxis wordt het type inhoud voor alle blobs in een uploadbewerking.
+### <a name="specify-hello-mime-content-type-of-a-destination-blob"></a>Geef Hallo MIME-inhoudstype van een bestemmings-blob
+Standaard stelt AzCopy Hallo-inhoudstype van een bestemmings-blob te`application/octet-stream`. Vanaf versie 3.1.0, kunt u expliciet opgeven Hallo inhoudstype via Hallo-optie `/SetContentType:[content-type]`. Deze syntaxis wordt Hallo inhoudstype voor alle blobs in een uploadbewerking.
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
 ```
 
-Als u opgeeft `/SetContentType` zonder een waarde ingesteld AzCopy elke blob of inhoudstype volgens de bestandsextensie van het bestand.
+Als u opgeeft `/SetContentType` zonder een waarde ingesteld AzCopy elke blob of inhoudstype van het bestand volgens tooits bestandsextensie.
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
@@ -227,7 +227,7 @@ AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:ht
 
 Wanneer u een blob tussen opslagaccounts kopieert, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
-### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Kopiëren van één blob van de secundaire regio naar primaire regio
+### <a name="copy-single-blob-from-secondary-region-tooprimary-region"></a>Één blob kopiëren van de secundaire regio tooprimary regio
 
 ```azcopy
 AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
@@ -241,22 +241,22 @@ Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingesch
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 ```
 
-Na de kopieerbewerking omvat de doelcontainer de blob en bijbehorende momentopnamen. Ervan uitgaande dat de blob in het bovenstaande voorbeeld heeft twee momentopnamen, bevat de container de volgende blob en momentopnamen:
+Na de kopieerbewerking hello omvat doelcontainer Hallo Hallo blob en het bijbehorende momentopnamen. Ervan uitgaande dat Hallo blob in bovenstaande Hallo voorbeeld heeft twee momentopnamen, Hallo container bevat Hallo volgende blob en momentopnamen:
 
     abc.txt
     abc (2013-02-25 080757).txt
     abc (2014-02-21 150331).txt
 
 ### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Synchroon kopiëren van BLOB's tussen opslagaccounts
-AzCopy standaard worden de gegevens tussen de twee eindpunten voor opslag asynchroon gekopieerd. Daarom de kopieerbewerking wordt uitgevoerd in de achtergrond met behulp van ongebruikte bandbreedtecapaciteit die geen SLA in termen van hoe u snel heeft een blob wordt gekopieerd en AzCopy controleert periodiek de status van het exemplaar totdat het kopiëren is voltooid of mislukt.
+AzCopy standaard worden de gegevens tussen de twee eindpunten voor opslag asynchroon gekopieerd. Daarom Hallo kopie-bewerking wordt uitgevoerd op Hallo achtergrond met behulp van ongebruikte bandbreedtecapaciteit die geen SLA in termen van hoe snel een blob heeft wordt gekopieerd en AzCopy controleert periodiek Hallo kopiestatus totdat Hallo kopiëren is voltooid of mislukt.
 
-De `/SyncCopy` optie zorgt ervoor dat de kopieerbewerking consistente snelheid opgehaald. AzCopy voert de synchrone kopie door te downloaden van de blobs kopiëren vanuit de opgegeven bron naar lokaal geheugen en vervolgens uploaden naar de bestemming van Blob-opslag.
+Hallo `/SyncCopy` optie zorgt ervoor dat de kopieerbewerking Hallo consistente snelheid opgehaald. AzCopy voert synchrone kopie Hallo Hallo blobs downloaden toocopy van Hallo opgegeven bron toolocal geheugen en uploadt deze toohello Blob-opslaglocatie.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy`kan extra uitgaande kosten vergeleken met de asynchrone kopiëren, de aanbevolen aanpak is deze optie wilt gebruiken in een Azure-virtuele machine die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+`/SyncCopy`Als u meer uitgaande kosten vergeleken tooasynchronous kopiëren, hello mogelijk gegenereerd aanbevolen benadering toouse is deze optie in een Azure VM in Hallo dezelfde regio bevinden als uw gegevensbron account tooavoid uitgaande opslagkosten.
 
 ## <a name="file-download"></a>Bestand: downloaden
 ### <a name="download-single-file"></a>Enkel bestand downloaden
@@ -265,7 +265,7 @@ AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-Als de opgegeven bron een Azure-bestandsshare is en vervolgens moet u de exacte bestandsnaam opgeven (*bijvoorbeeld* `abc.txt`) moeten worden gedownload van één bestand of de optie `/S` om alle bestanden in de share recursief te downloaden. Poging een patroon en de optie opgeven `/S` samen resulteert in een fout opgetreden.
+Als Hallo bron is een Azure-bestandsshare opgegeven, moet u de exacte bestandsnaam hello, opgeven (*bijvoorbeeld* `abc.txt`) toodownload één bestand of de optie `/S` toodownload alle bestanden in de share Hallo recursief. Toospecify poging een patroon en de optie `/S` samen resulteert in een fout opgetreden.
 
 ### <a name="download-all-files"></a>Alle bestanden downloaden
 
@@ -304,31 +304,31 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 Wanneer u een bestand via bestandsshares kopiëren, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
-### <a name="copy-from-file-share-to-blob"></a>Kopiëren van de bestandsshare naar de blob
+### <a name="copy-from-file-share-tooblob"></a>Kopiëren van bestandsshare tooblob
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Wanneer u een bestand vanuit de bestandsshare kopiëren naar de blob, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand vanuit bestandsshare tooblob kopiëren, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 
-### <a name="copy-from-blob-to-file-share"></a>Kopiëren van blob naar de bestandsshare
+### <a name="copy-from-blob-toofile-share"></a>Kopiëren van blob toofile share
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Wanneer u een bestand van blob naar de bestandsshare kopiëren, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van blob toofile share kopiëren, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="synchronously-copy-files"></a>Synchroon bestanden kopiëren
-U kunt opgeven de `/SyncCopy` optie om gegevens te kopiëren van File Storage tot bestandsopslag, uit de opslag van bestanden naar Blob Storage en Blob Storage tot bestandsopslag synchroon, AzCopy doet dit door het downloaden van de brongegevens naar lokaal geheugen en opnieuw uploaden naar de bestemming. Standaard uitgaande kosten worden toegepast.
+U kunt opgeven dat Hallo `/SyncCopy` optie toocopy gegevens van File Storage tooFile opslag van File Storage tooBlob opslag en van Blob Storage tooFile opslag synchroon, AzCopy doet dit door Hallo bron gegevens toolocal geheugen downloaden en te uploaden opnieuw toodestination. Standaard uitgaande kosten worden toegepast.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 ```
 
-Bij het kopiëren van de opslag van bestanden naar Blob Storage, de standaard blob-type blok-blob is, optie kunt u opgeven `/BlobType:page` blob doeltype wijzigen.
+Bij het kopiëren van File Storage tooBlob opslag, Hallo standaard blob-type blok-blob is, optie kunt u opgeven `/BlobType:page` toochange Hallo doeltype blob.
 
-Houd er rekening mee dat `/SyncCopy` kan extra uitgaande kosten vergelijken met het asynchrone kopiëren, de aanbevolen aanpak is deze optie wilt gebruiken in de Azure-virtuele machine die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+Houd er rekening mee dat `/SyncCopy` kan extra uitgaande kosten vergelijken tooasynchronous kopiëren, Hallo aanbevolen aanpak is deze optie in Azure VM is in Hallo Hallo toouse dezelfde regio bevinden als uw gegevensbron account tooavoid uitgaande opslagkosten.
 
 ## <a name="table-export"></a>Tabel: exporteren
 ### <a name="export-table"></a>Tabel exporteren
@@ -337,11 +337,11 @@ Houd er rekening mee dat `/SyncCopy` kan extra uitgaande kosten vergelijken met 
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 ```
 
-Een manifestbestand schrijft AzCopy naar de opgegeven doelmap. Het manifestbestand is gebruikt in het importproces voor de gegevens die nodig zijn bestanden vinden en voer gegevensvalidatie. Het manifestbestand maakt standaard gebruik van de volgende naamconventie:
+AzCopy schrijft een doelmap manifestbestand toohello opgegeven. Hallo-manifestbestand wordt gebruikt in Hallo importeren proces toolocate Hallo gegevens die nodig zijn bestanden en gegevensvalidatie is uitgevoerd. Hallo-manifestbestand Hallo naamconventie volgen standaard gebruikt:
 
     <account name>_<table name>_<timestamp>.manifest
 
-Gebruiker kan ook de optie opgeven `/Manifest:<manifest file name>` kunt u de naam van het manifestbestand instellen.
+Gebruiker kan ook Hallo optie opgeven `/Manifest:<manifest file name>` tooset Hallo manifestbestand naam.
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
@@ -353,25 +353,25 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-AzCopy gebruikt een *volume index* in de bestandsnamen van de gesplitste gegevens te onderscheiden van meerdere bestanden. De index van het volume bestaat uit twee delen: een *partitie sleutel bereikindex* en een *gesplitste bestandsindex*. Beide indexen zijn gebaseerd op nul.
+AzCopy gebruikt een *volume index* in Hallo gegevens splitsen bestandsnamen toodistinguish meerdere bestanden. Hallo volume index bestaat uit twee delen: een *partitie sleutel bereikindex* en een *gesplitste bestandsindex*. Beide indexen zijn gebaseerd op nul.
 
-Het partitioneren van index sleutel bereik is 0 als de gebruiker geen optie geeft `/PKRS`.
+Hallo partitioneren van index sleutel bereik is 0 als Hallo gebruiker geen optie geeft `/PKRS`.
 
-Stel bijvoorbeeld twee gegevensbestanden van AzCopy wordt gegenereerd nadat de gebruiker Hiermee kunt u de optie `/SplitSize`. De resulterende bestandsnamen van gegevens is mogelijk:
+Stel AzCopy genereert twee gegevensbestanden nadat Hallo gebruiker Hiermee kunt u de optie `/SplitSize`. Hallo resulterende bestandsnamen gegevens mogelijk:
 
     myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
     myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-Let op: de minimale mogelijke waarde voor de optie `/SplitSize` is 32 MB. Als de opgegeven bestemming is Blob-opslag, AzCopy het gegevensbestand splitst zodra de grootte bereikt de blob-groottebeperkingen (200GB), ongeacht of optie `/SplitSize` is opgegeven door de gebruiker.
+Houd er rekening mee dat Hallo mogelijke minimumwaarde voor de optie `/SplitSize` is 32 MB. Als Hallo opgegeven bestemming is Blob-opslag, AzCopy Hallo gegevensbestand splitst zodra de grootte bereikt Hallo blob de maximale grootte (200GB), ongeacht of optie `/SplitSize` is opgegeven door de gebruiker Hallo.
 
-### <a name="export-table-to-json-or-csv-data-file-format"></a>De tabel exporteren naar JSON- of CSV-bestandsindeling voor gegevens
-AzCopy standaard exporteert tabellen naar JSON-gegevensbestanden. U kunt opgeven dat de optie `/PayloadFormat:JSON|CSV` te exporteren van de tabellen als JSON- of CSV.
+### <a name="export-table-toojson-or-csv-data-file-format"></a>Tabel tooJSON of CSV-gegevensbestandsindeling exporteren
+AzCopy standaard exporteert tabellen tooJSON gegevensbestanden worden opgeslagen. U kunt de optie Hallo opgeven `/PayloadFormat:JSON|CSV` tooexport Hallo tabellen als JSON- of CSV.
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
 ```
 
-Bij het opgeven van de indeling van de CSV-nettolading AzCopy ook genereert u een schemabestand met extensie `.schema.csv` voor elk gegevensbestand.
+Bij het opgeven van de indeling van nettolading CSV Hallo AzCopy ook genereert u een schemabestand met extensie `.schema.csv` voor elk gegevensbestand.
 
 ### <a name="export-table-entities-concurrently"></a>Tabelentiteiten gelijktijdig exporteren
 
@@ -379,23 +379,23 @@ Bij het opgeven van de indeling van de CSV-nettolading AzCopy ook genereert u ee
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 ```
 
-AzCopy begint gelijktijdige bewerkingen om te exporteren entiteiten wanneer de gebruiker Hiermee kunt u de optie `/PKRS`. Elke bewerking exporteert een partitiesleutelbereik.
+AzCopy gelijktijdige bewerkingen tooexport entiteiten wordt gestart wanneer Hallo gebruiker Hiermee kunt u de optie `/PKRS`. Elke bewerking exporteert een partitiesleutelbereik.
 
-Houd er rekening mee dat het aantal gelijktijdige bewerkingen ook wordt beheerd door de optie `/NC`. AzCopy gebruikt het aantal coreprocessors als de standaardwaarde van `/NC` bij het kopiëren van de tabelentiteiten, zelfs als `/NC` is niet opgegeven. Wanneer de gebruiker opgeeft optie `/PKRS`, AzCopy gebruikt de laagste waarde van de twee waarden - partitie sleutelbereiken versus impliciet of expliciet opgegeven gelijktijdige bewerkingen - te bepalen hoeveel gelijktijdige bewerkingen om te starten. Typ voor meer informatie `AzCopy /?:NC` op de opdrachtregel.
+Houd er rekening mee dat het aantal gelijktijdige bewerkingen Hallo ook wordt beheerd door de optie `/NC`. AzCopy gebruikt Hallo aantal coreprocessors als standaardwaarde Hallo van `/NC` bij het kopiëren van de tabelentiteiten, zelfs als `/NC` is niet opgegeven. Als de gebruiker Hallo optie opgeeft `/PKRS`, AzCopy Hallo kleinere van Hallo twee waarden - partitie sleutelbereiken versus impliciet of expliciet opgegeven gelijktijdige bewerkingen - toodetermine Hallo aantal gelijktijdige bewerkingen toostart gebruikt. Typ voor meer informatie `AzCopy /?:NC` op Hallo-opdrachtregel.
 
-### <a name="export-table-to-blob"></a>De tabel exporteren naar de blob
+### <a name="export-table-tooblob"></a>Tabel tooblob exporteren
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
 ```
 
-AzCopy genereert een JSON-gegevensbestand in de blob-container met de volgende naamconventie:
+AzCopy genereert een JSON-gegevensbestand in Hallo blob-container met de volgende naamconventie:
 
     <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
 
-Het gegenereerde bestand van de JSON-gegevens volgt de indeling van nettolading voor minimale metagegevens. Zie voor meer informatie over deze indeling van nettolading [indeling van nettolading voor tabel servicebewerkingen](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Hallo gegenereerd JSON-gegevensbestand heeft Hallo nettolading indeling voor minimale metagegevens. Zie voor meer informatie over deze indeling van nettolading [indeling van nettolading voor tabel servicebewerkingen](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Houd er rekening mee dat bij het tabellen exporteren naar blobs, AzCopy downloadt de tabelentiteiten naar lokale tijdelijke gegevensbestanden en uploadt u deze entiteiten naar de blob. Deze tijdelijke gegevensbestanden in de logboekmap-bestand met het standaardpad zijn geplaatst '<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>', kunt u optie/Z: [journaal-map] te wijzigen van het journaal maplocatie bestands- en dus de locatie van tijdelijke bestanden te wijzigen. De grootte van de tijdelijke bestanden wordt bepaald door uw tabelentiteiten grootte en de grootte die u met de optie /SplitSize hebt opgegeven, hoewel het tijdelijke bestand in de lokale schijf wordt onmiddellijk verwijderd zodra deze is geüpload naar de blob, zorg ervoor dat u hebt onvoldoende lokale schijfruimte voor het opslaan van deze tijdelijke gegevensbestanden voordat ze worden verwijderd.
+Houd er rekening mee dat bij het exporteren van tabellen tooblobs AzCopy Hallo tabel entiteiten toolocal gegevens tijdelijke bestanden worden gedownload en uploadt u deze entiteiten toohello blob. Deze tijdelijke gegevensbestanden in Hallo journaal bestandsmap door het standaardpad Hallo zijn geplaatst '<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>', kunt u optie/Z: [journaal-map] toochange Hallo journaal bestandsmaplocatie en dus wijzigen Hallo tijdelijke locatie van bestanden. Hallo tijdelijke gegevens voor de grootte van bestanden wordt bepaald door de grootte en het Hallo-grootte Hallo optie /SplitSize opgegeven, uw tabelentiteiten Hoewel Hallo tijdelijke gegevensbestand in de lokale schijf onmiddellijk is verwijderd nadat deze is geüpload toohello blob, zorg dat u hebt Onvoldoende lokale schijf ruimte toostore deze tijdelijke gegevensbestanden voordat ze worden verwijderd.
 
 ## <a name="table-import"></a>Tabel: importeren
 ### <a name="import-table"></a>Tabel importeren
@@ -404,31 +404,31 @@ Houd er rekening mee dat bij het tabellen exporteren naar blobs, AzCopy download
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
-De optie `/EntityOperation` wordt aangegeven hoe entiteiten in de tabel invoegen. Mogelijke waarden zijn:
+Hallo optie `/EntityOperation` geeft aan hoe tooinsert entiteiten in de tabel Hallo. Mogelijke waarden zijn:
 
-* `InsertOrSkip`: Hiermee slaat een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand niet in de tabel bestaat.
-* `InsertOrMerge`: Een bestaande entiteit samenvoegingen of een nieuwe entiteit ingevoegd als het bestand niet in de tabel bestaat.
-* `InsertOrReplace`: Een bestaande entiteit vervangt of een nieuwe entiteit ingevoegd als het bestand niet in de tabel bestaat.
+* `InsertOrSkip`: Hiermee slaat een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand niet in de tabel Hallo bestaat.
+* `InsertOrMerge`: Een bestaande entiteit samenvoegingen of een nieuwe entiteit ingevoegd als het bestand niet in de tabel Hallo bestaat.
+* `InsertOrReplace`: Een bestaande entiteit vervangt of een nieuwe entiteit ingevoegd als het bestand niet in de tabel Hallo bestaat.
 
-Opmerking dat kunt u de optie opgeven `/PKRS` in het scenario voor importeren. In tegenstelling tot de export-scenario, waarin u de optie moet opgeven `/PKRS` voor het starten van gelijktijdige bewerkingen AzCopy gelijktijdige bewerkingen wordt standaard gestart bij het importeren van een tabel. Het aantal gelijktijdige bewerkingen gestart is gelijk aan het aantal coreprocessors; u kunt echter een verschillend aantal gelijktijdige met optie opgeven `/NC`. Typ voor meer informatie `AzCopy /?:NC` op de opdrachtregel.
+Opmerking dat kunt u de optie opgeven `/PKRS` in Hallo importeren scenario. In tegenstelling tot Hallo export scenario, waarin u de optie moet opgeven `/PKRS` toostart gelijktijdige bewerkingen, AzCopy gelijktijdige bewerkingen wordt standaard gestart bij het importeren van een tabel. Hallo standaardaantal gelijktijdige bewerkingen gestart is gelijk toohello aantal coreprocessors; u kunt echter een verschillend aantal gelijktijdige met optie opgeven `/NC`. Typ voor meer informatie `AzCopy /?:NC` op Hallo-opdrachtregel.
 
-Houd er rekening mee dat AzCopy biedt alleen ondersteuning voor JSON, niet-CSV importeren. AzCopy niet ondersteunt tabel invoer van gebruiker gemaakte JSON en manifest bestanden. Beide bestanden moeten afkomstig zijn van het exporteren van een AzCopy-tabel. Om fouten te voorkomen, neem geen wijzigen van de geëxporteerde JSON of manifestbestand.
+Houd er rekening mee dat AzCopy biedt alleen ondersteuning voor JSON, niet-CSV importeren. AzCopy niet ondersteunt tabel invoer van gebruiker gemaakte JSON en manifest bestanden. Beide bestanden moeten afkomstig zijn van het exporteren van een AzCopy-tabel. tooavoid fouten, mag niet worden gewijzigd Hallo JSON of manifestbestand geëxporteerd.
 
-### <a name="import-entities-to-table-using-blobs"></a>Entiteiten aan een tabel met blobs importeren
-Stel een Blob-container bevat het volgende: A JSON-bestand voor een Azure-tabel en het bijbehorende manifest-bestand.
+### <a name="import-entities-tootable-using-blobs"></a>Importeren entiteiten tootable met behulp van BLOB 's
+Een Blob-container Hallo volgende bevat: een JSON-bestand voor een Azure-tabel en het bijbehorende manifest-bestand.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
 
-U kunt de volgende opdracht voor het importeren van entiteiten in een tabel met behulp van het manifestbestand in de blobcontainer uitvoeren:
+U kunt na de opdracht tooimport entiteiten in een tabel met behulp van manifestbestand in de blobcontainer Hallo Hallo uitvoeren:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https://myaccount.table.core.windows.net/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
 ```
 
 ## <a name="other-azcopy-features"></a>Andere functies van AzCopy
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Alleen gegevens die niet in de doel bestaat-gekopieerd
-De `/XO` en `/XN` parameters kunt u oudere of nieuwere bron resources uitsluiten wordt gekopieerd, respectievelijk. Als u wilt kopiëren van de bron-resources die niet bestaan in de doel-, kunt u beide parameters in de AzCopy-opdracht opgeven:
+### <a name="only-copy-data-that-doesnt-exist-in-hello-destination"></a>Alleen gegevens die niet in het Hallo-doel bestaat gekopieerd
+Hallo `/XO` en `/XN` parameters kunt u tooexclude oudere of nieuwere bron resources wordt gekopieerd, respectievelijk. Als u alleen toocopy bron bronnen die niet bestaan in Hallo bestemming wilt, kunt u beide parameters in Hallo AzCopy-opdracht:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
@@ -436,17 +436,17 @@ De `/XO` en `/XN` parameters kunt u oudere of nieuwere bron resources uitsluiten
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
-Houd er rekening mee dat dit wordt niet ondersteund wanneer de bron- of doelserver een tabel wordt.
+Houd er rekening mee dat dit wordt niet ondersteund wanneer het Hallo-bron- of doelserver een tabel wordt.
 
-### <a name="use-a-response-file-to-specify-command-line-parameters"></a>Gebruik een responsbestand opdrachtregelparameters opgeven
+### <a name="use-a-response-file-toospecify-command-line-parameters"></a>Gebruik een toospecify opdrachtregelprogramma responsbestandsparameters
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\copyoperation.txt"
 ```
 
-U kunt eventuele opdrachtregelparameters AzCopy opnemen in een responsbestand. AzCopy verwerkt de parameters in het bestand alsof ze had is opgegeven op de opdrachtregel voor het uitvoeren van een directe vervanging met de inhoud van het bestand.
+U kunt eventuele opdrachtregelparameters AzCopy opnemen in een responsbestand. AzCopy processen Hallo parameters in Hallo bestand alsof ze op de opdrachtregel hello, uitvoeren van een directe vervanging met Hallo inhoud van Hallo bestand had is opgegeven.
 
-Wordt ervan uitgegaan dat een antwoordbestand met de naam `copyoperation.txt`, die de volgende regels bevat. Elke parameter AzCopy kan op een enkele regel worden opgegeven
+Wordt ervan uitgegaan dat een antwoordbestand met de naam `copyoperation.txt`, die Hallo volgende regels bevat. Elke parameter AzCopy kan op een enkele regel worden opgegeven
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
@@ -458,7 +458,7 @@ of op afzonderlijke regels:
     /S
     /Y
 
-AzCopy mislukt als u de parameter over twee regels verdelen, zoals hier wordt weergegeven voor de `/sourcekey` parameter:
+AzCopy mislukt als u de parameter Hallo over twee regels verdelen, zoals hier wordt weergegeven voor Hallo `/sourcekey` parameter:
 
     http://myaccount.blob.core.windows.net/mycontainer
      C:\myfolder
@@ -467,12 +467,12 @@ AzCopy mislukt als u de parameter over twee regels verdelen, zoals hier wordt we
     /S
     /Y
 
-### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>Meerdere antwoordbestanden gebruiken om op te geven van opdrachtregelparameters
+### <a name="use-multiple-response-files-toospecify-command-line-parameters"></a>Gebruik van meerdere antwoord bestanden toospecify opdrachtregelparameters
 Wordt ervan uitgegaan dat een antwoordbestand met de naam `source.txt` die aangeeft dat een Broncontainer:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer
 
-En een antwoordbestand met de naam `dest.txt` waarmee een doelmap in het bestandssysteem:
+En een antwoordbestand met de naam `dest.txt` waarmee een doelmap in het bestandssysteem Hallo:
 
     /Dest:C:\myfolder
 
@@ -480,13 +480,13 @@ En een antwoordbestand met de naam `options.txt` Hiermee worden de opties voor A
 
     /S /Y
 
-AzCopy aanroepen met deze antwoordbestanden, die zich bevinden in een map `C:\responsefiles`, gebruikt u deze opdracht:
+toocall AzCopy met deze antwoordbestanden die zich bevinden in een map `C:\responsefiles`, gebruikt u deze opdracht:
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
 ```
 
-AzCopy verwerkt met deze opdracht net zoals als u alle van de afzonderlijke parameters op de opdrachtregel:
+AzCopy verwerkt met deze opdracht net zoals als u alle afzonderlijke parameters op opdrachtregel Hallo Hallo opgenomen:
 
 ```azcopy
 AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
@@ -498,40 +498,40 @@ AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfol
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
 ```
 
-U kunt ook een SAS voor de container URI opgeven:
+U kunt ook een SAS voor Hallo container URI opgeven:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
 ```
 
 ### <a name="journal-file-folder"></a>Map voor logboek-bestand
-Telkens wanneer die u een opdracht met AzCopy geven, controleert deze of een journal-bestand in de standaardmap bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. De wijzigingslogboek-bestand bestaat niet op beide plaatsen, AzCopy wordt de bewerking wordt beschouwd als nieuwe als genereert een nieuw journaalbestand.
+Telkens wanneer die u een tooAzCopy opdracht de opdracht die wordt gecontroleerd of een journal-bestand in de standaardmap Hallo bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. Hallo journaalbestand bestaat niet op beide plaatsen, AzCopy Hallo bewerking behandelt als nieuwe als genereert een nieuw journaalbestand.
 
-Als het journaalbestand bestaat, controleert AzCopy of de opdrachtregel die ingevoerde overeenkomt met de opdrachtregel in het logboek-bestand. Als de twee opdrachtregels overeenkomen, hervat AzCopy de bewerking niet voltooid. Als ze niet overeenkomen, wordt u gevraagd of het journaalbestand te overschrijven naar een nieuwe bewerking starten of de huidige bewerking te annuleren.
+Als Hallo journal-bestand bestaat, wordt door AzCopy gecontroleerd of Hallo-opdrachtregel die ingevoerde overeenkomt met Hallo vanaf de opdrachtregel in Hallo journal-bestand. Als twee opdrachtregels Hallo overeenkomen, hervat AzCopy onvolledige Hallo-bewerking. Als ze niet overeenkomen, bent u na vragen aan gebruiker tooeither overschrijven Hallo journaal bestand toostart een nieuwe bewerking of toocancel Hallo huidige bewerking.
 
-Als u de standaardlocatie voor het wijzigingslogboek-bestand gebruiken wilt:
+Als u wilt dat toouse Hallo-standaardlocatie voor Hallo journal-bestand:
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 ```
 
-Als u de optie weglaat `/Z`, of geef de optie `/Z` zonder het mappad, zoals hierboven, AzCopy wijzigingslogboek wordt het bestand gemaakt op de standaardlocatie `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Als het wijzigingslogboek bestand al bestaat, hervat de bewerking op basis van het journaalbestand met AzCopy.
+Als u de optie weglaat `/Z`, of geef de optie `/Z` zonder Hallo mappad, zoals hierboven, AzCopy maakt Hallo journal-bestand in Hallo standaardlocatie is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Als Hallo journaalbestand al bestaat, hervat AzCopy Hallo-bewerking op basis van Hallo journal-bestand.
 
-Als u een aangepaste locatie voor het wijzigingslogboek-bestand opgeven wilt:
+Als u wilt dat een aangepaste locatie voor Hallo journaalbestand toospecify:
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
 ```
 
-In dit voorbeeld wordt het journaalbestand als deze niet al bestaat. Als deze bestaat, hervat de bewerking op basis van het journaalbestand met AzCopy.
+In dit voorbeeld maakt Hallo journal-bestand als deze niet al bestaat. Als deze bestaat, hervat AzCopy Hallo-bewerking op basis van Hallo journal-bestand.
 
-Als u een bewerking AzCopy hervatten wilt:
+Als u wilt dat een bewerking AzCopy tooresume:
 
 ```azcopy
 AzCopy /Z:C:\journalfolder\
 ```
 
-In dit voorbeeld hervat de laatste bewerking, die mogelijk niet voltooien.
+In dit voorbeeld hervat Hallo laatste bewerking, die mogelijk niet toocomplete.
 
 ### <a name="generate-a-log-file"></a>Genereren van een logboekbestand
 
@@ -539,7 +539,7 @@ In dit voorbeeld hervat de laatste bewerking, die mogelijk niet voltooien.
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 ```
 
-Als u de optie opgeven `/V` zonder op te geven van een pad naar het uitgebreide logboek, AzCopy maakt vervolgens het logboekbestand op de standaardlocatie `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Als u de optie opgeven `/V` zonder op te geven van een bestand pad toohello uitgebreid logboek, AzCopy maakt vervolgens logboekbestand Hallo in Hallo standaardlocatie is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 Anders kunt u een logboekbestand maken in een aangepaste locatie:
 
@@ -547,13 +547,13 @@ Anders kunt u een logboekbestand maken in een aangepaste locatie:
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
 ```
 
-Houd er rekening mee dat als u een relatief pad na optie opgeeft `/V`, zoals `/V:test/azcopy1.log`, wordt het uitgebreide logboek in de huidige werkmap in een submap met de naam gemaakt `test`.
+Houd er rekening mee dat als u een relatief pad na optie opgeeft `/V`, zoals `/V:test/azcopy1.log`, en vervolgens Hallo uitgebreide logboek in de huidige werkmap in een submap met de naam Hallo gemaakt `test`.
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Geef het aantal gelijktijdige bewerkingen starten
-Optie `/NC` geeft het aantal gelijktijdige te kopiëren. AzCopy wordt standaard een bepaald aantal gelijktijdige bewerkingen te verhogen van de overdracht gegevensdoorvoer gestart. Voor bewerkingen van de tabel is het aantal gelijktijdige bewerkingen gelijk aan het aantal processors dat u hebt. Voor Blob- en bewerkingen, het aantal gelijktijdige bewerkingen is gelijk aan 8 keer het aantal processors dat u hebt. Als u via een netwerk met lage bandbreedte AzCopy uitvoert, kunt u een lager getal voor /NC om te voorkomen dat mislukt, omdat resource concurrentie opgeven.
+### <a name="specify-hello-number-of-concurrent-operations-toostart"></a>Geef het aantal gelijktijdige bewerkingen toostart Hallo
+Optie `/NC` geeft het aantal gelijktijdige kopieerbewerkingen Hallo. AzCopy wordt standaard een bepaald aantal gelijktijdige bewerkingen tooincrease Hallo-gegevensdoorvoer overdracht gestart. Voor bewerkingen van de tabel is het aantal gelijktijdige bewerkingen Hallo gelijk toohello aantal processors dat u hebt. Voor Blob- en bewerkingen, het aantal gelijktijdige bewerkingen Hallo is gelijk aan 8 keer Hallo aantal processors dat u hebt. Als u via een netwerk met lage bandbreedte AzCopy uitvoert, kunt u een lager getal voor /NC tooavoid mislukt, omdat resource concurrentie opgeven.
 
 ### <a name="run-azcopy-against-azure-storage-emulator"></a>AzCopy uitvoeren op Azure-Opslagemulator
-U kunt uitvoeren AzCopy tegen de [Azure-Opslagemulator](storage-use-emulator.md) voor Blobs:
+U kunt AzCopy uitvoeren op Hallo [Azure-Opslagemulator](storage-use-emulator.md) voor Blobs:
 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
@@ -566,88 +566,88 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 ```
 
 ## <a name="azcopy-parameters"></a>AzCopy-Parameters
-Parameters voor AzCopy worden hieronder beschreven. U kunt ook een van de volgende opdrachten uit vanaf de opdrachtregel voor hulp bij het gebruik van AzCopy typen:
+Parameters voor AzCopy worden hieronder beschreven. U kunt ook een van de volgende opdrachten uit vanaf de opdrachtregel voor hulp bij het gebruik van AzCopy Hallo Hallo typen:
 
 * Voor gedetailleerde help voor AzCopy:`AzCopy /?`
 * Voor gedetailleerde hulp bij elke parameter AzCopy:`AzCopy /?:SourceKey`
 * Voor voorbeelden van opdrachtregels:`AzCopy /?:Samples`
 
 ### <a name="sourcesource"></a>/ Source: 'bron'
-Hiermee geeft u de brongegevens waaruit u wilt kopiëren. De bron kan een bestandssysteemmap, een blob-container, een blob virtuele map, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel zijn.
+Hiermee geeft u de brongegevens Hallo uit welke toocopy. Hallo bron mag een bestandssysteemmap, een blob-container, een blob virtuele map, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="destdestination"></a>/ Dest: "doelmap"
-Hiermee geeft u het doel om naar te kopiëren. Het doel mag een bestandssysteemmap, een blob-container, een blob virtuele map, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
+Hiermee geeft u Hallo bestemming toocopy aan. Hallo bestemming mag een bestandssysteemmap, een blob-container, een blob virtuele map, een bestandsshare voor opslag, een map voor opslag of een Azure-tabel.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="patternfile-pattern"></a>/ Patroon: "bestandspatroon"
-Hiermee geeft u een patroon waarmee wordt aangegeven welke bestanden worden gekopieerd. Het gedrag van de parameter /Pattern wordt bepaald door de locatie van de brongegevens en de aanwezigheid van de optie recursieve modus. Recursieve modus wordt opgegeven via de optie/s.
+Hiermee geeft u een patroon waarmee wordt aangegeven welke toocopy bestanden. Hallo gedrag van Hallo /Pattern parameter wordt bepaald door het Hallo-locatie van de brongegevens Hallo en Hallo aanwezigheid van Hallo recursieve modusoptie. Recursieve modus wordt opgegeven via de optie/s.
 
-De opgegeven bron is een map in het bestandssysteem, waarna standaard jokertekens zijn als het opgegeven bestandspatroon wordt vergeleken met de bestanden in de map. Als de optie/s is opgegeven, klikt u vervolgens AzCopy, overeenkomt met het opgegeven patroon tegen alle bestanden in alle submappen onder de map.
+Als Hallo opgegeven bron een map in het bestandssysteem hello, is wordt standaard jokertekens van kracht zijn en Hallo patroon opgegeven wordt vergeleken met de bestanden in de map Hallo. Als de optie die /s is opgegeven, klikt u vervolgens AzCopy, overeenkomt met opgegeven patroon Hallo tegen alle bestanden in eventuele submappen Hallo-directory.
 
-Als de opgegeven bron een blob-container of de virtuele map is, worden klikt u vervolgens jokertekens niet toegepast. Als het opgegeven bestandspatroon optie die /s is opgegeven, klikt u vervolgens AzCopy geïnterpreteerd als een voorvoegsel van de blob. Als de optie/s niet is opgegeven, klikt u vervolgens AzCopy komt overeen met het bestandspatroon tegen exacte blob-namen.
+Als de opgegeven bron Hallo een blob-container of de virtuele map is, worden klikt u vervolgens jokertekens niet toegepast. Als de optie/s is opgegeven, klikt u vervolgens AzCopy interpreteert Hallo opgegeven patroon als voorvoegsel van de blob. Als de optie/s niet is opgegeven, klikt u vervolgens AzCopy komt overeen met patroon Hallo tegen exacte blob-namen.
 
-Als de opgegeven bron een Azure-bestandsshare is, wordt u moet de exacte bestandsnaam (bijvoorbeeld abc.txt) als u wilt kopiëren van één bestand opgeven, of de optie/s alle bestanden in de share recursief te kopiëren. Probeert op te geven van beide een bestand patroon en de optie/s samen met resultaten in een fout.
+Als Hallo bron is een Azure-bestandsshare opgegeven, moet u Hallo exacte bestandsnaam (bijvoorbeeld abc.txt) opgeven toocopy één bestand of het opgeven van de optie/s toocopy alle bestanden in Hallo share recursief. Toospecify beide wordt geprobeerd een bestand patroon en de optie/s samen met resultaten in een fout.
 
-AzCopy gebruikt hoofdlettergevoelig overeenkomende wanneer de/Source een blob-container of blob virtuele map is en maakt gebruik van niet-hoofdlettergevoelige overeenkomende in alle andere gevallen.
+AzCopy gebruikt hoofdlettergevoelig overeenkomende wanneer Hallo/Source een blob-container of blob virtuele map is en maakt gebruik van niet-hoofdlettergevoelige die overeenkomt met alle andere gevallen Hallo.
 
-Bestand standaardpatroon gebruikt wanneer er geen bestandspatroon is opgegeven is *.* voor een locatie in het bestandssysteem of een leeg voorvoegsel voor een Azure-opslaglocatie. Meerdere bestand patronen opgeven wordt niet ondersteund.
+Hallo bestand standaardpatroon gebruikt wanneer er geen bestandspatroon is opgegeven is *.* voor een locatie in het bestandssysteem of een leeg voorvoegsel voor een Azure-opslaglocatie. Meerdere bestand patronen opgeven wordt niet ondersteund.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="destkeystorage-key"></a>/ DestKey: 'opslagsleutel'
-Hiermee geeft u de toegangssleutel voor de doelbron.
+Hiermee geeft u Hallo-toegangssleutel voor Hallo doelbron.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="destsassas-token"></a>/ DestSAS: 'sas-token'
-Hiermee geeft u een Shared Access Signature (SAS) met machtigingen voor lezen en schrijven voor de bestemming (indien van toepassing). De SAS met dubbele aanhalingstekens rond omdat deze mogelijk speciale opdrachtregelprogramma tekens bevat.
+Hiermee geeft u een Shared Access Signature (SAS) met machtigingen voor lezen en schrijven voor Hallo doel (indien van toepassing). Hallo SAS met dubbele aanhalingstekens rond omdat deze mogelijk speciale opdrachtregelprogramma tekens bevat.
 
-Als de doel-resource een blob-container, een bestandsshare of een tabel is, kunt u deze optie gevolgd door de SAS-token opgeven of u kunt de SAS opgeven als onderdeel van de doel-blob-container, bestandsshare of de URI van de tabel, zonder deze optie.
+Als Hallo doelbron een blob-container, een bestandsshare of een tabel is, kunt u deze optie gevolgd door de SAS-token Hallo opgeven of u Hallo SAS als onderdeel van Hallo bestemming blob-container, bestandsshare of de URI van de tabel, zonder deze optie kunt opgeven.
 
-Als de bron- en doelserver beide blobs zijn, moet de bestemmings-blob zich binnen hetzelfde opslagaccount als de bron-blob.
+Als Hallo bron- en doelserver beide blobs zijn, en vervolgens Hallo bestemmings-blob zich binnen Hallo dezelfde bevinden moet als Hallo bron blob storage-account.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="sourcekeystorage-key"></a>/ SourceKey: 'opslagsleutel'
-Hiermee geeft u de opslagaccountsleutel voor de bronresource.
+Hiermee geeft u Hallo opslagaccountsleutel voor Hallo bronresource.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="sourcesassas-token"></a>/ SourceSAS: 'sas-token'
-Hiermee geeft u een Shared Access Signature met lees- en machtigingen voor de bron (indien van toepassing). De SAS met dubbele aanhalingstekens rond omdat deze mogelijk speciale opdrachtregelprogramma tekens bevat.
+Hiermee geeft u een Shared Access Signature met lees- en machtigingen voor het Hallo-bron (indien van toepassing). Hallo SAS met dubbele aanhalingstekens rond omdat deze mogelijk speciale opdrachtregelprogramma tekens bevat.
 
-Als de bron-bron een blob-container is en een sleutel noch een SAS is opgegeven, wordt de blob-container gelezen via anonieme toegang.
+Als Hallo bron bron een blob-container is en een sleutel noch een SAS is opgegeven, wordt Hallo blob-container gelezen via anonieme toegang.
 
-Als de bron een bestandsshare is of een sleutel of een SAS tabel moet worden opgegeven.
+Als het Hallo-bron is een bestandsshare of een sleutel of een SAS tabel moet worden opgegeven.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="s"></a>/ S
-Hiermee geeft u een recursieve modus voor het kopiëren van. In de modus voor recursieve kopieert AzCopy alle blobs of bestanden die overeenkomen met het opgegeven bestandspatroon, inclusief verbindingen in submappen.
+Hiermee geeft u een recursieve modus voor het kopiëren van. In de modus voor recursieve kopieert AzCopy alle blobs of bestanden die overeenkomen met Hallo opgegeven bestandspatroon, inclusief verbindingen in submappen.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="blobtypeblock--page--append"></a>/ BlobType: 'block' | "page" | "toevoegen"
-Hiermee geeft u op of de bestemmings-blob een blok-blob, een pagina-blob of een toevoeg-blob is. Deze optie is alleen toepasbaar wanneer u een blob uploadt. Anders wordt er een fout gegenereerd. Als de bestemming een blob is en deze optie niet is opgegeven, standaard maakt AzCopy een blok-blob.
+Hiermee geeft u op of Hallo bestemmings-blob een blok-blob, een pagina-blob of een toevoeg-blob is. Deze optie is alleen toepasbaar wanneer u een blob uploadt. Anders wordt er een fout gegenereerd. Als Hallo bestemming een blob is en deze optie niet is opgegeven, standaard maakt AzCopy een blok-blob.
 
 **Van toepassing op:** Blobs
 
 ### <a name="checkmd5"></a>/ CheckMD5
-Een MD5-hash voor de gedownloade gegevens berekend en controleert of de MD5-hash wordt opgeslagen in de blob of Content-MD5-eigenschap van bestand overeenkomt met de berekende hash. De MD5-controle is standaard uitgeschakeld, zodat u deze optie om de MD5-controle uitvoeren bij het downloaden van gegevens moet opgeven.
+Een MD5-hash voor de gedownloade gegevens berekend en controleert of Hallo MD5-hash wordt opgeslagen in blob Hallo of Content-MD5-eigenschap van bestand overeenkomt met Hallo berekende hash. Hallo MD5 selectievakje is standaard uitgeschakeld, dus u deze optie tooperform Hallo MD5 controle opgeven moet bij het downloaden van gegevens.
 
-Houd er rekening mee dat Azure Storage garandeert niet dat de MD5-hash die is opgeslagen voor de blob of het bestand bijgewerkt is. Het is de verantwoordelijkheid van de client de MD5 bijwerken wanneer de blob of het bestand is gewijzigd.
+Houd er rekening mee dat Azure Storage niet dat Hallo MD5-hash voor Hallo blob worden opgeslagen garandeert of het bestand is up-to-date. Het is van de client verantwoordelijkheid tooupdate Hallo MD5 als Hallo blob of het bestand wordt gewijzigd.
 
-AzCopy stelt altijd de Content-MD5-eigenschap voor een Azure-blob of het bestand nadat het uploaden naar de service.  
+Na het uploaden van deze wordt AzCopy altijd Hallo Content-MD5-eigenschap voor een Azure-blob of een bestand toohello-service.  
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="snapshot"></a>/ Momentopname
-Geeft aan of om over te dragen van momentopnamen. Deze optie is alleen geldig wanneer de bron een blob is.
+Hiermee wordt aangegeven of tootransfer momentopnamen. Deze optie is alleen geldig wanneer het Hallo-bron is een blob.
 
-De overgebrachte blob-momentopnamen worden gewijzigd in deze indeling: .extensie blob-naam (momentopname-tijd)
+Hallo overgebrachte blob momentopnamen hernoemd in deze indeling: .extensie blob-naam (momentopname-tijd)
 
 Momentopnamen worden standaard niet gekopieerd.
 
@@ -656,7 +656,7 @@ Momentopnamen worden standaard niet gekopieerd.
 ### <a name="vverbose-log-file"></a>/ V: [uitgebreide-log-bestand]
 Uitvoer uitgebreide statusberichten in een logboekbestand.
 
-Het logboekbestand heet standaard AzCopyVerbose.log in `%LocalAppData%\Microsoft\Azure\AzCopy`. Als u een bestaande bestandslocatie voor deze optie opgeeft, wordt het uitgebreide logboek wordt toegevoegd aan of het bestand.  
+Hallo uitgebreide logboekbestand heet standaard AzCopyVerbose.log in `%LocalAppData%\Microsoft\Azure\AzCopy`. Als u een bestaande bestandslocatie voor deze optie opgeeft, is uitgebreid logboek Hallo toegevoegde toothat-bestand.  
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
@@ -665,24 +665,24 @@ Hiermee geeft u een map journaal-bestand voor het hervatten van een bewerking.
 
 AzCopy ondersteunt altijd wordt hervat als een bewerking is onderbroken.
 
-Als deze optie niet opgegeven is of deze is opgegeven zonder het pad naar een map, maakt AzCopy de journaalbestand in de standaardlocatie bevindt, % LocalAppData%\Microsoft\Azure\AzCopy is.
+Als deze optie niet opgegeven is of deze is opgegeven zonder het pad naar een map, maakt AzCopy Hallo journaal-bestand in Hallo standaardlocatie bevindt, % LocalAppData%\Microsoft\Azure\AzCopy is.
 
-Telkens wanneer die u een opdracht met AzCopy geven, controleert deze of een journal-bestand in de standaardmap bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. De wijzigingslogboek-bestand bestaat niet op beide plaatsen, AzCopy wordt de bewerking wordt beschouwd als nieuwe als genereert een nieuw journaalbestand.
+Telkens wanneer die u een tooAzCopy opdracht de opdracht die wordt gecontroleerd of een journal-bestand in de standaardmap Hallo bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. Hallo journaalbestand bestaat niet op beide plaatsen, AzCopy Hallo bewerking behandelt als nieuwe als genereert een nieuw journaalbestand.
 
-Als het journaalbestand bestaat, controleert AzCopy of de opdrachtregel die ingevoerde overeenkomt met de opdrachtregel in het logboek-bestand. Als de twee opdrachtregels overeenkomen, hervat AzCopy de bewerking niet voltooid. Als ze niet overeenkomen, wordt u gevraagd of het journaalbestand te overschrijven naar een nieuwe bewerking starten of de huidige bewerking te annuleren.
+Als Hallo journal-bestand bestaat, wordt door AzCopy gecontroleerd of Hallo-opdrachtregel die ingevoerde overeenkomt met Hallo vanaf de opdrachtregel in Hallo journal-bestand. Als twee opdrachtregels Hallo overeenkomen, hervat AzCopy onvolledige Hallo-bewerking. Als ze niet overeenkomen, bent u na vragen aan gebruiker tooeither overschrijven Hallo journaal bestand toostart een nieuwe bewerking of toocancel Hallo huidige bewerking.
 
-De wijzigingslogboek-bestand wordt verwijderd bij de bewerking is voltooid.
+Hallo journaal-bestand wordt verwijderd bij het Hallo-bewerking is voltooid.
 
 Houd er rekening mee dat het hervatten van een bewerking van een journal-bestand gemaakt met een eerdere versie van AzCopy niet wordt ondersteund.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="parameter-file"></a>/@:"parameter-File'
-Hiermee geeft u een bestand met parameters. AzCopy verwerkt de parameters in het bestand alsof ze op de opdrachtregel is doorgegeven.
+Hiermee geeft u een bestand met parameters. AzCopy processen Hallo parameters in Hallo bestand alsof ze op de opdrachtregel Hallo had opgegeven.
 
 In een responsbestand kunt u meerdere parameters opgeven op één regel of geef elke parameter in op een aparte regel. Houd er rekening mee dat een afzonderlijke parameter kan niet worden gebruikt voor het bereik van meerdere regels.
 
-Antwoordbestanden kunnen opmerkingen regels die met het symbool beginnen # opnemen.
+Antwoordbestanden kunnen opmerkingen regels die met Hallo # symbool beginnen bevatten.
 
 U kunt meerdere antwoordbestanden opgeven. Houd er echter rekening mee AzCopy biedt geen ondersteuning voor geneste antwoordbestanden.
 
@@ -696,36 +696,36 @@ Alle AzCopy bevestiging vragen onderdrukt.
 ### <a name="l"></a>/ L
 Hiermee geeft u een bewerking in de lijst. Er zijn geen gegevens worden gekopieerd.
 
-AzCopy interpreteert de met behulp van deze optie als een simulatie voor het werken met de opdrachtregel zonder deze optie/l en tellingen hoeveel objecten worden gekopieerd, kunt u de optie /V op hetzelfde moment om te controleren welke objecten worden gekopieerd in het uitgebreide logboekbestand opgeven.
+AzCopy interpreteert Hallo met behulp van deze optie als een simulatie voor actieve Hallo opdrachtregel zonder deze optie/l en tellingen hoeveel objecten zijn gekopieerd, kunt u optie /V op Hallo dezelfde tijd toocheck welke objecten in de uitgebreide logboek Hallo worden gekopieerd.
 
-Het gedrag van deze optie is ook afhankelijk van de locatie van de brongegevens en de aanwezigheid van de recursieve modus/s en de bestandsnaam patroon optie /Pattern.
+Hallo-gedrag van deze optie is ook afhankelijk van Hallo-locatie van de brongegevens Hallo en Hallo aanwezigheid van Hallo recursieve modus/s en de bestandsnaam patroon optie /Pattern.
 
 AzCopy vereist lijst weergeven en lezen van de bronlocatie van deze wanneer u deze optie.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="mt"></a>/MT
-Hiermee stelt u het gedownloade bestand tijd laatste wijziging moet dezelfde zijn als de bron-blob of van het bestand.
+Hiermee stelt Hallo gedownloade bestand laatst gewijzigd-tijd toobe Hallo dezelfde als de bron-blob Hallo of van het bestand.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="xn"></a>/XN
-Sluit een nieuwere bronresource. De resource niet als de tijd voor laatst gewijzigd van de bron dezelfde wordt gekopieerd of nieuwer zijn dan het doel.
+Sluit een nieuwere bronresource. Hallo wordt resource niet gekopieerd als hello laatst gewijzigd-tijd van de bron Hallo Hallo dezelfde of een nieuwer is dan het doel.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="xo"></a>/XO
-Sluit een oudere bronserver resource. De resource niet als de tijd voor laatst gewijzigd van de bron dezelfde wordt gekopieerd of ouder zijn dan het doel.
+Sluit een oudere bronserver resource. Hallo wordt resource niet gekopieerd als hello laatst gewijzigd-tijd van de bron Hallo Hallo dezelfde of een ouder zijn dan het doel.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="a"></a>/A
-Alleen bestanden die het kenmerk Archief hebt geüpload.
+Alleen bestanden die Hallo kenmerk Archief hebben geüpload.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="iarashcnetoi"></a>/ IA: [RASHCNETOI]
-Alleen bestanden die een van de opgegeven kenmerken set hebt geüpload.
+Uploads alleen bestanden die een Hallo opgegeven set kenmerken.
 
 Beschikbare kenmerken zijn onder andere:
 
@@ -743,7 +743,7 @@ Beschikbare kenmerken zijn onder andere:
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="xarashcnetoi"></a>/ XA: [RASHCNETOI]
-Sluit bestanden die een of meer van de opgegeven kenmerken is ingesteld.
+Sluit bestanden die een opgegeven Hallo set kenmerken.
 
 Beschikbare kenmerken zijn onder andere:
 
@@ -761,37 +761,37 @@ Beschikbare kenmerken zijn onder andere:
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="delimiterdelimiter"></a>/ Scheidingsteken: "scheidingsteken"
-Hiermee geeft u het scheidingsteken dat wordt gebruikt voor het scheiden van virtuele mappen in een blob-naam.
+Hiermee wordt aangegeven op Hallo scheidingsteken toodelimit virtuele mappen in een blob-naam gebruikt.
 
-Standaard maakt gebruik van AzCopy / als scheidingsteken. AzCopy ondersteunt echter met behulp van een algemene teken (zoals @, # of %) als scheidingsteken. Als u een van deze speciale tekens op de opdrachtregel opnemen moet, plaatst u de bestandsnaam tussen dubbele aanhalingstekens.
+Standaard maakt gebruik van AzCopy / als Hallo scheidingsteken. AzCopy ondersteunt echter met behulp van een algemene teken (zoals @, # of %) als scheidingsteken. Als u tooinclude een van deze speciale tekens op Hallo-opdrachtregel moet, plaatst u de bestandsnaam Hallo met dubbele aanhalingstekens.
 
 Deze optie is alleen van toepassing voor het downloaden van blobs.
 
 **Van toepassing op:** Blobs
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/ NC: 'getal-van-gelijktijdige-operations'
-Hiermee geeft u het aantal gelijktijdige bewerkingen.
+Hiermee geeft u het aantal gelijktijdige bewerkingen Hallo.
 
-AzCopy standaard wordt een bepaald aantal gelijktijdige bewerkingen te verhogen van de overdracht gegevensdoorvoer gestart. Houd er rekening mee dat groot aantal gelijktijdige bewerkingen in een omgeving met lage bandbreedte mogelijk de netwerkverbinding overbelast en te voorkomen dat de bewerkingen volledig is voltooid. Vertraging gelijktijdige bewerkingen op basis van de werkelijke beschikbare netwerkbandbreedte.
+AzCopy standaard wordt een bepaald aantal gelijktijdige bewerkingen tooincrease Hallo-gegevensdoorvoer overdracht gestart. Vergeet niet dat groot aantal gelijktijdige bewerkingen in een omgeving met lage bandbreedte mogelijk Hallo netwerkverbinding overbelast en te voorkomen dat Hallo bewerkingen volledig is voltooid. Vertraging gelijktijdige bewerkingen op basis van de werkelijke beschikbare netwerkbandbreedte.
 
-De maximale limiet voor gelijktijdige bewerkingen is 512.
+Hallo bovengrens voor gelijktijdige bewerkingen is 512.
 
 **Van toepassing op:** Blobs, bestanden, tabellen
 
 ### <a name="sourcetypeblob--table"></a>/ SourceType: "Blob" | 'Tabel'
-Hiermee wordt aangegeven dat de `source` bron is een blob beschikbaar zijn in de lokale ontwikkelomgeving wordt uitgevoerd in de opslagemulator.
+Hiermee geeft u op dat Hallo `source` bron is een blob in Hallo lokale ontwikkelomgeving wordt uitgevoerd in de opslagemulator Hallo beschikbaar.
 
 **Van toepassing op:** Blobs, tabellen
 
 ### <a name="desttypeblob--table"></a>/ DestType: "Blob" | 'Tabel'
-Hiermee wordt aangegeven dat de `destination` bron is een blob beschikbaar zijn in de lokale ontwikkelomgeving wordt uitgevoerd in de opslagemulator.
+Hiermee geeft u op dat Hallo `destination` bron is een blob in Hallo lokale ontwikkelomgeving wordt uitgevoerd in de opslagemulator Hallo beschikbaar.
 
 **Van toepassing op:** Blobs, tabellen
 
 ### <a name="pkrskey1key2key3"></a>/ PKRS: "key&#1;key2 key&#3;..."
-Splitst de partitiesleutelbereik zodat de tabelgegevens parallel de snelheid van de exportbewerking verhoogt te exporteren.
+Splitsingen Hallo partitie sleutel bereik tooenable tabelgegevens parallel verhoogt de snelheid van de exportbewerking Hallo Hallo exporteren.
 
-Als deze optie niet is opgegeven, gebruikt AzCopy één thread tabelentiteiten exporteren. Bijvoorbeeld, als de gebruiker opgeeft /PKRS: "aa #bb" en vervolgens AzCopy begint drie gelijktijdige bewerkingen.
+Als deze optie niet is opgegeven, gebruikt een enkele thread tooexport tabelentiteiten met AzCopy. Bijvoorbeeld, als hello gebruiker geeft op /PKRS: "aa #bb" en vervolgens AzCopy begint drie gelijktijdige bewerkingen.
 
 Elke bewerking exporteert een van drie partitie sleutel bereiken, zoals hieronder wordt weergegeven:
 
@@ -804,52 +804,52 @@ Elke bewerking exporteert een van drie partitie sleutel bereiken, zoals hieronde
 **Van toepassing op:** tabellen
 
 ### <a name="splitsizefile-size"></a>/ SplitSize: 'bestandsgrootte'
-Hiermee geeft u het geëxporteerde bestand met grootte in MB, de minimaal toegestane waarde splitsen is 32.
+Hiermee geeft u op Hallo geëxporteerde bestand splitsen grootte in MB, Hallo minimaal toegestane waarde is 32.
 
-Als deze optie niet is opgegeven, wordt met AzCopy tabelgegevens exporteert naar één bestand.
+Als deze optie niet is opgegeven, exporteert AzCopy tabel gegevens tooa enkel bestand.
 
-Als de tabelgegevens worden geëxporteerd naar een blob en de grootte van het geëxporteerde bestand met de limiet van 200 GB voor de Blobgrootte van de bereikt, klikt u vervolgens splitst AzCopy het geëxporteerde bestand, zelfs als deze optie is niet opgegeven.
+Als Hallo tabelgegevens geëxporteerde tooa blob is en hello geëxporteerde bestandsgrootte Hallo 200 GB limiet voor de Blobgrootte van de bereikt, klikt u vervolgens splitst AzCopy het geëxporteerde bestand hello, zelfs als deze optie is niet opgegeven.
 
 **Van toepassing op:** tabellen
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: 'InsertOrSkip' | 'InsertOrMerge' | 'InsertOrReplace'
-Hiermee geeft u het gedrag van tabel gegevens importeren.
+Hiermee geeft u gegevens Hallo-import tabelgedrag.
 
-* InsertOrSkip - slaat een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand bestaat niet in de tabel.
-* InsertOrMerge - samenvoegingen van een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand bestaat niet in de tabel.
-* InsertOrReplace - wordt vervangen door een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand bestaat niet in de tabel.
+* InsertOrSkip - slaat een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand bestaat niet in de tabel Hallo.
+* InsertOrMerge - samenvoegingen van een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand bestaat niet in de tabel Hallo.
+* InsertOrReplace - wordt vervangen door een bestaande entiteit of een nieuwe entiteit ingevoegd als het bestand bestaat niet in de tabel Hallo.
 
 **Van toepassing op:** tabellen
 
 ### <a name="manifestmanifest-file"></a>/ Manifest: 'manifest file'
-Hiermee geeft u het manifestbestand voor de tabel exporteren en importeren.
+Hiermee geeft u Hallo manifestbestand voor Hallo tabel exporteren en importeren.
 
-Deze optie is optioneel tijdens de exportbewerking, AzCopy genereert een manifestbestand met vooraf gedefinieerde naam als deze optie niet is opgegeven.
+Deze optie is optioneel tijdens de exportbewerking hello, AzCopy genereert een manifestbestand met vooraf gedefinieerde naam als deze optie niet is opgegeven.
 
-Deze optie is vereist tijdens de importbewerking voor het zoeken van de gegevensbestanden.
+Deze optie is vereist tijdens de importbewerking hello om de gegevensbestanden hello te vinden.
 
 **Van toepassing op:** tabellen
 
 ### <a name="synccopy"></a>/ SyncCopy
-Geeft aan of synchroon kopiëren van bestanden tussen de twee eindpunten voor Azure Storage of BLOB's.
+Hiermee wordt aangegeven of toosynchronously blobs of bestanden tussen de twee eindpunten voor Azure Storage kopiëren.
 
-AzCopy standaard gebruikt serverzijde asynchrone kopie. Geef deze optie voor het uitvoeren van een synchrone kopie blobs of bestanden gedownload naar het lokale geheugen en vervolgens geüpload naar Azure Storage.
+AzCopy standaard gebruikt serverzijde asynchrone kopie. Geef deze optie tooperform een synchrone die downloadt blobs of bestanden toolocal geheugen en uploadt deze tooAzure Storage kopiëren.
 
-U kunt deze optie gebruiken bij het kopiëren van bestanden in Blob storage, binnen de opslag van bestanden of van Blob-opslag naar de opslag van bestanden of vice versa.
+U kunt deze optie gebruiken bij het kopiëren van bestanden in Blob storage, binnen de opslag van bestanden of van Blob storage tooFile opslag of vice versa.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="setcontenttypecontent-type"></a>/ SetContentType: 'content-type'
-Hiermee geeft u het MIME-inhoudstype voor bestemming blobs of bestanden.
+Hiermee geeft u Hallo MIME-inhoudstype voor bestemming blobs of bestanden.
 
-AzCopy wordt het type inhoud voor een blob of het bestand is ingesteld op application/octet-stream standaard. U kunt het type inhoud voor alle blobs of bestanden instellen door een waarde op voor deze optie expliciet op te geven.
+AzCopy sets Hallo inhoudstype voor een blob of tooapplication/octet-stream standaard bestand. U kunt Hallo inhoudstype voor alle blobs of bestanden instellen door een waarde op voor deze optie expliciet op te geven.
 
-Als u deze optie geen waarde opgeeft, stelt AzCopy elke blob of inhoudstype volgens de bestandsextensie van het bestand.
+Als u deze optie geen waarde opgeeft, stelt AzCopy elke blob of inhoudstype van het bestand volgens tooits bestandsextensie.
 
 **Van toepassing op:** Blobs, bestanden
 
 ### <a name="payloadformatjson--csv"></a>/ PayloadFormat: 'JSON' | 'CSV'
-Hiermee geeft u de indeling van het bestand met geëxporteerde gegevens.
+Hiermee geeft u Hallo-indeling van bestand met geëxporteerde gegevens Hallo.
 
 Als deze optie niet is opgegeven, standaard exporteert AzCopy gegevensbestand van de tabel in JSON-indeling.
 
@@ -857,15 +857,15 @@ Als deze optie niet is opgegeven, standaard exporteert AzCopy gegevensbestand va
 
 ## <a name="known-issues-and-best-practices"></a>Bekende problemen en aanbevolen procedures
 ### <a name="limit-concurrent-writes-while-copying-data"></a>Limiet voor gelijktijdige schrijfbewerkingen tijdens het kopiëren van gegevens
-Als u blobs of bestanden met AzCopy kopieert, houd er rekening mee dat een andere toepassing de gegevens heeft terwijl u kopieert. Indien mogelijk, zorg dat de gegevens die u wilt kopiëren niet tijdens de kopieerbewerking wordt gewijzigd. Bijvoorbeeld bij het kopiëren van een VHD die is gekoppeld aan een virtuele machine van Azure, zorg dat er geen andere toepassingen momenteel voor de VHD schrijft. Een goede manier om dit te doen is door het leasen van de resource te worden gekopieerd. U kunt ook eerst een momentopname van de VHD maken en kopieer de momentopname.
+Als u blobs of bestanden met AzCopy kopieert, houd er rekening mee dat een andere toepassing Hallo gegevens heeft terwijl u kopieert. Indien mogelijk, zorg dat u kopieert Hallo-gegevens niet wordt gewijzigd tijdens de kopieerbewerking Hallo. Bijvoorbeeld bij het kopiëren van een VHD die is gekoppeld aan een virtuele machine van Azure, zorg dat er geen andere toepassingen toohello VHD momenteel schrijft. Een goede manier toodo die deze wordt door het Hallo resource toobe leasing gekopieerd. U kunt ook eerst een momentopname van Hallo VHD maken en vervolgens kopieert Hallo momentopname.
 
-Als u niet voorkomen andere toepassingen dat bij het schrijven naar blobs of bestanden, terwijl ze worden gekopieerd, klikt u vervolgens Houd er rekening mee dat op het moment dat de taak is voltooid, de gekopieerde resources niet meer mogelijk volledige pariteit met de bron-resources.
+Als u niet voorkomen andere toepassingen dat bij het schrijven van tooblobs of bestanden terwijl ze worden gekopieerd en vervolgens Houd er rekening mee dat door Hallo tijd Hallo taak is voltooid, hello gekopieerde resources niet meer mogelijk volledige pariteit met Hallo bron resources.
 
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Één AzCopy-sessie uitvoeren op één computer.
-AzCopy is ontworpen om u te maximaliseren van uw machinebron de gegevensoverdracht versnellen, is het raadzaam u slechts één exemplaar van AzCopy uitvoeren op één machine en selecteer de optie `/NC` als u meer gelijktijdige bewerkingen nodig. Typ voor meer informatie `AzCopy /?:NC` op de opdrachtregel.
+AzCopy is ontworpen toomaximize Hallo gebruik van uw machine resource tooaccelerate Hallo gegevens worden overgedragen, is het raadzaam u slechts één exemplaar van AzCopy uitvoeren op één machine en geef Hallo optie `/NC` als u meer gelijktijdige bewerkingen nodig. Typ voor meer informatie `AzCopy /?:NC` op Hallo-opdrachtregel.
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>FIPS-compatibele MD5-algoritmen voor AzCopy inschakelen wanneer u ' gebruik FIPS compatibele algoritmen voor versleuteling, hashing en ondertekening '.
-AzCopy standaard .NET MD5-implementatie gebruikt voor het berekenen van de MD5 bij het kopiëren van objecten, maar er zijn bepaalde beveiligingsvereisten voor de die AzCopy inschakelen FIPS-compatibele MD5-instelling nodig.
+AzCopy standaard .NET MD5 implementatie toocalculate Hallo MD5 gebruikt bij het kopiëren van objecten, maar er zijn bepaalde beveiligingsvereisten voor de die AzCopy tooenable FIPS compatibele MD5-instelling nodig.
 
 U kunt een app.config-bestand maken `AzCopy.exe.config` met de eigenschap `AzureStorageUseV1MD5` en reserveer met AzCopy.exe plaatsen.
 
@@ -876,20 +876,20 @@ U kunt een app.config-bestand maken `AzCopy.exe.config` met de eigenschap `Azure
       </appSettings>
     </configuration>
 
-De standaardwaarde AzCopy gebruikt voor eigenschap 'AzureStorageUseV1MD5' • True - .NET MD5-implementatie.
+Voor de eigenschap 'AzureStorageUseV1MD5' • waar - Hallo-standaardwaarde, AzCopy .NET MD5 implementatie gebruikt.
 • ONWAAR – AzCopy hierbij wordt gebruikgemaakt van FIPS-compatibele MD5-algoritmen.
 
 Houd er rekening mee dat FIPS-algoritmen is standaard uitgeschakeld in uw Windows-computer, kunt u secpol.msc typt in het venster uitvoeren en controleer of deze switch op beveiligingsinstelling -> lokaal beleid -> Beveiliging -> Systeemcryptografie: gebruik FIPS-algoritmen voor versleuteling, hashing en ondertekening.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
+Zie voor meer informatie over Azure Storage en AzCopy Hallo resources te volgen:
 
 ### <a name="azure-storage-documentation"></a>Documentatie bij Azure Storage:
-* [Inleiding tot Azure Storage](../storage-introduction.md)
-* [Het Blob storage gebruiken met .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [Hoe File storage gebruiken met .NET](../storage-dotnet-how-to-use-files.md)
-* [Hoe Table storage gebruiken met .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Het maken, beheren of een opslagaccount verwijderen](../storage-create-storage-account.md)
+* [Inleiding tooAzure opslag](../storage-introduction.md)
+* [Hoe toouse .NET Blob-opslag](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Hoe toouse File storage in .NET](../storage-dotnet-how-to-use-files.md)
+* [Hoe toouse Table storage uit het .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [Hoe toocreate, beheren of verwijderen van een opslagaccount](../storage-create-storage-account.md)
 * [Gegevensoverdracht met AzCopy op Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:

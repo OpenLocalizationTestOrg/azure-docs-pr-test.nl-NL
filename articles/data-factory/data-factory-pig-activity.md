@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met behulp van Pig-activiteit in Azure Data Factory | Microsoft Docs
-description: Meer informatie over hoe u kunt de Pig-activiteit in een Azure data factory Pig-scripts uitvoeren op een op-verzoek/uw eigen HDInsight-cluster.
+title: aaaTransform gegevens met behulp van Pig-activiteit in Azure Data Factory | Microsoft Docs
+description: Meer informatie over hoe u Hallo Pig-activiteit in een Azure data factory toorun Pig-scripts kunt gebruiken op een op-verzoek/uw eigen HDInsight-cluster.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: 182a637ab98955129d269e2afc3ba581aa1a7c03
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ad096c4a9e8603b09f574f6d129b4339a75d381
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformeer gegevens met behulp van Pig-activiteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,10 +33,10 @@ ms.lasthandoff: 07/11/2017
 > * [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
-De HDInsight Pig-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) Pig-query's uitvoert op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
+Hallo HDInsight Pig-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) Pig-query's uitvoert op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op Hallo [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en activiteiten voor gegevenstransformatie Hallo ondersteund toont.
 
 > [!NOTE] 
-> Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en voer de zelfstudie: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
+> Als u nieuwe tooAzure Data Factory, Lees [inleiding tooAzure Data Factory](data-factory-introduction.md) en zelfstudie Hallo: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -79,20 +79,20 @@ De HDInsight Pig-activiteit in een Data Factory [pijplijn](data-factory-create-p
 ## <a name="syntax-details"></a>Details van de syntaxis
 | Eigenschap | Beschrijving | Vereist |
 | --- | --- | --- |
-| naam |Naam van de activiteit |Ja |
-| Beschrijving |Beschrijving van wat de activiteit wordt gebruikt |Nee |
+| naam |Naam van de activiteit Hallo |Ja |
+| description |Tekst die beschrijft wat Hallo-activiteit wordt gebruikt voor |Nee |
 | type |HDinsightPig |Ja |
-| Invoer |Een of meer invoerwaarden verbruikt door de activiteit Pig |Nee |
-| uitvoer |Een of meer uitvoer geproduceerd door de Pig-activiteit |Ja |
-| linkedServiceName |Verwijzing naar het HDInsight-cluster dat is geregistreerd als een gekoppelde service in de Data Factory |Ja |
-| Script |Geef de inline Pig-script |Nee |
-| scriptpad |De Pig-script opslaat in Azure blob storage en geef het pad naar het bestand. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. De bestandsnaam is hoofdlettergevoelig. |Nee |
-| Hiermee worden gedefinieerd |Geef parameters op als sleutel-waardeparen voor verwijzende binnen de Pig-script |Nee |
+| Invoer |Een of meer invoerwaarden verbruikt door Hallo Pig-activiteit |Nee |
+| uitvoer |Een of meer uitvoer geproduceerd door Hallo Pig-activiteit |Ja |
+| linkedServiceName |HDInsight-cluster voor verwijzing toohello is geregistreerd als een gekoppelde service in de Data Factory |Ja |
+| Script |Hallo Pig-script inline opgeven |Nee |
+| scriptpad |Hallo Pig-script opslaat in Azure blob storage en geef Hallo pad toohello-bestand. Gebruik de eigenschap 'script' of 'scriptPath'. Beide kunnen niet samen worden gebruikt. Hallo-bestandsnaam is hoofdlettergevoelig. |Nee |
+| Hiermee worden gedefinieerd |Geef parameters op als sleutel-waardeparen voor verwijzende binnen Hallo Pig-script |Nee |
 
 ## <a name="example"></a>Voorbeeld
-Laten we eens een voorbeeld van een game logboeken analytics waar u de tijd dat door spelen van games gestart door uw bedrijf spelers besteed identificeren.
+Laten we eens een voorbeeld van een game logboeken analytics waar u tooidentify Hallo tijd besteed door spelers spelen van games gestart door uw bedrijf.
 
-De volgende game voorbeeldlogboek is een bestand gescheiden door een komma (,). Het bevat de volgende velden: ProfileID, SessionStart, duur, SrcIPAddress en GameType.
+Hallo game voorbeeldlogboek volgende is een bestand gescheiden door een komma (,). Het bevat volgende velden – ProfileID, SessionStart, duur, SrcIPAddress en GameType Hallo.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -102,7 +102,7 @@ De volgende game voorbeeldlogboek is een bestand gescheiden door een komma (,). 
 .....
 ```
 
-De **varkens script** voor het verwerken van deze gegevens:
+Hallo **varkens script** tooprocess deze gegevens:
 
 ```
 PigSampleIn = LOAD 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/samplein/' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
@@ -114,18 +114,18 @@ PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampl
 Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 ```
 
-Voor het uitvoeren van deze Pig-script in een Data Factory-pijplijn, kunt u de volgende stappen uitvoeren:
+Deze Pig-script in een Data Factory-pijplijn tooexecute Hallo stappen te volgen:
 
-1. Maken van een gekoppelde service te registreren [uw eigen HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of Configureer [op aanvraag HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Laten we deze gekoppelde service aanroepen **HDInsightLinkedService**.
-2. Maak een [gekoppelde service](data-factory-azure-blob-connector.md) voor het configureren van de verbinding met Azure-blobopslag die als host fungeert voor de gegevens. Laten we deze gekoppelde service aanroepen **StorageLinkedService**.
-3. Maak [gegevenssets](data-factory-create-datasets.md) die verwijst naar de invoer- en uitvoergegevens. We bellen invoergegevensset **PigSampleIn** en de uitvoergegevensset **PigSampleOut**.
-4. Kopieer de Pig-query in een bestand met de Azure Blob Storage in stap #2 hebt geconfigureerd. Als de Azure-opslag die als host fungeert voor de gegevens van de naam die als host fungeert voor het querybestand verschilt, maakt u een afzonderlijke gekoppelde Azure Storage-service. Raadpleeg de gekoppelde service in de configuratie van de activiteit. Gebruik ** scriptPath ** om het pad naar scriptbestand pig en **scriptLinkedService**. 
+1. Maken van een gekoppelde service tooregister [uw eigen HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of Configureer [op aanvraag HDInsight berekeningscluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Laten we deze gekoppelde service aanroepen **HDInsightLinkedService**.
+2. Maak een [gekoppelde service](data-factory-azure-blob-connector.md) tooconfigure Hallo verbinding tooAzure blobopslag Hallo gegevens hosten. Laten we deze gekoppelde service aanroepen **StorageLinkedService**.
+3. Maak [gegevenssets](data-factory-create-datasets.md) wijzen toohello invoer- en Hallo uitvoergegevens. We bellen Hallo invoergegevensset **PigSampleIn** en Hallo uitvoergegevensset **PigSampleOut**.
+4. Hallo Pig query in een bestand hello Azure Blob-opslag geconfigureerd in stap &#2; kopiëren. Als hello Azure-opslag die als host fungeert voor Hallo gegevens van Hallo een die als host fungeert voor het querybestand hello verschilt, maakt u een afzonderlijke gekoppelde Azure Storage-service. Raadpleeg toohello gekoppelde service in Hallo activiteit configuratie. Gebruik ** scriptPath ** toospecify Hallo pad toopig-scriptbestand en **scriptLinkedService**. 
    
    > [!NOTE]
-   > U kunt ook de Pig-script inline in de definitie van de activiteit opgeven met behulp van de **script** eigenschap. Maar we raden niet aan deze methode als alle speciale tekens in de script moet worden voorafgegaan en foutopsporing problemen kan veroorzaken. De aanbevolen procedure is stap #4.
+   > U kunt ook Hallo Pig-script inline in de definitie van de activiteit Hallo opgeven met behulp van Hallo **script** eigenschap. Echter raadzaam niet deze benadering als alle speciale tekens in Hallo script moet toobe escape-teken en foutopsporing problemen kan veroorzaken. Hallo aanbevolen procedure is toofollow stap #4.
    > 
    > 
-5. De pijplijn maken met de activiteit HDInsightPig. Deze activiteit wordt de invoergegevens verwerkt door het uitvoeren van Pig-script op HDInsight-cluster.
+5. Hallo-pijplijn maken met de Hallo HDInsightPig activiteit. Deze activiteit verwerkt Hallo invoergegevens door Pig-script uitgevoerd op HDInsight-cluster.
 
     ```JSON   
     {
@@ -159,15 +159,15 @@ Voor het uitvoeren van deze Pig-script in een Data Factory-pijplijn, kunt u de v
       }
     } 
     ```
-6. Implementeer de pijplijn. Zie [pijplijnen maken](data-factory-create-pipelines.md) artikel voor meer informatie. 
-7. De pijplijn met de data factory bewaking en beheer weergaven bewaken. Zie [controleren en beheren van de Data Factory-pijplijnen](data-factory-monitor-manage-pipelines.md) artikel voor meer informatie.
+6. Implementeer Hallo pijplijn. Zie [pijplijnen maken](data-factory-create-pipelines.md) artikel voor meer informatie. 
+7. Hallo-pipeline met Hallo data factory-controle en beheerweergaven bewaken. Zie [controleren en beheren van de Data Factory-pijplijnen](data-factory-monitor-manage-pipelines.md) artikel voor meer informatie.
 
 ## <a name="specifying-parameters-for-a-pig-script"></a>Parameters voor een Pig-script opgeven
-Bekijk het volgende voorbeeld: game logboeken zijn geconsumeerd dagelijks in Azure Blob Storage en opgeslagen in een map gepartitioneerde op basis van datum en tijd. U wilt voorzien van de Pig-script en de locatie van de invoer dynamisch doorgeven tijdens runtime en ook produceren de uitvoer die is gepartitioneerd met de datum en tijd.
+Overweeg het volgende voorbeeld Hallo: game logboeken zijn geconsumeerd dagelijks in Azure Blob Storage en opgeslagen in een map gepartitioneerde op basis van datum en tijd. U wilt tooparameterize Hallo Pig-script en Hallo invoermap locatie dynamisch doorgeven tijdens runtime en ook meerdere Hallo uitvoer gepartitioneerd met de datum en tijd.
 
-Als u wilt gebruiken met parameters Pig-script, het volgende doen:
+toouse geparametriseerde Pig-script en Voer Hallo te volgen:
 
-* Definieer de parameters in **definieert**.
+* Definieer de parameters Hallo in **definieert**.
 
     ```JSON  
     {
@@ -205,7 +205,7 @@ Als u wilt gebruiken met parameters Pig-script, het volgende doen:
       }
     }
     ```  
-* In de Pig-Script verwijzen naar de parameters met '**$parameterName**, zoals wordt weergegeven in het volgende voorbeeld:
+* In Hallo Pig-Script, verwijzen toohello parameters met '**$parameterName**, zoals wordt weergegeven in het volgende voorbeeld Hallo:
 
     ```  
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);    

@@ -1,6 +1,6 @@
 ---
-title: Azure Quick Start - Een Windows VM PowerShell maken | Microsoft Docs
-description: Ontdek snel hoe u virtuele Windows-machines maakt met PowerShell
+title: Quick Start - aaaAzure maken Windows VM PowerShell | Microsoft Docs
+description: Snel een virtuele Windows-machines met PowerShell meer toocreate
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,23 +16,23 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8516cfa2272694496eb353a83eca77c13a516750
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e92435bf7ee443a01c158fed91c356363e2f425
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Een virtuele Windows-machine maken met PowerShell
 
-De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze handleiding wordt beschreven hoe u PowerShell gebruikt voor het maken van een virtuele Azure-machine met Windows Server 2016. Als de implementatie is voltooid, maken we verbinding met de server en installeren we ISS.  
+Hello Azure PowerShell-module is gebruikte toocreate en Azure-resources te beheren vanaf Hallo PowerShell-opdrachtregel of in scripts. Deze handleiding gegevens met behulp van PowerShell toocreate en Azure virtuele machine met Windows Server 2016. Zodra de implementatie is voltooid, we toohello server verbinden en IIS installeren.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze Quick Start is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Deze snel starten vereist hello Azure PowerShell-moduleversie 3,6 of hoger. Voer ` Get-Module -ListAvailable AzureRM` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Login-AzureRmAccount` en volg de instructies op het scherm.
+Meld u bij de Azure-abonnement met Hallo tooyour `Login-AzureRmAccount` opdracht in en volg Hallo op het scherm instructies.
 
 ```powershell
 Login-AzureRmAccount
@@ -49,7 +49,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ## <a name="create-networking-resources"></a>Netwerkresources maken
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Maak een virtueel netwerk, subnet en een openbaar IP-adres. 
-Deze resources worden gebruikt voor netwerkconnectiviteit met de virtuele machine en om verbinding met internet te maken.
+Deze resources zijn gebruikte tooprovide network connectivity toohello virtuele machine en verbindt u deze toohello internet.
 
 ```powershell
 # Create a subnet configuration
@@ -65,7 +65,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location E
 ```
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Maak een netwerkbeveiligingsgroep en een regel voor de netwerkbeveiligingsgroep. 
-De netwerkbeveiligingsgroep beveiligt de virtuele machine met binnenkomende en uitgaande regels. In dit geval is er een binnenkomende regel gemaakt voor poort 3389, waarmee binnenkomende verbindingen met een extern bureaublad worden toegestaan. We willen ook een regel maken voor poort 80, de poort voor binnenkomend webverkeer.
+netwerkbeveiligingsgroep Hallo beveiligt Hallo virtuele machine met behulp van regels voor binnenkomende en uitgaande. In dit geval is er een binnenkomende regel gemaakt voor poort 3389, waarmee binnenkomende verbindingen met een extern bureaublad worden toegestaan. Tevens willen we toocreate een inkomende regel voor poort 80, waardoor inkomend webverkeer.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -83,8 +83,8 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
     -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Maak een netwerkkaart voor de virtuele machine. 
-Maak een netwerkkaart met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) voor de virtuele machine. De netwerkkaart verbindt de virtuele machine met een subnet, netwerkbeveiligingsgroep en openbaar IP-adres.
+### <a name="create-a-network-card-for-hello-virtual-machine"></a>Maak een netwerkkaart voor Hallo virtuele machine. 
+Maken van een netwerkkaart met [nieuw AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) voor Hallo virtuele machine. Hallo netwerkkaart verbindt Hallo tooa subnet met virtuele machines, netwerkbeveiligingsgroep en openbare IP-adres.
 
 ```powershell
 # Create a virtual network card and associate with public IP address and NSG
@@ -94,7 +94,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine, zoals een installatiekopie van de virtuele machine, de grootte en de verificatieconfiguratie. Als deze stap wordt uitgevoerd, wordt u gevraagd referenties op te geven. De waarden die u invoert, worden geconfigureerd als de gebruikersnaam en het wachtwoord voor de virtuele machine.
+Maak een virtuele-machineconfiguratie. Deze configuratie omvat Hallo-instellingen die worden gebruikt bij het implementeren van Hallo virtuele machine, zoals de configuratie van een virtuele machine-installatiekopie, grootte en verificatie. Als deze stap wordt uitgevoerd, wordt u gevraagd referenties op te geven. Hallo-waarden die u invoert worden geconfigureerd als Hallo-gebruikersnaam en wachtwoord voor Hallo virtuele machine.
 
 ```powershell
 # Define a credential object
@@ -107,23 +107,23 @@ $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
     -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
 ```
 
-Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Maak Hallo virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 ```
 
-## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
+## <a name="connect-toovirtual-machine"></a>Verbinding maken met toovirtual machine
 
-Wanneer de implementatie is voltooid, maakt u via een extern bureaublad verbinding met de virtuele machine.
+Nadat het Hallo-implementatie is voltooid, maakt u een verbinding met extern bureaublad met Hallo virtuele machine.
 
-Gebruik de opdracht [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van de virtuele machine te retourneren. Noteer dit IP-adres zodat u vanuit uw browser verbinding kunt maken met het adres om webverbindingen te testen.
+Gebruik Hallo [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) opdracht tooreturn Hallo openbaar IP-adres van Hallo virtuele machine. Noteer dit IP-adres zodat tooit verbinding met uw browser tootest webverbindingen mogelijk in een toekomstige stap maken kunnen.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Gebruik de volgende opdracht om een sessie met een extern bureaublad te starten voor de virtuele machine. Vervang het IP-adres door het *publicIPAddress* van de virtuele machine. Wanneer u hierom wordt gevraagd, typt u de referenties die zijn gebruikt bij het maken van de virtuele machine.
+Gebruik Hallo volgende opdracht toocreate een extern-bureaubladsessie met Hallo virtuele machine. Hallo IP-adres vervangen door Hallo *publicIPAddress* van uw virtuele machine. Wanneer u wordt gevraagd, voert u Hallo-referenties gebruikt bij het maken van Hallo virtuele machine.
 
 ```bash 
 mstsc /v:<publicIpAddress>
@@ -131,21 +131,21 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>IIS installeren met behulp van PowerShell
 
-U bent nu aangemeld bij de VM van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan. Open een PowerShell-prompt en voer de volgende opdracht uit:
+Nu dat u hebt geregistreerd in Azure VM toohello, kunt u één regel PowerShell tooinstall IIS gebruiken en Hallo lokale firewall regel tooallow-webverkeer inschakelen. Open een PowerShell-prompt en Hallo volgende opdracht uitvoeren:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
+## <a name="view-hello-iis-welcome-page"></a>Weergave Hallo IIS-welkomstpagina
 
-Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het *publicIpAddress* dat u hierboven hebt gedocumenteerd. 
+Met IIS is geïnstalleerd en poort 80 is nu open op de virtuele machine uit Hallo Internet, kunt u een webbrowser van uw keuze tooview Hallo IIS standaardwelkomstpagina. Ervoor toouse Hallo worden *publicIpAddress* u hiervoor toovisit Hallo standaardpagina beschreven. 
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
+Wanneer deze niet langer nodig is, kunt u Hallo [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -153,7 +153,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Windows-machines.
+In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. toolearn meer informatie over virtuele machines in Azure, blijven toohello zelfstudie voor VM's van Windows.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over virtuele Windows-machines](./tutorial-manage-vm.md)

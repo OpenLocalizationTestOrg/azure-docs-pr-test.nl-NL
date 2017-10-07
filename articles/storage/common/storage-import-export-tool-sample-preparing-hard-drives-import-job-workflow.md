@@ -1,6 +1,6 @@
 ---
-title: De voorbeeldwerkstroom harde schijven voor de import-taak van een Azure Import/Export voorbereiden | Microsoft Docs
-description: Zie een scenario voor het volledige proces van het voorbereiden van stations voor een import-taak in de Azure Import/Export-service.
+title: aaaSample werkstroom tooprep harde schijven voor een Azure Import/Export importtaak | Microsoft Docs
+description: Zie een overzicht voor het volledige proces Hallo stations voorbereiden van een import-taak in hello Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 83cb82b9807718e7a509312d159eb766a5da1d2c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fa7f36300b35b81757523de4960fd583bd4bf305
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
+# <a name="sample-workflow-tooprepare-hard-drives-for-an-import-job"></a>Voorbeeld werkstroom tooprepare harde schijven voor een import-taak
 
-Dit artikel begeleidt u bij het volledige proces van het voorbereiden van stations voor een import-taak.
+In dit artikel begeleidt u bij Hallo complete proces van het voorbereiden van stations voor een import-taak.
 
 ## <a name="sample-data"></a>Voorbeeldgegevens
 
-In dit voorbeeld importeert de volgende gegevens in Azure storage-account met de naam `mystorageaccount`:
+In dit voorbeeld volgt de gegevens in Azure storage-account met de naam Hallo geïmporteerd `mystorageaccount`:
 
 |Locatie|Beschrijving|Gegevensgrootte|
 |--------------|-----------------|-----|
@@ -37,7 +37,7 @@ In dit voorbeeld importeert de volgende gegevens in Azure storage-account met de
 
 ## <a name="storage-account-destinations"></a>Storage-account bestemmingen
 
-De import-taak worden de gegevens importeren in de volgende bestemmingen in de storage-account:
+Hallo import-taak wordt Hallo gegevens importeren in Hallo bestemmingen in Hallo storage-account te volgen:
 
 |Bron|Doel-virtuele map of blob|
 |------------|-------------------------------------------|
@@ -46,25 +46,25 @@ De import-taak worden de gegevens importeren in de volgende bestemmingen in de s
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
 |\\\bigshare\john\music\ |Music|
 
-Met deze toewijzing, het bestand `H:\Video\Drama\GreatMovie.mov` wordt geïmporteerd naar de blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
+Met deze toewijzing Hallo bestand `H:\Video\Drama\GreatMovie.mov` worden geïmporteerde toohello blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
 ## <a name="determine-hard-drive-requirements"></a>Harde schijf vereisten bepalen
 
-Compute vervolgens om te bepalen hoeveel harde schijven nodig zijn, de grootte van de gegevens:
+Vervolgens toodetermine hoeveel harde schijven nodig zijn, compute Hallo grootte van Hallo gegevens:
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Twee harde schijven van 8TB moet voldoende zijn voor dit voorbeeld. Echter, omdat de bronmap `H:\Video` heeft 12TB aan gegevens en capaciteit van uw één harde schijf is alleen 8TB, kun je dit opgeven in de volgende manier de **driveset.csv** bestand:
+Twee harde schijven van 8TB moet voldoende zijn voor dit voorbeeld. Echter sinds Hallo bronmap `H:\Video` heeft 12TB aan gegevens en capaciteit van uw één harde schijf is alleen 8TB, kunt u zich kunt toospecify dit op Hallo volgende manier in Hallo **driveset.csv** bestand:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-Het hulpprogramma wordt gegevens verdelen over twee harde schijven op een geoptimaliseerde manier.
+Hallo-hulpprogramma wordt gegevens verdelen over twee harde schijven op een geoptimaliseerde manier.
 
-## <a name="attach-drives-and-configure-the-job"></a>Koppelen van stations en configureren van de taak
-U koppelt beide schijven aan de machine en volumes maken. Vervolgens auteur **dataset.csv** bestand:
+## <a name="attach-drives-and-configure-hello-job"></a>Koppelen van stations en Hallo taak configureren
+U koppelt beide schijven toohello machine en volumes maken. Vervolgens auteur **dataset.csv** bestand:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
@@ -73,13 +73,13 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 \\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
-Bovendien kunt u de volgende metagegevens voor alle bestanden instellen:
+U kunt bovendien Hallo metagegevens voor alle bestanden volgende instellen:
 
 * **UploadMethod:** Windows Azure Import/Export-service
 * **DataSetName:** SampleData
 * **CreationDate:** 1/10/2013
 
-Om in te stellen metagegevens voor de geïmporteerde bestanden, maak een tekstbestand, `c:\WAImportExport\SampleMetadata.txt`, met de volgende inhoud:
+tooset metagegevens voor Hallo geïmporteerd bestanden, maak een tekstbestand, `c:\WAImportExport\SampleMetadata.txt`, hello volgende inhoud:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -90,13 +90,13 @@ Om in te stellen metagegevens voor de geïmporteerde bestanden, maak een tekstbe
 </Metadata>
 ```
 
-U kunt ook bepaalde eigenschappen instellen voor de `FavoriteMovie.ISO` blob:
+U kunt ook een aantal eigenschappen instellen voor Hallo `FavoriteMovie.ISO` blob:
 
 * **Content-Type:** application/octet-stream
 * **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
 * **Cache-Control:** no-cache
 
-Deze eigenschappen instelt, maak een tekstbestand `c:\WAImportExport\SampleProperties.txt`:
+tooset deze eigenschappen, maak een tekstbestand, `c:\WAImportExport\SampleProperties.txt`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -107,25 +107,25 @@ Deze eigenschappen instelt, maak een tekstbestand `c:\WAImportExport\SamplePrope
 </Properties>
 ```
 
-## <a name="run-the-azure-importexport-tool-waimportexportexe"></a>Voer het Azure Import/Export-hulpprogramma (WAImportExport.exe)
+## <a name="run-hello-azure-importexport-tool-waimportexportexe"></a>Voer hello Azure-hulpprogramma voor importeren/exporteren (WAImportExport.exe)
 
-U bent nu klaar om uit te voeren van het Azure Import/Export-hulpprogramma voor het voorbereiden van de twee harde schijven.
+U bent nu klaar toorun hello Azure-hulpprogramma voor importeren/exporteren tooprepare Hallo twee harde schijven.
 
-**Voor de eerste sessie:**
+**Voor de eerste sessie Hallo:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Als meer gegevens worden toegevoegd moet, maakt u een andere dataset-bestand (dezelfde indeling als Initialdataset).
+Als geen gegevens meer toobe toegevoegd moet, maakt u een andere dataset-bestand (dezelfde indeling als Initialdataset).
 
-**Voor de tweede sessie:**
+**Voor Hallo tweede sessie:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-Nadat de kopie-sessies hebt voltooid, kunt u de twee schijven verbreken van de computer kopiëren en naar de juiste Azure-datacenter worden verzonden. U gaat de twee journaal-bestanden uploaden `<FirstDriveSerialNumber>.xml` en `<SecondDriveSerialNumber>.xml`, wanneer u de import-taak in de Azure-portal maken.
+Nadat Hallo kopie sessies hebt voltooid, kunt u Verbreek de verbinding tussen twee schijven Hallo Hallo kopie computer en toohello juiste Azure-datacenter worden verzonden. U gaat Hallo twee journaal bestanden uploaden `<FirstDriveSerialNumber>.xml` en `<SecondDriveSerialNumber>.xml`, wanneer u Hallo import-taak in hello Azure-portal maken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

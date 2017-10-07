@@ -1,6 +1,6 @@
 ---
-title: Een voorbeeldweergave schijfgebruik voor een taak van de export Azure Import/Export - v1 | Microsoft Docs
-description: Informatie over het bekijken van de lijst met blobs die u hebt geselecteerd voor een exporttaak in de Azure Import/Export-service.
+title: aaaPreviewing schijfgebruik voor een taak van de export Azure Import/Export - v1 | Microsoft Docs
+description: Meer informatie over hoe toopreview Hallo lijst met blobs u hebt geselecteerd voor een taak voor het exporteren in hello Azure Import/Export-service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7378c159f6d11702cda9ae7654e84d85f9b671b3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Op voorhand het schijfgebruik voor een exporttaak bekijken
-Voordat u een exporttaak maakt, moet u kiezen van een reeks blobs worden geëxporteerd. De Microsoft Azure Import/Export-service kunt u voor het gebruik van een lijst met blob-paden of blob-voorvoegsels te vertegenwoordigen de blobs die u hebt geselecteerd.  
+Voordat u een exporttaak maakt, moet u een reeks blobs toobe geëxporteerd toochoose. Hallo Microsoft Azure Import/Export-service kunt u een lijst met blob-paden toouse of blob-prefixes toorepresent Hallo blobs die u hebt geselecteerd.  
   
-Vervolgens moet u bepalen hoeveel stations die u wilt verzenden. Het hulpprogramma voor importeren/exporteren geeft de `PreviewExport` opdracht voor de preview schijfgebruik voor de blobs die u hebt geselecteerd, op basis van de grootte van de stations die u gaat gebruiken.
+Vervolgens moet u toodetermine hoeveel stations moet u toosend. Hallo hulpprogramma voor importeren/exporteren biedt Hallo `PreviewExport` opdracht toopreview schijfgebruik voor Hallo blobs die u hebt geselecteerd, op basis van de grootte Hallo Hallo stations u gaat toouse.
 
 ## <a name="command-line-parameters"></a>Opdrachtregelparameters
 
-U kunt de volgende parameters gebruiken wanneer u de `PreviewExport` opdracht van het hulpprogramma voor importeren/exporteren.
+U kunt volgende parameters bij gebruik van Hallo Hallo `PreviewExport` opdracht Hallo hulpprogramma voor importeren/exporteren.
 
 |Opdrachtregelparameter|Beschrijving|  
 |--------------------------|-----------------|  
-|**schakeloptie/LOGDIR op:**< LogDirectory\>|Optioneel. De logboekmap. Uitgebreide logboekbestanden worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
-|**/sn:**< StorageAccountName\>|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
-|**/SK:**< StorageAccountKey\>|Vereist als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor exporteren.|  
-|**/csas:**< ContainerSas\>|Vereist als de sleutel van een opslagaccount is niet opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Vereist. Pad naar het XML-bestand met lijst met blob-paden bestand of blob-pad voorvoegsels voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt in de `BlobListBlobPath` -element in de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking van de Import/Export-service REST-API.|  
-|**/ DriveSize:**< DriveSize\>|Vereist. De grootte van stations voor een exporttaak *bijvoorbeeld*, 500 GB, 1,5 TB.|  
+|**schakeloptie/LOGDIR op:**< LogDirectory\>|Optioneel. Hallo logboekmap. Uitgebreide logboekbestanden geschreven toothis directory. Als er geen logboekmap is opgegeven, wordt de huidige map hello worden gebruikt als Hallo logboekmap.|  
+|**/sn:**< StorageAccountName\>|Vereist. Hallo-naam van Hallo storage-account voor Hallo taak exporteren.|  
+|**/SK:**< StorageAccountKey\>|Vereist als een container SAS is niet opgegeven. Hallo-toegangssleutel voor opslagaccount Hallo voor Hallo taak exporteren.|  
+|**/csas:**< ContainerSas\>|Vereist als de sleutel van een opslagaccount is niet opgegeven. Hallo container SAS voor aanbieding Hallo blobs toobe geëxporteerd in Hallo exporttaak.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Vereist. Pad toohello XML-bestand met lijst met blob-paden of blob-pad voorvoegsels voor Hallo blobs toobe geëxporteerd. Hallo-bestandsindeling die is gebruikt in Hallo `BlobListBlobPath` -element in Hallo [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking Hallo Import/Export-service REST-API.|  
+|**/ DriveSize:**< DriveSize\>|Vereist. grootte van stations toouse voor een exporttaak Hallo *bijvoorbeeld*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Voorbeeld van de opdrachtregel
 
-Het volgende voorbeeld toont de `PreviewExport` opdracht:  
+Hallo volgende voorbeeld toont Hallo `PreviewExport` opdracht:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-Het exportbestand voor de lijst van blob kan blobnamen bevatten en blob-voorvoegsels, zoals hier wordt weergegeven:  
+Hallo kan blob-exportbestand bevatten blob-namen en blob-voorvoegsels, zoals hier wordt weergegeven:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -57,9 +57,9 @@ Het exportbestand voor de lijst van blob kan blobnamen bevatten en blob-voorvoeg
 </BlobList>  
 ```
 
-De Azure-hulpprogramma voor importeren/exporteren geeft een lijst van alle blobs worden geëxporteerd en berekent hoe ze in de stations van de opgegeven grootte pack rekening wordt gehouden met eventuele benodigde overhead en maakt een schatting van het aantal stations die nodig zijn voor het opslaan van blobs en informatie over het gebruik van de schijf.  
+Hello Azure-hulpprogramma voor importeren/exporteren geeft een lijst van alle blobs toobe geëxporteerd en berekent hoe ze in de stations Hallo grootte opgegeven, rekening houdend met alle benodigde overhead maakt vervolgens een schatting van het aantal stations dat Hallo toopack nodig toohold Hallo blobs en schijfgebruik informatie.  
   
-Hier volgt een voorbeeld van uitvoer van de met informatief logboeken die worden weggelaten:  
+Hier volgt een voorbeeld van uitvoer hello, met informatief logboeken die worden weggelaten:  
   
 ```  
 Number of unique blob paths/prefixes:   3  

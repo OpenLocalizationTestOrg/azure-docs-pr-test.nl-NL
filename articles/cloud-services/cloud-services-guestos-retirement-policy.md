@@ -1,6 +1,6 @@
 ---
-title: Ondersteuningsmogelijkheden en buiten gebruik stellen beleid handleiding voor Azure Gast OS | Microsoft Docs
-description: Bevat informatie over wat wordt ondersteuning van Microsoft met betrekking tot aan de Azure-Gastbesturingssysteemreleases door de Cloud-Services gebruikt.
+title: aaaSupportability en buiten gebruik stellen beleid-handleiding voor Azure Gast OS | Microsoft Docs
+description: Bevat informatie over wat wordt ondersteuning van Microsoft met betrekking tot toohello Azure Gast OS door de Cloud-Services gebruikt.
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/26/2017
 ms.author: raiye
-ms.openlocfilehash: 488a6e144b16c57c137e60b918ee68c78db1a54f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a86c42ac95d12bbf116d900b7afb26fc3fe34e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Gast OS ondersteuningsmogelijkheden en buiten gebruik stellen beleid
-De informatie op deze pagina is gekoppeld aan het gastbesturingssysteem van Azure ([Gastbesturingssysteem](cloud-services-guestos-update-matrix.md)) voor Cloud Services worker en webservice-functies (PaaS). Dit geldt niet voor virtuele Machines (IaaS).
+Hallo-informatie op deze pagina is gekoppeld toohello Azure gastbesturingssysteem ([Gastbesturingssysteem](cloud-services-guestos-update-matrix.md)) voor Cloud Services worker en webservice-functies (PaaS). TooVirtual Machines (IaaS) is niet van toepassing.
 
-Microsoft heeft een gepubliceerde [ondersteuningsbeleid voor het Gastbesturingssysteem](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). De pagina die u nu wordt beschreven hoe het beleid is geïmplementeerd.
+Microsoft heeft een gepubliceerde [ondersteuningsbeleid voor het Gastbesturingssysteem Hallo](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Hallo pagina die u leest nu wordt beschreven hoe Hallo beleid is geïmplementeerd.
 
-Het beleid is
+Hallo-beleid is
 
-1. Microsoft ondersteunt **ten minste de laatste twee families van het Gastbesturingssysteem**. Wanneer een serie buiten gebruik is gesteld, hebben klanten 12 maanden na de officiële intrekkingsdatum bij te werken naar een nieuwere ondersteunde Gast OS-familie.
-2. Microsoft ondersteunt **ten minste de laatste twee versies van de ondersteunde Gastbesturingssysteem families**.
-3. Microsoft ondersteunt **ten minste de laatste twee versies van de Azure SDK**. Wanneer u een versie van de SDK is buiten gebruik gesteld, moeten klanten 12 maanden na de officiële intrekkingsdatum om bij te werken naar een nieuwere versie.
+1. Microsoft ondersteunt **Hallo ten minste twee families van de meest recente Hallo Gastbesturingssysteem**. Wanneer een serie buiten gebruik is gesteld, hebben klanten 12 maanden na Hallo officiële buiten gebruik stellen datum tooupdate tooa nieuwere ondersteunde Gast OS-familie.
+2. Microsoft ondersteunt **Hallo ten minste twee versies van de meest recente van Hallo ondersteund Gastbesturingssysteem families**.
+3. Microsoft ondersteunt **Hallo ten minste twee versies van de meest recente van hello Azure SDK**. Wanneer er een versie van Hallo die SDK is buiten gebruik gesteld, moeten klanten 12 maanden van Hallo officiële buiten gebruik stellen datum tooupdate tooa nieuwere versie.
 
-Tijd tot tijd mogelijk meer dan twee families of releases worden ondersteund. Informatie over het officiële ondersteuning Gastbesturingssysteem wordt weergegeven op de [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
+Tijd tot tijd mogelijk meer dan twee families of releases worden ondersteund. Informatie over het officiële ondersteuning Gastbesturingssysteem wordt weergegeven op Hallo [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
 
 ## <a name="when-a-guest-os-family-or-version-is-retired"></a>Wanneer een gast OS-familie of de versie is buiten gebruik gesteld
-Een nieuwe Gastbesturingssysteem **familie** enige tijd opnieuw na de release van een nieuwe officiële versie van het besturingssysteem Windows Server wordt geïntroduceerd. Wanneer een nieuwe Gast OS-familie wordt geïntroduceerd, wordt de oudste Gast OS-familie intrekken van Microsoft.
+Een nieuwe Gastbesturingssysteem **familie** ergens na Hallo-release van een nieuwe officiële versie van Windows Server-besturingssysteem hello wordt geïntroduceerd. Wanneer een nieuwe Gast OS-familie wordt geïntroduceerd, wordt de oudste Gast OS-familie Hallo intrekken van Microsoft.
 
-Nieuwe Gastbesturingssysteem **versies** over elke maand op te nemen van de meest recente updates voor MSRC zijn geïntroduceerd. Vanwege de reguliere maandelijkse updates is een versie van het Gastbesturingssysteem normaal uitgeschakeld 60 dagen na de release. Deze activiteit houdt ten minste twee Gast OS-versies voor iedere familie beschikbaar voor gebruik.
+Nieuwe Gastbesturingssysteem **versies** over elke maand tooincorporate Hallo nieuwste MSRC updates zijn geïntroduceerd. Vanwege Hallo reguliere maandelijkse updates is een versie van het Gastbesturingssysteem normaal uitgeschakeld 60 dagen na de release. Deze activiteit houdt ten minste twee Gast OS-versies voor iedere familie beschikbaar voor gebruik.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Verwerken tijdens een buiten gebruik stellen familie Gastbesturingssysteem
-Zodra het buiten gebruik stellen wordt aangekondigd, hebben klanten een overgangsperiode van 12 maanden '' voordat de oudere familie officieel gebruik gesteld buiten. Overgangsduur van deze kan worden uitgebreid naar keuze van Microsoft. Updates worden opgeslagen op de [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
+Nadat de Hallo buiten gebruik stellen wordt aangekondigd, hebt klanten een overgangsperiode van 12 maanden '' voordat Hallo oudere familie officieel gebruik gesteld buiten. Overgangsduur van deze kan worden uitgebreid goeddunken Hallo van Microsoft. Updates worden opgeslagen op Hallo [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
 
-Een geleidelijke buitengebruikstellingsproces begint zes (6) maanden in de overgangsperiode. Gedurende deze tijd:
+Een geleidelijke buitengebruikstellingsproces begint zes (6) maanden in Hallo overgangsperiode. Gedurende deze tijd:
 
-1. Microsoft zal gebruikers informeren over het buiten gebruik stellen.
-2. De nieuwere versie van de Azure SDK het buiten gebruik gestelde Gast OS-familie niet wordt ondersteund.
-3. Nieuwe implementaties en nieuwe distributies van Cloud Services niet toegestaan op de buiten gebruik gestelde familie
+1. Microsoft stelt klanten van Hallo buiten gebruik stellen.
+2. Hallo nieuwere versie van Azure SDK Hallo Hallo buiten gebruik gesteld Gast OS-familie niet wordt ondersteund.
+3. Nieuwe implementaties en nieuwe distributies van Cloud Services niet toegestaan op Hallo buiten gebruik gesteld familie
 
-Microsoft blijft introduceren van nieuwe versie van het besturingssysteem van de Gast de meest recente updates MSRC tot de laatste dag van de overgangsperiode, ook wel de 'vervaldatum' opnemen. Op de vervaldatum wordt Cloud Services nog steeds uitgevoerd onder de SERVICEOVEREENKOMST van Azure niet te worden ondersteund. Microsoft heeft de keuze te forceren upgrade, verwijderen of stoppen van deze services na die datum.
+Microsoft blijft toointroduce nieuwe Gastbesturingssysteem versie Hallo nieuwste MSRC updates tot Hallo laatste dag van Hallo overgangsperiode, ook wel 'vervaldatum' hello opnemen. Op de vervaldatum hello, Cloud Services nog steeds uitgevoerd wordt worden niet-ondersteunde onder hello Azure SLA. Microsoft heeft Hallo goeddunken tooforce upgraden, verwijderen of stoppen van deze services na die datum.
 
 ### <a name="process-during-a-guest-os-version-retirement"></a>Verwerken tijdens een versie van het besturingssysteem Gast buiten gebruik stellen
-Als klanten hun Gastbesturingssysteem automatisch bij te werken, hebben ze nooit te hoeven maken over het afhandelen van Gast OS-versies. Ze zullen altijd gebruikmaken van de meest recente versie van de Gast OS.
+Als klanten hun Gastbesturingssysteem tooautomatically update is ingesteld, hebben ze nooit tooworry over het afhandelen van Gast OS-versies. Ze gebruikt wordt altijd in de meest recente Gastbesturingssysteem versie Hallo.
 
-Gast OS-versies worden er elke maand uitgebracht. Vanwege de snelheid van reguliere releases heeft elke versie een vaste levensduur.
+Gast OS-versies worden er elke maand uitgebracht. Elke versie heeft vanwege Hallo frequentie van reguliere releases, een vaste levensduur.
 
-Na 60 dagen in de levensduur is een versie '*uitgeschakeld*'. "Uitgeschakeld" betekent dat de versie wordt verwijderd uit de portal. De versie kan niet meer worden ingesteld in het CSCFG-configuratiebestand. Bestaande implementaties worden ook actief blijven. Maar nieuwe implementaties en code en configuratie-updates aan bestaande implementaties wordt niet toegestaan.
+Na 60 dagen in Hallo levensduur is een versie '*uitgeschakeld*'. "Uitgeschakeld" betekent dat Hallo-versie wordt verwijderd uit het Hallo-portal. Hallo-versie kan niet meer worden ingesteld van Hallo CSCFG-configuratiebestand. Bestaande implementaties worden ook actief blijven. Maar nieuwe implementaties en code en configuratie-updates tooexisting implementaties wordt niet toegestaan.
 
-Enige tijd na steeds "uitgeschakeld", versie van het besturingssysteem van de Gast '*verloopt*' en worden nog steeds uitgevoerd die versie installaties force bijgewerkt en ingesteld op automatisch bijwerken van het Gastbesturingssysteem in de toekomst zijn. Verlopen wordt uitgevoerd in batches, zodat de tijdsperiode van deactivering verlopen kan variëren.
+Enige tijd na steeds "uitgeschakeld", versie van het besturingssysteem van de Gast Hallo '*verloopt*' en worden nog steeds uitgevoerd die versie installaties force bijgewerkt en in te stellen tooautomatically update Hallo Gastbesturingssysteem Hallo toekomstige zijn. Verlopen wordt uitgevoerd in batches, zodat Hallo tijdsperiode van deactivering tooexpiration kan variëren.
 
-Deze punten kunnen worden verricht langer goeddunken van Microsoft te vereenvoudigen overgangen van de klant. Eventuele wijzigingen worden gecommuniceerd op de [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
+Deze punten kunnen worden verricht langer op van Microsoft ter discretie tooease klant overgangen. Eventuele wijzigingen worden gecommuniceerd op Hallo [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Meldingen tijdens buiten gebruik stellen
-* **Familie buiten gebruik stellen** <br>Microsoft gebruikt blogberichten en de portalmelding. Klanten die nog steeds een buiten gebruik gestelde Gast OS-familie met ontvangt een melding via rechtstreekse communicatie (e-mailbericht, portal berichten, telefonische oproep) aan toegewezen servicebeheerders. Alle wijzigingen worden opgeslagen in deze pagina en de RSS-feed vermeld aan het begin van deze pagina.
-* **Versie buiten gebruik stellen** <br>Alle wijzigingen en de datums die ze optreden, worden opgeslagen in deze pagina en de RSS-feed vermeld aan het begin van deze pagina, met inbegrip van de release, uitgeschakeld of verlopen. Beheerders van de services ontvangt e-mailberichten als ze implementaties die worden uitgevoerd op een uitgeschakelde Gastbesturingssysteem versie of een groep hebben. De timing van deze e-mailberichten kan variëren. Ze zijn doorgaans ten minste een maand voor deactivering, hoewel deze timing niet een officiële SLA is.
+* **Familie buiten gebruik stellen** <br>Microsoft gebruikt blogberichten en de portalmelding. Klanten die nog steeds een buiten gebruik gestelde Gast OS-familie met ontvangt een melding via rechtstreekse communicatie (e-mailbericht, portal berichten, telefonische oproep) tooassigned servicebeheerders. Alle wijzigingen worden toothis pagina en Hallo RSS-feed die Hallo boven aan deze pagina worden geplaatst.
+* **Versie buiten gebruik stellen** <br>Alle wijzigingen en Hallo datums die ze optreden, geboekt toothis pagina en Hallo RSS-feed die Hallo boven aan deze pagina, met inbegrip van de release, uitgeschakeld of verlopen. Beheerders van de services ontvangt e-mailberichten als ze implementaties die worden uitgevoerd op een uitgeschakelde Gastbesturingssysteem versie of een groep hebben. Hallo timing van deze e-mailberichten kan variëren. Ze zijn doorgaans ten minste een maand voor deactivering, hoewel deze timing niet een officiële SLA is.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**Hoe kan ik het risico van de gevolgen van migratie?**
+**Hoe kan ik het risico van Hallo gevolgen van migratie?**
 
 U wordt aangeraden nieuwste Gast OS-familie voor het ontwerpen van uw Cloud-Services.
 
-1. Start de migratie naar een nieuwere familie vroeg plannen.
-2. Tijdelijke testimplementaties instellen voor het testen van uw Cloud Service wordt uitgevoerd op de nieuwe familie.
-3. Uw versie van het Gastbesturingssysteem ingesteld op **automatische** (osVersion = * in de [.cscfg](cloud-services-model-and-package.md#cscfg) bestand) zodat de migratie naar nieuwe versies van het Gastbesturingssysteem automatisch uitgevoerd.
+1. Start uw migratie tooa nieuwere gezin vroeg plannen.
+2. Tijdelijke test implementaties tootest instellen met uw Cloud Service wordt uitgevoerd op de nieuwe Hallo-familie.
+3. Stel uw versie van het Gastbesturingssysteem te**automatische** (osVersion = * in Hallo [.cscfg](cloud-services-model-and-package.md#cscfg) bestand) zodat Hallo migratie toonew Gast OS-versies worden automatisch uitgevoerd.
 
-**Wat gebeurt er als mijn webtoepassing is vereist om betere integratie met het besturingssysteem?**
+**Wat gebeurt er als mijn webtoepassing diepgaande integratie met Hallo OS vereist?**
 
-Als uw web-toepassingsarchitectuur, is afhankelijk van onderliggende functies van het besturingssysteem, gebruikt u ondersteund platformmogelijkheden, zoals [starten van de taken](cloud-services-startup-tasks.md) of andere mechanismen voor uitbreidbaarheid. U kunt ook ook gebruiken [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS-infrastructuur als een Service), waarbij u bent zelf verantwoordelijk voor het onderhouden van het onderliggende besturingssysteem.
+Als uw web-toepassingsarchitectuur, is afhankelijk van onderliggende functies van het besturingssysteem hello, gebruikt u ondersteund platformmogelijkheden, zoals [starten van de taken](cloud-services-startup-tasks.md) of andere mechanismen voor uitbreidbaarheid. U kunt ook ook gebruiken [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS-infrastructuur als een Service), waarbij u bent zelf verantwoordelijk voor het onderliggende besturingssysteem Hallo onderhouden.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de meest recente [Gast OS releases](cloud-services-guestos-update-matrix.md).
+Laatste controle Hallo [Gast OS releases](cloud-services-guestos-update-matrix.md).

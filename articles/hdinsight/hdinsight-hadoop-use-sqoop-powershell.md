@@ -1,6 +1,6 @@
 ---
-title: Sqoop taken met behulp van PowerShell en Azure HDInsight uitvoeren | Microsoft Docs
-description: Informatie over het gebruik van Azure PowerShell vanaf een werkstation voor het uitvoeren van Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
+title: aaaRun Sqoop taken met behulp van PowerShell en Azure HDInsight | Microsoft Docs
+description: Informatie over hoe Azure PowerShell toouse van een werkstation toorun Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,24 +16,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 956f4ac7c39e2936a2a6b5e5108dbe302446270c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8313bbd109e968aeab540bbcefefe84ebd64c87e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Met Azure PowerShell voor Hadoop in HDInsight Sqoop-taken uitvoeren
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informatie over het gebruik van Azure PowerShell Sqoop taken uitvoeren in HDInsight om te importeren en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
+Informatie over hoe toouse Azure PowerShell toorun Sqoop taken in HDInsight tooimport en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
 
 > [!NOTE]
-> De stappen in dit artikel kunnen worden gebruikt met ofwel een Windows- of Linux gebaseerde HDInsight-cluster; deze stappen werkt echter alleen vanaf een Windows-client. Klik op de tabselector boven aan het artikel voor andere methoden van de verzending van taak.
+> Hallo stappen in dit artikel kunnen worden gebruikt met ofwel een Windows- of Linux gebaseerde HDInsight-cluster; deze stappen werkt echter alleen vanaf een Windows-client. Klik op Hallo tabselector bovenaan Hallo van Hallo artikel voor andere methoden van de verzending van taak.
 > 
 > 
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
+Voordat u deze zelfstudie begint, moet u de volgende Hallo hebben:
 
 * **Een werkstation met Azure PowerShell**.
   
@@ -41,7 +41,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 * **Een Hadoop-cluster in HDInsight**. Zie [cluster en SQL-database maken](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="run-sqoop-using-powershell"></a>Sqoop met behulp van PowerShell uitgevoerd
-De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert u deze naar een Azure SQL database:
+Hallo volgende PowerShell-script vooraf verwerkt Hallo-bronbestand en exporteert het tooan Azure SQL database:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $hdinsightClusterName = "<HDInsightClusterName>"
@@ -58,51 +58,51 @@ De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert u de
     $sqlDatabaseLogin = "sqluser"
     $sqlDatabasePassword = "<Password>"
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #endregion
 
-    #region - pre-process the source file
+    #region - pre-process hello source file
 
-    Write-Host "`nPreprocessing the source file ..." -ForegroundColor Green
+    Write-Host "`nPreprocessing hello source file ..." -ForegroundColor Green
 
     # This procedure creates a new file with $destBlobName
     $sourceBlobName = "example/data/sample.log"
     $destBlobName = "tutorials/usesqoop/data/sample.log"
 
-    # Define the connection string
+    # Define hello connection string
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 
-    # Create block blob objects referencing the source and destination blob.
+    # Create block blob objects referencing hello source and destination blob.
     $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $defaultStorageAccountName
     $storageContainer = ($storageAccount |Get-AzureStorageContainer -Name $defaultBlobContainerName).CloudBlobContainer
     $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
     $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
 
-    # Define a MemoryStream and a StreamReader for reading from the source file
+    # Define a MemoryStream and a StreamReader for reading from hello source file
     $stream = New-Object System.IO.MemoryStream
     $stream = $sourceBlob.OpenRead()
     $sReader = New-Object System.IO.StreamReader($stream)
 
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
+    # Define a MemoryStream and a StreamWriter for writing into hello destination file
     $memStream = New-Object System.IO.MemoryStream
     $writeStream = New-Object System.IO.StreamWriter $memStream
 
-    # Pre-process the source blob
+    # Pre-process hello source blob
     $exString = "java.lang.Exception:"
     while(-Not $sReader.EndOfStream){
         $line = $sReader.ReadLine()
         $split = $line.Split(" ")
 
-        # remove the "java.lang.Exception" from the first element of the array
+        # remove hello "java.lang.Exception" from hello first element of hello array
         # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
         if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
+            #create a new ArrayList tooremove $split[0]
             $newArray = [System.Collections.ArrayList] $split
             $newArray.Remove($exString)
 
@@ -111,23 +111,23 @@ De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert u de
             $line = $newArray -join(" ")
         }
 
-        # remove the lines that has less than 7 elements
+        # remove hello lines that has less than 7 elements
         if ($split.count -ge 7){
             write-host $line
             $writeStream.WriteLine($line)
         }
     }
 
-    # Write to the destination blob
+    # Write toohello destination blob
     $writeStream.Flush()
     $memStream.Seek(0, "Begin")
     $destBlob.UploadFromStream($memStream)
 
     #endregion
 
-    #region - export the log file from the cluster to the SQL database
+    #region - export hello log file from hello cluster toohello SQL database
 
-    Write-Host "Exporting the log file ..." -ForegroundColor Green
+    Write-Host "Exporting hello log file ..." -ForegroundColor Green
 
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
@@ -166,14 +166,14 @@ De volgende PowerShell-script vooraf verwerkt het bronbestand en exporteert u de
     #endregion
 
 ## <a name="limitations"></a>Beperkingen
-* Bulksgewijs export - met Linux gebaseerde HDInsight, de Sqoop-connector gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
-* Batchverwerking - met HDInsight op basis van Linux, wanneer u de `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van de bewerkingen insert batchverwerking wordt uitgevoerd.
+* Bulk-export - met Linux gebaseerde HDInsight, Hallo Sqoop connector die wordt gebruikt tooexport gegevens tooMicrosoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
+* Batchverwerking - met HDInsight op basis van Linux bij gebruik van Hallo `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van batchverwerking Hallo insert-bewerkingen wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu hebt u geleerd hoe Sqoop gebruiken. Voor meer informatie zie:
+Nu u hebt geleerd hoe toouse Sqoop. toolearn meer, Zie:
 
 * [Oozie gebruiken met HDInsight](hdinsight-use-oozie.md): Sqoop gebruiken in een werkstroom Oozie in te grijpen.
-* [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data.md): Hive gebruiken voor het analyseren van vlucht gegevens uit te stellen en vervolgens Sqoop gebruiken om gegevens te exporteren naar een Azure SQL database.
-* [Gegevens uploaden naar HDInsight](hdinsight-upload-data.md): vinden van andere methoden voor het uploaden van gegevens naar HDInsight/Azure Blob-opslag.
+* [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data.md): tooanalyze vlucht Hive gebruiken gegevens uit te stellen en vervolgens Sqoop tooexport tooan Azure SQL database te gebruiken.
+* [Uploaden van gegevens tooHDInsight](hdinsight-upload-data.md): vinden van andere methoden voor het uploaden van gegevens tooHDInsight/Azure Blob-opslag.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

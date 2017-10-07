@@ -1,6 +1,6 @@
 ---
-title: Logboekregistratie voor Machine Learning-webservices | Microsoft Docs
-description: Informatie over het inschakelen van logboekregistratie voor Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie voor het oplossen van de API's.
+title: aaaLogging voor Machine Learning-webservices | Microsoft Docs
+description: Meer informatie over hoe logboekregistratie tooenable voor Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie toohelp oplossen Hallo API's.
 services: machine-learning
 documentationcenter: 
 author: raymondlaghaeian
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ed23933d52d2151af658af2307d7df8743071f65
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Logboekregistratie inschakelen voor Machine Learning-webservices
-Dit document bevat informatie over de mogelijkheid tot het vastleggen van Machine Learning-webservices. Logboekregistratie biedt aanvullende informatie, dan slechts een foutnummer en een bericht die kan helpen bij het oplossen van de aanroepen van de Machine Learning API's.  
+Dit document bevat informatie over de mogelijkheden van Machine Learning-webservices logboekregistratie Hallo. Logboekregistratie biedt aanvullende informatie, dan slechts een foutnummer en een bericht die kan helpen bij het oplossen van uw aanroepen toohello Machine Learning API's.  
 
-## <a name="how-to-enable-logging-for-a-web-service"></a>Het inschakelen van logboekregistratie voor een webservice
+## <a name="how-tooenable-logging-for-a-web-service"></a>Hoe tooenable logboekregistratie voor een webservice
 
-Inschakelen van logboekregistratie van het [Azure Machine Learning-webservices](https://services.azureml.net) portal. 
+Inschakelen van logboekregistratie van Hallo [Azure Machine Learning-webservices](https://services.azureml.net) portal. 
 
-1. Aanmelden bij de portal voor Azure Machine Learning-webservices op [https://services.azureml.net](https://services.azureml.net). Voor een webservice klassiek, u kunt ook opvragen bij de portal door te klikken op **nieuwe Services webervaring** op de pagina Machine Learning-webservices in Machine Learning Studio.
+1. Meld u aan toohello Azure Machine Learning-webservices-portal op [https://services.azureml.net](https://services.azureml.net). Voor een webservice klassiek kunt u ook toohello portal opvragen door te klikken op **nieuwe Services webervaring** op Hallo Machine Learning-webservices pagina in Machine Learning Studio.
 
    ![Nieuwe koppeling van de ervaring van de Web-Services](media/machine-learning-web-services-logging/new-web-services-experience-link.png)
 
-2. In het bovenste menu, klikt u op **webservices** voor een nieuwe webservice of klik op **klassieke webservices** voor een klassiek webservice.
+2. Klik op de bovenste menubalk Hallo **Web Services** voor een nieuwe webservice of klik op **klassieke webservices** voor een klassiek webservice.
 
    ![Selecteer Nieuw of klassiek webservices](media/machine-learning-web-services-logging/select-web-service.png)
 
-3. Een nieuwe webservice, klikt u op de naam van de webservice. Voor een klassieke-webservice, klikt u op de naam van de webservice en klik vervolgens op de volgende pagina op het juiste eindpunt.
+3. Een nieuwe webservice, klikt u op Hallo naam van de webservice. Voor een webservice klassieke op Hallo naam van de webservice en klik op de volgende pagina Hallo op Hallo juiste eindpunt.
 
-4. In het bovenste menu, klikt u op **configureren**.
+4. Klik op de bovenste menubalk Hallo **configureren**.
 
-5. Stel de **logboekregistratie inschakelen** optie naar *fout* (alleen om fouten te registreren) of *alle* (voor volledige logboekregistratie).
+5. Set Hallo **logboekregistratie inschakelen** te optie*fout* (toolog alleen fouten) of *alle* (voor volledige logboekregistratie).
 
    ![Niveau van logboekregistratie selecteren](media/machine-learning-web-services-logging/enable-logging.png)
 
 6. Klik op **Opslaan**.
 
-7. Voor klassieke webservices, maken de **ml diagnostics** container.
+7. Voor klassieke webservices maken Hallo **ml diagnostics** container.
 
-   Alle web service-logboeken worden opgeslagen in een blob-container met de naam **ml diagnostics** in het opslagaccount dat is gekoppeld met de webservice. Deze container gemaakt voor nieuwe web-services de eerste keer dat u toegang de webservice tot. Voor klassieke webservices moet u de container maken als deze niet al bestaat. 
+   Alle web service-logboeken worden opgeslagen in een blob-container met de naam **ml diagnostics** in Hallo storage-account is gekoppeld aan het Hallo-webservice. Voor nieuwe web-services, wordt deze container gemaakt Hallo eerste keer dat u toegang Hallo-webservice tot. Voor klassieke webservices moet u toocreate Hallo container als deze niet al bestaat. 
 
-   1. In de [Azure-portal](https://portal.azure.com), gaat u naar het opslagaccount dat is gekoppeld met de webservice.
+   1. In Hallo [Azure-portal](https://portal.azure.com), gaat u toohello storage-account is gekoppeld aan het Hallo-webservice.
 
    2. Onder **Blob-Service**, klikt u op **Containers**.
 
-   3. Als de container **ml diagnostics** niet bestaat, klikt u op **+ Container**, geven de container de naam 'ml-diagnostische gegevens' en selecteer de **toegangstype** als 'Blob'. Klik op **OK**.
+   3. Als Hallo container **ml diagnostics** niet bestaat, klikt u op **+ Container**, geven Hallo container Hallo naam 'ml-diagnostics' en selecteer Hallo **toegangstype** als 'Blob'. Klik op **OK**.
 
       ![Niveau van logboekregistratie selecteren](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> Voor een webservice klassieke heeft het Dashboard van de Web-Services in Machine Learning Studio ook een switch logboekregistratie in te schakelen. Omdat logboekregistratie wordt nu beheerd via het Web Services-portal, moet u echter inschakelen van logboekregistratie in via de portal, zoals beschreven in dit artikel. Als u al ingeschakeld logboekregistratie in Studio, in de Web Services-Portal-logboekregistratie uitschakelen en opnieuw inschakelen.
+> Hallo Web Services-Dashboard in Machine Learning Studio heeft ook een switch tooenable logboekregistratie voor een webservice klassiek. Aangezien logboekregistratie wordt nu beheerd via Hallo Web Services-portal, moet u echter tooenable logboekregistratie via Hallo-portal, zoals beschreven in dit artikel. Als u al ingeschakeld logboekregistratie in Studio, in Hallo Web Services-Portal, logboekregistratie uitschakelen en opnieuw inschakelen.
 
 
-## <a name="the-effects-of-enabling-logging"></a>De gevolgen van het inschakelen van logboekregistratie
-Als logboekregistratie is ingeschakeld, de diagnostische gegevens en fouten van de webservice-eindpunt worden vastgelegd in de **ml diagnostics** blob-container in Azure Storage-Account gekoppeld aan de gebruiker werkruimte. Deze container bevat de diagnostische gegevens voor alle de webservice-eindpunten voor de werkruimten die zijn gekoppeld aan dit opslagaccount.
+## <a name="hello-effects-of-enabling-logging"></a>Hallo gevolgen van het inschakelen van logboekregistratie
+Als logboekregistratie is ingeschakeld, Hallo diagnostische gegevens en fouten van webservice-eindpunt Hallo worden vastgelegd in Hallo **ml diagnostics** blob-container in hello Azure Storage-Account gekoppeld aan van de gebruiker van het Hallo-werkruimte. Deze container bevat alle Hallo diagnostische gegevens voor alle Hallo webservice-eindpunten voor alle Hallo werkruimten die zijn gekoppeld aan dit opslagaccount.
 
-De logboeken kunnen worden weergegeven met een van de verschillende beschikbare hulpprogramma's om te verkennen van een Azure Storage-Account. De eenvoudigste manier is mogelijk gaat u naar het opslagaccount in de Azure portal, klikt u op **Containers**, en klik vervolgens op de container **ml diagnostics**.  
+Hallo logboeken kunnen worden weergegeven met behulp van een Hallo beschikbaar tooexplore van verschillende hulpprogramma's voor een Azure Storage-Account. Hallo eenvoudigste kan worden toonavigate toohello storage-account in hello Azure-portal, klikt u op **Containers**, en klik vervolgens op Hallo container **ml diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Blob-logboekgegevens
-Elke blob in de container bevat de diagnostische gegevens voor exact één van de volgende acties:
+Elke blob in de container Hallo bevat Hallo diagnostische gegevens voor exact één van de volgende activiteiten Hallo:
 
-* Uitvoering van een van de Batch-Execution-methode  
-* Uitvoering van een van de methode aanvragen en antwoorden  
+* De uitvoering van Hallo Batchuitvoering methode  
+* Uitvoering van een van de methode Hallo aanvragen en antwoorden  
 * Initialisatie van een container van aanvragen en antwoorden
 
-De naam van elke blob heeft een voorvoegsel van de volgende notatie: 
+Hallo-naam van elke blob heeft een voorvoegsel Hallo formulier te volgen: 
 
 
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-Waar _type logboek registreren_ is een van de volgende waarden:  
+Waar _type logboek registreren_ is een van de volgende waarden Hallo:  
 
 * Batch  
 * score/aanvragen  

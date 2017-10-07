@@ -1,6 +1,6 @@
 ---
-title: Migreren naar Azure Premium-opslag met Azure Site Recovery | Microsoft Docs
-description: Uw bestaande virtuele machines migreren naar Azure Premium-opslag met Site Recovery. Premium-opslag biedt ondersteuning voor schijven voor hoge prestaties, lage latentie voor I/O-intensieve werkbelastingen die worden uitgevoerd op Azure Virtual Machines.
+title: aaaMigrating tooAzure Premium-opslag met Azure Site Recovery | Microsoft Docs
+description: Migreer uw bestaande virtuele machines tooAzure Premium-opslag met Site Recovery. Premium-opslag biedt ondersteuning voor schijven voor hoge prestaties, lage latentie voor I/O-intensieve werkbelastingen die worden uitgevoerd op Azure Virtual Machines.
 services: storage
 cloud: Azure
 documentationcenter: na
@@ -14,148 +14,148 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: luywang
-ms.openlocfilehash: cc364bdae49068a50ec86c537c3b878670b8b8b7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cb71c06e4a1a73d484e226a573d1ade48c87664d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Migreren naar Premium Storage met Azure Site Recovery
+# <a name="migrating-toopremium-storage-using-azure-site-recovery"></a>Migreren tooPremium Storage met Azure Site Recovery
 
-[Azure Premium-opslag](storage-premium-storage.md) biedt ondersteuning voor hoge prestaties, lage latentie schijven voor virtuele machines (VM's) die I/O-intensieve werkbelastingen worden uitgevoerd. Het doel van deze handleiding is om gebruikers hun VM-schijven van de account van een Standard-opslag migreren naar een Premium storage-account met behulp van [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
+[Azure Premium-opslag](storage-premium-storage.md) biedt ondersteuning voor hoge prestaties, lage latentie schijven voor virtuele machines (VM's) die I/O-intensieve werkbelastingen worden uitgevoerd. Hallo-doel van deze handleiding is toohelp gebruikers hun VM-schijven migreert van een Standard-opslag account tooa Premium storage-account met behulp van [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
-Site Recovery is een Azure-service die aan uw strategie voor zakelijke continuïteit en noodherstel bijdraagt door de replicatie van fysieke on-premises servers en virtuele machines in de cloud (Azure) of naar een secundair datacenter te organiseren. Wanneer er storingen optreden op uw primaire locatie, schakelt u over naar de secundaire locatie om toepassingen en workloads beschikbaar te houden. U failback naar uw primaire locatie wanneer deze weer normaal functioneren. Site Recovery biedt testfailovers ter ondersteuning van noodhersteloefeningen zonder productieomgevingen. U kunt failovers met minimaal gegevensverlies (afhankelijk van de replicatiefrequentie) bij onverwachte noodsituaties uitvoeren. In het scenario van de migratie naar de Premium-opslag, kunt u de [-Failover in Site Recovery](../site-recovery/site-recovery-failover.md) in Azure Site Recovery doel schijven migreren naar een Premium storage-account.
+Site Recovery is een Azure-service die tooyour zakelijke continuïteit bijdraagt en noodherstelplan door te organiseren Hallo replicatie van fysieke on-premises servers en virtuele machines toohello cloud (Azure) of tooa secundair datacenter. Wanneer er storingen optreden op uw primaire locatie, schakelt u over toohello secundaire locatie tookeep toepassingen en workloads beschikbaar. U mislukken back tooyour primaire locatie wanneer deze toonormal bewerking weer. Site Recovery biedt testfailovers toosupport noodhersteloefeningen zonder productieomgevingen. U kunt failovers met minimaal gegevensverlies (afhankelijk van de replicatiefrequentie) bij onverwachte noodsituaties uitvoeren. In geval van Hallo tooPremium opslag migreert, kunt u Hallo [-Failover in Site Recovery](../site-recovery/site-recovery-failover.md) in Azure Site Recovery toomigrate doel schijven tooa Premium storage-account.
 
-Het is raadzaam om de migratie naar de Premium-opslag met behulp van Site Recovery omdat deze optie minimale downtime biedt en de handmatige uitvoering van het kopiëren van schijven en het maken van nieuwe virtuele machines voorkomt. Site Recovery wordt systematischer kopiëren van de schijven en nieuwe virtuele machines maken tijdens de failover. Site Recovery biedt ondersteuning voor verschillende soorten failovers met minimaal of er geen uitvaltijd. Voor het plannen van uw uitvaltijd en verlies van gegevens schatten, Zie de [soorten failovers](../site-recovery/site-recovery-failover.md) tabel in Site Recovery. Als u [voorbereiden verbinding maken met virtuele Azure-machines na een failover](../site-recovery/site-recovery-vmware-to-azure.md), moet u kunnen verbinding maken met de Azure-VM met RDP na een failover.
+Het is raadzaam migreren tooPremium opslag met behulp van Site Recovery omdat deze optie minimale downtime biedt en Hallo handmatig uitvoeren voorkomt van het kopiëren van schijven en het maken van nieuwe virtuele machines. Site Recovery wordt systematischer kopiëren van de schijven en nieuwe virtuele machines maken tijdens de failover. Site Recovery biedt ondersteuning voor verschillende soorten failovers met minimaal of er geen uitvaltijd. tooplan uw schatting van uitvaltijd en verlies van gegevens, Zie Hallo [soorten failovers](../site-recovery/site-recovery-failover.md) tabel in Site Recovery. Als u [voorbereiden tooconnect tooAzure VM's na een failover](../site-recovery/site-recovery-vmware-to-azure.md), moet u kunnen tooconnect toohello virtuele machine van Azure met RDP na een failover.
 
 ![][1]
 
 ## <a name="azure-site-recovery-components"></a>Azure Site Recovery-onderdelen
 
-Dit zijn de Site Recovery-onderdelen die relevant voor dit migratiescenario zijn.
+Dit zijn onderdelen van Site Recovery Hallo die relevant toothis migratiescenario.
 
-* **Configuratieserver** is van een virtuele machine van Azure die coördineert de communicatie en processen voor replicatie en herstel van gegevens beheert. Op deze virtuele machine voert u een één installatiebestand voor het installeren van de configuratieserver en een extra onderdeel, een processerver als replicatiegateway genoemd. Meer informatie over [server configuratievereisten](../site-recovery/site-recovery-vmware-to-azure.md). Configuratieserver alleen moet eenmaal worden geconfigureerd en kan worden gebruikt voor alle migraties om dezelfde regio.
+* **Configuratieserver** is van een virtuele machine van Azure die coördineert de communicatie en processen voor replicatie en herstel van gegevens beheert. Op deze virtuele machine voert u een één setup tooinstall Hallo configuratie bestandsserver en een extra onderdeel, een processerver als replicatiegateway genoemd. Meer informatie over [server configuratievereisten](../site-recovery/site-recovery-vmware-to-azure.md). Configuratieserver alleen moet toobe eenmaal is geconfigureerd en kan worden gebruikt voor alle migraties toohello dezelfde regio.
 
-* **Processerver** replicatiegateway die replicatiegegevens van virtuele bronmachines ontvangt optimaliseert de gegevens met caching, compressie en codering en verzendt het naar een opslagaccount is. Ook push-installatie van de mobility-service naar de virtuele bronmachines worden verwerkt en wordt automatische detectie van de virtuele bronmachines uitgevoerd. De processerver standaard is geïnstalleerd op de configuratieserver. U kunt aanvullende zelfstandige processervers om te schalen van uw implementatie kunt implementeren. Meer informatie over [best practices voor processerverimplementatie](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) en [implementatie extra processervers](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Processerver alleen moet eenmaal worden geconfigureerd en kan worden gebruikt voor alle migraties om dezelfde regio.
+* **Processerver** replicatiegateway die replicatiegegevens van virtuele bronmachines ontvangt optimaliseert de Hallo-gegevens met caching, compressie en codering, en verzendt het tooa storage-account is. Ook omgaat met push-installatie van Hallo mobility service toosource VM's en automatische detectie van de virtuele bronmachines uitvoert. Hallo proces standaardserver is geïnstalleerd op de configuratieserver Hallo. U kunt aanvullende zelfstandige proces servers tooscale uw implementatie te implementeren. Meer informatie over [best practices voor processerverimplementatie](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) en [implementatie extra processervers](../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). Processerver alleen moet toobe eenmaal is geconfigureerd en kan worden gebruikt voor alle migraties toohello dezelfde regio.
 
-* **Mobility-service** is een onderdeel dat is geïmplementeerd op elke standard VM die u wilt repliceren. Deze gegevens schrijfbewerkingen op de standaard virtuele machine vastgelegd en stuurt deze door naar de processerver. Meer informatie over [gerepliceerde machine vereisten](../site-recovery/site-recovery-vmware-to-azure.md).
+* **Mobility-service** is een onderdeel dat is geïmplementeerd op elke standard VM gewenste tooreplicate. Deze gegevens schrijfbewerkingen vastgelegd op Hallo standard VM en stuurt ze toohello processerver. Meer informatie over [gerepliceerde machine vereisten](../site-recovery/site-recovery-vmware-to-azure.md).
 
 Deze afbeelding ziet u hoe deze onderdelen samenwerken.
 
 ![][15]
 
 > [!NOTE]
-> Site Recovery biedt geen ondersteuning voor de migratie van schijven met opslagruimten.
+> Site Recovery biedt geen ondersteuning voor migratie van Hallo van schijven met opslagruimten.
 
-Raadpleeg voor aanvullende onderdelen voor andere scenario's [scenarioarchitectuur](../site-recovery/site-recovery-vmware-to-azure.md).
+Voor extra onderdelen voor andere scenario's, raadpleegt u te[scenarioarchitectuur](../site-recovery/site-recovery-vmware-to-azure.md).
 
 ## <a name="azure-essentials"></a>Azure essentials
 
-Dit zijn de Azure-vereisten voor dit migratiescenario.
+Deze zijn hello Azure-vereisten voor dit migratiescenario.
 
 * Een Azure-abonnement
-* Een Azure Premium storage-account voor het opslaan van gerepliceerde gegevens
-* Een Azure-netwerk (VNet) waarmee virtuele machines verbinding maken wanneer ze worden gemaakt bij een failover. Het Azure VNet moet zich in dezelfde regio bevinden als die waarin de Site Recovery wordt uitgevoerd
-* Een standaard Azure storage-account waarin replicatielogboeken worden opgeslagen. Dit is hetzelfde opslagaccount als de schijven van de virtuele machine wordt gemigreerd
+* Een Azure Premium storage-account toostore gerepliceerde gegevens
+* Een Azure-netwerk (VNet) toowhich virtuele machines verbinding maken wanneer ze worden gemaakt bij een failover. Hello Azure VNet moet in dezelfde regio Hallo zoals Hallo een in welke Hallo Site Recovery wordt uitgevoerd
+* Een standaard Azure storage-account in de logboeken van welke toostore replicatie. Dit kan zijn hetzelfde opslagaccount Hallo zoals Hallo VM schijven wordt gemigreerd
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Inzicht in de relevante migratie scenario-onderdelen in de vorige sectie
-* De uitvaltijd plannen door informatie over de [-Failover in Site Recovery](../site-recovery/site-recovery-failover.md)
+* Hallo relevante migratie scenario-onderdelen in de voorgaande sectie Hallo begrijpen
+* De uitvaltijd plannen met leren over Hallo [-Failover in Site Recovery](../site-recovery/site-recovery-failover.md)
 
 ## <a name="setup-and-migration-steps"></a>Stappen voor installatie en -migratie
 
-U kunt Site Recovery kunt gebruiken voor het migreren van Azure IaaS VM's tussen regio's of binnen dezelfde regio. De volgende instructies zijn aangepast voor dit migratiescenario van het artikel [VMware-machines repliceren of fysieke servers naar Azure](../site-recovery/site-recovery-vmware-to-azure.md). Volg de koppelingen voor gedetailleerde stappen voor het extra de instructies in dit artikel.
+U kunt Site Recovery toomigrate Azure IaaS VM's tussen regio's of binnen dezelfde regio. Hallo volgende instructies zijn aangepast voor dit migratiescenario vanuit Hallo artikel [VMware-machines repliceren of fysieke servers tooAzure](../site-recovery/site-recovery-vmware-to-azure.md). Volg Hallo koppelingen voor gedetailleerde stappen in de aanvullende toohello instructies in dit artikel.
 
-1. **Een Recovery Services-kluis maken**. Maken en beheren van de Site Recovery-kluis via de [Azure-portal](https://portal.azure.com). Klik op **nieuwe** > **Management** > **back-up** en **Site Recovery (OMS)**. U kunt ook klikken op **Bladeren** > **Recovery Services-kluis** > **toevoegen**. Virtuele machines worden gerepliceerd naar de regio die u in deze stap opgeeft. Selecteer de regio waar uw Bronmachines en bron storage-accounts zijn omwille van de migratie in dezelfde regio. Houd er rekening mee dat de migratie naar Premium storage-accounts wordt alleen ondersteund in de [Azure-portal](https://portal.azure.com), niet de [klassieke portal](https://manage.windowsazure.com).
+1. **Een Recovery Services-kluis maken**. Maken en beheren van Site Recovery-kluis via Hallo Hallo [Azure-portal](https://portal.azure.com). Klik op **nieuwe** > **Management** > **back-up** en **Site Recovery (OMS)**. U kunt ook klikken op **Bladeren** > **Recovery Services-kluis** > **toevoegen**. Virtuele machines worden gerepliceerd toohello regio die u in deze stap opgeeft. Voor doel van de migratie in Hallo Hallo dezelfde regio, selecteer Hallo regio waar uw bron-VM's en bron storage-accounts. Houd er rekening mee migratie tooPremium storage-accounts wordt alleen ondersteund in Hallo [Azure-portal](https://portal.azure.com), niet Hallo [klassieke portal](https://manage.windowsazure.com).
 
-2. De volgende stappen kunt u **uw beveiligingsdoelstellingen kiezen**.
+2. Hallo volgende stappen kunt u **uw beveiligingsdoelstellingen kiezen**.
 
-    2a. Open op de virtuele machine waarop u wilt installeren van de configuratieserver, de [Azure-portal](https://portal.azure.com). Ga naar **Recovery Services-kluizen** > **instellingen**. Onder **instellingen**, selecteer **siteherstel**. Onder **siteherstel**, selecteer **stap 1: infrastructuur voorbereiden**. Onder **infrastructuur voorbereiden**, selecteer **beveiligingsdoel**.
+    2a. Open op de virtuele machine waar u tooinstall Hallo configuratieserver Hallo, Hallo [Azure-portal](https://portal.azure.com). Ga te**Recovery Services-kluizen** > **instellingen**. Onder **instellingen**, selecteer **siteherstel**. Onder **siteherstel**, selecteer **stap 1: infrastructuur voorbereiden**. Onder **infrastructuur voorbereiden**, selecteer **beveiligingsdoel**.
 
     ![][2]
 
-    2b. Onder **beveiligingsdoel**, selecteer in de vervolgkeuzelijst eerste **naar Azure**. Selecteer in de vervolgkeuzelijst tweede **niet gevirtualiseerde / andere**, en klik vervolgens op **OK**.
+    2b. Onder **beveiligingsdoel**, Hallo eerste vervolgkeuzelijst in, selecteer **tooAzure**. Selecteer in de tweede vervolgkeuzelijst lijst Hallo **niet gevirtualiseerde / andere**, en klik vervolgens op **OK**.
 
     ![][3]
 
-3. De volgende stappen kunt u **instellen van de bronomgeving (configuratieserver)**.
+3. Hallo volgende stappen kunt u **Hallo bronomgeving (configuratieserver) instellen**.
 
-    3a. Download de **Azure Site Recovery Unified Setup** en de **kluisregistratiesleutel** door te gaan naar de **infrastructuur voorbereiden**  >   **Bron voorbereiden** > **Server toevoegen** blade. U moet de kluisregistratiesleutel de uniforme setup uit te voeren. De sleutel blijft vijf dagen na het genereren ervan geldig.
+    3a. Hallo downloaden **Azure Site Recovery Unified Setup** en Hallo **kluisregistratiesleutel** door te gaan toohello **infrastructuur voorbereiden**  >  **Bron voorbereiden** > **Server toevoegen** blade. U moet Hallo kluis registratie sleutel toorun Hallo unified setup. Hallo-sleutel is geldig tot 5 dagen nadat u het genereren.
 
     ![][4]
 
-    3b. Toevoegen van de configuratieserver in de **Server toevoegen** blade.
+    3b. Configuratieserver toevoegen in Hallo **Server toevoegen** blade.
 
     ![][5]
 
-    3c. Op de virtuele machine die u als de configuratieserver, Unified Setup uitvoeren om te installeren van de configuratieserver en de processerver. U kunt de schermafbeeldingen doorlopen [hier](../site-recovery/site-recovery-vmware-to-azure.md) om de installatie te voltooien. U kunt verwijzen naar de volgende schermafbeeldingen voor stappen die zijn opgegeven voor dit migratiescenario.
+    3c. Voer Setup Unified tooinstall Hallo configuratieserver en de processerver van Hallo op Hallo VM die u als de configuratieserver hello. U kunt schermafbeeldingen Hallo doorlopen [hier](../site-recovery/site-recovery-vmware-to-azure.md) toocomplete Hallo-installatie. U kunt schermafbeeldingen voor stappen die zijn opgegeven voor dit migratiescenario na toohello verwijzen.
 
-    Selecteer bij **Voordat u begint** de optie **De configuratieserver en processerver installeren**.
+    In **voordat u begint met**, selecteer **installeren Hallo configuratieserver en de processerver**.
 
     ![][6]
 
-    3D. In **registratie**, bladeren en selecteer de registratiesleutel die u hebt gedownload van de kluis.
+    3D. In **registratie**, bladeren en selecteer Hallo registratiesleutel u hebt gedownload van Hallo kluis.
 
     ![][7]
 
-    3e. Selecteer bij **Details van de omgeving** of u virtuele VMware-machines wilt repliceren. Voor dit migratiescenario kiezen **Nee**.
+    3e. In **omgeving Details**Selecteer of u tooreplicate virtuele VMware-machines gaat. Voor dit migratiescenario kiezen **Nee**.
 
     ![][8]
 
-    3F. Nadat de installatie voltooid is, ziet u de **Microsoft Azure Site Recovery-configuratieserver** venster. Gebruik de **Accounts beheren** tabblad account wilt maken die Site Recovery kunt gebruiken voor automatische detectie. (In het scenario over het beveiligen van fysieke machines, instellen van het account niet relevant, maar u moet ten minste één account om in te schakelen op een van de volgende stappen uit. In dit geval kunt u naam-account en wachtwoord als willekeurig.) Gebruik de **kluis registratie** tabblad voor het uploaden van het kluisreferentiebestand.
+    3F. Nadat het Hallo-installatie is voltooid, ziet u Hallo **Microsoft Azure Site Recovery-configuratieserver** venster. Gebruik Hallo **Accounts beheren** tabblad toocreate Hallo account met Site Recovery voor automatische detectie gebruiken kunt. (In Hallo scenario over het beveiligen van fysieke machines Hallo-account instellen niet relevant, maar u moet ten minste één account tooenable een Hallo stappen te volgen. In dit geval kunt u naam Hallo-account en wachtwoord als willekeurig.) Gebruik Hallo **kluis registratie** tabblad tooupload hello kluisreferentiebestand.
 
     ![][9]
 
-4. **De doelomgeving instellen**. Klik op **infrastructuur voorbereiden** > **doel**, en geef het implementatiemodel dat u wilt gebruiken voor virtuele machines na een failover. U kunt kiezen **klassieke** of **Resource Manager**, afhankelijk van uw scenario.
+4. **Hallo doelomgeving instellen**. Klik op **infrastructuur voorbereiden** > **doel**, en geef Hallo implementatiemodel gewenste toouse voor virtuele machines na een failover. U kunt kiezen **klassieke** of **Resource Manager**, afhankelijk van uw scenario.
 
     ![][10]
 
-    Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt. Houd er rekening mee dat als u een Premium storage-account voor gerepliceerde gegevens gebruikt, u moet een extra Standard-opslagaccount instellen voor replicatielogboeken worden opgeslagen.
+    Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt. Opmerking Als u een Premium storage-account voor gerepliceerde gegevens gebruikt, u tooset van een extra Standard-opslag account toostore replicatie moet Logboeken.
 
-5. **Replicatie-instellingen instellen**. Volg [replicatie-instellingen instellen](../site-recovery/site-recovery-vmware-to-azure.md) om te controleren of uw configuratieserver is gekoppeld aan het replicatiebeleid dat u maakt.
+5. **Replicatie-instellingen instellen**. Volg [replicatie-instellingen instellen](../site-recovery/site-recovery-vmware-to-azure.md) tooverify dat de configuratieserver is is gekoppeld aan Hallo replicatiebeleid dat u maakt.
 
-6. **Capaciteitsplanning**. Gebruik de [Capaciteitsplanner](../site-recovery/site-recovery-capacity-planner.md) moet netwerkbandbreedte, opslag en andere vereisten om te voldoen aan uw replicatie nauwkeurig te schatten. Wanneer u bent klaar, selecteert u **Ja** in **hebt u capaciteitsplanning?**.
+6. **Capaciteitsplanning**. Gebruik Hallo [Capaciteitsplanner](../site-recovery/site-recovery-capacity-planner.md) tooaccurately schatting netwerkbandbreedte, opslag en andere vereisten toomeet uw replicatie moet. Wanneer u bent klaar, selecteert u **Ja** in **hebt u capaciteitsplanning?**.
 
     ![][11]
 
-7. De volgende stappen kunt u **installeren van de mobility-service en -replicatie inschakelen**.
+7. Hallo volgende stappen kunt u **installeren van de mobility-service en -replicatie inschakelen**.
 
-    7. U kunt [push-installatie](../site-recovery/site-recovery-vmware-to-azure.md) aan uw Bronmachines of aan [handmatig installeren van de mobility-service](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) op uw virtuele bronmachines. U vindt de vereiste van de installatie en het pad van het installatieprogramma voor het handmatig pushen in de koppeling. Als u een handmatige installatie uitvoert, moet u mogelijk een interne IP-adres gebruiken om te bepalen van de configuratieserver.
+    7. U kunt ervoor kiezen te[push-installatie](../site-recovery/site-recovery-vmware-to-azure.md) tooyour bronmachines of te[handmatig installeren van de mobility-service](../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) op uw virtuele bronmachines. U vindt Hallo vereiste van pushen installatie en het pad van de Hallo van handmatige installatieprogramma Hallo in Hallo koppeling. Als u een handmatige installatie uitvoert, moet u mogelijk een interne IP-adres toofind Hallo configuratieserver toouse.
 
     ![][12]
 
-    De failover-VM heeft twee tijdelijke schijven: één van de primaire virtuele machine en de andere gemaakt tijdens het inrichten van virtuele machine in de regio van het herstel. Als u wilt uitsluiten van de tijdelijke schijf voordat de replicatie, installeert u de mobility-service voordat u replicatie inschakelt. Raadpleeg voor meer informatie over het uitsluiten van de tijdelijke schijf [schijven uitsluiten van replicatie](../site-recovery/site-recovery-vmware-to-azure.md).
+    Hallo failover VM heeft twee tijdelijke schijven: één van primaire virtuele machine en Hallo andere gemaakt tijdens het Hallo inrichten van virtuele machine in Hallo herstel regio Hallo. tooexclude hello tijdelijke schijf voordat de replicatie, installeer Hallo mobility-service voordat u replicatie inschakelt. toolearn meer informatie over hoe tooexclude tijdelijke schijf Hallo te verwijzen[schijven uitsluiten van replicatie](../site-recovery/site-recovery-vmware-to-azure.md).
 
     7 ter. Schakel nu als volgt replicatie in:
-      * Klik op **toepassing repliceren** > **bron**. Nadat u replicatie voor het eerst hebt ingeschakeld, klik op + repliceren in de kluis aanvullende machines replicatie in te schakelen.
+      * Klik op **toepassing repliceren** > **bron**. Nadat u replicatie voor Hallo eerst hebt ingeschakeld, klik op + op Hallo kluis tooenable replicatie voor aanvullende machines repliceren.
       * In stap 1 voert instellen als uw processerver.
-      * Geef het implementatiemodel na een failover, een Premium storage-account om te migreren naar, een standaard opslagaccount logboeken en een virtueel netwerk niet opslaan in stap 2.
-      * In stap 3 toevoegen beveiligde virtuele machines op IP-adres (mogelijk moet u een interne IP-adres te zoeken).
-      * In stap 4, door de eigenschappen te configureren met behulp van de accounts die u eerder hebt ingesteld op de processerver.
-      * Kies in stap 5, het replicatiebeleid dat u eerder hebt gemaakt, instellen van de replicatie-instellingen.
+      * Geef in stap 2, Hallo na een failover-implementatiemodel, een toomigrate Premium storage-account voor een Standard-opslag account toosave logboeken en een virtueel netwerk toofail aan.
+      * Voeg in stap 3, beveiligde virtuele machines met IP-adres (mogelijk moet u een interne IP-adres toofind ze).
+      * In stap 4 Hallo eigenschappen te configureren door het Hallo-accounts die u eerder hebt ingesteld op de processerver Hallo selecteren.
+      * Kies in stap 5 Hallo replicatiebeleid die u eerder hebt gemaakt, instellen van de replicatie-instellingen.
       Klik op **OK** en replicatie inschakelen.
 
     > [!NOTE]
-    > Wanneer een Azure VM is de toewijzing ongedaan gemaakt en opnieuw hebt gestart, is er geen garantie dat hetzelfde IP-adres worden opgehaald. Als het IP-adres van de server-proces configuratieserver of de beveiligde virtuele machines van Azure wijzigt, werkt de replicatie in dit scenario mogelijk niet correct.
+    > Wanneer een Azure VM is de toewijzing ongedaan gemaakt en opnieuw hebt gestart, er is geen garantie dat u krijgt Hallo hetzelfde IP-adres. Als Hallo IP-adres van de server-proces configuratieserver Hallo of Hallo beveiligd wijziging van de Azure VM's, werken Hallo replicatie in dit scenario mogelijk niet correct.
 
     ![][13]
 
-    Wanneer u uw Azure Storage-omgeving ontwerpt, wordt u aangeraden dat u afzonderlijke storage-accounts voor elke virtuele machine in een beschikbaarheidsset gebruiken. We raden u aan de aanbevolen procedure in de opslaglaag te [meerdere storage-accounts gebruiken voor elke beschikbaarheidsset](../virtual-machines/windows/manage-availability.md). Distributie van VM-schijven naar meerdere accounts voor opslag voor het verbeteren van de beschikbaarheid van opslag en verdeelt de i/o over de Azure-opslag-infrastructuur. Als uw virtuele machines in een beschikbaarheidsset, in plaats van de schijven van alle virtuele machines repliceren naar één storage-account, sterk aangeraden meerdere keren voor meerdere virtuele machines migreren zodat de virtuele machines in dezelfde beschikbaarheidsset één storage-account niet delen. Gebruik de **replicatie inschakelen** blade een doelopslagaccount instellen voor elke virtuele machine, één voor één. U kunt een implementatiemodel na een failover volgens uw behoeften. Als u Resource Manager (RM) als uw na een failover-implementatiemodel kiest, kunt u een RM-VM naar een RM-virtuele machine failover of u kunt een klassieke virtuele machine naar een RM-virtuele machine failover.
+    Wanneer u uw Azure Storage-omgeving ontwerpt, wordt u aangeraden dat u afzonderlijke storage-accounts voor elke virtuele machine in een beschikbaarheidsset gebruiken. Het is raadzaam dat u de aanbevolen procedure in de opslaglaag Hallo Hallo te volgt[meerdere storage-accounts gebruiken voor elke beschikbaarheidsset](../virtual-machines/windows/manage-availability.md). VM schijven toomultiple storage-accounts distribueren helpt tooimprove opslag beschikbaarheid en distribueert Hallo i/o over de infrastructuur van hello Azure-opslag. Als uw virtuele machines in een beschikbaarheidsset, in plaats van de schijven van alle virtuele machines repliceren naar één storage-account wordt ten zeerste aanbevolen meerdere keren voor meerdere virtuele machines migreren zodat Hallo virtuele machines in dezelfde Hallo beschikbaarheidsset één storage-account niet delen. Gebruik Hallo **replicatie inschakelen** blade tooset up opslagaccount voor elke virtuele machine, één voor één doel. U kunt een volgens tooyour moet na een failover-implementatiemodel. Als u Resource Manager (RM) als uw na een failover-implementatiemodel kiest, kunt u een VM RM tooan RM VM failover of kunt u een klassieke VM tooan RM VM failover.
 
-8. **Een testfailover uitvoeren**. Als u wilt controleren of de replicatie voltooid is, klikt u op het herstel van uw Site en klik vervolgens op **instellingen** > **gerepliceerde Items**. U ziet de status en het percentage van het replicatieproces. Na de initiële replicatie is voltooid, Testfailover voor het valideren van uw replicatiestrategie voor uitvoeren. Raadpleeg voor gedetailleerde stappen van de testfailover [een testfailover uitvoeren in Site Recovery](../site-recovery/site-recovery-vmware-to-azure.md). U ziet de status van de testfailover in **instellingen** > **taken** > **YOUR_FAILOVER_PLAN_NAME**. Op de blade ziet u een overzicht van de stappen en de resultaten van de geslaagde/mislukte. Als de testfailover is mislukt tijdens elke stap, klikt u op de stap voor het controleren van het foutbericht. Zorg ervoor dat uw virtuele machines en replicatiestrategie voldoen aan de vereisten voordat u een failover uitvoert. Lees [Testfailover naar Azure in Site Recovery](../site-recovery/site-recovery-test-failover-to-azure.md) voor meer informatie en instructies van de testfailover.
+8. **Een testfailover uitvoeren**. toocheck of de replicatie is voltooid, klikt u op het herstel van uw Site en klik vervolgens op **instellingen** > **gerepliceerde Items**. U ziet Hallo status en het percentage van het replicatieproces. Na de initiële replicatie is voltooid, voert Testfailover toovalidate uw replicatiestrategie voor. Voor gedetailleerde stappen van de testfailover Raadpleeg te[een testfailover uitvoeren in Site Recovery](../site-recovery/site-recovery-vmware-to-azure.md). U kunt zien Hallo status van de testfailover in **instellingen** > **taken** > **YOUR_FAILOVER_PLAN_NAME**. Op de blade hello ziet u een uitsplitsing van Hallo stappen en geslaagde/mislukte resultaten. Als de testfailover Hallo mislukt, klikt u op Hallo stap toocheck Hallo foutbericht weergegeven. Zorg ervoor dat uw virtuele machines en replicatiestrategie voldoen aan Hallo vereisten voordat u een failover uitvoert. Lees [Testfailover tooAzure in Site Recovery](../site-recovery/site-recovery-test-failover-to-azure.md) voor meer informatie en instructies van de testfailover.
 
-9. **Een failover uitvoeren**. Nadat de test is failover voltooid, wordt een failover voor het migreren van uw schijven naar Premium-opslag en repliceren van de VM-instanties worden uitgevoerd. Volg de gedetailleerde stappen in [een failover uitvoeren](../site-recovery/site-recovery-failover.md#run-a-failover). Zorg ervoor dat u selecteert **virtuele machines afsluiten en de meest recente gegevens synchroniseren** om op te geven dat de Site Recovery proberen moet de beveiligde virtuele machines afsluiten en de gegevens te synchroniseren, zodat de meest recente versie van de gegevens failover. Als u deze optie niet selecteert of de poging niet lukt worden de failover van de meest recente beschikbare herstelpunt voor de virtuele machine. Site Recovery maakt een VM-exemplaar waarvan het type hetzelfde als of vergelijkbare voor een virtuele machine voor Premium-compatibel zijn met opslag is. U kunt de prestaties en de prijs van verschillende VM-instanties controleren door te gaan naar [prijzen van virtuele Machines in Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) of [prijzen van Linux virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+9. **Een failover uitvoeren**. Nadat Hallo testfailover is voltooid, voer een failover-toomigrate uw schijven tooPremium opslag en repliceren Hallo VM-exemplaren. Volg Hallo gedetailleerde stappen in [een failover uitvoeren](../site-recovery/site-recovery-failover.md#run-a-failover). Zorg ervoor dat u selecteert **virtuele machines afsluiten en het synchroniseren van de meest recente gegevens Hallo** toospecify dat Site Recovery moet tooshut omlaag Hallo beveiligde virtuele machines proberen en Hallo gegevens synchroniseren zodat hello meest recente versie van Hallo gegevens wordt failover. Als u deze optie niet selecteert of het Hallo-poging niet lukt worden Hallo failover van Hallo meest recente beschikbare herstelpunt voor Hallo VM. Site Recovery maakt een VM-exemplaar waarvan het type Hallo is gelijk aan of vergelijkbare tooa compatibel zijn met opslag VM voor Premium. U kunt Hallo prestaties en prijs van verschillende VM-exemplaren controleren door te gaan[prijzen van virtuele Machines in Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) of [prijzen van Linux virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 ## <a name="post-migration-steps"></a>Stappen na de migratie
 
-1. **Configureren van de gerepliceerde virtuele machines voor de beschikbaarheidsset, indien van toepassing**. Site Recovery biedt geen ondersteuning voor migratie VM's samen met de beschikbaarheidsset. Afhankelijk van de implementatie van de gerepliceerde virtuele machine, gaat u een van de volgende:
-  * Voor een virtuele machine gemaakt met behulp van het klassieke implementatiemodel: de virtuele machine toevoegen aan de beschikbaarheidsset voor de Azure-portal. Ga voor gedetailleerde stappen naar [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../virtual-machines/windows/classic/configure-availability.md#addmachine).
-  * Voor het Resource Manager-implementatiemodel: opslaan van uw configuratie van de virtuele machine en vervolgens verwijderen en opnieuw maken van de virtuele machines in de beschikbaarheidsset. Om dit te doen, gebruikt u het script op [ingesteld Azure Resource Manager VM Beschikbaarheidsset](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Controleer de beperking van dit script en uitvaltijd plannen voordat het script wordt uitgevoerd.
+1. **Configureren van de gerepliceerde virtuele machines toohello beschikbaarheidsset indien van toepassing**. Site Recovery biedt geen ondersteuning voor migratie VM's samen met de Hallo beschikbaarheidsset. Afhankelijk van Hallo-implementatie van de gerepliceerde virtuele machine, gaat u een van de volgende Hallo:
+  * Voor een virtuele machine gemaakt met het klassieke implementatiemodel Hallo: Hallo VM toohello beschikbaarheidsset hello Azure-portal toevoegen. Voor gedetailleerde stappen gaat te[toevoegen van een bestaande beschikbaarheidsset voor de virtuele machine tooan](../virtual-machines/windows/classic/configure-availability.md#addmachine).
+  * Hallo Resource Manager-implementatiemodel: de configuratie van Hallo VM opslaan en vervolgens verwijderen en opnieuw maken Hallo virtuele machines in de beschikbaarheidsset Hallo. toodo hello script op voor het geval is, gebruiken [ingesteld Azure Resource Manager VM Beschikbaarheidsset](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Controleer de Hallo beperking van dit script en uitvaltijd te plannen voordat het Hallo-script wordt uitgevoerd.
 
-2. **Verwijderen van oude VM's en schijven**. Voordat u verwijdert deze, Controleer of de Premium-schijven zijn consistent met de bron-schijven en de nieuwe virtuele machines uit te voeren dezelfde functie uit als de bron-VM's. In het implementatiemodel van Resource Manager (RM) Verwijder de virtuele machine en de schijven verwijderen uit uw gegevensbron storage-accounts in de Azure portal. In het klassieke implementatiemodel, kunt u de virtuele machine en de schijven in de klassieke portal of Azure-portal te verwijderen. Als er een probleem waarbij de schijf niet verwijderd ondanks dat u de virtuele machine hebt verwijderd, raadpleegt u [fouten bij het verwijderen van VHD's oplossen](storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Verwijderen van oude VM's en schijven**. Voordat u verwijdert deze, Controleer of Hallo Premium-schijven zijn consistent met de bron-schijven en nieuwe virtuele machines voeren dezelfde functie uitgevoerd als virtuele bronmachines Hallo HALLO hallo. Hallo implementatiemodel van Resource Manager (RM), verwijder Hallo VM en Hallo schijven verwijderen uit de bron-opslagaccounts in hello Azure-portal. In het klassieke implementatiemodel hello, kunt u Hallo VM en schijven in de klassieke portal Hallo of Azure-portal te verwijderen. Als er een probleem in welke Hallo schijf niet verwijderd ondanks dat u Hallo VM hebt verwijderd, raadpleegt u [fouten bij het verwijderen van VHD's oplossen](storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
-3. **Opschonen van de Azure Site Recovery-infrastructuur**. Wanneer u Site Recovery niet langer nodig hebt, kunt u de infrastructuur opschonen gerepliceerde items, de configuratieserver en het herstelbeleid verwijderd en wordt vervolgens de Azure Site Recovery-kluis te verwijderen.
+3. **Schone hello Azure Site Recovery-infrastructuur**. Wanneer u Site Recovery niet langer nodig hebt, kunt u de infrastructuur opschonen gerepliceerde items, Hallo configuratieserver en Hallo herstelbeleid verwijderd en wordt vervolgens hello Azure Site Recovery-kluis te verwijderen.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
@@ -164,14 +164,14 @@ U kunt Site Recovery kunt gebruiken voor het migreren van Azure IaaS VM's tussen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende bronnen voor specifieke scenario's voor het migreren van virtuele machines:
+Zie Hallo resources voor specifieke scenario's voor het migreren van virtuele machines te volgen:
 
 * [Azure virtuele Machines tussen Opslagaccounts migreren](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Maken en een Windows Server-VHD uploaden naar Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Maakt en uploadt u een virtuele harde schijf met het Linux-besturingssysteem](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Migreren van virtuele Machines van Amazon AWS naar Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Maken en uploaden van een Windows Server-VHD tooAzure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Maakt en uploadt u een virtuele harde schijf met Hallo Linux-besturingssysteem](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Migreren van virtuele Machines van Amazon AWS tooMicrosoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
-Zie ook de volgende bronnen voor meer informatie over Azure Storage en Azure Virtual Machines:
+Zie ook Hallo resources toolearn meer informatie over Azure Storage en Azure Virtual Machines te volgen:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Virtuele Machines in Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)

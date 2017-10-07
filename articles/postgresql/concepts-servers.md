@@ -1,5 +1,5 @@
 ---
-title: Concepten van de server in Azure-Database voor PostgreSQL | Microsoft Docs
+title: aaaServer concepten in Azure-Database voor PostgreSQL | Microsoft Docs
 description: In dit onderwerp worden overwegingen en richtlijnen gegeven voor het werken met Azure-Database voor PostgreSQL-servers.
 services: postgresql
 author: SaloniSonpal
@@ -9,47 +9,47 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
-ms.openlocfilehash: c79603a11fa23ad775783157675c07ab67102057
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9cc7816992f2ddedd76fdf906075a723b97720a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-Database voor PostgreSQL-Servers
 In dit onderwerp worden overwegingen en richtlijnen gegeven voor het werken met Azure-Database voor PostgreSQL-servers.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Wat is een Azure-Database voor PostgreSQL-server?
-Een Azure-Database voor PostgreSQL-server is een centrale beheerdersrechten voor meerdere databases. Het is dezelfde PostgreSQL server constructie die u mogelijk nagegaan wat in de lokale wereld. In het bijzonder de PostgreSQL-service wordt beheerd, prestaties garanties biedt, beschrijft de toegangs- en -functies op serverniveau.
+Een Azure-Database voor PostgreSQL-server is een centrale beheerdersrechten voor meerdere databases. Dit is dezelfde constructie van PostgreSQL-server die u mogelijk kent met in Hallo lokale wereld Hallo. In het bijzonder Hallo PostgreSQL-service wordt beheerd, prestaties garanties biedt, beschrijft de toegangs- en -functies op serverniveau.
 
 Een Azure-Database voor PostgreSQL-server:
 
 - In een Azure-abonnement is gemaakt.
-- Is de bovenliggende resource voor databases.
+- Hallo bovenliggende resource voor databases is.
 - Biedt een naamruimte voor databases.
-- Is een container met sterke levensduur semantiek - een server verwijderen en de ingesloten databases worden verwijderd.
+- Is een container met sterke levensduur semantiek - een server verwijderen en Hallo opgenomen databases worden verwijderd.
 - Collocates resources in een regio.
 - Biedt een eindpunt voor de verbinding voor server en database-toegang (. postgresql.database.azure.com).
-- Voorziet in het bereik voor management-beleidsregels die van toepassing op de databases: aanmelding, firewall, gebruikers, rollen, configuraties, enzovoort.
+- Biedt Hallo bereik voor management-beleidsregels die van toepassing tooits databases: aanmelding, firewall, gebruikers, rollen, configuraties, enzovoort.
 - Is beschikbaar in meerdere versies. Zie voor meer informatie [ondersteund PostgreSQL-databaseversies](concepts-supported-versions.md).
 - Kan worden uitgebreid door gebruikers. Zie voor meer informatie [PostgreSQL extensies](concepts-extensions.md).
 
-U kunt een of meerdere databases maken binnen een Azure-Database voor PostgreSQL-server. U kunt kiezen voor het maken van één database per server om gebruik te maken van alle resources of voor meerdere databases om de resources te delen. De prijzen gestructureerde per server, op basis van de configuratie van prijscategorie, compute-eenheden, opslag (GB). Zie voor meer informatie [Prijscategorieën](./concepts-service-tiers.md).
+U kunt een of meerdere databases maken binnen een Azure-Database voor PostgreSQL-server. U kunt kiezen toocreate een individuele database per server tooutilize alle Hallo resources of meerdere databases tooshare Hallo resources maken. Hallo prijzen gestructureerde per server, op basis van de configuratie van prijscategorie hello, compute-eenheden, opslag (GB). Zie voor meer informatie [Prijscategorieën](./concepts-service-tiers.md).
 
-## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Hoe ik verbinding maken en verifiëren met een Azure-Database voor PostgreSQL-server?
-De volgende elementen zorgt het veilige toegang tot uw database.
+## <a name="how-do-i-connect-and-authenticate-tooan-azure-database-for-postgresql-server"></a>Hoe ik verbinding maken en verifiëren van tooan Azure Database voor PostgreSQL-server?
+Hallo zorgen volgende elementen veilige toegang tooyour database.
 
 |||
 | :-- | :-- |
-| **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren bij de server met de server admin aanmelden. |
-| **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. |
-| **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. |
-| **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw database-server of de databases totdat u opgeven welke computers over machtigingen beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
+| **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren van tooserver met Hallo van aanmeldgegevens van serverbeheerder. |
+| **Protocol** | Hallo-service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. |
+| **TCP/IP** | Hallo-protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. |
+| **Firewall** | toohelp uw gegevens beschermen, een firewallregel voorkomt u dat alle toegang tooyour database-server of tooits databases, totdat u welke computers opgeven gemachtigd. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?
-U kunt Azure-Database voor PostgreSQL-servers beheren met behulp van de Azure-portal of de [Azure CLI](/cli/azure/postgres).
+U kunt Azure Database beheren voor PostgreSQL-servers met behulp van Azure portal of Hallo Hallo [Azure CLI](/cli/azure/postgres).
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor een overzicht van de service [Azure-Database voor PostgreSQL-overzicht](overview.md)
+- Zie voor een overzicht van service Hallo [Azure-Database voor PostgreSQL-overzicht](overview.md)
 - Voor informatie over specifieke resource quota's en beperkingen op basis van uw **servicelaag**, Zie [Servicelagen](concepts-service-tiers.md)
-- Zie voor informatie over verbinding maken met de service, [verbindingsbibliotheken voor Azure-Database voor PostgreSQL](concepts-connection-libraries.md).
+- Zie voor informatie over het maken van verbinding toohello service, [verbindingsbibliotheken voor Azure-Database voor PostgreSQL](concepts-connection-libraries.md).

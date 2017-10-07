@@ -1,6 +1,6 @@
 ---
-title: Maken van een momentopname van een alleen-lezen van een blob in Azure Storage | Microsoft Docs
-description: Informatie over het maken van een momentopname van een blob naar de back-up van blob-gegevens op een gegeven moment. Begrijpen hoe momentopnamen worden gefactureerd en het gebruik ervan capaciteit, kosten te minimaliseren.
+title: een alleen-lezen momentopname van een blob in Azure Storage aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een momentopname van een blob-tooback van blob-gegevens op een gegeven moment. Begrijpen hoe momentopnamen worden gefactureerd en hoe toouse ze toominimize capaciteit kosten.
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: marsma
-ms.openlocfilehash: b1d87cd66457b08bba594bfc7de1e9e4e2dff1e6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 57f2e76b8899b8a513688bf148dd13673141d5bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-blob-snapshot"></a>Een blob-momentopname maken
 
 Een momentopname is een alleen-lezen-versie van een blob die wordt uitgevoerd op een punt in tijd. Momentopnamen zijn nuttig voor back-up blobs. Nadat u een momentopname gemaakt, lezen, kopiëren of verwijderen, maar u kunt dit niet wijzigen.
 
-Een momentopname van een blob is identiek aan de base blob, behalve dat de blob-URI bevat een **DateTime** waarde toegevoegd aan de blob-URI om aan te geven van de tijd waarop de momentopname werd gemaakt. Bijvoorbeeld, als een pagina blob-URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, de momentopname van de URI vergelijkbaar met is `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Een momentopname van een blob is identiek tooits base blob, behalve Hallo blob-URI bevat een **DateTime** waarde toegevoegd toohello blob-URI tooindicate Hallo moment op welke Hallo momentopname werd gemaakt. Bijvoorbeeld, als een pagina blob-URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, Hallo momentopname URI lijkt te`http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
-> Alle momentopnamen delen de base blob-URI. Het enige verschil tussen de base blob en de momentopname is de toegevoegde **DateTime** waarde.
+> Alle momentopnamen delen Hallo base blob-URI. alleen onderscheid tussen Hallo base blob en Hallo momentopname toegevoegd Hallo is Hallo **DateTime** waarde.
 >
 
-Een blob kan een onbeperkt aantal momentopnamen hebben. Momentopnamen bewaard totdat ze expliciet worden verwijderd. Een momentopname kan niet de base blob outlive. U kunt de momentopnamen die zijn gekoppeld aan de basis blob om bij te houden van uw huidige momentopnamen opsommen.
+Een blob kan een onbeperkt aantal momentopnamen hebben. Momentopnamen bewaard totdat ze expliciet worden verwijderd. Een momentopname kan niet de base blob outlive. U kunt Hallo momentopnamen die zijn gekoppeld aan Hallo base blob tootrack opsommen uw huidige momentopnamen.
 
-Wanneer u een momentopname van een blob maakt, worden de blob-Systeemeigenschappen gekopieerd naar de momentopname met dezelfde waarden. De base blob metagegevens wordt ook gekopieerd naar de momentopname, tenzij u afzonderlijke metagegevens voor de momentopname opgeven wanneer u dit hebt gemaakt.
+Bij het maken van een momentopname van een blob Hallo Systeemeigenschappen van blob zijn gekopieerde toohello momentopname Hello dezelfde waarden. Hallo base blob-metagegevens zijn ook gekopieerde toohello momentopname, tenzij u afzonderlijke metagegevens voor wanneer u deze maakt een momentopname Hallo opgeeft.
 
-Alle leases die zijn gekoppeld aan de basis blob hebben geen invloed op de momentopname. U kunt een lease op een momentopname kan niet verkrijgen.
+Alle leases die zijn gekoppeld aan basis blob Hallo hebben geen invloed op Hallo momentopname. U kunt een lease op een momentopname kan niet verkrijgen.
 
-Een VHD-bestand wordt gebruikt voor het opslaan van de huidige informatie en status voor een VM-schijf. U kunt loskoppelen van een schijf uit vanuit de virtuele machine of sluit de virtuele machine en vervolgens een momentopname van de VHD-bestand. U kunt dat momentopnamebestand later gebruiken voor het ophalen van het VHD-bestand op dat moment en de virtuele machine opnieuw.
+Een VHD-bestand is gebruikte toostore Hallo actuele informatie en status voor een VM-schijf. U kunt een schijf uit binnen Hallo VM loskoppelen of Hallo VM afsluiten en vervolgens een momentopname van de VHD-bestand. Kunt u dat momentopnamebestand hoger tooretrieve Hallo VHD-bestand op dat punt in tijd en maak deze opnieuw Hallo VM.
 
-Versleuteling voor opslag-Service (SSE) is ingeschakeld voor het opslagaccount waarin de blob zich bevindt, wordt alle momentopnamen gehouden met de blob worden versleuteld in rust.
+Als versleuteling voor opslag-Service (SSE) is ingeschakeld voor Hallo storage-account in welke Hallo blob zich bevindt en vervolgens alle momentopnamen van blob is genomen, worden versleuteld in rust.
 
 ## <a name="create-a-snapshot"></a>Een momentopname maken
-De volgende voorbeeldcode laat zien hoe een momentopname te maken met behulp van de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). In dit voorbeeld bevat aanvullende metagegevens voor de momentopname wanneer deze wordt gemaakt.
+Hallo volgende voorbeeldcode laat zien hoe een momentopname met behulp van toocreate Hallo [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). In dit voorbeeld bevat aanvullende metagegevens voor Hallo momentopname wanneer deze wordt gemaakt.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 {
-    // Create a new block blob in the container.
+    // Create a new block blob in hello container.
     CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
 
     // Add blob metadata.
@@ -54,15 +54,15 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
     try
     {
-        // Upload the blob to create it, with its metadata.
+        // Upload hello blob toocreate it, with its metadata.
         await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
 
         // Sleep 5 seconds.
         System.Threading.Thread.Sleep(5000);
 
-        // Create a snapshot of the base blob.
-        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
-        // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+        // Create a snapshot of hello base blob.
+        // Specify metadata at hello time that hello snapshot is created toospecify unique metadata for hello snapshot.
+        // If no metadata is specified when hello snapshot is created, hello base blob's metadata is copied toohello snapshot.
         Dictionary<string, string> metadata = new Dictionary<string, string>();
         metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
         await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
@@ -79,95 +79,95 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 ## <a name="copy-snapshots"></a>Kopiëren van momentopnamen
 Kopieerbewerkingen met betrekking tot de blobs en momentopnamen van voldoen deze regels:
 
-* U kunt een momentopname via de base blob kopiëren. Door een momentopname met de positie van de basis blob te promoveren, kunt u een eerdere versie van een blob herstellen. De momentopname blijft, maar de base blob wordt overschreven met een beschrijfbare kopie van de momentopname.
-* U kunt een momentopname kopiëren naar een bestemmings-blob met een andere naam. De resulterende bestemmings-blob is een beschrijfbare blob en niet een momentopname.
-* Als een bron-blob zijn gekopieerd, worden alle momentopnamen van de bron-blob niet gekopieerd naar de bestemming. Wanneer een bestemmings-blob is overschreven door een exemplaar, zijn de momentopnamen die zijn gekoppeld aan de oorspronkelijke bestemmings-blob blijven behouden.
-* Bij het maken van een momentopname van een blok-blob is ook de blob doorgevoerd blokkeringslijst gekopieerd naar de momentopname. Een niet-doorgevoerde blokken worden niet gekopieerd.
+* U kunt een momentopname via de base blob kopiëren. Door de positie van een momentopname toohello van Hallo base blob te promoveren, kunt u een eerdere versie van een blob herstellen. Hallo momentopname blijft, maar Hallo base blob wordt overschreven met een beschrijfbare kopie van Hallo momentopname.
+* U kunt een momentopname tooa bestemmings-blob met een andere naam kopiëren. Hallo resulterende bestemmings-blob is een beschrijfbare blob en niet een momentopname.
+* Als een bron-blob zijn gekopieerd, zijn de momentopnamen van de bron-blob Hallo niet gekopieerde toohello bestemming. Wanneer een bestemmings-blob is overschreven door een exemplaar, zijn de momentopnamen die zijn gekoppeld aan de oorspronkelijke bestemmings-blob Hallo blijven behouden.
+* Bij het maken van een momentopname van een blok-blob is doorgevoerd Hallo-blob-blokkeringslijst ook gekopieerde toohello momentopname. Een niet-doorgevoerde blokken worden niet gekopieerd.
 
 ## <a name="specify-an-access-condition"></a>Geef een voorwaarde voor toegang
-Als u aanroept [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], kunt u een voorwaarde voor toegang opgeven, zodat de momentopname alleen gemaakt wordt als een voorwaarde wordt voldaan. Als u een voorwaarde voor toegang, gebruik de [AccessCondition] [ dotnet_AccessCondition] parameter. Als niet aan de opgegeven voorwaarde wordt voldaan, wordt de momentopname niet gemaakt is en de Blob-service statuscode retourneert [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
+Als u aanroept [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], kunt u een voorwaarde voor toegang opgeven zodat hello momentopname alleen gemaakt wordt als een voorwaarde wordt voldaan. toospecify een voorwaarde voor toegang, gebruik Hallo [AccessCondition] [ dotnet_AccessCondition] parameter. Als Hallo opgegeven niet aan de voorwaarde is voldaan, Hallo momentopname is niet gemaakt en Hallo Blob-service retourneert statuscode [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>Verwijder momentopnamen
-U kunt een blob met de momentopnamen niet verwijderen, tenzij de momentopnamen worden ook verwijderd. U kunt een momentopname van een afzonderlijk verwijderen of opgeven dat alle momentopnamen worden verwijderd wanneer de bron-blob is verwijderd. Als u probeert te verwijderen van een blob die nog steeds momentopnamen bevat, wordt een fout resulteert.
+U kunt een blob met de momentopnamen niet verwijderen, tenzij Hallo momentopnamen worden ook verwijderd. U kunt een momentopname van een afzonderlijk verwijderen of u kunt opgeven dat alle momentopnamen worden verwijderd wanneer de bron-blob hello wordt verwijderd. Als u een blob die nog steeds momentopnamen toodelete probeert, wordt er een fout resulteert.
 
-De volgende voorbeeldcode laat zien hoe een blob en bijbehorende momentopnamen in .NET, te verwijderen waar `blockBlob` is een object van het type [CloudBlockBlob][dotnet_CloudBlockBlob]:
+Hallo van de volgende code voorbeeld ziet u hoe toodelete een blob en bijbehorende momentopnamen in .NET waar `blockBlob` is een object van het type [CloudBlockBlob][dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 ```
 
 ## <a name="snapshots-with-azure-premium-storage"></a>Momentopnamen met Azure Premium-opslag
-Als u momentopnamen met Premium-opslag, gelden de volgende regels:
+Als u momentopnamen met Premium-opslag, Hallo volgens de regels van toepassing:
 
-* Het maximum aantal momentopnamen per pagina-blob in een premium storage-account is 100. Als deze limiet wordt overschreden, de momentopname Blob-bewerking retourneert foutcode 409 (`SnapshotCountExceeded`).
-* U kunt een momentopname van een pagina-blob nemen in een premium storage-account om de 10 minuten. Als dit percentage wordt overschreden, de momentopname Blob-bewerking retourneert foutcode 409 (`SnapshotOperationRateExceeded`).
-* Om te lezen van een momentopname, kunt u de bewerking Blob kopiëren naar een momentopname kopiëren naar een andere paginablob in het account. De bestemmings-blob voor de kopieerbewerking mag geen eventuele bestaande momentopnamen. Als de bestemmings-blob momentopnamen heeft, wordt de kopie Blob-bewerking foutcode 409 retourneert (`SnapshotsPresent`).
+* Hallo kunt u het maximum aantal momentopnamen per pagina-blob in een premium storage-account is 100. Als deze limiet wordt overschreden, Hallo momentopname Blob bewerking retourneert foutcode 409 (`SnapshotCountExceeded`).
+* U kunt een momentopname van een pagina-blob nemen in een premium storage-account om de 10 minuten. Als dit percentage wordt overschreden, Hallo momentopname Blob bewerking retourneert foutcode 409 (`SnapshotOperationRateExceeded`).
+* tooread een momentopname, kunt u Hallo Blob kopiëren bewerking toocopy een momentopname tooanother pagina-blob in Hallo-account. Hallo bestemmings-blob voor de kopieerbewerking Hallo mag geen eventuele bestaande momentopnamen. Als Hallo bestemmings-blob momentopnamen heeft, dan Hallo Blob kopiëren bewerking foutcode 409 retourneert (`SnapshotsPresent`).
 
-## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retourneert de absolute URI naar een momentopname
-In dit voorbeeld C#-code maakt een momentopname en schrijft de absolute URI voor de primaire locatie.
+## <a name="return-hello-absolute-uri-tooa-snapshot"></a>Hallo absolute URI tooa momentopname retourneren
+In dit voorbeeld C#-code wordt een momentopname gemaakt en schrijft Hallo absolute URI voor de primaire locatie Hallo.
 
 ```csharp
-//Create the blob service client object.
+//Create hello blob service client object.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-//Get a reference to a container.
+//Get a reference tooa container.
 CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 container.CreateIfNotExists();
 
-//Get a reference to a blob.
+//Get a reference tooa blob.
 CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
 blob.UploadText("This is a blob.");
 
-//Create a snapshot of the blob and write out its primary URI.
+//Create a snapshot of hello blob and write out its primary URI.
 CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
 Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>Begrijpen hoe de kosten voor het samenvoegen van momentopnamen
-Maken van een momentopname een alleen-lezen kopie van een blob is, kan leiden tot aanvullende gegevens opslagkosten aan uw account. Bij het ontwerpen van uw toepassing, is het belangrijk te weten van hoe deze kosten doorlopen kunnen, zodat u de kosten kunt minimaliseren.
+Maken van een momentopname een alleen-lezen kopie van een blob is, kan leiden tot aanvullende gegevens storage kosten tooyour-account. Bij het ontwerpen van uw toepassing, is het belangrijk toobe weten hoe deze kosten doorlopen kunnen, zodat u de kosten kunt minimaliseren.
 
 ### <a name="important-billing-considerations"></a>Belangrijke overwegingen voor facturering
-De volgende lijst bevat de belangrijkste punten in overweging moet nemen bij het maken van een momentopname.
+Hallo volgende lijst bevat belangrijke punten tooconsider bij het maken van een momentopname.
 
-* Uw opslagaccount leidt ertoe dat de kosten voor unieke blokken of pagina's, ongeacht of deze in de blob of in de momentopname. Uw account heeft geen gevolgen voor de extra kosten voor momentopnamen die zijn gekoppeld met een blob, totdat u de blob waarop ze zijn gebaseerd bijwerkt. Na het bijwerken van de basis blob, wordt deze afwijkt van de momentopnamen. Als dit gebeurt, wordt u in rekening gebracht voor de unieke blokken of pagina's in elke blob of een momentopname.
-* Wanneer u een blok binnen een blok-blob vervangt, dat blok wordt vervolgens in rekening gebracht als unieke blok. Dit geldt zelfs als het blok heeft dezelfde blok-ID en dezelfde gegevens er in de momentopname. Nadat het blok doorgevoerd is opnieuw het afwijkt van het bijbehorende equivalent in een momentopname en wordt u gefactureerd voor de gegevens. Hetzelfde geldt voor een pagina in een pagina-blob bijgewerkt met identieke gegevens.
-* Een blok-blob vervangen door het aanroepen van de [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream] [ dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] vervangt alle blokken in de blob-methode. Als er een momentopname die is gekoppeld aan blob, alle blokken in de basis-blob en momentopname nu luidsprekers en wordt u gefactureerd voor alle blokken in beide blobs. Dit geldt zelfs als de gegevens in de base blob en de momentopname identiek.
-* De Azure Blob-service heeft geen een manier om te bepalen of twee blokken identieke gegevens bevatten. Elk blok dat wordt geüpload en doorgevoerd wordt behandeld als uniek zijn, zelfs als deze dezelfde gegevens en de dezelfde blok-ID heeft. Omdat kosten voor unieke blokken doorlopen, is het belangrijk in die voor het bijwerken van een blob met een momentopname resulteert in extra unieke blokken en extra kosten.
+* Uw opslagaccount leidt ertoe dat de kosten voor unieke blokken of pagina's, ongeacht of deze in de blob Hallo of in momentopname Hallo. Uw account heeft geen gevolgen voor de extra kosten voor momentopnamen die zijn gekoppeld met een blob, totdat u bijwerkt Hallo blob waarop ze zijn gebaseerd. Na het bijwerken van Hallo base blob, wordt deze afwijkt van de momentopnamen. Als dit gebeurt, wordt u in rekening gebracht voor unieke Hallo-blokken of pagina's in elke blob of een momentopname.
+* Wanneer u een blok binnen een blok-blob vervangt, dat blok wordt vervolgens in rekening gebracht als unieke blok. Dit geldt zelfs wanneer Hallo-blok heeft Hallo dezelfde ID blokkeren en Hallo dezelfde gegevens zoals deze in momentopname Hallo heeft. Nadat Hallo blok doorgevoerd is opnieuw het afwijkt van het bijbehorende equivalent in een momentopname en wordt u gefactureerd voor de gegevens. Hallo die dezelfde geldt voor een pagina in een pagina-blob bijgewerkt met identieke gegevens.
+* Een blok-blob vervangen door de aanroepende Hallo [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream] [ dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] vervangt alle blokken in Hallo blob-methode. Als er een momentopname die is gekoppeld aan blob, alle blokken in Hallo base blob en momentopname nu luidsprekers en wordt u gefactureerd voor alle Hallo gegevensblokken die zich in beide blobs. Dit geldt zelfs als het Hallo-gegevens in Hallo base blob en het Hallo-momentopname blijven identiek zijn.
+* Hello Azure Blob-service heeft geen een toodetermine betekent of twee blokken identieke gegevens bevatten. Elk blok dat wordt geüpload en doorgevoerd als uniek wordt behandeld, zelfs als deze heeft dezelfde gegevens en Hallo Hallo dezelfde ID. blokkeren Omdat de kosten doorlopen voor unieke blokken, is het belangrijk tooconsider die voor het bijwerken van een blob met een momentopname in extra unieke blokken en extra kosten resulteert.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Kosten met beheer van momentopnamen beperken
 
-Het is raadzaam om het beheer van uw momentopnamen zorgvuldig om te voorkomen dat extra kosten. U kunt deze best practices te helpen de kosten van de opslag van uw momentopnamen minimaliseren volgen:
+Het is raadzaam het beheren van uw momentopnamen zorgvuldig tooavoid extra kosten. U kunt deze best practices toohelp minimaliseren Hallo kosten van de opslag van uw momentopnamen Hallo volgen:
 
-* Verwijderen en opnieuw maken van momentopnamen die zijn gekoppeld met een blob telkens wanneer u de blob bijwerkt, zelfs als u met identieke gegevens bijwerken wilt tenzij ontwerp van uw toepassing vereist is voor het onderhouden van momentopnamen. Door te verwijderen en opnieuw maken van de blob-momentopnamen, kunt u ervoor zorgen dat de blob en momentopnamen niet luidsprekers.
-* Als u momentopnamen voor een blob en onderhoudt voorkomen dat de aanroepen [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] bijwerken van de blob. Deze methoden vervangen van alle van de gegevensblokken die zich in de blob, waardoor uw base blob en bijbehorende momentopnamen aanzienlijk afwijkt. In plaats daarvan het minste aantal blokken bijwerken met behulp van de [PutBlock] [ dotnet_PutBlock] en [PutBlockList] [ dotnet_PutBlockList] methoden.
+* Verwijderen en opnieuw maken van momentopnamen die zijn gekoppeld met een blob telkens wanneer u Hallo blob bijwerkt, zelfs als u met identieke gegevens bijwerken wilt tenzij ontwerp van uw toepassing vereist is voor het onderhouden van momentopnamen. Verwijderd en opnieuw maken van momentopnamen Hallo-blob, kunt u ervoor zorgen dat Hallo blob en momentopnamen niet luidsprekers.
+* Als u momentopnamen voor een blob en onderhoudt voorkomen dat de aanroepen [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] tooupdate Hallo blob. Deze methoden vervangen van alle Hallo-blokken in Hallo blob, waardoor uw base blob en het bijbehorende momentopnamen toodiverge aanzienlijk. In plaats daarvan update minst mogelijke aantal blokken met behulp van Hallo Hallo [PutBlock] [ dotnet_PutBlock] en [PutBlockList] [ dotnet_PutBlockList] methoden.
 
 ### <a name="snapshot-billing-scenarios"></a>Momentopname facturering scenario 's
-De volgende scenario's laten zien hoe de kosten voor een blok-blob en bijbehorende momentopnamen doorlopen.
+Hallo volgen scenario's laten zien hoe de kosten voor een blok-blob en bijbehorende momentopnamen doorlopen.
 
 **Scenario 1**
 
-In scenario 1, is de base blob niet bijgewerkt nadat de momentopname werd gemaakt, zodat de kosten verbonden zijn alleen voor unieke blokken 1, 2 en 3.
+In scenario 1 is Hallo base blob niet bijgewerkt nadat het Hallo-momentopname werd gemaakt, zodat de kosten verbonden zijn alleen voor unieke blokken 1, 2 en 3.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 **Scenario 2**
 
-In scenario 2 de base blob is bijgewerkt, maar de momentopname niet heeft. Blok 3 is bijgewerkt en hoewel het bevat dezelfde gegevens en dezelfde ID, het is niet hetzelfde als 3 in de momentopname geblokkeerd. Als gevolg hiervan het account wordt in rekening gebracht voor vier blokken.
+In scenario 2 Hallo base blob is bijgewerkt, maar Hallo momentopname niet heeft. Blok 3 is bijgewerkt, en hoewel bevat dezelfde gegevens Hallo en dezelfde ID hello, is het Hallo niet hetzelfde als 3 in momentopname Hallo blokkeren. Als gevolg hiervan Hallo-account wordt in rekening gebracht voor vier blokken.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 **Scenario 3**
 
-In scenario 3 de base blob is bijgewerkt, maar de momentopname niet heeft. Blok 3 is vervangen door blok 4 in de base blob, maar de momentopname weerspiegelt nog steeds blok 3. Als gevolg hiervan het account wordt in rekening gebracht voor vier blokken.
+In scenario 3 Hallo base blob is bijgewerkt, maar Hallo momentopname niet heeft. Blok 3 is vervangen door blok 4 in Hallo base blob, maar Hallo momentopname weerspiegelt nog steeds blok 3. Als gevolg hiervan Hallo-account wordt in rekening gebracht voor vier blokken.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 **Scenario 4**
 
-In scenario 4 de base blob volledig is bijgewerkt en geen van de oorspronkelijke blokken bevat. Het account wordt hierdoor alle acht unieke blokken belast. Dit kan gebeuren als u een update-methode, zoals [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray][dotnet_UploadFromByteArray], omdat deze methoden vervangen van alle van de inhoud van een blob.
+In scenario 4 Hallo base blob volledig is bijgewerkt en geen van de oorspronkelijke blokken bevat. Als gevolg hiervan Hallo-account wordt in rekening gebracht voor alle acht unieke blokken. Dit kan gebeuren als u een update-methode, zoals [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray][dotnet_UploadFromByteArray], omdat deze methoden vervangen van alle inhoud van een blob Hallo.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
@@ -175,7 +175,7 @@ In scenario 4 de base blob volledig is bijgewerkt en geen van de oorspronkelijke
 
 * U vindt meer informatie over het werken met momentopnamen van virtuele machine (VM)-schijf in [Back-up van Azure niet-beheerde VM-schijven met incrementele momentopnamen](../../virtual-machines/windows/incremental-snapshots.md)
 
-* Zie voor aanvullende codevoorbeelden met behulp van Blob-opslag, [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Een voorbeeld van een toepassing te downloaden en uitvoeren, of de code op GitHub bladeren.
+* Zie voor aanvullende codevoorbeelden met behulp van Blob-opslag, [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Een voorbeeld van een toepassing te downloaden en uitvoeren, of blader Hallo-code op GitHub.
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx

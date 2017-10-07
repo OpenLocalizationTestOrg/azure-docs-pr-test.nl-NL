@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: .NET-voorbeelden voor de DocumentDB-API | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET-voorbeelden voor het Hallo DocumentDB-API | Microsoft Docs'
 description: C# .NET-voorbeelden op github voor algemene taken in DocumentDB, inclusief CRUD-bewerkingen niet vinden.
 keywords: NoSQL-voorbeeld
 services: cosmos-db
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5f0a7f59c114ab65a19617a62d39dcfa93a25c00
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c731794274d9aecbb1366c8e0e36b7688ed4a531
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de DocumentDB-API
+# <a name="azure-cosmos-db-net-examples-for-hello-documentdb-api"></a>Azure Cosmos DB: .NET-voorbeelden voor het Hallo DocumentDB-API
 > [!div class="op_single_selector"]
 > * [.NET-voorbeelden](documentdb-dotnet-samples.md)
 > * [Node.js-voorbeelden](documentdb-nodejs-samples.md)
@@ -30,36 +30,36 @@ ms.lasthandoff: 08/18/2017
 > 
 > 
 
-Meest recente voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in de [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub-opslagplaats. Dit artikel bevat:
+Meest recente voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in Hallo [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub-opslagplaats. Dit artikel bevat:
 
-* Koppelingen naar de taken in elk van de voorbeeld C#-project-bestanden. 
-* Koppelingen naar de bijbehorende API verwijst naar inhoud.
+* Koppelingen toohello taken in elk Hallo voorbeeld C#-project-bestanden. 
+* Koppelingen toohello gerelateerd API-referentie-inhoud.
 
 **Vereisten**
 
-1. U moet een Azure-account moet worden gebruikt in deze voorbeelden:
-   * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/): u ontvangt tegoeden die u kunt gebruiken om betaalde Azure-services uit te proberen, en zelfs nadat u alle tegoeden hebt gebruikt, kunt u het account houden en gratis Azure-services zoals Websites gebruiken. Er wordt nooit iets op uw creditcard in rekening gebracht, tenzij u expliciet de instellingen wijzigt en vraagt of de kosten op uw creditcard in rekening kunnen worden gebracht.
+1. U moet een Azure-account toouse deze voorbeelden:
+   * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/): U ontvangt tegoed kunt u tootry uit betaalde Azure-services en zelfs nadat ze allemaal hebt gebruikt kunt u maximaal Hallo account houden en gebruik gratis Azure-services, zoals Websites. Uw creditcard wordt nooit worden in rekening gebracht, tenzij u expliciet de instellingen wijzigen en vraag toobe in rekening gebracht.
      * U kunt [voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): uw Visual Studio-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
-2. U moet ook de [Microsoft.Azure.DocumentDB NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
+2. U moet ook Hallo [Microsoft.Azure.DocumentDB NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
-> Elk voorbeeld staat op zichzelf, het zelf wordt ingesteld en opgeschoond. De voorbeelden geven als zodanig meerdere aanroepen naar CreateDocumentCollectionAsync(). Telkens wanneer dit wordt gedaan uw abonnement wordt gefactureerd voor gebruik per laag van de prestaties van de verzameling wordt gemaakt van 1 uur. 
+> Elk voorbeeld staat op zichzelf, het zelf wordt ingesteld en opgeschoond. Als zodanig Hallo voorbeelden uitgeven voor meerdere aanroepen tooCreateDocumentCollectionAsync(). Telkens wanneer dit wordt gedaan uw abonnement wordt gefactureerd voor gebruik per Hallo prestatielaag van Hallo verzameling wordt gemaakt van 1 uur. 
 > 
 > 
 
 ## <a name="database-examples"></a>Database-voorbeelden
-De [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) methode van het voorbeeld van het project DatabaseManagement ziet u hoe u de volgende taken uitvoeren.
+Hallo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) methode van Hallo voorbeeld van Hallo DatabaseManagement project toont hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Een database maken](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L90) |[DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) |
 | [Een database](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L81) |[DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx) |
 | [Lezen van een database met Id](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L102) |[DocumentClient.ReadDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabaseasync.aspx) |
-| [Alle databases lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) |[DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx) |
+| [Lees alle Hallo-databases](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) |[DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx) |
 | [Een database verwijderen](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx) |
 
 ## <a name="collection-examples"></a>Voorbeelden van de verzameling
-De [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) methode van het voorbeeldproject CollectionManagement ziet u hoe u de volgende taken uitvoeren.
+Hallo [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) methode voor het Hallo-voorbeeldproject CollectionManagement ziet u hoe toodo Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -67,17 +67,17 @@ De [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530
 | [Geconfigureerde prestaties van een verzameling](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L198) |[DocumentQueryable.CreateOfferQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) |
 | [Geconfigureerde prestaties van een verzameling wijzigen](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L207) |[DocumentClient.ReplaceOfferAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx) |
 | [Een verzameling door-Id ophalen](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L153) |[DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) |
-| [Alle verzamelingen in een database te lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) |[DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx) |
+| [Lees alle Hallo verzamelingen in een database](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) |[DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx) |
 | [Een verzameling verwijderen](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx) |
 
 ## <a name="document-examples"></a>Voorbeelden van document
-De [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) methode van het voorbeeldproject DocumentManagement ziet u hoe u de volgende taken uitvoeren.
+Hallo [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) methode voor het Hallo-voorbeeldproject DocumentManagement ziet u hoe toodo Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Een document maken](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L198) |[DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) |
 | [Een document door Id lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L211) |[DocumentClient.ReadDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentasync.aspx) |
-| [Lees de documenten in een verzameling](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L227) |[DocumentClient.ReadDocumentFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentfeedasync.aspx) |
+| [Alle Hallo documenten in een verzameling lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L227) |[DocumentClient.ReadDocumentFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentfeedasync.aspx) |
 | [Query voor documenten](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L248-L251) |[DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Een document vervangen](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L263) |[DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx) |
 | [Een document Upsert](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L300) |[DocumentClient.UpsertDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.upsertdocumentasync.aspx) |
@@ -87,14 +87,14 @@ De [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374
 | [Document lezen alleen als het document is gewijzigd](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 
 ## <a name="indexing-examples"></a>Indexeren van voorbeelden
-De [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) methode van het voorbeeldproject IndexManagement ziet u hoe u de volgende taken uitvoeren.
+Hallo [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) methode voor het Hallo-voorbeeldproject IndexManagement ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
-| [Uitsluiten van een document van de index](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L125-L163) |[IndexingDirective.Exclude](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx) |
+| [Uitsluiten van een document van Hallo index](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L125-L163) |[IndexingDirective.Exclude](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx) |
 | [Gebruik indexeren handmatig (in plaats van automatisch)](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L171-L209) |[IndexingPolicy.Automatic](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx) |
 | [Indexeren van vertraagde (in plaats van een consistente) gebruiken](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L221-L238) |[IndexingMode.Lazy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.indexingmode.aspx#P:Microsoft.Azure.Documents.IndexingPolicy.IndexingMode) |
-| [Opgegeven document paden uitsluiten van de index](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L248-L297) |[IndexingPolicy.ExcludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.excludedpaths.aspx) |
+| [Opgegeven document paden uitsluiten van Hallo index](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L248-L297) |[IndexingPolicy.ExcludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.excludedpaths.aspx) |
 | [Afdwingen van een scanbewerking bereik op een geïndexeerde hash-pad](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L305-L340) |[FeedOptions.EnableScanInQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx) |
 | [Gebruik bereik indexen op tekenreeksen](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [Uitvoeren van een index transformatie](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
@@ -102,7 +102,7 @@ De [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b
 Zie voor meer informatie over het indexeren [Azure Cosmos DB indexeren beleid](indexing-policies.md).
 
 ## <a name="geospatial-examples"></a>Georuimtelijke voorbeelden
-Het voorbeeldbestand georuimtelijke [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), ziet u hoe u de volgende taken uitvoeren.  
+Hallo georuimtelijke voorbeeldbestand [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), ziet u hoe toodo Hallo na taken.  
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -116,7 +116,7 @@ Het voorbeeldbestand georuimtelijke [azure-documentdb-dotnet/samples/code-sample
 Zie voor meer informatie over het werken met georuimtelijke gegevens [werken met gegevens in Azure Cosmos DB georuimtelijke](geospatial.md).  
 
 ## <a name="query-examples"></a>Query-voorbeelden
-Het document querybestand [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), ziet u hoe u elk van de volgende taken met behulp van de SQL-query-grammatica de LINQ-provider met de query en met Lambda.
+Hallo-querybestand document [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), toont hoe toodo Hallo na taken met behulp van Hallo SQL-query-grammatica Hallo LINQ-provider met de query en met Lambda.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -138,17 +138,17 @@ Het document querybestand [azure-documentdb-dotnet/samples/code-samples/Queries/
 Zie voor meer informatie over het schrijven van query's [SQL-query in Azure Cosmos DB](documentdb-sql-query.md).
 
 ## <a name="change-feed-examples"></a>Voorbeelden feed wijzigen 
-De wijziging feed voorbeeld [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs) laat zien hoe u de volgende taken uitvoeren. 
+Hallo wijziging feed voorbeeld [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs) ziet u hoe toodo Hallo na taken. 
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Lezen wijzigen feed](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
 | [Partitie sleutelbereiken lezen](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
 
-De wijziging feed processor-voorbeeld: [Feed Migratiehulpmiddel wijzigen](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) laat zien hoe u processor-bibliotheek feed wijzigen om gegevens te repliceren naar een andere Cosmos-DB-verzameling.   
+Hallo wijziging feed processor-voorbeeld: [Feed Migratiehulpmiddel wijzigen](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) laat zien hoe toouse wijziging processor bibliotheek tooreplicate tooanother Cosmos DB gegevensverzameling feed.   
 
 ## <a name="server-side-programming-examples"></a>Serverzijde programming voorbeelden
-Het bestand serverzijde programming [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), ziet u hoe u de volgende taken uitvoeren.
+Hallo-serverzijde programming bestand [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), ziet u hoe toodo Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -163,7 +163,7 @@ Het bestand serverzijde programming [azure-documentdb-dotnet/samples/code-sample
 Zie voor meer informatie over het programmeren op de server [Azure Cosmos DB programmeren-server: opgeslagen procedures, databasetriggers en UDF's](programming.md).
 
 ## <a name="user-management-examples"></a>Voorbeelden van management
-Het bestand van het beheer van gebruiker [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), ziet u hoe u de volgende taken uitvoeren.
+Hallo-gebruikersbestand management [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), ziet u hoe toodo Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: Overzicht van het programma Microsoft Azure StorSimple- en Cloudoplossingen | Microsoft Docs
-description: Een overzicht van de StorSimple- en CSP voor StorSimple-partners.
+title: aaaMicrosoft Azure StorSimple en overzicht van het programma Cloud oplossingen | Microsoft Docs
+description: Een overzicht over hello StorSimple- en CSP voor StorSimple-partners.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3722fc1198549102bd4fd215b9ede04a3ca1fbf5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ba82b4011934505284c37b0788250c9b5c89a758
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Wat is StorSimple voor Cloud-oplossingen Providers programma?
 
 
 ## <a name="overview"></a>Overzicht
 
-Microsoft Azure StorSimple is een unieke benadering van enterprise-opslag met mogelijkheden voor true hybride cloud-opslag. Deze machtigt de klanten om te profiteren van voordelige cloud-opslag voor de inactieve gegevens behoud van hun bedrijfskritieke gegevens on-premises voor optimale prestaties. 
+Microsoft Azure StorSimple is een unieke benadering tooenterprise opslag met mogelijkheden voor true hybride cloud-opslag. Het machtigt Hallo klanten tootake profiteren van voordelige cloud-opslag voor de inactieve gegevens hello, behoud van hun bedrijfskritieke gegevens on-premises voor Hallo optimale prestaties. 
 
-Virtuele StorSimple-matrix voor Cloud Solutions Provider (CSP) kunnen profiteren van deze mogelijkheid-partners. De partners eigenaar van de levenscyclus van de end-to-end-klant met directe inrichten, facturering en ondersteuning van Microsoft cloudservices. Kortom, kunnen de partners nu de StorSimple samen met hun services aan klanten handelen.
+Virtuele StorSimple-matrix voor Cloud Solutions Provider (CSP) kunnen partners toocapitalize op deze mogelijkheid. Hallo partners eigen Hallo end-to-end-klant lifecycle met directe inrichten, facturering en ondersteuning van Microsoft cloudservices. Hallo partners kunnen Kortom, nu transact Hallo StorSimple samen met hun toocustomers services.
 
-Voor meer informatie over StorSimple voor CSP, gaat u naar de [partnercentrum](http://partnercenter.microsoft.com/).
+Voor meer informatie over StorSimple voor CSP, gaat u naar Hallo [partnercentrum](http://partnercenter.microsoft.com/).
 
-Voor meer informatie over facturering prijzen stimulansen, en ondersteuning ophalen in de CSP, gaat u naar [StorSimple in CSP: veelgestelde vragen over](storsimple-partner-csp-faq.md). 
+Voor meer informatie over facturering prijzen stimulansen, en ondersteuning ophalen in de CSP, gaat u te[StorSimple in CSP: veelgestelde vragen over](storsimple-partner-csp-faq.md). 
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>Implementeren en beheren van StorSimple voor CSP
 
-StorSimple voor CSP is beschikbaar als een service op basis van gebruik in alle landen waar de StorSimple vandaag beschikbaar is. StorSimple voor CSP maakt gebruik van de Azure portal en de service Manager voor StorSimple-apparaat. Een partner CSP kunt maken van een StorSimple-Apparaatbeheer voor het beheren van virtuele StorSimple-matrices, shares, volumes en back-ups. U kunt de virtuele matrices geregistreerd met uw StorSimple-apparaat Manager-service via de Azure-portal beheren.
+StorSimple voor CSP is beschikbaar als een service op basis van gebruik in alle Hallo markten waar hello StorSimple tegenwoordig beschikbaar is. StorSimple voor CSP maakt gebruik van hello Azure portal en Hallo Apparaatbeheer StorSimple-service. Een CSP-partner kunt een StorSimple-Apparaatbeheer toomanage maken virtuele StorSimple-matrices, shares, volumes en back-ups. U kunt alle Hallo virtuele matrices geregistreerde tooyour Apparaatbeheer StorSimple-service via hello Azure-portal beheren.
 
-Ga voor meer informatie naar [implementeren en beheren van uw virtuele StorSimple-matrix voor CSP](storsimple-partner-csp-deploy.md).
+Voor meer informatie gaat te[implementeren en beheren van uw virtuele StorSimple-matrix voor CSP](storsimple-partner-csp-deploy.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u meer vragen met betrekking tot de StorSimple CSP hebt, gaat u naar [StorSimple voor CSP: veelgestelde vragen over](storsimple-partner-csp-faq.md).
-- Als u klaar bent voor uw StorSimple implementeren, gaat u naar [implementeren van uw StorSimple voor CSP](storsimple-partner-csp-deploy.md).
+- Als u meer vragen met betrekking tot Hallo StorSimple CSP hebt, gaat u verder te[StorSimple voor CSP: veelgestelde vragen over](storsimple-partner-csp-faq.md).
+- Als u bent klaar toodeploy uw StorSimple, ga te[implementeren van uw StorSimple voor CSP](storsimple-partner-csp-deploy.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - kaart een aangepast domein voor een functie-app | Microsoft Docs
-description: 'Azure CLI - voorbeeldscript: de toewijzing van een aangepast domein in een functie-app in Azure.'
+title: aaaAzure voorbeeldscript CLI - toewijzen een aangepast domein tooa functie-app | Microsoft Docs
+description: 'Azure CLI - voorbeeldscript: de toewijzing van een aangepast domein tooa functie-app in Azure.'
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -16,43 +16,43 @@ ms.topic: sample
 ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6fcea6d32f9dd25b0fafb4f895f60d8320ac9df8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c7cb0a3e132b491250623b945aecf6aea4f57c4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="map-a-custom-domain-to-a-function-app"></a>Een aangepast domein toewijzen aan een functie-app
+# <a name="map-a-custom-domain-tooa-function-app"></a>Toewijzen van een aangepast domein tooa functie-app
 
-Dit voorbeeldscript wordt gemaakt van een functie-app met verwante resources en wijst vervolgens `www.<yourdomain>` aan. Aan een aangepast domein wilt toewijzen, moet de functie-app in App Service-abonnement en niet in een plan verbruik worden gemaakt. Azure Functions biedt alleen ondersteuning voor het toewijzen van een aangepast domein met een A-record.
+Dit voorbeeldscript wordt gemaakt van een functie-app met verwante resources en wijst vervolgens `www.<yourdomain>` tooit. toomap tooa aangepast domein, de functie-app moet worden gemaakt in een App Service-plan en niet in een plan verbruik. Azure Functions biedt alleen ondersteuning voor het toewijzen van een aangepast domein met een A-record.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-azurecli-interactive[belangrijkste](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "een aangepast domein toewijzen aan een functie-app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain tooa function app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
 | [AZ groep maken](https://docs.microsoft.com/cli/azure/group#create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ storage-account maken](https://docs.microsoft.com/cli/azure/storage/account#create) | Maakt een opslagaccount dat is vereist voor de functie-app. |
-| [AZ appservice-abonnement maken](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Hiermee maakt u een App Service-abonnement vereist als een aangepast domein wilt toewijzen. |
+| [AZ storage-account maken](https://docs.microsoft.com/cli/azure/storage/account#create) | Maakt een opslagaccount dat is vereist voor Hallo functie-app. |
+| [AZ appservice-abonnement maken](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Maakt een App Service-abonnement vereist toomap een aangepast domein. |
 | [AZ functionapp maken]() | Hiermee maakt u een functie-app. |
-| [AZ appservice web config hostnaam toevoegen](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Een aangepast domein wordt toegewezen aan een functie-app. |
+| [AZ appservice web config hostnaam toevoegen](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Een aangepast domein tooa functie-app wordt toegewezen. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Voorbeelden van aanvullende functies CLI-script kunnen worden gevonden in de [documentatie van Azure Functions]().
+Aanvullende functies CLI scriptvoorbeelden kunnen u vinden in Hallo [documentatie van Azure Functions]().

@@ -1,6 +1,6 @@
 ---
-title: Over VPN-apparaten voor cross-premises Azure-verbindingen | Microsoft Docs
-description: Dit artikel gaat over VPN-apparaten en IPSec-parameters voor cross-premises site-naar-site-VPN-gateway-verbindingen. Het artikel bevat koppelingen naar configuratie-instructies en voorbeelden.
+title: aaaAbout VPN-apparaten voor cross-premises Azure-verbindingen | Microsoft Docs
+description: Dit artikel gaat over VPN-apparaten en IPSec-parameters voor cross-premises site-naar-site-VPN-gateway-verbindingen. Koppelingen vindt u tooconfiguration-instructies en voorbeelden.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8b84afbf93d807342ecd56ab369d5909a13343e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
-U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbinding te configureren. Site-naar-site-verbindingen kunnen worden gebruikt om een hybride oplossing te maken of wanneer u beveiligde verbindingen wilt maken tussen uw on-premises netwerken en virtuele netwerken. Dit artikel bevat een lijst met gevalideerde VPN-apparaten en een lijst met IPSec-/IKE-parameters voor VPN-gateways.
+Een VPN-apparaat is vereist tooconfigure een Site-naar-Site (S2S) cross-premises VPN-verbinding via een VPN-gateway. Site-naar-Site-verbindingen kunnen gebruikte toocreate een hybride oplossing of gewenst beveiligde verbindingen tussen uw on-premises netwerken en uw virtuele netwerken. Dit artikel bevat een lijst met gevalideerde VPN-apparaten en een lijst met IPSec-/IKE-parameters voor VPN-gateways.
 
 > [!IMPORTANT]
-> Raadpleeg [Bekende compatibiliteitsproblemen](#known) als u problemen ondervindt met de connectiviteit tussen uw lokale VPN-apparaten en VPN-gateways.
+> Als u problemen met de netwerkverbinding tussen uw on-premises VPN-apparaten en VPN-gateways ondervindt, raadpleeg dan te[bekende compatibiliteitsproblemen apparaat](#known).
 >
 >
 
-### <a name="items-to-note-when-viewing-the-tables"></a>Waar u op moet letten wanneer u de tabellen bekijkt:
+### <a name="items-toonote-when-viewing-hello-tables"></a>Items toonote wanneer u bekijkt hello tabellen:
 
-* Er is een terminologiewijziging voor Azure VPN-gateways. Alleen de namen zijn gewijzigd. Er is geen wijziging in de functionaliteit.
+* Er is een terminologiewijziging voor Azure VPN-gateways. Alleen Hallo namen zijn gewijzigd. Er is geen wijziging in de functionaliteit.
   * Statische routering = PolicyBased
   * Dynamische routering = RouteBased
-* De specificaties voor een HighPerformance-VPN-gateway en een RouteBased VPN-gateway zijn hetzelfde, tenzij anders wordt vermeld. Zo zijn de gevalideerde VPN-apparaten die compatibel zijn met RouteBased VPN-gateways, ook compatibel met de HighPerformance VPN-gateway.
+* Specificaties voor HighPerformance VPN-gateway en RouteBased VPN-gateway zijn Hallo hetzelfde, tenzij anders vermeld. Hallo gevalideerde VPN-apparaten die compatibel met RouteBased VPN-gateways zijn zijn bijvoorbeeld ook compatibel met Hallo HighPerformance VPN-gateway.
 
 ## <a name="devicetable"></a>Gevalideerde VPN-apparaten en apparaatconfiguratiehandleidingen
 
@@ -43,9 +43,9 @@ U hebt een VPN-apparaat nodig om een cross-premises site-naar-site-VPN-verbindin
 > Wanneer u een S2S-verbinding configureert, hebt u een openbaar IPv4-adres voor het VPN-apparaat nodig.
 >
 
-We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies in de volgende lijst kunnen met VPN-gateways worden gebruikt. Zie [Over VPN-gatewayinstellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) voor informatie over welk VPN-type u moet gebruiken (PolicyBased of RouteBased) voor de VPN-gatewayoplossing die u wilt configureren.
+We hebben samen met apparaatleveranciers een reeks standaard VPN-apparaten gevalideerd. Alle apparaten in de apparaatfamilies Hallo in lijst na Hallo Hallo moet samenwerken met VPN-gateways. Zie [over VPN-Gateway-instellingen](vpn-gateway-about-vpn-gateway-settings.md#vpntype) toounderstand Hallo VPN-gebruik (PolicyBased of RouteBased) voor VPN-Gateway-oplossing die u wilt dat tooconfigure Hallo typt.
 
-Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen die overeenkomen met de betreffende apparaatstuurprogrammafamilie. De koppelingen naar configuratie-instructies worden naar beste vermogen geleverd. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
+toohelp uw VPN-apparaat configureren, raadpleegt u toohello-koppelingen die overeenkomen met tooappropriate apparaatfamilie. Hallo koppelingen tooconfiguration instructies vindt u op basis van best-effort. Voor ondersteuning van VPN-apparaten neemt u contact op met de fabrikant van uw apparaat.
 
 |**Leverancier**          |**Apparaatfamilie**     |**Minimale versie van het besturingssysteem** |**PolicyBased configuratie-instructies** |**RouteBased configuratie-instructies** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -77,16 +77,16 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 
 ## <a name="additionaldevices"></a>Niet-gevalideerde VPN-apparaten
 
-Als uw apparaat niet in de tabel met gevalideerde VPN-apparaten wordt vermeld, werkt het misschien toch met een site-naar-site-verbinding. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
+Als u uw apparaat weergegeven in de tabel van Hallo gevalideerde VPN-apparaten niet ziet, is het apparaat nog steeds mogelijk werken met een Site-naar-Site-verbinding. Neem contact op met de fabrikant van uw apparaat voor aanvullende ondersteuning en configuratie-instructies.
 
 ## <a name="editing"></a>Voorbeelden van het bewerken van apparaatconfiguraties
 
-Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownload, moet u enkele waarden veranderen zodat ze overeenkomen met de instellingen voor uw omgeving.
+Nadat u Hallo opgegeven VPN-apparaat configuratievoorbeeld hebt gedownload, moet u tooreplace aantal Hallo waarden tooreflect Hallo-instellingen voor uw omgeving.
 
-### <a name="to-edit-a-sample"></a>U bewerkt een voorbeeld als volgt:
+### <a name="tooedit-a-sample"></a>een voorbeeld van een tooedit:
 
-1. Open het voorbeeld met Kladblok.
-2. Zoek alle <*tekst*>-tekenreeksen en vervang ze door de waarden die betrekking hebben op uw omgeving. Zorg dat u < en > opneemt. Als u een naam opgeeft, moet deze uniek zijn. Als een opdracht niet werkt, raadpleeg dan de documentatie van de fabrikant van uw apparaat.
+1. Open Hallo voorbeeld met Kladblok.
+2. Zoeken en vervangen van alle <*tekst*> tekenreeksen met Hallo-waarden die betrekking tooyour omgeving hebben. Worden ervoor tooinclude < en >. Als u een naam opgeeft, moet Hallo-naam die u selecteert uniek zijn. Als een opdracht niet werkt, raadpleeg dan de documentatie van de fabrikant van uw apparaat.
 
 | **Voorbeeldtekst** | **Wijzig in** |
 | --- | --- |
@@ -99,17 +99,17 @@ Nadat u het bij het VPN-apparaat meegeleverde configuratievoorbeeld hebt gedownl
 | &lt;SP_AzureNetworkSubnetMask&gt; |Geef het subnetmasker op. Voorbeeld: 255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |Geef het on-premises bereik op. Voorbeeld: 10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |Geef het on-premises subnetmasker op. Voorbeeld: 255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal als **IP-adres van gateway**. |
-| &lt;SP_PresharedKey&gt; |Deze informatie is specifiek voor uw virtuele netwerk en u vindt deze in de beheerportal onder Sleutel beheren. |
+| &lt;SP_AzureGatewayIpAddress&gt; |Deze informatie specifieke tooyour virtueel netwerk en bevindt zich in het Hallo-beheerportal als **IP-adres Gateway**. |
+| &lt;SP_PresharedKey&gt; |Deze informatie is specifiek tooyour virtueel netwerk en bevindt zich in het Hallo-beheerportal onder sleutel beheren. |
 
 ## <a name="ipsec"></a>IPSec-/IKE-parameters
 
 > [!NOTE]
-> Hoewel de waarden in de volgende tabel worden ondersteund in de VPN-gateway, bestaat er momenteel geen mechanisme om vanuit de VPN-gateway een specifieke combinatie van algoritmen of parameters op te geven of te selecteren. U moet eventuele beperkingen vanuit het on-premises VPN-apparaat opgeven. Bovendien moet u **MSS** vastzetten op **1350**.
+> Hoewel het Hallo-waarden die worden vermeld in de volgende tabel Hallo worden ondersteund door Hallo VPN-gateway, momenteel er is geen methode voor u toospecify of Selecteer een specifieke combinatie van algoritmen of parameters van Hallo VPN-gateway. U moet eventuele beperkingen vanuit Hallo on-premises VPN-apparaat opgeven. Bovendien moet u **MSS** vastzetten op **1350**.
 > 
 >
 
-In de volgende tabellen:
+In de Hallo tabellen te volgen:
 
 * SA = Security Association
 * IKE Phase 1 wordt ook 'Main Mode' genoemd
@@ -139,7 +139,7 @@ In de volgende tabellen:
 
 ### <a name ="RouteBasedOffers"></a>Aanbiedingen RouteBased VPN IPsec Security Association (IKE Quick Mode SA)
 
-De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedingen staan in volgorde van voorkeur waarin de aanbieding is gepresenteerd of geaccepteerd.
+Hallo bevat volgende tabel aanbiedingen voor IPSec-SA (IKE snelle modus). Aanbiedingen zijn vermelde Hallo volgorde van voorkeur die Hallo aanbieding is gepresenteerd of geaccepteerd.
 
 #### <a name="azure-gateway-as-initiator"></a>Azure-gateway als initiator
 
@@ -183,20 +183,20 @@ De volgende tabel bevat aanbiedingen van IPSec-SA (IKE Quick Mode). De aanbiedin
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en HighPerformance VPN-gateways. Op null gebaseerde versleuteling biedt geen beveiliging voor gegevens tijdens de overdracht. Dit mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie zijn vereist. Clients kunnen ervoor kiezen dit te gebruiken voor communicatie tussen VNET's of wanneer elders in de oplossing versleuteling wordt toegepast.
-* Gebruik voor cross-premises connectiviteit via internet de standaardinstellingen voor Azure VPN-gateways met versleuteling en hash-algoritmen die in de tabel hierboven worden vermeld, om beveiliging van uw kritieke communicatie te waarborgen.
+* U kunt IPsec ESP NULL-versleuteling opgeven met RouteBased VPN-gateways en HighPerformance VPN-gateways. Op null gebaseerde versleuteling biedt geen bescherming toodata onderweg en mag alleen worden gebruikt wanneer maximale doorvoer en minimale latentie is vereist. Clients kunnen Kies toouse deze in scenario's voor VNet-naar-VNet-communicatie, of als versleuteling wordt toegepast elders in Hallo-oplossing.
+* Gebruik voor cross-premises connectiviteit via Internet hello, Hallo standaard Azure VPN-gateway-instellingen met versleuteling en hash-algoritmen opgenomen in de tabellen Hallo hierboven tooensure beveiliging van uw kritieke communicatie.
 
 ## <a name="known"></a>Bekende compatibiliteitsproblemen
 
 > [!IMPORTANT]
-> Dit zijn de bekende compatibiliteitsproblemen tussen VPN-apparaten van derden en Azure VPN-gateways. Het team van Azure werkt samen met de leveranciers aan een oplossing voor de hier vermelde problemen. Zodra de problemen zijn opgelost, wordt deze pagina bijgewerkt met de meest actuele informatie. Bekijk deze pagina daarom regelmatig.
+> Deze zijn Hallo bekende compatibiliteitsproblemen tussen Azure VPN-gateways en VPN-apparaten van derden. Hallo team van Azure werkt actief met Hallo leveranciers tooaddress Hallo problemen hier vermeld. Zodra het Hallo-problemen zijn opgelost, wordt deze pagina worden bijgewerkt met de meest actuele informatie Hallo. Bekijk deze pagina daarom regelmatig.
 >
 >
 
 ### <a name="feb-16-2017"></a>16 februari 2017
 
-**Palo Alto Networks-apparaten met een oudere versie dan 7.1.4** voor op route gebaseerde Azure VPN: als u VPN-apparaten van Palo Alto Networks gebruikt met een PAN-OS-versie die ouder is dan 7.1.4 en u connectiviteitsproblemen hebt met op route gebaseerde Azure VPN-gateways, voert u de volgende stappen uit:
+**Apparaten met versie voorafgaande too7.1.4 Palo Alto Networks** voor Azure op route gebaseerde VPN: als u van VPN-apparaten van Palo Alto-netwerken met eerdere too7.1.4 voor PAN-OS-versie gebruikmaakt en connectiviteit ondervinden problemen tooAzure op route gebaseerde VPN-gateways Voer Hallo stappen te volgen:
 
-1. Controleer de firmwareversie van uw Palo Alto Networks-apparaat. Als de PAN-OS-versie ouder is dan 7.1.4, voert u een upgrade uit naar 7.1.4.
-2. Op het Palo Alto Networks-apparaat wijzigt u de levensduur van de beveiligingskoppeling fase 2 (of de beveiligingskoppeling in snelle modus) in 28.800 seconden (8 uur) wanneer er verbinding met de Azure VPN-gateway wordt gemaakt.
-3. Als het connectiviteitsprobleem zich nog steeds voordoet, opent u een ondersteuningsaanvraag via de Azure-portal.
+1. De firmwareversie Hallo van uw apparaat Palo Alto Networks controleren. Als uw PAN-OS-versie ouder dan 7.1.4 is, voer een upgrade too7.1.4.
+2. Op Hallo Palo Alto Networks apparaat wijzigen Hallo SA voor fase 2 (of SA in de snelle modus) levensduur too28, 800 seconden (8 uur) wanneer toohello Azure VPN-gateway verbinding te maken.
+3. Als u steeds problemen ondervindt nog, moet u een ondersteuningsaanvraag openen vanuit hello Azure-portal.

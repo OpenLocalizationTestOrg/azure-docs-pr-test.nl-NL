@@ -1,6 +1,6 @@
 ---
-title: Pakket opnamen met Azure-netwerk-Watcher - Azure CLI 2.0 beheren | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u voor het beheren van de functie voor het vastleggen van pakket van netwerk-Watcher met Azure CLI 2.0
+title: aaaManage pakket worden vastgelegd met Azure-netwerk-Watcher - Azure CLI 2.0 | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toomanage Hallo functie voor het vastleggen van netwerk-Watcher met Azure CLI 2.0 pakket
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: c94eb46f31f2f19b843ccd7bf77b8a39943a07d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d19cb7d0ca3b7a9bc0546859e07ef6d4df4f42d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Pakket opnamen beheren met Azure met Azure CLI 2.0 netwerk-Watcher
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
 
-Netwerk-Watcher pakketopname kunt u om sessies vastleggen om bij te houden van verkeer van en naar een virtuele machine te maken. Filters zijn beschikbaar voor de opnamesessie om te controleren of dat u alleen het verkeer die u wilt vastleggen. Pakketopname helpt op te sporen netwerk afwijkingen reactief en proactief. Andere toepassingen zijn onder andere het verzamelen van netwerkstatistieken, krijgt informatie over het netwerk beveiligingsrisico's voor foutopsporing van client-servercommunicaties en nog veel meer. Door op afstand activeren pakket opnamen, deze mogelijkheid kan vergemakkelijken de last van een pakketopname handmatig en op de gewenste machine, die kostbare tijd bespaart worden uitgevoerd.
+Netwerk-Watcher pakketopname kunt u toocreate vastleggen sessies tootrack verkeer tooand van een virtuele machine. Filters zijn beschikbaar voor Hallo vastleggen sessie tooensure dat u alleen Hallo verkeer die u wilt vastleggen. Pakketopname helpt toodiagnose netwerk afwijkingen reactief en proactief. Andere toepassingen zijn onder andere het verzamelen van netwerkstatistieken, krijgt informatie over het netwerk beveiligingsrisico's, toodebug client / server-communicatie en nog veel meer. Deze mogelijkheid vergemakkelijkt door kunnen tooremotely trigger pakket opnamen, Hallo last van een pakketopname handmatig en op de gewenste machine hello, die kostbare tijd bespaart worden uitgevoerd.
 
-Dit artikel wordt de volgende generatie CLI gebruikt voor de resource management-implementatiemodel, Azure CLI 2.0, die beschikbaar is voor Windows, Mac en Linux.
+In dit artikel gebruikt de volgende generatie CLI voor Hallo resource management-implementatiemodel, Azure CLI 2.0, die beschikbaar is voor Windows, Mac en Linux.
 
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+tooperform hello stappen in dit artikel, moet u te[hello Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI) installeren](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
-In dit artikel leert u de verschillende beheertaken die momenteel beschikbaar voor pakketopname zijn.
+In dit artikel leert u Hallo verschillende beheertaken uitvoeren die momenteel beschikbaar zijn voor pakketopname.
 
 - [**Start een pakketopname**](#start-a-packet-capture)
 - [**Stop de pakketopname van een**](#stop-a-packet-capture)
@@ -44,19 +44,19 @@ In dit artikel leert u de verschillende beheertaken die momenteel beschikbaar vo
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
+In dit artikel wordt ervan uitgegaan dat er Hallo resources te volgen:
 
-- Een exemplaar van netwerk-Watcher in de regio die u wilt maken van een pakketopname
-- Een virtuele machine met de pakket-capture-extensie is ingeschakeld.
+- Een exemplaar van netwerk-Watcher in Hallo regio die u wilt een pakketopname toocreate
+- Een virtuele machine met hello-pakket vastleggen uitbreiding ingeschakeld.
 
 > [!IMPORTANT]
-> Pakketopname vereist een agent te worden uitgevoerd op de virtuele machine. De Agent wordt geïnstalleerd als een uitbreiding. Voor instructies voor het VM-extensies, gaat u naar [uitbreidingen van de virtuele Machine en functies](../virtual-machines/windows/extensions-features.md).
+> Pakketopname vereist een agent toobe op Hallo virtuele machine. Hallo Agent wordt geïnstalleerd als een uitbreiding. Voor instructies voor het VM-extensies, gaat u naar [uitbreidingen van de virtuele Machine en functies](../virtual-machines/windows/extensions-features.md).
 
 ## <a name="install-vm-extension"></a>VM-extensie installeren
 
 ### <a name="step-1"></a>Stap 1
 
-Voer de `az vm extension set` cmdlet het pakket capture-agent installeren op de virtuele gastmachine.
+Voer Hallo `az vm extension set` cmdlet tooinstall Hallo pakket vastleggen agent op de virtuele gastmachine Hallo.
 
 Voor Windows virtuele machines:
 
@@ -72,13 +72,13 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### <a name="step-2"></a>Stap 2
 
-Om ervoor te zorgen dat de agent is geïnstalleerd, voer de `vm extension get` cmdlet en geef dit door de naam van de resource en de virtuele machine. Controleer de resulterende lijst om te controleren of dat de agent is geïnstalleerd.
+tooensure die Hallo agent is geïnstalleerd, voert u Hallo `vm extension get` cmdlet en geef dit Hallo-resourcegroep en de naam van de virtuele machine. Controleer Hallo resulterende lijst tooensure Hallo agent is geïnstalleerd.
 
 ```azurecli
 az vm extension show -resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
-Het volgende voorbeeld is een voorbeeld van het antwoord worden uitgevoerd`az vm extension show`
+Hallo volgende voorbeeld is een voorbeeld van antwoord Hallo wordt uitgevoerd`az vm extension show`
 
 ```json
 {
@@ -102,11 +102,11 @@ Het volgende voorbeeld is een voorbeeld van het antwoord worden uitgevoerd`az vm
 
 ## <a name="start-a-packet-capture"></a>Start een pakketopname
 
-Als de voorgaande stappen voltooid zijn, wordt het pakket vastleggen-agent geïnstalleerd op de virtuele machine.
+Zodra hello voorgaande stappen voltooid hebt, wordt Hallo pakket vastleggen agent is geïnstalleerd op Hallo virtuele machine.
 
 ### <a name="step-1"></a>Stap 1
 
-De volgende stap is het exemplaar van de netwerk-Watcher ophalen. Tkan-naam van de netwerk-Watcher wordt doorgegeven aan de `az network watcher show` cmdlet in stap 4.
+de volgende stap Hallo is tooretrieve Hallo netwerk-Watcher-exemplaar. De naam van de Tkan Hallo netwerk-Watcher wordt doorgegeven toohello `az network watcher show` cmdlet in stap 4.
 
 ```azurecli
 az network watcher show -resource-group resourceGroup -name networkWatcherName
@@ -114,7 +114,7 @@ az network watcher show -resource-group resourceGroup -name networkWatcherName
 
 ### <a name="step-2"></a>Stap 2
 
-Een opslagaccount ophalen. Dit opslagaccount wordt gebruikt voor het opslaan van het pakket capture-bestand.
+Een opslagaccount ophalen. Dit opslagaccount is gebruikte toostore Hallo pakket vastleggen bestand.
 
 ```azurecli
 azure storage account list
@@ -122,13 +122,13 @@ azure storage account list
 
 ### <a name="step-3"></a>Stap 3
 
-Filters kunnen worden gebruikt om te beperken van de gegevens die door het vastleggen van het pakket wordt opgeslagen. Het volgende voorbeeld stelt een pakketopname met verschillende filters.  De eerste drie filters voor het verzamelen van uitgaande TCP-verkeer alleen van het lokale IP 10.0.0.3 voor doelpoorten 20, 80 en 443.  Het laatste filter verzamelt UDP-verkeer.
+Filters kunnen gebruikte toolimit Hallo gegevens die zijn opgeslagen door Hallo pakketopname zijn. Hallo stelt volgende voorbeeld een pakketopname met verschillende filters.  Hallo eerste drie filters verzamelen uitgaande TCP-verkeer alleen van het lokale IP 10.0.0.3 toodestination poorten 20, 80 en 443.  de laatste filter Hallo verzamelt UDP-verkeer.
 
 ```azurecli
 az network watcher packet-capture create --resource-group {resoureceurceGroupName} --vm {vmName} --name packetCaptureName --storage-account gwteststorage123abc --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-Het volgende voorbeeld is de verwachte uitvoer uitvoeren van de `az network watcher packet-capture create` cmdlet.
+Hallo volgende voorbeeld is de Hallo verwacht uitvoer Hallo uitgevoerd `az network watcher packet-capture create` cmdlet.
 
 ```json
 {
@@ -183,13 +183,13 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>Ophalen van een pakketopname
 
-Met de `az network watcher packet-capture show` -cmdlet haalt de status van een pakketopname momenteel wordt uitgevoerd of voltooid is.
+Hallo uitgevoerd `az network watcher packet-capture show` -cmdlet haalt Hallo status van een pakketopname momenteel wordt uitgevoerd of voltooid is.
 
 ```azurecli
 az network watcher packet-capture show --name packetCaptureName --location westcentralus
 ```
 
-Het volgende voorbeeld wordt de uitvoer van de `az network watcher packet-capture show` cmdlet. Het volgende voorbeeld is nadat het vastleggen voltooid is. De waarde PacketCaptureStatus is gestopt met een StopReason TimeExceeded. Deze waarde geeft aan dat het vastleggen van het pakket voltooid is en de tijd wordt uitgevoerd.
+Hallo volgende voorbeeld is Hallo-uitvoer van Hallo `az network watcher packet-capture show` cmdlet. Hallo wordt volgende voorbeeld nadat Hallo vastleggen voltooid is. Hallo PacketCaptureStatus waarde is met een StopReason TimeExceeded gestopt. Deze waarde geeft aan dat Hallo pakketopname voltooid is en de tijd wordt uitgevoerd.
 
 ```
 {
@@ -243,14 +243,14 @@ ure_16_22_34_630.cap"
 
 ## <a name="stop-a-packet-capture"></a>Stop de pakketopname van een
 
-Door het uitvoeren van de `az network watcher packet-capture stop` als een opnamesessie Bezig het is-cmdlet is gestopt.
+Door het uitvoeren van Hallo `az network watcher packet-capture stop` als een opnamesessie Bezig het is-cmdlet is gestopt.
 
 ```azurecli
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> De cmdlet retourneert geen antwoord wanneer uitgevoerd op een actieve opnamesessie of een bestaande sessie die al is gestopt.
+> Hallo cmdlet retourneert geen antwoord wanneer uitgevoerd op een actieve opnamesessie of een bestaande sessie die al is gestopt.
 
 ## <a name="delete-a-packet-capture"></a>Het vastleggen van een pakket verwijderen
 
@@ -259,13 +259,13 @@ az network watcher packet-capture delete --name packetCaptureName --location wes
 ```
 
 > [!NOTE]
-> Als u het vastleggen van een pakket verwijdert, verwijdert niet het bestand in het opslagaccount.
+> Als een pakketopname, verwijdert Hallo-bestand in Hallo storage-account niet verwijderd.
 
 ## <a name="download-a-packet-capture"></a>Een pakketopname downloaden
 
-Zodra de sessie van uw pakket vastleggen is voltooid, kan het bestand vastleggen kan worden geüpload naar de blob-opslag of naar een lokaal bestand op de virtuele machine. De opslaglocatie van de pakketopname is gedefinieerd bij het maken van de sessie. Een handig hulpmiddel voor toegang tot deze capture-bestanden opgeslagen in een opslagaccount is Microsoft Azure Storage Explorer, die u kunt hier downloaden: http://storageexplorer.com/
+Zodra de sessie van uw pakket vastleggen is voltooid, kan Hallo vastleggen bestand geüploade tooblob opslag of tooa lokaal bestand op Hallo VM zijn. Hallo-opslaglocatie van Hallo pakketopname is gedefinieerd bij het maken van Hallo-sessie. Een handig hulpmiddel tooaccess deze bestanden vastleggen, opgeslagen tooa storage-account is Microsoft Azure Storage Explorer, die u kunt hier downloaden: http://storageexplorer.com/
 
-Als een opslagaccount is opgegeven, worden bestanden voor pakket worden opgeslagen in een opslagaccount op de volgende locatie:
+Als een opslagaccount is opgegeven, worden bestanden voor pakket tooa storage-account op Hallo na locatie opgeslagen:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
@@ -273,7 +273,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over hoe tooautomate pakket worden vastgelegd met waarschuwingen van de virtuele machine door [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
 
 Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)
 

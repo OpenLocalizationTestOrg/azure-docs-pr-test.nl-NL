@@ -1,5 +1,5 @@
 ---
-title: Toepassingsimplementatie met uitbreidingen van de virtuele Machine automatiseren | Microsoft Docs
+title: aaaAutomating toepassingsimplementatie met uitbreidingen van de virtuele Machine | Microsoft Docs
 description: Virtuele Machine van Azure DotNet belangrijkste zelfstudie
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,22 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2996eef71b39c6240fac5484854f72d3e657d0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d52537fbd4e935f19d3864def11484f519f8598
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Toepassingsimplementatie met Azure Resource Manager-sjablonen voor virtuele machines van Windows
 
-Zodra alle Azure-infrastructurele vereisten zijn geïdentificeerd en vertaald naar een implementatiesjabloon, wordt de werkelijke implementatie moet worden opgelost. Toepassingsimplementatie hier verwijst naar het installeren van de binaire bestanden van de werkelijke toepassingen naar Azure-resources. Voor het voorbeeld getoond, .net Core en IIS moet worden geïnstalleerd en geconfigureerd op elke virtuele machine. De binaire bestanden muziek moeten worden geïnstalleerd op de virtuele machine en de database muziek vooraf gemaakt.
+Nadat alle Azure-infrastructurele vereisten zijn geïdentificeerd en vertaald naar een implementatiesjabloon, vereist de werkelijke toepassingsimplementatie Hallo toobe behandeld. Toepassingsimplementatie hier verwijst tooinstalling Hallo werkelijke toepassing binaire bestanden naar de Azure-resources. Voor Hallo muziek Store voorbeeld .net Core en IIS moeten toobe geïnstalleerd en geconfigureerd op elke virtuele machine. Hallo muziek Store binaire bestanden toobe op Hallo virtuele machine geïnstalleerd moeten en Hallo muziek Store-database vooraf gemaakt.
 
-Dit document beschrijft hoe uitbreidingen van de virtuele Machine kunnen automatiseren implementatie van toepassingen en configuratie van virtuele machines in Azure. Alle afhankelijkheden en unieke configuraties zijn gemarkeerd. Implementeer een exemplaar van de oplossing voor uw Azure-abonnement en werk samen met de Azure Resource Manager-sjabloon voor de beste ervaring. De volledige sjabloon vindt u hier: [muziek Store wilt implementeren op Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Dit document beschrijft hoe de uitbreidingen van de virtuele Machine toepassing implementatie en configuratie tooAzure virtuele machines kunnen automatiseren. Alle afhankelijkheden en unieke configuraties zijn gemarkeerd. Implementeer een exemplaar van Hallo oplossing tooyour Azure-abonnement en werk samen met hello Azure Resource Manager-sjabloon voor de beste ervaring Hallo. de volledige sjabloon Hallo vindt u hier: [muziek Store wilt implementeren op Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="configuration-script"></a>Het script voor configuratie
-Uitbreidingen van de virtuele Machine zijn gespecialiseerde's die worden uitgevoerd op basis van virtuele machines, zodat configuratie automation. Extensies zijn beschikbaar voor veel specifieke doeleinden, zoals antivirus en configuratie van de logboekregistratie Docker-configuratie. De extensie voor aangepaste scripts kan worden gebruikt voor elk script uitvoeren op een virtuele machine. Het is tot de extensie voor aangepaste scripts voor het configureren van de virtuele machines van Windows en de muziek Store-toepassing installeren met het voorbeeld getoond.
+Uitbreidingen van de virtuele Machine zijn gespecialiseerde programma's die worden uitgevoerd op basis van virtuele machines tooprovide configuratie automation. Extensies zijn beschikbaar voor veel specifieke doeleinden, zoals antivirus en configuratie van de logboekregistratie Docker-configuratie. Hallo-extensie voor aangepaste scripts kan worden gebruikt toorun scripts op basis van een virtuele machine. Met de Hallo muziek Store voorbeeld is van toohello aangepast script extensie tooconfigure Hallo Windows virtuele machines en Hallo muziek Store-toepassing installeren.
 
-Voordat u met gedetailleerde informatie over hoe de uitbreidingen van de virtuele machine zijn gedeclareerd in een Azure Resource Manager-sjabloon, controleert u het script dat wordt uitgevoerd. Dit script configureert u de virtuele machine van Windows voor het hosten van de muziek Store-toepassing. Wanneer uitvoert, installeert het script alle nodig software, de muziek store-toepassing installeren vanuit broncodebeheer en voorbereiden van de database. 
+Controleer voordat u met gedetailleerde informatie over hoe de uitbreidingen van de virtuele machine zijn gedeclareerd in een Azure Resource Manager-sjabloon, Hallo-script dat wordt uitgevoerd. Dit script configureert Hallo Windows virtuele machine toohost Hallo muziek Store-toepassing. Wanneer uitvoert, Hallo script installeert alle benodigde software, Hallo muziek store-toepassing installeren vanuit broncodebeheer en Hallo database voorbereiden. 
 
 > Dit voorbeeld is voor demonstratiedoeleinden.
 
@@ -84,11 +84,11 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 ```
 
 ## <a name="vm-script-extension"></a>VM-extensie voor scripts
-VM-extensies tegelijk worden uitgevoerd op basis van een virtuele machine build tijd door op te nemen van de bron van de extensie in de Azure Resource Manager-sjabloon. De uitbreiding kan worden toegevoegd met de wizard Resource toevoegen Visual Studio of door een geldige JSON niet worden ingevoegd in de sjabloon. De resource Scriptextensie is genest binnen de bron van de virtuele Machine; Dit is te zien in het volgende voorbeeld.
+VM-extensies kan worden uitgevoerd op basis van een virtuele machine tegelijk build door Hallo extensie resource in hello Azure Resource Manager-sjabloon. Hallo-extensie kan worden toegevoegd met Hallo Resource toevoegen Visual Studio wizard, of door een geldige JSON in Hallo sjabloon invoegen. Hallo Scriptextensie resource is genest binnen Hallo bron van de virtuele Machine. Deze kunnen worden gezien in Hallo voorbeeld te volgen.
 
-Volg deze link om te zien van de JSON-voorbeeld in de Resource Manager-sjabloon – [VM Scriptextensie](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
+Volg deze link toosee Hallo JSON-voorbeeld binnen Hallo Resource Manager-sjabloon – [VM Scriptextensie](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
 
-U ziet in de onderstaande JSON dat het script wordt opgeslagen in GitHub. Dit script kan ook worden opgeslagen in Azure Blob-opslag. Azure Resource Manager-sjablonen toestaan dat de Scripttekenreeks worden uitgevoerd zodat sjabloon parameterwaarden kunnen worden gebruikt als parameters voor de uitvoering van het script worden samengesteld. In dit geval data is opgegeven bij het implementeren van de sjablonen en deze waarden kunnen vervolgens worden gebruikt bij het uitvoeren van het script.
+U ziet in de onderstaande Hallo JSON die Hallo script wordt opgeslagen in GitHub. Dit script kan ook worden opgeslagen in Azure Blob-opslag. Azure Resource Manager-sjablonen toestaan Hallo script uitvoering tekenreeks toobe samengesteld zodanig dat de sjabloon parameterwaarden kunnen worden gebruikt als parameters voor de uitvoering van het script. In dit geval data is opgegeven bij het implementeren van Hallo sjablonen en deze waarden kunnen vervolgens worden gebruikt bij het uitvoeren van script Hallo.
 
 ```json
 {
@@ -120,11 +120,11 @@ U ziet in de onderstaande JSON dat het script wordt opgeslagen in GitHub. Dit sc
 }
 ```
 
-Zoals eerder vermeld, is het ook mogelijk voor het opslaan van uw eigen aangepaste scripts in Azure Blob-opslag. Er zijn twee opties voor het opslaan van de script-resources in blob-opslag; Verander de container/script openbare en volg dezelfde benaderen zoals hierboven, of het kan ook worden bewaard in persoonlijke blobopslag waarvoor u de storageAccountName en storageAccountKey voor de resourcedefinitie CustomScriptExtension opgeven.
+Zoals eerder vermeld, maar het is ook mogelijk toostore uw aangepaste scripts in Azure Blob-opslag. Er zijn twee opties voor het opslaan van Hallo script resources in blob-opslag; Maak Hallo openbare container/script en volgt u dezelfde als hierboven benaderen hello, of kan ook worden bewaard in persoonlijke blobopslag waarvoor u tooprovide hello storageAccountName en storageAccountKey toohello CustomScriptExtension resourcedefinitie.
 
-In het onderstaande voorbeeld hebben we een stap verder gegaan. Terwijl het is mogelijk is de naam van het opslagaccount en de sleutel opgeven als een parameter of variabele tijdens de implementatie, bieden de Resource Manager-sjablonen de `listKeys` functie die u kunt de opslagaccountsleutel programmatisch verkrijgen en plaats deze in voor de sjabloon voor u tijdens de implementatie.
+In onderstaande Hallo voorbeeld hebben we een stap verder geworden. Hoewel het mogelijk tooprovide hello opslagaccountnaam en de sleutel als een parameter of variabele tijdens de implementatie is, Resource Manager-sjablonen bieden Hallo `listKeys` functie die Hallo storage-account kunt verkrijgen via een programma sleutel en plaats deze in toohello de sjabloon voor u tijdens de implementatie.
 
-In het voorbeeld hieronder CustomScriptExtension resourcedefinitie onze aangepast script al is geüpload naar Azure storage-account genoemd `mystorageaccount9999` bestaat in een andere resourcegroep aangeroepen `mysa999rgname`. Wanneer er een sjabloon met deze bron implementeert de `listKeys` functie programmatisch verkrijgt de opslagaccountsleutel voor het opslagaccount `mystorageaccount9999` in de resourcegroep `mysa999rgname` en voegt u deze in de sjabloon voor ons.
+In Hallo voorbeeld CustomScriptExtension resourcedefinitie onderstaande onze aangepast script is al geüploade tooan Azure storage-account genoemd `mystorageaccount9999` bestaat in een andere resourcegroep aangeroepen `mysa999rgname`. Wanneer er een sjabloon met deze bron implementeert, Hallo `listKeys` functie verkrijgt programmatisch Hallo-toegangssleutel voor opslagaccount hello `mystorageaccount9999` in Hallo resourcegroep `mysa999rgname` en voegt u deze in de sjabloon toohello voor ons.
 
 ```json
 {
@@ -158,9 +158,9 @@ In het voorbeeld hieronder CustomScriptExtension resourcedefinitie onze aangepas
 }
 ```
 
-Het belangrijkste voordeel van deze benadering is dat u niet hoeft u de parameters van de sjabloon of implementatie wijzigen in het geval van storage account sleutel kan worden gewijzigd.
+Hallo belangrijkste voordeel van deze benadering is dat u niet u toochange uw sjabloon hoeft of implementatieparameters in de gebeurtenis Hallo van Hallo storage account sleutel wijzigen.
 
-Zie voor meer informatie over het gebruik van de extensie voor aangepaste scripts [aangepaste scriptextensies met Resource Manager-sjablonen](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor meer informatie over het gebruik van de aangepaste scriptextensie hello [aangepaste scriptextensies met Resource Manager-sjablonen](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-step"></a>Volgende stap
 <hr>

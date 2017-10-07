@@ -1,6 +1,6 @@
 ---
-title: Hive-tabellen maken en te laden van gegevens uit Azure Blob Storage | Microsoft Docs
-description: Hive-tabellen maken en te laden van gegevens in blob naar de hive-tabellen
+title: aaaCreate Hive-tabellen en laden van gegevens uit Azure Blob Storage | Microsoft Docs
+description: Hive-tabellen maken en te laden van gegevens in blob toohive tabellen
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: eca4ecd8f639bb9816903f4b1d1f999755da819c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 09622972bcac31c2971858393a8340f24e4b7390
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens uit Azure Blob-opslag laden
-Dit onderwerp bevat algemene Hive-query's die Hive-tabellen maken en gegevens uit Azure blob-opslag laden. Sommige richtlijnen is ook beschikbaar op het Hive-tabellen te partitioneren en over het gebruik van de optimale rij kolommen (ORC) opmaak ter verbetering van de prestaties van query's.
+Dit onderwerp bevat algemene Hive-query's die Hive-tabellen maken en gegevens uit Azure blob-opslag laden. Sommige richtlijnen is ook beschikbaar op het Hive-tabellen te partitioneren en over het gebruik van Hallo geoptimaliseerd rij kolommen (ORC) opmaak tooimprove prestaties van query's.
 
-Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u opnemen van gegevens in de doel-omgevingen waarin de gegevens kunnen worden opgeslagen en verwerkt tijdens het Team gegevens wetenschap proces (TDSP).
+Dit **menu** koppelingen tootopics waarin wordt beschreven hoe tooingest gegevens in de doel-omgevingen waar Hallo gegevens kunnen worden opgeslagen en verwerkt tijdens Hallo Team gegevens wetenschap proces (TDSP).
 
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -31,101 +31,101 @@ Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u opnemen 
 In dit artikel wordt ervan uitgegaan dat u hebt:
 
 * Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [over Azure storage-accounts](../storage/common/storage-create-storage-account.md).
-* Een aangepaste Hadoop-cluster met de HDInsight-service wordt ingericht.  Als u instructies nodig hebt, raadpleegt u [aanpassen Azure HDInsight Hadoop-clusters voor geavanceerde analyses](machine-learning-data-science-customize-hadoop-cluster.md).
-* Ingeschakelde externe toegang tot het cluster aangemeld en de Hadoop-opdrachtregelconsole geopend. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop-Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
+* Een aangepaste Hadoop-cluster met Hallo HDInsight-service wordt ingericht.  Als u instructies nodig hebt, raadpleegt u [aanpassen Azure HDInsight Hadoop-clusters voor geavanceerde analyses](machine-learning-data-science-customize-hadoop-cluster.md).
+* Ingeschakelde RAS toohello cluster aangemeld en Hallo Hadoop opdrachtregelconsole geopend. Als u instructies nodig hebt, raadpleegt u [toegang Hallo Head knooppunt van Hadoop-Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure blob-opslag
-Als u een virtuele machine in Azure gemaakt op basis van de instructies in [instellen van een virtuele machine van Azure voor geavanceerde analyses](machine-learning-data-science-setup-virtual-machine.md), dit scriptbestand moet worden gedownload naar de *C:\\gebruikers \\ \<gebruikersnaam\>\\documenten\\gegevens wetenschappelijke Scripts* map op de virtuele machine. Deze Hive-query's vereisen alleen plug-in uw eigen gegevensschema en de configuratie van de Azure blob-opslag in de juiste velden gereed is voor verzending.
+## <a name="upload-data-tooazure-blob-storage"></a>Uploaden van gegevens tooAzure blob-opslag
+Als u een virtuele machine in Azure gemaakt op basis van Hallo instructies in [instellen van een virtuele machine van Azure voor geavanceerde analyses](machine-learning-data-science-setup-virtual-machine.md), dit scriptbestand had moet zijn gedownloade toohello *C:\\ Gebruikers\\\<gebruikersnaam\>\\documenten\\gegevens wetenschappelijke Scripts* map op Hallo virtuele machine. Deze Hive-query's vereisen alleen plug-in uw eigen gegevensschema en de Azure blob storage-configuratie in Hallo juiste velden toobe gereed voor verzending.
 
-Er wordt ervan uitgegaan dat de gegevens voor Hive-tabellen een **niet-gecomprimeerde** tabelvorm en die de gegevens is geüpload naar de standaardwaarde (of een extra) container van het opslagaccount dat wordt gebruikt door het Hadoop-cluster.
+Er wordt ervan uitgegaan dat Hallo-gegevens voor Hive-tabellen een **niet-gecomprimeerde** tabelvorm en dat Hallo gegevens zijn geüpload toohello standaard (of extra tooan) container van Hallo storage-account die wordt gebruikt door Hallo Hadoop-cluster.
 
-Als u wilt oefenen op de **NYC Taxi reis gegevens**, moet u:
+Als u wilt dat toopractice op Hallo **NYC Taxi reis gegevens**, moet u:
 
-* **Download** de 24 [NYC Taxi reis gegevens](http://www.andresmh.com/nyctaxitrips) -bestanden (12 reis bestanden en 12 tarief-bestanden)
+* **Download** Hallo 24 [NYC Taxi reis gegevens](http://www.andresmh.com/nyctaxitrips) -bestanden (12 reis bestanden en 12 tarief-bestanden)
 * **Pak** alle bestanden in CSV-bestanden, en vervolgens
-* **uploaden** ze naar de standaard (of de juiste container) van de Azure storage-account dat is gemaakt door de procedure beschreven in de [aanpassen Azure HDInsight Hadoop-clusters voor Advanced Analytics-proces en technologie](machine-learning-data-science-customize-hadoop-cluster.md)onderwerp. Het proces voor het uploaden van de CSV-bestanden naar de standaardcontainer op het opslagaccount kan worden gevonden op deze [pagina](machine-learning-data-science-process-hive-walkthrough.md#upload).
+* **uploaden** ze toohello standaard (of juiste container) van Azure storage-account dat is gemaakt door Hallo procedure beschreven in Hallo Hallo [aanpassen Azure HDInsight Hadoop-clusters voor Advanced Analytics-proces en technologie ](machine-learning-data-science-customize-hadoop-cluster.md) onderwerp. Hallo proces tooupload Hallo .csv-bestanden toohello standaardcontainer op Hallo opslagaccount vindt u op dit [pagina](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
-## <a name="submit"></a>Het indienen van Hive-query 's
+## <a name="submit"></a>Hoe toosubmit Hive-query's
 Hive-query's kunnen worden verzonden met behulp van:
 
 1. [Indienen van Hive-query's via de opdrachtregel voor Hadoop in headnode van Hadoop-cluster](#headnode)
-2. [Indienen van Hive-query's met de Hive-Editor](#hive-editor)
+2. [Indienen van Hive-query's met Hallo Hive-Editor](#hive-editor)
 3. [Indienen van Hive-query's met Azure PowerShell-opdrachten](#ps)
 
-Hive-query's zijn SQL-achtige. Als u bekend met SQL bent, vindt u de [Hive voor SQL gebruikers cheats blad](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) nuttig.
+Hive-query's zijn SQL-achtige. Als u bekend met SQL bent, vindt u Hallo [Hive voor SQL gebruikers cheats blad](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) nuttig.
 
-Bij het indienen van een Hive-query kunt u ook de bestemming van de uitvoer van Hive-query's beheren, ongeacht of deze op het scherm of naar een lokaal bestand op het hoofdknooppunt of met een Azure-blob.
+Bij het indienen van een Hive-query kunt u Hallo bestemming van Hallo-uitvoer van Hive-query's ook bepalen of deze nu op Hallo scherm of tooa lokaal bestand op het hoofdknooppunt Hallo of tooan Azure-blob.
 
 ### <a name="headnode"></a> 1. Indienen van Hive-query's via de opdrachtregel voor Hadoop in headnode van Hadoop-cluster
-Als de Hive-query complexe, leidt verzendt, wordt deze rechtstreeks in het hoofdknooppunt van het Hadoop-cluster meestal tot sneller inschakelen om dan verzendt, wordt deze met een Editor Hive of Azure PowerShell-scripts.
+Als Hallo Hive-is query complex is of verzenden dat deze rechtstreeks in het hoofdknooppunt van het Hadoop-cluster Hallo Hallo doorgaans toofaster Schakel rond dan verzendt, wordt deze met een Hive-Editor of Azure PowerShell-scripts leidt.
 
-Aanmelden met het hoofdknooppunt van het Hadoop-cluster, opent u de Hadoop-opdrachtregel op het bureaublad van het hoofdknooppunt en voer de opdracht `cd %hive_home%\bin`.
+Hoofdknooppunt van het Hadoop-cluster Hallo toohello aanmelden, opent u Hallo Hadoop vanaf de opdrachtregel op Hallo bureaublad van hoofdknooppunt Hallo en voer de opdracht `cd %hive_home%\bin`.
 
-Hebt u drie manieren om Hive-query's in de Hadoop-opdrachtregel verzenden:
+Hebt u drie manieren toosubmit Hive-query's in Hallo Hadoop-opdrachtregel:
 
 * rechtstreeks
 * met behulp van .hql bestanden
-* met de Hive-opdrachtconsole
+* Hello Hive opdrachtconsole
 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Indienen van Hive-query's rechtstreeks in Hadoop vanaf de opdrachtregel.
-U kunt een opdracht zoals uitvoeren `hive -e "<your hive query>;` verzenden eenvoudige Hive-query's rechtstreeks in Hadoop vanaf de opdrachtregel. Hier volgt een voorbeeld, waarbij een rood kader geeft een overzicht van de opdracht die is ingediend door de Hive-query en het groene vak geeft een overzicht van de uitvoer van de Hive-query.
+U kunt een opdracht zoals uitvoeren `hive -e "<your hive query>;` toosubmit eenvoudige Hive-query's rechtstreeks in Hadoop vanaf de opdrachtregel. Hier volgt een voorbeeld, waarbij Hallo rode vak overzichten Hallo opdracht die is ingediend door Hallo Hive-query en Hallo groene vak overzichten Hallo uitvoer van Hallo Hive-query.
 
 ![Werkruimte maken](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Indienen van Hive-query's in .hql bestanden
-Wanneer de Hive-query gecompliceerdere is en meerdere regels heeft, is query's in de opdrachtregel of Hive-opdrachtconsole bewerken het niet praktisch. Een alternatief is het gebruik van een teksteditor in het hoofdknooppunt van het Hadoop-cluster de Hive-query's opslaan in een bestand .hql in een lokale map van het hoofdknooppunt. Vervolgens kan de Hive-query in het bestand .hql worden verzonden met behulp van de `-f` argument als volgt:
+Wanneer Hallo Hive-query gecompliceerdere is en meerdere regels heeft, is query's in de opdrachtregel of Hive-opdrachtconsole bewerken het niet praktisch. Een alternatief is toouse een teksteditor in het hoofdknooppunt van Hallo Hadoop-cluster toosave Hallo Hive-query's in een bestand .hql in een lokale map van het hoofdknooppunt Hallo Hallo. Vervolgens Hallo Hive-query in Hallo .hql bestand kan worden verzonden met behulp van Hallo `-f` argument als volgt:
 
-    hive -f "<path to the .hql file>"
+    hive -f "<path toohello .hql file>"
 
 ![Werkruimte maken](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-3.png)
 
 **Onderdrukken voortgang Statusoverzicht scherm van Hive-query 's**
 
-Standaard nadat Hive-query wordt verzonden in Hadoop opdrachtregel wordt de voortgang van de taak van de kaart/verkleinen afgedrukt op het scherm. Als u wilt onderdrukken het afdrukken van het scherm van de voortgang van de taak kaart/verminderen, kunt u een argument `-S` ("S" in hoofdletters) in de opdracht regel als volgt:
+Standaard nadat Hive-query wordt verzonden in Hadoop opdrachtregel wordt Hallo voortgang van Hallo kaart/verminderen taak afgedrukt op het scherm. toosuppress Hallo scherm afdrukken van de voortgang van de taak kaart/verminderen hello, kunt u een argument `-S` ("S" in hoofdletters) in Hallo opdrachtregel als volgt:
 
-    hive -S -f "<path to the .hql file>"
+    hive -S -f "<path toohello .hql file>"
 .    hive -S -e '<Hive queries>'
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Indienen van Hive-query's in de opdrachtconsole Hive.
-U kunt ook eerst de opdrachtconsole Hive invoeren door de opdracht uit te voeren `hive` in Hadoop vanaf de opdrachtregel, en verzend Hive-query's in de opdrachtconsole Hive. Hier volgt een voorbeeld. In dit voorbeeld zijn de twee rode vakken Markeer de opdrachten voor het invoeren van de Hive-opdrachtconsole en de Hive-query verzonden in de Hive-opdrachtconsole, respectievelijk. Het groene vak licht de uitvoer van de Hive-query.
+U kunt ook eerst Hallo Hive opdrachtconsole invoeren door de opdracht uit te voeren `hive` in Hadoop vanaf de opdrachtregel, en verzend Hive-query's in de opdrachtconsole Hive. Hier volgt een voorbeeld. In dit voorbeeld Hallo twee rode vakken markeren Hallo-opdrachten gebruikt tooenter Hallo Hive opdrachtconsole en Hallo Hive-query verzonden in de Hive-opdrachtconsole, respectievelijk. Hallo groen vak licht Hallo-uitvoer van Hallo Hive-query.
 
 ![Werkruimte maken](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-2.png)
 
-De eerdere voorbeelden uitvoer rechtstreeks van de resultaten van de Hive-query op het scherm. U kunt de uitvoer ook schrijven naar een lokaal bestand op het hoofdknooppunt of met een Azure-blob. Vervolgens kunt u andere hulpprogramma's voor het analyseren van verdere de uitvoer van Hive-query's.
+de eerdere voorbeelden Hallo uitvoerresultaten rechtstreeks Hallo Hive-query op het scherm. U kunt ook Hallo tooa lokale uitvoerbestand op Hallo hoofdknooppunt of tooan Azure blob schrijven. Vervolgens gebruikt u andere hulpprogramma's toofurther analyseren Hallo-uitvoer van Hive-query's.
 
-**Hive-query naar een lokaal bestand uitvoerresultaten.**
-Om het Hive-query naar een lokale map op het hoofdknooppunt uitvoerresultaten, hebt u als volgt de Hive-query in de Hadoop-opdrachtregel verzenden:
+**Hive query resultaten tooa lokale bestand voor uitvoer.**
+toooutput Hive query resultaten tooa lokale map op het hoofdknooppunt hello, hebt u toosubmit Hallo Hive-query in Hallo Hadoop vanaf de opdrachtregel als volgt:
 
-    hive -e "<hive query>" > <local path in the head node>
+    hive -e "<hive query>" > <local path in hello head node>
 
-In het volgende voorbeeld wordt de uitvoer van Hive-query naar een bestand is geschreven `hivequeryoutput.txt` in directory `C:\apps\temp`.
+In Hallo voorbeeld te volgen, Hallo-uitvoer van Hive-query is geschreven in een bestand `hivequeryoutput.txt` in directory `C:\apps\temp`.
 
 ![Werkruimte maken](./media/machine-learning-data-science-move-hive-tables/output-hive-results-1.png)
 
-**Resultaten voor de uitvoer Hive-query naar een Azure-blob**
+**Uitvoer Hive query resultaten tooan Azure-blobopslag**
 
-U kunt ook de resultaten van de Hive-query naar een Azure-blob, binnen de standaardcontainer van het Hadoop-cluster uitvoeren. De Hive-query voor deze is als volgt:
+U kunt ook Hallo Hive query resultaten tooan Azure blob, binnen de standaardcontainer Hallo van Hadoop-cluster Hallo uitvoeren. Hallo Hive-query voor deze is als volgt:
 
-    insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+    insert overwrite directory wasb:///<directory within hello default container> <select clause from ...>
 
-In het volgende voorbeeld wordt de uitvoer van Hive-query naar een blob-map geschreven. `queryoutputdir` binnen de standaardcontainer van het Hadoop-cluster. Hier alleen moet u de naam van de map zonder de blob-naam opgeven. Een fout gegenereerd als u zowel de directory en de blob-namen, zoals opgeeft `wasb:///queryoutputdir/queryoutput.txt`.
+In de Hallo voorbeeld te volgen, Hallo uitvoer van Hive-query tooa blob directory geschreven `queryoutputdir` binnen de standaardcontainer Hallo van Hallo Hadoop-cluster. Hier hoeft u alleen tooprovide Hallo mapnaam, zonder Hallo blob-naam. Een fout gegenereerd als u zowel de directory en de blob-namen, zoals opgeeft `wasb:///queryoutputdir/queryoutput.txt`.
 
 ![Werkruimte maken](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)
 
-Als u de standaard-container van het Hadoop-cluster met behulp van Azure Storage Explorer opent, ziet u de uitvoer van de Hive-query wordt weergegeven in de volgende afbeelding. U kunt het filter (gemarkeerd met een rood kader) voor het ophalen van de blob met de opgegeven letters in namen alleen toepassen.
+Als u de standaardcontainer Hallo van Hallo Hadoop-cluster met behulp van Azure Storage Explorer opent, ziet u uitvoer Hallo van Hallo Hive-query zoals weergegeven in de volgende afbeelding Hallo. U kunt toepassen Hallo filter (gemarkeerd met een rood kader) tooonly ophalen Hallo blob met de opgegeven letters in namen.
 
 ![Werkruimte maken](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a> 2. Indienen van Hive-query's met de Hive-Editor
-U kunt ook de Query-Console (Hive-Editor) gebruiken door een URL van het formulier *https://&#60; De naam van de Hadoop-cluster >.azurehdinsight.net/Home/HiveEditor* in een webbrowser. U moet zijn geregistreerd in de zien deze console en dus moet u uw hier Hadoop-cluster-referenties.
+### <a name="hive-editor"></a> 2. Indienen van Hive-query's met Hallo Hive-Editor
+U kunt ook Hallo Query Console (Hive-Editor) gebruiken door een URL van Hallo formulier *https://&#60; De naam van de Hadoop-cluster >.azurehdinsight.net/Home/HiveEditor* in een webbrowser. U moet zijn geregistreerd in Hallo Zie deze console en dus moet u uw hier Hadoop-cluster-referenties.
 
 ### <a name="ps"></a> 3. Indienen van Hive-query's met Azure PowerShell-opdrachten
-U kunt ook PowerShell gebruiken voor het indienen van Hive-query's. Zie voor instructies [indienen Hive-taken met behulp van PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+U kunt ook PowerShell toosubmit Hive-query's gebruiken. Zie voor instructies [indienen Hive-taken met behulp van PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Hive-database en tabellen maken
-Het Hive-query's worden gedeeld in de [GitHub-opslagplaats](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) en van daaruit kan worden gedownload.
+Hallo Hive-query's gedeeld in Hallo [GitHub-opslagplaats](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) en van daaruit kan worden gedownload.
 
-Hier volgt de Hive-query waarmee een Hive-tabel.
+Hier volgt Hallo Hive-query waarmee een Hive-tabel.
 
     create database if not exists <database name>;
     CREATE EXTERNAL TABLE if not exists <database name>.<table name>
@@ -140,34 +140,34 @@ Hier volgt de Hive-query waarmee een Hive-tabel.
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
     STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
 
-Hier volgen de beschrijvingen van de velden die u plug moet-- en andere configuraties:
+Hier volgen beschrijvingen van Hallo Hallo velden die u nodig hebt tooplug in en andere configuraties:
 
-* **&#60; databasenaam >**: de naam van de database die u wilt maken. Als u alleen wilt gebruiken de standaard-database, de query *database maken...*  kunnen worden weggelaten.
-* **&#60; tabelnaam >**: de naam van de tabel die u wilt maken binnen de opgegeven database. Als u gebruiken de standaard-database wilt, de tabel rechtstreeks kan worden verwezen door *&#60; tabelnaam >* zonder &#60; databasenaam >.
-* **&#60; veldscheidingsteken >**: het scheidingsteken op waarmee de velden in het gegevensbestand kunnen worden geüpload naar de Hive-tabel.
-* **&#60; regelscheiding >**: het scheidingsteken die regels in het gegevensbestand begrenst.
-* **&#60; opslaglocatie >**: de Azure-opslag-locatie voor het opslaan van de gegevens van Hive-tabellen. Als u geen opgeeft *locatie &#60; opslaglocatie >*, tabellen en de database worden opgeslagen in *hive/datawarehouse/* map in de standaardcontainer van het cluster Hive standaard. Als u de opslaglocatie opgeven wilt, is de opslaglocatie zich binnen de standaardcontainer voor de database en tabellen. Deze locatie moet worden verwezen als locatie ten opzichte van de standaard-container van het cluster in de indeling van *' wasb: / / / &#60; map 1 > / "* of *' wasb: / / / &#60; map 1 > / &#60; map 2 > /'*, enzovoort. Nadat de query wordt uitgevoerd, worden de relatieve mappen in de standaardcontainer gemaakt.
-* **TBLPROPERTIES("SKIP.header.line.Count"="1")**: als het gegevensbestand een kopregel heeft, hebt u deze eigenschap toevoegen **aan het einde** van de *tabel maken* query. Anders wordt de kopregel geladen als een record aan de tabel. Als het gegevensbestand geen een kopregel heeft, kan deze configuratie worden weggelaten in de query.
+* **&#60; databasenaam >**: Hallo-naam van Hallo-database die u toocreate wilt. Desgewenst kunt u alleen toouse Hallo standaarddatabase Hallo query *database maken...*  kunnen worden weggelaten.
+* **&#60; tabelnaam >**: Hallo-naam van de gewenste toocreate binnen de opgegeven database Hallo Hallo-tabel. Als u toouse Hallo standaarddatabase wilt, Hallo tabel rechtstreeks kan worden verwezen door *&#60; tabelnaam >* zonder &#60; databasenaam >.
+* **&#60; veldscheidingsteken >**: Hallo scheidingsteken die velden in Hallo gegevens bestand toobe begrenst geüpload toohello Hive-tabel.
+* **&#60; regelscheiding >**: regels in het gegevensbestand Hallo begrenst Hallo scheidingsteken.
+* **&#60; opslaglocatie >**: hello Azure storage toosave Hallo locatiegegevens van Hive-tabellen. Als u geen opgeeft *locatie &#60; opslaglocatie >*, Hallo database en hello tabellen zijn opgeslagen in *hive/datawarehouse/* map in de standaardcontainer Hallo van Hallo Hive cluster standaard. Als u toospecify Hallo-opslaglocatie wilt, heeft de opslaglocatie Hallo toobe binnen de standaardcontainer Hallo voor Hallo-database en tabellen. Deze locatie heeft een toobe verwezen als locatie relatieve toohello standaardcontainer van Hallo-cluster op Hallo-indeling van *' wasb: / / / &#60; map 1 > / "* of *' wasb: / / / &#60; map 1 > / &#60; map 2 > / "*, enzovoort. Nadat het Hallo-query wordt uitgevoerd, worden Hallo relatieve mappen in Hallo standaardcontainer gemaakt.
+* **TBLPROPERTIES("SKIP.header.line.Count"="1")**: als het gegevensbestand Hallo een kopregel heeft, hebt u tooadd deze eigenschap **aan Hallo einde** Hallo *tabel maken* query. Anders is Hallo kopregel geladen als een tabel, record toohello. Als het Hallo-gegevensbestand geen een kopregel heeft, kan deze configuratie worden weggelaten in Hallo-query.
 
-## <a name="load-data"></a>Laden van gegevens naar de Hive-tabellen
-Hier volgt de Hive-query die gegevens in een Hive-tabel laadt.
+## <a name="load-data"></a>TooHive gegevenstabellen laden
+Hier volgt Hallo Hive-query die gegevens in een Hive-tabel laadt.
 
-    LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
+    LOAD DATA INPATH '<path tooblob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60; pad naar de blob-gegevens >**: als de blob-bestand wilt uploaden naar de Hive-tabel in de standaardcontainer van HDInsight Hadoop-cluster de *&#60; pad naar de blob-gegevens >* moet de indeling *' wasb: / / / &#60; directory in deze container > / &#60; blob-bestandsnaam >'*. De blob-bestand kan ook worden in een extra container van het HDInsight Hadoop-cluster. In dit geval *&#60; pad naar de blob-gegevens >* moet de indeling *' wasb: / / &#60; containernaam > @&#60; opslagaccountnaam >.blob.core.windows.net/ &#60; blob-bestandsnaam >'*.
+* **&#60; pad tooblob gegevens >**: als Hallo blob bestand geüpload toobe toohello Hive-tabel in de standaardcontainer Hallo Hallo HDInsight Hadoop-cluster, Hallo *&#60; pad tooblob gegevens >* moet Hallo-indeling *' wasb: / / / &#60; directory in deze container > / &#60; blob-bestandsnaam >'*. Hallo blob-bestand kan ook worden in een extra container Hallo HDInsight Hadoop-cluster. In dit geval *&#60; pad tooblob gegevens >* moet Hallo indeling *' wasb: / / &#60; containernaam > @&#60; opslagaccountnaam >.blob.core.windows.net/ &#60; blob-bestandsnaam >'*.
 
   > [!NOTE]
-  > De blob-gegevens kunnen worden geüpload naar de Hive-tabel is in de standaardinstellingen of extra container van het opslagaccount voor het Hadoop-cluster. Anders wordt de *gegevens laden* query klagen dat deze geen toegang de gegevens tot is mislukt.
+  > Hallo heeft toobe geüpload blob-tooHive gegevenstabel toobe in Hallo standaard of extra container van Hallo storage-account voor Hallo Hadoop-cluster. Anders Hallo *gegevens laden* klagen dat deze geen toegang gegevens Hallo tot query is mislukt.
   >
   >
 
 ## <a name="partition-orc"></a>Onderwerpen over geavanceerde: gepartitioneerde tabel en archief Hive-gegevens in ORC-indeling
-Als de gegevens te groot is, is partitioneren van de tabel nuttig voor query's die alleen moeten worden gescand van enkele partities van de tabel. Bijvoorbeeld, kan men redelijkerwijs voor het partitioneren van de logboekgegevens van een website door datums.
+Als Hallo gegevens groot is, is partitioneren van tabel Hallo nuttig is voor query's die u alleen tooscan enkele partities van Hallo tabel hoeft. Het is bijvoorbeeld redelijke toopartition Hallo logboekgegevens van een website door datums.
 
-Naast het partitioneren van Hive-tabellen, is het ook nuttig om de Hive-gegevens opslaat in de indeling geoptimaliseerd rij kolommen (ORC). Zie voor meer informatie over het ORC opmaak <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">met behulp van ORC-bestanden verbetert de prestaties wanneer Hive lezen, schrijven en verwerken van gegevens</a>.
+In aanvulling toopartitioning Hive-tabellen, het is ook nuttig toostore Hallo Hive gegevens in Hallo geoptimaliseerd rij kolommen (ORC)-indeling. Zie voor meer informatie over het ORC opmaak <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">met behulp van ORC-bestanden verbetert de prestaties wanneer Hive lezen, schrijven en verwerken van gegevens</a>.
 
 ### <a name="partitioned-table"></a>Gepartitioneerde tabel
-Hier volgt de Hive-query die een gepartitioneerde tabel maakt en gegevens worden geladen in de App.
+Hier volgt Hallo Hive-query die een gepartitioneerde tabel maakt en gegevens worden geladen in de App.
 
     CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
     (field1 string,
@@ -176,10 +176,10 @@ Hier volgt de Hive-query die een gepartitioneerde tabel maakt en gegevens worden
     )
     PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
          lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
-    LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
+    LOAD DATA INPATH '<path toohello source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-Tijdens het opvragen van gepartitioneerde tabellen, verdient het toevoegen van de voorwaarde van de partitie in de **begin** van de `where` component als dit verbetert de effectiviteit van aanzienlijk zoeken.
+Tijdens het opvragen van gepartitioneerde tabellen, verdient het tooadd Hallo partitie voorwaarde in Hallo **begin** Hallo `where` component deze verbetert Hallo effectiviteit aanzienlijk te zoeken.
 
     select
         field1, field2, ..., fieldN
@@ -187,9 +187,9 @@ Tijdens het opvragen van gepartitioneerde tabellen, verdient het toevoegen van d
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
 ### <a name="orc"></a>Hive-gegevens opslaat in ORC-indeling
-U kan niet rechtstreeks gegevens uit blob-opslag laden in de Hive-tabellen die zijn opgeslagen in de ORC-indeling. Hier volgen de stappen die u moet uitvoeren om te laden van gegevens van Azure blobs voor Hive-tabellen die zijn opgeslagen in ORC-indeling.
+U kan niet rechtstreeks gegevens uit blob-opslag laden in de Hive-tabellen die zijn opgeslagen in Hallo ORC-indeling. Hier volgen de stappen Hallo die Hallo moet u tootake tooload gegevens van Azure blobs tooHive tabellen die zijn opgeslagen in ORC-indeling.
 
-Maken van een externe tabel **opgeslagen AS TEXTFILE** en laden van gegevens uit blob-opslag naar de tabel.
+Maken van een externe tabel **opgeslagen AS TEXTFILE** en laden van gegevens uit blob storage toohello tabel.
 
         CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
         (
@@ -202,9 +202,9 @@ Maken van een externe tabel **opgeslagen AS TEXTFILE** en laden van gegevens uit
             lines terminated by '<line separator>' STORED AS TEXTFILE
             LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
 
-        LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+        LOAD DATA INPATH '<path toohello source file>' INTO TABLE <database name>.<table name>;
 
-Een interne tabel maken met hetzelfde schema als de externe tabel in stap 1, met dezelfde veldscheidingsteken en het Hive-gegevens opslaat in de ORC-indeling.
+Een interne tabel maken met de Hallo Hallo hetzelfde schema als externe tabel Hallo in stap 1, hello dezelfde veldscheidingsteken en op te slaan Hive-gegevens in Hallo ORC-indeling.
 
         CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
         (
@@ -215,13 +215,13 @@ Een interne tabel maken met hetzelfde schema als de externe tabel in stap 1, met
         )
         ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
 
-Selecteer de gegevens van de externe tabel in stap 1 en in de tabel ORC invoegen
+Selecteer de gegevens uit de externe tabel Hallo in stap 1 en invoegen in Hallo ORC tabel
 
         INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Als de tabel TEXTFILE *&#60; databasenaam >. &#60; externe textfile tabelnaam >* partities in stap 3 heeft de `SELECT * FROM <database name>.<external textfile table name>` opdracht wordt de variabele partitie geselecteerd als een veld in de geretourneerde gegevensset. Invoegen in de *&#60; databasenaam >. &#60; ORC-tabelnaam >* mislukt sinds *&#60; databasenaam >. &#60; ORC-tabelnaam >* heeft niet de partitie-variabele als een veld in het tabelschema. In dit geval moet u de velden die moeten worden ingevoegd in specifiek selecteren *&#60; databasenaam >. &#60; ORC-tabelnaam >* als volgt:
+> Als Hallo TEXTFILE tabel *&#60; databasenaam >. &#60; externe textfile tabelnaam >* partities bevat, in stap 3 hello `SELECT * FROM <database name>.<external textfile table name>` opdracht selecteert Hallo partitie variabele een veld in Hallo gegevensset geretourneerd. Opneemt in Hallo *&#60; databasenaam >. &#60; ORC-tabelnaam >* mislukt sinds *&#60; databasenaam >. &#60; ORC-tabelnaam >* heeft geen Hallo partitie variabele als een veld in het tabelschema Hallo. In dit geval moet u toospecifically Selecteer Hallo velden toobe ingevoegd te*&#60; databasenaam >. &#60; ORC-tabelnaam >* als volgt:
 >
 >
 
@@ -230,8 +230,8 @@ Selecteer de gegevens van de externe tabel in stap 1 en in de tabel ORC invoegen
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Het is veilig verwijderen de *&#60; externe textfile tabelnaam >* wanneer met behulp van de volgende query nadat alle gegevens is ingevoegd in *&#60; databasenaam >. &#60; ORC-tabelnaam >*:
+Het is veilig toodrop hello *&#60; externe textfile tabelnaam >* wanneer met behulp van de query te volgen nadat alle gegevens Hallo is ingevoegd in *&#60; databasenaam >. &#60; ORC-tabelnaam >*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
-Na deze procedure uitvoert, moet u een tabel met gegevens in de klaar voor gebruik ORC-indeling hebben.  
+Na deze procedure uitvoert, moet u een tabel met gegevens in Hallo ORC indeling gereed toouse hebben.  

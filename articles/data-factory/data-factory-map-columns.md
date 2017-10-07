@@ -1,6 +1,6 @@
 ---
-title: Toewijzing van gegevensset kolommen in Azure Data Factory | Microsoft Docs
-description: Informatie over het toewijzen van kolommen in de gegevensbron aan kolommen van de bestemming.
+title: aaaMapping gegevensset kolommen in Azure Data Factory | Microsoft Docs
+description: Meer informatie over hoe toomap kolommen toodestination kolommen bron.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: a50661b377cfbbff3f1f762342cb275d5da82cea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f78d4af675bec0a70e5f6e83ec1ffb511408b5a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Bronkolommen gegevensset toewijzen aan bestemming gegevensset kolommen
-Kolomtoewijzing kan worden gebruikt om op te geven hoe kolommen opgegeven in de 'structuur"van tabeltoewijzing van bron naar kolommen opgegeven in de 'structuur' van tabel sink. De **columnMapping** eigenschap is beschikbaar in de **typeProperties** sectie van de kopieeractiviteit.
+# <a name="map-source-dataset-columns-toodestination-dataset-columns"></a>Dataset kolommen toodestination gegevensset bronkolommen toewijzen
+Kolomtoewijzing kan worden gebruikt toospecify hoe Hallo 'structuur' van de bron tabel kaart toocolumns kolommen in de structuur' Hallo' van tabel sink opgegeven. Hallo **columnMapping** eigenschap is beschikbaar in Hallo **typeProperties** sectie Hallo kopieeractiviteit.
 
-Kolomtoewijzing ondersteunt de volgende scenario's:
+Kolomtoewijzing ondersteunt Hallo volgen scenario's:
 
-* Alle kolommen in de structuur van de gegevensset bron worden toegewezen aan alle kolommen in de structuur van de gegevensset sink.
-* Een subset van de kolommen in de structuur van de gegevensbron dataset wordt toegewezen aan alle kolommen in de structuur van de gegevensset sink.
+* Alle kolommen in de structuur van de gegevensset Hallo gegevensbron zijn toegewezen tooall kolommen in de gegevenssetstructuur Hallo-sink.
+* Een subset kolommen in de bron-gegevenssetstructuur Hallo Hallo is toegewezen tooall kolommen in de gegevenssetstructuur Hallo-sink.
 
-Hier volgen de fouten die ertoe leiden dat een uitzondering:
+Hallo volgen foutcondities die ertoe leiden dat een uitzondering:
 
-* Minder kolommen of meer kolommen in de 'structuur' van tabel sink dan opgegeven in de toewijzing.
+* Minder kolommen of meer kolommen Hallo 'structuur' van tabel sink dan opgegeven in het Hallo-toewijzing.
 * Dubbele toewijzing.
-* Resultaat van de SQL-query heeft niet de naam van een kolom die is opgegeven in de toewijzing.
+* Resultaat van de SQL-query heeft niet de naam van een kolom die is opgegeven in het Hallo-toewijzing.
 
 > [!NOTE]
-> De volgende voorbeelden zijn voor Azure SQL en Azure Blob, maar zijn van toepassing op een gegevensopslag die ondersteuning biedt voor rechthoekige gegevenssets. Dataset en definities van de gekoppelde service in de voorbeelden om te verwijzen naar gegevens in de relevante gegevens aanpassen.
+> Hallo volgende voorbeelden zijn voor Azure SQL en Azure Blob maar zijn van toepassing tooany gegevensarchief die ondersteuning biedt voor rechthoekige gegevenssets. Dataset en definities van de gekoppelde service in de voorbeelden toopoint toodata in de desbetreffende gegevensbron Hallo aanpassen.
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Voorbeeld 1 – toewijzingskolommen van Azure SQL naar Azure blob
-In dit voorbeeld heeft een structuur van de invoertabel en deze verwijst naar een SQL-tabel in een Azure SQL database.
+## <a name="sample-1--column-mapping-from-azure-sql-tooazure-blob"></a>Voorbeeld 1: kolom toewijzing van een Azure SQL tooAzure blob
+In dit voorbeeld heeft een structuur van de invoertabel Hallo en of deze tooa SQL-tabel in een Azure SQL database verwijst.
 
 ```json
 {
@@ -70,7 +70,7 @@ In dit voorbeeld heeft een structuur van de invoertabel en deze verwijst naar ee
 }
 ```
 
-In dit voorbeeld wordt de uitvoertabel heeft een structuur en deze verwijst naar een blob in Azure blob storage.
+In dit voorbeeld Hallo uitvoertabel een structuur is en of deze tooa blob in Azure blob storage verwijst.
 
 ```json
 {
@@ -103,7 +103,7 @@ In dit voorbeeld wordt de uitvoertabel heeft een structuur en deze verwijst naar
 }
 ```
 
-De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen van bron toegewezen aan kolommen in sink (**columnMappings**) met behulp van de **conversieprogramma** eigenschap.
+Hallo volgende JSON definieert een kopieeractiviteit in een pijplijn. Hallo-kolommen van bron toegewezen toocolumns in sink (**columnMappings**) met behulp van Hallo **conversieprogramma** eigenschap.
 
 ```json
 {
@@ -137,8 +137,8 @@ De volgende JSON definieert een kopieeractiviteit in een pijplijn. De kolommen v
 
 ![Kolom toewijzing stroom](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Voorbeeld 2: toewijzingskolommen met SQL-query uit Azure SQL naar Azure blob
-In dit voorbeeld wordt een SQL-query om gegevens te extraheren uit de SQL Azure in plaats van de tabelnaam en de kolomnamen van de te geven in de sectie 'structuur' gebruikt. 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-tooazure-blob"></a>Voorbeeld 2: toewijzingskolommen met SQL-query uit een Azure SQL tooAzure blob
+In dit voorbeeld is een SQL-query gebruikte tooextract gegevens van Azure SQL in plaats van het Hallo-tabelnaam en kolomnamen, Hallo te geven in de sectie 'structuur'. 
 
 ```json
 {
@@ -170,13 +170,13 @@ In dit voorbeeld wordt een SQL-query om gegevens te extraheren uit de SQL Azure 
         }
 }
 ```
-De queryresultaten worden in dit geval eerst toegewezen aan kolommen die is opgegeven in 'structuur' van de bron. De kolommen van bron 'structuur' worden vervolgens toegewezen aan kolommen in sink 'structuur' met regels die zijn opgegeven in de columnMappings.  Stel dat de query retourneert 5 kolommen, twee of meer kolommen dan die zijn opgegeven in de 'structuur' van de bron.
+In dit geval zijn de queryresultaten Hallo eerste toegewezen toocolumns opgegeven in 'structuur' van de bron. Kolommen van bron 'structuur' hello worden vervolgens toegewezen toocolumns in sink 'structuur' met regels die zijn opgegeven in de columnMappings.  Stel dat Hallo query retourneert 5 kolommen, twee of meer kolommen dan die zijn opgegeven in Hallo 'structuur' van de bron.
 
 **Kolom toewijzing stroom**
 
 ![Kolom toewijzing stroom-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het artikel voor een zelfstudie over het gebruik van de Kopieeractiviteit: 
+Zie Hallo artikel voor een zelfstudie over het gebruik van de Kopieeractiviteit: 
 
-- [Gegevens kopiëren van Blob-opslag naar SQL-Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Gegevens kopiëren van Blob Storage tooSQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

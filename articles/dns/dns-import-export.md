@@ -1,6 +1,6 @@
 ---
-title: Importeren en exporteren van een domein zonebestand naar Azure DNS met Azure CLI 1.0 | Microsoft Docs
-description: Meer informatie over het importeren en exporteren van een DNS-zone-bestand naar Azure DNS met behulp van Azure CLI 1.0
+title: aaaImport en exporteren van een domeinzone tooAzure DNS met Azure CLI 1.0-bestand | Microsoft Docs
+description: Meer informatie over hoe tooimport en een DNS-server exporteren bestand tooAzure DNS-zone met behulp van Azure CLI 1.0
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,72 +13,72 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c3163395e151e9934c730349b828c612491016f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 1.0 
+# <a name="import-and-export-a-dns-zone-file-using-hello-azure-cli-10"></a>Importeren en exporteren van een DNS-zonebestand met hello Azure CLI 1.0 
 
-Dit artikel begeleidt u bij het importeren en exporteren van DNS-zone-bestanden voor Azure DNS met de Azure CLI 1.0.
+In dit artikel leert u hoe tooimport en exporteren DNS-zone-bestanden voor het gebruik van Azure DNS hello Azure CLI 1.0.
 
-## <a name="introduction-to-dns-zone-migration"></a>Inleiding tot DNS-zone-migratie
+## <a name="introduction-toodns-zone-migration"></a>Inleiding tooDNS zone migratie
 
-Een DNS-zonebestand is een tekstbestand met de details van elke record System DNS (Domain Name) in de zone. Volgt een standaardindeling, waardoor het geschikt is voor de DNS-records overbrengen tussen DNS-systemen. Met behulp van een zonebestand is een snelle, betrouwbare en handige manier om over te dragen van een DNS-zone van of naar Azure DNS.
+Een DNS-zonebestand is een tekstbestand met de details van elke record System DNS (Domain Name) in Hallo zone. Volgt een standaardindeling, waardoor het geschikt is voor de DNS-records overbrengen tussen DNS-systemen. Met behulp van een zonebestand is een snelle, betrouwbare, en een handige manier tootransfer een DNS-zone van of naar Azure DNS.
 
-Azure DNS ondersteunt importeren en exporteren van de zone-bestanden met behulp van de Azure-opdrachtregelinterface (CLI). Zone-bestand importeren is **niet** momenteel ondersteund via Azure PowerShell of Azure portal.
+Azure DNS ondersteunt importeren en exporteren van de zone-bestanden met behulp van hello Azure-opdrachtregelinterface (CLI). Zone-bestand importeren is **niet** momenteel ondersteund via Azure PowerShell of hello Azure-portal.
 
-De Azure CLI 1.0 is een platformoverschrijdende-opdrachtregelprogramma voor het beheer van Azure-services. Is beschikbaar voor Windows, Mac en Linux-platforms van de [pagina Azure downloads](https://azure.microsoft.com/downloads/). Ondersteuning voor meerdere platforms is belangrijk voor importeren en exporteren van zonebestanden, aangezien de meest voorkomende naam serversoftware [BINDEN](https://www.isc.org/downloads/bind/), doorgaans op Linux wordt uitgevoerd.
+Hello Azure CLI 1.0 is een platformoverschrijdende opdrachtregel-hulpprogramma gebruikt voor het beheer van Azure-services. Is beschikbaar voor Windows, Mac en Linux platforms Hallo van Hallo [pagina Azure downloads](https://azure.microsoft.com/downloads/). Ondersteuning voor meerdere platforms is belangrijk voor importeren en exporteren van zonebestanden, omdat de meest voorkomende naam serversoftware Hallo [BINDEN](https://www.isc.org/downloads/bind/), doorgaans op Linux wordt uitgevoerd.
 
 > [!NOTE]
-> Er zijn twee versies van de Azure CLI. CLI1.0 is gebaseerd op Node.js en opdrachten die beginnen met 'azure' is.
-> CLI2.0 is gebaseerd op Python en opdrachten die beginnen met 'az' heeft. Zone-bestand importeren in beide versies wordt ondersteund, wordt u aangeraden de opdrachten CLI1.0, zoals beschreven in deze pagina.
+> Er zijn twee versies van hello Azure CLI. CLI1.0 is gebaseerd op Node.js en opdrachten die beginnen met 'azure' is.
+> CLI2.0 is gebaseerd op Python en opdrachten die beginnen met 'az' heeft. Zone-bestand importeren in beide versies wordt ondersteund, wordt u aangeraden Hallo CLI1.0 opdrachten, zoals beschreven in deze pagina.
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Verkrijgen van uw bestaande DNS-zonebestand
 
-Voordat u een DNS-zone-bestand in Azure DNS importeren, moet u een exemplaar van de zonebestand. De bron van dit bestand is afhankelijk van waar de DNS-zone momenteel wordt gehost.
+Voordat u een DNS-zone-bestand in Azure DNS importeren, moet u een kopie van het Hallo-zonebestand tooobtain. Hallo-bron van dit bestand is afhankelijk van waar momenteel Hallo DNS-zone wordt gehost.
 
-* Als uw DNS-zone wordt gehost door een partner-service (zoals een domeinregistrar, specifieke DNS-hostingprovider of alternatieve cloudprovider), leveren of de service de mogelijkheid voor het downloaden van het DNS-zonebestand.
-* Als uw DNS-zone wordt gehost op Windows DNS, de standaardmap voor de zonebestanden is **%systemroot%\system32\dns**. Het volledige pad naar het bestand voor elke zone wordt ook weergegeven op de **algemene** tabblad van de DNS-console.
-* Als uw DNS-zone wordt gehost met behulp van BIND, de locatie van de zonebestand voor elke zone die is opgegeven in het configuratiebestand BIND **named.conf**.
+* Als uw DNS-zone wordt gehost door een partner-service (zoals een domeinregistrar, specifieke DNS-hostingprovider of alternatieve cloudprovider), leveren die service DNS-zonebestand voor Hallo mogelijkheid toodownload Hallo.
+* Als uw DNS-zone wordt gehost op Windows DNS, Hallo standaard wordt de map voor Hallo zonebestanden **%systemroot%\system32\dns**. Hallo volledig pad tooeach zone-bestand bevat ook op Hallo **algemene** tabblad van Hallo DNS-console.
+* Als uw DNS-zone wordt gehost met behulp van BIND, Hallo-locatie van Hallo-zonebestand voor elke zone wordt opgegeven in het configuratiebestand voor BIND Hallo **named.conf**.
 
 > [!NOTE]
-> Zone-bestanden die zijn gedownload van GoDaddy hebben een iets andere indeling. U moet deze corrigeren voordat u deze zonebestanden in Azure DNS importeren.
+> Zone-bestanden die zijn gedownload van GoDaddy hebben een iets andere indeling. U moet toocorrect dit voordat u deze zonebestanden in Azure DNS importeren.
 >
-> DNS-namen in het RDATA van elke DNS-record zijn opgegeven als FQDN-namen, maar ze niet beschikken over een afsluitende '. ' Dit betekent dat ze worden geïnterpreteerd door andere DNS-systemen als relatieve namen. U moet het zonebestand om toe te voegen de afsluitende bewerken '. ' voor hun namen voordat u ze in Azure DNS importeren.
+> DNS-namen in Hallo RDATA van elke DNS-record zijn opgegeven als FQDN-namen, maar ze niet beschikken over een afsluitende '. ' Dit betekent dat ze worden geïnterpreteerd door andere DNS-systemen als relatieve namen. U moet tooedit Hallo zone bestand tooappend Hallo beëindigd '. ' tootheir namen voordat u ze in Azure DNS importeren.
 >
-> Bijvoorbeeld, moet de CNAME-record 'www 3600 IN CNAME contoso.com' worden gewijzigd in 'www 3600 IN CNAME contoso.com.'
+> Bijvoorbeeld, CNAME-record 'www 3600 IN CNAME contoso.com' hello te moet worden gewijzigd 'www 3600 IN CNAME contoso.com'.
 > (met een afsluitende '. ').
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Een DNS-zone-bestand importeren in Azure DNS
 
-Maakt een nieuwe zone een zonebestand te importeren in Azure DNS, als deze niet al bestaat. Als de zone al bestaat, moeten de recordsets in de zonebestand met de bestaande recordsets worden samengevoegd.
+Maakt een nieuwe zone een zonebestand te importeren in Azure DNS, als deze niet al bestaat. Als de zone Hallo al bestaat, moeten hello recordsets in Hallo zonebestand worden samengevoegd met de bestaande recordsets Hallo.
 
 ### <a name="merge-behavior"></a>Samenvoegen van gedrag
 
 * Standaard worden bestaande en nieuwe recordsets samengevoegd. Identieke records binnen een samengevoegde Recordset zijn ongedaan gedupliceerde.
-* U kunt ook door te geven de `--force` optie, de import-proces vervangt bestaande recordsets met nieuwe recordsets. Bestaande recordsets waarvoor geen overeenkomende recordset in de geïmporteerde zonebestand worden niet verwijderd.
-* Als recordsets worden samengevoegd, wordt de tijd van de bestaande recordsets live (TTL) gebruikt. Wanneer `--force` wordt gebruikt, wordt de TTL-waarde van de nieuwe recordset gebruikt.
-* Parameters Authority (SOA) is gestart (behalve `host`) altijd worden overgenomen uit het zonebestand geïmporteerde, ongeacht of `--force` wordt gebruikt. Op deze manier voor de naamserverrecord ingesteld in het toppunt van de zone, is de TTL-waarde altijd overgenomen uit het geïmporteerde zonebestand.
-* Een geïmporteerde CNAME-record is geen vervanging voor een bestaande CNAME-record met dezelfde naam als de `--force` parameter wordt opgegeven.
-* Als er ontstaat een conflict tussen een CNAME-record en een andere record met dezelfde naam maar met een ander type (ongeacht die is bestaande of nieuwe), wordt de bestaande blijven behouden. Dit is onafhankelijk van het gebruik van `--force`.
+* U kunt ook door op te geven Hallo `--force` optie, Hallo importeren proces vervangt bestaande recordsets met nieuwe recordsets. Bestaande recordsets waarvoor geen overeenkomende recordset in de geïmporteerde zonebestand Hallo worden niet verwijderd.
+* Als recordsets worden samengevoegd, wordt hello toolive TTL (time) van de bestaande recordsets gebruikt. Wanneer `--force` wordt gebruikt, Hallo TTL van de nieuwe recordset hello wordt gebruikt.
+* Parameters Authority (SOA) is gestart (behalve `host`) altijd onttrokken Hallo geïmporteerde zone-bestand, ongeacht of `--force` wordt gebruikt. Op deze manier voor Hallo naamserverrecord ingesteld in het toppunt zone hello, hello TTL altijd overgenomen uit Hallo geïmporteerde zone-bestand.
+* Een geïmporteerde CNAME-record is geen vervanging voor een bestaande CNAME record met dezelfde naam tenzij Hallo Hallo `--force` parameter wordt opgegeven.
+* Als een conflict optreedt tussen een CNAME-record en een andere record Hallo dezelfde naam maar een ander type (ongeacht die is bestaande of nieuwe), Hallo bestaande record wordt bewaard. Dit is onafhankelijk van het gebruik van Hallo `--force`.
 
 ### <a name="additional-information-about-importing"></a>Als u meer informatie over het importeren
 
-De volgende opmerkingen bieden aanvullende technische gegevens over de zone importeren.
+Hallo bieden opmerkingen bij de volgende aanvullende technische gegevens over Hallo zone importeren.
 
-* De `$TTL` richtlijn is optioneel en wordt ondersteund. Als er geen `$TTL` richtlijn krijgt, records zonder een expliciete TTL geïmporteerde is ingesteld op een standaard-TTL van 3600 seconden zijn. Wanneer twee records in de dezelfde recordset verschillende TTLs opgeeft, wordt de lagere waarde gebruikt.
-* De `$ORIGIN` richtlijn is optioneel en wordt ondersteund. Als er geen `$ORIGIN` is ingesteld, de standaardwaarde gebruikt, is de naam van de zone die is opgegeven op de opdrachtregel (plus de afsluitende '. ').
-* De `$INCLUDE` en `$GENERATE` richtlijnen worden niet ondersteund.
+* Hallo `$TTL` richtlijn is optioneel en wordt ondersteund. Als er geen `$TTL` richtlijn krijgt, records zonder een expliciete TTL worden geïmporteerd tooa standaard TTL 3600 seconden instellen. Wanneer twee registreert in hello dezelfde recordset Geef andere TTLs, Hallo lagere waarde wordt gebruikt.
+* Hallo `$ORIGIN` richtlijn is optioneel en wordt ondersteund. Als er geen `$ORIGIN` is ingesteld, Hallo standaard gebruikte waarde is de zonenaam Hallo die is opgegeven op de opdrachtregel Hallo (plus hello wordt beëindigd '. ').
+* Hallo `$INCLUDE` en `$GENERATE` richtlijnen worden niet ondersteund.
 * Deze typen worden ondersteund: A, AAAA, CNAME, MX, NS, SOA, SRV en TXT.
-* De SOA-record wordt automatisch gemaakt door Azure DNS wanneer u een zone wordt gemaakt. Wanneer u een zonebestand importeert, alle SOA-parameters zijn overgenomen uit het zonebestand *behalve* de `host` parameter. De waarde die is verstrekt door Azure DNS maakt gebruik van deze parameter. Dit is omdat deze parameter naar de server de primaire naam van de Azure DNS verwijzen moet.
-* De naamserverrecord ingesteld in het toppunt van de zone wordt ook automatisch gemaakt door Azure DNS wanneer de zone wordt gemaakt. Alleen de TTL van deze recordset is geïmporteerd. Deze records bevatten de servernamen verstrekt door Azure DNS. De gegevens van de record is niet overschreven door de waarden in de geïmporteerde zone-bestand.
-* Azure DNS biedt ondersteuning voor slechts één tekenreeks TXT-records tijdens de openbare Preview. Multistring TXT-records zijn worden samengevoegd en afgekapt tot 255 tekens.
+* Hallo SOA-record wordt automatisch gemaakt door Azure DNS wanneer u een zone wordt gemaakt. Wanneer u een zonebestand importeert, alle SOA-parameters zijn afkomstig uit Hallo zonebestand *behalve* hello `host` parameter. Hallo-waarde die door Azure DNS maakt gebruik van deze parameter. Dit is omdat deze parameter moet toohello de naam van de primaire server is verstrekt door Azure DNS verwijzen.
+* Hallo naamserverrecord ingesteld in het toppunt Hallo zone wordt ook automatisch gemaakt door Azure DNS als Hallo zone wordt gemaakt. Alleen is hello TTL van deze recordset geïmporteerd. Deze records bevatten Hallo naamservernamen verstrekt door Azure DNS. Hallo gegevens niet wordt overschreven door de waarden in de geïmporteerde zonebestand Hallo Hallo.
+* Azure DNS biedt ondersteuning voor slechts één tekenreeks TXT-records tijdens de openbare Preview. Multistring TXT-records zijn aaneengeschakelde en afgekapte too255 tekens zijn.
 
 ### <a name="cli-format-and-values"></a>CLI-indeling en waarden
 
-De indeling van de Azure CLI-opdracht voor het importeren van een DNS-zone is:
+Hallo-indeling van hello Azure CLI opdracht tooimport een DNS-zone is:
 
 ```azurecli
 azure network dns zone import [options] <resource group> <zone name> <zone file name>
@@ -86,70 +86,70 @@ azure network dns zone import [options] <resource group> <zone name> <zone file 
 
 Waarden:
 
-* `<resource group>`is de naam van de resourcegroep voor de zone in Azure DNS.
-* `<zone name>`is de naam van de zone.
-* `<zone file name>`is de padnaam van het zonebestand moet worden geïmporteerd.
+* `<resource group>`Hallo naam van resourcegroep Hallo Hallo zone in Azure DNS is.
+* `<zone name>`Hallo-naam van Hallo zone is.
+* `<zone file name>`Hallo padnaam van Hallo zone bestand toobe geïmporteerd is.
 
-Als een zone met deze naam niet in de resourcegroep bestaat, wordt deze voor u gemaakt. Als de zone al bestaat, wordt de geïmporteerde recordsets worden samengevoegd met bestaande recordsets. Voor het overschrijven van de bestaande recordsets, gebruiken de `--force` optie.
+Als een zone met deze naam niet in de resourcegroep hello bestaat, wordt deze voor u gemaakt. Als hello zone al bestaat, worden hello geïmporteerde recordsets samengevoegd met bestaande recordsets. toooverwrite hello bestaande recordsets, gebruik Hallo `--force` optie.
 
-Om te controleren of de indeling van een zonebestand zonder het geïmporteerd, gebruiken de `--parse-only` optie.
+tooverify hello indeling van een zonebestand zonder het, gebruik Hallo daadwerkelijk geïmporteerd `--parse-only` optie.
 
 ### <a name="step-1-import-a-zone-file"></a>Step 1. Een zonebestand importeren
 
-Voor het importeren van een zonebestand voor de zone **contoso.com**.
+een zonebestand voor Hallo zone tooimport **contoso.com**.
 
-1. Aanmelden bij uw Azure-abonnement met behulp van de Azure CLI 1.0.
+1. Meld u tooyour Azure-abonnement met behulp van hello Azure CLI 1.0.
 
     ```azurecli
     azure login
     ```
 
-2. Selecteer het abonnement waar u uw nieuwe DNS-zone maken.
+2. Selecteer waar u toocreate uw nieuwe DNS-zone Hallo-abonnement.
 
     ```azurecli
     azure account set <subscription name>
     ```
 
-3. Azure DNS is een Azure Resource Manager alleen-lezen-service zodat de Azure CLI moet worden overgeschakeld naar de modus Resource Manager.
+3. Azure DNS is een Azure Resource Manager alleen-lezen-service zodat hello Azure CLI uitgeschakeld tooResource Manager-modus zijn moet.
 
     ```azurecli
     azure config mode arm
     ```
 
-4. Voordat u de Azure DNS-service gebruiken, moet u uw abonnement voor het gebruik van de Microsoft.Network-resourceprovider registreren. (Dit is een eenmalige bewerking voor elk abonnement.)
+4. Voordat u hello Azure DNS-service gebruiken, moet u uw abonnement toouse hello Microsoft.Network-resourceprovider registreren. (Dit is een eenmalige bewerking voor elk abonnement.)
 
     ```azurecli
     azure provider register Microsoft.Network
     ```
 
-5. Als u nog geen een hebt, moet u ook een Resource Manager-resourcegroep maken.
+5. Als u nog geen een hebt, moet u ook toocreate een Resource Manager-resourcegroep.
 
     ```azurecli
     azure group create myresourcegroup westeurope
     ```
 
-6. Voor het importeren van de zone **contoso.com** uit het bestand **contoso.com.txt** in een nieuwe DNS-zone in de resourcegroep **myresourcegroup**, voert u de opdracht `azure network dns zone import`.<BR>Deze opdracht wordt geladen van bestand voor de zone en het parseren. De opdracht wordt een reeks opdrachten uitgevoerd op de Azure DNS-service voor het maken van de zone en alle recordsets in de zone. De opdracht wordt uitgevoerd in het consolevenster, samen met eventuele fouten of waarschuwingen gemeld. Omdat recordsets zijn gemaakt in de reeks, duurt een paar minuten een grote zone-bestand importeren.
+6. tooimport hello zone **contoso.com** uit bestand Hallo **contoso.com.txt** in een nieuwe DNS-zone in de resourcegroep Hallo **myresourcegroup**, Voer Hallo opdracht `azure network dns zone import`.<BR>Met deze opdracht wordt geladen Hallo zone-bestand en het parseren. Hallo-opdracht wordt een reeks opdrachten uitgevoerd op Hallo Azure DNS-service toocreate Hallo zone en alle Hallo recordsets in Hallo zone. Hallo opdracht rapporten voortgang in Hallo-consolevenster, samen met eventuele fouten of waarschuwingen. Omdat recordsets zijn gemaakt in de reeks, duurt het enkele minuten tooimport een grote zone-bestand.
 
     ```azurecli
     azure network dns zone import myresourcegroup contoso.com contoso.com.txt
     ```
 
-### <a name="step-2-verify-the-zone"></a>Stap 2. Controleer of de zone
+### <a name="step-2-verify-hello-zone"></a>Stap 2. Controleer of de zone Hallo
 
-Om te controleren of de DNS-zone nadat u het bestand importeert, kunt u een van de volgende methoden gebruiken:
+tooverify hello DNS-zone nadat u Hallo-bestand importeren, kunt u een van de volgende methoden Hallo:
 
-* U kunt de records weergeven met behulp van de volgende Azure CLI-opdracht:
+* U kunt Hallo records weergeven met behulp van hello Azure CLI-opdracht te volgen:
 
     ```azurecli
     azure network dns record-set list myresourcegroup contoso.com
     ```
 
-* U kunt de records weergeven met behulp van de PowerShell-cmdlet `Get-AzureRmDnsRecordSet`.
-* U kunt `nslookup` om te controleren of de naamomzetting voor de records. Omdat de zone nog niet is toegewezen, moet u de juiste Azure DNS-naamservers expliciet opgeven. Het volgende voorbeeld laat zien hoe de servernamen toegewezen aan de zone worden opgehaald. IT ook wordt uitgelegd hoe u de www-record met behulp van een query `nslookup`.
+* U kunt Hallo records weergeven met behulp van PowerShell-cmdlet Hallo `Get-AzureRmDnsRecordSet`.
+* U kunt `nslookup` tooverify naamomzetting voor Hallo records. Omdat Hallo zone nog niet is toegewezen, moet u toospecify Hallo juiste Azure DNS-naamservers expliciet. Hallo volgende voorbeeld toont hoe tooretrieve hello naamservernamen toohello zone toegewezen. IT ook ziet u hoe tooquery Hallo 'www' vastleggen met behulp van `nslookup`.
 
         C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
         info:Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
+        + Looking up hello DNS Record Set "@" of type "NS"
         data:Id: /subscriptions/.../resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
         data:Name: @
         data:Type: Microsoft.Network/dnszones/NS
@@ -174,11 +174,11 @@ Om te controleren of de DNS-zone nadat u het bestand importeert, kunt u een van 
 
 ### <a name="step-3-update-dns-delegation"></a>Stap 3. DNS-delegering bijwerken
 
-Nadat u hebt gecontroleerd of de zone correct zijn geïmporteerd, moet u de DNS-delegering om te verwijzen naar de Azure DNS-naamservers bijwerken. Zie voor meer informatie het artikel [de DNS-delegering bijwerken](dns-domain-delegation.md).
+Nadat u hebt gecontroleerd dat Hallo zone correct is geïmporteerd, moet u tooupdate Hallo DNS-delegering toopoint toohello naamservers Azure DNS. Zie voor meer informatie artikel Hallo [Hallo DNS-delegering bijwerken](dns-domain-delegation.md).
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>Een DNS-zone-bestand exporteren uit Azure DNS
 
-De indeling van de Azure CLI-opdracht voor het importeren van een DNS-zone is:
+Hallo-indeling van hello Azure CLI opdracht tooimport een DNS-zone is:
 
 ```azurecli
 azure network dns zone export [options] <resource group> <zone name> <zone file name>
@@ -186,33 +186,33 @@ azure network dns zone export [options] <resource group> <zone name> <zone file 
 
 Waarden:
 
-* `<resource group>`is de naam van de resourcegroep voor de zone in Azure DNS.
-* `<zone name>`is de naam van de zone.
-* `<zone file name>`is de padnaam van het zonebestand moet worden geëxporteerd.
+* `<resource group>`Hallo naam van resourcegroep Hallo Hallo zone in Azure DNS is.
+* `<zone name>`Hallo-naam van Hallo zone is.
+* `<zone file name>`Hallo padnaam van Hallo zone bestand toobe geëxporteerd is.
 
-Als met de import zone moet u eerst aanmelden, kiest u uw abonnement en configureren van de Azure CLI voor het gebruik van Resource Manager-modus.
+Zoals met Hallo zone importeren, moet u eerst toosign in, kiest u uw abonnement en configureer hello Azure CLI toouse Resource Manager-modus.
 
-### <a name="to-export-a-zone-file"></a>Een zonebestand exporteren
+### <a name="tooexport-a-zone-file"></a>tooexport een zonebestand
 
-1. Aanmelden bij uw Azure-abonnement met behulp van de Azure CLI.
+1. Meld u tooyour Azure-abonnement met behulp van hello Azure CLI.
 
     ```azurecli
     azure login
     ```
 
-2. Selecteer het abonnement waarbij u wilt maken van uw DNS-zone.
+2. Selecteer waar u toocreate uw DNS-zone Hallo-abonnement.
 
     ```azurecli
     azure account set <subscription name>
     ```
 
-3. Azure DNS is een Azure Resource Manager alleen-lezen-service. De Azure CLI moet worden overgeschakeld naar de modus Resource Manager.
+3. Azure DNS is een Azure Resource Manager alleen-lezen-service. Hello Azure CLI moet geschakelde tooResource Manager-modus.
 
     ```azurecli
     azure config mode arm
     ```
 
-4. Exporteren van de bestaande Azure DNS-zone **contoso.com** in de resourcegroep **myresourcegroup** naar het bestand **contoso.com.txt** (in de huidige map), voert u `azure network dns zone export`. Met deze opdracht roept de service Azure DNS-recordsets in de zone inventariseren en de resultaten exporteren naar een zone BIND-compatibel bestand.
+4. tooexport Hallo bestaande Azure DNS-zone **contoso.com** in de resourcegroep **myresourcegroup** toohello bestand **contoso.com.txt** (in Hallo huidige map), voert u `azure network dns zone export`. Deze opdracht aanroepen hello Azure DNS-service tooenumerate recordsets in Hallo zone en Hallo resultaten tooa BIND-compatibele zone-bestand exporteren.
 
     ```azurecli
     azure network dns zone export myresourcegroup contoso.com contoso.com.txt

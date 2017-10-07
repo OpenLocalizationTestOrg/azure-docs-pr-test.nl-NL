@@ -1,6 +1,6 @@
 ---
-title: Toepassingen publiceren naar afzonderlijke gebruikers in een Azure RemoteApp-verzameling (Preview) | Microsoft Docs
-description: Lees hoe u in Azure RemoteApp apps naar afzonderlijke gebruikers kunt publiceren, in plaats van afhankelijk van groepen.
+title: aaaPublish toepassingen tooindividual gebruikers in een Azure RemoteApp-verzameling (Preview) | Microsoft Docs
+description: Meer informatie over hoe u apps tooindividual gebruikers, in plaats van kunt publiceren, afhankelijk van groepen in Azure RemoteApp.
 services: remoteapp-preview
 documentationcenter: 
 author: piotrci
@@ -14,92 +14,92 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
-ms.openlocfilehash: c94ffffdec3e46ed08d941ee58dcf17b432e1dad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 87b435552ddbfc2c6d03aeb01d95a44985e71f9f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Toepassingen publiceren naar afzonderlijke gebruikers in een Azure RemoteApp-verzameling (Preview)
+# <a name="publish-applications-tooindividual-users-in-an-azure-remoteapp-collection-preview"></a>Publiceren van toepassingen tooindividual gebruikers in een Azure RemoteApp-verzameling (Preview)
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-In dit artikel wordt uitgelegd hoe u toepassingen publiceert voor afzonderlijke gebruikers in een Azure RemoteApp-verzameling. Dit is nieuwe functionaliteit in Azure RemoteApp, momenteel als Private Preview-versie beschikbaar voor vroege gebruikers (alleen voor evaluatiedoeleinden).
+Dit artikel wordt uitgelegd hoe toopublish toepassingen tooindividual gebruikers in een Azure RemoteApp-verzameling. Dit is nieuwe functionaliteit in Azure RemoteApp, momenteel in Preview-versie private en vroege gebruikers beschikbaar alleen tooselect voor evaluatiedoeleinden.
 
-Oorspronkelijk konden toepassingen in Azure RemoteApp slechts op één manier worden gepubliceerd: de beheerder publiceerde apps vanuit de installatiekopie waarna ze zichtbaar waren voor alle gebruikers in de verzameling.
+Oorspronkelijk Azure RemoteApp slechts op één manier van publicatie van toepassingen ingeschakeld: Hallo beheerder publiceerde apps vanuit Hallo installatiekopie waarna ze zichtbaar tooall gebruikers in Hallo-verzameling.
 
-Een veelvoorkomend scenario is het opnemen van veel toepassingen in één installatiekopie en de implementatie van één verzameling om managementkosten te verlagen. Vaak zijn niet alle toepassingen relevant voor alle gebruikers, en zouden beheerders liever apps publiceren naar afzonderlijke gebruikers, zodat deze geen onnodige toepassingen in hun toepassingsfeed zien.
+Een gebruikelijk scenario is tooinclude veel toepassingen in één installatiekopie en het implementeren van een verzameling in volgorde tooreduce beheerkosten. Vaak zijn niet alle toepassingen zijn relevante tooall gebruikers – beheerders liever toopublish apps tooindividual gebruikers zodat ze geen onnodige toepassingen in hun toepassingsfeed zien.
 
-Dit is nu als een beperkte preview-functie mogelijk in Azure RemoteApp. Hier volgt een korte samenvatting van de nieuwe functionaliteit:
+Dit is nu als een beperkte preview-functie mogelijk in Azure RemoteApp. Hier volgt een korte samenvatting van de nieuwe functionaliteit Hallo:
 
 1. Een verzameling kan worden ingesteld op een van de volgende twee modi:
    
-   * De oorspronkelijke verzamelmodus, waarbij alle gebruikers in een verzameling alle gepubliceerde toepassingen zien. Dit is de standaardmodus.
-   * De nieuwe toepassingsmodus, waarin gebruikers alleen de toepassingen zien die aan hen zijn toegewezen
-2. Op het moment kan de toepassingsmodus alleen worden ingeschakeld met PowerShell-cmdlets van Azure RemoteApp.
+   * Hallo oorspronkelijke Verzamelmodus alle gebruikers in een verzameling zien gepubliceerde alle toepassingen. Dit is de standaardmodus Hallo.
+   * Hallo nieuwe toepassingsmodus, waar gebruikers alleen de toepassingen zien die expliciet zijn toegewezen toothem
+2. Hallo momenteel kan Hallo toepassingsmodus alleen worden ingeschakeld met behulp van Azure RemoteApp-PowerShell-cmdlets.
    
-   * Als de verzameling is ingesteld op de toepassingsmodus, kan gebruikerstoewijzing in de verzameling niet worden beheerd via de Azure-portal. Gebruikerstoewijzing moet worden beheerd via de PowerShell-cmdlets.
-3. Gebruikers zien alleen de toepassingen die rechtstreeks aan hen zijn gepubliceerd. Een gebruiker heeft echter nog steeds de mogelijkheid om de andere toepassingen te starten die beschikbaar zijn in de installatiekopie, door deze rechtstreeks in het besturingssysteem te starten.
+   * Wanneer de modus instellen voor tooapplication, Gebruikerstoewijzing in Hallo verzameling kan niet worden beheerd via hello Azure-portal. Gebruikerstoewijzing heeft toobe beheerd via de PowerShell-cmdlets.
+3. Gebruikers zien alleen Hallo toepassingen rechtstreeks toothem gepubliceerd. Echter nog steeds mogelijk voor een gebruiker toolaunch andere toepassingen die beschikbaar zijn op de installatiekopie Hallo Hallo door deze rechtstreeks in Hallo-besturingssysteem.
    
-   * Deze functie biedt geen veilige vergrendeling van toepassingen maar beperkt alleen de zichtbaarheid in de toepassingsfeed.
-   * Als u gebruikers van toepassingen wilt isoleren, moet u daar afzonderlijke verzamelingen voor gebruiken.
+   * Deze functie biedt geen veilige vergrendeling van toepassingen. beperkt alleen de zichtbaarheid in Hallo toepassingsfeed.
+   * Als u gebruikers tooisolate van toepassingen moet, moet u toouse afzonderlijke verzamelingen voor die.
 
-## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>PowerShell-cmdlets van Azure RemoteApp ophalen
-Als u de nieuwe preview-functionaliteit wilt uitproberen, moet u Azure PowerShell-cmdlets gebruiken. Het is momenteel niet mogelijk om de nieuwe toepassingspublicatiemodus in te schakelen met Azure Management Portal.
+## <a name="how-tooget-azure-remoteapp-powershell-cmdlets"></a>Hoe tooget Azure RemoteApp-PowerShell-cmdlets
+tootry hello nieuwe preview-functionaliteit, moet u toouse Azure PowerShell-cmdlets. Het is momenteel niet mogelijk toouse hello Azure Management portal tooenable Hallo nieuwe toepassingspublicatiemodus.
 
-Controleer eerst of de [Azure PowerShell-module](/powershell/azure/overview) is geïnstalleerd.
+Controleer eerst of er Hallo [Azure PowerShell-module](/powershell/azure/overview) geïnstalleerd.
 
-Start daarna de PowerShell-console in de beheerdersmodus en voer de volgende cmdlet uit:
+Start vervolgens Hallo PowerShell-console in de beheerdersmodus en Voer Hallo volgende cmdlet:
 
         Add-AzureAccount
 
-U wordt gevraagd naar uw Azure-gebruikersnaam en -wachtwoord. Wanneer u bent aangemeld, kunt u Azure RemoteApp-cmdlets uitvoeren binnen uw Azure-abonnementen.
+U wordt gevraagd naar uw Azure-gebruikersnaam en -wachtwoord. Nadat u bent aangemeld, kunt u zich kunt toorun Azure RemoteApp-cmdlets op basis van uw Azure-abonnementen.
 
-## <a name="how-to-check-which-mode-a-collection-is-in"></a>Controleren welke modus voor een verzameling is ingeschakeld
-Voer de volgende cmdlet uit:
+## <a name="how-toocheck-which-mode-a-collection-is-in"></a>Hoe toocheck welke modus een verzameling bevindt zich in
+Voer Hallo volgende cmdlet:
 
         Get-AzureRemoteAppCollection <collectionName>
 
-![De verzamelmodus controleren](./media/remoteapp-perapp/araacllelvel.png)
+![Hallo Verzamelmodus controleren](./media/remoteapp-perapp/araacllelvel.png)
 
-De eigenschap AclLevel kan de volgende waarden hebben:
+Hallo eigenschap AclLevel kan Hallo volgende waarden hebben:
 
-* Verzameling: De oorspronkelijke publicatiemodus. Alle gebruikers zien alle gepubliceerde apps.
-* Toepassing: De nieuwe publicatiemodus. Gebruikers zien alleen de apps die rechtstreeks naar hen zijn gepubliceerd.
+* Verzameling: Hallo oorspronkelijke publicatiemodus. Alle gebruikers zien alle gepubliceerde apps.
+* Toepassing: Hallo nieuwe publicatiemodus. Gebruikers zien alleen de apps Hallo rechtstreeks toothem gepubliceerd.
 
-## <a name="how-to-switch-to-application-publishing-mode"></a>Overschakelen naar toepassingspublicatiemodus
-Voer de volgende cmdlet uit:
+## <a name="how-tooswitch-tooapplication-publishing-mode"></a>Hoe tooswitch tooapplication publicatiemodus
+Voer Hallo volgende cmdlet:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
-Toepassingspublicatiestatus blijft behouden: in eerste instantie zien alle gebruikers alle oorspronkelijke gepubliceerde apps.
+Toepassingspublicatiestatus blijft behouden: in eerste instantie zien alle gebruikers alle oorspronkelijke gepubliceerde apps Hallo.
 
-## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Een lijst weergeven van gebruikers die een specifieke toepassing kunnen zien
-Voer de volgende cmdlet uit:
+## <a name="how-toolist-users-who-can-see-a-specific-application"></a>Hoe toolist-gebruikers die een specifieke toepassing kunnen zien
+Voer Hallo volgende cmdlet:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
 
-Hiermee wordt een lijst weergegeven van alle gebruikers die de toepassing kunnen zien.
+Hiermee worden alle gebruikers die de toepassing hello kunnen zien.
 
-Opmerking: u kunt de toepassingsaliassen (in de bovenstaande syntaxis 'app alias' genoemd) zien door Get-AzureRemoteAppProgram - CollectionName <collectionName> uit te voeren.
+Opmerking: U kunt Hallo toepassingsaliassen ('app alias' in de bovenstaande syntaxis voor Hallo genoemd) zien door het uitvoeren van Get-AzureRemoteAppProgram - CollectionName <collectionName>.
 
-## <a name="how-to-assign-an-application-to-a-user"></a>Een toepassing toewijzen aan een gebruiker
-Voer de volgende cmdlet uit:
+## <a name="how-tooassign-an-application-tooa-user"></a>Hoe een gebruiker van toepassing tooa tooassign
+Voer Hallo volgende cmdlet:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-De gebruiker ziet nu de toepassing in de Azure RemoteApp-client en kan hiermee verbinding maken.
+Hallo gebruiker ziet nu de toepassing hello in hello Azure RemoteApp-client en kunnen tooconnect tooit zijn.
 
-## <a name="how-to-remove-an-application-from-a-user"></a>Een toepassing verwijderen van een gebruiker
-Voer de volgende cmdlet uit:
+## <a name="how-tooremove-an-application-from-a-user"></a>Hoe een toepassing van een gebruiker tooremove
+Voer Hallo volgende cmdlet:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 ## <a name="providing-feedback"></a>Feedback geven
-We waarderen uw feedback en suggesties met betrekking tot deze preview-functie. Zou u de [enquête](http://www.instant.ly/s/FDdrb) willen invullen om ons te laten weten wat u ervan vindt?
+We waarderen uw feedback en suggesties met betrekking tot deze preview-functie. Vul Hallo [enquête](http://www.instant.ly/s/FDdrb) toolet ons weten wat u denkt.
 
-## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Hebt u nog geen gelegenheid gehad om de preview-functie uit te proberen?
-Als u nog niet hebt deelgenomen aan de preview, kunt u deze [enquête](http://www.instant.ly/s/AY83p) gebruiken om toegang aan te vragen.
+## <a name="havent-had-a-chance-tootry-hello-preview-feature"></a>Dit nog niet hebt gehad kans tootry Hallo preview-functie?
+Als u nog niet hebt deelgenomen Hallo Preview nog, gebruik dit [enquête](http://www.instant.ly/s/AY83p) toorequest toegang.
 

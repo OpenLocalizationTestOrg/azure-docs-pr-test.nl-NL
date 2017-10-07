@@ -1,6 +1,6 @@
 ---
-title: "Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp? | Microsoft Docs"
-description: "Meer informatie over de inhoud van de sjablooninstallatiekopieën die worden geleverd bij Azure RemoteApp."
+title: "Er is een aaaWhat in hello Azure RemoteApp-sjablooninstallatiekopieën? | Microsoft Docs"
+description: "Meer informatie over Hallo sjablooninstallatiekopieën opgenomen met Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 9cd4e1a16a7c42bd00d9e543d7b62b72e9de3fc8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ea012cec8dc581a8bd4a5a138ce302de19d5c6af
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-is-in-the-azure-remoteapp-template-images"></a>Wat bevatten de sjablooninstallatiekopieën van Azure RemoteApp?
+# <a name="what-is-in-hello-azure-remoteapp-template-images"></a>Wat is er in hello Azure RemoteApp-sjablooninstallatiekopieën?
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
@@ -32,16 +32,16 @@ Uw abonnement op Azure RemoteApp omvat drie sjablooninstallatiekopieën:
 * Microsoft Office 2013 Professional Plus (alleen proefversie)
 
 > [!IMPORTANT]
-> Uw Azure RemoteApp-abonnement biedt u toegang tot de software in de installatiekopieën, met uitzondering van Office 365 ProPlus, waarvoor een afzonderlijk abonnement is vereist, en Office 2013, dat niet kan worden gebruikt in productie. Dit betekent dat u de programma's of toepassingen op de sjablooninstallatiekopieën met uw gebruikers kunt delen. Als u bijvoorbeeld een verzameling maakt waarin de installatiekopie voor Windows Server 2012 R2 wordt gebruikt, kunt u System Center Endpoint Protection voor gebruikers publiceren zodat gebruikers hiertoe toegang hebben via RemoteApp.
+> Uw abonnement op Azure RemoteApp, verleent dat u toegang tot toohello software in het Hallo-installatiekopieën, met uitzondering van Office 365 ProPlus, waarvoor een apart abonnement is vereist, en Office 2013, kan niet worden gebruikt in productie Hallo. Dit betekent dat u Hallo programma's of toepassingen op Hallo sjablooninstallatiekopieën met uw gebruikers kunt delen. Als u een verzameling die gebruikmaakt van Windows Server 2012 R2-afbeelding Hallo maakt, kunt u System Center Endpoint Protection publiceren voor gebruikers tooaccess via RemoteApp.
 > 
-> Bekijk de [Informatie over RemoteApp-licenties](remoteapp-licensing.md) voor meer informatie. En in [Office gebruiken met Azure RemoteApp](remoteapp-o365.md) kunt u informatie vinden over Office-licenties.
+> Bekijk Hallo [RemoteApp licentiegegevens](remoteapp-licensing.md) voor meer informatie. En [Office gebruiken met Azure RemoteApp](remoteapp-o365.md) voor Hallo Office licentieverlening info.
 > 
 > 
 
 Lees verder voor meer informatie over de inhoud van elke installatiekopie.
 
-## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 ('de vanilla-installatiekopie')
-Deze installatiekopie is gebaseerd op het besturingssysteem Microsoft Windows Server 2012 R2 Datacenter en bevat de volgende rollen en functies om te voldoen aan de vereisten voor Azure RemoteApp-sjablooninstallatiekopieën:
+## <a name="windows-server-2012-r2--hello-vanilla-image"></a>Windows Server 2012 R2 ('hello vanilla-installatiekopie')
+Deze installatiekopie is gebaseerd op het besturingssysteem Microsoft Windows Server 2012 R2 Datacenter en heeft hello volgende functies en onderdelen geïnstalleerd toomeet Hallo vereisten voor Azure RemoteApp-sjablooninstallatiekopieën:
 
 * .NET Framework 4.5, 3.5.1, 3.5
 * Bureaubladbelevenis
@@ -52,7 +52,7 @@ Deze installatiekopie is gebaseerd op het besturingssysteem Microsoft Windows Se
 * Windows PowerShell ISE
 * WoW64-ondersteuning
 
-In deze installatiekopie zijn ook de volgende toepassingen geïnstalleerd:
+Deze installatiekopie heeft ook Hallo na toepassingen zijn geïnstalleerd:
 
 * Adobe Flash Player
 * Microsoft Silverlight
@@ -60,23 +60,23 @@ In deze installatiekopie zijn ook de volgende toepassingen geïnstalleerd:
 * Microsoft Windows Media Player
 
 ## <a name="microsoft-office-365-proplus-subscription-required"></a>Microsoft Office 365 ProPlus (abonnement vereist)
-Office 365 is de meest aangevraagde toepassing en om deze reden hebben we een 'aangepaste' installatiekopie voor u gemaakt.
+Office 365 is meest aangevraagde toepassing hello, zodat we toowork met een 'aangepaste' installatiekopie voor u gemaakt.
 
-Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat de volgende onderdelen van Microsoft Office 365 ProPlus, naast de onderdelen die worden beschreven in de installatiekopie van Windows Server 2012 R2:
+Deze installatiekopie is een uitbreiding van Hallo vanilla-installatiekopie en heeft hello volgende onderdelen van Microsoft Office 365 ProPlus geïnstalleerd bovendien toohello onderdelen in Windows Server 2012 R2-afbeelding Hallo beschreven:
 
 * Toegang
 * Excel
 * Lync
 * OneNote
-* OneDrive voor Bedrijven (de synchronisatie-agent wordt niet ondersteund voor gebruik met Azure RemoteApp)
+* OneDrive voor bedrijven (Let erop dat Hallo sync-agent wordt niet ondersteund voor gebruik met Azure RemoteApp)
 * Outlook
 * PowerPoint
 * Word
 * Microsoft Office-taalprogramma's
 
-De installatiekopie bevat ook Visio Pro en Project Pro.
+Hallo installatiekopie bevat ook Visio Pro en Project Pro.
 
-Plus de volgende toepassingen:
+En Hallo toepassingen, evenals de volgende:
 
 * SQL Native Client
 * ODBC-stuurprogramma
@@ -86,20 +86,20 @@ Plus de volgende toepassingen:
 * PowerQuery
 * PowerMap
 
-Volledige functionaliteit van Office 365 ProPlus-apps is alleen beschikbaar voor gebruikers met een Office 365 ProPlus-abonnement. Zie [Service-abonnementen voor Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx) voor meer informatie over Office 365-abonnementen. Nog vragen? Bekijk de [Office 365 + RemoteApp](remoteapp-o365.md)-informatie. Lees ook het nieuwe artikel [Uw Office 365-abonnement gebruiken met Azure RemoteApp](remoteapp-officesubscription.md).
+Volledige functionaliteit van Office 365 ProPlus-apps is alleen beschikbaar voor gebruikers met een Office 365 ProPlus-abonnement. Zie voor meer informatie over Hallo Office 365-abonnement plannen [service-abonnementen voor Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Nog vragen? Bekijk Hallo [Office 365 + RemoteApp](remoteapp-o365.md) informatie. Lees ook nieuwe artikel Hallo [hoe toouse uw Office 365-abonnement met Azure RemoteApp](remoteapp-officesubscription.md).
 
-Houd er rekening mee dat u een aparte licentie nodig hebt voor Office 365 ProPlus Visio Pro en Project Pro (deze hebben elk een eigen licentie).
+U moet toolicense Office 365 ProPlus Visio Pro en Project Pro afzonderlijk - ze elk hun eigen licentie hebben.
 
 ## <a name="microsoft-office-2013-professional-plus-trial-only"></a>Microsoft Office 2013 Professional Plus (alleen proefversie)
-U kunt de service met de installatiekopie van het Office 2013 testen gedurende de gratis proefperiode.
+Tijdens het Hallo gratis proefperiode, kunt u Hallo-service met de installatiekopie van het Hallo Office 2013 testen.
 
-Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat de volgende onderdelen van Microsoft Office 2013 Professional Plus, naast de onderdelen die worden beschreven in de installatiekopie van Windows Server 2012 R2:
+Deze installatiekopie is een uitbreiding van Hallo vanilla-installatiekopie en heeft hello volgende onderdelen van Microsoft Office 2013 Professional Plus geïnstalleerd bovendien toohello onderdelen in Windows Server 2012 R2-afbeelding Hallo beschreven:
 
-* Access
+* Toegang
 * Excel
 * Lync
 * OneNote
-* OneDrive voor Bedrijven (de synchronisatie-agent wordt niet ondersteund voor gebruik met Azure RemoteApp)
+* OneDrive voor bedrijven (Let erop dat Hallo sync-agent wordt niet ondersteund voor gebruik met Azure RemoteApp)
 * Outlook
 * PowerPoint
 * Project
@@ -108,7 +108,7 @@ Deze installatiekopie is een uitbreiding op de vanilla-installatiekopie en bevat
 * Microsoft Office-taalprogramma's
 
 > [!IMPORTANT]
-> **Juridische informatie:** Deze installatiekopie bevat geen licentie voor Microsoft Office en *kan niet worden gebruikt voor productie*. De Office 2013 Professional Plus-installatiekopie is alleen bedoeld als proefversie. Als u Office-apps in Azure RemoteApp wilt gebruiken voor productie, maak dan gebruik van de Office 365 ProPlus-installatiekopie. Zie [Office 365 gebruiken met Azure RemoteApp](remoteapp-o365.md) voor meer informatie over licentieverlening voor Office.
+> **Juridische informatie:** Deze installatiekopie bevat geen licentie voor Microsoft Office en *kan niet worden gebruikt voor productie*. Hallo Office 2013 Professional Plus-installatiekopie is bedoeld proefabonnement alleen voor gebruik. Als u wilt dat toouse Office-apps in Azure RemoteApp voor productie, moet u toouse Hallo Office 365 ProPlus-installatiekopie. Zie [Office 365 gebruiken met Azure RemoteApp](remoteapp-o365.md) voor meer informatie over licentieverlening voor Office.
 > 
 > 
 

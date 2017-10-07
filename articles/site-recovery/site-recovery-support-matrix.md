@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery-ondersteuningsmatrix | Microsoft Docs
-description: Geeft een overzicht van de ondersteunde besturingssystemen en onderdelen voor Azure Site Recovery
+title: Site Recovery-ondersteuningsmatrix aaaAzure | Microsoft Docs
+description: Geeft een overzicht van Hallo ondersteunde besturingssystemen en onderdelen voor Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -16,12 +16,12 @@ ms.date: 03/27/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-support-matrix-to-azure
-ms.openlocfilehash: ed6f8488bf784cd79b70dc4dea63a38d8c6a0f50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a067b2baa141ce44a2c65d50ad22780fe0dca37e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-site-recovery-support-matrix"></a>Azure Site Recovery-ondersteuningsmatrix
 
-In dit artikel bevat een overzicht van ondersteunde besturingssystemen en onderdelen voor Azure Site Recovery. Een lijst met ondersteunde onderdelen en vereisten voor elk implementatiescenario beschikbaar is in elk het bijbehorende implementatie-artikel en dit document bevat een overzicht van deze.
+In dit artikel bevat een overzicht van ondersteunde besturingssystemen en onderdelen voor Azure Site Recovery. Een lijst met ondersteunde onderdelen en vereisten is beschikbaar voor elk implementatiescenario in elke Hallo bijbehorende implementatie artikel en dit document bevat een overzicht van deze.

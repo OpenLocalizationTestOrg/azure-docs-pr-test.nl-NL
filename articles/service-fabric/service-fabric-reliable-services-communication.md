@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de communicatie betrouwbare Services | Microsoft Docs
-description: Overzicht van de communicatiemodel Reliable Services, waaronder openen listeners van services, het omzetten van eindpunten en communicatie tussen services.
+title: overzicht van de communicatie aaaReliable Services | Microsoft Docs
+description: Overzicht van Hallo Reliable Services communicatiemodel, inclusief openen listeners van services, het omzetten van eindpunten en communicatie tussen services.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: vturecek
-ms.openlocfilehash: b418904f50b772c12bfcdbb95beb9312c8b9fb00
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93a7017b50df0822969daa5ad78302c73e8ba641
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-reliable-services-communication-apis"></a>Het gebruik van de communicatie met Reliable Services API 's
-Azure Service Fabric als platform is volledig agnostisch over de communicatie tussen services. Alle protocollen en stacks zijn aanvaardbaar van UDP naar HTTP. Het is aan de ontwikkelaar van de service om te kiezen hoe services moeten communiceren. Het framework Reliable Services biedt ingebouwde communicatie stacks, alsmede de API's die u gebruiken kunt voor het bouwen van uw aangepaste communicatie-onderdelen.
+# <a name="how-toouse-hello-reliable-services-communication-apis"></a>Hoe toouse Hallo Reliable Services communicatie API 's
+Azure Service Fabric als platform is volledig agnostisch over de communicatie tussen services. Alle protocollen en stacks zijn aanvaardbaar van UDP-tooHTTP. Is toohello service developer toochoose hoe services moeten communiceren. toepassingsframework voor Hallo Reliable Services biedt ingebouwde communicatie stacks en API's waarmee u toobuild kunt Communicatieonderdelen van uw aangepaste.
 
 ## <a name="set-up-service-communication"></a>Servicecommunicatie instellen
-De API voor betrouwbare Services maakt gebruik van een eenvoudige interface voor servicecommunicatie. U opent een eindpunt voor uw service door deze interface eenvoudig te implementeren:
+Hallo betrouwbare Services-API maakt gebruik van een eenvoudige interface voor servicecommunicatie. een eindpunt voor uw service tooopen gewoon deze interface implementeren:
 
 ```csharp
 
@@ -92,9 +92,9 @@ class MyStatefulService : StatefulService
 }
 ```
 
-In beide gevallen moet u een verzameling van listeners retourneren. Hierdoor kan uw service luisteren op meerdere eindpunten, met mogelijk verschillende protocollen, met behulp van meerdere listeners. Bijvoorbeeld, wellicht u een HTTP-listener en een afzonderlijke WebSocket-listener. Elke listener haalt u een naam en de resulterende verzameling *naam: adres* paren worden weergegeven als een JSON-object als een client de luisterende adressen voor een service-exemplaar of een partitie vraagt.
+In beide gevallen moet u een verzameling van listeners retourneren. Hierdoor kunnen de toolisten van uw service op meerdere eindpunten, met mogelijk verschillende protocollen, met behulp van meerdere listeners. Bijvoorbeeld, wellicht u een HTTP-listener en een afzonderlijke WebSocket-listener. Elke listener haalt u een naam en de resulterende verzameling Hallo *naam: adres* paren worden weergegeven als een JSON-object als een client Hallo luisterende adressen voor een service-exemplaar of een partitie aanvraagt.
 
-In een stateless service retourneert de onderdrukking een verzameling ServiceInstanceListeners. Een `ServiceInstanceListener` bevat een functie voor het maken een `ICommunicationListener(C#) / CommunicationListener(Java)` en hieraan een naam. De onderdrukking retourneert voor stateful services, een verzameling van ServiceReplicaListeners. Dit is enigszins afwijken van het bijbehorende equivalent staatloze omdat een `ServiceReplicaListener` heeft een optie om een `ICommunicationListener` op secundaire replica's. Niet alleen kunt u meerdere communicatielisteners gebruiken in een service, maar u kunt ook opgeven welke listeners accepteren van aanvragen op secundaire replica's en welke luistert alleen op primaire replica's.
+In een stateless service retourneert Hallo onderdrukking een verzameling ServiceInstanceListeners. Een `ServiceInstanceListener` bevat een functie toocreate een `ICommunicationListener(C#) / CommunicationListener(Java)` en hieraan een naam. Voor stateful services retourneert Hallo onderdrukking een verzameling ServiceReplicaListeners. Dit is enigszins afwijken van het bijbehorende equivalent staatloze omdat een `ServiceReplicaListener` heeft een optie tooopen een `ICommunicationListener` op secundaire replica's. Niet alleen kunt u meerdere communicatielisteners gebruiken in een service, maar u kunt ook opgeven welke listeners accepteren van aanvragen op secundaire replica's en welke luistert alleen op primaire replica's.
 
 Bijvoorbeeld, u kunt een ServiceRemotingListener RPC-aanroepen krijgt alleen op primaire replica's hebben en een tweede, aangepaste listener lezen waarmee aanvragen op de secundaire replica's via HTTP:
 
@@ -121,7 +121,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Ten slotte beschrijven de eindpunten die vereist zijn voor de service in de [servicemanifest](service-fabric-application-model.md) onder de sectie voor eindpunten.
+Ten slotte beschrijven Hallo-eindpunten die vereist voor de service in Hallo Hallo zijn [servicemanifest](service-fabric-application-model.md) onder de sectie Hallo voor eindpunten.
 
 ```xml
 <Resources>
@@ -133,7 +133,7 @@ Ten slotte beschrijven de eindpunten die vereist zijn voor de service in de [ser
 
 ```
 
-De listener communicatie toegang tot de eindpunt-resources toegewezen aan in de `CodePackageActivationContext` in de `ServiceContext`. De listener kunt vervolgens luisteren naar aanvragen wanneer deze wordt geopend starten.
+Hallo communicatie listener toegang tot de Hallo eindpunt systeembronnen toegewezen tooit van Hallo `CodePackageActivationContext` in Hallo `ServiceContext`. Hallo-listener kunt vervolgens luisteren naar aanvragen wanneer deze wordt geopend starten.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -147,12 +147,12 @@ int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort()
 ```
 
 > [!NOTE]
-> Eindpunt bronnen voor het hele servicepakket gelden en ze worden toegewezen door de Service Fabric wanneer het servicepakket is geactiveerd. Meerdere service replica's die worden gehost in de dezelfde ServiceHost kunnen delen dezelfde poort. Dit betekent dat de communicatie-listener delen van de poort moet ondersteunen. De aanbevolen manier is voor de communicatie-listener voor de partitie-ID en replica-exemplaar-ID gebruiken bij het genereren van het adres luisteren.
+> Eindpunt resources zijn algemene toohello gehele servicepakket en ze worden toegewezen door de Service Fabric Hallo servicepakket is geactiveerd. Meerdere service replica's die worden gehost in dezelfde ServiceHost kan delen Hallo Hallo dezelfde poort. Dit betekent dat communicatie Hallo listener delen van de poort moet ondersteunen. Hallo aanbevolen manier om dit te doen voor Hallo communicatie listener toouse Hallo partitie-ID en replica-exemplaar-ID is bij het genereren van Hallo luister-adres.
 >
 >
 
 ### <a name="service-address-registration"></a>Registratie van de service-adres
-Een systeemservice aangeroepen de *Naming Service* wordt uitgevoerd op de Service Fabric-clusters. De Naming Service is een registrar voor services en de adressen die op elk exemplaar of de replica van de service luistert. Wanneer de `OpenAsync(C#) / openAsync(Java)` methode van een `ICommunicationListener(C#) / CommunicationListener(Java)` is voltooid, wordt de return-waarde opgehaald geregistreerd in de Naming Service. Deze waarde die wordt gepubliceerd in de Naming Service is een tekenreeks waarvan de waarde van alles op alle zijn kan. Deze waarde is wat clients zien wanneer ze voor een adres voor de service uit de Naming Service vragen.
+Een systeemservice aangeroepen Hallo *Naming Service* wordt uitgevoerd op de Service Fabric-clusters. Hallo is Naming Service een registrar voor services en de adressen die elk exemplaar of de replica van Hallo service luistert op. Wanneer Hallo `OpenAsync(C#) / openAsync(Java)` methode van een `ICommunicationListener(C#) / CommunicationListener(Java)` is voltooid, wordt de return-waarde opgehaald in Hallo Naming Service geregistreerd. Deze waarde die wordt gepubliceerd in Hallo Naming Service is een tekenreeks waarvan de waarde van alles op alle zijn kan retourneren. Deze waarde is wat clients zien wanneer ze voor een adres voor de service Hallo van Hallo Naming Service vragen.
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -169,7 +169,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
     this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
-    // the string returned here will be published in the Naming Service.
+    // hello string returned here will be published in hello Naming Service.
     return Task.FromResult(this.publishAddress);
 }
 ```
@@ -184,26 +184,26 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
     this.webApp = new WebApp(port);
     this.webApp.start();
 
-    /* the string returned here will be published in the Naming Service.
+    /* hello string returned here will be published in hello Naming Service.
      */
     return CompletableFuture.completedFuture(this.publishAddress);
 }
 ```
 
-Service Fabric bevat API's waarmee clients en andere services kunnen vervolgens vraagt u voor dit adres met de servicenaam. Dit is belangrijk omdat het serviceadres niet statisch is. Services worden in het cluster voor netwerktaakverdeling en beschikbaarheid doeleinden van resource verplaatst. Dit is het mechanisme dat clientcomputers kunnen omzetten van het luisterende adres voor een service.
+Service Fabric bevat API's waarmee de clients en andere services toothen vragen voor dit adres met de servicenaam. Dit is belangrijk omdat Hallo-serviceadres niet statisch is. Services worden in Hallo cluster voor netwerktaakverdeling en beschikbaarheid doeleinden van resource verplaatst. Dit is Hallo-mechanisme waarmee clients tooresolve Hallo adres voor een service luistert.
 
 > [!NOTE]
-> Zie voor een volledig overzicht van het schrijven van een communicatie-listener [Service Fabric-Web-API-services met OWIN zelf hosting](service-fabric-reliable-services-communication-webapi.md) voor C#, dat u uw eigen HTTP-server-implementatie voor Java schrijven kunt, Zie EchoServer toepassing voorbeeld op https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Voor een volledig overzicht van hoe toowrite een listener communicatie zien [Service Fabric-Web-API-services met OWIN zelf hosting](service-fabric-reliable-services-communication-webapi.md) voor C#, dat u uw eigen HTTP-server-implementatie voor Java schrijven kunt, Zie EchoServer toepassing voorbeeld op https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
 ## <a name="communicating-with-a-service"></a>Communicatie met een service
-De betrouwbare Services API biedt de volgende bibliotheken voor het schrijven van clients die met de services communiceren.
+Hallo betrouwbare Services API biedt Hallo bibliotheken toowrite clients die met de services communiceren te volgen.
 
 ### <a name="service-endpoint-resolution"></a>Service-eindpunt resolutie
-De eerste stap voor communicatie met een service is een eindpuntadres van de partitie of het exemplaar van de service die u wilt praten omzetten. De `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` hulpprogrammaklasse is een eenvoudige primitieve die helpt clients bij het bepalen van het eindpunt van een service tijdens runtime. In Service Fabric-terminologie, het proces voor het bepalen van het eindpunt van een service wordt aangeduid als de *service-eindpunt resolutie*.
+eerste stap toocommunication Hallo met een service is tooresolve een eindpuntadres van Hallo partitie of het exemplaar van de gewenste tootalk op Hallo-service. Hallo `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` hulpprogrammaklasse is een eenvoudige primitief waarmee clients bepalen Hallo-eindpunt van een service tijdens runtime. In de Service Fabric-terminologie Hallo bepalen Hallo-eindpunt van een service wordt waarnaar wordt verwezen tooas hello *service-eindpunt resolutie*.
 
-Als u wilt verbinding maken met services binnen een cluster, kunnen ServicePartitionResolver worden gemaakt met de standaardinstellingen. Dit is het aanbevolen gebruik voor de meeste situaties:
+tooconnect tooservices binnen een cluster, ServicePartitionResolver kunnen worden gemaakt met de standaardinstellingen. Dit is Hallo-gebruik voor de meeste gevallen aanbevolen:
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -212,7 +212,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Als u wilt verbinding maken met services in een ander cluster, kan een ServicePartitionResolver worden gemaakt met een reeks cluster gateway eindpunten. Houd er rekening mee dat gateway eindpunten alleen verschillende eindpunten zijn voor de verbinding met hetzelfde cluster. Bijvoorbeeld:
+tooconnect tooservices in een ander cluster, een ServicePartitionResolver kan worden gemaakt met een reeks cluster gateway eindpunten. Gateway-eindpunten zijn alleen verschillende eindpunten voor het verbinden van toohello hetzelfde cluster. Bijvoorbeeld:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -221,7 +221,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-U kunt ook `ServicePartitionResolver` kan een functie worden opgegeven voor het maken van een `FabricClient` intern gebruik:
+U kunt ook `ServicePartitionResolver` kan een functie worden opgegeven voor het maken van een `FabricClient` toouse intern:
 
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
@@ -236,7 +236,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`het object dat wordt gebruikt om te communiceren met het Service Fabric-cluster voor verschillende bewerkingen op het cluster is. Dit is handig als u meer controle wilt over de interactie van een service-omzetter partitie met het cluster. `FabricClient`voert caching intern en is meestal duur voor het maken, dus is het belangrijk om opnieuw te `FabricClient` exemplaren zo veel mogelijk.
+`FabricClient`Hallo-object dat is gebruikt toocommunicate met Hallo Service Fabric-cluster voor verschillende bewerkingen op Hallo-cluster is. Dit is handig als u meer controle wilt over de interactie van een service-omzetter partitie met het cluster. `FabricClient`voert caching intern en is meestal dure toocreate, dus is het belangrijk tooreuse `FabricClient` exemplaren zo veel mogelijk.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -245,7 +245,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver(() -> new CreateFabricClientImpl());
 ```
 
-Een methode resolve wordt vervolgens gebruikt voor het ophalen van het adres van een service of de partitie van een service voor gepartitioneerde services.
+Gebruikte tooretrieve Hallo-adres van een service of de partitie van een service voor gepartitioneerde services is een methode oplossen.
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -260,16 +260,16 @@ CompletableFuture<ResolvedServicePartition> partition =
     resolver.resolveAsync(new URI("fabric:/MyApp/MyService"), new ServicePartitionKey());
 ```
 
-Een serviceadres kan worden omgezet eenvoudig met een ServicePartitionResolver, maar meer werk is vereist om te controleren of dat het omgezette adres correct kan worden gebruikt. De client moet detecteren of de verbindingspoging is mislukt vanwege een tijdelijke fout en kan opnieuw worden uitgevoerd (bijv, service verplaatst of is tijdelijk niet beschikbaar), of een permanente fout (bijv, service is verwijderd of de aangevraagde resource bestaat niet meer). Service-exemplaren of replica's kunnen verplaatsen van het knooppunt naar knooppunt op elk gewenst moment om verschillende redenen. Het adres van de omgezet via ServicePartitionResolver mogelijk verlopen op het moment dat de clientcode verbinding probeert te maken. In dat geval opnieuw de client moet opnieuw omzetten van het adres. De vorige bieden `ResolvedServicePartition` geeft aan dat de omzetter moet opnieuw wilt proberen in plaats van gewoon ophalen een adres in de cache.
+Een serviceadres kan worden omgezet eenvoudig met een ServicePartitionResolver, maar er is meer werk vereist tooensure Hallo opgelost adres correct kan worden gebruikt. De client moet toodetect of Hallo verbindingspoging is mislukt vanwege een tijdelijke fout en kan opnieuw worden uitgevoerd (bijv, service verplaatst of is tijdelijk niet beschikbaar), of een permanente fout (bijv, service is verwijderd of hello aangevraagde resource bestaat niet meer). Service-exemplaren of replica's kunnen verplaatsen van knooppunt toonode op elk gewenst moment om verschillende redenen. Hallo-serviceadres omgezet via ServicePartitionResolver mogelijk verlopen door de clientcode tooconnect probeert Hallo-tijd. In dat geval opnieuw Hallo-client moet toore oplossen Hallo adres. Hallo vorige bieden `ResolvedServicePartition` geeft aan dat omzetter behoeften tootry opnieuw Hallo plaats gewoon een cache-adres ophalen.
 
-Normaal gesproken moet de clientcode werken niet met de ServicePartitionResolver rechtstreeks. Het is gemaakt en doorgegeven aan communicatie client fabrieken in de betrouwbare Services-API. De factory's gebruiken de resolver intern voor het genereren van een clientobject dat kan worden gebruikt om te communiceren met de services.
+Normaal gesproken moet Hallo clientcode niet rechtstreeks met werken Hallo ServicePartitionResolver. Het is gemaakt en toocommunication client fabrieken in Hallo betrouwbare Services API doorgegeven. Hallo fabrieken Hallo conflictoplosser intern gebruiken toogenerate een client-object dat gebruikt toocommunicate met services worden kan.
 
 ### <a name="communication-clients-and-factories"></a>Communicatie-clients en fabrieken
-De communicatie factory bibliotheek implementeert een typische opnieuw patroon voor afhandeling van fouten die gemakkelijker is bezig met opnieuw verbindingen met opgelost service-eindpunten. De factory-bibliotheek biedt een mechanisme voor het opnieuw proberen terwijl u de fout-handlers opgeven.
+Hallo communicatie factory bibliotheek implementeert een typische opnieuw patroon voor afhandeling van fouten die gemakkelijker is bezig met opnieuw verbindingen tooresolved service-eindpunten. Hallo factory-bibliotheek biedt een mechanisme voor opnieuw proberen Hallo terwijl u fout-handlers Hallo bieden.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`Hiermee definieert u de basis-interface geïmplementeerd door een client-factory van communicatie waarmee clients die met een Service Fabric-service communiceren kunnen wordt geproduceerd. De uitvoering van de CommunicationClientFactory is afhankelijk van de communicatiestack gebruikt door de Service Fabric-service waar de client wil communiceren. De betrouwbare Services API biedt een `CommunicationClientFactoryBase<TCommunicationClient>`. Dit biedt een basisimplementatie van de interface CommunicationClientFactory en taken die gemeenschappelijk voor alle communicatie stapels zijn worden uitgevoerd. (Deze taken omvatten het gebruik van een ServicePartitionResolver om te bepalen van het service-eindpunt). Clients implementeren meestal de abstracte klasse CommunicationClientFactoryBase voor het afhandelen van logica die specifiek is voor de communicatiestack.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`Hiermee definieert u base Hallo-interface geïmplementeerd door een client-factory van communicatie waarmee clients die tooa Service Fabric-service communiceren kunnen wordt geproduceerd. implementatie van CommunicationClientFactory is afhankelijk van Hallo communicatiestack gebruikt door de Service Fabric-service Hallo waar Hallo client wil toocommunicate Hallo Hallo. Hallo betrouwbare Services API biedt een `CommunicationClientFactoryBase<TCommunicationClient>`. Dit biedt een basisimplementatie van Hallo CommunicationClientFactory interface en taken die algemene tooall Hallo communicatie stacks zijn worden uitgevoerd. (Deze taken omvatten het gebruik van een ServicePartitionResolver toodetermine Hallo service-eindpunt). Clients implementeren meestal Hallo abstracte CommunicationClientFactoryBase klasse toohandle logica die specifieke toohello communicatie-stack is.
 
-De client communicatie wordt alleen een adres ontvangt en gebruikt deze verbinding maken met een service. De client kan elk protocol dat deze wil gebruiken.
+Hallo communicatie-client wordt alleen een adres ontvangt en gebruikt deze tooconnect tooa service. Hallo-client kan elk protocol dat deze wil gebruiken.
 
 ```csharp
 class MyCommunicationClient : ICommunicationClient
@@ -294,7 +294,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-Clientfabriek van de is voornamelijk verantwoordelijk voor het maken van clients voor communicatie. Voor clients die een permanente verbinding, zoals een HTTP-client niet onderhouden moet de factory alleen maken en de client terug. Andere protocollen die een permanente verbinding, zoals sommige binaire protocollen onderhoudt worden ook gevalideerd door de factory om te bepalen of de verbinding moet opnieuw worden gemaakt.  
+de clientfabriek van Hallo is primair verantwoordelijk is voor het maken van clients voor communicatie. Voor clients die een permanente verbinding, zoals een HTTP-client niet onderhouden moet Hallo factory alleen toocreate en return Hallo-client. Andere protocollen die een permanente verbinding, zoals sommige binaire protocollen onderhoudt moeten ook worden gevalideerd door Hallo factory toodetermine of Hallo verbinding toobe opnieuw gemaakt moet.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
@@ -337,14 +337,14 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 }
 ```
 
-Ten slotte is een uitzonderings-handler verantwoordelijk voor het bepalen welke actie moet worden uitgevoerd wanneer een uitzondering optreedt. Uitzonderingen worden onderverdeeld in **herstelbare** en **niet-herstelbare**.
+Ten slotte is een uitzonderings-handler verantwoordelijk voor het bepalen welke actie tootake wanneer er een uitzondering optreedt. Uitzonderingen worden onderverdeeld in **herstelbare** en **niet-herstelbare**.
 
-* **Niet-herstelbare** uitzonderingen ophalen gewoon terug naar de aanroeper opnieuw.
+* **Niet-herstelbare** uitzonderingen gewoon back toohello aanroeper ophalen opnieuw.
 * **herstelbare** uitzonderingen kunnen verder worden onderverdeeld in **tijdelijke** en **tijdelijke**.
-  * **Tijdelijke** uitzonderingen zijn die opnieuw kunnen eenvoudig worden verzonden zonder dat het adres van het service-eindpunt opnieuw op te lossen. Hierbij wordt tijdelijke netwerkproblemen of service-foutberichten dan degene die wijzen op dat het adres van het service-eindpunt bestaat niet.
-  * **Niet-tijdelijke** uitzonderingen zijn die het adres van het service-eindpunt worden opnieuw opgelost vereisen. Het gaat hierbij om uitzonderingen die wijzen op dat het service-eindpunt kan niet worden bereikt, is die aangeeft van de service verplaatst naar een ander knooppunt.
+  * **Tijdelijke** uitzonderingen zijn die eenvoudig kunnen worden verwerkt zonder het eindpuntadres Hallo-service opnieuw op te lossen. Hierbij gaat het tijdelijke netwerkproblemen of service-foutberichten dan degene die aangeven welke eindpuntadres Hallo-service bestaat niet.
+  * **Niet-tijdelijke** uitzonderingen zijn die Hallo service-eindpunt adres toobe opnieuw opgelost vereisen. Het gaat hierbij om uitzonderingen die wijzen op Hallo service-eindpunt kan niet worden bereikt, die aangeeft Hallo-service heeft tooa ander knooppunt verplaatst.
 
-De `TryHandleException` maakt een beslissing over een bepaalde uitzondering. Als het **niet weet** welke beslissingen nemen over een uitzondering moet deze uitvoer retourneren **false**. Als het **weet** welke beslissen, moet het resultaat dienovereenkomstig ingesteld en geretourneerd **true**.
+Hallo `TryHandleException` maakt een beslissing over een bepaalde uitzondering. Als het **niet weet** welke toomake beslissingen over een uitzondering moet retourneren **false**. Als het **weet** welke toomake besluit moet dienovereenkomstig Hallo resultaat ingesteld en geretourneerd **true**.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -360,7 +360,7 @@ class MyExceptionHandler : IExceptionHandler
         result = new ExceptionHandlingRetryResult(exceptionInformation.Exception, false, retrySettings, retrySettings.DefaultMaxRetryCount);
         return true;
 
-        // if exceptionInformation.Exception is unknown (let the next IExceptionHandler attempt to handle it)
+        // if exceptionInformation.Exception is unknown (let hello next IExceptionHandler attempt toohandle it)
         result = null;
         return false;
     }
@@ -383,7 +383,7 @@ public class MyExceptionHandler implements ExceptionHandler {
         result = new ExceptionHandlingRetryResult(exceptionInformation.getException(), false, retrySettings, retrySettings.getDefaultMaxRetryCount());
         return true;
 
-        /* if exceptionInformation.getException() is unknown (let the next ExceptionHandler attempt to handle it)
+        /* if exceptionInformation.getException() is unknown (let hello next ExceptionHandler attempt toohandle it)
          */
         result = null;
         return false;
@@ -392,7 +392,7 @@ public class MyExceptionHandler implements ExceptionHandler {
 }
 ```
 ### <a name="putting-it-all-together"></a>Kort samengevat
-Met een `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, en `IExceptionHandler(C#) / ExceptionHandler(Java)` gebaseerd op een communicatieprotocol een `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` helemaal verpakt en biedt de afhandeling van fouten en service partitie adres resolutie lus om deze onderdelen.
+Met een `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, en `IExceptionHandler(C#) / ExceptionHandler(Java)` gebaseerd op een communicatieprotocol een `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` helemaal verpakt en biedt Hallo afhandeling van fouten en service partitie adres resolutie lus rond deze onderdelen.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;
@@ -405,7 +405,7 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 
 var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) =>
    {
-      // Communicate with the service using the client.
+      // Communicate with hello service using hello client.
    },
    CancellationToken.None);
 
@@ -420,7 +420,7 @@ FabricServicePartitionClient myServicePartitionClient = new FabricServicePartiti
     myPartitionKey);
 
 CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(client -> {
-      /* Communicate with the service using the client.
+      /* Communicate with hello service using hello client.
        */
    });
 

@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning van Azure Virtual machines toevoegen aan de bestaande beschikbaarheidsset instellen | Microsoft Docs
-description: Ondersteuning van Azure Virtual machines toevoegen aan een bestaande beschikbaarheidsset.
+title: aaaSupportability van het toevoegen van Azure Virtual machines tooan bestaande beschikbaarheidsset | Microsoft Docs
+description: Ondersteuning voor het toevoegen van Azure Virtual machines tooan bestaande beschikbaarheidsset.
 services: virtual-machines-linux
 documentationcenter: 
 author: Deland-Han
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/15/2017
 ms.author: delhan
-ms.openlocfilehash: 3ce9b8a79108cb9e57df14bcb3354cc637193233
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: dc2bd86b916f1d1a0a0d4c9e870df829434c96b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Ondersteuning van Azure Virtual machines toevoegen aan een bestaande beschikbaarheidsset
+# <a name="supportability-of-adding-azure-vms-tooan-existing-availability-set"></a>Ondersteuning voor het toevoegen van Azure Virtual machines tooan bestaande beschikbaarheidsset
 
-Van tijd tot tijd kan verschijnen beperkingen wanneer u nieuwe virtuele machines (VM's) toevoegen aan een bestaande beschikbaarheidsset. Het volgende diagram details over welke VM-reeks u in dezelfde beschikbaarheidsset mengen kunt.
+Beperkingen kan van tijd tot tijd verschijnen wanneer u nieuwe virtuele machines (VM's) tooan bestaande beschikbaarheidsset toevoegt. Hallo volgende grafiekdetails welke VM-reeks kunt u mengen in dezelfde beschikbaarheidsset Hallo.
 
-Dit is de matrix ondersteuningsmogelijkheden mix van verschillende typen van virtuele machines:
+Hier volgt Hallo ondersteuningsmogelijkheden matrix toomix verschillende typen virtuele machines:
 
 Reeks & Beschikbaarheidsset|Tweede VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
@@ -35,4 +35,4 @@ Reeks & Beschikbaarheidsset|Tweede VM|A|Av2|D|Dv2|Dv3|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
 
-Alle andere reeks kan niet worden in dezelfde beschikbaarheidsset omdat ze een specifieke hardware vereist.
+Alle andere reeks kan niet worden in dezelfde beschikbaarheidsset omdat ze een specifieke hardware vereist Hallo.

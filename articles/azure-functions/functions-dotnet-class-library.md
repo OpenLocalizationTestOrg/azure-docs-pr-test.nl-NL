@@ -1,6 +1,6 @@
 ---
-title: .NET-klassebibliotheken gebruiken met Azure Functions | Microsoft Docs
-description: Meer informatie over het ontwerpen van .NET-klassebibliotheken voor gebruik met Azure Functions
+title: klasse aaaUsing .NET-bibliotheken met Azure Functions | Microsoft Docs
+description: Meer informatie over hoe tooauthor .NET-klassebibliotheken voor gebruiken met Azure Functions
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -16,42 +16,42 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4e0fd954b554006ba1d8ecc47403a9fb1c67c3b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Met behulp van .NET-klassebibliotheken met Azure Functions
 
-Naast de scriptbestanden, Azure Functions ondersteunt een class-bibliotheek publiceren als de uitvoering voor een of meer functies. Het is raadzaam dat u de [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
+Tooscript bestanden, Azure Functions ondersteunt tevens een class-bibliotheek publiceren als Hallo-implementatie voor een of meer functies. Het is raadzaam dat u Hallo [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
 
 ## <a name="prerequisites"></a>Vereisten 
 
-In dit artikel heeft de volgende vereisten:
+In dit artikel heeft Hallo volgende vereisten:
 
-- [Visual Studio 2017 15,3 Preview](https://www.visualstudio.com/vs/preview/). Installeren van de werkbelastingen **ASP.NET en web ontwikkeling** en **ontwikkelen van Azure**.
+- [Visual Studio 2017 15,3 Preview](https://www.visualstudio.com/vs/preview/). Hallo werkbelastingen installeren **ASP.NET en web ontwikkeling** en **ontwikkelen van Azure**.
 - [Azure-functie hulpprogramma's voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
 
 ## <a name="functions-class-library-project"></a>Functies class library-project
 
-Vanuit Visual Studio een nieuw Azure Functions-project te maken. Het nieuwe projectsjabloon maakt u de bestanden *host.json* en *local.settings.json*. U kunt [aanpassen van Azure Functions-runtime-instellingen in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+Vanuit Visual Studio een nieuw Azure Functions-project te maken. Hallo-nieuw project-sjabloon maakt Hallo bestanden *host.json* en *local.settings.json*. U kunt [aanpassen van Azure Functions-runtime-instellingen in host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
 
-Het bestand *local.settings.json* app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core hulpprogramma's worden opgeslagen. Zie voor meer informatie over de structuur, [Code en testen van Azure functions lokaal](functions-run-local.md#local-settings).
+Hallo bestand *local.settings.json* app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core hulpprogramma's worden opgeslagen. toolearn meer informatie over de structuur, Zie [Code en testen van Azure functions lokaal](functions-run-local.md#local-settings).
 
 ### <a name="functionname-attribute"></a>Functienaam kenmerk
 
-Het kenmerk [ `FunctionNameAttribute` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) markeert een methode als een functie-ingangspunt. Deze moet worden gebruikt met exact één trigger en 0 of meer invoer en uitvoer bindingen.
+Hallo-kenmerk [ `FunctionNameAttribute` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/FunctionNameAttribute.cs) markeert een methode als een functie-ingangspunt. Deze moet worden gebruikt met exact één trigger en 0 of meer invoer en uitvoer bindingen.
 
-### <a name="conversion-to-functionjson"></a>Conversie naar function.json
+### <a name="conversion-toofunctionjson"></a>Conversie toofunction.json
 
-Wanneer u een Azure Functions-project is gebouwd, maakt het bestand `function.json` in de map die overeenkomt met de naam van de functie gedefinieerd door `[FunctionName]`. Geeft aan triggers en bindingen en verwijst naar het project assembly-bestand.
+Wanneer u een Azure Functions-project is gebouwd, maakt het bestand `function.json` in Hallo directory gedefinieerd die overeenkomt met de naam van de functie Hallo door `[FunctionName]`. Geeft aan van triggers en bindingen en punten toohello projectbestand assembly.
 
-Deze conversie wordt uitgevoerd door het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). De bron is beschikbaar in de GitHub-repo [azure\-functies\-tegenover\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+Deze conversie wordt uitgevoerd door de NuGet-pakket Hallo [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Hallo-bron is beschikbaar in de GitHub-repo-Hallo [azure\-functies\-tegenover\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
 ## <a name="triggers-and-bindings"></a>Triggers en bindingen
 
-De volgende tabel bevat de triggers en bindingen die beschikbaar in een Azure Functions class library-project zijn. Alle kenmerken zijn in de naamruimte `Microsoft.Azure.WebJobs`.
+Hallo volgende tabel bevat Hallo triggers en bindingen die beschikbaar in een Azure Functions class library-project zijn. Alle kenmerken zijn in de naamruimte Hallo `Microsoft.Azure.WebJobs`.
 
 | Binding | Kenmerk | NuGet-pakket |
 |------   | ------    | ------        |
@@ -75,7 +75,7 @@ De volgende tabel bevat de triggers en bindingen die beschikbaar in een Azure Fu
 
 Azure Functions ondersteunt worden geactiveerd, invoer en uitvoer van de bindingen voor Azure Blob-opslag. Zie voor meer informatie over expressies voor gegevensbinding en metagegevens [bindingen van Azure Functions Blob storage](functions-bindings-storage-blob.md).
 
-Een blob-trigger is gedefinieerd met de `[BlobTrigger]` kenmerk. U kunt het kenmerk `[StorageAccount]` voor het definiëren van het storage-account dat wordt gebruikt door een hele functie of de klasse.
+Een blob-trigger is gedefinieerd met Hallo `[BlobTrigger]` kenmerk. U kunt Hallo kenmerk `[StorageAccount]` toodefine Hallo storage-account dat wordt gebruikt door een hele functie of de klasse.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -86,7 +86,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-BLOB-invoer en uitvoer worden gedefinieerd met behulp van de `[Blob]` kenmerk toe, samen met een `FileAccess` parameter die aangeeft lezen of schrijven. Het volgende voorbeeld wordt een blob trigger en blob uitvoer binding.
+BLOB invoer en uitvoer worden gedefinieerd met behulp van Hallo `[Blob]` kenmerk toe, samen met een `FileAccess` parameter die aangeeft lezen of schrijven. Hallo volgende voorbeeld maakt gebruik van een blob-trigger en blob-uitvoer binding.
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -122,9 +122,9 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="cosmos-db-input-and-output-bindings"></a>Cosmos DB invoer en uitvoer bindingen
 
-Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Cosmos-DB. Zie voor meer informatie over de functies van de Cosmos-DB-binding, [bindingen van Azure Functions Cosmos DB](functions-bindings-documentdb.md).
+Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Cosmos-DB. toolearn meer informatie over het Hallo-functies van de binding van de Cosmos-DB hello, Zie [bindingen van Azure Functions Cosmos DB](functions-bindings-documentdb.md).
 
-Als u wilt koppelen aan een Cosmos-DB-document, gebruikt u het kenmerk `[DocumentDB]` in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. Het volgende voorbeeld heeft de trigger van een wachtrij en een DocumentDB-API binding uitvoer:
+toobind tooa Cosmos-DB-document Hallo kenmerk gebruiken `[DocumentDB]` in NuGet-pakket Hallo [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. Hallo volgende voorbeeld heeft de trigger van een wachtrij en een DocumentDB-API binding uitvoer:
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
@@ -143,9 +143,9 @@ public static void Run(
 
 Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Event Hubs. Zie voor meer informatie [bindingen van Azure Functions Event Hub](functions-bindings-event-hubs.md).
 
-De typen `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` en `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` zijn gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus]. 
+Hallo typen `[Microsoft.Azure.WebJobs.ServiceBus.EventHubTriggerAttribute]` en `[Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute]` zijn gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.ServiceBus]. 
 
-Het volgende voorbeeld wordt een Event Hub-trigger:
+Hallo wordt volgende voorbeeld een Event Hub-trigger.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -155,7 +155,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Het volgende voorbeeld heeft een Event Hub uitvoer met behulp van de geretourneerde waarde van de methode als uitvoer:
+Hallo heeft volgende voorbeeld een Event Hub uitvoer met behulp van de retourwaarde van de methode Hallo als Hallo uitvoer:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -171,9 +171,9 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### <a name="external-file-input-and-output"></a>Bestand met externe invoer en uitvoer
 
-Azure Functions ondersteunt trigger, invoer en uitvoer bindingen voor externe bestanden, zoals Google Drive, Dropbox en OneDrive. Zie voor meer informatie, [bindingen van Azure Functions-bestand met externe](functions-bindings-external-file.md). De kenmerken `[ExternalFileTrigger]` en `[ExternalFile]` zijn gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.ApiHub].
+Azure Functions ondersteunt trigger, invoer en uitvoer bindingen voor externe bestanden, zoals Google Drive, Dropbox en OneDrive. toolearn meer, Zie [bindingen van Azure Functions-bestand met externe](functions-bindings-external-file.md). Hallo kenmerken `[ExternalFileTrigger]` en `[ExternalFile]` zijn gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.Extensions.ApiHub].
 
-De volgende C#-voorbeeld wordt een bestand met externe invoer en uitvoer van de binding. De code wordt het bestand voor invoer gekopieerd naar het uitvoerbestand.
+Hallo volgende C#-voorbeeld demonstreert een extern bestand invoer en uitvoer van de binding. Hallo code kopieën Hallo invoerbestand toohello-uitvoerbestand.
 
 ```csharp
 [StorageAccount("MyStorageConnection")]
@@ -192,7 +192,7 @@ public static string Run([QueueTrigger("myqueue-items")] string myQueueItem,
 
 ### <a name="http-and-webhooks"></a>HTTP en webhooks
 
-Gebruik de `HttpTrigger` kenmerk voor het definiëren van een HTTP-trigger of webhook. Dit kenmerk wordt gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.Http]. U kunt de autorisatieniveau, webhook-type, route en methoden. Het volgende voorbeeld definieert een HTTP-trigger met anonieme verificatie en _genericJson_ webhook-type.
+Gebruik Hallo `HttpTrigger` kenmerk toodefine een HTTP-trigger of webhook. Dit kenmerk wordt gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.Extensions.Http]. U kunt aanpassen autorisatieniveau hello, webhook type route en methoden. Hallo volgende voorbeeld definieert een HTTP-trigger met anonieme verificatie en _genericJson_ webhook-type.
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -206,9 +206,9 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 ### <a name="mobile-apps-input-and-output"></a>Mobile Apps-invoer en uitvoer
 
-Azure Functions ondersteunt invoer en uitvoer van de bindingen voor mobiele Apps. Zie voor meer informatie, [mobiele Apps van Azure Functions bindingen](functions-bindings-mobile-apps.md). Het kenmerk `[MobileTable]` is gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps].
+Azure Functions ondersteunt invoer en uitvoer van de bindingen voor mobiele Apps. toolearn meer, Zie [mobiele Apps van Azure Functions bindingen](functions-bindings-mobile-apps.md). Hallo-kenmerk `[MobileTable]` is gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.Extensions.MobileApps].
 
-Het volgende voorbeeld toont een Mobile Apps binding uitvoer:
+Hallo volgende voorbeeld toont een Mobile Apps binding uitvoer:
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -223,7 +223,7 @@ public static object Run([QueueTrigger("myqueue-items", Connection = "AzureWebJo
 
 ### <a name="notification-hubs-output"></a>Notification Hubs-uitvoer
 
-Azure Functions ondersteunt een uitvoer-binding voor Notification Hubs. Zie voor meer informatie, [Azure Functions Notification Hub uitvoer binding](functions-bindings-notification-hubs.md). Het kenmerk `[NotificationHub]` is gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
+Azure Functions ondersteunt een uitvoer-binding voor Notification Hubs. toolearn meer, Zie [Azure Functions Notification Hub uitvoer binding](functions-bindings-notification-hubs.md). Hallo-kenmerk `[NotificationHub]` is gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.Extensions.NotificationHubs].
 
 <a name="queue"></a>
 
@@ -231,7 +231,7 @@ Azure Functions ondersteunt een uitvoer-binding voor Notification Hubs. Zie voor
 
 Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Azure wachtrijen. Zie voor meer informatie [bindingen van Azure Functions Queue Storage](functions-bindings-storage-queue.md).
 
-Het volgende voorbeeld ziet u hoe u het retourtype van functie met de uitvoer van een wachtrij binding, met behulp van de `[Queue]` kenmerk. Gebruik het definiëren van een trigger voor de wachtrij de `[QueueTrigger]` kenmerk.
+Hallo volgende voorbeeld laat zien hoe toouse Hallo functie retourtype met de uitvoer van een wachtrij binding, met behulp van Hallo `[Queue]` kenmerk. een trigger wachtrij toodefine gebruiken Hallo `[QueueTrigger]` kenmerk.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -261,11 +261,11 @@ public static class QueueFunctions
 
 ### <a name="sendgrid-output"></a>SendGrid-uitvoer
 
-Azure Functions ondersteunt een SendGrid-uitvoer binding voor het programmatisch verzenden van e-mail. Zie voor meer informatie, [bindingen van Azure Functions SendGrid](functions-bindings-sendgrid.md).
+Azure Functions ondersteunt een SendGrid-uitvoer binding voor het programmatisch verzenden van e-mail. toolearn meer, Zie [bindingen van Azure Functions SendGrid](functions-bindings-sendgrid.md).
 
-Het kenmerk `[SendGrid]` is gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+Hallo-kenmerk `[SendGrid]` is gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.Extensions.SendGrid].
 
-Hieronder volgt een voorbeeld van een Service Bus-wachtrij-trigger gebruikt en een SendGrid uitvoer binding met `SendGridMessage`:
+Hallo Hieronder volgt een voorbeeld van een Service Bus-wachtrij-trigger gebruikt en een SendGrid uitvoer binding met `SendGridMessage`:
 
 ```csharp
 [FunctionName("SendEmail")]
@@ -282,7 +282,7 @@ public static void Run(
 
 public class OutgoingEmail
 {
-    public string To { get; set; }
+    public string too{ get; set; }
     public string From { get; set; }
     public string Subject { get; set; }
     public string Body { get; set; }
@@ -295,9 +295,9 @@ public class OutgoingEmail
 
 Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Service Bus-wachtrijen en onderwerpen. Zie voor meer informatie over het configureren van bindingen [bindingen van Azure Functions Service Bus](functions-bindings-service-bus.md).
 
-De kenmerken `[ServiceBusTrigger]` en `[ServiceBus]` zijn gedefinieerd in het NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus]. 
+Hallo kenmerken `[ServiceBusTrigger]` en `[ServiceBus]` zijn gedefinieerd in de NuGet-pakket Hallo [Microsoft.Azure.WebJobs.ServiceBus]. 
 
-Hier volgt een voorbeeld van een Service Bus-wachtrij trigger:
+Hallo Hieronder volgt een voorbeeld van een Service Bus-wachtrij trigger:
 
 ```csharp
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -307,7 +307,7 @@ public static void Run([ServiceBusTrigger("myqueue", AccessRights.Manage, Connec
 }
 ```
 
-Hier volgt een voorbeeld van een Service Bus-uitvoer binding, met behulp van het retourtype van methode als uitvoer:
+Hallo Hier volgt een voorbeeld van een Service Bus-uitvoer binding, met behulp van Hallo methode retourtype als Hallo uitvoer:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -323,9 +323,9 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter l
 
 ### <a name="table-storage-input-and-output"></a>Table storage invoer en uitvoer
 
-Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Table storage. Zie voor meer informatie, [bindingen van Azure Functions Table storage](functions-bindings-storage-table.md).
+Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Table storage. toolearn meer, Zie [bindingen van Azure Functions Table storage](functions-bindings-storage-table.md).
 
-Het volgende voorbeeld is een klasse met twee functies, tabeluitvoer van opslag en invoer bindingen te demonstreren. 
+Hallo is volgende voorbeeld een klasse met twee functies, tabeluitvoer van opslag en invoer bindingen te demonstreren. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -346,7 +346,7 @@ public class TableStorage
         return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
     }
 
-    // use the metadata parameter "queueTrigger" to bind the queue payload
+    // use hello metadata parameter "queueTrigger" toobind hello queue payload
     [FunctionName("TableInput")]
     public static void TableInput([QueueTrigger("table-items")] string input, [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, TraceWriter log)
     {
@@ -360,11 +360,11 @@ public class TableStorage
 
 ### <a name="timer-trigger"></a>Timertrigger
 
-Azure Functions heeft een timer trigger binding waarmee u de functiecode op basis van een ingesteld schema uitvoeren. Zie voor meer informatie over de functies van de binding, [plannen van de uitvoering van code met Azure Functions](functions-bindings-timer.md).
+Azure Functions heeft een timer trigger binding waarmee u de functiecode op basis van een ingesteld schema uitvoeren. toolearn meer informatie over het Hallo-functies van de binding hello, Zie [plannen van de uitvoering van code met Azure Functions](functions-bindings-timer.md).
 
-Op het plan verbruik, kunt u schema's met een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression). Als u een App Service-abonnement, kunt u ook een TimeSpan-tekenreeks. 
+Op Hallo verbruik plan, kunt u schema's met een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression). Als u een App Service-abonnement, kunt u ook een TimeSpan-tekenreeks. 
 
-Het volgende voorbeeld definieert een timertrigger die wordt uitgevoerd om de 5 minuten:
+Hallo volgende voorbeeld definieert een timertrigger die wordt uitgevoerd om de 5 minuten:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -378,11 +378,11 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 ### <a name="twilio-output"></a>Twilio-uitvoer
 
-Azure Functions ondersteunt Twilio uitvoer bindingen zodat uw functies SMS-berichten verzenden. Zie voor meer informatie, [verzenden SMS-berichten van de functies van Azure met behulp van de Twilio uitvoer binding](functions-bindings-twilio.md). 
+Azure Functions ondersteunt Twilio uitvoer van de SMS-berichten van functies toosend tooenable bindingen. toolearn meer, Zie [verzenden SMS-berichten van Azure Functions Hallo Twilio met uitvoer binding](functions-bindings-twilio.md). 
 
-Het kenmerk `[TwilioSms]` is gedefinieerd in het pakket [Microsoft.Azure.WebJobs.Extensions.Twilio].
+Hallo-kenmerk `[TwilioSms]` is gedefinieerd in Hallo pakket [Microsoft.Azure.WebJobs.Extensions.Twilio].
 
-Het volgende C#-voorbeeld wordt een wachtrij trigger en een Twilio binding uitvoer:
+Hallo volgende C#-voorbeeld maakt gebruik van een wachtrij trigger en een Twilio binding uitvoer:
 
 ```csharp
 [FunctionName("QueueTwilio")]
@@ -394,7 +394,7 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
     var message = new SMSMessage()
     {
         Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
+        too= order["mobileNumber"].ToString()
     };
 
     return message;
@@ -423,7 +423,7 @@ Zie voor meer informatie over het gebruik van Azure Functions in C# scripting [A
 [Microsoft.Azure.WebJobs.Extensions]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/2.1.0-beta1
 
 
-<!-- Links to source --> 
+<!-- Links toosource --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs

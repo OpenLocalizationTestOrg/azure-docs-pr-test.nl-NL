@@ -1,6 +1,6 @@
 ---
-title: Maken en uploaden van een VHD Ubuntu Linux in Azure
-description: Informatie over het maken en uploaden van een Azure virtuele harde schijf (VHD) die een Ubuntu Linux-besturingssysteem bevat.
+title: aaaCreate een Ubuntu Linux-VHD en uploaden in Azure
+description: Informatie over toocreate en uploaden van een Azure virtuele harde schijf (VHD) die een Ubuntu Linux-besturingssysteem bevat.
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,46 +15,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 4496b34ff88ca1e08cc74788ae09d787d4399eaf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: cc546a487f769b32432a7e80ddcd0f6af44e201f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Een virtuele Ubuntu-machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Officiële Ubuntu cloud installatiekopieën
-Ubuntu publiceert nu officiële Azure VHD's worden gedownload op [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Als u nodig hebt om uw eigen gespecialiseerde Ubuntu installatiekopie ontwikkelen voor Azure, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De nieuwste versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
+Ubuntu publiceert nu officiële Azure VHD's worden gedownload op [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Als u uw eigen gespecialiseerde Ubuntu-installatiekopie van toobuild nodig voor Azure, plaats gebruik Hallo handmatige procedure eronder wordt aanbevolen toostart met deze bekende werkt VHD's en indien nodig aanpassen. Hallo laatste installatiekopie releases kunnen altijd worden gevonden op Hallo volgende locaties:
 
 * Ubuntu 12.04/nauwkeurig: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/betrouwbare: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem hebt geïnstalleerd op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van de VHD-bestanden, bijvoorbeeld een virtualisatieoplossing zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](http://technet.microsoft.com/library/hh846766.aspx).
+In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem tooa virtuele harde schijf hebt geïnstalleerd. Meerdere hulpprogramma's bestaan toocreate VHD-bestanden, bijvoorbeeld een virtualisatieoplossing zoals Hyper-V. Zie voor instructies [Hallo Hyper-V-rol installeren en configureren van een virtuele Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Opmerkingen bij de installatie Ubuntu**
 
 * Zie ook [algemene opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer tips over Linux voorbereiden voor Azure.
-* De VHDX-indeling wordt niet ondersteund in Azure, alleen **vaste VHD**.  U kunt de schijf converteren naar VHD-indeling met behulp van Hyper-V-beheer of de cmdlet convert-vhd.
-* Bij het installeren van de Linux-systeem wordt het aanbevolen dat u standaard partities in plaats van LVM (vaak de standaardinstelling voor vele installaties gebruikt). Dit voorkomt LVM naam conflicteert met de gekloonde virtuele machines, met name als een besturingssysteemschijf ooit worden gekoppeld aan een andere virtuele machine moet voor het oplossen van problemen. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mag worden gebruikt voor gegevensschijven als voorkeur.
-* Configureer een partitie van de wisseling niet op de schijf met het besturingssysteem. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle van de VHD's moeten grootten die veelvouden van 1 MB hebben.
+* Hallo VHDX-indeling wordt niet ondersteund in Azure, alleen **vaste VHD**.  U kunt converteren Hallo tooVHD schijfindeling met behulp van Hyper-V-beheer of Hallo cmdlet convert-vhd.
+* Bij het installeren van Hallo Linux-systeem wordt het aanbevolen dat u standaard partities in plaats van LVM (vaak Hallo standaard voor vele installaties gebruikt). Dit voorkomt LVM naam conflicteert met de gekloonde virtuele machines, met name een besturingssysteemschijf ooit moet toobe gekoppeld tooanother VM voor het oplossen van problemen. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mag worden gebruikt voor gegevensschijven als voorkeur.
+* Configureer een partitie van de wisseling niet op Hallo OS-schijf. Hallo Linux-agent kan worden geconfigureerd toocreate een wisselbestand op Hallo tijdelijke schijf.  Meer informatie hierover vindt u in onderstaande Hallo stappen.
+* Alle VHD's Hallo moeten grootten die veelvouden van 1 MB hebben.
 
 ## <a name="manual-steps"></a>Handmatige stappen
 > [!NOTE]
-> Voordat u uw eigen aangepaste Ubuntu-afbeelding voor Azure maken, u kunt overwegen de installatiekopieën van het vooraf samengestelde en geteste van [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) in plaats daarvan.
+> Voordat u probeert toocreate uw eigen aangepaste installatiekopie Ubuntu voor Azure, overweeg Hallo met vooraf gemaakte en installatiekopieën van getest [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) in plaats daarvan.
 > 
 > 
 
-1. Selecteer in het middelste deelvenster van de Hyper-V-beheer, de virtuele machine.
+1. Selecteer Hallo virtuele machine in Hallo middelste deelvenster van de Hyper-V-beheer.
 
-2. Klik op **Connect** om het venster voor de virtuele machine te openen.
+2. Klik op **Connect** tooopen Hallo venster voor Hallo virtuele machine.
 
-3. Vervang de huidige opslagplaatsen in de installatiekopie van Ubuntu Azure repo's gebruiken. De stappen verschillen, afhankelijk van de Ubuntu-versie.
+3. Huidige Hallo-opslagplaatsen in Hallo installatiekopie toouse Ubuntu van Azure repo's vervangen. Hallo stappen verschillen, afhankelijk van Hallo Ubuntu-versie.
    
-    Voordat u bewerkt `/etc/apt/sources.list`, wordt u aangeraden te maken van een back-up:
+    Voordat u bewerkt `/etc/apt/sources.list`, het is aanbevolen toomake een back-up:
    
         # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -73,7 +73,7 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
         # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
         # sudo apt-get update
 
-4. De afbeeldingen Ubuntu Azure volgt nu de *hardware stuk* kernel (HWE). Werk het besturingssysteem naar de meest recente kernel met de volgende opdrachten:
+4. Hallo Ubuntu Azure installatiekopieën volgt nu Hallo *hardware stuk* kernel (HWE). Hallo besturingssysteem toohello nieuwste kernel bijwerken door het uitvoeren van de volgende opdrachten Hallo:
 
     Ubuntu 12.04:
    
@@ -106,32 +106,32 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
     - [https://Wiki.Ubuntu.com/kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
-5. De regel voor het opstarten van kernel voor wormgaten aanvullende kernel-parameters voor Azure opnemen wijzigen. Deze open doen `/etc/default/grub` in een teksteditor, ziet u de variabele met de naam `GRUB_CMDLINE_LINUX_DEFAULT` (of toe te voegen indien nodig) en het bewerken om op te nemen van de volgende parameters:
+5. Hallo kernel opstarten regel voor wormgaten tooinclude kernel extra parameters voor Azure wijzigen. dit open toodo `/etc/default/grub` vinden in een teksteditor Hallo variabele met de naam `GRUB_CMDLINE_LINUX_DEFAULT` (of toe te voegen indien nodig) en bewerk het tooinclude Hallo volgende parameters:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
-    Opslaan en sluiten van dit bestand en voer `sudo update-grub`. Dit zorgt ervoor dat alle consoleberichten worden verzonden naar de eerste seriële poort, die Azure technische ondersteuning helpen kan bij het opsporen van problemen.
+    Opslaan en sluiten van dit bestand en voer `sudo update-grub`. Dit zorgt ervoor dat alle consoleberichten toohello eerste seriële poort, die Azure technische ondersteuning helpen kan bij het opsporen van problemen worden verzonden.
 
-6. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten.  Dit is doorgaans de standaardinstelling.
+6. Zorg ervoor dat Hallo SSH-server is geïnstalleerd en geconfigureerd toostart tijdens het opstarten.  Dit is meestal Hallo standaard.
 
-7. Installeer de Azure Linux Agent:
+7. Hello Azure Linux Agent installeren:
    
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
     >[!Note]
-    De `walinuxagent` pakket kan verwijderen de `NetworkManager` en `NetworkManager-gnome` pakketten als ze zijn geïnstalleerd.
+    Hallo `walinuxagent` pakket kan verwijderen Hallo `NetworkManager` en `NetworkManager-gnome` pakketten als ze zijn geïnstalleerd.
 
-8. Voer de volgende opdrachten inrichting ervan ongedaan maakt de virtuele machine en deze voorbereiden voor het inrichten op Azure:
+8. Voer Hallo opdrachten toodeprovision Hallo virtuele machine te volgen en voorbereiden voor het inrichten op Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Klik op **actie-Afsluiten > omlaag** in Hyper-V-beheer. Uw Linux VHD is nu gereed om te worden geüpload naar Azure.
+9. Klik op **actie-Afsluiten > omlaag** in Hyper-V-beheer. Uw Linux VHD is nu gereed toobe tooAzure geüpload.
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar voor gebruik van de Ubuntu Linux virtuele harde schijf maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie de stappen 2 en 3 in [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+U bent nu klaar toouse uw Ubuntu Linux virtuele harde schijf toocreate nieuwe virtuele machines in Azure. Als dit Hallo eerste keer dat u Hallo .vhd-bestand tooAzure uploadt, Zie de stappen 2 en 3 in [maken en uploaden van een virtuele harde schijf waarop Linux-besturingssysteem Hallo](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="references"></a>Verwijzingen
 Ubuntu hardware inschakelen (HWE) kernel:

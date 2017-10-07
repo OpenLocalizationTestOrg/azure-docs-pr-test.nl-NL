@@ -1,6 +1,6 @@
 ---
-title: Complexe waarden doorgeven tussen Azure-sjablonen | Microsoft Docs
-description: Bevat aanbevolen methoden voor het delen van gegevens van de gebruikersstatus met Azure Resource Manager-sjablonen en gekoppelde sjablonen met behulp van complexe objecten.
+title: aaaPass complexe waarden tussen Azure-sjablonen | Microsoft Docs
+description: Bevat aanbevolen methoden voor het gebruik van complexe objecten tooshare statusgegevens met Azure Resource Manager-sjablonen en gekoppelde sjablonen.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72df1dee351446cea6ce15269e6db288b1f1db79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Status van de share naar en van Azure Resource Manager-sjablonen
-Dit onderwerp bevat aanbevolen procedures voor het beheren en delen van de status in sjablonen. De parameters en variabelen die worden weergegeven in dit onderwerp vindt u voorbeelden van het type objecten u kunt gemakkelijk uw implementatievereisten te ordenen. U kunt uw eigen objecten met eigenschapswaarden die geschikt zijn voor uw omgeving implementeren van deze voorbeelden.
+# <a name="share-state-tooand-from-azure-resource-manager-templates"></a>Share status tooand van Azure Resource Manager-sjablonen
+Dit onderwerp bevat aanbevolen procedures voor het beheren en delen van de status in sjablonen. Hallo parameters en variabelen die worden weergegeven in dit onderwerp vindt u voorbeelden van het type objecten die u kunt definiëren Hallo tooconveniently uw implementatievereisten organiseren. U kunt uw eigen objecten met eigenschapswaarden die geschikt zijn voor uw omgeving implementeren van deze voorbeelden.
 
-In dit onderwerp maakt deel uit van een grotere technisch document. Om te lezen van het volledige papier, downloaden [World klasse Resource Manager-sjablonen overwegingen en procedures bewezen](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+In dit onderwerp maakt deel uit van een grotere technisch document. tooread hello volledige papier downloaden [World klasse Resource Manager-sjablonen overwegingen en procedures bewezen](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## <a name="provide-standard-configuration-settings"></a>Geef de standaardconfiguratie-instellingen
-In plaats van een sjabloon die voorziet in totaal flexibiliteit en talloze variaties bieden, wordt een algemene patroon een selectie van bekende configuraties. Gebruikers kunnen in feite standaard t-shirt grootten zoals sandbox, kleine, middelgrote en grote selecteren. Andere voorbeelden van t-shirt grootten zijn de producten, zoals community edition of enterprise edition. In andere gevallen mogelijk werklastspecifiek configuraties van een technologie – zoals kaart verminderen of er zijn geen sql.
+In plaats van een sjabloon die voorziet in totaal flexibiliteit en talloze variaties bieden, is een algemene patroon tooprovide een selectie van bekende configuraties. Gebruikers kunnen in feite standaard t-shirt grootten zoals sandbox, kleine, middelgrote en grote selecteren. Andere voorbeelden van t-shirt grootten zijn de producten, zoals community edition of enterprise edition. In andere gevallen mogelijk werklastspecifiek configuraties van een technologie – zoals kaart verminderen of er zijn geen sql.
 
-U kunt met complexe objecten variabelen maken die verzamelingen van gegevens, ook wel aangeduid als 'Eigenschappenverzamelingen' bevatten en die gegevens gebruiken om de resource-declaratie in uw sjabloon. Deze aanpak geeft goede, bekende configuraties van verschillende grootten die vooraf zijn geconfigureerd voor klanten. Zonder bekende configuraties moeten gebruikers van de sjabloon cluster formaat op hun eigen bepalen, rekening te houden in resourcebeperkingen platform en rekenen om te identificeren van de resulterende partitionering van storage-accounts en andere bronnen (vanwege beperkingen van cluster grootte en resource). Naast het maken van een betere ervaring voor de klant, enkele bekende configuraties zijn gemakkelijker te ondersteunen en kunt u een hoger niveau van de dichtheid leveren.
+U kunt met complexe objecten variabelen maken die verzamelingen van gegevens, ook wel aangeduid als 'Eigenschappenverzamelingen' bevatten en die gegevens toodrive Hallo de brondeclaratie gebruiken in uw sjabloon. Deze aanpak geeft goede, bekende configuraties van verschillende grootten die vooraf zijn geconfigureerd voor klanten. Zonder bekende configuraties zijn de gebruikers van de sjabloon Hallo moeten cluster sizing op hun eigen, factor in resourcebeperkingen platform bepalen en de handelingen math tooidentify Hallo resulterende partitionering van storage-accounts en andere bronnen (vanwege toocluster grootte en resourcebeperkingen). Bovendien toomaking een betere ervaring voor de klant hello, enkele bekende configuraties zijn eenvoudiger toosupport en kunnen u een hoger niveau van de dichtheid leveren.
 
-Het volgende voorbeeld laat zien hoe variabelen met complexe objecten voor het voorstellen van verzamelingen van gegevens definiëren. De verzamelingen definiëren waarden die worden gebruikt voor de grootte van virtuele machine, netwerkinstellingen, besturingssysteeminstellingen en instellingen voor beschikbaarheid.
+Hallo volgende voorbeeld wordt getoond hoe toodefine variabelen die voor het voorstellen van verzamelingen van gegevens naar complexe objecten bevatten. Hallo verzamelingen definiëren waarden die worden gebruikt voor de grootte van virtuele machine, netwerkinstellingen, besturingssysteeminstellingen en instellingen voor beschikbaarheid.
 
     "variables": {
       "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -109,9 +109,9 @@ Het volgende voorbeeld laat zien hoe variabelen met complexe objecten voor het v
       }
     }
 
-U ziet dat de **tshirtSize** variabele kan de grootte van de t-shirt die u hebt opgegeven via een parameter toevoegen (**kleine**, **gemiddeld**, **grote**) en de tekst **tshirtSize**. U kunt deze variabele gebruiken om op te halen van de bijbehorende complexe objectvariabele voor die t-shirt-grootte.
+U ziet dat Hallo **tshirtSize** variabele worden aaneengeschakeld Hallo t-shirt grootte die u hebt opgegeven via een parameter (**kleine**, **gemiddeld**, **grote**) toohello tekst **tshirtSize**. U gebruikt deze variabele tooretrieve Hallo gekoppeld complexe objectvariabele dat formaat t-shirt.
 
-U kunt vervolgens verwijzen naar deze variabelen verderop in de sjabloon. De mogelijkheid om te verwijzen met de naam van de variabelen en hun eigenschappen vereenvoudigt de sjabloonsyntaxis van de en kunt u gemakkelijk om context te begrijpen. Het volgende voorbeeld definieert een resourcegroep implementeren met behulp van de objecten die eerder weergegeven waarden in te stellen. Bijvoorbeeld, de VM-grootte is ingesteld door op te halen van de waarde voor `variables('tshirtSize').vmSize` terwijl de waarde voor de schijfgrootte is opgehaald uit `variables('tshirtSize').diskSize`. Bovendien de URI voor een gekoppelde sjabloon is ingesteld met de waarde voor `variables('tshirtSize').vmTemplate`.
+Vervolgens kunt u deze variabelen verderop in de sjabloon Hallo raadplegen. Hallo mogelijkheid tooreference met de naam-variabelen en hun eigenschappen Hallo Sjabloonsyntaxis vereenvoudigt en maakt het eenvoudig toounderstand context. Hallo volgende voorbeeld definieert een toodeploy resource met behulp van Hallo-objecten die eerder tooset waarden weergegeven. Bijvoorbeeld, Hallo VM-grootte is ingesteld door op te halen Hallo-waarde voor `variables('tshirtSize').vmSize` tijdens het Hallo-waarde voor de schijfgrootte hello wordt opgehaald uit `variables('tshirtSize').diskSize`. Bovendien Hallo URI voor een gekoppelde sjabloon is ingesteld met een waarde voor Hallo `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -166,23 +166,23 @@ U kunt vervolgens verwijzen naar deze variabelen verderop in de sjabloon. De mog
       }
     }
 
-## <a name="pass-state-to-a-template"></a>Status doorgeven aan een sjabloon
+## <a name="pass-state-tooa-template"></a>Status tooa sjabloon doorgeven
 U delen staat in een sjabloon via parameters die u tijdens de implementatie opgeeft.
 
-De volgende tabel bevat de meest gebruikte parameters in sjablonen.
+Hallo volgende parameters voor een lijst met gebruikte in sjablonen.
 
 | Naam | Waarde | Beschrijving |
 | --- | --- | --- |
-| location |De tekenreeks in een beperkte lijst met Azure-regio 's |De locatie waar de resources worden geïmplementeerd. |
-| storageAccountNamePrefix |Tekenreeks |Unieke DNS-naam voor het Opslagaccount waarin de VM-schijven worden geplaatst |
-| Domeinnaam |Tekenreeks |Domeinnaam van het openbaar toegankelijk jumpbox VM in de indeling: **{domainName}. { Location}.cloudapp.com** bijvoorbeeld: **mydomainname.westus.cloudapp.azure.com** |
-| adminUsername |Tekenreeks |Gebruikersnaam voor de virtuele machines |
-| adminPassword |Tekenreeks |Wachtwoord voor de virtuele machines |
-| tshirtSize |Tekenreeks van een beperkte lijst aangeboden t-shirt grootten |De grootte van de eenheid benoemde schalen om in te richten. Bijvoorbeeld 'Klein', 'Gemiddeld', 'Groot' |
-| virtualNetworkName |Tekenreeks |Naam van het virtuele netwerk dat de gebruiker wil gebruiken. |
-| enableJumpbox |De tekenreeks in een beperkte lijst (ingeschakeld/uitgeschakeld) |De parameter die aangeeft of een jumpbox voor de omgeving wordt ingeschakeld. Waarden: "ingeschakeld", "uitgeschakeld" |
+| location |De tekenreeks in een beperkte lijst met Azure-regio 's |Hallo-locatie waar Hallo resources worden geïmplementeerd. |
+| storageAccountNamePrefix |Tekenreeks |Unieke DNS-naam op voor Hallo Opslagaccount waar Hallo van de virtuele machine-schijven worden geplaatst |
+| Domeinnaam |Tekenreeks |Domeinnaam van Hallo openbaar toegankelijk jumpbox VM Hallo indeling: **{domainName}. { Location}.cloudapp.com** bijvoorbeeld: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |Tekenreeks |Gebruikersnaam voor Hallo virtuele machines |
+| adminPassword |Tekenreeks |Wachtwoord voor Hallo virtuele machines |
+| tshirtSize |Tekenreeks van een beperkte lijst aangeboden t-shirt grootten |Hallo met de naam scale unit grootte tooprovision. Bijvoorbeeld 'Klein', 'Gemiddeld', 'Groot' |
+| virtualNetworkName |Tekenreeks |Naam van het virtuele netwerk Hallo die de consument Hallo wil toouse. |
+| enableJumpbox |De tekenreeks in een beperkte lijst (ingeschakeld/uitgeschakeld) |Parameter die aangeeft of tooenable een jumpbox voor Hallo-omgeving. Waarden: "ingeschakeld", "uitgeschakeld" |
 
-De **tshirtSize** parameter die wordt gebruikt in de vorige sectie is gedefinieerd als:
+Hallo **tshirtSize** parameter die wordt gebruikt in de vorige sectie Hallo is gedefinieerd als:
 
     "parameters": {
       "tshirtSize": {
@@ -194,21 +194,21 @@ De **tshirtSize** parameter die wordt gebruikt in de vorige sectie is gedefiniee
           "Large"
         ],
         "metadata": {
-          "Description": "T-shirt size of the MongoDB deployment"
+          "Description": "T-shirt size of hello MongoDB deployment"
         }
       }
     }
 
 
-## <a name="pass-state-to-linked-templates"></a>Status geven aan gekoppelde sjablonen
-Bij het verbinden met gekoppelde sjablonen, vaak gebruik van een combinatie van statische en variabelen gegenereerd.
+## <a name="pass-state-toolinked-templates"></a>Status toolinked sjablonen doorgeven
+Wanneer u verbinding maakt toolinked sjablonen, vaak gebruik een combinatie van statische en variabelen gegenereerd.
 
 ### <a name="static-variables"></a>Statische variabelen
-Statische variabelen worden vaak gebruikt base waarden, zoals URL's die worden gebruikt in een sjabloon op te geven.
+Statische variabelen zijn vaak gebruikte tooprovide basiswaarden, zoals URL's die in een sjabloon worden gebruikt.
 
-In het volgende fragment van de sjabloon `templateBaseUrl` geeft de hoofdmaplocatie voor de sjabloon in GitHub. De volgende regel maakt een nieuwe variabele `sharedTemplateUrl` die de basis-URL met de bekende naam van de sjabloon gedeelde bronnen worden aaneengeschakeld. Onder deze regel een variabele complexe object wordt gebruikt voor het opslaan van de grootte van een t-shirt, waarbij de basis-URL naar de locatie van de sjabloon bekende configuratie samengevoegd en opgeslagen in de `vmTemplate` eigenschap.
+In Hallo volgende fragment van de sjabloon, `templateBaseUrl` Hiermee geeft u de hoofdlocatie Hallo voor Hallo-sjabloon in GitHub. de volgende regel Hallo bouwt u een nieuwe variabele `sharedTemplateUrl` die Hallo basis-URL met bekende naam Hallo van Hallo gedeelde bronnen sjabloon worden aaneengeschakeld. Onder deze regel een variabele complexe object is gebruikte toostore een grootte t-shirt waarbij Hallo basis-URL aaneengeschakelde toohello bekende locatie van de configuratie-sjabloon en opgeslagen in Hallo `vmTemplate` eigenschap.
 
-Het voordeel van deze benadering is dat als de sjabloonlocatie wijzigt, u alleen hoeft de statische variabele op één plek die wordt doorgegeven in de gekoppelde sjablonen te wijzigen.
+Hallo voordeel van deze benadering is dat als locatie van de sjabloon hello wordt gewijzigd, hoeft u alleen toochange Hallo statische variabele op één plek die wordt doorgegeven in de gehele Hallo gekoppelde sjablonen.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -230,13 +230,13 @@ Het voordeel van deze benadering is dat als de sjabloonlocatie wijzigt, u alleen
     }
 
 ### <a name="generated-variables"></a>Variabelen voor de gegenereerde
-Naast statische variabelen worden verschillende variabelen dynamisch gegenereerd. Deze sectie worden enkele van de algemene typen gegenereerde variabelen.
+Meerdere variabelen worden in toevoeging toostatic variabelen, dynamisch gegenereerd. Deze sectie worden algemene typen gegenereerde variabelen Hallo.
 
 #### <a name="tshirtsize"></a>tshirtSize
-U bent bekend met deze gegenereerde variabele van de bovenstaande voorbeelden.
+U bent bekend met deze variabele gegenereerde van Hallo bovenstaande voorbeelden.
 
 #### <a name="networksettings"></a>networkSettings
-In een capaciteit, de mogelijkheid of de end-to-end bereik oplossingssjabloon maken de gekoppelde sjablonen meestal resources die bestaan op een netwerk. Een eenvoudige benadering is het gebruik van een complex object op te slaan netwerkinstellingen en aan de gekoppelde sjablonen door te geven.
+In een Hallo capaciteit, mogelijkheid of bereik voor end-to-end-oplossingssjabloon maken gekoppelde sjablonen meestal resources die bestaan op een netwerk. Een eenvoudige benadering is toouse complexe object toostore netwerkinstellingen en ze toolinked sjablonen doorgeven.
 
 Hieronder ziet u een voorbeeld van netwerkinstellingen communiceren.
 
@@ -258,7 +258,7 @@ Hieronder ziet u een voorbeeld van netwerkinstellingen communiceren.
     }
 
 #### <a name="availabilitysettings"></a>availabilitySettings
-Resources die zijn gemaakt in de gekoppelde sjablonen worden vaak geplaatst in een beschikbaarheidsset. In het volgende voorbeeld wordt de naam van de beschikbaarheidsset is opgegeven en ook het domein met fouten en het updatedomein voor het gebruik van tellen.
+Resources die zijn gemaakt in de gekoppelde sjablonen worden vaak geplaatst in een beschikbaarheidsset. In Hallo voorbeeld te volgen, naam van de beschikbaarheidsset Hallo is opgegeven en ook Hallo foutdomein en domein aantal toouse bijwerken.
 
     "availabilitySetSettings": {
       "name": "pgsqlAvailabilitySet",
@@ -266,10 +266,10 @@ Resources die zijn gemaakt in de gekoppelde sjablonen worden vaak geplaatst in e
       "udCount": 5
     }
 
-Als u meerdere beschikbaarheidssets (bijvoorbeeld één voor hoofdknooppunten) en een andere voor gegevensknooppunten, kunt u een naam op als een voorvoegsel moet, meerdere beschikbaarheidssets opgeven of het model eerder weergegeven voor het maken van een variabele voor een specifieke t-shirt grootte volgen.
+Als u meerdere beschikbaarheidssets (bijvoorbeeld één voor hoofdknooppunten) en een andere voor gegevensknooppunten, kunt u een naam op als een voorvoegsel moet, Geef meerdere beschikbaarheidssets of Hallo model eerder weergegeven voor het maken van een variabele voor een specifieke t-shirt grootte volgen.
 
 #### <a name="storagesettings"></a>storageSettings
-Details van de opslag worden vaak gedeeld met gekoppelde sjablonen. In het voorbeeld hieronder, een *storageSettings* object bevat informatie over de namen van de storage-account en de container.
+Details van de opslag worden vaak gedeeld met gekoppelde sjablonen. In Hallo voorbeeld hieronder, een *storageSettings* object bevat informatie over Hallo storage-account en de container namen.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -278,9 +278,9 @@ Details van de opslag worden vaak gedeeld met gekoppelde sjablonen. In het voorb
     }
 
 #### <a name="ossettings"></a>osSettings
-Met gekoppelde sjablonen, moet u wellicht besturingssysteeminstellingen doorgeven aan verschillende knooppunten in verschillende andere configuratie voor bekende typen. Een complex object is een eenvoudige manier voor het opslaan en delen van informatie over het besturingssysteem en is het eenvoudiger voor de ondersteuning van meerdere besturingssystemen kiezen voor implementatie.
+Met gekoppelde sjablonen moet u mogelijk toopass besturingssysteem instellingen toovarious knooppunten typen andere configuratie voor bekende typen. Een complex object is een eenvoudige manier toostore en delen informatie over het besturingssysteem en maakt het ook eenvoudiger toosupport meerdere besturingssystemen kiezen voor implementatie.
 
-Het volgende voorbeeld ziet u een object voor *osSettings*:
+Hallo volgende voorbeeld ziet u een object voor *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -292,7 +292,7 @@ Het volgende voorbeeld ziet u een object voor *osSettings*:
     }
 
 #### <a name="machinesettings"></a>machineSettings
-Een gegenereerde variabele *machineSettings* is een complex object met een combinatie van core variabelen voor het maken van een virtuele machine. De variabelen zijn gebruikersnaam en wachtwoord, een voorvoegsel voor de VM-namen en een verwijzing naar het afbeelding van het besturingssysteem.
+Een gegenereerde variabele *machineSettings* is een complex object met een combinatie van core variabelen voor het maken van een virtuele machine. Hallo-variabelen zijn beheerdersgebruikersnaam en wachtwoord, een voorvoegsel voor Hallo VM-namen en een verwijzing naar het afbeelding van het besturingssysteem.
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -306,17 +306,17 @@ Een gegenereerde variabele *machineSettings* is een complex object met een combi
         }
     },
 
-Houd er rekening mee dat *osImageReference* haalt de waarden van de *osSettings* variabele gedefinieerd in de belangrijkste sjabloon. Dit betekent dat u kunt gemakkelijk het besturingssysteem wijzigen voor een VM-geheel of op basis van de voorkeur van de consument van een sjabloon.
+Houd er rekening mee dat *osImageReference* haalt de waarden van Hallo Hallo *osSettings* variabele in Hallo belangrijkste sjabloon worden gedefinieerd. Dit betekent dat u kunt eenvoudig hello besturingssysteem wijzigen voor een VM-geheel of op basis van Hallo voorkeur van de consument van een sjabloon.
 
 #### <a name="vmscripts"></a>vmScripts
-De *vmScripts* object bevat informatie over de scripts voor het downloaden en uitvoeren op een VM-instantie, inclusief externe en interne verwijzingen. Verwijzingen zijn buiten de infrastructuur.
-Binnen verwijzingen bevatten de geïnstalleerde software die is geïnstalleerd en de configuratie.
+Hallo *vmScripts* object bevat details over Hallo scripts toodownload en uitvoeren op een VM-instantie, inclusief externe en interne verwijzingen. Buiten bevatten verwijzingen Hallo-infrastructuur.
+Binnen verwijzingen zijn hello geïnstalleerd software is geïnstalleerd en configuratie.
 
-U gebruikt de *scriptsToDownload* eigenschap voor een lijst met de scripts voor het downloaden van de virtuele machine. Dit object bevat ook verwijzingen naar opdrachtregelargumenten voor verschillende soorten acties. Deze acties omvatten het uitvoeren van de standaardinstallatie voor elke afzonderlijke knooppunten, een installatie die wordt uitgevoerd nadat alle knooppunten worden geïmplementeerd en eventuele extra scripts die specifiek zijn voor een bepaalde sjabloon.
+Gebruik van Hallo *scriptsToDownload* eigenschap toolist Hallo scripts toodownload toohello VM. Dit object bevat ook verwijzingen toocommand regel argumenten voor verschillende soorten acties. Deze acties omvatten het uitvoeren van de standaardinstallatie Hallo voor elke afzonderlijke knooppunten, een installatie die wordt uitgevoerd nadat alle knooppunten worden geïmplementeerd en eventuele extra scripts die mogelijk specifieke tooa opgegeven sjabloon.
 
-In dit voorbeeld is van een sjabloon die wordt gebruikt voor het implementeren van MongoDB, waarvoor een instellingen voor het leveren van hoge beschikbaarheid. De *arbiterNodeInstallCommand* is toegevoegd aan *vmScripts* voor het installeren van de instellingen.
+In dit voorbeeld is van een sjabloon die wordt gebruikt toodeploy MongoDB, die een hoge beschikbaarheid voor instellingen toodeliver vereist. Hallo *arbiterNodeInstallCommand* te zijn toegevoegd*vmScripts* tooinstall Hallo instellingen.
 
-De sectie met sjabloonvariabelen is waar het vinden van de variabelen die de specifieke tekst voor het uitvoeren van het script met de juiste waarden te definiëren.
+sectie met sjabloonvariabelen Hallo is waar u Hallo variabelen die Hallo specifieke tekst tooexecute Hallo script met de juiste waarden Hallo definiëren vinden.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -330,9 +330,9 @@ De sectie met sjabloonvariabelen is waar het vinden van de variabelen die de spe
 
 
 ## <a name="return-state-from-a-template"></a>Geretourneerde status van een sjabloon
-Niet alleen kunt u gegevens kunt doorgeven in een sjabloon kunt u ook gegevens terug naar de aanroepende sjabloon delen. In de **levert** gedeelte van een gekoppelde sjabloon, kunt u sleutel-waardeparen die kunnen worden gebruikt door de bronsjabloon opgeven.
+Niet alleen kunt u gegevens doorgeven aan een sjabloon, kunt u ook share back toohello aanroepen gegevenssjabloon. In Hallo **levert** gedeelte van een gekoppelde sjabloon, kunt u sleutel-waardeparen die kunnen worden gebruikt door de bronsjabloon Hallo opgeven.
 
-Het volgende voorbeeld laat zien hoe de privé IP-adres in een gekoppelde sjabloon gegenereerd doorgeven.
+Hallo volgende voorbeeld ziet u hoe toopass Hallo privé IP-adres in een gekoppelde sjabloon gegenereerd.
 
     "outputs": {
         "masterip": {
@@ -341,11 +341,11 @@ Het volgende voorbeeld laat zien hoe de privé IP-adres in een gekoppelde sjablo
          }
     }
 
-In de belangrijkste sjabloon kunt u die gegevens gebruiken met de volgende syntaxis:
+In de belangrijkste sjabloon hello, kunt u die gegevens Hello de volgende syntaxis:
 
     "[reference('master-node').outputs.masterip.value]"
 
-U kunt deze expressie in de sectie uitvoer of de sectie resources van de belangrijkste sjabloon gebruiken. U kunt de expressie in het gedeelte variabelen niet gebruiken omdat deze afhankelijk van de runtimestatus van de is. U kunt deze waarde van de belangrijkste sjabloon gebruiken:
+U kunt deze expressie in Hallo uitvoer sectie of Hallo resources gedeelte van de belangrijkste sjabloon hello gebruiken. U kunt Hallo expressie gebruiken in de sectie met sjabloonvariabelen Hallo omdat is afhankelijk van de runtimestatus Hallo. tooreturn hello belangrijkste sjabloon gebruiken voor deze waarde:
 
     "outputs": {
       "masterIpAddress": {
@@ -353,10 +353,10 @@ U kunt deze expressie in de sectie uitvoer of de sectie resources van de belangr
         "type": "string"
       }
 
-Zie voor een voorbeeld van het gebruik van de uitvoer-gedeelte van een gekoppelde sjabloon om terug te keren gegevensschijven voor een virtuele machine [meerdere gegevensschijven maken voor een virtuele Machine](resource-group-create-multiple.md).
+Zie voor een voorbeeld van het gebruik van Hallo sectie van een gekoppelde sjabloon tooreturn gegevensschijven voor een virtuele machine levert, [meerdere gegevensschijven maken voor een virtuele Machine](resource-group-create-multiple.md).
 
 ## <a name="define-authentication-settings-for-virtual-machine"></a>Verificatie-instellingen voor virtuele machine definiëren
-U kunt hetzelfde patroon eerder weergegeven voor configuratie-instellingen gebruiken om op te geven van de verificatie-instellingen voor een virtuele machine. U maakt een parameter voor het doorgeven in het type verificatie.
+U kunt Hallo hetzelfde patroon dat eerder voor configuratie-instellingen toospecify Hallo verificatie-instellingen voor een virtuele machine wordt weergegeven. U maakt een parameter voor het doorgeven in Hallo type verificatie.
 
     "parameters": {
       "authenticationType": {
@@ -372,7 +372,7 @@ U kunt hetzelfde patroon eerder weergegeven voor configuratie-instellingen gebru
       }
     }
 
-Toevoegen van variabelen voor de verschillende typen en een variabele voor het opslaan van welk type voor deze implementatie op basis van de waarde van de parameter wordt gebruikt.
+U toevoegen variabelen voor de verschillende verificatietypen Hallo en een variabele toostore welk type wordt gebruikt voor deze implementatie op basis van de waarde van parameter Hallo Hallo.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
@@ -400,7 +400,7 @@ Toevoegen van variabelen voor de verschillende typen en een variabele voor het o
       }
     }
 
-Bij het definiëren van de virtuele machine, stelt u de **osProfile** aan de variabele die u hebt gemaakt.
+Bij het definiëren van Hallo virtuele machine u Hallo instellen **osProfile** toohello variabele die u hebt gemaakt.
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -410,5 +410,5 @@ Bij het definiëren van de virtuele machine, stelt u de **osProfile** aan de var
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de secties van de sjabloon, [Azure Resource Manager-sjablonen ontwerpen](resource-group-authoring-templates.md)
-* Zie voor de functies die beschikbaar in een sjabloon zijn [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md)
+* toolearn hello secties van de sjabloon hello, Zie [Azure Resource Manager-sjablonen ontwerpen](resource-group-authoring-templates.md)
+* Zie toosee Hallo functies die beschikbaar zijn in een sjabloon [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md)

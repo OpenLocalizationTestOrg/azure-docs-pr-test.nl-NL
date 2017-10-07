@@ -1,6 +1,6 @@
 ---
-title: Gegevenspijplijnen maken met behulp van Azure .NET SDK | Microsoft Docs
-description: Informatie over het programmatisch maken, bewaken en beheren van Azure data factory's met behulp van de Data Factory-SDK.
+title: aaaCreate gegevenspijplijnen met behulp van Azure .NET SDK | Microsoft Docs
+description: Informatie over hoe tooprogrammatically maken, bewaken en beheren van Azure data factory's met behulp van de Data Factory-SDK.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,109 +14,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 9d9dac75321c5d4e079f49320d9b7c6f56e48754
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 190b5f99edbb3c27e1e8efb8990b9e601b22458f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Maken, bewaken en beheren van Azure data Factory met Azure Data Factory .NET SDK
 ## <a name="overview"></a>Overzicht
-U kunt maken, bewaken en beheren van Azure data factory's programmatisch met behulp van Data Factory .NET SDK. Dit artikel bevat een overzicht die u volgen kunt om een .NET-console voorbeeldtoepassing die u maakt en bewaakt een gegevensfactory maken. 
+U kunt maken, bewaken en beheren van Azure data factory's programmatisch met behulp van Data Factory .NET SDK. Dit artikel bevat een overzicht die u kunt een voorbeeld .NET-consoletoepassing die wordt gemaakt en een gegevensfactory bewaakt toocreate volgen. 
 
 > [!NOTE]
-> Dit artikel behandelt niet de volledige Data Factory .NET API. Zie [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) voor uitgebreide documentatie over .NET API voor Data Factory. 
+> In dit artikel omvat niet alle Hallo .NET API van Data Factory. Zie [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) voor uitgebreide documentatie over .NET API voor Data Factory. 
 
 ## <a name="prerequisites"></a>Vereisten
 * Visual Studio 2012 of 2013 of 2015
 * Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/).
-* Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
+* Azure PowerShell. Volg de instructies in [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) artikel tooinstall Azure PowerShell op uw computer. U Azure PowerShell toocreate een Azure Active Directory-toepassing.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
-Maak een Azure Active Directory-toepassing, maak een service-principal voor de toepassing en wijs deze toe aan de rol **Inzender Data Factory**.
+Een Azure Active Directory-toepassing maken, een service-principal voor de toepassing hello maken en toewijzen toohello **Data Factory Inzender** rol.
 
 1. Start **PowerShell**.
-2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
+2. Voer Hallo volgende opdracht en Voer Hallo-gebruikersnaam en wachtwoord toosign in toohello Azure-portal te gebruiken.
 
     ```PowerShell
     Login-AzureRmAccount
     ```
-3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
+3. Hallo opdracht tooview na alle Hallo abonnementen voor dit account uitgevoerd.
 
     ```PowerShell
     Get-AzureRmSubscription
     ```
-4. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement.
+4. Hallo opdracht tooselect Hallo abonnement dat u wilt dat toowork met volgende worden uitgevoerd. Vervang  **&lt;NameOfAzureSubscription** &gt; met Hallo-naam van uw Azure-abonnement.
 
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
 
    > [!IMPORTANT]
-   > Noteer de **SubscriptionId** en de **TenantId** uit de uitvoer van deze opdracht.
+   > Noteer **SubscriptionId** en **TenantId** van Hallo-uitvoer van deze opdracht.
 
-5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.
+5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door het uitvoeren van de volgende opdracht in PowerShell Hallo Hallo.
 
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
-    Als de resourcegroep al bestaat, geeft u aan of u deze wilt bijwerken (Y) of ongewijzigd wilt laten (N).
+    Als de resourcegroep Hallo al bestaat, die u opgeeft of tooupdate deze (Y) of als (N).
 
-    Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie de naam van uw resourcegroep gebruiken in plaats van ADFTutorialResourceGroup.
+    Als u een andere resourcegroep gebruikt, moet u toouse Hallo-naam van de resourcegroep in plaats van ADFTutorialResourceGroup in deze zelfstudie.
 6. Maak een Azure Active Directory-toepassing.
 
     ```PowerShell
     $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
-    Als u de volgende fout ziet, geeft u een andere URL op en voert u de opdracht opnieuw uit.
+    Als u krijgt de volgende fout hello, Geef een andere URL en voer de opdracht Hallo opnieuw.
     
     ```PowerShell
-    Another object with the same value for property identifierUris already exists.
+    Another object with hello same value for property identifierUris already exists.
     ```
-7. Maak de AD-service-principal.
+7. Hallo AD-service-principal maken.
 
     ```PowerShell
     New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
-8. Voeg de service-principal toe aan de rol **Inzender Data Factory**.
+8. Toevoegen van de service principal toohello **Data Factory Inzender** rol.
 
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. Haal de toepassings-id op.
+9. Ophalen van Hallo toepassings-ID.
 
     ```PowerShell
     $azureAdApplication 
     ```
-    Noteer de toepassings-id (applicationID in de uitvoer).
+    Noteer Hallo toepassings-ID (applicationID) van Hallo-uitvoer.
 
 U moet na deze stappen beschikken over de volgende vier waarden:
 
 * Tenant-id
 * Abonnements-id
 * Toepassings-id
-* Wachtwoord (opgegeven in de eerste opdracht)
+* Wachtwoord (opgegeven in de eerste opdracht Hallo)
 
 ## <a name="walkthrough"></a>Walkthrough
-In dit overzicht kunt u een gegevensfactory maken met een pijplijn met een kopieeractiviteit. De kopieeractiviteit kopieert gegevens van een map in de Azure blob-opslag naar een andere map in dezelfde blob storage. 
+In Hallo scenario maakt u een gegevensfactory met een pijplijn met een kopieeractiviteit. Hallo kopieeractiviteit gegevens worden gekopieerd vanuit een map in de map Azure blob storage tooanother van Hallo dezelfde blob-opslag. 
 
-Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.
+Hallo Kopieeractiviteit Hallo gegevensverplaatsing in Azure Data Factory uitgevoerd. Hallo-activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens tussen verschillende gegevensarchieven op een manier veilig, betrouwbaar en schaalbaar kan worden gekopieerd. Zie [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over Hallo Kopieeractiviteit.
 
 1. Maak met behulp van Visual Studio 2012/2013/2015 een C# .NET-consoletoepassing.
    1. Open **Visual Studio** 2012/2013/2015.
-   2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
+   2. Klik op **bestand**, wijst u te**nieuw**, en klik op **Project**.
    3. Vouw **Templates** uit en selecteer **Visual C#**. Tijdens deze walkthrough gebruikt u C#, maar u kunt een willekeurige .NET-taal gebruiken.
-   4. Selecteer **Console Application** uit de lijst met projecttypen aan de rechterkant.
-   5. Voer **DataFactoryAPITestApp** in als de naam.
-   6. Selecteer **C:\ADFGetStarted** als de locatie.
-   7. Klik op **OK** om het project te maken.
-2. Klik op **Tools**, wijs **NuGet Package Manager** aan en klik op **Package Manager Console**.
-3. Voer de volgende stappen uit in de **Package Manager Console**:
-   1. Voer de volgende opdracht uit om het Data Factory-pakket te installeren: `Install-Package Microsoft.Azure.Management.DataFactories`
-   2. Voer de volgende opdracht uit om het Azure Active Directory-pakket te installeren (u gebruikt de Active Directory API in de code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Vervang de inhoud van **App.config** bestand in het project met de volgende inhoud: 
+   4. Selecteer **consoletoepassing** uit de lijst Hallo van projecttypen op Hallo rechts.
+   5. Voer **DataFactoryAPITestApp** voor Hallo naam.
+   6. Selecteer **C:\ADFGetStarted** voor Hallo locatie.
+   7. Klik op **OK** toocreate Hallo project.
+2. Klik op **extra**, wijst u te**NuGet Package Manager**, en klik op **Package Manager Console**.
+3. In Hallo **Package Manager Console**, Hallo volgende stappen:
+   1. Voer Hallo opdracht tooinstall Data Factory-pakket te volgen:`Install-Package Microsoft.Azure.Management.DataFactories`
+   2. Voer Hallo opdracht tooinstall Azure Active Directory-pakket (Active Directory-API in gebruikt Hallo code) te volgen:`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
+4. Vervang de inhoud Hallo van **App.config** bestand in Hallo-project met Hallo volgende inhoud: 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -127,14 +127,14 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
             <add key="ApplicationId" value="your application ID" />
-            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="Password" value="Password you used while creating hello AAD application" />
             <add key="SubscriptionId" value= "Subscription ID" />
             <add key="ActiveDirectoryTenantId" value="Tenant ID" />
         </appSettings>
     </configuration>
     ```
-5. Waarden voor bijwerken in het bestand App.Config  **&lt;toepassings-ID&gt;**,  **&lt;wachtwoord&gt;**,  **&lt;abonnement ID&gt;**, en  **&lt;tenant-ID&gt;**  met uw eigen waarden.
-6. Voeg de volgende **met** instructies voor het **Program.cs** bestand in het project.
+5. Waarden voor bijwerken in het bestand App.Config Hallo  **&lt;toepassings-ID&gt;**,  **&lt;wachtwoord&gt;**,  **&lt; Abonnements-ID&gt;**, en  **&lt;tenant-ID&gt;**  met uw eigen waarden.
+6. Voeg de volgende Hallo **met** instructies toohello **Program.cs** bestand in Hallo-project.
 
     ```csharp
     using System.Configuration;
@@ -150,16 +150,15 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     ```
-6. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse **DataPipelineManagementClient** te maken.
- U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.
+6. Toevoegen na de code die u een exemplaar van maakt Hallo **DataPipelineManagementClient** klasse toohello **Main** methode. U kunt dit object toocreate gebruiken een gegevensfactory, een gekoppelde service, invoer- en uitvoergegevenssets en een pijplijn. U kunt ook dit object toomonitor segmenten van een gegevensset gebruiken tijdens runtime.
 
     ```csharp
     // create data factory management client
 
-    //IMPORTANT: specify the name of Azure resource group here
+    //IMPORTANT: specify hello name of Azure resource group here
     string resourceGroupName = "ADFTutorialResourceGroup";
 
-    //IMPORTANT: the name of the data factory must be globally unique.
+    //IMPORTANT: hello name of hello data factory must be globally unique.
     // Therefore, update this value. For example:APITutorialFactory05122017
     string dataFactoryName = "APITutorialFactory";
 
@@ -173,10 +172,10 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
     ```
 
    > [!IMPORTANT]
-   > Vervang de waarde van **resourceGroupName** door de naam van uw Azure-resourcegroep. U kunt maken met een resource-groep met de [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.
+   > Vervang de waarde Hallo van **resourceGroupName** met Hallo-naam van uw Azure-resourcegroep. Kunt u een resourcegroep met Hallo [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.
    >
-   > Werk de naam van de data factory (dataFactoryName) zodanig bij dat deze uniek is. De naam van de gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
-7. Voeg de volgende code die een **gegevensfactory** maakt toe aan de methode **Main**.
+   > Naam van de data factory (dataFactoryName) toobe Hallo unieke bijwerken. Naam van Hallo-gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+7. Toevoegen Hallo code die wordt gemaakt na een **gegevensfactory** toohello **Main** methode.
 
     ```csharp
     // create a data factory
@@ -193,7 +192,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         }
     );
     ```
-8. Voeg de volgende code die een **gekoppelde Azure Storage-service** maakt toe aan de methode **Main**.
+8. Toevoegen Hallo code die wordt gemaakt na een **gekoppelde Azure Storage-service** toohello **Main** methode.
 
    > [!IMPORTANT]
    > Vervang **storageaccountname** en **accountkey** door de naam en sleutel van uw Azure Storage-account.
@@ -215,11 +214,11 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         }
     );
     ```
-9. Voeg de volgende code die **gegevenssets voor invoer en uitvoer** maakt toe aan de methode **Main**.
+9. Hallo code die wordt gemaakt na toevoegen **invoer- en uitvoergegevenssets** toohello **Main** methode.
 
-    De **FolderPath** voor de blob-invoerbron is ingesteld op **adftutorial /** waar **adftutorial** is de naam van de container in de blob-opslag. Als deze container niet in de Azure blob-opslag bestaat, een container maken met deze naam: **adftutorial** en een tekstbestand te uploaden naar de container.
+    Hallo **FolderPath** voor blob-invoerbron hello te is ingesteld**adftutorial /** waar **adftutorial** Hallo-naam van het Hallo-container in de blob-opslag. Als deze container niet in de Azure blob-opslag bestaat, een container maken met deze naam: **adftutorial** en een container tekst bestand toohello te uploaden.
 
-    Het mappad voor de uitvoer-blob is ingesteld op: **adftutorial/apifactoryoutput / {segmenteren}** waar **segment** dynamisch wordt berekend op basis van de waarde van **SliceStart** () datum / tijd van elk segment starten).
+    Hallo FolderPath voor Hallo uitvoer blob is ingesteld op: **adftutorial/apifactoryoutput / {segmenteren}** waar **segment** is dynamisch wordt berekend op basis van Hallo-waarde van **SliceStart**(en-tijd van elk segment starten).
 
     ```csharp
     // create input and output datasets
@@ -295,9 +294,9 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         }
     });
     ```
-10. Voeg de volgende code die **een pijplijn maakt en activeert** toe aan de methode **Main**. Deze pijplijn heeft een **CopyActivity** die **BlobSource** als een bron neemt en **BlobSink** als een sink.
+10. Voeg Hallo volgende code die **wordt gemaakt en wordt geactiveerd op een pijplijn** toohello **Main** methode. Deze pijplijn heeft een **CopyActivity** die **BlobSource** als een bron neemt en **BlobSink** als een sink.
 
-    Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.
+    Hallo Kopieeractiviteit Hallo gegevensverplaatsing in Azure Data Factory uitgevoerd. Hallo-activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens tussen verschillende gegevensarchieven op een manier veilig, betrouwbaar en schaalbaar kan worden gekopieerd. Zie [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over Hallo Kopieeractiviteit.
 
     ```csharp
     // create a pipeline
@@ -316,7 +315,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
             {
                 Description = "Demo Pipeline for data transfer between blobs",
     
-                // Initial value for pipeline's active period. With this, you won't need to set slice status
+                // Initial value for pipeline's active period. With this, you won't need tooset slice status
                 Start = PipelineActivePeriodStartTime,
                 End = PipelineActivePeriodEndTime,
     
@@ -355,7 +354,7 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         }
     });
     ```
-12. Voeg de volgende code toe aan de methode **Main** om de status van een gegevenssegment van de uitvoergegevensset te achterhalen. Er is slechts één segment verwacht in dit voorbeeld.
+12. Hallo na code toohello toevoegen **Main** methode tooget Hallo status van een gegevenssegment Hallo uitvoergegevensset. Er is slechts één segment verwacht in dit voorbeeld.
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -364,8 +363,8 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
     
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");
-        // wait before the next status check
+        Console.WriteLine("Pulling hello slice status");
+        // wait before hello next status check
         Thread.Sleep(1000 * 12);
     
         var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
@@ -390,13 +389,13 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         }
     }
     ```
-13. **(optioneel)**  Voeg de volgende code als u wilt ophalen uitvoeren details voor een gegevenssegment naar de **Main** methode.
+13. **(optioneel)**  Toevoegen Hallo volgende code tooget Voer details voor een segment gegevens toohello **Main** methode.
 
     ```csharp
     Console.WriteLine("Getting run details of a data slice");
     
-    // give it a few minutes for the output slice to be ready
-    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    // give it a few minutes for hello output slice toobe ready
+    Console.WriteLine("\nGive it a few minutes for hello output slice toobe ready and press any key.");
     Console.ReadKey();
     
     var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -419,10 +418,10 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
     }
     
-    Console.WriteLine("\nPress any key to exit.");
+    Console.WriteLine("\nPress any key tooexit.");
     Console.ReadKey();
     ```
-14. Voeg de volgende Help-methode toe die door de methode **Main** wordt gebruikt voor de klasse **Program**. Deze methode verschijnt een dialoogvenster waarmee u bieden **gebruikersnaam** en **wachtwoord** die u gebruikt voor aanmelding bij Azure-portal.
+14. Toevoegen van de volgende Help-methode die wordt gebruikt door Hallo Hallo **Main** methode toohello **programma** klasse. Deze methode verschijnt een dialoogvenster waarmee u bieden **gebruikersnaam** en **wachtwoord** toolog in tooAzure portal te gebruiken.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
@@ -438,29 +437,29 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
         if (result != null)
             return result.AccessToken;
 
-        throw new InvalidOperationException("Failed to acquire token");
+        throw new InvalidOperationException("Failed tooacquire token");
     }
     ```
 
-15. Vouw het project in Solution Explorer: **DataFactoryAPITestApp**, met de rechtermuisknop op **verwijzingen**, en klik op **verwijzing toevoegen**. Schakel dit selectievakje in voor `System.Configuration` assembly en klik op **OK**.
-15. Bouw de consoletoepassing. Klik op **Build** in het menu en klik op **Build Solution**.
-16. Controleer of er ten minste één bestand in de container adftutorial in uw Azure-blobopslag. Als dit niet het geval is, Emp.txt-bestand in Kladblok met de volgende inhoud maken en uploaden naar de container adftutorial.
+15. Vouw in Solution Explorer hello, Hallo project: **DataFactoryAPITestApp**, met de rechtermuisknop op **verwijzingen**, en klik op **verwijzing toevoegen**. Schakel dit selectievakje in voor `System.Configuration` assembly en klik op **OK**.
+15. Hallo-consoletoepassing bouwen. Klik op **bouwen** op en klik op Hallo **Build Solution**.
+16. Controleer of er ten minste één bestand in Hallo adftutorial container in Azure blob-opslag. Als dat niet het geval is, maak Emp.txt-bestand in Kladblok met Hallo na inhoud en toohello adftutorial container te uploaden.
 
     ```
     John, Doe
     Jane, Doe
     ```
-17. Voer het voorbeeld uit door op **Debug** -> **Start Debugging** te klikken in het menu. Als u **Getting run details of a data slice** ziet, wacht u een paar minuten en drukt u op **ENTER**.
-18. Gebruik Azure Portal om te controleren of de gegevensfactory **APITutorialFactory** wordt gemaakt met de volgende artefacten:
+17. Hallo-voorbeeld uitvoeren door te klikken op **Debug** -> **foutopsporing starten** Hallo-menu. Wanneer er Hallo **details van een gegevenssegment ophalen uitvoeren**, wacht een paar minuten en druk op **ENTER**.
+18. Gebruik hello Azure portal tooverify die gegevensfactory hello **APITutorialFactory** wordt gemaakt met de Hallo artefacten te volgen:
     * Gekoppelde service: **AzureStorageLinkedService**
     * Gegevensset: **DatasetBlobSource** en **DatasetBlobDestination**.
     * Pijplijn: **PipelineBlobSample**
-19. Controleren of een bestand voor uitvoer is gemaakt de **apifactoryoutput** map in de **adftutorial** container.
+19. Controleren of een bestand voor uitvoer is gemaakt in Hallo **apifactoryoutput** map in Hallo **adftutorial** container.
 
 ## <a name="get-a-list-of-failed-data-slices"></a>Een lijst met mislukte gegevenssegmenten ophalen 
 
 ```csharp
-// Parse the resource path
+// Parse hello resource path
 var ResourceGroupName = "ADFTutorialResourceGroup";
 var DataFactoryName = "DataFactoryAPITestApp";
 
@@ -497,6 +496,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het volgende voorbeeld voor het maken van een pijplijn met .NET SDK waarmee gegevens worden gekopieerd van een Azure blob-opslag met een Azure SQL database: 
+Zie Hallo voorbeeld voor het maken van een pijplijn met .NET SDK waarmee gegevens worden gekopieerd van een Azure blob storage tooan Azure SQL database te volgen: 
 
-- [Een pijplijn om gegevens te kopiëren van Blob-opslag met SQL-Database maken](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Een pijplijn toocopy gegevens uit Blob Storage tooSQL Database maken](data-factory-copy-activity-tutorial-using-dotnet-api.md)

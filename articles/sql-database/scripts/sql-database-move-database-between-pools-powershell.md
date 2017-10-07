@@ -1,6 +1,6 @@
 ---
-title: PowerShell voorbeeld verplaatsen Azure SQL database-SQL elastische pool | Microsoft Docs
-description: Azure PowerShell-voorbeeldscript een SQL-database verplaatsen tussen elastische pools met behulp van PowerShell
+title: aaaPowerShell voorbeeld verplaatsen Azure SQL database-SQL elastische pool | Microsoft Docs
+description: Azure PowerShell-voorbeeld script toomove een SQL-database tussen elastische pools met behulp van PowerShell
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 58f14dc668f25f17e93fcaf30f72b15a46d71484
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 501e82ce93a31264d0625fb0243b4e44dcb2d007
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>PowerShell gebruiken voor het maken van elastische pools en databases verplaatsen tussen elastische pools
+# <a name="use-powershell-toocreate-elastic-pools-and-move-databases-between-elastic-pools"></a>Gebruik PowerShell toocreate elastische pools en databases verplaatsen tussen elastische pools
 
-Voorbeeld van deze PowerShell-script maakt twee elastische pools en een database uit een elastische groep is verplaatst naar een andere elastische pool en gaat vervolgens door een database buiten een elastische groep naar een prestatieniveau van één database. 
+Voorbeeld van deze PowerShell-script maakt twee elastische pools en een database uit een elastische groep is verplaatst naar een andere elastische groep en vervolgens een database verplaatst buiten een prestatieniveau van elastische pool tooa één database. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=17-18 "verplaatsen van de database tussen mediagroepen")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/move-database-between-pools-and-standalone/move-database-between-pools-and-standalone.ps1?highlight=17-18 "Move database between pools")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Na het uitvoeren van het voorbeeldscript Hallo mag na de opdracht Hallo gebruikte tooremove Hallo-resourcegroep en alle resources die zijn gekoppeld.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -56,6 +56,6 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in de [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).
+Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in Hallo [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).

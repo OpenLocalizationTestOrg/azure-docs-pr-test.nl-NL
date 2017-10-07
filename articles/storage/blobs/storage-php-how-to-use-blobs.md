@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van blob storage (objectopslag) met PHP | Microsoft Docs
-description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
+title: aaaHow toouse blob storage (objectopslag) met PHP | Microsoft Docs
+description: Niet-gestructureerde gegevens opslaan in Hallo cloud met Azure Blob storage (objectopslag).
 documentationcenter: php
 services: storage
 author: mmacy
@@ -14,44 +14,44 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: 4b68844c5d0553eaede3997bf09bff4fe570e850
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2e77415519b38007652e3ea372da531b3a97c5d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blob-storage-from-php"></a>Het blob storage gebruiken met PHP
+# <a name="how-toouse-blob-storage-from-php"></a>Hoe toouse blob-opslag met PHP
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Overzicht
-Azure Blob Storage is een service waarmee ongestructureerde gegevens als objecten/blobs worden opgeslagen in de cloud. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag.
+Azure Blob storage is een service die niet-gestructureerde gegevens in de cloud Hallo als objecten/blobs opslaat. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. BLOB-opslag is ook bedoeld tooas vorm van objectopslag.
 
-Deze handleiding wordt getoond hoe u veelvoorkomende scenario's met behulp van de Azure blob-service uitvoert. De voorbeelden zijn geschreven in PHP en gebruik de [Azure SDK voor PHP][download]. De scenario's worden behandeld: **uploaden**, **aanbieding**, **downloaden**, en **verwijderen** blobs. Zie voor meer informatie over blobs de [Vervolgstappen](#next-steps) sectie.
+Deze handleiding wordt getoond hoe tooperform algemene scenario's met behulp van hello Azure blob-service. Hallo-voorbeelden zijn geschreven in PHP en gebruiken van Hallo [Azure SDK voor PHP][download]. Hallo scenario's worden behandeld: **uploaden**, **aanbieding**, **downloaden**, en **verwijderen** blobs. Zie voor meer informatie over blobs Hallo [Vervolgstappen](#next-steps) sectie.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Een PHP-toepassing maken
-De enige vereiste voor het maken van een PHP-toepassing die toegang heeft tot de Azure blob-service is de verwijzende klassen in de Azure SDK voor PHP vanuit uw code. Alle ontwikkelingsprogramma's kunt u uw toepassing, met inbegrip van Kladblok maken.
+alleen de vereiste voor het maken van een PHP-toepassing die toegang heeft tot hello Azure blob-service is Hallo Hallo verwijst naar klassen in hello Azure SDK voor PHP vanuit uw code. U kunt extra ontwikkeling toocreate uw toepassing, met inbegrip van Kladblok gebruiken.
 
 In deze handleiding gebruikt u servicefuncties, die kunnen worden aangeroepen binnen een PHP-toepassing lokaal of in de code die wordt uitgevoerd binnen een Azure-Webrol, werkrol of website.
 
-## <a name="get-the-azure-client-libraries"></a>De clientbibliotheken van Azure ophalen
+## <a name="get-hello-azure-client-libraries"></a>Hello Azure-clientbibliotheken ophalen
 [!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-the-blob-service"></a>Uw toepassing configureren voor toegang tot de blob-service
-Voor het gebruik van de Azure blob-service API's, moet u:
+## <a name="configure-your-application-tooaccess-hello-blob-service"></a>Uw toepassing tooaccess Hallo blob-service configureren
+toouse hello Azure blob-service API's, moet u:
 
-1. Verwijst naar de autoloader-bestand met de [require_once] -instructie en
+1. Hallo autoloader referentiebestand Hallo met [require_once] -instructie en
 2. Verwijst naar alle klassen die u kunt gebruiken.
 
-Het volgende voorbeeld laat zien hoe de autoloader-bestand en de verwijzing naar de **ServicesBuilder** klasse.
+Hallo volgende voorbeeld laat zien hoe tooinclude autoloader bestands- en Hallo Hallo **ServicesBuilder** klasse.
 
 > [!NOTE]
-> De voorbeelden in dit artikel wordt ervan uitgegaan dat u de PHP-clientbibliotheken voor Azure via Composer hebt geïnstalleerd. Als u handmatig de bibliotheken geïnstalleerd, moet u verwijzen naar de `WindowsAzure.php` autoloader-bestand.
+> Hallo-voorbeelden in dit artikel wordt ervan uitgegaan dat u Hallo PHP-clientbibliotheken voor Azure via Composer hebt geïnstalleerd. Als u handmatig Hallo bibliotheken geïnstalleerd, moet u tooreference hello `WindowsAzure.php` autoloader-bestand.
 >
 >
 
@@ -60,10 +60,10 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-In de onderstaande voorbeelden de `require_once` instructie altijd worden weergegeven, maar alleen de klassen die nodig zijn voor het voorbeeld uit te voeren naar worden verwezen.
+In onderstaande Hallo voorbeelden, Hallo `require_once` instructie altijd worden weergegeven, maar alleen Hallo klassen nodig zijn voor Hallo voorbeeld tooexecute wordt verwezen.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Een Azure-opslag-verbinding instellen
-U moet een geldige verbindingsreeks hebben voor het concretiseren van een Azure blob-service-client. De indeling voor de verbindingsreeks van de blob-service is:
+een Azure blob-serviceclient tooinstantiate, moet u eerst een geldige verbindingsreeks hebben. Hallo-indeling voor Hallo blob-service-verbindingsreeks is:
 
 Voor toegang tot een service voor live:
 
@@ -71,20 +71,20 @@ Voor toegang tot een service voor live:
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Voor toegang tot de opslagemulator:
+Voor toegang tot Hallo-opslagemulator:
 
 ```php
 UseDevelopmentStorage=true
 ```
 
-Voor het maken van een Azure-service-client die u wilt gebruiken, de **ServicesBuilder** klasse. U kunt:
+toocreate een Azure-service-client, moet u toouse hello **ServicesBuilder** klasse. U kunt:
 
-* de verbindingsreeks rechtstreeks aan deze doorgeven of
-* Gebruik de **CloudConfigurationManager (CCM)** om te controleren van meerdere externe bronnen voor de verbindingsreeks:
+* Hallo verbinding doorgeven string rechtstreeks tooit of
+* Gebruik Hallo **CloudConfigurationManager (CCM)** toocheck meerdere externe voor Hallo-verbindingsreeks gegevensbronnen:
   * Standaard wordt geleverd met ondersteuning voor een externe bron - omgevingsvariabelen.
-  * U kunt nieuwe bronnen toevoegen door het uitbreiden van de **ConnectionStringSource** klasse.
+  * U kunt nieuwe bronnen toevoegen door uit te breiden Hallo **ConnectionStringSource** klasse.
 
-Voor de voorbeelden die hier wordt beschreven, worden de verbindingsreeks rechtstreeks doorgegeven.
+Voor Hallo voorbeelden die hier wordt beschreven, worden de verbindingsreeks Hallo rechtstreeks doorgegeven.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -97,7 +97,7 @@ $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionSt
 ## <a name="create-a-container"></a>Een container maken
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-Een **BlobRestProxy** object maakt u een blob-container met de **createContainer** methode. Bij het maken van een container, kunt u opties voor de container instellen, maar dit is dus niet vereist. (Het voorbeeld hieronder ziet u het instellen van de container toegangsbeheerlijst (ACL) en de metagegevens van de container.)
+Een **BlobRestProxy** object kunt u een blob-container maken met de Hallo **createContainer** methode. Bij het maken van een container, kunt u opties voor Hallo-container instellen, maar dit is dus niet vereist. (Hallo voorbeeld hieronder ziet u hoe tooset Hallo container toegang tot de toegangsbeheerlijst (ACL) en metagegevens van de container.)
 
 ```php
 require_once 'vendor\autoload.php';
@@ -119,16 +119,16 @@ $createContainerOptions = new CreateContainerOptions();
 // PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
 // CONTAINER_AND_BLOBS:
 // Specifies full public read access for container and blob data.
-// proxys can enumerate blobs within the container via anonymous
-// request, but cannot enumerate containers within the storage account.
+// proxys can enumerate blobs within hello container via anonymous
+// request, but cannot enumerate containers within hello storage account.
 //
 // BLOBS_ONLY:
 // Specifies public read access for blobs. Blob data within this
 // container can be read via anonymous request, but container data is not
-// available. proxys cannot enumerate blobs within the container via
+// available. proxys cannot enumerate blobs within hello container via
 // anonymous request.
-// If this value is not specified in the request, container data is
-// private to the account owner.
+// If this value is not specified in hello request, container data is
+// private toohello account owner.
 $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
 // Set container metadata.
@@ -149,12 +149,12 @@ catch(ServiceException $e){
 }
 ```
 
-Het aanroepen van **setPublicAccess (PublicAccessType::CONTAINER\_en\_BLOBS)** toegankelijk via anonieme aanvragen maakt van de container en de blob-gegevens. Het aanroepen van **setPublicAccess(PublicAccessType::BLOBS_ONLY)** zorgt ervoor dat alleen blob-gegevens toegankelijk via anonieme aanvragen. Zie voor meer informatie over de container-ACL's, [Set container-ACL (REST-API)][container-acl].
+Het aanroepen van **setPublicAccess (PublicAccessType::CONTAINER\_en\_BLOBS)** maakt Hallo-container en blob gegevens toegankelijk via anonieme aanvragen. Het aanroepen van **setPublicAccess(PublicAccessType::BLOBS_ONLY)** zorgt ervoor dat alleen blob-gegevens toegankelijk via anonieme aanvragen. Zie voor meer informatie over de container-ACL's, [Set container-ACL (REST-API)][container-acl].
 
 Zie voor meer informatie over foutcodes voor Blob-service [foutcodes voor Blob-Service][error-codes].
 
 ## <a name="upload-a-blob-into-a-container"></a>Een blob uploaden naar een container
-Als u wilt een bestand als een blob uploadt, gebruiken de **BlobRestProxy -> createBlockBlob** methode. Deze bewerking wordt de blob gemaakt als deze niet bestaat, of deze wordt overschreven als dit het geval is. In het onderstaande voorbeeld wordt ervan uitgegaan dat de container al gemaakt is en maakt gebruik van [fopen] [ fopen] naar het bestand openen als een stroom.
+een bestand op als een blob, gebruik Hallo tooupload **BlobRestProxy -> createBlockBlob** methode. Deze bewerking wordt Hallo blob gemaakt als deze niet bestaat, of deze wordt overschreven als dit het geval is. Hallo voorbeeld hieronder wordt ervan uitgegaan dat Hallo-container is al gemaakt en gebruikt [fopen] [ fopen] tooopen Hallo-bestand als een stroom.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -183,10 +183,10 @@ catch(ServiceException $e){
 }
 ```
 
-Houd er rekening mee dat het vorige voorbeeld een blob als een stream uploadt. Echter, een blob kan ook worden geüpload als een tekenreeks met bijvoorbeeld de [bestand\_ophalen\_inhoud] [ file_get_contents] functie. U doet dit met behulp van het vorige voorbeeld door wijzigen `$content = fopen("c:\myfile.txt", "r");` naar `$content = file_get_contents("c:\myfile.txt");`.
+Houd er rekening mee dat Hallo vorige voorbeeld een blob als een stream uploadt. Een blob kan echter ook worden geüpload als een tekenreeks met bijvoorbeeld Hallo [bestand\_ophalen\_inhoud] [ file_get_contents] functie. toodo deze wijzigen met behulp van het vorige voorbeeld Hallo `$content = fopen("c:\myfile.txt", "r");` te`$content = file_get_contents("c:\myfile.txt");`.
 
-## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
-Als de blobs in een container wilt weergeven, gebruikt de **BlobRestProxy -> listBlobs** methode met een **foreach** lus via het resultaat. De volgende code wordt de naam van elke blob als uitvoer in een container en wordt de URI voor de browser.
+## <a name="list-hello-blobs-in-a-container"></a>Lijst Hallo blobs in een container
+toolist hello blobs in een container gebruiken Hallo **BlobRestProxy -> listBlobs** methode met een **foreach** tooloop via Hallo resultaat in een lus. Hallo volgende code Hallo-naam van elke blob weergegeven als u in een container en de URI toohello browser wordt weergegeven.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -219,7 +219,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="download-a-blob"></a>Een blob downloaden
-Aanroepen voor het downloaden van een blob, de **BlobRestProxy -> getBlob** methode, roept u vervolgens de **getContentStream** methode op de resulterende **GetBlobResult** object.
+toodownload een blob aanroep Hallo **BlobRestProxy -> getBlob** methode en vervolgens aanroep Hallo **getContentStream** methode op Hallo resulterende **GetBlobResult** object.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -246,10 +246,10 @@ catch(ServiceException $e){
 }
 ```
 
-Houd er rekening mee dat het bovenstaande voorbeeld een blob opgehaald als de bron van een stroom (de standaardinstelling). U kunt echter de [stroom\_ophalen\_inhoud] [ stream-get-contents] functioneren op de geretourneerde stroom niet converteren naar een tekenreeks.
+Houd er rekening mee dat bovenstaande Hallo-voorbeeld een blob opgehaald als een resource stroom (Hallo standaardgedrag). U kunt echter hello gebruiken [stroom\_ophalen\_inhoud] [ stream-get-contents] functie tooconvert Hallo stroom tooa tekenreeks geretourneerd.
 
 ## <a name="delete-a-blob"></a>Een blob verwijderen
-Geeft de containernaam en blob in voor het verwijderen van een blob **BlobRestProxy -> deleteBlob**.
+toodelete een blob Hallo containernaam en blob-naam te geven**BlobRestProxy -> deleteBlob**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -276,7 +276,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="delete-a-blob-container"></a>Verwijderen van een blob-container
-Ten slotte voor het verwijderen van een blob-container, geeft de containernaam van de aan **BlobRestProxy -> deleteContainer**.
+Ten slotte doorgeven toodelete een blob-container Hallo containernaam te**BlobRestProxy -> deleteContainer**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -302,14 +302,14 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de basisprincipes van de Azure blob-service hebt geleerd, volgt u deze koppelingen voor meer informatie over complexere opslagtaken.
+Nu u de basisbeginselen Hallo van hello Azure blob-service hebt geleerd, volgt u deze koppelingen toolearn over complexere opslagtaken.
 
-* Ga naar de [Azure Storage-teamblog](http://blogs.msdn.com/b/windowsazurestorage/)
-* Zie de [PHP blok-blob voorbeeld](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
-* Zie de [PHP pagina-blob voorbeeld](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
-* [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* Ga naar Hallo [Azure Storage-teamblog](http://blogs.msdn.com/b/windowsazurestorage/)
+* Zie Hallo [PHP blok-blob voorbeeld](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+* Zie Hallo [PHP pagina-blob voorbeeld](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+* [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma Hallo](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](/develop/php/).
+Zie voor meer informatie, ook Hallo [PHP-ontwikkelaarscentrum](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx

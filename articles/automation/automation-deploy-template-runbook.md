@@ -1,6 +1,6 @@
 ---
-title: Een Azure Resource Manager-sjabloon in een Azure Automation-runbook implementeren | Microsoft Docs
-description: Het implementeren van een Azure Resource Manager-sjabloon die is opgeslagen in Azure Storage vanuit een runbook
+title: een Azure Resource Manager-sjabloon in een Azure Automation-runbook aaaDeploy | Microsoft Docs
+description: Hoe toodeploy een Azure Resource Manager-sjabloon opgeslagen in Azure Storage vanuit een runbook
 services: automation
 documentationcenter: dev-center-name
 author: eslesar
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: eslesar
-ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f489a8e8635a48f5a6a2f1a88e1c803f56f01832
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Een Azure Resource Manager-sjabloon in een Azure Automation PowerShell-runbook implementeren
 
@@ -25,22 +25,22 @@ U kunt schrijven een [PowerShell voor Azure Automation-runbook](automation-first
 
 Op deze manier kunt u de implementatie van Azure-resources te automatiseren. U kunt uw Resource Manager-sjablonen in een beveiligde centrale locatie zoals Azure Storage onderhouden.
 
-In dit onderwerp, maken we een PowerShell-runbook die gebruikmaakt van een Resource Manager-sjabloon die is opgeslagen in [Azure Storage](../storage/common/storage-introduction.md) voor het implementeren van een nieuw Azure-opslagaccount.
+In dit onderwerp, maken we een PowerShell-runbook die gebruikmaakt van een Resource Manager-sjabloon die is opgeslagen in [Azure Storage](../storage/common/storage-introduction.md) toodeploy een nieuw Azure-opslagaccount.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie, moet u hello te volgen:
 
 * Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of <a href="/pricing/free-account/" target="_blank">[u aanmelden voor een gratis account](https://azure.microsoft.com/free/).
-* [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
-* [Azure Storage-account](../storage/common/storage-create-storage-account.md) waarin u voor het opslaan van de Resource Manager-sjabloon
-* Azure Powershell installeren op een lokale machine. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.
+* [Automation-account](automation-sec-configure-azure-runas-account.md) toohold Hallo runbook en tooAzure bronnen te verifiëren.  Dit account moet hebben machtiging toostart en stop Hallo virtuele machine.
+* [Azure Storage-account](../storage/common/storage-create-storage-account.md) in welke toostore Hallo Resource Manager-sjabloon
+* Azure Powershell installeren op een lokale machine. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het tooget Azure PowerShell.
 
-## <a name="create-the-resource-manager-template"></a>Het Resource Manager-sjabloon maken
+## <a name="create-hello-resource-manager-template"></a>Hallo Resource Manager-sjabloon maken
 
 In dit voorbeeld gebruiken we een Resource Manager-sjabloon die u een nieuwe Azure Storage-account implementeert.
 
-In een teksteditor, kopieert u de volgende tekst:
+Kopieer in een teksteditor Hallo volgende tekst:
 
 ```json
 {
@@ -87,39 +87,39 @@ In een teksteditor, kopieert u de volgende tekst:
 }
 ```
 
-Sla het bestand lokaal als `TemplateTest.json`.
+Hallo bestand opslaan lokaal als `TemplateTest.json`.
 
-## <a name="save-the-resource-manager-template-in-azure-storage"></a>De Resource Manager-sjabloon opslaan in Azure Storage
+## <a name="save-hello-resource-manager-template-in-azure-storage"></a>Hallo Resource Manager-sjabloon opslaan in Azure Storage
 
-Nu we PowerShell gebruiken voor het maken van een Azure Storage-bestandsshare en upload de `TemplateTest.json` bestand.
-Zie voor instructies over het maken van een bestand delen en een bestand in de Azure portal uploaden, [aan de slag met Azure File storage in Windows](../storage/files/storage-dotnet-how-to-use-files.md).
+Nu gebruik van PowerShell toocreate een Azure Storage-bestandsshare en Hallo uploaden `TemplateTest.json` bestand.
+Zie voor instructies over hoe een bestand toocreate delen en uploaden van een bestand in hello Azure-portal, [aan de slag met Azure File storage in Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
-Start PowerShell op uw lokale computer en voer de volgende opdrachten een bestandsshare maken en uploaden van de Resource Manager-sjabloon naar of de bestandsshare.
+Start PowerShell op uw lokale machine en Voer Hallo opdrachten toocreate een bestandsshare te volgen en upload Hallo Resource Manager-sjabloon toothat-bestandsshare.
 
 ```powershell
-# Login to Azure
+# Login tooAzure
 Login-AzureRmAccount
 
-# Get the access key for your storage account
+# Get hello access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
 
-# Create an Azure Storage context using the first access key
+# Create an Azure Storage context using hello first access key
 $context = New-AzureStorageContext -StorageAccountName 'MyStorageAccount' -StorageAccountKey $key[0].value
 
 # Create a file share named 'resource-templates' in your Azure Storage account
 $fileShare = New-AzureStorageShare -Name 'resource-templates' -Context $context
 
-# Add the TemplateTest.json file to the new file share
-# "TemplatePath" is the path where you saved the TemplateTest.json file
+# Add hello TemplateTest.json file toohello new file share
+# "TemplatePath" is hello path where you saved hello TemplateTest.json file
 $templateFile = 'C:\TemplatePath'
 Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source $templateFile
 ```
 
-## <a name="create-the-powershell-runbook-script"></a>Het PowerShell-runbookscript maken
+## <a name="create-hello-powershell-runbook-script"></a>Hallo PowerShell-script voor runbook maken
 
-Nu we maken een PowerShell-script wordt de `TemplateTest.json` bestand van Azure Storage en implementeert u de sjabloon voor het maken van een nieuw Azure-opslagaccount.
+Nu we maken een PowerShell-script dat Hallo opgehaald `TemplateTest.json` bestand van Azure Storage en implementeert Hallo sjabloon toocreate een nieuw Azure-opslagaccount.
 
-In een teksteditor en plak de volgende tekst:
+In een teksteditor plakken Hallo volgende tekst:
 
 ```powershell
 param (
@@ -142,7 +142,7 @@ param (
 
 
 
-# Authenticate to Azure if running from Azure Automation
+# Authenticate tooAzure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
 Add-AzureRmAccount `
     -ServicePrincipal `
@@ -150,7 +150,7 @@ Add-AzureRmAccount `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint | Write-Verbose
 
-#Set the parameter values for the Resource Manager template
+#Set hello parameter values for hello Resource Manager template
 $Parameters = @{
     "storageAccountType"="Standard_LRS"
     }
@@ -162,23 +162,23 @@ Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -p
 
 $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
-# Deploy the storage account
+# Deploy hello storage account
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Sla het bestand lokaal als `DeployTemplate.ps1`.
+Hallo bestand opslaan lokaal als `DeployTemplate.ps1`.
 
-## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importeren en het runbook publiceren in Azure Automation-account
+## <a name="import-and-publish-hello-runbook-into-your-azure-automation-account"></a>Importeren en Hallo runbook publiceren in Azure Automation-account
 
-Nu we PowerShell gebruiken voor het importeren van het runbook in Azure Automation-account en vervolgens het runbook te publiceren.
-Zie voor meer informatie over het importeren en publiceren van een runbook in de Azure portal [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md).
+Nu we PowerShell tooimport hello runbook gebruiken in uw Azure Automation-account en vervolgens publiceren Hallo runbook.
+Voor informatie over het tooimport en een runbook publiceren in hello Azure-portal, Zie [maken of importeren van een runbook in Azure Automation](automation-creating-importing-runbook.md).
 
-Voor het importeren van `DeployTemplate.ps1` in uw Automation-account als een PowerShell-runbook, voer de volgende PowerShell-opdrachten:
+tooimport `DeployTemplate.ps1` uitvoeren in uw Automation-account als een PowerShell-runbook Hallo volgende PowerShell-opdrachten:
 
 ```powershell
-# MyPath is the path where you saved DeployTemplate.ps1
-# MyResourceGroup is the name of the Azure ResourceGroup that contains your Azure Automation account
-# MyAutomationAccount is the name of your Automation account
+# MyPath is hello path where you saved DeployTemplate.ps1
+# MyResourceGroup is hello name of hello Azure ResourceGroup that contains your Azure Automation account
+# MyAutomationAccount is hello name of your Automation account
 $importParams = @{
     Path = 'C:\MyPath\DeployTemplate.ps1'
     ResourceGroupName = 'MyResourceGroup'
@@ -187,7 +187,7 @@ $importParams = @{
 }
 Import-AzureRmAutomationRunbook @
 
-# Publish the runbook
+# Publish hello runbook
 $publishParams = @{
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'MyAutomationAccount'
@@ -196,16 +196,16 @@ $publishParams = @{
 Publish-AzureRmAutomationRunbook @publishParams
 ```
 
-## <a name="start-the-runbook"></a>Het runbook starten
+## <a name="start-hello-runbook"></a>Hallo runbook starten
 
-Nu we het runbook door het aanroepen van starten de [Start AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
+Nu we Hallo runbook door de aanroepende Hallo starten [Start AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet.
 
-Zie voor meer informatie over het starten van een runbook in de Azure portal [een runbook starten in Azure Automation](automation-starting-a-runbook.md).
+Voor informatie over hoe toostart een runbook in Azure-portal Hallo zien [een runbook starten in Azure Automation](automation-starting-a-runbook.md).
 
-Voer de volgende opdrachten in de PowerShell-console:
+Voer Hallo opdrachten in Hallo PowerShell-console te volgen:
 
 ```powershell
-# Set up the parameters for the runbook
+# Set up hello parameters for hello runbook
 $runbookParams = @{
     ResourceGroupName = 'MyResourceGroup'
     StorageAccountName = 'MyStorageAccount'
@@ -213,7 +213,7 @@ $runbookParams = @{
     StorageFileName = 'TemplateTest.json' 
 }
 
-# Set up parameters for the Start-AzureRmAutomationRunbook cmdlet
+# Set up parameters for hello Start-AzureRmAutomationRunbook cmdlet
 $startParams = @{
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'MyAutomationAccount'
@@ -221,26 +221,26 @@ $startParams = @{
     Parameters = $runbookParams
 }
 
-# Start the runbook
+# Start hello runbook
 $job = Start-AzureRmAutomationRunbook @startParams
 ```
 
-Het runbook wordt uitgevoerd, en u kunt de status ervan controleren door te voeren `$job.Status`.
+Hallo runbook wordt uitgevoerd en u kunt de status ervan controleren door te voeren `$job.Status`.
 
-Het runbook opgehaald van de Resource Manager-sjabloon en wordt gebruikt voor het implementeren van een nieuw Azure-opslagaccount.
-U kunt zien dat het nieuwe opslagaccount is gemaakt door de volgende opdracht uit te voeren:
+Hallo-runbook opgehaald Hallo Resource Manager-sjabloon en gebruikt deze toodeploy een nieuw Azure-opslagaccount.
+U kunt zien of Hallo nieuw opslagaccount is gemaakt door het uitvoeren van de volgende opdracht Hallo:
 ```powershell
 Get-AzureRmStorageAccount
 ```
 
 ## <a name="summary"></a>Samenvatting
 
-Dat is alles. Nu kunt u Azure Automation en Azure Storage en Resource Manager-sjablonen voor het implementeren van alle Azure-resources.
+Dat is alles. Nu kunt u Azure Automation en Azure Storage en Resource Manager-sjablonen toodeploy alle Azure-resources.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het Resource Manager-sjablonen, [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* Aan de slag met Azure Storage Zie [Inleiding tot Azure Storage](../storage/common/storage-introduction.md).
-* Andere nuttige Azure Automation-runbooks vindt [galerieën Runbook en de module voor Azure Automation](automation-runbook-gallery.md).
-* Andere nuttige Resource Manager-sjablonen vindt [Azure Quick Start-sjablonen](https://azure.microsoft.com/resources/templates/)
+* toolearn meer informatie over het Resource Manager-sjablonen, Zie [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+* Zie tooget slag met Azure Storage [inleiding tooAzure opslag](../storage/common/storage-introduction.md).
+* toofind andere nuttige Azure Automation-runbooks, Zie [galerieën Runbook en de module voor Azure Automation](automation-runbook-gallery.md).
+* toofind andere nuttige Resource Manager-sjablonen, Zie [Azure Quick Start-sjablonen](https://azure.microsoft.com/resources/templates/)
 

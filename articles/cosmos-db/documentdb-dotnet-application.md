@@ -1,6 +1,6 @@
 ---
 title: 'ASP.NET MVC-zelfstudie voor Azure Cosmos DB: webtoepassingsontwikkeling | Microsoft Docs'
-description: Dit is een zelfstudie voor ASP.NET MVC om een MVC-webtoepassing met Azure Cosmos DB te maken. JSON opslaan en gegevens benaderen via een takenlijst-app die wordt gehost op Azure Websites - Stapsgewijze zelfstudie voor ASP NET MVC.
+description: ASP.NET MVC zelfstudie toocreate een MVC-webtoepassing met Azure Cosmos DB. JSON opslaan en gegevens benaderen via een takenlijst-app die wordt gehost op Azure Websites - Stapsgewijze zelfstudie voor ASP NET MVC.
 keywords: asp.net mvc-zelfstudie, ontwikkelen van webtoepassingen, mvc-webtoepassing, asp net mvc zelfstudie stapsgewijs
 services: cosmos-db
 documentationcenter: .net
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
-ms.openlocfilehash: 3f2950fe25feb8f3ee81cc0a79bf624f0ee33bd5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: dac2a9599b395524533e6fe14983789ff095331f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,100 +30,100 @@ ms.lasthandoff: 08/18/2017
 > 
 > 
 
-Dit artikel biedt een end-to-end-overzicht waarin wordt getoond hoe u met Azure Cosmos DB een to-do-app kunt maken. Zo ziet u hoe u effectief kunt gebruikmaken van Azure Cosmos DB voor het opslaan van en uitvoeren van query's voor JSON-documenten. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB.
+toohighlight hoe efficiënt kunt u gebruikmaken van Azure DB die Cosmos toostore en JSON-documenten opvragen, in dit artikel biedt een end-to-end-procedure die laat zien u hoe een app met behulp van Azure DB die Cosmos toobuild. Hallo-taken worden opgeslagen als JSON-documenten in Azure Cosmos DB.
 
-![Schermopname van de takenlijst MVC-webtoepassing die is gemaakt met deze zelfstudie - Stapsgewijze zelfstudie voor ASP NET MVC.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![Schermopname van het Hallo-takenlijst MVC-webtoepassing die is gemaakt met deze zelfstudie - stapsgewijze voor ASP NET MVC-zelfstudie](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-Deze procedure ziet u hoe de Azure DB die Cosmos-service gebruiken voor het opslaan van en toegang tot gegevens uit een ASP.NET MVC-webtoepassing gehost op Azure. Zie [Een Azure Cosmos DB C#-consoletoepassing bouwen](documentdb-get-started.md) als u een zelfstudie zoekt die volledig is gericht op Azure Cosmos DB en niet op de ASP.NET MVC-onderdelen.
+Deze procedure ziet u hoe toouse hello Azure Cosmos DB service toostore en toegang tot gegevens uit een ASP.NET MVC-webtoepassing gehost op Azure. Als u zoekt naar een zelfstudie is alleen op Azure Cosmos DB gericht en niet hello ASP.NET MVC-onderdelen, Zie [een Azure Cosmos DB C#-consoletoepassing bouwen](documentdb-get-started.md).
 
 > [!TIP]
-> Voor deze zelfstudie wordt ervan uitgegaan dat u ervaring hebt met ASP.NET MVC en Azure Websites. Als u niet bekend met ASP.NET of de [vereiste hulpprogramma's](#_Toc395637760) bent, is het raadzaam het volledige voorbeeldproject via [GitHub][GitHub] te downloaden en de instructies in dit voorbeeld te volgen. Zodra u klaar bent, kunt u dit artikel lezen voor meer informatie over de code in de context van het project.
+> Voor deze zelfstudie wordt ervan uitgegaan dat u ervaring hebt met ASP.NET MVC en Azure Websites. Als u nieuwe tooASP.NET of Hallo [vereiste hulpprogramma's](#_Toc395637760), het is raadzaam Hallo volledige voorbeeldproject via downloaden [GitHub] [ GitHub] en het Hallo-instructies in dit voorbeeld. Zodra u klaar hebt, kunt u dit artikel toogain inzicht op Hallo code in de context van project Hallo Hallo bekijken.
 > 
 > 
 
 ## <a name="_Toc395637760"></a>Vereisten voor deze databasezelfstudie
-Voordat u de instructies in dit artikel uitvoert, moet u beschikken over het volgende:
+Voordat u Hallo-instructies in dit artikel uitvoert, moet u ervoor zorgen dat u de volgende Hallo hebt:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie. 
 
     OF
 
-    Een lokale installatie van de [Azure Cosmos DB-emulator](local-emulator.md).
+    Een lokale installatie van Hallo [Azure Cosmos DB Emulator](local-emulator.md).
 * [Visual Studio 2017](http://www.visualstudio.com/).  
-* Microsoft Azure SDK voor .NET voor Visual Studio 2017 beschikbaar via de Visual Studio Installer.
+* Microsoft Azure SDK voor .NET voor Visual Studio 2017 beschikbaar via Hallo Visual Studio Installer.
 
-Alle schermopnamen in dit artikel zijn gemaakt met behulp van Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u voldoet aan de bovenstaande vereisten moet deze oplossing werken.
+Alle Hallo schermopnamen in dit artikel zijn gemaakt met behulp van Microsoft Visual Studio Community 2017. Als uw systeem is geconfigureerd met een andere versie is het mogelijk dat de schermen en opties niet volledig overeenkomen, maar als u voldoet aan Hallo bovenstaande vereisten moet deze oplossing werken.
 
 ## <a name="_Toc395637761"></a>Stap 1: een Azure Cosmos DB-databaseaccount maken
-Begin met het maken van een Azure Cosmos DB-account. Als u al een account voor SQL (DocumentDB) voor Azure Cosmos DB of als u de Azure-Emulator Cosmos-database voor deze zelfstudie gebruikt, kunt u doorgaan met [Maak een nieuwe ASP.NET MVC-toepassing](#_Toc395637762).
+Begin met het maken van een Azure Cosmos DB-account. Als u al een account voor SQL (DocumentDB) voor Azure Cosmos DB hebben of als u Azure Cosmos DB Emulator Hallo voor deze zelfstudie, kunt u overslaan te[Maak een nieuwe ASP.NET MVC-toepassing](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 <br/>
-U kunt nu zien hoe u een compleet nieuwe ASP.NET MVC-toepassing maakt. 
+Nu u kunt zien via hoe toocreate een nieuwe ASP.NET MVC-toepassing van Hallo a t/m. 
 
 ## <a name="_Toc395637762"></a>Stap 2: Een nieuwe ASP.NET MVC-toepassing maken
 
-1. Wijs in het menu **Bestand** van Visual Studio de optie **Nieuw** aan en klik vervolgens op **Project**. Het dialoogvenster **Nieuw project** wordt weergegeven.
+1. In Visual Studio op Hallo **bestand** menu te verwijzen**nieuw**, en klik vervolgens op **Project**. Hallo **nieuw Project** dialoogvenster wordt weergegeven.
 
-2. Vouw in het deelvenster **Projecttypen** achtereenvolgens **Sjablonen**, **Visual C#** en **Web** uit en selecteer vervolgens**ASP.NET-webtoepassing**.
+2. In Hallo **projecttypen** deelvenster Vouw **sjablonen**, **Visual C#**, **Web**, en selecteer vervolgens **ASP.NET-webtoepassing** .
 
-      ![Schermopname van het dialoogvenster met daarin het projecttype ASP.NET-webtoepassing gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![Schermopname van het dialoogvenster Nieuw Project Hallo met Hallo projecttype voor ASP.NET-webtoepassing gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
-3. Typ in het vak **Naam** de naam van het project. In deze zelfstudie wordt de naam 'todo' gebruikt. Als u een andere naam gebruikt, moet u waar in deze zelfstudie over de naamruimte todo wordt gesproken, de codevoorbeelden aanpassen met de naam die u voor uw toepassing gebruikt. 
-4. Klik op **Bladeren** om naar de map te navigeren waarin u het project wilt maken en klik vervolgens op **OK**.
+3. In Hallo **naam** vak, Hallo-typenaam van Hallo-project. Hallo-naam 'todo' maakt gebruik van deze zelfstudie. Als u toouse iets anders dan dit kiest, waar deze zelfstudie wordt gesproken over Hallo todo-naamruimte, moet u tooadjust Hallo opgegeven code voorbeelden toouse met de naam die uw toepassing. 
+4. Klik op **Bladeren** toonavigate toohello map waar u wilt toocreate Hallo-project en klik vervolgens op **OK**.
    
-      De **nieuwe ASP.NET-webtoepassing** dialoogvenster wordt weergegeven.
+      Hallo **nieuwe ASP.NET-webtoepassing** dialoogvenster wordt weergegeven.
    
-    ![Schermopname van het dialoogvenster Nieuw ASP.NET-webtoepassing met de MVC-toepassingssjabloon gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
-5. Selecteer in het deelvenster met sjablonen **MVC**.
+    ![Schermopname van dialoogvenster Hallo-nieuwe ASP.NET-webtoepassing met Hallo MVC-toepassingssjabloon gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+5. Selecteer in het deelvenster met sjablonen Hallo **MVC**.
 
-6. Klik op **OK** om de scaffolding van de lege ASP.NET MVC-sjabloon aan Visual Studio over te laten. 
+6. Klik op **OK** en bijbehorende dingen rond steigers Hallo lege ASP.NET MVC-sjabloon doen in Visual Studio. 
 
           
-7. Zodra de Visual Studio de standaard MVC-toepassing heeft gemaakt, beschikt u over een lege ASP.NET-toepassing die u lokaal kunt uitvoeren.
+7. Nadat Visual Studio Hallo standaardtekst MVC-toepassing heeft gemaakt hebt u een lege ASP.NET-toepassing die u lokaal kunt uitvoeren.
    
-    We zullen het project niet lokaal uitvoeren, aangezien iedereen waarschijnlijk wel bekend is met de ASP.NET-toepassing Hello World. U gaat meteen Azure Cosmos DB aan dit project toevoegen en uw toepassing bouwen.
+    We zullen uitgevoerd Hallo-project lokaal omdat ik ervoor dat we alle waargenomen Hallo ASP.NET 'Hallo wereld' hebt toepassing. We gaan rechte tooadding Azure Cosmos DB toothis project en onze toepassing bouwen.
 
-## <a name="_Toc395637767"></a>Stap 3: Azure Cosmos DB aan uw project met de MVC-webtoepassing toevoegen
-Nu de meeste ASP.NET MVC-werkzaamheden voor deze oplossing zijn voltooid, kunt u zich richten op het werkelijke doel van deze zelfstudie, namelijk het toevoegen van Azure Cosmos DB aan de MVC-webtoepassing.
+## <a name="_Toc395637767"></a>Stap 3: Azure Cosmos DB tooyour MVC-webproject toepassing toevoegen
+Nu dat we de meeste Hallo ASP.NET MVC Loodgieterswerk die we nodig hebben voor deze oplossing hebben, krijgen we toohello Werkelijke doel van deze zelfstudie, Azure Cosmos DB tooour MVC-webtoepassing toevoegen.
 
-1. De Azure Cosmos DB .NET SDK wordt verpakt en gedistribueerd als een NuGet-pakket. Als u het NuGet-pakket aan Visual Studio wilt toevoegen, gebruikt u NuGet-pakketbeheer in Visual Studio door in **Solution Explorer** met de rechtermuisknop op het project te klikken en vervolgens op **NuGet-pakketten beheren** te klikken.
+1. Hello Azure Cosmos DB .NET SDK wordt verpakt en gedistribueerd als een NuGet-pakket. tooget Hallo NuGet-pakket in Visual Studio, Hallo NuGet-Pakketbeheer in Visual Studio gebruiken door met de rechtermuisknop op het Hallo-project in **Solution Explorer** en vervolgens te klikken op **NuGet-pakketten beheren**.
    
-    ![Schermopname van de opties voor klikken met de rechtermuisknop voor het webtoepassingsproject in Solution Explorer, met NuGet-pakketten beheren gemarkeerd.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![Schermopname van het Hallo met de rechtermuisknop op de opties voor het Hallo-webtoepassingsproject in Solution Explorer, met NuGet-pakketten beheren gemarkeerd.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
-    Het dialoogvenster **NuGet-pakketten beheren** wordt weergegeven.
-2. Typ in het NuGet-vak **Bladeren** ***Azure DocumentDB***. (Naam van het pakket niet is bijgewerkt naar Azure Cosmos DB.)
+    Hallo **NuGet-pakketten beheren** dialoogvenster wordt weergegeven.
+2. In Hallo NuGet **Bladeren** in het vak ***Azure DocumentDB***. (Hallo pakketnaam is geen bijgewerkte tooAzure Cosmos DB.)
    
-    Installeren van de resultaten de **Microsoft.Azure.DocumentDB door Microsoft** pakket. Dit wordt download en installeer het pakket Azure Cosmos DB, evenals alle afhankelijkheden, zoals Newtonsoft.Json. Klik op **OK** in het venster **Voorbeeld** en op **I Accept** (Ik ga akkoord) in het venster **License Acceptance** (Licentie accepteren) om de installatie te voltooien.
+    Installeren in Hallo resultaten Hallo **Microsoft.Azure.DocumentDB door Microsoft** pakket. Dit zal downloaden en installeren hello Azure Cosmos DB pakket, evenals alle afhankelijkheden, zoals Newtonsoft.Json. Klik op **OK** in Hallo **Preview** venster en **ik ga akkoord** in Hallo **licentie acceptatie** venster toocomplete Hallo installeren.
    
-    ![Schermopname van het venster NuGet-pakketten beheren met de Microsoft Azure DocumentDB-clientbibliotheek gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Schermopname van het venster NuGet-pakketten beheren hello, hello Microsoft Azure DocumentDB-clientbibliotheek gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
-      U kunt eventueel ook de console voor Pakketbeheer gebruiken om het pakket te installeren. Hiervoor klikt u in het menu **Extra** op **NuGet Package Manager** (NuGet-pakketbeheer) en vervolgens op **Package Manager Console** (Pakketbeheer-console). Typ achter de prompt het volgende.
+      U kunt ook Hallo Package Manager Console tooinstall Hallo pakket gebruiken. toodo in dat geval op Hallo **extra** menu, klikt u op **NuGet Package Manager**, en klik vervolgens op **Package Manager Console**. Hallo opdrachtprompt, typt u Hallo volgende.
    
         Install-Package Microsoft.Azure.DocumentDB
         
-3. Nadat het pakket is geïnstalleerd, moet uw Visual Studio-oplossing er ongeveer als volgt uitzien, met de twee nieuwe verwijzingen Microsoft.Azure.Documents.Client en Newtonsoft.Json.
+3. Nadat Hallo-pakket is geïnstalleerd, ziet uw Visual Studio-oplossing Hallo volgende met twee nieuwe verwijzingen Microsoft.Azure.Documents.Client en Newtonsoft.Json.
    
-    ![Schermopname van de twee verwijzingen die zijn toegevoegd aan het JSON-gegevensproject in Solution Explorer](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
+    ![Schermopname van de twee verwijzingen Hallo toegevoegd toohello JSON-gegevensproject in Solution Explorer](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>Stap 4: De ASP.NET MVC-toepassing instellen
-U kunt nu de modellen, weergaven en controllers toevoegen aan deze MVC-toepassing:
+## <a name="_Toc395637763"></a>Stap 4: Hallo ASP.NET MVC-toepassing instellen
+Nu gaan we Hallo modellen, weergaven en controllers toothis MVC-toepassing toevoegen:
 
 * [Een model toevoegen](#_Toc395637764).
 * [Een controller toevoegen](#_Toc395637765).
 * [Weergaven toevoegen](#_Toc395637766).
 
 ### <a name="_Toc395637764"></a>Een JSON-gegevensmodel toevoegen
-Als eerste wordt de **M** in MVC gemaakt, het model. 
+Laten we beginnen met het maken van Hallo **M** in MVC, Hallo model. 
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op de map **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**.
+1. In **Solution Explorer**, klik met de rechtermuisknop Hallo **modellen** map, klikt u op **toevoegen**, en klik vervolgens op **klasse**.
    
-      Het dialoogvenster **Nieuw item toevoegen** wordt weergegeven.
+      Hallo **Add New Item** dialoogvenster wordt weergegeven.
 2. Geef een naam op voor uw nieuwe klasse **Item.cs** en klik op **Toevoegen**. 
-3. Voeg in het nieuwe bestand **Item.cs** achter de laatste *gebruiksinstructie* het volgende toe.
+3. In het nieuwe **Item.cs** bestand, Hallo volgende na Hallo laatste toevoegen *met de instructie*.
    
         using Newtonsoft.Json;
 4. Vervang deze code nu 
@@ -132,7 +132,7 @@ Als eerste wordt de **M** in MVC gemaakt, het model.
         {
         }
    
-    door de volgende code.
+    Hello code te volgen.
    
         public class Item
         {
@@ -149,90 +149,90 @@ Als eerste wordt de **M** in MVC gemaakt, het model.
             public bool Completed { get; set; }
         }
    
-    Alle gegevens in Azure Cosmos DB worden doorgegeven via de kabel en opgeslagen als JSON. U kunt het kenmerk **JsonProperty** gebruiken, zoals wordt beschreven in de klasse **Item** die we zojuist hebben gemaakt, om te bepalen hoe uw objecten door JSON.NET worden geserialiseerd/gedeserialiseerd. U **hoeft** dit niet te doen, maar ik wil ervoor zorgen dat mijn eigenschappen de naamgevingsconventie van JSON camelCase volgen. 
+    Alle gegevens in Azure DB die Cosmos is doorgegeven via de kabel Hallo en opgeslagen als JSON. toocontrol hello manier uw objecten worden geserialiseerd/gedeserialiseerd door JSON.NET kunt u Hallo **JsonProperty** kenmerk, zoals wordt beschreven in Hallo **Item** klasse die we zojuist hebben gemaakt. U geen **hebben** toodo dit maar wilt tooensure dat mijn eigenschappen naamgevingsregels van Hallo JSON camelCase volgen. 
    
-    U kunt niet alleen de indeling van de eigenschapsnaam voor JSON bepalen, maar ook de naam van uw .NET-eigenschappen volledig wijzigen, zoals ik deed met de **Description**. 
+    Niet alleen kunt u bepalen Hallo-indeling van de naam van de eigenschap Hallo wanneer deze worden opgeslagen in de JSON, maar u uw .NET-eigenschappen volledig wijzigen kunt zoals ik deed met Hallo **beschrijving** eigenschap. 
 
 ### <a name="_Toc395637765"></a>Een controller toevoegen
-Nu we de **M** hebben gehad, kunnen we de **C** in MVC, een controllerklasse, maken.
+Dat zorgt voor Hallo **M**, nu gaan we maken Hallo **C** in MVC, een controllerklasse.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op de map **Controllers** en klik achtereenvolgens op **Toevoegen** en **Controller**.
+1. In **Solution Explorer**, klik met de rechtermuisknop Hallo **domeincontrollers** map, klikt u op **toevoegen**, en klik vervolgens op **Controller**.
    
-    Het dialoogvenster **Add Scaffold** (Scaffold toevoegen) wordt weergegeven.
+    Hallo **Add Scaffold** dialoogvenster wordt weergegeven.
 2. Selecteer **MVC 5 Controller - Empty** (MVC 5-controller - Leeg) en klik vervolgens op **Toevoegen**.
    
-    ![Schermopname van het dialoogvenster Add Scaffold met de optie MVC 5 Controller - Empty gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+    ![Schermopname van dialoogvenster Hallo Add Scaffold met Hallo MVC 5 Controller - leeg optie gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. Noem uw nieuwe controller **ItemController**.
    
-    ![Schermopname van het dialoogvenster Add Controller (Controller toevoegen)](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
+    ![Schermopname van dialoogvenster Hallo-Controller toevoegen](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
-    Zodra het bestand is gemaakt, wordt het nieuwe bestand ItemController.cs in **Solution Explorer** weergegeven en ziet uw Visual Studio-oplossing er ongeveer als volgt uit. Het nieuwe bestand Item.cs file, dat eerder is gemaakt, wordt ook weergegeven.
+    Zodra het Hallo-bestand is gemaakt, uw Visual Studio-oplossing moet eruitzien als Hallo volgende met Hallo nieuwe bestand ItemController.cs in **Solution Explorer**. Hallo nieuwe bestand Item.cs file eerder hebt gemaakt, wordt ook weergegeven.
    
-    ![Schermopname van de Visual Studio-oplossing - Solution Explorer met het nieuwe bestand ItemController.cs gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
+    ![Schermopname van Hallo Visual Studio-oplossing - Solution Explorer met het nieuwe bestand ItemController.cs hello en gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
-    U kunt ItemController.cs sluiten. Hier komen we later op terug. 
+    U kunt ItemController.cs sluiten, we je tooit later terugkomen. 
 
 ### <a name="_Toc395637766"></a>Weergaven toevoegen
-Laten we nu de **V**, de weergaven, in MVC maken:
+Nu gaan we maken Hallo **V** in MVC, Hallo weergaven:
 
 * [Een weergave toevoegen voor een itemindex ](#AddItemIndexView).
 * [Een weergave toevoegen voor nieuwe items](#AddNewIndexView).
 * [Een weergave toevoegen voor het bewerken van items](#_Toc395888515).
 
 #### <a name="AddItemIndexView"></a>Een weergave toevoegen voor een itemindex
-1. Vouw in **Solution Explorer** de map **Weergaven** uit en klik met de rechtermuisknop op de lege map **Item** die Visual Studio voor u heeft gemaakt toen u **ItemController** hebt toegevoegd. Klik vervolgens op **Toevoegen** en **Weergave**.
+1. In **Solution Explorer**, vouw Hallo **weergaven** map, klik met de rechtermuisknop Hallo leeg **Item** map die Visual Studio voor u gemaakt bij het toevoegen van Hallo  **ItemController** Klik **toevoegen**, en klik vervolgens op **weergave**.
    
-    ![Schermopname van Solution Explorer waarin de map Item wordt weergegeven die Visual Studio heeft gemaakt en waarin de opdrachten voor het toevoegen van een weergave zijn gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
-2. Voer in het dialoogvenster **Weergave toevoegen** de volgende handelingen uit:
+    ![Schermopname van Solution Explorer toont Hallo Item map die Visual Studio hebt gemaakt met Hallo weergave toevoegen opdrachten gemarkeerd](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+2. In Hallo **weergave toevoegen** dialoogvenster vak, Hallo te volgen:
    
-   * In het vak **Weergavenaam** typt u ***Index***.
-   * Selecteer in het vak **Sjabloon** de optie ***Lijst***.
-   * Selecteer in het vak **Modelklasse** de optie ***Item (todo.Models)***.
-   * Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
+   * In Hallo **weergavenaam** in het vak ***Index***.
+   * In Hallo **sjabloon** de optie ***lijst***.
+   * In Hallo **Modelklasse** de optie ***Item (todo. Modellen)***.
+   * Hallo indeling pagina Typ in ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Schermopname van het dialoogvenster Weergave toevoegen](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
-3. Zodra al deze waarden zijn ingesteld, klikt u op **Toevoegen** en wordt er een nieuwe sjabloonweergave in Visual Studio gemaakt. Vervolgens wordt het cshtml-bestand geopend dat is gemaakt. Dit bestand in Visual Studio kan voorlopig worden gesloten, aangezien dit pas later aan bod komt.
+   ![Schermopname van Hallo weergave toevoegen voor dialoogvenster scherm](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+3. Zodra al deze waarden zijn ingesteld, klikt u op **Toevoegen** en wordt er een nieuwe sjabloonweergave in Visual Studio gemaakt. Als deze is voltooid, wordt deze geopend Hallo cshtml-bestand dat is gemaakt. We kunnen dat bestand in Visual Studio kunt sluiten als we zullen tooit later terugkomen.
 
 #### <a name="AddNewIndexView"></a>Een weergave toevoegen voor nieuwe items
-We kunnen op ongeveer dezelfde manier als voor de weergave **Itemindex** nu een nieuwe weergave voor het maken van nieuwe **Items** maken.
+Vergelijkbare toohow gemaakt een **itemindex** weergave we gaan nu een nieuwe weergave voor het maken van nieuwe maken **Items**.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop nogmaals op de map **Item** en klik achtereenvolgens op **Toevoegen** en **Weergave**.
-2. Voer in het dialoogvenster **Weergave toevoegen** de volgende handelingen uit:
+1. In **Solution Explorer**, klik met de rechtermuisknop Hallo **Item** map opnieuw in en klikt u op **toevoegen**, en klik vervolgens op **weergave**.
+2. In Hallo **weergave toevoegen** dialoogvenster vak, Hallo te volgen:
    
-   * Typ in het vak **Weergavenaam** ***Maken***.
-   * Selecteer in het vak **Sjabloon** de optie ***Maken***.
-   * Selecteer in het vak **Modelklasse** de optie ***Item (todo.Models)***.
-   * Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
+   * In Hallo **weergavenaam** in het vak ***maken***.
+   * In Hallo **sjabloon** de optie ***maken***.
+   * In Hallo **Modelklasse** de optie ***Item (todo. Modellen)***.
+   * Hallo indeling pagina Typ in ***~/Views/Shared/_Layout.cshtml***.
    * Klik op **Add**.
    
 #### <a name="_Toc395888515"></a>Een weergave toevoegen voor het bewerken van items
-Tot slot voegt u op dezelfde manier als hiervoor een weergave toe waarin u **items** kunt bewerken.
+En voeg een weergave voor het bewerken van een **Item** in Hallo dezelfde manier als voorheen.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop nogmaals op de map **Item** en klik achtereenvolgens op **Toevoegen** en **Weergave**.
-2. Voer in het dialoogvenster **Weergave toevoegen** de volgende handelingen uit:
+1. In **Solution Explorer**, klik met de rechtermuisknop Hallo **Item** map opnieuw in en klikt u op **toevoegen**, en klik vervolgens op **weergave**.
+2. In Hallo **weergave toevoegen** dialoogvenster vak, Hallo te volgen:
    
-   * Typ in het vak **Weergavenaam** ***Bewerken***.
-   * Selecteer in het vak **Sjabloon** de optie ***Bewerken***.
-   * Selecteer in het vak **Modelklasse** de optie ***Item (todo.Models)***.
-   * Typ in het veld voor de indelingspagina ***~/Views/Shared/_Layout.cshtml***.
+   * In Hallo **weergavenaam** in het vak ***bewerken***.
+   * In Hallo **sjabloon** de optie ***bewerken***.
+   * In Hallo **Modelklasse** de optie ***Item (todo. Modellen)***.
+   * Hallo indeling pagina Typ in ***~/Views/Shared/_Layout.cshtml***.
    * Klik op **Add**.
 
-Zodra dit is gebeurd, sluit u alle cshtml-documenten in Visual Studio. We komen later op deze weergaven terug.
+Zodra dit is gebeurd, sluit u alle Hallo cshtml-documenten in Visual Studio als we toothese weergaven later terug.
 
 ## <a name="_Toc395637769"></a>Stap 5: Azure Cosmos DB fysiek aansluiten
-Nu de standaardwerkzaamheden voor MVC zijn voltooid, kunt u de code voor Azure Cosmos DB toevoegen. 
+Nu dat Hallo MVC hebben voltooid is afgehandeld, nu gaan we tooadding Hallo code voor Azure Cosmos DB. 
 
-In deze sectie voegen we code toe voor de verwerking van het volgende:
+In deze sectie gaan we de code toohandle Hallo volgende toevoegen:
 
 * [Vermelden van onvolledige items](#_Toc395637770).
 * [Items toevoegen](#_Toc395637771).
 * [Items bewerken](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>Onvolledige objecten in uw MVC-webtoepassing vermelden
-Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding met en het gebruik van Azure Cosmos DB. Voor deze zelfstudie voegen we alle logica toe aan een opslagplaatsklasse met de naam DocumentDBRepository. 
+Hallo eerste ding toodo hier is een klasse toevoegen die alle Hallo logica tooconnect tooand gebruik Azure Cosmos DB bevat. Voor deze zelfstudie voegen we alle logica tooa opslagplaatsklasse naam DocumentDBRepository. 
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het project, klik op **Toevoegen** en klik vervolgens op **Klasse**. Geef een naam voor de nieuwe klasse **DocumentDBRepository** op en klik op **Toevoegen**.
-2. Voeg de volgende *gebruiksinstructies* boven de *naamruimtedeclaratie* toe in de klasse **DocumentDBRepository** die we zojuist hebben gemaakt.
+1. In **Solution Explorer**, met de rechtermuisknop op het Hallo-project, klik op **toevoegen**, en klik vervolgens op **klasse**. Naam nieuwe klasse Hallo **DocumentDBRepository** en klik op **toevoegen**.
+2. In nieuw gemaakte Hallo **DocumentDBRepository** klasse en voeg de volgende Hallo *using-instructies* hierboven Hallo *naamruimte* declaratie
    
         using Microsoft.Azure.Documents; 
         using Microsoft.Azure.Documents.Client; 
@@ -248,7 +248,7 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
         {
         }
    
-    door de volgende code.
+    Hello code te volgen.
    
         public static class DocumentDBRepository<T> where T : class
         {
@@ -306,17 +306,17 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
         }
    
     
-3. Aangezien er enkele waarden uit de configuratie worden gelezen, opent u het bestand **Web.config** van de toepassing en voegt u de volgende regels onder de sectie `<AppSettings>` toe.
+3. We sommige waarden uit de configuratie van leest, zodat openen Hallo **Web.config** bestand van uw toepassing en voeg de volgende regels onder Hallo Hallo `<AppSettings>` sectie.
    
-        <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
-        <add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
+        <add key="endpoint" value="enter hello URI from hello Keys blade of hello Azure Portal"/>
+        <add key="authKey" value="enter hello PRIMARY KEY, or hello SECONDARY KEY, from hello Keys blade of hello Azure  Portal"/>
         <add key="database" value="ToDoList"/>
         <add key="collection" value="Items"/>
-4. Werk nu de waarden voor *endpoint* en *authKey* bij door gebruik te maken van de blade Sleutels van Azure Portal. Gebruik de **URI** op de blade Sleutels als waarde voor de endpoint-instelling en gebruik de **PRIMAIRE SLEUTEL** of **SECUNDAIRE SLEUTEL** op de blade Sleutels als waarde voor authKey-instelling.
+4. Werk nu Hallo waarden voor *eindpunt* en *authKey* met behulp van de blade van de sleutels Hallo van hello Azure-Portal. Hallo gebruiken **URI** Hallo sleutels blade als Hallo-waarde van Hallo endpoint-instelling en gebruik Hallo **primaire sleutel**, of **secundaire sleutel** van de blade van Hallo sleutels als waarde Hallo Hallo authKey-instelling.
 
-    Dat zorgt voor de bekabeling van de opslagplaats Azure Cosmos DB nu gaan we toepassingslogica toevoegen.
+    Dat zorgt voor de bekabeling van de opslagplaats hello Azure Cosmos DB, nu gaan we toepassingslogica toevoegen.
 
-1. Op de eerste plaats willen we natuurlijk de onvolledige items kunnen weergeven met een takenlijsttoepassing.  Kopieer het volgende codefragment en plak dit ergens in de klasse **DocumentDBRepository**.
+1. Hallo willen eerst te beginnen we toobe kunnen toodo met een takenlijsttoepassing toodisplay Hallo onvolledige items is.  Kopieer en plak de volgende codefragment overal in Hallo Hallo **DocumentDBRepository** klasse.
    
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
@@ -333,13 +333,13 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
    
             return results;
         }
-2. Open de **ItemController** die eerder is toegevoegd en voeg de volgende *Using-instructies* toe boven de naamruimtedeclaratie.
+2. Open Hallo **ItemController** we eerder hebt toegevoegd en voeg de volgende Hallo *using-instructies* boven de naamruimtedeclaratie Hallo.
    
         using System.Net;
         using System.Threading.Tasks;
         using todo.Models;
    
-    Als u het project een andere naam dan 'todo' hebt gegeven, moet u 'todo.Models' bijwerken om hier de naam van uw project weer te geven.
+    Als uw project niet de naam 'todo', moet u tooupdate met behulp van 'todo. Modellen'; tooreflect Hallo-naam van uw project.
    
     Vervang deze code nu
    
@@ -349,7 +349,7 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
             return View();
         }
    
-    door de volgende code.
+    Hello code te volgen.
    
         [ActionName("Index")]
         public async Task<ActionResult> IndexAsync()
@@ -357,40 +357,40 @@ Allereerst moet u een klasse toevoegen die de logica bevat voor de verbinding me
             var items = await DocumentDBRepository<Item>.GetItemsAsync(d => !d.Completed);
             return View(items);
         }
-3. Open **Global.asax.cs** en voeg de volgende regel aan de methode **Application_Start** toe. 
+3. Open **Global.asax.cs** en voeg Hallo volgende regel toohello **Application_Start** methode 
    
         DocumentDBRepository<todo.Models.Item>.Initialize();
 
-Op dit moment moet uw oplossing opbouwbewerking kunnen uitvoeren zonder dat er fouten optreden.
+Op dit moment moet uw oplossing kunnen toobuild zonder fouten.
 
-Als u de toepassing nu hebt uitgevoerd, gaat u naar de weergaven **HomeController** en **Index** van die controller. Dit is het standaardgedrag voor het MVC-sjabloonproject dat we aan het begin hebben gekozen, maar dit is niet het gewenste gedrag. U kunt de routering op deze MVC-toepassing wijzigen om dit gedrag te veranderen.
+Als u Hallo toepassing nu hebt uitgevoerd, gaat u toohello **HomeController** en Hallo **Index** van die controller. Dit is het standaardgedrag Hallo voor MVC-sjabloonproject Hallo die we aan begin Hallo hebt gekozen, maar we willen dat niet! Laten we Hallo routering op deze MVC-toepassing tooalter dit gedrag wijzigen.
 
-Open ***App\_Start\RouteConfig.cs*** en zoek de regel die begint met "defaults:" en pas deze als volgt aan.
+Open ***App\_Start\RouteConfig.cs*** en zoek Hallo regel die begint met "standaardwaarden: ' en wijzigt u tooresemble hello te volgen.
 
         defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
-Hiermee stelt u in dat ASP.NET MVC niet **Home** maar **Item** als controller gebruikt en **Index** als weergave gebruikt als u in de URL geen waarde hebt opgegeven voor het routeringsgedrag.
+Hiermee stelt ASP.NET MVC die u hebt een waarde niet opgegeven in Hallo URL toocontrol Hallo routeringsgedrag routeringsgedrag **Start**, gebruik **Item** als Hallo-controller en de gebruiker **Index** als Hallo weergave.
 
-Als u de toepassing nu uitvoert, wordt uw **ItemController** aangeroepen, die vervolgens de opslagplaatsklasse aanroept en de methode GetItems gebruikt om alle onvolledige items naar de weergave **Weergaven**\\**Item**\\**Index** te retourneren. 
+Nu als u de toepassing hello uitvoert, wordt gebeld naar uw **ItemController** die wordt in de opslagplaatsklasse toohello aanroepen en Hallo GetItems methode tooreturn alle Hallo onvolledige items toohello **weergaven** \\ **Item**\\**Index** weergeven. 
 
 Als u dit project nu maakt en uitvoert, ziet u iets dat vergelijkbaar is met het volgende.    
 
-![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/build-and-run-the-project-now.png)
+![Schermopname van het Hallo takenlijstwebtoepassing gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Items toevoegen
-Laten we enkele items toevoegen aan de database zodat we niet tegen een leeg raster aankijken.
+Laten we enkele items aan de database zodat we hebben iets meer dan een leeg raster toolook op.
 
-U kunt nu code toevoegen aan Azure Cosmos DBRepository en ItemController om de record in Azure Cosmos DB te houden.
+Laten we de code te toevoegen Azure Cosmos DBRepository ItemController toopersist Hallo record in Azure Cosmos DB.
 
-1. Voeg de volgende methode toe aan uw klasse **DocumentDBRepository**.
+1. Hallo na methode tooyour toevoegen **DocumentDBRepository** klasse.
    
        public static async Task<Document> CreateItemAsync(T item)
        {
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Deze methode wordt een object dat is doorgegeven aan deze gewoon en deze in Azure Cosmos DB zich blijft voordoen.
-2. Open het bestand ItemController.cs en voeg het volgende codefragment toe binnen de klasse. Zodoende weet ASP.NET MVC wat er voor de actie **Create** moet worden gedaan. In dit geval geeft u de bijbehorende weergave Create.cshtml weer die eerder is gemaakt.
+   Deze methode wordt een tooit doorgegeven object gewoon en deze in Azure Cosmos DB zich blijft voordoen.
+2. Hallo ItemController.cs bestand openen en voeg Hallo volgende codefragment in Hallo-klasse. Dit is hoe weet ASP.NET MVC wat toodo voor Hallo **maken** in te grijpen. In dit geval gekoppelde alleen render Hallo Create.cshtml weergave eerder hebt gemaakt.
    
         [ActionName("Create")]
         public async Task<ActionResult> CreateAsync()
@@ -398,8 +398,8 @@ U kunt nu code toevoegen aan Azure Cosmos DBRepository en ItemController om de r
             return View();
         }
    
-    Er is nu meer code in deze controller nodig die de inzending vanuit de weergave **Create** accepteert.
-3. Voeg het volgende codeblok toe aan de klasse ItemController.cs waarmee ASP.NET MVC wordt geïnstrueerd wat er moet gebeuren met een form POST voor deze controller.
+    Nu moet u meer code in deze controller die Hallo inzending vanuit Hallo accepteert **maken** weergeven.
+3. Hallo volgende blok van code toohello klasse ItemController.cs waarmee ASP.NET MVC wat toodo met een form POST voor deze controller toevoegen.
    
         [HttpPost]
         [ActionName("Create")]
@@ -415,18 +415,18 @@ U kunt nu code toevoegen aan Azure Cosmos DBRepository en ItemController om de r
             return View(item);
         }
    
-    Deze code roept de DocumentDBRepository aan en gebruikt de methode CreateItemAsync om het nieuwe takenlijstitem door te geven aan de database. 
+    Deze code roept toohello DocumentDBRepository en Hallo CreateItemAsync methode toopersist Hallo nieuwe todo item toohello database gebruikt. 
    
-    **Opmerking over de beveiliging**: het kenmerk **ValidateAntiForgeryToken** wordt hier gebruikt om deze toepassing te beschermen tegen aanvallen via aanvraagvervalsing op meerdere sites. Het volstaat echter niet om dit kenmerk alleen toe te voegen. Uw weergaven moeten samenwerken met dit anti-vervalsingstoken. Zie [Voorkomen van aanvraagvervalsing op meerdere sites][Preventing Cross-Site Request Forgery] voor meer informatie over dit onderwerp en voorbeelden van een juiste implementatie. De broncode op [GitHub][GitHub] beschikt over de volledige implementatie.
+    **Opmerking over beveiliging**: Hallo **ValidateAntiForgeryToken** kenmerk wordt gebruikt hier toohelp beveiligen voor deze toepassing tegen aanvallen van aanvraagvervalsing op meerdere sites. Er is meer tooit alleen toe te voegen dit kenmerk, uw weergaven moeten toowork met dit anti-vervalsingstoken ook. Voor meer informatie over het Hallo-onderwerp en voorbeelden van hoe tooimplement dit correct Zie [Cross-Site zo wordt voorkomen dat aanvragen vervalsing][Preventing Cross-Site Request Forgery]. broncode op Hallo [GitHub] [ GitHub] beschikt over de volledige implementatie Hallo.
    
-    **Opmerking over de beveiliging**: we gebruiken ook het kenmerk **Bind** voor de methodeparameter om u te beschermen tegen over-postingaanvallen. Zie [Eenvoudige CRUD-bewerkingen in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC] voor meer informatie.
+    **Opmerking over beveiliging**: We gebruiken ook Hallo **binden** -kenmerk op Hallo methode parameter toohelp beschermen tegen over-postingaanvallen. Zie [Eenvoudige CRUD-bewerkingen in ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC] voor meer informatie.
 
-Hiermee is de benodigde code toegevoegd om nieuwe items aan de database toe te voegen.
+Hiermee is Hallo code vereist tooadd nieuwe Items tooour database.
 
 ### <a name="_Toc395637772"></a>Items bewerken
-Tot slot moeten we ervoor zorgen dat we **Items** in de database kunnen bewerken en dat we ze kunnen markeren als voltooid. De weergave voor het bewerken van items was al toegevoegd aan het project. U hoeft daarom alleen code toe te voegen aan de controller en de klasse **DocumentDBRepository**.
+Er is een ding voor ons toodo en dat tooadd Hallo mogelijkheid tooedit **Items** in Hallo-database en toomark als voltooid. Hallo weergave voor bewerken is al toegevoegd toohello project, hoeft daarom alleen tooadd sommige code tooour controller en toohello **DocumentDBRepository** klasse opnieuw.
 
-1. Voeg het volgende toe aan de klasse **DocumentDBRepository**.
+1. Hallo na toohello toevoegen **DocumentDBRepository** klasse.
    
         public static async Task<Document> UpdateItemAsync(string id, T item)
         {
@@ -453,10 +453,10 @@ Tot slot moeten we ervoor zorgen dat we **Items** in de database kunnen bewerken
             }
         }
    
-    Met de eerste methode, **GetItem**, wordt een item uit Azure Cosmos DB opgehaald dat wordt doorgegeven aan de **ItemController** en vervolgens aan de weergave **Bewerken**.
+    eerste dag van deze methoden Hallo **GetItem** haalt u een Item uit Azure Cosmos-database die wordt doorgegeven back toohello **ItemController** en klik vervolgens op toohello **bewerken** weergeven.
    
-    Met de tweede methode die zojuist is toegevoegd, wordt het **document** in Azure Cosmos DB vervangen door de versie van het **document** dat is doorgegeven via de **ItemController**.
-2. Voeg het volgende toe aan de klasse **ItemController**.
+    Hallo seconde van Hallo methoden die zojuist is toegevoegd vervangt Hallo **Document** in Azure Cosmos DB met Hallo-versie van Hallo **Document** doorgegeven vanuit Hallo **ItemController**.
+2. Hallo na toohello toevoegen **ItemController** klasse.
    
         [HttpPost]
         [ActionName("Edit")]
@@ -489,52 +489,52 @@ Tot slot moeten we ervoor zorgen dat we **Items** in de database kunnen bewerken
             return View(item);
         }
    
-    De eerste methode verwerkt de Http GET die plaatsvindt wanneer de gebruiker klikt op de koppeling **Bewerken** in de weergave **Index**. Met deze methode wordt er een [**document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) uit Azure Cosmos DB opgehaald en doorgegeven aan de weergave **Bewerken**.
+    Hallo eerste methode verwerkt Hallo Http GET die plaatsvindt wanneer de gebruiker Hallo op Hallo **bewerken** koppeling van Hallo **Index** weergeven. Deze methode haalt een [ **Document** ](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) van Azure DB die Cosmos en geeft deze door toohello **bewerken** weergeven.
    
-    In de weergave **Bewerken** wordt vervolgens een Http POST naar de **IndexController** uitgevoerd. 
+    Hallo **bewerken** weergave voert een Http POST-toohello **IndexController**. 
    
-    Voor de tweede methode zijn er ingangen toegevoegd om het bijgewerkte object door te geven aan Azure Cosmos DB, zodat het object wordt bewaard in de database.
+    Hallo tweede methode we Hallo bijgewerkt object tooAzure Cosmos DB toobe doorgeven ingangen toegevoegd permanent in Hallo-database.
 
-Meer hoeft u niet te doen om uw toepassing uit te voeren, onvolledige **Items** weer te geven, nieuwe **Items** toe te voegen en **Items** te bewerken.
+Dit is alles dat is alles wat we onze toepassing toorun nodig, onvolledige lijst **Items**, nieuwe toevoegen **Items**, en bewerken **Items**.
 
-## <a name="_Toc395637773"></a>Stap 6: De toepassing lokaal uitvoeren
-Ga als volgt te werk als u de toepassing wilt testen op een lokale machine:
+## <a name="_Toc395637773"></a>Stap 6: Hallo toepassing lokaal uitvoeren
+tootest hello toepassing op uw lokale machine Hallo te volgen:
 
-1. Druk in Visual Studio op F5 om de toepassing in de foutopsporingsmodus op te bouwen. De toepassing wordt opgebouwd en wordt er een browser gestart met het lege rasterpagina dat we eerder hebben gezien:
+1. Druk op F5 in Visual Studio toobuild Hallo toepassing in de foutopsporingsmodus. Het moet Hallo toepassing bouwen en een browser gestart met de Hallo lege rasterpagina dat we eerder hebben gezien:
    
-    ![Schermopname van de takenlijstwebtoepassing die is gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![Schermopname van het Hallo takenlijstwebtoepassing gemaakt met deze databasezelfstudie](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
-2. Klik op de koppeling **Nieuw maken** en voeg waarden toe aan de velden **Naam** en **Beschrijving**. Schakel het selectievakje **Voltooid** niet in, anders wordt het nieuwe **Item** toegevoegd met een onvoltooide status en wordt het niet weergegeven in de aanvankelijke lijst.
+2. Klik op Hallo **nieuw** koppelen en voeg waarden toohello **naam** en **beschrijving** velden. Hallo laat **voltooid** selectievakje uitgeschakeld anders Hallo nieuwe **Item** worden toegevoegd met een onvoltooide status en wordt niet weergegeven in de initiële lijst Hallo.
    
-    ![Schermopname van de weergave Maken](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
-3. Als u op **Maken** klikt, keert u terug naar de weergaven **Index** en wordt uw **Item** weergegeven in de lijst.
+    ![Schermopname van het Hallo weergave maken](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
+3. Klik op **maken** en u omgeleide back toohello **Index** weergeven en uw **Item** wordt weergegeven in de lijst Hallo.
    
-    ![Schermopname van de weergave Index](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    ![Schermopname van het Hallo weergave Index](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
    
-    U kunt gerust nog enkele **Items** aan uw takenlijst toevoegen.
+    Kunt u gratis tooadd enkele **Items** tooyour takenlijsten.
     
-4. Klik op **Bewerken** naast een **Item** in de lijst, zodat u wordt omgeleid naar de weergave **Bewerken**. Hier kunt u de eigenschappen van uw object bijwerken, inclusief de vlag **Voltooid**. Als u de vlag **Voltooid** markeert en op **Opslaan** klikt, wordt het **Item** verwijderd uit de lijst met onvolledige taken.
+4. Klik op **bewerken** volgende tooan **Item** op Hallo lijst en u zijn genomen toohello **bewerken** weergave waarin u een eigenschap van het object, met inbegrip van Hallo kunt bijwerken  **Voltooid** vlag. Als u Hallo markeert **Complete** markeert en op **opslaan**, Hallo **Item** wordt verwijderd uit de lijst Hallo met onvolledige taken.
    
-    ![Schermopname van de weergave Index met het selectievakje Voltooid ingeschakeld](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
-5. Zodra u de app hebt getest, drukt u op Ctrl + F5 om de foutopsporing voor de app te stoppen. U kunt de app nu implementeren.
+    ![Schermopname van het Hallo weergave Index met de selectievakje voltooid Hallo ingeschakeld](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+5. Zodra u Hallo app hebt getest, drukt u op Ctrl + F5 toostop foutopsporing Hallo-app. U bent klaar toodeploy!
 
-## <a name="_Toc395637774"></a>Stap 7: De toepassing in Azure App Service implementeren 
-Nu dat u hebt de volledige toepassing correct werkt met Azure Cosmos DB gaan we deze web-app implementeren in Azure App Service.  
+## <a name="_Toc395637774"></a>Stap 7: Hallo toepassing tooAzure App Service implementeren 
+Nu dat u de volledige toepassing hello hebt gaan correct werkt met Azure Cosmos DB we toodeploy deze web-app tooAzure App Service.  
 
-1. Als u deze toepassing wilt publiceren, hoeft u alleen maar met de rechtermuisknop op het project in **Solution Explorer** te klikken en vervolgens op **Publiceren** te klikken.
+1. toopublish alle van deze toepassing moet u toodo is met de rechtermuisknop op het Hallo-project in **Solution Explorer** en klik op **publiceren**.
    
-    ![Schermopname van de optie Publiceren in Solution Explorer](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish.png)
+    ![Schermopname van het Hallo optie publiceren in Solution Explorer](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
-2. In de **publiceren** in het dialoogvenster klikt u op **Microsoft Azure App Service**, selecteer daarna **nieuw** een App Service-profiel maken of klik op **bestaande selecteren**  een bestaand profiel gebruiken.
+2. In Hallo **publiceren** in het dialoogvenster klikt u op **Microsoft Azure App Service**, selecteer daarna **nieuw** toocreate een App Service-profiel, of klik op **selecteren Bestaande** toouse een bestaand profiel.
 
     ![Het dialoogvenster Publish in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
 
-3. Als u een bestaand Azure App Service-profiel, voert u de abonnementsnaam van uw. Gebruik de **weergave** filteren om te sorteren op resourcegroep of brontype en selecteer vervolgens uw Azure App Service. 
+3. Als u een bestaand Azure App Service-profiel, voert u de abonnementsnaam van uw. Gebruik Hallo **weergave** toosort door resourcegroep of resourcetype filteren en selecteer vervolgens uw Azure App Service. 
    
     ![In het dialoogvenster App Service in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
-4. Klik op om een nieuw Azure App Service-profiel **nieuw** in de **publiceren** in het dialoogvenster. In de **Create App Service** dialoogvenster, Voer uw Web-App-naam en de juiste abonnement, de resourcegroep en de App Service-abonnement en klik vervolgens op **maken**.
+4. toocreate een nieuw Azure App Service-profiel, klikt u op **nieuw** in Hallo **publiceren** in het dialoogvenster. In Hallo **Create App Service** dialoogvenster, Voer uw Web-App-naam en de juiste abonnement, de resourcegroep en de App Service-abonnement en klik vervolgens op **maken**.
 
     ![Het dialoogvenster App Service maken in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
@@ -543,9 +543,9 @@ Binnen een paar seconden zal Visual Studio publicatie van uw webtoepassing volto
 
 
 ## <a name="_Toc395637775"></a>Volgende stappen
-Gefeliciteerd. U zojuist hebt gemaakt van uw eerste ASP.NET MVC-webtoepassing met Azure Cosmos DB en gepubliceerd naar Azure. De broncode voor de volledige toepassing, met inbegrip van de functionaliteit voor details en verwijderen die niet is opgenomen in deze zelfstudie, kan worden gedownload of gekloond via [GitHub][GitHub]. Als dit wilt toevoegen aan uw app, kunt u de code ophalen en toevoegen aan deze app.
+Gefeliciteerd. U zojuist hebt gemaakt van uw eerste ASP.NET MVC-webtoepassing met Azure Cosmos DB en tooAzure gepubliceerd. Hallo broncode voor de volledige toepassing hello, met inbegrip van Hallo detail functionaliteit en verwijderen die niet zijn opgenomen in deze zelfstudie kan worden gedownload of gekloond van [GitHub][GitHub]. Dus als u geïnteresseerd bent in die app tooyour toe te voegen, halen Hallo code en voeg deze toothis app.
 
-Om extra functionaliteit toe te voegen aan uw toepassing, bekijkt u de API's beschikbaar zijn in de [Azure Cosmos DB .NET-bibliotheek](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) harte welkom om bij te dragen naar de Azure Cosmos DB .NET-bibliotheek op [GitHub] [GitHub]. 
+Bekijk Hallo beschikbare API's in Hallo-tooadd aanvullende functionaliteit tooyour toepassing [Azure Cosmos DB .NET-bibliotheek](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) harte gratis toocontribute toohello Azure Cosmos DB .NET-bibliotheek op [GitHub] [GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

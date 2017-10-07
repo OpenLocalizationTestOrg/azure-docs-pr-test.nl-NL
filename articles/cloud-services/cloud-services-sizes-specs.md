@@ -1,6 +1,6 @@
 ---
-title: De grootte van virtuele machine voor Azure-cloudservices | Microsoft Docs
-description: Geeft de grootte van andere virtuele machines (en -id's) voor Azure cloud service-web- en werkrollen rollen.
+title: aaaVirtual machine grootten voor Azure-cloudservices | Microsoft Docs
+description: Een lijst met grootten van de andere virtuele machines hello (en -id's) voor Azure cloud service-web- en werkrollen rollen.
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 93d91a67afc352f3d18c31e0dd5cf976bf46350c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sizes-for-cloud-services"></a>Grootten voor Cloudservices
-Dit onderwerp beschrijft de beschikbare grootten en opties voor Cloudservice rolexemplaren (webrollen en werkrollen). Het biedt tevens overwegingen voor de implementatie moet letten bij het plannen van deze bronnen te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte beschikbaar zijn op de [Cloud Services-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
+Dit onderwerp beschrijft de beschikbare grootten Hallo en opties voor Cloudservice rolexemplaren (webrollen en werkrollen). Het bevat ook implementatie overwegingen toobe bij het plannen van toouse deze resources. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte beschikbaar zijn op Hallo [Cloud Services-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
 
 > [!NOTE]
-> Zie Verwante Azure limieten [Azure-abonnement en Service-limieten, quota's en beperkingen](../azure-subscription-service-limits.md)
+> toosee gerelateerde Azure-limieten, Zie [Azure-abonnement en Service-limieten, quota's en beperkingen](../azure-subscription-service-limits.md)
 >
 >
 
 ## <a name="sizes-for-web-and-worker-role-instances"></a>Grootten voor web- en werkrollen rolinstanties
-Er zijn meerdere standaardgrootten waaruit u in Azure kunt kiezen. Enkele overwegingen voor een aantal van deze grootten zijn:
+Er zijn meerdere standaard grootten toochoose uit op Azure. Enkele overwegingen voor een aantal van deze grootten zijn:
 
-* Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-core-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
-* De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
-* Virtuele machines uit de G-serie bieden het meeste geheugen en worden uitgevoerd op hosts met een processor uit de Intel Xeon E5 V3-familie.
-* De A-serie virtuele machines kunnen worden geïmplementeerd op verschillende hardwaretypen en processors. De grootte is beperkt, op basis van de hardware, voor het exemplaar dat wordt uitgevoerd, ongeacht de hardware die deze is geïmplementeerd op een consistente processorprestaties aanbieden. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
-* De A0-grootte wordt overgeschreven naar de fysieke hardware. Alleen bij deze specifieke grootte kunnen implementaties van andere klanten invloed hebben op de prestaties van uw uitgevoerde workload. De relatieve prestaties worden hieronder beschreven, zoals de verwachte basislijn, met een variabiliteit van ongeveer 15 procent.
+* D-reeks VM's zijn ontworpen toorun toepassingen die hoger rekencapaciteit en prestaties van de tijdelijke schijf. D-reeks virtuele machines bieden snellere processors, een hogere ratio van geheugen-core- en een SSD-station (SSD) voor de tijdelijke schijf Hallo. Zie voor meer informatie Hallo aankondiging op hello Azure blog [nieuwe D-reeks voor de grootte van virtuele machines](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+* Dv2-serie, een vervolgcontrole op het vlak toohello oorspronkelijke D-reeks biedt een krachtige CPU. Hallo CPU Dv2-serie is ongeveer 35% sneller dan Hallo D-reeks CPU. Is gebaseerd op Hallo nieuwste 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell), en met Hallo Intel Turbo versterking Technology 2.0, up too3.1 GHz kunt gaan. Hallo Dv2-serie heeft dezelfde configuraties voor geheugen en schijfruimte Hallo zoals Hallo D-reeks.
+* G-serie VMs Hallo bieden de meeste geheugen en uitgevoerd op hosts met Intel Xeon E5 V3-familie processor een.
+* Hallo A-serie virtuele machines kan worden geïmplementeerd op verschillende hardwaretypen en processors. Hallo-grootte is beperkt, op basis van hardware hello, consistente processorprestaties toooffer voor Hallo met een exemplaar, ongeacht deze is geïmplementeerd op Hallo-hardware. toodetermine hello fysieke hardware waarop deze grootte is geïmplementeerd, query Hallo virtuele hardware uit binnen Hallo virtuele Machine.
+* Hallo A0 grootte is te veel geabonneerde op Hallo fysieke hardware. Voor deze specifieke grootte alleen andere implementaties van de klant kunnen invloed hebben op prestaties van Hallo van uw workload uitgevoerd. Hallo relatieve prestaties worden hieronder beschreven als basislijn Hallo verwacht, onderwerp tooan geschatte variabiliteit van 15 procent.
 
-De grootte van de virtuele machine heeft invloed op de prijs. De grootte heeft ook invloed op de verwerkings-, geheugen- en opslagcapaciteit van de virtuele machine. Opslagkosten worden afzonderlijk berekend op basis van het aantal pagina's dat in het opslagaccount is gebruikt. Zie voor meer informatie [Cloud Services Pricing Details](https://azure.microsoft.com/pricing/details/cloud-services/) en [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Hallo-grootte van Hallo virtuele machine beïnvloedt Hallo prijzen. Hallo grootte zijn ook van invloed op de verwerking, geheugen en opslag capaciteit Hallo van Hallo virtuele machine. Opslagkosten zijn berekend afzonderlijk op basis van de gebruikte pagina's in Hallo storage-account. Zie voor meer informatie [Cloud Services Pricing Details](https://azure.microsoft.com/pricing/details/cloud-services/) en [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-De volgende overwegingen kunnen u helpen bij het kiezen van een grootte:
+Hallo na overwegingen kan helpen een grootte kiezen:
 
-* Grootten uit de A8-A11- en H-serie worden ook wel *rekenintensieve exemplaren* genoemd. De hardware waarop deze grootten worden uitgevoerd, is ontworpen en geoptimaliseerd voor rekenintensieve en netwerkintensieve toepassingen, waaronder HPC-clustertoepassingen (high-performance computing), modellerings- en simulatietoepassingen. De A8-A11-serie gebruikt Intel Xeon E5-2670 @ 2,6 GHZ en de H-serie gebruikt Intel Xeon E5-2667 v3 @ 3,2 GHz. Zie voor gedetailleerde informatie en overwegingen over het gebruik van deze formaten [hoge prestaties compute-VM-grootten](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Hallo A8-A11 en H-serie grootten zijn ook wel bekend als *rekenintensieve exemplaren*. Hallo-hardware waarop deze formaten is ontworpen en geoptimaliseerd voor rekenintensieve en netwerk-intensieve toepassingen, met inbegrip van high-performance computing (HPC)-toepassingen, modellering en simulaties cluster. A8-A11 reeks Hallo Intel Xeon E5-2670 @ 2.6 GHZ en Hallo H-serie Intel Xeon E5-2667 v3 @ 3,2 GHz gebruikt. Zie voor gedetailleerde informatie en overwegingen over het gebruik van deze formaten [hoge prestaties compute-VM-grootten](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Dv2-serie, D-reeks, G-serie zijn ideaal voor toepassingen die snellere CPU's, betere lokale schijf van de prestaties of hebben hogere geheugen eisen. Ze bieden een krachtige combinatie voor vele toepassingen op bedrijfsniveau.
-* Sommige fysieke hosts in Azure-datacenters bieden mogelijk geen ondersteuning voor grotere VM-formaten, zoals A5 – A11. Als gevolg hiervan wordt er het foutbericht **configureren van de virtuele machine {machine name} is mislukt** of **kan virtuele machine {machine name} niet maken** wanneer het formaat van een bestaande virtuele machine naar een nieuwe grootte. maken van een nieuwe virtuele machine in een virtueel netwerk gemaakt vóór 16 April 2013; of een nieuwe virtuele machine toe te voegen aan een bestaande cloudservice. Zie [fout: 'Is mislukt voor het configureren van de virtuele machine'](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) op het ondersteuningsforum voor tijdelijke oplossingen voor elk implementatiescenario.
-* Het is ook mogelijk dat uw abonnement het aantal kernen beperkt dat u in een bepaalde groottefamilie mag implementeren. Neem contact op met ondersteuning van Azure als u een quotum wilt verhogen.
+* Enkele van de fysieke hosts Hallo in Azure-datacenters mogelijk geen ondersteuning voor grotere van virtuele machine, zoals A5 – A11. Als gevolg hiervan kunnen er Hallo foutbericht **mislukt tooconfigure virtuele machine {machine name}** of **mislukt toocreate virtuele machine {machine name}** wanneer het formaat van een bestaande virtuele machine tooa nieuwe grootte. maken van een nieuwe virtuele machine in een virtueel netwerk gemaakt vóór 16 April 2013; of het toevoegen van een nieuwe virtuele machine tooan bestaande cloudservice. Zie [fout: 'Mislukt tooconfigure virtuele machine'](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) op Hallo ondersteuningsforum voor tijdelijke oplossingen voor elk implementatiescenario.
+* Uw abonnement mogelijk ook het aantal kernen dat u in een bepaalde grootte families implementeren kunt Hallo beperken. een quotum tooincrease contact op met ondersteuning van Azure.
 
 ## <a name="performance-considerations"></a>Prestatieoverwegingen
-We het concept van het Azure Compute Unit (ACU) op een manier om computerprestaties (CPU) te vergelijken over Azure-SKU's hebt gemaakt en om te bepalen welke SKU hoogstwaarschijnlijk om te voldoen aan de prestaties van uw behoeften.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren.
+We hebben gemaakt Hallo concept van hello Azure Compute-eenheid (ACU) tooprovide een manier om computerprestaties (CPU) in Azure-SKU's en tooidentify die SKU hoogstwaarschijnlijk toosatisfy is vergelijken de prestaties van uw behoeften.  ACU is momenteel gestandaardiseerd op 100 voor een kleine virtuele machine (Standard_A1). Alle andere SKU's geven vervolgens weer hoeveel sneller die SKU een standaardbenchmark ongeveer kan uitvoeren.
 
 > [!IMPORTANT]
-> De ACU is slechts een richtlijn. De resultaten voor uw workload kunnen verschillen.
+> Hallo ACU is alleen een richtlijn. Hallo-resultaten voor uw workload kunnen variëren.
 >
 >
 
@@ -69,15 +69,15 @@ We het concept van het Azure Compute Unit (ACU) op een manier om computerprestat
 | [G1-5](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
-ACU's die met een * zijn gemarkeerd, maken gebruik van Intel® Turbo-technologie om de CPU-frequentie te verhogen en nóg betere prestaties te leveren. Hoe groot die extra prestaties zijn, is afhankelijk van de VM-grootte, de workload en de andere workloads die op dezelfde host worden uitgevoerd.
+ACUs gemarkeerd met een * Intel® Turbo technologie tooincrease CPU frequentie gebruiken en een krachtige prestaties leveren. Hallo hoeveelheid Hallo versterking kan variëren op basis van VM-grootte hello, werkbelasting en andere werkbelastingen die worden uitgevoerd op Hallo dezelfde host.
 
 ## <a name="size-tables"></a>Groottetabellen
-In de volgende tabellen ziet u de grootten en de capaciteiten die ze bieden.
+Hallo volgende tabellen bevatten Hallo grootten en Hallo capaciteiten die ze bieden.
 
-* De opslagcapaciteit wordt weergegeven in GiB-eenheden of 1024^3 bytes. Wanneer u schijven die zijn gemeten in GB (1000^3 bytes), vergelijkt met schijven die zijn gemeten in GiB (1024^3), moet u voor ogen houden dat de capaciteit in GiB kleiner lijkt te zijn. 1023 GiB is bijvoorbeeld gelijk aan 1098,4 GB
+* De opslagcapaciteit wordt weergegeven in GiB-eenheden of 1024^3 bytes. Wanneer het vergelijken van schijven gemeten in GB (1000 ^ 3 bytes) toodisks gemeten in GiB (1024 ^ 3) onthouden capaciteit getallen die zijn opgegeven in GiB lijkt kleiner. 1023 GiB is bijvoorbeeld gelijk aan 1098,4 GB
 * De schijfdoorvoer wordt gemeten in I/O-bewerkingen per seconde (IOPS) en MBps, waarbij MBps = 10^6 bytes per seconde.
-* Gegevensschijven kunnen in de modus met of zonder caching werken. Voor schijfbewerkingen met gegevenscaching is de cachemodus van de host ingesteld op **ReadOnly** of **ReadWrite**. Voor schijfbewerkingen zonder gegevenscaching is de cachemodus van de host ingesteld op **Geen**.
-* De maximale netwerkbandbreedte is de maximale geaggregeerde bandbreedte die is toegekend en toegewezen per VM-type. De maximale bandbreedte geeft richtlijnen voor het selecteren van het juiste type virtuele machine om ervoor te zorgen dat er voldoende netwerkcapaciteit beschikbaar is. Wanneer u verplaatst tussen de laag, Gemiddeld, hoog en zeer hoge, neemt de doorvoer toe. De werkelijke netwerkprestaties zijn afhankelijk van talloze factoren, waaronder de netwerk- en toepassingsbelastingen en de instellingen van het toepassingsnetwerk.
+* Gegevensschijven kunnen in de modus met of zonder caching werken. Voor gegevens in de cache schijfbewerking, Hallo host-cachemodus te ingesteld**ReadOnly** of **ReadWrite**. Voor schijfbewerking uncached gegevens, Hallo host-cachemodus te ingesteld**geen**.
+* Maximale netwerkbandbreedte is Hallo geaggregeerde Maximumbandbreedte toegewezen en toegewezen per VM-type. de maximale bandbreedte Hallo biedt richtlijnen voor het selecteren van Hallo rechts VM type tooensure voldoende netwerkcapaciteit zijn beschikbaar. Wanneer u verplaatst tussen de laag, Gemiddeld, hoog en zeer hoge, neemt Hallo doorvoer toe. De werkelijke netwerkprestaties zijn afhankelijk van talloze factoren, waaronder de netwerk- en toepassingsbelastingen en de instellingen van het toepassingsnetwerk.
 
 ## <a name="a-series"></a>A-serie
 | Grootte            | CPU-kernen | Geheugen: GiB  | Lokale HDD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
@@ -152,9 +152,9 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 | Standard_G5     | 32        | 448          | 6144                |8/zeer hoog |
 
 ## <a name="h-series"></a>H-serie
-Virtuele Azure-machines uit de H-serie zijn de volgende generatie HPC-VM's, gericht op intensieve rekenbehoeften, zoals moleculaire modellering en numerieke stromingsleer. Deze 8 en 16-core virtuele machines zijn gebouwd op de technologie van Intel Haswell E5 2667 V3-processor met DDR4 geheugen en lokale opslag voor op SSD gebaseerd.
+Virtuele machines in Azure H-serie zijn Hallo volgende generatie high performance computing-virtuele machines die zijn gericht op het hoge einde behoeften, zoals moleculaire modellering en computational fluid dynamics. Deze 8 en 16-core virtuele machines zijn gebouwd op Hallo Intel Haswell E5 2667 V3 processortechnologie met DDR4 geheugen en lokale opslag voor op SSD gebaseerd.
 
-Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RDMA-netwerken met lage latentie met gebruik van FDR InfiniBand, evenals verschillende geheugenconfiguraties om geheugenintensieve rekenvereisten te ondersteunen.
+Bovendien toohello aanzienlijk CPU-kracht, biedt Hallo H-serie diverse opties voor lage latentie RDMA netwerken met FDR InfiniBand en verschillende configuraties toosupport geheugen intensieve rekenkundige geheugenvereisten.
 
 | Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -168,9 +168,9 @@ Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RD
 \*RDMA-compatibele
 
 ## <a name="configure-sizes-for-cloud-services"></a>Grootten voor Cloud-Services configureren
-U kunt de grootte van de virtuele Machine van een rolexemplaar opgeven als onderdeel van het servicemodel beschreven door de [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). De grootte van de functie bepaalt het aantal CPU-kernen, de geheugencapaciteit en de lokale system bestandsgrootte die is toegewezen aan een actief exemplaar. Kies de grootte van de rol op basis van de vereisten van uw toepassing.
+U kunt Hallo de grootte van de virtuele Machine van een rolexemplaar opgeven als onderdeel van de ServiceModel Hallo beschreven door Hallo [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Hallo-grootte van Hallo rol bepaalt Hallo aantal CPU-kernen, Hallo geheugencapaciteit en Hallo lokale systeem bestandsgrootte op die met een exemplaar van tooa is toegewezen. Kies de grootte van de rol Hallo op basis van de vereisten van uw toepassing.
 
-Hier volgt een voorbeeld voor het instellen van de grootte van de rol worden [Standard_D2](#general-purpose-d) voor een exemplaar van de Webrol:
+Hier volgt een voorbeeld voor het instellen van Hallo rol grootte toobe [Standard_D2](#general-purpose-d) voor een exemplaar van de Webrol:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">
@@ -178,17 +178,17 @@ Hier volgt een voorbeeld voor het instellen van de grootte van de rol worden [St
 </WorkerRole>
 ```
 
-## <a name="changing-the-size-of-an-existing-role"></a>De grootte van een bestaande rol wijzigen
+## <a name="changing-hello-size-of-an-existing-role"></a>Hallo-grootte van een bestaande rol wijzigen
 
-Als de aard van uw werkbelasting wordt gewijzigd of nieuwe VM-grootten beschikbaar, wilt u mogelijk de grootte van uw rol wijzigen. Om dit te doen, moet u de VM-grootte wijzigen in het servicedefinitiebestand (zoals hierboven), opnieuw inpakken van uw Cloud-Service en deze implementeren. Het is niet mogelijk om te wijzigen van VM-grootten rechtstreeks vanuit de portal of PowerShell.
+Als Hallo aard van uw werkbelasting wordt gewijzigd of nieuwe VM-grootten beschikbaar, wilt u wellicht toochange Hallo grootte van uw rol. toodo zodat u moet Hallo VM-grootte in het servicedefinitiebestand wijzigen (zoals hierboven) opnieuw inpakken van uw Cloud-Service en implementeren. Het is niet mogelijk toochange VM-grootten rechtstreeks vanuit het Hallo-portal of PowerShell.
 
 >[!TIP]
-> U kunt andere VM-grootten (bv gebruik voor uw rol in andere omgevingen. Test tegenover productie). Doen dit is het maken van meerdere servicedefinitie (.csdef)-bestanden in uw project, maakt u andere cloud servicepakketten per omgeving tijdens uw geautomatiseerde opbouw met het hulpprogramma CSPack. Zie voor meer informatie over de elementen van een cloud services-pakket en hoe ze worden gemaakt, [wat is de cloud services-model en hoe ik dit pakket?](cloud-services-model-and-package.md)
+> U kunt andere VM-grootten toouse voor uw rol in verschillende omgevingen (bv. Test tegenover productie). Eenzijdige toodo dit toocreate is meerdere service-definitie (.csdef)-bestanden in uw project en maak vervolgens andere cloud servicepakketten per omgeving tijdens uw geautomatiseerde opbouw met Hallo CSPack hulpprogramma. toolearn meer informatie over het Hallo-elementen van een cloud services-pakket en hoe toocreate die ze zien [wat is er Hallo cloud services-model en hoe ik dit pakket?](cloud-services-model-and-package.md)
 >
 >
 
 ## <a name="get-a-list-of-sizes"></a>Een lijst met grootten
-U kunt PowerShell of de REST-API gebruiken voor een lijst met grootten. De REST-API wordt beschreven [hier](https://msdn.microsoft.com/library/azure/dn469422.aspx). De volgende code is een PowerShell-opdracht met de momenteel beschikbare grootten voor de Cloudservice.
+U kunt PowerShell of REST-API tooget een lijst met grootten hello gebruiken. Hallo REST-API wordt beschreven [hier](https://msdn.microsoft.com/library/azure/dn469422.aspx). Hallo is volgende code een PowerShell-opdracht met alle Hallo grootten momenteel beschikbaar is voor uw Cloud-Service.
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize

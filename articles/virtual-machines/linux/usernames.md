@@ -1,6 +1,6 @@
 ---
-title: Gebruikersnamen voor Linux selecteren | Microsoft Docs
-description: Informatie over het selecteren van gebruikersnamen voor een virtuele Linux-machine in Azure.
+title: aaaSelecting gebruikersnamen voor Linux | Microsoft Docs
+description: Meer informatie over hoe de namen van tooselect gebruiker voor een virtuele Linux-machine in Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 1874d72e5f88816036667932371ff28704d186c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c65e2ac46f40bb8c9d74cccbaf248a070c0fa6cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="selecting-user-names-for-linux-on-azure"></a>Gebruikersnamen selecteren voor Linux op Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Wanneer u een virtuele Linux-machine in Azure inrichten, moet u de naam van een niet-hoofdgebruiker die u later gebruiken kunt voor aanmelding bij de virtuele machine opgeven. U kunt de naam van de nieuwe gebruiker of als inrichting via de klassieke Azure portal kunt u de standaard de naam 'azureuser' accepteren.
+Wanneer u een virtuele Linux-machine in Azure inricht, kunt u Hallo-naam van een niet-hoofdgebruiker waarmee u later toolog in Hallo VM kunt moet opgeven. U kunt ervoor kiezen de naam van de nieuwe gebruiker Hallo Hallo of als inrichting via Hallo klassieke Azure-portal kunt u accepteren Hallo standaard de naam 'azureuser'.
 
-In de meeste gevallen wordt deze gebruiker won't bestaan op de basisinstallatiekopie en tijdens het inrichtingsproces wordt gemaakt. Als de gebruiker op de basisinstallatiekopie van de virtuele machine bestaat, configureert de Azure Linux-agent gewoon vervolgens het wachtwoord en/of de SSH-sleutel voor die gebruiker op basis van de informatie die u hebt opgegeven bij het maken van de virtuele machine.
+In de meeste gevallen wordt deze gebruiker op Hallo basisinstallatiekopie won't bestaan en wordt gemaakt tijdens het inrichtingsproces Hallo. Als gebruiker Hallo op Hallo basisinstallatiekopie VM bestaat, configureert hello Azure Linux agent gewoon vervolgens Hallo wachtwoord en/of SSH-sleutel voor die gebruiker op basis van Hallo informatie die u hebt opgegeven bij het maken van Hallo VM.
 
-**Echter**, Linux definieert een set namen van gebruikers die niet worden gebruikt. Tijdens het inrichtingsproces wordt **mislukken** als u probeert te creëren van een Linux-VM met behulp van een bestaande systeemgebruiker, die is gedefinieerd als een gebruiker met UID 0 en 99 liggen. Een typisch voorbeeld is de `root` gebruiker UID 0 is.
+**Echter**, Linux definieert een set namen van gebruikers die niet worden gebruikt. Hallo inrichting proces wordt **mislukken** als u probeert tooprovision een Linux-VM met behulp van een bestaande systeemgebruiker, die is gedefinieerd als een gebruiker met UID 0 en 99 liggen. Een typisch voorbeeld is Hallo `root` gebruiker UID 0 is.
 
 * Zie ook: [Linux standaard Base - gebruiker-ID bereiken](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Hier volgt een lijst met algemene ingebouwd systeem-gebruikers voor CentOS en Ubuntu dat moet u niet gebruiken bij het inrichten van een virtuele Linux-machine in Azure. Deze lijst is slechts een voorbeeld, Raadpleeg de documentatie voor uw distributiepunt om ervoor te zorgen dat de gebruikersnaam die u ervoor kiezen geen met een bestaande gebruiker conflict.
+Hallo Hieronder volgt een lijst met algemene ingebouwd systeem-gebruikers voor CentOS en Ubuntu dat moet u niet gebruiken bij het inrichten van een virtuele Linux-machine in Azure. Deze lijst is slechts een voorbeeld, raadpleegt u toohello-documentatie voor uw tooensure distributie die u niet in conflict met een bestaande systeemgebruiker Hallo-gebruikersnaam.
 
 ## <a name="centos"></a>CentOS
 * abrt

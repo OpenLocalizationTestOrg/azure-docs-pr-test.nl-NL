@@ -1,32 +1,21 @@
 ---
-title: 'Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal | Microsoft Docs'
-description: Is een Golang-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Cosmos DB
-services: cosmos-db
-author: Durgaprasad-Budhwani
-manager: jhubbard
-editor: mimig1
-ms.service: cosmos-db
-ms.topic: hero-article
-ms.date: 07/21/2017
-ms.author: mimig
-ms.openlocfilehash: 9461a5d86b321fd02167379ba8751d44a861ebc2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+titel: aaa "Azure Cosmos DB: een consoletoepassing MongoDB-API met Golang bouwen en hello Azure-portal | Microsoft Docs' Beschrijving: geeft een voorbeeld van Golang code kunt u tooconnect tooand Azure Cosmos DB services zoeken: cosmos-db auteur: Durgaprasad Budhwani manager: jhubbard-editor: mimig1
+
+MS.service: cosmos-db ms.topic: hero-article ms.date: 07/21/2017 ms.author: mimig
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: een MongoDB-API-console-app ontwikkelen met Golang en Azure Portal
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-hello-azure-portal"></a>Azure Cosmos DB: Een consoletoepassing MongoDB-API met Golang bouwen en hello Azure-portal
 
-In deze Quick Start ziet u hoe u een bestaande, in [Golang](https://golang.org/) geschreven [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction)-app kunt gebruiken en verbinden met uw Azure Cosmos DB-database, die MongoDB-clientverbindingen ondersteunt.
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel maken en query document, de sleutel/waarde en de grafiek databases, die allemaal van Hallo wereldwijde distributie en mogelijkheden van de horizontale schaal Hallo kern van Azure Cosmos DB profiteren.
 
-Met andere woorden, uw Golang-toepassing weet alleen dat deze wordt verbonden met een database met behulp van MongoDB-API's. Het is duidelijk voor de toepassing dat de gegevens worden opgeslagen in Azure Cosmos DB.
+Deze snel starten laat zien hoe een bestaande toouse [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) app, geschreven in [Golang](https://golang.org/) en verbinding maken met het tooyour Azure DB die Cosmos-database, die ondersteuning biedt voor MongoDB-clientverbindingen.
+
+Met andere woorden, kent uw toepassing Golang alleen er wordt verbinding gemaakt met behulp van MongoDB APIs tooa-database. Is transparant toohello-toepassing die Hallo van gegevens wordt opgeslagen in Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free) aan voordat u begint.
-- [Go](https://golang.org/dl/) en basiskennis van de [Go](https://golang.org/)-taal.
+- [Ga](https://golang.org/dl/) en basiskennis van Hallo [gaat](https://golang.org/) taal.
 - Een IDE: [Gogland](https://www.jetbrains.com/go/) van Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) van Microsoft of [Atom](https://atom.io/). In deze zelfstudie wordt Goglang gebruikt.
 
 <a id="create-account"></a>
@@ -34,55 +23,55 @@ Met andere woorden, uw Golang-toepassing weet alleen dat deze wordt verbonden me
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
+## <a name="clone-hello-sample-application"></a>Hallo-voorbeeldtoepassing klonen
 
-Kloon de voorbeeldtoepassing en installeer de vereiste pakketten.
+Hallo-voorbeeldtoepassing klonen en vereist hello-pakketten installeren.
 
-1. Maak een map met de naam CosmosDBSample in de map GOROOT\src. Standaard heet de map C:\Go\.
-2. Voer de volgende opdracht uit met een Git-terminalvenster zoals Git-bash om de voorbeeldopslagplaats te klonen in de map CosmosDBSample. 
+1. Maak een map met de naam CosmosDBSample hello GOROOT\src map C:\Go\ is standaard.
+2. Hallo volgende opdracht met een terminalvenster git zoals git bash tooclone Hallo voorbeeld-opslagplaats in Hallo CosmosDBSample map worden uitgevoerd. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-golang-getting-started.git
     ```
-3.  Voer de volgende opdracht uit om het mgo-pakket op te halen. 
+3.  Hallo na de opdracht tooget Hallo mgo pakket worden uitgevoerd. 
 
     ```
     go get gopkg.in/mgo.v2
     ```
 
-Het [mgo](http://labix.org/mgo)-stuurprogramma (uitgesproken als *mango*) is een [MongoDB](http://www.mongodb.org/)-stuurprogramma voor de [Go-taal](http://golang.org/). Hiermee wordt een uitgebreide en goed geteste reeks functies geïmplementeerd op basis van een heel eenvoudige API die is voorzien van standaard-Go-terminologie.
+Hallo [mgo](http://labix.org/mgo) stuurprogramma (uitgesproken als *mango*) is een [MongoDB](http://www.mongodb.org/) stuurprogramma voor Hallo [gaat taal](http://golang.org/) die implementeert een uitgebreide en getest goed selectie van functies onder een zeer eenvoudige API standaard Ga idioms te volgen.
 
 <a id="connection-string"></a>
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
+Nu gaat u terug toohello Azure portal tooget verbindingsreeksgegevens en kopieer dit naar Hallo-app.
 
-1. Klik op **Snel starten** in het navigatiemenu links en klik op **Overige** om de verbindingstekenreeksinformatie te bekijken die is vereist voor de Go-toepassing.
+1. Klik op **snel starten** in het navigatiemenu links Hallo en klik vervolgens op **andere** tooview Hallo verbindingsinformatie vereist door Hallo Ga-toepassing.
 
-2. In Goglang opent u het bestand main.go in de map GOROOT\CosmosDBSample. Werk de volgende regels code bij met de verbindingstekenreeksinformatie uit Azure Portal, zoals in de volgende schermafbeelding te zien is. 
+2. In Goglang, Hallo main.go bestand in Hallo GOROOT\CosmosDBSample directory openen en bijwerken van de volgende regels code Hallo verbindingsreeksgegevens van hello Azure-portal gebruikt, zoals wordt weergegeven in de volgende schermafbeelding Hallo Hallo. 
 
-    De naam van de database is het voorvoegsel van de waarde **Host** in het deelvenster met de verbindingstekenreeks in Azure Portal. Voor het account dat in de onderstaande afbeelding wordt weergegeven, is de databasenaam golang-coach.
+    Hallo-databasenaam is Hallo voorvoegsel Hallo **Host** waarde in het deelvenster voor hello Azure portal verbinding-tekenreeks. Hallo-databasenaam is voor Hallo-account wordt weergegeven in onderstaande afbeelding voor Hallo golang-bus.
 
     ```go
-    Database: "The prefix of the Host value in the Azure portal",
-    Username: "The Username in the Azure portal",
-    Password: "The Password in the Azure portal",
+    Database: "hello prefix of hello Host value in hello Azure portal",
+    Username: "hello Username in hello Azure portal",
+    Password: "hello Password in hello Azure portal",
     ```
 
-    ![Deelvenster Snel starten, tabblad Overige in Azure Portal met daarin de verbindingstekenreeksinformatie](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+    ![Deelvenster andere tabblad in hello Azure portal waarin Hallo verbindingsinformatie voor snel starten](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
 
-3. Sla het bestand main.go op.
+3. Hallo main.go bestand opslaan.
 
-## <a name="review-the-code"></a>De code bekijken
+## <a name="review-hello-code"></a>Hallo code bekijken
 
-Laten we eens kijken wat er precies gebeurt in het bestand main.go. 
+We maken een kort overzicht van wat er in Hallo main.go-bestand gebeurt. 
 
-### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>De Go-app verbinden met Azure Cosmos DB
+### <a name="connecting-hello-go-app-tooazure-cosmos-db"></a>Verbinding maken met de Hallo Ga app tooAzure Cosmos-DB
 
-Azure Cosmos DB biedt ondersteuning voor MongoDB met SSL ingeschakeld. Als u verbinding wilt maken met een MongoDB met SSL, moet u de functie **DialServer** definiëren in [mgo. DialInfo](http://gopkg.in/mgo.v2#DialInfo) en gebruikmaken van de functie [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) om de verbinding tot stand te laten komen.
+Azure Cosmos DB ondersteunt Hallo MongoDB SSL zijn ingeschakeld. tooconnect tooan MongoDB SSL is ingeschakeld, moet u toodefine hello **DialServer** werken in [mgo. DialInfo](http://gopkg.in/mgo.v2#DialInfo), en maken gebruik van Hallo [tls. *Externe* ](http://golang.org/pkg/crypto/tls#Dial) tooperform Hallo verbinding werkt.
 
-Met het volgende Golang-codefragment verbindt u de Go-app met de Azure Cosmos DB MongoDB-API. De klasse *DialInfo* bevat opties voor het starten van een sessie met een MongoDB-cluster.
+Hallo Golang codefragment na verbindt Hallo Ga app met Azure Cosmos DB MongoDB-API. Hallo *DialInfo* klasse bevat de opties voor het tot stand brengen van een sessie met een cluster met MongoDB.
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -98,27 +87,27 @@ dialInfo := &mgo.DialInfo{
 }
 
 // Create a session which maintains a pool of socket connections
-// to our Azure Cosmos DB MongoDB database.
+// tooour Azure Cosmos DB MongoDB database.
 session, err := mgo.DialWithInfo(dialInfo)
 
 if err != nil {
-    fmt.Printf("Can't connect to mongo, go error %v\n", err)
+    fmt.Printf("Can't connect toomongo, go error %v\n", err)
     os.Exit(1)
 }
 
 defer session.Close()
 
-// SetSafe changes the session safety mode.
-// If the safe parameter is nil, the session is put in unsafe mode, 
+// SetSafe changes hello session safety mode.
+// If hello safe parameter is nil, hello session is put in unsafe mode, 
 // and writes become fire-and-forget,
-// without error checking. The unsafe mode is faster since operations won't hold on waiting for a confirmation.
+// without error checking. hello unsafe mode is faster since operations won't hold on waiting for a confirmation.
 // 
 session.SetSafe(&mgo.Safe{})
 ```
 
-De methode **mgo.Dial()** wordt gebruikt als er geen SSL-verbinding is. Voor een SSL-verbinding is de methode **mgo.DialWithInfo()** vereist.
+Hallo **mgo. Dial()** methode wordt gebruikt wanneer er geen SSL-verbinding is. Voor een SSL-verbinding Hallo **mgo. DialWithInfo()** methode is vereist.
 
-Er wordt een exemplaar van het object **DialWIthInfo {}** gebruikt om het sessieobject te maken. Zodra de sessie is gestart, kunt u de verzameling openen met het volgende codefragment:
+Een exemplaar van Hallo **DialWIthInfo {}** -object is gebruikte toocreate Hallo-sessieobject. Zodra het Hallo-sessie tot stand is gebracht, kunt u Hallo verzameling kunt openen met behulp van de volgende codefragment Hallo:
 
 ```go
 collection := session.DB(“database”).C(“package”)
@@ -157,10 +146,10 @@ if err != nil {
 
 ### <a name="query-or-read-a-document"></a>Query's uitvoeren voor een document of een document lezen
 
-Azure Cosmos DB biedt ondersteuning voor uitgebreide query's voor de JSON-documenten die zijn opgeslagen in elke verzameling. In de volgende voorbeeldcode ziet u een query die u kunt uitvoeren op de documenten in uw verzameling.
+Azure Cosmos DB biedt ondersteuning voor uitgebreide query's voor de JSON-documenten die zijn opgeslagen in elke verzameling. Hallo ziet volgende voorbeeldcode u een query die u op Hallo documenten in uw verzameling uitvoeren kunt.
 
 ```go
-// Get a Document from the collection
+// Get a Document from hello collection
 result := Package{}
 err = collection.Find(bson.M{"fullname": "react"}).One(&result)
 if err != nil {
@@ -199,13 +188,13 @@ if err != nil {
 }
 ```
     
-## <a name="run-the-app"></a>De app uitvoeren
+## <a name="run-hello-app"></a>Hallo-app uitvoeren
 
-1. In Golang controleert u of uw GOPATH (beschikbaar via **Bestand**, **Instellingen**, **Go**, **GOPATH**) de locatie bevat waarin de gopkg is geïnstalleerd. Standaard is dit USERPROFILE\go. 
-2. Markeer de regels waarmee het document wordt verwijderd (regel 91-96) als commentaar, zodat u het document na het uitvoeren van de app kunt bekijken.
+1. Goglang, zorg ervoor dat in uw GOPATH (onder **bestand**, **instellingen**, **gaat**, **GOPATH**) Hallo locatie in welke Hallo opnemen gopkg is, welke USERPROFILE\go is standaard geïnstalleerd. 
+2. Hallo-regels die Hallo document, regels 91-96 verwijderen uitcommentariëren zodat u Hallo document na actieve Hallo-app kunt zien.
 3. In Goglang klikt u op **Uitvoeren** en daarna op **'Build main.go and run' uitvoeren**.
 
-    De app wordt voltooid en de beschrijving wordt weergegeven van het document dat u hebt gemaakt in [Een document maken](#create-document).
+    Hallo-app is voltooid en geeft weer Hallo beschrijving van Hallo document dat is gemaakt [maken van een document](#create-document).
     
     ```
     Description: A framework for building native apps with React.
@@ -213,32 +202,32 @@ if err != nil {
     Process finished with exit code 0
     ```
 
-    ![Golang, waarin de uitvoer van de app wordt weergegeven](./media/create-mongodb-golang/goglang-cosmos-db.png)
+    ![Goglang Hallo-uitvoer van Hallo app weergeven](./media/create-mongodb-golang/goglang-cosmos-db.png)
     
 ## <a name="review-your-document-in-data-explorer"></a>Uw document bekijken in Data Explorer
 
-Ga terug naar Azure Portal om uw document te bekijken in Data Explorer.
+Ga terug toohello Azure portal toosee uw document in Data Explorer.
 
-1. Klik op **Data Explorer (Preview)** in het navigatiemenu links, vouw **golang-coach**, **package** uit en klik vervolgens op **Documenten**. Op het tabblad **Documenten** klikt u op de \_-id om het document in het rechterdeelvenster weer te geven. 
+1. Klik op **Data Explorer (Preview)** Vouw in het linkerdeelvenster navigatiemenu Hallo **golang bus**, **pakket**, en klik vervolgens op **documenten**. In Hallo **documenten** en klik op Hallo \_id toodisplay Hallo document in het rechterdeelvenster Hallo. 
 
-    ![Data Explorer waarin het zojuist gemaakte document wordt weergegeven](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
+    ![Data Explorer tonen Hallo nieuw gemaakte document](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
     
-2. U kunt vervolgens inline met het document werken. Klik op **Bijwerken** om het op te slaan. U kunt het document ook verwijderen of nieuwe documenten of query's aanmaken.
+2. U kunt vervolgens werkt met Hallo document inline en klikt u op **Update** toosave deze. U kunt ook Hallo document verwijderen of maken van nieuwe documenten of query's.
 
-## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
+## <a name="review-slas-in-hello-azure-portal"></a>Sla's bekijken in hello Azure-portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal:
+Als u deze app niet toocontinue toouse gaat, verwijdert u alle resources die zijn gemaakt door deze snelstartgids in hello Azure-portal met Hallo stappen te volgen:
 
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
+1. Hallo links menu in hello Azure-portal en klik op **resourcegroepen** en klik vervolgens op Hallo-naam van het Hallo-resource die u hebt gemaakt. 
+2. Klik op de pagina van de groep resource **verwijderen**, typ de naam Hallo van Hallo resource toodelete in Hallo tekstvak en klik op **verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een Golang-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren. 
+In deze snelstartgids hebt u geleerd hoe toocreate een Cosmos-DB Azure-account en voer een Golang app met Hallo API voor MongoDB. U kunt nu aanvullende gegevens tooyour Cosmos DB account importeren. 
 
 > [!div class="nextstepaction"]
-> [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)
+> [Gegevens importeren in Azure Cosmos DB voor Hallo MongoDB-API](mongodb-migrate.md)

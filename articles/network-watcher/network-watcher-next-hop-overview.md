@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot de volgende hop in Azure-netwerk-Watcher | Microsoft Docs
-description: Deze pagina bevat een overzicht van de netwerk-Watcher volgende hop-functionaliteit
+title: aaaIntroduction toonext hop in Azure-netwerk-Watcher | Microsoft Docs
+description: Deze pagina bevat een overzicht van netwerk-Watcher Hallo volgende hop-functionaliteit
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5dd65d2418cae206965a13013dd990b916ad0733
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 916af736d0d52abadeafed746f0f8a0173b11033
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Inleiding tot de volgende hop in Azure-netwerk-Watcher
+# <a name="introduction-toonext-hop-in-azure-network-watcher"></a>Inleiding toonext hop in Azure-netwerk-Watcher
 
-Verkeer van een virtuele machine wordt verzonden naar een bestemming op basis van de effectieve routes die zijn gekoppeld aan een NIC. Volgende hop opgehaald uit het volgende hoptype en IP-adres van een pakket vanuit een specifieke virtuele machine en de NIC. Dit helpt te bepalen of het pakket wordt omgeleid naar de bestemming of is het verkeer wordt zwarte gaan. Een onjuiste configuratie van routes door de gebruiker, waarbij een verkeer wordt omgeleid naar een on-premises locatie of een virtueel apparaat, kan leiden tot problemen met de netwerkverbinding. Volgende hop retourneert ook de routetabel die zijn gekoppeld aan de volgende hop. Tijdens het opvragen van een volgende hop als de route is gedefinieerd als een gebruiker gedefinieerde route worden die route geretourneerd. Anders retourneert de volgende hop 'Systeemroute'.
+Verkeer van een virtuele machine wordt verzonden tooa bestemming op basis van Hallo effectieve routes die zijn gekoppeld aan een NIC. Volgende hop opgehaald Hallo volgend hoptype en IP-adres van een pakket vanuit een specifieke virtuele machine en de NIC. Dit helpt toodetermine als hello pakket gerichte toohello bestemming wordt of het Hallo-verkeer wordt zwarte gaan is. Een onjuiste configuratie van routes door de gebruiker hello, waarbij een verkeer gerichte tooan on-premises locatie of een virtueel apparaat is, kan leiden tooconnectivity problemen. Ook wordt de volgende hop Hallo routetabel die zijn gekoppeld aan de volgende hop Hallo. Tijdens het opvragen van een volgende hop als Hallo route is gedefinieerd als een gebruiker gedefinieerde route worden die route geretourneerd. Anders retourneert de volgende hop 'Systeemroute'.
 
 ![overzicht van volgende hop][1]
 
-Hier volgt een lijst van de volgende hoptypen die kunnen worden geretourneerd bij het opvragen van de volgende hop.
+Hallo Hieronder volgt een lijst met het volgende hoptypen hello, die kunnen worden geretourneerd bij het opvragen van de volgende hop.
 
 * Internet
 * VirtualAppliance
@@ -38,7 +38,7 @@ Hier volgt een lijst van de volgende hoptypen die kunnen worden geretourneerd bi
 
 ### <a name="next-steps"></a>Volgende stappen
 
-Informatie over het gebruik van volgende hop vinden van problemen met de netwerkverbinding in via [controleren van de volgende hop op een virtuele machine](network-watcher-check-next-hop-portal.md)
+Meer informatie over hoe de volgende hop toofind toouse problemen met de netwerkverbinding in via [selectievakje Hallo volgende hop op een virtuele machine](network-watcher-check-next-hop-portal.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png

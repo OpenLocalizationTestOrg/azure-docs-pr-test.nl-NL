@@ -1,6 +1,6 @@
 ---
-title: Een Node.js-toepassing die gebruikmaakt van MongoDB implementeren | Microsoft Docs
-description: Overzicht over het pakket meerdere Gast uitvoerbare bestanden naar een Azure Service Fabric-cluster implementeren
+title: een Node.js-toepassing die gebruikmaakt van MongoDB aaaDeploy | Microsoft Docs
+description: Overzicht over het toopackage meerdere Gast uitvoerbare bestanden toodeploy tooan Azure Service Fabric-cluster
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2775080f0d9d42d6ba15cca911e23067106be26d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd
-In dit artikel laat zien hoe verpakken en distribueren van meerdere Gast uitvoerbare bestanden naar de Azure Service Fabric. Voor het maken en implementeren van één Service Fabric-pakket leest u hoe aan [uitvoerbare Gast implementeren op Service Fabric](service-fabric-deploy-existing-app.md).
+Dit artikel laat zien hoe toopackage en implementeren van meerdere Gast uitvoerbare bestanden tooAzure Service Fabric. Voor Lees hoe te maken en implementeren van één Service Fabric-pakket[implementeren van een gast uitvoerbare tooService Fabric](service-fabric-deploy-existing-app.md).
 
-Terwijl dit overzicht hoe een toepassing met een Node.js-front-end dat u MongoDB als het gegevensarchief gebruikt implementeren toont, kunt u de stappen toepassen op alle toepassingen die afhankelijk van een andere toepassing is.   
+Hoewel dit overzicht hoe een toepassing met een Node.js-front-end dat MongoDB als gegevensarchief Hallo gebruikt toodeploy, u kunt toepassen Hallo stappen tooany toepassing die afhankelijk van een andere toepassing toont is.   
 
-U kunt Visual Studio gebruiken voor het produceren van het toepassingspakket dat meerdere Gast uitvoerbare bestanden bevat. Zie [met behulp van Visual Studio aan het pakket van een bestaande toepassing](service-fabric-deploy-existing-app.md). Nadat u het eerste uitvoerbare bestand van het gastbesturingssysteem hebt toegevoegd, klik met de rechtermuisknop op het toepassingsproject en selecteer de **toevoegen -> nieuwe Service Fabric-service** het tweede Gast uitvoerbare project toevoegen aan de oplossing. Opmerking: Als u de bron is in de Visual Studio-project koppelt, de Visual Studio-oplossing bouwen zorgt ervoor dat het toepassingspakket bijgewerkt met wijzigingen in de bron is. 
+U kunt Visual Studio tooproduce Hallo toepassingspakket met meerdere Gast uitvoerbare bestanden gebruiken. Zie [toopackage Visual Studio met behulp van een bestaande toepassing](service-fabric-deploy-existing-app.md). Wanneer u Hallo eerste Gast uitvoerbaar bestand hebt toegevoegd, klik met de rechtermuisknop op Hallo application-project en selecteer Hallo **toevoegen -> nieuwe Service Fabric-service** tooadd Hallo tweede Gast uitvoerbare project toohello oplossing. Opmerking: Als u ervoor kiest toolink Hallo-bron in Visual Studio-project Hallo Visual Studio-oplossing bouwen Hallo zorgt ervoor dat het toepassingspakket is up toodate met wijzigingen in de Hallo bron. 
 
 ## <a name="samples"></a>Voorbeelden
 * [Voorbeeld voor verpakken en distribueren van een gast uitvoerbaar bestand](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceert via Hallo Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="manually-package-the-multiple-guest-executable-application"></a>De meerdere Gast uitvoerbare toepassing handmatig van het pakket
-U kunt ook kunt u handmatig de Gast uitvoerbare pakket. Voor de handmatige verpakking, het hulpprogramma Service Fabric-pakket, dat beschikbaar is op dit artikel wordt gebruikt [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+## <a name="manually-package-hello-multiple-guest-executable-application"></a>Handmatig pakket meerdere Gast uitvoerbare toepassing hello
+U kunt ook handmatig Hallo Gast uitvoerbare verpakken. Voor handmatige hello-pakketten, in dit artikel gebruikt Hallo Service Fabric-verpakking hulpprogramma, dat beschikbaar is op [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-### <a name="packaging-the-nodejs-application"></a>Het verpakken van de Node.js-toepassing
-In dit artikel wordt ervan uitgegaan dat Node.js niet is geïnstalleerd op de knooppunten in het Service Fabric-cluster. Als gevolg hiervan moet u Node.exe toevoegen aan de hoofdmap van uw knooppunttoepassing voordat de pakketten. De mapstructuur van de Node.js-toepassing (met behulp van de Express-webframework en Jade sjabloon engine), moet er ongeveer als hieronder:
+### <a name="packaging-hello-nodejs-application"></a>Verpakking Hallo Node.js-toepassing
+In dit artikel wordt ervan uitgegaan dat Node.js niet is geïnstalleerd op de knooppunten Hallo in Hallo Service Fabric-cluster. Als gevolg hiervan moet u tooadd Node.exe toohello hoofdmap van uw knooppunttoepassing voordat pakketten. Hallo directorystructuur van Hallo Node.js-toepassing (met behulp van de Express-webframework en Jade sjabloon engine) ziet vergelijkbare toohello een hieronder:
 
 ```
 |-- NodeApplication
@@ -60,22 +60,22 @@ In dit artikel wordt ervan uitgegaan dat Node.js niet is geïnstalleerd op de kn
     |-- node.exe
 ```
 
-Een volgende stap moet u een pakket voor de Node.js-toepassing maken. De code hieronder maakt een Service Fabric-toepassingspakket dat u de Node.js-toepassing bevat.
+Een volgende stap moet u een toepassingspakket voor Hallo Node.js-toepassing maken. Hallo-code hieronder maakt u een Service Fabric-toepassingspakket dat Hallo Node.js-toepassing bevat.
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
 ```
 
-Hieronder volgt een beschrijving van de parameters die worden gebruikt:
+Hieronder volgt een beschrijving van Hallo-parameters die worden gebruikt:
 
-* **/ source** verwijst naar de map van de toepassing die moet worden verpakt.
-* **/ target** definieert u de map waarin het pakket moet worden gemaakt. Deze map moet afwijken van de bronmap.
-* **/ AppName** definieert de naam van de toepassing van de bestaande toepassing. Het is belangrijk om te begrijpen dat dit komt neer op de servicenaam in het manifest en niet op de naam van de Service Fabric-toepassing.
-* **exe** definieert het uitvoerbare bestand dat de Service Fabric behoort te starten in dit geval `node.exe`.
-* **/ma** het argument dat wordt gebruikt voor het starten van het uitvoerbare bestand definieert. Als Node.js niet is geïnstalleerd, Service Fabric moet de Node.js-webserver start door te voeren `node.exe bin/www`.  `/ma:'bin/www'`vertelt verpakking hulpprogramma gebruikt `bin/ma` als het argument voor node.exe.
-* **/ AppType** definieert de naam van het Service Fabric-toepassing.
+* **/ source** punten toohello map van het Hallo-toepassing die moet worden verpakt.
+* **/ target** definieert Hallo directory aan welke Hallo pakket moet worden gemaakt. Deze map heeft toobe verschilt van de bronmap Hallo.
+* **/ AppName** Hallo toepassingsnaam van de bestaande toepassing hello definieert. Het is belangrijk toounderstand dit toohello servicenaam in het manifest Hallo en niet toohello Service Fabric toepassingsnaam vertaalt.
+* **exe** definieert Hallo uitvoerbare dat Service Fabric toolaunch, in dit geval moet `node.exe`.
+* **/ma** Hallo-argument dat gebruikt toolaunch Hallo uitvoerbare wordt definieert. Als Node.js niet is geïnstalleerd, Service Fabric toolaunch hello Node.js-webserver moet door het uitvoeren van `node.exe bin/www`.  `/ma:'bin/www'`Hallo verpakking hulpprogramma toouse vertelt `bin/ma` als argument voor node.exe Hallo.
+* **/ AppType** definieert Hallo Service Fabric-toepassing-typenaam.
 
-Als u de map die is opgegeven in de parameter/target bladert, ziet u dat het hulpprogramma een volledig werkend Service Fabric-pakket is gemaakt, zoals hieronder wordt weergegeven:
+Als u toohello map die is opgegeven in de parameter/target Hallo bladert, ziet u dat hulpprogramma Hallo een volledig werkend Service Fabric-pakket is gemaakt, zoals hieronder wordt weergegeven:
 
 ```
 |--[yourtargetdirectory]
@@ -95,7 +95,7 @@ Als u de map die is opgegeven in de parameter/target bladert, ziet u dat het hul
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-De gegenereerde ServiceManifest.xml heeft nu een sectie waarin wordt beschreven hoe de Node.js-web-server moet worden gestart, zoals wordt weergegeven in het onderstaande codefragment:
+Hallo gegenereerde ServiceManifest.xml nu een sectie waarin wordt beschreven hoe Hallo Node.js-web-server moet worden gestart heeft, zoals wordt weergegeven in onderstaande Hallo codefragment:
 
 ```xml
 <CodePackage Name="C" Version="1.0">
@@ -108,7 +108,7 @@ De gegenereerde ServiceManifest.xml heeft nu een sectie waarin wordt beschreven 
     </EntryPoint>
 </CodePackage>
 ```
-In dit voorbeeld luistert de Node.js-webserver op poort 3000, dus moet u het bijwerken van de endpoint-informatie in het bestand ServiceManifest.xml zoals hieronder wordt weergegeven.   
+In dit voorbeeld Hallo Node.js-webserver, luistert tooport 3000, dus u informatie over de endpoint tooupdate Hallo in Hallo ServiceManifest.xml bestand moet zoals hieronder wordt weergegeven.   
 
 ```xml
 <Resources>
@@ -117,10 +117,10 @@ In dit voorbeeld luistert de Node.js-webserver op poort 3000, dus moet u het bij
       </Endpoints>
 </Resources>
 ```
-### <a name="packaging-the-mongodb-application"></a>Het verpakken van de MongoDB-toepassing
-Nu dat u de Node.js-toepassing ingepakt hebt, kunt u doorgaan en MongoDB-pakket. Zoals al eerder vermeld, zijn de stappen die u hebt nu doorlopen niet specifiek zijn voor Node.js en MongoDB. In feite ze gelden voor alle toepassingen die zijn bedoeld om samen als één Service Fabric-toepassing worden verpakt.  
+### <a name="packaging-hello-mongodb-application"></a>Verpakking Hallo MongoDB-toepassing
+Nu dat u de Node.js-toepassing hello ingepakt hebt, kunt u doorgaan en MongoDB-pakket. Zoals al eerder vermeld, Hallo stappen die u hebt nu doorlopen zijn niet specifiek tooNode.js en MongoDB. Deze toepassing in feite tooall toepassingen die zijn bedoeld toobe verpakt in een Service Fabric-toepassing.  
 
-Als u wilt inpakken MongoDB, die u wilt Zorg ervoor dat u het pakket Mongod.exe en Mongo.exe. Beide binaire bestanden bevinden zich in de `bin` map van de installatiemap van MongoDB. De mapstructuur lijkt op hieronder.
+toopackage MongoDB, wilt u zeker dat u het pakket Mongod.exe en Mongo.exe toomake. Beide binaire bestanden bevinden zich in Hallo `bin` map van de installatiemap van MongoDB. Hallo-mapstructuur lijkt vergelijkbare toohello een hieronder.
 
 ```
 |-- MongoDB
@@ -129,25 +129,25 @@ Als u wilt inpakken MongoDB, die u wilt Zorg ervoor dat u het pakket Mongod.exe 
         |-- mongo.exe
         |-- anybinary.exe
 ```
-Service Fabric moet MongoDB beginnen met een opdracht vergelijkbaar met die hieronder, zodat u wilt gebruiken, de `/ma` parameter door bij het verpakken van MongoDB.
+Service Fabric moet toostart MongoDB met een opdracht vergelijkbare toohello een hieronder, dus u toouse hello moet `/ma` parameter door bij het verpakken van MongoDB.
 
 ```
-mongod.exe --dbpath [path to data]
+mongod.exe --dbpath [path toodata]
 ```
 > [!NOTE]
-> De gegevens is niet het geval van storing op een knooppunt wordt behouden als u de MongoDB-gegevensmap op de lokale map van het knooppunt geplaatst. U moet duurzame opslag gebruiken of implementeren van een replicaset MongoDB om gegevensverlies te voorkomen.  
+> Hallo-gegevens is niet wordt behouden in geval van storing op een knooppunt Hallo Hallo MongoDB-gegevensmap te plaatsen op de lokale directory Hallo van Hallo-knooppunt. U moet duurzame opslag gebruiken of een MongoDB replicaset volgorde tooprevent gegevens verloren gaan implementeren.  
 >
 >
 
-In PowerShell of de opdrachtshell uitvoeren we het verpakking-hulpprogramma met de volgende parameters:
+In PowerShell of Hallo opdrachtshell uitvoeren we Hallo verpakking hulpprogramma met Hallo volgende parameters:
 
 ```
-.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
+.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path toodata]' /AppType:NodeAppType
 ```
 
-U moet MongoDB toevoegen aan uw Service Fabric-toepassingspakket, zorg ervoor dat de parameter/target naar dezelfde directory waarmee al de toepassing bevat verwijst samen met de Node.js-toepassing manifest. U moet ook om ervoor te zorgen dat u van dezelfde ApplicationType naam gebruikmaakt.
+In de volgorde tooadd MongoDB tooyour Service Fabric-toepassingspakket, moet u ervoor dat parameter Hallo/TARGET verwijst toohello toomake dezelfde directory waarmee bevat al een toepassingsmanifest Hallo samen met de Hallo Node.js-toepassing. U moet ook toomake zeker dat u gebruikmaakt van dezelfde ApplicationType naam Hallo.
 
-Laten we Blader naar de map en onderzoeken van wat het hulpprogramma heeft gemaakt.
+We gaan bladeren door mappen toohello en onderzoeken welke hulpprogramma Hallo heeft gemaakt.
 
 ```
 |--[yourtargetdirectory]
@@ -163,7 +163,7 @@ Laten we Blader naar de map en onderzoeken van wat het hulpprogramma heeft gemaa
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Zoals u ziet, wordt met het hulpprogramma een nieuwe map, MongoDB, toegevoegd aan de map waarin de binaire bestanden voor MongoDB. Als u opent de `ApplicationManifest.xml` -bestand, kunt u zien dat het pakket nu de Node.js-toepassing en de MongoDB bevat. De volgende code toont de inhoud van het toepassingsmanifest.
+Zoals u ziet, toegevoegd Hallo hulpprogramma een nieuwe map, MongoDB, toohello map die Hallo MongoDB-binaire bestanden bevat. Als u Hallo openen `ApplicationManifest.xml` -bestand, kunt u zien dat Hallo-pakket bevat nu de Node.js-toepassing hello en MongoDB. Hallo-code hieronder toont Hallo inhoud van het Hallo-toepassingsmanifest.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -188,8 +188,8 @@ Zoals u ziet, wordt met het hulpprogramma een nieuwe map, MongoDB, toegevoegd aa
 </ApplicationManifest>  
 ```
 
-### <a name="publishing-the-application"></a>De toepassing publiceren
-De laatste stap is het publiceren van de toepassing naar de lokale Service Fabric-cluster met behulp van de onderstaande PowerShell-scripts:
+### <a name="publishing-hello-application"></a>Publishing Hallo-toepassing
+de laatste stap Hallo is toopublish Hallo toepassing toohello lokale Service Fabric-cluster met behulp van de onderstaande Hallo PowerShell-scripts:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -203,18 +203,18 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Zodra de toepassing is gepubliceerd naar het lokale cluster, kunt u de Node.js-toepassing op de poort die we hebben ingevoerd in het servicemanifest van de Node.js-toepassing bijvoorbeeld http://localhost: 3000 openen.
+Zodra de toepassing hello is met succes gepubliceerde toohello lokale cluster, kunt u de Node.js-toepassing hello op Hallo-poort die we hebben ingevoerd in Hallo servicemanifest van Hallo Node.js-toepassing--bijvoorbeeld http://localhost: 3000 openen.
 
-In deze zelfstudie hebt u gezien hoe eenvoudig het verpakken van twee bestaande toepassingen als een Service Fabric-toepassing. U hebt ook geleerd implementeren naar Service Fabric, zodat deze van enkele van de Service Fabric-functies, zoals hoge beschikbaarheid en health systeemintegratie profiteren kan.
+In deze zelfstudie hebt u gezien hoe tooeasily twee bestaande toepassingen pakket als een Service Fabric-toepassing. U hebt geleerd hoe toodeploy het tooService Fabric zodanig dat deze van sommige Hallo Service Fabric-functies, zoals hoge beschikbaarheid en health system-integratie profiteren kan.
 
 
-## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Meer Gast uitvoerbare bestanden toe te voegen aan een bestaande toepassing Yeoman met op Linux
+## <a name="adding-more-guest-executables-tooan-existing-application-using-yeoman-on-linux"></a>Meer Gast uitvoerbare bestanden tooan bestaande toepassing toevoegen met behulp van Yeoman op Linux
 
-Voer de volgende stappen uit als u nog een service wilt toevoegen aan een toepassing die al is gemaakt met `yo`: 
-1. Stel de directory in op de hoofdmap van de bestaande toepassing.  Bijvoorbeeld `cd ~/YeomanSamples/MyApplication` als `MyApplication` de toepassing is die is gemaakt door Yeoman.
-2. Voer `yo azuresfguest:AddService` en geef de benodigde gegevens.
+tooadd een andere service tooan toepassing al gemaakt met behulp van `yo`, Hallo volgende stappen uit te voeren: 
+1. Toohello hoofdmap van de bestaande toepassing hello wijzigen.  Bijvoorbeeld: `cd ~/YeomanSamples/MyApplication`als `MyApplication` is gemaakt door Yeoman Hallo-toepassing.
+2. Voer `yo azuresfguest:AddService` en de benodigde informatie Hallo.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het implementeren van containers met [overzicht van Service Fabric en containers](service-fabric-containers-overview.md)
 * [Voorbeeld voor verpakken en distribueren van een gast uitvoerbaar bestand](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceren via de Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Voorbeeld van twee Gast uitvoerbare bestanden (C# en nodejs) communiceert via Hallo Naming service met behulp van REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

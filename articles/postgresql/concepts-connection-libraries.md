@@ -1,6 +1,6 @@
 ---
 title: Verbindingsbibliotheken voor Azure-Database voor PostgreSQL | Microsoft Docs
-description: In dit artikel beschrijft de verschillende bibliotheken en stuurprogramma's die ontwikkelaars wanneer gebruiken kunnen toepassingen verbinding maken en query uitvoeren op Azure-Database voor PostgreSQL coderen.
+description: Dit artikel worden enkele bibliotheken en stuurprogramma's die ontwikkelaars gebruiken kunnen bij het coderen van toepassingen tooconnect en de Azure-Database-query voor PostgreSQL.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/15/2017
-ms.openlocfilehash: 1f99ef7fefb1ff9d35f564a1f0ad77c8dd64659e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1f7234499d8abe37f8de9008e3158765b1fb0bde
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Verbindingsbibliotheken voor Azure-Database voor PostgreSQL
-Dit onderwerp worden de bibliotheken en stuurprogramma's voor gebruik door ontwikkelaars voor het programmeren van toepassingen kunnen verbinding maken en query uitvoeren op Azure-Database voor PostgreSQL.
+Dit onderwerp worden de bibliotheken en stuurprogramma's voor gebruik door ontwikkelaars voor het programmeren van toepassingen tooconnect en de Azure-Database-query voor PostgreSQL.
 
 ## <a name="client-interfaces"></a>Clientinterfaces
-De meeste taal clientbibliotheken verbinding maken met server PostgreSQL externe projecten zijn en onafhankelijk van elkaar worden gedistribueerd. Deze worden ondersteund op Windows, Linux en Mac-platforms. Sommige van de populaire clientstuurprogramma's worden vermeld:
+De meeste taal client bibliotheken tooconnect tooPostgreSQL server zijn externe projecten en onafhankelijk van elkaar worden gedistribueerd. Deze worden ondersteund op Windows, Linux en Mac-platforms. Aantal Hallo populaire clientstuurprogramma's worden vermeld:
 
 | **Taal** | **Client-interface** | **Aanvullende informatie** | **Downloaden** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
@@ -35,6 +35,6 @@ De meeste taal clientbibliotheken verbinding maken met server PostgreSQL externe
 | C++ | [libpqxx](http://pqxx.org/) | Nieuwe stijl C++-interface | [Downloaden](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees deze snelstartgidsen op verbinding maken met en Azure Database doorzoeken op PostgreSQL met behulp van de taal van uw keuze:
+Lezen van deze snelstartgidsen over het tooconnect en query Azure-Database voor PostgreSQL met behulp van de taal van uw keuze:
 
 [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)

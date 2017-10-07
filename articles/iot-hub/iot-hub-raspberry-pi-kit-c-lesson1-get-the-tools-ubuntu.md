@@ -1,6 +1,6 @@
 ---
-title: 'Connect Raspberry PI (C) naar Azure IoT - les 1: download hulpprogramma''s (Ubuntu) | Microsoft Docs'
-description: Download en installeer de benodigde hulpprogramma's en -software voor de eerste voorbeeldtoepassing voor Pi op Ubuntu.
+title: 'Connect Raspberry PI (C) tooAzure IoT - les 1: download hulpprogramma''s (Ubuntu) | Microsoft Docs'
+description: Download en installeer Hallo vereiste hulpprogramma's en -software voor de eerste voorbeeldtoepassing voor Pi Hallo op Ubuntu.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 28ebba82e90d91470518cd830c96e6da39d8b9b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 794928b5da63521cb0a72cb54256f2ad9724ec84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-ubuntu-1604"></a>De hulpprogramma's downloaden (Ubuntu 16.04)
+# <a name="get-hello-tools-ubuntu-1604"></a>Hallo hulpprogramma's (Ubuntu 16.04) ophalen
 
 > [!div class="op_single_selector"]
 > * [Windows 7 of hoger](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -31,29 +31,29 @@ ms.lasthandoff: 07/11/2017
 > * [Mac OS 10.10](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>Wat u doet
-Download de ontwikkelprogramma's en de software voor de eerste voorbeeldtoepassing voor uw frambozen Pi 3. Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+Hallo-software voor Hallo eerste voorbeeldtoepassing voor uw frambozen Pi 3 en Hallo ontwikkelingsprogramma's downloaden. Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 > [!NOTE]
-> Hoewel de programmeertaal van de belangrijkste logica C, worden in welke opgedane Node.js-hulpprogramma's gebruikt voor apparaten detecteren en te bouwen en voorbeeldtoepassingen implementeren.
+> Hoewel Hallo programmeertaal van logische Hallo C, Node.js-hulpprogramma's worden gebruikt in Hallo uitkomsten toodiscover apparaten en voorbeeldtoepassingen maken en distribueren.
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 In dit artikel leert u het:
 
-* Git en Node.js installeren
-  * [GIT](https://git-scm.com) is een open-source gedistribueerd versiebeheersysteem. De voorbeeldtoepassing voor dit artikel wordt opgeslagen op Git.
+* Hoe tooinstall Git en Node.js
+  * [GIT](https://git-scm.com) is een open-source gedistribueerd versiebeheersysteem. Hallo-voorbeeldtoepassing voor dit artikel wordt opgeslagen op Git.
   * [Node.js](https://nodejs.org/en/) is een JavaScript-runtime met een uitgebreide pakket-ecosysteem.
-* Hoe extra Node.js ontwikkelingsprogramma's installeren met NPM.
-  * De minimaal vereiste versie van Node.js is 4.5 TNS.
-  * [NPM](https://www.npmjs.com) is een van de pakket-managers voor Node.js.
+* Hoe toouse NPM tooinstall extra Node.js ontwikkelingsprogramma's.
+  * Hallo minimaal vereiste versie van Node.js is 4.5 TNS.
+  * [NPM](https://www.npmjs.com) is een van de Hallo pakket managers voor Node.js.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-Om deze bewerking niet voltooien, moet u het:
+toocomplete deze bewerking moet u:
 
-* Een internetverbinding om de ontwikkelprogramma's en de software te downloaden.
+* Een Internet verbinding toodownload Hallo ontwikkelingsprogramma's en software Hallo.
 * Een computer die Ubuntu 16.04 of hoger wordt uitgevoerd.
 
 ## <a name="install-git-nodejs-and-npm"></a>Installeer Git, Node.js en NPM
-Gebruik de sneltoets `Ctrl + Alt + T` openen van een terminal en voer de volgende opdrachten:
+Gebruik Hallo sneltoets `Ctrl + Alt + T` tooopen een terminal en Voer Hallo volgende opdrachten:
 
 ```bash
 sudo apt-get update
@@ -63,22 +63,22 @@ sudo apt-get install git
 ```
 
 ## <a name="install-additional-nodejs-development-tools"></a>Extra hulpprogramma's voor Node.js-ontwikkeling
-Gebruik [gulp.js](http://gulpjs.com) voor het automatiseren van de implementatie van de voorbeeldtoepassing tot Pi. Gebruik de [apparaat detectie cli](https://github.com/Azure/device-discovery-cli) netwerkinformatie ophalen over uw IoT-apparaten.
+Gebruik [gulp.js](http://gulpjs.com) tooautomate Hallo implementatie van Hallo voorbeeld toepassing tooPi. Gebruik Hallo [apparaat detectie cli](https://github.com/Azure/device-discovery-cli) tooretrieve netwerkinformatie over uw IoT-apparaten.
 
-Installeer `gulp` en `device-discovery-cli` met de volgende opdracht in de terminal:
+Installeer `gulp` en `device-discovery-cli` door het uitvoeren van de volgende opdracht in de terminal Hallo Hallo:
 
 ```bash
 sudo npm install -g device-discovery-cli gulp
 ```
 
-Als u problemen hebt met het installeren van Node.js en deze extra ontwikkelprogramma's op Ubuntu, Zie de [probleemoplossingsgids](iot-hub-raspberry-pi-kit-c-troubleshooting.md) voor oplossingen voor bekende problemen.
+Als u problemen hebt met het installeren van Node.js en deze extra ontwikkelprogramma's op Ubuntu, Zie Hallo [probleemoplossingsgids](iot-hub-raspberry-pi-kit-c-troubleshooting.md) voor toocommon oplossingen voor problemen.
 
 ## <a name="install-visual-studio-code"></a>Visual Studio Code installeren
-[Download](https://code.visualstudio.com/docs/setup/linux) en Visual Studio Code installeren. Visual Studio Code is een eenvoudige maar krachtige broncode-editor voor Windows, Linux en Mac OS. U gebruikt deze editor verderop in de zelfstudie voor het bewerken van de voorbeeldcode.
+[Download](https://code.visualstudio.com/docs/setup/linux) en Visual Studio Code installeren. Visual Studio Code is een eenvoudige maar krachtige broncode-editor voor Windows, Linux en Mac OS. U gebruikt deze editor verderop in Hallo zelfstudie tooedit Hallo voorbeeldcode.
 
 ## <a name="summary"></a>Samenvatting
-U kunt de vereiste ontwikkelingsprogramma's en software voor de eerste voorbeeldtoepassing hebt geïnstalleerd. De volgende taak is het maken, implementeren en uitvoeren van de voorbeeldtoepassing op Pi.
+U kunt Hallo vereist ontwikkelingsprogramma's en -software voor het eerste voorbeeldtoepassing hello hebt geïnstalleerd. de volgende taak Hallo is toocreate, implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Pi.
 
 ## <a name="next-steps"></a>Volgende stappen
-[De Blink-toepassing maken en implementeren](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+[Hallo knipperen toepassing maken en implementeren](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
 

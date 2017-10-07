@@ -1,6 +1,6 @@
 ---
-title: Het beheer van referenties in de clientbibliotheek voor elastische database | Microsoft Docs
-description: Het instellen van het juiste niveau van de referenties van beheerder zijn om de alleen-lezen, voor apps voor elastische database
+title: aaaManaging referenties in Hallo-clientbibliotheek voor elastische database | Microsoft Docs
+description: Hoe tooset Hallo juiste niveau van de referenties van beheerder tooread alleen-lezen, voor apps voor elastische database
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 218783ca2a07e3c0a4b089aa92634f32c41386e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Referenties gebruikt voor toegang tot de clientbibliotheek voor elastische Database
-De [clientbibliotheek voor elastische Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) drie verschillende soorten referenties gebruikt voor toegang tot de [shard kaart manager](sql-database-elastic-scale-shard-map-management.md). Gebruik de referenties met het laagste niveau van toegang mogelijk afhankelijk van de behoeften.
+# <a name="credentials-used-tooaccess-hello-elastic-database-client-library"></a>Referenties gebruikt clientbibliotheek van tooaccess Hallo elastische Database
+Hallo [clientbibliotheek voor elastische Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) maakt gebruik van drie verschillende soorten referenties tooaccess hello [shard kaart manager](sql-database-elastic-scale-shard-map-management.md). Afhankelijk van de noodzaak hello, Hallo credential niet gebruiken bij Hallo laagste niveau van toegang mogelijk.
 
-* **Beheerreferenties**: voor het maken of bewerken van een manager shard-toewijzing. (Zie de [verklarende woordenlijst](sql-database-elastic-scale-glossary.md).) 
-* **Toegang tot de referenties**: voor toegang tot een bestaande shard-toewijzing manager voor informatie over shards.
-* **Verbindingsreferenties**: verbinding maken met shards. 
+* **Beheerreferenties**: voor het maken of bewerken van een manager shard-toewijzing. (Zie Hallo [verklarende woordenlijst](sql-database-elastic-scale-glossary.md).) 
+* **Toegang tot de referenties**: manager tooobtain gegevens over shards worden toegewezen aan een bestaande shard tooaccess.
+* **Verbindingsreferenties**: tooconnect tooshards. 
 
 Zie ook [databases en aanmeldingen in Azure SQL Database beheren](sql-database-manage-logins.md). 
 
 ## <a name="about-management-credentials"></a>Informatie over van beheerreferenties
-Van beheerreferenties worden gebruikt voor het maken van een [ **ShardMapManager** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) object voor toepassingen die manipuleren van shard-kaarten. (Zie bijvoorbeeld [toevoegen van een shard met hulpprogramma's van elastische Database](sql-database-elastic-scale-add-a-shard.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)) de gebruiker van de clientbibliotheek elastisch schalen wordt gemaakt van de SQL-gebruikers en de SQL-aanmeldingen en zorgt ervoor dat elk is verleend de machtiging lezen/schrijven voor de database voor globale shard en ook alle shard-databases. Deze referenties worden gebruikt voor het onderhouden van de globale shard-toewijzing en het lokale shard-kaarten wanneer wijzigingen in de shard-toewijzing worden uitgevoerd. Gebruik bijvoorbeeld de beheerreferenties voor het maken van het beheerobject shard-toewijzing (met behulp van [ **GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
+Van beheerreferenties gebruikte toocreate zijn een [ **ShardMapManager** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) object voor toepassingen die manipuleren van shard-kaarten. (Zie bijvoorbeeld [toevoegen van een shard met hulpprogramma's van elastische Database](sql-database-elastic-scale-add-a-shard.md) en [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)) Hallo gebruiker van de clientbibliotheek van Hallo elastisch schalen maakt Hallo SQL-gebruikers en SQL-aanmeldingen en zorgt ervoor dat elk is verleend toewijzen Hallo lezen/schrijven machtigingen op Hallo globale shard-database en alle shard-databases ook. Deze referenties zijn gebruikte toomaintain Hallo globale shard-toewijzing en Hallo lokale shard maps wanneer wijzigingen toohello shard-toewijzing worden uitgevoerd. Hallo management referenties toocreate hello shard kaart manager object voor het exemplaar te gebruiken (met behulp van [ **GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
 
     // Obtain a shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -39,14 +39,14 @@ Van beheerreferenties worden gebruikt voor het maken van een [ **ShardMapManager
             ShardMapManagerLoadPolicy.Lazy 
     ); 
 
-De variabele **smmAdminConnectionString** een verbindingsreeks die de beheerreferenties bevat. De gebruikersnaam en wachtwoord biedt lees-/ schrijftoegang tot shard kaart database- en afzonderlijke shards. De management-verbindingsreeks bevat ook de servernaam en databasenaam op voor het identificeren van de database globale shard-toewijzing. Hier volgt een typische verbindingsreeks daarvoor:
+Hallo variabele **smmAdminConnectionString** een verbindingsreeks die Hallo management referenties bevat. Hallo-gebruikersnaam en wachtwoord biedt lezen/schrijven access tooboth shard-toewijzing database en afzonderlijke shards. Hallo management verbindingsreeks omvatten ook Hallo-server en de database naam tooidentify Hallo globale shard kaart-database. Hier volgt een typische verbindingsreeks daarvoor:
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-Gebruik geen waarden in de vorm van "username@server', in plaats daarvan de waarde 'gebruikersnaam' gebruiken.  Dit komt doordat de referenties moeten werken op basis van de shard-toewijzing manager-database en de afzonderlijke shards die mogelijk op verschillende servers.
+Gebruik geen waarden in de vorm van Hallo 'username@server', gebruiken in plaats daarvan Hallo 'gebruikersnaam'-waarde.  Dit komt doordat de referenties moeten werken op basis van zowel Hallo shard kaart manager-database en afzonderlijke shards die mogelijk op verschillende servers.
 
 ## <a name="access-credentials"></a>Referenties voor toegang
-Gebruik referenties met alleen-lezen-machtigingen voor de globale shard-toewijzing bij het maken van een shard kaart manager in een toepassing die wordt shard-kaarten niet beheren. De informatie die is opgehaald uit de globale shard-toewijzing onder deze referenties worden gebruikt voor [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en voor het vullen van de shard-toewijzing-cache op de client. De referenties worden geleverd via hetzelfde patroon aanroep naar **GetSqlShardMapManager** zoals hierboven beschreven: 
+Gebruik de referenties die alleen-lezen-machtigingen op Hallo globale shard-toewijzing hebben bij het maken van een shard kaart manager in een toepassing die wordt shard-kaarten niet beheren. Hallo gegevens opgehaald uit de globale shard-toewijzing Hallo onder deze referenties worden gebruikt voor [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en toopopulate hello shard-cache op Hallo client toewijzen. Hallo referenties zijn opgegeven via Hallo dezelfde patroon aanroep te**GetSqlShardMapManager** zoals hierboven beschreven: 
 
     // Obtain shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -54,19 +54,19 @@ Gebruik referenties met alleen-lezen-machtigingen voor de globale shard-toewijzi
             ShardMapManagerLoadPolicy.Lazy
     );  
 
-Let op het gebruik van de **smmReadOnlyConnectionString** in overeenstemming met het gebruik van andere referenties voor deze toegang namens **niet-beheerders** gebruikers: deze referenties mag geen schrijfmachtigingen op de globale shard-toewijzing. 
+Houd er rekening mee Hallo gebruik van Hallo **smmReadOnlyConnectionString** tooreflect Hallo gebruik van andere referenties voor dit type toegang namens **niet-beheerders** gebruikers: deze referenties dient niet schrijven machtigingen op Hallo globale shard-kaart. 
 
 ## <a name="connection-credentials"></a>Verbindingsreferenties
-Aanvullende referenties nodig zijn bij gebruik van de [ **OpenConnectionForKey** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) methode voor toegang tot een shard gekoppeld aan een sharding-sleutel. Deze referenties moeten machtigingen voor alleen-lezen toegang tot de tabellen voor lokale shard-toewijzing die zich op de shard opgeven. Dit is nodig voor het uitvoeren van de verbindingsvalidatie voor het gegevensafhankelijke routering op de shard. Dit codefragment kunt toegang tot gegevens in de context van het gegevensafhankelijke routering: 
+Aanvullende referenties nodig zijn bij gebruik van Hallo [ **OpenConnectionForKey** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) methode tooaccess een shard gekoppeld aan een sharding-sleutel. Deze referenties moeten tooprovide machtigingen voor alleen-lezentoegang toohello lokale shard kaart tabellen die zich op Hallo shard. Dit is de validatie van de benodigde tooperform verbinding voor het gegevensafhankelijke routering op Hallo shard. Dit codefragment kunt toegang tot gegevens in de context van het gegevensafhankelijke routering Hallo: 
 
     using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
     targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
 
-In dit voorbeeld **smmUserConnectionString** bevat de verbindingsreeks voor referenties van de gebruiker. Hier volgt een typische verbindingsreeks voor de gebruikersreferenties voor Azure SQL DB: 
+In dit voorbeeld **smmUserConnectionString** Hallo-verbindingsreeks voor Hallo gebruikersreferenties bevat. Hier volgt een typische verbindingsreeks voor de gebruikersreferenties voor Azure SQL DB: 
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Net als bij de beheerdersreferenties komen niet de waarden in de vorm van "username@server'. In plaats daarvan gebruikt u 'gebruikersnaam'.  Houd er ook rekening mee dat de verbindingsreeks bevat geen een servernaam en databasenaam op. Dat komt doordat de **OpenConnectionForKey** aanroep wordt de verbinding met de juiste shard op basis van de sleutel automatisch doorverwezen. De databasenaam en servernaam zijn daarom niet opgegeven. 
+Net als bij Hallo beheerdersreferenties, komen niet in waarden Hallo vorm van "username@server'. In plaats daarvan gebruikt u 'gebruikersnaam'.  Let op: Hallo verbindingsreeks bevat ook geen een servernaam en databasenaam op. Dat komt doordat Hallo **OpenConnectionForKey** aanroep wordt automatisch doorverwezen Hallo verbinding toohello juiste shard op basis van Hallo-sleutel. Hallo-databasenaam en servernaam zijn daarom niet opgegeven. 
 
 ## <a name="see-also"></a>Zie ook
 [Databases en aanmeldingen beheren in Azure SQL Database](sql-database-manage-logins.md)

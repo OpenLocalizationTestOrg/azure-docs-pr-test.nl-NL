@@ -1,6 +1,6 @@
 ---
-title: Beleid voor de levering asset configureren met .NET SDK | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe verschillende asset levering-beleid configureren met Azure Media Services .NET SDK.
+title: beleid voor de levering van aaaConfigure asset met .NET SDK | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe beleid voor de levering van tooconfigure verschillende asset met Azure Media Services .NET SDK.
 services: media-services
 documentationcenter: 
 author: Mingfeiy
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a6f2644d639cd36d4cdc269b6f01fd4acdf7160b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Beleid voor de levering asset configureren met .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## <a name="overview"></a>Overzicht
-Als u van plan om levering versleuteld activa bent, is een van de stappen in de werkstroom van Media Services leveren van inhoud leveringsbeleid voor assets configureren. Het leveringsbeleid voor Assets wordt Media Services uitgelegd hoe u wilt voor uw asset moet worden geleverd: in welke streaming protocol moet uw asset worden dynamisch verpakt (voor bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), of u wilt uw asset dynamisch versleutelen of niet, en hoe (envelop of common encryption).
+Als u van plan toodelivery versleuteld activa bent, stappen een Hallo Hallo Media Services content delivery werkstroom is leveringsbeleid voor assets configureren. Hallo-leveringsbeleid voor Assets wordt Media Services uitgelegd hoe u wilt voor uw asset toobe geleverd: in welke streaming protocol moet uw asset worden dynamisch verpakt (voor bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), al dan niet de gewenste toodynamically uw asset coderen en hoe (envelop of common encryption).
 
-Dit onderwerp wordt beschreven waarom en hoe u kunt maken en configureren van beleid voor de levering asset.
+Dit onderwerp wordt beschreven waarom en hoe toocreate en beleid voor de levering asset configureren.
 
 >[!NOTE]
->Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
+>Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status. 
 >
->Uw asset moet ook om het gebruik van dynamische pakketten en dynamische versleuteling te kunnen bevatten een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden.
+>Bovendien toobe kunnen toouse dynamische pakketten en dynamische versleuteling uw asset moet bevatten een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden.
 
 
-U kunt verschillende beleidsregels aan dezelfde activa toepassen. U kan bijvoorbeeld PlayReady-versleuteling toepassen op Smooth Streaming en AES Envelope versleuteling MPEG DASH en HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (u voegt bijvoorbeeld één beleid toe waarmee alleen HLS als protocol wordt opgegeven), worden voor streaming geblokkeerd. De uitzondering hierop is als u helemaal geen leveringsbeleid voor assets hebt gedefinieerd. In dat geval is streaming voor alle protocollen toegestaan.
+U kunt ook verschillende beleidsregels toohello toepassen dezelfde asset. U kunt bijvoorbeeld PlayReady-versleuteling tooSmooth Streaming en AES Envelope versleuteling tooMPEG toepassen DASH- en HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (bijvoorbeeld, u toevoegen één beleid waarmee alleen HLS als protocol Hallo) van streaming wordt geblokkeerd. Hallo uitzondering toothis is als u geen leveringsbeleid voor Assets helemaal gedefinieerd. Vervolgens zijn alle protocollen toegestaan in Hallo wissen.
 
-Als u een gecodeerde asset opslag leveren wilt, moet u de asset leveringsbeleid voor configureren. Voordat uw asset kan worden gestreamd, wordt de streaming-server verwijdert u de versleuteling van opslag en uw inhoud met behulp van het opgegeven leveringsbeleid streams. Bijvoorbeeld, voor het leveren van uw asset is versleuteld met Advanced Encryption Standard (AES) envelop versleutelingssleutel, het beleidstype instellen op **DynamicEnvelopeEncryption**. Stel wilt verwijderen van de versleuteling van opslag en de activa in de stream, het type beleid dat op **NoDynamicEncryption**. Hier volgen voorbeelden die laten zien hoe deze beleidstypen configureren.
+Als u toodeliver een gecodeerde asset opslag wilt, moet u beleid voor de levering van Hallo actief configureren. Voordat uw asset kan worden gestreamd, opgegeven Hallo streaming server verwijdert Hallo-versleuteling voor opslag en stromen inhoud met Hallo leveringsbeleid voor. Bijvoorbeeld toodeliver uw asset versleuteld met Advanced Encryption Standard (AES) envelop versleutelingssleutel, stelt u het beleidstype hello te**DynamicEnvelopeEncryption**. versleuteling van opslag tooremove en stroom Hallo asset in Hallo wissen, stelt u Hallo beleidstype te**NoDynamicEncryption**. Voorbeelden van hoe tooconfigure deze beleidstypen volgen.
 
-Afhankelijk van hoe u het leveringsbeleid voor Assets configureren u zou kunnen dynamisch inpakken, dynamisch coderen en streamen van de volgende protocollen voor streaming: Smooth Streaming, HLS en MPEG DASH-streams.
+Afhankelijk van hoe u Hallo-leveringsbeleid voor Assets configureren die u zou kunnen toodynamically pakket worden dynamisch versleutelen en stream Hallo streaming protocollen te volgen: Smooth Streaming, HLS en MPEG DASH-streams.
 
-De volgende lijst bevat de indelingen waarmee u kunt Smooth, HLS en DASH stream.
+Hallo volgende lijst bevat Hallo indelingen toostream Smooth, HLS en DASH te gebruiken.
 
 Smooth Streaming:
 
@@ -56,16 +56,16 @@ MPEG DASH
 
 
 ## <a name="considerations"></a>Overwegingen
-* U kunt een AssetDeliveryPolicy die zijn gekoppeld aan een asset, terwijl een (streaming) OnDemand-locator voor de activa bestaat niet verwijderen. De aanbeveling is het beleid uit de asset verwijderen voordat u het beleid wordt verwijderd.
-* Een streaming-locator kan niet worden gemaakt op een versleutelde actief opslag wanneer geen leveringsbeleid voor Assets is ingesteld.  Als de Asset niet versleuteld opslag, kunt het systeem u een locator te maken en te streamen van de activa in het wissen zonder een leveringsbeleid voor Assets.
-* U kunt meerdere asset levering beleidsregels die zijn gekoppeld aan één element hebben, maar u kunt slechts één manier voor het verwerken van een bepaalde AssetDeliveryProtocol opgeven.  Dit betekent dat als u probeert te koppelen van twee leveringsbeleid die het protocol AssetDeliveryProtocol.SmoothStreaming die in een fout opgetreden resulteren omdat het systeem die u wilt toepassen wanneer een client een aanvraag Smooth Streaming doet niet weet opgeeft.
-* Als u een asset met een bestaande streaming-locator hebt, kunt u een nieuw beleid niet koppelen aan de asset (u kunt een bestaand beleid uit de asset ontkoppelen of bijwerken van een leveringsbeleid die zijn gekoppeld aan de asset).  U moet eerst de streaming-locator verwijderen, aanpassen van het beleid en de streaming-locator opnieuw maken.  U kunt de dezelfde locatorId gebruiken wanneer u de streaming-locator opnieuw, maar u ervoor dat niet toe leiden dat problemen voor clients zorgen moet omdat inhoud kan worden in het cachegeheugen van de oorsprong of een downstream CDN.
+* U kunt een AssetDeliveryPolicy die zijn gekoppeld aan een asset, terwijl een (streaming) OnDemand-locator voor de activa bestaat niet verwijderen. Hallo-aanbeveling is tooremove Hallo beleid uit Hallo actief voordat Hallo beleid wordt verwijderd.
+* Een streaming-locator kan niet worden gemaakt op een versleutelde actief opslag wanneer geen leveringsbeleid voor Assets is ingesteld.  Als Hallo Asset niet opslag versleuteld, kunt Hallo-systeem u een locator en stream Hallo-asset maken in Hallo wissen zonder een leveringsbeleid voor Assets.
+* U kunt meerdere asset levering beleidsregels die zijn gekoppeld aan één element hebben maar u kunt alleen eenrichtingssessie toohandle een bepaalde AssetDeliveryProtocol opgeven.  Dit betekent dat als u toolink twee leveringsbeleid die Hallo AssetDeliveryProtocol.SmoothStreaming protocol die resulteren in een fout opgetreden probeert opgeeft omdat Hallo systeem welke niet weet u dat wilt tooapply wanneer een client een Smooth Streaming-aanvraag indient.
+* Als u een asset met een bestaande streaming-locator hebt, kunt u een nieuw beleid toohello activum (u kunt ontkoppelen van een bestaand beleid uit Hallo actief of bijwerken van een leveringsbeleid die zijn gekoppeld aan asset Hallo) niet koppelen.  U eerst tooremove Hallo streaming-locator hebben, Hallo beleid aanpassen en streaming-locator Hallo opnieuw maken.  U kunt Hallo dezelfde locatorId wanneer u opnieuw Hallo streaming maakt-locator, maar u moet ervoor zorgen dat niet toe leiden problemen voor clients dat omdat inhoud kan worden in het cachegeheugen van de oorsprong hello of een downstream CDN gebruiken.
 
 ## <a name="clear-asset-delivery-policy"></a>Leveringsbeleid voor Assets wissen
 
-De volgende **ConfigureClearAssetDeliveryPolicy** methode geeft aan dynamische versleuteling niet van toepassing en worden de stroom in een van de volgende protocollen leveren: MPEG DASH, HLS en Smooth Streaming-protocollen. Mogelijk wilt dit beleid toepast op uw assets opslag versleuteld.
+Hallo volgende **ConfigureClearAssetDeliveryPolicy** methode specificeert toonot toepassen dynamische versleuteling en toodeliver Hallo stream in een van volgende Hallo protocollen: MPEG DASH, HLS en Smooth Streaming-protocollen. U kunt dit beleid tooyour opslag versleuteld activa tooapply.
 
-Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van een AssetDeliveryPolicy de [typen die worden gebruikt bij het definiëren van AssetDeliveryPolicy](#types) sectie.
+Zie voor meer informatie over wat u waarden opgeven kunt bij het maken van een AssetDeliveryPolicy, Hallo [typen die worden gebruikt bij het definiëren van AssetDeliveryPolicy](#types) sectie.
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -79,9 +79,9 @@ Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption-leveringsbeleid voor Assets
 
-De volgende **CreateAssetDeliveryPolicy** methode maakt u de **AssetDeliveryPolicy** die is geconfigureerd om toe te passen dynamic common encryption (**DynamicCommonEncryption**) naar een smooth streaming-protocol (andere protocollen worden geblokkeerd van streaming). De methode heeft twee parameters: **Asset** (de asset die u wilt het leveringsbeleid toepassen) en **IContentKey** (de inhoudssleutel van de **CommonEncryption** type voor meer informatie, Zie: [maken van een inhoudssleutel](media-services-dotnet-create-contentkey.md#common_contentkey)).
+Hallo volgende **CreateAssetDeliveryPolicy** methode maakt u Hallo **AssetDeliveryPolicy** die geconfigureerde tooapply dynamische common encryption (**DynamicCommonEncryption**) tooa smooth streaming-protocol (andere protocollen worden geblokkeerd van streaming). Hallo-methode heeft twee parameters: **Asset** (Hallo asset toowhich gewenste tooapply Hallo leveringsbeleid voor) en **IContentKey** (inhoudssleutel Hallo Hallo **CommonEncryption**type voor meer informatie, Zie: [maken van een inhoudssleutel](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
-Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van een AssetDeliveryPolicy de [typen die worden gebruikt bij het definiëren van AssetDeliveryPolicy](#types) sectie.
+Zie voor meer informatie over wat u waarden opgeven kunt bij het maken van een AssetDeliveryPolicy, Hallo [typen die worden gebruikt bij het definiëren van AssetDeliveryPolicy](#types) sectie.
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -99,7 +99,7 @@ Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van
                 AssetDeliveryProtocol.SmoothStreaming,
                 assetDeliveryPolicyConfiguration);
     
-            // Add AssetDelivery Policy to the asset
+            // Add AssetDelivery Policy toohello asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
     
             Console.WriteLine();
@@ -107,20 +107,20 @@ Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van
                 assetDeliveryPolicy.AssetDeliveryPolicyType);
      }
 
-Azure Media Services kunt u Widevine codering toevoegen. Het volgende voorbeeld bevat zowel PlayReady als Widevine wordt toegevoegd aan het leveringsbeleid voor Assets.
+Azure Media Services kunt u ook tooadd Widevine-versleuteling. Hallo volgende voorbeeld bevat zowel PlayReady als Widevine toohello-leveringsbeleid voor Assets wordt toegevoegd.
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        // Get the PlayReady license service URL.
+        // Get hello PlayReady license service URL.
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
 
-        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+        // GetKeyDeliveryUrl for Widevine attaches hello KID toohello URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
-        // to append /? KID =< keyId > to the end of the url when creating the manifest.
+        // hello WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // tooappend /? KID =< keyId > toohello end of hello url when creating hello manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
-        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+        // so we need tooremove hello KID that in hello URL when we call GetKeyDeliveryUrl.
 
         Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
         UriBuilder uriBuilder = new UriBuilder(widevineUrl);
@@ -142,38 +142,38 @@ Azure Media Services kunt u Widevine codering toevoegen. Het volgende voorbeeld 
             assetDeliveryPolicyConfiguration);
 
 
-        // Add AssetDelivery Policy to the asset
+        // Add AssetDelivery Policy toohello asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
 
 > [!NOTE]
-> Bij het versleutelen met Widevine, zou u alleen leveren met STREEPJES zijn. Zorg ervoor dat u DASH asset levering-protocol.
+> Bij het versleutelen met Widevine, zou u alleen kunnen toodeliver met STREEPJES zijn. Zorg ervoor toospecify DASH in Hallo asset leveringsprotocol.
 > 
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption-leveringsbeleid voor Assets
-De volgende **CreateAssetDeliveryPolicy** methode maakt u de **AssetDeliveryPolicy** dat is geconfigureerd voor het toepassen van dynamische versleuteling (**DynamicEnvelopeEncryption**) in Smooth Streaming, HLS en DASH-protocollen (als u sommige protocollen niet opgeeft besluit, zullen zij streaming). De methode heeft twee parameters: **Asset** (de asset die u wilt het leveringsbeleid toepassen) en **IContentKey** (de inhoudssleutel van de **EnvelopeEncryption** type Zie voor meer informatie: [maken van een inhoudssleutel](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+Hallo volgende **CreateAssetDeliveryPolicy** methode maakt u Hallo **AssetDeliveryPolicy** die geconfigureerde tooapply dynamische versleuteling (**DynamicEnvelopeEncryption** ) tooSmooth-protocollen voor Streaming, HLS en STREEPJES (als u besluit toonot sommige protocollen opgeeft, worden ze streaming worden geblokkeerd). Hallo-methode heeft twee parameters: **Asset** (Hallo asset toowhich gewenste tooapply Hallo leveringsbeleid voor) en **IContentKey** (inhoudssleutel Hallo Hallo **EnvelopeEncryption**type voor meer informatie, Zie: [maken van een inhoudssleutel](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
-Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van een AssetDeliveryPolicy de [typen die worden gebruikt bij het definiëren van AssetDeliveryPolicy](#types) sectie.   
+Zie voor meer informatie over wat u waarden opgeven kunt bij het maken van een AssetDeliveryPolicy, Hallo [typen die worden gebruikt bij het definiëren van AssetDeliveryPolicy](#types) sectie.   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
-        //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
-        //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
-        //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
-        //  allows the AssetDelivery policy to be reused by more than one asset.
+        //  Get hello Key Delivery Base Url by removing hello Query parameter.  hello Dynamic Encryption service will
+        //  automatically add hello correct key identifier toohello url when it generates hello Envelope encrypted content
+        //  manifest.  Omitting hello IV will also cause hello Dynamice Encryption service toogenerate a deterministic
+        //  IV for hello content automatically.  By using hello EnvelopeBaseKeyAcquisitionUrl and omitting hello IV, this
+        //  allows hello AssetDelivery policy toobe reused by more than one asset.
         //
         Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
         UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
         uriBuilder.Query = String.Empty;
         keyAcquisitionUri = uriBuilder.Uri;
 
-        // The following policy configuration specifies: 
-        //   key url that will have KID=<Guid> appended to the envelope and
-        //   the Initialization Vector (IV) to use for the envelope encryption.
+        // hello following policy configuration specifies: 
+        //   key url that will have KID=<Guid> appended toohello envelope and
+        //   hello Initialization Vector (IV) toouse for hello envelope encryption.
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
         {
@@ -187,7 +187,7 @@ Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van
                         AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
-        // Add AssetDelivery Policy to the asset
+        // Add AssetDelivery Policy toohello asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         Console.WriteLine();
@@ -199,7 +199,7 @@ Zie voor meer informatie over welke waarden die u kunt opgeven bij het maken van
 
 ### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
 
-De volgende enum beschrijft waarden die u voor het protocol van de levering van activa instellen kunt.
+Hallo beschrijft volgende enum waarden die u voor Hallo asset leveringsprotocol instellen kunt.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -234,7 +234,7 @@ De volgende enum beschrijft waarden die u voor het protocol van de levering van 
 
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
-De volgende enum beschrijft waarden die u voor het beleidstype van asset-levering instellen kunt.  
+Hallo beschrijft volgende enum waarden die u voor Hallo asset bezorgingstype beleid instellen kunt.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -244,12 +244,12 @@ De volgende enum beschrijft waarden die u voor het beleidstype van asset-leverin
         None,
 
         /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption to the asset.
+        /// Do not apply dynamic encryption toohello asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -267,7 +267,7 @@ De volgende enum beschrijft waarden die u voor het beleidstype van asset-leverin
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
-De volgende enum beschrijft waarden die u gebruiken kunt voor het configureren van de leveringsmethode van de inhoudssleutel aan de client.
+Hallo beschrijft volgende enum waarden kunt u tooconfigure Hallo leveringsmethode van Hallo inhoud sleutel toohello client.
     
     public enum ContentKeyDeliveryType
     {
@@ -299,7 +299,7 @@ De volgende enum beschrijft waarden die u gebruiken kunt voor het configureren v
 
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
-De volgende enum beschrijft waarden die u instellen kunt op de sleutels die worden gebruikt om op te halen van specifieke configuratie van een leveringsbeleid voor Assets configureren.
+Hallo na enum beschrijft waarden kunt u tooget specifieke configuratie van tooconfigure sleutels die worden gebruikt voor een leveringsbeleid voor Assets instellen.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -319,22 +319,22 @@ De volgende enum beschrijft waarden die u instellen kunt op de sleutels die word
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
+        /// hello initialization vector toouse for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
+        /// hello PlayReady License Acquisition Url toouse for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption.
+        /// hello initialization vector toouse for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 

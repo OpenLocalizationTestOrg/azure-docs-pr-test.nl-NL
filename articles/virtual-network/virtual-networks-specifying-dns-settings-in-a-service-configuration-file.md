@@ -1,5 +1,5 @@
 ---
-title: DNS-instellingen opgeven in een serviceconfiguratiebestand | Microsoft Docs
+title: DNS-instellingen in een serviceconfiguratiebestand aaaSpecifying | Microsoft Docs
 description: aangepaste DNS-instellingen voor virtueel netwerk met behulp van serviceconfiguratiebestand opgeven
 services: virtual-network
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: jdial
-ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f192e33566dd8e669da04e6378a0c8e4b0b35ecc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>DNS-instellingen in een serviceconfiguratiebestand opgeven
 ## <a name="dns-elements"></a>DNS-elementen
-Een service-configuratiebestand mag bevatten een DnsServers-element met een lijst met IPv4-adressen voor de Domain Name System (DNS)-servers die door de service wordt gebruikt. Instellingen in het configuratiebestand van de service hebben voorrang boven de instellingen in het configuratiebestand van het netwerk. Zie voor meer informatie [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
+Een service-configuratiebestand mag bevatten een DnsServers-element met een lijst met IPv4-adressen voor Hallo Domain Name System (DNS)-servers die Hallo-service wordt gebruikt. Instellingen in het serviceconfiguratiebestand hello, hebben voorrang boven de instellingen in het configuratiebestand Hallo-netwerk. Zie voor meer informatie [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
 **NetworkConfiguration-element**
 
@@ -33,7 +33,7 @@ Een service-configuratiebestand mag bevatten een DnsServers-element met een lijs
       </DnsServers>
 
 > [!WARNING]
-> De **naam** kenmerk in de **DnsServer** element alleen als een verwijzingsnaam wordt gebruikt. Vertegenwoordigt niet de hostnaam voor de DNS-server. Elke **DnsServer** kenmerkwaarde moet uniek zijn in het hele Microsoft Azure-abonnement.
+> Hallo **naam** kenmerk in Hallo **DnsServer** element alleen als een verwijzingsnaam wordt gebruikt. Dit vormt geen hostnaam Hallo voor Hallo DNS-server. Elke **DnsServer** kenmerkwaarde uniek zijn binnen de gehele Microsoft Azure-abonnement Hallo.
 > 
 > 
 
@@ -44,5 +44,5 @@ Een service-configuratiebestand mag bevatten een DnsServers-element met een lijs
 
 [Een virtueel netwerk met behulp van de configuratiebestanden netwerk configureren](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-[Over de instellingen van het virtuele netwerk in de beheerportal](http://go.microsoft.com/fwlink/?LinkId=248092)
+[Over Virtual Network-instellingen in het Hallo-beheerportal](http://go.microsoft.com/fwlink/?LinkId=248092)
 

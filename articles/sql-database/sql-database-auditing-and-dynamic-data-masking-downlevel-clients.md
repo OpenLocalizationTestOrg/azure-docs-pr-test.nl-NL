@@ -1,5 +1,5 @@
 ---
-title: Tabel controle, TDS-omleiding en IP-eindpunten voor Azure SQL Database | Microsoft Docs
+title: aaaTable controle, TDS-omleiding en IP-eindpunten voor Azure SQL Database | Microsoft Docs
 description: Meer informatie over controle, TDS-omleiding en IP-eindpunt wijzigingen bij het implementeren van de tabel in Azure SQL Database auditing.
 services: sql-database
 documentationcenter: 
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.openlocfilehash: d4a7e6658ec65a70bd7e07859e2a69acee58b7b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 966c23f92fab6fa459a515ad841bb2d5f75436aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - ondersteuning voor Downlevel-clients en IP-eindpunt voor de controle van de tabel wordt gewijzigd
 
 > [!IMPORTANT]
-> Dit document geldt alleen voor de tabel controle, namelijk **gedeprecieerd**.<br>
-> Gebruik de nieuwe [Auditingfunctie voor blobs](sql-database-auditing.md) methode die **heeft geen** downlevel-client verbinding tekenreeks wijzigingen zijn vereist. Aanvullende informatie over de Blob-controle kunt u vinden in [aan de slag met SQL database auditing](sql-database-auditing.md).
+> Dit document is van toepassing alleen tooTable controle, namelijk **gedeprecieerd**.<br>
+> Gebruik Hallo nieuwe [Auditingfunctie voor blobs](sql-database-auditing.md) methode die **heeft geen** downlevel-client verbinding tekenreeks wijzigingen zijn vereist. Aanvullende informatie over de Blob-controle kunt u vinden in [aan de slag met SQL database auditing](sql-database-auditing.md).
 
-[Controle van de database](sql-database-auditing.md) werkt automatisch met SQL-clients die ondersteuning bieden voor omleiden van TDS. Houd er rekening mee dat omleiding is niet van toepassing wanneer u de methode Auditingfunctie voor blobs.
+[Controle van de database](sql-database-auditing.md) werkt automatisch met SQL-clients die ondersteuning bieden voor omleiden van TDS. Houd er rekening mee dat omleiding is niet van toepassing wanneer u Hallo Auditingfunctie voor blobs methode gebruikt.
 
 ## <a id="subheading-1"></a>Ondersteuning voor downlevel-clients
-Omleiding moet ook ondersteuning voor elke client waarmee de TDS-7.4 wordt geïmplementeerd. Uitzonderingen op deze omvatten JDBC 4.0 waarin de functie voor omleiding wordt niet volledig ondersteund en Tedious voor Node.JS in welke omleiding is niet geïmplementeerd.
+Omleiding moet ook ondersteuning voor elke client waarmee de TDS-7.4 wordt geïmplementeerd. Uitzonderingen toothis omvatten JDBC 4.0 in welke functie u Hallo omleiding wordt niet volledig ondersteund en Tedious voor Node.JS waarin omleiding niet is geïmplementeerd.
 
-Voor 'Downlevel-clients', moet dat wil zeggen welke ondersteuning TDS 7.3 en hieronder - de FQDN-naam van de server in de verbinding versietekenreeks worden gewijzigd:
+Voor 'Downlevel-clients', moeten dat wil zeggen dat TDS-versie 7.3 ondersteunen en hieronder - FQDN van de server in de verbindingsreeks Hallo Hallo worden gewijzigd:
 
-Oorspronkelijke server FQDN-naam in de verbindingsreeks: <*servernaam*>. database.windows.net
+Oorspronkelijke server FQDN-naam in de verbindingsreeks Hallo: <*servernaam*>. database.windows.net
 
-Gewijzigde FQDN van de server in de verbindingsreeks: <*servernaam*> .database. **beveiligde**. windows.net
+Gewijzigde FQDN van de server in de verbindingsreeks Hallo: <*servernaam*> .database. **beveiligde**. windows.net
 
 Een gedeeltelijke lijst met 'Downlevel-clients' omvat:
 
 * .NET 4.0 en lager,
 * ODBC-10.0 en lager.
-* JDBC (Hoewel JDBC TDS 7.4 ondersteunt, de TDS-omleiding-functie is niet volledig ondersteund)
+* JDBC (Hoewel JDBC TDS 7.4, Hallo TDS-omleiding functie wordt niet volledig ondersteund ondersteunt)
 * Omslachtig (voor Node.JS)
 
-**Opmerking:** de bovenstaande server FDQN wijziging mogelijk handig ook voor het toepassen van een beleid voor controle van SQL Server op zonder behoefte aan een configuratie stap in elke database (tijdelijke risicobeperking).
+**Opmerking:** Hallo hierboven server FDQN wijziging mogelijk van pas ook voor het toepassen van een beleid voor controle van SQL Server op zonder behoefte aan een configuratie stap in elke database (tijdelijke risicobeperking).
 
 ## <a id="subheading-2"></a>IP-eindpunt wordt gewijzigd bij het inschakelen van controle
-Houd er rekening mee dat wanneer u tabel controleren activeert, het IP-eindpunt van de database worden gewijzigd. Als er strenge firewall-instellingen, werk deze firewall-instellingen dienovereenkomstig.
+Houd er rekening mee dat wanneer u tabel controleren activeert, Hallo IP-eindpunt van de database worden gewijzigd. Als er strenge firewall-instellingen, werk deze firewall-instellingen dienovereenkomstig.
 
-Het nieuwe IP-eindpunt voor database zijn afhankelijk van de regio:
+Hallo nieuwe database IP-eindpunt is afhankelijk van Hallo databaseregio:
 
 | Databaseregio | Mogelijke IP-eindpunten |
 | --- | --- |

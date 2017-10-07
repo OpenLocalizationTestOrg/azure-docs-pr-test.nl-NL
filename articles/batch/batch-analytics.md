@@ -1,5 +1,5 @@
 ---
-title: Azure Batch Analytics | Microsoft Docs
+title: aaaAzure Batch Analytics | Microsoft Docs
 description: Verwijzing voor Azure Batch-analyses.
 services: batch
 author: tamram
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.openlocfilehash: 7d634e1bb595a84b8af339e5bc5a483a7849e7f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 462fbad1ac522b485ae18c1e8891b9d2cabd45e0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="batch-analytics"></a>Batch Analytics
-De onderwerpen in Batch Analytics bevatten informatie over de gebeurtenissen en waarschuwingen die beschikbaar zijn voor Batch-service-resources.
+Hallo-onderwerpen in Batch Analytics bevatten naslaginformatie voor Hallo gebeurtenissen en waarschuwingen die beschikbaar zijn voor Batch-service-resources.
 
 Zie [Diagnostische logboekregistratie van Azure Batch](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) voor meer informatie over het inschakelen en gebruiken van Batch diagnostische logboeken.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-De Azure Batch-service verzendt de volgende diagnostische gebeurtenissen gedurende de levensduur van bepaalde Batch-resources.
+Hello Azure Batch-service verzendt Hallo diagnostische logboekgebeurtenissen tijdens de levensduur Hallo van bepaalde Batch-resources te volgen.
 
 **Service-logboekgebeurtenissen**
 * [Groep maken](batch-pool-create-event.md)

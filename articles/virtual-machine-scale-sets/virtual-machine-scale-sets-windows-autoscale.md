@@ -1,5 +1,5 @@
 ---
-title: Automatisch schalen Windows virtuele-Machineschaalsets | Microsoft Docs
+title: aaaAutoscale Windows virtuele-Machineschaalsets | Microsoft Docs
 description: Automatisch schalen instellen voor een Windows virtuele-Machineschaalset met Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.openlocfilehash: 91f731bec46c005221f4e66e95822994070d4c26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67cf1c5063ceba4fc076dc270090defdbddbcfe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Automatisch schalen machines in een virtuele-machineschaalset
-Virtuele-machineschaalsets kunnen gemakkelijk te implementeren en beheren van identieke virtuele machines als een set. Schaalsets bieden een uiterst schaalbare en aanpasbare berekeningslaag voor toepassingen die grootschalig en installatiekopieën voor Windows-platform, installatiekopieën van virtuele Linux-platform, aangepaste installatiekopieën en -extensies ondersteunen. Zie voor meer informatie over schaalsets [virtuele Machine Scale ingesteld](virtual-machine-scale-sets-overview.md).
+Virtuele-machineschaalsets eenvoudiger voor u toodeploy en identieke virtuele machines beheren als een set. Schaalsets bieden een uiterst schaalbare en aanpasbare berekeningslaag voor toepassingen die grootschalig en installatiekopieën voor Windows-platform, installatiekopieën van virtuele Linux-platform, aangepaste installatiekopieën en -extensies ondersteunen. Zie voor meer informatie over schaalsets [virtuele Machine Scale ingesteld](virtual-machine-scale-sets-overview.md).
 
-Deze zelfstudie laat zien hoe u een scale set Windows virtuele machines maken en de machines automatisch schalen in de set. Hebt u de schaal en instellen schalen door een Azure Resource Manager-sjabloon maken en implementeren met behulp van Azure PowerShell. Zie [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over sjablonen. Zie voor meer informatie over automatisch schalen van schaalsets, [automatisch schalen en Virtual Machine-schaal stelt](virtual-machine-scale-sets-autoscale-overview.md).
+Deze zelfstudie laat zien hoe een schaalset van virtuele machines van Windows en automatisch schalen Hallo machines in Hallo toocreate instelt. U maakt Hallo schaal en instellen schalen door een Azure Resource Manager-sjabloon maken en implementeren met behulp van Azure PowerShell. Zie [Azure Resource Manager-sjablonen samenstellen](../azure-resource-manager/resource-group-authoring-templates.md) voor meer informatie over sjablonen. toolearn meer informatie over automatisch schalen van schaalsets, Zie [automatisch schalen en Virtual Machine-schaal stelt](virtual-machine-scale-sets-autoscale-overview.md).
 
-In dit artikel implementeert u de volgende bronnen en -extensies:
+In dit artikel hebt u volgende Hallo implementeert bronnen en -extensies:
 
 * Microsoft.Storage/storageAccounts
 * Microsoft.Network/virtualNetworks
@@ -41,16 +41,16 @@ In dit artikel implementeert u de volgende bronnen en -extensies:
 Zie voor meer informatie over het Resource Manager-resources [Azure Resource Manager versus klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="step-1-install-azure-powershell"></a>Stap 1: Azure PowerShell installeren
-Zie [installeren en configureren van Azure PowerShell](/powershell/azure/overview) selecteren voor informatie over het installeren van de meest recente versie van Azure PowerShell, uw abonnement en aanmelden bij Azure.
+Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) voor meer informatie over Hallo meest recente versie van Azure PowerShell installeren, uw abonnement te selecteren en tooAzure aanmelden.
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>Stap 2: Een resourcegroep en een opslagaccount maken
-1. **Een resourcegroep maken** – alle bronnen moeten worden geïmplementeerd in een resourcegroep. Gebruik [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) voor het maken van een resourcegroep met de naam **vmsstestrg1**.
-2. **Een opslagaccount maken** – dit opslagaccount is waar de sjabloon is opgeslagen. Gebruik [nieuw AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) voor het maken van een opslagaccount met de naam **vmsstestsa**.
+1. **Een resourcegroep maken** – alle resources moet geïmplementeerde tooa resourcegroep. Gebruik [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) toocreate een resourcegroep met de naam **vmsstestrg1**.
+2. **Een opslagaccount maken** – dit opslagaccount is waar Hallo-sjabloon is opgeslagen. Gebruik [nieuw AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) toocreate een opslagaccount met de naam **vmsstestsa**.
 
-## <a name="step-3-create-the-template"></a>Stap 3: De sjabloon maken
-Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beheren van de Azure-resources samen met behulp van een JSON-beschrijving van de resources en de bijbehorende implementatie-parameters.
+## <a name="step-3-create-hello-template"></a>Stap 3: Hallo-sjabloon maken
+Een Azure Resource Manager-sjabloon maakt het mogelijk dat u toodeploy en gezamenlijk Azure-resources beheren met behulp van een JSON-beschrijving van Hallo resources en de bijbehorende implementatie-parameters.
 
-1. In uw favoriete editor het bestand C:\VMSSTemplate.json maken en voeg de initiële JSON-structuur ter ondersteuning van de sjabloon.
+1. In uw favoriete editor Hallo bestand C:\VMSSTemplate.json maken en toevoegen van Hallo initiële JSON-structuur toosupport Hallo-sjabloon.
 
     ```json
     {
@@ -65,7 +65,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     }
     ```
 
-2. Parameters zijn niet altijd vereist, maar ze bieden een manier voor het invoeren van waarden wanneer de sjabloon wordt geïmplementeerd. Deze parameters onder het bovenliggende element voor parameters die u hebt toegevoegd aan de sjabloon toevoegen.
+2. Parameters zijn niet altijd vereist, maar ze bieden een manier tooinput waarden wanneer Hallo sjabloon wordt geïmplementeerd. Toevoegen van deze parameters onder Hallo parameters bovenliggende element dat u de sjabloon toohello toegevoegd.
 
     ```json   
     "vmName": { "type": "string" },
@@ -76,13 +76,13 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     "resourcePrefix": { "type": "string" }
     ```
    
-    * Een naam voor de afzonderlijke virtuele machine die wordt gebruikt voor toegang tot de machines in de schaal is ingesteld.
-    * De naam van het opslagaccount waarin de sjabloon is opgeslagen.
-    * Het aantal virtuele machines in eerste instantie maken in de schaalset.
-    * De naam en het wachtwoord van de administrator-account op de virtuele machines.
-    * Een voorvoegsel voor de resources die worden gemaakt ter ondersteuning van de schaal is ingesteld.
+    * Een naam voor het afzonderlijke virtuele machine hello, die gebruikte tooaccess Hallo-machines in de schaalset Hallo.
+    * Hallo-naam van Hallo storage-account waarin Hallo-sjabloon is opgeslagen.
+    * het aantal virtuele machines tooinitially Hallo maken in de schaalset Hallo.
+    * Hallo-naam en het wachtwoord van Hallo administrator-account op Hallo virtuele machines.
+    * Een voorvoegsel voor Hallo-resources die zijn gemaakt toosupport Hallo scale ingesteld.
 
-3. Variabelen kunnen worden gebruikt in een sjabloon om op te geven waarden die kunnen worden regelmatig gewijzigd of waarden die moeten worden gemaakt uit een combinatie van parameterwaarden. Deze variabelen onder het bovenliggende element van variabelen die u hebt toegevoegd aan de sjabloon toevoegen.
+3. Variabelen kunnen worden gebruikt in een sjabloon toospecify-waarden die kunnen worden regelmatig gewijzigd of waarden die toobe moet gemaakt uit een combinatie van parameterwaarden. Voeg deze variabelen onder Hallo variabelen bovenliggende element dat u de sjabloon toohello toegevoegd.
 
     ```json
     "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
@@ -104,14 +104,14 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
     ```
    
-    * DNS-namen die door de netwerkinterfaces worden gebruikt.
+    * DNS-namen die worden gebruikt door Hallo netwerkinterfaces.
 
-        * De namen van de IP-adres en de voorvoegsels voor het virtuele netwerk en de subnetten.
-        * De namen en id's van het virtuele netwerk en voor de load balancer, netwerkinterfaces.
-        * Namen van opslagaccounts voor de accounts die zijn gekoppeld aan de computers in de schaal is ingesteld.
-        * Instellingen voor de extensie voor diagnostische gegevens die op de virtuele machines is geïnstalleerd. Zie voor meer informatie over de extensie voor diagnostische gegevens [maken van een virtuele Windows-machine met de controle en diagnostische gegevens met Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * namen van Hallo IP-adres en de voorvoegsels voor het virtuele netwerk Hallo en subnetten.
+        * Hallo namen en id van het virtuele netwerk hello, en voor de load balancer, netwerkinterfaces.
+        * Namen van opslagaccounts voor Hallo-accounts die zijn gekoppeld aan het Hallo-machines in de schaalset Hallo.
+        * Instellingen voor het Hallo-extensie voor diagnostische gegevens die op Hallo virtuele machines is geïnstalleerd. Zie voor meer informatie over het Hallo-extensie voor diagnostische gegevens [maken van een virtuele Windows-machine met de controle en diagnostische gegevens met Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-4. De storage-account resource onder het bovenliggende element van resources die u hebt toegevoegd aan de sjabloon toevoegen. Deze sjabloon worden gebruikt voor een lus aanbevolen vijf storage-accounts maken waarin het besturingssysteem schijven en diagnostische gegevens worden opgeslagen. Deze set accounts kan maximaal 100 virtuele machines in een schaalset, de huidige maximale is ondersteunen. De naam van elk opslagaccount is met een letter eenheidsaanduiding die is gedefinieerd in de variabelen die in combinatie met het voorvoegsel op dat u in de parameters voor de sjabloon opgeeft.
+4. Hallo storage account resource onder Hallo resources bovenliggende element dat u hebt toegevoegd toohello sjabloon toevoegen. Deze sjabloon worden gebruikt in een lus toocreate Hallo aanbevolen vijf opslagaccounts waar Hallo besturingssysteem schijven en diagnostische gegevens worden opgeslagen. Deze set accounts kan van too100 virtuele machines in een schaalset, die staat voor de huidige maximaal Hallo ondersteunen. De naam van elk opslagaccount is met een letter eenheidsaanduiding die is gedefinieerd in gecombineerd met Hallo-voorvoegsel dat u in het Hallo-parameters voor de sjabloon Hallo opgeeft Hallo-variabelen.
 
     ```json
     {
@@ -127,7 +127,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-5. Het virtuele netwerk resource toevoegen. Zie voor meer informatie [Netwerkresourceprovider](../virtual-network/resource-groups-networking.md).
+5. Hallo virtueel netwerk resource toevoegen. Zie voor meer informatie [Netwerkresourceprovider](../virtual-network/resource-groups-networking.md).
 
     ```json
     {
@@ -147,7 +147,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-6. Het openbare IP-adres resources die worden gebruikt door de load balancer en network interface toevoegen.
+6. Voeg Hallo openbare IP-adres resources die worden gebruikt door Hallo load balancer en netwerkinterface.
 
     ```json
     {
@@ -176,7 +176,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-7. De load balancer-resource die wordt gebruikt door de schaalaanpassingsset toevoegen. Zie voor meer informatie [Azure Resource Manager-ondersteuning voor de Load Balancer](../load-balancer/load-balancer-arm.md).
+7. Hallo load balancerresource die wordt gebruikt door Hallo scale set toevoegen. Zie voor meer informatie [Azure Resource Manager-ondersteuning voor de Load Balancer](../load-balancer/load-balancer-arm.md).
 
     ```json   
     {
@@ -217,7 +217,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-8. De netwerkbron van de interface die wordt gebruikt door de afzonderlijke virtuele machine toevoegen. Omdat computers in een scale-set niet toegankelijk zijn via een openbaar IP-adres, wordt een aparte virtuele machine gemaakt in hetzelfde virtuele netwerk voor extern toegang tot de machines.
+8. Hallo network interface-resource die wordt gebruikt door Hallo afzonderlijke virtuele machine toevoegen. Omdat computers in een scale-set niet toegankelijk zijn via een openbaar IP-adres, een aparte virtuele machine wordt gemaakt in Hallo hetzelfde virtuele netwerk tooremotely toegang Hallo-machines.
 
     ```json  
     {
@@ -248,7 +248,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-9. De afzonderlijke virtuele machine in hetzelfde netwerk bevindt als de scale-set toevoegen.
+9. Hallo afzonderlijke virtuele machine in Hallo netwerk als Hallo scale set toevoegen.
 
     ```json
     {
@@ -294,7 +294,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-10. De virtuele-machineschaalset resource toevoegen en geef de extensie voor diagnostische gegevens die is geïnstalleerd op alle virtuele machines in de schaalset. Veel van de instellingen voor deze resource zijn vergelijkbaar met de bron van de virtuele machine. De belangrijkste verschillen zijn de capaciteit-element waarmee het aantal virtuele machines in de schaalset en upgradePolicy waarmee wordt aangegeven hoe updates worden aangebracht in virtuele machines. De set scale is niet gemaakt totdat alle opslagaccounts zijn gemaakt met het element dependsOn zoals is opgegeven.
+10. Hallo virtuele-machineschaalset resource toevoegen en geef Hallo-extensie voor diagnostische gegevens die op alle virtuele machines in de schaalset Hallo is geïnstalleerd. Veel van Hallo-instellingen voor deze resource zijn vergelijkbaar met de bron van de virtuele machine Hallo. de belangrijkste verschillen Hallo zijn Hallo capaciteit element waarmee Hallo aantal virtuele machines in de schaalset hello en upgradePolicy waarmee wordt aangegeven hoe updates toovirtual machines worden gemaakt. Hallo scale set wordt niet gemaakt totdat alle Hallo-opslagaccounts worden gemaakt die is opgegeven met Hallo dependsOn element.
 
     ```json
     {
@@ -399,7 +399,7 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     },
     ```
 
-11. De resource autoscaleSettings die definieert hoe de schaalaanpassingsset worden aangepast op basis van het processorgebruik op de virtuele machines in de schaalset toevoegen.
+11. Hallo autoscaleSettings resource die definieert hoe Hallo scale set wordt aangepast op basis van Hallo processorgebruik op Hallo-machines in de schaalset Hallo toevoegen.
 
     ```json
     {
@@ -452,73 +452,73 @@ Een Azure Resource Manager-sjabloon maakt het u mogelijk te implementeren en beh
     Deze waarden zijn belangrijk voor deze zelfstudie:
     
     * **metricName**  
-    Deze waarde is hetzelfde als het prestatiemeteritem dat is gedefinieerd in de variabele wadperfcounter. De extensie voor diagnostische gegevens worden verzameld met behulp van die variabele, de **processor(_Totaal)\% processortijd** teller.
+    Deze waarde is hetzelfde als het Hallo-prestatiemeteritem dat is gedefinieerd in Hallo wadperfcounter variabele Hallo. Met behulp van die variabele Hallo extensie voor diagnostische gegevens verzamelt Hallo **processor(_Totaal)\% processortijd** teller.
     
     * **metricResourceUri**  
-    Deze waarde is de resource-id van de virtuele-machineschaalset.
+    Deze waarde is Hallo resource-id van de virtuele-machineschaalset Hallo weergeven.
     
     * **timeGrain**  
-    Deze waarde is de granulatie van de metrische gegevens die worden verzameld. In deze sjabloon wordt deze ingesteld op 1 minuut.
+    Deze waarde is Hallo granulatie van Hallo metrische gegevens die worden verzameld. In deze sjabloon is ingesteld tooone minuut.
     
     * **statistiek**  
-    Deze waarde bepaalt hoe de metrische gegevens voor het automatisch vergroten/verkleinen actie worden gecombineerd. De mogelijke waarden zijn: gemiddelde, Min, Max. Het gemiddelde totale CPU-gebruik van de virtuele machines in deze sjabloon is verzameld.
+    Deze waarde bepaalt hoe Hallo metrische gegevens worden gecombineerd tooaccommodate Hallo automatisch vergroten / verkleinen in te grijpen. Hallo mogelijke waarden zijn: gemiddelde, Min, Max. In deze sjabloon Hallo gemiddelde totale CPU-gebruik van Hallo virtuele machines worden verzameld.
     
     * **waarde voor timeWindow**  
-    Deze waarde is het tijdbereik waarin de gegevens worden verzameld. Deze moet tussen 5 minuten en 12 uur.
+    Deze waarde is Hallo tijdbereik waarin de gegevens worden verzameld. Deze moet tussen 5 minuten en 12 uur.
     
     * **TimeAggregation van**  
-    de waarde bepaalt hoe de gegevens die worden verzameld gedurende een bepaalde periode moeten worden gecombineerd. De standaardwaarde is de gemiddelde. De mogelijke waarden zijn: gemiddeld, Minimum, Maximum, laatste, totaal, Count.
+    de waarde bepaalt hoe Hallo-gegevens die worden verzameld gedurende een bepaalde periode moeten worden gecombineerd. Hallo-standaardwaarde is de gemiddelde. Hallo mogelijke waarden zijn: gemiddeld, Minimum, Maximum, laatste, totaal, Count.
     
     * **operator**  
-    Deze waarde is de operator die wordt gebruikt om de metrische gegevens en de drempelwaarde te vergelijken. De mogelijke waarden zijn: gelijk is aan NotEquals, groter dan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
+    Deze waarde is Hallo-operator die wordt gebruikt toocompare Hallo metrische gegevens en Hallo drempelwaarde. Hallo mogelijke waarden zijn: gelijk is aan NotEquals, groter dan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
     
     * **drempelwaarde**  
-    Deze waarde is de waarde die de schaalactie activeert. Machines worden in deze sjabloon wordt toegevoegd aan de schaal ingesteld als het gemiddelde CPU-gebruik door machines in de set meer dan 50 is %.
+    Deze waarde is Hallo-waarde waarmee de schaalactie hello wordt geactiveerd. In deze sjabloon wordt toegevoegd machines toohello schaal instellen als de gemiddelde CPU-gebruik Hallo tussen computers in het Hallo-set is meer dan 50%.
     
     * **richting**  
-    Deze waarde bepaalt de actie die wordt uitgevoerd wanneer de drempelwaarde wordt bereikt. De mogelijke waarden zijn vergroten of verkleinen. In deze sjabloon wordt het aantal virtuele machines in de schaalset verhoogd als de drempelwaarde meer dan 50% van de gedefinieerde tijdsduur is.
+    Deze waarde bepaalt Hallo-actie die wordt uitgevoerd wanneer het Hallo-drempelwaarde wordt bereikt. Hallo mogelijke waarden zijn vergroten of verkleinen. In deze sjabloon wordt hello aantal virtuele machines in de schaalset hello verhoogd als Hallo drempelwaarde meer dan 50% in tijdvenster Hallo gedefinieerd.
     
     * **type**  
-    Deze waarde is het type actie die moet worden uitgevoerd en moet worden ingesteld op ChangeCount.
+    Deze waarde is Hallo type actie dat moet worden uitgevoerd en tooChangeCount moet worden ingesteld.
     
     * **waarde**  
-    Deze waarde is het aantal virtuele machines die worden toegevoegd of verwijderd uit de schaalaanpassingsset. Deze waarde moet 1 of hoger. De standaardwaarde is 1. In deze sjabloon, het aantal machines in de schaal instellen toeneemt 1 als de drempelwaarde wordt voldaan.
+    Deze waarde is het aantal virtuele machines die zijn toegevoegd of verwijderd uit schaalset Hallo Hallo. Deze waarde moet 1 of hoger. Hallo-standaardwaarde is 1. In deze sjabloon Hallo aantal machines in Hallo schaal instellen toeneemt 1 wanneer Hallo drempelwaarde wordt voldaan.
     
     * **cooldown**  
-    Deze waarde is de hoeveelheid tijd sinds de laatste vergroten/verkleinen actie wachten voordat de volgende actie optreedt. Deze waarde moet tussen 1 minuut en één week.
+    Deze waarde is Hallo hoeveelheid tijd toowait sinds de laatste vergroten/verkleinen actie Hallo voordat de volgende actie Hallo optreedt. Deze waarde moet tussen 1 minuut en één week.
 
-12. Sla het sjabloonbestand.    
+12. Hallo-sjabloonbestand opslaan.    
 
-## <a name="step-4-upload-the-template-to-storage"></a>Stap 4: De sjabloon uploaden naar de opslag
-De sjabloon kan worden geüpload, zolang u weet dat de naam en de primaire sleutel van het opslagaccount dat u in stap 1 hebt gemaakt.
+## <a name="step-4-upload-hello-template-toostorage"></a>Stap 4: Hallo sjabloon toostorage uploaden
+Hallo-sjabloon kan worden geüpload, zolang u weet Hallo naam en de primaire sleutel van Hallo storage-account dat u in stap 1 hebt gemaakt.
 
-1. Stel een variabele die u specificeert de naam van het opslagaccount dat u in stap 1 hebt gemaakt in de Microsoft Azure PowerShell-venster.
+1. In Hallo Microsoft Azure PowerShell-venster, stelt u een variabele waarmee Hallo-naam van het Hallo-opslagaccount dat u in stap 1 hebt gemaakt.
    
     ```powershell
     $storageAccountName = "vmstestsa"
     ```
 
-2. Instellen van een variabele waarin de primaire sleutel van het opslagaccount.
+2. Een variabele waarin de primaire sleutel van het opslagaccount Hallo Hallo instellen.
    
     ```powershell
     $storageAccountKey = "<primary-account-key>"
     ```
    
-   U kunt deze sleutel verkrijgen door te klikken op het sleutelpictogram wanneer u de opslagbronnen account bekijkt in de Azure-portal.
-3. Maak het storage account context-object dat wordt gebruikt voor bewerkingen met de storage-account te valideren.
+   U kunt deze sleutel verkrijgen door te klikken op het sleutelpictogram Hallo wanneer u bekijkt hello storage account resource in hello Azure-portal.
+3. Hallo storage account context-object dat is gebruikt toovalidate bewerkingen met Hallo storage-account maken.
    
     ```powershell
     $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
     ```
 
-4. De container voor het opslaan van de sjabloon maken.
+4. Hallo-container voor het opslaan van Hallo-sjabloon maken.
 
     ```powershell
     $containerName = "templates"
     New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
     ```
 
-5. Het sjabloonbestand uploaden naar de nieuwe container.
+5. Hallo sjabloon bestand toohello nieuwe container uploaden.
 
     ```powershell   
     $blobName = "VMSSTemplate.json"
@@ -526,14 +526,14 @@ De sjabloon kan worden geüpload, zolang u weet dat de naam en de primaire sleut
     Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob  $blobName -Context $ctx
     ```
 
-## <a name="step-5-deploy-the-template"></a>Stap 5: De sjabloon implementeren
-Nu dat u de sjabloon hebt gemaakt, kunt u beginnen met het implementeren van de resources. Gebruik deze opdracht om het proces te starten:
+## <a name="step-5-deploy-hello-template"></a>Stap 5: Hallo sjabloon implementeren
+Nu dat u Hallo sjabloon hebt gemaakt, kunt u beginnen met het Hallo-resources te implementeren. Gebruik deze opdracht toostart Hallo proces:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 ```
 
-Wanneer u op invoert, wordt u gevraagd waarden op te geven voor de variabelen die u hebt toegewezen. Deze waarden bevatten:
+Wanneer u op invoeren, vraag tooprovide waarden voor Hallo variabelen die u hebt toegewezen. Deze waarden bevatten:
 
 ```powershell
 vmName: vmsstestvm1
@@ -544,22 +544,22 @@ vmName: vmsstestvm1
   resourcePrefix: vmsstest
 ```
 
-Het duurt ongeveer 15 minuten voor alle resources worden geïmplementeerd.
+Het duurt ongeveer 15 minuten voor alle Hallo resources toosuccessfully worden geïmplementeerd.
 
 > [!NOTE]
-> U kunt ook de mogelijkheid van de portal gebruiken voor het implementeren van de resources. Gebruik deze koppeling: ' https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>'
+> U kunt ook Hallo-portal mogelijkheid toodeploy Hallo resources gebruiken. Gebruik deze koppeling: ' https://portal.azure.com/#create/Microsoft.Template/uri/<link tooVM Scale Set JSON template>'
 > 
 > 
 
 ## <a name="step-6-monitor-resources"></a>Stap 6: Monitor resources
 U kunt sommige informatie ophalen over virtuele-machineschaalsets met behulp van deze methoden:
 
-* De Azure portal - momenteel krijgt u een beperkte hoeveelheid informatie via de portal.
-* De [Azure Resource Explorer](https://resources.azure.com/) -dit hulpprogramma is het meest geschikt voor de huidige status van uw scale set verkennen. Volg dit pad en ziet u de instantieweergave van de schaalaanpassingsset die u hebt gemaakt:
+* Azure-portal Hallo - kunt u een beperkte hoeveelheid informatie met Hallo portal momenteel krijgen.
+* Hallo [Azure Resource Explorer](https://resources.azure.com/) -dit hulpprogramma is Hallo aanbevolen voor de huidige status van uw scale set Hallo verkennen. Volg dit pad en ziet u Hallo instantieweergave van de schaal Hallo instellen die u hebt gemaakt:
   
     abonnementen > {uw abonnement} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtuele machines
 
-* Azure PowerShell - Gebruik deze opdracht kunt u enkele gegevens:
+* Azure PowerShell - Gebruik deze opdracht tooget sommige informatie:
 
   ```powershell
   Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
@@ -571,28 +571,28 @@ U kunt sommige informatie ophalen over virtuele-machineschaalsets met behulp van
   Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
   ```
 
-* Verbinding maken met de afzonderlijke virtuele machine net zoals u zou een andere machine en klikt u op afstand toegang de virtuele machines in de schaal instelt tot voor het bewaken van afzonderlijke processen.
+* Verbinding maken met afzonderlijke virtuele machine die toohello net zoals u zou een andere machine en klikt u op afstand toegang Hallo virtuele machines in Hallo scale set toomonitor afzonderlijke processen tot.
 
 > [!NOTE]
 > Een complete REST-API voor het verkrijgen van informatie over schaalsets vindt u in [virtuele Machine Scale ingesteld](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## <a name="step-7-remove-the-resources"></a>Stap 7: De resources verwijderen
-Omdat u in rekening voor resources die worden gebruikt in Azure gebracht, maar het is altijd een goede gewoonte resources verwijderen die niet langer nodig zijn. U hoeft niet elke resource afzonderlijk verwijderen uit een resourcegroep. U kunt de resourcegroep verwijderen en de bijhorende resources automatisch worden verwijderd.
+## <a name="step-7-remove-hello-resources"></a>Stap 7: Hallo resources verwijderen
+Omdat u in rekening voor resources die worden gebruikt in Azure gebracht, maar het is altijd een goede gewoonte toodelete-resources die niet langer nodig zijn. U hoeft niet toodelete elke resource afzonderlijk van een resourcegroep. U kunt Hallo resourcegroep verwijderen en de bijhorende resources automatisch worden verwijderd.
 
   ```powershell
   Remove-AzureRmResourceGroup -Name vmsstestrg1
   ```
 
-Als u behouden van de resourcegroep wilt, kunt u de schaal instelt alleen verwijderen.
+Als u uw resourcegroep tookeep wilt, kunt u Hallo scale ingesteld alleen verwijderen.
 
   ```powershell
   Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
   ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Beheren van de schaalaanpassingsset die u zojuist hebt gemaakt met de informatie in [beheren van virtuele machines in een virtuele-Machineschaalset](virtual-machine-scale-sets-windows-manage.md).
+* Beheren van Hallo scale set die u zojuist hebt gemaakt met behulp van de informatie in Hallo [beheren van virtuele machines in een virtuele-Machineschaalset](virtual-machine-scale-sets-windows-manage.md).
 * Raadpleeg [Verticaal automatisch schalen met virtuele-machineschaalsets](virtual-machine-scale-sets-vertical-scale-reprovision.md) voor meer informatie over verticaal schalen
 * Voorbeelden van Azure Monitor bewakingsfuncties in [Azure Monitor PowerShell snel starten-voorbeelden](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* Meer informatie over functies in [acties automatisch schalen gebruiken voor het verzenden van e-mail en -webhook-waarschuwingsmeldingen in de Azure-Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
-* Meer informatie over hoe [controlelogboeken voor gebruik met het verzenden van e-mail en webhook-waarschuwingsmeldingen in de Azure-Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Meer informatie over functies in [gebruiken voor automatisch schalen acties toosend e-mail en -webhook waarschuwingsmeldingen in de Azure-Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+* Meer informatie over hoe te[gebruik auditlogboeken toosend e-mail en -webhook waarschuwingsmeldingen in de Azure-Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 

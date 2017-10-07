@@ -1,5 +1,5 @@
 ---
-title: Netwerken voor virtuele-machineschaalsets in Azure | Microsoft Docs
+title: aaaNetworking voor virtuele Azure-machine-schaalsets | Microsoft Docs
 description: Eigenschappen van configuratienetwerken virtuele-machineschaalsets van Azure.
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: guybo
-ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ef3f0cfe648d2195c051a73987e654f0e15d13bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Netwerken voor virtuele-machineschaalsets in Azure
 
-Wanneer u een virtuele-machineschaalset van Azure instelt via de portal, zijn bepaalde netwerkeigenschappen standaard ingesteld, bijvoorbeeld een Azure Load Balancer met binnenkomende NAT-regels. In dit artikel wordt beschreven hoe u een aantal van de meer geavanceerde netwerkfuncties gebruikt die u kunt configureren met schaalsets.
+Wanneer u de schaal van een virtuele machine van Azure instelt via de portal Hallo implementeert, zijn bepaalde netwerkeigenschappen standaardinstellingen, bijvoorbeeld een Azure Load Balancer met binnenkomende NAT-regels. Dit artikel wordt beschreven hoe toouse aantal Hallo geavanceerdere netwerkfuncties die u met de schaal configureren kunt wordt ingesteld.
 
-U kunt alle functies die in dit artikel configureren met behulp van Azure Resource Manager-sjablonen. Er zijn ook Azure CLI- en PowerShell-voorbeelden toegevoegd voor bepaalde functies. Gebruik CLI 2.10 en PowerShell 4.2.0 of hoger.
+U kunt alle Hallo-functies die in dit artikel met behulp van Azure Resource Manager-sjablonen kunt configureren. Er zijn ook Azure CLI- en PowerShell-voorbeelden toegevoegd voor bepaalde functies. Gebruik CLI 2.10 en PowerShell 4.2.0 of hoger.
 
 ## <a name="accelerated-networking"></a>Versneld netwerken
-[Versnelde netwerken](../virtual-network/virtual-network-create-vm-accelerated-networking.md) in Azure verbetert de prestaties van het netwerk door het inschakelen van I/O-virtualisatie met één hoofdmap (SR-IOV) bij een virtuele machine. Als u versneld netwerken wilt gebruiken met schaalsets, stelt u enableAcceleratedNetworking in op **true** in de instelling networkInterfaceConfigurations van uw schaalset. Bijvoorbeeld:
+Azure [versnelde netwerken](../virtual-network/virtual-network-create-vm-accelerated-networking.md) verbetert de prestaties van het netwerk met één hoofdmap i/o-virtualisatie (SR-IOV) tooa virtuele machine inschakelen. toouse versnelde netwerken met schaalsets, stelt u enableAcceleratedNetworking te**true** in de schaalset networkInterfaceConfigurations instellingen. Bijvoorbeeld:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -47,7 +47,7 @@ U kunt alle functies die in dit artikel configureren met behulp van Azure Resour
 ```
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Een schaalset maken die verwijst naar een bestaande Azure Load Balancer
-Wanneer een schaalset is gemaakt met Azure Portal, wordt er voor de meeste configuratieopties een nieuwe load balancer gemaakt. Als u een schaalset maakt die moet verwijzen naar een bestaande load balancer, kunt u dit doen met de CLI. Het volgende voorbeeldscript maakt een load balancer en maakt vervolgens een schaalset die ernaar verwijst:
+Wanneer een schaalset is gemaakt met behulp van hello Azure-portal, wordt een nieuwe load balancer gemaakt voor de meeste configuratieopties. Als u een schaalset die tooreference moet een bestaande load balancer maakt, kunt u dit doen met CLI. Hallo volgende voorbeeldscript wordt gemaakt van een load balancer en maakt vervolgens een schaalset die verwijst naar het:
 ```bash
 az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
 
@@ -56,14 +56,14 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ## <a name="configurable-dns-settings"></a>Configureerbare DNS-instellingen
-Standaard nemen schaalsets de specifieke DNS-instellingen van het VNET en het subnet waarin ze zijn gemaakt over. U kunt de DNS-instellingen voor een schaalset echter rechtstreeks configureren.
+Standaard nemen-schaalsets op Hallo specifieke DNS-instellingen van Hallo VNET en het subnet die ze zijn gemaakt. U kunt wel Hallo DNS-instellingen configureren voor een schaal rechtstreeks worden ingesteld.
 ~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Een schaal met configureerbare DNS-servers maken
-Als u een schaalset met een aangepaste DNS-configuratie met CLI 2.0 wilt maken, voegt u het argument **--dns-servers** toe aan de opdracht **vmss create** gevolgd door met spaties gescheiden IP-adressen. Bijvoorbeeld:
+een schaal ingesteld met een aangepaste DNS-configuratie met CLI 2.0, toocreate toevoegen Hallo **--dns-servers** argument toohello **vmss maken** opdracht, gevolgd door een spatie gescheiden IP-adressen. Bijvoorbeeld:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-Als u aangepaste DNS-servers wilt configureren in een Azure-sjabloon, voegt u de eigenschap dnsSettings toe aan het gedeelte networkInterfaceConfigurations van de schaalset. Bijvoorbeeld:
+tooconfigure aangepaste DNS-servers in een Azure-sjabloon toevoegen aan een dnsSettings eigenschap toohello schaalset networkInterfaceConfigurations-sectie. Bijvoorbeeld:
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -71,9 +71,9 @@ Als u aangepaste DNS-servers wilt configureren in een Azure-sjabloon, voegt u de
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Een schaalset maken met de configureerbare domeinnamen van virtuele machines
-Als u een schaalset wilt maken met een aangepaste DNS-naam voor virtuele machines met CLI 2.0, voegt u het argument **--vm-domain-name** toe aan de opdracht **vmss create**, gevolgd door een tekenreeks met de domeinnaam.
+een schaalset met een aangepaste DNS-naam voor virtuele machines met CLI 2.0, toocreate toevoegen Hallo **--vm domeinnaam** argument toohello **vmss maken** opdracht, gevolgd door een tekenreeks voor Hallo domeinnaam.
 
-Als u de domeinnaam wilt instellen in een Azure-sjabloon, voegt u de eigenschap **dnsSettings** toe aan het gedeelte **networkInterfaceConfigurations** van de schaalset. Bijvoorbeeld:
+tooset Hallo-domeinnaam in een Azure-sjabloon toevoegen een **dnsSettings** eigenschap toohello schaalset **networkInterfaceConfigurations** sectie. Bijvoorbeeld:
 
 ```json
 "networkProfile": {
@@ -105,20 +105,20 @@ Als u de domeinnaam wilt instellen in een Azure-sjabloon, voegt u de eigenschap 
 }
 ```
 
-De uitvoer voor de DNS-naam van een afzonderlijke virtuele machine heeft de volgende notatie: 
+Hallo-uitvoer voor de DNS-naam van een afzonderlijke virtuele machine in de volgende formulier Hallo zou worden: 
 ```
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Openbare IPv4 per virtuele machine
-Virtuele machines in Azure-schaalsets hebben meestal geen eigen openbaar IP-adres nodig. Het is in de meeste gevallen voordeliger en veiliger om een openbaar IP-adres aan een load balancer of een afzonderlijke virtuele machine (ook wel een jumpbox) te koppelen. Deze stuurt vervolgens binnenkomende verbindingen indien nodig door naar virtuele machines van de schaalset (bijvoorbeeld via de binnenkomende NAT-regels).
+Virtuele machines in Azure-schaalsets hebben meestal geen eigen openbaar IP-adres nodig. Voor de meeste scenario is beter voordelige en veilige tooassociate een openbare IP-adres tooa load balancer of tooan afzonderlijke virtuele machine (ook wel een jumpbox) die vervolgens binnenkomende verbindingen tooscale set virtuele machines stuurt die u nodig (bijvoorbeeld: binnenkomende NAT-regels).
 
-In sommige gevallen hebben virtuele machines van een schaalset echter hun eigen openbare IP-adressen nodig. Dit is bijvoorbeeld het geval bij games, waarbij een console rechtstreeks verbinding moet maken met een virtuele cloudmachine, die de physics van de game verwerkt. Een ander voorbeeld is de situatie waarbij virtuele machines externe verbindingen met elkaar moeten maken via regio's in een gedistribueerde database.
+Echter een aantal scenario's hoeven virtuele machines toohave-schaalset hun eigen openbare IP-adressen. Een voorbeeld games, waarin een console moet toomake een rechtstreekse verbinding tooa cloud virtuele machine, die game fysische verwerking doet. Een ander voorbeeld is waarbij virtuele machines toomake externe verbindingen tooone moet een andere tussen regio's in een gedistribueerde database.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Een schaalset met een openbaar IP-adres per virtuele machine maken
-Als u een schaalset wilt maken waarmee een openbaar IP-adres wordt toegewezen aan elke virtuele machine met CLI 2.0, voegt u de parameter **--public-ip-per-vm** toe aan de opdracht **vmss create**. 
+een schaalset waarmee een openbare IP-adres tooeach virtuele machine met CLI 2.0, toegewezen toocreate toevoegen Hallo **--openbare ip per vm** parameter toohello **vmss maken** opdracht. 
 
-Als u een schaalset maakt met een Azure-sjabloon, zorg er dan voor dat de API-versie van de resource Microsoft.Compute/virtualMachineScaleSets ten minste **2017-03-30** is en voeg de JSON-eigenschap **publicIpAddressConfiguration** toe aan het gedeelte ipConfigurations van de schaalset. Bijvoorbeeld:
+toocreate een schaal ingesteld met een Azure-sjabloon, zorg ervoor dat Hallo API-versie van Hallo Microsoft.Compute/virtualMachineScaleSets resource is ten minste **2017-03-30**, en voeg een **publicIpAddressConfiguration**JSON eigenschap toohello schaalset ipConfigurations-sectie. Bijvoorbeeld:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -130,22 +130,22 @@ Als u een schaalset maakt met een Azure-sjabloon, zorg er dan voor dat de API-ve
 ```
 Voorbeeldsjabloon: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
-### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Query’s uitvoeren op de openbare IP-adressen van de virtuele machines in een schaalset
-U kunt de openbare IP-adressen die zijn toegewezen aan de virtuele machines van de schaalset met CLI 2.0 in een lijst weergeven met de opdracht **az vmss list-instance-public-ips**.
+### <a name="querying-hello-public-ip-addresses-of-hello-virtual-machines-in-a-scale-set"></a>Hallo openbare IP-adres opvragen adressen van Hallo virtuele machines in een schaal instellen
+toolist hello openbare IP-adressen toegewezen tooscale set virtuele machines met CLI 2.0, gebruikt u Hallo **az vmss lijst-exemplaar-openbare-IP-adressen** opdracht.
 
-Gebruik de opdracht _Get-AzureRmPublicIpAddress_ om openbare IP-adressen voor schaalsets weer te geven met behulp van PowerShell. Bijvoorbeeld:
+toolist schaalset openbare IP-adressen met behulp van PowerShell, gebruikt u Hallo _Get-AzureRmPublicIpAddress_ opdracht. Bijvoorbeeld:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-U kunt ook query’s uitvoeren op de openbare IP-adressen door rechtstreeks naar de resource-id van de openbare IP-adresconfiguratie te verwijzen. Bijvoorbeeld:
+U kunt ook query Hallo openbare IP-adressen door te verwijzen rechtstreeks naar de bron-id Hallo van Hallo openbare IP-adresconfiguratie. Bijvoorbeeld:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Query’s uitvoeren op de openbare IP-adressen die zijn toegewezen aan de virtuele machines in de schaalset met de [Azure Resource Explorer](https://resources.azure.com) of de REST API van Azure met versie **2017-03-30** of hoger.
+tooquery hello openbare IP-adressen toegewezen tooscale set virtuele machines met behulp van Hallo [Azure Resource Explorer](https://resources.azure.com), of REST API van Azure met versie Hallo **2017-03-30** of hoger.
 
-Als u de openbare IP-adressen van een schaalset wilt bekijken met behulp van de Resource Explorer, bekijkt u het gedeelte **publicipaddresses** onder uw schaalset. Bijvoorbeeld: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+tooview openbare IP-adressen voor een scale-Hallo Resource Explorer, met een set bekijkt hello **publicipaddresses** sectie onder uw schaalset. Bijvoorbeeld: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
@@ -190,10 +190,10 @@ Voorbeelduitvoer:
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>Meerdere IP-adressen per NIC
-Aan elke NIC die aan een virtuele machine in een schaalset is gekoppeld, zijn een of meer IP-configuraties gekoppeld. Aan elke configuratie is één privé-IP-adres toegewezen. Aan elke configuratie kan ook één resource met een openbaar IP-adres zijn gekoppeld. Om te begrijpen hoeveel IP adressen kunnen worden toegewezen aan een NIC en hoeveel openbare IP-adressen u kunt gebruiken in een Azure-abonnement, bekijkt u de [Azure-limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Elke NIC gekoppeld tooa die virtuele machine in een scale-set kan een of meer IP-configuraties die zijn gekoppeld aan deze hebben. Aan elke configuratie is één privé-IP-adres toegewezen. Aan elke configuratie kan ook één resource met een openbaar IP-adres zijn gekoppeld. hoeveel IP-adressen kunnen toounderstand tooa NIC, worden toegewezen en hoeveel openbare IP-adressen kunt u in een Azure-abonnement te verwijzen[Azure limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Meerdere NIC's per virtuele machine
-U kunt maximaal 8 NIC's per virtuele machine hebben, afhankelijk van de grootte van de machine. Het maximale aantal NIC's per computer is beschikbaar in het artikel [VM-grootte](../virtual-machines/windows/sizes.md). Het volgende voorbeeld is een netwerkprofiel van een schaalset met meerdere NIC-vermeldingen en meerdere openbare IP-adressen per virtuele machine:
+U kunt hebben up too8 NIC's per virtuele machine, afhankelijk van de grootte van de machine. Hallo maximum aantal NIC's per machine is beschikbaar in Hallo [VM-grootte artikel](../virtual-machines/windows/sizes.md). Hallo volgende voorbeeld is dat een schaalset netwerkprofiel met meerdere NIC-vermeldingen en meerdere openbare IP-adressen per virtuele machine:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -266,7 +266,7 @@ U kunt maximaal 8 NIC's per virtuele machine hebben, afhankelijk van de grootte 
 ```
 
 ## <a name="nsg-per-scale-set"></a>NSG per schaalset
-Netwerkbeveiligingsgroepen kunnen rechtstreeks op een schaalset worden toegepast door een verwijzing naar de sectie Configuratie van netwerkinterface van de eigenschappen van de virtuele machine van de schaalset toe te voegen.
+Netwerkbeveiligingsgroepen kunnen direct tooa scale set, ingesteld door een verwijzing toohello network interface-configuratiesectie van Hallo schaal toe te voegen eigenschappen van virtuele machine worden aangebracht.
 
 Bijvoorbeeld: 
 ```
@@ -306,4 +306,4 @@ Bijvoorbeeld:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg [deze documentatie](../virtual-network/virtual-networks-overview.md) voor meer informatie over virtuele netwerken in Azure.
+Voor meer informatie over virtuele netwerken van Azure te verwijzen[deze documentatie](../virtual-network/virtual-networks-overview.md).

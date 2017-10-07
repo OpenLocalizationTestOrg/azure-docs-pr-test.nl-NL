@@ -1,6 +1,6 @@
 ---
-title: "Configureren van privé IP-adressen voor virtuele machines - Azure CLI 2.0 | Microsoft Docs"
-description: "Informatie over het configureren van privé IP-adressen voor virtuele machines met de Azure-opdrachtregelinterface (CLI) 2.0."
+title: "privé IP-adressen voor virtuele machines - Azure CLI 2.0 aaaConfigure | Microsoft Docs"
+description: "Meer informatie over hoe tooconfigure privé IP-adressen voor virtuele machines met hello Azure-opdrachtregelinterface (CLI) 2.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,45 +16,45 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0e278e6ac63c0cda061cf70ab0edfaff5491c03b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Privé IP-adressen voor een virtuele machine met behulp van de Azure CLI 2.0 configureren
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-hello-azure-cli-20"></a>Privé IP-adressen voor een virtuele machine met behulp van Azure CLI 2.0 Hallo configureren
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren 
+## <a name="cli-versions-toocomplete-hello-task"></a>CLI-versies toocomplete Hallo taak 
 
-U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies: 
+U kunt met een van de volgende versies van de CLI Hallo Hallo-taak uitvoeren: 
 
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel 
-- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) -onze volgende generatie CLI voor de resource management-implementatiemodel (in dit artikel)
+- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) – onze CLI voor Hallo klassieke en resource management implementatiemodellen 
+- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) -onze volgende generatie CLI voor Hallo resource management-implementatiemodel (in dit artikel)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Dit artikel is van toepassing op het Resource Manager-implementatiemodel. U kunt ook [statisch privé IP-adres in het klassieke implementatiemodel beheren](virtual-networks-static-private-ip-classic-cli.md).
+In dit artikel bevat informatie over Hallo Resource Manager-implementatiemodel. U kunt ook [statisch privé IP-adres in het klassieke implementatiemodel Hallo beheren](virtual-networks-static-private-ip-classic-cli.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> De Azure CLI 2.0 Voorbeeldopdrachten onderstaande verwacht een eenvoudige omgeving al gemaakt. Als u wilt de opdrachten uitvoeren zoals ze worden weergegeven in dit document, eerst de testomgeving wordt beschreven in bouwen [een vnet maken](virtual-networks-create-vnet-arm-cli.md).
+> Hello Azure CLI 2.0 Voorbeeldopdrachten onderstaande verwacht een eenvoudige omgeving al gemaakt. Als u toorun Hallo opdrachten wilt zoals ze worden weergegeven in dit document, eerst bouwen Hallo testomgeving beschreven in [een vnet maken](virtual-networks-create-vnet-arm-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Bij het maken van een virtuele machine een statisch privé IP-adres opgeven
 
-Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van een VNet met de naam *TestVNet* met een statisch privé IP-adres van *192.168.1.101*, voer de volgende stappen uit:
+een virtuele machine met de naam toocreate *DNS01* in Hallo *FrontEnd* subnet van een VNet met de naam *TestVNet* met een statisch privé IP-adres van *192.168.1.101*, Volg onderstaande stappen voor Hallo:
 
-1. Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login). 
+1. Als u dit nog niet hebt nog installeren en configureren van Hallo meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u bij het gebruik van de Azure-account tooan [az aanmelding](/cli/azure/#login). 
 
-2. Maken van een openbaar IP-adres voor de virtuele machine met de [az netwerk openbare ip-maken](/cli/azure/network/public-ip#create) opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+2. Maken van een openbaar IP-adres voor Hallo VM Hello [az netwerk openbare ip-maken](/cli/azure/network/public-ip#create) opdracht. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt.
 
     > [!NOTE]
-    > Mogelijk moet of wilt u met verschillende waarden voor de argumenten in deze en daaropvolgende stappen, afhankelijk van uw omgeving.
+    > Mogelijk moet of wilt u verschillende waarden voor uw argumenten in deze toouse en daaropvolgende stappen, afhankelijk van uw omgeving.
    
     ```azurecli
     az network public-ip create \
@@ -78,11 +78,11 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     }
     ```
 
-   * `--resource-group`: De naam van de resourcegroep waarin u het openbare IP-adres maken.
-   * `--name`: De naam van het openbare IP-adres.
-   * `--location`: De azure-regio waarin u het openbare IP-adres maken.
+   * `--resource-group`: Naam van de resourcegroep Hallo in welke toocreate Hallo openbare IP-adres.
+   * `--name`: De naam van Hallo openbare IP-adres.
+   * `--location`: De azure-regio in welke toocreate Hallo openbare IP-adres.
 
-3. Voer de [az netwerk nic maken](/cli/azure/network/nic#create) opdracht voor het maken van een NIC met een statisch privé IP-adres. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters. 
+3. Voer Hallo [az netwerk nic maken](/cli/azure/network/nic#create) opdracht toocreate een NIC met een statisch privé IP-adres. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt. 
    
     ```azurecli
     az network nic create \
@@ -130,11 +130,11 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     
     Parameters:
 
-    * `--private-ip-address`: Statische privé IP-adres voor de NIC.
-    * `--vnet-name`: De naam van de VNet in te maken van de NIC.
-    * `--subnet`: De naam van het subnet in te maken van de NIC.
+    * `--private-ip-address`: Statische privé IP-adres voor Hallo NIC.
+    * `--vnet-name`: De naam van Hallo VNet in welke toocreate Hallo NIC.
+    * `--subnet`: De naam van Hallo subnet in welke toocreate Hallo NIC.
 
-4. Voer de [azure vm maken](/cli/azure/vm/nic#create) opdracht voor de virtuele machine maken met het openbare IP- en NIC die eerder is gemaakt. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
+4. Voer Hallo [azure vm maken](/cli/azure/vm/nic#create) opdracht toocreate Hallo VM die gebruikmaakt van Hallo openbare IP-adres en NIC die eerder is gemaakt. Hallo-lijst die wordt weergegeven na Hallo uitvoer wordt uitgelegd Hallo parameters die worden gebruikt.
    
     ```azurecli
     az vm create \
@@ -162,14 +162,14 @@ Maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van e
     }
     ```
    
-   Andere parameters dan het basic [az vm maken](/cli/azure/vm#create) parameters.
+   Andere parameters dan Hallo basic [az vm maken](/cli/azure/vm#create) parameters.
 
-   * `--nics`: De naam van de NIC waaraan de virtuele machine is gekoppeld.
+   * `--nics`: De naam van Hallo NIC toowhich Hallo VM is gekoppeld.
    
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Statische persoonlijke IP-adresgegevens voor een virtuele machine ophalen
 
-Als u wilt weergeven in het statische privé IP-adres dat u hebt gemaakt, voer de volgende opdracht in de Azure CLI en houd rekening met de waarden voor *toewijzingseenheid particuliere IP-methode* en *particuliere IP-adres*:
+tooview hello statisch privé IP-adres dat u hebt gemaakt, Hallo na Azure CLI-opdracht uitgevoerd en zien Hallo waarden voor *toewijzingseenheid particuliere IP-methode* en *particuliere IP-adres*:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -181,7 +181,7 @@ Verwachte uitvoer:
 "192.168.1.101"
 ```
 
-Om de specifieke IP-informatie van de NIC voor deze VM weergeven, query uitvoeren op de NIC specifiek:
+toodisplay Hallo specifiek specifieke IP-informatie van Hallo NIC voor die VM, query Hallo NIC:
 
 ```azurecli
 az network nic show \
@@ -191,7 +191,7 @@ az network nic show \
 rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 ```
 
-De uitvoer ziet er ongeveer zo uit:
+Hallo uitvoer ziet er ongeveer als volgt:
 
 ```json
 {
@@ -206,11 +206,11 @@ De uitvoer ziet er ongeveer zo uit:
 
 U kunt een statisch privé IP-adres niet verwijderen uit een NIC in Azure CLI voor implementaties van resource manager. U moet doen:
 - Maak een nieuwe NIC die gebruikmaakt van een dynamische IP-adres
-- De NIC ingesteld op de virtuele machine komen de zojuist gemaakte NIC. 
+- Hallo NIC ingesteld op Hallo VM Hallo nieuw gemaakte NIC. 
 
-Als u wilt wijzigen van de NIC voor de virtuele machine die wordt gebruikt in de bovenstaande opdrachten, de volgende stappen uit te voeren.
+toochange hello NIC voor VM die wordt gebruikt in Hallo opdrachten bovenstaande Hallo Hallo volgende stappen.
 
-1. Voer de **nic azure-netwerk maken** opdracht voor het maken van een nieuwe NIC met dynamische IP-toewijzing met een nieuw IP-adres. Houd er rekening mee omdat er geen IP-adres is opgegeven, wordt de toewijzingsmethode is **dynamische**.
+1. Voer Hallo **nic azure-netwerk maken** toocreate opdracht een nieuwe NIC met dynamische IP-toewijzing met een nieuw IP-adres. Houd er rekening mee dat omdat er geen IP-adres is opgegeven, Hallo toewijzingsmethode **dynamische**.
 
     ```azurecli
     az network nic create     \
@@ -255,7 +255,7 @@ Als u wilt wijzigen van de NIC voor de virtuele machine die wordt gebruikt in de
     }
     ```
 
-2. Voer de **azure vm set** opdracht de NIC die wordt gebruikt door de virtuele machine wijzigen.
+2. Voer Hallo **azure vm set** opdracht toochange Hallo NIC die wordt gebruikt door Hallo VM.
    
     ```azurecli
     azure vm set -g TestRG -n DNS01 -N TestNIC2
@@ -274,10 +274,10 @@ Als u wilt wijzigen van de NIC voor de virtuele machine die wordt gebruikt in de
     ```
 
     > [!NOTE]
-    > Als de virtuele machine groot genoeg zijn is om meer dan één NIC hebt, voert u de **azure-netwerk nic verwijderen** opdracht voor het verwijderen van de oude NIC.
+    > Als Hallo VM groot genoeg toohave is meer dan één NIC, Voer Hallo **azure-netwerk nic verwijderen** opdracht toodelete Hallo oude NIC.
    
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [gereserveerde openbare IP-adres](virtual-networks-reserved-public-ip.md) adressen.
 * Meer informatie over [instantieniveau openbare IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adressen.
-* Raadpleeg de [gereserveerd IP-REST-API's](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Raadpleeg Hallo [gereserveerde IP-REST-API's](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

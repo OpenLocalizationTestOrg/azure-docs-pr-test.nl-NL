@@ -1,6 +1,6 @@
 ---
-title: Draft gebruiken met Azure Container Service en Azure Container Registry | Microsoft Docs
-description: Maak een ACS Kubernetes-cluster en een Azure Container Registry om uw eerste toepassing met Draft te maken in Azure.
+title: aaaUse concept met Azure Container Service en Azure Container register | Microsoft Docs
+description: Een ACS-Kubernetes-cluster en een Azure Container register toocreate uw eerste toepassing maken in Azure met concept.
 services: container-service
 documentationcenter: 
 author: squillace
@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e7e3ea461145571753a1a6d768b52118dcbfb507
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f5e21cda01e5e8452bf86a5c8fa458904d89f451
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft gebruiken met Azure Container Service en Azure Container Registry om een Kubernetes-toepassing te bouwen en implementeren
+# <a name="use-draft-with-azure-container-service-and-azure-container-registry-toobuild-and-deploy-an-application-tookubernetes"></a>Concept gebruiken met Azure Container Service en Azure Container register toobuild en implementeren van een toepassing tooKubernetes
 
-[Draft](https://aka.ms/draft) is een nieuw open-source hulpprogramma waarmee u eenvoudig containertoepassingen kunt ontwikkelen en ze kunt implementeren in Kubernetes-clusters. U hoeft hiervoor niet veel te weten over Docker en Kubernetes (u hoeft ze zelfs niet eens te installeren!). Als u een hulpprogramma als Draft gebruikt, kunnen u en uw team zich richten op het bouwen van de toepassing met Kubernetes en hoeft er minder aandacht te worden besteed aan de infrastructuur.
+[Concept](https://aka.ms/draft) is een nieuw open-source hulpprogramma die het gemakkelijk toodevelop container gebaseerde toepassingen maakt en implementeert ze tooKubernetes clusters zonder veel over Docker en Kubernetes--weten of deze zelfs te installeren. Met hulpprogramma's zoals ontwerp kunt u en uw focus teams op Hallo-toepassing met Kubernetes bouwen, niet zoveel tooinfrastructure aandacht te betalen.
 
-U kunt Draft gebruiken met alle Docker-installatiekopieregisters en alle Kubernetes-clusters, ook de lokale. In deze zelfstudie leert u hoe u ACS gebruikt met Kubernetes, ACR en Azure DNS om een live-CI/CD-ontwikkelingspijplijn maakt met Draft.
+U kunt Draft gebruiken met alle Docker-installatiekopieregisters en alle Kubernetes-clusters, ook de lokale. Deze zelfstudie laat zien hoe toouse ACS met Kubernetes ACR en Azure DNS toocreate een live CI/CD-ontwikkelaar pipeline-concept gebruiken.
 
 
 ## <a name="create-an-azure-container-registry"></a>Een Azure Container Registry maken
-U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-registry/container-registry-get-started-azure-cli.md). De stappen daarvoor zijn als volgt:
+U kunt gemakkelijk [maken van een nieuwe Azure-Container register](../../container-registry/container-registry-get-started-azure-cli.md), maar Hallo stappen zijn als volgt:
 
-1. Maak een Azure-resourcegroep voor het beheren van uw ACR-register en het Kubernetes-cluster in ACS.
+1. Maak een Azure resource group toomanage uw ACR-register en Hallo Kubernetes-cluster in ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -45,18 +45,18 @@ U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-regi
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Een Azure Container Service maken met Kubernetes
 
-U bent er nu klaar voor om [az acs create](/cli/azure/acs#create) te gebruiken voor het maken van een ACS-cluster met Kubernetes als de `--orchestrator-type`-waarde.
+U kunt nu klaar toouse [az acs maken](/cli/azure/acs#create) toocreate een ACS-cluster met Kubernetes als Hallo `--orchestrator-type` waarde.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes
 ```
 
 > [!NOTE]
-> Kubernetes is niet het standaardorchestratortype, dus gebruik de `--orchestrator-type kubernetes`-switch.
+> Omdat Kubernetes niet Hallo standaard orchestrator-type is, zorg ervoor dat u Hallo `--orchestrator-type kubernetes` overschakelen.
 
-Wanneer dit is gelukt, ziet de uitvoer er als volgt uit.
+Hallo uitvoer wanneer geslaagde vergelijkbare toohello volgende gezocht.
 
 ```json
-waiting for AAD role to propagate.done
+waiting for AAD role toopropagate.done
 {
   "id": "/subscriptions/<guid>/resourceGroups/draft/providers/Microsoft.Resources/deployments/azurecli14904.93snip09",
   "name": "azurecli1496227204.9323909",
@@ -99,13 +99,13 @@ waiting for AAD role to propagate.done
 }
 ```
 
-Wanneer u een cluster hebt, kunt u de referenties importeren met de opdracht [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). U hebt nu een lokaal configuratiebestand voor uw cluster. Dit bestand hebben Helm en Draft nodig om werk te verrichten.
+Nu dat u een cluster hebt, kunt u Hallo referenties importeren met behulp van Hallo [az acs kubernetes get-referenties](/cli/azure/acs/kubernetes#get-credentials) opdracht. U hebt nu een lokale configuratiebestand voor uw cluster, is welke Helm en een concept moet tooget hun werk.
 
 ## <a name="install-and-configure-draft"></a>Draft installeren en configureren
-De installatie-instructies voor Draft staan in de [Draft-opslagplaats](https://github.com/Azure/draft/blob/master/docs/install.md). De instructies zijn relatief eenvoudig, maar er is wel enige configuratie nodig. [Helm](https://aka.ms/helm) is namelijk nodig om een Helm-grafiek te maken en implementeren in het Kubernetes-cluster.
+Hallo-installatie-instructies voor ontwerp zijn in Hallo [concept opslagplaats](https://github.com/Azure/draft/blob/master/docs/install.md). Ze zijn relatief eenvoudige, maar sommige configuratie vereisen omdat deze afhankelijk van is [Helm](https://aka.ms/helm) toocreate en implementeren van een grafiek Helm in Hallo Kubernetes cluster.
 
 1. [Download en installeer Helm](https://aka.ms/helm#install).
-2. Gebruik Helm om `stable/traefik` te zoeken en installeren en gebruik een ingangscontroller om binnenkomende verzoeken in te schakelen voor uw builds.
+2. Helm toosearch voor gebruik en installeer `stable/traefik`, en inkomend controller tooenable binnenkomende aanvragen voor uw builds.
     ```bash
     $ helm search traefik
     NAME            VERSION DESCRIPTION
@@ -113,7 +113,7 @@ De installatie-instructies voor Draft staan in de [Draft-opslagplaats](https://g
 
     $ helm install stable/traefik --name ingress
     ```
-    Stel nu een controle in voor de `ingress`-controller om de externe IP-waarde vast te leggen bij de implementatie. Dit IP-adres wordt [toegewezen aan het implementatiedomein](#wire-up-deployment-domain) in de volgende sectie.
+    Stel nu een controle op Hallo `ingress` controller toocapture Hallo externe IP-waarde wanneer deze is geïmplementeerd. Dit IP-adres worden Hallo een [tooyour implementatie domein toegewezen](#wire-up-deployment-domain) in de volgende sectie Hallo.
 
     ```bash
     kubectl get svc -w
@@ -122,13 +122,13 @@ De installatie-instructies voor Draft staan in de [Draft-opslagplaats](https://g
     kubernetes                    10.0.0.1       <none>          443/TCP                      7h
     ```
 
-    In dit geval is het externe IP-adres voor het implementatiedomein `13.64.108.240`. U kunt uw domein nu toewijzen aan dat IP-adres.
+    In dit geval Hallo extern IP-adres voor Hallo implementatie domein is `13.64.108.240`. U kunt nu uw domein toothat IP toewijzen.
 
 ## <a name="wire-up-deployment-domain"></a>Wire-up van het implementatiedomein
 
-Draft maakt een release voor elke Helm-grafiek die er wordt gemaakt en elke toepassing waar u aan werkt. Elk item krijgt een gegenereerde naam die door Draft als _subdomein_ wordt gebruikt op het hoofd_implementatiedomein_ dat u beheert. (In dit voorbeeld wordt `squillace.io` gebruikt als domein voor implementatie.) Als u dit subdomeingedrag wilt inschakelen, moet u een A-record maken voor `'*'` in de DNS-vermeldingen van het implementatiedomein. Op die manier wordt elk gegenereerde subdomein gerouteerd naar de controller voor binnenkomend verkeer van het Kubernetes-cluster.
+Draft maakt een release voor elke Helm-grafiek die er wordt gemaakt en elke toepassing waar u aan werkt. Elke opgehaald van een gegenereerde naam die wordt gebruikt door het concept als een _subdomein_ boven op Hallo hoofdmap _implementatie domein_ dat u beheert. (In dit voorbeeld gebruiken we `squillace.io` als Hallo implementatie domein.) tooenable dit gedrag subdomein moet u een A-record voor `'*'` in uw DNS-vermeldingen voor uw implementatie-domein, zodat elk gegenereerd subdomein is gerouteerde toohello Kubernetes ingress-controller van het cluster.
 
-Elke eigen domeinprovider wijst op zijn eigen manier DNS-servers toe. Als u uw [domeinnaamservers wilt overdragen aan Azure DNS](../../dns/dns-delegate-domain-azure-dns.md), voert u de volgende stappen uit:
+Uw eigen domeinprovider heeft een eigen manier tooassign DNS-servers. te[delegeren van uw domein nameservers tooAzure DNS-](../../dns/dns-delegate-domain-azure-dns.md), u rekening houden met Hallo stappen te volgen:
 
 1. Maak een resourcegroep voor uw zone.
     ```azurecli
@@ -146,7 +146,7 @@ Elke eigen domeinprovider wijst op zijn eigen manier DNS-servers toe. Als u uw [
     ```
 
 2. Maak een DNS-zone voor uw domein.
-Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
+Gebruik Hallo [az netwerk DNS-zone maken](/cli/azure/network/dns/zone#create) opdracht tooobtain hello nameservers toodelegate DNS-tooAzure DNS voor uw domein beheren.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -167,12 +167,12 @@ Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#cre
       "type": "Microsoft.Network/dnszones"
     }
     ```
-3. Voeg de DNS-servers die u ontvangt toe aan de domeinprovider van uw implementatiedomein. Op die manier kunt u Azure DNS gebruiken om uw domein naar wens opnieuw toe te wijzen.
-4. Maak een A-recordsetvermelding voor uw implementatiedomein dat is toegewezen aan het `ingress` IP-adres uit stap 2 van de vorige sectie.
+3. Hallo DNS-servers, u toohello domeinprovider voor uw implementatie-domein, waardoor u toouse Azure DNS toorepoint uw domein krijgt als u wilt toevoegen.
+4. Maak een A-record-set-vermelding voor uw implementatie domein toewijzing toohello `ingress` IP-adres uit stap 2 van de vorige sectie Hallo.
     ```azurecli
     az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*' -g squillace.io -z squillace.io
     ```
-De uitvoer ziet er ongeveer zo uit:
+Hallo-uitvoer ziet er ongeveer als volgt uit:
     ```json
     {
       "arecords": [
@@ -190,12 +190,12 @@ De uitvoer ziet er ongeveer zo uit:
     }
     ```
 
-5. Configureer Draft om uw eigen register te gebruiken en om subdomeinen te maken voor elk Helm-diagram dat wordt gemaakt. U hebt het volgende nodig voor het configureren van Draft:
+5. Configureer concept toouse het register en maak subdomeinen voor elke Helm grafiek die wordt gemaakt. tooconfigure concept, moet u de:
   - de naam van uw Azure Container Registry (in dit voorbeeld is dat `draft`)
   - de registersleutel of het wachtwoord van `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
-  - het hoofdimplementatiedomein dat u hebt geconfigureerd voor toewijzing aan het externe-IP-adres voor binnenkomend verkeer van Kubernetes (hier is dat `squillace.io`)
+  - Hallo implementatie hoofddomein dat u toomap toohello Kubernetes inkomend externe IP-adres hebt geconfigureerd (hier `squillace.io`)
 
-  Roep `draft init` aan. In het configuratieproces wordt u dan om de bovenstaande waarden gevraagd. De eerste keer dat u het proces uitvoert, ziet het er ongeveer als volgt uit.
+  Roep `draft init` en configuratieproces Hallo vraagt u om de bovenstaande Hallo-waarden. Hallo proces lijkt iets Hallo volgende Hallo eerst uit te voeren.
  ```bash
     $ draft init
     Creating pack ruby...
@@ -208,7 +208,7 @@ De uitvoer ziet er ongeveer zo uit:
     Creating pack golang...
     $DRAFT_HOME has been configured at /Users/ralphsquillace/.draft.
 
-    In order to install Draft, we need a bit more information...
+    In order tooinstall Draft, we need a bit more information...
 
     1. Enter your Docker registry URL (e.g. docker.io, quay.io, myregistry.azurecr.io): draft.azurecr.io
     2. Enter your username: draft
@@ -219,19 +219,19 @@ De uitvoer ziet er ongeveer zo uit:
     Happy Sailing!
     ```
 
-U kunt nu een toepassing implementeren.
+U bent nu klaar toodeploy een toepassing.
 
 
 ## <a name="build-and-deploy-an-application"></a>Een toepassing bouwen en implementeren
 
-In de Draft-opslagplaats staan [zes eenvoudige voorbeeldtoepassingen](https://github.com/Azure/draft/tree/master/examples). Kloon de opslagplaats en gebruik het [Python-voorbeeld](https://github.com/Azure/draft/tree/master/examples/python). Ga naar de map examples/Python en typ `draft create` om de toepassing te bouwen. De toepassing zou er als volgt moeten uitzien.
+In de Hallo concept opslagplaats [zes eenvoudige voorbeeldtoepassingen](https://github.com/Azure/draft/tree/master/examples). Hallo-opslagplaats klonen en we gebruiken Hallo [Python voorbeeld](https://github.com/Azure/draft/tree/master/examples/python). Wijzigen in de map Voorbeelden/Python Hallo en typ `draft create` toobuild Hallo-toepassing. Het moet eruitzien als Hallo voorbeeld te volgen.
 ```bash
 $ draft create
 --> Python app detected
---> Ready to sail
+--> Ready toosail
 ```
 
-De uitvoer bevat een Dockerfile en een Helm-diagram. Typ `draft up` om te bouwen en implementeren. De uitvoer is uitgebreid, maar begint als het volgende voorbeeld.
+Hallo uitvoer bevat een Dockerfile en een Helm-grafiek. toobuild en implementeren, typt u `draft up`. Hallo uitvoer is uitgebreid, maar begint zoals Hallo voorbeeld te volgen.
 ```bash
 $ draft up
 --> Building Dockerfile
@@ -245,24 +245,24 @@ ea8a37f15161: Pulling fs layer
 <snip>
 ```
 
-en eindigt ongeveer als in het volgende voorbeeld als het proces goed is verlopen.
+en wanneer geslaagde eindigt met iets dergelijks toohello voorbeeld te volgen.
 ```bash
 ab68189731eb: Pushed
 53c0ab0341bee12d01be3d3c192fbd63562af7f1: digest: sha256:bb0450ec37acf67ed461c1512ef21f58a500ff9326ce3ec623ce1e4427df9765 size: 2841
---> Deploying to Kubernetes
+--> Deploying tooKubernetes
 --> Status: DEPLOYED
 --> Notes:
 
-  http://gangly-bronco.squillace.io to access your application
+  http://gangly-bronco.squillace.io tooaccess your application
 
 Watching local files for changes...
 ```
 
-Ongeacht de naam van de grafiek is, kunt u nu naar `curl http://gangly-bronco.squillace.io` gaan voor het ontvangen van het antwoord `Hello World!`.
+Ongeacht de naam van de grafiek is, kunt u nu `curl http://gangly-bronco.squillace.io` tooreceive Hallo beantwoorden, `Hello World!`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u beschikt over een ACS Kubernetes-cluster, kunt u onderzoek uitvoeren met [Azure Container Registry](../../container-registry/container-registry-intro.md) om meer en andere implementaties te maken voor dit scenario. U kunt bijvoorbeeld de domein-DNS-recordset draft._basedomain.toplevel_ maken om processen van specifieke ACS-implementaties vanuit een dieper gelegen subdomein te controleren.
+Nu dat u een ACS-Kubernetes cluster hebt, kunt u onderzoeken met [Azure Container register](../../container-registry/container-registry-intro.md) toocreate meer- en andere implementaties van dit scenario. U kunt bijvoorbeeld de domein-DNS-recordset draft._basedomain.toplevel_ maken om processen van specifieke ACS-implementaties vanuit een dieper gelegen subdomein te controleren.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Realtime gegevensvisualisatie van sensorgegevens uit uw Azure-IoT-hub – Web-Apps | Microsoft Docs"
-description: Gebruik de functie Web Apps van Microsoft Azure App Service voor het visualiseren van temperatuur en vochtigheid gegevens die worden verzameld van de sensor en verzonden naar uw Iot-hub.
+title: "aaaReal tijd gegevensvisualisatie van sensorgegevens uit uw Azure-IoT-hub – Web-Apps | Microsoft Docs"
+description: Hallo-Web-Apps van Microsoft Azure App Service toovisualize temperatuur en vochtigheid gegevens die worden verzameld van Hallo sensor en verzonden tooyour Iot-hub gebruiken.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 72f2dffee1c2f975948820eee9f2e287c3f77255
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Realtime-sensorgegevens uit uw Azure-IoT-hub visualiseren met behulp van de functie Web Apps van Azure App Service
+# <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-hello-web-apps-feature-of-azure-app-service"></a>Realtime-sensorgegevens uit uw Azure-IoT-hub visualiseren met behulp van de functie voor Hallo-Web-Apps van Azure App Service
 
 ![End-to-end-diagram](media/iot-hub-get-started-e2e-diagram/5.png)
 
@@ -29,68 +29,68 @@ ms.lasthandoff: 08/18/2017
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-In deze zelfstudie leert u hoe voor het visualiseren van realtime-sensorgegevens die uw IoT-hub ontvangt door het uitvoeren van een webtoepassing die wordt gehost op een web-app. Als u wilt proberen de gegevens in uw IoT-hub visualiseren met behulp van Power BI, Zie [gebruik Power BI voor het visualiseren van realtime-sensorgegevens uit Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
+In deze zelfstudie leert u hoe toovisualize realtime-sensorgegevens die uw IoT-hub ontvangt door het uitvoeren van een webtoepassing die wordt gehost op een web-app. Als u tootry toovisualize Hallo gegevens in uw iothub wilt met behulp van Power BI, Zie [gebruik Power BI toovisualize realtime-sensorgegevens uit Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 ## <a name="what-you-do"></a>Wat u doet
 
-- Een web-app maken in de Azure-portal.
+- Een web-app maken in hello Azure-portal.
 - Bereid uw IoT-hub voor toegang tot gegevens door een consumergroep toe te voegen.
-- Configureer de web-app voor het lezen van sensorgegevens uit uw IoT-hub.
-- Upload een webtoepassing worden gehost door de web-app.
-- Open de web-app om realtime temperatuur en vochtigheid gegevens uit uw IoT-hub te bekijken.
+- Configureer Hallo web app tooread sensor-gegevens van uw IoT-hub.
+- Een web application toobe gehost door Hallo web-app uploaden.
+- Open Hallo web app toosee realtime temperatuur en vochtigheid gegevens uit uw IoT-hub.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-- [Instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md), die wordt ingegaan op de volgende vereisten:
+- [Instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md), die wordt ingegaan op Hallo volgens de vereisten:
   - Een actief Azure-abonnement
   - Een Iot-hub in uw abonnement
-  - Een clienttoepassing die berichten naar uw Iot-hub verzendt
+  - Een clienttoepassing die berichten tooyour Iot-hub verzendt
 - [Git downloaden](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-1. In de [Azure-portal](https://ms.portal.azure.com/), klikt u op **nieuw** > **Web en mobiel** > **Web-App**.
-2. Voer een unieke naam, Controleer of het abonnement, geeft u een resourcegroep en een locatie, selecteer **vastmaken aan dashboard**, en klik vervolgens op **maken**.
+1. In Hallo [Azure-portal](https://ms.portal.azure.com/), klikt u op **nieuw** > **Web en mobiel** > **Web-App**.
+2. Voer een unieke Taaknaam, Hallo abonnement controleren, Geef een resourcegroep en een locatie, selecteer **pincode toodashboard**, en klik vervolgens op **maken**.
 
-   Het is raadzaam dat u dezelfde locatie als die van de resourcegroep selecteren. In dat geval helpt bij het verwerken van de snelheid en beperkt de kosten van de gegevensoverdracht.
+   Het is raadzaam dat u Hallo selecteert dezelfde locatie bevinden als die van de resourcegroep. In dat geval helpt bij het verwerken van de snelheid en vermindert Hallo kosten voor gegevensoverdracht.
 
    ![Een webtoepassing maken](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
-## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>De web-app voor het lezen van gegevens uit uw IoT-hub configureren
+## <a name="configure-hello-web-app-tooread-data-from-your-iot-hub"></a>Hallo web app tooread-gegevens van uw IoT-hub configureren
 
-1. Open de web-app die u zojuist hebt ingericht.
-2. Klik op **toepassingsinstellingen**, en klik vervolgens onder **appinstellingen**, voeg de volgende sleutel-waardeparen:
+1. Open Hallo-webtoepassing die u zojuist hebt ingericht.
+2. Klik op **toepassingsinstellingen**, en klik vervolgens onder **appinstellingen**, toevoegen Hallo sleutel/waarde-paren te volgen:
 
    | Sleutel                                   | Waarde                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Verkregen van iothub explorer                                |
-   | Azure.IoT.IoTHub.ConsumerGroup        | De naam van de consumergroep die u aan uw IoT-hub toevoegt  |
+   | Azure.IoT.IoTHub.ConsumerGroup        | Hallo-naam van consumentengroep hello tooyour IoT-hub toe te voegen  |
 
-   ![Instellingen toevoegen aan uw web-app met sleutel-waardeparen](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+   ![Instellingen tooyour web-app met sleutel-waardeparen toevoegen](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 
-3. Klik op **toepassingsinstellingen**onder **algemene instellingen**, schakelen tussen de **Web-sockets** optie en klik vervolgens op **opslaan**.
+3. Klik op **toepassingsinstellingen**onder **algemene instellingen**, in-/ uitschakelen Hallo **Web-sockets** optie en klik vervolgens op **opslaan**.
 
-   ![Stel de optie Web-sockets](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
+   ![Stel Hallo Web sockets optie](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 
-## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>Een webtoepassing worden gehost door de web-app uploaden
+## <a name="upload-a-web-application-toobe-hosted-by-hello-web-app"></a>Een web application toobe gehost door Hallo web-app uploaden
 
-Op GitHub, hebben we aangebracht beschikbaar een webtoepassing die wordt weergegeven van realtime-sensorgegevens uit uw IoT-hub. U hoeft alleen is de web-app voor het werken met een Git-opslagplaats, de webtoepassing vanuit GitHub downloaden en vervolgens uploaden naar Azure voor de web-app naar host configureren.
+Op GitHub, hebben we aangebracht beschikbaar een webtoepassing die wordt weergegeven van realtime-sensorgegevens uit uw IoT-hub. Toodo hoeft u Hallo web app toowork configureren met een Git-opslagplaats en upload het tooAzure voor Hallo web app toohost Hallo webtoepassing vanuit GitHub downloaden.
 
-1. Klik in de web-app op **implementatieopties** > **bron kiezen** > **lokale Git-opslagplaats**, en klik vervolgens op **OK**.
+1. Klik in het Hallo-web-app op **implementatieopties** > **bron kiezen** > **lokale Git-opslagplaats**, en klik vervolgens op **OK**.
 
-   ![Configureren van uw web-app-implementatie voor het gebruik van de lokale Git-opslagplaats](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
+   ![Configureren van uw web-app-implementatie toouse Hallo lokale Git-opslagplaats](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Klik op **Implementatiereferenties**, maak een gebruikersnaam en wachtwoord om verbinding maken met de Git-opslagplaats in Azure, en klik vervolgens op **opslaan**.
+2. Klik op **Implementatiereferenties**, een gebruiker en het wachtwoord toouse tooconnect toohello Git-opslagplaats in Azure maken en klik vervolgens op **opslaan**.
 
-3. Klik op **overzicht**, en noteer de waarde van **Git kloon-url**.
+3. Klik op **overzicht**, en bekijkt hello waarde **Git kloon-url**.
 
-   ![Ophalen van de Git-kloon-URL van uw web-app](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
+   ![Hallo Git kloon-URL van uw web-app ophalen](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
 
 4. Open een opdracht of een terminalvenster op de lokale computer.
 
-5. De web-app vanuit GitHub downloaden en dit uploaden naar Azure voor de web-app naar host. Voer de volgende opdrachten om dit te doen:
+5. Hallo-web-app downloaden vanuit GitHub en upload het tooAzure voor Hallo web app toohost. toodo Voer dus Hallo volgende opdrachten:
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
@@ -100,24 +100,24 @@ Op GitHub, hebben we aangebracht beschikbaar een webtoepassing die wordt weergeg
    ```
 
    > [!NOTE]
-   > \<GIT kloon-URL\> is de URL van de Git-opslagplaats gevonden op de **overzicht** pagina van de web-app.
+   > \<GIT kloon-URL\> Hallo-URL van Hallo Git-opslagplaats gevonden op Hallo **overzicht** pagina van Hallo web-app.
 
-## <a name="open-the-web-app-to-see-real-time-temperature-and-humidity-data-from-your-iot-hub"></a>Open de web-app om realtime temperatuur en vochtigheid gegevens uit uw IoT-hub te bekijken
+## <a name="open-hello-web-app-toosee-real-time-temperature-and-humidity-data-from-your-iot-hub"></a>Hallo web app toosee realtime temperatuur en vochtigheid gegevens openen vanuit uw IoT-hub
 
-Op de **overzicht** pagina van uw web-app klikt u op de URL voor het openen van de web-app.
+Op Hallo **overzicht** pagina van uw web-app klikt u op Hallo URL tooopen Hallo web-app.
 
-![Ophalen van de URL van uw web-app](media/iot-hub-live-data-visualization-in-web-apps/8_web-app-url-azure.png)
+![Hallo-URL van uw web-app ophalen](media/iot-hub-live-data-visualization-in-web-apps/8_web-app-url-azure.png)
 
-U ziet de real-time temperatuur en vochtigheid gegevens uit uw IoT-hub.
+U ziet Hallo realtime temperatuur en vochtigheid gegevens uit uw IoT-hub.
 
 ![Web-app-pagina met realtime temperatuur en vochtigheid](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 > [!NOTE]
-> Controleer dat de voorbeeldtoepassing op uw apparaat wordt uitgevoerd. Als u niet het geval is, ontvangt u een lege grafiek, raadpleegt u de zelfstudies onder [instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md).
+> Controleer de voorbeeldtoepassing hello wordt uitgevoerd op uw apparaat. Als dat niet zo is, ontvangt u een lege grafiek, raadpleegt u de zelfstudies toohello onder [instellen van uw apparaat](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt uw web-app is gebruikt voor het visualiseren van realtime-sensorgegevens uit uw IoT-hub.
+U hebt uw web-app toovisualize realtime-sensorgegevens met succes van uw IoT-hub gebruikt.
 
-Zie voor een andere manier om gegevens uit Azure IoT Hub te visualiseren [gebruik Power BI voor het visualiseren van realtime-sensorgegevens uit uw IoT-hub](iot-hub-live-data-visualization-in-power-bi.md).
+Zie voor een andere manier toovisualize gegevens uit Azure IoT Hub, [gebruik Power BI toovisualize realtime-sensorgegevens uit uw IoT-hub](iot-hub-live-data-visualization-in-power-bi.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Maken van aangepaste installatiekopieën voor virtuele machine met Azure PowerShell | Microsoft Docs"
-description: Zelfstudie - maken van een aangepaste VM-installatiekopie met de Azure PowerShell.
+title: "aangepaste VM-installatiekopieën aaaCreate Hello Azure PowerShell | Microsoft Docs"
+description: Zelfstudie - een aangepaste VM-installatiekopie met behulp van Azure PowerShell Hallo maken.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,97 +16,97 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 96be2872a902a7d7063bf1dff7b4ca209a5b67c1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3a759fe1b7e7b72f531399b0f4a99e341713c6a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Maken van een aangepaste installatiekopie van een virtuele machine in Azure met behulp van PowerShell
 
-Aangepaste installatiekopieën zijn zoals marketplace-installatiekopieën, maar u deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt voor de bootstrap configuraties, zoals het vooraf laden van toepassingen, toepassingsconfiguraties en andere configuraties OS. In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele machine van Azure. Procedures voor:
+Aangepaste installatiekopieën zijn zoals marketplace-installatiekopieën, maar u deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt toobootstrap configuraties zoals vooraf laden van toepassingen, toepassingsconfiguraties en andere configuraties OS. In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele machine van Azure. Procedures voor:
 
 > [!div class="checklist"]
 > * Sysprep en generalize van virtuele machines
 > * Een aangepaste installatiekopie maken
 > * Een virtuele machine van een aangepaste installatiekopie maken
-> * Lijst van alle installatiekopieën in uw abonnement
+> * Lijst van alle Hallo-installatiekopieën in uw abonnement
 > * Een afbeelding verwijderen
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u upgraden wilt, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
+Deze zelfstudie vereist hello Azure PowerShell-moduleversie 3,6 of hoger. Voer ` Get-Module -ListAvailable AzureRM` toofind Hallo versie. Als u tooupgrade moet, Zie [Installeer Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-De onderstaande stappen worden in detail beschreven hoe moet worden overgenomen van een bestaande virtuele machine en schakelt u deze in een herbruikbare aangepaste installatiekopie die u gebruiken kunt om nieuwe VM-exemplaren te maken.
+Hallo stappen hieronder wordt beschreven hoe tootake een bestaande virtuele machine en schakel dit in een herbruikbare aangepaste installatiekopie die u hebt de nieuwe VM-instanties toocreate kunnen gebruiken.
 
-Als u het voorbeeld in deze zelfstudie, moet u een bestaande virtuele machine hebben. Indien nodig, dit [voorbeeldscript](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) kunt maken voor u. Wanneer het uitvoeren van de zelfstudie vervangt benoemt de resourcegroep en de virtuele machine waar nodig.
+toocomplete hello voorbeeld in deze zelfstudie, moet u een bestaande virtuele machine hebben. Indien nodig, dit [voorbeeldscript](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) kunt maken voor u. Wanneer werkende Hallo-zelfstudie vervangt benoemt Hallo resourcegroep en de VM waar nodig.
 
 ## <a name="prepare-vm"></a>Virtuele machine voorbereiden
 
-Voor het maken van een installatiekopie van een virtuele machine, moet u de virtuele machine voorbereiden door het generaliseren van de virtuele machine, toewijzing en vervolgens de bron-VM als gegeneraliseerd in Azure te markeren.
+toocreate een installatiekopie van een virtuele machine, moet u tooprepare Hallo VM door het generaliseren Hallo VM, toewijzing en het vervolgens markeren Hallo bron-VM als gegeneraliseerd in Azure.
 
-### <a name="generalize-the-windows-vm-using-sysprep"></a>De virtuele machine van Windows met behulp van Sysprep generalize
+### <a name="generalize-hello-windows-vm-using-sysprep"></a>Generalize Hallo van virtuele machine van Windows met behulp van Sysprep
 
-Sysprep verwijdert alle persoonlijke gegevens over uw account, onder andere en voorbereiden van de machine moet worden gebruikt als een afbeelding. Zie voor meer informatie over Sysprep [hoe gebruik Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep verwijdert alle persoonlijke gegevens over uw account, onder andere en bereidt Hallo machine toobe gebruikt als een installatiekopie. Zie voor meer informatie over Sysprep [hoe tooUse Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 
-1. Verbinding maken met de virtuele machine.
-2. Open het venster opdrachtprompt als beheerder. Wijzig de map in *%windir%\system32\sysprep*, en voer vervolgens *sysprep.exe*.
-3. In de **hulpprogramma voor systeemvoorbereiding** dialoogvenster, *System Voer Out-of-Box Experience (OOBE)*, en zorg ervoor dat de *Generalize* selectievakje is ingeschakeld.
+1. Verbinding maken met toohello virtuele machine.
+2. Hallo-opdrachtpromptvenster open als beheerder. Hallo directory ook wijzigen*%windir%\system32\sysprep*, en voer vervolgens *sysprep.exe*.
+3. In Hallo **hulpprogramma voor systeemvoorbereiding** dialoogvenster, *System Voer Out-of-Box Experience (OOBE)*, en zorg ervoor dat Hallo *Generalize* selectievakje is ingeschakeld.
 4. In **afsluitopties**, selecteer *afsluiten* en klik vervolgens op **OK**.
-5. Wanneer Sysprep is voltooid, afgesloten de virtuele machine. **De virtuele machine niet opnieuw**.
+5. Wanneer Sysprep is voltooid, afgesloten Hallo virtuele machine. **Hallo VM niet opnieuw**.
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Toewijzing ongedaan maken en de virtuele machine niet markeren als gegeneraliseerd
+### <a name="deallocate-and-mark-hello-vm-as-generalized"></a>Toewijzing ongedaan maken en Hallo VM zoals gegeneraliseerd markeren
 
-Voor het maken van een installatiekopie, moet de virtuele machine worden toewijzing ongedaan gemaakt en is gemarkeerd als gegeneraliseerd in Azure.
+een installatiekopie van een toocreate, Hallo VM moet toobe toewijzing ongedaan gemaakt en is gemarkeerd als gegeneraliseerd in Azure.
 
-De virtuele machine met behulp van de toewijzing opgeheven [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
+Hallo toewijzing ongedaan is gemaakt met behulp van VM [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
 
 ```powershell
 Stop-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Force
 ```
 
-Zet de status van de virtuele machine `-Generalized` met [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
+Hallo-status van Hallo virtuele machine te instellen`-Generalized` met [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
    
 ```powershell
 Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
 ```
 
 
-## <a name="create-the-image"></a>De installatiekopie maken
+## <a name="create-hello-image"></a>Hallo installatiekopie maken
 
-Nu u een installatiekopie van de virtuele machine maken met behulp van kunt [nieuw AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) en [nieuw AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). Het volgende voorbeeld wordt een installatiekopie met de naam *myImage* van een virtuele machine met de naam *myVM*.
+Nu u een installatiekopie van Hallo VM maken met behulp van kunt [nieuw AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) en [nieuw AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). Hallo volgende voorbeeld wordt een installatiekopie met de naam *myImage* van een virtuele machine met de naam *myVM*.
 
-Zorg dat de virtuele machine. 
+Hallo virtuele machine worden opgehaald. 
 
 ```powershell
 $vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroupImages
 ```
 
-Maak de configuratie van de installatiekopie.
+Hallo imageconfiguratie maken.
 
 ```powershell
 $image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
 ```
 
-Maken van de installatiekopie.
+Hallo-installatiekopie kan maken.
 
 ```powershell
 New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroupImages
 ``` 
 
  
-## <a name="create-vms-from-the-image"></a>Virtuele machines van de installatiekopie maken
+## <a name="create-vms-from-hello-image"></a>Virtuele machines uit Hallo installatiekopie maken
 
-Nu dat u een installatiekopie hebt, kunt u een of meer nieuwe virtuele machines kunt maken van de installatiekopie. Maken van een virtuele machine van een aangepaste installatiekopie is vergelijkbaar met het maken van een virtuele machine met behulp van een Marketplace-installatiekopie. Wanneer u een Marketplace-installatiekopie gebruikt, moet u informatie over de installatiekopie, afbeeldingenprovider, aanbieding, SKU en versie. Met een aangepaste installatiekopie moet u alleen de ID van de aangepaste Afbeeldingsbron opgeven. 
+Nu dat u een installatiekopie hebt, kunt u een of meer nieuwe virtuele machines kunt maken van Hallo image. Maken van een virtuele machine van een aangepaste installatiekopie is heel vergelijkbaar toocreating een VM die gebruikmaakt van een Marketplace-installatiekopie. Wanneer u een Marketplace-installatiekopie gebruikt, hebt u tooinformation over Hallo-installatiekopie, afbeeldingenprovider, aanbieding, SKU en versie. Met een aangepaste installatiekopie hoeft u alleen tooprovide Hallo-ID van de aangepaste Afbeeldingsbron Hallo. 
 
-In het volgende script maken we een variabele *$image* voor het opslaan van informatie over het gebruik van de aangepaste installatiekopie [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage) en vervolgens gebruiken we [Set AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) en geeft u de ID met de *$image* variabele we zojuist hebben gemaakt. 
+Hallo script volgen, maken we een variabele *$image* toostore informatie over het gebruik van de aangepaste installatiekopie Hallo [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage) en vervolgens gebruiken we [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)en met behulp van Hallo Hallo-ID opgeven *$image* variabele we zojuist hebben gemaakt. 
 
-Het script maakt een virtuele machine met de naam *myVMfromImage* van onze aangepaste installatiekopie in een nieuwe resourcegroep met de naam *myResourceGroupFromImage* in de *VS-West* locatie.
+Hallo script maakt een virtuele machine met de naam *myVMfromImage* van onze aangepaste installatiekopie in een nieuwe resourcegroep met de naam *myResourceGroupFromImage* in Hallo *VS-West* locatie.
 
 
 ```powershell
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+$cred = Get-Credential -Message "Enter a username and password for hello virtual machine."
 
 New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location EastUS
 
@@ -159,12 +159,12 @@ $vmConfig = New-AzureRmVMConfig `
         -ComputerName myComputer `
         -Credential $cred 
 
-# Here is where we create a variable to store information about the image 
+# Here is where we create a variable toostore information about hello image 
 $image = Get-AzureRmImage `
     -ImageName myImage `
     -ResourceGroupName myResourceGroupImages
 
-# Here is where we specify that we want to create the VM from and image and provide the image ID
+# Here is where we specify that we want toocreate hello VM from and image and provide hello image ID
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
 
 $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
@@ -177,7 +177,7 @@ New-AzureRmVM `
 
 ## <a name="image-management"></a>Beheer van installatiekopieën 
 
-Hier volgen enkele voorbeelden van algemene beheertaken voor de installatiekopie en hoe u uit te voeren met behulp van PowerShell.
+Hier volgen enkele voorbeelden van algemene beheertaken voor de installatiekopie en hoe toocomplete ze met behulp van PowerShell.
 
 Lijst van alle installatiekopieën op naam.
 
@@ -186,7 +186,7 @@ $images = Find-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Een afbeelding verwijderen. Dit voorbeeld wordt verwijderd van de installatiekopie met de naam *myOldImage* van de *myResourceGroup*.
+Een afbeelding verwijderen. In dit voorbeeld verwijderingen Hallo installatiekopie met de naam *myOldImage* van Hallo *myResourceGroup*.
 
 ```powershell
 Remove-AzureRmImage `
@@ -196,16 +196,16 @@ Remove-AzureRmImage `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u een aangepaste installatiekopie van de virtuele machine gemaakt. U leert hoe naar:
+In deze zelfstudie maakt u een aangepaste installatiekopie van de virtuele machine gemaakt. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Sysprep en generalize van virtuele machines
 > * Een aangepaste installatiekopie maken
 > * Een virtuele machine van een aangepaste installatiekopie maken
-> * Lijst van alle installatiekopieën in uw abonnement
+> * Lijst van alle Hallo-installatiekopieën in uw abonnement
 > * Een afbeelding verwijderen
 
-Ga naar de volgende zelfstudie voor meer informatie over hoe maximaal beschikbare virtuele machines.
+Ga toohello volgende zelfstudie toolearn over hoe maximaal beschikbare virtuele machines.
 
 > [!div class="nextstepaction"]
 > [Virtuele machines met hoge beschikbaarheid maken](tutorial-availability-sets.md)

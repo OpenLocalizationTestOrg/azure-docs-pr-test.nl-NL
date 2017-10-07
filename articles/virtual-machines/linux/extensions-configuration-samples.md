@@ -1,5 +1,5 @@
 ---
-title: Voorbeeldconfiguratie voor de Linux VM-extensies | Microsoft Docs
+title: configuratie voor Linux VM-extensies aaaSample | Microsoft Docs
 description: Voorbeeldconfiguratie voor het ontwerpen van sjablonen met uitbreidingen voor virtuele Linux-machines
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: kundanap
-ms.openlocfilehash: 7bdc28328f29005ae48cc281a05fce7067c96556
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bc19b8d7d6fdb1783be99ec7fdd5cde5e1f8ca80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Voorbeelden van Linux VM-extensieconfiguraties
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ ms.lasthandoff: 07/11/2017
 
 Dit artikel bevat voorbeeldconfiguratie voor het configureren van Azure VM-extensies voor virtuele Linux-machines.
 
-Voor meer informatie over deze uitbreidingen klikt u hier: [overzicht van Azure VM-extensies.](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Klik hier voor meer over deze uitbreidingen toolearn: [overzicht van Azure VM-extensies.](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Voor meer informatie over het ontwerpen van extensie sjablonen klikt u hier: [extensie sjablonen ontwerpen.](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Klik hier voor meer over het ontwerpen van extensie sjablonen toolearn: [extensie sjablonen ontwerpen.](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-In dit artikel geeft een lijst van verwachte configuratiewaarden voor enkele van de Linux-uitbreidingen.
+Dit artikel worden de waarden van de verwachte configuratie voor een aantal Hallo Linux-extensies.
 
 ## <a name="sample-template-snippet-for-vm-extensions"></a>Voorbeeld sjabloon codefragment voor VM-extensies.
-De sjabloon codefragment voor het implementeren van extensies ziet er als volgt:
+Hallo sjabloon codefragment voor het implementeren van extensies ziet er als volgt:
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -80,9 +80,9 @@ De sjabloon codefragment voor het implementeren van extensies ziet er als volgt:
                   }
                 }
 
-Controleer voordat u de extensie implementeert de meest recente versie van de uitbreiding en de 'typeHandlerVersion"vervangen door de huidige versie van de meest recente.
+Controleer de meest recente versie van uitbreiding Hallo en Hallo 'typeHandlerVersion"vervangen door Hallo huidige meest recente versie voordat u implementeert Hallo-extensie.
 
-De rest van het artikel bevat voorbeelden van configuraties voor Linux VM-extensies.
+De rest van het Hallo-artikel bevat voorbeelden van configuraties voor Linux VM-extensies.
 
 ### <a name="cloudlink-securevm-agent"></a>CloudLink SecureVM Agent
           {
@@ -90,7 +90,7 @@ De rest van het artikel bevat voorbeelden van configuraties voor Linux VM-extens
             "type": "CloudLinkSecureVMLinuxAgent",
             "typeHandlerVersion": "4.0",
             "settings": {
-              "CloudLinkCenter" : "specify valid IP/FQDN to CloudLinkCenter"
+              "CloudLinkCenter" : "specify valid IP/FQDN tooCloudLinkCenter"
             }
           }
 
@@ -132,23 +132,23 @@ De rest van het artikel bevat voorbeelden van configuraties voor Linux VM-extens
         }
 
 ### <a name="vm-access-extension-password-reset"></a>Uitbreiding van VM-toegang (wachtwoord opnieuw instellen)
-Voor bijgewerkte schema raadpleegt u de [VMAccessForLinux-documentatie](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
+Raadpleeg voor bijgewerkte schema toohello [VMAccessForLinux-documentatie](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
           "publisher": "Microsoft.OSTCExtensions",
           "type": "VMAccessForLinux",
           "typeHandlerVersion": "1.2",
           "protectedSettings": {
-            "username": "(required, string) the name of the user",
-            "password": "(optional, string) the password of the user",
-            "reset_ssh": "(optional, boolean) whether or not reset the ssh",
-            "ssh_key": "(optional, string) the public key of the user, base64 encoded pem",
-            "remove_user": "(optional, string) the user name to remove"
+            "username": "(required, string) hello name of hello user",
+            "password": "(optional, string) hello password of hello user",
+            "reset_ssh": "(optional, boolean) whether or not reset hello ssh",
+            "ssh_key": "(optional, string) hello public key of hello user, base64 encoded pem",
+            "remove_user": "(optional, string) hello user name tooremove"
           }
         }
 
 ### <a name="os-patching"></a>OS patches
-Voor bijgewerkte schema raadpleegt u de [OSPatching documentatie](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
+Raadpleeg voor bijgewerkte schema toohello [OSPatching documentatie](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -173,7 +173,7 @@ Voor bijgewerkte schema raadpleegt u de [OSPatching documentatie](https://github
         }
 
 ### <a name="docker-extension"></a>Docker-uitbreiding
-Voor bijgewerkte schema raadpleegt u de [Docker-extensie-documentatie](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
+Raadpleeg voor bijgewerkte schema toohello [Docker-extensie-documentatie](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -199,8 +199,8 @@ Voor bijgewerkte schema raadpleegt u de [Docker-extensie-documentatie](https://g
 
         ### Linux Diagnostics Extension
         {
-        "storageAccountName": "storage account to receive data",
-        "storageAccountKey": "key of the account",
+        "storageAccountName": "storage account tooreceive data",
+        "storageAccountKey": "key of hello account",
         "perfCfg": [
         {
             "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
@@ -215,7 +215,7 @@ Voor bijgewerkte schema raadpleegt u de [Docker-extensie-documentatie](https://g
         ]
         }
 
-In de bovenstaande voorbeelden kunt u het versienummer vervangen door het versienummer van de meest recente.
+In bovenstaande Hallo voorbeelden, vervangt u Hallo versienummer met de meest recente versienummer Hallo.
 
 Hier volgt een volledige VM-sjabloon voor het maken van een Linux-VM met de extensie:
 

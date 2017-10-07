@@ -1,6 +1,6 @@
 ---
-title: 'Azure Storage-Service: versleuteling met behulp van de klant beheerde sleutels in Azure Sleutelkluis | Microsoft Docs'
-description: 'De functie Azure Storage-Service: versleuteling gebruiken voor het versleutelen van uw Azure-blobopslag aan de kant van de service bij het opslaan van de gegevens en ontsleutelen wanneer sleutels bij het ophalen van de gegevens met behulp van de klant beheerd.'
+title: aaaAzure Service versleuteling van opslag met behulp van de klant beheerde sleutels in Azure Sleutelkluis | Microsoft Docs
+description: 'Gebruik hello Azure Storage-Service: versleuteling functie tooencrypt uw Azure-blobopslag op Hallo servicezijde bij het opslaan van gegevens Hallo en ontsleutelen wanneer sleutels bij het ophalen van Hallo-gegevens met behulp van de klant beheerd.'
 services: storage
 documentationcenter: .net
 author: lakasa
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: eb2e0ad27df40e61f9c08b9db7ca7a7568adad9f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling van opslag-Service met behulp van de klant beheerde sleutels in Azure Sleutelkluis
 
-Microsoft Azure is zeer belangrijk dat u kunt beschermen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen.  Een manier die u kunt uw gegevens in rust beveiligen is het gebruik van opslag Service versleuteling (SSE), die automatisch worden uw gegevens worden versleuteld wanneer het schrijven naar de opslag en uw gegevens ontsleutelt bij het ophalen van het. De versleuteling en ontsleuteling is automatische, volledig transparant en maakt gebruik van 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de sterkste blok coderingen beschikbaar.
+Microsoft Azure is doorgevoerd toohelping u beveiligen en uw toomeet gegevens beveiligt uw organisatie beveiliging en naleving verplichtingen.  Een manier die u kunt uw gegevens in rust beveiligen is toouse opslag Service versleuteling (SSE), die automatisch worden uw gegevens worden gecodeerd bij het schrijven van toostorage en uw gegevens ontsleutelt bij het ophalen van het. Hallo versleuteling en ontsleuteling is automatische, volledig transparant en maakt gebruik van 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de sterkste blok Hallo coderingen beschikbaar.
 
-U kunt Microsoft beheerde versleutelingssleutels SSE of kunt u uw eigen versleutelingssleutels. Dit artikel worden de laatste. Zie voor meer informatie over het gebruik van door Microsoft beheerde sleutels of over SSE in het algemeen [Service versleuteling van opslag voor gegevens in rust](../storage-service-encryption.md).
+U kunt Microsoft beheerde versleutelingssleutels SSE of kunt u uw eigen versleutelingssleutels. Dit artikel worden de laatste Hallo. Zie voor meer informatie over het gebruik van door Microsoft beheerde sleutels of over SSE in het algemeen [Service versleuteling van opslag voor gegevens in rust](../storage-service-encryption.md).
 
-Als u de mogelijkheid om met uw eigen versleutelingssleutels, is de SSE voor Blob storage Azure van met Azure Key Vault (Sleutelkluis) geïntegreerd. U kunt uw eigen versleutelingssleutels maken en op te slaan in Azure Sleutelkluis, of kunt u API's van Azure Sleutelkluis coderingssleutels wilt genereren. Niet alleen Azure Sleutelkluis in staat om te beheren en uw sleutels beheren, ook kunt u het gebruik van uw sleutel controleren. 
+tooprovide hello mogelijkheid toouse uw eigen versleutelingssleutels SSE voor Blob storage Azure van met Azure Key Vault (Sleutelkluis) is geïntegreerd. U kunt uw eigen versleutelingssleutels maken en op te slaan in Azure Sleutelkluis, of kunt u de Azure Sleutelkluis-API's toogenerate versleutelingssleutels. Niet alleen biedt Azure Sleutelkluis kunt u toomanage en beheren van uw sleutels, ook kunt u tooaudit uw sleutelgebruik. 
 
-Waarom zou u wilt uw eigen sleutels maken? Dit biedt u meer flexibiliteit, zodat u kunt maken, draaien, uitschakelen en toegangsbeheer definiëren. Ook kunt u de versleutelingssleutels die wordt gebruikt voor het beveiligen van uw gegevens te controleren.
+Waarom zou u wilt dat toocreate uw eigen sleutels? Dit biedt u meer flexibiliteit, zodat u toocreate, draaien, uitschakelen en toegangsbeheer definiëren. Bovendien kunt dat u tooaudit Hallo versleutelingssleutels tooprotect gebruikt uw gegevens.
 
 ## <a name="sse-with-customer-managed-keys-preview"></a>SSE met de klant beheerde sleutels preview
 
-Deze functie is momenteel beschikbaar als preview-product. Deze functie wilt gebruiken, moet u een nieuw opslagaccount maken. U kunt een nieuwe sleutelkluis maken en sleutel of u een bestaande sleutelkluis en sleutel kunt gebruiken. Het opslagaccount en de sleutelkluis moet in dezelfde regio, maar ze kunnen zich in verschillende abonnementen behoren.
+Deze functie is momenteel beschikbaar als preview-product. toouse die deze functie, moet u een nieuw opslagaccount toocreate. U kunt een nieuwe sleutelkluis maken en sleutel of u een bestaande sleutelkluis en sleutel kunt gebruiken. Hallo-opslagaccount en Hallo sleutelkluis moeten zich op Hallo dezelfde regio, maar ze kunnen zich in verschillende abonnementen behoren.
 
-Als u wilt deelnemen aan de preview, neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com). We bieden een speciale koppeling als u wilt deelnemen aan de Preview-versie.
+tooparticipate hello Preview-versie, neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com). We bieden een speciale koppeling tooparticipate Hallo Preview-versie.
 
-Raadpleeg voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+toolearn verwijzen, toohello [Veelgestelde vragen over](#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 
 > [!IMPORTANT]
-> U moet zich registreren voor de preview voordat u de stappen in dit artikel. Zonder toegang tot het preview zich u niet inschakelen van deze functie in de portal.
+> U moet zich registreren voor Hallo preview voorafgaande toofollowing Hallo stappen in dit artikel. Zonder toegang tot het preview, wordt u niet kunt tooenable deze functie in Hallo-portal zijn.
 
 ## <a name="getting-started"></a>Aan de slag
 ## <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Stap 1: [een nieuw opslagaccount maken](../storage-create-storage-account.md)
 
 ## <a name="step-2-enable-encryption"></a>Stap 2: Enable-versleuteling
-U kunt de SSE inschakelen voor de storage-account met de [Azure-portal](https://portal.azure.com). Op de blade instellingen voor het opslagaccount, zoek naar de sectie Blob-Service, zoals weergegeven in de volgende afbeelding en versleuteling op.
+U kunt SSE inschakelen voor Hallo storage-account met behulp van Hallo [Azure-portal](https://portal.azure.com). Zoekt op Hallo blade beleidinstellingen voor opslagaccount Hallo Hallo sectie van de Blob-Service zoals weergegeven in Hallo volgende afbeelding en versleuteling op.
 
 ![De optie versleuteling Portal schermopname](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*SSE voor Blob-Service inschakelen*
 
-Als u programmatisch wilt inschakelen of uitschakelen van de Storage-Service: versleuteling op een storage-account, kunt u de [REST API van Azure Storage Resource Provider](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), wordt de [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), of de [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Als u tooprogrammatically inschakelen of Hallo versleuteling van de opslagruimte op een storage-account uitschakelen, kunt u Hallo [REST API van Azure Storage Resource Provider](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), Hallo [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), of Hallo [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
 
-In dit scherm als u het selectievakje 'gebruiken your own key' niet ziet zijn u niet goedgekeurd voor de preview. Een e-mail verzenden naar [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) en goedkeuring aanvragen.
+In dit scherm als u niet Hallo 'gebruiken your own key' selectievakje ziet zijn u niet goedgekeurd voor Hallo preview. E-mailbericht te verzenden[ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) en goedkeuring aanvragen.
 
 ![Portal schermafbeelding versleuteling Preview](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
-Standaard gebruikt SSE Microsoft beheerde sleutels. Schakel het selectievakje in voor het gebruik van uw eigen sleutels. Vervolgens kunt u uw sleutel URI opgeven, of Selecteer een sleutel en de Sleutelkluis in de objectkiezer.
+Standaard gebruikt SSE Microsoft beheerde sleutels. toouse selectievakje Hallo van uw eigen sleutels. Vervolgens kunt u uw sleutel URI opgeven, of Selecteer een sleutel en de Sleutelkluis in Hallo objectkiezer.
 
 ## <a name="step-3-select-your-key"></a>Stap 3: Uw sleutel selecteren
 
@@ -64,17 +64,17 @@ Standaard gebruikt SSE Microsoft beheerde sleutels. Schakel het selectievakje in
 
 ![Portal schermafbeelding versleuteling met sleutel uri optie invoeren](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
-Als het storage-account geen toegang tot de Sleutelkluis heeft, kunt u de volgende opdracht met Azure Powershell toegang verlenen tot de storage-accounts aan de vereiste sleutelkluis uitvoeren.
+Als Hallo storage-account geen toegang tot toohello Sleutelkluis heeft, kunt u de volgende Hallo uitvoeren met behulp van Azure Powershell toogrant toegang toohello opslagaccounts toohello vereist sleutelkluis opdracht.
 
 ![Portal schermafbeelding toegang is geweigerd voor sleutelkluis](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
-U kunt ook toegang via de Azure-portal door te gaan naar de Azure Sleutelkluis in Azure portal en het verlenen van toegang tot het opslagaccount.
+U kunt ook toegang via hello Azure-portal door te gaan toohello Azure Sleutelkluis in hello Azure-portal en het verlenen van toegang toohello storage-account.
 
-## <a name="step-4-copy-data-to-storage-account"></a>Stap 4: Gegevens kopiëren naar de storage-account
-Als u gegevens overdragen naar uw nieuwe opslagaccount wilt zodat ze zijn versleuteld, raadpleegt u [stap 3 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+## <a name="step-4-copy-data-toostorage-account"></a>Stap 4: Kopieer data toostorage-account
+Als u tootransfer gegevens in uw nieuwe opslagaccount wilt zodat ze zijn versleuteld, Raadpleeg te[stap 3 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
-## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Stap 5: De status van de versleutelde gegevens opvragen
-Als u wilt de status van de versleutelde gegevens opvragen, verwijzen naar [stap 4 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+## <a name="step-5-query-hello-status-of-hello-encrypted-data"></a>Stap 5: De status van de Hallo Hallo versleutelde gegevens
+status van de tooquery Hallo Hallo versleutelde gegevens, raadpleeg dan te[stap 4 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Veelgestelde vragen over Service-versleuteling van opslag voor gegevens in rust
 **V: ik gebruik Premium-opslag; kan ik SSE gebruiken met sleutels van de klant beheerd?**
@@ -89,25 +89,25 @@ A: Ja.
 
 A: Er is een waarde die is gekoppeld voor het gebruik van Azure Sleutelkluis. Voor meer informatie gaat u naar [Sleutelkluis prijzen](https://azure.microsoft.com/en-us/pricing/details/key-vault/). Er is geen extra kosten voor het gebruik van SSE.
 
-**V: kan ik de toegang tot de versleutelingssleutels intrekken?**
+**V: kan ik toegang toohello versleutelingssleutels intrekken?**
 
-A: Ja, kunt u de toegang intrekken op elk gewenst moment. Er zijn verschillende manieren toegang tot uw sleutels in te trekken. Raadpleeg [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) en [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) voor meer informatie. Toegang intrekken wordt toegang tot alle blobs in de storage-account effectief geblokkeerd omdat de versleutelingssleutel van de Account niet toegankelijk door Azure Storage is.
+A: Ja, kunt u de toegang intrekken op elk gewenst moment. Er zijn verschillende manieren toorevoke tooyour toegangssleutels. Raadpleeg te[Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) en [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) voor meer informatie. Toegang intrekken wordt toegang tot tooall blobs in de storage-account Hallo effectief geblokkeerd als Hallo versleutelingssleutel Account niet toegankelijk door Azure Storage is.
 
 **V: kan ik een opslagaccount en de sleutel in andere regio maken?**
 
-A: Nee, de storage-account en de key vault/sleutel moeten in dezelfde regio. 
+A: Nee, Hallo Hallo storage-account en sleutel/sleutel van de kluis nodig toobe in dezelfde regio. 
 
-**V: kan ik SSE inschakelen met beheer van de klant sleutels bij het maken van het storage-account?**
+**V: kan ik SSE inschakelen met beheer van de klant sleutels bij het maken van Hallo storage-account?**
 
-A: Nee. Wanneer u SSE inschakelt tijdens het maken van het storage-account, kunt u alleen Microsoft beheerde sleutels. Als u wilt de klant beheerd sleutels wilt gebruiken, moet u de eigenschappen van het opslagaccount bijwerken. U kunt gebruik REST of een van de opslagclientbibliotheken programmatisch uw storage-account bijwerken of bijwerken van de eigenschappen van het opslagaccount met de Azure portal na het maken van het account.
+A: Nee. Wanneer u SSE inschakelt tijdens het maken van Hallo storage-account, kunt u alleen Microsoft beheerde sleutels. Als u toouse beheer van de klant sleutels wilt, moet u de eigenschappen van het opslagaccount Hallo bijwerken. U kunt REST gebruiken of een van de Hallo opslag client bibliotheken tooprogrammatically uw storage-account bijwerken of bijwerken van Hallo eigenschappen van het opslagaccount hello Azure-portal gebruiken na het Hallo-account maken.
 
 **V: kan ik versleuteling uitschakelen tijdens het gebruik van SSE met de klant beheerde sleutels?**
 
-A: u kunt versleuteling Nee, niet uitschakelen terwijl SSE gebruiken met de klant sleutels beheerde. Schakel codering moet u overschakelen naar door Microsoft beheerde sleutels. U kunt dit doen met de Azure-portal of PowerShell.
+A: u kunt versleuteling Nee, niet uitschakelen terwijl SSE gebruiken met de klant sleutels beheerde. toodisable versleuteling, moet u overschakelen toousing Microsoft beheerde sleutels. U kunt dit doen met behulp van hello Azure-portal of PowerShell.
 
 **V: is SSE standaard ingeschakeld wanneer ik een nieuw opslagaccount maken?**
 
-A: SSE is niet standaard; u kunt de Azure-portal in te schakelen. U kunt deze functie met de REST-API van Storage Resource Provider ook programmatisch inschakelen. 
+A: SSE is niet standaard; hello Azure portal tooenable kunt u deze. U kunt deze functie met Hallo REST-API van Storage Resource Provider ook programmatisch inschakelen. 
 
 **V: ik inschakelen niet codering voor mijn storage-account.**
 
@@ -115,14 +115,14 @@ A: is het een Resource Manager-storage-account? Klassieke opslagaccounts worden 
 
 **V: SSE Is met de klant beheerde sleutels alleen toegestaan in specifieke gebieden?**
 
-A: SSE is beschikbaar in alleen bepaalde regio's voor Blob-opslag voor deze Preview. E-mailadres [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) om te controleren op de beschikbaarheid en meer informatie over de preview. 
+A: SSE is beschikbaar in alleen bepaalde regio's voor Blob-opslag voor deze Preview. E-mailadres [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) toocheck voor beschikbaarheid en meer informatie over de preview. 
 
-**V: hoe neem ik iemand als ik problemen hebt of feedback wilt geven?**
+**V: hoe neem ik iemand als ik problemen hebt of tooprovide feedback wilt?**
 
-A: Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) van eventuele problemen met versleuteling van de opslagruimte. 
+A: Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) van eventuele tooStorage versleuteling van de Service problemen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-*   Voor meer informatie over de uitgebreide set van beveiliging mogelijkheden die ontwikkelaars helpen bij het ontwikkelen van beveiligde toepassingen, Zie de [opslag beveiligingshandleiding](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
+*   Voor meer informatie over een uitgebreide reeks beveiliging Hallo mogelijkheden die ontwikkelaars helpen bij het ontwikkelen van beveiligde toepassingen, Zie Hallo [opslag beveiligingshandleiding](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 *   Zie voor informatie over Azure Sleutelkluis [wat is Azure Sleutelkluis](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
 *   Zie voor aan de slag op Azure Sleutelkluis, [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md).

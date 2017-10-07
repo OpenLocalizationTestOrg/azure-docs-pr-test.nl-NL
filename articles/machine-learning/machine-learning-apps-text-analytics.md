@@ -1,6 +1,6 @@
 ---
 title: 'Machine Learning API''s: Text Analytics | Microsoft Docs'
-description: API's van Microsoft Machine Learning-Analytics tekst kan worden gebruikt voor het analyseren van niet-gestructureerde tekst voor gevoel analyse, uitpakken van sleutel woordgroep, taal wordt gedetecteerd en onderwerp detectie.
+description: API's van Microsoft Machine Learning-Analytics tekst kan worden gebruikt tooanalyze ongestructureerde tekst voor gevoel analyse, uitpakken van sleutel woordgroep, taal wordt gedetecteerd en onderwerp detectie.
 services: machine-learning
 documentationcenter: 
 author: onewth
@@ -16,50 +16,50 @@ ms.date: 04/04/2017
 ms.author: onewth
 ROBOTS: NOINDEX
 redirect_url: ../cognitive-services/cognitive-services-text-analytics-quick-start
-redirect_document_id: TRUE
-ms.openlocfilehash: 10eae2ff5624dcb57de1cf72b326147f35bc2a0b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 49380c83849c5d5fdd8dce4f3899ebcb3d6870f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="machine-learning-apis-text-analytics-for-sentiment-key-phrase-extraction-language-detection-and-topic-detection"></a>API’s voor Machine Learning: Tekstanalyse voor sentimenten, Sleuteltermextractie, Taaldetectie en Onderwerpdetectie
 > [!NOTE]
-> Deze handleiding is bedoeld voor versie 1 van de API. Voor versie 2, [ **verwijzen naar dit document**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). Versie 2 is nu de gewenste versie van deze API.
+> Deze handleiding is bedoeld voor versie 1 van Hallo API. Voor versie 2, [ **toothis document verwijzen**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). Versie 2 is nu Hallo aanbevolen versie van deze API.
 > 
 > 
 
 ## <a name="overview"></a>Overzicht
-De tekst Analytics-API is een suite met tekstanalyse [webservices](https://datamarket.azure.com/dataset/amla/text-analytics) gebouwd met Azure Machine Learning. De API kan worden gebruikt voor het analyseren van niet-gestructureerde tekst voor taken zoals gevoel analyse, uitpakken van sleutel woordgroep, taal wordt gedetecteerd en onderwerp detectie. U hebt geen trainingsgegevens nodig om deze API: NET laat uw tekstgegevens. Deze API maakt gebruik van geavanceerde natuurlijke taal verwerken technieken best in klasse voorspellingen leveren.
+Hallo Text Analytics API is een suite met tekstanalyse [webservices](https://datamarket.azure.com/dataset/amla/text-analytics) gebouwd met Azure Machine Learning. Hallo API kan worden gebruikt tooanalyze ongestructureerde tekst voor taken zoals gevoel analyse, uitpakken van sleutel woordgroep, taal wordt gedetecteerd en onderwerp detectie. Er zijn geen gegevens training nodig toouse deze API: NET laat uw tekstgegevens. Deze API maakt gebruik van geavanceerde natuurlijke taal technieken toodeliver beste worden verwerkt in de klasse voorspellingen.
 
-U kunt tekstanalyse in actie zien op onze [demo site](https://text-analytics-demo.azurewebsites.net/), waar u ook vinden [voorbeelden](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) over het implementeren van tekstanalyse in C# en Python.
+U kunt tekstanalyse in actie zien op onze [demo site](https://text-analytics-demo.azurewebsites.net/), waar u ook vinden [voorbeelden](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) over het tooimplement tekstanalyse in C# en Python.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 - - -
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
-De API retourneert een numerieke score tussen 0 en 1. Scores bijna 1 aangeven positief gevoel terwijl scores dicht bij 0 negatieve gevoel geven. Stemmingscores worden gegenereerd met classificatietechnieken. De functies van de invoer aan de classificatie behoren n-g, functies die worden gegenereerd op basis van het onderdeel van spraak tags en word insluitingen. Engels is momenteel de enige ondersteunde taal.
+Hallo API retourneert een numerieke score tussen 0 en 1. Scores sluiten too1 aangeven positief gevoel terwijl scores sluiten too0 negatieve gevoel geven. Stemmingscores worden gegenereerd met classificatietechnieken. Hallo invoer functies toohello classificatie n-g, functies die worden gegenereerd op basis van het onderdeel van spraak tags en word insluitingen bevatten. Engels is momenteel alleen ondersteund taal Hallo.
 
 ## <a name="key-phrase-extraction"></a>Sleuteluitdrukkingen extraheren
-De API retourneert een lijst met tekenreeksen die de belangrijkste gespreksonderwerpen in de invoertekst aanduiden. Er worden technieken uit de geavanceerde Natural Language Processing-toolkit van Microsoft Office gebruikt. Engels is momenteel de enige ondersteunde taal.
+Hallo API retourneert een lijst met tekenreeksen die aangeeft Hallo sleutel bespreken punten in de ingevoerde tekst hello. Er worden technieken uit de geavanceerde Natural Language Processing-toolkit van Microsoft Office gebruikt. Engels is momenteel alleen ondersteund taal Hallo.
 
 ## <a name="language-detection"></a>Taaldetectie
-De API retourneert de taal aangetroffen en een numerieke score tussen 0 en 1. Scores dichtbij 1 geven aan dat het 100% zeker is dat de geïdentificeerde taal waar is. Er worden in totaal 120 talen ondersteund.
+Hallo API retourneert Hallo gedetecteerd taal en een numerieke score tussen 0 en 1. Scores sluiten too1 duiden op 100% zekerheid Hallo geïdentificeerd taal is ingesteld op true. Er worden in totaal 120 talen ondersteund.
 
 ## <a name="topic-detection"></a>Onderwerpherkenning
-Dit is een nieuw uitgebrachte API welke retourneert de bovenste gedetecteerd onderwerpen voor een lijst met tekstrecords verzonden. Een onderwerp wordt geïdentificeerd met een sleutelfrase die uit een of meer verwante woorden kan bestaan. Deze API vereist dat er minimaal 100 tekstrecords worden ingediend, maar de API is ontworpen om onderwerpen in honderdduizenden records te detecteren. Bij de API wordt er één transactie per ingediende tekstrecord in rekening gebracht. De API is ontworpen voor korte, menselijke geschreven tekst zoals beoordelingen en feedback van gebruikers.
+Dit is een nieuw uitgebrachte API Hallo bovenste gedetecteerde onderwerpen voor een lijst met verzonden tekstrecords geretourneerd. Een onderwerp wordt geïdentificeerd met een sleutelfrase die uit een of meer verwante woorden kan bestaan. Deze API vereist een minimum van 100 tekst registreert toobe verzonden, maar is ontworpen toodetect onderwerpen over honderden toothousands met records. Bij de API wordt er één transactie per ingediende tekstrecord in rekening gebracht. Hallo API is ontworpen toowork voor korte human tekst zoals beoordelingen en feedback van gebruikers geschreven.
 
 - - -
 ## <a name="api-definition"></a>API-definitie
 ### <a name="headers"></a>Headers
-Zorg ervoor dat u de juiste headers in uw aanvraag opnemen, als volgt moet:
+Zorg ervoor dat u de juiste headers Hallo in uw aanvraag opneemt, als volgt moet:
 
     Authorization: Basic <creds>
     Accept: application/json
 
     Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-U vindt de accountsleutel uit uw account in de [Azure gegevens markt](https://datamarket.azure.com/account/keys). Houd er rekening mee dat momenteel wordt alleen JSON voor invoer en uitvoer indelingen is geaccepteerd. XML wordt niet ondersteund.
+U vindt de accountsleutel uit uw account in Hallo [Azure gegevens markt](https://datamarket.azure.com/account/keys). Houd er rekening mee dat momenteel wordt alleen JSON voor invoer en uitvoer indelingen is geaccepteerd. XML wordt niet ondersteund.
 
 - - -
 ## <a name="single-response-apis"></a>Enkele Antwoordthread API 's
@@ -70,7 +70,7 @@ U vindt de accountsleutel uit uw account in de [Azure gegevens markt](https://da
 
 **Voorbeeld van een aanvraag**
 
-We aanvraagt gevoel analyse voor de zinsnede 'Hallo wereld' in de aanroep hieronder:
+We aanvraagt gevoel analyse voor de zinsnede Hallo "Hallo wereld" in het Hallo-aanroep die hieronder wordt:
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
@@ -89,7 +89,7 @@ Het resultaat is een antwoord als volgt:
 
 **Voorbeeld van een aanvraag**
 
-In de onderstaande aanroep aanvraagt we dat de sleutel vermeldingen gevonden in de tekst 'Dit is een fantastische hotel om te blijven, met unieke decor en beschrijvende medewerkers':
+In het Hallo-aanroep die hieronder wordt aanvraagt we Hallo sleutel zinnen gevonden in de tekst hello 'Was een fantastische hotel toostay op, met unieke decor en beschrijvende medewerkers':
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
     Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -113,7 +113,7 @@ Het resultaat is een antwoord als volgt:
 
 **Voorbeeld van een aanvraag**
 
-In de onderstaande aanroep GET we aanvraagt voor de gevoel voor de sleutel zinnen in de tekst *Hallo wereld*
+Hallo GET-aanroep hieronder, we aanvraagt voor Hallo gevoel voor belangrijke zinnen Hallo tekst hello *Hallo wereld*
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
     Text=Hello+World
@@ -131,13 +131,13 @@ Het resultaat is een antwoord als volgt:
 
 **Optionele parameters:**
 
-`NumberOfLanguagesToDetect`is een optionele parameter. De standaardwaarde is 1.
+`NumberOfLanguagesToDetect`is een optionele parameter. Hallo standaardwaarde is 1.
 
 - - -
 ## <a name="batch-apis"></a>Batch-API 's
-De tekst Analytics-service kunt u doen gevoel en sleutel-zin extracties in batchmodus. Houd er rekening mee dat elk van de records met aantallen als één transactie verkregen. Een voorbeeld: als u gevoel voor 1000 records in één aanroep vragen 1000 transacties wordt afgetrokken.
+Hallo Text Analytics-service kunt u toodo gevoel en sleutel-zin extracties in batchmodus. Houd er rekening mee dat elk van de records Hallo aantallen als één transactie verkregen. Een voorbeeld: als u gevoel voor 1000 records in één aanroep vragen 1000 transacties wordt afgetrokken.
 
-Houd er rekening mee dat de id's opgegeven in het systeem de geretourneerd door het systeem-id's zijn. De webservice controleert niet of deze id uniek zijn. Het is de verantwoordelijkheid van de aanroepfunctie uniekheid controleren. 
+Let op: Hallo-id's in Hallo systeem ingevoerd zijn Hallo-id's die zijn geretourneerd door Hallo-systeem. Hallo-webservice wordt niet gecontroleerd of deze id uniek zijn. Het is de verantwoordelijkheid Hallo van Hallo aanroeper tooverify uniekheid. 
 
 ### <a name="getsentimentbatch"></a>GetSentimentBatch
 **URL**    
@@ -146,7 +146,7 @@ Houd er rekening mee dat de id's opgegeven in het systeem de geretourneerd door 
 
 **Voorbeeld van een aanvraag**
 
-In de POST-aanroep hieronder aanvraagt we voor de patronen van de vermeldingen 'Hallo wereld', 'Hallo Foo wereld' en 'Hallo Mijn wereld' in de hoofdtekst van de aanvraag:
+In Hallo POST roept hieronder, wij zijn aangevraagd voor Hallo patronen Hallo woordgroepen "Hello World", "Wereld Hallo Foo" en "Hello mijn World" in de hoofdtekst Hallo van Hallo-aanvraag:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
 
@@ -159,7 +159,7 @@ Hoofdtekst van de aanvraag:
         {"Id":"3","Text":"hello my world"},
     ]}
 
-In het onderstaande antwoord, moet u de lijst met scores die zijn gekoppeld aan uw tekst-id's ophalen:
+Hallo-antwoord hieronder wordt ophalen u Hallo lijst met scores die zijn gekoppeld aan uw tekst-id's:
 
     {
       "odata.metadata":"<url>", 
@@ -181,13 +181,13 @@ In het onderstaande antwoord, moet u de lijst met scores die zijn gekoppeld aan 
 
 **Voorbeeld van een aanvraag**
 
-In dit voorbeeld aanvraagt we voor de lijst met patronen voor de sleutel zinnen in de volgende tekst: 
+In dit voorbeeld aanvraagt we voor Hallo lijst met patronen voor Hallo sleutel zinnen in Hallo teksten te volgen: 
 
-* "Er is een fantastische hotel om te blijven, met unieke decor en beschrijvende medewerkers"
+* "Er is een fantastische hotel toostay op, met unieke decor en beschrijvende medewerkers"
 * "Er is een fantastische build conferentie, met zeer interessante vertelt"
-* "Het verkeer is verschrikkelijke, ik drie uur naar de luchthaven besteed"
+* "Hallo verkeer is verschrikkelijke, ik drie uur gebeurt toohello luchthaven besteed"
 
-Deze aanvraag wordt gedaan als een POST-aanroep naar het eindpunt:
+Deze aanvraag wordt gedaan als een POST-aanroep toohello eindpunt:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
@@ -195,12 +195,12 @@ Hoofdtekst van de aanvraag:
 
     {"Inputs":
     [
-        {"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
+        {"Id":"1","Text":"It was a wonderful hotel toostay at, with unique decor and friendly staff"},
         {"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
-        {"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
+        {"Id":"3","Text":"hello traffic was terrible, I spent three hours going toohello airport"}
     ]}
 
-In het antwoord hieronder, moet u de lijst met belangrijke termen die zijn gekoppeld aan uw tekst-id's ophalen:
+Hallo-antwoord hieronder wordt ophalen u Hallo-lijst met belangrijke termen die zijn gekoppeld aan uw tekst-id's:
 
     { "odata.metadata":"<url>",
          "KeyPhrasesBatch":
@@ -215,7 +215,7 @@ In het antwoord hieronder, moet u de lijst met belangrijke termen die zijn gekop
 - - -
 ### <a name="getlanguagebatch"></a>GetLanguageBatch
 
-We aanvraagt taaldetectie voor twee tekst invoeren in de POST-aanroep hieronder:
+We aanvraagt taaldetectie voor twee tekst invoeren in Hallo POST-aanroep die hieronder wordt:
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguageBatch
 
@@ -228,7 +228,7 @@ Hoofdtekst van de aanvraag:
       ]
     }
 
-Hiermee wordt het volgende antwoord waar Engels is gedetecteerd in de eerste invoer- en Frans in de tweede invoer:
+Hiermee wordt de Hallo na antwoord, waarbij Engels is gedetecteerd in hello eerste invoer- en Frans in Hallo tweede invoer:
 
     {
        "LanguageBatch": [{
@@ -254,9 +254,9 @@ Hiermee wordt het volgende antwoord waar Engels is gedetecteerd in de eerste inv
 
 - - -
 ## <a name="topic-detection-apis"></a>Onderwerp Detection-API 's
-Dit is een nieuw uitgebrachte API welke retourneert de bovenste gedetecteerd onderwerpen voor een lijst met tekstrecords verzonden. Een onderwerp wordt geïdentificeerd met een sleutelfrase die uit een of meer verwante woorden kan bestaan. Bij de API wordt er één transactie per ingediende tekstrecord in rekening gebracht.
+Dit is een nieuw uitgebrachte API Hallo bovenste gedetecteerde onderwerpen voor een lijst met verzonden tekstrecords geretourneerd. Een onderwerp wordt geïdentificeerd met een sleutelfrase die uit een of meer verwante woorden kan bestaan. Bij de API wordt er één transactie per ingediende tekstrecord in rekening gebracht.
 
-Deze API vereist dat er minimaal 100 tekstrecords worden ingediend, maar de API is ontworpen om onderwerpen in honderdduizenden records te detecteren.
+Deze API vereist een minimum van 100 tekst registreert toobe verzonden, maar is ontworpen toodetect onderwerpen over honderden toothousands met records.
 
 ### <a name="topics--submit-job"></a>Onderwerpen – taak verzenden
 **URL**
@@ -265,29 +265,29 @@ Deze API vereist dat er minimaal 100 tekstrecords worden ingediend, maar de API 
 
 **Voorbeeld van een aanvraag**
 
-In de POST-aanroep hieronder vragen wij onderwerpen voor een set van 100 artikelen, waarbij de eerste en laatste invoer artikelen worden weergegeven en twee StopPhrases zijn opgenomen.
+Hallo POST-aanroep hieronder vragen we onderwerpen voor een set van 100 artikelen, waarbij Hallo voornaam en achternaam invoer artikelen worden weergegeven en twee StopPhrases zijn opgenomen.
 
     POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
 
 Hoofdtekst van de aanvraag:
 
     {"Inputs":[
-        {"Id":"1","Text":"I loved the food at this restaurant"},
+        {"Id":"1","Text":"I loved hello food at this restaurant"},
         ...,
-        {"Id":"100","Text":"I hated the decor"}
+        {"Id":"100","Text":"I hated hello decor"}
     ],
     "StopPhrases":[
         "restaurant", “visitor"
     ]}
 
-In het antwoord hieronder, kunt u de taak-id voor de opgegeven taak opvragen:
+Hallo-antwoord hieronder wordt ophalen u Hallo JobId voor Hallo ingediende taak:
 
     {
         "odata.metadata":"<url>",
         "JobId":"<JobId>"
     }
 
-Een lijst van één woord of meerdere word zinnen die niet moeten worden geretourneerd als onderwerpen. Kan worden gebruikt voor het filteren van zeer algemene onderwerpen. Bijvoorbeeld in een gegevensset over hotel beoordelingen 'hotels' en 'hostel' mogelijk logisch stop zinnen.  
+Een lijst van één woord of meerdere word zinnen die niet moeten worden geretourneerd als onderwerpen. Kan worden gebruikt toofilter uit zeer algemene onderwerpen. Bijvoorbeeld in een gegevensset over hotel beoordelingen 'hotels' en 'hostel' mogelijk logisch stop zinnen.  
 
 ### <a name="topics--poll-for-job-results"></a>Onderwerpen – Poll voor de resultaten van de taak
 **URL**
@@ -296,12 +296,12 @@ Een lijst van één woord of meerdere word zinnen die niet moeten worden geretou
 
 **Voorbeeld van een aanvraag**
 
-De taak-id geretourneerd van de indienings-taakstap voor het ophalen van de resultaten worden doorgegeven. Het is raadzaam dat u dit eindpunt per minuut tot en met Status aanroept = 'Complete' in het antwoord. Het duurt ongeveer 10 minuten voor een taak voltooid of langer van taken met duizenden records.
+Hallo die JobId geretourneerd uit Hallo indienings-taak stap toofetch Hallo resultaten worden doorgegeven. Het is raadzaam dat u dit eindpunt per minuut tot en met Status aanroept = 'Complete' hello reactie. Het duurt ongeveer 10 minuten of langer van taken met duizenden records voor een toocomplete taak.
 
     GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
 
 
-Tijdens het verwerken van, zijn het antwoord als volgt:
+Tijdens het verwerken van, zijn antwoord Hallo als volgt:
 
     {
         "odata.metadata":"<url>",
@@ -312,7 +312,7 @@ Tijdens het verwerken van, zijn het antwoord als volgt:
     }
 
 
-De API wordt de uitvoer geretourneerd in JSON-indeling in de volgende indeling:
+Hallo API retourneert uitvoer in JSON-indeling in de volgende indeling Hallo:
 
     {
         "odata.metadata":"<url>",
@@ -346,21 +346,21 @@ De API wordt de uitvoer geretourneerd in JSON-indeling in de volgende indeling:
         "Errors":[]
 
 
-De eigenschappen voor elk onderdeel van het antwoord zijn als volgt:
+Hallo-eigenschappen voor elk onderdeel van het antwoord Hallo zijn als volgt:
 
 **TopicInfo eigenschappen**
 
 | Sleutel | Beschrijving |
 |:--- |:--- |
 | Onderwerpklasse |Een unieke id voor elk onderwerp. |
-| Score |Het aantal records dat is toegewezen aan het onderwerp. |
-| KeyPhrase |Een samengevat woord of woordgroep voor het onderwerp. 1 of meer woorden kan zijn. |
+| Score |Het aantal records tootopic toegewezen. |
+| KeyPhrase |Een samengevat woord of woordgroep voor Hallo onderwerp. 1 of meer woorden kan zijn. |
 
 **TopicAssignment eigenschappen**
 
 | Sleutel | Beschrijving |
 |:--- |:--- |
-| Id |ID voor de record. Is gelijk aan de ID die is opgenomen in de invoer. |
-| Onderwerpklasse |De onderwerp-ID die aan de record is toegewezen. |
-| afstand |Vertrouwen dat de record deel uitmaakt van het onderwerp. Afstand dichter op nul geeft aan dat hoger vertrouwen. |
+| Id |ID voor Hallo record. Opgenomen in invoer Hallo toohello-ID is gelijk. |
+| Onderwerpklasse |onderwerp-ID Hallo welke Hallo-record is toegewezen aan. |
+| afstand |Vertrouwen dat Hallo record toohello onderwerp behoort. Afstand dichter toozero geeft hoger vertrouwen. |
 

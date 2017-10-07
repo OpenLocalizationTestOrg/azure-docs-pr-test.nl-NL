@@ -1,5 +1,5 @@
 ---
-title: SSH-wachtwoorden op uw Linux-VM uitschakelen door het configureren van SSHD | Microsoft Docs
+title: aaaDisable SSH wachtwoorden op uw Linux-VM configureren SSHD | Microsoft Docs
 description: Beveilig uw Linux-VM op Azure door wachtwoord aanmeldingen voor SSH uit te schakelen.
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: v-livech
-ms.openlocfilehash: dc45a1cdce29cef061acc5c7e5b15d9d89265cd9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fb67b2f5b8b3bf2ba214858940b04f2ea9013fb5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="disable-ssh-passwords-on-your-linux-vm-by-configuring-sshd"></a>SSH-wachtwoorden op uw Linux-VM uitschakelen door SSHD configureren
-In dit artikel is gericht op het vergrendelen van de beveiliging van de aanmelding van de Linux-VM.  Zodra de SSH-poort 22 wordt geopend op het world bots begin probeert door te raden wachtwoorden aanmelden.  Wat gebeurt in dit artikel is wachtwoord aanmeldingen via SSH uitschakelen.  Door het volledig verwijderen van de mogelijkheid om wachtwoorden te gebruiken beveiligen we de Linux-VM van dit type beveiligingsaanval.  Bijkomend voordeel is dat we Linux SSHD zodat alleen aanmeldingen via SSH openbare en persoonlijke sleutels voor aanmelding bij Linux veel de veiligste manier configureert.  De mogelijke combinaties van deze vereist te raden de persoonlijke sleutel is enorme en daarom raadt af bots van zelfs proberen alles uit te proberen te beveiligingsaanvallen SSH-sleutels.
+In dit artikel is gericht op het toolock omlaag Hallo aanmeldingsbeveiliging van uw Linux-VM.  Zodra de Hallo SSH-poort 22 wordt geopend start toohello world bots toologin probeert door te raden wachtwoorden.  Wat gebeurt in dit artikel is wachtwoord aanmeldingen via SSH uitschakelen.  Door het verwijderen van volledig Hallo mogelijkheid forceren toouse wachtwoorden we Hallo Linux VM beschermen tegen brute dit type aanval.  Hallo toegevoegd extra is we Linux SSHD tooonly toestaan configureert veel Hallo veiligste manier toologin tooLinux aanmeldingen via SSH openbare en persoonlijke sleutels.  Hallo mogelijke combinaties van deze vereist tooguess Hallo persoonlijke sleutel is enorme en daarom raadt af bots van zelfs proberen alles tootry toobrute force SSH-sleutels.
 
 ## <a name="goals"></a>Doelstellingen
-* Configureer SSHD om te blokkeren:
+* SSHD toodisallow configureren:
   * Wachtwoord aanmeldingen
   * Hoofdmap gebruikersaanmelding
   * Vraag en antwoord-verificatie
-* Configureer SSHD om toe te staan:
+* SSHD tooallow configureren:
   * alleen sleutel SSH aanmeldingen
 * Opnieuw opstarten SSHD terwijl u nog steeds bent aangemeld
-* De configuratie van de nieuwe SSHD testen
+* Test Hallo nieuwe SSHD configuratie
 
 ## <a name="introduction"></a>Inleiding
 [SSH gedefinieerd](https://en.wikipedia.org/wiki/Secure_Shell)
 
-SSHD is de SSH-Server die wordt uitgevoerd op de Linux-VM.  SSH is een client die op een shell op uw werkstation MacBook- of Linux wordt uitgevoerd.  SSH is ook het protocol dat wordt gebruikt voor het beveiligen en de communicatie tussen uw werkstation en de Linux-VM te versleutelen.
+SSHD is hello SSH-Server die wordt uitgevoerd op Hallo Linux VM.  SSH is een client die op een shell op uw werkstation MacBook- of Linux wordt uitgevoerd.  SSH is ook Hallo-protocol gebruikt toosecure en Hallo uitgewisseld tussen uw werkstation en het Hallo Linux VM versleutelen.
 
-Voor dit artikel is zeer belangrijk dat openen één aanmelding bij uw Linux-VM voor de hele doorlopen.  Om deze reden wordt we twee aansluitingen en SSH voor Linux VM openen vanuit een van beide.  De eerste terminal zullen worden gebruikt voor de wijzigingen aanbrengen in het configuratiebestand SSHDs en start de service SSHD.  De tweede terminal zullen worden gebruikt voor het testen van deze wijzigingen zodra de service is gestart.  Omdat we bij het uitschakelen van SSH wachtwoorden afhankelijk strikt SSH-sleutels, als uw SSH-sleutels niet juist zijn en sluiten van de verbinding met de virtuele machine, de virtuele machine wordt permanent vergrendeld en kan niemand zich kunnen aanmelden bij deze verplicht stelt worden verwijderd en opnieuw gemaakt.
+Voor dit artikel is zeer belangrijk tookeep één aanmelding tooyour Linux VM geopend voor de hele Hallo doorlopen.  Om deze reden wordt we twee aansluitingen en SSH toohello Linux VM openen vanuit van beide.  We Hallo eerste terminal toomake Hallo wijzigingen tooSSHDs configuratiebestand gebruiken en Hallo SSHD-service opnieuw starten.  We gebruiken Hallo tweede terminal tootest die wordt gewijzigd nadat het Hallo-service opnieuw wordt gestart.  Omdat we bij het uitschakelen van SSH wachtwoorden afhankelijk strikt SSH-sleutels, als uw SSH-sleutels niet juist zijn en sluiten van Hallo verbinding toohello VM, hello VM wordt permanent vergrendeld en kan niemand zich kunnen toologin tooit verplicht stelt toobe verwijderd en opnieuw gemaakt.
 
 ## <a name="prerequisites"></a>Vereisten
 * [SSH-sleutels maken in Linux en Mac voor virtuele Linux-machines in Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -48,34 +48,34 @@ Voor dit artikel is zeer belangrijk dat openen één aanmelding bij uw Linux-VM 
   * [Azure Portal](http://portal.azure.com)
 * Linux-VM uitgevoerd op azure
 * SSH openbare sleutelpaar in`~/.ssh/`
-* Openbare SSH-sleutel in `~/.ssh/authorized_keys` op de Linux-VM
-* Sudo-rechten op de virtuele machine
+* Openbare SSH-sleutel in `~/.ssh/authorized_keys` op Hallo Linux VM
+* Sudo-rechten op Hallo VM
 * Poort 22 openen
 
 ## <a name="quick-commands"></a>Snelle opdrachten
-*Doorgewinterde Linux Admins die de versie TLDR begint u hier.  Voor alle andere wil de gedetailleerde uitleg en doorloop deze sectie met overslaan.*
+*Doorgewinterde Linux-beheerders die Hallo TLDR versie begint u hier.  Voor alle andere Hallo wil overslaan gedetailleerde uitleg en doorloop in deze sectie.*
 
 ```bash
 sudo vim /etc/ssh/sshd_config
 ```
 
-Bewerk het configuratiebestand wordt als volgt:
+Hallo-configuratiebestand als volgt bewerken:
 
 ```sh
-# Change PasswordAuthentication to this:
+# Change PasswordAuthentication toothis:
 PasswordAuthentication no
 
-# Change PubkeyAuthentication to this:
+# Change PubkeyAuthentication toothis:
 PubkeyAuthentication yes
 
-# Change PermitRootLogin to this:
+# Change PermitRootLogin toothis:
 PermitRootLogin no
 
-# Change ChallengeResponseAuthentication to this:
+# Change ChallengeResponseAuthentication toothis:
 ChallengeResponseAuthentication no
 ```
 
-Start de service SSHD. Op op basis van Debian distributies:
+Hallo SSHD service opnieuw starten. Op op basis van Debian distributies:
 
 ```bash
 sudo service ssh restart
@@ -88,57 +88,57 @@ sudo service sshd restart
 ```
 
 ## <a name="detailed-walk-through"></a>Gedetailleerde Doorloop
-Meld u aan de Linux-VM op terminal 1 (T1).  Meld u aan de Linux-VM op terminal 2 (T2).
+Aanmelding toohello Linux VM op terminal 1 (T1).  Aanmelding toohello Linux VM op terminal 2 (T2).
 
-Op tijdstip T2 gaan we het configuratiebestand SSHD bewerken.  
+Op tijdstip T2 gaan we tooedit hello SSHD-configuratiebestand.  
 
 ```bash
 sudo vim /etc/ssh/sshd_config
 ```
 
-Hier bewerken we alleen de instellingen voor het uitschakelen van wachtwoorden en SSH-sleutel aanmeldingen inschakelen.  Er zijn veel instellingen in dit bestand waarin u moet onderzoeken en wijzigt u Linux & SSH als beveiligen als u nodig hebt.
+Hier wordt alleen Hallo instellingen toodisable wachtwoorden bewerken en SSH-sleutel aanmeldingen inschakelen.  Er zijn veel instellingen in dit bestand dat u moet onderzoeken en toomake Linux & SSH zo veilig naar wens wijzigen.
 
 #### <a name="disable-password-logins"></a>Wachtwoord aanmeldingen uitschakelen
 
 ```sh
-# Change PasswordAuthentication to this:
+# Change PasswordAuthentication toothis:
 PasswordAuthentication no
 ```
 
 #### <a name="enable-public-key-authentication"></a>Verificatie van openbare sleutels inschakelen
 
 ```sh
-# Change PubkeyAuthentication to this:
+# Change PubkeyAuthentication toothis:
 PubkeyAuthentication yes
 ```
 
 #### <a name="disable-root-login"></a>Hoofdmap aanmelding uitschakelen
 
 ```sh
-# Change PermitRootLogin to this:
+# Change PermitRootLogin toothis:
 PermitRootLogin no
 ```
 
 #### <a name="disable-challenge-response-authentication"></a>Vraag en antwoord-verificatie uit te schakelen
 ```sh
-# Change ChallengeResponseAuthentication to this:
+# Change ChallengeResponseAuthentication toothis:
 ChallengeResponseAuthentication no
 ```
 
 ### <a name="restart-sshd"></a>Opnieuw opstarten SSHD
-Op de shell T1 controleren dat u nog steeds bent aangemeld.  Dit is essentieel zodat u bent niet toegang buiten uw virtuele machine als uw SSH-sleutels niet correct zijn omdat wachtwoorden zijn nu uitgeschakeld.  Als u alle instellingen zijn onjuist op uw Linux-VM kunt u T1 om op te lossen sshd_config als u nog steeds wordt vastgelegd in en SSH de verbinding actief tijdens de service SSHD houden wordt start opnieuw op.
+Controleer of dat u nog steeds bent aangemeld vanuit Hallo T1-shell.  Dit is essentieel zodat u bent niet toegang buiten uw virtuele machine als uw SSH-sleutels niet correct zijn omdat wachtwoorden zijn nu uitgeschakeld.  Als u alle instellingen zijn onjuist op uw Linux-VM kunt u T1 toofix sshd_config als u nog steeds wordt vastgelegd in en SSH Hallo verbinding actief tijdens Hallo SSHD-service houden wordt opnieuw starten.
 
 Van T2 uitvoeren:
 
-##### <a name="on-the-debian-family"></a>Op de Debian-familie
+##### <a name="on-hello-debian-family"></a>Op Hallo Debian-familie
 ```bash
 sudo service ssh restart
 ```
 
-##### <a name="on-the-redhat-family"></a>Op de familie RedHat
+##### <a name="on-hello-redhat-family"></a>Op Hallo RedHat familie
 ```bash
 sudo service sshd restart
 ```
 
-Wachtwoorden zijn nu uitgeschakeld op de virtuele machine die beschermt tegen beveiligingsaanvallen wachtwoord aanmeldingspogingen.  Toegestaan dat kunt u zich aanmelden sneller en veel veiligere met alleen de SSH-sleutels.
+Wachtwoorden zijn nu uitgeschakeld op de virtuele machine die beschermt tegen beveiligingsaanvallen wachtwoord aanmeldingspogingen.  U kunt toologin sneller en veel veiligere worden met alleen de SSH-sleutels toegestaan.
 

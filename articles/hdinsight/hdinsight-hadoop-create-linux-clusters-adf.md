@@ -1,6 +1,6 @@
 ---
-title: Op aanvraag met behulp van de Data Factory - Azure HDInsight Hadoop-clusters maken | Microsoft Docs
-description: Informatie over het maken van op aanvraag Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
+title: aaaCreate op aanvraag Hadoop-clusters met behulp van de Data Factory - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toocreate op aanvraag Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,36 +16,36 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c869776ac270e37dec710b5fc8d2a792d9263129
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Hadoop-clusters op aanvraag maken in HDInsight met behulp van Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-[Azure Data Factory](../data-factory/data-factory-introduction.md) is een cloud-gebaseerde gegevens integration-service die ingedeeld en automatiseert de verplaatsing en transformatie van gegevens. Deze kunt maken van een HDInsight Hadoop-cluster just-in-time voor het verwerken van een segment invoergegevens en verwijderen van het cluster wanneer het verwerken voltooid is. Enkele van de voordelen van het gebruik van een on-demand HDInsight Hadoop-cluster zijn:
+[Azure Data Factory](../data-factory/data-factory-introduction.md) is een cloud-gebaseerde gegevens integration-service die ingedeeld en automatiseert Hallo verplaatsing en transformatie van gegevens. Dit kan een HDInsight Hadoop-cluster just in time tooprocess een segment invoergegevens maken en Hallo cluster verwijderen als Hallo-verwerking voltooid is. Enkele van de voordelen van het gebruik van een on-demand HDInsight Hadoop-cluster Hallo zijn:
 
-- U alleen betalen voor de taak tijd wordt uitgevoerd op de HDInsight Hadoop-cluster (plus een korte configureerbare niet-actieve tijd). De facturering voor HDInsight-clusters worden pro rato per minuut, of u ze worden gebruikt of niet. Wanneer u een gekoppelde HDInsight-service op aanvraag in de Data Factory gebruikt, kan de clusters op aanvraag worden gemaakt. En de clusters worden automatisch verwijderd wanneer de taken zijn voltooid. Daarom betaalt u alleen voor de taak met de tijd en de korte niet-actieve tijd (time to live-instelling).
-- U kunt een werkstroom met behulp van een Data Factory-pijplijn maken. U kunt bijvoorbeeld de pijplijn gegevens kopiëren van een lokale SQL Server naar een Azure blob storage, de gegevens worden verwerkt door het uitvoeren van een Hive-script en Pig-script op een on-demand HDInsight Hadoop-cluster hebben. Kopieer vervolgens de resultaatgegevens naar een Azure SQL Data Warehouse voor BI-toepassingen om te gebruiken.
-- U kunt plannen dat de werkstroom periodiek wordt uitgevoerd (elk uur, dagelijks, wekelijks, maandelijks, enzovoort).
+- U alleen betalen voor Hallo tijd taak wordt uitgevoerd op Hallo HDInsight Hadoop-cluster (plus een korte configureerbare niet-actieve tijd). Hallo facturering voor HDInsight-clusters worden pro rato per minuut, of u ze worden gebruikt of niet. Wanneer u een gekoppelde HDInsight-service op aanvraag in de Data Factory gebruikt, Hallo clusters op aanvraag gemaakt. En Hallo clusters worden automatisch verwijderd wanneer Hallo taken zijn voltooid. Daarom betaalt u alleen voor actieve tijd en Hallo korte niet-actieve tijd (time to live-instelling) Hallo-taak.
+- U kunt een werkstroom met behulp van een Data Factory-pijplijn maken. U kunt bijvoorbeeld Hallo pijplijn toocopy gegevens uit een lokale SQL Server tooan Azure blob-opslag, gegevens over het installatieproces Hallo door het uitvoeren van een Hive-script en Pig-script op een on-demand HDInsight Hadoop-cluster hebben. Kopieer vervolgens Hallo resultaat gegevens tooan Azure SQL Data Warehouse voor BI toepassingen tooconsume.
+- U kunt plannen Hallo werkstroom toorun periodiek (elk uur, dagelijks, wekelijks, maandelijks, enzovoort).
 
-Een gegevensfactory kan één of meer gegevenspijplijnen hebben in Azure Data Factory. Een pijplijn gegevens heeft een of meer activiteiten. Er zijn twee soorten activiteiten: [activiteiten voor gegevensverplaatsing](../data-factory/data-factory-data-movement-activities.md) en [activiteiten voor gegevenstransformatie](../data-factory/data-factory-data-transformation-activities.md). Activiteiten voor gegevensverplaatsing (momenteel alleen Kopieeractiviteit) kunt u gegevens uit een gegevensopslag bron verplaatsen naar een doelgegevensopslagplaats. Kunt u activiteiten voor gegevenstransformatie transformatieproces gegevens. HDInsight Hive-activiteit is een van de activiteiten voor gegevenstransformatie ondersteund door Data Factory. U kunt de Hive-transformatie-activiteit gebruiken in deze zelfstudie.
+Een gegevensfactory kan één of meer gegevenspijplijnen hebben in Azure Data Factory. Een pijplijn gegevens heeft een of meer activiteiten. Er zijn twee soorten activiteiten: [activiteiten voor gegevensverplaatsing](../data-factory/data-factory-data-movement-activities.md) en [activiteiten voor gegevenstransformatie](../data-factory/data-factory-data-transformation-activities.md). U gebruikt data movement activiteiten (momenteel alleen Kopieeractiviteit) toomove gegevens uit een bron data store tooa doelgegevensopslagplaats. U gebruikt gegevenstransformatie activiteiten tootransform/proces gegevens. HDInsight Hive-activiteit is een van de activiteiten voor gegevenstransformatie hello wordt ondersteund door de Data Factory. U Hallo Hive-transformatie-activiteit gebruiken in deze zelfstudie.
 
-U kunt een hive-activiteit voor het gebruik van uw eigen HDInsight Hadoop-cluster of een on-demand HDInsight Hadoop-cluster configureren. In deze zelfstudie wordt de Hive-activiteit in de data factory-pijplijn geconfigureerd voor gebruik van een HDInsight-cluster op aanvraag. Wanneer de activiteit wordt uitgevoerd voor het verwerken van een gegevenssegment, dus hier wat er gebeurt:
+Uw eigen HDInsight Hadoop-cluster of een on-demand HDInsight Hadoop-cluster, kunt u een hive-activiteit toouse configureren. In deze zelfstudie is Hallo Hive-activiteit in Hallo data factory-pijplijn geconfigureerde toouse een HDInsight-cluster op aanvraag. Daarom wanneer Hallo activiteit actief tooprocess een gegevenssegment, is dit wat er gebeurt:
 
-1. Een HDInsight Hadoop-cluster wordt automatisch gemaakt voor u just-in-time voor het verwerken van het segment.  
-2. De ingevoerde gegevens worden verwerkt door een HiveQL-script uitgevoerd op het cluster.
-3. De HDInsight Hadoop-cluster wordt verwijderd nadat de verwerking voltooid is en het cluster niet actief voor de geconfigureerde hoeveelheid tijd (timeToLive-instelling is). Als het volgende gegevenssegment voor verwerking met binnen deze timeToLive niet-actieve tijd beschikbaar is, wordt hetzelfde cluster wordt gebruikt voor het verwerken van het segment.  
+1. Een HDInsight Hadoop-cluster wordt automatisch gemaakt voor u just in time tooprocess Hallo segment.  
+2. Hallo invoergegevens wordt verwerkt door een HiveQL-script uitvoeren op Hallo-cluster.
+3. Hallo HDInsight Hadoop-cluster wordt verwijderd nadat het Hallo-verwerking is voltooid en Hallo cluster Hallo geconfigureerd en de hoeveelheid tijd (timeToLive-instelling) niet actief is. Als de volgende gegevenssegment Hallo beschikbaar voor verwerking met van inactiviteit timeToLive is, is hello hetzelfde cluster gebruikte tooprocess Hallo segment.  
 
-In deze zelfstudie maakt voert het HiveQL-script dat is gekoppeld aan het hive-activiteit de volgende acties:
+In deze zelfstudie voert Hallo HiveQL-script die zijn gekoppeld aan het hive-activiteit Hallo Hallo van de volgende activiteiten:
 
-1. Maakt een externe tabel die verwijst naar de onbewerkte web logboekgegevens opgeslagen in een Azure-blobopslag.
-2. De onbewerkte gegevens partitioneert op jaar en maand.
-3. De gepartitioneerde-gegevens opslaat in Azure blob storage.
+1. Maakt een externe tabel waarin verwijzingen Hallo onbewerkte web logboekgegevens opgeslagen in een Azure-blobopslag.
+2. Partities Hallo onbewerkte gegevens op jaar en maand.
+3. Winkels Hallo gepartitioneerde gegevens in hello Azure blob-opslag.
 
-In deze zelfstudie maakt het HiveQL-script dat is gekoppeld aan het hive-activiteit een externe tabel die verwijst naar de onbewerkte web logboekgegevens opgeslagen in de Azure Blob Storage. Hier ziet u de voorbeeldrijen per maand in het invoerbestand.
+In deze zelfstudie maakt Hallo HiveQL-script die zijn gekoppeld aan het hive-activiteit Hallo een externe tabel waarin verwijzingen Hallo onbewerkte web logboekgegevens opgeslagen in hello Azure Blob Storage. Hier vindt u voor elke maand Hallo voorbeeld rijen in het invoerbestand Hallo.
 
 ```
 2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871
@@ -53,7 +53,7 @@ In deze zelfstudie maakt het HiveQL-script dat is gekoppeld aan het hive-activit
 2014-03-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
 ```
 
-Het HiveQL-script partities van de onbewerkte gegevens op jaar en maand. Drie uitvoermappen op basis van de vorige invoer wordt gemaakt. Elke map bevat een bestand met vermeldingen van elke maand.
+Hallo HiveQL-script partities Hallo onbewerkte gegevens op jaar en maand. Drie uitvoermappen op basis van de vorige invoer hello wordt gemaakt. Elke map bevat een bestand met vermeldingen van elke maand.
 
 ```
 adfgetstarted/partitioneddata/year=2014/month=1/000000_0
@@ -61,13 +61,13 @@ adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 ```
 
-Zie voor een lijst van activiteiten voor gegevenstransformatie Data Factory naast het Hive-activiteit [transformeren en analyseren met Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md).
+Zie voor een lijst van activiteiten voor gegevenstransformatie Data Factory in toevoeging tooHive activiteit [transformeren en analyseren met Azure Data Factory](../data-factory/data-factory-data-transformation-activities.md).
 
 > [!NOTE]
 > U kunt op dit moment alleen HDInsight-cluster versie 3.2 maken uit Azure Data Factory.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de instructies in dit artikel, hebt u de volgende items:
+Voordat u Hallo-instructies in dit artikel, moet u de volgende items Hallo hebben:
 
 * [Azure-abonnement](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell.
@@ -75,19 +75,19 @@ Voordat u de instructies in dit artikel, hebt u de volgende items:
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 ### <a name="prepare-storage-account"></a>Voorbereiden van de storage-account
-In dit scenario kunt u maximaal drie storage-accounts:
+U kunt gebruiken om toothree storage-accounts in dit scenario:
 
-- storage-standaardaccount voor het HDInsight-cluster
-- Storage-account voor de invoergegevens
-- Storage-account voor de uitvoergegevens
+- storage-standaardaccount voor Hallo HDInsight-cluster
+- Storage-account voor de invoergegevens Hallo
+- Storage-account voor de uitvoergegevens Hallo
 
-Om te vereenvoudigen de zelfstudie, kunt u één opslagaccount voor de drie doeleinden worden gebruikt. De Azure PowerShell-voorbeeldscript vinden in deze sectie voert de volgende taken:
+toosimplify hello zelfstudie maakt u één storage account tooserve Hallo drie doeleinden. Hello Azure PowerShell-voorbeeldscript vinden in deze sectie voert Hallo taken te volgen:
 
-1. Aanmelden bij Azure.
+1. Meld u bij tooAzure.
 2. Maak een Azure-resourcegroep.
 3. Maak een Azure Storage-account.
-4. Een Blob-container in het opslagaccount maken
-5. Kopieer de volgende twee bestanden naar de Blob-container:
+4. Een Blob-container in Hallo storage-account maken
+5. Kopieer Hallo twee bestanden toohello Blob-container te volgen:
 
    * Invoergegevens bestand: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
    * HiveQL-script: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
@@ -95,10 +95,10 @@ Om te vereenvoudigen de zelfstudie, kunt u één opslagaccount voor de drie doel
      Beide bestanden worden opgeslagen in een openbare Blob-container.
 
 
-**Voor het voorbereiden van de opslag en kopieer de bestanden met Azure PowerShell:**
+**tooprepare hello opslag en kopieer Hallo bestanden met Azure PowerShell:**
 > [!IMPORTANT]
-> Geef namen voor de Azure-resourcegroep en de Azure storage-account die door het script wordt gemaakt.
-> Noteer **Resourcegroepnaam**, **opslagaccountnaam**, en **opslagaccountsleutel** output door het script. U moet deze in de volgende sectie.
+> Geef namen voor hello Azure-resourcegroep en hello Azure storage-account die door het Hallo-script wordt gemaakt.
+> Noteer **Resourcegroepnaam**, **opslagaccountnaam**, en **opslagaccountsleutel** output door Hallo-script. U moet deze in de volgende sectie Hallo.
 
 ```powershell
 $resourceGroupName = "<Azure Resource Group Name>"
@@ -112,10 +112,10 @@ $destStorageAccountName = $storageAccountName
 $destContainerName = "adfgetstarted" # don't change this value.
 
 ####################################
-# Connect to Azure
+# Connect tooAzure
 ####################################
-#region - Connect to Azure subscription
-Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+#region - Connect tooAzure subscription
+Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
 catch{Login-AzureRmAccount}
 #endregion
@@ -166,7 +166,7 @@ Write-Host "`nCopied files ..." -ForegroundColor Green
 Get-AzureStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
-Write-host "`nYou will use the following values:" -ForegroundColor Green
+Write-host "`nYou will use hello following values:" -ForegroundColor Green
 write-host "`nResource group name: $resourceGroupName"
 Write-host "Storage Account Name: $destStorageAccountName"
 write-host "Storage Account Key: $destStorageAccountKey"
@@ -174,59 +174,59 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-Als u hulp nodig bij het PowerShell-script, Zie [Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md). Als u Azure CLI gebruiken in plaats daarvan, Zie de [bijlage](#appendix) sectie voor het script voor Azure CLI.
+Als u hulp nodig bij Hallo PowerShell-script, Zie [Using hello Azure PowerShell gebruiken met Azure Storage](../storage/common/storage-powershell-guide-full.md). Als u Azure CLI toouse in plaats daarvan Hallo raadpleegt [bijlage](#appendix) sectie voor hello Azure CLI-script.
 
-**Het opslagaccount en de inhoud te onderzoeken**
+**tooexamine hello storage-account en Hallo inhoud**
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **resourcegroepen** in het linkerdeelvenster.
-3. Dubbelklik op de Resourcegroepnaam die u hebt gemaakt in uw PowerShell-script. Het filter gebruiken als er te veel resourcegroepen die worden vermeld.
-4. Op de **Resources** tegel, wordt er een resource in de lijst, tenzij u de resourcegroep met andere projecten delen. Deze resource is het opslagaccount met de naam die u eerder hebt opgegeven. Klik op de naam van het opslagaccount.
-5. Klik op de **Blobs** tegels.
-6. Klik op de **adfgetstarted** container. U ziet twee mappen: **inputdata** en **script**.
-7. Open de map en controleert u de bestanden in de mappen. De invoergegevens bevat het bestand input.log met invoergegevens en de scriptmap bevat het bestand HiveQL-script.
+1. Meld u aan bij toohello [Azure-portal](https://portal.azure.com).
+2. Klik op **resourcegroepen** in het linkerdeelvenster Hallo.
+3. Dubbelklik op Hallo Resourcegroepnaam die u hebt gemaakt in uw PowerShell-script. Hallo-filter gebruiken als er te veel resourcegroepen die worden vermeld.
+4. Op Hallo **Resources** tegel, wordt er een resource in de lijst, tenzij u de resourcegroep Hallo met andere projecten delen. Deze resource is Hallo opslagaccount met de Hallo-naam die u eerder hebt opgegeven. Klik op Hallo opslagaccountnaam.
+5. Klik op Hallo **Blobs** tegels.
+6. Klik op Hallo **adfgetstarted** container. U ziet twee mappen: **inputdata** en **script**.
+7. Hallo-map openen en controleer Hallo-bestanden in mappen Hallo. Hallo inputdata hello input.log bestand met de invoergegevens bevat en Hallo scriptmap bevat Hallo HiveQL-scriptbestand.
 
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>Maak een gegevensfactory met Resource Manager-sjabloon
-Met de storage-account, de invoergegevens en het HiveQL-script dat is voorbereid, bent u klaar voor het maken van een Azure data factory. Er zijn verschillende methoden voor het maken van de gegevensfactory. In deze zelfstudie maakt maken u een gegevensfactory door het implementeren van een Azure Resource Manager-sjabloon met de Azure portal. U kunt ook een Resource Manager-sjabloon implementeren met behulp van [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) en [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Zie voor andere data factory-aanmaakmethoden [zelfstudie: uw eerste gegevensfactory bouwen](../data-factory/data-factory-build-your-first-pipeline.md).
+Hallo storage-account, Hallo invoergegevens en Hallo HiveQL-script is voorbereid, bent u klaar toocreate een Azure data factory. Er zijn verschillende methoden voor het maken van de gegevensfactory. In deze zelfstudie maakt maken u een gegevensfactory door het implementeren van een Azure Resource Manager-sjabloon met hello Azure-portal. U kunt ook een Resource Manager-sjabloon implementeren met behulp van [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) en [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Zie voor andere data factory-aanmaakmethoden [zelfstudie: uw eerste gegevensfactory bouwen](../data-factory/data-factory-build-your-first-pipeline.md).
 
-1. Klik op de volgende afbeelding om u aan te melden bij Azure en de Resource Manager-sjabloon in Azure Portal te openen. De sjabloon bevindt zich op https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Zie de [Data Factory-entiteiten in de sjabloon](#data-factory-entities-in-the-template) sectie voor gedetailleerde informatie over entiteiten gedefinieerd in de sjabloon. 
+1. Klik op Hallo installatiekopie toosign in tooAzure en open Hallo Resource Manager-sjabloon in hello Azure-portal. Hallo-sjabloon bevindt zich op https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Zie Hallo [Data Factory-entiteiten in de sjabloon Hallo](#data-factory-entities-in-the-template) sectie voor gedetailleerde informatie over entiteiten in Hallo sjabloon worden gedefinieerd. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Selecteer **gebruik bestaande** optie voor de **resourcegroep** instelling en selecteer de naam van de resourcegroep die u hebt gemaakt in de vorige stap (met behulp van PowerShell-script).
-3. Voer een naam voor de gegevensfactory (**Data Factory Name**). Deze naam moet uniek zijn.
-4. Voer de **opslagaccountnaam** en **opslagaccountsleutel** u in de vorige stap hebt genoteerd.
-5. Selecteer **ik ga akkoord met de voorwaarden en bepalingen** hierboven vermeld wordt na het lezen van via **voorwaarden en bepalingen**.
-6. Selecteer **vastmaken aan dashboard** optie.
-6. Klik op **aankoop/maken**. U ziet een tegel op het Dashboard aangeroepen **implementatie van sjabloonimplementatie**. Wacht totdat de **resourcegroep** blade voor de resourcegroep wordt geopend. U kunt ook klikken op de tegel met de titel als de naam van uw resources te openen van de blade met resourcegroepen.
-6. Klik op de tegel om te openen van de resourcegroep als de resourcegroepblade nog niet is geopend. U ziet nu één meer data factory resource vermeld naast de opslagbronnen-account.
-7. Klik op de naam van uw gegevensfactory (waarde als u hebt opgegeven voor de **Data Factory Name** parameter).
-8. Klik in de Data Factory-blade op de **Diagram** tegel. Het diagram ziet u een activiteit met een invoergegevensset en een uitvoergegevensset:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy tooAzure"></a>
+2. Selecteer **gebruik bestaande** optie voor Hallo **resourcegroep** -instelling en selecteer Hallo-naam van het Hallo-resourcegroep die u hebt gemaakt in de vorige stap hello (met behulp van PowerShell-script).
+3. Voer een naam voor de gegevensfactory hello (**Data Factory Name**). Deze naam moet uniek zijn.
+4. Voer Hallo **opslagaccountnaam** en **opslagaccountsleutel** u in de vorige stap Hallo opgeschreven.
+5. Selecteer **ik ga akkoord toohello voorwaarden en bepalingen** hierboven vermeld wordt na het lezen van via **voorwaarden en bepalingen**.
+6. Selecteer **pincode toodashboard** optie.
+6. Klik op **aankoop/maken**. U ziet een tegel op Hallo Dashboard aangeroepen **implementatie van sjabloonimplementatie**. Wachten tot Hallo **resourcegroep** blade voor de resourcegroep wordt geopend. U kunt ook klikken op Hallo tegel als uw groep naam tooopen Hallo resource resourcegroepblade titel.
+6. Klik op Hallo tegel tooopen Hallo-resourcegroep als Hallo resourcegroepblade nog niet is geopend. Nu u dat één meer data factory-resource weergegeven naast toohello storage account bron ziet.
+7. Klik op de naam van uw gegevensfactory hello (waarde die u hebt opgegeven voor Hallo **Data Factory Name** parameter).
+8. Klik op Hallo Hallo Data Factory-Blade **Diagram** tegel. Hallo diagram ziet u een activiteit met een invoergegevensset en een uitvoergegevensset:
 
     ![Azure Data Factory HDInsight op aanvraag Hive-activiteit pipeline-diagram](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
-    De namen zijn gedefinieerd in het Resource Manager-sjabloon.
+    Hallo-namen zijn gedefinieerd in Hallo Resource Manager-sjabloon.
 9. Dubbelklik op **AzureBlobOutput**.
-10. Op de **onlangs bijgewerkt segmenten**, ziet u een segment. Als de status **Bezig**, wacht u totdat deze is gewijzigd in **gereed**. Het duurt meestal over **20 minuten** om een HDInsight-cluster te maken.
+10. Op Hallo **onlangs bijgewerkt segmenten**, ziet u een segment. Als de status van de Hallo **Bezig**, wacht totdat deze te worden gewijzigd**gereed**. Het duurt meestal over **20 minuten** toocreate een HDInsight-cluster.
 
-### <a name="check-the-data-factory-output"></a>Controleer de uitvoer van de data factory
+### <a name="check-hello-data-factory-output"></a>Controleer de Hallo data factory-uitvoer
 
-1. Gebruik dezelfde procedure in de laatste sessie om te controleren van de containers van de container adfgetstarted. Er zijn twee nieuwe containers naast **adfgetsarted**:
+1. Gebruik Hallo dezelfde procedure in Hallo laatste sessie toocheck Hallo-containers van de container adfgetstarted Hallo. Er zijn twee nieuwe containers bovendien ook**adfgetsarted**:
 
-   * Een container met de naam die voldoet aan het patroon: `adf<yourdatafactoryname>-linkedservicename-datetimestamp`. Deze container is de standaardcontainer voor het HDInsight-cluster.
-   * adfjobs: deze container is de container voor de logboeken van de ADF-taak.
+   * Een container met de naam die volgt op Hallo patroon: `adf<yourdatafactoryname>-linkedservicename-datetimestamp`. Deze container is Hallo standaardcontainer voor Hallo HDInsight-cluster.
+   * adfjobs: deze container is Hallo-container voor Hallo ADF taaklogboeken.
 
-     De data factory-uitvoer wordt opgeslagen in **afgetstarted** zoals u in de Resource Manager-sjabloon hebt geconfigureerd.
+     Hallo data factory-uitvoer wordt opgeslagen in **afgetstarted** zoals u hebt geconfigureerd in Hallo Resource Manager-sjabloon.
 2. Klik op **adfgetstarted**.
-3. Dubbelklik op **partitioneddata**. U ziet een **jaar = 2014** map omdat alle weblogboeken datum in het jaar 2014.
+3. Dubbelklik op **partitioneddata**. U ziet een **jaar = 2014** map omdat alle Hallo weblogboeken datum in het jaar 2014.
 
     ![Azure Data Factory HDInsight op aanvraag Hive pijplijn uitvoer van activiteit](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
-    Als u de lijst detailanalyse, ziet u drie mappen voor januari, februari en maart. En er is een logboekbestand voor elke maand.
+    Als u de lijst Hallo detailanalyse, ziet u drie mappen voor januari, februari en maart. En er is een logboekbestand voor elke maand.
 
     ![Azure Data Factory HDInsight op aanvraag Hive pijplijn uitvoer van activiteit](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
-## <a name="data-factory-entities-in-the-template"></a>Data Factory-entiteiten in de sjabloon
-Hier ziet u hoe de op het hoogste niveau Resource Manager-sjabloon voor een data factory eruit:
+## <a name="data-factory-entities-in-hello-template"></a>Data Factory-entiteiten in Hallo-sjabloon
+Hier ziet u hoe Hallo op het hoogste niveau Resource Manager-sjabloon voor een data factory eruit:
 
 ```json
 {
@@ -254,7 +254,7 @@ Hier ziet u hoe de op het hoogste niveau Resource Manager-sjabloon voor een data
 ```
 
 ### <a name="define-data-factory"></a>Een gegevensfactory definiëren
-U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het volgende voorbeeld wordt weergegeven:  
+U definieert een gegevensfactory in Hallo Resource Manager-sjabloon zoals weergegeven in Hallo voorbeeld te volgen:  
 
 ```json
 "resources": [
@@ -265,10 +265,10 @@ U definieert een gegevensfactory in de Resource Manager-sjabloon zoals in het vo
     "location": "westus",
 }
 ```
-De dataFactoryName is de naam van de gegevensfactory die u opgeeft wanneer u de sjabloon implementeert. Gegevensfactory is momenteel alleen ondersteund in de regio's VS-Oost, VS-West en Noord-Europa.
+Hallo dataFactoryName is Hallo-naam van gegevensfactory Hallo die u opgeeft wanneer u Hallo sjabloon implementeert. Gegevensfactory is momenteel alleen ondersteund in Hallo regio's VS-Oost, VS-West en Noord-Europa.
 
-### <a name="defining-entities-within-the-data-factory"></a>Entiteiten in de gegevensfactory definiëren
-De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
+### <a name="defining-entities-within-hello-data-factory"></a>Entiteiten in de gegevensfactory Hallo definiëren
+Hallo worden volgende Data Factory-entiteiten gedefinieerd in de JSON-sjabloon Hallo:
 
 * [Een gekoppelde Azure Storage-service](#azure-storage-linked-service)
 * [Een gekoppelde HDInsight-service op aanvraag](#hdinsight-on-demand-linked-service)
@@ -277,7 +277,7 @@ De volgende Data Factory-entiteiten worden in de JSON-sjabloon gedefinieerd:
 * [De gegevenspijplijn met een kopieerbewerking](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-De gekoppelde Azure Storage-service koppelt uw Azure-opslagaccount aan de gegevensfactory. In deze zelfstudie wordt hetzelfde opslagaccount gebruikt als de storage-standaardaccount HDInsight, invoergegevens-opslag- en uitvoer gegevensopslag. Daarom definieert u slechts één Azure Storage service gekoppelde. In de definitie van de gekoppelde service geeft u de naam en sleutel van uw Azure storage-account. Zie [Een gekoppelde Azure Storage-service](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde Azure Storage-service.
+Hello Azure Storage gekoppelde service uw Azure storage-account toohello data factory. In deze zelfstudie wordt hello hetzelfde opslagaccount gebruikt als Hallo HDInsight storage-standaardaccount, invoergegevens opslag- en uitvoer gegevensopslag. Daarom definieert u slechts één Azure Storage service gekoppelde. In de servicedefinitie Hallo gekoppeld geeft u Hallo naam en sleutel van uw Azure storage-account. Zie [gekoppelde Azure Storage-service](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service) voor meer informatie over de JSON-eigenschappen die toodefine een Azure Storage gekoppelde service.
 
 ```json
 {
@@ -293,10 +293,10 @@ De gekoppelde Azure Storage-service koppelt uw Azure-opslagaccount aan de gegeve
     }
 }
 ```
-De tekenreeks **connectionString** maakt gebruik van de parameters storageAccountName en storageAccountKey. U kunt waarden voor deze parameters opgeven tijdens de implementatie van de sjabloon.  
+Hallo **connectionString** maakt gebruik van parameters storageAccountName en storageAccountKey Hallo. U kunt waarden voor deze parameters opgeven tijdens het Hallo-sjabloon implementeren.  
 
 #### <a name="hdinsight-on-demand-linked-service"></a>Een gekoppelde HDInsight-service op aanvraag
-In de definitie op aanvraag een gekoppelde HDInsight-service geeft u waarden voor de configuratieparameters die worden gebruikt door de Data Factory-service voor het maken van een HDInsight Hadoop-cluster tijdens runtime. Zie het artikel [Compute linked services (Gekoppelde services verwerken)](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een gekoppelde HDInsight-service op aanvraag.  
+In Hallo op aanvraag HDInsight servicedefinitie gekoppeld, u waarden opgeven voor de configuratieparameters die worden gebruikt door Hallo Data Factory-service toocreate een HDInsight Hadoop-cluster tijdens runtime. Zie [gekoppelde services berekenen](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) artikel voor meer informatie over de JSON-eigenschappen die toodefine een gekoppelde HDInsight on demand-service.  
 
 ```json
 
@@ -322,20 +322,20 @@ In de definitie op aanvraag een gekoppelde HDInsight-service geeft u waarden voo
     }
 }
 ```
-Houd rekening met de volgende punten:
+Houd er rekening mee Hallo volgende punten:
 
-* De Data Factory maakt een **op basis van Linux** HDInsight-cluster voor u.
-* De HDInsight Hadoop-cluster wordt gemaakt in dezelfde regio bevinden als het opslagaccount.
-* U ziet de *timeToLive* instelling. De gegevensfactory wordt het cluster automatisch verwijderd nadat het cluster is inactiviteit gedurende 30 minuten.
-* Het HDInsight-cluster maakt een **standaardcontainer** in de blobopslag die u hebt opgegeven in de JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer het cluster wordt verwijderd. Dit gedrag is standaard. Met een gekoppelde on-demand HDInsight-service wordt er steeds een HDInsight-cluster gemaakt wanneer er een segment moet worden verwerkt, tenzij er een bestaand livecluster is (**timeToLive**). Het cluster wordt verwijderd wanneer het verwerken is voltooid.
+* Hallo Data Factory maakt een **op basis van Linux** HDInsight-cluster voor u.
+* Hallo HDInsight Hadoop-cluster wordt gemaakt in Hallo dezelfde regio bevinden als Hallo storage-account.
+* Kennisgeving Hallo *timeToLive* instelling. Hallo data factory worden Hallo cluster automatisch verwijderd nadat het Hallo-cluster is inactiviteit gedurende 30 minuten.
+* Hallo HDInsight-cluster maakt een **standaardcontainer** in Hallo-blobopslag die u hebt opgegeven in Hallo JSON (**linkedServiceName**). HDInsight verwijdert deze container niet wanneer Hallo-cluster is verwijderd. Dit gedrag is standaard. Met de gekoppelde HDInsight-service op aanvraag een HDInsight-cluster wordt gemaakt telkens wanneer een segment toobe verwerkt moet, tenzij er een bestaand livecluster is (**timeToLive**) en wordt verwijderd als het Hallo-verwerking is voltooid.
 
 Zie [Gekoppelde on-demand HDInsight-service](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) voor meer informatie.
 
 > [!IMPORTANT]
-> Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers worden als volgt opgebouwd: adf**naamvanuwgegevensfactory**-**naamvangekoppeldeservice**-datum-/tijdstempel. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om containers in uw Azure-blobopslag te verwijderen.
+> Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u niet ze hoeft voor het oplossen van problemen met taken hello, kunt u toodelete ze tooreduce Hallo opslag kosten. Hallo-namen van deze containers worden als volgt: ' adf**naamvanuwgegevensfactory**-**linkedservicename**- datum '. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) toodelete containers in uw Azure-blobopslag.
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob-invoergegevensset
-In de definitie van de invoergegevensset geeft u de namen van de blob-container, map en -bestand dat de invoergegevens bevat. Zie [Eigenschappen van de Azure Blob-gegevensset](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.
+In de definitie van de invoergegevensset hello opgeven u Hallo namen van de blob-container, map en -bestand met de invoergegevens Hallo. Zie [eigenschappen van de Azure Blob-gegevensset](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die toodefine een Azure Blob-gegevensset.
 
 ```json
 
@@ -369,7 +369,7 @@ In de definitie van de invoergegevensset geeft u de namen van de blob-container,
 
 ```
 
-U ziet de volgende specifieke instellingen in de JSON-definitie:
+U ziet Hallo specifieke instellingen in de JSON-definitie hello te volgen:
 
 ```json
 "fileName": "input.log",
@@ -377,7 +377,7 @@ U ziet de volgende specifieke instellingen in de JSON-definitie:
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Azure Blob-uitvoergegevensset
-In de definitie van de uitvoer-gegevensset geeft u de namen van blob-container en map die uitvoergegevens bevat. Zie [Eigenschappen van de Azure Blob-gegevensset](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van een Azure Blob-gegevensset.  
+In de gegevenssetdefinitie Hallo-uitvoer geeft u Hallo namen van blob-container en map waarin de uitvoergegevens Hallo. Zie [eigenschappen van de Azure Blob-gegevensset](../data-factory/data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over de JSON-eigenschappen die toodefine een Azure Blob-gegevensset.  
 
 ```json
 
@@ -408,13 +408,13 @@ In de definitie van de uitvoer-gegevensset geeft u de namen van blob-container e
 }
 ```
 
-FolderPath geeft het pad naar de map die uitvoergegevens bevat:
+Hallo folderPath geeft Hallo pad toohello map die uitvoergegevens Hallo bevat:
 
 ```json
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-De [gegevensset beschikbaarheid](../data-factory/data-factory-create-datasets.md#dataset-availability) instelling is als volgt:
+Hallo [gegevensset beschikbaarheid](../data-factory/data-factory-create-datasets.md#dataset-availability) instelling is als volgt:
 
 ```json
 "availability": {
@@ -424,10 +424,10 @@ De [gegevensset beschikbaarheid](../data-factory/data-factory-create-datasets.md
 },
 ```
 
-In Azure Data Factory-uitvoer gegevensset beschikbaarheid stations de pijplijn. In dit voorbeeld wordt maandelijks op de laatste dag van de maand (EndOfInterval) het segment geproduceerd. Zie voor meer informatie [Data Factory plannen en uitvoeren](../data-factory/data-factory-scheduling-and-execution.md).
+Output dataset beschikbaarheid stations Hallo pijplijn in Azure Data Factory. In dit voorbeeld Hallo segment maandelijks geproduceerd op Hallo laatste dag van de maand (EndOfInterval). Zie voor meer informatie [Data Factory plannen en uitvoeren](../data-factory/data-factory-scheduling-and-execution.md).
 
 #### <a name="data-pipeline"></a>Gegevenspijplijn
-Definieert u een pijplijn waarmee gegevens worden omgezet door het Hive-script uitvoeren op een on-demand Azure HDInsight cluster. Zie [JSON-bestand voor een pijplijn](../data-factory/data-factory-create-pipelines.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt voor het definiëren van een pijplijn in dit voorbeeld.
+Definieert u een pijplijn waarmee gegevens worden omgezet door het Hive-script uitvoeren op een on-demand Azure HDInsight cluster. Zie [pijplijn-JSON](../data-factory/data-factory-create-pipelines.md#pipeline-json) voor beschrijvingen van JSON-elementen die worden gebruikt toodefine een pijplijn in dit voorbeeld.
 
 ```json
 {
@@ -479,28 +479,28 @@ Definieert u een pijplijn waarmee gegevens worden omgezet door het Hive-script u
 }
 ```
 
-De pijplijn bevat één activiteit, HDInsightHive-activiteit. Als zowel begin- en einddatum in januari 2016, gegevens zijn voor slechts één maand (een segment) wordt verwerkt. Beide *start* en *end* hebben van de activiteit een datum in het verleden, zodat de Data Factory gegevens voor de maand onmiddellijk verwerkt. Als het end in de toekomst is, wordt een ander segment in de data factory maakt wanneer dat nodig is. Zie voor meer informatie [Data Factory plannen en uitvoeren](../data-factory/data-factory-scheduling-and-execution.md).
+Hallo pipeline bevat één activiteit, HDInsightHive-activiteit. Als zowel begin- en einddatum in januari 2016, gegevens zijn voor slechts één maand (een segment) wordt verwerkt. Beide *start* en *end* van Hallo activiteit hebben een datum in het verleden, zodat Hallo Data Factory gegevens Hallo maand onmiddellijk verwerkt. Als Hallo end in de toekomst is, wordt een ander segment in de Hallo data factory maakt als Hallo tijd afkomstig is. Zie voor meer informatie [Data Factory plannen en uitvoeren](../data-factory/data-factory-scheduling-and-execution.md).
 
-## <a name="clean-up-the-tutorial"></a>De zelfstudie opschonen
+## <a name="clean-up-hello-tutorial"></a>Hallo-zelfstudie opschonen
 
-### <a name="delete-the-blob-containers-created-by-on-demand-hdinsight-cluster"></a>De blob-containers die is gemaakt door on-demand HDInsight-cluster verwijderen
-Met de gekoppelde HDInsight-service op aanvraag wordt een HDInsight-cluster gemaakt telkens wanneer een segment moet worden verwerkt, tenzij er een bestaand livecluster (timeToLive); en het cluster wordt verwijderd wanneer het verwerken is voltooid. Voor elk cluster maakt Azure Data Factory een blob-container in Azure blob storage gebruikt als het standaardaccount voor stroage voor het cluster. Hoewel de HDInsight-cluster wordt verwijderd, worden de standaard blob storage-container en het bijbehorende opslagaccount niet verwijderd. Dit gedrag is standaard. Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u deze niet nodig hebt voor het oplossen van problemen met taken, kunt u ze verwijderen om de opslagkosten te verlagen. De namen van deze containers volgen een patroon: `adfyourdatafactoryname-linkedservicename-datetimestamp`.
+### <a name="delete-hello-blob-containers-created-by-on-demand-hdinsight-cluster"></a>Hallo blob-containers gemaakt door on-demand HDInsight-cluster verwijderen
+Met de gekoppelde HDInsight-service op aanvraag wordt een HDInsight-cluster gemaakt telkens wanneer een segment moet toobe verwerkt, tenzij er een bestaand livecluster (timeToLive); en Hallo cluster wordt verwijderd als het Hallo-verwerking is voltooid. Voor elk cluster maakt Azure Data Factory een blob-container in hello Azure blob-opslag gebruikt als Hallo stroage standaardaccount voor Hallo-cluster. Hoewel de HDInsight-cluster wordt verwijderd, worden Hallo standaard blob storage-container en Hallo gekoppeld opslagaccount niet verwijderd. Dit gedrag is standaard. Naarmate er meer segmenten worden verwerkt, verschijnen er meer containers in uw Azure-blobopslag. Als u niet ze hoeft voor het oplossen van problemen met taken hello, kunt u toodelete ze tooreduce Hallo opslag kosten. Hallo-namen van deze containers een patroon volgen: `adfyourdatafactoryname-linkedservicename-datetimestamp`.
 
-Verwijder de **adfjobs** en **adfyourdatafactoryname-linkedservicename-datum** mappen. De container adfjobs bevat taaklogboeken uit Azure Data Factory.
+Hallo verwijderen **adfjobs** en **adfyourdatafactoryname-linkedservicename-datum** mappen. Hallo adfjobs container bevat taaklogboeken uit Azure Data Factory.
 
-### <a name="delete-the-resource-group"></a>De resourcegroep verwijderen
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) wordt gebruikt om te implementeren, beheren en bewaken van uw oplossing als een groep.  Een resourcegroep verwijdert, worden de onderdelen binnen de groep.  
+### <a name="delete-hello-resource-group"></a>Hallo-resourcegroep verwijderen
+[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) gebruikte toodeploy is beheren en controleren van uw oplossing als een groep.  Een resourcegroep verwijdert, worden alle Hallo onderdelen binnen Hallo-groep.  
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **resourcegroepen** in het linkerdeelvenster.
-3. Klik op de Resourcegroepnaam die u hebt gemaakt in uw PowerShell-script. Het filter gebruiken als er te veel resourcegroepen die worden vermeld. De resourcegroep in een nieuwe blade geopend.
-4. Op de **Resources** tegel u heeft het standaardopslagaccount en de gegevensfactory weergegeven tenzij u de resourcegroep met andere projecten delen.
-5. Klik op **verwijderen** boven aan de blade. In dat geval worden de storage-account en de gegevens die zijn opgeslagen in het opslagaccount verwijderd.
-6. Voer de naam van de resourcegroep verwijderen bevestigen en klik vervolgens op **verwijderen**.
+1. Meld u aan bij toohello [Azure-portal](https://portal.azure.com).
+2. Klik op **resourcegroepen** in het linkerdeelvenster Hallo.
+3. Klik op Hallo Resourcegroepnaam die u hebt gemaakt in uw PowerShell-script. Hallo-filter gebruiken als er te veel resourcegroepen die worden vermeld. Hallo-resourcegroep in een nieuwe blade geopend.
+4. Op Hallo **Resources** tegel u heeft Hallo storage-standaardaccount en Hallo data factory is vermeld, tenzij u de resourcegroep Hallo met andere projecten delen.
+5. Klik op **verwijderen** op Hallo Hallo blade bovenaan. In dat geval worden Hallo storage-account en Hallo-gegevens die zijn opgeslagen in Hallo storage-account verwijderd.
+6. Voer Hallo resource group name tooconfirm verwijderen en klik vervolgens op **verwijderen**.
 
-Als u niet dat het storage-account wordt verwijderd wilt wanneer u de resourcegroep verwijdert, kunt u de volgende architectuur door te scheiden van de bedrijfsgegevens van het standaardopslagaccount. In dit geval hebt u een resourcegroep voor het opslagaccount met de zakelijke gegevens en de andere resourcegroep voor het standaardopslagaccount voor HDInsight-service en de data factory gekoppeld. Wanneer u de tweede resourcegroep verwijdert, heeft deze geen gevolgen voor de zakelijke gegevens storage-account. Dit doet u als volgt:
+Als u niet dat toodelete Hallo storage-account wilt als u de resourcegroep Hallo verwijdert, overweeg Hallo architectuur volgen door te scheiden Hallo zakelijke gegevens uit Hallo storage-standaardaccount. In dit geval u hebt één resourcegroep voor Hallo storage-account met Hallo zakelijke gegevens en andere resourcegroep voor Hallo storage-standaardaccount voor HDInsight gekoppelde service en Hallo data factory Hallo. Wanneer u de tweede resourcegroep Hallo verwijdert, heeft deze geen invloed op Hallo zakelijke gegevens storage-account. toodo zodat:
 
-* Voeg het volgende toe aan de site op het hoogste resourcegroep samen met de Microsoft.DataFactory/datafactories resource in het Resource Manager-sjabloon. Hiermee maakt u een opslagaccount:
+* Hallo volgen op het hoogste niveau resourcegroep toohello samen met de Hallo Microsoft.DataFactory/datafactories resource in de Resource Manager-sjabloon toevoegen. Hiermee maakt u een opslagaccount:
 
     ```json
     {
@@ -517,7 +517,7 @@ Als u niet dat het storage-account wordt verwijderd wilt wanneer u de resourcegr
         }
     },
     ```
-* Een nieuw gekoppelde service-punt aan het nieuwe opslagaccount toevoegen:
+* Een nieuwe gekoppelde servicepunt toohello nieuwe opslagaccount toevoegen:
 
     ```json
     {
@@ -533,7 +533,7 @@ Als u niet dat het storage-account wordt verwijderd wilt wanneer u de resourcegr
         }
     },
     ```
-* De service van HDInsight ondemand gekoppeld met een extra dependsOn en een additionalLinkedServiceNames configureren:
+* Hallo HDInsight ondemand gekoppelde service met een extra dependsOn en een additionalLinkedServiceNames configureren:
 
     ```json
     {
@@ -562,7 +562,7 @@ Als u niet dat het storage-account wordt verwijderd wilt wanneer u de resourcegr
     },            
     ```
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe Azure Data Factory gebruiken voor het maken van HDInsight-cluster op aanvraag voor het verwerken van Hive-taken. Voor meer informatie:
+In dit artikel hebt u geleerd hoe toouse Azure Data Factory toocreate bellen op HDInsight-cluster tooprocess Hive-taken. tooread meer:
 
 * [Hadoop-zelfstudie: aan de slag met Hadoop op basis van Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Hadoop op basis van Linux-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
@@ -572,11 +572,11 @@ In dit artikel hebt u geleerd hoe Azure Data Factory gebruiken voor het maken va
 ## <a name="appendix"></a>Bijlage
 
 ### <a name="azure-cli-script"></a>Azure CLI-script
-U kunt Azure CLI gebruiken in plaats van de zelfstudie wilt met behulp van Azure PowerShell. Voor het gebruik van Azure CLI, moet u eerst Azure CLI installeren volgens de volgende instructies:
+U kunt Azure CLI gebruiken in plaats van Azure PowerShell toodo Hallo zelfstudie. Azure CLI toouse Azure CLI eerst installeren volgens Hallo instructies te volgen:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-#### <a name="use-azure-cli-to-prepare-the-storage-and-copy-the-files"></a>Azure CLI gebruiken voor het voorbereiden van de opslag en kopieer de bestanden
+#### <a name="use-azure-cli-tooprepare-hello-storage-and-copy-hello-files"></a>Azure CLI tooprepare Hallo opslag gebruiken en het Hallo-bestanden te kopiëren
 
 ```
 azure login
@@ -594,4 +594,4 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-De containernaam van de is *adfgetstarted*. Houd het omdat deze. Anders moet u de sjabloon van de Resource Manager bijwerken. Als u hulp nodig bij dit script CLI, Zie [met de Azure CLI met Azure Storage](../storage/common/storage-azure-cli.md).
+Hallo-containernaam is *adfgetstarted*. Houd het omdat deze. Anders moet u tooupdate Hallo Resource Manager-sjabloon. Als u hulp nodig bij dit script CLI, Zie [Using hello Azure CLI met Azure Storage](../storage/common/storage-azure-cli.md).

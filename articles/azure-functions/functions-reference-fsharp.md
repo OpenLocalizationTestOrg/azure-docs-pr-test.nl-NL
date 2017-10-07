@@ -1,6 +1,6 @@
 ---
-title: 'Azure Functions F # referentie voor ontwikkelaars | Microsoft Docs'
-description: 'Begrijpen hoe Azure-functies met F # ontwikkelen.'
+title: 'aaaAzure functies F # referentie voor ontwikkelaars | Microsoft Docs'
+description: 'Begrijpen hoe Azure-functies met F # toodevelop.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 1691d378263f6b4ce5072f5c621d8db02f774b5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ac366ba6f73d191c582dcd9214b688ef719617a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Naslaginformatie over Azure Functions-F # ontwikkelaars
 > [!div class="op_single_selector"]
@@ -30,17 +30,17 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-F # voor Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code of 'functies' in de cloud. Gegevensstromen in de functie F # via functieargumenten. Argumentnamen zijn opgegeven in `function.json`, en er zijn vooraf gedefinieerde namen voor toegang tot de beheerder de functie berichtenlogboek en annulering tokens.
+F # voor Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code of 'functies' in de cloud Hallo. Gegevensstromen in de functie F # via functieargumenten. Argumentnamen zijn opgegeven in `function.json`, en er zijn vooraf gedefinieerde namen voor toegang tot bepaalde acties Hallo functie berichtenlogboek en annulering tokens.
 
-In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [naslaginformatie voor ontwikkelaars van Azure Functions](functions-reference.md).
+In dit artikel wordt ervan uitgegaan dat u hebt al Hallo gelezen [naslaginformatie voor ontwikkelaars van Azure Functions](functions-reference.md).
 
 ## <a name="how-fsx-works"></a>De werking van .fsx
-Een `.fsx` bestand is een script F #. Deze kan worden beschouwd als een F #-project dat opgenomen in één bestand. Het bestand bevat zowel de code voor het programma (in dit geval uw Azure-functie) en richtlijnen voor het beheren van afhankelijkheden.
+Een `.fsx` bestand is een script F #. Deze kan worden beschouwd als een F #-project dat opgenomen in één bestand. Hallo-bestand bevat zowel Hallo-code voor het programma (in dit geval uw Azure-functie) en richtlijnen voor het beheren van afhankelijkheden.
 
-Als u werkt met een `.fsx` voor een Azure-functie vaak vereiste assembly's worden automatisch opgenomen voor u, zodat u zich richten op de functie in plaats van 'standaard'-code.
+Als u werkt met een `.fsx` voor een Azure-functie vaak vereiste assembly's worden automatisch opgenomen voor u, zodat u toofocus op Hallo-functie in plaats van 'standaard' code.
 
-## <a name="binding-to-arguments"></a>Binding met argumenten
-Elke binding ondersteunt sommige set argumenten, zoals beschreven in de [Azure Functions triggers en bindingen naslaginformatie](functions-triggers-bindings.md). Een van de argument bindingen die ondersteuning biedt voor een trigger blob is bijvoorbeeld een POCO die kan worden uitgedrukt met behulp van een record F #. Bijvoorbeeld:
+## <a name="binding-tooarguments"></a>Binding tooarguments
+Elke binding ondersteunt sommige set argumenten, als gedetailleerde in Hallo [Azure Functions triggers en bindingen naslaginformatie](functions-triggers-bindings.md). Een van de Hallo argument bindingen die biedt ondersteuning voor een blob-trigger is bijvoorbeeld een POCO die kan worden uitgedrukt met behulp van een record F #. Bijvoorbeeld:
 
 ```fsharp
 type Item = { Id: string }
@@ -50,11 +50,11 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-Uw Azure-functie F # duurt een of meer argumenten. Wanneer we over Azure Functions argumenten hebben, is *invoer* argumenten en *uitvoer* argumenten. Een invoerargument is precies deze klinkt als: invoer voor uw Azure-functie F #. Een *uitvoer* -argument is veranderlijke gegevens of een `byref<>` argument die fungeert als een manier om gegevens weer te geven *uit* van de functie.
+Uw Azure-functie F # duurt een of meer argumenten. Wanneer we over Azure Functions argumenten hebben, verwijzen we te*invoer* argumenten en *uitvoer* argumenten. Een invoerargument is precies deze klinkt als: invoer tooyour F # Azure-functie. Een *uitvoer* -argument is veranderlijke gegevens of een `byref<>` argument die als een manier toopass gegevens terug fungeert *uit* van de functie.
 
-In het bovenstaande voorbeeld `blob` is een invoerargument en `output` is een argument van de uitvoer. U ziet dat we gebruikt `byref<>` voor `output` (is niet nodig om toe te voegen de `[<Out>]` aantekening). Met behulp van een `byref<>` type biedt de mogelijkheid uw functie te wijzigen welke record of het argument naar verwijst object.
+In vorige Hallo voorbeeld `blob` is een invoerargument en `output` is een argument van de uitvoer. U ziet dat we gebruikt `byref<>` voor `output` (Er is geen noodzaak tooadd hello `[<Out>]` aantekening). Met behulp van een `byref<>` type kunnen de functie toochange welke record of een object Hallo argument naar verwezen.
 
-Wanneer een record F # wordt gebruikt als een type invoer, de definitie van de record moet worden gemarkeerd met `[<CLIMutable>]` om de Azure Functions-framework de velden op de juiste wijze instellen voordat de record aan de functie doorgegeven. Achter de schermen `[<CLIMutable>]` genereert setters voor de recordeigenschappen. Bijvoorbeeld:
+Wanneer een record F # wordt gebruikt als een invoertype, Hallo record definitie moet worden gemarkeerd met `[<CLIMutable>]` in volgorde tooallow hello Azure Functions framework tooset Hallo velden op de juiste wijze Hallo record tooyour functie voordat wordt doorgegeven. Achter de schermen hello, `[<CLIMutable>]` setters voor Hallo recordeigenschappen genereert. Bijvoorbeeld:
 
 ```fsharp
 [<CLIMutable>]
@@ -79,7 +79,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Logboekregistratie
-Aanmelden van uitvoer naar uw [streaminglogboeken](../app-service-web/web-sites-streaming-logs-and-console.md) in F #, de functie moet rekening houden met een argument van het type `TraceWriter`. Voor consistentie, raden we dit argument heet `log`. Bijvoorbeeld:
+toolog uitvoer tooyour [streaminglogboeken](../app-service-web/web-sites-streaming-logs-and-console.md) in F #, de functie moet rekening houden met een argument van het type `TraceWriter`. Voor consistentie, raden we dit argument heet `log`. Bijvoorbeeld:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -88,7 +88,7 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
 ```
 
 ## <a name="async"></a>Asynchrone
-De `async` werkstroom kan worden gebruikt, maar het resultaat moet retourneren een `Task`. Dit kan worden gedaan met `Async.StartAsTask`, bijvoorbeeld:
+Hallo `async` werkstroom kan worden gebruikt, maar Hallo resultaat tooreturn moet een `Task`. Dit kan worden gedaan met `Async.StartAsTask`, bijvoorbeeld:
 
 ```fsharp
 let Run(req: HttpRequestMessage) =
@@ -98,7 +98,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Annulering Token
-Als de functie afsluiten probleemloos verwerken moet, u kunt daarvoor een [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) argument. Dit kan worden gecombineerd met `async`, bijvoorbeeld:
+Als de functie probleemloos toohandle afsluiten moet, u kunt daarvoor een [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) argument. Dit kan worden gecombineerd met `async`, bijvoorbeeld:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -110,7 +110,7 @@ let Run(req: HttpRequestMessage, token: CancellationToken)
 ```
 
 ## <a name="importing-namespaces"></a>Naamruimten importeren
-Naamruimten kan worden geopend in de gebruikelijke manier:
+Naamruimten kan worden geopend in Hallo gebruikelijke manier:
 
 ```fsharp
 open System.Net
@@ -120,7 +120,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-Automatisch geopend op de volgende naamruimten:
+Hallo na naamruimten automatisch geopend:
 
 * `System`
 * `System.Collections.Generic`
@@ -132,7 +132,7 @@ Automatisch geopend op de volgende naamruimten:
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>Verwijzen naar externe assembly 's
-Op deze manier framework-assembly verwijzingen worden toegevoegd met de `#r "AssemblyName"` richtlijn.
+Op deze manier framework-assembly verwijzingen worden toegevoegd met de Hallo `#r "AssemblyName"` richtlijn.
 
 ```fsharp
 #r "System.Web.Http"
@@ -145,7 +145,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-De volgende assembly's worden automatisch toegevoegd door de Azure Functions hostomgeving:
+Hallo worden volgende assembly's automatisch toegevoegd door hello Azure Functions hostomgeving:
 
 * `mscorlib`,
 * `System`
@@ -158,7 +158,7 @@ De volgende assembly's worden automatisch toegevoegd door de Azure Functions hos
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Bovendien de volgende assembly's zijn speciale geïntegreerd en kan worden verwezen door simplename (bijvoorbeeld `#r "AssemblyName"`):
+Bovendien Hallo volgende assembly's zijn speciale geïntegreerd en kan worden verwezen door simplename (bijvoorbeeld `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -166,10 +166,10 @@ Bovendien de volgende assembly's zijn speciale geïntegreerd en kan worden verwe
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Als u nodig hebt om te verwijzen naar een persoonlijke assembly, kunt u in het assembly-bestand uploaden een `bin` map ten opzichte van uw functie en de verwijzing naar deze met behulp van het bestand (bijvoorbeeld een naam  `#r "MyAssembly.dll"`). Zie voor meer informatie over de bestanden uploaden naar uw map voor de functie in de volgende sectie op het gebied van pakket.
+Als u een persoonlijke assembly tooreference moet, kunt u uploaden Hallo assembly-bestand in een `bin` map relatieve tooyour functie en deze met behulp van de bestandsnaam (bijvoorbeeld Hallo-verwijzing  `#r "MyAssembly.dll"`). Zie voor informatie over hoe tooupload tooyour functie map bestanden, Hallo volgende sectie op het gebied van pakket.
 
 ## <a name="editor-prelude"></a>Editor Prelude
-Een editor die ondersteuning biedt voor F # Compiler-Services worden niet op de hoogte van de naamruimten en assembly's met Azure Functions automatisch. Hierdoor kan het handig zijn om op te nemen van een prelude waarmee de editor voor de assembly's die u gebruikt vinden en openen expliciet naamruimten. Bijvoorbeeld:
+Een editor die ondersteuning biedt voor F # Compiler-Services worden niet op de hoogte van het Hallo-naamruimten en assembly's met Azure Functions automatisch. Als zodanig kan zijn nuttig tooinclude een prelude waarmee Hallo editor Hallo-assembly's die u gebruikt vinden en tooexplicitly open naamruimten. Bijvoorbeeld:
 
 ```fsharp
 #if !COMPILED
@@ -184,12 +184,12 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     ...
 ```
 
-Wanneer uw code wordt uitgevoerd in Azure Functions, verwerking van de bron met `COMPILED` gedefinieerd, zodat de prelude editor worden genegeerd.
+Wanneer uw code wordt uitgevoerd in Azure Functions, verwerkt Hallo bron met `COMPILED` gedefinieerd, zodat het Hallo-editor prelude worden genegeerd.
 
 <a name="package"></a>
 
 ## <a name="package-management"></a>Pakket management
-Als u NuGet-pakketten in een functie F #, Voeg een `project.json` van het bestand in de map van de functie in het bestandssysteem van de functie-app. Hier volgt een voorbeeld `project.json` -bestand dat wordt toegevoegd een NuGet-pakket verwijzing naar `Microsoft.ProjectOxford.Face` versie 1.1.0:
+toouse NuGet-pakketten in een F # functie, Voeg een `project.json` toohello Hallo functie map in het bestandssysteem Hallo functie app-bestand. Hier volgt een voorbeeld `project.json` -bestand dat de verwijzing naar een NuGet-pakket te voegt`Microsoft.ProjectOxford.Face` versie 1.1.0:
 
 ```json
 {
@@ -203,16 +203,16 @@ Als u NuGet-pakketten in een functie F #, Voeg een `project.json` van het bestan
 }
 ```
 
-Alleen .NET Framework 4.6 wordt ondersteund, dus zorg ervoor dat uw `project.json` bestand geeft `net46` zoals hier wordt weergegeven.
+Alleen hello .NET Framework 4.6 wordt ondersteund, dus zorg ervoor dat uw `project.json` bestand geeft `net46` zoals hier wordt weergegeven.
 
-Wanneer u uploadt een `project.json` bestand, de runtime opgehaald van de pakketten en verwijzingen naar de pakket-assembly's worden automatisch toegevoegd. U hoeft niet te voegen `#r "AssemblyName"` richtlijnen. Alleen toe te voegen de vereiste `open` instructies voor uw `.fsx` bestand.
+Wanneer u uploadt een `project.json` bestand, hello runtime opgehaald hello-pakketten en verwijzingen toohello pakket assembly's worden automatisch toegevoegd. U hoeft niet tooadd `#r "AssemblyName"` richtlijnen. Hallo vereist alleen toe te voegen `open` instructies tooyour `.fsx` bestand.
 
-U kunt desgewenst automatisch verwijzingen naar assembly's in uw editor prelude, voor het verbeteren van uw editor interactie met F # compileren Services plaatsen.
+U kunt desgewenst tooput automatisch verwijst naar assembly's in uw editor prelude, tooimprove uw editor interactie met F # compileren Services.
 
-### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Het toevoegen van een `project.json` bestand naar uw Azure-functie
-1. Begin door te controleren of de functie-app wordt uitgevoerd, die u kunt doen door de functie openen in de Azure-portal. Dit biedt ook toegang naar de streaminglogboeken waar pakket installatie uitvoer wordt weergegeven.
-2. Voor het uploaden van een `project.json` bestand, gebruikt u een van de methoden van [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate). Als u [continue implementatie voor Azure Functions](functions-continuous-deployment.md), kunt u toevoegen een `project.json` bestand naar uw vertakking test om te experimenteren voordat u deze toevoegt aan uw vertakking implementatie.
-3. Na de `project.json` bestand wordt toegevoegd, ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld in de functie de streaming-logboek:
+### <a name="how-tooadd-a-projectjson-file-tooyour-azure-function"></a>Hoe tooadd een `project.json` bestand tooyour Azure-functie
+1. Begin door te controleren of de functie-app wordt uitgevoerd, die u kunt doen door de functie openen in hello Azure-portal. Dit biedt ook toegang toohello streaminglogboeken waar pakket installatie uitvoer wordt weergegeven.
+2. tooupload een `project.json` bestand, gebruikt u een Hallo methoden van [hoe de app-bestanden voor het functioneren van tooupdate](functions-reference.md#fileupdate). Als u [continue implementatie voor Azure Functions](functions-continuous-deployment.md), kunt u toevoegen een `project.json` tooyour vertakking in volgorde tooexperiment aan voordat u het toevoegt tooyour implementatie vertakking tijdelijke bestand.
+3. Na het Hallo `project.json` bestand wordt toegevoegd, ziet u uitvoer vergelijkbare toohello voorbeeld in de functie na de streaming-logboek:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -232,7 +232,7 @@ U kunt desgewenst automatisch verwijzingen naar assembly's in uw editor prelude,
 ```
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
-Als u een omgevingsvariabele of een app die waarde instellen, gebruikt `System.Environment.GetEnvironmentVariable`, bijvoorbeeld:
+tooget een omgevingsvariabele of een app-instelling-waarde gebruiken `System.Environment.GetEnvironmentVariable`, bijvoorbeeld:
 
 ```fsharp
 open System.Environment
@@ -261,16 +261,16 @@ let mylog(log: TraceWriter, text: string) =
     log.Verbose(text);
 ```
 
-Paden biedt aan de `#load` richtlijn zijn ten opzichte van de locatie van uw `.fsx` bestand.
+Paden biedt toohello `#load` richtlijn zijn toohello relatieve locatie van uw `.fsx` bestand.
 
-* `#load "logger.fsx"`een bestand in de map van de functie laadt.
-* `#load "package\logger.fsx"`laden van een bestand in de `package` map in de map van de functie.
-* `#load "..\shared\mylogger.fsx"`laden van een bestand in de `shared` map op hetzelfde niveau als de functie-map, dat wil zeggen, direct onder `wwwroot`.
+* `#load "logger.fsx"`een bestand in Hallo functie map laadt.
+* `#load "package\logger.fsx"`een bestand in Hallo laadt `package` map in Hallo functie map.
+* `#load "..\shared\mylogger.fsx"`een bestand in Hallo laadt `shared` map op hetzelfde niveau als Hallo functie map, dat wil zeggen, Hallo rechtstreeks onder `wwwroot`.
 
-De `#load` richtlijn werkt alleen met `.fsx` (F # script)-bestanden, en niet met `.fs` bestanden.
+Hallo `#load` richtlijn werkt alleen met `.fsx` (F # script)-bestanden, en niet met `.fs` bestanden.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie:
+Zie voor meer informatie Hallo resources te volgen:
 
 * [F # handleiding](/dotnet/articles/fsharp/index)
 * [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)

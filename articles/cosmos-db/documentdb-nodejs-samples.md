@@ -1,5 +1,5 @@
 ---
-title: Voorbeelden voor Azure Cosmos DB node.js | Microsoft Docs
+title: Voorbeelden voor Azure Cosmos DB aaaNode.js | Microsoft Docs
 description: Node.js-voorbeelden op github voor algemene taken in Azure Cosmos DB, inclusief CRUD-bewerkingen niet vinden.
 keywords: node.js-voorbeelden
 services: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 602615c2434b7ab11ec55f2427c76cf1730b1379
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 55c8ebb9ff425aeeaa49fd0738649d33556a1635
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js-voorbeelden
 > [!div class="op_single_selector"]
@@ -30,25 +30,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in de [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub-opslagplaats. Dit artikel bevat:
+Voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in Hallo [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub-opslagplaats. Dit artikel bevat:
 
-* Koppelingen naar de taken in elk van de project-bestanden van de Node.js-voorbeeld.
-* Koppelingen naar de bijbehorende API verwijst naar inhoud.
+* Koppelingen toohello taken in elk van de projectbestanden voor Hallo Node.js-voorbeeld.
+* Koppelingen toohello gerelateerd API-referentie-inhoud.
 
 **Vereisten**
 
-1. U moet een Azure-account te gebruiken deze Node.js-voorbeelden:
-   * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/): u ontvangt tegoeden die u kunt gebruiken om betaalde Azure-services uit te proberen, en zelfs nadat u alle tegoeden hebt gebruikt, kunt u het account houden en gratis Azure-services zoals Websites gebruiken. Er wordt nooit iets op uw creditcard in rekening gebracht, tenzij u expliciet de instellingen wijzigt en vraagt of de kosten op uw creditcard in rekening kunnen worden gebracht.
+1. U moet een Azure-account toouse deze Node.js-voorbeelden:
+   * U kunt [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/): U ontvangt tegoed kunt u tootry uit betaalde Azure-services en zelfs nadat ze allemaal hebt gebruikt kunt u maximaal Hallo account houden en gebruik gratis Azure-services, zoals Websites. Uw creditcard wordt nooit worden in rekening gebracht, tenzij u expliciet de instellingen wijzigen en vraag toobe in rekening gebracht.
      * U kunt [voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): uw Visual Studio-abonnement ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken.
-2. U moet ook de [Node.js SDK](documentdb-sdk-node.md).
+2. U moet ook Hallo [Node.js SDK](documentdb-sdk-node.md).
    
    > [!NOTE]
-   > Elk voorbeeld staat op zichzelf, het zelf wordt ingesteld en opgeschoond. Als zodanig voorbeelden uitgeven voor meerdere aanroepen naar [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection). Telkens wanneer dit wordt gedaan uw abonnement wordt gefactureerd voor gebruik per laag van de prestaties van de verzameling wordt gemaakt van 1 uur.
+   > Elk voorbeeld staat op zichzelf, het zelf wordt ingesteld en opgeschoond. Als zodanig Hallo voorbeelden meerdere aanroepen te verlenen[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection). Telkens wanneer dit wordt gedaan uw abonnement wordt gefactureerd voor gebruik per Hallo prestatielaag van Hallo verzameling wordt gemaakt van 1 uur.
    > 
    > 
 
 ## <a name="database-examples"></a>Database-voorbeelden
-De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) -bestand van de [DatabaseManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DatabaseManagement) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) bestand Hallo [DatabaseManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DatabaseManagement) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -59,7 +59,7 @@ De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/D
 | [Een database verwijderen](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DatabaseManagement/app.js#L133-L144) |[DocumentClient.deleteDatabase](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDatabase) |
 
 ## <a name="collection-examples"></a>Voorbeelden van de verzameling
-De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) -bestand van de [CollectionManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/CollectionManagement) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) bestand Hallo [CollectionManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/CollectionManagement) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -72,12 +72,12 @@ De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/C
 | [Een verzameling verwijderen](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.CollectionManagement/app.js#L204-L215) |[DocumentClient.deleteCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteCollection) |
 
 ## <a name="document-examples"></a>Voorbeelden van document
-De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) -bestand van de [DocumentManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DocumentManagement) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) bestand Hallo [DocumentManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/DocumentManagement) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Documenten maken](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L153-L177) |[DocumentClient.createDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createDocument) |
-| [Lezen van het document feed voor een verzameling](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L179-L189) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument) |
+| [Hallo-document lezen feed voor een verzameling](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L179-L189) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument) |
 | [Een document door ID lezen](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L191-L201) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument) |
 | [Document lezen alleen als het document is gewijzigd](https://github.com/Azure/azure-documentdb-node/blob/0778eadea7abb2af41e8c22a239dc872c584f421/samples/DocumentManagement/app.js#L79-L107) |[DocumentClient.readDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#readDocument)<br/>[RequestOptions.accessCondition](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
 | [Query voor documenten](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L82-L110) |[DocumentClient.queryDocuments](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocuments) |
@@ -86,13 +86,13 @@ De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/D
 | [Een document verwijderen](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.DocumentManagement/app.js#L122-L133) |[DocumentClient.deleteDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#deleteDocument) |
 
 ## <a name="indexing-examples"></a>Indexeren van voorbeelden
-De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) -bestand van de [IndexManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/IndexManagement) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) bestand Hallo [IndexManagement](https://github.com/Azure/azure-documentdb-node/tree/master/samples/IndexManagement) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
 | [Maak een verzameling met standaard indexeren](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L657-L701) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection) |
 | [Handmatig een bepaald document index](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L185-L238) |[RequestOptions.indexingDirective: "bevatten"](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
-| [Handmatig een bepaald document uitsluiten van de index](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L120-L183) |[RequestOptions.indexingDirective: 'uitsluiten'](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
+| [Handmatig een bepaald document uitsluiten van Hallo index](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L120-L183) |[RequestOptions.indexingDirective: 'uitsluiten'](http://azure.github.io/azure-documentdb-node/global.html#RequestOptions) |
 | [Gebruik vertraagde indexering voor bulkimport of zware verzamelingen lezen](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L240-L269) |[IndexingMode.Lazy](http://azure.github.io/azure-documentdb-node/global.html#IndexingMode) |
 | [Specifieke paden van een document opnemen in het indexeren](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L433-L444) |[IndexingPolicy.IncludedPaths](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy) |
 | [Bepaalde paden uitsluiten van het indexeren](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L427-L450) |[IndexingPolicy.ExcludedPath](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy) |
@@ -103,7 +103,7 @@ De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/I
 Zie voor meer informatie over het indexeren [Azure Cosmos DB indexeren beleid](indexing-policies.md).
 
 ## <a name="server-side-programming-examples"></a>Serverzijde programming voorbeelden
-De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) -bestand van de [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) bestand Hallo [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |
@@ -113,7 +113,7 @@ De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/S
 Zie voor meer informatie over het programmeren op de server [Azure Cosmos DB programmeren-server: opgeslagen procedures, databasetriggers en UDF's](programming.md).
 
 ## <a name="partitioning-examples"></a>Voorbeelden partitioneren
-De [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) -bestand van de [partitionering](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) project ziet u hoe u de volgende taken uitvoeren.
+Hallo [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) bestand Hallo [partitionering](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) project ziet u hoe tooperform Hallo na taken.
 
 | Taak | API-verwijzing |
 | --- | --- |

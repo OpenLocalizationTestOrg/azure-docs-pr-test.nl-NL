@@ -1,6 +1,6 @@
 ---
-title: Een virtuele machine (klassiek) maken met meerdere NIC's - Azure CLI 1.0 | Microsoft Docs
-description: Informatie over het maken van een virtuele machine (klassiek) met meerdere NIC's met behulp van de Azure-opdrachtregelinterface (CLI) 1.0.
+title: een VM (klassiek) met meerdere NIC's - Azure CLI 1.0 aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een VM (klassiek) met meerdere NIC's met behulp van Azure-opdrachtregelinterface (CLI) 1.0 Hallo.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,48 +16,48 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b62421b7289650818748d0016dccfdf42ef0a768
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 181bfb28027caff33410ca94744e79206a2a0d0c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Een virtuele machine (klassiek) maken met meerdere NIC's met behulp van de Azure CLI 1.0
+# <a name="create-a-vm-classic-with-multiple-nics-using-hello-azure-cli-10"></a>Een virtuele machine (klassiek) maken met meerdere NIC's met behulp van hello Azure CLI 1.0
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-U kunt virtuele machines (VM's) in Azure maken en koppelen van meerdere netwerkinterfaces (NIC's) naar elk van uw virtuele machines. Meerdere NIC's inschakelen scheiding van verkeerstypen tussen NIC's. Één NIC kan bijvoorbeeld communiceren met het Internet, terwijl een andere alleen met interne bronnen die niet is verbonden met Internet communiceert. De mogelijkheid voor het scheiden van netwerkverkeer via meerdere NIC's is vereist voor veel virtuele netwerkapparaten, zoals toepassingen en optimalisatie van WAN-oplossingen.
+U kunt virtuele machines (VM's) in Azure maken en koppelen van meerdere netwerkinterfaces (NIC's) van netwerk-tooeach van uw virtuele machines. Meerdere NIC's inschakelen scheiding van verkeerstypen tussen NIC's. Bijvoorbeeld verbonden een die NIC met Internet, Hallo communiceren kan terwijl een andere alleen met interne bronnen niet communiceert toohello Internet. Hallo mogelijkheid tooseparate netwerkverkeer via meerdere NIC's is vereist voor veel virtuele netwerkapparaten, zoals toepassingen en optimalisatie van WAN-oplossingen.
 
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). Dit artikel gaat over het gebruik van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Meer informatie over hoe u deze stappen uitvoert met behulp van de [Resource Manager-implementatiemodel](virtual-network-deploy-multinic-arm-cli.md).
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel wordt behandeld met het klassieke implementatiemodel Hallo. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Meer informatie over hoe tooperform deze stappen Hallo [Resource Manager-implementatiemodel](virtual-network-deploy-multinic-arm-cli.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-De volgende stappen gebruikt u een resourcegroep met de naam *IaaSStory* voor de webservers en een resourcegroep met de naam *IaaSStory-back-end* voor de database-servers.
+Hallo volgt gebruik van een resourcegroep met de naam *IaaSStory* voor Hallo-webservers en een resourcegroep met de naam *IaaSStory-back-end* voor Hallo DB-servers.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u de database-servers maken kunt, moet u maken de *IaaSStory* resourcegroep met alle benodigde resources voor dit scenario. Voltooi de stappen volgen voor het maken van deze resources. Een virtueel netwerk maken met de stappen in de [een virtueel netwerk maken](virtual-networks-create-vnet-classic-cli.md) artikel.
+Voordat u Hallo DB servers maken kunt, moet u toocreate hello *IaaSStory* resourcegroep met alle Hallo benodigde resources voor dit scenario. toocreate deze resources, volledige Hallo stappen volgen. Een virtueel netwerk maken door de stappen te volgen Hallo in Hallo [een virtueel netwerk maken](virtual-networks-create-vnet-classic-cli.md) artikel.
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="deploy-the-back-end-vms"></a>De back-end virtuele machines implementeren
-De back-end virtuele machines, is afhankelijk van het maken van de volgende bronnen:
+## <a name="deploy-hello-back-end-vms"></a>Implementeer Hallo back-end virtuele machines
+Hallo die back-end-VM's afhankelijk zijn van Hallo maken van Hallo resources te volgen:
 
-* **Storage-account voor gegevensschijven**. Voor betere prestaties wordt de gegevensschijven op de databaseservers Solid-State station (SSD)-technologie, waarvoor een premium storage-account gebruiken. Zorg ervoor dat de Azure-locatie u implementeren ter ondersteuning van premium-opslag.
+* **Storage-account voor gegevensschijven**. Voor betere prestaties Hallo gegevensschijven op Hallo databaseservers Solid-State station (SSD)-technologie, waarvoor een premium storage-account gebruikt. Zorg ervoor dat hello Azure-locatie implementeren van toosupport premium-opslag.
 * **NIC's**. Elke virtuele machine heeft twee NIC's, één voor toegang tot de database, en één voor beheer.
-* **Beschikbaarheidsset**. Alle databaseservers wordt toegevoegd aan een enkele beschikbaarheid instellen, zodat ten minste één van de virtuele machines actief is en wordt uitgevoerd tijdens het onderhoud.
+* **Beschikbaarheidsset**. Alle databaseservers tooa één beschikbaarheidsset worden toegevoegd, tooensure ten minste één Hallo VM's actief is tijdens het onderhoud.
 
 ### <a name="step-1---start-your-script"></a>Stap 1: uw script starten
-U kunt downloaden via het volledige bash-script waarmee [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Voer de volgende stappen uit om te wijzigen van het script te laten werken in uw omgeving:
+U kunt downloaden Hallo volledige bash-script waarmee [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Voer Hallo stappen toochange Hallo script toowork in uw omgeving te volgen:
 
-1. Wijzig de waarden van de variabelen op basis van uw bestaande resourcegroep geïmplementeerd boven in [vereisten](#Prerequisites).
+1. Hallo-waarden van Hallo variabelen hieronder op basis van uw bestaande resourcegroep geïmplementeerd boven in wijzigen [vereisten](#Prerequisites).
 
     ```azurecli
     location="useast2"
     vnetName="WTestVNet"
     backendSubnetName="BackEnd"
     ```
-2. Wijzig de waarden van de variabelen op basis van de waarden die u wilt gebruiken voor uw back-end-implementatie.
+2. Hallo waarden wijzigen van Hallo variabelen hieronder op basis van waarden Hallo gewenste toouse voor uw back-end-implementatie.
 
     ```azurecli
     backendCSName="IaaSStory-Backend"
@@ -77,14 +77,14 @@ U kunt downloaden via het volledige bash-script waarmee [hier](https://raw.githu
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Stap 2: de benodigde resources voor uw virtuele machines maken
-1. Maak een nieuwe cloudservice voor alle back-end-VM's. Let op het gebruik van de `$backendCSName` variabele voor naam van de resourcegroep, en `$location` voor de Azure-regio.
+1. Maak een nieuwe cloudservice voor alle back-end-VM's. Gebruik van de kennisgeving Hallo Hallo `$backendCSName` variabele voor naam resourcegroep hello, en `$location` voor hello Azure-regio.
 
     ```azurecli
     azure service create --serviceName $backendCSName \
         --location $location
     ```
 
-2. Een premium storage-account voor het besturingssysteem en gegevensschijven kunnen worden gebruikt door uw virtuele machines maken.
+2. Maak een premium storage-account voor Hallo OS en gegevens schijven toobe die wordt gebruikt door uw virtuele machines.
 
     ```azurecli
     azure storage account create $prmStorageAccountName \
@@ -93,14 +93,14 @@ U kunt downloaden via het volledige bash-script waarmee [hier](https://raw.githu
     ```
 
 ### <a name="step-3---create-vms-with-multiple-nics"></a>Stap 3: virtuele machines maken met meerdere NIC 's
-1. Start een lus voor het maken van meerdere virtuele machines, op basis van de `numberOfVMs` variabelen.
+1. Start een lus toocreate meerdere virtuele machines, op basis van Hallo `numberOfVMs` variabelen.
 
     ```azurecli
     for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
     do
     ```
 
-2. Geef de naam en IP-adres van elk van de twee NIC's voor elke VM.
+2. Geef voor elke VM Hallo naam en IP-adres van elk van de Hallo twee NIC's.
 
     ```azurecli
     nic1Name=$vmNamePrefix$suffixNumber-DA
@@ -112,7 +112,7 @@ U kunt downloaden via het volledige bash-script waarmee [hier](https://raw.githu
     ipAddress2=$ipAddressPrefix$x
     ```
 
-3. De virtuele machine maken. Let op het gebruik van de `--nic-config` parameter, met een lijst met alle NIC's met de naam, subnet en IP-adres.
+3. Hallo VM maken. Let op Hallo gebruik van Hallo `--nic-config` parameter, met een lijst met alle NIC's met de naam, subnet en IP-adres.
 
     ```azurecli
     azure vm create $backendCSName $image $username $password \
@@ -139,10 +139,10 @@ U kunt downloaden via het volledige bash-script waarmee [hier](https://raw.githu
     done
     ```
 
-### <a name="step-4---run-the-script"></a>Stap 4: Voer het script
-Nu dat u hebt gedownload en gewijzigd van het script op basis van uw behoeften, voer het script voor het maken van de back-end database VM's met meerdere NIC's.
+### <a name="step-4---run-hello-script"></a>Stap 4: Hallo-script uitvoeren
+Nu dat u hebt gedownload en gewijzigd Hallo-script op basis van uw behoeften, Hallo script toocreate Hallo terug uitvoeren end-database VM's met meerdere NIC's.
 
-1. Sla uw script en voer dit uit uw **Bash** terminal. U ziet de uitvoer van de eerste zoals hieronder wordt weergegeven.
+1. Sla uw script en voer dit uit uw **Bash** terminal. U ziet Hallo initiële uitvoer, zoals hieronder wordt weergegeven.
 
         info:    Executing command service create
         info:    Creating cloud service
@@ -159,7 +159,7 @@ Nu dat u hebt gedownload en gewijzigd van het script op basis van uw behoeften, 
         info:    Looking up deployment
         info:    Creating VM
 
-2. De uitvoering wordt beëindigd na een paar minuten en ziet u de rest van de uitvoer zoals hieronder wordt weergegeven.
+2. Hallo uitvoering beëindigd na een paar minuten en ziet u de rest Hallo van Hallo uitvoer zoals hieronder wordt weergegeven.
 
         info:    OK
         info:    vm create command OK

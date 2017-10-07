@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met het leveren van inhoud on demand met .NET | Microsoft Docs
-description: In deze zelfstudie leert u een eenvoudige toepassing voor de levering van on demand inhoud te implementeren met Azure Media Services door gebruik te maken van .NET.
+title: aaaGet gestart met het leveren van inhoud on demand met .NET | Microsoft Docs
+description: Deze zelfstudie leert u Hallo van een on demand leveren van inhoud toepassing implementeren met Azure Media Services met .NET.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,90 +14,90 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4ca9394bd581e1d9062e5a008a410b2c058e017e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Aan de slag met het leveren van inhoud on demand met .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-In deze zelfstudie wordt u begeleid bij het implementeren van een basisservice voor levering van VoD-inhoud (Video-on-Demand) met de AMS-toepassing (Azure Media Services) via de Azure Media Services .NET SDK.
+Deze zelfstudie leert u Hallo van een eenvoudige Video-on-Demand (VoD) leveren van inhoud service implementeren met Azure Media Services (AMS)-toepassing hello Azure Media Services .NET SDK gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
+Hallo volgen vereist toocomplete Hallo-zelfstudie:
 
 * Een Azure-account. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* Een Media Services-account. Zie [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie over het maken van een Media Services-account.
+* Een Media Services-account. een Media Services-account toocreate Zie [hoe tooCreate een Media Services-Account](media-services-portal-create-account.md).
 * .NET framework 4.0 of hoger.
 * Visual Studio.
 
-Deze zelfstudie bevat de volgende taken:
+Deze zelfstudie bevat Hallo taken te volgen:
 
-1. Streaming-eindpunt starten (vanuit Azure Portal).
+1. Start de streaming-eindpunt (met behulp van hello Azure-portal).
 2. Een Visual Studio-project maken en configureren.
-3. Verbinding maken met het Azure Media Services-account.
+3. Toohello Media Services-account koppelen.
 2. Een videobestand uploaden.
-3. Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden.
-4. De asset publiceren en URL's voor streamen en progressief downloaden ophalen.  
+3. Hallo-bronbestand coderen in een set adaptive bitrate MP4-bestanden.
+4. Hallo asset publiceren en get streamen en progressief downloaden van URL's.  
 5. Uw inhoud afspelen.
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie leert u een eenvoudige toepassing voor de levering van VoD-inhoud (Video-on-Demand) te implementeren met Azure Media Services door gebruik te maken van de Azure Media Services (AMS) SDK voor .NET.
+In deze zelfstudie wordt u begeleid Hallo stappen voor het implementeren van een eenvoudige (VoD) leveren van inhoud toepassing met Azure Media Services (AMS) SDK voor .NET.
 
-In deze zelfstudie maakt u kennis met de algemene werkstroom voor Media Services en de meest algemene programmeerobjecten en -taken die zijn vereist voor het ontwikkelen van Media Services. Wanneer u de zelfstudie hebt voltooid, kunt u een voorbeeldmediabestand streamen of progressief downloaden dat u hebt eerder hebt geüpload, gecodeerd of gedownload.
+Hallo-zelfstudie introduceert Hallo basiswerkstroom Media Services en de meest algemene programmeerobjecten Hallo en taken die zijn vereist voor het ontwikkelen van Media Services. Bij voltooiing Hallo Hallo zelfstudie, wordt u kunnen toostream of progressief downloaden van media met een voorbeeldbestand die geüpload, gecodeerd en gedownload.
 
 ### <a name="ams-model"></a>AMS-model
 
-In de volgende afbeelding ziet u een aantal van de meest gebruikte objecten bij het ontwikkelen van VoD-toepassingen in het Media Services OData-model.
+Hello volgende afbeelding ziet u enkele van de meest gebruikte Hallo objecten wanneer VoD toepassingen ontwikkelt voor Hallo Media Services OData-model.
 
-Klik op de afbeelding om deze in volledig formaat weer te geven.  
+Klik op Hallo installatiekopie tooview het maximale grootte.  
 
 <a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-U kunt [hier](https://media.windows.net/API/$metadata?api-version=2.15) het hele model bekijken.  
+U kunt hele model Hallo weergeven [hier](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Streaming-eindpunten starten met behulp van Azure Portal
+## <a name="start-streaming-endpoints-using-hello-azure-portal"></a>Start de streaming-eindpunten met hello Azure-portal
 
-Bij het werken met Azure Media Services wordt video meestal via Adaptive Bitrate Streaming geleverd. Media Services biedt dynamische pakketten waarmee u uw Adaptive Bitrate MP4-inhoud 'just in time' kunt leveren in de streaming-indelingen die door Media Services worden ondersteund (MPEG DASH, HLS, Smooth Streaming), zonder dat u vooraf verpakte versies van elk van deze streaming-indelingen hoeft op te slaan.
+Als u werkt met Azure Media Services is een van de meest voorkomende scenario's Hallo leveren van video via adaptive bitrate streaming. Media Services biedt dynamische pakketten zodat u toodeliver uw adaptive bitrate MP4-inhoud in de streaming-indelingen die worden ondersteund door Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, zonder dat u vooraf verpakte toostore hoeft versies van elk van deze streaming-indelingen.
 
 >[!NOTE]
->Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben.
+>Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status.
 
-U start het streaming-eindpunt als volgt:
+toostart Hallo streaming-eindpunt, Hallo te volgen:
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/).
-2. Klik in het venster Instellingen op Streaming-eindpunten.
-3. Klik op het standaardstreaming-eindpunt.
+1. Aanmelden op Hallo [Azure-portal](https://portal.azure.com/).
+2. Klik in het venster Instellingen Hallo, Streaming-eindpunten.
+3. Klik op Hallo standaardstreaming-eindpunt.
 
-    Het venster DETAILS VAN STANDAARDSTREAMING-EINDPUNT wordt weergegeven.
+    Hallo DEFAULT STREAMING ENDPOINT DETAILS venster wordt weergegeven.
 
-4. Klik op het pictogram Start.
-5. Klik op de knop Opslaan om uw wijzigingen op te slaan.
+4. Klik op Hallo Start pictogram.
+5. Klik op Hallo opslaan knop toosave uw wijzigingen.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-1. Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
-2. Maak een nieuwe map (deze kan overal op uw lokaal station zijn opgeslagen) en kopieer een MP4-bestand dat u wilt coderen en streamen of progressief wilt downloaden. In dit voorbeeld wordt het pad C:\VideoFiles gebruikt.
+1. Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
+2. Maak een nieuwe map (map kan zich ergens op uw lokale schijf) en kopieer een MP4-bestand dat u tooencode en streamen wilt of progressief te downloaden. In dit voorbeeld wordt Hallo 'C:\VideoFiles' pad gebruikt.
 
-## <a name="connect-to-the-media-services-account"></a>Verbinding met het Azure Media Services-account maken
+## <a name="connect-toohello-media-services-account"></a>Verbinding maken met toohello Media Services-account
 
-Als u Media Services gebruikt met .NET, moet u voor de meeste Media Services-programmeertaken de klasse **CloudMediaContext** gebruiken: verbinding maken met het Media Services-account; maken, bijwerken, gebruiken en verwijderen van de volgende objecten: assets, assetbestanden, taken, toegangsbeleid, locators enzovoort.
+Wanneer u Media Services met .NET, moet u Hallo **CloudMediaContext** klasse voor de meeste Media Services-programmeertaken: verbinding maken met tooMedia Services-account; maken, bijwerken, gebruiken en verwijderen van de volgende Hallo objecten: assets, assetbestanden, taken, toegangsbeleid, locators, enzovoort.
 
-Overschrijf de standaardklasse Program met de volgende code. De code laat zien u hoe de verbindingswaarden in het bestand App.config kunt lezen en hoe u het object **CloudMediaContext** maakt om verbinding met Media Services te maken. Zie [Verbinding maken met de Media Services-API](media-services-use-aad-auth-to-access-ams-api.md) voor meer informatie.
+Hallo standaardklasse Program met Hallo volgende code worden overschreven. Hallo code laat zien hoe tooread hello uit Hallo App.config-bestand verbindingswaarden en hoe toocreate hello **CloudMediaContext** Services-object in de volgorde tooconnect tooMedia. Zie voor meer informatie [toohello Media Services-API verbinden](media-services-use-aad-auth-to-access-ams-api.md).
 
-Zorg ervoor dat de bestandsnaam en het pad waar u het media-bestand hebt opgeslagen, zijn bijgewerkt.
+Zorg ervoor dat tooupdate Hallo bestand naam en pad toowhere die u hebt uw mediabestand.
 
-Met de functie **Main** worden methoden aangeroepen die later in deze sectie verder worden gedefinieerd.
+Hallo **Main** functie methoden aangeroepen die worden gedefinieerd in deze sectie verder.
 
 > [!NOTE]
-> Er worden compilatiefouten geretourneerd totdat u definities hebt toegevoegd voor alle functies.
+> U wordt worden ophalen compilatiefouten totdat u de definities voor alle Hallo functies toevoegt.
 
     class Program
     {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -114,8 +114,8 @@ Met de functie **Main** worden methoden aangeroepen die later in deze sectie ver
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Add calls to methods defined in this section.
-            // Make sure to update the file name and path to where you have your media file.
+            // Add calls toomethods defined in this section.
+            // Make sure tooupdate hello file name and path toowhere you have your media file.
             IAsset inputAsset =
             UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -126,7 +126,7 @@ Met de functie **Main** worden methoden aangeroepen die later in deze sectie ver
         }
         catch (Exception exception)
         {
-            // Parse the XML error message in the Media Services response and create a new
+            // Parse hello XML error message in hello Media Services response and create a new
             // exception with its content.
             exception = MediaServicesExceptionParser.Parse(exception);
 
@@ -141,23 +141,23 @@ Met de functie **Main** worden methoden aangeroepen die later in deze sectie ver
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Een nieuwe asset maken en een videobestand uploaden
 
-In Media Services moet u uw digitale bestanden uploaden naar (of opnemen in) een asset. De entiteit **Asset** kan video, audio, afbeeldingen, verzamelingen miniaturen, tekstsporen en ondertitelingsbestanden (en de metagegevens over deze bestanden) bevatten.  Zodra de bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in de cloud voor verdere verwerking en streaming. De bestanden in de asset worden **assetbestanden** genoemd.
+In Media Services moet u uw digitale bestanden uploaden naar (of opnemen in) een asset. Hallo **Asset** entiteit kan bevatten, video, audio, afbeeldingen, verzamelingen miniaturen, tekst tekstsporen en ondertitelingsbestanden bestanden (en Hallo metagegevens over deze bestanden.)  Zodra het Hallo-bestanden zijn geüpload, wordt uw inhoud veilig opgeslagen in Hallo cloud voor verdere verwerking en streaming. Hallo-bestanden in Hallo asset heten **Assetbestanden**.
 
-Met de methode **UploadFile**, zoals hieronder gedefinieerd, wordt **CreateFromFile** (gedefinieerd in .NET SDK Extensions) aangeroepen. Met **CreateFromFile** wordt een nieuwe asset gemaakt waarnaar het opgegeven bestand wordt geüpload.
+Hallo **UploadFile** methode die is gedefinieerd onder aanroepen **CreateFromFile** (gedefinieerd in .NET SDK Extensions). **CreateFromFile** maakt een nieuwe asset in welke Hallo opgegeven bestand is geüpload.
 
-De methode **CreateFromFile** maakt gebruik van **AssetCreationOptions**, waarmee u een van de volgende opties voor het maken van assets kunt opgeven:
+Hallo **CreateFromFile** methode vergt **AssetCreationOptions** waarmee u kunt een van de volgende opties voor het maken van asset Hallo opgeven:
 
-* **Geen**: er wordt geen versleuteling gebruikt. Dit is de standaardwaarde. Houd er rekening mee dat bij gebruik van deze optie de inhoud tijdens de overdracht of in de opslag niet is beveiligd.
-  Als u een MP4-bestand wilt leveren via progressief downloaden, gebruikt u deze optie.
-* **StorageEncrypted**: gebruik deze optie om uw niet-versleutelde inhoud lokaal te versleutelen met Advanced Encryption Standard (AES) 256-bitsversleuteling, waarna de inhoud wordt geüpload naar en versleuteld wordt bewaard in Azure Storage. De versleuteling van assets die zijn beveiligd met Storage Encryption, wordt automatisch ongedaan gemaakt en de assets worden automatisch in een versleuteld bestandssysteem geplaatst voordat ze worden gecodeerd. Eventueel kunnen ze opnieuw worden versleuteld voordat ze opnieuw worden geüpload als een nieuwe uitvoerasset. Storage Encryption wordt voornamelijk gebruikt om uw invoerbestanden met media van hoge kwaliteit die zijn opgeslagen op de schijf, te beveiligen met een sterke versleuteling.
+* **Geen**: er wordt geen versleuteling gebruikt. Dit is de standaardwaarde Hallo. Houd er rekening mee dat bij gebruik van deze optie de inhoud tijdens de overdracht of in de opslag niet is beveiligd.
+  Als u van plan toodeliver een MP4 via progressief downloaden bent, moet u deze optie gebruiken.
+* **StorageEncrypted** -Gebruik deze optie tooencrypt versleutelde inhoud lokaal met Advanced Encryption Standard (AES) 256-bitsversleuteling, die geüpload en tooAzure opslag wordt bewaard in rust versleuteld. Automatisch worden beveiligd met Storage Encryption activa niet-versleuteld en geplaatst in een versleuteld bestand system eerdere tooencoding en eventueel opnieuw versleutelde voorafgaande toouploading weer als een nieuwe uitvoerasset. Hallo primaire gebruiksvoorbeeld voor versleuteling van opslag is wanneer u dat deze toosecure invoer van hoge kwaliteit mediabestanden met een sterke codering in rust op schijf.
 * **CommonEncryptionProtected**: gebruik deze optie als u inhoud uploadt die al is versleuteld en beveiligd met Common Encryption of PlayReady DRM (bijvoorbeeld Smooth Streaming beveiligd met PlayReady DRM).
-* **EnvelopeEncryptionProtected**: gebruik deze optie als u een HLS-stream uploadt die is versleuteld met AES. Houd er rekening mee dat de bestanden moeten zijn gecodeerd en versleuteld door Transform Manager.
+* **EnvelopeEncryptionProtected**: gebruik deze optie als u een HLS-stream uploadt die is versleuteld met AES. Houd er rekening mee dat Hallo bestanden moeten zijn gecodeerd en versleuteld door Transform Manager.
 
-Met de methode **CreateFromFile** kunt u ook een retouraanroep opgeven om de uploadvoortgang van het bestand te rapporteren.
+Hallo **CreateFromFile** methode kunt u een retouraanroep opgeven in de volgorde tooreport hello uploadvoortgang van Hallo-bestand.
 
-In het volgende voorbeeld is voor de assetopties de waarde **Geen** opgegeven.
+In Hallo voorbeeld te volgen, geven we **geen** voor Hallo assetopties.
 
-Voeg de volgende methode toe aan de klasse Program.
+Hallo na methode toohello programma klasse toevoegen.
 
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
@@ -175,23 +175,23 @@ Voeg de volgende methode toe aan de klasse Program.
     }
 
 
-## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Het bronbestand coderen in een set Adaptive Bitrate MP4-bestanden
-Nadat assets zijn opgenomen in Media Services, kan de media worden gecodeerd, transmuxed, van een watermerk worden voorzien enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd. Elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand.
+## <a name="encode-hello-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Hallo-bronbestand coderen in een set adaptive bitrate MP4-bestanden
+Nadat assets in Media Services, kan de media worden gecodeerd, transmuxed, een watermerk, enzovoort, voordat deze tooclients wordt afgeleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrond rol exemplaren tooensure hoge prestaties en beschikbaarheid. Deze activiteiten worden taken genoemd, en elke taak bestaat uit atomische taken die daadwerkelijk werken op Hallo assetbestand Hallo.
 
-Zoals eerder al is aangegeven, wordt bij het werken met Azure Media Services meestal Adaptive Bitrate Streaming aan de clients geleverd. Met Media Services kunt u een dynamisch pakket met een van de volgende indelingen van MP4-bestanden met een adaptieve bitsnelheid maken: HTTP Live Streaming (HLS), Smooth Streaming en MPEG DASH.
+Zoals is eerder vermeld, als u werkt met Azure Media Services is een van de meest voorkomende scenario's Hallo adaptive bitrate streaming-tooyour clients leveren. Media Services kunt u een dynamisch pakket een set adaptive bitrate MP4-bestanden in een van de volgende indelingen Hallo: HTTP Live Streaming (HLS), Smooth Streaming- en MPEG DASH.
 
-Als u gebruik wilt maken van dynamische pakketten, moet u uw tussentijds (bron)bestand (trans)coderen naar een set MP4-bestanden met een adaptieve bitsnelheid of naar Smooth Streaming-bestanden met een adaptieve bitsnelheid.  
+tootake profiteren van dynamische pakketten hoeft u tooencode of transcodeer uw tussentijds (bron) bestand in een set adaptive bitrate MP4-bestanden of adaptive bitrate Smooth Streaming-bestanden.  
 
-De volgende code toont u hoe u een codeertaak verzendt. De taak bevat één taak die aangeeft dat het tussentijdse bestand met **Media Encoder Standard** moet worden getranscodeerd in een set MP4-bestanden met een adaptieve bitsnelheid. De code verzendt de taak en wacht totdat de taak is voltooid.
+Hallo volgende code toont hoe een codering toosubmit taak. Hallo taak bevat één taak die aangeeft dat tootranscode Hallo tussentijds bestand in een set adaptive bitrate MP4s met behulp van **Media Encoder Standard**. Hallo code verzendt Hallo taak en wacht totdat deze is voltooid.
 
-Zodra de taak is voltooid, kunt u uw asset streamen of MP4-bestanden die zijn gemaakt naar aanleiding van een transcodering progressief downloaden.
+Als het Hallo-taak is voltooid, zou u kunnen toostream worden uw asset of MP4-bestanden die zijn gemaakt als gevolg van een transcodering progressief downloaden.
 
-Voeg de volgende methode toe aan de klasse Program.
+Hallo na methode toohello programma klasse toevoegen.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
-        // Prepare a job with a single task to transcode the specified asset
+        // Prepare a job with a single task tootranscode hello specified asset
         // into a multi-bitrate asset.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
@@ -204,7 +204,7 @@ Voeg de volgende methode toe aan de klasse Program.
         Console.WriteLine("Submitting transcoding job...");
 
 
-        // Submit the job and wait until it is completed.
+        // Submit hello job and wait until it is completed.
         job.Submit();
 
         job = job.StartExecutionProgressTask(
@@ -222,40 +222,40 @@ Voeg de volgende methode toe aan de klasse Program.
         return outputAsset;
     }
 
-## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>De asset publiceren en URL's ophalen voor streamen en progressief downloaden
+## <a name="publish-hello-asset-and-get-urls-for-streaming-and-progressive-download"></a>Hallo asset publiceren en URL's voor streamen en progressief downloaden ophalen
 
-Als u een asset wilt streamen of downloaden, moet u deze eerste publiceren door een locator te maken. Locators bieden toegang tot bestanden in de asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, voor het streamen van media (bijvoorbeeld MPEG DASH, HLS, of Smooth Streaming), en SAS-locators (Shared Access Signature), voor het downloaden van mediabestanden. (Ga naar [dit](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog voor meer informatie over SAS-locators.)
+toostream of download een asset, u eerst moet te 'publiceren' door een locator te maken. Locators bieden toegang toofiles opgenomen in Hallo asset. Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, gebruikte toostream media (bijvoorbeeld MPEG DASH, HLS of Smooth Streaming) en Access Signature (SAS)-locators, gebruikt media-bestanden (voor meer informatie over SAS-locators Zie toodownload[dit](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
 
 ### <a name="some-details-about-url-formats"></a>Details over URL-indelingen
 
-Nadat u de locators hebt gemaakt, kunt u de URL's maken die worden gebruikt om uw bestanden te streamen of te downloaden. In het voorbeeld in deze zelfstudie worden URL's geretourneerd die u in de juiste browsers kunt plakken. Deze sectie bevat korte voorbeelden van hoe verschillende indelingen er uitzien.
+Nadat u Hallo locators hebt gemaakt, kunt u Hallo-URL's die zouden worden gebruikte toostream of uw bestanden downloaden. Hallo voorbeeld in deze zelfstudie wordt de URL's die u in de juiste browsers plakken kunt uitvoer. Deze sectie bevat korte voorbeelden van hoe verschillende indelingen er uitzien.
 
-#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Een streaming-URL voor MPEG DASH heeft de volgende indeling:
+#### <a name="a-streaming-url-for-mpeg-dash-has-hello-following-format"></a>Een streaming-URL voor MPEG DASH heeft Hallo volgende indeling:
 
 {streaming-eindpuntnaam-media services-accountnaam}.streaming.mediaservices.windows.net/{locator-id}/{bestandsnaam}.ism/Manifest**(format=mpd-time-csf)**
 
-#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Een streaming-URL voor HLS heeft de volgende indeling:
+#### <a name="a-streaming-url-for-hls-has-hello-following-format"></a>Een streaming-URL voor HLS heeft Hallo volgende indeling:
 
 {streaming-eindpuntnaam-media services-accountnaam}.streaming.mediaservices.windows.net/{locator-id}/{bestandsnaam}.ism/Manifest**(format=m3u8-aapl)**
 
-#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Een streaming-URL voor Smooth Streaming heeft de volgende indeling:
+#### <a name="a-streaming-url-for-smooth-streaming-has-hello-following-format"></a>Een streaming-URL voor Smooth Streaming heeft Hallo volgende indeling:
 
 {streaming-eindpuntnaam-media services-accountnaam}.streaming.mediaservices.windows.net/{locator-id}/{bestandsnaam}.ism/Manifest
 
 
-#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Een SAS-URL die wordt gebruikt om bestanden te downloaden, heeft de volgende indeling:
+#### <a name="a-sas-url-used-toodownload-files-has-hello-following-format"></a>Een SAS-URL gebruikt toodownload bestanden heeft Hallo volgende indeling:
 
 {blobcontainernaam}/{assetname}/{bestandsnaam}/{SAS-handtekening}
 
-Media Services .NET SDK Extensions bieden handige Help-methoden die ingedeelde URL's voor de gepubliceerde asset retourneren.
+Media Services .NET SDK extensions bieden handige Help-methoden dat return URL's voor Hallo indeling gepubliceerde asset.
 
-De volgende code gebruikt .NET SDK Extensions om locators te maken en URL's op te halen die u kunt gebruiken om te streamen of progressief te downloaden. De code toont u ook hoe u bestanden downloadt naar een lokale map.
+Hallo volgende code gebruikt .NET SDK Extensions toocreate locators en tooget streamen en progressief downloaden van URL's. Hallo code toont u ook hoe toodownload bestanden tooa lokale map.
 
-Voeg de volgende methode toe aan de klasse Program.
+Hallo na methode toohello programma klasse toevoegen.
 
     static public void PublishAssetGetURLs(IAsset asset)
     {
-        // Publish the output asset by creating an Origin locator for adaptive streaming,
+        // Publish hello output asset by creating an Origin locator for adaptive streaming,
         // and a SAS locator for progressive download.
 
         _context.Locators.Create(
@@ -276,30 +276,30 @@ Voeg de volgende methode toe aan de klasse Program.
                 .ToList()
                 .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
 
-        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
-        // and the Progressive Download URL.
+        // Get hello Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
+        // and hello Progressive Download URL.
         Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
 
-        // Get the URls for progressive download for each MP4 file that was generated as a result
+        // Get hello URls for progressive download for each MP4 file that was generated as a result
         // of encoding.
         List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
 
-        // Display  the streaming URLs.
-        Console.WriteLine("Use the following URLs for adaptive streaming: ");
+        // Display  hello streaming URLs.
+        Console.WriteLine("Use hello following URLs for adaptive streaming: ");
         Console.WriteLine(smoothStreamingUri);
         Console.WriteLine(hlsUri);
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
-        // Display the URLs for progressive download.
-        Console.WriteLine("Use the following URLs for progressive download.");
+        // Display hello URLs for progressive download.
+        Console.WriteLine("Use hello following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
 
-        // Download the output asset to a local folder.
+        // Download hello output asset tooa local folder.
         string outputFolder = "job-output";
         if (!Directory.Exists(outputFolder))
         {
@@ -307,7 +307,7 @@ Voeg de volgende methode toe aan de klasse Program.
         }
 
         Console.WriteLine();
-        Console.WriteLine("Downloading output asset files to a local folder...");
+        Console.WriteLine("Downloading output asset files tooa local folder...");
         asset.DownloadToFolder(
             outputFolder,
             (af, p) =>
@@ -320,7 +320,7 @@ Voeg de volgende methode toe aan de klasse Program.
 
 ## <a name="test-by-playing-your-content"></a>Testen door uw inhoud af te spelen
 
-Zodra u het programma uitvoert dat in de vorige sectie is gedefinieerd, worden er URL's in het consolevenster weergegeven die vergelijkbaar zijn met de volgende URL's.
+Zodra u gedefinieerd in de vorige sectie Hallo Hallo-programma uitvoert, Hallo vergelijkbare toohello volgende wordt weergegeven in het consolevenster Hallo URL's.
 
 URL's voor adaptief streamen:
 
@@ -355,18 +355,18 @@ URL's voor progressief downloaden (audio en video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Plak de URL in het URL-tekstvak in de [Azure Media Services-speler](http://amsplayer.azurewebsites.net/azuremediaplayer.html) om de video te streamen.
+toostream uw video plak de URL in Hallo URL textbox in Hallo [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-Als u het progressief downloaden wilt testen, plakt u een URL in een browser (bijvoorbeeld Internet Explorer, Chrome of Safari).
+tootest progressief downloaden, plakt u een URL in een browser (bijvoorbeeld Internet Explorer, Chrome of Safari).
 
-Zie de volgende onderwerpen voor meer informatie:
+Zie de volgende onderwerpen Hallo voor meer informatie:
 
 - [Uw inhoud afspelen op bestaande spelers](media-services-playback-content-with-existing-players.md)
 - [Videospelertoepassingen ontwikkelen](media-services-develop-video-players.md)
 - [Een adaptieve MPEG-DASH-videostream insluiten in een HTML5-toepassing met DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Voorbeeld downloaden
-Het volgende voorbeeld bevat de code die u hebt gemaakt in deze zelfstudie: [voorbeeld](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Hallo codevoorbeeld Hallo-code bevat die u hebt gemaakt in deze zelfstudie: [voorbeeld](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

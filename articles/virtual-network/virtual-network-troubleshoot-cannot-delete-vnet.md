@@ -1,6 +1,6 @@
 ---
-title: Een virtueel netwerk in Azure niet verwijderen | Microsoft Docs
-description: Informatie over het oplossen van het probleem waarin u een virtueel netwerk in Azure niet verwijderen.
+title: aaaCannot verwijdert een virtueel netwerk in Azure | Microsoft Docs
+description: Meer informatie over hoe tootroubleshoot Hallo probleem waarin u een virtueel netwerk in Azure niet verwijderen.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -14,70 +14,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: genli
-ms.openlocfilehash: 55c42a91bb1c5fad289b975ffae8ce4d6e7343dd
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: a9050ab238ccb0380fd46130430222efb8f42388
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Voor probleemoplossing: Kan niet verwijderen van een virtueel netwerk in Azure
+# <a name="troubleshooting-failed-toodelete-a-virtual-network-in-azure"></a>Voor probleemoplossing: Een virtueel netwerk in Azure toodelete mislukt
 
-Fouten kan worden weergegeven wanneer u probeert te verwijderen van een virtueel netwerk in Microsoft Azure. Dit artikel bevat de stappen voor probleemoplossing waarmee u kunt dit probleem oplossen. 
+Fouten kan worden weergegeven wanneer u toodelete een virtueel netwerk in Microsoft Azure probeert. In dit artikel voor probleemoplossing stappen toohelp vindt u dit probleem oplossen. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-guidance"></a>Hulp bij het oplossen van problemen 
 
-1. [Controleer of een virtuele netwerkgateway actief is in het virtuele netwerk](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
-2. [Controleer of een application gateway actief is in het virtuele netwerk](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Controleer of de Azure Active Directory Domain Services is ingeschakeld in het virtuele netwerk](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Controleer of het virtuele netwerk is verbonden met andere resources](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Controleer of een virtuele machine nog steeds actief is in het virtuele netwerk](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Controleer of het virtuele netwerk is vastgelopen bij migratie](#check-whether-the-virtual-network-is-stuck-in-migration).
+1. [Controleer of een virtuele netwerkgateway actief is in het virtuele netwerk Hallo](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Controleer of een application gateway actief is in het virtuele netwerk Hallo](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+3. [Controleer of de Azure Active Directory Domain Services is ingeschakeld in het virtuele netwerk Hallo](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+4. [Controleer of Hallo virtueel netwerk verbonden tooother resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
+5. [Controleer of een virtuele machine nog steeds actief is in het virtuele netwerk Hallo](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+6. [Controleer of het virtuele netwerk Hallo is vastgelopen bij migratie](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 
-### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Controleer of een virtuele netwerkgateway actief is in het virtuele netwerk
+### <a name="check-whether-a-virtual-network-gateway-is-running-in-hello-virtual-network"></a>Controleer of een virtuele netwerkgateway actief is in het virtuele netwerk Hallo
 
-Als u wilt verwijderen van het virtuele netwerk, moet u eerst de virtuele netwerkgateway verwijderen.
+tooremove hello virtueel netwerk, moet u eerst de virtuele netwerkgateway Hallo verwijderen.
 
-Voor klassieke virtuele netwerken, gaat u naar de **overzicht** pagina van het klassieke virtuele netwerk in de Azure-portal. In de **VPN-verbindingen** sectie, als de gateway wordt uitgevoerd in het virtuele netwerk, ziet u het IP-adres van de gateway. 
+Ga voor klassieke virtuele netwerken toohello **overzicht** pagina van Hallo klassiek virtueel netwerk in hello Azure-portal. In Hallo **VPN-verbindingen** sectie, als Hallo gateway wordt uitgevoerd in het virtuele netwerk hello, ziet u Hallo IP-adres van het Hallo-gateway. 
 
 ![Controleer of de gateway is actief](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-Voor virtuele netwerken, gaat u naar de **overzicht** pagina van het virtuele netwerk. Controleer **verbonden apparaten** voor de virtuele netwerkgateway.
+Ga voor virtuele netwerken, toohello **overzicht** pagina van het virtuele netwerk Hallo. Controleer **verbonden apparaten** voor de virtuele netwerkgateway Hallo.
 
-![Controleer het aangesloten apparaat](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Hallo aangesloten apparaat controleren](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
-Voordat u de gateway verwijderen kunt, eerste Verwijder een **verbinding** objecten in de gateway. 
+Voordat u Hallo gateway verwijderen kunt, eerste Verwijder een **verbinding** objecten in het Hallo-gateway. 
 
-### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Controleer of een application gateway actief is in het virtuele netwerk
+### <a name="check-whether-an-application-gateway-is-running-in-hello-virtual-network"></a>Controleer of een application gateway actief is in het virtuele netwerk Hallo
 
-Ga naar de **overzicht** pagina van het virtuele netwerk. Controleer de **verbonden apparaten** voor de toepassingsgateway.
+Ga toohello **overzicht** pagina van het virtuele netwerk Hallo. Controleer de Hallo **verbonden apparaten** voor Hallo application gateway.
 
-![Controleer het aangesloten apparaat](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Hallo aangesloten apparaat controleren](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-Als er een application gateway, moet u deze verwijderen voordat u het virtuele netwerk kunt verwijderen.
+Als er een application gateway, moet u deze verwijderen voordat u het virtuele netwerk Hallo kunt verwijderen.
 
-### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Controleer of de Azure Active Directory Domain Services is ingeschakeld in het virtuele netwerk
+### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-hello-virtual-network"></a>Controleer of de Azure Active Directory Domain Services is ingeschakeld in het virtuele netwerk Hallo
 
-Als de Active Directory Domain Services is ingeschakeld en met het virtuele netwerk verbonden, kunt u dit virtuele netwerk niet verwijderen. 
+Als Hallo Active Directory Domain Services ingeschakeld en verbonden toohello virtueel netwerk is, kunt u dit virtuele netwerk niet verwijderen. 
 
-![Controleer het aangesloten apparaat](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Hallo aangesloten apparaat controleren](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Schakel de service de volgende stappen uit:
+toodisable Hallo service, als volgt te werk:
 
-1. Ga naar de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer in het linkerdeelvenster **Active Directory**.
-3. Selecteer de map voor Azure Active Directory (Azure AD) met Active Directory Domain Services is ingeschakeld.
-4. Selecteer de tab **Configureren**.
-5. Onder **domeinservices**, wijzig de **domeinservices inschakelen voor deze map** optie naar **Nee**.  
+1. Ga toohello [klassieke Azure-portal](https://manage.windowsazure.com).
+2. Selecteer in het linkerdeelvenster Hallo **Active Directory**.
+3. Selecteer hello Azure Active Directory (Azure AD) directory met Active Directory Domain Services is ingeschakeld.
+4. Selecteer Hallo **configureren** tabblad.
+5. Onder **domeinservices**, Hallo wijzigen **domeinservices inschakelen voor deze map** te optie**Nee**.  
 
-### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Controleer of het virtuele netwerk is verbonden met andere resources
+### <a name="check-whether-hello-virtual-network-is-connected-tooother-resource"></a>Controleer of Hallo virtueel netwerk verbonden tooother resource
 
-Controleren op Circuitkoppelingen, verbindingen en virtuele netwerk peerings. Deze kan leiden tot een virtueel netwerk verwijderen is mislukt. 
+Controleren op Circuitkoppelingen, verbindingen en virtuele netwerk peerings. Elk van deze waarden kan een virtueel netwerk verwijdering toofail veroorzaken. 
 
-De volgorde van de aanbevolen verwijdering is als volgt:
+Hallo is aanbevolen verwijdering volgorde als volgt:
 
 1. Gatewayverbindingen
 2. Gateways
@@ -85,13 +85,13 @@ De volgorde van de aanbevolen verwijdering is als volgt:
 4. Virtueel netwerk peerings
 5. App Service-omgeving (as-omgeving)
 
-### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Controleer of een virtuele machine nog steeds actief is in het virtuele netwerk
+### <a name="check-whether-a-virtual-machine-is-still-running-in-hello-virtual-network"></a>Controleer of een virtuele machine nog steeds actief is in het virtuele netwerk Hallo
 
-Zorg ervoor dat er geen virtuele machine zich in het virtuele netwerk.
+Zorg ervoor dat er geen virtuele machine in het virtuele netwerk Hallo is.
 
-### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Controleer of het virtuele netwerk is vastgelopen bij migratie
+### <a name="check-whether-hello-virtual-network-is-stuck-in-migration"></a>Controleer of het virtuele netwerk Hallo is vastgelopen bij migratie
 
-Als het virtuele netwerk is vastgelopen in de migratiestatus van een, kan niet worden verwijderd. Voer de volgende opdracht om af te breken van de migratie en verwijder vervolgens het virtuele netwerk.
+Als het virtuele netwerk Hallo is vastgelopen in de migratiestatus van een, kan niet worden verwijderd. Hallo na de opdracht tooabort Hallo migratie uitvoeren en verwijder vervolgens Hallo virtueel netwerk.
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 

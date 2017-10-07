@@ -1,5 +1,5 @@
 ---
-title: Azure Mobile Engagement iOS SDK Upgrade Procedure | Microsoft Docs
+title: Mobile Engagement iOS SDK Upgrade Procedure aaaAzure | Microsoft Docs
 description: Meest recente updates en procedures voor iOS SDK voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,23 +14,23 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5a81bcaaec72aec665b3334e6400d520454d56a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upgrade-procedures"></a>Upgradeprocedures
-Als u hebt al een oudere versie van Engagement geïntegreerd in uw toepassing, hebt u de volgende punten overwegen bij het upgraden van de SDK.
+Als u hebt al een oudere versie van Engagement geïntegreerd in uw toepassing, hebt u tooconsider Hallo volgende punten bij het upgraden van Hallo SDK.
 
-Voor elke nieuwe versie van de SDK moet u eerst vervangen (verwijderen en opnieuw te importeren in xcode) de mappen EngagementSDK en EngagementReach.
+Voor elke nieuwe versie van Hallo SDK moet u eerst vervangen (verwijderen en opnieuw te importeren in xcode) Hallo EngagementSDK en EngagementReach mappen.
 
-## <a name="from-300-to-400"></a>Van 3.0.0 naar 4.0.0
+## <a name="from-300-too400"></a>Van 3.0.0 too4.0.0
 ### <a name="xcode-8"></a>XCode 8
-XCode 8 is verplicht vanaf versie 4.0.0 van de SDK.
+XCode 8 is verplicht vanaf versie 4.0.0 Hallo SDK.
 
 > [!NOTE]
-> Als u echt afhankelijk van XCode 7 zijn en u kunt de [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Er is een bekend probleem in de vorige versie van de reach-module tijdens het uitvoeren van op iOS-10-apparaten: Er zijn geen kennisgevingen systeem waarop actie is ondernomen. Om op te lossen dit er voor het implementeren van de afgeschafte API `application:didReceiveRemoteNotification:` in uw app delegeren als volgt:
+> Als u echt XCode 7 afhankelijk wordt u Hallo [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Er is een bekend probleem op Hallo reach-module van de vorige versie bij het uitvoeren op iOS-10-apparaten: Er zijn geen kennisgevingen systeem waarop actie is ondernomen. toofix dit hebt u tooimplement Hallo API afgeschaft `application:didReceiveRemoteNotification:` in uw app delegeren als volgt:
 > 
 > 
 
@@ -41,22 +41,22 @@ XCode 8 is verplicht vanaf versie 4.0.0 van de SDK.
     }
 
 > [!IMPORTANT]
-> **Deze tijdelijke oplossing wordt niet aanbevolen** zoals dit gedrag in een toekomstige (zelfs secundaire) iOS-versie-upgrade wijzigen kunt omdat deze API voor iOS is afgeschaft. U moet zo snel mogelijk overschakelen naar XCode 8.
+> **Deze tijdelijke oplossing wordt niet aanbevolen** zoals dit gedrag in een toekomstige (zelfs secundaire) iOS-versie-upgrade wijzigen kunt omdat deze API voor iOS is afgeschaft. Zo snel mogelijk moet u tooXCode 8 overschakelen.
 > 
 > 
 
 ### <a name="usernotifications-framework"></a>UserNotifications framework
-U wilt toevoegen de `UserNotifications` framework in uw fasen bouwen.
+U moet tooadd hello `UserNotifications` framework in uw fasen bouwen.
 
-uw project openen in de Projectverkenner en selecteert u het juiste doel. Open vervolgens de **'Buildfasen'** tabblad en in de **'Link Binary With Libraries'** menu framework toevoegen `UserNotifications.framework` -de koppeling als instellen`Optional`
+in Projectverkenner hello, opent u het deelvenster van uw project en selecteer Hallo juiste doel. Open vervolgens Hallo **'Buildfasen'** tabblad en in Hallo **'Link Binary With Libraries'** menu toevoegen framework `UserNotifications.framework` -set Hallo koppelen als`Optional`
 
 ### <a name="application-push-capability"></a>Toepassing push mogelijkheid
-XCode 8 opnieuw kunnen instellen voor uw app push mogelijkheid, Controleer of deze klopt de `capability` tabblad van het geselecteerde doel.
+XCode 8 opnieuw kunnen instellen voor uw app push mogelijkheid, Controleer of deze klopt in Hallo `capability` tabblad van het geselecteerde doel.
 
-### <a name="add-the-new-ios-10-notification-registration-code"></a>De nieuwe registratiecode voor iOS 10 melding toevoegen
-De oudere codefragment registreren van de app kan meldingen werkt nog maar afgeschaft API's gebruikt bij het uitvoeren op iOS 10.
+### <a name="add-hello-new-ios-10-notification-registration-code"></a>Hallo nieuwe iOS 10 kennisgeving registratiecode toevoegen
+Hallo oudere code codefragment tooregister Hallo app toonotifications werkt nog maar maakt gebruik van afgeschaft API's bij het uitvoeren op iOS 10.
 
-Importeer de `User Notification` framework:
+Importeren Hallo `User Notification` framework:
 
         #import <UserNotifications/UserNotifications.h> 
 
@@ -93,11 +93,11 @@ door:
 
 *Als uw toepassing noch een van de bibliotheken van de derde partij implementeert een `UNUserNotificationCenterDelegate` en vervolgens kunt u dit gedeelte overslaan.*
 
-Een `UNUserNotificationCenter` gemachtigde wordt gebruikt door de SDK voor het bewaken van de levenscyclus van de Engagement-meldingen op apparaten waarop iOS 10 of hoger. De SDK heeft een eigen implementatie van de `UNUserNotificationCenterDelegate` protocol, maar er mag slechts één `UNUserNotificationCenter` delegeren per toepassing. Geen andere gedelegeerde toegevoegd aan de `UNUserNotificationCenter` object met de Engagement een conflict veroorzaken. Als de SDK de of alle andere leveranciers gemachtigde detecteert wordt deze niet zijn eigen implementatie gebruiken om een waarschuwingsbericht geeft u de conflicten op te lossen. U moet de Engagement-logica toevoegen aan uw eigen gemachtigde om de conflicten oplossen.
+Een `UNUserNotificationCenter` gemachtigde wordt gebruikt door Hallo SDK toomonitor Hallo levenscyclus van de Engagement-meldingen op apparaten waarop iOS 10 of hoger. Hallo SDK heeft een eigen implementatie Hallo `UNUserNotificationCenterDelegate` protocol, maar er mag slechts één `UNUserNotificationCenter` delegeren per toepassing. Geen andere gedelegeerde toegevoegd toohello `UNUserNotificationCenter` object Hello Engagement een conflict veroorzaken. Als Hallo SDK uw of een andere leveranciers gemachtigde detecteert en maakt geen gebruik van een eigen implementatie toogive Hallo u een kans tooresolve conflicten. Hebt u tooadd Hallo Engagement logica tooyour eigenaar gemachtigde in volgorde tooresolve Hallo conflicten.
 
-Er zijn twee manieren om dit te bereiken.
+Er zijn twee manieren tooachieve dit.
 
-Voorstel 1, door de gemachtigde doorsturen aanroepen naar de SDK:
+Voorstel 1, door de gemachtigde doorsturen roept toohello SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -124,7 +124,7 @@ Voorstel 1, door de gemachtigde doorsturen aanroepen naar de SDK:
     }
     @end
 
-Of voorstel 2, door het overnemen van de `AEUserNotificationHandler` klasse
+Of voorstel 2, door het overnemen van Hallo `AEUserNotificationHandler` klasse
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -151,10 +151,10 @@ Of voorstel 2, door het overnemen van de `AEUserNotificationHandler` klasse
     @end
 
 > [!NOTE]
-> U kunt bepalen of een melding afkomstig van Engagement of niet door het doorgeven van is de `userInfo` woordenlijst met de Agent `isEngagementPushPayload:` klasse-methode.
+> U kunt bepalen of een melding afkomstig van Engagement of niet door het doorgeven van is de `userInfo` woordenlijst toohello Agent `isEngagementPushPayload:` klasse-methode.
 
-Zorg ervoor dat de `UNUserNotificationCenter` gemachtigde van het object is ingesteld op uw gemachtigde binnen ofwel de `application:willFinishLaunchingWithOptions:` of de `application:didFinishLaunchingWithOptions:` methode van de toepassingsgemachtigde van uw.
-Bijvoorbeeld, als u de bovenstaande voorstel 1 geïmplementeerd:
+Zorg ervoor dat Hallo `UNUserNotificationCenter` gemachtigde van het object is ingesteld tooyour gemachtigde binnen een Hallo `application:willFinishLaunchingWithOptions:` of Hallo `application:didFinishLaunchingWithOptions:` methode van de toepassingsgemachtigde van uw.
+Bijvoorbeeld, als u Hallo hierboven voorstel 1 geïmplementeerd:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
@@ -163,30 +163,30 @@ Bijvoorbeeld, als u de bovenstaande voorstel 1 geïmplementeerd:
         return YES;
       }
 
-## <a name="from-200-to-300"></a>Van 2.0.0 naar 3.0.0
-Ondersteuning voor iOS verwijderd 4.X. Vanaf deze versie van het implementatiedoel van uw toepassing moet ten minste iOS 6.
+## <a name="from-200-too300"></a>Van 2.0.0 too3.0.0
+Ondersteuning voor iOS verwijderd 4.X. Vanaf deze versie Hallo implementatiedoel van uw toepassing moet ten minste iOS 6.
 
-Als u van Reach in uw toepassing gebruikmaakt, moet u toevoegen `remote-notification` van waarde naar de `UIBackgroundModes` matrix in uw Info.plist-bestand om te kunnen externe meldingen ontvangen.
+Als u van Reach in uw toepassing gebruikmaakt, moet u toevoegen `remote-notification` waarde toohello `UIBackgroundModes` matrix in uw Info.plist-bestand in de volgorde tooreceive externe meldingen.
 
-De methode `application:didReceiveRemoteNotification:` moet worden vervangen door `application:didReceiveRemoteNotification:fetchCompletionHandler:` in uw toepassingsgemachtigde.
+Hallo methode `application:didReceiveRemoteNotification:` moet toobe vervangen door `application:didReceiveRemoteNotification:fetchCompletionHandler:` in uw toepassingsgemachtigde.
 
-'AEPushDelegate.h' is afgeschaft interface en u moet alle verwijzingen verwijderen. Dit omvat het verwijderen van `[[EngagementAgent shared] setPushDelegate:self]` en de methoden van de gemachtigde van uw toepassingsgemachtigde:
+'AEPushDelegate.h' is afgeschaft interface en u moet tooremove alle verwijzingen. Dit omvat het verwijderen van `[[EngagementAgent shared] setPushDelegate:self]` en Hallo delegeren methoden uit uw toepassingsgemachtigde:
 
     -(void)willRetrieveLaunchMessage;
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1160-to-200"></a>Van 1.16.0 naar 2.0.0
-De volgende beschrijft het migreren van een SDK-integratie van de service van Capptain SAS Capptain in een app die is aangedreven door Azure Mobile Engagement.
-Als u vanaf een eerdere versie migreert, raadpleegt u de Capptain-website om te migreren naar 1.16 eerst vervolgens toepassen van de volgende procedure.
+## <a name="from-1160-too200"></a>Van 1.16.0 too2.0.0
+Hallo hieronder wordt beschreven hoe toomigrate een SDK-integratie van Hallo Capptain service aangeboden door Capptain SAS in een app die is aangedreven door Azure Mobile Engagement.
+Als u vanaf een eerdere versie migreert, raadpleegt u eerst Hallo Capptain website toomigrate too1.16 vervolgens toepassing hello procedure te volgen.
 
 > [!IMPORTANT]
-> Capptain en Mobile Engagement zijn niet dezelfde services en de procedure die hieronder wordt alleen uitgelegd hoe u voor het migreren van de client-app. Migreren van de SDK in de app wordt niet uw gegevens migreren van de servers Capptain naar de Mobile Engagement-servers
+> Capptain en Mobile Engagement dezelfde services niet zijn Hallo en Hallo onderstaande procedure alleen illustreert hoe toomigrate Hallo client-app. Uw gegevens worden niet van Hallo Capptain servers toohello Mobile Engagement servers migreren Hallo SDK in Hallo-app gemigreerd
 > 
 > 
 
 ### <a name="agent"></a>Agent
-De methode `registerApp:` is vervangen door de nieuwe methode `init:`. Uw toepassingsgemachtigde dienovereenkomstig moeten worden bijgewerkt en verbindingsreeks gebruiken:
+Hallo methode `registerApp:` is vervangen door de nieuwe methode Hallo `init:`. Uw toepassingsgemachtigde dienovereenkomstig moeten worden bijgewerkt en verbindingsreeks gebruiken:
 
             - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             {
@@ -195,23 +195,23 @@ De methode `registerApp:` is vervangen door de nieuwe methode `init:`. Uw toepas
               [...]
             }
 
-SmartAd bijhouden is verwijderd uit de SDK die u hoeft te verwijderen van alle exemplaren van `AETrackModule` klasse
+SmartAd bijhouden is verwijderd uit de SDK die u zojuist tooremove alle exemplaren van hebt `AETrackModule` klasse
 
 ### <a name="class-name-changes"></a>Wijzigingen in de klasse naam
-Als onderdeel van de rebranding zijn er enkele klasse/bestandsnamen die moeten worden gewijzigd.
+Als onderdeel van het Hallo rebranding, zijn er enkele klasse/bestandsnamen die toobe gewijzigd moeten.
 
 Alle klassen die worden voorafgegaan door 'CP' worden met het voorvoegsel 'AE' gewijzigd.
 
 Voorbeeld:
 
-* `CPModule.h`is gewijzigd in `AEModule.h`.
+* `CPModule.h`de naam wordt gewijzigd te`AEModule.h`.
 
 Alle klassen die worden voorafgegaan door 'Capptain' worden met het voorvoegsel 'Engagement' gewijzigd.
 
 Voorbeelden:
 
-* De klasse `CapptainAgent` is gewijzigd in `EngagementAgent`.
-* De klasse `CapptainTableViewController` is gewijzigd in `EngagementTableViewController`.
-* De klasse `CapptainUtils` is gewijzigd in `EngagementUtils`.
-* De klasse `CapptainViewController` is gewijzigd in `EngagementViewController`.
+* Hallo klasse `CapptainAgent` wordt gewijzigd te`EngagementAgent`.
+* Hallo klasse `CapptainTableViewController` wordt gewijzigd te`EngagementTableViewController`.
+* Hallo klasse `CapptainUtils` wordt gewijzigd te`EngagementUtils`.
+* Hallo klasse `CapptainViewController` wordt gewijzigd te`EngagementViewController`.
 

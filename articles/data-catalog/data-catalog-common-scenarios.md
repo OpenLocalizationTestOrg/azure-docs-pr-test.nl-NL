@@ -1,6 +1,6 @@
 ---
-title: Azure Data Catalog algemene scenario's | Microsoft Docs
-description: Een overzicht van veelvoorkomende scenario's voor Azure Data Catalog, met inbegrip van de registratie en detectie van waardevolle gegevensbronnen, self-service business intelligence inschakelen en het vastleggen van bestaande kennis over gegevensbronnen en processen.
+title: algemene scenario's aaaAzure Data Catalog | Microsoft Docs
+description: Een overzicht van veelvoorkomende scenario's voor Azure Data Catalog, met inbegrip van Hallo registratie en detectie van waardevolle gegevensbronnen, self-service business intelligence inschakelen en vastleggen van bestaande kennis over gegevensbronnen en processen.
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,55 +15,55 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: e01e6fa3b9871541bf9573963ced05848a3726e3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a9bd222bcf85abc31621ce7c09264a399fbb7a4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Algemene scenario’s Azure Data Catalog
 Dit artikel biedt een algemene scenario's waar uw organisatie meer waarde niet ophalen uit de bestaande gegevensbronnen kan helpen om Azure Data Catalog.
 
 ## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: De registratie van centrale gegevensbronnen
-Organisaties hebben vaak veel waardevolle gegevensbronnen. Deze gegevensbronnen bevatten line-of-business, online transactieverwerking (OLTP-systemen)-systemen, Datawarehouses en business intelligence/analytics-databases. Het aantal systemen en de overlapping tussen deze twee, groeit doorgaans na verloop van tijd als nodig is en het bedrijf zelf zich verder via bijvoorbeeld fusies en aankopen ontwikkelen.
+Organisaties hebben vaak veel waardevolle gegevensbronnen. Deze gegevensbronnen bevatten line-of-business, online transactieverwerking (OLTP-systemen)-systemen, Datawarehouses en business intelligence/analytics-databases. het aantal systemen, Hallo en Hallo overlapping tussen deze twee, doorgaans na verloop van tijd neemt toe naarmate er nodig is en het Hallo-bedrijven zelf zich verder ontwikkelen via bijvoorbeeld fusies en aankopen.
 
-Het kan lastig zijn voor leden van de organisatie te weten waar u de gegevens binnen deze gegevensbronnen. Vragen als volgt zijn alle te veel:
+Kan het lastig voor de organisatie leden tooknow waar toolocate Hallo gegevens binnen deze gegevensbronnen. Vragen over de volgende Hallo zijn alle te veel:
 
-* Van de drie HR-systemen binnen het bedrijf gebruikt, waarmee moet ik gebruiken voor het maken van dit type rapport?
-* Waar moet ik gaat u naar de gecertificeerde verkoopcijfers ophalen voor het fiscale jaar die zojuist beëindigd?
-* Wie moet ik vraag of wat is het proces dat ze toegang krijgen tot het datawarehouse moet ik gebruiken?
-* Ik weet niet als deze getallen correct zijn. Die kan ik verzoeken voor inzicht in hoe deze gegevens worden gebruikt moeten voordat ik dit dashboard met mijn team delen?
+* Hallo drie HR-systemen binnen gebruikt Hallo bedrijf, die ik moet toocreate Gebruik dit type rapport?
+* Waar moet ik ga tooget Hallo verkoopcijfers gecertificeerd voor Hallo fiscale jaar dat zojuist is beëindigd
+* Wie moet ik vraag of wat moet ik gebruiken tooget toegang toohello datawarehouse Hallo-proces is?
+* Ik weet niet als deze getallen correct zijn. Die kan ik verzoeken voor inzicht in hoe deze gegevens toobe gebruikt moeten voordat ik dit dashboard met mijn team delen?
 
-Op deze en andere vragen kunnen Azure Data Catalog antwoorden bieden. De centrale, hoge waarde, IT beheerd gegevensbronnen die worden gebruikt tussen verschillende organisaties zijn vaak het logische beginpunt voor het invullen van de catalogus. Hoewel elke gebruiker een gegevensbron registreren kan, met de catalogus met de gegevensbronnen die zijn de meest waarschijnlijke waarde opgeven voor het grootste aantal gebruikers kick-started helpt te stimuleren en het gebruik van het systeem. 
+toothese en andere vragen, krijgt u Azure Data Catalog antwoorden. Hallo centraal, hoge waarde, IT beheerd gegevensbronnen die worden gebruikt tussen verschillende organisaties zijn vaak Hallo logische beginpunt voor het invullen van Hallo-catalogus. Hoewel elke gebruiker een gegevensbron registreren kan, Hallo catalogus kick-started met Hallo gegevensbronnen die waarschijnlijk tooprovide waarde toohello grootste aantal gebruikers dat helpt te stimuleren en het gebruik van Hallo systeem. 
 
-Als u zijn aan de slag met Azure Data Catalog, zijn te identificeren en registreren van belangrijke gegevensbronnen die worden gebruikt door veel verschillende teams van gegevensgebruikers uw eerste stap voor succes.
+Als u zijn aan de slag met Azure Data Catalog, zijn te identificeren en registreren van belangrijke gegevensbronnen die worden gebruikt door veel verschillende teams van gegevensgebruikers uw eerste stap toosuccess.
 
-Dit scenario biedt ook een kans om aantekeningen toevoegen aan de waardevolle gegevensbronnen om deze gemakkelijker te begrijpen en te openen. Er is een belangrijk aspect van deze inspanningen om op te nemen informatie over hoe gebruikers toegang tot de gegevensbron kunnen aanvragen. Met Azure Data Catalog, kunt u het e-mailadres van de gebruiker of het team dat verantwoordelijk is voor het beheren van de gegevensbron toegang, koppelingen bestaande hulpprogramma's of documentatie of de vrije tekst die het proces van de aanvraag voor toegang tot beschrijft bieden. Deze informatie helpt de leden die geregistreerde gegevensbronnen detecteren maar die nog geen machtigingen voor toegang tot de gegevens gemakkelijk om toegang te vragen met behulp van de processen die zijn gedefinieerd en beheerd door de eigenaren van de gegevensbron.
+Dit scenario biedt ook een kans tooannotate Hallo waardevolle gegevensbronnen toomake ze gemakkelijker toounderstand en toegang. Een belangrijk aspect van deze inspanningen is tooinclude informatie over hoe gebruikers toegang toohello-gegevensbron kunnen aanvragen. U kunt met Azure Data Catalog Hallo e-mailadres van de gebruiker Hallo team dat verantwoordelijk is voor het beheren van toegang tot de gegevensbron, koppelingen tooexisting hulpprogramma's of documentatie of vrije tekst die Hallo toegangsaanvraag proces beschrijft opgeven. Deze informatie helpt leden die geregistreerde gegevensbronnen detecteren maar die nog geen machtigingen tooaccess Hallo gegevenstoegang tooeasily aanvraag via Hallo processen die zijn gedefinieerd en beheerd door de eigenaars van Hallo-gegevensbron.
 
 ## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Self-service business intelligence
-Hoewel traditionele oplossingen voor zakelijke business intelligence een waardevol zijn onderdeel van veel organisaties gegevens landschappen blijven, heeft het wijzigen van gelijke tred of-business doorgevoerd selfservice BI meer belangrijk. Met behulp van selfservice BI kunnen informatiemedewerkers en analisten maken hun eigen rapporten, werkmappen en dashboards zonder afhankelijk te zijn op een centrale IT-team of wordt beperkt door de beschikbaarheid en planning dat IT-team.
+Hoewel traditionele oplossingen voor zakelijke business intelligence gaan toobe een waardevol zijn onderdeel van de gegevens van veel organisaties landschappen, Hallo gelijke tred wijzigen van de zakelijke heeft aangebracht BI selfservice meer belangrijk. Met behulp van selfservice BI kunnen informatiemedewerkers en analisten maken hun eigen rapporten, werkmappen en dashboards zonder afhankelijk te zijn op een centrale IT-team of wordt beperkt door de beschikbaarheid en planning dat IT-team.
 
-In selfservicescenario BI's combineren gebruikers doorgaans gegevens uit meerdere bronnen, die mogelijk niet eerder zijn gebruikt voor BI en analyse. Hoewel sommige van deze gegevensbronnen mogelijk al bekend, kan het lastig zijn om te ontdekken wat te doen om te zoeken en potentiële gegevensbronnen voor een bepaalde taak evalueren.
+In selfservicescenario BI's combineren gebruikers doorgaans gegevens uit meerdere bronnen, die mogelijk niet eerder zijn gebruikt voor BI en analyse. Hoewel sommige van deze gegevensbronnen mogelijk al bekend, kan deze worden lastig toodiscover welke toolocate toodo en potentiële gegevensbronnen voor een bepaalde taak evalueren.
 
-Traditioneel deze discovery-proces is een handmatige: analisten hun peer-netwerkverbindingen gebruiken om u te identificeren anderen die werken met de gegevens wordt aangevraagd. Nadat een gegevensbron is gevonden en gebruikt, het proces wordt herhaald opnieuw voor elke volgende selfservice BI inspanning, met meerdere gebruikers voor het uitvoeren van een redundant handmatig proces van detectie.
+Traditioneel deze discovery-proces is een handmatige: analisten gebruiken hun peer netwerk verbindingen tooidentify anderen die werken met Hallo gegevens wordt aangevraagd. Nadat een gegevensbron is gevonden en gebruikt, Hallo proces wordt herhaald opnieuw voor elke volgende selfservice BI inspanning, met meerdere gebruikers voor het uitvoeren van een redundant handmatig proces van detectie.
 
-Met Azure Data Catalog, kan uw organisatie deze cyclus moeiteloos verbroken. Nadat een gegevensbron via traditionele manier registreren een analist zodat het eenvoudiger kunnen worden gedetecteerd door andere gebruikers in de toekomst. Hoewel de analist meer waarde door de geregistreerde gegevensassets aantekeningen toevoegen kan, hoeft deze aantekening niet worden uitgevoerd op hetzelfde moment als registratie. Gebruikers kunnen bijdragen gedurende een periode, als hun toestaan planningen geleidelijk waarde toe te voegen aan de gegevensbronnen die zijn geregistreerd in de catalogus.
+Met Azure Data Catalog, kan uw organisatie deze cyclus moeiteloos verbroken. Nadat een gegevensbron via traditionele manier een analist kunt registreren toomake deze eenvoudiger kunnen worden gedetecteerd door andere gebruikers in toekomstige Hallo. Hoewel Hallo analist meer waarde toevoegen kan Hallo geregistreerde gegevensassets aantekeningen te maken, deze aantekening hoeft niet tootake plaats op Hallo dezelfde tijd als de registratie. Gebruikers kunnen bijdragen gedurende een periode, als hun toestaan planningen geleidelijk toe te voegen waarde toohello-gegevensbronnen zijn geregistreerd in het Hallo-catalogus.
 
-Deze organische groei van de catalogusinhoud is een natuurlijke aanvulling op de vooraf registratie van centrale gegevensbronnen. De catalogus met gegevens die door veel gebruikers moeten vooraf in te vullen mag een motivator voor eerste gebruik en detectie. Hierdoor kunnen gebruikers zich registreren en aantekeningen toevoegen aan extra bronnen mag een manier om te zorgen dat deze en andere leden van de organisatie die betrokken zijn.
+Deze organische groei van Hallo catalogusinhoud is een natuurlijke aanvulling toohello vooraf registratie van centrale gegevensbronnen. Vooraf invullen Hallo catalogus met gegevens die door veel gebruikers moeten mag een motivator voor eerste gebruik en detectie. Gebruikers tooregister inschakelen en aantekeningen toevoegen aan een manier tookeep deze en andere leden van de organisatie die kunnen worden door aanvullende bronnen.
 
-Hierbij moet worden opgemerkt dat hoewel dit scenario is gericht op BI selfservice specifiek, dezelfde patronen en uitdagingen voor grootschalige zakelijke BI projecten ook gelden. Met behulp van Data Catalog, kan uw organisatie moeite waarvoor een handmatig proces voor het doorzoeken van de gegevensbron van verbeteren.
+Hierbij moet worden opgemerkt dat hoewel dit scenario is gericht op BI selfservice specifiek, hello dezelfde patronen en uitdagingen toepassing toolarge scale zakelijke BI-projecten ook. Met behulp van Data Catalog, kan uw organisatie moeite waarvoor een handmatig proces voor het doorzoeken van de gegevensbron van verbeteren.
 
 ## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Het vastleggen van de specifieke kennis
-Hoe weet u welke gegevens u moet de taak en waar vind ik die gegevens doen?
+Hoe weet u welke gegevens u toodo moet de taak en waar toofind die gegevens?
 
-Als u al uw job een tijdje u waarschijnlijk alleen maar weet. U hebt doorlopen van een gefaseerde leerproces en na verloop van tijd hebt geleerd, over de gegevensbronnen die essentieel voor uw dagelijkse werk zijn.
+Als u al uw job een tijdje u waarschijnlijk alleen maar weet. U hebt doorlopen van een gefaseerde leerproces en na verloop van tijd hebt geleerd over Hallo gegevensbronnen die sleutel tooyour dagelijkse werk.
 
-Wanneer een nieuwe werknemer lid wordt van uw team, hoe deze persoon weet welke gegevens is vereist voor de taak en kan vinden?
+Wanneer een nieuwe werknemer lid wordt van uw team, hoe gaat deze persoon weten welke gegevens is vereist voor het Hallo-taak en waar toofind deze?
 
-Kans zijn de nieuwe persoon geleverd voor u met deze vragen.
+Kans zijn nieuwe persoon Hallo tooyou met deze vragen wordt geleverd.
 
-Deze lopende overdracht van de specifieke kennis is onderdeel van het detectieproces voor de gegevensbron in organisaties kleine en grote. Senior en ervaren teamleden kennis hebt gemaakt in de afgelopen jaren en nieuwere teamleden hebt geleerd om te vragen wanneer ze vragen hebben. De meest essentiële informatie vaak alleen aanwezig is in de kop van enkele personen en wanneer deze personen op vakantie worden of het team laat, de organisatie te lijden heeft onder.
+Deze lopende overdracht van de specifieke kennis maakt deel uit van Hallo gegevensbron detectieproces in organisaties kleine en grote. Senior en ervaren teamleden Hallo jaren kennis hebt gebouwd en nieuwere teamleden hebt geleerd, tooask ze als ze vragen hebben. Hallo meest essentiële informatie vaak alleen aanwezig is in Hallo koppen van enkele personen en wanneer deze personen op vakantie worden of Hallo-team laat, Hallo organisatie te lijden heeft onder.
 
-Gegevens deskundigen ter normaal gesproken een poging om het document hun kennis te delen via e-mail of in Word-documenten op de SharePoint-site van een team. Hoewel deze benadering waardevolle, dit introduceert een nieuwe detectie-probleem: hoe mensen weet welke documentatie bestaat en kan vinden?
+Gegevens deskundigen ter normaal een toodocument inspanningen hun kennis delen via e-mail of in Word-documenten op de SharePoint-site van een team. Hoewel deze benadering waardevolle, dit introduceert een nieuwe detectie-probleem: hoe kan mensen weten welke documentatie bestaat, en waar toofind deze?
 
-Met Azure Data Catalog heeft uw organisatie een centrale locatie voor het opslaan en delen van deze specifieke kennis en zodat u gemakkelijk kan worden gedetecteerd. In Data Catalog, uw experts gegevens rechtstreeks aantekeningen toevoegen aan gegevensassets en bevatten koppelingen naar de bestaande documentatie. Wanneer de catalogus leden van de organisatie gebruiken voor het detecteren van een gegevensbron, vinden niet alleen de bron zelf, maar ook de kennis die voorheen voorkwamen alleen bij de experts van uw organisatie.
+Met Azure Data Catalog heeft uw organisatie een centrale locatie voor het opslaan en delen van deze specifieke kennis en zodat u gemakkelijk kan worden gedetecteerd. In Data Catalog, uw experts gegevens rechtstreeks aantekeningen toevoegen aan gegevensassets en bevatten koppelingen tooexisting documentatie. Als leden van de organisatie Hallo catalogus toodiscover een gegevensbron gebruikt, vindt ze niet alleen Hallo bron zelf, maar ook Hallo kennis die voorheen voorkwamen alleen in Hallo minds van uw organisatie deskundigen.

@@ -11,7 +11,7 @@
 ## [Uw eerste virtuele machine maken](devtest-lab-create-first-vm.md)
 ## [Startbeleid instellen](devtest-lab-get-started-with-lab-policies.md)
 
-# Handleidingen
+# Hoe tooguides
 ## Virtuele machines gebruiken in een lab
 ### [Virtuele machines maken](devtest-lab-add-vm.md)
 ### [Een virtuele machine maken die kan worden geclaimd](devtest-lab-add-claimable-vm.md)
@@ -20,7 +20,7 @@
 ## Omgevingen gebruiken in een lab
 ### [Een omgeving maken](devtest-lab-create-environment-from-arm.md)
 
-## Toegang tot labs beveiligen
+## Veilige toegang tooLabs
 ### [Eigenaars en gebruikers van een lab toevoegen](devtest-lab-add-devtest-user.md)
 ### [Machtigingen aanpassen met behulp van aangepaste rollen](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 
@@ -33,7 +33,7 @@
 
 ## Aangepaste installatiekopieën beheren
 ### [Aangepaste installatiekopie maken vanaf een virtuele machine](devtest-lab-create-custom-image-from-vm-using-portal.md)
-### [Aangepaste installatiekopie van een VHD maken met Azure Portal](devtest-lab-create-template.md)
+### [Aangepaste installatiekopie maken vanaf een VHD met hello Azure-portal](devtest-lab-create-template.md)
 ### [Aangepaste installatiekopie van een VHD maken met PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 ### [VHD-bestand uploaden met AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [VHD-bestand uploaden met PowerShell](devtest-lab-upload-vhd-using-powershell.md)

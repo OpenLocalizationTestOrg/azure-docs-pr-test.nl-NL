@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Windows virtuele machines | Microsoft Docs
+title: overzicht van virtuele machines aaaWindows | Microsoft Docs
 description: Help-inhoud voor een overzicht van Windows virtuele machines in Azure portal
 services: virtual-machines-windows
 author: sewatson
@@ -8,19 +8,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1992c0715d39669565cf1754975d2d82b19d3b22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentatie voor virtuele Windows-machines
 
-Virtuele Azure Windows-machines bieden beveiligde, gevirtualiseerde infrastructuur met een hoge schaalbaarheid op aanvraag met Windows Server. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u virtuele Windows-machines maakt, configureert, beheert en schaalt.
+Virtuele Azure Windows-machines bieden beveiligde, gevirtualiseerde infrastructuur met een hoge schaalbaarheid op aanvraag met Windows Server. Informatie over hoe toocreate, configureren, beheren en schalen van VM's van Windows met onze snelstartgidsen, zelfstudies en voorbeelden.
 
 ## <a name="5-minute-quickstarts"></a>QuickStarts van vijf minuten
 
-Meer informatie over het implementeren van een IIS-webserver binnen een virtuele machine met Windows Server 2016:
+Meer informatie over hoe een IIS-webserver toodeploy binnen een virtuele Machine met Windows Server 2016:
 
 - [Azure Portal](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -28,7 +28,7 @@ Meer informatie over het implementeren van een IIS-webserver binnen een virtuele
 
 ## <a name="step-by-step-tutorials"></a>Zelfstudies met stapsgewijze instructies
 
-Informatie over het implementeren, beheren en bewaken op Azure VM's van Windows.
+Ontdek hoe toodeploy, beheren en bewaken op Azure VM's van Windows.
 
 - [Virtuele Windows-machines maken en beheren](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [VM-schijven maken en beheren](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -51,12 +51,12 @@ Informatie over het implementeren, beheren en bewaken op Azure VM's van Windows.
 
 ## <a name="samples"></a>Voorbeelden
 
-Implementeer uw eerste toepassing in Azure.
+Uw eerste toepassing tooAzure implementeren.
 
 - [Azure-CLI](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="more"></a>Meer
 
-- [Ga naar de documentatie voor meer informatie](/azure/virtual-machines/windows/index)
+- [Ga naar de documentatie bij toolearn meer](/azure/virtual-machines/windows/index)
 - [Meer informatie over alle Azure-Services](https://aka.ms/j3wr7y)

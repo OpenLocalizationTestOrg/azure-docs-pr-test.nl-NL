@@ -1,6 +1,6 @@
 ---
-title: Een webservice implementeren op meerdere gebieden | Microsoft Docs
-description: "Stappen voor het implementeren van (kopiëren) een nieuwe Web-Service naar andere regio's."
+title: aaaHow toodeploy een webservice toomultiple regio's | Microsoft Docs
+description: "Stappen toodeploy (kopiëren) een nieuwe webservice tooother regio's."
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 3895537bbca72e687838ff5013c291dfee3be707
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 21fcdb96f118c60ed98b60b1b2df833766c7c8bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Een webservice implementeren in meerdere regio’s
-De nieuwe Azure-Web-Services kunt u eenvoudig een webservice implementeren in meerdere regio's zonder meerdere abonnementen of werkruimten. 
+# <a name="how-toodeploy-a-web-service-toomultiple-regions"></a>Hoe een webservice toodeploy toomultiple regio's
+Hallo nieuwe Azure Web Services kunt u tooeasily een web service toomultiple regio's implementeren zonder meerdere abonnementen of werkruimten. 
 
-Prijzen is regio specifiek, dat daarom moet u een abonnement voor elke regio waarin u de webservice implementeren.
+Prijzen is regio specifiek, dat daarom moet u een abonnement voor elke regio waarin u Hallo webservice implementeren.
 
-## <a name="to-create-a-plan-in-another-region"></a>Een planning maken in een andere regio
+## <a name="toocreate-a-plan-in-another-region"></a>toocreate een plan in een andere regio
 1. Meld u aan bij [Microsoft Azure Machine Learning-webservices](https://services.azureml.net/).
-2. Klik op de **plannen** menuoptie.
-3. Klik op de plannen via de weergavepagina **nieuw**.
-4. Van de **abonnement** vervolgkeuzelijst, selecteer het abonnement waarin het nieuwe plan wilt maken.
-5. Van de **regio** vervolgkeuzelijst, selecteer een regio voor het nieuwe plan. De opties plannen voor de geselecteerde regio wordt weergegeven in de **opties plannen** sectie van de pagina.
-6. Van de **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor het plan. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. In **naam** typt u de naam van het plan.
-8. Onder **Plan opties**, klikt u op het niveau van facturering voor het nieuwe plan.
+2. Klik op Hallo **plannen** menuoptie.
+3. Op Hallo plannen via de pagina weergeven, klikt u op **nieuw**.
+4. Van Hallo **abonnement** vervolgkeuzelijst, selecteer Hallo-abonnement in welke Hallo nieuw plan moet worden gebruikt.
+5. Van Hallo **regio** vervolgkeuzelijst, selecteer een regio voor nieuwe Hallo-abonnement. Hallo opties plannen voor de geselecteerde regio hello wordt weergegeven in Hallo **opties plannen** sectie van Hallo pagina.
+6. Van Hallo **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor Hallo plan. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+7. In **naam** Hallo typenaam van Hallo plan.
+8. Onder **Plan opties**, klikt u op de facturering niveau Hallo voor nieuwe Hallo-abonnement.
 9. Klik op **Create**.
 
-## <a name="deploying-the-web-service-to-another-region"></a>De webservice implementeren op een andere regio
-1. Klik op de **webservices** menuoptie.
-2. Selecteer de webservice die u op een nieuw gebied implementeert.
+## <a name="deploying-hello-web-service-tooanother-region"></a>Hallo web service tooanother regio implementeren
+1. Klik op Hallo **webservices** menuoptie.
+2. Selecteer Hallo webservice u tooa nieuwe regio implementeert.
 3. Klik op **kopie**.
-4. In **Webservicenaam**, typt u een nieuwe naam voor de webservice.
-5. In **Web servicebeschrijving**, typt u een beschrijving voor de webservice.
-6. Van de **abonnement** vervolgkeuzelijst, selecteer het abonnement waarin de nieuwe webservice wilt maken.
-7. Van de **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor de webservice. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-8. Van de **regio** vervolgkeuzelijst, selecteer de regio waarin u de webservice implementeren.
-9. Van de **opslagaccount** dropdown, selecteert u een opslag-account waarin u voor het opslaan van de webservice.
-10. Van de **prijs Plan** dropdown, selecteert u een plan in de regio die u hebt geselecteerd in stap 8.
+4. In **Webservicenaam**, typt u een nieuwe naam voor het Hallo-webservice.
+5. In **Web servicebeschrijving**, typ een beschrijving voor het Hallo-webservice.
+6. Van Hallo **abonnement** vervolgkeuzelijst, selecteer Hallo-abonnement in welke Hallo nieuwe webservice moet worden gebruikt.
+7. Van Hallo **resourcegroep** vervolgkeuzelijst, selecteer een resourcegroep voor Hallo-webservice. Zie voor meer informatie over resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+8. Van Hallo **regio** vervolgkeuzelijst, selecteer Hallo regio in welke toodeploy Hallo-webservice.
+9. Van Hallo **opslagaccount** vervolgkeuzelijst, selecteer een opslagaccount in welke toostore Hallo-webservice.
+10. Van Hallo **prijs Plan** dropdown, selecteert u een plan in Hallo regio die u hebt geselecteerd in stap 8.
 11. Klik op **kopie**.
 

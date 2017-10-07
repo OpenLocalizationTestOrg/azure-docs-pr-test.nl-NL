@@ -1,5 +1,5 @@
 ---
-title: Aanbevolen procedures voor het maken van Resource Manager-sjablonen | Microsoft Docs
+title: aaaBest procedures voor het maken van Resource Manager-sjablonen | Microsoft Docs
 description: Richtlijnen voor het vereenvoudigen van uw Azure Resource Manager-sjablonen.
 services: azure-resource-manager
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ec9bbe218c4f2c6a92ca44b5e9c9c71029e22151
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen
-Deze richtlijnen kunt u bij het maken van Azure Resource Manager-sjablonen die betrouwbaar en eenvoudig te gebruiken zijn. De richtlijnen zijn alleen suggesties. Ze zijn geen vereisten, tenzij anders wordt vermeld. Uw scenario mogelijk een variant van een van de volgende methoden of voorbeelden.
+Deze richtlijnen kunt u Azure Resource Manager-sjablonen die betrouwbare en eenvoudige toouse zijn maken. Hallo richtlijnen zijn alleen suggesties. Ze zijn geen vereisten, tenzij anders wordt vermeld. Uw scenario mogelijk een variant van een van de Hallo wijze van aanpak of voorbeelden te volgen.
 
 ## <a name="resource-names"></a>Resourcenamen
 In het algemeen werken u met drie soorten resourcenamen in Resource Manager:
 
 * Resourcenamen moeten uniek zijn.
-* Resourcenamen die nodig zijn niet uniek te zijn, maar u kunt een naam waarmee u een resource op basis van context identificeren kunt geven.
+* Resourcenamen die geen unieke toobe vereist, maar u een naam waarmee u kunt een resource op basis van de context waarin tooprovide kiezen.
 * Resourcenamen kunnen niet algemeen zijn.
 
  Zie voor meer informatie over de beperkingen voor resource [aanbevolen naamgevingsregels voor Azure-resources](../guidance/guidance-naming-conventions.md).
@@ -47,9 +47,9 @@ U moet een unieke bronnaam voor resourcetype dat een data access-eindpunt opgeve
 
 <sup>1</sup> opslagaccountnamen ook moet een kleine letter, 24 tekens of korter is, en geen eventuele verbindingsstreepjes.
 
-Als u een parameter voor een resourcenaam opgeeft, moet u een unieke naam opgeven bij het implementeren van de resource. Desgewenst kunt u een variabele die gebruikmaakt van de [uniqueString()](resource-group-template-functions-string.md#uniquestring) functie voor het genereren van een naam. 
+Als u een parameter voor een resourcenaam opgeeft, moet u een unieke naam opgeven bij het implementeren van Hallo resource. Desgewenst kunt u een variabele die gebruikmaakt van Hallo [uniqueString()](resource-group-template-functions-string.md#uniquestring) toogenerate naam van een functie. 
 
-Ook raadzaam een voorvoegsel toevoegen of een achtervoegsel aan de **uniqueString** resultaat. De unieke naam wijzigen, kunt u gemakkelijk herkennen het brontype van de naam. U kunt bijvoorbeeld een unieke naam voor een opslagaccount genereren met behulp van de volgende variabele:
+Ook kunt of wilt u een voorvoegsel tooadd achtervoegsel toohello **uniqueString** resultaat. Wijzigen Hallo unieke naam kunt u gemakkelijk herkennen Hallo brontype van Hallo-naam. U kunt bijvoorbeeld een unieke naam voor een opslagaccount genereren met behulp van de volgende variabele Hallo:
 
 ```json
 "variables": {
@@ -58,7 +58,7 @@ Ook raadzaam een voorvoegsel toevoegen of een achtervoegsel aan de **uniqueStrin
 ```
 
 ### <a name="resource-names-for-identification"></a>Resourcenamen voor identificatie
-Sommige kunt u de naam, maar hun namen van resourcetypen hoeft geen uniek zijn. U kunt een naam waarmee u zowel de context van de bron en het resourcetype opgeven voor deze resourcetypen. Geef een beschrijvende naam waarmee u de resource in een lijst met bronnen identificeren. Als u de naam van een andere bron voor verschillende implementaties gebruiken moet, kunt u een parameter voor de naam:
+Sommige brontypen kunt u tooname, maar hun namen hebben geen unieke toobe. U kunt een naam waarmee zowel Hallo resource context en het resourcetype Hallo opgeven voor deze resourcetypen. Geef een beschrijvende naam die helpt u identificeren Hallo-bron in een lijst met bronnen. Als u de naam van een andere bron voor verschillende implementaties toouse moet, kunt u een parameter voor de naam van de Hallo:
 
 ```json
 "parameters": {
@@ -66,13 +66,13 @@ Sommige kunt u de naam, maar hun namen van resourcetypen hoeft geen uniek zijn. 
         "type": "string",
         "defaultValue": "demoLinuxVM",
         "metadata": {
-            "description": "The name of the VM to create."
+            "description": "hello name of hello VM toocreate."
         }
     }
 }
 ```
 
-Als u niet een naam opgeeft tijdens de implementatie wilt, kunt u een variabele gebruiken: 
+Als u niet toopass in een naam tijdens de implementatie hoeft, kunt u een variabele gebruiken: 
 
 ```json
 "variables": {
@@ -91,7 +91,7 @@ U kunt ook een waarde vastgelegde gebruiken:
 ```
 
 ### <a name="generic-resource-names"></a>Algemene resourcenamen
-Voor brontypen die u voornamelijk via een andere resource benaderen, kunt u een algemene naam die is vastgelegd in de sjabloon. U kunt bijvoorbeeld een algemene naam op voor firewallregels instellen op een SQL server:
+Voor brontypen die u voornamelijk via een andere resource benaderen, kunt u een algemene naam die is vastgelegd in Hallo-sjabloon. U kunt bijvoorbeeld een algemene naam op voor firewallregels instellen op een SQL server:
 
 ```json
 {
@@ -102,24 +102,24 @@ Voor brontypen die u voornamelijk via een andere resource benaderen, kunt u een 
 ```
 
 ## <a name="parameters"></a>Parameters
-De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
+Hallo kan volgende informatie nuttig zijn wanneer u met parameters werkt:
 
 * Beperk het gebruik van parameters. Gebruik indien mogelijk een variabele of een letterlijke waarde. Parameters gebruiken om alleen voor deze scenario's:
    
-   * Instellingen die u wilt gebruiken variaties van de basis van de omgeving (SKU, grootte, capaciteit).
-   * Resourcenamen die u wilt opgeven voor eenvoudige identificatie.
-   * De waarden die u vaak gebruikt om andere taken (zoals een beheerdersgebruikersnaam) te voltooien.
+   * De instellingen die u wilt dat toouse variaties volgens tooenvironment (SKU, grootte, capaciteit).
+   * Resourcenamen wilt u toospecify voor eenvoudige identificatie.
+   * De waarden die u vaak toocomplete andere taken (zoals een beheerdersgebruikersnaam gebruikt).
    * Geheimen (zoals wachtwoorden).
-   * Het nummer of de matrix met waarden te gebruiken als u meerdere exemplaren van een resourcetype.
+   * Hallo getal of matrix met waarden toouse wanneer u meerdere exemplaren van een resourcetype maakt.
 * Gebruik kamelen voor namen van parameters.
-* Geef een beschrijving van elke parameter in de metagegevens:
+* Geef een beschrijving van elke parameter in metagegevens Hallo:
 
    ```json
    "parameters": {
        "storageAccountType": {
            "type": "string",
            "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
+               "description": "hello type of hello new storage account created toostore hello VM disks."
            }
        }
    }
@@ -133,7 +133,7 @@ De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
             "type": "string",
             "defaultValue": "Standard_GRS",
             "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
+                "description": "hello type of hello new storage account created toostore hello VM disks."
             }
         }
    }
@@ -146,13 +146,13 @@ De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
        "secretValue": {
            "type": "securestring",
            "metadata": {
-               "description": "The value of the secret to store in the vault."
+               "description": "hello value of hello secret toostore in hello vault."
            }
        }
    }
    ```
 
-* Gebruik indien mogelijk niet een parameter locatie op te geven. Gebruik in plaats daarvan de **locatie** eigenschap van de resourcegroep. Met behulp van de **resourceGroup () .location** -expressie voor al uw resources resources in de sjabloon zijn geïmplementeerd op dezelfde locatie als de resourcegroep:
+* Indien mogelijk niet gebruiken voor een parameter toospecify locatie. Gebruik in plaats daarvan Hallo **locatie** eigenschap van het Hallo-resourcegroep. Met behulp van Hallo **resourceGroup () .location** -expressie voor al uw resources, resources in de sjabloon Hallo zijn geïmplementeerd in dezelfde locatie als de resourcegroep Hallo Hallo:
    
    ```json
    "resources": [
@@ -166,16 +166,16 @@ De volgende informatie kan nuttig zijn wanneer u met parameters werkt:
    ]
    ```
    
-   Als u een resourcetype wordt ondersteund in een beperkt aantal locaties, is het raadzaam om op te geven van een geldige locatie rechtstreeks in de sjabloon. Als u moet een **locatie** parameter, die zo veel mogelijk parameterwaarde met bronnen die zich waarschijnlijk op dezelfde locatie delen. Hiermee wordt het aantal keren dat gebruikers worden gevraagd om informatie over de locatie geminimaliseerd.
-* Vermijd het gebruik van een parameter of variabele voor de API-versie voor een resourcetype. Resource-eigenschappen en waarden kunnen variëren door versienummer. IntelliSense in een code-editor kan niet het juiste schema bepalen wanneer de API-versie is ingesteld op een parameter of variabele. In plaats daarvan harde code de API-versie in de sjabloon.
+   Als een resourcetype wordt ondersteund in een beperkt aantal locaties, kunt u een geldige locatie is direct in de sjabloon Hallo toospecify. Als u moet een **locatie** parameter, die zo veel mogelijk parameterwaarde delen met bronnen die zich waarschijnlijk toobe in Hallo dezelfde locatie. Hierdoor minimaliseert Hallo aantal keren dat gebruikers worden gevraagd tooprovide locatie-informatie.
+* Vermijd het gebruik van een parameter of variabele voor Hallo API-versie voor een resourcetype. Resource-eigenschappen en waarden kunnen variëren door versienummer. IntelliSense in een code-editor kan niet het juiste schema Hallo bepalen wanneer Hallo API-versie tooa parameter of variabele is ingesteld. In plaats daarvan Hallo harde code in Hallo sjabloon API-versie.
 
 ## <a name="variables"></a>Variabelen
-De volgende informatie kan nuttig zijn wanneer u met variabelen werkt:
+Hallo kan volgende informatie nuttig zijn wanneer u met variabelen werkt:
 
-* Variabelen voor waarden die u moet meer dan één keer gebruiken in een sjabloon gebruiken. Als een waarde slechts één keer gebruikt wordt, een vastgelegde waarde maakt de sjabloon gemakkelijker te lezen.
-* U kunt geen gebruiken de [verwijzing](resource-group-template-functions-resource.md#reference) werken in de **variabelen** gedeelte van de sjabloon. De **verwijzing** functie is afgeleid van de waarde van de runtimestatus van de resource. Variabelen zijn echter opgelost bij het eerste parseren van de sjabloon. Constructie waarden die moeten de **verwijzing** werken rechtstreeks in de **resources** of **levert** gedeelte van de sjabloon.
+* Variabelen voor waarden die u nodig hebt toouse meer dan één keer in een sjabloon gebruiken. Als een waarde slechts één keer gebruikt wordt, kunt u een waarde vastgelegde uw sjabloon eenvoudiger tooread.
+* U kunt geen hello gebruiken [verwijzing](resource-group-template-functions-resource.md#reference) functie in Hallo **variabelen** gedeelte van de sjabloon Hallo. Hallo **verwijzing** functie is afgeleid van de waarde van de runtimestatus van Hallo resource. Variabelen worden echter omgezet tijdens de eerste parseren van de sjabloon Hallo Hallo. Waarden die Hallo moet samenstellen **verwijzing** functie rechtstreeks in Hallo **resources** of **levert** gedeelte van Hallo-sjabloon.
 * Variabelen voor de resourcenamen die uniek zijn, zoals beschreven in [Resourcenamen](#resource-names).
-* U kunt variabelen groeperen in complexe objecten. Gebruik de **variable.subentry** notatie om te verwijzen naar een waarde van een complex object. Variabelen groeperen, kunt u gerelateerde variabelen volgen. Dit verbetert de leesbaarheid van de sjabloon. Hier volgt een voorbeeld:
+* U kunt variabelen groeperen in complexe objecten. Gebruik Hallo **variable.subentry** tooreference een waarde van een complex object opmaken. Variabelen groeperen, kunt u gerelateerde variabelen volgen. Dit verbetert de leesbaarheid van Hallo-sjabloon. Hier volgt een voorbeeld:
    
    ```json
    "variables": {
@@ -206,9 +206,9 @@ De volgende informatie kan nuttig zijn wanneer u met variabelen werkt:
      Zie voor geavanceerde voorbeelden van het gebruik van complexe objecten als variabelen [delen status in Azure Resource Manager-sjablonen](best-practices-resource-manager-state.md).
 
 ## <a name="resources"></a>Resources
-De volgende informatie kan nuttig zijn wanneer u met resources werkt:
+Hallo kan volgende informatie nuttig zijn wanneer u met resources werkt:
 
-* Andere inzenders leert wat het doel van de resource Geef, om te **opmerkingen** voor elke resource in de sjabloon:
+* toohelp andere medewerkers Hallo doel van Hallo resource begrijpen, geef **opmerkingen** voor elke resource in Hallo sjabloon:
    
    ```json
    "resources": [
@@ -217,14 +217,14 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
          "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
+         "comments": "This storage account is used toostore hello VM disks.",
          ...
      }
    ]
    ```
 
-* U kunt tags metagegevens aan resources toevoegen. Informatie over uw resources toevoegen met behulp van de metagegevens. U kunt bijvoorbeeld metagegevens om vast te leggen Factureringsdetails voor een resource toevoegen. Zie voor meer informatie [met labels om uw Azure-resources te organiseren](resource-group-using-tags.md).
-* Als u een *openbaar eindpunt* in uw sjabloon (zoals een Azure Blob storage openbaar eindpunt), *komen niet vastleggen* de naamruimte. Gebruik de **verwijzing** functie voor het dynamisch ophalen van de naamruimte. Deze aanpak kunt u de sjabloon kan implementeren op andere openbare naamruimte omgevingen zonder handmatig wijzigen van het eindpunt in de sjabloon. Stel de API-versie naar dezelfde versie die u voor het opslagaccount in de sjabloon gebruikt:
+* U kunt tags tooadd metagegevens tooresources gebruiken. Gebruik metagegevens tooadd informatie over uw resources. U kunt bijvoorbeeld metagegevens toorecord Factureringsdetails voor een resource toevoegen. Zie voor meer informatie [Using tags tooorganize uw Azure-resources](resource-group-using-tags.md).
+* Als u een *openbaar eindpunt* in uw sjabloon (zoals een Azure Blob storage openbaar eindpunt), *komen niet vastleggen* Hallo naamruimte. Gebruik Hallo **verwijzing** functie toodynamically Hallo-naamruimte ophalen. U kunt deze benadering toodeploy Hallo sjabloon toodifferent naamruimte public omgevingen gebruiken zonder Hallo eindpunt in Hallo sjabloon handmatig wijzigen. Hallo API-versie toohello ingesteld dezelfde versie die u in de sjabloon voor Hallo storage-account gebruikt:
    
    ```json
    "osDisk": {
@@ -235,7 +235,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
    
-   Als het opslagaccount is geïmplementeerd in dezelfde sjabloon die u maakt, hoeft u geen naamruimte van de provider opgeven wanneer u verwijst naar de resource. Dit is de vereenvoudigde syntaxis:
+   Als Hallo storage-account is geïmplementeerd in Hallo dezelfde sjabloon die u maakt, hoeft u niet de naamruimte van de provider Hallo toospecify wanneer u verwijst naar Hallo resource. Dit is Hallo vereenvoudigde syntaxis:
    
    ```json
    "osDisk": {
@@ -246,7 +246,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
    
-   Als u andere waarden in de sjabloon die zijn geconfigureerd voor gebruik van een openbare naamruimte hebt, deze waarden zodat dezelfde wijzigen **verwijzing** functie. U kunt bijvoorbeeld instellen de **storageUri** eigenschap van de virtuele machine diagnostische profiel:
+   Als u andere waarden in de sjabloon die geconfigureerde toouse een openbare naamruimte hebt, kunt u deze waarden wijzigen tooreflect Hallo dezelfde **verwijzing** functie. U kunt bijvoorbeeld Hallo instellen **storageUri** eigenschap van Hallo virtuele machine diagnostische profiel:
    
    ```json
    "diagnosticsProfile": {
@@ -268,16 +268,16 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
 
-* Openbare IP-adressen toewijzen aan een virtuele machine alleen als dit vereist is voor een toepassing. Voor verbinding met een virtuele machine (VM) voor foutopsporing of voor beheer of administratieve doeleinden, inkomende NAT-regels, een virtuele netwerkgateway of een jumpbox te gebruiken.
+* Wijs openbare IP-adressen tooa virtuele machine alleen wanneer dit vereist is voor een toepassing. tooconnect tooa virtuele machine (VM) voor foutopsporing of voor beheer of administratieve doeleinden inkomende NAT-regels, een virtuele netwerkgateway of een jumpbox gebruiken.
    
-     Zie voor meer informatie over verbinding maken met virtuele machines:
+     Zie voor meer informatie over het aansluiten van toovirtual machines:
    
    * [Virtuele machines worden uitgevoerd voor een architectuur N-aantal lagen in Azure](../guidance/guidance-compute-n-tier-vm.md)
    * [WinRM toegang instellen voor virtuele machines in Azure Resource Manager](../virtual-machines/windows/winrm.md)
-   * [Toestaan van externe toegang tot uw virtuele machine met behulp van de Azure-portal](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Toestaan van externe toegang tot uw virtuele machine met behulp van PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Toestaan van externe toegang tot uw Linux-VM met Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* De **domainNameLabel** eigenschap voor openbare IP-adressen moet uniek zijn. De **domainNameLabel** waarde moet tussen 3 en 63 tekens lang en volgt u de regels die door deze reguliere expressie opgegeven: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Omdat de **uniqueString** functie een tekenreeks die is 13 tekens lang zijn, genereert de **dnsPrefixString** parameter is beperkt tot 50 tekens bevatten:
+   * [Toestaan van externe toegang tooyour VM via hello Azure-portal](../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [Toestaan van externe toegang tooyour virtuele machine met behulp van PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Toestaan van externe toegang tooyour Linux-VM met Azure CLI](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+* Hallo **domainNameLabel** eigenschap voor openbare IP-adressen moet uniek zijn. Hallo **domainNameLabel** waarde moet tussen 3 en 63 tekens lang en volg Hallo regels die door deze reguliere expressie opgegeven: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Omdat Hallo **uniqueString** functie genereert een tekenreeks die is 13 tekens lang zijn, hello **dnsPrefixString** parameter is beperkt too50 tekens:
 
    ```json
    "parameters": {
@@ -285,7 +285,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
            "type": "string",
            "maxLength": 50,
            "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
+               "description": "hello DNS label for hello public IP address. It must be lowercase. It should match hello following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
            }
        }
    },
@@ -294,7 +294,7 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    }
    ```
 
-* Wanneer u een wachtwoord aan een extensie voor aangepaste scripts toevoegt, gebruiken de **commandToExecute** eigenschap in de **protectedSettings** eigenschap:
+* Wanneer u een extensie voor aangepaste scripts tooa wachtwoord toevoegt, gebruikt u Hallo **commandToExecute** eigenschap in Hallo **protectedSettings** eigenschap:
    
    ```json
    "properties": {
@@ -314,12 +314,12 @@ De volgende informatie kan nuttig zijn wanneer u met resources werkt:
    ```
    
    > [!NOTE]
-   > Om ervoor te zorgen dat de geheimen worden versleuteld wanneer ze als parameters worden doorgegeven aan VM's en -extensies, gebruiken de **protectedSettings** eigenschap van de relevante extensies.
+   > tooensure die geheimen zijn versleuteld wanneer ze worden doorgegeven als parameters tooVMs en -extensies, gebruikt u Hallo **protectedSettings** eigenschap van de relevante Hallo-extensies.
    > 
    > 
 
 ## <a name="outputs"></a>uitvoer
-Als u een sjabloon voor het openbare IP-adressen maken, voegt een **levert** sectie gegevens van het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN retourneert). Uitvoerwaarden kunt u eenvoudig ophalen van informatie over de openbare IP-adressen en FQDN's na de implementatie. Wanneer u verwijst naar de resource, gebruikt u de API-versie die u hebt gebruikt om deze te maken: 
+Als u een sjabloon toocreate openbare IP-adressen gebruikt, voegt u een **levert** sectie gegevens van Hallo IP-adres en Hallo volledig gekwalificeerde domeinnaam (FQDN retourneert). U kunt uitvoer waarden tooeasily ophalen informatie over de openbare IP-adressen en FQDN's gebruiken na de implementatie. Wanneer u verwijst naar resource hello, Hallo API-versie die u hebt gebruikt toocreate gebruiken het: 
 
 ```json
 "outputs": {
@@ -335,25 +335,25 @@ Als u een sjabloon voor het openbare IP-adressen maken, voegt een **levert** sec
 ```
 
 ## <a name="single-template-vs-nested-templates"></a>Één sjabloon versus geneste sjablonen
-Voor het implementeren van uw oplossing, kunt u één sjabloon of een belangrijkste sjabloon kunt gebruiken met meerdere geneste sjablonen. Geneste sjablonen gelden voor meer geavanceerde scenario's. Met behulp van een geneste sjabloon biedt u de volgende voordelen:
+toodeploy uw oplossing kunt u één sjabloon of een sjabloon van de belangrijkste met meerdere geneste sjablonen. Geneste sjablonen gelden voor meer geavanceerde scenario's. Met behulp van een geneste sjabloon biedt u Hallo volgende voordelen:
 
 * U kunt een oplossing in de betreffende onderdelen uitgesplitst.
 * U kunt geneste sjablonen met verschillende belangrijke sjablonen hergebruiken.
 
-Als u ervoor kiest om geneste sjablonen te gebruiken, kunt de volgende richtlijnen u uw sjabloonontwerp standaardiseren. Deze richtlijnen zijn gebaseerd op [patronen voor Azure Resource Manager-sjablonen ontwerpen](best-practices-resource-manager-design-templates.md). U wordt aangeraden een ontwerp dat de volgende sjablonen bevat:
+Als u toouse geneste sjablonen kiest, kunt Hallo richtlijnen u uw sjabloonontwerp standaardiseren. Deze richtlijnen zijn gebaseerd op [patronen voor Azure Resource Manager-sjablonen ontwerpen](best-practices-resource-manager-design-templates.md). U wordt aangeraden een ontwerp dat het Hallo-sjablonen te volgen:
 
-* **Belangrijkste sjabloon** (azuredeploy.json). Gebruik dit voor de invoerparameters.
-* **Gedeelde bronnen sjabloon**. Gebruiken voor het implementeren van gedeelde resources die gebruikmaken van alle andere bronnen (bijvoorbeeld virtuele-netwerk en beschikbaarheid sets). Gebruik de **dependsOn** expressie om ervoor te zorgen dat deze sjabloon wordt geïmplementeerd voordat andere sjablonen.
-* **Optionele resources sjabloon**. Gebruik voor het implementeren van voorwaardelijk bronnen op basis van een parameter (bijvoorbeeld een jumpbox).
-* **Lid resources sjabloon**. Elk exemplaartype binnen een toepassingslaag heeft een eigen configuratie. Binnen een laag, kunt u een ander exemplaar typen definiëren. (Bijvoorbeeld de eerste instantie wordt gemaakt van een cluster en extra exemplaren worden toegevoegd aan het bestaande cluster.) Elk exemplaartype heeft een eigen sjabloon voor de implementatie.
-* **Scripts**. Algemeen herbruikbare scripts zijn van toepassing voor elk van exemplaartype (bijvoorbeeld, initialiseren en formatteren extra schijven). Aangepaste scripts die u voor een specifieke aanpassing doel maakt zijn verschillend, op basis van het type.
+* **Belangrijkste sjabloon** (azuredeploy.json). Gebruik dit voor de invoerparameters Hallo.
+* **Gedeelde bronnen sjabloon**. Gebruik toodeploy gedeelde resources die gebruikmaken van alle andere bronnen (bijvoorbeeld virtuele-netwerk en beschikbaarheid sets). Gebruik Hallo **dependsOn** expressie tooensure dat deze sjabloon wordt geïmplementeerd voordat andere sjablonen.
+* **Optionele resources sjabloon**. Gebruik tooconditionally resources op basis van een parameter (bijvoorbeeld een jumpbox) implementeren.
+* **Lid resources sjabloon**. Elk exemplaartype binnen een toepassingslaag heeft een eigen configuratie. Binnen een laag, kunt u een ander exemplaar typen definiëren. (Bijvoorbeeld Hallo eerste instantie wordt gemaakt van een cluster en extra exemplaren toohello bestaand cluster worden toegevoegd.) Elk exemplaartype heeft een eigen sjabloon voor de implementatie.
+* **Scripts**. Algemeen herbruikbare scripts zijn van toepassing voor elk van exemplaartype (bijvoorbeeld, initialiseren en formatteren extra schijven). Aangepaste scripts die u voor een specifieke aanpassing doel maakt zijn verschillend, op basis van het Hallo-instanceType.
 
 ![Geneste sjabloon](./media/resource-manager-template-best-practices/nestedTemplateDesign.png)
 
 Zie voor meer informatie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
 
-## <a name="conditionally-link-to-nested-templates"></a>Voorwaardelijk koppeling naar geneste sjablonen
-Een parameter kunt u voorwaardelijk koppelen aan geneste sjablonen. De parameter maakt deel uit van de URI voor de sjabloon:
+## <a name="conditionally-link-toonested-templates"></a>Voorwaardelijk toonested sjablonen koppelen
+U kunt een parameter tooconditionally koppeling toonested sjablonen gebruiken. Hallo parameter maakt deel uit van Hallo URI voor Hallo sjabloon:
 
 ```json
 "parameters": {
@@ -387,12 +387,12 @@ Een parameter kunt u voorwaardelijk koppelen aan geneste sjablonen. De parameter
 ```
 
 ## <a name="template-format"></a>Sjabloon
-Het is raadzaam om door te geven van uw sjabloon via een JSON-validator. Een validatiefunctie kunt u Verwijder overbodige komma's, haakjes en haakjes ertoe leiden een fout opgetreden tijdens de implementatie dat kunnen. Probeer [JSONLint](http://jsonlint.com/) of een pakket linter voor uw favoriete omgeving (Visual Studio Code, Atom, Sublime tekst, Visual Studio) bewerken.
+Het is een goede gewoonte toopass uw sjabloon via een JSON-validator. Een validatiefunctie kunt u Verwijder overbodige komma's, haakjes en haakjes ertoe leiden een fout opgetreden tijdens de implementatie dat kunnen. Probeer [JSONLint](http://jsonlint.com/) of een pakket linter voor uw favoriete omgeving (Visual Studio Code, Atom, Sublime tekst, Visual Studio) bewerken.
 
-Het is ook een goed idee om uw JSON voor een betere leesbaarheid. Voor uw lokale editor kunt u een pakket van JSON-indeling. In Visual Studio om het document, drukt u op **Ctrl + K, Ctrl + D**. Druk in Visual Studio Code op **Alt + Shift + F**. Als uw lokale editor het document niet opmaken, kunt u een [online formatter](https://www.bing.com/search?q=json+formatter).
+Het is ook een goed idee tooformat uw JSON voor een betere leesbaarheid. Voor uw lokale editor kunt u een pakket van JSON-indeling. Druk in Visual Studio, tooformat Hallo-document op **Ctrl + K, Ctrl + D**. Druk in Visual Studio Code op **Alt + Shift + F**. Als uw lokale editor niet Hallo document opmaken, kunt u een [online formatter](https://www.bing.com/search?q=json+formatter).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor instructies over het aanpassen van uw oplossing voor virtuele machines, [een virtuele machine van Windows worden uitgevoerd in Azure](../guidance/guidance-compute-single-vm.md) en [een Linux-VM in Azure uitvoeren](../guidance/guidance-compute-single-vm-linux.md).
 * Zie voor instructies over het instellen van een opslagaccount [controlelijst voor prestaties en schaalbaarheid van Azure Storage](../storage/common/storage-performance-checklist.md).
-* Zie voor meer informatie over hoe een onderneming met Resource Manager effectief abonnementen wilt beheren, [Azure enterprise scaffold: Prescriptieve abonnement governance](resource-manager-subscription-governance.md).
+* toolearn over hoe een onderneming met Resource Manager tooeffectively abonnementen beheren, Zie [Azure enterprise scaffold: Prescriptieve abonnement governance](resource-manager-subscription-governance.md).
 

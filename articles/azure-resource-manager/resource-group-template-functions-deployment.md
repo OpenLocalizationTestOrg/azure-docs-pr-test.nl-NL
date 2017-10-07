@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager-sjabloonfuncties - implementatie | Microsoft Docs
-description: Beschrijft de functies te gebruiken in een Azure Resource Manager-sjabloon voor het ophalen van informatie over de implementatie.
+title: aaaAzure Resource Manager-sjabloonfuncties - implementatie | Microsoft Docs
+description: Hierin wordt beschreven Hallo functies toouse in een Azure Resource Manager sjabloon tooretrieve implementatie-informatie.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 458c3f740504fdd6799ed24cc386219726737636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Implementatie-functies voor Azure Resource Manager-sjablonen 
 
-Resource Manager biedt de volgende functies voor het ophalen van waarden van de secties van de sjabloon en de waarden die betrekking hebben op de implementatie:
+Resource Manager biedt Hallo volgende fungeert voor het ophalen van waarden in de secties van de sjabloon Hallo en verwante toohello implementatie waarden:
 
 * [implementatie](#deployment)
 * [parameters](#parameters)
 * [variabelen](#variables)
 
-Als u de waarden van resources, resourcegroepen of abonnementen, Zie [Resource functies](resource-group-template-functions-resource.md).
+tooget waarden van resources, resourcegroepen of abonnementen, Zie [Resource functies](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
 
 ## <a name="deployment"></a>implementatie
 `deployment()`
 
-Retourneert informatie over de huidige implementatiebewerking.
+Retourneert informatie over de huidige implementatiebewerking Hallo.
 
 ### <a name="return-value"></a>Retourwaarde
 
-Deze functie retourneert het object dat wordt doorgegeven tijdens de implementatie. De eigenschappen in het geretourneerde object verschillen op basis van of het implementatieobject wordt doorgegeven als een koppeling of als een in-line-object. Wanneer het implementatieobject wordt doorgegeven in de regel, zoals wanneer u de **- sjabloonbestand** parameter in Azure PowerShell om te verwijzen naar een lokaal bestand, het geretourneerde object heeft de volgende notatie:
+Deze functie retourneert Hallo-object dat wordt doorgegeven tijdens de implementatie. Hallo-eigenschappen in object geretourneerd Hallo verschillen op basis van of hello implementatieobject is doorgegeven als een koppeling of als een in-line-object. Wanneer Hallo implementatieobject wordt doorgegeven in de regel, zoals bij gebruik van Hallo **- sjabloonbestand** parameter in Azure PowerShell toopoint tooa lokaal bestand geretourneerd Hallo-object heeft Hallo volgende indeling:
 
 ```json
 {
@@ -61,7 +61,7 @@ Deze functie retourneert het object dat wordt doorgegeven tijdens de implementat
 }
 ```
 
-Wanneer het object is doorgegeven als een koppeling, zoals wanneer u de **- TemplateUri** parameter om te verwijzen naar een extern object het object wordt geretourneerd in de volgende indeling: 
+Wanneer Hallo-object doorgegeven als een koppeling, zoals wanneer met behulp van Hallo **- TemplateUri** parameter toopoint tooa extern object Hallo-object wordt geretourneerd als Hallo volgende indeling: 
 
 ```json
 {
@@ -87,7 +87,7 @@ Wanneer het object is doorgegeven als een koppeling, zoals wanneer u de **- Temp
 
 ### <a name="remarks"></a>Opmerkingen
 
-U kunt deployment() gebruiken om te koppelen aan een andere sjabloon op basis van de URI van de bovenliggende sjabloon.
+U kunt deployment() toolink tooanother sjabloon op basis van het Hallo-URI van Hallo bovenliggende sjabloon gebruiken.
 
 ```json
 "variables": {  
@@ -97,7 +97,7 @@ U kunt deployment() gebruiken om te koppelen aan een andere sjabloon op basis va
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt het implementatieobject:
+Hallo wordt volgende voorbeeld Hallo implementatieobject:
 
 ```json
 {
@@ -113,7 +113,7 @@ Het volgende voorbeeld wordt het implementatieobject:
 }
 ```
 
-Het vorige voorbeeld retourneert de volgende object:
+Hallo retourneert voorgaande voorbeeld Hallo na-object:
 
 ```json
 {
@@ -139,24 +139,24 @@ Het vorige voorbeeld retourneert de volgende object:
 
 <a id="parameters" />
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
-Retourneert een parameterwaarde. De opgegeven parameternaam moet worden gedefinieerd in het gedeelte parameters van de sjabloon.
+Retourneert een parameterwaarde. Hallo opgegeven parameternaam moet worden gedefinieerd in sectie van de parameters Hallo van Hallo-sjabloon.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| parameterName |Ja |Tekenreeks |De naam van de parameter om terug te keren. |
+| parameterName |Ja |Tekenreeks |Hallo-naam van Hallo parameter tooreturn. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De waarde van de opgegeven parameter.
+Hallo-waarde van Hallo opgegeven parameter.
 
 ### <a name="remarks"></a>Opmerkingen
 
-Doorgaans kunt u parameters resource waarden instellen. Het volgende voorbeeld wordt de naam van de website met de parameterwaarde doorgegeven tijdens de implementatie.
+Doorgaans kunt u parameterwaarden tooset resource gebruiken. Hallo wordt volgende voorbeeld Hallo-naam van de website toohello doorgegeven parameterwaarde tijdens de implementatie.
 
 ```json
 "parameters": { 
@@ -176,7 +176,7 @@ Doorgaans kunt u parameters resource waarden instellen. Het volgende voorbeeld w
 
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld ziet u een vereenvoudigde gebruik van de parameters-functie.
+Hallo volgende voorbeeld ziet u een vereenvoudigde gebruik van de functie voor Hallo-parameters.
 
 ```json
 {
@@ -231,14 +231,14 @@ Het volgende voorbeeld ziet u een vereenvoudigde gebruik van de parameters-funct
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | stringOutput | Tekenreeks | Optie 1 |
 | intOutput | int | 1 |
 | objectOutput | Object | {"een": "a", "twee": "b"} |
-| arrayOutput | matrix | [1, 2, 3] |
+| arrayOutput | Matrix | [1, 2, 3] |
 | crossOutput | Tekenreeks | Optie 1 |
 
 <a id="variables" />
@@ -246,21 +246,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 ## <a name="variables"></a>variabelen
 `variables(variableName)`
 
-Retourneert de waarde van variabele. De opgegeven naam van de variabele moet worden gedefinieerd in het gedeelte variabelen van de sjabloon.
+Retourneert Hallo de waarde van variabele. Hallo opgegeven variabelenaam moet worden gedefinieerd in sectie met sjabloonvariabelen Hallo van Hallo-sjabloon.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Variabelenaam |Ja |Tekenreeks |De naam van de variabele retourneren. |
+| Variabelenaam |Ja |Tekenreeks |Hallo-naam van de variabele tooreturn Hallo. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De waarde van de opgegeven variabele.
+Hallo-waarde van de opgegeven Hallo-variabele.
 
 ### <a name="remarks"></a>Opmerkingen
 
-Doorgaans kunt u variabelen uw sjabloon vereenvoudigen door slechts één keer complexe waarden samen te stellen. Het volgende voorbeeld wordt een unieke naam voor een opslagaccount.
+Normaal gesproken u variabelen toosimplify uw sjabloon door slechts één keer complexe waarden samen te stellen. Hallo wordt volgende voorbeeld een unieke naam voor een opslagaccount.
 
 ```json
 "variables": {
@@ -284,7 +284,7 @@ Doorgaans kunt u variabelen uw sjabloon vereenvoudigen door slechts één keer c
 
 ### <a name="example"></a>Voorbeeld
 
-De voorbeeldsjabloon retourneert de waarden van verschillende variabelen.
+Hallo-voorbeeldsjabloon retourneert verschillende waarden van variabelen.
 
 ```json
 {
@@ -322,18 +322,18 @@ De voorbeeldsjabloon retourneert de waarden van verschillende variabelen.
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+Hallo uitvoer van Hallo voorgaande voorbeeld met standaardwaarden Hallo is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | exampleOutput1 | Tekenreeks | myVariable |
-| exampleOutput2 | matrix | [1, 2, 3, 4] |
+| exampleOutput2 | Matrix | [1, 2, 3, 4] |
 | exampleOutput3 | Tekenreeks | myVariable |
 | exampleOutput4 |  Object | {{'1': 'value1', 'eigenschap 2': 'waarde2'} |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
-* U kunt meerdere sjablonen samenvoegen, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Voor een opgegeven aantal keer herhalen bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
-* Zie voor het implementeren van de sjabloon die u hebt gemaakt, [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie voor een beschrijving van de secties Hallo in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+* toomerge meerdere sjablonen Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
+* een opgegeven aantal keren tooiterate bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
+* toosee hoe toodeploy Hallo sjabloon die u hebt gemaakt, Zie [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

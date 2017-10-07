@@ -1,6 +1,6 @@
 ---
-title: "Gegevens kopiëren naar en van Azure Data Lake Store | Microsoft Docs"
-description: "Informatie over het kopiëren van gegevens naar en van Data Lake Store met behulp van Azure Data Factory"
+title: aaaCopy gegevens tooand van Azure Data Lake Store | Microsoft Docs
+description: Meer informatie over hoe toocopy gegevens tooand van Data Lake Store met behulp van Azure Data Factory
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 11629fbc83f0554e2097eb4322701654c0bc2028
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2e78f75f3821738332dacf70f6bf2c16f0136408
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Gegevens kopiëren naar en van Data Lake Store via Data Factory
-In dit artikel wordt uitgelegd hoe gebruiken Kopieeractiviteit in Azure Data Factory om gegevens te verplaatsen naar en van Azure Data Lake Store. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, een overzicht van de verplaatsing van gegevens met de Kopieeractiviteit.
+# <a name="copy-data-tooand-from-data-lake-store-by-using-data-factory"></a>Kopiëren van gegevens tooand van Data Lake Store via Data Factory
+Dit artikel wordt uitgelegd hoe toouse Kopieeractiviteit in Azure Data Factory toomove gegevens tooand van Azure Data Lake Store. Dit is gebaseerd op Hallo [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, een overzicht van de verplaatsing van gegevens met de Kopieeractiviteit.
 
 ## <a name="supported-scenarios"></a>Ondersteunde scenario 's
-U kunt gegevens kopiëren **van Azure Data Lake Store** opslaat in de volgende gegevens:
+U kunt gegevens kopiëren **van Azure Data Lake Store** toohello gegevensarchieven te volgen:
 
 [!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
 
-U kunt gegevens kopiëren van de volgende gegevensarchieven **met Azure Data Lake Store**:
+Gegevens kunnen worden gekopieerd van de volgende gegevensarchieven Hallo **tooAzure Data Lake Store**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
@@ -36,57 +36,57 @@ U kunt gegevens kopiëren van de volgende gegevensarchieven **met Azure Data Lak
 > Een Data Lake Store-account maken voordat u een pijplijn maakt met de Kopieeractiviteit. Zie voor meer informatie [aan de slag met Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## <a name="supported-authentication-types"></a>Ondersteunde verificatietypen
-De Data Lake Store-connector ondersteunt de volgende verificatietypen:
+Hallo Data Lake Store-connector ondersteunt de volgende verificatietypen:
 * Verificatie van service-principal
 * Verificatie van gebruikersreferenties (OAuth) 
 
-Het is raadzaam dat u service-principal verificatie, met name voor een geplande gegevens opnieuw te kopiëren. Verlopen van het token kan gebeuren met verificatie van gebruikersreferenties. Zie voor configuratiedetails de [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
+Het is raadzaam dat u service-principal verificatie, met name voor een geplande gegevens opnieuw te kopiëren. Verlopen van het token kan gebeuren met verificatie van gebruikersreferenties. Zie voor configuratiedetails Hallo [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
 
 ## <a name="get-started"></a>Aan de slag
 U kunt een pijplijn maken met een kopieeractiviteit waarmee gegevens worden verplaatst van een Azure Data Lake Store met verschillende hulpprogramma's voor API's.
 
-De eenvoudigste manier om u te maken van een pijplijn om gegevens te kopiëren is met de **Wizard kopiëren**. Zie voor een zelfstudie over het maken van een pijplijn met behulp van de Wizard kopiëren [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
+Hallo gemakkelijkste manier toocreate een pijplijn toocopy gegevens is toouse hello **Wizard kopiëren**. Zie voor een zelfstudie over het maken van een pijplijn met behulp van de Wizard kopiëren Hallo [zelfstudie: een pijplijn maken met de Wizard kopiëren](data-factory-copy-data-wizard-tutorial.md).
 
-U kunt ook de volgende hulpprogramma's gebruiken voor het maken van een pijplijn: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon**, **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies voor een pijplijn maken met een kopieeractiviteit.
+U kunt ook Hallo toocreate hulpprogramma's voor een pijplijn te volgen: **Azure-portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-sjabloon** , **.NET API**, en **REST-API**. Zie [kopie activiteit zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor stapsgewijze instructies toocreate een pijplijn met een kopieeractiviteit.
 
-Of u de hulpprogramma's of API's gebruiken, moet u de volgende stappen voor het maken van een pijplijn die de gegevens vanuit een brongegevensarchief naar een gegevensarchief sink verplaatst uitvoeren:
+Of u Hallo-hulpprogramma's of API's gebruiken, kunt u Hallo stappen toocreate een pijplijn die verplaatst gegevens uit een brongegevens tooa sink data store opslaan na uitvoeren:
 
 1. Maak een **gegevensfactory**. Een gegevensfactory kan één of meer pijplijnen bevatten. 
-2. Maak **gekoppelde services** slaat om invoer- en gegevens te koppelen aan uw gegevensfactory. Bijvoorbeeld, als u gegevens uit een Azure blob-opslag met een Azure Data Lake Store kopieert, maakt u twee gekoppelde services als u wilt uw Azure storage-account en de Azure Data Lake store koppelen aan uw gegevensfactory. Zie voor de gekoppelde service-eigenschappen die specifiek voor Azure Data Lake Store zijn, [gekoppelde service-eigenschappen](#linked-service-properties) sectie. 
-2. Maak **gegevenssets** vertegenwoordigt de invoer- en -gegevens voor de kopieerbewerking. In het voorbeeld in de laatste stap wordt vermeld, maakt u een gegevensset om op te geven van de blob-container en de map waarin de invoergegevens. En maken van een andere gegevensset opgeven van de map en het bestandspad in de Data Lake store de gegevens gekopieerd van de blob-opslag bevat. Zie voor eigenschappen van gegevensset die specifiek voor Azure Data Lake Store zijn, [eigenschappen van gegevensset](#dataset-properties) sectie.
-3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. In het voorbeeld eerder vermeld, gebruikt u BlobSource als een bron- en AzureDataLakeStoreSink als een sink voor de kopieeractiviteit. Op dezelfde manier als u van Azure Data Lake Store naar Azure Blob Storage kopiëren wilt, gebruikt u AzureDataLakeStoreSource en BlobSink in de kopieerbewerking. Zie voor activiteitseigenschappen kopiëren die specifiek voor Azure Data Lake Store zijn, [activiteitseigenschappen kopiëren](#copy-activity-properties) sectie. Klik op de koppeling in de vorige sectie voor de gegevensopslag voor meer informatie over het gebruik van een gegevensarchief als een bron of een sink.  
+2. Maak **gekoppelde services** toolink en uitvoergegevens winkels tooyour data factory. Bijvoorbeeld, als u gegevens uit een Azure blob storage tooan Azure Data Lake Store kopiëren wilt, u twee gekoppelde services toolink uw Azure storage-account en de Azure Data Lake store tooyour data factory. Zie voor de gekoppelde service-eigenschappen die specifiek tooAzure Data Lake Store, [gekoppelde service-eigenschappen](#linked-service-properties) sectie. 
+2. Maak **gegevenssets** toorepresent invoer en uitvoer gegevens voor Hallo voor de kopieerbewerking. In vermeld in de laatste stap Hallo Hallo voorbeeld maakt u een gegevensset toospecify Hallo blob-container en map met invoergegevens Hallo. En u een andere dataset toospecify Hallo map en het bestandspad in Hallo Data Lake store Hallo gegevens gekopieerd van de blob-opslag Hallo bevat maken. Zie voor eigenschappen van gegevensset die specifieke tooAzure Data Lake Store, [eigenschappen van gegevensset](#dataset-properties) sectie.
+3. Maak een **pijplijn** met een kopieeractiviteit waarmee een gegevensset als invoer en een gegevensset als uitvoer. In Hallo voorbeeld eerder vermeld, gebruikt u BlobSource als een bron- en AzureDataLakeStoreSink als een sink voor de kopieeractiviteit Hallo. Op dezelfde manier als u van Azure Data Lake Store tooAzure Blob Storage kopiëren wilt, gebruikt u AzureDataLakeStoreSource en BlobSink in Hallo kopieeractiviteit. Zie voor activiteitseigenschappen kopiëren die specifieke tooAzure Data Lake Store, [activiteitseigenschappen kopiëren](#copy-activity-properties) sectie. Voor informatie over hoe toouse een gegevensarchief als een bron of een sink, klikt u op Hallo-koppeling in de vorige sectie Hallo voor de gegevensopslag.  
 
-Wanneer u de wizard gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en pijplijn) automatisch voor u gemaakt. Wanneer u extra/API's (met uitzondering van de .NET API) gebruikt, kunt u deze Data Factory-entiteiten definiëren met behulp van de JSON-indeling.  Zie voor voorbeelden met JSON-definities voor Data Factory-entiteiten die worden gebruikt om gegevens te kopiëren naar/van een Azure Data Lake Store, [JSON voorbeelden](#json-examples-for-copying-data-to-and-from-data-lake-store) sectie van dit artikel.
+Wanneer u de wizard Hallo gebruikt, worden de JSON-definities voor deze Data Factory-entiteiten (gekoppelde services, gegevenssets en pijplijn Hallo) automatisch voor u gemaakt. Wanneer u extra/API's (met uitzondering van de .NET API) gebruikt, kunt u deze Data Factory-entiteiten definiëren met behulp van Hallo JSON-indeling.  Zie voor voorbeelden met JSON-definities voor Data Factory-entiteiten die gebruikt toocopy gegevens van/naar een Azure Data Lake Store zijn, [JSON voorbeelden](#json-examples-for-copying-data-to-and-from-data-lake-store) sectie van dit artikel.
 
-De volgende secties bevatten informatie over de JSON-eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar Data Lake Store.
+Hallo volgende secties bevatten informatie over de JSON-eigenschappen die gebruikt toodefine Data Factory entiteiten specifieke tooData Lake Store zijn.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
-Een gekoppelde service gegevensopslag is gekoppeld aan een gegevensfactory. Maken van een gekoppelde service van het type **AzureDataLakeStore** uw Data Lake Store om gegevens te koppelen aan uw gegevensfactory. De volgende tabel beschrijft de JSON-elementen die specifiek zijn voor Data Lake Store gekoppelde services. U kunt kiezen tussen service-principal en verificatie van gebruikersreferenties.
+Een gekoppelde service een gegevensfactory store tooa gegevens gekoppeld. Maken van een gekoppelde service van het type **AzureDataLakeStore** toolink uw Data Lake Store gegevens tooyour data factory. Hallo volgende tabel beschrijft de JSON-elementen specifieke tooData Lake Store gekoppelde services. U kunt kiezen tussen service-principal en verificatie van gebruikersreferenties.
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **type** | De eigenschap type moet worden ingesteld op **AzureDataLakeStore**. | Ja |
-| **dataLakeStoreUri** | Informatie over het Azure Data Lake Store-account. Deze informatie heeft een van de volgende indelingen: `https://[accountname].azuredatalakestore.net/webhdfs/v1` of `adl://[accountname].azuredatalakestore.net/`. | Ja |
-| **abonnements-id** | Azure-abonnement-ID waartoe het Data Lake Store-account behoort. | Vereist voor sink |
-| **resourceGroupName** | Naam Azure resourcegroep waartoe het Data Lake Store-account behoort. | Vereist voor sink |
+| **type** | de eigenschap type Hello te moet worden ingesteld**AzureDataLakeStore**. | Ja |
+| **dataLakeStoreUri** | Informatie over hello Azure Data Lake Store-account. Deze informatie heeft een van de volgende indelingen Hallo: `https://[accountname].azuredatalakestore.net/webhdfs/v1` of `adl://[accountname].azuredatalakestore.net/`. | Ja |
+| **abonnements-id** | Azure-abonnement-ID toowhich Hallo Data Lake Store-account hoort. | Vereist voor sink |
+| **resourceGroupName** | Azure resource group name toowhich Hallo Data Lake Store-account hoort. | Vereist voor sink |
 
 ### <a name="service-principal-authentication-recommended"></a>Verificatie van de service principal (aanbevolen)
-Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) voor het gebruik van verificatie van de service-principal en wordt de toegang verlenen tot Data Lake Store. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
+toouse service principal verificatie, de registratie een Toepassingsentiteit in Azure Active Directory (Azure AD) en verleen het Hallo toegang krijgen tot de tooData Lake Store. Zie voor gedetailleerde stappen [authentication Service-naar-serviceconnector](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Noteer Hallo waarden, waarin u volgende toodefine Hallo gekoppelde service:
 * Toepassings-id
 * Sleutel van toepassing 
 * Tenant-id
 
 > [!IMPORTANT]
-> Als u de Wizard kopiëren gebruikt voor het schrijven van gegevenspijplijnen, zorgt u ervoor dat u de service-principal verlenen ten minste een **lezer** rol in toegangsbeheer (identiteits- en toegangsbeheer management) voor het Data Lake Store-account. Verleen de service-principal ook ten minste **lezen + Execute** machtiging voor de hoofdmap van uw Data Lake Store ('/') en de onderliggende items. Anders mogelijk ziet u het bericht "de opgegeven referenties zijn ongeldig."<br/><br/>
-Nadat u maken of bijwerken van een service-principal in Azure AD, kan het enkele minuten om de wijzigingen van kracht te laten duren. Controleer de service-principal en Data Lake Store-besturingselement toegangsbeheerlijst (ACL) configuraties. Als u nog steeds ziet u het bericht 'de opgegeven referenties zijn ongeldig.' Wacht even en probeer het opnieuw.
+> Als u van Hallo Wizard kopiëren tooauthor gegevenspijplijnen gebruikmaakt, zorgt u ervoor dat u service-principal Hallo verlenen ten minste een **lezer** rol in toegangsbeheer (identiteits- en toegangsbeheer management) voor Hallo Data Lake Store-account. Ook ten minste verlenen Hallo service-principal **lezen + Execute** machtiging tooyour Data Lake Store hoofdmap ('/') en de onderliggende items. Anders ziet u mogelijk het Hallo-bericht "hello opgegeven referenties zijn ongeldig."<br/><br/>
+Nadat u maken of bijwerken van een service-principal in Azure AD, kan het enkele minuten duren voordat Hallo wijzigingen tootake effect. Controleer Hallo service-principal en Data Lake Store-besturingselement toegangsbeheerlijst (ACL) configuraties. Als u nog steeds het Hallo-bericht 'hello opgegeven referenties zijn ongeldig' ziet, wacht even en probeer het opnieuw.
 
-Verificatie van de service-principal gebruiken door te geven van de volgende eigenschappen:
+Verificatie van de service-principal door te geven van de volgende eigenschappen hello gebruiken:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Geef de toepassing client-ID. | Ja |
-| **servicePrincipalKey** | De sleutel van de toepassing opgeven. | Ja |
-| **tenant** | De tenant-gegevens (domain name of tenant-ID) opgeven onder uw toepassing zich bevindt. U kunt deze ophalen door de muis in de rechterbovenhoek van de Azure portal. | Ja |
+| **servicePrincipalId** | Geef Hallo van client-id op. | Ja |
+| **servicePrincipalKey** | De sleutel van de toepassing hello opgeven. | Ja |
+| **tenant** | Geef informatie op Hallo tenant (domain name of tenant-ID) in uw toepassing zich bevindt. U kunt deze ophalen door zwevende Hallo muis in Hallo rechterbovenhoek Hallo Azure-portal. | Ja |
 
 **Voorbeeld: Service-principal-verificatie**
 ```json
@@ -107,12 +107,12 @@ Verificatie van de service-principal gebruiken door te geven van de volgende eig
 ```
 
 ### <a name="user-credential-authentication"></a>Verificatie van gebruikersreferenties
-U kunt ook kunt u verificatie van gebruikersreferenties voor het kopiëren van of naar Data Lake Store door te geven van de volgende eigenschappen:
+U kunt ook kunt u gebruiker referentie verificatie toocopy uit of tooData Lake Store door te geven Hallo volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **autorisatie** | Klik op de **autoriseren** in de Data Factory-Editor en voer uw referenties op waarmee de automatisch gegenereerde autorisatie-URL worden toegewezen aan deze eigenschap. | Ja |
-| **sessie-id** | OAuth-sessie-ID van de OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u de Data Factory-Editor. | Ja |
+| **autorisatie** | Klik op Hallo **autoriseren** knop op Hallo Data Factory-Editor en voer uw referenties die Hallo automatisch gegenereerde autorisatie-URL toothis eigenschap toewijst. | Ja |
+| **sessie-id** | OAuth-sessie-ID van Hallo OAuth-autorisatie-sessie. Elke sessie-ID is uniek en kan slechts één keer worden gebruikt. Deze instelling wordt automatisch gegenereerd wanneer u Hallo Data Factory-Editor. | Ja |
 
 **Voorbeeld: Verificatie van gebruikersreferenties**
 ```json
@@ -132,21 +132,21 @@ U kunt ook kunt u verificatie van gebruikersreferenties voor het kopiëren van o
 ```
 
 #### <a name="token-expiration"></a>Verlopen van het token
-De autorisatiecode die u met behulp van genereren de **autoriseren** knop verloopt na een bepaalde hoeveelheid tijd. Het volgende bericht betekent dat de verificatietoken is verlopen:
+Autorisatiecode die u genereren met behulp van Hallo Hallo **autoriseren** knop verloopt na een bepaalde hoeveelheid tijd. Hallo volgende bericht betekent dat verificatie Hallo token is verlopen:
 
-Referentie-bewerkingsfout: invalid_grant - AADSTS70002: fout bij het valideren van referenties. AADSTS70008: De toegewezen toegangsmachtiging is verlopen of ingetrokken. Traceer-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 correlatie-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tijdstempel: 2015-12-15 21-09-31Z.
+Referentie-bewerkingsfout: invalid_grant - AADSTS70002: fout bij het valideren van referenties. AADSTS70008: Hallo opgegeven toegangsmachtiging is verlopen of ingetrokken. Traceer-ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 correlatie-ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 tijdstempel: 2015-12-15 21-09-31Z.
 
-De volgende tabel ziet u de vervaldatum tijden van verschillende typen gebruikersaccounts:
+Hallo volgende tabel ziet u Hallo verlopen tijden van verschillende typen gebruikersaccounts:
 
 
 | Gebruikerstype | Verloopt na |
 |:--- |:--- |
 | Gebruikersaccounts *niet* beheerd door Azure Active Directory (bijvoorbeeld @hotmail.com of @live.com) |12 uur |
-| Gebruikersaccounts worden beheerd door Azure Active Directory |het is 14 dagen na het laatste segment uitvoeren <br/><br/>Als een segment op basis van een gekoppelde op basis van het OAuth-service wordt uitgevoerd in de 14 dagen ten minste eenmaal na 90 dagen |
+| Gebruikersaccounts worden beheerd door Azure Active Directory |het is 14 dagen na de laatste segment Hallo uitvoeren <br/><br/>Als een segment op basis van een gekoppelde op basis van het OAuth-service wordt uitgevoerd in de 14 dagen ten minste eenmaal na 90 dagen |
 
-Als u uw wachtwoord voordat de verlooptijd van de token wijzigen, is het token verloopt onmiddellijk. U ziet het bericht dat eerder is vermeld in deze sectie.
+Als u uw wachtwoord vóór Hallo token verlooptijd vallen wijzigt, wordt de Hallo-token onmiddellijk verloopt. Hier ziet u eerder in deze sectie het Hallo-bericht.
 
-U kunt het account opnieuw autoriseren met behulp van de **autoriseren** knop wanneer het token is verlopen opnieuw te implementeren, de gekoppelde service. U kunt ook genereren waarden voor de **sessionId** en **autorisatie** eigenschappen programmatisch met behulp van de volgende code:
+U kunt opnieuw autoriseren hello account met behulp van Hallo **autoriseren** knop wanneer Hallo-token tooredeploy Hallo verloopt gekoppelde service. U kunt ook de waarden voor Hallo genereren **sessionId** en **autorisatie** eigenschappen programmatisch met behulp van Hallo volgende code:
 
 
 ```csharp
@@ -173,26 +173,26 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-Zie voor meer informatie over de Data Factory-klassen gebruikt in de code de [AzureDataLakeStoreLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), en [ Klasse AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) onderwerpen. Voeg een verwijzing naar versie `2.9.10826.1824` van `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` voor de `WindowsFormsWebAuthenticationDialog` klasse die in de code wordt gebruikt.
+Zie voor meer informatie over Data Factory-klassen Hallo gebruikt in code Hallo Hallo [AzureDataLakeStoreLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), en [ Klasse AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) onderwerpen. Voeg een verwijzing tooversion `2.9.10826.1824` van `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` voor Hallo `WindowsFormsWebAuthenticationDialog` klasse die wordt gebruikt in Hallo-code.
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
-Als een dataset staat voor invoergegevens in een Data Lake Store opgeven, die u stelt de **type** eigenschap van de gegevensset **AzureDataLakeStore**. Stel de **linkedServiceName** eigenschap van de gegevensset op de naam van de Data Lake Store gekoppelde service. Zie voor een volledige lijst van JSON-secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties van een gegevensset in JSON, zoals **structuur**, **beschikbaarheid**, en **beleid**, zijn identiek voor alle typen van de gegevensset (Azure SQL-database, blob van Azure en Azure-tabel voor voorbeeld). De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie zoals de locatie en indeling van de gegevens in het gegevensarchief. 
+toospecify een gegevensset toorepresent gegevens invoeren in een Data Lake Store, stelt u Hallo **type** eigenschap van het Hallo-gegevensset te**AzureDataLakeStore**. Set Hallo **linkedServiceName** eigenschap van de naam van dataset toohello Hallo Hallo Data Lake Store gekoppelde service. Zie voor een volledige lijst van JSON-secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets Hallo [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties van een gegevensset in JSON, zoals **structuur**, **beschikbaarheid**, en **beleid**, zijn identiek voor alle typen van de gegevensset (Azure SQL-database, blob van Azure en Azure-tabel voor voorbeeld). Hallo **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie zoals de locatie en indeling van gegevens in het gegevensarchief Hallo Hallo. 
 
-De **typeProperties** sectie voor een gegevensset van het type **AzureDataLakeStore** bevat de volgende eigenschappen:
+Hallo **typeProperties** sectie voor een gegevensset van het type **AzureDataLakeStore** bevat Hallo volgende eigenschappen:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| **folderPath** |Pad naar de container en map in Data Lake Store. |Ja |
-| **Bestandsnaam** |Naam van het bestand in Azure Data Lake Store. De **fileName** eigenschap is optioneel en is hoofdlettergevoelig. <br/><br/>Als u opgeeft **fileName**, de activiteit (inclusief kopiëren) werkt op het specifieke bestand.<br/><br/>Wanneer **fileName** niet is opgegeven, kopie bevat alle bestanden in **folderPath** in de invoer gegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in activiteit sink, de naam van het gegenereerde bestand is in de indeling van gegevens. _GUID_.txt'. Voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nee |
-| **partitionedBy** |De **partitionedBy** eigenschap is optioneel. U kunt deze gebruiken om op te geven van een dynamische pad en bestandsnaam op voor timeseries gegevens. Bijvoorbeeld: **folderPath** kunnen als parameters worden gebruikt voor elk uur van gegevens. Zie voor meer informatie en voorbeelden [de eigenschap partitionedBy](#using-partitionedby-property). |Nee |
-| **indeling** | De volgende indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en  **ParquetFormat**. Stel de **type** eigenschap onder **indeling** op een van deze waarden. Zie voor meer informatie de [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties in de [bestands- en compressie indelingen die worden ondersteund door Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel. <br><br> Als u wilt kopiëren van bestanden ' als-is ' overslaan tussen bestandsgebaseerde winkels (binaire kopiëren), de `format` sectie in beide definities invoer en uitvoer gegevensset. |Nee |
-| **compressie** | Geef het type en de compressie van de gegevens. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus zijn **optimale** en **snelst**. Zie voor meer informatie [bestands- en compressie indelingen die worden ondersteund door Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
+| **folderPath** |Pad toohello container en map in Data Lake Store. |Ja |
+| **Bestandsnaam** |Naam van het Hallo-bestand in Azure Data Lake Store. Hallo **fileName** eigenschap is optioneel en is hoofdlettergevoelig. <br/><br/>Als u opgeeft **fileName**, Hallo activiteit (inclusief kopiëren) werkt op Hallo specifiek bestand.<br/><br/>Wanneer **fileName** niet is opgegeven, kopie bevat alle bestanden in **folderPath** in Hallo invoergegevensset.<br/><br/>Wanneer **fileName** is niet opgegeven voor een uitvoergegevensset en **preserveHierarchy** niet is opgegeven in activiteit sink Hallo-naam van Hallo gegenereerd bestand heeft Hallo indeling gegevens. _GUID_.txt'. Voorbeeld: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nee |
+| **partitionedBy** |Hallo **partitionedBy** eigenschap is optioneel. U kunt deze toospecify een dynamische pad en bestandsnaam voor timeseries gegevens. Bijvoorbeeld: **folderPath** kunnen als parameters worden gebruikt voor elk uur van gegevens. Zie voor meer informatie en voorbeelden [Hallo eigenschap partitionedBy](#using-partitionedby-property). |Nee |
+| **indeling** | Hallo na indelingstypen worden ondersteund: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, en  **ParquetFormat**. Set Hallo **type** eigenschap onder **indeling** tooone van deze waarden. Zie voor meer informatie, Hallo [tekstindeling](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-indeling](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-indeling](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC indeling](data-factory-supported-file-and-compression-formats.md#orc-format), en [parketvloeren-indeling ](data-factory-supported-file-and-compression-formats.md#parquet-format) secties in Hallo [bestands- en compressie indelingen die worden ondersteund door Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel. <br><br> Als u toocopy bestanden wilt ' als-is ' tussen bestandsgebaseerde winkels (binaire kopiëren) overslaan Hallo `format` sectie in beide definities invoer en uitvoer gegevensset. |Nee |
+| **compressie** | Hallo-type en compressieniveau voor Hallo gegevens opgeven. Ondersteunde typen zijn **GZip**, **Deflate**, **BZip2**, en **ZipDeflate**. Ondersteunde niveaus zijn **optimale** en **snelst**. Zie voor meer informatie [bestands- en compressie indelingen die worden ondersteund door Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nee |
 
-### <a name="the-partitionedby-property"></a>De eigenschap partitionedBy
-Kunt u dynamische **folderPath** en **fileName** eigenschappen voor timeseries gegevens met de **partitionedBy** eigenschap, Data Factory-functies en systeemvariabelen. Zie voor meer informatie de [Azure Data Factory - functies en systeemvariabelen](data-factory-functions-variables.md) artikel.
+### <a name="hello-partitionedby-property"></a>Hallo partitionedBy eigenschap
+Kunt u dynamische **folderPath** en **fileName** eigenschappen voor timeseries gegevens met Hallo **partitionedBy** eigenschap, Data Factory-functies en het systeem variabelen. Zie voor meer informatie, Hallo [Azure Data Factory - functies en systeemvariabelen](data-factory-functions-variables.md) artikel.
 
 
-In het volgende voorbeeld `{Slice}` is vervangen door de waarde van de Data Factory systeemvariabele `SliceStart` in de opgegeven indeling (`yyyyMMddHH`). De naam van de `SliceStart` verwijst naar de begintijd van het segment. De `folderPath` eigenschap verschilt voor elk segment, zoals in `wikidatagateway/wikisampledataout/2014100103` of `wikidatagateway/wikisampledataout/2014100104`.
+In Hallo bijvoorbeeld na `{Slice}` is vervangen door de waarde Hallo van Hallo Data Factory systeemvariabele `SliceStart` in de opgegeven indeling Hallo (`yyyyMMddHH`). de naam van de Hallo `SliceStart` toohello begintijd van Hallo segment verwijst. Hallo `folderPath` eigenschap verschilt voor elk segment, zoals in `wikidatagateway/wikisampledataout/2014100103` of `wikidatagateway/wikisampledataout/2014100104`.
 
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
@@ -202,7 +202,7 @@ In het volgende voorbeeld `{Slice}` is vervangen door de waarde van de Data Fact
 ],
 ```
 
-In het volgende voorbeeld, het jaar, maand, dag en tijd van `SliceStart` worden uitgepakt in verschillende variabelen die worden gebruikt door de `folderPath` en `fileName` eigenschappen:
+In het volgende voorbeeld, Hallo jaar, maand, dag en tijd van Hallo `SliceStart` worden uitgepakt in verschillende variabelen die worden gebruikt door Hallo `folderPath` en `fileName` eigenschappen:
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
@@ -214,47 +214,47 @@ In het volgende voorbeeld, het jaar, maand, dag en tijd van `SliceStart` worden 
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Zie voor meer informatie over tijdreeks gegevenssets, planning en segmenten de [gegevenssets in Azure Data Factory](data-factory-create-datasets.md) en [Data Factory plannen en uitvoeren](data-factory-scheduling-and-execution.md) artikelen. 
+Voor meer informatie over tijdreeks gegevenssets planning en segmenten, Zie Hallo [gegevenssets in Azure Data Factory](data-factory-create-datasets.md) en [Data Factory plannen en uitvoeren](data-factory-scheduling-and-execution.md) artikelen. 
 
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de activiteit kopiëren
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
+Zie voor een volledige lijst van de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten en secties Hallo [pijplijnen maken](data-factory-create-pipelines.md) artikel. Eigenschappen op, zoals naam, beschrijving, invoer en uitvoer tabellen en -beleid zijn beschikbaar voor alle typen activiteiten.
 
-De eigenschappen die beschikbaar zijn in de **typeProperties** gedeelte van een activiteit variëren met elk activiteitstype. Voor een kopieeractiviteit variëren ze, afhankelijk van de typen van bronnen en Put.
+eigenschappen die beschikbaar zijn in Hallo Hallo **typeProperties** gedeelte van een activiteit variëren met elk activiteitstype. Voor een kopieeractiviteit variëren ze, afhankelijk van de soorten Hallo van bronnen en Put.
 
-**AzureDataLakeStoreSource** ondersteunt de volgende eigenschap in de **typeProperties** sectie:
-
-| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
-| --- | --- | --- | --- |
-| **recursieve** |Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map. |True (standaardwaarde), False |Nee |
-
-
-**AzureDataLakeStoreSink** ondersteunt de volgende eigenschappen in de **typeProperties** sectie:
+**AzureDataLakeStoreSource** ondersteunt de volgende eigenschap in Hallo Hallo **typeProperties** sectie:
 
 | Eigenschap | Beschrijving | Toegestane waarden | Vereist |
 | --- | --- | --- | --- |
-| **copyBehavior** |Hiermee geeft u het gedrag van de kopie. |<b>PreserveHierarchy</b>: behoudt de bestandshiërarchie in de doelmap. Het relatieve pad van het bronbestand naar de bronmap is identiek aan het relatieve pad van doelbestand naar doelmap.<br/><br/><b>FlattenHierarchy</b>: alle bestanden uit de bronmap worden gemaakt in het eerste niveau van de doelmap. De doelbestanden worden gemaakt met de automatisch gegenereerde namen.<br/><br/><b>MergeFiles</b>: alle bestanden uit de bronmap op één bestand worden samengevoegd. Als de naam van het bestand of blob is opgegeven, is de samengevoegde bestandsnaam de opgegeven naam. De bestandsnaam is anders wordt automatisch gegenereerd. |Nee |
+| **recursieve** |Hiermee wordt aangegeven of Hallo gegevens recursief is gelezen vanuit Hallo submappen of alleen vanuit de opgegeven map Hallo. |True (standaardwaarde), False |Nee |
+
+
+**AzureDataLakeStoreSink** ondersteunt de volgende eigenschappen in Hallo Hallo **typeProperties** sectie:
+
+| Eigenschap | Beschrijving | Toegestane waarden | Vereist |
+| --- | --- | --- | --- |
+| **copyBehavior** |Hiermee geeft u Hallo kopie gedrag. |<b>PreserveHierarchy</b>: Hallo bestandshiërarchie in de doelmap Hallo behouden blijft. Hallo relatieve pad van de bestandsmap toosource bron is identiek toohello relatieve pad van de bestandsmap tootarget doel.<br/><br/><b>FlattenHierarchy</b>: alle bestanden uit de bronmap Hallo worden gemaakt in het eerste niveau van de doelmap Hallo Hallo. Hallo doelbestanden worden gemaakt met de automatisch gegenereerde namen.<br/><br/><b>MergeFiles</b>: alle bestanden uit map Hallo-tooone bronbestand worden samengevoegd. Als hello bestand of de blob-naam wordt opgegeven, is de samengevoegde bestandsnaam Hallo Hallo opgegeven naam. Hallo-bestandsnaam is anders wordt automatisch gegenereerd. |Nee |
 
 ### <a name="recursive-and-copybehavior-examples"></a>Voorbeelden van recursieve en copyBehavior
-Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor verschillende combinaties van recursieve en copyBehavior waarden.
+Deze sectie beschrijft Hallo resulterende gedrag van de kopieerbewerking Hallo voor verschillende combinaties van recursieve en copyBehavior waarden.
 
 | Recursieve | copyBehavior | Resulterende gedrag |
 | --- | --- | --- |
-| De waarde True |preserveHierarchy |Voor een bronmap Map1 met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>de doelmap Map1 wordt gemaakt met dezelfde structuur als de bron<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| De waarde True |flattenHierarchy |Voor een bronmap Map1 met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File5 |
-| De waarde True |mergeFiles |Voor een bronmap Map1 met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 bestand2 + bestand3 + File4 + bestand 5 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam |
-| ONWAAR |preserveHierarchy |Voor een bronmap Map1 met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/><br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
-| ONWAAR |flattenHierarchy |Voor een bronmap Map1 met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
-| ONWAAR |mergeFiles |Voor een bronmap Map1 met de volgende structuur:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| De waarde True |preserveHierarchy |Voor een bronmap Map1 Hello structuur te volgen: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hallo doelmap Map1 wordt gemaakt met dezelfde structuur, als de bron Hallo Hallo<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| De waarde True |flattenHierarchy |Voor een bronmap Map1 Hello structuur te volgen: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hallo doel Map1 is gemaakt met de Hallo structuur te volgen: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File5 |
+| De waarde True |mergeFiles |Voor een bronmap Map1 Hello structuur te volgen: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hallo doel Map1 is gemaakt met de Hallo structuur te volgen: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 bestand2 + bestand3 + File4 + bestand 5 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam |
+| ONWAAR |preserveHierarchy |Voor een bronmap Map1 Hello structuur te volgen: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hallo doelmap Map1 wordt gemaakt met de Hallo structuur te volgen<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/><br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| ONWAAR |flattenHierarchy |Voor een bronmap Map1 Hello structuur te volgen:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hallo doelmap Map1 wordt gemaakt met de Hallo structuur te volgen<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| ONWAAR |mergeFiles |Voor een bronmap Map1 Hello structuur te volgen:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Hallo doelmap Map1 wordt gemaakt met de Hallo structuur te volgen<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
 
 ## <a name="supported-file-and-compression-formats"></a>Ondersteunde indelingen voor bestands- en compressie
-Zie voor meer informatie de [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel.
+Zie voor meer informatie, Hallo [bestands- en compressie-notaties in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel.
 
-## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>JSON-voorbeelden voor het kopiëren van gegevens naar en van Data Lake Store
-De volgende voorbeelden geven voorbeeld JSON definities. U kunt deze definities voorbeeld een pijplijn maken met behulp van de [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De voorbeelden laten zien hoe om gegevens te kopiëren naar en van Data Lake Store en Azure Blob storage. Echter, de gegevens kunnen worden gekopieerd _rechtstreeks_ uit een van de bronnen aan een van de ondersteunde Put. Zie voor meer informatie de sectie 'ondersteunde gegevensarchieven en indelingen' in de [verplaatsen van gegevens met behulp van de Kopieeractiviteit](data-factory-data-movement-activities.md) artikel.  
+## <a name="json-examples-for-copying-data-tooand-from-data-lake-store"></a>JSON-voorbeelden voor het kopiëren van gegevens tooand van Data Lake Store
+Hallo volgen voorbeelden bieden voorbeeld JSON definities. U kunt deze voorbeeld definities toocreate een pijplijn met behulp van Hallo [Azure-portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). voorbeelden kunt u zien hoe Hallo toocopy gegevens tooand van Data Lake Store en Azure Blob storage. Echter, de gegevens kunnen worden gekopieerd _rechtstreeks_ vanaf elke Hallo bronnen tooany van Hallo ondersteund Put. Zie voor meer informatie Hallo sectie 'ondersteunde gegevensarchieven en indelingen' in hello [verplaatsen van gegevens met behulp van de Kopieeractiviteit](data-factory-data-movement-activities.md) artikel.  
 
-### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Voorbeeld: Gegevens kopiëren van Azure Blob-opslag naar Azure Data Lake Store
-De voorbeeldcode in dit gedeelte ziet:
+### <a name="example-copy-data-from-azure-blob-storage-tooazure-data-lake-store"></a>Voorbeeld: Gegevens kopiëren van Azure Blob Storage tooAzure Data Lake Store
+Hallo voorbeeldcode in dit gedeelte ziet:
 
 * Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * Een gekoppelde service van het type [AzureDataLakeStore](#linked-service-properties).
@@ -262,7 +262,7 @@ De voorbeeldcode in dit gedeelte ziet:
 * Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureDataLakeStore](#dataset-properties).
 * Een [pijplijn](data-factory-create-pipelines.md) met een kopieeractiviteit die gebruikmaakt van [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) en [AzureDataLakeStoreSink](#copy-activity-properties).
 
-De voorbeelden laten zien hoe timeseries gegevens uit Azure Blob Storage is gekopieerd naar Data Lake Store om het uur. 
+Hallo voorbeelden laten zien hoe timeseries gegevens uit Azure Blob Storage is gekopieerd tooData Lake Store om het uur. 
 
 **Een gekoppelde Azure Storage-service**
 
@@ -298,12 +298,12 @@ De voorbeelden laten zien hoe timeseries gegevens uit Azure Blob Storage is geko
 ```
 
 > [!NOTE]
-> Zie voor configuratiedetails de [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
+> Zie voor configuratiedetails Hallo [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
 >
 
 **De Azure Blob-invoergegevensset**
 
-In het volgende voorbeeld gegevens wordt opgehaald uit een nieuwe blob elk uur (`"frequency": "Hour", "interval": 1`). Pad en naam van de map voor de blob worden dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Het mappad maakt gebruik van het jaar, maand en daggedeelte van de begintijd. De bestandsnaam wordt gebruikt voor het uurgedeelte van de begintijd. De `"external": true` instelling informeert de Data Factory-service dat de tabel aan de gegevensfactory extern en niet wordt geproduceerd door een activiteit in de gegevensfactory.
+In de Hallo voorbeeld te volgen, gegevens wordt opgehaald uit een nieuwe blob elk uur (`"frequency": "Hour", "interval": 1`). Hallo map pad en de naam voor de blob Hallo worden dynamisch geëvalueerd op basis van de begintijd Hallo van Hallo-segment dat wordt verwerkt. Hallo mappad gebruikt Hallo jaar, maand en daggedeelte van de begintijd Hallo. Hallo-bestandsnaam Hallo uur gedeelte Hallo begintijd gebruikt. Hallo `"external": true` instelling informeert Hallo Data Factory-service die tabel Hallo externe toohello data factory is en niet wordt geproduceerd door een activiteit in de gegevensfactory Hallo.
 
 ```JSON
 {
@@ -366,7 +366,7 @@ In het volgende voorbeeld gegevens wordt opgehaald uit een nieuwe blob elk uur (
 
 **Azure Data Lake Store uitvoergegevensset**
 
-Het volgende voorbeeld worden gegevens gekopieerd naar Data Lake Store. Nieuwe gegevens worden gekopieerd naar Data Lake Store om het uur.
+Hallo voorbeeld kopieën data tooData Lake Store te volgen. Nieuwe gegevens worden gekopieerd tooData Lake Store om het uur.
 
 ```JSON
 {
@@ -388,7 +388,7 @@ Het volgende voorbeeld worden gegevens gekopieerd naar Data Lake Store. Nieuwe g
 
 **Kopieeractiviteit in een pijplijn met een blob-bron- en een Data Lake Store-sink**
 
-De pijplijn bevat in het volgende voorbeeld wordt een kopieeractiviteit die is geconfigureerd voor gebruik van de invoer- en uitvoergegevenssets. De kopieerbewerking is gepland voor elk uur uitgevoerd. In de pijplijn-JSON-definitie de `source` type is ingesteld op `BlobSource`, en de `sink` type is ingesteld op `AzureDataLakeStoreSink`.
+Hallo voorbeeld te volgen, Hallo pijplijn bevat een kopieeractiviteit die is geconfigureerd toouse Hallo invoer- en uitvoergegevenssets. Hallo kopieeractiviteit is geplande toorun om het uur. Hallo in Hallo pijplijn-JSON-definitie, `source` type is ingesteld, te`BlobSource`, en Hallo `sink` type is ingesteld, te`AzureDataLakeStoreSink`.
 
 ```json
 {  
@@ -438,8 +438,8 @@ De pijplijn bevat in het volgende voorbeeld wordt een kopieeractiviteit die is g
 }
 ```
 
-### <a name="example-copy-data-from-azure-data-lake-store-to-an-azure-blob"></a>Voorbeeld: Gegevens kopiëren van Azure Data Lake Store naar een Azure-blob
-De voorbeeldcode in dit gedeelte ziet:
+### <a name="example-copy-data-from-azure-data-lake-store-tooan-azure-blob"></a>Voorbeeld: Gegevens kopiëren van Azure Data Lake Store tooan Azure-blobopslag
+Hallo voorbeeldcode in dit gedeelte ziet:
 
 * Een gekoppelde service van het type [AzureDataLakeStore](#linked-service-properties).
 * Een gekoppelde service van het type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -447,7 +447,7 @@ De voorbeeldcode in dit gedeelte ziet:
 * Uitvoer [gegevensset](data-factory-create-datasets.md) van het type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * Een [pijplijn](data-factory-create-pipelines.md) met een kopieeractiviteit die gebruikmaakt van [AzureDataLakeStoreSource](#copy-activity-properties) en [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-De code opgehaald-timeseries-gegevens in Data Lake Store met een Azure-blob elk uur. 
+Hallo-code opgehaald-timeseries-gegevens uit Data Lake Store tooan Azure blob elk uur. 
 
 **Gekoppelde service van Azure Data Lake Store**
 
@@ -467,7 +467,7 @@ De code opgehaald-timeseries-gegevens in Data Lake Store met een Azure-blob elk 
 ```
 
 > [!NOTE]
-> Zie voor configuratiedetails de [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
+> Zie voor configuratiedetails Hallo [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
 >
 
 **Een gekoppelde Azure Storage-service**
@@ -485,7 +485,7 @@ De code opgehaald-timeseries-gegevens in Data Lake Store met een Azure-blob elk 
 ```
 **Azure Data Lake invoergegevensset**
 
-In dit voorbeeld instelling `"external"` naar `true` informeert de Data Factory-service dat de tabel aan de gegevensfactory extern en niet wordt geproduceerd door een activiteit in de gegevensfactory.
+In dit voorbeeld instelling `"external"` te`true` informeert Hallo Data Factory-service die tabel Hallo externe toohello data factory is en niet wordt geproduceerd door een activiteit in de gegevensfactory Hallo.
 
 ```json
 {
@@ -520,7 +520,7 @@ In dit voorbeeld instelling `"external"` naar `true` informeert de Data Factory-
 ```
 **De Azure Blob-uitvoergegevensset**
 
-In het volgende voorbeeld gegevens worden geschreven naar een nieuwe blob elk uur (`"frequency": "Hour", "interval": 1`). Het pad naar de blob wordt dynamisch geëvalueerd op basis van de begintijd van het segment dat wordt verwerkt. Het mappad maakt gebruik van het jaar, maand, dag en uur gedeelte van de begintijd.
+In de Hallo voorbeeld te volgen, gegevens worden geschreven tooa nieuwe blob elk uur (`"frequency": "Hour", "interval": 1`). pad naar map voor blob Hallo Hallo wordt dynamisch geëvalueerd op basis van de begintijd Hallo van Hallo-segment dat wordt verwerkt. Hallo mappad gebruikt Hallo jaar, maand, dag en uur gedeelte van de begintijd Hallo.
 
 ```JSON
 {
@@ -580,7 +580,7 @@ In het volgende voorbeeld gegevens worden geschreven naar een nieuwe blob elk uu
 
 **Een kopieeractiviteit in een pijplijn met een Azure Data Lake Store-bron- en een blob-sink**
 
-De pijplijn bevat in het volgende voorbeeld wordt een kopieeractiviteit die is geconfigureerd voor gebruik van de invoer- en uitvoergegevenssets. De kopieerbewerking is gepland voor elk uur uitgevoerd. In de pijplijn-JSON-definitie de `source` type is ingesteld op `AzureDataLakeStoreSource`, en de `sink` type is ingesteld op `BlobSink`.
+Hallo voorbeeld te volgen, Hallo pijplijn bevat een kopieeractiviteit die is geconfigureerd toouse Hallo invoer- en uitvoergegevenssets. Hallo kopieeractiviteit is geplande toorun om het uur. Hallo in Hallo pijplijn-JSON-definitie, `source` type is ingesteld, te`AzureDataLakeStoreSource`, en Hallo `sink` type is ingesteld, te`BlobSink`.
 
 ```json
 {  
@@ -628,7 +628,7 @@ De pijplijn bevat in het volgende voorbeeld wordt een kopieeractiviteit die is g
 }
 ```
 
-U kunt ook kolommen uit de bron-gegevensset naar kolommen in de gegevensset sink toewijzen in de definitie van de activiteit kopiëren. Zie voor meer informatie [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
+U kunt ook kolommen uit Hallo bron gegevensset toocolumns in Hallo sink gegevensset toewijzen in Hallo kopie activiteitsdefinitie. Zie voor meer informatie [toewijzing gegevensset kolommen in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Prestaties en afstemmen
-Zie voor meer informatie over de factoren die invloed hebben op prestaties van de Kopieeractiviteit en optimaliseren het, de [Kopieeractiviteit prestaties en prestatieafstemming handleiding](data-factory-copy-activity-performance.md) artikel.
+toolearn over Hallo factoren die van invloed op prestaties van de Kopieeractiviteit en hoe toooptimize, Zie Hallo [Kopieeractiviteit prestaties en prestatieafstemming handleiding](data-factory-copy-activity-performance.md) artikel.

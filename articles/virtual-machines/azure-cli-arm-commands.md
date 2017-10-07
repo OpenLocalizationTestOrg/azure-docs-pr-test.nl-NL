@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-opdrachten in de modus Resource Manager | Microsoft Docs
-description: Azure opdrachtregelinterface (CLI)-opdrachten voor het beheren van resources in het Resource Manager-implementatiemodel
+title: aaaAzure CLI-opdrachten in de modus Resource Manager | Microsoft Docs
+description: Azure opdrachtregelinterface (CLI) opdrachten toomanage resources Hallo Resource Manager-implementatiemodel
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: 
 author: dlepow
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 49539655f7b24511e219f982819bcb59c9305d33
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in de modus Resource Manager
-Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten die u meestal gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en uw versie van de CLI kan enigszins verschillen opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
+Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI) opdrachten dat u vaak zou toocreate gebruiken en beheren van Azure-resources in hello Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door Hallo CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en uw versie van de CLI kan enigszins verschillen opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Dit artikel laat zien Resource Manager opdrachten in de modus in de Azure CLI, ook wel Azure CLI 1.0 genoemd. Om te werken in het Resource Manager-model, u kunt ook proberen de [Azure CLI 2.0](/cli/azure/install-az-cli2), de volgende generatie meerdere platforms CLI.
->Meer informatie over de [oude en nieuwe Azure CLIs](/cli/azure/old-and-new-clis).
+> Dit artikel laat zien Resource Manager opdrachten in de modus in hello Azure CLI, Azure CLI 1.0 soms genoemd. toowork in Hallo Resource Manager-model, u kunt ook Hallo [Azure CLI 2.0](/cli/azure/install-az-cli2), de volgende generatie meerdere platforms CLI.
+>Meer informatie over Hallo [oude en nieuwe Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-Aan de slag eerst [Azure CLI installeren](../cli-install-nodejs.md) en [verbinding maken met uw Azure-abonnement](../xplat-cli-connect.md).
+tooget gestart, eerst [hello Azure CLI installeren](../cli-install-nodejs.md) en [tooyour Azure-abonnement verbinden](../xplat-cli-connect.md).
 
-Typ voor de huidige opdrachtsyntaxis en -opties op de opdrachtregel in de modus Resource Manager `azure help` of help weergeven voor een specifieke opdracht `azure help [command]`. CLI-voorbeelden in de documentatie ook vinden voor het maken en beheren van specifieke Azure-services.
+Typ voor de huidige opdrachtsyntaxis en -opties op de opdrachtregel Hallo in de modus Resource Manager `azure help` of toodisplay help voor een specifieke opdracht `azure help [command]`. CLI-voorbeelden in Hallo documentatie ook vinden voor het maken en beheren van specifieke Azure-services.
 
 Optionele parameters staan tussen vierkante haken (bijvoorbeeld `[parameter]`). Alle andere parameters zijn vereist.
 
-Naast de optionele parameters opdracht-specifieke ze hier zijn beschreven, zijn er drie optionele parameters die kunnen worden gebruikt om gedetailleerde uitvoer zoals opties voor aanvraag- en statuscodes weer te geven. De `-v` parameter biedt uitgebreide uitvoer en de `-vv` parameter biedt nog meer gedetailleerde uitgebreide uitvoer. De `--json` optie wordt het resultaat in de onbewerkte json-indeling.
+In aanvulling toocommand-specifieke optionele parameters beschreven, zijn er drie optionele parameters die gebruikt toodisplay worden kunnen gedetailleerde output zoals opties voor aanvraag- en statuscodes. Hallo `-v` parameter biedt uitgebreide uitvoer en Hallo `-vv` parameter biedt nog meer gedetailleerde uitgebreide uitvoer. Hallo `--json` optie levert resultaat Hallo onbewerkte json-indeling.
 
-## <a name="setting-the-resource-manager-mode"></a>De modus Resource Manager instellen
-Gebruik de volgende opdracht om in te schakelen van opdrachten in de modus Azure CLI Resource Manager.
+## <a name="setting-hello-resource-manager-mode"></a>Instelling Hallo Resource Manager-modus
+Gebruik hello opdracht tooenable Azure CLI Resource Manager-modusopdrachten te volgen.
 
     azure config mode arm
 
 > [!NOTE]
-> De modus Azure Resource Manager en Azure Service Management-modus van de CLI elkaar wederzijds uit. Dat wil zeggen, kunnen niet resources die zijn gemaakt in de modus voor één worden beheerd vanaf de andere modus.
+> Hallo CLI van Azure Resource Manager en Azure Service Management modus elkaar wederzijds uit. Dat wil zeggen, resources die zijn gemaakt in de modus voor één kunnen niet worden beheerd vanaf Hallo andere modus.
 > 
 > 
 
 ## <a name="azure-account-manage-your-account-information"></a>Azure-account: gegevens over uw account beheren
-De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbinding maken met uw account.
+De informatie van uw Azure-abonnement wordt gebruikt door Hallo hulpprogramma tooconnect tooyour account.
 
-**Lijst van de geïmporteerde abonnementen**
+**Lijst Hallo geïmporteerd abonnementen**
 
     account list [options]
 
@@ -58,15 +58,15 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     account show [options] [subscriptionNameOrId]
 
-**Instellen van het huidige abonnement**
+**Het huidige abonnement Hallo instellen**
 
     account set [options] <subscriptionNameOrId>
 
-**Verwijderen van een abonnement of de omgeving of wis dan alle opgeslagen gegevens van de account en de omgeving**  
+**Verwijderen van een abonnement of de omgeving of wis dan alle Hallo opgeslagen en de omgeving info**  
 
     account clear [options]
 
-**Opdrachten voor het beheren van uw account-omgeving**  
+**Opdrachten toomanage uw account-omgeving**  
 
     account env list [options]
     account env show [options] [environment]
@@ -74,39 +74,39 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure ad: opdrachten voor het Active Directory-objecten weergeven
-**Opdrachten voor het weergeven van active directory-toepassingen**
+## <a name="azure-ad-commands-toodisplay-active-directory-objects"></a>Azure ad: opdrachten toodisplay Active Directory-objecten
+**Opdrachten toodisplay active directory-toepassingen**
 
     ad app create [options]
     ad app delete [options] <object-id>
 
-**Opdrachten voor het weergeven van active directory-groepen**
+**Opdrachten toodisplay active directory-groepen**
 
     ad group list [options]
     ad group show [options]
 
-**Opdrachten voor het bieden van een active directory-sub groeps- of -info**
+**Opdrachten tooprovide een active directory-sub groeps- of -info**
 
     ad group member list [options] [objectId]
 
-**Opdrachten voor het weergeven van active directory-service-principals**
+**Opdrachten toodisplay active directory service-principals**
 
     ad sp list [options]
     ad sp show [options]
     ad sp create [options] <application-id>
     ad sp delete [options] <object-id>
 
-**Opdrachten voor het weergeven van active directory-gebruikers**
+**Opdrachten toodisplay active directory-gebruikers**
 
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>Azure availset: opdrachten voor het beheren van uw beschikbaarheidssets
+## <a name="azure-availset-commands-toomanage-your-availability-sets"></a>Azure availset: opdrachten toomanage uw beschikbaarheidssets
 **Hiermee maakt u een beschikbaarheidsset binnen een resourcegroep**
 
     availset create [options] <resource-group> <name> <location> [tags]
 
-**Geeft een lijst van de beschikbaarheidssets in de resourcegroep**
+**Een lijst met Hallo beschikbaarheidssets binnen een resourcegroep**
 
     availset list [options] <resource-group>
 
@@ -118,7 +118,7 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config-commands-to-manage-your-local-settings"></a>Azure config: opdrachten voor het beheren van uw lokale instellingen
+## <a name="azure-config-commands-toomanage-your-local-settings"></a>Azure config: toomanage-opdrachten uit uw lokale instellingen
 **Configuratie-instellingen van lijst met Azure CLI**
 
     config list [options]
@@ -131,12 +131,12 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     config set <name> <value>
 
-**Hiermee stelt u de Azure CLI-modus werken op een `arm` of`asm`**
+**Sets hello Azure CLI-modus tooeither werken `arm` of`asm`**
 
     config mode [options] <modename>
 
 
-## <a name="azure-feature-commands-to-manage-account-features"></a>functie van Azure: opdrachten voor het beheren van account-functies
+## <a name="azure-feature-commands-toomanage-account-features"></a>functie van Azure: opdrachten toomanage account functies
 **Lijst van alle functies die beschikbaar zijn voor uw abonnement**
 
     feature list [options]
@@ -149,12 +149,12 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure-groep: opdrachten voor het beheren van uw resourcegroepen
+## <a name="azure-group-commands-toomanage-your-resource-groups"></a>Azure-groep: opdrachten toomanage uw resourcegroepen
 **Maakt een resourcegroep**
 
     group create [options] <name> <location>
 
-**Set-codes voor een resourcegroep**
+**Set labels tooa resourcegroep**
 
     group set [options] <name> <tags>
 
@@ -162,7 +162,7 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     group delete [options] <name>
 
-**Geeft een lijst van de resourcegroepen voor uw abonnement**
+**Een lijst met resourcegroepen Hallo voor uw abonnement**
 
     group list [options]
 
@@ -170,37 +170,37 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     group show [options] <name>
 
-**Opdrachten voor het beheren van resource groep zich aanmeldt**
+**Opdrachten toomanage resource groep zich aanmeldt**
 
     group log show [options] [name]
 
-**Opdrachten voor het beheren van uw implementatie in een resourcegroep**
+**Opdrachten toomanage uw implementatie in een resourcegroep**
 
     group deployment create [options] [resource-group] [name]
     group deployment list [options] <resource-group> [state]
     group deployment show [options] <resource-group> [deployment-name]
     group deployment stop [options] <resource-group> [deployment-name]
 
-**Opdrachten voor het beheren van uw lokale of gallery resource groep-sjabloon**
+**Opdrachten toomanage uw lokaal of galerie resource group-sjabloon**
 
     group template list [options]
     group template show [options] <name>
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure hdinsight: opdrachten voor het beheren van uw HDInsight-clusters
-**Opdrachten voor het maken of toevoegen aan een cluster-configuratiebestand**
+## <a name="azure-hdinsight-commands-toomanage-your-hdinsight-clusters"></a>Azure hdinsight: opdrachten toomanage uw HDInsight-clusters
+**Opdrachten toocreate of tooa cluster configuratiebestand toevoegen**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
 
-Voorbeeld: Maak een configuratiebestand met een scriptactie om uit te voeren bij het maken van een cluster.
+Voorbeeld: Maak een configuratiebestand met een script actie toorun bij het maken van een cluster.
 
     hdinsight config create "C:\myFiles\configFile.config"
     hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
 
-**Opdracht voor het maken van een cluster in een resourcegroep**
+**Opdracht toocreate een cluster in een resourcegroep**
 
     hdinsight cluster create [options] <clusterName>
 
@@ -209,7 +209,7 @@ Voorbeeld: Een Storm op Linux-cluster maken
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
     info:    Executing command hdinsight cluster create
-    + Submitting the request to create cluster...
+    + Submitting hello request toocreate cluster...
     info:    hdinsight cluster create command OK
 
 Voorbeeld: Een cluster maken met een scriptactie
@@ -217,7 +217,7 @@ Voorbeeld: Een cluster maken met een scriptactie
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 
     info:    Executing command hdinsight cluster create
-    + Submitting the request to create cluster...
+    + Submitting hello request toocreate cluster...
     info:    hdinsight cluster create command OK
 
 De parameteropties:
@@ -226,21 +226,21 @@ De parameteropties:
     -v, --verbose                                              use verbose output
     -vv                                                        more verbose with debug output
     --json                                                     use json output
-    -g --resource-group <resource-group>                       The name of the resource group
+    -g --resource-group <resource-group>                       hello name of hello resource group
     -c, --clusterName <clusterName>                            HDInsight cluster name
-    -l, --location <location>                                  Data center location for the cluster
+    -l, --location <location>                                  Data center location for hello cluster
     -y, --osType <osType>                                      HDInsight cluster operating system
     'Windows' or 'Linux'
     --version <version>                                        HDInsight cluster version
     --clusterType <clusterType>                                HDInsight cluster type.
     Hadoop | HBase | Spark | Storm
-    --defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
-    --defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
-    --defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
-    --headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
-    --workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
-    --workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
-    --zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+    --defaultStorageAccountName <storageAccountName>           Storage account url toouse for default HDInsight storage
+    --defaultStorageAccountKey <storageAccountKey>             Key toohello storage account toouse for default HDInsight storage
+    --defaultStorageContainer <storageContainer>               Container in hello storage account toouse for HDInsight default storage
+    --headNodeSize <headNodeSize>                              (Optional) Head node size for hello cluster
+    --workerNodeCount <workerNodeCount>                        Number of worker nodes toouse for hello cluster
+    --workerNodeSize <workerNodeSize>                          (Optional) Worker node size for hello cluster)
+    --zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for hello cluster
     --userName <userName>                                      Cluster username
     --password <password>                                      Cluster password
     --sshUserName <sshUserName>                                SSH username (only for Linux clusters)
@@ -250,77 +250,77 @@ De parameteropties:
     --rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
     --rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
     For example 12/12/2015 (only for Windows clusters)
-    --virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
+    --virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for hello cluster.
     Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
-    --subnetName <subnetName>                                  (Optional) Subnet for the cluster
+    --subnetName <subnetName>                                  (Optional) Subnet for hello cluster
     --additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
     Can be multiple.
-    In the format of 'accountName#accountKey'.
+    In hello format of 'accountName#accountKey'.
     For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
-    --hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
-    --hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
-    --hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
-    --hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
-    --oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
-    --oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
-    --oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
-    --oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+    --hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for hello external metastore for Hive
+    --hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for hello external metastore for Hive
+    --hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for hello external metastore for Hive
+    --hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for hello external metastore for Hive
+    --oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for hello external metastore for Oozie
+    --oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for hello external metastore for Oozie
+    --oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for hello external metastore for Oozie
+    --oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for hello external metastore for Oozie
     --configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
-    -s, --subscription <id>                                    The subscription id
-    --tags <tags>                                              Tags to set to the cluster.
+    -s, --subscription <id>                                    hello subscription id
+    --tags <tags>                                              Tags tooset toohello cluster.
     Can be multiple.
-    In the format of 'name=value'.
+    In hello format of 'name=value'.
     Name is required and value is optional.
     For example, --tags tag1=value1;tag2
 
 
-**Opdracht voor het verwijderen van een cluster**
+**Opdracht toodelete een cluster**
 
     hdinsight cluster delete [options] <clusterName>
 
-**Opdracht voor het clusterdetails weergeven**
+**Opdracht tooshow clusterdetails**
 
     hdinsight cluster show [options] <clusterName>
 
-**Opdracht voor een lijst met alle clusters (in een specifieke resourcegroep, indien opgegeven)**
+**Opdracht toolist alle clusters (in een specifieke resourcegroep, indien opgegeven)**
 
     hdinsight cluster list [options]
 
-**Opdracht voor het vergroten of verkleinen van een cluster**
+**Opdracht tooresize een cluster**
 
     hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
 
-**Opdracht voor het HTTP-toegang voor een cluster**
+**Opdracht tooenable HTTP-toegang voor een cluster**
 
     hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
 
-**Opdracht voor het uitschakelen van HTTP-toegang voor een cluster**
+**Opdracht toodisable HTTP-toegang voor een cluster**
 
     hdinsight cluster disable-http-access [options] <clusterName>
 
-**Opdracht voor het RDP-toegang voor een cluster**
+**Opdracht tooenable RDP-toegang voor een cluster**
 
     hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
 
-**Opdracht voor het uitschakelen van HTTP-toegang voor een cluster**
+**Opdracht toodisable HTTP-toegang voor een cluster**
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>inzicht van Azure: opdrachten gerelateerd aan de bewaking van Insights (gebeurtenissen, waarschuwingsregels, instellingen voor automatisch schalen, metrische gegevens)
+## <a name="azure-insights-commands-related-toomonitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>inzicht van Azure: opdrachten gerelateerde toomonitoring Insights (gebeurtenissen, waarschuwingsregels, instellingen voor automatisch schalen, metrische gegevens)
 **Bewerkingslogboeken voor een abonnement, een correlationId, een resourcegroep, resource of resourceprovider ophalen**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-locatie: opdrachten voor het ophalen van de beschikbare locaties voor alle resourcetypen
-**Lijst van de beschikbare locaties**
+## <a name="azure-location-commands-tooget-hello-available-locations-for-all-resource-types"></a>Azure-locatie: tooget Hallo beschikbare locaties voor alle resourcetypen opdrachten
+**Lijst Hallo beschikbare locaties**
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a>Azure-netwerk: opdrachten voor het beheren van netwerkbronnen
-**Opdrachten voor het beheren van virtuele netwerken**
+## <a name="azure-network-commands-toomanage-network-resources"></a>Azure-netwerk: opdrachten toomanage netwerkbronnen
+**Opdrachten toomanage virtuele netwerken**
 
     network vnet create [options] <resource-group> <name> <location>
-Hiermee maakt u een virtueel netwerk. In het volgende voorbeeld maken we een virtueel netwerk met de naam newvnet voor resource groep myresourcegroup in de regio VS-West.
+Hiermee maakt u een virtueel netwerk. In Hallo de volgende voorbeeld wordt een virtueel netwerk maken newvnet voor resource groep myresourcegroup in de regio VS-West Hallo naam.
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -346,19 +346,19 @@ De parameteropties:
      -h, --help                                 output usage information
      -v, --verbose                              use verbose output
     --json                                     use json output
-     -g, --resource-group <resource-group>      the name of the resource group
-     -n, --name <name>                          the name of the virtual network
-     -l, --location <location>                  the location
-     -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
+     -g, --resource-group <resource-group>      hello name of hello resource group
+     -n, --name <name>                          hello name of hello virtual network
+     -l, --location <location>                  hello location
+     -a, --address-prefixes <address-prefixes>  hello comma separated list of address prefixes for this virtual network
       For example -a 10.0.0.0/24,10.0.1.0/24.
       Default value is 10.0.0.0/8
 
-    -d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
-     -t, --tags <tags>                          the tags set on this virtual network.
-      Can be multiple. In the format of "name=value".
+    -d, --dns-servers <dns-servers>            hello comma separated list of DNS servers IP addresses
+     -t, --tags <tags>                          hello tags set on this virtual network.
+      Can be multiple. In hello format of "name=value".
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
-     -s, --subscription <subscription>          the subscription identifier
+     -s, --subscription <subscription>          hello subscription identifier
 <BR>
 
     network vnet set [options] <resource-group> <name>
@@ -389,29 +389,29 @@ De parameteropties:
        -h, --help                                 output usage information
        -v, --verbose                              use verbose output
        --json                                     use json output
-       -g, --resource-group <resource-group>      the name of the resource group
-       -n, --name <name>                          the name of the virtual network
-       -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network.
+       -g, --resource-group <resource-group>      hello name of hello resource group
+       -n, --name <name>                          hello name of hello virtual network
+       -a, --address-prefixes <address-prefixes>  hello comma separated list of address prefixes for this virtual network.
         For example -a 10.0.0.0/24,10.0.1.0/24.
-        This list will be appended to the current list of address prefixes.
-        The address prefixes in this list should not overlap between them.
-        The address prefixes in this list should not overlap with existing address prefixes in the vnet.
+        This list will be appended toohello current list of address prefixes.
+        hello address prefixes in this list should not overlap between them.
+        hello address prefixes in this list should not overlap with existing address prefixes in hello vnet.
 
-       -d, --dns-servers [dns-servers]            the comma separated list of DNS servers IP addresses.
-        This list will be appended to the current list of DNS server IP addresses.
+       -d, --dns-servers [dns-servers]            hello comma separated list of DNS servers IP addresses.
+        This list will be appended toohello current list of DNS server IP addresses.
 
-       -t, --tags <tags>                          the tags set on this virtual network.
-        Can be multiple. In the format of "name=value".
+       -t, --tags <tags>                          hello tags set on this virtual network.
+        Can be multiple. In hello format of "name=value".
         Name is required and value is optional. For example, -t tag1=value1;tag2.
-        This list will be appended to the current list of tags
+        This list will be appended toohello current list of tags
 
        --no-tags                                  remove all existing tags
-       -s, --subscription <subscription>          the subscription identifier
+       -s, --subscription <subscription>          hello subscription identifier
 <BR>
 
     network vnet list [options] <resource-group>
 
-De opdracht worden alle virtuele netwerken in een resourcegroep.
+Hallo-opdracht worden alle virtuele netwerken in een resourcegroep.
 
     C:\>azure network vnet list myresourcegroup
 
@@ -430,13 +430,13 @@ De parameteropties:
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
       --json                                 use json output
-      -g, --resource-group <resource-group>  the name of the resource group
-      -s, --subscription <subscription>      the subscription identifier
+      -g, --resource-group <resource-group>  hello name of hello resource group
+      -s, --subscription <subscription>      hello subscription identifier
 
 <BR>
 
     network vnet show [options] <resource-group> <name>
-De opdracht ziet u de eigenschappen van het virtuele netwerk in een resourcegroep.
+Hallo-opdracht ziet Hallo virtueel netwerkeigenschappen in een resourcegroep.
 
     azure network vnet show -g myresourcegroup -n newvnet
 
@@ -457,7 +457,7 @@ De opdracht ziet u de eigenschappen van het virtuele netwerk in een resourcegroe
 <BR>
 
     network vnet delete [options] <resource-group> <name>
-De opdracht verwijdert een virtueel netwerk.
+Hallo-opdracht verwijdert u een virtueel netwerk.
 
     azure network vnet delete myresourcegroup newvnetX
 
@@ -472,24 +472,24 @@ De parameteropties:
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
      --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -n, --name <name>                      the name of the virtual network
+     -g, --resource-group <resource-group>  hello name of hello resource group
+     -n, --name <name>                      hello name of hello virtual network
      -q, --quiet                            quiet mode, do not ask for delete confirmation
-     -s, --subscription <subscription>      the subscription identifier
+     -s, --subscription <subscription>      hello subscription identifier
 
 
-**Opdrachten voor het beheren van virtueel netwerk subnetten**
+**Opdrachten toomanage virtuele subnetten**
 
     network vnet subnet create [options] <resource-group> <vnet-name> <name>
 
-Voegt een ander subnet toe aan een bestaand virtueel netwerk.
+Voegt een ander subnet tooan bestaand virtueel netwerk.
 
     azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
 
     info:    Executing command network vnet subnet create
-    + Looking up the subnet "subnet"
+    + Looking up hello subnet "subnet"
     + Creating subnet "subnet"
-    + Looking up the subnet "subnet"
+    + Looking up hello subnet "subnet"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
     data:    Name:                      subnet
     data:    Type:                      Microsoft.Network/virtualNetworks/subnets
@@ -502,14 +502,14 @@ De parameteropties:
      -h, --help                                                       output usage information
      -v, --verbose                                                    use verbose output
          --json                                                           use json output
-     -g, --resource-group <resource-group>                            the name of the resource group
-     -e, --vnet-name <vnet-name>                                      the name of the virtual network
-     -n, --name <name>                                                the name of the subnet
-     -a, --address-prefix <address-prefix>                            the address prefix
-     -w, --network-security-group-id <network-security-group-id>      the network security group identifier.
+     -g, --resource-group <resource-group>                            hello name of hello resource group
+     -e, --vnet-name <vnet-name>                                      hello name of hello virtual network
+     -n, --name <name>                                                hello name of hello subnet
+     -a, --address-prefix <address-prefix>                            hello address prefix
+     -w, --network-security-group-id <network-security-group-id>      hello network security group identifier.
            e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
-     -o, --network-security-group-name <network-security-group-name>  the network security group name
-     -s, --subscription <subscription>                                the subscription identifier
+     -o, --network-security-group-name <network-security-group-name>  hello network security group name
+     -s, --subscription <subscription>                                hello subscription identifier
 
 <BR>
 
@@ -520,9 +520,9 @@ Hiermee stelt u een specifiek virtueel netwerksubnet binnen een resourcegroep.
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
     info:    Executing command network vnet subnet set
-    + Looking up the subnet "subnet1"
+    + Looking up hello subnet "subnet1"
     + Setting subnet "subnet1"
-    + Looking up the subnet "subnet1"
+    + Looking up hello subnet "subnet1"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
     data:    Name:                      subnet1
     data:    Type:                      Microsoft.Network/virtualNetworks/subnets
@@ -533,14 +533,14 @@ Hiermee stelt u een specifiek virtueel netwerksubnet binnen een resourcegroep.
 
     network vnet subnet list [options] <resource-group> <vnet-name>
 
-Een lijst met alle subnetten van een virtueel netwerk voor een specifieke virtuele netwerk binnen een resourcegroep.
+Een lijst met alle subnetten van Hallo virtueel netwerk voor een specifieke virtuele netwerk binnen een resourcegroep.
 
     azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
     info:    Executing command network vnet subnet set
-    + Looking up the subnet "subnet1"
+    + Looking up hello subnet "subnet1"
     + Setting subnet "subnet1"
-    + Looking up the subnet "subnet1"
+    + Looking up hello subnet "subnet1"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
     data:    Name:                      subnet1
     data:    Type:                      Microsoft.Network/virtualNetworks/subnets
@@ -555,7 +555,7 @@ Eigenschappen van virtueel netwerk subnet
     azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
 
     info:    Executing command network vnet subnet show
-    + Looking up the subnet "subnet1"
+    + Looking up hello subnet "subnet1"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
     .Network/virtualNetworks/newvnet/subnets/subnet1
     data:    Name:                      subnet1
@@ -569,10 +569,10 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -e, --vnet-name <vnet-name>            the name of the virtual network
-    -n, --name <name>                      the name of the subnet
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -e, --vnet-name <vnet-name>            hello name of hello virtual network
+    -n, --name <name>                      hello name of hello subnet
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
 
     network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
@@ -581,7 +581,7 @@ Hiermee verwijdert u een subnet van een bestaand virtueel netwerk.
     azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
 
     info:    Executing command network vnet subnet delete
-    + Looking up the subnet "subnet1"
+    + Looking up hello subnet "subnet1"
     Delete subnet "subnet1"? [y/n] y
     + Deleting subnet "subnet1"
     info:    network vnet subnet delete command OK
@@ -591,13 +591,13 @@ De parameteropties:
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
      --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -e, --vnet-name <vnet-name>            the name of the virtual network
-     -n, --name <name>                      the subnet name
-     -s, --subscription <subscription>      the subscription identifier
+     -g, --resource-group <resource-group>  hello name of hello resource group
+     -e, --vnet-name <vnet-name>            hello name of hello virtual network
+     -n, --name <name>                      hello subnet name
+     -s, --subscription <subscription>      hello subscription identifier
      -q, --quiet                            quiet mode, do not ask for delete confirmation
 
-**Opdrachten voor het beheer van netwerktaakverdeling**
+**Opdrachten toomanage netwerktaakverdelers**
 
     network lb create [options] <resource-group> <name> <location>
 Hiermee maakt u een load balancer.
@@ -605,9 +605,9 @@ Hiermee maakt u een load balancer.
     azure network lb create -g myresourcegroup -n mylb -l westus
 
     info:    Executing command network lb create
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Creating load balancer "mylb"
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
     data:    Name:                         mylb
     data:    Type:                         Microsoft.Network/loadBalancers
@@ -620,13 +620,13 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -l, --location <location>              the location
-    -t, --tags <tags>                      the list of tags.
-     Can be multiple. In the format of "name=value".
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -n, --name <name>                      hello name of hello load balancer
+    -l, --location <location>              hello location
+    -t, --tags <tags>                      hello list of tags.
+     Can be multiple. In hello format of "name=value".
      Name is required and value is optional. For example, -t tag1=value1;tag2
-    -s, --subscription <subscription>      the subscription identifier
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
 
     network lb list [options] <resource-group>
@@ -635,7 +635,7 @@ Bevat Load balancer bronnen binnen een resourcegroep.
     azure network lb list myresourcegroup
 
     info:    Executing command network lb list
-    + Getting the load balancers
+    + Getting hello load balancers
     data:    Name  Location
     data:    ----  --------
     data:    mylb  westus
@@ -646,8 +646,8 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
 
     network lb show [options] <resource-group> <name>
@@ -657,7 +657,7 @@ Geeft load balancer-gegevens van een specifieke load balancer binnen een resourc
     azure network lb show myresourcegroup mylb -v
 
     info:    Executing command network lb show
-    verbose: Looking up the load balancer "mylb"
+    verbose: Looking up hello load balancer "mylb"
     data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
     data:    Name:                         mylb
     data:    Type:                         Microsoft.Network/loadBalancers
@@ -670,9 +670,9 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -n, --name <name>                      hello name of hello load balancer
+    -s, --subscription <subscription>      hello subscription identifier
 
 <BR>
 
@@ -683,7 +683,7 @@ Load balancer-resources verwijderen.
     azure network lb delete  myresourcegroup mylb
 
     info:    Executing command network lb delete
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     Delete load balancer "mylb"? [y/n] y
     + Deleting load balancer "mylb"
     info:    network lb delete command OK
@@ -693,21 +693,21 @@ De parameteropties:
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
      --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -n, --name <name>                      the name of the load balancer
+     -g, --resource-group <resource-group>  hello name of hello resource group
+     -n, --name <name>                      hello name of hello load balancer
      -q, --quiet                            quiet mode, do not ask for delete confirmation
-     -s, --subscription <subscription>      the subscription identifier
+     -s, --subscription <subscription>      hello subscription identifier
 
-**Opdrachten voor het beheren van de tests van een load balancer**
+**Opdrachten toomanage tests van een load balancer**
 
     network lb probe create [options] <resource-group> <lb-name> <name>
 
-Maak de test-configuratie voor de health-status in de load balancer. Houd er rekening mee deze opdracht uit te voeren, de load balancer vereist een frontend-ip-resource (Controleer de opdracht 'azure-netwerk frontend-ip' een IP-adres toewijzen aan de load balancer).
+Hallo-test de configuratie voor gezondheidsstatus in Hallo load balancer maken. Houd er rekening mee toorun met deze opdracht, de load balancer vereist een frontend-ip-resource (uitchecken opdracht 'azure-netwerk frontend-ip' tooassign een IP-adres tooload balancer).
 
     azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
 
     info:    Executing command network lb probe create
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
     info:    network lb probe create command OK
 
@@ -716,15 +716,15 @@ De parameteropties:
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
      --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the probe
-    -p, --protocol <protocol>              the probe protocol
-    -o, --port <port>                      the probe port
-    -f, --path <path>                      the probe path
-    -i, --interval <interval>              the probe interval in seconds
-    -c, --count <count>                    the number of probes
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello probe
+    -p, --protocol <protocol>              hello probe protocol
+    -o, --port <port>                      hello probe port
+    -f, --path <path>                      hello probe path
+    -i, --interval <interval>              hello probe interval in seconds
+    -c, --count <count>                    hello number of probes
+    -s, --subscription <subscription>      hello subscription identifier
 
 <BR>
 
@@ -735,7 +735,7 @@ Een bestaande load balancer-test met nieuwe waarden voor deze bijgewerkt.
     azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
 
     info:    Executing command network lb probe set
-        + Looking up the load balancer "mylb"
+        + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
     info:    network lb probe set command OK
 
@@ -744,26 +744,26 @@ De parameteropties
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the probe
-    -e, --new-probe-name <new-probe-name>  the new name of the probe
-    -p, --protocol <protocol>              the new value for probe protocol
-    -o, --port <port>                      the new value for probe port
-    -f, --path <path>                      the new value for probe path
-    -i, --interval <interval>              the new value for probe interval in seconds
-    -c, --count <count>                    the new value for number of probes
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello probe
+    -e, --new-probe-name <new-probe-name>  hello new name of hello probe
+    -p, --protocol <protocol>              hello new value for probe protocol
+    -o, --port <port>                      hello new value for probe port
+    -f, --path <path>                      hello new value for probe path
+    -i, --interval <interval>              hello new value for probe interval in seconds
+    -c, --count <count>                    hello new value for number of probes
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
 
     network lb probe list [options] <resource-group> <lb-name>
 
-Lijst van de test-eigenschappen voor een load balancer-set.
+Lijst Hallo test eigenschappen voor een load balancer-set.
 
     C:\>azure network lb probe list -g myresourcegroup -l mylb
 
     info:    Executing command network lb probe list
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Name       Protocol  Port  Path  Interval  Count
     data:    ---------  --------  ----  ----  --------  -----
     data:    mylbprobe  Tcp       443         300       2
@@ -774,34 +774,34 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -s, --subscription <subscription>      hello subscription identifier
 
 
     network lb probe delete [options] <resource-group> <lb-name> <name>
-Hiermee verwijdert u de gemaakt voor de load balancer-test.
+Hiermee verwijdert u Hallo test gemaakt voor Hallo load balancer.
 
     azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
 
     info:    Executing command network lb probe delete
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     Delete a probe "mylbprobe?" [y/n] y
     + Updating load balancer "mylb"
     info:    network lb probe delete command OK
 
-**Opdrachten voor het beheren van frontend-IP-configuraties van een load balancer**
+**Opdrachten toomanage frontend-IP-configuraties van een load balancer**
 
     network lb frontend-ip create [options] <resource-group> <lb-name> <name>
-Maakt een frontend-IP-configuratie aan een bestaande load balancer-set.
+Maakt een frontend IP-configuratie tooan bestaande load balancer-set.
 
     azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
 
     info:    Executing command network lb frontend-ip create
-    + Looking up the load balancer "mylb"
-    + Looking up the subnet "subnet"
+    + Looking up hello load balancer "mylb"
+    + Looking up hello subnet "subnet"
     + Creating frontend IP configuration "myfrontendip"
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Id:                           /subscriptions/###############################/resourceGroups/Myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
     /frontendIPConfigurations/myfrontendip
     data:    Name:                         myfrontendip
@@ -821,15 +821,15 @@ Maakt een frontend-IP-configuratie aan een bestaande load balancer-set.
 
     network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-Een bestaande configuratie van een frontend-IP-updates. De onderstaande opdracht voegt een openbaar IP-adres mypubip5 naar een bestaande load balancer frontend-IP-met de naam myfrontendip aangeroepen.
+Updates in een bestaande configuratie van een frontend IP.hello onderstaande opdracht voegt een openbaar IP-adres mypubip5 tooan bestaande load balancer frontend-IP-met de naam myfrontendip aangeroepen.
 
     azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 
     info:    Executing command network lb frontend-ip set
-    + Looking up the load balancer "mylb"
-    + Looking up the public ip "mypubip5"
+    + Looking up hello load balancer "mylb"
+    + Looking up hello public ip "mypubip5"
     + Updating load balancer "mylb"
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
     data:    Name:                         myfrontendip
     data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
@@ -849,34 +849,34 @@ De parameteropties:
     -h, --help                                                         output usage information
     -v, --verbose                                                      use verbose output
     --json                                                             use json output
-    -g, --resource-group <resource-group>                              the name of the resource group
-    -l, --lb-name <lb-name>                                            the name of the load balancer
-    -n, --name <name>                                                  the name of the frontend ip configuration
-    -a, --private-ip-address <private-ip-address>                      the private ip address
-    -o, --private-ip-allocation-method <private-ip-allocation-method>  the private ip allocation method [Static, Dynamic]
-    -u, --public-ip-id <public-ip-id>                                  the public ip identifier.
+    -g, --resource-group <resource-group>                              hello name of hello resource group
+    -l, --lb-name <lb-name>                                            hello name of hello load balancer
+    -n, --name <name>                                                  hello name of hello frontend ip configuration
+    -a, --private-ip-address <private-ip-address>                      hello private ip address
+    -o, --private-ip-allocation-method <private-ip-allocation-method>  hello private ip allocation method [Static, Dynamic]
+    -u, --public-ip-id <public-ip-id>                                  hello public ip identifier.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
-    -i, --public-ip-name <public-ip-name>                              the public ip name.
-    This public ip must exist in the same resource group as the lb.
-    Please use public-ip-id if that is not the case.
-    -b, --subnet-id <subnet-id>                                        the subnet id.
+    -i, --public-ip-name <public-ip-name>                              hello public ip name.
+    This public ip must exist in hello same resource group as hello lb.
+    Please use public-ip-id if that is not hello case.
+    -b, --subnet-id <subnet-id>                                        hello subnet id.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/VirtualNetworks/<vnet-name>/subnets/<subnet-name>
-    -e, --subnet-name <subnet-name>                                    the subnet name
-    -m, --vnet-name <vnet-name>                                        the virtual network name.
-    This virtual network must exist in the same resource group as the lb.
-    Please use subnet-id if that is not the case.
-    -s, --subscription <subscription>                                  the subscription identifier
+    -e, --subnet-name <subnet-name>                                    hello subnet name
+    -m, --vnet-name <vnet-name>                                        hello virtual network name.
+    This virtual network must exist in hello same resource group as hello lb.
+    Please use subnet-id if that is not hello case.
+    -s, --subscription <subscription>                                  hello subscription identifier
 
 <BR>
 
     network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Geeft een lijst van alle frontend IP-resources die zijn geconfigureerd voor de load balancer.
+Geeft een lijst van alle Hallo frontend IP-netwerkbronnen geconfigureerd voor Hallo load balancer.
 
     azure network lb frontend-ip list -g myresourcegroup -l mylb
 
     info:    Executing command network lb frontend-ip list
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Name         Provisioning state  Private IP allocation method  Subnet
     data:    -----------  ------------------  ----------------------------  ------
     data:    myprivateip  Succeeded           Dynamic
@@ -887,17 +887,17 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
 
     network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
-Hiermee verwijdert u de frontend-IP-object die zijn gekoppeld aan de load balancer
+Hallo frontend-IP-object dat is gekoppeld tooload balancer verwijderen
 
     network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
     info:    Executing command network lb frontend-ip delete
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     Delete frontend ip configuration "myfrontendip"? [y/n] y
     + Updating load balancer "mylb"
 
@@ -906,13 +906,13 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the frontend ip configuration
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello frontend ip configuration
     -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+    -s, --subscription <subscription>      hello subscription identifier
 
-**Opdrachten voor het beheren van back-end-adresgroepen van een load balancer**
+**Opdrachten toomanage back-end-adresgroepen van een load balancer**
 
     network lb address-pool create [options] <resource-group> <lb-name> <name>
 
@@ -921,9 +921,9 @@ Maak een back-end-adresgroep voor een load balancer.
     azure network lb address-pool create -g myresourcegroup --lb-name mylb -n myaddresspool
 
     info:    Executing command network lb address-pool create
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourgroup/providers/Microso.Network/loadBalancers/mylb/backendAddressPools/myaddresspool
     data:    Name:                      myaddresspool
     data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
@@ -938,10 +938,10 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello backend address pool
+    -s, --subscription <subscription>      hello subscription identifier
 
 <BR>
 
@@ -952,7 +952,7 @@ Lijst met back-end IP-adresgroep adresbereik voor een specifieke resourcegroep
     azure network lb address-pool list -g myresourcegroup -l mylb
 
     info:    Executing command network lb address-pool list
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Name           Provisioning state
     data:    -------------  ------------------
     data:    mybackendpool  Succeeded
@@ -963,19 +963,19 @@ De parameteropties:
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
      --json                                 use json output
-     -g, --resource-group <resource-group>  the name of the resource group
-     -l, --lb-name <lb-name>                the name of the load balancer
-     -s, --subscription <subscription>      the subscription identifier
+     -g, --resource-group <resource-group>  hello name of hello resource group
+     -l, --lb-name <lb-name>                hello name of hello load balancer
+     -s, --subscription <subscription>      hello subscription identifier
 
 <BR>
     lb-netwerkadresgroep verwijderen [opties] < resourcegroep >< lb-naam ><name>
 
-Hiermee verwijdert u de back-end IP-adresgroep bereik resource uit de load balancer.
+Hallo back-end IP-adresgroep bereik resource verwijdert uit de load balancer.
 
     azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
 
     info:    Executing command network lb address-pool delete
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     Delete backend address pool "mybackendpool"? [y/n] y
     + Updating load balancer "mylb"
     info:    network lb address-pool delete command OK
@@ -985,26 +985,26 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello backend address pool
     -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+    -s, --subscription <subscription>      hello subscription identifier
 
-**Opdrachten voor het beheren van load-balancerregels**
+**Opdrachten toomanage load balancer-regels**
 
     network lb rule create [options] <resource-group> <lb-name> <name>
 Load balancer-regels maken.
 
-U kunt een load balancer-regel voor het configureren van de frontend-eindpunt voor de load balancer en het back-end-pool adresbereik voor het ontvangen van het binnenkomende netwerkverkeer maken. Instellingen omvatten ook de poorten voor de frontend-IP-eindpunt en de poorten voor de back-end-pool adresbereik.
+U kunt een regel voor load balancer configureren Hallo frontend-eindpunt voor Hallo load balancer en Hallo back-end adresgroep bereik tooreceive Hallo binnenkomend netwerkverkeer maken. Instellingen omvatten ook Hallo poorten voor de frontend-IP-eindpunt en poorten voor Hallo back-end-pool adresbereik.
 
-Het volgende voorbeeld ziet het maken van een regel voor load balancer, het frontend-eindpunt luisteren op poort 80 TCP en load balancing netwerkverkeer voor de back-end-pool adresbereik naar poort 8080 verzenden.
+Hallo volgende voorbeeld laat zien hoe toocreate een load balancer-regel, Hallo frontend eindpunt luisteren tooport 80 netwerkverkeer TCP en taakverdeling tooport 8080 voor Hallo back-end-pool adresbereik verzenden.
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
 
     info:    Executing command network lb rule create
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
     + Loading rule state
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/loadBalancingRules/mylbrule
@@ -1026,12 +1026,12 @@ Het volgende voorbeeld ziet het maken van een regel voor load balancer, het fron
 
     network lb rule set [options] <resource-group> <lb-name> <name>
 
-Updates van een bestaande load balancer-regel instellen in een specifieke resourcegroep. In het volgende voorbeeld wordt de regelnaam van mylbrule gewijzigd in mynewlbrule.
+Updates van een bestaande load balancer-regel instellen in een specifieke resourcegroep. In Hallo voorbeeld te volgen, we regelnaam Hallo van mylbrule toomynewlbrule gewijzigd.
 
     azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
 
     info:    Executing command network lb rule set
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
     + Loading rule state
     data:    Id:                        /subscriptions/###############################/resourceGroups/yresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/loadBalancingRules/mynewlbrule
@@ -1054,19 +1054,19 @@ De parameteropties:
     -h, --help                                         output usage information
     -v, --verbose                                      use verbose output
     --json                                             use json output
-    -g, --resource-group <resource-group>              the name of the resource group
-    -l, --lb-name <lb-name>                            the name of the load balancer
-    -n, --name <name>                                  the name of the rule
+    -g, --resource-group <resource-group>              hello name of hello resource group
+    -l, --lb-name <lb-name>                            hello name of hello load balancer
+    -n, --name <name>                                  hello name of hello rule
     -r, --new-rule-name <new-rule-name>                new rule name
-    -p, --protocol <protocol>                          the rule protocol
-    -f, --frontend-port <frontend-port>                the frontend port
-    -b, --backend-port <backend-port>                  the backend port
+    -p, --protocol <protocol>                          hello rule protocol
+    -f, --frontend-port <frontend-port>                hello frontend port
+    -b, --backend-port <backend-port>                  hello backend port
     -e, --enable-floating-ip <enable-floating-ip>      enable floating point ip
-    -i, --idle-timeout <idle-timeout>                  the idle timeout in minutes
-    -a, --probe-name [probe-name]                      the name of the probe defined in the same load balancer
-    -t, --frontend-ip-name <frontend-ip-name>          the name of the frontend ip configuration in the same load balancer
-    -o, --backend-address-pool <backend-address-pool>  name of the backend address pool defined in the same load balancer
-    -s, --subscription <subscription>                  the subscription identifier
+    -i, --idle-timeout <idle-timeout>                  hello idle timeout in minutes
+    -a, --probe-name [probe-name]                      hello name of hello probe defined in hello same load balancer
+    -t, --frontend-ip-name <frontend-ip-name>          hello name of hello frontend ip configuration in hello same load balancer
+    -o, --backend-address-pool <backend-address-pool>  name of hello backend address pool defined in hello same load balancer
+    -s, --subscription <subscription>                  hello subscription identifier
 
 
     network lb rule list [options] <resource-group> <lb-name>
@@ -1076,7 +1076,7 @@ Een lijst met alle taakverdelingsregels zijn geconfigureerd voor een load balanc
     azure network lb rule list -g myresourcegroup -l mylb
 
     info:    Executing command network lb rule list
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Name         Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes  Backend address pool  Probe data
 
     data:    mynewlbrule  Succeeded           Tcp       80             8080          false               10                       /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
@@ -1087,9 +1087,9 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -s, --subscription <subscription>      hello subscription identifier
 
     network lb rule delete [options] <resource-group> <lb-name> <name>
 
@@ -1098,7 +1098,7 @@ Hiermee verwijdert u een load balancer-regel.
     azure network lb rule delete -g myresourcegroup -l mylb -n mynewlbrule
 
     info:    Executing command network lb rule delete
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     Delete load balancing rule mynewlbrule? [y/n] y
     + Updating load balancer "mylb"
     info:    network lb rule delete command OK
@@ -1108,25 +1108,25 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the rule
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello rule
     -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+    -s, --subscription <subscription>      hello subscription identifier
 
-**Opdrachten voor het beheren van de load balancer inkomende NAT-regels**
+**Binnenkomende NAT-regels opdrachten toomanage load balancer**
 
     network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
 Maakt een binnenkomende NAT-regel voor load balancer.
 
-In het volgende voorbeeld wordt een NAT-regel van frontend-IP (die is eerder gedefinieerd met de opdracht 'azure-netwerk frontend-ip') gemaakt met een luisterpoort binnenkomende en uitgaande poort die de load balancer wordt gebruikt om het netwerkverkeer te verzenden.
+In Hallo gebruikt de volgende voorbeeld wordt gemaakt een NAT-regel van frontend-IP (die is eerder gedefinieerd met de opdracht 'azure-netwerk frontend-ip' hello) met een luisterpoort binnenkomende en uitgaande poort die Hallo load balancer toosend Hallo-netwerkverkeer.
 
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
     info:    Executing command network lb inbound-nat-rule create
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/inboundNatRules/myinboundnat
     data:    Name:                      myinboundnat
     data:    Type:                      Microsoft.Network/loadBalancers/inboundNatRules
@@ -1144,31 +1144,31 @@ De parameteropties:
     -h, --help                                     output usage information
     -v, --verbose                                  use verbose output
     --json                                         use json output
-    -g, --resource-group <resource-group>          the name of the resource group
-    -l, --lb-name <lb-name>                        the name of the load balancer
-    -n, --name <name>                              the name of the inbound NAT rule
-    -p, --protocol <protocol>                      the rule protocol [tcp,udp]
-    -f, --frontend-port <frontend-port>            the frontend port [0-65535]
-    -b, --backend-port <backend-port>              the backend port [0-65535]
+    -g, --resource-group <resource-group>          hello name of hello resource group
+    -l, --lb-name <lb-name>                        hello name of hello load balancer
+    -n, --name <name>                              hello name of hello inbound NAT rule
+    -p, --protocol <protocol>                      hello rule protocol [tcp,udp]
+    -f, --frontend-port <frontend-port>            hello frontend port [0-65535]
+    -b, --backend-port <backend-port>              hello backend port [0-65535]
     -e, --enable-floating-ip <enable-floating-ip>  enable floating point ip [true,false]
-    -i, --frontend-ip <frontend-ip>                the name of the frontend ip configuration
-    -m, --vm-id <vm-id>                            the VM id.
+    -i, --frontend-ip <frontend-ip>                hello name of hello frontend ip configuration
+    -m, --vm-id <vm-id>                            hello VM id.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>
-    -a, --vm-name <vm-name>                        the VM name.This VM must exist in the same resource group as the lb.
-    Please use vm-id if that is not the case.
+    -a, --vm-name <vm-name>                        hello VM name.This VM must exist in hello same resource group as hello lb.
+    Please use vm-id if that is not hello case.
     this parameter will be ignored if --vm-id is specified
-    -s, --subscription <subscription>              the subscription identifier
+    -s, --subscription <subscription>              hello subscription identifier
 <BR>
 
     network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
-Updates van een bestaande binnenkomende nat-regel. In het volgende voorbeeld wordt de inkomende luisterpoort van 80 gewijzigd in 81.
+Updates van een bestaande binnenkomende nat-regel. In de Hallo voorbeeld te volgen, we Hallo gewijzigd inkomende luisterpoort van 80 too81.
 
     azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
 
     info:    Executing command network lb inbound-nat-rule set
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     + Updating load balancer "mylb"
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Id:                        /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb/inboundNatRules/myinboundnat
     data:    Name:                      myinboundnat
     data:    Type:                      Microsoft.Network/loadBalancers/inboundNatRules
@@ -1186,20 +1186,20 @@ De parameteropties:
     -h, --help                                     output usage information
     -v, --verbose                                  use verbose output
     --json                                         use json output
-    -g, --resource-group <resource-group>          the name of the resource group
-    -l, --lb-name <lb-name>                        the name of the load balancer
-    -n, --name <name>                              the name of the inbound NAT rule
-    -p, --protocol <protocol>                      the rule protocol [tcp,udp]
-    -f, --frontend-port <frontend-port>            the frontend port [0-65535]
-    -b, --backend-port <backend-port>              the backend port [0-65535]
+    -g, --resource-group <resource-group>          hello name of hello resource group
+    -l, --lb-name <lb-name>                        hello name of hello load balancer
+    -n, --name <name>                              hello name of hello inbound NAT rule
+    -p, --protocol <protocol>                      hello rule protocol [tcp,udp]
+    -f, --frontend-port <frontend-port>            hello frontend port [0-65535]
+    -b, --backend-port <backend-port>              hello backend port [0-65535]
     -e, --enable-floating-ip <enable-floating-ip>  enable floating point ip [true,false]
-    -i, --frontend-ip <frontend-ip>                the name of the frontend ip configuration
-    -m, --vm-id [vm-id]                            the VM id.
+    -i, --frontend-ip <frontend-ip>                hello name of hello frontend ip configuration
+    -m, --vm-id [vm-id]                            hello VM id.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>
-    -a, --vm-name <vm-name>                        the VM name.
-    This virtual machine must exist in the same resource group as the lb.
-    Please use vm-id if that is not the case
-    -s, --subscription <subscription>              the subscription identifier
+    -a, --vm-name <vm-name>                        hello VM name.
+    This virtual machine must exist in hello same resource group as hello lb.
+    Please use vm-id if that is not hello case
+    -s, --subscription <subscription>              hello subscription identifier
 <BR>
 
     network lb inbound-nat-rule list [options] <resource-group> <lb-name>
@@ -1209,7 +1209,7 @@ Hier worden alle binnenkomende nat-regels voor de load balancer.
     azure network lb inbound-nat-rule list -g myresourcegroup -l mylb
 
     info:    Executing command network lb inbound-nat-rule list
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     data:    Name          Provisioning state  Protocol  Frontend port  Backend port  Enable floating IP  Idle timeout in minutes  Backend IP configuration
     data:    ------------  ------------------  --------  -------------  ------------  ------------------  -----------------------  ---
     ---------------------
@@ -1222,19 +1222,19 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
 
     network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
-NAT-regel voor de load balancer in een specifieke resourcegroep verwijderen.
+NAT-regel voor load balancer Hallo in een specifieke resourcegroep verwijderen.
 
     azure network lb inbound-nat-rule delete -g myresourcegroup -l mylb -n myinboundnat
 
     info:    Executing command network lb inbound-nat-rule delete
-    + Looking up the load balancer "mylb"
+    + Looking up hello load balancer "mylb"
     Delete inbound NAT rule "myinboundnat?" [y/n] y
     + Updating load balancer "mylb"
     info:    network lb inbound-nat-rule delete command OK
@@ -1244,22 +1244,22 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the inbound NAT rule
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -l, --lb-name <lb-name>                hello name of hello load balancer
+    -n, --name <name>                      hello name of hello inbound NAT rule
     -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+    -s, --subscription <subscription>      hello subscription identifier
 
-**Opdrachten voor het openbare IP-adressen beheren**
+**Opdrachten toomanage openbare IP-adressen**
 
     network public-ip create [options] <resource-group> <name> <location>
-Maakt een openbaar IP-resource. U de openbare ip-resource maken en koppelen aan een domein.
+Maakt een openbaar IP-resource. U maakt Hallo openbare IP-resource en domeinnaam tooa koppelen.
 
     azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d azureclitest -a "Dynamic"
     info:    Executing command network public-ip create
-    + Looking up the public ip "mytestpublicip1"
+    + Looking up hello public ip "mytestpublicip1"
     + Creating public ip address "mytestpublicip1"
-    + Looking up the public ip "mytestpublicip1"
+    + Looking up hello public ip "mytestpublicip1"
     data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip1
     data:    Name:                 mytestpublicip1
     data:    Type:                 Microsoft.Network/publicIPAddresses
@@ -1277,29 +1277,29 @@ De parameteropties:
     -h, --help                                   output usage information
     -v, --verbose                                use verbose output
     --json                                       use json output
-    -g, --resource-group <resource-group>        the name of the resource group
-    -n, --name <name>                            the name of the public ip
-    -l, --location <location>                    the location
-    -d, --domain-name-label <domain-name-label>  the domain name label.
-    This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
-    -a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
-    -i, --idletimeout <idletimeout>              the idle timeout in minutes
-    -f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
-    -t, --tags <tags>                            the list of tags.
-    Can be multiple. In the format of "name=value".
+    -g, --resource-group <resource-group>        hello name of hello resource group
+    -n, --name <name>                            hello name of hello public ip
+    -l, --location <location>                    hello location
+    -d, --domain-name-label <domain-name-label>  hello domain name label.
+    This set DNS too<domain-name-label>.<location>.cloudapp.azure.com
+    -a, --allocation-method <allocation-method>  hello allocation method [Static][Dynamic]
+    -i, --idletimeout <idletimeout>              hello idle timeout in minutes
+    -f, --reverse-fqdn <reverse-fqdn>            hello reverse fqdn
+    -t, --tags <tags>                            hello list of tags.
+    Can be multiple. In hello format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2
-    -s, --subscription <subscription>            the subscription identifier
+    -s, --subscription <subscription>            hello subscription identifier
 <br>
 
     network public-ip set [options] <resource-group> <name>
-De eigenschappen van een bestaande openbare IP-resource-updates. In het volgende voorbeeld wordt het openbare IP-adres van dynamisch gewijzigd naar statisch.
+Updates Hallo eigenschappen van een bestaande openbare IP-resource. In het volgende voorbeeld Hallo gewijzigd we Hallo openbaar IP-adres van de dynamische tooStatic.
 
     azure network public-ip set -g group-1 -n mytestpublicip1 -d azureclitest -a "Static"
     info:    Executing command network public-ip set
-    + Looking up the public ip "mytestpublicip1"
+    + Looking up hello public ip "mytestpublicip1"
     + Updating public ip address "mytestpublicip1"
-    + Looking up the public ip "mytestpublicip1"
+    + Looking up hello public ip "mytestpublicip1"
     data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip1
     data:    Name:                 mytestpublicip1
     data:    Type:                 Microsoft.Network/publicIPAddresses
@@ -1317,19 +1317,19 @@ De parameteropties:
     -h, --help                                   output usage information
     -v, --verbose                                use verbose output
     --json                                       use json output
-    -g, --resource-group <resource-group>        the name of the resource group
-    -n, --name <name>                            the name of the public ip
-    -d, --domain-name-label [domain-name-label]  the domain name label.
-    This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
-    -a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
-    -i, --idletimeout <idletimeout>              the idle timeout in minutes
-    -f, --reverse-fqdn [reverse-fqdn]            the reverse fqdn
-    -t, --tags <tags>                            the list of tags.
-    Can be multiple. In the format of "name=value".
+    -g, --resource-group <resource-group>        hello name of hello resource group
+    -n, --name <name>                            hello name of hello public ip
+    -d, --domain-name-label [domain-name-label]  hello domain name label.
+    This set DNS too<domain-name-label>.<location>.cloudapp.azure.com
+    -a, --allocation-method <allocation-method>  hello allocation method [Static][Dynamic]
+    -i, --idletimeout <idletimeout>              hello idle timeout in minutes
+    -f, --reverse-fqdn [reverse-fqdn]            hello reverse fqdn
+    -t, --tags <tags>                            hello list of tags.
+    Can be multiple. In hello format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2
     --no-tags                                    remove all existing tags
-    -s, --subscription <subscription>            the subscription identifier
+    -s, --subscription <subscription>            hello subscription identifier
 
 <br>
     lijst met openbare ip-netwerken [opties] < resource-group > geeft een lijst van alle openbare IP-resources binnen een resourcegroep.
@@ -1337,7 +1337,7 @@ De parameteropties:
     azure network public-ip list -g myresourcegroup
 
     info:    Executing command network public-ip list
-    + Getting the public ip addresses
+    + Getting hello public ip addresses
     data:    Name             Location  Allocation  IP Address    Idle timeout  DNS Name
     data:    ---------------  --------  ----------  ------------  ------------  -------------------------------------------
     data:    mypubip5         westus    Dynamic                   4             "domain name".westus.cloudapp.azure.com
@@ -1350,8 +1350,8 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -s, --subscription <subscription>      hello subscription identifier
 <BR>
     openbaar netwerk-IP-weergeven [opties] < resource-group ><name>
 
@@ -1360,7 +1360,7 @@ Openbare IP-eigenschappen van een openbaar IP-bron binnen een resourcegroep weer
     azure network public-ip show -g myresourcegroup -n mytestpublicip
 
     info:    Executing command network public-ip show
-    + Looking up the public ip "mytestpublicip1"
+    + Looking up hello public ip "mytestpublicip1"
     data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mytestpublicip
     data:    Name:                 mytestpublicip
     data:    Type:                 Microsoft.Network/publicIPAddresses
@@ -1378,9 +1378,9 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the public IP
-    -s, --subscription <subscription>      the subscription identifier
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -n, --name <name>                      hello name of hello public IP
+    -s, --subscription <subscription>      hello subscription identifier
 
 
     network public-ip delete [options] <resource-group> <name>
@@ -1389,7 +1389,7 @@ Hiermee verwijdert u een openbaar IP-resource.
 
     azure network public-ip delete -g group-1 -n mypublicipname
     info:    Executing command network public-ip delete
-    + Looking up the public ip "mypublicipname"
+    + Looking up hello public ip "mypublicipname"
     Delete public ip address "mypublicipname"? [y/n] y
     + Deleting public ip address "mypublicipname"
     info:    network public-ip delete command OK
@@ -1399,24 +1399,24 @@ De parameteropties:
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
     --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the public IP
+    -g, --resource-group <resource-group>  hello name of hello resource group
+    -n, --name <name>                      hello name of hello public IP
     -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+    -s, --subscription <subscription>      hello subscription identifier
 
 
-**Opdrachten voor het beheren van netwerkinterfaces**
+**Opdrachten toomanage netwerkinterfaces**
 
     network nic create [options] <resource-group> <name> <location>
-Maakt een resource netwerkinterface (NIC) die kan worden gebruikt voor load balancers of koppelen aan een virtuele Machine genoemd.
+Maakt een resource aangeroepen netwerkinterface (NIC) die kan worden gebruikt voor load balancers of tooa virtuele Machine te koppelen.
 
     azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 
     info:    Executing command network nic create
-    + Looking up the network interface "testnic1"
-    + Looking up the subnet "subnet-1"
+    + Looking up hello network interface "testnic1"
+    + Looking up hello subnet "subnet-1"
     + Creating network interface "testnic1"
-    + Looking up the network interface "testnic1"
+    + Looking up hello network interface "testnic1"
     data:    Id:                     /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/networkInterfaces/testnic1
     data:    Name:                   testnic1
     data:    Type:                   Microsoft.Network/networkInterfaces
@@ -1434,29 +1434,29 @@ De parameteropties:
     -h, --help                                                       output usage information
     -v, --verbose                                                    use verbose output
     --json                                                           use json output
-    -g, --resource-group <resource-group>                            the name of the resource group
-    -n, --name <name>                                                the name of the network interface
-    -l, --location <location>                                        the location
-    -w, --network-security-group-id <network-security-group-id>      the network security group identifier.
+    -g, --resource-group <resource-group>                            hello name of hello resource group
+    -n, --name <name>                                                hello name of hello network interface
+    -l, --location <location>                                        hello location
+    -w, --network-security-group-id <network-security-group-id>      hello network security group identifier.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
-    -o, --network-security-group-name <network-security-group-name>  the network security group name.
-    This network security group must exist in the same resource group as the nic.
-    Please use network-security-group-id if that is not the case.
-    -i, --public-ip-id <public-ip-id>                                the public IP identifier.
+    -o, --network-security-group-name <network-security-group-name>  hello network security group name.
+    This network security group must exist in hello same resource group as hello nic.
+    Please use network-security-group-id if that is not hello case.
+    -i, --public-ip-id <public-ip-id>                                hello public IP identifier.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
-    -p, --public-ip-name <public-ip-name>                            the public IP name.
-    This public ip must exist in the same resource group as the nic.
-    Please use public-ip-id if that is not the case.
-    -a, --private-ip-address <private-ip-address>                    the private IP address
-    -u, --subnet-id <subnet-id>                                      the subnet identifier.
+    -p, --public-ip-name <public-ip-name>                            hello public IP name.
+    This public ip must exist in hello same resource group as hello nic.
+    Please use public-ip-id if that is not hello case.
+    -a, --private-ip-address <private-ip-address>                    hello private IP address
+    -u, --subnet-id <subnet-id>                                      hello subnet identifier.
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
-    --subnet-name <subnet-name>                                  the subnet name
-    -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
-    Can be multiple. In the format of "name=value".
+    --subnet-name <subnet-name>                                  hello subnet name
+    -m, --subnet-vnet-name <subnet-vnet-name>                        hello vnet name under which subnet-name exists
+    -t, --tags <tags>                                                hello comma seperated list of tags.
+    Can be multiple. In hello format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2
-    -s, --subscription <subscription>                                the subscription identifier
+    -s, --subscription <subscription>                                hello subscription identifier
     data:
     info:    network nic create command OK
 
@@ -1468,7 +1468,7 @@ De parameteropties:
     network nic show [options] <resource-group> <name>
     network nic delete [options] <resource-group> <name>
 
-**Opdrachten voor het beheren van netwerkbeveiligingsgroepen**
+**Opdrachten toomanage netwerkbeveiligingsgroepen**
 
     network nsg create [options] <resource-group> <name> <location>
     network nsg set [options] <resource-group> <name>
@@ -1476,7 +1476,7 @@ De parameteropties:
     network nsg show [options] <resource-group> <name>
     network nsg delete [options] <resource-group> <name>
 
-**Opdrachten voor het beheren van netwerk-beveiligingsregels voor groep**
+**Opdrachten toomanage netwerkbeveiligingsgroepen**
 
     network nsg rule create [options] <resource-group> <nsg-name> <name>
     network nsg rule set [options] <resource-group> <nsg-name> <name>
@@ -1484,7 +1484,7 @@ De parameteropties:
     network nsg rule show [options] <resource-group> <nsg-name> <name>
     network nsg rule delete [options] <resource-group> <nsg-name> <name>
 
-**Opdrachten voor het beheren van traffic manager-profiel**
+**Opdrachten toomanage traffic manager-profiel**
 
     network traffic-manager profile create [options] <resource-group> <name>
     network traffic-manager profile set [options] <resource-group> <name>
@@ -1493,34 +1493,34 @@ De parameteropties:
     network traffic-manager profile delete [options] <resource-group> <name>
     network traffic-manager profile is-dns-available [options] <resource-group> <relative-dns-name>
 
-**Opdrachten voor het traffic manager-eindpunten beheren**
+**Opdrachten toomanage traffic manager-eindpunten**
 
     network traffic-manager profile endpoint create [options] <resource-group> <profile-name> <name> <endpoint-location>
     network traffic-manager profile endpoint set [options] <resource-group> <profile-name> <name>
     network traffic-manager profile endpoint delete [options] <resource-group> <profile-name> <name>
 
-**Opdrachten voor het beheren van virtueel netwerk gateways**
+**Opdrachten toomanage virtuele netwerkgateways**
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-provider: opdrachten voor het beheren van resource provider registraties
+## <a name="azure-provider-commands-toomanage-resource-provider-registrations"></a>Azure-provider: toomanage resource provider registraties opdrachten
 **Lijst van de momenteel geregistreerde providers in Resource Manager**
 
     provider list [options]
 
-**Details weergeven over de naamruimte van de aangevraagde provider**
+**Details weergeven over Hallo aangevraagd providernaamruimte**
 
     provider show [options] <namespace>
 
-**Registreer provider bij het abonnement**
+**Registreer provider bij Hallo-abonnement**
 
     provider register [options] <namespace>
 
-**Hef de registratie van provider met het abonnement**
+**Hef de registratie van provider met Hallo-abonnement**
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resource: opdrachten om uw resources te beheren
+## <a name="azure-resource-commands-toomanage-your-resources"></a>Azure-resource: opdrachten toomanage uw resources
 **Maakt een resource in een resourcegroep**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1529,7 +1529,7 @@ De parameteropties:
 
     resource set [options] <resource-group> <name> <resource-type> <properties> <api-version>
 
-**Geeft een lijst van de resources**
+**Een lijst met Hallo resources**
 
     resource list [options] [resource-group]
 
@@ -1541,7 +1541,7 @@ De parameteropties:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-functie: opdrachten voor het beheren van uw Azure-functies
+## <a name="azure-role-commands-toomanage-your-azure-roles"></a>Azure-functie: opdrachten toomanage uw Azure-functies
 **Alle beschikbare roldefinities ophalen**
 
     role list [options]
@@ -1550,14 +1550,14 @@ De parameteropties:
 
     role show [options] [name]
 
-**Opdrachten voor het beheren van uw roltoewijzing**
+**Opdrachten toomanage toegewezen rollen**
 
     role assignment create [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Azure-opslag: opdrachten voor het beheren van uw Storage-objecten
-**Opdrachten voor het beheren van uw Storage-accounts**
+## <a name="azure-storage-commands-toomanage-your-storage-objects"></a>Azure-opslag: opdrachten toomanage uw opslagobjecten
+**Opdrachten toomanage uw Storage-accounts**
 
     storage account list [options]
     storage account show [options] <name>
@@ -1565,16 +1565,16 @@ De parameteropties:
     storage account set [options] <name>
     storage account delete [options] <name>
 
-**Opdrachten voor het beheren van uw toegangscodes voor opslag**
+**Opdrachten toomanage uw toegangscodes voor opslag**
 
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
 
-**Opdrachten voor het weergeven van de verbindingsreeks voor opslag**
+**Opdrachten tooshow uw verbindingsreeks voor opslag**
 
     storage account connectionstring show [options] <name>
 
-**Opdrachten voor het beheren van uw Storage-containers**
+**Opdrachten toomanage uw Storage-containers**
 
     storage container list [options] [prefix]
     storage container show [options] [container]
@@ -1582,11 +1582,11 @@ De parameteropties:
     storage container delete [options] [container]
     storage container set [options] [container]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekeningen van uw Storage-container**
+**Handtekeningen voor opdrachten toomanage gedeelde toegang van uw Storage-container**
 
     storage container sas create [options] [container] [permissions] [expiry]
 
-**Opdrachten voor het beheren van opgeslagen-beleid van uw Storage-container**
+**Opdrachten toomanage opgeslagen-beleid van uw Storage-container**
 
     storage container policy create [options] [container] [name]
     storage container policy show [options] [container] [name]
@@ -1594,7 +1594,7 @@ De parameteropties:
     storage container policy set [options] [container] [name]
     storage container policy delete [options] [container] [name]
 
-**Opdrachten voor het beheren van uw Storage-blobs**
+**Opdrachten toomanage uw Storage-blobs**
 
     storage blob list [options] [container] [prefix]
     storage blob show [options] [container] [blob]
@@ -1602,47 +1602,47 @@ De parameteropties:
     storage blob upload [options] [file] [container] [blob]
     storage blob download [options] [container] [blob] [destination]
 
-**Opdrachten voor het beheren van uw blob kopiëren bewerkingen**
+**Opdrachten toomanage uw kopieerbewerkingen blob**
 
     storage blob copy start [options] [sourceUri] [destContainer]
     storage blob copy show [options] [container] [blob]
     storage blob copy stop [options] [container] [blob] [copyid]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekening van uw Storage-blob**
+**Shared access signature voor opdrachten toomanage van uw Storage-blob**
 
     storage blob sas create [options] [container] [blob] [permissions] [expiry]
 
-**Opdrachten voor het beheren van uw bestandsshares voor opslag**
+**Opdrachten toomanage uw bestandsshares voor opslag**
 
     storage share create [options] [share]
     storage share show [options] [share]
     storage share delete [options] [share]
     storage share list [options] [prefix]
 
-**Opdrachten voor het beheren van uw opslag-bestanden**
+**Opdrachten toomanage uw opslag-bestanden**
 
     storage file list [options] [share] [path]
     storage file delete [options] [share] [path]
     storage file upload [options] [source] [share] [path]
     storage file download [options] [share] [path] [destination]
 
-**Opdrachten voor het beheren van uw bestand opslagmap**
+**Opdrachten toomanage map van uw opslag**
 
     storage directory create [options] [share] [path]
     storage directory delete [options] [share] [path]
 
-**Opdrachten voor het beheren van uw opslagwachtrijen**
+**Opdrachten toomanage uw opslagwachtrijen**
 
     storage queue create [options] [queue]
     storage queue list [options] [prefix]
     storage queue show [options] [queue]
     storage queue delete [options] [queue]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekeningen van uw Storage-wachtrij**
+**Handtekeningen voor opdrachten toomanage gedeelde toegang van uw Storage-wachtrij**
 
     storage queue sas create [options] [queue] [permissions] [expiry]
 
-**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de wachtrij van uw opslag**
+**Opdrachten toomanage opgeslagen-beleid van uw Storage-wachtrij**
 
     storage queue policy create [options] [queue] [name]
     storage queue policy show [options] [queue] [name]
@@ -1650,28 +1650,28 @@ De parameteropties:
     storage queue policy set [options] [queue] [name]
     storage queue policy delete [options] [queue] [name]
 
-**Opdrachten voor het beheren van uw opslag logboekregistratie-eigenschappen**
+**Opdrachten toomanage uw opslag logboekregistratie-eigenschappen**
 
     storage logging show [options]
     storage logging set [options]
 
-**Opdrachten voor het beheren van de eigenschappen van de metrische gegevens van uw opslag**
+**Opdrachten toomanage de eigenschappen van de metrische gegevens van uw opslag**
 
     storage metrics show [options]
     storage metrics set [options]
 
-**Opdrachten voor het beheren van uw Storage-tabellen**
+**Opdrachten toomanage uw Storage-tabellen**
 
     storage table create [options] [table]
     storage table list [options] [prefix]
     storage table show [options] [table]
     storage table delete [options] [table]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekeningen van de tabel opslag**
+**Handtekeningen voor opdrachten toomanage gedeelde toegang van de tabel opslag**
 
     storage table sas create [options] [table] [permissions] [expiry]
 
-**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de tabel opslag**
+**Opdrachten toomanage opgeslagen toegangsbeleid van de tabel opslag**
 
     storage table policy create [options] [table] [name]
     storage table policy show [options] [table] [name]
@@ -1679,7 +1679,7 @@ De parameteropties:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tag: opdrachten voor het beheren van het resource manager-label
+## <a name="azure-tag-commands-toomanage-your-resource-manager-tag"></a>Azure-tag: het label van resource manager-toomanage opdrachten
 **Een label toevoegen**
 
     tag create [options] <name> <value>
@@ -1688,7 +1688,7 @@ De parameteropties:
 
     tag delete [options] <name> <value>
 
-**Geeft een lijst van de tag-informatie**
+**Een lijst met Hallo-tag-informatie**
 
     tag list [options]
 
@@ -1696,7 +1696,7 @@ De parameteropties:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure vm: opdrachten voor het beheren van uw Azure Virtual Machines
+## <a name="azure-vm-commands-toomanage-your-azure-virtual-machines"></a>Azure vm: opdrachten toomanage uw Azure Virtual Machines
 **Een virtuele machine maken**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1706,11 +1706,11 @@ De parameteropties:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> Beginnen met CLI versie 0.10, kunt u een korte alias zoals 'UbuntuLTS' of 'Win2012R2Datacenter' opgeven als de `image-urn` voor bepaalde populaire Marketplace-installatiekopieën. Voer `azure help vm quick-create` voor opties. Bovendien vanaf versie 0.10, `azure vm quick-create` premium-opslag wordt standaard gebruikt als deze beschikbaar in de geselecteerde regio is.
+> Beginnen met CLI versie 0.10, kunt u een korte alias zoals 'UbuntuLTS' of 'Win2012R2Datacenter' als Hallo bieden `image-urn` voor bepaalde populaire Marketplace-installatiekopieën. Voer `azure help vm quick-create` voor opties. Bovendien vanaf versie 0.10, `azure vm quick-create` premium-opslag wordt standaard gebruikt als deze beschikbaar in de geselecteerde regio Hallo is.
 > 
 > 
 
-**Lijst van de virtuele machines binnen een account**
+**Lijst Hallo virtuele machines binnen een account**
 
     vm list [options]
 
@@ -1734,7 +1734,7 @@ De parameteropties:
 
     vm start [options] <resource-group> <name>
 
-**Een virtuele machine afsluiten binnen een resourcegroep en worden de rekenresources vrijgegeven**
+**Afsluiten één virtuele machine binnen een resource-groep en releases Hallo bronnen berekenen**
 
     vm deallocate [options] <resource-group> <name>
 
@@ -1742,19 +1742,19 @@ De parameteropties:
 
     vm sizes [options]
 
-**De virtuele machine als de installatiekopie van het besturingssysteem of VM-installatiekopie vastleggen**
+**Hallo VM als de installatiekopie van het besturingssysteem of VM-installatiekopie vastleggen**
 
     vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
-**De status van de virtuele machine ingesteld op gegeneraliseerd**
+**Hallo-status van Hallo VM tooGeneralized instellen**
 
     vm generalize [options] <resource-group> <name>
 
-**Instantieweergave van de virtuele machine ophalen**
+**Instantieweergave van Hallo VM ophalen**
 
     vm get-instance-view [options] <resource-group> <name>
 
-**Kunt u instellingen voor externe toegang tot het bureaublad of SSH op een virtuele Machine herstellen en in te stellen van het wachtwoord voor het account dat beheerder of sudo-instantie is**
+**Kunt u tooreset externe toegang tot het bureaublad of SSH-instellingen op een virtuele Machine en tooreset Hallo wachtwoord voor Hallo-account met administrator of sudo-instantie**
 
     vm reset-access [options] <resource-group> <name>
 
@@ -1762,22 +1762,22 @@ De parameteropties:
 
     vm set [options] <resource-group> <name>
 
-**Opdrachten voor het beheren van uw virtuele Machine gegevensschijven**
+**Opdrachten toomanage de gegevensschijven van de virtuele Machine**
 
     vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]
     vm disk detach [options] <resource-group> <vm-name> <lun>
     vm disk attach [options] <resource-group> <vm-name> [vhd-url]
 
-**Opdrachten voor het VM-resource-uitbreidingen beheren**
+**Opdrachten toomanage VM resource-uitbreidingen**
 
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
 
-**Opdrachten voor het beheren van uw Docker virtuele Machine**
+**De virtuele Machine van Docker-toomanage opdrachten**
 
     vm docker create [options] <resource-group> <name> <location> <os-type>
 
-**Opdrachten voor het beheren van VM-installatiekopieën**
+**Opdrachten toomanage VM-installatiekopieën**
 
     vm image list-publishers [options] <location>
     vm image list-offers [options] <location> <publisher>

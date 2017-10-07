@@ -1,6 +1,6 @@
 ---
-title: Beveiliging met beleidsregels op Windows-machines in Azure afdwingen | Microsoft Docs
-description: Het toepassen van een beleid voor een Azure Resource Manager virtuele Windows-computer
+title: aaaEnforce beveiliging met beleidsregels op Windows-machines in Azure | Microsoft Docs
+description: Hoe tooapply een beleid tooan Windows virtuele Machine van Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b31c8a03ecf8eed6a929f97fe4146ea14364404f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Beleid toepassen op Windows-VM's met Azure Resource Manager
-Een organisatie kan met behulp van beleid afdwingen verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens bijdragen aan het succes van de organisatie. In dit artikel wordt beschreven hoe u Azure Resource Manager-beleid kunt gebruiken voor het definiëren van het gewenste gedrag voor virtuele Machines die uw organisatie.
+# <a name="apply-policies-toowindows-vms-with-azure-resource-manager"></a>Toepassen van beleid tooWindows VM's met Azure Resource Manager
+Met behulp van beleid, kan een organisatie verschillende conventies en regels in de onderneming Hallo afdwingen. Afdwinging van Hallo gewenst gedrag kunt risico's te beperken tijdens toohello succes van Hallo organisatie bij te dragen. In dit artikel wordt beschreven hoe u Azure Resource Manager beleid toodefine Hallo gewenst gedrag kunt gebruiken voor virtuele Machines die uw organisatie.
 
-Zie voor een inleiding tot beleidsregels, [beleid gebruiken voor het beheren van resources en toegangsbeheer](../../azure-resource-manager/resource-manager-policy.md).
+Zie voor een toopolicies inleiding [beleid toomanage resources en toegang beheren](../../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="permitted-virtual-machines"></a>Toegestane virtuele Machines
-Om ervoor te zorgen dat virtuele machines voor uw organisatie compatibel met een toepassing zijn, kunt u de toegestane besturingssystemen beperken. U kunt alleen Windows Server 2012 R2 Datacenter virtuele Machines worden gemaakt in het volgende voorbeeld voor het beleid:
+tooensure dat virtuele machines voor uw organisatie compatibel met een toepassing zijn, kunt u besturingssystemen toegestaan Hallo beperken. In Hallo voorbeeld van een beleid te volgen, kunt u alleen virtuele Machines van Windows Server 2012 R2 Datacenter toobe gemaakt:
 
 ```json
 {
@@ -79,7 +79,7 @@ Om ervoor te zorgen dat virtuele machines voor uw organisatie compatibel met een
 }
 ```
 
-Gebruik een jokerteken voor het wijzigen van het vorige beleid voor het toestaan van een installatiekopie van Windows Server Datacenter:
+Gebruik een jokerteken toomodify Hallo beleid tooallow voorafgaand aan de installatiekopie van een Windows Server Datacenter:
 
 ```json
 {
@@ -88,7 +88,7 @@ Gebruik een jokerteken voor het wijzigen van het vorige beleid voor het toestaan
 }
 ```
 
-Gebruik dragen om het voorgaande beleid aanpassen om een Windows Server 2012 R2 Datacenter of hoger installatiekopie toe te staan:
+Gebruik dragen toomodify Hallo beleid tooallow voorafgaand aan een Windows Server 2012 R2 Datacenter of hoger installatiekopie:
 
 ```json
 {
@@ -109,7 +109,7 @@ Zie voor meer informatie over Beleidsvelden [beleid aliassen](../../azure-resour
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Als u wilt het gebruik van beheerde schijven, gebruikt u het volgende beleid:
+toorequire hello gebruik van beheerde schijven gebruik Hallo volgende beleid:
 
 ```json
 {
@@ -157,9 +157,9 @@ Als u wilt het gebruik van beheerde schijven, gebruikt u het volgende beleid:
 
 ## <a name="images-for-virtual-machines"></a>Installatiekopieën voor virtuele Machines
 
-Uit veiligheidsoverwegingen kunt u vereisen dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. Kunt u ofwel de resourcegroep die de goedgekeurde installatiekopieën bevat, of de specifieke goedgekeurd installatiekopieën.
+Uit veiligheidsoverwegingen kunt u vereisen dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. U kunt Hallo resourcegroep waarin Hallo goedgekeurd afbeeldingen of specifieke goedgekeurde installatiekopieën Hallo opgeven.
 
-Het volgende voorbeeld is vereist voor installatiekopieën van een goedgekeurde resourcegroep:
+Hallo volgt vereist installatiekopieën van een goedgekeurde resourcegroep:
 
 ```json
 {
@@ -186,7 +186,7 @@ Het volgende voorbeeld is vereist voor installatiekopieën van een goedgekeurde 
 } 
 ```
 
-Het volgende voorbeeld wordt de goedgekeurde installatiekopie-id's:
+Hallo volgende voorbeeld worden goedgekeurd Hallo installatiekopie id's:
 
 ```json
 {
@@ -197,7 +197,7 @@ Het volgende voorbeeld wordt de goedgekeurde installatiekopie-id's:
 
 ## <a name="virtual-machine-extensions"></a>Uitbreidingen van de virtuele Machine
 
-U kunt informatie over het gebruik van bepaalde soorten extensies verbieden. Bijvoorbeeld, een uitbreiding mogelijk niet compatibel met bepaalde afbeeldingen aangepaste virtuele machine. Het volgende voorbeeld laat zien hoe een bepaalde extensie blokkeren. Uitgever en type worden gebruikt om te bepalen welke extensie te blokkeren.
+U kunt tooforbid informatie over het gebruik van bepaalde soorten uitbreidingen. Bijvoorbeeld, een uitbreiding mogelijk niet compatibel met bepaalde afbeeldingen aangepaste virtuele machine. Hallo volgende voorbeeld wordt getoond hoe tooblock een bepaalde extensie. Gebruikt deze uitgever en type toodetermine welke tooblock extensie.
 
 ```json
 {
@@ -227,7 +227,7 @@ U kunt informatie over het gebruik van bepaalde soorten extensies verbieden. Bij
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure hybride gebruik Benefit
 
-Wanneer u een on-premises-licentie hebt, kunt u de licentiekosten op uw virtuele machines kunt opslaan. Wanneer u de licentie niet hebt, moet u de optie verbieden. Het volgende beleid verbiedt informatie over het gebruik van Azure hybride gebruik voordeel (AHUB):
+Wanneer u een on-premises-licentie hebt, kunt u Hallo licentiekosten op uw virtuele machines kunt opslaan. Wanneer u geen Hallo-licentie hebt, moet u Hallo optie verbieden. Hallo beleid na verbiedt informatie over het gebruik van Azure hybride gebruik voordeel (AHUB):
 
 ```json
 {
@@ -250,6 +250,6 @@ Wanneer u een on-premises-licentie hebt, kunt u de licentiekosten op uw virtuele
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden), moet u de beleidsdefinitie maken en toewijzen aan een bereik. Het bereik mag een abonnement, resourcegroep of resource. Als u wilt toewijzen beleid via de portal, Zie [gebruik Azure-portal toewijzen en beheren van bronbeleid](../../azure-resource-manager/resource-manager-policy-portal.md). Als u wilt toewijzen beleid via REST API, PowerShell of Azure CLI, Zie [toewijzen en beheren van beleid via script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* Zie voor een inleiding tot bronbeleid, [Resource overzicht](../../azure-resource-manager/resource-manager-policy.md).
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden Hallo), u moet toocreate hello beleidsdefinitie en wijs deze tooa bereik. Hallo bereik mag een abonnement, resourcegroep of resource. tooassign beleid via de portal hello, Zie [gebruik Azure portal tooassign en beheren van bronbeleid](../../azure-resource-manager/resource-manager-policy-portal.md). tooassign beleid via REST API, PowerShell of Azure CLI, Zie [toewijzen en beheren van beleid via script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* Zie voor een inleiding tooresource beleidsregels, [Resource overzicht](../../azure-resource-manager/resource-manager-policy.md).
+* Abonnementen voor instructies over hoe ondernemingen tooeffectively Resource Manager kunt beheren, Zie [Azure enterprise scaffold - prescriptieve abonnement governance](../../azure-resource-manager/resource-manager-subscription-governance.md).

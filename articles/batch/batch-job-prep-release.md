@@ -1,6 +1,6 @@
 ---
-title: Maak taken om voor te bereiden, taken en volledige taken op rekenknooppunten - Azure Batch | Microsoft Docs
-description: Gebruik op jobniveau systeemvoorbereidingstaken om te beperken van overdracht van gegevens naar Azure Batch-rekenknooppunten en release van taken voor het opruimen van knooppunt bij Taakvoltooiing.
+title: aaaCreate taken tooprepare taken en volledige taken op rekenknooppunten - Azure Batch | Microsoft Docs
+description: Gebruik op jobniveau voorbereiding taken toominimize gegevens overbrengen tooAzure Batch-rekenknooppunten en release van taken voor het opruimen van knooppunt bij Taakvoltooiing.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,99 +15,99 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fd5fb47ae6700281e63048c49a1241f4e935baba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Taak uitvoeren voorbereidings- en jobvrijgevingstaken voor Batch-rekenknooppunten
 
- Een Azure Batch-taak is een vorm van setup vaak vereist voordat de bijbehorende taken worden uitgevoerd en onderhoud na taak wanneer de taken zijn voltooid. Mogelijk moet u algemene taak invoergegevens downloaden naar uw rekenknooppunten, of de taak uitvoergegevens uploaden naar Azure Storage nadat de taak is voltooid. U kunt **taak voorbereiding** en **taak release** taken voor het uitvoeren van deze bewerkingen.
+ Een Azure Batch-taak is een vorm van setup vaak vereist voordat de bijbehorende taken worden uitgevoerd en onderhoud na taak wanneer de taken zijn voltooid. U mogelijk nodig toodownload algemene taak invoergegevens tooyour rekenknooppunten of taak uitvoer gegevens tooAzure opslag uploaden nadat het Hallo-taak is voltooid. U kunt **taak voorbereiding** en **taak release** taken tooperform deze bewerkingen.
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>Wat zijn taakvoorbereidingstaak en release van taken?
-Voordat een job taken worden uitgevoerd, is de jobvoorbereidingstaak wordt uitgevoerd op alle rekenknooppunten die ten minste één taak uitgevoerd. Zodra de taak is voltooid, wordt de jobvrijgevingstaak uitgevoerd op elk knooppunt in de pool dat ten minste één taak uitgevoerd. Net als bij normale Batch-taken, kunt u een opdrachtregel moet worden aangeroepen wanneer een taak voorbereidings- of release-taak wordt uitgevoerd.
+Voordat een job taken worden uitgevoerd, Hallo jobvoorbereidingstaak wordt uitgevoerd op alle compute knooppunten geplande toorun ten minste één taak. Zodra het Hallo-taak is voltooid, wordt Hallo jobvrijgevingstaak uitgevoerd op elk knooppunt in Hallo pool dat ten minste één taak uitgevoerd. Net als bij normale Batch-taken, kunt u een opdrachtregel toobe aangeroepen wanneer een taakvoorbereidingstaak of release-taak wordt uitgevoerd.
 
 Jobvoorbereidingstaken en jobvrijgevingstaken taken bieden vertrouwde Batch taakfuncties zoals bestand downloaden ([bronbestanden][net_job_prep_resourcefiles]), verhoogde uitvoering, aangepaste omgevingsvariabelen, maximale uitvoering duur, probeer het opnieuw aantal en bewaartijd voor bestanden.
 
-In de volgende gedeelten leert u hoe u de [JobPreparationTask] [ net_job_prep] en [JobReleaseTask] [ net_job_release] klassen gevonden in de [ Batch .NET] [ api_net] bibliotheek.
+In de Hallo uit te voeren, leert u hoe toouse hello [JobPreparationTask] [ net_job_prep] en [JobReleaseTask] [ net_job_release] in Hallo klassen gevonden [Batch .NET] [ api_net] bibliotheek.
 
 > [!TIP]
 > Jobvoorbereidingstaken en jobvrijgevingstaken taken zijn vooral handig in omgevingen 'van toepassingen wordt gedeeld', waarop een pool van rekenknooppunten zich blijft voordoen tussen de taak wordt uitgevoerd en wordt gebruikt door veel taken.
 > 
 > 
 
-## <a name="when-to-use-job-preparation-and-release-tasks"></a>Bij het gebruik van de taakvoorbereidingstaak en de vrijgave van taken
-Taakvoorbereidings- en jobvrijgevingstaken zijn geschikt voor de volgende situaties:
+## <a name="when-toouse-job-preparation-and-release-tasks"></a>Wanneer toouse taak voorbereiding en release van taken
+Taakvoorbereidings- en jobvrijgevingstaken zijn geschikt voor Hallo volgende situaties:
 
 **Algemene taakgegevens downloaden**
 
-Batchtaken vereisen vaak een gemeenschappelijke set gegevens als invoer voor de taken van de taak. In de dagelijkse risico analysis berekeningen is marktgegevens bijvoorbeeld specifieke, nog gemeenschappelijk zijn voor alle taken in de taak. Deze marktgegevens, vaak verscheidene gigabytes groot, moet worden gedownload naar elk rekenknooppunt slechts één keer zodat elke taak die wordt uitgevoerd op het knooppunt kan worden gebruikt. Gebruik een **jobvoorbereidingstaak** te downloaden van deze gegevens voor elk knooppunt voordat de uitvoering van de taak's andere taken.
+Batchtaken is vaak een gemeenschappelijke set gegevens als invoer voor Hallo projecttaken vereist. In de dagelijkse risico analysis berekeningen is marktgegevens bijvoorbeeld specifieke nog algemene tooall taken in Hallo taak. Deze marktgegevens, grootte, vaak enkele gigabytes moet gedownloade tooeach rekenknooppunt slechts één keer zodat elke taak die wordt uitgevoerd op Hallo knooppunt kan worden gebruikt. Gebruik een **jobvoorbereidingstaak** toodownload dit gegevens tooeach knooppunt voordat de uitvoering van Hallo taak Hallo's andere taken.
 
 **Verwijderen van de taak en uitvoer**
 
-In een omgeving 'van toepassingen wordt gedeeld', waarbij een groep rekenknooppunten zich niet buiten gebruik gestelde tussen taken, moet u wellicht verwijderen taakgegevens tussen wordt uitgevoerd. Mogelijk moet u beschikbare schijfruimte op de knooppunten of voldoen aan het beveiligingsbeleid van uw organisatie. Gebruik een **jobvrijgevingstaak** om gegevens die zijn gedownload door een jobvoorbereidingstaak of gegenereerd tijdens de uitvoering van de taak te verwijderen.
+In een omgeving 'van toepassingen wordt gedeeld', waarbij een groep rekenknooppunten zich niet buiten gebruik gestelde tussen taken, moet u de taakgegevens toodelete tussen wordt uitgevoerd. Mogelijk moet u tooconserve vrije schijfruimte op Hallo knooppunten of voldoen aan het beveiligingsbeleid van uw organisatie. Gebruik een **jobvrijgevingstaak** toodelete gegevens die zijn gedownload door een jobvoorbereidingstaak of gegenereerd tijdens de uitvoering van de taak.
 
 **Logboek bewaren**
 
-Mogelijk wilt een kopie van de logboekbestanden die uw taken wordt gegenereerd of mogelijk crashdumpbestanden dat kan worden gegenereerd door de mislukte toepassingen. Gebruik een **jobvrijgevingstaak** in dergelijke gevallen comprimeren en het uploaden van deze gegevens naar een [Azure Storage] [ azure_storage] account.
+U kunt een kopie van de logboekbestanden die uw taken wordt gegenereerd of misschien crashdumpbestanden dat kunnen worden gegenereerd door de mislukte toepassingen tookeep. Gebruik een **jobvrijgevingstaak** in dergelijke gevallen toocompress en upload dit tooan gegevens [Azure Storage] [ azure_storage] account.
 
 > [!TIP]
-> Een andere manier om vast te leggen logboeken en andere taak en uitvoer gegevens is het gebruik van de [Azure Batch-bestand conventies](batch-task-output.md) bibliotheek.
+> Een andere manier toopersist logboeken en andere taak en uitvoer gegevens zijn toouse hello [Azure Batch-bestand conventies](batch-task-output.md) bibliotheek.
 > 
 > 
 
 ## <a name="job-preparation-task"></a>Jobvoorbereidingstaak
-Batch: de jobvoorbereidingstaak voordat de uitvoering van een job taken uitvoeren op elk rekenknooppunt die is gepland voor een taak uitvoeren. Standaard wacht de Batch-service voor de jobvoorbereidingstaak om te worden voltooid voordat de taken die moeten worden uitgevoerd op het knooppunt wordt uitgevoerd. U kunt echter de service niet te wachten. Als het knooppunt opnieuw wordt opgestart, wordt de jobvoorbereidingstaak wordt opnieuw uitgevoerd, maar u kunt dit gedrag ook uitschakelen.
+Batch: Hallo jobvoorbereidingstaak voordat de uitvoering van een job taken uitvoeren op elk rekenknooppunt die geplande toorun een taak. Standaard wacht Hallo Batch-service op Hallo taak voorbereiding taak toobe voltooid voordat de geplande taken-tooexecute Hallo op Hallo knooppunt uitgevoerd. U kunt echter Hallo-service niet toowait configureren. Als Hallo knooppunt opnieuw wordt opgestart, Hallo jobvoorbereidingstaak opnieuw wordt uitgevoerd, maar u kunt dit gedrag ook uitschakelen.
 
-De jobvoorbereidingstaak wordt alleen uitgevoerd op knooppunten die zijn gepland voor een taak uitvoeren. Dit voorkomt dat de onnodige uitvoering van een jobvoorbereidingstaak als een knooppunt niet aan een taak toegewezen is. Dit kan gebeuren als het aantal taken voor een job kleiner dan het aantal knooppunten in een pool is. Dit geldt ook wanneer [uitvoering van gelijktijdige taken](batch-parallel-node-tasks.md) is ingeschakeld, waardoor sommige knooppunten inactief als het aantal taken lager is dan de totale mogelijke gelijktijdige taken. Door de jobvoorbereidingstaak niet wordt uitgevoerd op niet-actieve knooppunten, kunt u minder geld besteden aan gegevensoverdracht kosten.
+Hallo jobvoorbereidingstaak wordt alleen uitgevoerd op knooppunten die geplande toorun een taak. Dit voorkomt dat Hallo onnodige uitvoering van een jobvoorbereidingstaak als een knooppunt niet aan een taak toegewezen is. Dit kan gebeuren wanneer Hallo aantal taken voor een job minder dan het aantal knooppunten in een pool Hallo is. Dit geldt ook wanneer [uitvoering van gelijktijdige taken](batch-parallel-node-tasks.md) is ingeschakeld, waardoor sommige knooppunten inactief als het aantal van de taak Hallo is lager dan Hallo totale mogelijke gelijktijdige taken. Door de jobvoorbereidingstaak Hallo niet wordt uitgevoerd op niet-actieve knooppunten, kunt u minder geld besteden aan gegevensbelasting overdracht.
 
 > [!NOTE]
-> [JobPreparationTask] [ net_job_prep_cloudjob] verschilt van [CloudPool.StartTask] [ pool_starttask] in dat JobPreparationTask aan het begin van elke taak wordt uitgevoerd terwijl StartTask voert alleen wanneer een rekenknooppunt eerst lid wordt van een groep of opnieuw wordt opgestart.
+> [JobPreparationTask] [ net_job_prep_cloudjob] verschilt van [CloudPool.StartTask] [ pool_starttask] in dat JobPreparationTask aan Hallo begin van elke taak wordt uitgevoerd terwijl StartTask voert alleen wanneer een rekenknooppunt eerst lid wordt van een groep of opnieuw wordt opgestart.
 > 
 > 
 
 ## <a name="job-release-task"></a>Jobvrijgevingstaak
-Zodra een taak is gemarkeerd als voltooid, wordt de jobvrijgevingstaak uitgevoerd op elk knooppunt in de pool dat ten minste één taak uitgevoerd. U kunt een taak markeren als voltooid door uitgifte van een aanvraag beëindigen. De Batch-service wordt de taakstatus van de vervolgens ingesteld op *beëindigd*, alle actieve of actieve taken die zijn gekoppeld aan de taak wordt beëindigd en wordt de jobvrijgevingstaak uitgevoerd. De taak wordt verplaatst naar de *voltooid* status.
+Zodra een taak is gemarkeerd als voltooid, wordt Hallo jobvrijgevingstaak uitgevoerd op elk knooppunt in Hallo pool dat ten minste één taak uitgevoerd. U kunt een taak markeren als voltooid door uitgifte van een aanvraag beëindigen. Hallo Batch-service en vervolgens stelt Hallo taakstatus te*beëindigd*, die is gekoppeld aan taak Hallo actief of actieve taken beëindigd en Hallo jobvrijgevingstaak wordt uitgevoerd. Hallo taak gaat vervolgens toohello *voltooid* status.
 
 > [!NOTE]
-> Verwijderen van een taak worden ook de jobvrijgevingstaak uitgevoerd. Echter, als er al een taak is beëindigd, de release-taak wordt niet uitgevoerd een tweede keer als de taak wordt later verwijderd.
+> Verwijderen van een taak worden ook Hallo jobvrijgevingstaak uitgevoerd. Echter als al een taak is beëindigd, is Hallo release taak niet uitgevoerd een tweede keer als Hallo-taak wordt later verwijderd.
 > 
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Taak prep en de vrijgave van taken met Batch .NET
-Voor het gebruik van een jobvoorbereidingstaak toewijzen een [JobPreparationTask] [ net_job_prep] object aan uw project [CloudJob.JobPreparationTask] [ net_job_prep_cloudjob] eigenschap. Op deze manier initialiseren een [JobReleaseTask] [ net_job_release] en toe te wijzen aan uw project [CloudJob.JobReleaseTask] [ net_job_prep_cloudjob] eigenschap van de taak ingesteld Release-taak.
+toewijzen van een jobvoorbereidingstaak toouse een [JobPreparationTask] [ net_job_prep] object tooyour taak [CloudJob.JobPreparationTask] [ net_job_prep_cloudjob] eigenschap . Op deze manier initialiseren een [JobReleaseTask] [ net_job_release] en toewijzen van de taak tooyour [CloudJob.JobReleaseTask] [ net_job_prep_cloudjob] eigenschap tooset Hallo jobvrijgevingstaak.
 
-In dit codefragment `myBatchClient` is een exemplaar van [BatchClient][net_batch_client], en `myPool` is een bestaande pool in de Batch-account.
+In dit codefragment `myBatchClient` is een exemplaar van [BatchClient][net_batch_client], en `myPool` is een bestaande pool binnen Hallo Batch-account.
 
 ```csharp
-// Create the CloudJob for CloudPool "myPool"
+// Create hello CloudJob for CloudPool "myPool"
 CloudJob myJob =
     myBatchClient.JobOperations.CreateJob(
         "JobPrepReleaseSampleJob",
         new PoolInformation() { PoolId = "myPool" });
 
-// Specify the command lines for the job preparation and release tasks
+// Specify hello command lines for hello job preparation and release tasks
 string jobPrepCmdLine =
     "cmd /c echo %AZ_BATCH_NODE_ID% > %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
 string jobReleaseCmdLine =
     "cmd /c del %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
 
-// Assign the job preparation task to the job
+// Assign hello job preparation task toohello job
 myJob.JobPreparationTask =
     new JobPreparationTask { CommandLine = jobPrepCmdLine };
 
-// Assign the job release task to the job
+// Assign hello job release task toohello job
 myJob.JobReleaseTask =
     new JobPreparationTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
 
-Zoals eerder vermeld, wordt de release-taak wordt uitgevoerd wanneer een taak is beëindigd of is verwijderd. Beëindigen van een taak met [JobOperations.TerminateJobAsync][net_job_terminate]. Verwijderen van een taak met [JobOperations.DeleteJobAsync][net_job_delete]. U doorgaans beëindigen of verwijderen van een taak wanneer de taken zijn voltooid of wanneer een time-out die u hebt gedefinieerd is bereikt.
+Zoals eerder vermeld, worden de Hallo release taak wordt uitgevoerd wanneer een taak is beëindigd of is verwijderd. Beëindigen van een taak met [JobOperations.TerminateJobAsync][net_job_terminate]. Verwijderen van een taak met [JobOperations.DeleteJobAsync][net_job_delete]. U doorgaans beëindigen of verwijderen van een taak wanneer de taken zijn voltooid of wanneer een time-out die u hebt gedefinieerd is bereikt.
 
 ```csharp
-// Terminate the job to mark it as Completed; this will initiate the
+// Terminate hello job toomark it as Completed; this will initiate the
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
@@ -115,21 +115,21 @@ await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>Voorbeeld van code op GitHub
-Als u wilt zien taakvoorbereidingstaak en taken in actie release, bekijk de [JobPrepRelease] [ job_prep_release_sample] voorbeeldproject op GitHub. Deze consoletoepassing doet het volgende:
+toosee jobvoorbereidingstaken en jobvrijgevingstaken taken in actie, bekijk Hallo [JobPrepRelease] [ job_prep_release_sample] voorbeeldproject op GitHub. Deze consoletoepassing Hallo te volgen:
 
 1. Maakt een groep met twee knooppunten voor 'kleine'.
 2. Maakt een taak met taak voorbereidings-, release- en standaardtaken.
-3. De jobvoorbereidingstaak schrijft eerst de knooppunt-ID naar een tekstbestand in een knooppunt 'gedeeld' directory uitgevoerd.
-4. Voert een taak op elk knooppunt dat de taak-ID naar hetzelfde tekstbestand schrijft.
-5. Zodra alle taken zijn voltooid (of de time-out is bereikt), wordt de inhoud van elk knooppunt tekstbestand dat aan de console.
-6. Wanneer de taak is voltooid, voert u de jobvrijgevingstaak om het bestand verwijderen uit het knooppunt.
-7. Afdrukken van de afsluitcodes van de taak jobvoorbereidingstaken en jobvrijgevingstaken taken voor elk knooppunt waarop ze worden uitgevoerd.
-8. De uitvoering van de onderbroken waarmee de bevestiging van de taak en/of de groep verwijderen.
+3. Wordt uitgevoerd Hallo jobvoorbereidingstaak schrijft eerst tooa tekstbestand voor Hallo knooppunt-ID in van een knooppunt 'gedeeld' directory.
+4. Een taak wordt uitgevoerd op elk knooppunt dat de taak-ID toohello schrijft dezelfde tekstbestand.
+5. Hallo-inhoud van elk knooppunt tekst bestand toohello console afdrukken zodra alle taken zijn voltooid (of Hallo time-out is bereikt)
+6. Wanneer Hallo-taak is voltooid, voert u Hallo taak release toodelete Hallo-bestand van het Hallo-knooppunt.
+7. Afdrukken bestellen Hallo afsluitcodes van Hallo taakvoorbereidingstaak en release van taken voor elk knooppunt waarop ze worden uitgevoerd.
+8. Onderbroken uitvoering tooallow bevestiging van de taak en/of de groep verwijderen.
 
-De uitvoer van de voorbeeldtoepassing is vergelijkbaar met het volgende:
+De uitvoer van de voorbeeldtoepassing Hallo is vergelijkbaar toohello volgende:
 
 ```
-Attempting to create pool: JobPrepReleaseSamplePool
+Attempting toocreate pool: JobPrepReleaseSamplePool
 Created pool JobPrepReleaseSamplePool with 2 small nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
@@ -152,7 +152,7 @@ tvm-2434664350_2-20160623t173951z tasks:
   task003
   task007
 
-Waiting for job JobPrepReleaseSampleJob to reach state Completed
+Waiting for job JobPrepReleaseSampleJob tooreach state Completed
 ...
 
 tvm-2434664350_1-20160623t173951z:
@@ -168,31 +168,31 @@ yes
 Delete pool? [yes] no
 yes
 
-Sample complete, hit ENTER to exit...
+Sample complete, hit ENTER tooexit...
 ```
 
 > [!NOTE]
-> Als gevolg van de variabele maken en start tijd van de knooppunten in een nieuwe pool (sommige knooppunten zijn gereed voor taken vóór andere), ziet u andere uitvoer. In het bijzonder omdat de taken snel kunnen worden uitgevoerd, kan een van de groep knooppunten uitvoeren alle taken van de taak. Als dit gebeurt, ziet u dat de taak voorbereiden en release taken bestaan niet voor het knooppunt dat geen taken uitgevoerd.
+> Vervaldatum toohello variabele maken en start het tijdstip knooppunten in een nieuwe pool (sommige knooppunten zijn gereed voor taken vóór andere), ziet u andere uitvoer. In het bijzonder omdat Hallo taken snel kunnen worden uitgevoerd, mogen een van de knooppunten van de pool Hallo uitvoeren alle taken van Hallo taak. Als dit gebeurt, ziet u dat Hallo prep taak en de vrijgave van taken bestaan niet voor Hallo-knooppunt dat geen taken uitgevoerd.
 > 
 > 
 
-### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Inspecteer de taakvoorbereidingstaak en release-taken in de Azure portal
-Wanneer u de voorbeeldtoepassing uitvoert, kunt u de [Azure-portal] [ portal] voor het weergeven van de eigenschappen van de taak en de bijbehorende taken of zelfs het gedeelde tekstbestand dat door de taken van de taak wordt gewijzigd te downloaden.
+### <a name="inspect-job-preparation-and-release-tasks-in-hello-azure-portal"></a>Inspecteer de taakvoorbereidingstaak en release-taken in hello Azure-portal
+Wanneer u de voorbeeldtoepassing Hallo uitvoert, kunt u Hallo [Azure-portal] [ portal] tooview Hallo eigenschappen van het Hallo-taak en de bijbehorende taken of zelfs Hallo gedeelde tekstbestand dat door Hallo projecttaken wordt gewijzigd te downloaden.
 
-De schermafbeelding hieronder bevat de **voorbereiding taken blade** in de Azure portal na een uitvoering van de voorbeeldtoepassing. Navigeer naar de *JobPrepReleaseSampleJob* eigenschappen nadat uw taken hebt voltooid (maar voordat de job en de pool wordt verwijderd) en klik op **systeemvoorbereidingstaken** of **takenRelease**eigenschappen weergeven.
+Hallo schermafbeelding hieronder ziet u Hallo **voorbereiding taken blade** in Hallo na een uitvoering van de voorbeeldtoepassing hello Azure-portal. Navigeer toohello *JobPrepReleaseSampleJob* eigenschappen nadat uw taken hebt voltooid (maar voordat de job en de pool wordt verwijderd) en klik op **systeemvoorbereidingstaken** of **takenRelease** tooview hun eigenschappen.
 
 ![Voorbereiding taakeigenschappen in Azure-portal][1]
 
 ## <a name="next-steps"></a>Volgende stappen
 ### <a name="application-packages"></a>Toepassingspakketten
-Naast de jobvoorbereidingstaak ook kunt u de [toepassingspakketten](batch-application-packages.md) functie van Batch rekenknooppunten voorbereiden voor uitvoering van de taak. Deze functie is vooral handig voor het implementeren van toepassingen die niet met een installatieprogramma, toepassingen die veel (100 en hoger) bestanden bevatten of toepassingen waarvoor strikte versiebeheer nodig hebt.
+In aanvulling toohello jobvoorbereidingstaak, kunt u ook hello gebruiken [toepassingspakketten](batch-application-packages.md) functie van Batch tooprepare rekenknooppunten voor uitvoering van de taak. Deze functie is vooral handig voor het implementeren van toepassingen die niet met een installatieprogramma, toepassingen die veel (100 en hoger) bestanden bevatten of toepassingen waarvoor strikte versiebeheer nodig hebt.
 
 ### <a name="installing-applications-and-staging-data"></a>Installeren van toepassingen en gegevens voor fasering
 Dit bericht MSDN-forum biedt een overzicht van de verschillende methoden voor het voorbereiden van uw knooppunten om taken uit te voeren:
 
 [Installeren van toepassingen en staging-gegevens op de Batch-rekenknooppunten][forum_post]
 
-Geschreven door een van de Azure Batch-teamleden, besproken verschillende technieken die u gebruiken kunt voor het implementeren van toepassingen en gegevens rekenknooppunten.
+Geschreven door een van de Azure Batch-teamleden hello, besproken verschillende technieken waarmee u toodeploy toepassingen en gegevens toocompute knooppunten kunt.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

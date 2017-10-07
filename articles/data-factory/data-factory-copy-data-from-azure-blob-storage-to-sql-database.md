@@ -1,6 +1,6 @@
 ---
-title: "Gegevens kopiëren van Blob-opslag naar SQL Database - Azure | Microsoft Docs"
-description: "Deze zelfstudie ziet u het gebruik van de Kopieeractiviteit in een Azure Data Factory-pijplijn om gegevens te kopiëren van Blob-opslag met SQL-database."
+title: aaaCopy gegevens uit Blob Storage tooSQL Database - Azure | Microsoft Docs
+description: Deze zelfstudie leert u hoe toouse Kopieeractiviteit in een Azure Data Factory toocopy gegevens uit Blob storage tooSQL database pipeline.
 keywords: "BLOB-sql, blob-opslag, gegevens opnieuw te kopiëren"
 services: data-factory
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.openlocfilehash: 730140d15f4dec7ddc1280c2e4da1d247902fe4a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a2c3fb8a4ddd63b0b6b3e75903b7a7eaf188fda4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage met SQL Database met behulp van de Data Factory
+# <a name="tutorial-copy-data-from-blob-storage-toosql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage tooSQL-Database met de Data Factory
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -32,68 +32,68 @@ ms.lasthandoff: 08/29/2017
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-In deze zelfstudie maakt u een gegevensfactory met een pijplijn om gegevens te kopiëren van Blob-opslag met SQL-database.
+In deze zelfstudie maakt u een gegevensfactory met een pipeline toocopy gegevens uit Blob storage tooSQL database.
 
-Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.  
+Hallo Kopieeractiviteit Hallo gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over Hallo Kopieeractiviteit.  
 
 > [!NOTE]
-> Zie voor een gedetailleerd overzicht van de Data Factory-service de [Inleiding tot Azure Data Factory](data-factory-introduction.md) artikel.
+> Zie voor een gedetailleerd overzicht van Data Factory-service Hallo Hallo [inleiding tooAzure Data Factory](data-factory-introduction.md) artikel.
 >
 >
 
-## <a name="prerequisites-for-the-tutorial"></a>Vereisten voor de zelfstudie
-Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
+## <a name="prerequisites-for-hello-tutorial"></a>Vereisten voor het Hallo-zelfstudie
+Voordat u deze zelfstudie begint, hebt u Hallo volgende vereisten:
 
-* **Azure-abonnement**.  Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie de [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/) artikel voor meer informatie.
-* **Azure Storage-Account**. Gebruik van de blob storage als een **bron** gegevens opslaan in deze zelfstudie. Als u geen Azure storage-account hebt, raadpleegt u de [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor stappen voor het maken van een artikel.
-* **Azure SQL Database**. Gebruik van een Azure SQL database als een **bestemming** gegevens opslaan in deze zelfstudie. Als u een Azure SQL-database die u in de zelfstudie, Zie gebruiken kunt geen [maken en configureren van een Azure SQL Database](../sql-database/sql-database-get-started.md) een maken.
-* **SQL Server 2012-2014 of Visual Studio 2013**. U gebruikt de SQL Server Management Studio of Visual Studio een voorbeelddatabase te maken en de result-gegevens weergeven in de database.  
+* **Azure-abonnement**.  Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie Hallo [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/) artikel voor meer informatie.
+* **Azure Storage-Account**. Gebruik van Hallo blob storage als een **bron** gegevens opslaan in deze zelfstudie. Als u geen Azure storage-account hebt, raadpleegt u Hallo [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) artikel voor stappen toocreate een.
+* **Azure SQL-database**. Gebruik van een Azure SQL database als een **bestemming** gegevens opslaan in deze zelfstudie. Als u een Azure SQL-database die u in de zelfstudie hello, Zie gebruiken kunt geen [hoe toocreate en configureren van een Azure SQL Database](../sql-database/sql-database-get-started.md) toocreate een.
+* **SQL Server 2012-2014 of Visual Studio 2013**. U gebruikt de SQL Server Management Studio of Visual Studio toocreate een voorbeelddatabase en tooview Hallo resultaatgegevens in Hallo-database.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Blob storage-accountnaam en sleutel verzamelen
-U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in deze zelfstudie. Noteer **accountnaam** en **accountsleutel** voor uw Azure storage-account.
+U moet Hallo account naam en sleutel van uw Azure-opslag account toodo in deze zelfstudie. Noteer **accountnaam** en **accountsleutel** voor uw Azure storage-account.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **meer services** op het menu aan de linkerkant en selecteer **Opslagaccounts**.
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com/).
+2. Klik op **meer services** op Hallo menu en selecteer links **Opslagaccounts**.
 
     ![Bladeren - Storage-accounts](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
-3. In de **Opslagaccounts** blade, selecteer de **Azure storage-account** die u wilt gebruiken in deze zelfstudie.
+3. In Hallo **Opslagaccounts** blade, selecteer Hallo **Azure storage-account** gewenste toouse in deze zelfstudie.
 4. Selecteer **toegangssleutels** koppeling onder **instellingen**.
-5. Klik op **kopie** (afbeelding)-knop naast **opslagaccountnaam** tekst vak en opslaan en ergens plakken (bijvoorbeeld: in een tekstbestand).
-6. Herhaal de vorige stap om te kopiëren of noteer de **key1**.
+5. Klik op **kopie** (afbeelding) knop naast te**opslagaccountnaam** tekst vak en opslaan en ergens plakken (bijvoorbeeld: in een tekstbestand).
+6. Herhaal de vorige stap toocopy Hallo of noteer Hallo **key1**.
 
     ![Toegangssleutel voor opslag](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Alle blades te sluiten door te klikken op **X**.
+7. Alle Hallo blades sluiten door te klikken op **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, database, gebruikersnamen verzamelen
-U moet de namen van Azure SQL-server, database en gebruiker in deze zelfstudie. Noteer de namen van **server**, **database**, en **gebruiker** voor uw Azure SQL database.
+U moet deze zelfstudie Hallo namen van Azure SQL-server, database en gebruiker toodo. Noteer de namen van **server**, **database**, en **gebruiker** voor uw Azure SQL database.
 
-1. In de **Azure-portal**, klikt u op **meer services** op de linkerkant en selecteer **SQL-databases**.
-2. In de **SQL databases blade**, selecteer de **database** die u wilt gebruiken in deze zelfstudie. Noteer de **databasenaam**.  
-3. In de **SQL-database** blade, klikt u op **eigenschappen** onder **instellingen**.
-4. Noteer de waarden voor **servernaam** en **AANMELDGEGEVENS van SERVERBEHEERDER**.
-5. Alle blades te sluiten door te klikken op **X**.
+1. In Hallo **Azure-portal**, klikt u op **meer services** op Hallo linker- en selecteer **SQL-databases**.
+2. In Hallo **SQL databases blade**, selecteer Hallo **database** gewenste toouse in deze zelfstudie. Noteer Hallo **databasenaam**.  
+3. In Hallo **SQL-database** blade, klikt u op **eigenschappen** onder **instellingen**.
+4. Noteer Hallo waarden voor **servernaam** en **AANMELDGEGEVENS van SERVERBEHEERDER**.
+5. Alle Hallo blades sluiten door te klikken op **X**.
 
-## <a name="allow-azure-services-to-access-sql-server"></a>Azure-services voor toegang tot SQL server toestaan
-Zorg ervoor dat **toegang tot Azure-services toestaan** instelling ingeschakeld **ON** voor uw Azure SQL-server zodat de Data Factory-service toegang heeft tot uw Azure SQL-server. Controleren en deze instelling inschakelt, kunt u de volgende stappen uit:
+## <a name="allow-azure-services-tooaccess-sql-server"></a>Azure-services tooaccess SQL server toestaan
+Zorg ervoor dat **tooAzure-services toegang toestaan** instelling ingeschakeld **ON** voor uw Azure SQL-server zodat deze Hallo Data Factory-service toegang heeft tot uw Azure SQL-server. tooverify en schakel deze instelling kan Hallo volgende stappen:
 
-1. Klik op **meer services** hub aan de linkerzijde en klik op **SQL-servers**.
-2. Selecteer uw server en klik op **Firewall** onder **instellingen**.
-3. In de blade **Firewallinstellingen**schakelt u **Toegang tot Azure-services toestaan** **in**.
-4. Alle blades te sluiten door te klikken op **X**.
+1. Klik op **meer services** hub op Hallo linkerkant en klik op **SQL-servers**.
+2. Selecteer uw server en klik op **Firewall** onder **INSTELLINGEN**.
+3. In Hallo **Firewall-instellingen** blade, klikt u op **ON** voor **tooAzure-services toegang toestaan**.
+4. Alle Hallo blades sluiten door te klikken op **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Blob-opslag- en SQL-Database voorbereiden
-Nu uw Azure blob storage en Azure SQL database voor de zelfstudie door bereid de volgende stappen uit te voeren:  
+Voorbereiden nu uw Azure blob storage en Azure SQL database voor Hallo zelfstudie door Hallo volgende stappen uit te voeren:  
 
-1. Start Kladblok. Kopieer de volgende tekst en sla het bestand als **emp.txt** naar **C:\ADFGetStarted** map op de harde schijf.
+1. Start Kladblok. Kopiëren van de volgende tekst hello en sla het bestand als **emp.txt** te**C:\ADFGetStarted** map op de harde schijf.
 
     ```
     John, Doe
     Jane, Doe
     ```
-2. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) om de container **adftutorial** te maken en om het bestand **emp.txt** te uploaden naar de container.
+2. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) toocreate hello **adftutorial** container en tooupload hello **emp.txt** toohello bestandscontainer.
 
-    ![Azure Storage Explorer. Gegevens kopiëren van Blob-opslag naar SQL-database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
-3. Gebruik het volgende SQL-script om de tabel **emp** te maken in uw Azure SQL Database.  
+    ![Azure Storage Explorer. Gegevens kopiëren van Blob storage tooSQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+3. Gebruik Hallo volgende SQL-script toocreate hello **emp** tabel in uw Azure SQL Database.  
 
     ```SQL
     CREATE TABLE dbo.emp
@@ -107,12 +107,12 @@ Nu uw Azure blob storage en Azure SQL database voor de zelfstudie door bereid de
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Als u SQL Server 2012-2014 op uw computer geïnstalleerd hebben:** Volg de instructies uit [beherende Azure SQL Database met SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) verbinding maken met uw Azure SQL-server en voer de SQL-script. Dit artikel wordt de [klassieke Azure portal](http://manage.windowsazure.com), niet de [nieuwe Azure portal](https://portal.azure.com), firewall voor een Azure SQL-server te configureren.
+    **Als u SQL Server 2012-2014 op uw computer geïnstalleerd hebben:** Volg de instructies uit [beherende Azure SQL Database met SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) tooconnect tooyour Azure SQL-server en Voer Hallo SQL-script. Dit artikel wordt Hallo [klassieke Azure portal](http://manage.windowsazure.com), niet Hallo [nieuwe Azure portal](https://portal.azure.com), tooconfigure firewall voor een Azure SQL-server.
 
-    Als de client geen toegang heeft tot de Azure SQL-server, moet u de firewall configureren voor uw Azure SQL-server zodat toegang vanaf uw apparaat (IP-adres) wordt toegestaan. Raadpleeg [dit artikel](../sql-database/sql-database-configure-firewall-settings.md) voor stappen waarmee u uw firewall kunt configureren voor uw Azure SQL-server.
+    Als de client is niet toegestaan voor tooaccess hello Azure SQL-server, moet u tooconfigure firewall voor uw Azure SQL server tooallow toegang vanaf uw computer (IP-adres). Zie [in dit artikel](../sql-database/sql-database-configure-firewall-settings.md) voor stappen tooconfigure Hallo firewall voor uw Azure SQL-server.
 
 ## <a name="create-a-data-factory"></a>Een data factory maken
-U kunt de vereisten hebt voltooid. U kunt een gegevensfactory met een van de volgende manieren maken. Klik op een van de opties in de vervolgkeuzelijst boven of de volgende koppelingen voor het uitvoeren van de zelfstudie.     
+Hallo vereisten is voltooid. U kunt een gegevensfactory met een van de volgende manieren Hallo maken. Klik op een van de opties Hallo in Hallo vervolgkeuzelijst Hallo koppelingen tooperform Hallo zelfstudie of Hallo bovenaan.     
 
 * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
@@ -123,6 +123,6 @@ U kunt de vereisten hebt voltooid. U kunt een gegevensfactory met een van de vol
 * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Er worden geen invoergegevens mee getransformeerd in uitvoergegevens. Zie [Zelfstudie: uw eerste pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+> Hallo data pipeline in deze zelfstudie worden gegevens gekopieerd van een bron data store tooa doelgegevensopslagplaats. Het biedt invoergegevens tooproduce uitvoergegevens niet transformeren. Voor een zelfstudie over het tootransform van gegevens met behulp van Azure Data Factory, Zie [zelfstudie: bouwen van uw eerste pijplijn tootransform gegevens met Hadoop-cluster](data-factory-build-your-first-pipeline.md).
 > 
-> U kunt twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 
+> U kunt twee activiteiten (één activiteit uitgevoerd na de andere) koppelen door de uitvoergegevensset Hallo van een activiteit instellen als de Hallo invoergegevensset Hallo andere activiteit. Zie [Planning en uitvoering in Data Factory](data-factory-scheduling-and-execution.md) voor gedetailleerde informatie. 

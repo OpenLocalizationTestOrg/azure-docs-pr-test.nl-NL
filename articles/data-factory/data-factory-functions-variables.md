@@ -1,5 +1,5 @@
 ---
-title: Data Factory-functies en systeemvariabelen | Microsoft Docs
+title: aaaData Factory functies en systeemvariabelen | Microsoft Docs
 description: Geeft een lijst van Azure Data Factory-functies en systeemvariabelen
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: 72a966bdc271f86b9568d3310d2e22d83b447594
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2936c2821797947bb37d9775226a6c19c4b8ab9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - functies en systeemvariabelen
 Dit artikel bevat informatie over functies en variabelen die worden ondersteund door Azure Data Factory.
@@ -26,17 +26,17 @@ Dit artikel bevat informatie over functies en variabelen die worden ondersteund 
 ## <a name="data-factory-system-variables"></a>Data Factory-systeemvariabelen
 | Naam variabele | Beschrijving | Bereik van het object | JSON-bereik en gebruiksvoorbeelden |
 | --- | --- | --- | --- |
-| WindowStart |Begin van het tijdsinterval voor de huidige activiteit venster uitvoeren |Activiteit |<ol><li>Geef op query's voor selectie. Zie connector artikelen waarnaar wordt verwezen in de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
+| WindowStart |Begin van het tijdsinterval voor de huidige activiteit venster uitvoeren |Activiteit |<ol><li>Geef op query's voor selectie. Zie connector artikelen waarnaar wordt verwezen in Hallo [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.</li> |
 | WindowEnd |Einde van het tijdsinterval voor de huidige activiteit venster uitvoeren |Activiteit |hetzelfde als WindowStart. |
 | SliceStart |Begin van het tijdsinterval voor het segment wordt geproduceerd |Activiteit<br/>Gegevensset |<ol><li>Geef dynamische paden en bestandsnamen tijdens het werken met [Azure Blob](data-factory-azure-blob-connector.md) en [bestandssysteem gegevenssets](data-factory-onprem-file-system-connector.md).</li><li>Invoer afhankelijkheden data factory-functies in activiteit invoer verzameling opgeven.</li></ol> |
 | SliceEnd |Einde van de tijdsinterval voor het huidige segment. |Activiteit<br/>Gegevensset |hetzelfde als SliceStart. |
 
 > [!NOTE]
-> Op dit moment vereist gegevensfactory dat de planning die is opgegeven in de activiteit exact overeenkomt met het schema dat is opgegeven in de beschikbaarheid van de uitvoergegevensset. Daarom WindowStart, WindowEnd, en SliceStart en SliceEnd altijd toegewezen aan dezelfde periode en een segment één uitvoer.
+> Op dit moment gegevensfactory vereist dat Hallo plannen opgegeven in de Hallo Hallo schema is opgegeven in de beschikbaarheid van de uitvoergegevensset Hallo exact overeenkomt met de activiteit. Daarom WindowStart, WindowEnd, en SliceStart en SliceEnd worden altijd toegewezen toohello dezelfde periode en een segment één uitvoer time.
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Voorbeeld voor het gebruik van een systeemvariabele
-In het volgende voorbeeld, jaar, maand, dag en tijd van **SliceStart** worden uitgepakt in verschillende variabelen die worden gebruikt door **folderPath** en **fileName** eigenschappen.
+In het volgende voorbeeld, jaar, maand, dag en tijd van Hallo **SliceStart** worden uitgepakt in verschillende variabelen die worden gebruikt door **folderPath** en **fileName** eigenschappen.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -51,16 +51,16 @@ In het volgende voorbeeld, jaar, maand, dag en tijd van **SliceStart** worden ui
 ```
 
 ## <a name="data-factory-functions"></a>Data Factory-functies
-U kunt functies gebruiken in gegevensfactory samen met de variabelen voor de volgende doeleinden:
+U kunt functies gebruiken in gegevensfactory samen met systeemvariabelen voor Hallo volgende doeleinden:
 
-1. Query's voor selectie opgeven (Zie connector artikelen waarnaar wordt verwezen door de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.
+1. Query's voor selectie opgeven (Zie connector artikelen waarnaar wordt verwezen door Hallo [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel.
    
-   De syntaxis voor het aanroepen van een data factory-functie is:  **$$ <function>**  voor selectie van query's en andere eigenschappen in de activiteit en gegevenssets.  
+   Hallo syntaxis tooinvoke een data factory-functie is:  **$$ <function>**  voor selectie van query's en andere eigenschappen in het Hallo-activiteit en gegevenssets.  
 2. Invoer afhankelijkheden opgeven data factory-functies in activiteit invoer verzameling.
    
     $$ is niet nodig voor het opgeven van invoer afhankelijkheid expressies.     
 
-In het volgende voorbeeld, **sqlReaderQuery** eigenschap in een JSON-bestand is toegewezen aan een waarde die is geretourneerd door de `Text.Format` functie. Dit voorbeeld gebruikt ook een systeemvariabele met de naam **WindowStart**, die staat voor de begintijd van het venster van de activiteit die wordt uitgevoerd.
+In het volgende voorbeeld Hallo **sqlReaderQuery** eigenschap in een JSON-bestand is toegewezen tooa-waarde geretourneerd door Hallo `Text.Format` functie. Dit voorbeeld gebruikt ook een systeemvariabele met de naam **WindowStart**, die staat voor Hallo-begintijd van Hallo-activiteit venster uitvoeren.
 
 ```json
 {
@@ -72,34 +72,34 @@ In het volgende voorbeeld, **sqlReaderQuery** eigenschap in een JSON-bestand is 
 Zie [aangepaste datum en tijd-indeling tekenreeksen](https://msdn.microsoft.com/library/8kb3ddd4.aspx) onderwerp dat beschrijft de verschillende opmaakopties die u kunt gebruiken (bijvoorbeeld: ay versus jjjj). 
 
 ### <a name="functions"></a>Functies
-De volgende tabellen worden de functies in Azure Data Factory:
+Hallo tabellen na een overzicht van alle Hallo-functies in Azure Data Factory:
 
 | Category | Functie | Parameters | Beschrijving |
 | --- | --- | --- | --- |
-| Time |AddHours(X,Y) |X: datum/tijd <br/><br/>Y: int |Y uren toevoegt aan de opgegeven tijd X. <br/><br/>Voorbeeld:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Time |AddMinutes(X,Y) |X: datum/tijd <br/><br/>Y: int |Voegt Y minuten tot en met X.<br/><br/>Voorbeeld:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Time |StartOfHour(X) |X: datum/tijd |Hiermee haalt u de begintijd voor het uur dat wordt vertegenwoordigd door het uurgedeelte van X. <br/><br/>Voorbeeld:`StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Date |AddDays(X,Y) |X: datum/tijd<br/><br/>Y: int |Voegt Y dagen tot en met X. <br/><br/>Voorbeeld: 9, 15/2013 12:00:00 PM + 2 dagen = 9/17/2013 12:00:00 PM.<br/><br/>U kunt dagen te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Date |AddMonths(X,Y) |X: datum/tijd<br/><br/>Y: int |Voegt Y maanden tot en met X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>U kunt maanden te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Date |AddQuarters(X,Y) |X: datum/tijd <br/><br/>Y: int |Voegt Y * X 3 maanden.<br/><br/>Voorbeeld:`9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Date |AddWeeks(X,Y) |X: datum/tijd<br/><br/>Y: int |Voegt Y * X 7 dagen<br/><br/>Voorbeeld: 9, 15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 uur<br/><br/>U kunt de weken te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Date |AddYears(X,Y) |X: datum/tijd<br/><br/>Y: int |Voegt Y jaar tot en met X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>U kunt jaar te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Date |Day(X) |X: datum/tijd |Hiermee haalt u het daggedeelte van X.<br/><br/>Voorbeeld: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Date |DayOfWeek(X) |X: datum/tijd |Hiermee haalt u de dag van het onderdeel van de week van X.<br/><br/>Voorbeeld: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Date |DayOfYear(X) |X: datum/tijd |Hiermee haalt u de dag van het jaar, uitgedrukt in het jaargedeelte van X.<br/><br/>Voorbeelden:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Date |DaysInMonth(X) |X: datum/tijd |Hiermee haalt u de dagen van de maand dat wordt vertegenwoordigd door het maandgedeelte van de parameter X.<br/><br/>Voorbeeld: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Date |EndOfDay(X) |X: datum/tijd |Hiermee haalt u de datum-tijd die het einde van de dag (daggedeelte) van X.<br/><br/>Voorbeeld: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Date |EndOfMonth(X) |X: datum/tijd |Het einde van de maand dat wordt vertegenwoordigd door maandgedeelte van de parameter X opgehaald. <br/><br/>Voorbeeld: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum / tijd die het einde van de maand September vertegenwoordigt) |
-| Date |StartOfDay(X) |X: datum/tijd |Hiermee haalt u het begin van de dag dat wordt vertegenwoordigd door het daggedeelte van de parameter X.<br/><br/>Voorbeeld: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Datum/tijd |FROM(X) |X: de tekenreeks |Parseren van tekenreeks X naar een datum-tijd. |
-| Datum/tijd |Ticks(X) |X: datum/tijd |Hiermee haalt u de maatstreepjes eigenschap van de parameter X. Eén tik is gelijk aan 100 nanoseconden. De waarde van deze eigenschap geeft het aantal maatstreepjes dat is verstreken sinds 12:00:00 middernacht, 1 januari 0001. |
-| Tekst |Format(X) |X: tekenreeksvariabele |Hiermee maakt u de tekst (Gebruik `\\'` combinatie escape `'` teken).|
+| Time |AddHours(X,Y) |X: datum/tijd <br/><br/>Y: int |Voegt Y uren toohello gelegenheid X. <br/><br/>Voorbeeld:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Time |AddMinutes(X,Y) |X: datum/tijd <br/><br/>Y: int |Y minuten tooX toegevoegd.<br/><br/>Voorbeeld:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Time |StartOfHour(X) |X: datum/tijd |Opgehaald Hallo begintijd voor Hallo uur dat wordt vertegenwoordigd door Hallo uurgedeelte van X. <br/><br/>Voorbeeld:`StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Date |AddDays(X,Y) |X: datum/tijd<br/><br/>Y: int |Y dagen tooX toegevoegd. <br/><br/>Voorbeeld: 9, 15/2013 12:00:00 PM + 2 dagen = 9/17/2013 12:00:00 PM.<br/><br/>U kunt dagen te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: datum/tijd<br/><br/>Y: int |Y maanden tooX toegevoegd.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>U kunt maanden te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: datum/tijd <br/><br/>Y: int |Voegt Y * tooX 3 maanden.<br/><br/>Voorbeeld:`9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: datum/tijd<br/><br/>Y: int |Voegt Y * tooX 7 dagen<br/><br/>Voorbeeld: 9, 15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 uur<br/><br/>U kunt de weken te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: datum/tijd<br/><br/>Y: int |Y jaar tooX toegevoegd.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>U kunt jaar te aftrekken door te geven Y als een negatief getal.<br/><br/>Voorbeeld: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Day(X) |X: datum/tijd |Hiermee haalt u Hallo daggedeelte van X.<br/><br/>Voorbeeld: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: datum/tijd |Hiermee haalt u Hallo dag van het onderdeel van de week van X.<br/><br/>Voorbeeld: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: datum/tijd |Hiermee haalt u Hallo dag in Hallo jaar, uitgedrukt in Hallo jaargedeelte van X.<br/><br/>Voorbeelden:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: datum/tijd |Hallo dagen in Hallo maand dat wordt vertegenwoordigd door Hallo maandgedeelte van de parameter X opgehaald.<br/><br/>Voorbeeld: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in hello September month`. |
+| Date |EndOfDay(X) |X: datum/tijd |Hiermee haalt u Hallo datum-tijd die Hallo-einde van Hallo dag (daggedeelte) van X aangeeft.<br/><br/>Voorbeeld: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: datum/tijd |Hallo-einde van Hallo maand dat wordt vertegenwoordigd door maandgedeelte van de parameter X opgehaald. <br/><br/>Voorbeeld: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum / tijd die Hallo einde van September maand vertegenwoordigt) |
+| Date |StartOfDay(X) |X: datum/tijd |Hiermee haalt u Hallo Hallo dag dat wordt vertegenwoordigd door Hallo daggedeelte van de parameter X is gestart.<br/><br/>Voorbeeld: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| Datum/tijd |FROM(X) |X: de tekenreeks |Parseren van tekenreeks X tooa datum / tijd. |
+| Datum/tijd |Ticks(X) |X: datum/tijd |Hallo ticks eigenschap van de parameter Hallo X opgehaald. Eén tik is gelijk aan 100 nanoseconden. Hallo-waarde van deze eigenschap vertegenwoordigt Hallo aantal maatstreepjes dat is verstreken sinds 12:00:00 middernacht, 1 januari 0001. |
+| Tekst |Format(X) |X: tekenreeksvariabele |Indelingen tekst hello (Gebruik `\\'` combinatie tooescape `'` teken).|
 
 > [!IMPORTANT]
-> Wanneer u een functie binnen een andere functie, hoeft u niet te gebruiken  **$$**  voorvoegsel voor de interne functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: jjjj-MM-dd: mm: SS}\\'', Time.AddHours (SliceStart -6)). U ziet dat in dit voorbeeld  **$$**  voorvoegsel wordt niet gebruikt voor de **Time.AddHours** functie. 
+> Wanneer u een functie binnen een andere functie, hoeft u niet toouse  **$$**  voorvoegsel voor de interne Hallo-functie. Bijvoorbeeld: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' en RowKey ge \\' {0: jjjj-MM-dd: mm: SS}\\'', Time.AddHours (SliceStart -6)). U ziet dat in dit voorbeeld  **$$**  voorvoegsel wordt niet gebruikt voor Hallo **Time.AddHours** functie. 
 
 #### <a name="example"></a>Voorbeeld
-In het volgende voorbeeld invoer- en parameters voor de Hive-activiteit worden bepaald met behulp van de `Text.Format` functie en SliceStart systeemvariabele. 
+In Hallo volgende bijvoorbeeld invoer en uitvoer parameters voor Hallo Hive-activiteit worden bepaald met behulp van Hallo `Text.Format` functie en SliceStart systeemvariabele. 
 
 ```json  
 {
@@ -140,7 +140,7 @@ In het volgende voorbeeld invoer- en parameters voor de Hive-activiteit worden b
 
 ### <a name="example-2"></a>Voorbeeld 2
 
-In het volgende voorbeeld wordt de datum/tijd-parameter voor de activiteit opgeslagen Procedure met behulp van de tekst bepaald. Functie en de variabele SliceStart-indeling. 
+Hallo in Hallo voorbeeld te volgen, DateTime-parameter voor de activiteit opgeslagen Procedure is bepaald met behulp van de tekst hello Hallo. Functie formatteren en Hallo SliceStart-variabele. 
 
 ```json
 {
@@ -175,7 +175,7 @@ In het volgende voorbeeld wordt de datum/tijd-parameter voor de activiteit opges
 ```
 
 ### <a name="example-3"></a>Voorbeeld 3
-Als u wilt gegevens lezen uit de vorige dag in plaats van de dag dat wordt vertegenwoordigd door de SliceStart, gebruikt u de functie AddDays zoals weergegeven in het volgende voorbeeld: 
+tooread gegevens uit de vorige dag in plaats van de dag dat wordt vertegenwoordigd door Hallo SliceStart, gebruik de functie AddDays Hallo zoals getoond in Hallo voorbeeld te volgen: 
 
 ```json
 {

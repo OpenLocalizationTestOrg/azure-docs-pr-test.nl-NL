@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met Media Services-Account met .NET
-description: Dit onderwerp wordt beschreven hoe u verbinding maken met met behulp van Media Services .NET.
+title: aaaConnecting tooMedia Services-Account met .NET
+description: Dit onderwerp wordt beschreven hoe tooconnect tooMedia Services met behulp .NET.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,42 +14,42 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 892932116934952265a21ab17aac3434b5760136
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a23bd285f7cae17ae5831e1e50e73947afbb9a3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connecting-to-media-services-account-using-media-services-sdk-for-net"></a>Verbinding maken met Media Services-Account met Media Services SDK voor .NET
+# <a name="connecting-toomedia-services-account-using-media-services-sdk-for-net"></a>Verbinding maken met tooMedia Services-Account met Media Services SDK voor .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-connect-programmatically.md)
 > * [.NET](media-services-dotnet-connect-programmatically.md)
 > 
 > 
 
-In dit onderwerp wordt beschreven hoe een programmatische verbinding met Microsoft Azure Media Services verkrijgen tijdens het programmeren met de Media Services SDK voor .NET.
+Dit onderwerp wordt beschreven hoe tooobtain een programmatische verbinding tooMicrosoft Azure Media Services tijdens het programmeren met Media Services SDK voor .NET Hallo.
 
-## <a name="connecting-to-media-services"></a>Verbinding met mediaservices
-Voor verbinding met Media Services via een programma, moet u hebben een Azure-account hebt ingesteld, Media Services zijn geconfigureerd op dat account en stel een Visual Studio-project voor het ontwikkelen met de Media Services SDK voor .NET. Zie voor meer informatie het installatieprogramma voor de ontwikkeling met de Media Services SDK voor .NET.
+## <a name="connecting-toomedia-services"></a>Verbinding maken met tooMedia Services
+tooconnect tooMedia Services via een programma, u moet hebben een Azure-account hebt ingesteld, Media Services zijn geconfigureerd op dat account en stel een Visual Studio-project voor de ontwikkeling met Hallo Media Services SDK voor .NET. Zie voor meer informatie Setup voor de ontwikkeling van Hello Media Services SDK voor .NET.
 
-Aan het einde van het installatieproces van de Media Services-account, moet u de volgende waarden voor vereiste verbinding verkregen. Deze programmatische om verbindingen te maken met Media Services gebruiken.
+Aan het einde van de Hallo van Hallo Media Services-account-installatieproces, die u hebt verkregen Hallo volgende verplichte verbindingswaarden. Gebruik deze toomake programmatische verbindingen tooMedia Services.
 
 * De naam van uw Media Services-account.
 * De sleutel van uw Media Services-account.
 
-Als u deze waarden zoekt, gaat u naar de Azure Management Portal, selecteert u uw Media Service-account en klik op de '**sleutels beheren**'-pictogram op de onderkant van het venster van de portal. Door op het pictogram naast elk tekstvak te klikken, wordt de waarde gekopieerd naar het systeemklembord.
+toofind deze waarden, gaat u toohello Azure Management Portal, selecteert u uw Media Service-account en klik op Hallo '**sleutels beheren**'-pictogram op Hallo onder aan de portal Hallo-venster. Op Hallo pictogram volgende tooeach tekst vak kopieën Hallo waarde toohello systeemklembord te klikken.
 
 ## <a name="creating-a-cloudmediacontext-instance"></a>Het maken van een exemplaar CloudMediaContext
-Beginnen met programmeren op basis van Media Services u wilt maken een **CloudMediaContext** -exemplaar dat de servercontext vertegenwoordigt. De **CloudMediaContext** bevat verwijzingen naar belangrijke verzamelingen, met inbegrip van taken, assets, bestanden, toegangsbeleid en locators.
+toostart programmeren met Media Services moet u toocreate een **CloudMediaContext** -exemplaar dat Hallo servercontext vertegenwoordigt. Hallo **CloudMediaContext** verwijzingen tooimportant verzamelingen, met inbegrip van taken, assets, bestanden, toegangsbeleid en locators bevat.
 
 > [!NOTE]
-> De **CloudMediaContext** klasse is niet thread-veilig. Maak een nieuwe CloudMediaContext per thread of set bewerkingen.
+> Hallo **CloudMediaContext** klasse is niet thread-veilig. Maak een nieuwe CloudMediaContext per thread of set bewerkingen.
 > 
 > 
 
-CloudMediaContext heeft vijf constructor overloads. Het verdient aanbeveling gebruik constructors die **MediaServicesCredentials** als parameter. Zie voor meer informatie de **hergebruiken Access Control Service Tokens** die volgt. 
+CloudMediaContext heeft vijf constructor overloads. Het is aanbevolen toouse-constructors die **MediaServicesCredentials** als parameter. Zie voor meer informatie, Hallo **hergebruiken Access Control Service Tokens** die volgt. 
 
-Het volgende voorbeeld wordt de openbare CloudMediaContext(MediaServicesCredentials credentials)-constructor:
+Hallo wordt volgende voorbeeld de openbare CloudMediaContext(MediaServicesCredentials credentials) constructor Hallo:
 
     // _cachedCredentials and _context are class member variables. 
     _cachedCredentials = new MediaServicesCredentials(
@@ -60,22 +60,22 @@ Het volgende voorbeeld wordt de openbare CloudMediaContext(MediaServicesCredenti
 
 
 ## <a name="reusing-access-control-service-tokens"></a>Access Control Service Tokens hergebruiken
-Deze sectie wordt beschreven hoe Access Control Service tokens gebruiken met behulp van CloudMediaContext-constructors die MediaServicesCredentials als parameter.
+Deze sectie wordt beschreven hoe tooreuse Access Control Service tokens met behulp van CloudMediaContext-constructors die MediaServicesCredentials als parameter.
 
-[Azure Active Directory-toegangsbeheer](https://msdn.microsoft.com/library/hh147631.aspx) (ook wel bekend als Access Control Service of ACS) is een cloudservice waarmee u een eenvoudige manier voor verificatie en autoriseren van gebruikers toegang te krijgen tot hun webtoepassingen. Microsoft Azure Media Services controleert de toegang tot de services al OAuth-protocol dat een ACS-token is vereist. Media Services ontvangt de ACS-tokens van een server voor autorisatie.
+[Azure Active Directory-toegangsbeheer](https://msdn.microsoft.com/library/hh147631.aspx) (ook wel bekend als Access Control Service of ACS) is een cloudservice waarmee u een eenvoudige manier toegang toogain verificatie en autorisatie tootheir webtoepassingen. Microsoft Azure Media Services-besturingselementen toegangsservices tooits echter OAuth-protocol dat een ACS-token is vereist. Media Services ontvangt Hallo ACS-tokens van een server voor autorisatie.
 
-Bij het ontwikkelen met de Media Services SDK, kunt u niet omgaan met de tokens omdat de SDK code managers ze voor u. Echter, zodat de SDK volledig beheer van de ACS-tokens leidt tot onnodige aanvragen voor beveiligingstokens. Aanvragen van tokens kost tijd en de client en server resources verbruikt. De ACS-server ook beperkt de aanvragen als de frequentie te hoog is. De limiet is 30 aanvragen per seconde, Zie [ACS-Service beperkingen](https://msdn.microsoft.com/library/gg185909.aspx) voor meer informatie.
+Bij het ontwikkelen van Media Services SDK Hello, kunt u toonot behandelen Hallo tokens omdat Hallo SDK code managers ze voor u. Volledig beheren waarin Hallo SDK echter Hallo ACS tokens leads toounnecessary aanvragen voor beveiligingstokens. Aanvragen van tokens kost tijd en Hallo client en server bronnen. Hallo ACS-server ook bandbreedte Hallo aanvragen als Hallo snelheid te hoog is. Hallo limiet is 30 aanvragen per seconde, raadpleegt u [ACS-Service beperkingen](https://msdn.microsoft.com/library/gg185909.aspx) voor meer informatie.
 
-U kunt de ACS-tokens vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters kunt hergebruiken. De **CloudMediaContext** constructors die **MediaServicesCredentials** als een parameter Schakel het delen van de ACS-tokens tussen verschillende contexten. De klasse MediaServicesCredentials kapselt de Media Services-referenties. Als u een ACS-token beschikbaar is en de verlooptijd bekend is, kunt u een nieuw exemplaar van de MediaServicesCredentials maken met het token en doorgegeven aan de constructor van CloudMediaContext. Houd er rekening mee dat de Media Services SDK tokens automatisch vernieuwd wanneer ze zijn verlopen. Er zijn twee manieren om ACS-tokens, opnieuw te gebruiken zoals wordt weergegeven in de volgende voorbeelden.
+Beginnen met Media Services SDK versie 3.0.0.0-prestatiemeters hello, kunt u de ACS-tokens Hallo hergebruiken. Hallo **CloudMediaContext** constructors die **MediaServicesCredentials** inschakelen als een parameter delen Hallo ACS-tokens tussen verschillende contexten. Hallo MediaServicesCredentials klasse ingekapseld Hallo Media Services-referenties. Als u een ACS-token beschikbaar is en de verlooptijd bekend is, kunt u een nieuw exemplaar van de MediaServicesCredentials maken met Hallo token en toohello constructor van CloudMediaContext doorgegeven. Let op Hallo van Media Services SDK automatisch vernieuwd tokens wanneer ze zijn verlopen. Er zijn twee manieren tooreuse ACS-tokens, zoals wordt weergegeven in onderstaande Hallo voorbeelden.
 
-* U kunt cache de **MediaServicesCredentials** object in het geheugen (bijvoorbeeld in een variabele van statische klasse). Vervolgens moet het object in de cache worden doorgegeven aan de constructor CloudMediaContext. Het object MediaServicesCredentials bevat een ACS-token die opnieuw kan worden gebruikt als het nog geldig is. Als het token niet geldig is, wordt deze vernieuwd door de Media Services SDK met de referenties die aan de constructor MediaServicesCredentials gegeven.
+* U kunt Hallo cache **MediaServicesCredentials** object in het geheugen (bijvoorbeeld in een variabele van statische klasse). Vervolgens, in de cache opgeslagen Hallo object toohello CloudMediaContext constructor worden doorgegeven. Hallo MediaServicesCredentials object bevat een ACS-token die opnieuw kan worden gebruikt als het nog geldig is. Als Hallo-token niet geldig is is, dat wordt deze vernieuwd door Hallo gegeven Media Services SDK met de referenties Hallo toohello MediaServicesCredentials constructor.
   
-    Houd er rekening mee dat de **MediaServicesCredentials** object een geldig token opgehaald nadat de RefreshToken is aangeroepen. De **CloudMediaContext** aanroepen de **RefreshToken** methode in de constructor. Als u van plan bent de token waarden opslaan naar een externe opslag, moet u om te controleren of de waarde TokenExpiration geldig is voordat u de token gegevens opslaat. Het is geen geldige, belt RefreshToken voordat het in cache opslaan.
+    Houd er rekening mee dat Hallo **MediaServicesCredentials** object een geldig token na Hallo RefreshToken heet opgehaald. Hallo **CloudMediaContext** aanroepen Hallo **RefreshToken** methode in Hallo-constructor. Als u van plan bent toosave Hallo token waarden tooan externe opslag, moet u ervoor toocheck of Hallo TokenExpiration waarde geldig is voordat Hallo token gegevens worden opgeslagen. Het is geen geldige, belt RefreshToken voordat het in cache opslaan.
   
-        // Create and cache the Media Services credentials in a static class variable.
+        // Create and cache hello Media Services credentials in a static class variable.
         _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName, _mediaServicesAccountKey);
 
-        // Use the cached credentials to create a new CloudMediaContext object.
+        // Use hello cached credentials toocreate a new CloudMediaContext object.
         if(_cachedCredentials == null)
         {
             _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName, _mediaServicesAccountKey);
@@ -83,23 +83,23 @@ U kunt de ACS-tokens vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters 
 
         CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-* U kunt ook de AccessToken tekenreeks en de waarden TokenExpiration cache. De waarden kunnen later worden gebruikt voor het maken van een nieuw MediaServicesCredentials-object met gegevens in de cache-token.  Dit is vooral nuttig voor scenario's waar het token kan veilig worden gedeeld tussen meerdere processen en computers.
+* U kunt ook cache Hallo AccessToken tekenreeks en Hallo TokenExpiration waarden. Hallo-waarden kunnen later worden gebruikte toocreate een nieuwe MediaServicesCredentials object met cache Hallo token gegevens.  Dit is vooral nuttig voor scenario's waarbij Hallo token kan veilig worden gedeeld tussen meerdere processen en computers.
   
-    De volgende codefragmenten de SaveTokenDataToExternalStorage GetTokenDataFromExternalStorage en UpdateTokenDataInExternalStorageIfNeeded methoden aanroepen die niet zijn gedefinieerd in dit voorbeeld. U kunt deze methoden voor het opslaan, ophalen en token gegevens bijwerken in een externe opslag definiëren. 
+    Hallo volgende codefragmenten Hallo SaveTokenDataToExternalStorage GetTokenDataFromExternalStorage en UpdateTokenDataInExternalStorageIfNeeded methoden aanroepen die niet zijn gedefinieerd in dit voorbeeld. U kunt deze methoden toostore, ophalen en token updategegevens definiëren in een externe opslag. 
   
         CloudMediaContext context1 = new CloudMediaContext(_mediaServicesAccountName, _mediaServicesAccountKey);
   
-        // Get token values from the context.
+        // Get token values from hello context.
         var accessToken = context1.Credentials.AccessToken;
         var tokenExpiration = context1.Credentials.TokenExpiration;
   
         // Save token values for later use. 
-        // The SaveTokenDataToExternalStorage method should check 
-        // whether the TokenExpiration value is valid before saving the token data. 
+        // hello SaveTokenDataToExternalStorage method should check 
+        // whether hello TokenExpiration value is valid before saving hello token data. 
         // If it is not valid, call MediaServicesCredentials’s RefreshToken before caching.
         SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
   
-    Gebruik de opgeslagen waarden voor de token MediaServicesCredentials maken.
+    Gebruik Hallo token waarden toocreate MediaServicesCredentials opgeslagen.
 
         var accessToken = "";
         var tokenExpiration = DateTime.UtcNow;
@@ -116,7 +116,7 @@ U kunt de ACS-tokens vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters 
 
         CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-    Het token exemplaar bijwerken als het token is bijgewerkt door de Media Services SDK. 
+    Hallo token exemplaar bijwerken als Hallo-token is bijgewerkt door Hallo Media Services SDK. 
 
         if(tokenExpiration != context2.Credentials.TokenExpiration)
         {
@@ -124,13 +124,13 @@ U kunt de ACS-tokens vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters 
         }
 
 
-* Als u meerdere accounts voor Media Services (bijvoorbeeld voor belastingverdeling doeleinden of Geo-distributie) hebt u MediaServicesCredentials objecten met behulp van de verzameling System.Collections.Concurrent.ConcurrentDictionary (de ConcurrentDictionary in cache collectie bevat een thread-veilige van sleutel-waardeparen die toegankelijk zijn voor meerdere threads tegelijk). Vervolgens gebruikt u de methode GetOrAdd ophalen van referenties in de cache. 
+* Als u meerdere accounts voor Media Services (bijvoorbeeld voor belastingverdeling doeleinden of Geo-distributie) hebt u kan objecten in een cache MediaServicesCredentials hello System.Collections.Concurrent.ConcurrentDictionary collectie (hello gebruiken ConcurrentDictionary collectie bevat een thread-veilige van sleutel-waardeparen die toegankelijk zijn voor meerdere threads tegelijk). U kunt vervolgens Hallo GetOrAdd methode tooget Hallo in de cache opgeslagen referenties gebruiken. 
   
-        // Declare a static class variable of the ConcurrentDictionary type in which the Media Services credentials will be cached.  
+        // Declare a static class variable of hello ConcurrentDictionary type in which hello Media Services credentials will be cached.  
         private static readonly ConcurrentDictionary<string, MediaServicesCredentials> mediaServicesCredentialsCache = 
             new ConcurrentDictionary<string, MediaServicesCredentials>();
 
-        // Cache (or get already cached) Media Services credentials. Use these credentials to create a new CloudMediaContext object.
+        // Cache (or get already cached) Media Services credentials. Use these credentials toocreate a new CloudMediaContext object.
         static public CloudMediaContext CreateMediaServicesContext(string accountName, string accountKey)
         {
             CloudMediaContext cloudMediaContext;
@@ -145,8 +145,8 @@ U kunt de ACS-tokens vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters 
             return cloudMediaContext;
         }
 
-## <a name="connecting-to-a-media-services-account-located-in-the-north-china-region"></a>Verbinding maken met een Media Services-account zich in de regio Noord, China
-Als uw account in de regio Noord, China bevindt zich, gebruikt u de volgende constructor:
+## <a name="connecting-tooa-media-services-account-located-in-hello-north-china-region"></a>Verbinding maken met tooa Media Services-account zich in de regio Noord, China Hallo
+Als uw account in de regio Noord, China hello bevindt zich, gebruikt u Hallo constructor te volgen:
 
     public CloudMediaContext(Uri apiServer, string accountName, string accountKey, string scope, string acsBaseAddress)
 
@@ -161,9 +161,9 @@ Bijvoorbeeld:
 
 
 ## <a name="storing-connection-values-in-configuration"></a>Verbindingswaarden in de configuratie opslaan
-Het is een sterk aanbevolen procedure voor het opslaan van verbindingswaarden, zoals uw accountnaam en wachtwoord, met name gevoelige waarden in de configuratie. Het is ook een aanbevolen procedure voor het versleutelen van gevoelige configuratiegegevens. U kunt het hele configuratiebestand versleutelen met behulp van Windows Encrypting File System (EFS). Zodat EFS op een bestand met de rechtermuisknop op het bestand, selecteer **eigenschappen**, en schakel versleuteling in de **Geavanceerd** tabblad instellingen. Of u een aangepaste oplossing voor het versleutelen van de geselecteerde gedeelten van een configuratiebestand met behulp van beveiligde configuratie kunt maken. Zie [versleutelen met behulp van beveiligde configuratie configuratiegegevens](https://msdn.microsoft.com/library/53tyfkaw.aspx).
+Het is een verbindingswaarden ten zeerste aanbevolen toostore, met name gevoelige waarden zoals uw accountnaam en wachtwoord in de configuratie. Het is ook een aanbevolen procedure tooencrypt configuratie van gevoelige gegevens. U kunt de hele configuratiebestand Hallo versleutelen met behulp van Hallo Windows Encrypting File System (EFS). tooenable EFS op een bestand, klik met de rechtermuisknop hello, selecteer **eigenschappen**, en schakel versleuteling in Hallo **Geavanceerd** tabblad instellingen. Of u een aangepaste oplossing voor het versleutelen van de geselecteerde gedeelten van een configuratiebestand met behulp van beveiligde configuratie kunt maken. Zie [versleutelen met behulp van beveiligde configuratie configuratiegegevens](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
-Het volgende App.config-bestand bevat de waarden van de vereiste. De waarden in de <appSettings> element zijn de vereiste waarden die u hebt verkregen van het installatieproces van de Media Services-account.
+Hallo na App.config-bestand bevat verbindingswaarden Hallo vereist. waarden in Hallo Hallo <appSettings> element zijn Hallo vereist waarden die u hebt gekregen Hallo Media Services-account-installatieproces.
 
     <configuration>
       <appSettings>
@@ -173,7 +173,7 @@ Het volgende App.config-bestand bevat de waarden van de vereiste. De waarden in 
     </configuration>
 
 
-Voor het ophalen van verbindingswaarden van configuratie, kunt u de **ConfigurationManager** klasse en vervolgens de waarden toewijzen aan velden in uw code:
+verbindingswaarden tooretrieve uit configuratie, kunt u Hallo **ConfigurationManager** klasse en wijs vervolgens Hallo waarden toofields in uw code:
 
     private static readonly string _accountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
     private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];

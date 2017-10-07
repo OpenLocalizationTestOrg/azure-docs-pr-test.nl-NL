@@ -1,6 +1,6 @@
 ---
-title: Diagnostische gegevens configureren voor Azure-Cloudservices en virtuele Machines | Microsoft Docs
-description: Beschrijft hoe diagnostische gegevens voor het opsporen van Azure cloude services en virtuele machines (VM's) in Visual Studio configureren.
+title: Diagnostische gegevens voor Azure Cloud Services en virtuele Machines aaaConfiguring | Microsoft Docs
+description: Hierin wordt beschreven hoe tooconfigure diagnostische gegevens voor het opsporen van Azure cloude services en virtuele machines (VM's) in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,95 +14,95 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 74cdf49413d6d89a84195070dd9d817da2463373
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configuratie van diagnostische gegevens voor Azure-Cloudservices en virtuele Machines
-Wanneer u problemen met een Azure-cloudservice of virtuele machine van Azure, kunt u gemakkelijker Azure diagnostics configureren met behulp van Visual Studio. Azure diagnostics vastgelegd system en logboekregistratie-gegevens op de virtuele machines en de virtuele machine-exemplaren die uitvoeren van uw cloudservice en die gegevens overgebracht naar een opslagaccount van uw keuze. Zie [logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md) voor meer informatie over diagnostische gegevens van logboekregistratie in Azure.
+Wanneer u tootroubleshoot een Azure-cloudservice of virtuele machine van Azure moet, kunt u gemakkelijker Azure diagnostics configureren met behulp van Visual Studio. Azure diagnostics vastgelegd systeem en gegevens van de logboekregistratie op Hallo virtuele machines en virtuele machine-exemplaren die uw cloudservice worden uitgevoerd en die gegevens overgebracht naar een opslagaccount van uw keuze. Zie [logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md) voor meer informatie over diagnostische gegevens van logboekregistratie in Azure.
 
-Dit onderwerp leest u hoe inschakelen en configureren van Azure diagnostics in Visual Studio, zowel voor en na de implementatie, evenals in virtuele machines in Azure. Deze ook ziet u hoe u selecteert de soorten informatie voor het verzamelen van diagnostische gegevens en het weergeven van de informatie verzamelde.
+Dit onderwerp leest u hoe tooenable en configureren van Azure diagnostics in Visual Studio, zowel voor en na de implementatie, evenals in virtuele machines in Azure. Hier ook ziet u hoe tooselect Hallo typen diagnostische informatie toocollect en hoe tooview Hallo informatie nadat deze worden verzameld.
 
-U kunt Azure Diagnostics configureren op de volgende manieren:
+U kunt Azure Diagnostics configureren in de volgende manieren Hallo:
 
-* Kunt u configuratie-instellingen voor diagnostische gegevens via de **configuratie van diagnostische** dialoogvenster in Visual Studio. De instellingen worden opgeslagen in een bestand met de naam diagnostics.wadcfgx (diagnostics.wadcfg in Azure SDK 2.4 of eerder). U kunt ook kunt u het configuratiebestand rechtstreeks wijzigen. Als u het bestand handmatig bijwerken, wijzigingen in de configuratie te laten treden de volgende implementatie van de cloud service naar Azure of de service wordt uitgevoerd in de emulator.
-* Gebruik **Cloud Explorer** of **Server Explorer** in Visual Studio om de instellingen voor diagnostische gegevens voor een actieve cloudservice of virtuele machine wijzigen.
+* U kunt configuratie-instellingen voor diagnostische gegevens via Hallo wijzigen **configuratie van diagnostische** dialoogvenster in Visual Studio. Hallo-instellingen worden opgeslagen in een bestand met de naam diagnostics.wadcfgx (diagnostics.wadcfg in Azure SDK 2.4 of eerder). U kunt ook rechtstreeks Hallo configuratiebestand wijzigen. Als u handmatig Hallo bestand bijwerkt, wordt Hallo configuratiewijzigingen treden Hallo volgende keer dat u Hallo cloud service tooAzure of Voer Hallo-service in Hallo-emulator implementeert.
+* Gebruik **Cloud Explorer** of **Server Explorer** in Visual Studio toochange Hallo diagnostische instellingen voor een actieve cloudservice of virtuele machine.
 
 ## <a name="azure-26-diagnostics-changes"></a>2.6 Azure diagnostics wijzigingen
-Azure SDK 2.6-projecten in Visual Studio, zijn de volgende wijzigingen aangebracht. (Deze wijzigingen ook van toepassing op latere versies van Azure SDK.)
+Azure SDK 2.6-projecten in Visual Studio, zijn Hallo volgende wijzigingen aangebracht. (Deze wijzigingen gelden ook toolater versies van Azure SDK.)
 
-* De lokale emulator ondersteunt nu de diagnostische gegevens. Dit betekent dat u kunt het verzamelen van diagnostische gegevens en zorg ervoor dat uw toepassing wordt gemaakt door de juiste traceringen tijdens het ontwikkelen en testen in Visual Studio. De verbindingsreeks `UseDevelopmentStorage=true` kunt verzamelen van diagnostische gegevens, terwijl u uw cloudserviceproject in Visual Studio uitvoert met behulp van de Azure-opslagemulator. Alle diagnostische gegevens worden verzameld in het opslagaccount (ontwikkeling opslag).
-* De verbindingsreeks van diagnostische gegevens storage-account (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) wordt nog een keer opgeslagen in het service-configuratiebestand (.cscfg). In de Azure SDK 2.5 is de opslagaccount voor diagnostische gegevens opgegeven in het bestand diagnostics.wadcfgx.
+* Hallo lokale emulator ondersteunt nu de diagnostische gegevens. Dit betekent dat u kunt het verzamelen van diagnostische gegevens en zorg ervoor dat uw toepassing maakt Hallo rechts traceringen tijdens het ontwikkelen en testen in Visual Studio. Hallo verbindingsreeks `UseDevelopmentStorage=true` kunt verzamelen van diagnostische gegevens, terwijl u uw cloudserviceproject in Visual Studio uitvoert met behulp van hello Azure-opslagemulator. Alle diagnostische gegevens worden verzameld in opslagaccount hello (ontwikkeling opslag).
+* Hallo diagnostics account verbindingsreeks voor opslag (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) wordt nog een keer opgeslagen in hello (.cscfg) serviceconfiguratiebestand. In de Azure SDK 2.5 is Hallo diagnostics storage-account opgegeven in Hallo diagnostics.wadcfgx bestand.
 
-Er zijn enkele belangrijke verschillen tussen hoe de verbindingsreeks in de Azure SDK 2.4 en eerder heeft gewerkt, en hoe het werkt in de Azure SDK 2.6 en hoger.
+Er zijn enkele belangrijke verschillen tussen hoe Hallo-verbindingsreeks in de Azure SDK 2.4 en eerder gegaan en hoe het werkt in de Azure SDK 2.6 en hoger.
 
-* In Azure SDK 2.4 en eerdere versies, is de verbindingsreeks gebruikt als een runtime door de invoegtoepassing diagnostische gegevens ophalen van de accountgegevens voor de opslag voor het overdragen van diagnostische logboeken.
-* In Azure SDK 2.6 en hoger, wordt de verbindingsreeks van de diagnostische gegevens door Visual Studio gebruikt voor het configureren van de extensie voor diagnostische gegevens met de juiste opslag gegevens tijdens de publicatie. De verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die door Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat de diagnostics-invoegtoepassing (na de Azure SDK 2,5) niet langer beschikbaar is, kan niet het cscfg-bestand zelf echter de extensie voor diagnostische gegevens inschakelen. U moet de extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell inschakelen.
-* De uitvoer van het pakket van Visual Studio bevat ook de openbare configuratie-XML voor de extensie voor diagnostische gegevens voor elke rol voor het vereenvoudigen van de extensie voor diagnostische gegevens configureren met PowerShell. De verbindingsreeks diagnostics Visual Studio gebruikt voor het vullen van de opslag-accountgegevens die aanwezig zijn in de openbare configuratie. De openbare configuratiebestanden worden gemaakt in de map extensies en volg het patroon PaaSDiagnostics. &lt;RoleName >. PubConfig.xml. Alle implementaties op basis van PowerShell kunnen dit patroon gebruiken voor elke configuratie worden toegewezen aan een rol.
-* De verbindingsreeks in het .cscfg-bestand wordt ook gebruikt door de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) toegang krijgen tot de diagnostics-gegevens, zodat het kan worden weergegeven de **bewaking** tabblad. De verbindingsreeks is nodig voor de service configureren voor het uitgebreide bewakingsgegevens weergeven in de portal.
+* In de Azure SDK 2.4 en eerder is Hallo-verbindingsreeks gebruikt als een runtime door Hallo diagnostics tooget Hallo storage account informatie over de invoegtoepassing voor het overdragen van diagnostische logboeken.
+* In Azure SDK 2.6 en hoger worden Hallo diagnostics verbindingsreeks wordt gebruikt door de extensie voor Visual Studio tooconfigure Hallo diagnostische gegevens met gegevens van de juiste opslag Hallo tijdens de publicatie. Hallo-verbindingsreeks kunt u verschillende opslagaccounts voor verschillende configuraties die door Visual Studio wordt gebruikt bij het publiceren van definiëren. Omdat Hallo diagnostics-invoegtoepassing (na de Azure SDK 2,5) niet langer beschikbaar is, kan niet Hallo cscfg-bestand zelf echter Hallo extensie voor diagnostische gegevens inschakelen. U hebt tooenable Hallo extensie afzonderlijk via hulpprogramma's zoals Visual Studio of PowerShell.
+* toosimplify hello proces van het Hallo-extensie voor diagnostische gegevens configureren met PowerShell, Hallo pakket uitvoer vanuit Visual Studio bevat ook Hallo openbare configuratie-XML voor Hallo-extensie voor diagnostische gegevens voor elke rol. Visual Studio gebruikt Hallo diagnostics toopopulate Hallo storage account verbindingsinformatie aanwezig is in de openbare configuratie Hallo. Hallo openbare config-bestanden worden gemaakt in de map extensies Hallo en Hallo patroon PaaSDiagnostics volgen. &lt;RoleName >. PubConfig.xml. Alle implementaties op basis van PowerShell kunnen gebruiken dit patroon toomap elke configuratie tooa rol.
+* Hallo-verbindingsreeks in Hallo .cscfg-bestand wordt ook gebruikt door Hallo [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) tooaccess Hallo diagnostics-gegevens, zodat het kan worden weergegeven in Hallo **bewaking** tabblad Hallo-verbindingsreeks is vereist tooconfigure hello service tooshow uitgebreide bewakingsgegevens in Hallo-portal.
 
-## <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migreren projecten op Azure SDK 2.6 en hoger
-Wanneer u migreert van Azure SDK 2.5 naar Azure SDK 2.6 of hoger, als u een opslagaccount voor diagnostische gegevens opgegeven in het bestand .wadcfgx had, vervolgens blijft er. Als u wilt profiteren van de flexibiliteit van het gebruik van verschillende storage-accounts voor opslagconfiguraties verschillende, hebt u de verbindingsreeks handmatig toevoegen aan uw project. Als u een project waarnaar u migreert van Azure SDK 2.4 of eerder in Azure SDK 2.6, blijven de verbindingsreeksen van diagnostische gegevens behouden. Let echter de wijzigingen in hoe verbindingsreeksen worden behandeld in de Azure SDK 2.6 zoals opgegeven in de vorige sectie.
+## <a name="migrating-projects-tooazure-sdk-26-and-later"></a>Migreren projecten tooAzure SDK 2.6 en hoger
+Bij het migreren van Azure SDK 2.5 tooAzure SDK 2.6 of hoger, als u een opslagaccount voor diagnostische gegevens opgegeven in Hallo .wadcfgx bestand had vervolgens blijft er. tootake profiteren van Hallo flexibiliteit voor het gebruik van andere opslag van accounts voor opslagconfiguraties verschillende, hebt u toomanually Hallo connection string tooyour project toevoegen. Als u een project waarnaar u migreert van Azure SDK 2.4 of eerdere tooAzure SDK 2.6, Hallo vervolgens diagnostics verbindingsreeksen behouden blijven. Let echter Hallo wijzigingen in hoe verbindingsreeksen worden behandeld in de Azure SDK 2.6 zoals opgegeven in de vorige sectie Hallo.
 
-### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Hoe de opslagaccount voor diagnostische gegevens in Visual Studio wordt bepaald
-* Als een verbindingsreeks diagnostische gegevens in het .cscfg-bestand is opgegeven, wordt het in Visual Studio gebruikt voor het configureren van de extensie voor diagnostische gegevens bij het publiceren en bij het genereren van de openbare configuratie-xml-bestanden tijdens pakketten.
-* Als geen diagnostische gegevens verbindingsreeks is opgegeven in het .cscfg-bestand, klikt u vervolgens terugvalt Visual Studio op het storage-account opgegeven in het bestand .wadcfgx met de extensie voor diagnostische gegevens bij het publiceren van en het genereren van de openbare configuratie-xml-bestanden configureren Wanneer verpakken.
-* De verbindingsreeks voor diagnostische gegevens in het .cscfg-bestand heeft voorrang op de storage-account in het bestand .wadcfgx. Als een verbindingsreeks diagnostics is opgegeven in het .cscfg-bestand, Visual Studio die wordt gebruikt en het opslagaccount in .wadcfgx worden genegeerd.
+### <a name="how-visual-studio-determines-hello-diagnostics-storage-account"></a>Hoe Visual Studio bepaalt Hallo opslagaccount voor diagnostische gegevens
+* Als een verbindingsreeks diagnostische gegevens is opgegeven in het .cscfg-bestand hello, Visual Studio gebruikt deze extensie voor diagnostische gegevens van tooconfigure Hallo bij het publiceren en bij het genereren van Hallo openbare configuratie voor XML-bestanden tijdens de verpakking.
+* Als geen verbindingsreeks diagnostics is opgegeven in het .cscfg-bestand hello, klikt u vervolgens terugvalt Visual Studio toousing Hallo storage-account opgegeven in Hallo .wadcfgx bestand tooconfigure Hallo extensie voor diagnostische gegevens bij het publiceren en Hallo openbare genereren XML-configuratiebestanden wanneer verpakken.
+* Hallo diagnostics verbindingsreeks in Hallo .cscfg-bestand heeft voorrang op Hallo storage-account in Hallo .wadcfgx bestand. Als u een verbindingsreeks diagnostics is opgegeven in Hallo cscfg-bestand, vervolgens Visual Studio wordt gebruikt, wordt en Hallo storage-account in .wadcfgx worden genegeerd.
 
-### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Wat doet de 'Update ontwikkeling storage-verbindingsreeksen..." selectievakje doen?
-Het selectievakje voor **bijwerken van ontwikkeling storage-verbindingsreeksen voor diagnostische gegevens en opslaan in cache met Microsoft Azure storage-accountreferenties bij het publiceren van Microsoft Azure** biedt u een handige manier om bij te werken van alle ontwikkeling opslagaccountverbindingsreeksen met de Azure storage-account dat is opgegeven tijdens de publicatie.
+### <a name="what-does-hello-update-development-storage-connection-strings-checkbox-do"></a>Wat Hallo 'Bijwerken ontwikkeling storage-verbindingsreeksen...' selectievakje doen?
+selectievakje voor Hallo **bijwerken van ontwikkeling storage-verbindingsreeksen voor diagnostische gegevens en opslaan in cache met Microsoft Azure storage-accountreferenties bij het publiceren van tooMicrosoft Azure** beschikt u over een handige manier tooupdate ieder ontwikkeling opslagaccountverbindingsreeksen met hello Azure storage-account is opgegeven tijdens de publicatie.
 
-Stel bijvoorbeeld dat u dit selectievakje inschakelt en de verbindingsreeks voor diagnostische gegevens `UseDevelopmentStorage=true`. Wanneer u het project naar Azure publiceert, wordt Visual Studio de verbindingsreeks van diagnostische gegevens automatisch bijgewerkt met de storage-account dat u hebt opgegeven in de wizard publiceren. Echter, als een echte storage-account is opgegeven als de verbindingsreeks van diagnostische gegevens, klikt u vervolgens dat account wordt gebruikt in plaats daarvan.
+Stel bijvoorbeeld dat u dit selectievakje inschakelt en Hallo diagnostics verbindingsreeks `UseDevelopmentStorage=true`. Wanneer u Hallo project tooAzure publiceert, wordt Visual Studio Hallo diagnostics verbindingsreeks automatisch bijgewerkt met de Hallo storage-account die u hebt opgegeven in de wizard Publiceren Hallo. Echter, als een echte storage-account is opgegeven als Hallo diagnostische gegevens van de verbindingsreeks, vervolgens dat account wordt gebruikt in plaats daarvan.
 
 ## <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Diagnostische functionaliteit verschillen tussen Azure SDK 2.4 en eerder en Azure SDK 2,5 en hoger
-Als u een uw project van Azure SDK 2.4 naar Azure SDK 2.5 of hoger upgrade uitvoert, moet u vergeet de volgende verschillen van de diagnostics-functionaliteit.
+Als u een uw project van Azure SDK 2.4 tooAzure SDK 2.5 of hoger upgrade uitvoert, moet u er rekening mee Hallo volgende diagnostische functionaliteit verschillen vergeet.
 
-* **Configuratie-API's zijn afgeschaft** – programmatische configuratie van diagnostische gegevens is beschikbaar in de Azure SDK 2.4 of eerdere versies, maar is afgeschaft in Azure SDK 2.5 en hoger. Als uw configuratie van diagnostische momenteel in de code is gedefinieerd, moet u die instellingen vanaf het begin in het gemigreerde project in de volgorde voor diagnostische gegevens blijven werken opnieuw configureren. Het configuratiebestand van de diagnostische gegevens voor Azure SDK 2.4 is diagnostics.wadcfg en diagnostics.wadcfgx voor Azure SDK 2.5 of hoger.
-* **Diagnostische gegevens voor cloud-servicetoepassingen kan alleen worden geconfigureerd op het niveau van de functie niet op het niveau van het exemplaar.**
-* **Telkens wanneer u uw app implementeert, wordt de configuratie van diagnostische bijgewerkt** : dit kan pariteit problemen veroorzaken als u de configuratie van de diagnostische gegevens in Server Explorer te wijzigen en vervolgens uw app te implementeren.
-* **In de Azure SDK 2.5 en hoger crashdumps zijn geconfigureerd in het configuratiebestand van de diagnostische gegevens niet in de code** – als u geconfigureerd in de code crashdumps hebt, hebt u de configuratie van code handmatig te zetten naar het configuratiebestand, omdat de crashdumps worden niet tijdens de migratie naar Azure SDK 2.6 overgedragen.
+* **Configuratie-API's zijn afgeschaft** – programmatische configuratie van diagnostische gegevens is beschikbaar in de Azure SDK 2.4 of eerdere versies, maar is afgeschaft in Azure SDK 2.5 en hoger. Als uw configuratie van diagnostische momenteel in de code is gedefinieerd, moet u tooreconfigure die instellingen vanaf het begin in gemigreerde Hallo-project in volgorde van diagnostische gegevens tookeep werken. Hallo diagnostics-configuratiebestand voor de Azure SDK 2.4 is diagnostics.wadcfg en diagnostics.wadcfgx voor Azure SDK 2.5 of hoger.
+* **Diagnostische gegevens voor cloud-servicetoepassingen kan alleen worden geconfigureerd op Hallo rolniveau, niet op instantieniveau Hallo.**
+* **Telkens wanneer u uw app implementeert, configuratie van diagnostische hello wordt bijgewerkt** : dit kan pariteit problemen veroorzaken als u de configuratie van de diagnostische gegevens in Server Explorer te wijzigen en vervolgens uw app te implementeren.
+* **In de Azure SDK 2.5 en hoger crashdumps zijn geconfigureerd in Hallo diagnostics-configuratiebestand niet in de code** – als u geconfigureerd in de code crashdumps hebt, hebt u toomanually overdracht Hallo configuratie uit het configuratiebestand van de code toohello, omdat Hallo crashdumps worden niet overgedragen tijdens Hallo migratie tooAzure SDK 2.6.
 
 ## <a name="enable-diagnostics-in-cloud-service-projects-before-deploying-them"></a>Diagnostische gegevens in cloudserviceprojecten inschakelen voordat u ze implementeert
-In Visual Studio kunt u kiezen voor het verzamelen van diagnostische gegevens voor rollen die worden uitgevoerd in Azure, wanneer u de service in de emulator uitvoert voordat u deze implementeert. Alle wijzigingen in de diagnostische instellingen in Visual Studio zijn opgeslagen in het configuratiebestand diagnostics.wadcfgx. Deze configuratie-instellingen opgeven voor het opslagaccount waar diagnostische gegevens worden opgeslagen wanneer u uw cloudservice implementeert.
+U kunt in Visual Studio toocollect diagnostics-gegevens voor rollen die worden uitgevoerd in Azure, wanneer u Hallo-service in Hallo emulator uitvoert voordat u deze implementeert. Alle wijzigingen toodiagnostics-instellingen in Visual Studio worden opgeslagen in het configuratiebestand voor Hallo diagnostics.wadcfgx. Deze configuratie-instellingen opgeven Hallo opslagaccount waar diagnostische gegevens worden opgeslagen wanneer u uw cloudservice implementeert.
 
 [!INCLUDE [cloud-services-wad-warning](../includes/cloud-services-wad-warning.md)]
 
-### <a name="to-enable-diagnostics-in-visual-studio-before-deployment"></a>Diagnostische gegevens in Visual Studio vóór de implementatie inschakelen
-1. Kies in het snelmenu voor de rol die u interesseert **eigenschappen**, en kies vervolgens de **configuratie** tabblad in de rol **eigenschappen** venster.
-2. In de **Diagnostics** sectie, zorg ervoor dat de **diagnostische gegevens inschakelen** selectievakje is ingeschakeld.
+### <a name="tooenable-diagnostics-in-visual-studio-before-deployment"></a>tooenable diagnostische gegevens in Visual Studio vóór de implementatie
+1. Kies in het snelmenu Hallo voor Hallo-rol die u bent geïnteresseerd, **eigenschappen**, en kies vervolgens Hallo **configuratie** tabblad in Hallo-rol **eigenschappen** venster.
+2. In Hallo **Diagnostics** sectie, zorg ervoor dat Hallo **diagnostische gegevens inschakelen** selectievakje is ingeschakeld.
    
-    ![Toegang tot de optie diagnostische gegevens inschakelen](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
-3. Kies de knop met het weglatingsteken (...) om op te geven van het opslagaccount waar u de diagnostische gegevens worden opgeslagen. Het opslagaccount dat u kiest, worden de locatie waar diagnostische gegevens worden opgeslagen.
+    ![Toegang tot de optie voor Hallo diagnostische gegevens inschakelen](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796660.png)
+3. Hallo weglatingsteken (...) knop toospecify hello opslagaccount kiezen waar u Hallo diagnostische gegevens toobe opgeslagen. Hallo-opslagaccount die u kiest worden Hallo-locatie waar diagnostische gegevens worden opgeslagen.
    
-    ![Geef het storage-account gebruiken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
-4. In de **Create Storage Connection String** dialoogvenster vak, opgeven of u wilt verbinden met de Azure-Opslagemulator een Azure-abonnement of referenties handmatig worden ingevoerd.
+    ![Hallo storage account toouse opgeven](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796661.png)
+4. In Hallo **Create Storage Connection String** dialoogvenster vak, opgeven of u wilt dat tooconnect hello Azure-Opslagemulator, een Azure-abonnement met of referenties handmatig worden ingevoerd.
    
     ![Dialoogvenster Storage-account](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796662.png)
    
-   * Als u ervoor kiest de Microsoft Azure-Opslagemulator optie, de verbindingsreeks is ingesteld op UseDevelopmentStorage = true.
-   * Als u ervoor kiest de uw abonnement, kunt u de Azure-abonnement u wilt gebruiken en de accountnaam. U kunt de knop Accounts beheren voor het beheren van uw Azure-abonnementen.
-   * Als u de optie handmatig ingevoerde referenties kiest, wordt u gevraagd de naam en sleutel van het Azure-account dat u wilt gebruiken in te voeren.
-5. Kies de **configureren** knop om weer te geven de **configuratie van diagnostische** in het dialoogvenster. Elk tabblad (met uitzondering van **algemene** en **logboek mappen**) vertegenwoordigt een diagnostische gegevensbron die u kunt verzamelen. Het standaardtabblad **algemene**, biedt de volgende opties van diagnostische gegevens verzameling: **alleen fouten**, **alle informatie**, en **aangepaste plan**. De standaardoptie **alleen fouten**, zo min mogelijk opslag vereist omdat deze geen waarschuwingen of tracering berichten over te dragen. De optie om alle brengt de meeste informatie en is daarom de optie meest kostbaar in termen van opslag.
+   * Als u Hallo Microsoft Azure-Opslagemulator optie kiest, Hallo verbindingsreeks tooUseDevelopmentStorage ingesteld = true.
+   * Als u optie Hallo uw abonnement, kunt u hello Azure-abonnement u wilt dat toouse en Hallo accountnaam. U kunt dat uw Azure-abonnementen voor knop toomanage Hallo-Accounts beheren.
+   * Als u handmatig ingevoerd Hallo referenties optie kiest, bent u na vragen aan gebruiker tooenter Hallo naam en sleutel Hallo gewenste toouse Azure-account.
+5. Kies Hallo **configureren** knop tooview hello **configuratie van diagnostische** in het dialoogvenster. Elk tabblad (met uitzondering van **algemene** en **logboek mappen**) vertegenwoordigt een diagnostische gegevensbron die u kunt verzamelen. Hallo standaardtabblad, **algemene**, biedt u Hallo na opties van diagnostische gegevens voor het verzamelen van gegevens: **alleen fouten**, **alle informatie**, en **aangepaste plan** . Hallo standaardoptie **alleen fouten**, vergt Hallo zo min mogelijk opslag omdat het geen waarschuwingen of tracering berichten over te dragen. Hallo alle informatie optie overdrachten Hallo de meeste gegevens en is, wordt daarom Hallo meest dure optie in termen van opslag.
    
     ![Azure diagnostics- en configuratie inschakelen](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
-6. Selecteer voor dit voorbeeld wordt de **aangepaste plan** optie zodat u de gegevens kunt worden verzameld.
-7. De **schijfquotum in MB** vak geeft aan hoeveel ruimte u in uw opslagaccount voor diagnostische gegevens wilt toewijzen. U kunt de standaardwaarde als u wilt wijzigen.
-8. Op elk tabblad van diagnostische gegevens u wilt verzamelen, selecteer de **inschakelen overdragen van <log type>**  selectievakje. Bijvoorbeeld, als u wenst te verzamelen van toepassingslogboeken, selecteert u de **inschakelen van de overdracht van toepassingslogboeken** selectievakje op het **toepassingslogboeken** tabblad. Geef ook andere informatie die vereist zijn voor elk gegevenstype diagnostische gegevens. Zie de sectie **gegevensbronnen van diagnostische gegevens configureren** verderop in dit onderwerp voor configuratie-informatie op elk tabblad.
-9. Nadat u de verzameling van alle diagnostics-gegevens die u hebt ingeschakeld, kiest u de **OK** knop.
-10. Uw Azure-cloud service-project in Visual Studio gewoon uitgevoerd. Terwijl u uw toepassing gebruikt, wordt de informatie die u hebt ingeschakeld in het foutenlogboek wordt opgeslagen in de Azure storage-account dat u hebt opgegeven.
+6. Selecteer voor dit voorbeeld Hallo **aangepaste plan** optie zodat u Hallo gegevens aanpassen kunt verzameld.
+7. Hallo **schijfquotum in MB** geeft aan hoeveel ruimte u tooallocate wilt in uw storage-account voor diagnostische gegevens. U kunt de standaardwaarde Hallo wijzigen als u wilt.
+8. Op elk tabblad van diagnostische gegevens u wilt dat toocollect, selecteer de **inschakelen overdragen van <log type>**  selectievakje. Als u toocollect toepassingslogboeken wilt, Selecteer bijvoorbeeld Hallo **inschakelen van de overdracht van toepassingslogboeken** selectievakje op Hallo **toepassingslogboeken** tabblad. Geef ook andere informatie die vereist zijn voor elk gegevenstype diagnostische gegevens. Zie de sectie Hallo **gegevensbronnen van diagnostische gegevens configureren** verderop in dit onderwerp voor configuratie-informatie op elk tabblad.
+9. Nadat u de verzameling van alle Hallo diagnostische gegevens die u wilt hebt ingeschakeld, kiest u Hallo **OK** knop.
+10. Uw Azure-cloud service-project in Visual Studio gewoon uitgevoerd. Als u uw toepassing gebruikt, opgeslagen Hallo logboekgegevens die u hebt ingeschakeld toohello Azure storage-account opgegeven.
 
 ## <a name="enable-diagnostics-in-azure-virtual-machines"></a>Diagnostische gegevens in Azure virtuele machines inschakelen
-In Visual Studio kunt u voor het verzamelen van diagnostische gegevens voor Azure virtual machines.
+U kunt in Visual Studio toocollect diagnostics-gegevens voor Azure virtual machines.
 
-### <a name="to-enable-diagnostics-in-azure-virtual-machines"></a>Diagnostische gegevens in Azure virtuele machines inschakelen
-1. In **Server Explorer**, kies het Azure-knooppunt en maak verbinding met uw Azure-abonnement als u nog niet bent verbonden.
-2. Vouw de **virtuele Machines** knooppunt. U kunt maken van een nieuwe virtuele machine of Selecteer een die er al.
-3. Kies in het snelmenu voor de virtuele machine die u interesseert **configureren**. Geeft het dialoogvenster configuratie van virtuele machine.
+### <a name="tooenable-diagnostics-in-azure-virtual-machines"></a>tooenable diagnostische gegevens in Azure virtuele machines
+1. In **Server Explorer**, kies hello Azure knooppunt en maak verbinding tooyour Azure-abonnement als u nog niet bent verbonden.
+2. Vouw Hallo **virtuele Machines** knooppunt. U kunt maken van een nieuwe virtuele machine of Selecteer een die er al.
+3. Kies in het snelmenu Hallo voor Hallo virtuele machine die u bent geïnteresseerd, **configureren**. Dit betekent Hallo virtuele machine in het dialoogvenster configuratie.
    
     ![Een virtuele machine van Azure configureren](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796663.png)
-4. Als deze nog niet is geïnstalleerd, moet u de Microsoft Monitoring Agent Diagnostics-extensie toevoegen. Deze extensie kunt u het verzamelen van diagnostische gegevens voor de virtuele machine van Azure. In de lijst extensies geïnstalleerd kies het selecteren van een vervolgkeuzelijst met beschikbare extensie en kies vervolgens Microsoft Monitoring Agent diagnostische gegevens.
+4. Als deze nog niet is geïnstalleerd, moet u Hallo Microsoft Monitoring Agent Diagnostics-extensie toevoegen. Deze extensie kunt u het verzamelen van diagnostische gegevens voor hello Azure virtuele machine. In de lijst van de extensies geïnstalleerd hello, kies Hallo Selecteer een vervolgkeuzelijst met beschikbare extensie menu en kies vervolgens Microsoft Monitoring Agent diagnostische gegevens.
    
     ![Installeren van een virtuele machine van Azure-extensie](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
    
@@ -110,42 +110,42 @@ In Visual Studio kunt u voor het verzamelen van diagnostische gegevens voor Azur
    > Andere extensies diagnostische gegevens zijn beschikbaar voor uw virtuele machines. Zie voor meer informatie, de Azure VM-extensies en functies.
    > 
    > 
-5. Kies de **toevoegen** om toe te voegen van de extensie en bekijk de **configuratie van diagnostische** in het dialoogvenster.
-6. Kies de **configureren** knop storage-account opgeven en klik vervolgens op de **OK** knop.
+5. Kies Hallo **toevoegen** knop tooadd Hallo-uitbreiding en bekijk de **configuratie van diagnostische** in het dialoogvenster.
+6. Kies Hallo **configureren** knop toospecify storage-account en kies vervolgens Hallo **OK** knop.
    
     Elk tabblad (met uitzondering van **algemene** en **logboek mappen**) vertegenwoordigt een diagnostische gegevensbron die u kunt verzamelen.
    
     ![Azure diagnostics- en configuratie inschakelen](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
    
-    Het standaardtabblad **algemene**, biedt de volgende opties van diagnostische gegevens verzameling: **alleen fouten**, **alle informatie**, en **aangepaste plan**. De standaardoptie **alleen fouten**, zo min mogelijk opslag vereist omdat deze geen waarschuwingen of tracering berichten over te dragen. De **alle informatie** optie de meeste gegevens worden overgebracht en is daarom de optie meest kostbaar in termen van opslag.
-7. Selecteer voor dit voorbeeld wordt de **aangepaste plan** optie zodat u de gegevens kunt worden verzameld.
-8. De **schijfquotum in MB** vak geeft aan hoeveel ruimte u in uw opslagaccount voor diagnostische gegevens wilt toewijzen. U kunt de standaardwaarde als u wilt wijzigen.
-9. Op elk tabblad van diagnostische gegevens u wilt verzamelen, selecteer de **inschakelen overdragen van <log type>**  selectievakje.
+    Hallo standaardtabblad, **algemene**, biedt u Hallo na opties van diagnostische gegevens voor het verzamelen van gegevens: **alleen fouten**, **alle informatie**, en **aangepaste plan** . Hallo standaardoptie **alleen fouten**, vergt Hallo zo min mogelijk opslag omdat het geen waarschuwingen of tracering berichten over te dragen. Hallo **alle informatie** optie overschrijvingen Hallo de meeste gegevens en is daarom meest dure optie Hallo in termen van opslag.
+7. Selecteer voor dit voorbeeld Hallo **aangepaste plan** optie zodat u Hallo gegevens aanpassen kunt verzameld.
+8. Hallo **schijfquotum in MB** geeft aan hoeveel ruimte u tooallocate wilt in uw storage-account voor diagnostische gegevens. U kunt de standaardwaarde Hallo wijzigen als u wilt.
+9. Op elk tabblad van diagnostische gegevens u wilt dat toocollect, selecteer de **inschakelen overdragen van <log type>**  selectievakje.
    
-    Bijvoorbeeld, als u wenst te verzamelen van toepassingslogboeken, selecteert u de **inschakelen van de overdracht van toepassingslogboeken** selectievakje op het **toepassingslogboeken** tabblad. Geef ook andere informatie die vereist zijn voor elk gegevenstype diagnostische gegevens. Zie de sectie **gegevensbronnen van diagnostische gegevens configureren** verderop in dit onderwerp voor configuratie-informatie op elk tabblad.
-10. Nadat u de verzameling van alle diagnostics-gegevens die u hebt ingeschakeld, kiest u de **OK** knop.
-11. Sla het bijgewerkte project.
+    Als u toocollect toepassingslogboeken wilt, Selecteer bijvoorbeeld Hallo **inschakelen van de overdracht van toepassingslogboeken** selectievakje op Hallo **toepassingslogboeken** tabblad. Geef ook andere informatie die vereist zijn voor elk gegevenstype diagnostische gegevens. Zie de sectie Hallo **gegevensbronnen van diagnostische gegevens configureren** verderop in dit onderwerp voor configuratie-informatie op elk tabblad.
+10. Nadat u de verzameling van alle Hallo diagnostische gegevens die u wilt hebt ingeschakeld, kiest u Hallo **OK** knop.
+11. Hallo bijgewerkt project opslaan.
     
-     U ziet een bericht in de **Microsoft Azure Activity Log** venster dat de virtuele machine is bijgewerkt.
+     U ziet een bericht in Hallo **Microsoft Azure Activity Log** venster dat Hallo van virtuele machine is bijgewerkt.
 
 ## <a name="configure-diagnostics-data-sources"></a>Gegevensbronnen van diagnostische gegevens configureren
-Nadat u het verzamelen van diagnostische gegevens inschakelen, kunt u precies welke gegevensbronnen die u wenst te verzamelen en welke informatie wordt verzameld. Hieronder volgt een lijst van tabbladen in de **configuratie van diagnostische** in het dialoogvenster en elke configuratieoptie betekent.
+Nadat u het verzamelen van diagnostische gegevens inschakelen, kunt u precies welke gegevensbronnen die u wilt dat toocollect en welke informatie wordt verzameld. Hallo Hieronder volgt een lijst van tabbladen in Hallo **configuratie van diagnostische** in het dialoogvenster en elke configuratieoptie betekent.
 
 ### <a name="application-logs"></a>Toepassingslogboeken
-**Toepassingslogboeken** diagnostische informatie die wordt geproduceerd door een webtoepassing bevatten. Als u vastleggen toepassingslogboeken wilt, selecteert u de **inschakelen van de overdracht van toepassingslogboeken** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer de toepassingslogboeken worden overgebracht naar uw opslagaccount door het wijzigen van de **Transfer periode (min)** waarde. U kunt ook de hoeveelheid gegevens die zijn vastgelegd in het logboek door de waarde van logboek-niveau wijzigen. U kunt bijvoorbeeld **uitgebreid** met meer informatie of kies een **Kritiek** om vast te leggen alleen kritieke fouten. Als u een specifieke diagnostics-provider die u toepassingslogboeken verzendt hebt, kunt u ze vastleggen door toe te voegen GUID van de provider de **Provider GUID** vak.
+**Toepassingslogboeken** diagnostische informatie die wordt geproduceerd door een webtoepassing bevatten. Als u toocapture toepassingslogboeken wilt, selecteert u Hallo **inschakelen van de overdracht van toepassingslogboeken** selectievakje. U kunt vergroten of verkleinen het aantal minuten op wanneer de toepassingslogboeken Hallo worden overgebracht Hallo tooyour storage-account door het wijzigen van Hallo **Transfer periode (min)** waarde. U kunt ook Hallo en de hoeveelheid gegevens die zijn vastgelegd in logboek Hallo door Hallo logboek-niveau waarde wijzigen. U kunt bijvoorbeeld **uitgebreid** tooget meer informatie of kies **Kritiek** toocapture alleen kritieke fouten. Als u een specifieke diagnostics-provider die u toepassingslogboeken verzendt hebt, kunt u ze vastleggen door toe te voegen van de provider Hallo GUID toohello **Provider GUID** vak.
 
   ![Toepassingslogboeken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
   Zie [logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md) voor meer informatie over toepassingslogboeken.
 
 ### <a name="windows-event-logs"></a>Windows-gebeurtenislogboeken
-Als u vastleggen van Windows-gebeurtenislogboeken wilt, selecteert u de **overdracht van het Windows-gebeurtenislogboeken inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer de gebeurtenislogboeken worden overgebracht naar uw opslagaccount door het wijzigen van de **Transfer periode (min)** waarde. Schakel de selectievakjes voor de typen gebeurtenissen die u wilt traceren.
+Als u wilt dat de Windows-gebeurtenislogboeken toocapture, selecteert u Hallo **overdracht van het Windows-gebeurtenislogboeken inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer Hallo gebeurtenislogboeken worden overgebracht Hallo tooyour storage-account door het wijzigen van Hallo **Transfer periode (min)** waarde. Schakel de selectievakjes Hallo voor Hallo typen gebeurtenissen die u tootrack wilt.
 
   ![Gebeurtenislogboeken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Als u Azure SDK 2.6 of hoger en een aangepaste gegevensbron opgeven, typt u dit in de  **<Data source name>**  tekst vak en kies vervolgens de **toevoegen** knop ernaast. De gegevensbron is toegevoegd aan het bestand diagnostics.cfcfg.
+Als u Azure SDK 2.6 of hoger gebruikt en een aangepaste gegevensbron toospecify, voert u deze in Hallo  **<Data source name>**  tekst vak en klik vervolgens op Hallo **toevoegen** knop volgende tooit. Hallo-gegevensbron is toohello diagnostics.cfcfg bestand toegevoegd.
 
-Als u Azure SDK 2.5 en geef een aangepaste gegevensbron wilt, kunt u het toevoegen aan de `WindowsEventLog` sectie van de diagnostics.wadcfgx bestand, zoals in het volgende voorbeeld.
+Als u Azure SDK 2.5 gebruikt en een aangepaste gegevensbron toospecify wilt, kunt u deze toevoegen toohello `WindowsEventLog` sectie van Hallo diagnostics.wadcfgx bestand, zoals in het volgende voorbeeld Hallo.
 
 ```
 <WindowsEventLog scheduledTransferPeriod="PT1M">
@@ -154,136 +154,136 @@ Als u Azure SDK 2.5 en geef een aangepaste gegevensbron wilt, kunt u het toevoeg
 </WindowsEventLog>
 ```
 ### <a name="performance-counters"></a>Prestatiemeteritems
-Gegevens van prestatiemeteritems kunt u vinden knelpunten in het systeem en systeem- en -prestaties afstemmen. Zie [maken en prestatiemeteritems voor gebruik in een Azure-toepassing](https://msdn.microsoft.com/library/azure/hh411542.aspx) voor meer informatie. Als u vastleggen, prestatiemeteritems wilt, selecteert u de **overdracht van prestatiemeteritems inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer de gebeurtenislogboeken worden overgebracht naar uw opslagaccount door het wijzigen van de **Transfer periode (min)** waarde. Schakel de selectievakjes voor de prestatiemeteritems die u wilt traceren.
+Gegevens van prestatiemeteritems kunt u vinden knelpunten in het systeem en systeem- en -prestaties afstemmen. Zie [maken en prestatiemeteritems voor gebruik in een Azure-toepassing](https://msdn.microsoft.com/library/azure/hh411542.aspx) voor meer informatie. Als u prestatiemeteritems toocapture, selecteert u Hallo **overdracht van prestatiemeteritems inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer Hallo gebeurtenislogboeken worden overgebracht Hallo tooyour storage-account door het wijzigen van Hallo **Transfer periode (min)** waarde. Schakel de selectievakjes Hallo voor hello prestatiemeteritems die u tootrack wilt.
 
   ![Prestatiemeteritems](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
-Voer deze met behulp van de voorgestelde syntaxis voor het bijhouden van een prestatiemeteritem die niet is vermeld, en kies vervolgens de **toevoegen** knop. Het besturingssysteem op de virtuele machine bepaalt welke prestatiemeteritems die u kunt volgen. Zie voor meer informatie over de syntaxis [geven een itempad](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
+Voer tootrack een prestatiemeteritem die niet is vermeld, met behulp van deze Hallo voorgestelde syntaxis en kies vervolgens Hallo **toevoegen** knop. Hallo-besturingssysteem op Hallo virtuele machine bepaalt welke prestatiemeteritems die u kunt volgen. Zie voor meer informatie over de syntaxis [geven een itempad](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx).
 
 ### <a name="infrastructure-logs"></a>Logboeken van de infrastructuur
-Als u wilt om vast te leggen van infrastructuur-logboeken die informatie over de diagnostische Azure-infrastructuur bevatten, de module RemoteAccess en RemoteForwarder-module, selecteert de **overdracht van infrastructuur Logboeken inschakelen** controleren vak. U kunt vergroten of verkleinen van het aantal minuten wanneer de logboeken worden overgebracht naar uw opslagaccount door de waarde overbrengen periode (min) te wijzigen.
+Als u Logboeken toocapture infrastructuur die informatie over Hallo diagnostische Azure-infrastructuur, Hallo RemoteAccess-module en Hallo RemoteForwarder-module bevatten, selecteert u Hallo **inschakelen van de overdracht van infrastructuur logboeken**selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer Hallo logboeken worden overgebracht Hallo tooyour storage-account door Hallo Transfer periode (min) waarde te wijzigen.
 
   ![Diagnostische gegevens infrastructuur Logboeken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758148.png)
 
   Zie [Logboekregistratiegegevens verzamelen met behulp van Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx) voor meer informatie.
 
 ### <a name="log-directories"></a>Logboek mappen
-Als u vastleggen van logboek-mappen die gegevens verzameld van logboek-mappen voor aanvragen van Internet Information Services (IIS) bevat wilt, mislukte aanvragen of mappen die u kiest, schakelt u de **overdracht van logboek mappen inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer de logboeken worden overgebracht naar uw opslagaccount door het wijzigen van de **Transfer periode (min)** waarde.
+Als u mappen toocapture logboek dat gegevens verzameld van logboek-mappen voor aanvragen van Internet Information Services (IIS) bevatten, mislukte aanvragen of mappen die u kiest, schakelt Hallo **inschakelen van de overdracht van logboek mappen**selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer Hallo logboeken worden overgebracht Hallo tooyour storage-account door het wijzigen van Hallo **Transfer periode (min)** waarde.
 
-Kunt u de selectievakjes van de logboeken die u verzamelen wilt, zoals **IIS-logboeken** en **kan aanvragen** Logboeken. Standaard opslag containernamen worden opgegeven, maar u kunt de namen wijzigen als u wilt.
+Kunt u de vakken Hallo Hallo logboeken die u wilt dat toocollect, zoals **IIS-logboeken** en **kan aanvragen** Logboeken. Standaard opslag containernamen worden opgegeven, maar u kunt Hallo namen wijzigen als u wilt.
 
-U kunt ook de logboeken van de map vastleggen. Alleen het pad opgeven in de **logboek van Directory Absolute** sectie en kies vervolgens de **map toevoegen** knop. De logboeken wordt aan de opgegeven containers worden vastgelegd.
+U kunt ook de logboeken van de map vastleggen. NET Hallo pad opgeeft in Hallo **logboek van Directory Absolute** sectie en kies vervolgens Hallo **map toevoegen** knop. Hallo Logboeken wordt vastgelegd toohello containers opgegeven.
 
   ![Logboek mappen](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796665.png)
 
 ### <a name="etw-logs"></a>ETW-Logboeken
-Als u [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803\(v=vs.85\).aspx) (ETW) en wilt vastleggen ETW-Logboeken, selecteer de **overdracht van ETW-Logboeken inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer de logboeken worden overgebracht naar uw opslagaccount door het wijzigen van de **Transfer periode (min)** waarde.
+Als u [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803\(v=vs.85\).aspx) (ETW) en toocapture ETW Logboeken, selecteer hello wilt **overdracht van ETW-Logboeken inschakelen** selectievakje. U kunt vergroten of verkleinen het aantal minuten wanneer Hallo logboeken worden overgebracht Hallo tooyour storage-account door het wijzigen van Hallo **Transfer periode (min)** waarde.
 
-De gebeurtenissen worden vastgelegd van bronnen van gebeurtenissen en het gebeurtenismanifesten die u opgeeft. Als u een gebeurtenisbron, voer een naam in de **gebeurtenisbronnen** sectie en kies vervolgens de **gebeurtenisbron toevoegen** knop. Op deze manier kunt u een manifest van de gebeurtenis in de **gebeurtenis manifesten** sectie en kies vervolgens de **toevoegen gebeurtenis Manifest** knop.
+Hallo-gebeurtenissen worden vastgelegd van bronnen van gebeurtenissen en het gebeurtenismanifesten die u opgeeft. toospecify een gebeurtenisbron, voer een naam in Hallo **gebeurtenisbronnen** sectie en kies vervolgens Hallo **gebeurtenisbron toevoegen** knop. Op deze manier kunt u een manifest van de gebeurtenis opgeven in Hallo **gebeurtenis manifesten** sectie en kies vervolgens Hallo **toevoegen gebeurtenis Manifest** knop.
 
   ![ETW-Logboeken](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  Het ETW-framework wordt in ASP.NET ondersteund door de klassen in [System.Diagnostics.aspx] (naamruimte https://msdn.microsoft.com/library/system.diagnostics (v=vs.110). De Microsoft.WindowsAzure.Diagnostics naamruimte overneemt en standard [System.Diagnostics.aspx] breidt (https://msdn.microsoft.com/library/system.diagnostics (v=vs.110) klassen, maakt het gebruik van [System.Diagnostics.aspx] (https : //msdn.microsoft.com/library/system.diagnostics(v=vs.110) als een framework voor logboekregistratie in de Azure-omgeving. Zie voor meer informatie [besturingselement nemen van logboekregistratie en tracering in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) en [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services/cloud-services-dotnet-diagnostics.md).
+  Hallo ETW-framework wordt in ASP.NET ondersteund door de klassen in Hallo [System.Diagnostics.aspx] (naamruimte https://msdn.microsoft.com/library/system.diagnostics (v=vs.110). Hallo Microsoft.WindowsAzure.Diagnostics naamruimte overneemt en breidt standaard [System.Diagnostics.aspx] (klassen https://msdn.microsoft.com/library/system.diagnostics (v=vs.110), schakelt Hallo gebruik van () [System.Diagnostics.aspx] https://msdn.Microsoft.com/library/System.Diagnostics (v=vs.110) als een framework voor logboekregistratie in hello Azure-omgeving. Zie voor meer informatie [besturingselement nemen van logboekregistratie en tracering in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) en [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### <a name="crash-dumps"></a>Crashdumps
-Als u wilt vastleggen van gegevens over wanneer een rolinstantie is vastgelopen, selecteert u de **inschakelen van de overdracht van Crash dumpen** selectievakje. (Omdat ASP.NET de meeste uitzonderingen verwerkt, dit is doorgaans alleen nuttig voor werkrollen.) U kunt vergroten of verkleinen van het percentage van de opslagruimte die aan de crashdumps besteed door het wijzigen van de **Directory quotum (%)** waarde. U kunt de opslagcontainer waarin de crashdumps worden opgeslagen en u kunt aangeven of u wilt vastleggen wijzigen een **volledige** of **Mini** dump.
+Als u toocapture informatie wilt over wanneer een rolinstantie is vastgelopen, selecteert u Hallo **inschakelen van de overdracht van Crash dumpen** selectievakje. (Omdat ASP.NET de meeste uitzonderingen verwerkt, dit is doorgaans alleen nuttig voor werkrollen.) U kunt vergroten of verkleinen Hallo percentage van de opslag ruimte gewijd toohello crashdumps door het wijzigen van Hallo **Directory quotum (%)** waarde. Hallo storage-container waar Hallo crashdumps worden opgeslagen en u kunt aangeven of u wilt dat toocapture kunt u een **volledige** of **Mini** dump.
 
-De processen die momenteel worden bijgehouden, worden weergegeven. Schakel de selectievakjes voor de processen die u wilt vastleggen. Een ander proces toevoegen aan de lijst, voer de procesnaam en kies vervolgens de **proces toevoegen** knop.
+Hallo-processen die momenteel worden bijgehouden, worden weergegeven. Schakel de selectievakjes Hallo voor Hallo processen die u toocapture wilt. tooadd een ander proces toohello lijst, Voer Hallo procesnaam en kies vervolgens Hallo **proces toevoegen** knop.
 
   ![Crashdumps](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766026.png)
 
   Zie [besturingselement nemen van logboekregistratie en tracering in Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) en [Microsoft Azure Diagnostics deel 4: aangepaste logboekregistratie onderdelen en Azure Diagnostics 1.3 wijzigingen](http://justazure.com/microsoft-azure-diagnostics-part-4-custom-logging-components-azure-diagnostics-1-3-changes/) voor meer informatie.
 
-## <a name="view-the-diagnostics-data"></a>De diagnostics-gegevens weergeven
-Als u de diagnostics-gegevens voor een cloudservice of een virtuele machine hebt verzameld, kunt u het kunt weergeven.
+## <a name="view-hello-diagnostics-data"></a>Hallo diagnostics-gegevens weergeven
+Als u Hallo diagnostics-gegevens voor een cloudservice of een virtuele machine hebt verzameld, kunt u het kunt weergeven.
 
-### <a name="to-view-cloud-service-diagnostics-data"></a>Cloud service diagnostische gegevens weergeven
+### <a name="tooview-cloud-service-diagnostics-data"></a>tooview cloud service diagnostics-gegevens
 1. Implementeer uw cloudservice als normaal en vervolgens uit te voeren.
-2. U kunt de diagnostics-gegevens weergeven in een rapport met Visual Studio gegenereerd of tabellen in uw opslagaccount. U kunt de gegevens in een rapport bekijken **Cloud Explorer** of **Server Explorer**, open het snelmenu van het knooppunt voor de rol die u interesseert en kies vervolgens **weergave diagnostische gegevens**.
+2. U kunt Hallo diagnostics-gegevens weergeven in een rapport met Visual Studio gegenereerd of tabellen in uw opslagaccount. tooview hello gegevens in een rapport openen **Cloud Explorer** of **Server Explorer**, snelmenu Hallo van knooppunt voor Hallo-rol die u interesseert Hallo openen en kies vervolgens **diagnostische gegevens weergeven** .
    
     ![De Diagnostics-gegevens weergeven](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748912.png)
    
-    Een rapport met de beschikbare gegevens wordt weergegeven.
+    Een rapport met de beschikbare gegevens hello wordt weergegeven.
    
     ![Rapport van de Microsoft Azure Diagnostics in Visual Studio](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796666.png)
    
-    Als de meest recente gegevens niet wordt weergegeven, moet u wellicht wacht u totdat de overdracht is verstreken.
+    Als de meest recente gegevens Hallo niet wordt weergegeven, kunt u toowait voor Hallo overdracht periode tooelapse wellicht.
    
-    Kies de **vernieuwen** koppelen aan de gegevens direct bijwerken of kies een interval in de **automatisch vernieuwen** vervolgkeuzelijst om de gegevens automatisch bijgewerkt. De om foutgegevens te exporteren, kies de **exporteren naar CSV** knop een door komma's gescheiden waarde-bestand dat u in een werkblad openen kunt te maken.
+    Kies Hallo **vernieuwen** tooimmediately update Hallo gegevens koppelen of kies een interval in Hallo **automatisch vernieuwen** dropdown vak toohave Hallo lijstgegevens automatisch bijgewerkt. Foutgegevens tooexport hello, kies Hallo **tooCSV exporteren** knop toocreate een CSV-bestand u in een werkblad openen kunt.
    
-    In **Cloud Explorer** of **Server Explorer**, opent u het opslagaccount dat is gekoppeld aan de implementatie.
-3. Open de diagnostics-tabellen in de tabel viewer en controleer de gegevens die u hebt verzameld. U kunt een blob-container openen voor IIS-logboeken en aangepaste logboeken. Aan de hand van de volgende tabel vindt u de tabel of blob-container die de gegevens bevat die u bent geïnteresseerd. Naast de gegevens voor die logboekbestand items in de tabel bevatten EventTickCount, DeploymentId rol en RoleInstance om te identificeren welke virtuele machine en de rol van de gegevens gegenereerd en wanneer. 
+    In **Cloud Explorer** of **Server Explorer**, open Hallo storage-account die is gekoppeld aan het Hallo-implementatie.
+3. Open Hallo diagnostics tabellen in de viewer voor Hallo-tabel en controleer Hallo-gegevens die u hebt verzameld. U kunt een blob-container openen voor IIS-logboeken en aangepaste logboeken. U vindt aan de hand van de volgende tabel Hallo Hallo tabel of blob-container die Hallo gegevens bevat die u bent geïnteresseerd. Bovendien toohello gegevens voor die logboekbestand, Hallo tabelvermeldingen EventTickCount, DeploymentId, rol bevatten en RoleInstance toohelp u identificeren welke virtuele machine en de rol Hallo gegevens gegenereerd en wanneer. 
    
    | Diagnostische gegevens | Beschrijving | Locatie |
    | --- | --- | --- |
-   | Toepassingslogboeken |De logboeken die uw code wordt gegenereerd door het aanroepen van methoden van de klasse System.Diagnostics.Trace. |WADLogsTable |
-   | Gebeurtenislogboeken |Deze gegevens zijn uit de Windows-gebeurtenislogboeken op de virtuele machines. Slaat Windows de informatie in deze logboeken, maar toepassingen en services ook gebruiken om te rapporteren van fouten of logboekgegevens. |WADWindowsEventLogsTable |
-   | Prestatiemeteritems |U kunt gegevens verzamelen op elk prestatiemeteritem dat beschikbaar is op de virtuele machine. Het besturingssysteem biedt prestatiemeteritems, waaronder veel statistische gegevens zoals geheugen en de processor tijd. |WADPerformanceCountersTable |
-   | Logboeken van de infrastructuur |Deze logboeken worden gegenereerd op basis van de infrastructuur van diagnostische gegevens zelf. |WADDiagnosticInfrastructureLogsTable |
-   | IIS-logboeken |Deze logboeken vastleggen webaanvragen. Als uw cloudservice een aanzienlijke hoeveelheid verkeer ontvangt, zijn deze logboeken behoorlijk langdurige, dus u moet verzamelen en opslaan van deze gegevens alleen wanneer u deze nodig. |U vindt is mislukt-aanvraag wordt geregistreerd in de blob-container onder af iis failedreqlogs onder een pad op voor deze implementatie, rol en exemplaar. U vindt de volledige Logboeken onder af-iis-logboekbestanden. Vermeldingen voor elk bestand worden in de tabel WADDirectories gedaan. |
+   | Toepassingslogboeken |De logboeken die uw code wordt gegenereerd door het aanroepen van methoden van Hallo System.Diagnostics.Trace klasse. |WADLogsTable |
+   | Gebeurtenislogboeken |Deze gegevens is van het Windows-gebeurtenislogboeken Hallo op Hallo virtuele machines. Slaat Windows de informatie in deze logboeken, maar toepassingen en services ook gebruik van tooreport fouten of logboekgegevens. |WADWindowsEventLogsTable |
+   | Prestatiemeteritems |U kunt gegevens verzamelen op elk prestatiemeteritem dat beschikbaar is op Hallo virtuele machine. Hallo-besturingssysteem biedt prestatiemeteritems, waaronder veel statistische gegevens zoals geheugen en de processor tijd. |WADPerformanceCountersTable |
+   | Logboeken van de infrastructuur |Deze logboeken worden gegenereerd vanuit Hallo diagnostics infrastructuur zelf. |WADDiagnosticInfrastructureLogsTable |
+   | IIS-logboeken |Deze logboeken vastleggen webaanvragen. Als uw cloudservice een aanzienlijke hoeveelheid verkeer ontvangt, zijn deze logboeken behoorlijk langdurige, dus u moet verzamelen en opslaan van deze gegevens alleen wanneer u deze nodig. |U vindt is mislukt-aanvraag wordt geregistreerd in de blob-container Hallo onder af iis failedreqlogs onder een pad op voor deze implementatie, rol en exemplaar. U vindt de volledige Logboeken onder af-iis-logboekbestanden. Vermeldingen voor elk bestand zijn aangebracht in Hallo WADDirectories tabel. |
    | Crashdumps |Deze informatie biedt binaire installatiekopieën van uw cloudservice-proces (meestal een werkrol). |af-crush-dumpbestanden voor blob-container |
-   | Aangepaste logboekbestanden |Logboeken van de gegevens die u vooraf gedefinieerd. |U kunt in de code de locatie opgeven van aangepaste logboekbestanden in uw opslagaccount. U kunt bijvoorbeeld een aangepaste blob-container opgeven. |
-4. Als u gegevens van een willekeurig type worden afgekapt, kunt u proberen verhogen van de buffer voor die gegevens type of verkort het interval tussen de overdracht van gegevens van de virtuele machine naar uw opslagaccount.
-5. (optioneel) Gegevens verwijderen uit het opslagaccount van tijd tot tijd om de algehele opslagkosten te verlagen.
-6. Wanneer u een volledige implementatie, het bestand diagnostics.cscfg (.wadcfgx voor Azure SDK 2.5) wordt bijgewerkt in Azure en uw cloudservice neemt over wijzigingen in de configuratie van de diagnostische gegevens. Als u, in plaats daarvan een bestaande implementatie hebt bijgewerkt, wordt het cscfg-bestand is niet bijgewerkt in Azure. U kunt nog steeds de diagnostische instellingen echter wijzigen door de stappen in de volgende sectie. Zie voor meer informatie over het uitvoeren van een volledige implementatie en het bijwerken van een bestaande implementatie [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+   | Aangepaste logboekbestanden |Logboeken van de gegevens die u vooraf gedefinieerd. |U kunt opgeven in code Hallo locatie van aangepaste logboekbestanden in uw opslagaccount. U kunt bijvoorbeeld een aangepaste blob-container opgeven. |
+4. Als de gegevens van een willekeurig type worden afgekapt, kunt u proberen toenemende Hallo buffer voor die gegevenstype of korten Hallo interval tussen de overdracht van gegevens van Hallo virtuele machine tooyour storage-account.
+5. (optioneel) Opschonen van gegevens uit Hallo storage account van tijd tot tijd tooreduce algehele kosten voor opslag.
+6. Wanneer u een volledige implementatie doet, Hallo diagnostics.cscfg-bestand (.wadcfgx voor Azure SDK 2.5) wordt bijgewerkt in Azure en uw cloudservice opneemt in een willekeurige configuratie wijzigingen tooyour diagnostische gegevens. Als u, in plaats daarvan een bestaande implementatie hebt bijgewerkt, worden Hallo cscfg-bestand niet bijgewerkt in Azure. U kunt nog steeds diagnostische instellingen echter wijzigen door de stappen in de volgende sectie Hallo Hallo. Zie voor meer informatie over het uitvoeren van een volledige implementatie en het bijwerken van een bestaande implementatie [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
 
-### <a name="to-view-virtual-machine-diagnostics-data"></a>Virtuele machine diagnostische gegevens weergeven
-1. Kies in het snelmenu voor de virtuele machine **weergave Diagnostics-gegevens**.
+### <a name="tooview-virtual-machine-diagnostics-data"></a>Diagnostische gegevens van tooview virtuele machines
+1. Kies in het snelmenu Hallo voor Hallo virtuele machine, **weergave Diagnostics-gegevens**.
    
     ![Diagnostische gegevens weergeven in de virtuele machine van Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766027.png)
    
-    Hiermee opent u de **Diagnostics samenvatting** venster.
+    Hiermee opent u Hallo **Diagnostics samenvatting** venster.
    
     ![Virtuele machine van Azure diagnostics samenvatting](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796667.png)  
    
-    Als de meest recente gegevens niet wordt weergegeven, moet u wellicht wacht u totdat de overdracht is verstreken.
+    Als de meest recente gegevens Hallo niet wordt weergegeven, kunt u toowait voor Hallo overdracht periode tooelapse wellicht.
    
-    Kies de **vernieuwen** koppelen aan de gegevens direct bijwerken of kies een interval in de **automatisch vernieuwen** vervolgkeuzelijst om de gegevens automatisch bijgewerkt. De om foutgegevens te exporteren, kies de **exporteren naar CSV** knop een door komma's gescheiden waarde-bestand dat u in een werkblad openen kunt te maken.
+    Kies Hallo **vernieuwen** tooimmediately update Hallo gegevens koppelen of kies een interval in Hallo **automatisch vernieuwen** dropdown vak toohave Hallo lijstgegevens automatisch bijgewerkt. Foutgegevens tooexport hello, kies Hallo **tooCSV exporteren** knop toocreate een CSV-bestand u in een werkblad openen kunt.
 
 ## <a name="configure-cloud-service-diagnostics-after-deployment"></a>Cloud service diagnostische gegevens configureren na implementatie
-Als u bij het onderzoeken van een probleem met een cloud service die al wordt uitgevoerd, kunt u voor het verzamelen van gegevens die u hebt opgegeven voordat u de rol oorspronkelijk geïmplementeerd. U kunt in dit geval starten voor het verzamelen van gegevens met behulp van de instellingen in Server Explorer. U kunt diagnostische gegevens voor één exemplaar of alle exemplaren in een rol, afhankelijk van of u het dialoogvenster configuratie van diagnostische vanuit het snelmenu voor het exemplaar of de functie openen configureren. Als u het knooppunt rol configureert, worden eventuele wijzigingen gelden voor alle exemplaren. Als u het knooppunt exemplaar configureert, worden eventuele wijzigingen gelden voor alleen dat exemplaar.
+Als u een probleem met een cloudservice die al wordt uitgevoerd onderzoeken, kunt u toocollect gegevens die u hebt opgegeven voordat u oorspronkelijk geïmplementeerde Hallo-rol. In dit geval kunt u starten toocollect die gegevens met behulp van Hallo-instellingen in Server Explorer. U kunt diagnostische gegevens voor één exemplaar of alle exemplaren van Hallo configureren in een rol, afhankelijk van of u in het dialoogvenster Hallo-configuratie van diagnostische in het snelmenu Hallo Hallo-exemplaar of Hallo-rol opent. Als u Hallo rol knooppunt configureert, eventuele wijzigingen tooall exemplaren gelden. Als u Hallo exemplaar knooppunt configureert, eventuele wijzigingen toothat exemplaar alleen gelden.
 
-### <a name="to-configure-diagnostics-for-a-running-cloud-service"></a>Diagnostische gegevens voor een actieve cloudservice configureren
-1. Vouw in Server Explorer de **Cloudservices** knooppunt, en vouw de knooppunten om te zoeken van de rol of -exemplaar dat u wilt onderzoeken of beide.
+### <a name="tooconfigure-diagnostics-for-a-running-cloud-service"></a>tooconfigure diagnostische gegevens voor een actieve cloudservice
+1. Vouw in Server Explorer Hallo **Cloudservices** knooppunt, en vouw vervolgens knooppunten toolocate Hallo rol of -exemplaar dat u tooinvestigate of beide wilt.
    
     ![Configuratie van diagnostische gegevens](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC748913.png)
-2. Kies in het snelmenu voor het knooppunt van een exemplaar of een knooppunt van de rol **Update diagnostische instellingen**, en kies vervolgens de diagnostische instellingen die u wilt verzamelen.
+2. Kies in het snelmenu Hallo voor een knooppunt van het exemplaar of een knooppunt van de rol, **Update diagnostische instellingen**, en kies vervolgens Hallo diagnostische instellingen die u toocollect wilt.
    
-    Zie voor informatie over de configuratie-instellingen, **gegevensbronnen van diagnostische gegevens configureren** in dit onderwerp. Zie voor meer informatie over het weergeven van de diagnostics-gegevens **de diagnostics-gegevens weergeven** in dit onderwerp.
+    Zie voor meer informatie over de configuratie-instellingen Hallo **gegevensbronnen van diagnostische gegevens configureren** in dit onderwerp. Zie voor meer informatie over hoe tooview diagnostics-gegevens Hallo **Hallo diagnostische gegevens bekijken** in dit onderwerp.
    
-    Als u het verzamelen van gegevens in wijzigt **Server Explorer**, deze wijzigingen blijven van kracht totdat u de cloudservice volledig opnieuw implementeren. Als u de standaardwaarde gebruiken publicatie-instellingen, de wijzigingen niet worden overschreven, omdat het publiceren van de standaard-instelling is bijwerken van de bestaande implementatie in plaats van een volledig opnieuw implementeren gaande doen. Om er zeker van te zijn de instellingen tijdens de implementatie wissen, gaat u naar de **geavanceerde instellingen** tabblad in de wizard Publiceren en wis de **implementatie-update** selectievakje. Wanneer u opnieuw met dit selectievakje is uitgeschakeld implementeert, terug de instellingen die in het bestand .wadcfgx (of .wadcfg) zoals ingesteld via de eigenschappen van editor voor de rol. Als u uw implementatie hebt bijgewerkt, houdt Azure de oude instellingen.
+    Als u het verzamelen van gegevens in wijzigt **Server Explorer**, deze wijzigingen blijven van kracht totdat u de cloudservice volledig opnieuw implementeren. Als u Hallo standaard publicatie-instellingen, Hallo wijzigingen zijn niet overschreven, aangezien Hallo standaard publiceren instelling tooupdate Hallo bestaande implementatie, in plaats van komen een volledig opnieuw implementeren gaande is. toomake ervoor Hallo instellingen wissen tijdens de implementatie gaat toohello **geavanceerde instellingen** tabblad in de wizard Publiceren Hallo en wissen Hallo **implementatie-update** selectievakje. Wanneer u opnieuw met dit selectievakje is uitgeschakeld implementeert, terugzetten Hallo instellingen toothose in Hallo .wadcfgx (of .wadcfg) bestand als set via Hallo Eigenschappeneditor voor Hallo rol. Als u uw implementatie hebt bijgewerkt, houdt Azure Hallo oude instellingen.
 
 ## <a name="troubleshoot-azure-cloud-service-issues"></a>Problemen met Azure cloud service
-Als er problemen met uw cloudserviceprojecten, zoals een rol die blijft in 'bezet' status steken opgehaald herhaaldelijk wordt gerecycled of er een interne serverfout, er zijn hulpprogramma's en technieken die u kunt opsporen en oplossen van deze problemen. Zie voor specifieke voorbeelden van algemene problemen en oplossingen, evenals een overzicht van de concepten en hulpprogramma's voor het opsporen en oplossen van dergelijke fouten, [Azure PaaS Compute Diagnostics-gegevens](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Als er problemen met uw cloudserviceprojecten, zoals een rol die blijft in 'bezet' status steken opgehaald herhaaldelijk wordt gerecycled of er een interne serverfout, er zijn hulpprogramma's en technieken die u kunt gebruiken toodiagnose en los deze problemen. Zie voor specifieke voorbeelden van algemene problemen en oplossingen, evenals een overzicht van het Hallo-concepten en hulpprogramma's toodiagnose gebruikt en corrigeer deze fouten, [Azure PaaS Compute Diagnostics-gegevens](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 ## <a name="q--a"></a>Vragen en antwoorden
-**Wat de buffergrootte is en hoe lang deze moet?**
+**Wat Hallo buffergrootte is en hoe lang deze moet?**
 
-Op elk exemplaar van de virtuele machine beperken quota's hoeveel diagnostische gegevens kan worden opgeslagen op het lokale bestandssysteem. Bovendien het opgeven van een buffergrootte voor elk type diagnostische gegevens die beschikbaar is. Deze buffergrootte fungeert als een quotum voor dit type gegevens. U kunt de algehele quota en de hoeveelheid geheugen die overblijft bepalen door het controleren van de onderkant van het dialoogvenster. Als u groter buffers of meerdere typen gegevens opgeeft, moet u de algehele quota benaderen. U kunt de algehele quota wijzigen door het wijzigen van het configuratiebestand diagnostics.wadcfg/.wadcfgx. De diagnostics-gegevens worden opgeslagen op het bestandssysteem dezelfde als de gegevens van uw toepassing, dus als uw toepassing gebruikmaakt van een groot aantal schijfruimte, u kunt de algehele diagnostics quotum mag niet verhogen.
+Op elk exemplaar van de virtuele machine beperken quota's hoeveel diagnostische gegevens kan worden opgeslagen op het lokale bestandssysteem Hallo. Bovendien het opgeven van een buffergrootte voor elk type diagnostische gegevens die beschikbaar is. Deze buffergrootte fungeert als een quotum voor dit type gegevens. Hallo-onder in het dialoogvenster van Hallo inschakelt, kunt u bepalen Hallo algehele quota en Hallo en de hoeveelheid geheugen die overblijft. Als u groter buffers of meerdere typen gegevens opgeeft, moet u benadert Hallo algehele quotum. U kunt wijzigen Hallo algehele quotum doordat Hallo diagnostics.wadcfg/.wadcfgx-configuratiebestand. Hallo diagnostische gegevens worden opgeslagen op Hallo hetzelfde bestandssysteem als uw toepassingsgegevens, zodat als uw toepassing gebruikmaakt van een groot aantal schijfruimte, u Hallo mag niet meer algemene diagnostics quotum.
 
-**Wat is de periode voor de overdracht en hoe lang deze moet?**
+**Wat is er Hallo overdracht periode en hoe lang deze moet?**
 
-De overdracht periode is de hoeveelheid tijd die is verstreken tussen gegevens worden vastgelegd. Na elke periode overdracht worden gegevens verplaatst uit het lokale bestandssysteem op een virtuele machine aan tabellen in uw opslagaccount. Als de hoeveelheid gegevens die worden verzameld het quotum voor het einde van een overdracht-periode overschrijdt, wordt de oudere gegevens verwijderd. Mogelijk wilt de periode overdracht verlagen als u bent verlies van gegevens omdat de gegevens groter is dan de buffergrootte of het algehele quotum.
+Hallo overdracht periode is Hallo hoeveelheid tijd die is verstreken tussen gegevens worden vastgelegd. Na elke periode overdracht gegevens verplaatst van het lokale bestandssysteem Hallo op een virtuele machine tootables in uw opslagaccount. Hallo hoeveelheid gegevens die worden verzameld overschrijdt Hallo quotum voor Hallo einde van een overdracht-periode, oudere gegevens verwijderd. U kunt toodecrease Hallo overdracht periode als u gegevens verliest omdat uw gegevens groter is dan de buffergrootte Hallo of Hallo algehele quotum.
 
-**Welke tijdzone zijn de tijdstempels in?**
+**Welke tijdzone zijn Hallo tijdstempels in?**
 
-De tijdstempels zijn in de lokale tijdzone van het datacenter dat als host fungeert voor uw cloudservice. De volgende drie timestamp-kolommen in de tabellen logboek worden gebruikt.
+Hallo tijdstempels zijn in Hallo lokale tijdzone van Hallo datacenter dat als host fungeert voor uw cloudservice. Hallo worden volgende drie timestamp-kolommen in Hallo logboek tabellen gebruikt.
 
-* **PreciseTimeStamp** de ETW-tijdstempel van de gebeurtenis. Dat wil zeggen de tijd van de client wordt de gebeurtenis vastgelegd.
-* **TIJDSTEMPEL** wordt PreciseTimeStamp omlaag afgerond op de grens van de frequentie uploaden. Dus als uw uploadfrequentie 5 minuten en de gebeurtenis tijd 00:17:12 is, TIMESTAMP worden 00:15:00.
-* **Tijdstempel** de tijdstempel waarop de entiteit is gemaakt in de Azure-tabel.
+* **PreciseTimeStamp** Hallo ETW tijdstempel van Hallo-gebeurtenis. Dat wil zeggen, wordt Hallo tijd Hallo gebeurtenis geregistreerd in Hallo-client.
+* **TIJDSTEMPEL** PreciseTimeStamp naar beneden afgerond toohello uploaden frequentie grens. Dus als uw uploadfrequentie 5 minuten en Hallo gebeurtenis tijd 00:17:12 is, TIMESTAMP worden 00:15:00.
+* **Tijdstempel** Hallo tijdstempel op welke Hallo entiteit in hello Azure-tabel is gemaakt.
 
 **Hoe beheer ik kosten bij het verzamelen van diagnostische gegevens?**
 
-De standaardinstellingen (**Meld niveau** ingesteld op **fout** en **overdracht periode** ingesteld op **1 minuut**) zijn ontworpen om kosten te minimaliseren. De compute-kosten wordt verhoogd als u meer diagnostische gegevens verzamelen of verklein de periode voor overdracht. Niet meer gegevens dan u nodig hebt en u niet vergeten om het verzamelen van gegevens uitschakelen wanneer u niet langer verzamelen. U kunt altijd het opnieuw inschakelen, zelfs tijdens runtime, zoals wordt weergegeven in de vorige sectie.
+Hallo standaardinstellingen (**Meld niveau** instellen te**fout** en **overdracht periode** instellen te**1 minuut**) zijn ontworpen toominimize kosten. De compute-kosten wordt verhoogd als u meer diagnostische gegevens verzamelen of verklein Hallo overdracht periode. Niet meer gegevens dan u nodig hebt en niet de gegevensverzameling toodisable vergeet wanneer u niet langer verzamelen. U kunt altijd het opnieuw inschakelen, zelfs tijdens runtime, zoals wordt weergegeven in de vorige sectie Hallo.
 
 **Hoe ik Logboeken is mislukt-aanvragen verzamelen uit IIS?**
 
-Standaard verzamelen niet IIS logboeken is mislukt-aanvragen. U kunt IIS voor het verzamelen van deze als u het bestand web.config voor de Webrol bewerken configureren.
+Standaard verzamelen niet IIS logboeken is mislukt-aanvragen. U kunt IIS toocollect ze als u het bestand web.config voor de Webrol Hallo configureren.
 
 **Ik ben traceringsinformatie niet ophalen uit RoleEntryPoint methoden zoals OnStart. Wat is er aan de hand?**
 
-De methoden van RoleEntryPoint worden genoemd in de context van WAIISHost.exe, niet in IIS. Daarom de configuratiegegevens in web.config die normaal gesproken schakelt tracering niet van toepassing. U lost dit probleem, een .config-bestand toevoegen aan uw webrolproject en noem het bestand overeenkomen met de uitvoer-assembly die de RoleEntryPoint-code bevat. In het webrolproject standaard is de naam van het .config-bestand WAIISHost.exe.config. Voeg vervolgens de volgende regels toe aan dit bestand:
+Hallo-methoden van RoleEntryPoint worden genoemd in de context Hallo van WAIISHost.exe, niet in IIS. Daarom Hallo configuratiegegevens in web.config die normaal gesproken schakelt tracering niet van toepassing. tooresolve dit probleem op door een .config-bestand tooyour-webproject rol toevoegen en Hallo bestand toomatch Hallo uitvoer assembly Hallo RoleEntryPoint code met de naam. Hallo-naam van Hallo .config-bestand wordt in het Hallo-webrolproject voor standaard WAIISHost.exe.config. Voeg vervolgens Hallo volgende toothis regels toe:
 
 ```
 <system.diagnostics>
@@ -297,8 +297,8 @@ De methoden van RoleEntryPoint worden genoemd in de context van WAIISHost.exe, n
 </system.diagnostics>
 ```
 
-Nu in de **eigenschappen** Stel venster de **naar uitvoermap kopiëren** eigenschap **altijd kopiëren**.
+Nu in Hallo **eigenschappen** venster, set Hallo **tooOutput Directory kopiëren** eigenschap te**altijd kopiëren**.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over diagnostische gegevens van logboekregistratie in Azure, [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services/cloud-services-dotnet-diagnostics.md) en [logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md).
+toolearn meer informatie over diagnostische gegevens van logboekregistratie in Azure, Zie [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](cloud-services/cloud-services-dotnet-diagnostics.md) en [logboekregistratie van diagnostische gegevens van web-apps in Azure App Service](app-service-web/web-sites-enable-diagnostic-log.md).
 

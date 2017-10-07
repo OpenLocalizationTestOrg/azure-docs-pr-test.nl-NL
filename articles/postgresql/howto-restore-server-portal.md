@@ -1,6 +1,6 @@
 ---
-title: Het herstellen van een Server in Azure-Database voor PostgreSQL | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u een server in Azure-Database herstelt voor PostgreSQL met de Azure portal.
+title: Hoe een Server in Azure-Database voor PostgreSQL tooRestore | Microsoft Docs
+description: Dit artikel wordt beschreven hoe een server in Azure-Database voor het gebruik van PostgreSQL toorestore hello Azure-portal.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,47 +9,47 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: bc7351f384607397806d837afd3e1d7a26575e0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Het back-up en herstellen van een server in Azure-Database voor PostgreSQL met de Azure portal
+# <a name="how-toobackup-and-restore-a-server-in-azure-database-for-postgresql-using-hello-azure-portal"></a>Hoe tooBackup en terugzetten van een server in Azure-Database voor het gebruik van PostgreSQL hello Azure-portal
 
 ## <a name="backup-happens-automatically"></a>Back-up automatisch wordt uitgevoerd
-Wanneer u Azure-Database voor PostgreSQL, wordt de database-service automatisch een back-up van de service om de 5 minuten. 
+Wanneer u Azure-Database voor PostgreSQL, wordt Hallo database-service automatisch een back-up van Hallo-service om de 5 minuten. 
 
-De back-ups zijn beschikbaar voor de zeven dagen bij gebruik van Basisstaffel en 35 dagen bij gebruik van de Standard-laag. Zie voor meer informatie [Azure Database voor de Servicelagen PostgreSQL](concepts-service-tiers.md)
+Hallo back-ups zijn beschikbaar voor de zeven dagen bij gebruik van Basisstaffel en 35 dagen bij gebruik van de Standard-laag. Zie voor meer informatie [Azure Database voor de Servicelagen PostgreSQL](concepts-service-tiers.md)
 
-Met deze functie voor automatische back-up kan u de server en alle bijbehorende databases herstellen naar een nieuwe server aan een eerder punt in tijd.
+Met deze functie voor automatische back-up kan u Hallo-server en alle bijbehorende databases herstellen naar een nieuwe server tooan eerder punt in tijd.
 
-## <a name="restore-in-the-azure-portal"></a>Herstellen in de Azure portal
-Azure PostgreSQL-Database kunt u de server weer terugzetten naar een punt in tijd en in op een nieuwe kopie van de server. U kunt deze nieuwe server gebruiken om uw gegevens te herstellen. 
+## <a name="restore-in-hello-azure-portal"></a>Herstellen in hello Azure-portal
+Azure PostgreSQL-Database kunt u toorestore Hallo server back-tooa punt in tijd en in nieuwe versie van de tooa van Hallo-server. U kunt deze nieuwe server toorecover uw gegevens. 
 
-Bijvoorbeeld, als een tabel per ongeluk is kan verwijderd op twaalf uur 's middags vandaag de dag u herstellen en de tijd net vóór twaalf uur 's middags en ophalen van de ontbrekende tabel en de gegevens van die nieuwe kopie van de server.
+Bijvoorbeeld, als een tabel per ongeluk is kan verwijderd op twaalf uur 's middags vandaag de dag u herstellen toohello tijd net vóór twaalf uur 's middags en Hallo ontbrekende tabel en gegevens van die nieuwe versie van Hallo server ophalen.
 
-De volgende stappen uit voor het herstellen van de voorbeeldserver naar een punt in tijd:
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/)
-2. Ga naar uw Azure-Database voor PostgreSQL-server. Klik in de Azure-portal op **alle Resources** uit het menu links en typ de naam zoals **mypgserver 20170401**, om te zoeken naar de bestaande server. Klik op de servernaam in de zoekresultaten. De pagina **Overzicht** wordt geopend voor uw server en biedt opties voor verdere configuratie.
+Hallo herstelpunt volgt Hallo voorbeeld server tooa in tijd:
+1. Meld u aan bij Hallo [Azure-portal](https://portal.azure.com/)
+2. Ga naar uw Azure-Database voor PostgreSQL-server. In hello Azure-portal, klikt u op **alle Resources** van links menu Hallo en typt u de naam van de Hallo, zoals **mypgserver 20170401**, toosearch voor uw bestaande server. Klik op Hallo servernaam weergegeven in zoekresultaten Hallo. Hallo **overzicht** pagina voor de server wordt geopend en opties voor verdere configuratie biedt.
 
-   ![Azure portal - zoekt u naar de server](media/postgresql-howto-restore-server-portal/1-locate.png)
+   ![Azure-portal - toolocate uw server zoeken](media/postgresql-howto-restore-server-portal/1-locate.png)
 
-3. Klik boven aan de overzichtsblade van server **herstellen** op de werkbalk. De Restore-blade wordt geopend.
+3. Klik op Hallo bovenaan Hallo server overzichtsblade **herstellen** op Hallo-werkbalk. Hallo terugzetten blade wordt geopend.
 
    ![Azure-Database voor herstel PostgreSQL - overzicht - knop](./media/postgresql-howto-restore-server-portal/2_server.png)
 
-4. Vul het formulier terugzetten met de vereiste informatie in:
+4. Hallo terugzetten formulier met Hallo vereiste informatie invullen:
 
    ![Azure-Database voor PostgreSQL - informatie terugzetten ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Herstelpunt**: Selecteer een point-in-time die deze gebeurtenis treedt op voordat de server is gewijzigd
-  - **Doelserver**: Geef een nieuwe servernaam die u terugzetten wilt naar
-  - **Locatie**: U kunt de regio niet selecteren, standaard is dit hetzelfde als de bronserver
-  - **Prijscategorie**: U kunt deze waarde niet wijzigen bij het herstellen van een server. Dit is hetzelfde als de bronserver. 
+  - **Herstelpunt**: Selecteer een point-in-time die deze gebeurtenis treedt op voordat het Hallo-server is gewijzigd
+  - **Doelserver**: Geef een nieuwe naam van een server toorestore naar gewenste
+  - **Locatie**: U kunt geen Hallo regio selecteren, standaard is dit hetzelfde als de bronserver Hallo
+  - **Prijscategorie**: U kunt deze waarde niet wijzigen bij het herstellen van een server. Dit is hetzelfde als de bronserver Hallo. 
 
-5. Klik op **OK** om de server te herstellen naar een punt in tijd te herstellen. 
+5. Klik op **OK** toorestore Hallo server toorestore tooa punt in tijd. 
 
-6. Nadat het herstel is voltooid, zoek de nieuwe server die wordt gemaakt om te controleren of dat de gegevens is hersteld, zoals verwacht.
+6. Zodra het Hallo terugzetten is voltooid, zoek Hallo nieuwe server die wordt gemaakt tooverify Hallo gegevens is hersteld, zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Verbindingsbibliotheken voor Azure-Database voor PostgreSQL](concepts-connection-libraries.md)

@@ -1,6 +1,6 @@
 ---
-title: PhoneFactor upgraden naar Azure MFA-server | Microsoft Docs
-description: Ga aan de slag met Azure MFA-server bij het upgraden van de oudere PhoneFactor-agent.
+title: aaaUpgrade PhoneFactor tooAzure MFA-Server | Microsoft Docs
+description: Aan de slag met Azure MFA-Server wanneer u een upgrade van Hallo oudere phonefactor-agent uitvoert.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: kgremban
-ms.openlocfilehash: 7ab7e693909f807781744ae53eed75d425096590
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 15b7b8517929c30f66e6a39cd44c69d12d25c6d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>De PhoneFactor-agent upgraden naar Azure Multi-Factor Authentication-server
-Als u PhoneFactor-agent versie 5.x of ouder wilt upgraden naar Azure Multi-Factor Authentication-server, verwijdert u eerst de PhoneFactor-agent en alle bijbehorende onderdelen. Vervolgens kunnen de Multi-Factor Authentication-server en de bijbehorende onderdelen worden geïnstalleerd.
+# <a name="upgrade-hello-phonefactor-agent-tooazure-multi-factor-authentication-server"></a>Hallo PhoneFactor Agent tooAzure multi-factor Authentication-Server bijwerken
+tooupgrade hello PhoneFactor Agent versie 5.x of oudere tooAzure multi-factor Authentication-Server, Hallo PhoneFactor Agent verwijderen en eerst onderdelen gekoppeld. Vervolgens Hallo multi-factor Authentication-Server en de verbonden onderdelen kunnen worden geïnstalleerd.
 
-## <a name="uninstall-the-phonefactor-agent"></a>De PhoneFactor-agent verwijderen
+## <a name="uninstall-hello-phonefactor-agent"></a>Hallo PhoneFactor Agent verwijderen
 
-1. Maak eerst een back-up van het PhoneFactor-gegevensbestand. De standaardlocatie voor installatie is C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
+1. Ten eerste back-up Hallo PhoneFactor-gegevensbestand. Hallo standaardlocatie voor installatie is C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata.
 
-2. Ga als volgt te werk als de gebruikersportal is geïnstalleerd:
-  1. Ga naar de installatiemap en maak een back-up van het bestand web.config. De standaardlocatie voor installatie is C:\inetpub\wwwroot\PhoneFactor.
+2. Hallo Gebruikersportal is geïnstalleerd:
+  1. Navigeer installatiemap toohello en back-up Hallo web.config-bestand. Hallo standaardlocatie voor installatie is C:\inetpub\wwwroot\PhoneFactor.
 
-  2. Als u aangepaste thema's aan de portal hebt toegevoegd, maak dan een back-up van uw aangepaste map onder de map C:\inetpub\wwwroot\PhoneFactor\App_Themes.
+  2. Als u aangepaste thema's toohello portal hebt toegevoegd, back-up van uw aangepaste map onder Hallo C:\inetpub\wwwroot\PhoneFactor\App_Themes directory.
 
-  3. Verwijder de gebruikersportal via de PhoneFactor-agent (alleen beschikbaar als deze is geïnstalleerd op dezelfde server als de PhoneFactor-agent) of via Windows Programma's en onderdelen.
+  3. Hallo Gebruikersportal via Hallo PhoneFactor Agent verwijderen (alleen beschikbaar als geïnstalleerd op Hallo dezelfde server als Hallo PhoneFactor Agent) of via Windows-programma's en onderdelen.
 
-3. Ga als volgt te werk als de webservice voor mobiele apps is geïnstalleerd:
+3. Hallo webservice voor mobiele App is geïnstalleerd:
 
-  1. Ga naar de installatiemap en maak een back-up van het bestand web.config. De standaardlocatie voor installatie is C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.
+  1. Ga toohello installatiemap en back-up Hallo web.config-bestand. Hallo standaardlocatie voor installatie is C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.
 
-  2. Verwijder de webservice voor mobiele apps via Windows Programma's en onderdelen.
+  2. Hallo Mobile App Web Service via Windows-programma's en onderdelen verwijderen.
 
-4. Als de webservice-SDK is geïnstalleerd, verwijder deze dan via de PhoneFactor-agent of via Windows Programma's en onderdelen.
+4. Als Hallo Web Service SDK is geïnstalleerd, moet u het verwijdert via Hallo PhoneFactor Agent of via Windows programma's en onderdelen.
 
-5. Verwijder de PhoneFactor-agent via Windows Programma's en onderdelen.
+5. Hallo PhoneFactor Agent via Windows programma's en onderdelen verwijderen.
 
-## <a name="install-the-multi-factor-authentication-server"></a>Installeer de Multi-Factor Authentication-server
+## <a name="install-hello-multi-factor-authentication-server"></a>Hallo multi-factor Authentication-Server installeren
 
-Het installatiepad wordt opgehaald uit het register van de vorige installatie van de PhoneFactor-agent. De installatielocatie is dus dezelfde (bijvoorbeeld C:\Program Files\PhoneFactor). Nieuwe installaties hebben een ander standaardinstallatiepad (bijvoorbeeld C:\Program Files\Multi-Factor Authentication Server). Het gegevensbestand van de vorige PhoneFactor-agent moet tijdens de installatie worden bijgewerkt zodat u uw gebruikers en instellingen niet kwijt bent na de installatie van de nieuwe Multi-Factor Authentication-server.
+Hallo installatiepad wordt opgehaald uit het register van de vorige PhoneFactor Agent installatie Hallo Hallo is dus in Hallo dezelfde locatie (bijvoorbeeld C:\Program Files\PhoneFactor). Nieuwe installaties hebben een ander standaardinstallatiepad (bijvoorbeeld C:\Program Files\Multi-Factor Authentication Server). Hallo gegevensbestand van Hallo vorige die phonefactor Agent moet worden bijgewerkt tijdens de installatie van uw gebruikers en -instellingen moeten dus nog steeds Hallo er na het installeren van nieuwe multi-factor Authentication-Server.
 
-1. Activeer de Multi-Factor Authentication-server wanneer dit wordt gevraagd en controleer of deze is toegewezen aan de juiste replicatiegroep.
+1. Als u wordt gevraagd, Hallo multi-factor Authentication-Server activeren en zorg ervoor dat de juiste replicatiegroep toohello is toegewezen.
 
-2. Als de webservice-SDK eerder was geïnstalleerd, installeert u de nieuwe webservice-SDK via de gebruikersinterface van Multi-Factor Authentication-server.
+2. Hallo nieuwe webservice-SDK via de gebruikersinterface van multi-factor Authentication Server Hallo als Hallo Web Service SDK eerder was geïnstalleerd, installeert.
 
-  De standaardnaam van de virtuele map is nu **MultiFactorAuthWebServiceSdk** in plaats van **PhoneFactorWebServiceSdk**. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. Als u de nieuwe standaardnaam wilt gebruiken, moet u de URL wijzigen in alle toepassingen die naar de webservice-SDK verwijzen, zoals de gebruikersportal en de webservice voor mobiele apps, zodat ze naar de juiste locatie wijzigen.
+  de naam van de virtuele map nu is standaard Hallo **MultiFactorAuthWebServiceSdk** in plaats van **PhoneFactorWebServiceSdk**. Als u toouse Hallo oude naam wilt, moet u Hallo-naam van de virtuele map Hallo tijdens de installatie wijzigen. Anders, als u Hallo installeren toouse Hallo nieuwe standaardnaam toestaat, hebt u toochange Hallo URL in alle toepassingen die verwijzing Hallo toopoint Web Service SDK (zoals Hallo Gebruikersportal en de webservice voor mobiele App) op de juiste locatie Hallo.
 
-3. Als de gebruikersportal eerder was geïnstalleerd op de PhoneFactor Agent-server, installeert u de nieuwe Multi-Factor Authentication-gebruikersportal via de gebruikersinterface van de Multi-Factor Authentication-server.
+3. Hallo nieuwe multi-factor Authentication-Gebruikersportal via de gebruikersinterface van multi-factor Authentication Server Hallo als Hallo Gebruikersportal eerder was geïnstalleerd op Hallo PhoneFactor Agent-Server installeert.
 
-  De standaardnaam van de virtuele map is nu **MultiFactorAuth** in plaats van **PhoneFactor**. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. Als u de nieuwe standaardnaam wilt gebruiken, klikt u op het pictogram Gebruikersportal op de Multi-Factor Authentication-server en werkt u de URL van de gebruikersportal bij op het tabblad Instellingen.
+  de naam van de virtuele map nu is standaard Hallo **MultiFactorAuth** in plaats van **PhoneFactor**. Als u toouse Hallo oude naam wilt, moet u Hallo-naam van de virtuele map Hallo tijdens de installatie wijzigen. Als u Hallo installeren toouse Hallo nieuwe standaardnaam toestaat, moet u klikt u op Hallo Gebruikersportal-pictogram in Hallo multi-factor Authentication-Server en Hallo Gebruikersportal-URL op tabblad Hallo-instellingen bijwerken.
 
-4. Ga als volgt te werk als de gebruikersportal en/of webservice voor mobiele apps eerder op een andere server van de PhoneFactor-agent was geïnstalleerd:
+4. Hallo PhoneFactor Agent als Hallo Gebruikersportal en/of webservice voor mobiele Apps eerder was geïnstalleerd op een andere server uit:
 
-  1. Ga naar de installatielocatie (bijvoorbeeld C:\Program Files\PhoneFactor) en kopieer een of meer installatieprogramma's naar de andere server. Er zijn 32-bits en 64-bits installatieprogramma's voor zowel de gebruikersportal als de webservice voor mobiele apps. Deze heten MultiFactorAuthenticationUserPortalSetupXX.msi en MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
+  1. Ga toohello installatielocatie (bijvoorbeeld C:\Program Files\PhoneFactor) en kopieer de installatieprogramma's toohello voor een of meer andere server. Er zijn 32-bits en 64-bits installatieprogramma's voor zowel de Hallo Gebruikersportal als de webservice voor mobiele App. Deze heten MultiFactorAuthenticationUserPortalSetupXX.msi en MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
 
-  2. Als u de gebruikersportal op de webserver wilt installeren, opent u als beheerder een opdrachtprompt en voert u MultiFactorAuthenticationUserPortalSetupXX.msi uit.
+  2. tooinstall hello Gebruikersportal op de webserver hello, open een opdrachtprompt als beheerder en voer MultiFactorAuthenticationUserPortalSetupXX.msi uit.
 
-    De standaardnaam van de virtuele map is nu **MultiFactorAuth** in plaats van **PhoneFactor**. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. Als u de nieuwe standaardnaam wilt gebruiken, klikt u op het pictogram Gebruikersportal op de Multi-Factor Authentication-server en werkt u de URL van de gebruikersportal bij op het tabblad Instellingen. Bestaande gebruikers moeten op de hoogte worden gebracht van de nieuwe URL.
+    de naam van de virtuele map nu is standaard Hallo **MultiFactorAuth** in plaats van **PhoneFactor**. Als u toouse Hallo oude naam wilt, moet u Hallo-naam van de virtuele map Hallo tijdens de installatie wijzigen. Als u Hallo installeren toouse Hallo nieuwe standaardnaam toestaat, moet u klikt u op Hallo Gebruikersportal-pictogram in Hallo multi-factor Authentication-Server en Hallo Gebruikersportal-URL op tabblad Hallo-instellingen bijwerken. Bestaande gebruikers moeten op de hoogte van de nieuwe URL Hallo toobe.
 
-  3. Ga naar de installatielocatie van de gebruikersportal (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuth) en bewerk het bestand web.config. Kopieer de waarden in de secties appSettings en applicationSettings van het oorspronkelijke bestand web.config, waarvan u vóór de upgrade een back-up hebt gemaakt, naar het nieuwe bestand web.config. Als tijdens de installatie van de webservice-SDK de nieuwe standaardnaam van de virtuele map is aangehouden, wijzigt u de URL in de sectie applicationSettings om naar de juiste locatie te verwijzen. Als in het vorige bestand web.config nog andere standaardinstellingen zijn gewijzigd, past u dezelfde wijzigingen ook toe op het nieuwe bestand web.config.
+  3. Ga toohello Gebruikersportal installatielocatie (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuth) en Hallo web.config-bestand bewerken. Hallo-waarden in Hallo secties appSettings en applicationSettings van het oorspronkelijke web.config-bestand dat een back-up vóór de upgrade Hallo naar het nieuwe bestand web.config Hallo kopiëren. Als Hallo nieuwe virtuele map standaardnaam bij de installatie van Web Service SDK Hallo aangehouden is, wijzigt u Hallo-URL op Hallo applicationSettings sectie toopoint toohello juiste locatie. Als er nog andere standaardinstellingen zijn gewijzigd in het vorige bestand web.config hello, van toepassing die dezelfde wijzigingen toohello nieuwe bestand web.config.
 
-  4. Als u de webservices voor mobiele apps op de webserver wilt installeren, opent u een opdrachtprompt als beheerder en voert u MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi uit.
+  4. tooinstall hello webservice voor mobiele App op de webserver hello, open een opdrachtprompt als beheerder en Voer Hallo MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi uit.
 
-    De standaardnaam van de virtuele map is nu **MultiFactorAuthMobileAppWebService** in plaats van **PhoneFactorPhoneAppWebService**. Als u de oude naam wilt gebruiken, moet u de naam van de virtuele map tijdens de installatie wijzigen. U kunt een kortere naam kiezen die eindgebruikers gemakkelijker kunnen invoeren op hun mobiele apparaten. Als u de nieuwe standaardnaam wilt gebruiken, klikt u op het pictogram Mobiele app op de Multi-Factor Authentication-server en werkt u de URL van de webservice voor mobiele apps bij.
+    de naam van de virtuele map nu is standaard Hallo **MultiFactorAuthMobileAppWebService** in plaats van **PhoneFactorPhoneAppWebService**. Als u toouse Hallo oude naam wilt, moet u Hallo-naam van de virtuele map Hallo tijdens de installatie wijzigen. U kunt een kortere naam toomake toochoose gemakkelijk voor eindgebruikers tootype in op hun mobiele apparaten. Klik anders als u Hallo installeren toouse Hallo nieuwe standaardnaam toestaat, moet u op pictogram van de mobiele App Hallo op Hallo multi-factor Authentication-Server en Hallo Mobile App Web Service-URL bijwerken.
 
-  5. Ga naar de installatielocatie van de webservice voor mobiele apps (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) en bewerk het bestand web.config. Kopieer de waarden in de secties appSettings en applicationSettings van het oorspronkelijke bestand web.config, waarvan u vóór de upgrade een back-up hebt gemaakt, naar het nieuwe bestand web.config. Als tijdens de installatie van de webservice-SDK de nieuwe standaardnaam van de virtuele map is aangehouden, wijzigt u de URL in de sectie applicationSettings om naar de juiste locatie te verwijzen. Als in het vorige bestand web.config nog andere standaardinstellingen zijn gewijzigd, past u dezelfde wijzigingen ook toe op het nieuwe bestand web.config.
+  5. Ga locatie toohello webservice voor mobiele App is geïnstalleerd (bijvoorbeeld C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) en Hallo web.config-bestand bewerken. Hallo-waarden in Hallo secties appSettings en applicationSettings van het oorspronkelijke web.config-bestand dat een back-up vóór de upgrade Hallo naar het nieuwe bestand web.config Hallo kopiëren. Als Hallo nieuwe virtuele map standaardnaam bij de installatie van Web Service SDK Hallo aangehouden is, wijzigt u Hallo-URL op Hallo applicationSettings sectie toopoint toohello juiste locatie. Als er nog andere standaardinstellingen zijn gewijzigd in het vorige bestand web.config hello, van toepassing die dezelfde wijzigingen toohello nieuwe bestand web.config.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [De gebruikersportal installeren](multi-factor-authentication-get-started-portal.md) voor de Azure Multi-Factor Authentication-server.
+- [Hallo-portal voor gebruikers installeren](multi-factor-authentication-get-started-portal.md) voor hello Azure multi-factor Authentication-Server.
 
 - [Windows-verificatie configureren](multi-factor-authentication-get-started-server-windows.md) voor uw toepassingen. 

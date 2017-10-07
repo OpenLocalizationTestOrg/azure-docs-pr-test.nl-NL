@@ -1,6 +1,6 @@
 ---
 title: 'Azure CLI: een SQL-database maken | Microsoft Docs'
-description: Meer informatie over hoe u met behulp van de Azure CLI een logische SQL Database-server, een firewallregel op serverniveau en databases maakt.
+description: Meer informatie over hoe Hallo toocreate een logische SQL Database-server, firewallregel op serverniveau en databases die gebruikmaken van Azure CLI.
 keywords: zelfstudie over sql-database, een sql-database maken
 services: sql-database
 documentationcenter: 
@@ -16,52 +16,52 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: a735f7e6aa65ac36dc4e5a49c5a9a834be43d71a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b1ffb17eabeb70a000ff0c997128832b07aa4fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Een individuele Azure SQL-database maken met de Azure CLI
+# <a name="create-a-single-azure-sql-database-using-hello-azure-cli"></a>Maken van één Azure SQL database met behulp van hello Azure CLI
 
-De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze handleiding geeft meer informatie over het gebruik van de Azure CLI voor het implementeren van een Azure SQL-database in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een [logische Azure SQL Database-server](sql-database-features.md).
+Hello Azure CLI is gebruikte toocreate en Azure-resources te beheren vanaf de opdrachtregel hello, hetzij in scripts. Deze handleiding hello Azure CLI toodeploy wilt weergeven voor een Azure SQL database in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) in een [logische Azure SQL Database-server](sql-database-features.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, in dit onderwerp is vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-Definieer variabelen voor gebruik in de scripts in deze Quick Start.
+Definieer de variabelen voor gebruik in Hallo-scripts in deze snel starten.
 
 ```azurecli-interactive
-# The data center and resource name for your resources
+# hello data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = westeurope
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# hello logical server name: Use a random value or replace with your own value (do not capitalize)
 export servername = server-$RANDOM
 # Set an admin login and password for your database
 export adminlogin = ServerAdmin
 export password = ChangeYourAdminPassword1
-# The ip address range that you want to allow to access your DB
+# hello ip address range that you want tooallow tooaccess your DB
 export startip = "0.0.0.0"
 export endip = "0.0.0.0"
-# The database name
+# hello database name
 export databasename = mySampleDatabase
 ```
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westeurope`.
+Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met Hallo [az groep maken](/cli/azure/group#create) opdracht. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. Hallo volgende voorbeeld maakt u een resourcegroep met de naam `myResourceGroup` in Hallo `westeurope` locatie.
 
 ```azurecli-interactive
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Een logische server maken
 
-Als u een [logische Azure SQL Database-server](sql-database-features.md) wilt maken, gebruikt u de opdracht [az sql server create](/cli/azure/sql/server#create). Een logische server bevat een groep met databases die worden beheerd als groep. In het volgende voorbeeld wordt een server met een willekeurige naam gemaakt in de resourcegroep met een beheerdersaccount met de gebruikersnaam `ServerAdmin` en het wachtwoord `ChangeYourAdminPassword1`. U kunt deze vooraf gedefinieerde waarden vervangen.
+Maak een [logische Azure SQL Database-server](sql-database-features.md) met Hallo [az sql server maken](/cli/azure/sql/server#create) opdracht. Een logische server bevat een groep met databases die worden beheerd als groep. Hallo volgende voorbeeld wordt een willekeurige naam server in de resourcegroep met de beheerderaanmelding van een met de naam `ServerAdmin` en het wachtwoord `ChangeYourAdminPassword1`. U kunt deze vooraf gedefinieerde waarden vervangen.
 
 ```azurecli-interactive
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -70,7 +70,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
 
-Maak een [Azure SQL Database-firewallregel op serverniveau](sql-database-firewall-configure.md) met de opdracht [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Een firewallregel op serverniveau kan een externe toepassing, zoals SQL Server Management Studio of het hulpprogramma SQLCMD verbinding laten maken met een SQL-database via de firewall van de SQL Database-service. In het volgende voorbeeld wordt de firewall alleen geopend voor andere Azure-resources. Voor externe connectiviteit wijzigt u het IP-adres in een correct adres voor uw omgeving. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.  
+Maak een [Azure SQL Database firewallregel op serverniveau](sql-database-firewall-configure.md) met Hallo [az sql server-firewall maken](/cli/azure/sql/server/firewall-rule#create) opdracht. Een firewallregel op serverniveau kunt een externe toepassing, zoals SQL Server Management Studio of Hallo SQLCMD-hulpprogramma tooconnect tooa SQL-database via Hallo SQL Database-service firewall. In Hallo voorbeeld te volgen, wordt alleen Hallo firewall geopend voor andere Azure-resources. tooenable externe connectiviteit wijziging Hallo IP-adres tooan juiste adres voor uw omgeving. tooopen alle IP-adressen 0.0.0.0 gebruiken als Hallo IP-adres en 255.255.255.255 starten als Hallo eindadres.  
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -78,12 +78,12 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 ```
 
 > [!NOTE]
-> SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u alleen verbinding maken met uw Azure SQL Database-server als uw IT-afdeling poort 1433 openstelt.
+> SQL Database communiceert via poort 1433. Als u tooconnect van binnen een bedrijfsnetwerk probeert, kan uitgaand verkeer via poort 1433 niet worden toegestaan door de firewall van uw netwerk. Zo ja, zich u niet kunnen tooconnect tooyour Azure SQL Database-server tenzij uw IT-afdeling poort 1433 wordt geopend.
 >
 
-## <a name="create-a-database-in-the-server-with-sample-data"></a>Een database op de server maken met voorbeeldgegevens
+## <a name="create-a-database-in-hello-server-with-sample-data"></a>Een database in het Hallo-server met voorbeeldgegevens maken
 
-Maak een database met een [prestatieniveau van S0](sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db#create). In het volgende voorbeeld wordt een database met de naam `mySampleDatabase` gemaakt en worden de gegevens uit het AdventureWorksLT-voorbeeld in deze database geladen. U kunt deze vooraf gedefinieerde waarden desgewenst vervangen. (Andere Quick Starts in deze verzameling zijn echter op de waarden in deze Quick Start gebaseerd.)
+Maken van een database met een [prestatieniveau S0](sql-database-service-tiers.md) in Hallo-server op Hallo met [az sql-database maken](/cli/azure/sql/db#create) opdracht. Hallo volgende voorbeeld maakt u een database met de naam `mySampleDatabase` en belastingen Hallo AdventureWorksLT voorbeeldgegevens in deze database. Vervang deze vooraf gedefinieerde waarden naar wens (andere snel aan de slag in deze verzameling gebouwd op Hallo-waarden in deze snel starten).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -95,7 +95,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. 
 
 > [!TIP]
-> Als u van plan bent om door te gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die door deze Quick Start in Azure Portal zijn gemaakt.
+> Als u van plan toocontinue toowork met latere snel aan de slag bent, Hallo-resources die zijn gemaakt in deze snelle opruimen start niet. Als u niet van plan toocontinue bent, gebruikt u Hallo na stappen toodelete alle resources gemaakt door deze snel starten in hello Azure-portal.
 >
 
 ```azurecli-interactive

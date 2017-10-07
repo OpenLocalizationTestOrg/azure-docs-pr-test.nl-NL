@@ -1,6 +1,6 @@
 ---
-title: Bewaken en beheren van Hadoop met Ambari REST-API - Azure HDInsight | Microsoft Docs
-description: Informatie over het Ambari gebruiken om te controleren en beheren in Azure HDInsight Hadoop-clusters. In dit document leert u hoe u de Ambari REST-API die deel uitmaakt van een HDInsight-clusters.
+title: aaaMonitor en beheren van Hadoop met Ambari REST-API - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse Ambari toomonitor en beheren in Azure HDInsight Hadoop-clusters. In dit document leert u hoe toouse hello Ambari REST-API die deel uitmaakt van een HDInsight-clusters.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,51 +16,51 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1866a77c8e402231bccbcfba7174253aca41339b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van de Ambari REST-API
+# <a name="manage-hdinsight-clusters-by-using-hello-ambari-rest-api"></a>HDInsight-clusters beheren met behulp van Hallo Ambari REST-API
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Informatie over het gebruik van de Ambari REST-API te beheren en bewaken in Azure HDInsight Hadoop-clusters.
+Ontdek hoe toouse Hallo toomanage Ambari REST-API en bewaken in Azure HDInsight Hadoop-clusters.
 
-Apache Ambari vereenvoudigt het beheer en bewaking van een Hadoop-cluster met een eenvoudige web-UI en REST-API gebruiken. Ambari is opgenomen op HDInsight-clusters die gebruikmaken van de Linux-besturingssysteem. U kunt Ambari gebruiken om te controleren van het cluster en configuratiewijzigingen aanbrengen.
+Apache Ambari vereenvoudigt het Hallo-beheer en bewaking van een Hadoop-cluster met een eenvoudig toouse web UI en REST-API. Ambari is opgenomen op HDInsight-clusters die gebruikmaken van Hallo Linux-besturingssysteem. U kunt Ambari toomonitor Hallo cluster gebruiken en configuratiewijzigingen aanbrengen.
 
 ## <a id="whatis"></a>Wat is Ambari
 
-[Apache Ambari](http://ambari.apache.org) biedt webgebruikersinterface die kunnen worden gebruikt voor het inrichten, beheren en controleren van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van de [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) biedt webgebruikersinterface die kunnen worden gebruikt tooprovision, beheren en bewaken van Hadoop-clusters. Ontwikkelaars kunnen deze mogelijkheden integreren in hun toepassingen met behulp van Hallo [Ambari REST-API's](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari is opgegeven met HDInsight op basis van Linux-clusters standaard.
 
-## <a name="how-to-use-the-ambari-rest-api"></a>Het gebruik van de Ambari REST-API
+## <a name="how-toouse-hello-ambari-rest-api"></a>Hoe toouse Hallo Ambari REST-API
 
 > [!IMPORTANT]
-> De informatie en voorbeelden in dit document vereisen een HDInsight-cluster dat gebruik maakt van Linux-besturingssysteem. Zie voor meer informatie [aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+> Hallo informatie en voorbeelden in dit document moeten een HDInsight-cluster dat gebruik maakt van Linux-besturingssysteem. Zie voor meer informatie [aan de slag met HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-De voorbeelden in dit document zijn beschikbaar voor zowel de Willemsen shell (bash) en PowerShell. De voorbeelden zijn getest met GNU bash 4.3.11 bash, maar moet samen met andere houders Unix. De PowerShell-voorbeelden zijn getest met PowerShell 5.0, maar moeten samenwerken met PowerShell 3.0 of hoger.
+Hallo-voorbeelden in dit document zijn bedoeld voor zowel Hallo Willemsen shell (bash) en PowerShell. Hallo bash voorbeelden zijn getest met GNU 4.3.11 bash, maar moet samen met andere houders Unix. Hallo PowerShell-voorbeelden zijn getest met PowerShell 5.0, maar moeten samenwerken met PowerShell 3.0 of hoger.
 
-Als de __Bourne shell__ (Bash), hebt u het volgende zijn geïnstalleerd:
+Als u Hallo __Bourne shell__ (Bash), hebt u volgende Hallo zijn geïnstalleerd:
 
-* [cURL](http://curl.haxx.se/): cURL is een hulpprogramma waarmee kan worden gebruikt voor het werken met de REST-API's vanaf de opdrachtregel. In dit document, wordt deze gebruikt om te communiceren met de Ambari REST-API.
+* [cURL](http://curl.haxx.se/): cURL is een hulpprogramma dat gebruikt toowork met REST-API's vanaf de opdrachtregel Hallo worden kan. In dit document is het gebruikte toocommunicate Hello Ambari REST-API.
 
-Of Bash of PowerShell gebruikt, moet u ook hebt [jq](https://stedolan.github.io/jq/) geïnstalleerd. Jq is een hulpprogramma voor het werken met JSON-documenten. Het wordt gebruikt in **alle** de voorbeelden Bash en **één** van de PowerShell-voorbeelden.
+Of Bash of PowerShell gebruikt, moet u ook hebt [jq](https://stedolan.github.io/jq/) geïnstalleerd. Jq is een hulpprogramma voor het werken met JSON-documenten. Het wordt gebruikt in **alle** Hallo Bash-voorbeelden en **één** van Hallo PowerShell-voorbeelden.
 
 ### <a name="base-uri-for-ambari-rest-api"></a>Basis-URI voor de Ambari Rest API
 
-De basis-URI voor de Ambari REST-API op HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, waarbij **CLUSTERNAME** is de naam van uw cluster.
+Hallo basis-URI voor Hallo Ambari REST-API op HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, waarbij **CLUSTERNAME** Hallo-naam van uw cluster.
 
 > [!IMPORTANT]
-> De naam van het cluster in het gedeelte van de FQDN-naam (Fully Qualified Domain Name) van de URI (CLUSTERNAME.azurehdinsight.net) is niet hoofdlettergevoelig, zijn andere exemplaren in de URI zijn hoofdlettergevoelig. Bijvoorbeeld, als de naam van uw cluster `MyCluster`, de volgende geldige URI's zijn:
+> Hoewel de clusternaam Hallo in Hallo FQDN domain name (FQDN) deel van Hallo URI (CLUSTERNAME.azurehdinsight.net) is niet hoofdlettergevoelig, andere voorvallen in Hallo URI zijn hoofdlettergevoelig. Bijvoorbeeld, als de naam van uw cluster `MyCluster`, Hallo volgen geldige URI's:
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 > 
-> De volgende URI's retourneren een foutmelding omdat het tweede exemplaar van de naam is niet hoofdlettergevoelig.
+> Hallo volgende URI's retourneren een foutmelding omdat Hallo tweede exemplaar van het Hallo-naam is geen Hallo corrigeren geval.
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
 >
@@ -68,22 +68,22 @@ De basis-URI voor de Ambari REST-API op HDInsight is https://CLUSTERNAME.azurehd
 
 ### <a name="authentication"></a>Authentication
 
-Verbinding maken met Ambari op HDInsight HTTPS is vereist. De naam van de Administrator-account gebruiken (de standaardwaarde is **admin**) en het wachtwoord die u hebt opgegeven tijdens het maken van het cluster.
+Verbinding maken met tooAmbari op HDInsight HTTPS is vereist. Gebruik Hallo beheerder accountnaam (Hallo standaardwaarde is **admin**) en het wachtwoord die u hebt opgegeven tijdens het maken van het cluster.
 
 ## <a name="examples-authentication-and-parsing-json"></a>Voorbeelden: Verificatie en bij het parseren van JSON
 
-De volgende voorbeelden laten zien hoe u een GET-aanvraag met de base Ambari REST-API:
+Hallo volgen voorbeelden laten zien hoe een GET-aanvraag tegen Hallo toomake baseren Ambari REST-API:
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
 > [!IMPORTANT]
-> De Bash-voorbeelden in dit document moeten de volgende veronderstellingen:
+> Hallo Bash voorbeelden in dit document zorg Hallo veronderstellingen te volgen:
 >
-> * De aanmeldingsnaam voor het cluster is de standaardwaarde van `admin`.
-> * `$PASSWORD`het wachtwoord voor de opdracht van de aanmelding HDInsight bevat. U kunt deze waarde instellen met behulp van `PASSWORD='mypassword'`.
-> * `$CLUSTERNAME`bevat de naam van het cluster. U kunt deze waarde instellen door gebruik te maken`set CLUSTERNAME='clustername'`
+> * Hallo aanmeldingsnaam voor Hallo-cluster is de standaardwaarde Hallo van `admin`.
+> * `$PASSWORD`Hallo-wachtwoord voor Hallo HDInsight aanmelding opdracht bevat. U kunt deze waarde instellen met behulp van `PASSWORD='mypassword'`.
+> * `$CLUSTERNAME`Hallo-naam van Hallo cluster bevat. U kunt deze waarde instellen door gebruik te maken`set CLUSTERNAME='clustername'`
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -92,12 +92,12 @@ $resp.Content
 ```
 
 > [!IMPORTANT]
-> De PowerShell-voorbeelden in dit document moeten de volgende veronderstellingen:
+> Hallo PowerShell-voorbeelden in dit document zorg Hallo veronderstellingen te volgen:
 >
-> * `$creds`is een referentieobject dat de beheerderaanmelding en het wachtwoord voor het cluster bevat. U kunt deze waarde instellen met behulp van `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` en de referenties opgeeft wanneer u wordt gevraagd.
-> * `$clusterName`is een tekenreeks met de naam van het cluster. U kunt deze waarde instellen met behulp van `$clusterName="clustername"`.
+> * `$creds`is een referentieobject dat Hallo beheerder aanmeldingsnaam en het wachtwoord voor Hallo cluster bevat. U kunt deze waarde instellen met behulp van `$creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"` en Hallo referenties opgeeft wanneer u wordt gevraagd.
+> * `$clusterName`is een tekenreeks die Hallo-naam van het Hallo-cluster bevat. U kunt deze waarde instellen met behulp van `$clusterName="clustername"`.
 
-Beide voorbeelden retourneren een JSON-document dat met de informatie is vergelijkbaar met het volgende voorbeeld begint:
+Beide voorbeelden retourneren een JSON-document dat begint met informatie vergelijkbare toohello voorbeeld te volgen:
 
 ```json
 {
@@ -121,14 +121,14 @@ Beide voorbeelden retourneren een JSON-document dat met de informatie is vergeli
 
 ### <a name="parsing-json-data"></a>Bij het parseren van JSON-gegevens
 
-Het volgende voorbeeld wordt `jq` parseren van het JSON-antwoorddocument en alleen wordt weergegeven de `health_report` informatie uit de resultaten.
+Hallo volgende voorbeeld wordt `jq` tooparse Hallo JSON-document van antwoord en weer te geven alleen Hallo `health_report` informatie uit Hallo resultaten.
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
 | jq '.Clusters.health_report'
 ```
 
-PowerShell 3.0 en hoger biedt de `ConvertFrom-Json` cmdlet, waarmee het JSON-document converteert naar een object dat is eenvoudiger om te werken in PowerShell. Het volgende voorbeeld wordt `ConvertFrom-Json` om weer te geven alleen de `health_report` informatie uit de resultaten.
+PowerShell 3.0 en hoger biedt Hallo `ConvertFrom-Json` cmdlet, waarmee de JSON-document Hallo converteert naar een object dat is eenvoudiger toowork met vanuit PowerShell. Hallo volgende voorbeeld wordt `ConvertFrom-Json` toodisplay alleen Hallo `health_report` informatie uit Hallo resultaten.
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -138,13 +138,13 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]
-> Tijdens het meeste voorbeelden in dit document `ConvertFrom-Json` om elementen van het antwoorddocument te geven de [Update Ambari configuratie](#example-update-ambari-configuration) voorbeeld jq wordt gebruikt. Jq wordt in dit voorbeeld gebruikt om een nieuwe sjabloon uit de JSON-antwoorddocument samen te stellen.
+> Tijdens het meeste voorbeelden in dit document `ConvertFrom-Json` toodisplay elementen uit Hallo antwoorddocument Hallo [Update Ambari configuratie](#example-update-ambari-configuration) voorbeeld jq wordt gebruikt. Jq wordt gebruikt in dit voorbeeld tooconstruct een nieuwe sjabloon uit Hallo JSON-antwoord-document.
 
-Zie voor een volledig overzicht van de REST API [Ambari-API-verwijzing V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Zie voor een volledig overzicht van Hallo REST-API [Ambari-API-verwijzing V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="example-get-the-fqdn-of-cluster-nodes"></a>Voorbeeld: De FQDN van de clusterknooppunten ophalen
+## <a name="example-get-hello-fqdn-of-cluster-nodes"></a>Voorbeeld: Hallo FQDN-naam van de clusterknooppunten ophalen
 
-Als u werkt met HDInsight, moet u wellicht weten de volledig gekwalificeerde domeinnaam (FQDN) van een clusterknooppunt. De FQDN-naam voor de verschillende knooppunten in het cluster met behulp van de volgende voorbeelden kunt u eenvoudig ophalen:
+Als u werkt met HDInsight, moet u mogelijk tooknow Hallo volledig gekwalificeerde domeinnaam (FQDN) van een clusterknooppunt. U kunt eenvoudig ophalen Hallo FQDN voor Hallo verschillende knooppunten in het Hallo-cluster met behulp van Hallo volgen voorbeelden:
 
 * **Alle knooppunten**
 
@@ -202,14 +202,14 @@ Als u werkt met HDInsight, moet u wellicht weten de volledig gekwalificeerde dom
     $respObj.host_components.HostRoles.host_name
     ```
 
-## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Voorbeeld: De interne IP-adres van de clusterknooppunten ophalen
+## <a name="example-get-hello-internal-ip-address-of-cluster-nodes"></a>Voorbeeld: Hallo interne IP-adres van de clusterknooppunten ophalen
 
 > [!IMPORTANT]
-> De IP-adressen die wordt geretourneerd door de voorbeelden in deze sectie zijn niet rechtstreeks toegankelijk via het internet. Ze zijn alleen toegankelijk vanuit het Azure-netwerk met het HDInsight-cluster.
+> Hallo IP-adressen die wordt geretourneerd door Hallo voorbeelden in deze sectie zijn niet rechtstreeks toegankelijk via internet Hallo. Ze zijn alleen toegankelijk vanuit hello Azure Virtual Network die Hallo HDInsight-cluster bevat.
 >
 > Zie voor meer informatie over het werken met HDInsight en virtuele netwerken [mogelijkheden uitbreiden HDInsight met behulp van een aangepaste Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-Als u het IP-adres zoekt, moet u weten de interne volledig gekwalificeerde domeinnaam (FQDN) van de clusterknooppunten. Zodra u de FQDN-naam hebt, krijgt u het IP-adres van de host. De volgende voorbeelden eerst Ambari zoeken naar de FQDN van alle knooppunten van de host vervolgens Ambari zoeken naar het IP-adres van elke host.
+toofind hello IP-adres, moet u weten Hallo interne volledig gekwalificeerde domeinnaam (FQDN) van Hallo clusterknooppunten. Zodra u Hallo FQDN hebt, kunt u vervolgens Hallo IP-adres van de host Hallo ophalen. Hallo volgende voorbeelden eerst Hallo FQDN-naam van de knooppunten van de host alle Hallo Ambari zoeken en vervolgens Ambari zoeken naar Hallo IP-adres van elke host.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -233,11 +233,11 @@ foreach($item in $respObj.items) {
 }
 ```
 
-## <a name="example-get-the-default-storage"></a>Voorbeeld: De opslag standaard ophalen
+## <a name="example-get-hello-default-storage"></a>Voorbeeld: Hallo standaard opslag ophalen
 
-Wanneer u een HDInsight-cluster maakt, moet u een Azure Storage-Account of een Data Lake Store als de standaard-opslag gebruiken voor het cluster. Ambari kunt u deze informatie ophalen nadat het cluster is gemaakt. Bijvoorbeeld als u wilt lezen/schrijven gegevens naar de container buiten HDInsight.
+Wanneer u een HDInsight-cluster maakt, moet u een Azure Storage-Account of een Data Lake Store als Hallo standaard opslag voor Hallo-cluster. U kunt de Ambari tooretrieve deze gegevens nadat Hallo-cluster is gemaakt. Bijvoorbeeld als u wilt dat tooread schrijftijd gegevenscontainer toohello buiten HDInsight.
 
-De standaardconfiguratie voor opslag ophalen in de volgende voorbeelden uit het cluster:
+Hallo ophalen volgende voorbeelden Hallo standaard opslagconfiguratie uit Hallo-cluster:
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -252,15 +252,15 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]
-> Deze voorbeelden retourneert de eerste configuratie is toegepast op de server (`service_config_version=1`) die deze informatie bevat. Als u een waarde die is gewijzigd na het maken van het cluster ophaalt, moet u wellicht de configuratieversies lijst en de meest recente versie op te halen.
+> Deze voorbeelden retourneren Hallo eerste toegepast toohello configuratieserver (`service_config_version=1`) die deze informatie bevat. Als u een waarde die is gewijzigd na het maken van het cluster ophaalt, mag u toolist hello configuratieversies moet en ophalen van de meest recente Hallo.
 
-De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
+Hallo-retourwaarde is vergelijkbaar tooone Hallo volgen voorbeelden:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Deze waarde geeft aan dat het cluster een Azure Storage-account wordt gebruikt voor standaard-opslag. De `ACCOUNTNAME` waarde is de naam van het opslagaccount. De `CONTAINER` gedeelte is de naam van de blob-container in het opslagaccount. De container is de hoofdmap van de HDFS-compatibele opslagruimte voor het cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Deze waarde geeft aan dat cluster hello Azure Storage-account voor de opslag van de standaard. Hallo `ACCOUNTNAME` waarde is de naam Hallo van Hallo storage-account. Hallo `CONTAINER` gedeelte Hallo-naam van Hallo blob-container in Hallo storage-account is. Hallo-container bevat Hallo Hallo HDFS compatibel opslagruimte voor Hallo-cluster.
 
-* `adl://home`-Deze waarde geeft aan dat het cluster een Azure Data Lake Store wordt gebruikt voor standaard-opslag.
+* `adl://home`-Deze waarde geeft aan dat Hallo-cluster gebruikmaakt van een Azure Data Lake Store voor standaard-opslag.
 
-    De naam te zoeken Data Lake Store-account, gebruik de volgende voorbeelden:
+    toofind hello Data Lake Store-accountnaam, gebruik Hallo volgen voorbeelden:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -274,9 +274,9 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    De geretourneerde waarde is vergelijkbaar met `ACCOUNTNAME.azuredatalakestore.net`, waarbij `ACCOUNTNAME` is de naam van het Data Lake Store-account.
+    Hallo retourwaarde lijkt te`ACCOUNTNAME.azuredatalakestore.net`, waarbij `ACCOUNTNAME` heet Hallo Hallo Data Lake Store-account.
 
-    Als u wilt zoeken naar de map in Data Lake Store met de opslagruimte voor het cluster, gebruik de volgende voorbeelden:
+    toofind hello map in Data Lake Store met Hallo opslagruimte voor Hallo-cluster, gebruik Hallo volgen voorbeelden:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -290,15 +290,15 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    De geretourneerde waarde is vergelijkbaar met `/clusters/CLUSTERNAME/`. Deze waarde is een pad in het Data Lake Store-account. Dit pad is de hoofdmap van het systeem HDFS compatibel bestand voor het cluster. 
+    Hallo retourwaarde lijkt te`/clusters/CLUSTERNAME/`. Deze waarde is een pad binnen Hallo Data Lake Store-account. Dit pad bevat Hallo Hallo HDFS-compatibele bestandssysteem voor Hallo-cluster. 
 
 > [!NOTE]
-> De `Get-AzureRmHDInsightCluster` cmdlet geleverd door [Azure PowerShell](/powershell/azure/overview) geeft ook de storage-gegevens voor het cluster.
+> Hallo `Get-AzureRmHDInsightCluster` cmdlet geleverd door [Azure PowerShell](/powershell/azure/overview) ook retourneert Hallo storage-gegevens voor Hallo-cluster.
 
 
 ## <a name="example-get-configuration"></a>Voorbeeld: Get-configuratie
 
-1. Haal de configuraties die beschikbaar voor uw cluster zijn.
+1. Hallo-configuraties die beschikbaar voor uw cluster zijn ophalen.
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -310,7 +310,7 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $respObj.Content
     ```
 
-    Het volgende voorbeeld wordt een JSON-document met de huidige configuratie (geïdentificeerd door de *tag* waarde) voor de onderdelen die zijn geïnstalleerd op het cluster. Het volgende voorbeeld is een fragment van de gegevens van een Spark-clustertype geretourneerd.
+    Het volgende voorbeeld wordt een JSON-document met de huidige configuratie Hallo (aangeduid met Hallo *tag* waarde) voor Hallo-onderdelen geïnstalleerd op Hallo-cluster. Hallo is volgende voorbeeld een fragment uit het Hallo-gegevens geretourneerd van een type Spark-cluster.
    
    ```json
    "spark-metrics-properties" : {
@@ -330,7 +330,7 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
    }
    ```
 
-2. De configuratie voor het onderdeel dat u geïnteresseerd bent in ophalen. Vervang in het volgende voorbeeld wordt `INITIAL` geretourneerd met de waarde van het label van de vorige aanvraag.
+2. Hallo-configuratie voor Hallo-onderdeel dat u geïnteresseerd bent in ophalen. Hallo volgt, Vervang in `INITIAL` met Hallo tag geretourneerde waarde van de vorige aanvraag Hallo.
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
@@ -342,11 +342,11 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $resp.Content
     ```
 
-    Het volgende voorbeeld wordt een JSON-document met de huidige configuratie voor de `core-site` onderdeel.
+    Het volgende voorbeeld wordt een JSON-document met de huidige configuratie Hallo voor Hallo `core-site` onderdeel.
 
 ## <a name="example-update-configuration"></a>Voorbeeld: Update-configuratie
 
-1. De huidige configuratie Ambari worden opgeslagen als 'gewenste configuratie' ophalen:
+1. De huidige configuratie hello, waardoor de Ambari worden opgeslagen als Hallo 'gewenste configuratie' ophalen:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -357,7 +357,7 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
         -Credential $creds
     ```
 
-    Het volgende voorbeeld wordt een JSON-document met de huidige configuratie (geïdentificeerd door de *tag* waarde) voor de onderdelen die zijn geïnstalleerd op het cluster. Het volgende voorbeeld is een fragment van de gegevens van een Spark-clustertype geretourneerd.
+    Het volgende voorbeeld wordt een JSON-document met de huidige configuratie Hallo (aangeduid met Hallo *tag* waarde) voor Hallo-onderdelen geïnstalleerd op Hallo-cluster. Hallo is volgende voorbeeld een fragment uit het Hallo-gegevens geretourneerd van een type Spark-cluster.
    
     ```json
     "spark-metrics-properties" : {
@@ -377,9 +377,9 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     }
     ```
    
-    In deze lijst, moet u de naam van het onderdeel kopiëren (bijvoorbeeld **spark\_thrift\_sparkconf** en de **tag** waarde.
+    In deze lijst, moet u toocopy Hallo-naam van het Hallo-onderdeel (bijvoorbeeld **spark\_thrift\_sparkconf** en Hallo **tag** waarde.
 
-2. De configuratie voor het onderdeel en de tag ophalen met behulp van de volgende opdrachten:
+2. Hallo-configuratie voor het Hallo-onderdeel en de tag ophalen met behulp van de volgende opdrachten Hallo:
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -396,21 +396,21 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     ```
 
     > [!NOTE]
-    > Vervang **spark-thrift-sparkconf** en **INITIËLE** met het onderdeel en code die u wilt ophalen van de configuratie voor.
+    > Vervang **spark-thrift-sparkconf** en **INITIËLE** met Hallo-onderdeel en code die u wilt dat tooretrieve Hallo configuratie voor.
    
-    Jq wordt gebruikt voor het inschakelen van de gegevens opgehaald uit HDInsight naar een nieuwe configuratiesjabloon. Deze voorbeelden wordt met name de volgende acties uitvoeren:
+    Jq is gebruikte tooturn Hallo gegevens opgehaald uit HDInsight naar een nieuwe configuratiesjabloon. Deze voorbeelden uitvoeren in het bijzonder Hallo van de volgende activiteiten:
    
-    * Hiermee maakt u een unieke waarde met de tekenreeks 'versie' en de datum die wordt opgeslagen in `newtag`.
+    * Hiermee maakt u een unieke waarde met de Hallo tekenreeks '-versie en datum hello, dat is opgeslagen in `newtag`.
 
-    * Maakt een document hoofdmap voor de nieuwe gewenste configuratie.
+    * Maakt een document hoofdmap voor de nieuwe gewenste configuratie Hallo.
 
-    * Met deze eigenschap wordt de inhoud van de `.items[]` matrix en toegevoegd onder de **desired_config** element.
+    * Haalt inhoud Hallo Hallo `.items[]` matrix en voegt deze toe onder Hallo **desired_config** element.
 
-    * Hiermee verwijdert u de `href`, `version`, en `Config` elementen, als deze elementen niet nodig zijn voor het verzenden van een nieuwe configuratie.
+    * Hiermee verwijdert u Hallo `href`, `version`, en `Config` elementen, als deze elementen zijn niet nodig toosubmit een nieuwe configuratie.
 
-    * Voegt een `tag` element met een waarde van `version#################`. Het numerieke gedeelte is gebaseerd op de huidige datum. Elke configuratie moet een unieke code hebben.
+    * Voegt een `tag` element met een waarde van `version#################`. het numerieke gedeelte Hallo is gebaseerd op Hallo huidige datum. Elke configuratie moet een unieke code hebben.
      
-    Ten slotte de gegevens wordt opgeslagen in de `newconfig.json` document. De documentstructuur ziet er ongeveer als volgt uitzien:
+    Ten slotte Hallo gegevens opgeslagen toohello `newconfig.json` document. de documentstructuur Hallo moet worden weergegeven vergelijkbaar toohello voorbeeld te volgen:
      
      ```json
     {
@@ -428,14 +428,14 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     }
     ```
 
-3. Open de `newconfig.json` wijzigen/toevoegen en documenten waarden in de `properties` object. Het volgende voorbeeld wordt de waarde van `"spark.yarn.am.memory"` van `"1g"` naar `"3g"`. Voegt ook `"spark.kryoserializer.buffer.max"` met een waarde van `"256m"`.
+3. Open Hallo `newconfig.json` waarden document en wijzigen/toevoegen in Hallo `properties` object. Hallo volgende voorbeeld wijzigingen Hallo waarde van `"spark.yarn.am.memory"` van `"1g"` te`"3g"`. Voegt ook `"spark.kryoserializer.buffer.max"` met een waarde van `"256m"`.
    
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
    
-    Sla het bestand als u klaar bent wijzigingen aanbrengen.
+    Hallo-bestand opslaan als u klaar bent wijzigingen aanbrengen.
 
-4. Gebruik de volgende opdrachten in de bijgewerkte configuratie om Ambari te verzenden.
+4. Gebruik Hallo opdrachten toosubmit Hallo bijgewerkt configuratie tooAmbari te volgen.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
@@ -451,13 +451,13 @@ De geretourneerde waarde is vergelijkbaar met een van de volgende voorbeelden:
     $resp.Content
     ```
    
-    Deze opdrachten verzenden van de inhoud van de **newconfig.json** bestand aan het cluster als de nieuwe gewenste configuratie. De aanvraag retourneert een JSON-document. De **versionTag** element in dit document moet overeenkomen met de versie die u hebt ingediend, en de **configs** object bevat de configuratiewijzigingen die u hebt aangevraagd.
+    Deze opdrachten verzenden Hallo inhoud Hallo **newconfig.json** toohello cluster bestand zoals Hallo nieuwe configuratie gewenst. Hallo aanvraag retourneert een JSON-document. Hallo **versionTag** element in dit document moet overeenkomen met de Hallo versie hebt verzonden Hallo **configs** object bevat Hallo-configuratiewijzigingen die u hebt aangevraagd.
 
 ### <a name="example-restart-a-service-component"></a>Voorbeeld: Start opnieuw op een serviceonderdeel
 
-Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service geeft aan dat deze opnieuw worden opgestart moet voordat de nieuwe configuratie van kracht. Gebruik de volgende stappen uit de service te starten.
+Op dit punt als u Hallo Ambari-webgebruikersinterface bekijkt, Hallo Spark-service geeft aan dat deze opnieuw worden opgestart moet voordat de nieuwe configuratie Hallo van kracht toobe. Volgende stappen toorestart Hallo service Hallo gebruiken.
 
-1. Gebruik de volgende onderhoudsmodus voor de Spark-service inschakelen:
+1. Gebruik Hallo tooenable onderhoudsmodus voor Hallo Spark-service te volgen:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -474,7 +474,7 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
     $resp.Content
     ```
    
-    Deze opdrachten wordt een JSON-document verzenden naar de server die Hiermee schakelt u onderhoudsmodus. U kunt controleren of de service nu in de onderhoudsmodus met de volgende aanvraag:
+    Deze opdrachten verzenden een JSON-document toohello server Hiermee schakelt u onderhoudsmodus. U kunt controleren Hallo-service is nu in de onderhoudsmodus met Hallo aanvraag te volgen:
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -489,9 +489,9 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
     $respObj.ServiceInfo.maintenance_state
     ```
    
-    De geretourneerde waarde is `ON`.
+    Hallo retourwaarde is `ON`.
 
-2. Gebruik de volgende vervolgens de service uitschakelen:
+2. Gebruik vervolgens Hallo tooturn Hallo-service uit te volgen:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -508,7 +508,7 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
     $resp.Content
     ```
     
-    Het antwoord is vergelijkbaar met het volgende voorbeeld:
+    Hallo-antwoord is vergelijkbaar toohello voorbeeld te volgen:
    
     ```json
     {
@@ -521,9 +521,9 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
     ```
     
     > [!IMPORTANT]
-    > De `href` waarde die door deze URI geretourneerd met behulp van het interne IP-adres van het clusterknooppunt. Als u wilt gebruiken van buiten het cluster, kunt u het gedeelte '10.0.0.18:8080' vervangen door de FQDN-naam van het cluster. 
+    > Hallo `href` waarde die door deze URI geretourneerd met behulp van interne IP-adres van het clusterknooppunt Hallo Hallo. toouse via externe Hallo-cluster, '10.0.0.18:8080' hello gedeelte vervangen door Hallo FQDN-naam van het Hallo-cluster. 
     
-    De volgende opdrachten de status van de aanvraag niet ophalen:
+    Hallo opdrachten na Hallo status van aanvraag Hallo niet ophalen:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -538,9 +538,9 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
     $respObj.Requests.request_status
     ```
 
-    Een antwoord van `COMPLETED` geeft aan dat de aanvraag is voltooid.
+    Een antwoord van `COMPLETED` geeft aan dat Hallo-aanvraag is voltooid.
 
-3. Zodra de vorige aanvraag is voltooid, moet u het volgende gebruiken om de service te starten.
+3. Zodra de vorige aanvraag Hallo is voltooid, gebruik Hallo toostart Hallo service te volgen.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -555,9 +555,9 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
-    De service maakt nu gebruik van de nieuwe configuratie.
+    Hallo-service maakt nu gebruik van de nieuwe configuratie Hallo.
 
-4. Gebruik tot slot de volgende onderhoudsmodus uit te schakelen.
+4. Gebruik tot slot Hallo tooturn uit de onderhoudsmodus te volgen.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -575,5 +575,5 @@ Op dit punt als u de Ambari-webgebruikersinterface bekijkt, de Spark-service gee
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een volledig overzicht van de REST API [Ambari-API-verwijzing V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Zie voor een volledig overzicht van Hallo REST-API [Ambari-API-verwijzing V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

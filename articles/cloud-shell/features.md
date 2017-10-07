@@ -1,5 +1,5 @@
 ---
-title: Functies van Azure Cloud-Shell (Preview) | Microsoft Docs
+title: functies van aaaAzure Cloud Shell (Preview) | Microsoft Docs
 description: Overzicht van de functies van Azure Cloud Shell
 services: 
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: juluk
-ms.openlocfilehash: 67f03d5857e37b253ac57536e289b5468d69e9b5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 65482ca6caeac01dda18a6b12eabe943e3d68a96
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="features-and-tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure-Cloud-Shell
-Azure Cloud-Shell is een browser gebaseerde shell-ervaring te beheren en ontwikkelen van Azure-resources.
+Azure Cloud-Shell is een browser gebaseerde shell-ervaring toomanage en ontwikkelen van Azure-resources.
 
-Cloud-Shell biedt een shell browser toegankelijk, vooraf is geconfigureerd voor het beheren van Azure-resources zonder de overhead voor het installeren van versies, en onderhouden van een machine.
+Cloud-Shell biedt een browser toegankelijk, vooraf geconfigureerde shell-ervaring voor het beheren van Azure-resources zonder Hallo-overhead voor het installeren van versies, en onderhouden van een machine.
 
 Cloud-Shell richt machines op basis van per aanvraag en als gevolg hiervan MACHINESTATUS niet behouden over de sessies. Aangezien Cloud Shell is gebouwd voor interactieve sessies, wordt de houders automatisch opgeheven na 20 minuten van inactiviteit shell.
 
@@ -50,14 +50,14 @@ Cloud-Shell richt machines op basis van per aanvraag en als gevolg hiervan MACHI
 |Python     |2.7 en 3.5 (standaard)|
 
 ## <a name="secure-automatic-authentication"></a>Automatische verificatie beveiligen
-Cloud-Shell verifieert veilig en automatisch accounttoegang voor Azure CLI 2.0.
+Cloud-Shell verifieert veilig en automatisch accounttoegang voor hello Azure CLI 2.0.
 
 ## <a name="azure-files-persistence"></a>Azure bestanden persistentie
 Omdat Cloud Shell is toegewezen op basis van gebruik van een tijdelijke machine per aanvraag, bestanden buiten de status van uw $Home en de machine zijn niet permanent opgeslagen over de sessies.
-Om te blijven behouden bestanden over de sessies, helpt Cloud Shell u bij het koppelen van een Azure-bestandsshare op de eerste keer opstarten.
+toopersist bestanden voor volgende sessies Cloud Shell begeleidt u bij het koppelen van een Azure-bestand delen op de eerste keer opstarten.
 Wanneer u klaar Cloud Shell wordt automatisch koppelen van uw opslag voor alle toekomstige sessies.
 
-[Meer informatie over de Azure-bestandsshares gekoppeld aan Cloud Shell.](persisting-shell-storage.md)
+[Meer informatie over het koppelen van Azure file shares tooCloud Shell.](persisting-shell-storage.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Cloud-Shell Quick Start](quickstart.md) <br>

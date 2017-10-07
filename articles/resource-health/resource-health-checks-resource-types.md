@@ -1,5 +1,5 @@
 ---
-title: Brontypen die wordt ondersteund door Azure resourcestatus | Microsoft Docs
+title: aaaSupported brontypen via Azure resourcestatus | Microsoft Docs
 description: Ondersteunde resourcetypen via Azure resourcestatus
 services: Resource health
 documentationcenter: 
@@ -14,102 +14,102 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/19/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: ece853d90f051828e07e48110c85dd9ad2dac5d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a37d5c33f6ef6fdfbce0daf392bc7fa57853c7d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
-Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
+Hieronder volgt een volledige lijst met alle Hallo controles uitgevoerd via een resourcestatus door resourcetypen.
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Uitgevoerde controles|
 |---|
-|<ul><li>Alle knooppunten in de Cache actief zijn?</li><li>De Cache kan worden bereikt vanaf binnen het datacenter?</li><li>Heeft het maximum aantal verbindingen bereikt door de Cache?</li><li> Heeft de cache het beschikbare geheugen uitgeput? </li><li>De Cache korte tijd een groot aantal pagina's?</li><li>De Cache is zwaar wordt belast?</li></ul>|
+|<ul><li>Alle Hallo Cache-knooppunten actief zijn en uitgevoerd?</li><li>Hallo Cache kan worden bereikt vanaf binnen Hallo datacenter?</li><li>Hallo die cache Hallo kunt u het maximum aantal verbindingen bereikt heeft?</li><li> Heeft het beschikbare geheugen uitgeput door Hallo-cache? </li><li>Hallo Cache korte tijd een groot aantal pagina's?</li><li>Cache is zwaar belast worden Hallo?</li></ul>|
 
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |Uitgevoerde controles|
 |---|
-|<ul> <li>Een van de eindpunten is gestopt, verwijderd of niet juist geconfigureerd?</li><li>Is de aanvullende portal toegankelijk voor configuratiebewerkingen CDN?</li><li>Zijn er lopende levering problemen met de CDN-eindpunten?</li><li>Kunnen de configuratie van hun bronnen CDN wijzigen door gebruikers?</li><li>Configuratiewijzigingen doorgeven met de verwachte frequentie?</li><li>Kunnen gebruikers de CDN-configuratie met behulp van de Azure-portal, PowerShell of de API beheren?</li> </ul>|
+|<ul> <li>Een van de eindpunten Hallo is gestopt, verwijderd of niet juist geconfigureerd?</li><li>Is de aanvullende portal Hallo toegankelijk voor configuratiebewerkingen CDN?</li><li>Zijn er problemen met Hallo lopende levering van CDN-eindpunten?</li><li>Gebruikers Hallo-configuratie van hun bronnen CDN wijzigen?</li><li>Configuratiewijzigingen doorgeven snelheid Hallo verwacht?</li><li>Kunnen gebruikers Hallo CDN-configuratie met behulp van hello Azure-portal, PowerShell of Hallo API beheren?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |Uitgevoerde controles|
 |---|
-|<ul><li>De hostserver is actief en werkend?</li><li>Is de host-OS opstarten voltooid?</li><li>De container voor de virtuele machine is ingericht en ingeschakeld?</li><li>Er is een netwerkverbinding tussen de host en het storage-account?</li><li>Is het opstarten van het gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
+|<ul><li>Hallo host-server actief is en wordt uitgevoerd?</li><li>Hallo host OS opstarten voltooid?</li><li>Hallo-container voor virtuele machine is ingericht en ingeschakeld?</li><li>Er is een netwerkverbinding tussen Hallo host en Hallo storage-account?</li><li>Opstarten van het Hallo van Hallo gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Het account kan worden bereikt vanaf binnen het datacenter?</li><li>Is de cognitieve Services Resource Provider beschikbaar?</li><li>De cognitieve Service beschikbaar is in de juiste regio?</li><li>Kan lezen bewerkingen worden uitgevoerd op het opslagaccount van de resource-metagegevens?</li><li>Het quotum van API-aanroep is bereikt?</li><li>Is de API-aanroep lezen-limiet bereikt?</li></ul>|
+|<ul><li>Hallo-account kan worden bereikt vanaf binnen Hallo datacenter?</li><li>Is Hallo Resource Provider cognitieve Services beschikbaar?</li><li>Is cognitieve Service beschikbaar in de juiste regio Hallo Hallo?</li><li>Kan lezen bewerkingen worden uitgevoerd op opslagaccount Hallo Hallo resource metagegevens houden?</li><li>Hallo API-aanroep quotum is bereikt?</li><li>Is Hallo API-aanroep lezen-limiet bereikt?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.COMPUTE/virtualmachines
 |Uitgevoerde controles|
 |---|
-|<ul><li>De server die als host fungeert deze virtuele machine omhoog en uitgevoerd?</li><li>Is de host-OS opstarten voltooid?</li><li>De container voor de virtuele machine is ingericht en ingeschakeld?</li><li>Er is een netwerkverbinding tussen de host en het storage-account?</li><li>Is het opstarten van het gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
+|<ul><li>Hallo-server host deze virtuele machine omhoog en uitgevoerd?</li><li>Hallo host OS opstarten voltooid?</li><li>Hallo-container voor virtuele machine is ingericht en ingeschakeld?</li><li>Er is een netwerkverbinding tussen Hallo host en Hallo storage-account?</li><li>Opstarten van het Hallo van Hallo gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Kan gebruikers verzenden taken naar Data Lake Analytics in de regio?</li><li>Voer algemene taken uitvoeren en voltooid in de regio?</li><li>Kunnen lijst gebruikers catalogusitems in de regio?</li>|
+|<ul><li>Kunnen gebruikers verzenden taken tooData Lake Analytics in regio Hallo?</li><li>Basic-taken uitgevoerd en voltooid met succes in Hallo regio doen?</li><li>Kunnen lijst gebruikers catalogusitems in Hallo regio?</li>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Kunnen gebruikers gegevens uploaden naar Data Lake Store in de regio</li><li>Kunnen gebruikers gegevens in Data Lake Store in de regio downloaden?</li></ul>|
+|<ul><li>Kunnen gebruikers gegevens tooData Lake Store in Hallo regio uploaden?</li><li>Kunnen gebruikers gegevens in Data Lake Store in Hallo regio downloaden?</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een DocumentDB-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege een DocumentDB-service niet beschikbaar zijn?</li></ul>|
+|<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege tooa DocumentDB-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege tooa DocumentDB-service niet beschikbaar zijn?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Uitgevoerde controles|
 |---|
-|<ul><li>Is de VPN-tunnel aangesloten?</li><li>Zijn er conflicten bij de configuratie in de verbinding?</li><li>De vooraf gedeelde sleutels juist zijn geconfigureerd?</li><li>De on-premises VPN-apparaat bereikbaar is?</li><li>Zijn er verschillen in het beveiligingsbeleid IPSec/IKE?</li><li>Is de S2S VPN-verbinding juist is ingericht of in een foutstatus?</li><li>Is de VNET-naar-VNET-verbinding juist is ingericht of in een foutstatus?</li></ul>|
+|<ul><li>Is Hallo VPN-tunnel aangesloten?</li><li>Zijn er conflicten bij de configuratie in Hallo verbinding?</li><li>Vooraf gedeelde sleutels Hallo correct zijn geconfigureerd?</li><li>Hallo VPN-on-premises apparaat bereikbaar is?</li><li>Zijn er verschillen in Hallo IPSec/IKE-beveiligingsbeleid?</li><li>Is Hallo S2S VPN-verbinding juist is ingericht of in een foutstatus?</li><li>Is Hallo VNET-naar-VNET-verbinding juist is ingericht of in een foutstatus?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Uitgevoerde controles|
 |---|
-|<ul><li>Is de VPN-gateway bereikbaar is vanaf internet?</li><li>De VPN-Gateway in standby-modus is?</li><li>Wordt de VPN-service uitgevoerd op de gateway?</li></ul>|
+|<ul><li>Hallo VPN-gateway bereikbaar is via internet Hallo?</li><li>VPN-Gateway is in standby-modus worden Hallo?</li><li>Wordt Hallo VPN-service uitgevoerd op Hallo gateway?</li></ul>|
 
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |Uitgevoerde controles|
 |---|
-|<ul><li> Kunnen de runtime-bewerkingen zoals registratie, installatie of verzenden worden uitgevoerd op de naamruimte?</li></ul>|
+|<ul><li> Kunnen de runtime-bewerkingen zoals registratie, installatie of verzenden worden uitgevoerd op Hallo naamruimte?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Uitgevoerde controles|
 |---|
-|<ul><li>Het hostbesturingssysteem is actief en werkend?</li><li>Is de workspaceCollection bereikbaar is vanaf buiten het datacenter?</li><li>Is de Bronprovider van Power BI beschikbaar?</li><li>De PowerBI-Service is beschikbaar in de juiste regio?</li></ul>|
+|<ul><li>Hallo hostbesturingssysteem actief is en wordt uitgevoerd?</li><li>Hallo workspaceCollection bereikbaar is via buiten Hallo datacenter?</li><li>Is Hallo PowerBI Resource Provider beschikbaar?</li><li>Is PowerBI-Service beschikbaar in de juiste regio Hallo Hallo?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Uitgevoerde controles|
 |---|
-|<ul><li>Kunnen diagnostische gegevens bewerkingen worden uitgevoerd op het cluster?</li></ul>|
+|<ul><li>Kunnen de diagnostische gegevens bewerkingen worden uitgevoerd op Hallo cluster?</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |Uitgevoerde controles|
 |---|
-|<ul><li> Zijn er aanmeldingen bij de database?</li></ul>|
+|<ul><li> Zijn er aanmeldingen toohello database?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Uitgevoerde controles|
 |---|
-|<ul><li>Alle hosts waarbij de taak uitvoeren en actief zijn?</li><li>Is de taak kan niet worden gestart?</li><li>Zijn er lopende runtime upgrades?</li><li>De taak is een verwachte status (bijvoorbeeld uitgevoerd of gestopt door de klant)?</li><li>De taak opgetreden uit geheugen uitzonderingen?</li><li>Zijn er lopende geplande compute updates?</li><li>De uitvoeringsbeheer (dit plan) beschikbaar is?</li></ul>|
+|<ul><li>Zijn alle Hallo hosts waarbij Hallo taak wordt uitgevoerd en uitgevoerd?</li><li>Hallo-taak kan niet toostart is?</li><li>Zijn er lopende runtime upgrades?</li><li>Hallo-taak in een verwachte status (bijvoorbeeld uitgevoerd of gestopt door de klant)?</li><li>Hallo taak opgetreden uit geheugen uitzonderingen?</li><li>Zijn er lopende geplande compute updates?</li><li>Is Hallo uitvoeringsbeheer (dit plan) beschikbaar?</li></ul>|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Uitgevoerde controles|
 |---|
-|<ul><li>De hostserver is actief en werkend?</li><li>Internet Information Services wordt uitgevoerd</li><li>Is de Load balancer wordt uitgevoerd?</li><li>Kan de Web Service-Plan worden bereikt vanaf binnen het datacenter?</li><li>Het opslagaccount als host fungeert voor de sites inhoud voor de serverFarm beschikbaar veldnamenrij?</li></ul>|
+|<ul><li>Hallo host-server actief is en wordt uitgevoerd?</li><li>Internet Information Services wordt uitgevoerd</li><li>Is Hallo Load balancer wordt uitgevoerd?</li><li>Hallo Web Service-Plan kan worden bereikt vanaf binnen Hallo datacenter?</li><li>Is Hallo storage account hosting Hallo sites inhoud voor de serverFarm Hallo beschikbaar veldnamenrij?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 |Uitgevoerde controles|
 |---|
-|<ul><li>De hostserver is actief en werkend?</li><li>Is Internet Information server wordt uitgevoerd?</li><li>Is de Load balancer wordt uitgevoerd?</li><li>De Web-App kan worden bereikt vanaf binnen het datacenter?</li><li>Het opslagaccount als host fungeert voor de site-inhoud beschikbaar?</li></ul>|
+|<ul><li>Hallo host-server actief is en wordt uitgevoerd?</li><li>Is Internet Information server wordt uitgevoerd?</li><li>Is Hallo Load balancer wordt uitgevoerd?</li><li>Hallo Web-App kan worden bereikt vanaf binnen Hallo datacenter?</li><li>Hallo-opslagaccount als host fungeert voor Hallo site-inhoud beschikbaar?</li></ul>|
 
-Zie de volgende bronnen voor meer informatie over de resourcestatus:
--  [Inleiding tot Azure resourcestatus](Resource-health-overview.md)
+Deze resources toolearn meer informatie over de resourcestatus Zie:
+-  [Inleiding tooAzure resourcestatus](Resource-health-overview.md)
 -  [Veelgestelde vragen over Azure-resource-status](Resource-health-faq.md)
 

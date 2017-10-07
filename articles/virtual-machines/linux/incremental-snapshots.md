@@ -1,5 +1,5 @@
 ---
-title: Incrementele momentopnamen gebruiken voor back-up en herstel van niet-beheerde Azure Linux VM-schijven | Microsoft Docs
+title: aaaUse incrementele momentopnamen voor back-up en herstel van niet-beheerde Azure Linux VM-schijven | Microsoft Docs
 description: Maak een aangepaste oplossing voor back-up en herstel van de schijven van uw Azure Linux-virtuele machine met incrementele momentopnamen.
 services: virtual-machines-linux
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
-ms.openlocfilehash: e73bd496f5909ddeaa5791628ac08a07ea8a7889
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 671c760f6297978a64ab63d2d247208159b56147
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

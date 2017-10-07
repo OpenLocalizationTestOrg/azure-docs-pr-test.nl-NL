@@ -1,6 +1,6 @@
 ---
-title: Uw ontwikkelomgeving in Mac OS X instellen voor gebruik met Azure Service Fabric | Microsoft Docs
-description: Installeer de runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Zodra u dit hebt gedaan, kunt u toepassingen bouwen in Mac OS X.
+title: aaaSet van uw ontwikkelomgeving op Mac OS X-toowork met Azure Service Fabric | Microsoft Docs
+description: Installeer Hallo runtime, SDK en hulpprogramma's en maak een lokaal ontwikkelcluster. Na het voltooien van deze installatie, kunt u zich gereed toobuild toepassingen op Mac OS X.
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2017
 ms.author: saysa
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0b8a6c1fc1871fa76f3e21cefbc7f66f79072797
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -28,64 +28,64 @@ ms.lasthandoff: 08/29/2017
 >
 >  
 
-U kunt Service Fabric-toepassingen bouwen voor uitvoering op Linux-clusters met behulp van Mac OS X. In dit artikel wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
+U kunt Service Fabric-toepassingen toorun opbouwen op Linux-clusters met Mac OS X. In dit artikel bevat informatie over hoe tooset van uw Mac voor ontwikkeling.
 
 ## <a name="prerequisites"></a>Vereisten
-Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, bieden we een vooraf geconfigureerde virtuele Ubuntu-machine met Vagrant en VirtualBox. Voordat u aan de slag gaat, hebt u het volgende nodig:
+Service Fabric voert geen systeemeigen op OS X. toorun lokale Service Fabric-cluster, bieden we een vooraf geconfigureerde Ubuntu-virtuele machine met behulp van Vagrant en VirtualBox. Voordat u aan de slag gaat, hebt u het volgende nodig:
 
 * [Vagrant (v1.8.4 of hoger)](http://www.vagrantup.com/downloads.html)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 >[!NOTE]
-> U moet wederzijds ondersteunde versies van Vagrant en VirtualBox gebruiken. Vagrant functioneert mogelijk niet goed in combinatie met een niet-ondersteunde versie van VirtualBox.
+> U moet toouse wederzijds ondersteunde versies van Vagrant en VirtualBox. Vagrant functioneert mogelijk niet goed in combinatie met een niet-ondersteunde versie van VirtualBox.
 >
 
-## <a name="create-the-local-vm"></a>De lokale virtuele machine maken
-Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met 5-knooppunten:
+## <a name="create-hello-local-vm"></a>Maak Hallo lokale virtuele machine
+toocreate Hallo lokale virtuele machine met een 5-knooppunt Service Fabric-cluster, voert u Hallo stappen te volgen:
 
-1. De `Vagrantfile`-opslagplaats klonen
+1. Kloon Hallo `Vagrantfile` opslagplaats
 
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.
+    Deze stappen brengen keuzelijsten Hallo bestand `Vagrantfile` met Hallo VM configuratie samen met de Hallo locatie Hallo VM wordt gedownload van.
 
-2. Navigeer naar de lokale kloon van de opslagplaats
+2. Navigeer toohello lokale kloon van de opslagplaats Hallo
 
     ```bash
     cd service-fabric-linux-vagrant-onebox
     ```
-3. Wijzig de standaardinstellingen van de virtuele machine (optioneel)
+3. (Optioneel) Hallo VM standaardinstellingen wijzigen
 
-    Standaard wordt de lokale virtuele machine als volgt geconfigureerd:
+    Standaard is hello lokale virtuele machine geconfigureerd als volgt:
 
    * 3 GB toegewezen geheugen
-   * Persoonlijk hostnetwerk geconfigureerd op IP 192.168.50.50 dat passthrough van verkeer van de Mac-host inschakelt
+   * Persoonlijke host netwerk geconfigureerd IP-192.168.50.50 passthrough van verkeer van Hallo Mac host inschakelen
 
-     U kunt deze instellingen wijzigen of een andere configuratie toevoegen aan de virtuele machine in de `Vagrantfile`. Zie de [Vagrant-documentatie](http://www.vagrantup.com/docs) voor de volledige lijst met configuratieopties.
-4. De virtuele machine maken
+     U kunt een van deze instellingen wijzigen of toevoegen van andere configuratie toohello VM in Hallo `Vagrantfile`. Zie Hallo [Vagrant documentatie](http://www.vagrantup.com/docs) voor Hallo volledige lijst met configuratieopties.
+4. Hallo VM maken
 
     ```bash
     vagrant up
     ```
 
-   In deze stap wordt de vooraf geconfigureerde VM-installatiekopie gedownload, lokaal opgestart en wordt er vervolgens een lokaal Service Fabric-cluster in ingesteld. Dit kan enkele minuten duren. Als de installatie is voltooid, ziet u een bericht in de uitvoer dat aangeeft dat de cluster wordt gestart.
+   Deze stap downloadt Hallo vooraf geconfigureerde VM-installatiekopie, het lokaal en stel vervolgens een lokale Service Fabric-cluster in het opstarten. U moet verwacht dat het tootake enkele minuten duren. Als setup voltooid is, ziet u een bericht in Hallo-uitvoer die aangeeft dat Hallo-cluster wordt gestart.
 
     ![Starten van clusterinstallatie na inrichting van VM][cluster-setup-script]
 
     >[!TIP]
-    > Als het downloaden van de virtuele machine lang duurt, kunt u deze downloaden met behulp van wget of curl, of via een browser door te navigeren naar de koppeling die met **config.vm.box_url** is opgegeven in het bestand `Vagrantfile`. Nadat u deze lokaal hebt gedownload, bewerkt u `Vagrantfile`, zodat dit wijst naar het lokale pad waar u de installatiekopie hebt gedownload. Als u de installatiekopie bijvoorbeeld hebt gedownload naar /home/users/test/azureservicefabric.tp8.box, stelt u **config.vm.box_url** in op dat pad.
+    > Als Hallo VM downloaden lang duurt, kunt u downloaden met behulp van wget of curl of via een browser door te navigeren toohello koppeling opgegeven door **config.vm.box_url** in Hallo bestand `Vagrantfile`. Na het downloaden van het lokaal, bewerken `Vagrantfile` toopoint toohello lokaal pad waar u de installatiekopie van het Hallo hebt gedownload. Voor bijvoorbeeld als u Hallo installatiekopie too/home/users/test/azureservicefabric.tp8.box, gedownload vervolgens ingesteld **config.vm.box_url** toothat pad.
     >
 
-5. Test of het cluster correct is ingesteld door naar Service Fabric Explorer te gaan op http://192.168.50.50:19080/Explorer (ervan uitgaande dat u het standaard IP-adres van het privénetwerk hebt gehouden).
+5. Testen die Hallo cluster heeft correct zijn ingesteld door te navigeren tooService Fabric Explorer op http://192.168.50.50:19080/Explorer (ervan uitgaande dat u bewaard Hallo standaard particuliere netwerk-IP).
 
-    ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]
+    ![Service Fabric Explorer weergegeven van de host Hallo Mac][sfx-mac]
 
 
 ## <a name="create-application-on-mac-using-yeoman"></a>Toepassingen maken op een Mac met Yeoman
-Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator van Service Fabric werkt op uw computer.
+Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen Hallo hieronder tooensure er Hallo Service Fabric yeoman sjabloon generator op uw computer werkt.
 
-1. Node.js en NPM moeten zijn geïnstalleerd op uw Mac. Als dat niet het geval is, kunt u Node.js en NPM als volgt installeren met behulp van Homebrew. Gebruik de optie ``-v`` om te controleren welke versies van Node.js en NPM zijn geïnstalleerd op uw Mac.
+1. U moet toohave Node.js en geïnstalleerd op een mac u NPM. Als dat niet kunt u Node.js en NPM met gebruik van de volgende Hallo Homebrew installeren. toocheck hello versies van Node.js en geïnstalleerd op uw Mac NPM, kunt u Hallo ``-v`` optie.
 
   ```bash
   brew install node
@@ -97,30 +97,30 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
   ```bash
   npm install -g yo
   ```
-3. Installeer de Yeoman generator die u wilt gebruiken. Volg hiervoor de stappen in deze [documentatie](service-fabric-get-started-linux.md). Volg deze stappen om Service Fabric-toepassingen te maken met behulp van Yeoman:
+3. Hallo Yeoman installeren generator gewenste toouse, stappen te volgen Hallo in aan de slag Hallo [documentatie](service-fabric-get-started-linux.md). toocreate Service Fabric-toepassingen met behulp van Yeoman, stappen Hallo-
 
   ```bash
   npm install -g generator-azuresfjava       # for Service Fabric Java Applications
   npm install -g generator-azuresfguest      # for Service Fabric Guest executables
   npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
   ```
-4. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de computer zijn geïnstalleerd.
+4. een Service Fabric-Java-toepassing op Mac toobuild, moet u - JDK 1.8 en Gradle op Hallo machine geïnstalleerd.
 
 
-## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon
+## <a name="install-hello-service-fabric-plugin-for-eclipse-neon"></a>Hallo Service Fabric-invoegtoepassing voor Eclipse Neon installeren
 
-Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE** die het maken, bouwen en implementeren van Java-services kan vereenvoudigen. U kunt de installatiestappen volgen uit deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) over het installeren en bijwerken van de Service Fabric Eclipse-invoegtoepassing.
+Service Fabric bevat een invoegtoepassing voor Hallo **Eclipse Neon voor IDE voor Java** die Hallo-proces voor het maken, bouwen en implementeren van Java-services kunt vereenvoudigen. U kunt stappen Hallo installatie vermeld in deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) over het installeren of bijwerken van Service Fabric Eclipse-invoegtoepassing.
 
 >[!TIP]
-> De standaardinstelling is dat het standaard-IP-adres wordt ondersteund dat is opgegeven voor ``Vagrantfile`` in de ``Local.json`` van de gegenereerde toepassing. Als u dat adres wijzigt en Vagrant implementeert met een ander IP-adres, moet u het bijbehorende IP-adres in de ``Local.json`` van uw toepassing ook bijwerken.
+> Standaard wordt Hallo default IP ondersteund zoals vermeld in Hallo ``Vagrantfile`` in Hallo ``Local.json`` van de toepassing hello gegenereerd. Werk Hallo bijbehorende IP-adres in als u deze instelling wijzigen en Vagrant met een ander IP-adres implementeert, ``Local.json`` van uw toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 <!-- Links -->
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Uw eerste Service Fabric Java-toepassing in Linux maken en implementeren met behulp van de Service Fabric-invoegtoepassing voor Eclipse](service-fabric-get-started-eclipse.md)
-* [Een Service Fabric-cluster maken in Azure Portal](service-fabric-cluster-creation-via-portal.md)
-* [Een Service Fabric-cluster maken met behulp van de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-* [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)
+* [Maken van een Service Fabric-cluster in hello Azure-portal](service-fabric-cluster-creation-via-portal.md)
+* [Maken van een Service Fabric-cluster met behulp van hello Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+* [Hallo Service Fabric-toepassingsmodel begrijpen](service-fabric-application-model.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png

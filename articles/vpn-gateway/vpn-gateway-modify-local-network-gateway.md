@@ -1,5 +1,5 @@
 ---
-title: Het lokale netwerk gateway IP-adresvoorvoegsels en het VPN-Gateway-IP-adres wijzigen | Azure | PowerShell | Microsoft Docs
+title: Hallo lokale netwerk gateway IP-adresvoorvoegsels en Hallo VPN-Gateway-IP-adres wijzigen | Azure | PowerShell | Microsoft Docs
 description: Dit artikel begeleidt u bij het wijzigen van IP-adresvoorvoegsels voor uw lokale netwerkgateway met behulp van PowerShell
 services: vpn-gateway
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2a095b96a8c352abeca72640d37c0d629b447763
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1353598b39a97fae9bdb424505a5ae2560482654
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Instellingen voor lokale netwerkgateway wijzigen met PowerShell
 
-Soms worden de instellingen voor uw lokale netwerkgateway AddressPrefix of GatewayIPAddress gewijzigd. In dit artikel leest u hoe uw lokale netwerk gateway-instellingen te wijzigen. Ook kunt u deze instellingen met een andere methode door een andere optie te selecteren in de volgende lijst:
+Soms wijzigen Hallo voor uw lokale netwerkgateway AddressPrefix of GatewayIPAddress. Dit artikel ziet u hoe toomodify gateway-instellingen van uw lokale netwerk. U kunt deze instellingen met een andere methode door een andere optie selecteren in lijst na Hallo ook wijzigen:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -34,13 +34,13 @@ Soms worden de instellingen voor uw lokale netwerkgateway AddressPrefix of Gatew
 
 ## <a name="before"></a>Voordat u begint
 
-Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. Zie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) voor meer informatie over het installeren van de PowerShell-cmdlets.
+Installeer de nieuwste versie Hallo Hallo Azure Resource Manager PowerShell-cmdlets. Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs) voor meer informatie over het installeren van Hallo PowerShell-cmdlets.
 
 ## <a name="ipaddprefix"></a>IP-adresvoorvoegsels wijzigen
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="gwip"></a>Het IP-adres wijzigen
+## <a name="gwip"></a>Hallo gateway IP-adres wijzigen
 
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 

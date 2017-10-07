@@ -1,6 +1,6 @@
 ---
-title: Koppelen van een volume van de Azure-bestanden in Azure Containerexemplaren
-description: Meer informatie over het koppelen van een Azure-bestanden volume om te blijven behouden status met exemplaren van Azure-Container
+title: een Azure-bestanden volume in Azure Containerexemplaren aaaMounting
+description: Meer informatie over hoe toomount een Azure-bestanden volume toopersist status met exemplaren van Azure-Container
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d87215e06d5e5af40bfebcad17768ee45ccabbb2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Koppelen van een Azure-bestandsshare met exemplaren van Azure-Container
 
-Standaard zijn exemplaren van Azure-Container staatloze. Als de container vastloopt of stopt, gaat alle van de status verloren. Om te blijven behouden status afgezien van de levensduur van de container, moet u een volume koppelen vanuit een externe winkel. In dit artikel laat zien hoe een Azure-bestandsshare voor gebruik met Azure Containerexemplaren te koppelen.
+Standaard zijn exemplaren van Azure-Container staatloze. Als Hallo container vastloopt of stopt, gaat alle van de status verloren. toopersist status buiten Hallo levensduur van Hallo-container, moet u een volume koppelen vanuit een externe winkel. Dit artikel laat zien hoe toomount een Azure-bestandsshare voor gebruik met Azure Containerexemplaren.
 
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
 
-Voordat u een Azure-bestandsshare met exemplaren van Azure-Container, moet u deze maken. Voer het volgende script voor het maken van een opslagaccount voor het hosten van de bestandsshare en de share zelf. Houd er rekening mee dat de opslagaccountnaam moet globaal uniek zijn, zodat het script voegt een willekeurige waarde toe aan de basis-tekenreeks.
+Voordat u een Azure-bestandsshare met exemplaren van Azure-Container, moet u deze maken. Uitvoeren van script toocreate na Hallo een account toohost hello opslagbestandsshare en Hallo delen zelf. Houd er rekening mee dat Hallo opslagaccountnaam moet globaal uniek zijn, dus Hallo script een willekeurige waarde toohello base-tekenreeks voegt.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -38,28 +38,28 @@ ACI_PERS_RESOURCE_GROUP=myResourceGroup
 ACI_PERS_LOCATION=eastus
 ACI_PERS_SHARE_NAME=acishare
 
-# Create the storage account with the parameters
+# Create hello storage account with hello parameters
 az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable, this is used when creating the Azure file share
+# Export hello connection string as an environment variable, this is used when creating hello Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
 
-# Create the share
+# Create hello share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
 ## <a name="acquire-storage-account-access-details"></a>De accountdetails toegang tot opslag verkrijgen
 
-Een Azure-bestandsshare als een volume in Azure Containerexemplaren koppelen, moet u drie waarden: naam van het opslagaccount, de sharenaam van de en de toegangssleutel voor opslag. 
+toomount een Azure-bestandsshare als een volume in Azure Containerexemplaren, moet u drie waarden: Hallo opslagaccountnaam Hallo sharenaam en Hallo-toegangssleutel voor opslag. 
 
-Als u het bovenstaande script gebruikt, wordt de naam van het opslagaccount is gemaakt met een willekeurige waarde aan het einde. Om te vragen van de laatste tekenreeks (inclusief het willekeurig gedeelte), gebruikt u de volgende opdrachten:
+Als u bovenstaande Hallo-script gebruikt, is met een willekeurige waarde aan einde Hallo Hallo opslagaccountnaam gemaakt. tooquery hello laatste tekenreeks (inclusief Hallo willekeurige gedeelte), gebruikt u Hallo volgende opdrachten:
 
 ```azurecli-interactive
 STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
-Al bekend is de sharenaam (is *acishare* in het bovenstaande script), zodat alle dat u hoeft alleen nog de opslagaccountsleutel die kan worden gevonden met de volgende opdracht:
+Hallo sharenaam al bekend is (is *acishare* in Hallo script hierboven), zodat alles wat u hoeft alleen nog Hallo opslagaccountsleutel, die kan worden gevonden met Hallo volgende opdracht:
 
 ```azurecli-interactive
 $STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
@@ -68,29 +68,29 @@ echo $STORAGE_KEY
 
 ## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Storage-account toegangsgegevens met Azure sleutelkluis opslaan
 
-Toegangscodes voor opslag beveiligen toegang tot uw gegevens, zodat we het beste opslaan in een Azure sleutelkluis. 
+Toegangscodes voor opslag beveiligen tooyour toegangsgegevens, zodat we het beste opslaan in een Azure sleutelkluis. 
 
-Een sleutelkluis maken met de Azure CLI:
+Een sleutelkluis maken Hello Azure CLI:
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
 az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
 ```
 
-De `enabled-for-template-deployment` switch kunt Azure Resource Manager pull geheimen van de sleutelkluis tijdens de implementatie.
+Hallo `enabled-for-template-deployment` switch biedt de mogelijkheid Azure Resource Manager toopull geheimen van de sleutelkluis tijdens de implementatie.
 
-De opslagaccountsleutel opslaan als een nieuwe geheim in de sleutelkluis:
+Hallo opslagaccountsleutel opslaan als een nieuwe geheim in de sleutelkluis Hallo:
 
 ```azurecli-interactive
 KEYVAULT_SECRET_NAME=azurefilesstoragekey
 az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
 ```
 
-## <a name="mount-the-volume"></a>Het volume koppelen
+## <a name="mount-hello-volume"></a>Hallo volume koppelen
 
-Koppelen van een Azure-bestandsshare als een volume in een container is een proces. Eerst u de details van de share als onderdeel van het definiëren van de containergroep opgeeft, vervolgens u opgeven hoe u het volume dat is gekoppeld in een of meer van de containers in de groep wilt gebruiken.
+Koppelen van een Azure-bestandsshare als een volume in een container is een proces. Eerst bieden Hallo details van de share als onderdeel van het definiëren van de containergroep Hallo Hallo daarna u hoe u Hallo volume is gekoppeld in één of meer containers in de groep Hallo Hallo wilt opgeven.
 
-Om te definiëren van de volumes die u beschikbaar wilt maken voor het koppelen, Voeg een `volumes` matrix naar de definitie van de container in de Azure Resource Manager-sjabloon en klik vervolgens in de definitie van de afzonderlijke containers verwijzing.
+toodefine hello volumes toomake beschikbaar voor gewenste koppelen, Voeg een `volumes` matrix toohello container groepsdefinitie in hello Azure Resource Manager-sjabloon en klik vervolgens in Hallo definitie van de afzonderlijke containers Hallo verwijzing.
 
 ```json
 {
@@ -150,7 +150,7 @@ Om te definiëren van de volumes die u beschikbaar wilt maken voor het koppelen,
 }
 ```
 
-De sjabloon bevat de naam van het opslagaccount en de sleutel als parameters die in een afzonderlijke parameterbestand kunnen worden opgegeven. Om te voorzien van het parameterbestand, moet u drie waarden: naam van het opslagaccount, de bron-ID van uw Azure sleutelkluis en de geheime naam van sleutelkluis die u hebt gebruikt voor het opslaan van de opslagsleutel. Als u de vorige stappen hebt gevolgd, kunt u deze waarden met het volgende script kunt krijgen:
+Hallo-sjabloon bevat Hallo opslagaccountnaam en sleutel als parameters die in een afzonderlijke parameterbestand kunnen worden opgegeven. toopopulate hello parameterbestand, moet u drie waarden: Hallo opslagaccountnaam en geheime sleutelkluisnaam die u hebt gebruikt toostore hello opslagsleutel Hallo Hallo bron-ID van uw Azure sleutelkluis. Als u de vorige stappen hebt gevolgd, kunt u deze waarden kunt krijgen met Hallo script volgen:
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -158,7 +158,7 @@ echo $KEYVAULT_SECRET_NAME
 az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 ```
 
-Voeg de waarden in het parameterbestand:
+Hallo waarden invoegen in het parameterbestand Hallo:
 
 ```json
 {
@@ -180,26 +180,26 @@ Voeg de waarden in het parameterbestand:
 }
 ```
 
-## <a name="deploy-the-container-and-manage-files"></a>De container implementeren en beheren van bestanden
+## <a name="deploy-hello-container-and-manage-files"></a>Hallo-container implementeren en beheren van bestanden
 
-Met de sjabloon is gedefinieerd, kunt u de container maken en koppelen van het volume met de Azure CLI. Ervan uitgaande dat de naam van het sjabloonbestand *azuredeploy.json* en met de naam van het parameterbestand *azuredeploy.parameters.json*, dan is de opdrachtregel:
+U kunt met het Hallo-sjabloon is gedefinieerd, Hallo container maken en koppelen van het volume met behulp van hello Azure CLI. Ervan uitgaande dat hello sjabloonbestand heet *azuredeploy.json* en de naam van dat bestand van de parameters Hallo *azuredeploy.parameters.json*, dan is Hallo vanaf de opdrachtregel:
 
 ```azurecli-interactive
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de **aci-seanmckenna-hellofiles** installatiekopie naar de bestanden beheren in de Azure-bestandsshare op de koppelpad die u hebt opgegeven. Het IP-adres voor de web-app via de volgende verkrijgen:
+Zodra het Hallo-container wordt gestart, kunt u Hallo eenvoudige web-app is geïmplementeerd via Hallo **aci-seanmckenna-hellofiles** afbeelding toohello beheren van bestanden in Azure Hallo-bestandsshare op Hallo koppelpad die u hebt opgegeven. Hallo IP-adres voor web-app via de volgende Hallo Hallo verkrijgen:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name hellofiles -o table
 ```
 
-U kunt een hulpprogramma zoals de [Microsoft Azure Storage Explorer](http://storageexplorer.com) op te halen en het controleren van het bestand writen naar de bestandsshare.
+U kunt een hulpprogramma zoals Hallo [Microsoft Azure Storage Explorer](http://storageexplorer.com) tooretrieve en Hallo writen toohello bestand bestandsshare controleren.
 
 >[!NOTE]
-> Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen, parameterbestanden en implementeren met de Azure CLI [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+> Zie toolearn meer over het gebruik van Azure Resource Manager-sjablonen, parameterbestanden, en implementeren met Azure CLI Hallo [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Implementeren voor uw eerste container met de Azure-Container instanties [snel starten](container-instances-quickstart.md)
-- Meer informatie over de [relatie tussen Azure Containerexemplaren en container orchestrators](container-instances-orchestrator-relationship.md)
+- Implementeren voor uw eerste container met hello Azure Container instanties [snel starten](container-instances-quickstart.md)
+- Meer informatie over Hallo [relatie tussen Azure Containerexemplaren en container orchestrators](container-instances-orchestrator-relationship.md)

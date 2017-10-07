@@ -1,6 +1,6 @@
 ---
-title: Een virtueel netwerk maken | Azure Resource Manager-sjabloon | Microsoft Docs
-description: Informatie over het maken van een virtueel netwerk met een Azure Resource Manager-sjabloon.
+title: een virtueel netwerk aaaCreate | Azure Resource Manager-sjabloon | Microsoft Docs
+description: Meer informatie over hoe toocreate een virtueel netwerk met een Azure Resource Manager-sjabloon.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b9c289433ff2a84bec19eac25fa28ab40d131c7d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Een virtueel netwerk met een Azure Resource Manager-sjabloon maken
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure heeft twee implementatiemodellen: Azure Resource Manager en klassiek. Microsoft raadt aan resources te maken via het Resource Manager-implementatiemodel. Lees het artikel [Azure-implementatiemodellen begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de verschillen tussen de twee modellen.
+Azure heeft twee implementatiemodellen: Azure Resource Manager en klassiek. Microsoft raadt u aan voor het maken van resources via Hallo Resource Manager-implementatiemodel. Hallo toolearn informatie over de verschillen tussen Hallo twee modellen, Hallo lezen [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md) artikel.
  
-Dit artikel wordt uitgelegd hoe u een VNet met het implementatiemodel van Resource Manager met een Azure Resource Manager-sjabloon maakt. U kunt via Resource Manager ook een VNet maken met andere hulpprogramma's. Bovendien kunt u een VNet maken via het klassieke implementatiemodel door in de volgende lijst een andere optie te selecteren:
+Dit artikel wordt uitgelegd hoe toocreate een VNet via Hallo Resource Manager deployment model met een Azure Resource Manager-sjabloon. Ook kunt u een VNet via Resource Manager, met andere hulpprogramma's maken of maak een VNet via de klassieke implementatiemodel Hallo door een andere optie kiezen in Hallo volgende lijst:
 
 > [!div class="op_single_selector"]
 - [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -39,44 +39,44 @@ Dit artikel wordt uitgelegd hoe u een VNet met het implementatiemodel van Resour
 - [PowerShell (klassiek)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [CLI (klassiek)](virtual-networks-create-vnet-classic-cli.md)
 
-U ziet hoe u een bestaande ARM-sjabloon kunt downloaden en wijzigen vanuit GitHub, en de sjabloon vervolgens kunt implementeren met GitHub, PowerShell en Azure CLI.
+U leert hoe toodownload wijzigen en bestaande ARM-sjabloon vanuit GitHub en Hallo sjabloon implementeren vanuit GitHub, PowerShell en hello Azure CLI.
 
-Als u de ARM-sjabloon rechtstreeks vanuit GitHub wilt implementeren zonder deze te wijzigen, gaat u naar [Een sjabloon implementeren vanuit GitHub](#deploy-the-arm-template-by-using-click-to-deploy).
+Als u wilt Hallo ARM-sjabloon rechtstreeks vanuit GitHub, zonder deze te wijzigen implementeren, gaat u verder te[een sjabloon implementeren vanuit github](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="download-and-understand-the-azure-resource-manager-template"></a>De Azure Resource Manager-sjabloon downloaden en begrijpen
-U kunt de bestaande sjabloon voor het maken van een VNet en twee subnets vanuit GitHub downloaden, breng eventuele wijzigingen die u mogelijk wilt gebruiken en het opnieuw gebruiken. Voer de volgende stappen uit om dit te doen:
+## <a name="download-and-understand-hello-azure-resource-manager-template"></a>Hello Azure Resource Manager-sjabloon downloaden en begrijpen
+U kunt bestaande Hallo-sjabloon voor het maken van een VNet en twee subnets vanuit GitHub downloaden, breng eventuele wijzigingen die u mogelijk wilt gebruiken en het opnieuw gebruiken. toodo voltooien dus Hallo stappen te volgen:
 
-1. Navigeer naar [de sjabloon-voorbeeldpagina](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
+1. Navigeer te[pagina voorbeeldsjabloon Hallo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 2. Klik op **azuredeploy.json** en vervolgens op **RAW**.
-3. Sla het bestand op in een lokale map op uw computer.
-4. Als u bekend met sjablonen bent, gaat u verder met stap 7.
-5. Open het bestand dat u zojuist hebt opgeslagen en bekijk de inhoud onder **parameters** in regel 5. ARM-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
+3. Sla Hallo bestand tooa een lokale map op uw computer.
+4. Als u bekend met sjablonen bent, slaat u toostep 7.
+5. Open Hallo-bestand die u zojuist hebt opgeslagen en bekijkt hello inhoud onder **parameters** in regel 5. ARM-sjabloonparameters bieden een tijdelijke aanduiding voor waarden die kunnen worden ingevuld tijdens de implementatie.
    
    | Parameter | Beschrijving |
    | --- | --- |
-   | **location** |Azure-regio waar het VNet wordt aangemaakt |
-   | **vnetName** |Naam voor het nieuwe VNet |
-   | **addressPrefix** |Adresruimte voor het VNet, in CIDR-indeling |
-   | **subnet1Name** |Naam voor het eerste VNet |
-   | **subnet1Prefix** |CIDR-blokkering voor het eerste subnet |
-   | **subnet2Name** |Naam voor het tweede VNet |
-   | **subnet2Prefix** |CIDR-blokkering voor het tweede subnet |
+   | **location** |Azure-regio waar Hallo VNet wordt gemaakt |
+   | **vnetName** |Naam voor Hallo nieuwe VNet |
+   | **addressPrefix** |Adresruimte voor Hallo VNet, in CIDR-notatie |
+   | **subnet1Name** |Naam voor Hallo eerste VNet |
+   | **subnet1Prefix** |CIDR-blokkering voor het eerste subnet Hallo |
+   | **subnet2Name** |Naam voor Hallo tweede VNet |
+   | **subnet2Prefix** |CIDR-blokkering voor Hallo tweede subnet |
    
    > [!IMPORTANT]
-   > Azure Resource Manager-sjablonen die in GitHub worden bewaard, kunnen in de loop van de tijd veranderen. Zorg ervoor dat u de sjabloon controleert, voordat u deze gebruikt.
+   > Azure Resource Manager-sjablonen die in GitHub worden bewaard, kunnen in de loop van de tijd veranderen. Zorg ervoor dat u Hallo sjabloon controleren voordat u deze gebruikt.
    > 
    > 
-6. Controleer de inhoud onder **Resources** en let op het volgende:
+6. Controleer de inhoud Hallo onder **resources** en Let op Hallo volgende:
    
-   * **type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval **Microsoft.Network/virtualNetworks**, die een VNet vertegenwoordigen.
-   * **Naam**. Naam voor de resource. Let op het gebruik van **[parameters('vnetName')]**. Deze geeft aan of de naam wordt geleverd als invoer door de gebruiker of een parameterbestand tijdens implementatie.
-   * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt gebruik van de adresruimte en de subneteigenschappen tijdens het aanmaken van het VNet.
-7. Ga naar de [pagina Voorbeeldsjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
+   * **type**. Type resource dat door Hallo sjabloon wordt gemaakt. In dit geval **Microsoft.Network/virtualNetworks**, die een VNet vertegenwoordigen.
+   * **Naam**. Naam voor Hallo resource. Kennisgeving Hallo gebruik van **[parameters('vnetName')]**, dit betekent Hallo naam wordt geleverd als invoer door Hallo gebruiker of een parameterbestand tijdens de implementatie.
+   * **Eigenschappen**. Lijst met eigenschappen voor Hallo resource. Deze sjabloon maakt gebruik van Hallo ruimte en subnet adreseigenschappen tijdens het maken van een VNet.
+7. Navigeer terug te[pagina voorbeeldsjabloon Hallo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Klik op **azuredeploy-paremeters.json** en vervolgens op **RAW**.
-9. Sla het bestand op in een lokale map op uw computer.
-10. Open het bestand dat u zojuist hebt opgeslagen en bewerk de waarden voor de parameters. Gebruik de volgende waarden op om het VNet dat is beschreven in het scenario te implementeren:
+9. Sla Hallo bestand tooa een lokale map op uw computer.
+10. Open Hallo bestand dat u zojuist hebt opgeslagen en bewerk Hallo-waarden voor Hallo-parameters. Gebruik Hallo volgende waarden onder toodeploy hello VNet in Hallo scenario beschreven:
 
     ```json
         {
@@ -104,21 +104,21 @@ U kunt de bestaande sjabloon voor het maken van een VNet en twee subnets vanuit 
         }
     ```
 
-11. Sla het bestand op.
+11. Hallo-bestand opslaan.
 
 
-## <a name="deploy-the-template-using-powershell"></a>De sjabloon die met behulp van PowerShell implementeren
+## <a name="deploy-hello-template-using-powershell"></a>Met behulp van PowerShell Hallo-sjabloon implementeren
 
-De volgende stappen voor het implementeren van de sjabloon die u hebt gedownload met behulp van PowerShell:
+Volgende stappen toodeploy Hallo-sjabloon die u hebt gedownload met behulp van PowerShell Hallo voltooien:
 
-1. Installeren en configureren van Azure PowerShell via de stappen in de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
-2. Voer de volgende opdracht uit om een nieuwe resourcegroep te maken:
+1. Installeren en configureren van Azure PowerShell via Hallo stappen in Hallo [hoe tooInstall en configureer Azure PowerShell](/powershell/azure/overview) artikel.
+2. Voer Hallo opdracht toocreate na een nieuwe resourcegroep:
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location centralus
     ```
 
-    De opdracht maakt u een resourcegroep met de naam *TestRG* in de *VS-midden* azure-regio. Zie [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
+    Hallo opdracht maakt u een resourcegroep met de naam *TestRG* in Hallo *VS-midden* azure-regio. Zie [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md) (Overzicht van Azure Resource Manager) voor meer informatie over resourcegroepen.
 
     Verwachte uitvoer:
 
@@ -132,7 +132,7 @@ De volgende stappen voor het implementeren van de sjabloon die u hebt gedownload
                             *
         ResourceId        : /subscriptions/[Id]/resourceGroups/TestRG
 
-3. Voer de volgende opdracht voor het implementeren van de nieuwe VNet met behulp van de sjabloon en de parameterbestanden bestanden u hebt gedownload en hierboven zijn gewijzigd:
+3. Voer Hallo na de opdracht toodeploy Hallo nieuwe VNet met het Hallo-sjabloon en de parameterbestanden die u hebt gedownload en hierboven zijn gewijzigd:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
@@ -159,7 +159,7 @@ De volgende stappen voor het implementeren van de sjabloon die u hebt gedownload
                             subnet2Name      String                     BackEnd
    
         Outputs           :
-4. Voer de volgende opdracht om de eigenschappen van de nieuwe VNet te bekijken:
+4. Voer Hallo volgende opdracht tooview Hallo eigenschappen van Hallo nieuwe VNet:
 
     ```powershell
     Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -206,39 +206,39 @@ De volgende stappen voor het implementeren van de sjabloon die u hebt gedownload
                               }
                             ]
 
-## <a name="deploy-the-template-using-click-to-deploy"></a>De sjabloon met click-to-deploy implementeren
+## <a name="deploy-hello-template-using-click-to-deploy"></a>Implementeren met click-to-deploy Hallo-sjabloon
 
-U kunt hergebruiken van vooraf gedefinieerde Azure Resource Manager-sjablonen geüpload naar een door Microsoft beheerde GitHub-opslagplaats en toegankelijk voor de community. Deze sjablonen kunnen rechtstreeks uit de GitHub geïmplementeerd of gedownload en gewijzigd naar wens aanpassen. Voor het implementeren van een sjabloon die een VNet met twee subnetten maakt, moet u de volgende stappen uitvoeren:
+U kunt vooraf gedefinieerde Azure Resource Manager sjablonen geüploade tooa GitHub-opslagplaats beheerd door Microsoft en community open toohello hergebruiken. Deze sjablonen kunnen rechtstreeks uit de GitHub worden geïmplementeerd of gedownload en gewijzigd toofit uw behoeften. toodeploy een sjabloon die wordt gemaakt van een VNet met twee subnetten voltooid Hallo stappen te volgen:
 
-1. Vanuit een browser gaat u naar [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll omlaag in de lijst met sjablonen en klik op **101-vnet-two-subnets**. Controleer het **README.md** -bestand, zoals hieronder weergegeven.
+1. Vanuit een browser navigeren te[https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+2. Schuif naar beneden Hallo lijst met sjablonen en klikt u op **101-vnet-two-subnets**. Controleer de Hallo **README.md** -bestand, zoals hieronder wordt weergegeven.
 
     ![READEME.md-bestand in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
-3. Klik op **Implementeren in Azure**. Voer indien nodig uw Azure-aanmeldingsreferenties in. 
-4. Voer de waarden die u wilt gebruiken om uw nieuwe VNet te maken in de **Parameters**-blade en klik vervolgens op **OK**. De volgende afbeelding ziet de waarden voor het scenario:
+3. Klik op **tooAzure implementeren**. Voer indien nodig uw Azure-aanmeldingsreferenties in. 
+4. In Hallo **Parameters** blade Voer Hallo waarden u wilt dat uw nieuwe VNet toouse toocreate en klik vervolgens op **OK**. Hallo ziet volgende afbeelding Hallo waarden voor Hallo scenario:
    
     ![ARM-sjabloonparameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-5. Klik op **Resourcegroep** en selecteer een resourcegroep om toe te voegen aan het VNet of klik op **Nieuwe aanmaken** om het VNet toe te voegen aan een nieuwe resourcegroep. De volgende afbeelding ziet u de resource groepsinstellingen voor een nieuwe resourcegroep aangeroepen **TestRG**:
+5. Klik op **resourcegroep** en selecteert u een groep resource tooadd Hallo VNet-naar- of klik op **nieuw** tooadd hello VNet tooa nieuwe resourcegroep. Hallo volgende afbeelding ziet u Hallo resource groepsinstellingen voor een nieuwe resourcegroep aangeroepen **TestRG**:
 
     ![Resourcegroep](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-6. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet.
-7. Als u VNet niet als tegel wilt laten weergeven in het **Startboard** schakelt u **Vastmaken aan Startboard** uit.
-8. Klik op **juridische voorwaarden**, lees de voorwaarden en klik op **kopen** accepteren. 
-9. Klik op **Maken** om het VNet te maken.
+6. Wijzig indien nodig, Hallo **abonnement** en **locatie** instellingen voor uw VNet.
+7. Als u niet dat toosee hello VNet als tegel in Hallo wilt **Startboard**, uitschakelen **pincode tooStartboard**.
+8. Klik op **juridische voorwaarden**, Hallo voorwaarden lezen en klikt u op **kopen** tooagree. 
+9. Klik op **maken** toocreate hello VNet.
    
     ![Tegel implementatie in Preview Portal verzenden](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Zodra de implementatie is voltooid in de Azure portal op **meer services**, type *virtuele netwerken* in het vak van het filter dat wordt weergegeven, klik vervolgens op virtuele netwerken om te zien van de virtuele netwerken-blade. Klik op de blade *TestVNet*. In de *TestVNet* blade, klikt u op **subnetten** om te zien van de subnetten gemaakt, zoals wordt weergegeven in de volgende afbeelding:
+10. Zodra Hallo-implementatie is voltooid, in hello Azure-portal klikt u op **meer services**, type *virtuele netwerken* in Hallo filter dat wordt weergegeven, klikt u virtuele netwerken toosee Hallo virtuele netwerken blade. Klik op de blade Hallo *TestVNet*. In Hallo *TestVNet* blade, klikt u op **subnetten** toosee Hallo gemaakt subnetten, zoals wordt weergegeven in de volgende afbeelding Hallo:
     
      ![VNet maken in de Preview Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Leer hoe u de volgende verbindingen maakt:
+Meer informatie over hoe tooconnect:
 
-- Verbinding van een virtuele machine (VM) met een virtueel netwerk: lees de artikelen [Een Windows VM maken](../virtual-machines/virtual-machines-windows-hero-tutorial.md) of [Een Linux-VM maken](../virtual-machines/linux/quick-create-portal.md). In plaats van een VNet en subnet te maken via de stappen die in de artikelen worden beschreven, kunt u ook een bestaand VNet en subnet selecteren waarmee u een VM wilt verbinden.
-- Verbinding van het virtuele netwerk met andere virtuele netwerken: lees het artikel [VNets verbinden](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Verbinding van het virtuele netwerk met een on-premises netwerk via een site-naar-site virtueel particulier netwerk (VPN) of een ExpressRoute-circuit. Lees hiervoor de artikelen [Een VNet verbinden met een on-premises netwerk via een site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) en [Een VNet koppelen aan een ExpressRoute-circuit](../expressroute/expressroute-howto-linkvnet-arm.md).
+- Een virtueel netwerk van virtuele machine (VM) tooa door Hallo lezen [maken van een virtuele machine van Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) of [maken van een Linux-VM](../virtual-machines/linux/quick-create-portal.md) artikelen. In plaats van een VNet en een subnet maken in stappen van Hallo artikelen hello, kunt u een bestaande VNet en een subnet tooconnect een virtuele machine aan.
+- virtueel netwerk tooother virtuele netwerken door te lezen Hallo Hallo [VNets verbinden](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) artikel.
+- Hallo virtueel netwerk tooan on-premises netwerk met een site-naar-site virtueel particulier netwerk (VPN) of het ExpressRoute-circuit. Meer informatie over hoe u door te lezen Hallo [verbinding maken met een VNet tooan on-premises netwerk via een site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) en [koppelen van een VNet tooan ExpressRoute-circuit](../expressroute/expressroute-howto-linkvnet-arm.md) artikelen.

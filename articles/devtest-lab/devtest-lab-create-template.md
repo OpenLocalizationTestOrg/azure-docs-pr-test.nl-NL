@@ -1,6 +1,6 @@
 ---
-title: Een Azure DevTest Labs aangepaste installatiekopie maken van een VHD-bestand | Microsoft Docs
-description: Meer informatie over het maken van een aangepaste installatiekopie in Azure DevTest Labs van een VHD-bestand met de Azure portal
+title: de aangepaste installatiekopie van een Azure DevTest Labs vanaf een VHD-bestand aaaCreate | Microsoft Docs
+description: Meer informatie over hoe een aangepaste installatiekopie in Azure DevTest Labs vanaf een VHD-bestand met toocreate hello Azure-portal
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 80af8ea1cb72380f868df0a76c4a0dcd92e63cf5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Een aangepaste installatiekopie van een VHD-bestand maken
 
@@ -30,41 +30,41 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="step-by-step-instructions"></a>Stapsgewijze instructies
 
-De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand met de Azure portal maken:
+Hallo volgende stappen maakt u een aangepaste installatiekopie maken van een VHD-bestand met behulp van hello Azure-portal:
 
-1. Meld u aan bij [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Meld u aan toohello [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecteer **Meer services** en selecteer in de lijst vervolgens **DevTest Labs**.
+1. Selecteer **meer services**, en selecteer vervolgens **DevTest Labs** uit Hallo-lijst.
 
-1. Selecteer de gewenste testomgeving uit de lijst van labs.  
+1. Selecteer de gewenste lab Hallo in lijst Hallo van labs.  
 
-1. Selecteer op de labblade **configuratie**. 
+1. Selecteer op Hallo van labblade, **configuratie**. 
 
-1. Op de testomgeving **configuratie** blade Selecteer **aangepaste installatiekopieën (VHD's)**.
+1. Op Hallo lab **configuratie** blade Selecteer **aangepaste installatiekopieën (VHD's)**.
 
-1. Op de **aangepaste installatiekopieën** blade Selecteer **+ toevoegen**.
+1. Op Hallo **aangepaste installatiekopieën** blade Selecteer **+ toevoegen**.
 
     ![Aangepaste installatiekopie toe te voegen](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Voer de naam van de aangepaste afbeelding. Deze naam wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine.
+1. Hallo-naam van de aangepaste installatiekopie Hallo invoeren. Deze naam wordt weergegeven in de lijst Hallo met basisinstallatiekopieën bij het maken van een virtuele machine.
 
-1. Geef de beschrijving van de aangepaste installatiekopie. Deze beschrijving wordt weergegeven in de lijst met basisinstallatiekopieën bij het maken van een virtuele machine.
+1. Hallo-omschrijving van de aangepaste installatiekopie Hallo invoeren. Deze beschrijving wordt weergegeven in de lijst van basisinstallatiekopieën Hallo bij het maken van een virtuele machine.
 
 1. Selecteer **VHD**.
 
-1. Van de **VHD** blade selecteert de gewenste VHD-bestand.
+1. Van Hallo **VHD** blade, selecteer Hallo gewenst VHD-bestand.
 
-1. Selecteer **OK** sluiten de **VHD** blade.
+1. Selecteer **OK** tooclose hello **VHD** blade.
 
 1. Selecteer **configuratie van het besturingssysteem**.
 
-1. Op de **configuratie van het besturingssysteem** tabblad, selecteert u **Windows** of **Linux**.
+1. Op Hallo **configuratie van het besturingssysteem** tabblad, selecteert u **Windows** of **Linux**.
 
-1. Als **Windows** is geselecteerd, geeft u via het selectievakje of *Sysprep* is uitgevoerd op de machine. 
+1. Als **Windows** is geselecteerd, geeft u via Hallo selectievakje of *Sysprep* op Hallo machine is uitgevoerd. 
 
-1. Selecteer **OK** sluiten de **configuratie van het besturingssysteem** blade.
+1. Selecteer **OK** tooclose hello **configuratie van het besturingssysteem** blade.
 
-1. Selecteer **OK** om de aangepaste installatiekopie te maken.
+1. Selecteer **OK** toocreate Hallo aangepaste installatiekopie.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -75,4 +75,4 @@ De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand 
 
 ##<a name="next-steps"></a>Volgende stappen
 
-- [Een virtuele machine toevoegen aan uw testomgeving](./devtest-lab-add-vm-with-artifacts.md)
+- [Een VM tooyour lab toevoegen](./devtest-lab-add-vm-with-artifacts.md)

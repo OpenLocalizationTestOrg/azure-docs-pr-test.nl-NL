@@ -1,6 +1,6 @@
 ---
-title: Het weergeven van Azure Service Fabric-entiteiten geaggregeerd health | Microsoft Docs
-description: Beschrijft hoe een query, bekijken en evalueren van de Azure Service Fabric-entiteiten geaggregeerde status, door middel van statusquery's en algemene query's.
+title: aaaHow tooview Azure Service Fabric entiteiten geaggregeerd health | Microsoft Docs
+description: Hierin wordt beschreven hoe u tooquery, bekijken en evalueren van de Azure Service Fabric-entiteiten geaggregeerde status, door middel van statusquery's en algemene query's.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b97972b1bdc28a17fb9c3a0e997738f5bd0b5d15
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: add810551cac26d2b4ff81b57d94ddd780c2cc2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-service-fabric-health-reports"></a>Service Fabric-statusrapporten weergeven
-Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) met health entiteiten op welke onderdelen van het systeem en watchdogs kunt rapport lokale voorwaarden die ze bewaken. De [health store](service-fabric-health-introduction.md#health-store) aggregeert alle health gegevens om te bepalen of de entiteiten in orde zijn.
+Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) met health entiteiten op welke onderdelen van het systeem en watchdogs kunt rapport lokale voorwaarden die ze bewaken. Hallo [health store](service-fabric-health-introduction.md#health-store) alle health gegevens toodetermine aggregeert of entiteiten zijn in orde.
 
-Het cluster wordt automatisch gevuld met statusrapporten dat is verzonden door de onderdelen van het systeem. Meer informatie op [systeemstatusrapporten gebruiken om op te lossen](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Hallo-cluster wordt automatisch gevuld met statusrapporten dat is verzonden door de onderdelen van het systeem Hallo. Meer informatie op [gebruik systeemstatusrapporten tootroubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric bevat meerdere manieren om op te halen van de cumulatieve status van de entiteiten:
+Service Fabric bevat meerdere manieren tooget Hallo geaggregeerd health Hallo entiteiten:
 
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) of andere visualisatie hulpprogramma's
 * Statusquery's (via PowerShell, API of REST)
-* Algemene query's dat retourneren een lijst van entiteiten met status als een van de eigenschappen (via PowerShell, API of REST)
+* Algemene query's dat retourneren een lijst van entiteiten die status als een van de eigenschappen hello (via PowerShell, API of REST hebben)
 
-Ter illustratie van deze opties we gebruiken een lokaal cluster met vijf knooppunten en de [fabric: / WordCount-toepassing](http://aka.ms/servicefabric-wordcountapp). De **fabric: / WordCount** toepassing bevat twee standaardservices, een stateful service van het type `WordCountServiceType`, en een stateless service van het type `WordCountWebServiceType`. Ik heb gewijzigd de `ApplicationManifest.xml` vereisen zeven replica's voor de stateful service en één partitie zijn gericht. Omdat er slechts vijf knooppunten in het cluster, de onderdelen van het systeem een rapport een waarschuwing over de partitie van de service omdat deze lager dan het aantal doel is.
+Deze opties we toodemonstrate gebruik van een lokaal cluster met vijf knooppunten en Hallo [fabric: / WordCount-toepassing](http://aka.ms/servicefabric-wordcountapp). Hallo **fabric: / WordCount** toepassing bevat twee standaardservices, een stateful service van het type `WordCountServiceType`, en een stateless service van het type `WordCountWebServiceType`. Ik heb Hallo gewijzigd `ApplicationManifest.xml` toorequire zeven doel replica's voor Hallo stateful service en een partitie. Omdat er slechts vijf knooppunten in cluster hello, rapporteren Hallo-systeemonderdelen een waarschuwing op Hallo service partitie omdat deze lager dan Hallo doel count is.
 
 ```xml
 <Service Name="WordCountService">
@@ -48,17 +48,17 @@ Ter illustratie van deze opties we gebruiken een lokaal cluster met vijf knooppu
 ```
 
 ## <a name="health-in-service-fabric-explorer"></a>Status in Service Fabric Explorer
-Service Fabric Explorer biedt een visuele weergave van het cluster. In de onderstaande afbeelding ziet u dat:
+Service Fabric Explorer biedt een visuele weergave van Hallo-cluster. In onderstaande Hallo afbeelding, kunt u zien dat:
 
-* De toepassing **fabric: / WordCount** is rood (fout) omdat er een foutgebeurtenis gemeld door **MyWatchdog** voor de eigenschap **beschikbaarheid**.
-* Een van de services ontvangt, **fabric: / WordCount/WordCountService** geel gekleurd (in de waarschuwing). De service is geconfigureerd met zeven replica's en het cluster heeft vijf knooppunten en daarom twee repicas kan niet worden geplaatst. Hoewel dit niet wordt weergegeven hier, de service-partitie geel is vanwege een rapport van `System.FM` mededeling dat `Partition is below target replica or instance count`. De gele partitie activeert de gele service.
-* Het cluster is rood vanwege de rode toepassing.
+* toepassing Hello **fabric: / WordCount** is rood (fout) omdat er een foutgebeurtenis gemeld door **MyWatchdog** voor de eigenschap Hallo **beschikbaarheid**.
+* Een van de services ontvangt, **fabric: / WordCount/WordCountService** geel gekleurd (in de waarschuwing). Hallo-service is geconfigureerd met zeven replica's en Hallo cluster heeft vijf knooppunten, zodat er twee repicas kan niet worden geplaatst. Hoewel dit niet wordt weergegeven hier, Hallo service partitie geel is vanwege een rapport van `System.FM` mededeling dat `Partition is below target replica or instance count`. Hallo gele partitie triggers Hallo gele service.
+* Hallo-cluster is rood vanwege Hallo rode toepassing.
 
-De evaluatie gebruikt standaardbeleidsregels van het clustermanifest en het toepassingsmanifest. Strikte beleidsregels zijn en niet een storing kan tolereren.
+Hallo evaluatie gebruikt standaardbeleidsregels van clustermanifest hello en manifest van de toepassing. Strikte beleidsregels zijn en niet een storing kan tolereren.
 
-Weergave van het cluster met Service Fabric Explorer:
+Weergave van Hallo-cluster met Service Fabric Explorer:
 
-![Weergave van het cluster met Service Fabric Explorer.][1]
+![Weergave van Hallo-cluster met Service Fabric Explorer.][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
@@ -69,47 +69,47 @@ Weergave van het cluster met Service Fabric Explorer:
 >
 
 ## <a name="health-queries"></a>Statusquery 's
-Service Fabric statusquery's beschrijft voor elk van de ondersteunde [Entiteitstypen](service-fabric-health-introduction.md#health-entities-and-hierarchy). Toegankelijk zijn via de API, met behulp van methoden op [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell-cmdlets en REST. Deze query's retourneren voltooid statusgegevens van de entiteit: de geaggregeerde status, entiteit health gebeurtenissen onderliggende statussen (indien van toepassing), slechte evaluaties (als de entiteit is niet in orde) en statistieken van kinderen health (wanneer van toepassing).
+Service Fabric statusquery's beschrijft voor elk ondersteund Hallo [Entiteitstypen](service-fabric-health-introduction.md#health-entities-and-hierarchy). Toegankelijk zijn via API, met behulp van methoden op Hallo [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell-cmdlets en REST. Deze query's retourneren voltooid statusinformatie over Hallo entiteit: Hallo geaggregeerd status, entiteit health gebeurtenissen onderliggende statussen (indien van toepassing), slecht evaluaties (wanneer Hallo entiteit is niet in orde) en onderliggende items health statistieken (wanneer van toepassing).
 
 > [!NOTE]
-> Een health-entiteit wordt geretourneerd wanneer het volledig is gevuld in de health store. De entiteit moet actief zijn (geen verwijderd) en een rapport. De bovenliggende entiteiten in de keten van de hiërarchie moeten ook systeemrapporten hebben. Als een van deze voorwaarden niet wordt voldaan, de status retourneren vraagt een [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) met [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` die ziet waarom de entiteit is niet geretourneerd.
+> Een health-entiteit wordt geretourneerd wanneer het volledig is gevuld in Hallo health store. Hallo-entiteit moet actief zijn (geen verwijderd) en een rapport. De bovenliggende entiteiten van Hallo hiërarchie keten moeten ook systeemrapporten hebben. Als een van deze voorwaarden niet wordt voldaan, Hallo health return vraagt een [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) met [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` die ziet waarom Hallo entiteit wordt niet geretourneerd.
 >
 >
 
-De health-query's moeten in de entiteit-id is afhankelijk van het entiteitstype doorgeven. De query's accepteren optionele health beleidsparameters. Als er geen statusbeleid worden opgegeven, de [statusbeleid](service-fabric-health-introduction.md#health-policies) uit het cluster of application manifest worden gebruikt voor evaluatie. Als de manifesten geen definitie voor statusbeleid bevatten, worden de standaardbeleidsregels voor health gebruikt voor evaluatie. Het standaardbeleid voor health doen niet zonder fouten. De query's ook accepteren filters voor het retourneren van slechts gedeeltelijk onderliggende elementen of gebeurtenissen--de waarden die de opgegeven filters respecteren. Een ander filter kunt met uitzondering van de statistieken van de onderliggende elementen.
+Hallo statusquery's moeten in Hallo entiteits-id, die afhankelijk van het entiteitstype Hallo is doorgeven. Hallo-query's accepteren optionele health beleidsparameters. Als er geen statusbeleid worden opgegeven, Hallo [statusbeleid](service-fabric-health-introduction.md#health-policies) van het cluster of toepassingsmanifest hello worden gebruikt voor evaluatie. Als Hallo manifesten geen definitie voor statusbeleid bevatten, gebruikt Hallo standaard statusbeleid voor evaluatie. Hallo standaard statusbeleid komen niet zonder fouten. Hallo-query's ook filters voor het retourneren van alleen gedeeltelijke onderliggende accepteren of gebeurtenissen--Hallo waarden die respecteren Hallo opgegeven filters. Een ander filter kunt exclusief Hallo kinderen statistieken.
 
 > [!NOTE]
-> De uitvoerfilters worden toegepast op de server, zodat het bericht beantwoorden wordt verkleind. Het is raadzaam dat u de uitvoerfilters gebruiken om te beperken van de gegevens die zijn geretourneerd, in plaats van filters toepassen op de client.
+> Hallo uitvoerfilters worden toegepast aan serverzijde hello, zodat het Hallo-bericht beantwoorden grootte wordt verkleind. Het is raadzaam Hallo uitvoerfilters toolimit Hallo gegevens geretourneerd, in plaats van filters toepassen op de client hello te gebruiken.
 >
 >
 
 De status van de entiteit bevat:
 
-* De cumulatieve status van de entiteit. Door de health store op basis van entiteit statusrapporten, onderliggende statussen (indien van toepassing) en statusbeleid wordt berekend. Lees meer over [entiteit de statusevaluatie](service-fabric-health-introduction.md#health-evaluation).  
-* De health-gebeurtenissen voor de entiteit.
-* De verzameling van de status van alle onderliggende items voor de entiteiten die onderliggende elementen kunnen hebben. De statussen bevatten entiteit-id's en de geaggregeerde status. Als u de status voor een kind, aanroepen van de status van de query voor het entiteitstype onderliggende en in de onderliggende-id.
-* De slechte evaluaties die naar het rapport dat de status van de entiteit geactiveerd verwijzen als de entiteit is niet in orde. De beoordelingen zijn recursieve, met de onderliggende elementen health evaluaties waarmee huidige status is geactiveerd. Bijvoorbeeld, een watchdog een fout op basis van een replica gemeld. De toepassingsstatus bevat een onjuiste evaluatie vanwege een onjuiste service; de service is beschadigd vanwege een partitie in error; de partitie is beschadigd vanwege een replica in error; de replica is beschadigd vanwege het statusrapport watchdog-fout.
-* De health-statistieken voor alle typen voor onderliggende elementen van de entiteiten die onderliggende elementen hebben. Bijvoorbeeld, cluster-status toont het totale aantal toepassingen, services, partities, replica's en entiteiten in het cluster wordt geïmplementeerd. Servicestatus toont het totale aantal partities en replica's onder de opgegeven service.
+* status van entiteit Hallo Hallo geaggregeerd. Door Hallo health store op basis van entiteit statusrapporten, onderliggende statussen (indien van toepassing) en statusbeleid wordt berekend. Lees meer over [entiteit de statusevaluatie](service-fabric-health-introduction.md#health-evaluation).  
+* Hallo health gebeurtenissen op Hallo entiteit.
+* Hallo-verzameling van de status van alle onderliggende items voor Hallo entiteiten die onderliggende elementen kunnen hebben. Hallo-statussen entiteit-id's bevatten en Hallo geaggregeerde status. tooget status voor een kind Hallo query health aanroepen voor Hallo onderliggende entiteitstype en Hallo onderliggende id doorgeven.
+* Hallo slecht evaluaties dat punt toohello rapporteren die geactiveerd Hallo-status van het Hallo-entiteit als Hallo entiteit is niet in orde. Hallo-beoordelingen zijn recursieve, met Hallo kinderen health evaluaties waarmee huidige status is geactiveerd. Bijvoorbeeld, een watchdog een fout op basis van een replica gemeld. Hallo toepassingsstatus toont een slecht evaluatie vanwege tooan slecht service; Hallo-service is beschadigd vanwege tooa partitie in error; Hallo-partitie is beschadigd vanwege tooa replica in een fout. Hallo-replica is beschadigd vanwege toohello watchdog foutenrapport health.
+* Hallo health statistieken voor alle typen voor onderliggende elementen van Hallo entiteiten die onderliggende elementen hebben. Bijvoorbeeld, cluster health toont Hallo totale aantal toepassingen, services, partities, replica's en entiteiten in de cluster Hallo geïmplementeerd. Status van de service bevat Hallo kunt u het totale aantal partities en replica's onder Hallo opgegeven service.
 
 ## <a name="get-cluster-health"></a>Status van de cluster ophalen
-Retourneert de status van de entiteit van het cluster en de statussen van toepassingen en de knooppunten (onderliggende elementen van het cluster) bevat. Invoer:
+Retourneert Hallo health van Hallo cluster entiteit en Hallo statussen van toepassingen en knooppunten (kinderen van Hallo cluster) bevat. Invoer:
 
-* [Optioneel] Het cluster statusbeleid gebruikt voor het evalueren van de knooppunten en de Clustergebeurtenissen.
-* [Optioneel] De toepassing health beleid kaart met het statusbeleid dat wordt gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen, knooppunten en toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, knooppunten en toepassingen worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken.
-* [Optioneel] Opgenomen fabric: / System health statistieken in de health-statistieken. Alleen van toepassing wanneer de health-statistieken niet worden uitgesloten. Standaard bevatten de health-statistieken worden alleen de statistieken voor toepassingen en niet de systeemtoepassing.
+* [Optioneel] Hallo cluster statusbeleid gebruikt tooevaluate Hallo knooppunten en Hallo Clustergebeurtenissen.
+* [Optioneel] Hallo application health beleid kaart gebruikt toooverride Hallo application manifest beleid met Hallo statusbeleid.
+* [Optioneel] Filters voor gebeurtenissen, knooppunten en toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, knooppunten en toepassingen zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
+* [Optioneel] Filter tooexclude health statistieken.
+* [Optioneel] Filteren tooinclude fabric: / System health statistieken in Hallo health statistieken. Alleen van toepassing als Hallo health statistieken niet worden weggelaten. Standaard bevatten Hallo health statistieken alleen statistieken voor toepassingen en niet Hallo-toepassing.
 
 ### <a name="api"></a>API
-Als u het cluster health, maak een `FabricClient` en roept u de [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) methode op de **HealthManager**.
+tooget cluster health, maak een `FabricClient` en aanroep Hallo [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) methode op de **HealthManager**.
 
-De volgende aanroep wordt de status van het cluster:
+Hallo volgende oproep verzenden opgehaald Hallo cluster health:
 
 ```csharp
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-De volgende code haalt de status van het cluster met behulp van een aangepaste cluster statusbeleid en filters voor knooppunten en toepassingen. Hiermee geeft u dat de health-statistieken de fabric bevatten: / statistieken van het systeem. Het maken van [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), die de invoergegevens bevat.
+Hallo volgende code Hallo cluster health opgehaald met behulp van een aangepaste cluster statusbeleid en filters voor knooppunten en toepassingen. Hiermee geeft u dat Hallo health statistieken Hallo fabric bevatten: / statistieken van het systeem. Het maken van [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), die Hallo invoergegevens bevat.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -141,11 +141,11 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van het cluster is [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo cmdlet tooget Hallo cluster status is [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De status van het cluster is vijf knooppunten, de systeemtoepassing en fabric: / WordCount geconfigureerd zoals wordt beschreven.
+Hallo status van de cluster Hallo is vijf knooppunten Hallo systeemtoepassing en fabric: / WordCount geconfigureerd zoals wordt beschreven.
 
-De volgende cmdlet haalt de gezondheid van het cluster met behulp van standaard statusbeleid. De geaggregeerde status waarschuwing, omdat de fabric: / WordCount-toepassing bevindt zich in de waarschuwing. Houd er rekening mee hoe de slechte evaluaties gedetailleerde informatie bevat over de voorwaarden waarmee de geaggregeerde status is geactiveerd.
+Hallo volgende cmdlet haalt status van de cluster met behulp van standaard statusbeleid. Hallo geaggregeerde status is waarschuwing, omdat Hallo fabric: / WordCount-toepassing bevindt zich in de waarschuwing. Houd er rekening mee hoe Hallo slecht evaluaties gedetailleerde informatie bevat over Hallo voorwaarden waarmee Hallo geaggregeerd status is geactiveerd.
 
 ```xml
 PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
@@ -202,7 +202,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-De volgende PowerShell-cmdlet haalt de status van het cluster met een aangepaste toepassing-beleid. Deze filtert de resultaten om alleen de toepassingen en de knooppunten in de fout of waarschuwing. Als gevolg hiervan worden geen knooppunten geretourneerd, omdat ze allemaal in orde. Alleen de fabric: / WordCount-toepassing rekening wordt gehouden met het filter toepassingen. Omdat het aangepaste beleid bepaalt u moet overwegen waarschuwingen als fouten voor de fabric: / WordCount-toepassing, de toepassing wordt geëvalueerd als in de fout en is daarom het cluster.
+Hallo haalt volgende PowerShell-cmdlet Hallo-status van het Hallo-cluster met behulp van een aangepaste toepassingenbeleid. Deze filtert de resultaten tooget alleen toepassingen en knooppunten in de fout of waarschuwing. Als gevolg hiervan worden geen knooppunten geretourneerd, omdat ze allemaal in orde. Alleen Hallo fabric: / WordCount-toepassing hello toepassingen filter respecteert. Omdat Hallo aangepaste beleid tooconsider waarschuwingen als fouten voor Hallo fabric bepaalt: / WordCount-toepassing hello toepassing wordt geëvalueerd als in de fout en is daarom Hallo-cluster.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -239,25 +239,25 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-U kunt de status van de cluster met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U kunt de status van de cluster met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-node-health"></a>Ophalen van de gezondheid van knooppunt
-Retourneert de status van de entiteit van een knooppunt en de health-gebeurtenissen gemeld op het knooppunt bevat. Invoer:
+Retourneert Hallo status van de entiteit van een knooppunt en bevat Hallo health gebeurtenissen die zijn gerapporteerd op Hallo-knooppunt. Invoer:
 
-* [Vereist] De knooppuntnaam waarin het knooppunt.
-* [Optioneel] De cluster health beleidsinstellingen gebruikt voor het evalueren van de status.
-* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen die worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
+* [Vereist] Hallo knooppuntnaam die Hallo knooppunt aangeeft.
+* [Optioneel] Hallo cluster health beleidsinstellingen tooevaluate health gebruikt.
+* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
 
 ### <a name="api"></a>API
-Als u het knooppunt status via de API, maakt u een `FabricClient` en roept u de [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) methode op de HealthManager.
+tooget knooppunt health via Hallo-API maken een `FabricClient` en aanroep Hallo [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) methode op de HealthManager.
 
-De volgende code wordt de status van het knooppunt voor de naam van het opgegeven knooppunt:
+Hallo haalt volgende code Hallo knooppunt status voor naam van het opgegeven knooppunt Hallo:
 
 ```csharp
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-De volgende code haalt u de status van het knooppunt voor de naam van het opgegeven knooppunt en wordt doorgegeven in gebeurtenissen filteren en aangepast beleid via [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+Hallo volgende code haalt Hallo knooppunt health voor Hallo node name en geeft gebeurtenissen filteren en aangepast beleid via opgegeven [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -270,8 +270,8 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van het knooppunt is [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
-De volgende cmdlet wordt de status van het knooppunt met behulp van standaard statusbeleid opgehaald:
+Hallo cmdlet tooget Hallo de status van knooppunt is [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo knooppunt health Hallo volgende cmdlet opgehaald met behulp van standaard statusbeleid:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNodeHealth _Node_1
@@ -293,7 +293,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 4:40:47 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-De volgende cmdlet wordt de status van alle knooppunten in het cluster:
+Hallo volgende cmdlet wordt opgehaald Hallo status van alle knooppunten in cluster Hallo:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
@@ -308,26 +308,26 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de gezondheid van knooppunt met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de gezondheid van knooppunt met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-application-health"></a>Toepassingsstatus ophalen
-Retourneert de status van een Toepassingsentiteit. De statussen van de geïmplementeerde toepassing en service onderliggende items bevat. Invoer:
+Retourneert Hallo de status van een Toepassingsentiteit. Het bevat Hallo-statussen van Hallo geïmplementeerd toepassing en service onderliggende items. Invoer:
 
-* [Vereist] De toepassingsnaam (URI) die de toepassing te identificeren.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen, services en geïmplementeerde toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, services en geïmplementeerde toepassingen worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Als u wilt uitsluiten van de health-statistieken filteren. Als niet wordt opgegeven, de statistieken health bevatten de ok, waarschuwing en fout aantal voor alle onderliggende objecten van toepassing: services, partities, replica's, geïmplementeerde toepassingen en geïmplementeerde servicepakketten.
+* [Vereist] Hallo toepassingsnaam (URI) die de toepassing hello identificeert.
+* [Optioneel] Hallo statusbeleid voor de toepassing gebruikt toooverride Hallo application manifest-beleid.
+* [Optioneel] Filters voor gebeurtenissen, services en geïmplementeerde toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen, services en geïmplementeerde toepassingen zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
+* [Optioneel] Filter tooexclude Hallo health statistieken. Als niet wordt opgegeven, Hallo health statistieken Hallo ok, waarschuwing en fout aantal voor alle onderliggende objecten van toepassing zijn: services, partities, replica's, geïmplementeerde toepassingen en geïmplementeerde servicepakketten.
 
 ### <a name="api"></a>API
-Als u de toepassing health, maak een `FabricClient` en roept u de [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) methode op de HealthManager.
+tooget toepassingsstatus, maak een `FabricClient` en aanroep Hallo [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) methode op de HealthManager.
 
-De volgende code wordt de toepassingsstatus voor de opgegeven toepassingsnaam (URI):
+Hallo haalt volgende code de toepassingsstatus Hallo voor Hallo opgegeven toepassingsnaam (URI):
 
 ```csharp
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-De volgende code wordt de toepassingsstatus voor de opgegeven toepassingsnaam (URI), met filters en aangepaste beleidsregels opgegeven via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+Hallo volgende code haalt Hallo toepassingsstatus voor Hallo opgegeven toepassingsnaam (URI), met filters en aangepaste beleidsregels opgegeven via [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -356,9 +356,9 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de toepassingsstatus is [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo cmdlet tooget Hallo de status van toepassing is [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende cmdlet retourneert de status van de **fabric: / WordCount** toepassing:
+Hallo volgende cmdlet retourneert Hallo health Hallo **fabric: / WordCount** toepassing:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount
@@ -426,7 +426,7 @@ HealthStatistics                :
                                   DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
-De volgende PowerShell-cmdlet wordt doorgegeven in een aangepast beleid. Deze filters ook onderliggende elementen en gebeurtenissen.
+Hallo volgende PowerShell-cmdlet geeft in het aangepaste beleid. Deze filters ook onderliggende elementen en gebeurtenissen.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
@@ -454,26 +454,26 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-U krijgt toepassingsstatus met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt toepassingsstatus met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-service-health"></a>Servicestatus ophalen
-Retourneert de status van een service-entiteit. Het bevat de statussen van de partitie. Invoer:
+Retourneert Hallo de status van een service-entiteit. Het bevat Hallo partitie statussen. Invoer:
 
-* [Vereist] De servicenaam (URI) dat de service identificeert.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het onderdrukken van het application manifest-beleid.
-* [Optioneel] Filters voor gebeurtenissen en partities die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en partities worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken. Als dat niet wordt opgegeven, de statistieken van de status ok, waarschuwing, weergeven en fout tellen voor alle partities en replica's van de service.
+* [Vereist] Hallo servicenaam (URI) dat Hallo service identificeert.
+* [Optioneel] Hallo statusbeleid voor de toepassing gebruikt toooverride Hallo application manifest-beleid.
+* [Optioneel] Filters voor gebeurtenissen en partities die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en partities zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
+* [Optioneel] Filter tooexclude health statistieken. Als niet wordt opgegeven, Hallo health statistieken weergeven Hallo ok, waarschuwing en fout tellen voor alle partities en replica's van Hallo-service.
 
 ### <a name="api"></a>API
-Als u de status van de service via de API, maakt u een `FabricClient` en roept u de [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) methode op de HealthManager.
+servicestatus tooget via Hallo-API maken een `FabricClient` en aanroep Hallo [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) methode op de HealthManager.
 
-Het volgende voorbeeld wordt de status van een service met de opgegeven service-naam (URI):
+Hallo wordt volgende voorbeeld Hallo status van een service met de opgegeven service-naam (URI):
 
 ```charp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-De volgende code haalt de servicestatus voor de opgegeven service-naam (URI), filters en aangepast beleid via geven [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+Hallo volgende code haalt Hallo servicestatus voor de opgegeven servicenaam hello (URI), filters en aangepast beleid via geven [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -486,9 +486,9 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van de service is [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo cmdlet tooget Hallo-servicestatus is [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende cmdlet wordt de status van de service met behulp van standaard statusbeleid opgehaald:
+Hallo-servicestatus Hallo volgende cmdlet opgehaald met behulp van standaard statusbeleid:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
@@ -526,27 +526,27 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de status van de service met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status van de service met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-partition-health"></a>Status van de partitie ophalen
-Retourneert de status van een entiteit van de partitie. De replica-statussen bevat. Invoer:
+Retourneert Hallo de status van een entiteit van de partitie. Het bevat Hallo replica statussen. Invoer:
 
-* [Vereist] De partitie-ID (GUID) die de partitie identificeert.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het onderdrukken van het application manifest-beleid.
-* [Optioneel] Filters voor gebeurtenissen en replica's die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en replica's worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken. Als niet wordt opgegeven, wordt de health-statistieken weergeven hoeveel replica's in ok, waarschuwing en fout statussen.
+* [Vereist] Hallo partitie-ID (GUID) die Hallo partitie identificeert.
+* [Optioneel] Hallo statusbeleid voor de toepassing gebruikt toooverride Hallo application manifest-beleid.
+* [Optioneel] Filters voor gebeurtenissen en replica's die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en replica's zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
+* [Optioneel] Filter tooexclude health statistieken. Als niet wordt opgegeven, wordt Hallo health statistieken weergeven hoeveel replica's in ok, waarschuwing en fout statussen.
 
 ### <a name="api"></a>API
-Als u de status van de partitie via de API, maakt u een `FabricClient` en roept u de [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) methode op de HealthManager. Optionele als parameters wilt opgeven, maken [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+tooget partitie health via Hallo-API maken een `FabricClient` en aanroep Hallo [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) methode op de HealthManager. maken van de volgende optionele parameters toospecify, [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van de partitie is [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo cmdlet tooget Hallo partitie status is [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende cmdlet wordt de status voor alle partities van de **fabric: / WordCount/WordCountService** -service en uitsluit replica statussen:
+Hallo volgende cmdlet opgehaald Hallo status voor alle partities van Hallo **fabric: / WordCount/WordCountService** -service en uitsluit replica statussen:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
@@ -585,8 +585,8 @@ HealthEvents          :
                         SentAt                : 7/13/2017 6:35:17 PM
                         ReceivedAt            : 7/13/2017 6:35:18 PM
                         TTL                   : 00:01:05
-                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
-                        Secondary replica could not be placed due to the following constraints and properties:  
+                        Description           : hello Load Balancer was unable toofind a placement for one or more of hello Service's Replicas:
+                        Secondary replica could not be placed due toohello following constraints and properties:  
                         TargetReplicaSetSize: 7
                         Placement Constraint: N/A
                         Parent Service: N/A
@@ -618,26 +618,26 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-U kunt de status van de partitie met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U kunt de status van de partitie met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-replica-health"></a>De status replica ophalen
-Retourneert de status van de replica van een stateful service of een staatloze service-exemplaar. Invoer:
+Hallo-status van de replica van een stateful service of een staatloze service-exemplaar geretourneerd. Invoer:
 
-* [Vereist] De partitie-ID (GUID) en de replica-ID waarmee de replica.
-* [Optioneel] De toepassing health beleidsparameters gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen die worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
+* [Vereist] Hallo partitie-ID (GUID) en de replica-ID die Hallo replica identificeert.
+* [Optioneel] Hallo application health beleidsparameters gebruikt toooverride Hallo application manifest-beleid.
+* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
 
 ### <a name="api"></a>API
-Als u de status replica via de API, maakt u een `FabricClient` en roept u de [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) methode op de HealthManager. Geavanceerde als parameters wilt opgeven, gebruikt u [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+tooget hello replica health via Hallo-API maken een `FabricClient` en aanroep Hallo [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) methode op de HealthManager. geavanceerde parameters, gebruik toospecify [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van de replica is [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo cmdlet tooget Hallo replica de status is [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende cmdlet wordt de status van de primaire replica voor alle partities van de service:
+Hallo volgende cmdlet opgehaald Hallo status van de primaire replica Hallo voor alle partities van Hallo-service:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -661,18 +661,18 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de status replica met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status replica met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-deployed-application-health"></a>Status van de geïmplementeerde toepassing ophalen
-Retourneert de status van een toepassing is geïmplementeerd op een knooppunt-entiteit. De statussen van de geïmplementeerde service-pakket bevat. Invoer:
+Retourneert Hallo de status van een toepassing is geïmplementeerd op een knooppunt-entiteit. Het bevat Hallo geïmplementeerd service pakket statussen. Invoer:
 
-* [Vereist] De toepassingsnaam (URI) en de knooppuntnaam (tekenreeks) waarmee de geïmplementeerde toepassing worden geïdentificeerd.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor gebeurtenissen en geïmplementeerde servicepakketten die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en geïmplementeerde servicepakketten worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
-* [Optioneel] Filter moeten worden uitgesloten van de van gezondheidsstatistieken. Als niet wordt opgegeven, weergeven de statistieken van de gezondheid van het aantal geïmplementeerde servicepakketten in de status ok, waarschuwing en fout.
+* Naam van de toepassing [vereist] hello (URI) en knooppuntnaam (tekenreeks) die Hallo identificeren toepassing geïmplementeerd.
+* [Optioneel] Hallo statusbeleid voor de toepassing gebruikt toooverride Hallo application manifest-beleid.
+* [Optioneel] Filters voor gebeurtenissen en geïmplementeerde servicepakketten die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen en geïmplementeerde servicepakketten zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
+* [Optioneel] Filter tooexclude health statistieken. Als niet wordt opgegeven, weergeven Hallo health statistieken Hallo aantal geïmplementeerde servicepakketten in de status ok, waarschuwing en fout.
 
 ### <a name="api"></a>API
-Als u de status van een toepassing is geïmplementeerd op een knooppunt via de API, maakt u een `FabricClient` en roept u de [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) methode op de HealthManager. Gebruik het optionele parameters opgeven [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+tooget hello status van een toepassing is geïmplementeerd op een knooppunt via Hallo-API maken een `FabricClient` en aanroep Hallo [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) methode op de HealthManager. optionele parameters toospecify, gebruik [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -680,9 +680,9 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status geïmplementeerde toepassing is [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Uitvoeren als u wilt weten waar een toepassing wordt geïmplementeerd, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en kijk in de geïmplementeerde toepassing onderliggende elementen.
+Hallo cmdlet tooget Hallo geïmplementeerd toepassingsstatus is [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. toofind uit waarop een toepassing wordt geïmplementeerd, voeren [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en bekijkt hello kinderen toepassing geïmplementeerd.
 
-De volgende cmdlet wordt de status van de **fabric: / WordCount** toepassing geïmplementeerd op **_Node_2**.
+Hallo volgende cmdlet opgehaald Hallo health Hallo **fabric: / WordCount** toepassing geïmplementeerd op **_Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -710,7 +710,7 @@ HealthEvents                       :
                                      SentAt                : 7/13/2017 5:57:06 PM
                                      ReceivedAt            : 7/13/2017 5:57:17 PM
                                      TTL                   : Infinite
-                                     Description           : The application was activated successfully.
+                                     Description           : hello application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 7/13/2017 5:57:17 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -720,17 +720,17 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt de status geïmplementeerde toepassing met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U krijgt de status geïmplementeerde toepassing met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="get-deployed-service-package-health"></a>Status van geïmplementeerde service pakket ophalen
-Retourneert de status van een geïmplementeerde service pakket entiteit. Invoer:
+Retourneert Hallo status van een geïmplementeerde service pakket entiteit. Invoer:
 
-* [Vereist] De toepassingsnaam (URI), knooppuntnaam (tekenreeks) en manifest servicenaam (tekenreeks) die het pakket geïmplementeerde service identificeren.
-* [Optioneel] Het statusbeleid voor toepassing gebruikt voor het onderdrukken van het application manifest-beleid.
-* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in het resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen die worden gebruikt voor het evalueren van de entiteitsstatus geaggregeerd, ongeacht het filter.
+* [Vereist] Hallo toepassingsnaam (URI), knooppuntnaam (tekenreeks) en manifest servicenaam (tekenreeks) die Hallo identificeren geïmplementeerd servicepakket.
+* [Optioneel] Hallo statusbeleid voor de toepassing gebruikt toooverride Hallo application manifest-beleid.
+* [Optioneel] Filters voor gebeurtenissen die aangeven welke posten van belang zijn en moeten worden geretourneerd in Hallo resultaat (bijvoorbeeld alleen, fouten of waarschuwingen en fouten). Alle gebeurtenissen zijn gebruikte tooevaluate Hallo geaggregeerd entiteitsstatus, ongeacht het Hallo-filter.
 
 ### <a name="api"></a>API
-Als u de status van een geïmplementeerde service-pakket via de API, maakt u een `FabricClient` en roept u de [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) methode op de HealthManager. Gebruik het optionele parameters opgeven [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+tooget hello status van een geïmplementeerde servicepakket via Hallo-API maken een `FabricClient` en aanroep Hallo [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) methode op de HealthManager. optionele parameters toospecify, gebruik [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -738,9 +738,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status geïmplementeerde service-pakket is [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Als u wilt zien waar een toepassing wordt geïmplementeerd, [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en kijk in de geïmplementeerde toepassingen. Als u wilt zien welke service pakketten in een toepassing zijn, kijken naar de onderliggende geïmplementeerde service pakket in de [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) uitvoer.
+Hallo cmdlet tooget Hallo geïmplementeerd servicestatus-pakket is [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. toosee waarop een toepassing wordt geïmplementeerd, voeren [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) en bekijkt hello geïmplementeerde toepassingen. toosee die servicepakketten in een toepassing, zoekt u naar op Hallo geïmplementeerd service pakket kinderen in Hallo [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) uitvoer.
 
-De volgende cmdlet wordt de status van de **WordCountServicePkg** servicepakket van de **fabric: / WordCount** toepassing geïmplementeerd op **_Node_2**. De entiteit heeft **System.Hosting** rapporten voor geslaagde pakket service en ingangspunt activering en succesvolle registratie van het type van de service.
+Hallo volgende cmdlet opgehaald Hallo health Hallo **WordCountServicePkg** servicepakket Hallo **fabric: / WordCount** toepassing geïmplementeerd op **_Node_2**. Hallo entiteit heeft **System.Hosting** rapporten voor geslaagde pakket service en ingangspunt activering en succesvolle registratie van het type van de service.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -759,7 +759,7 @@ HealthEvents               :
                              SentAt                : 7/13/2017 5:57:06 PM
                              ReceivedAt            : 7/13/2017 5:57:18 PM
                              TTL                   : Infinite
-                             Description           : The ServicePackage was activated successfully.
+                             Description           : hello ServicePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -771,7 +771,7 @@ HealthEvents               :
                              SentAt                : 7/13/2017 5:57:06 PM
                              ReceivedAt            : 7/13/2017 5:57:18 PM
                              TTL                   : Infinite
-                             Description           : The CodePackage was activated successfully.
+                             Description           : hello CodePackage was activated successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -783,51 +783,51 @@ HealthEvents               :
                              SentAt                : 7/13/2017 5:57:07 PM
                              ReceivedAt            : 7/13/2017 5:57:18 PM
                              TTL                   : Infinite
-                             Description           : The ServiceType was registered successfully.
+                             Description           : hello ServiceType was registered successfully.
                              RemoveWhenExpired     : False
                              IsExpired             : False
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="rest"></a>REST
-U kunt de status van de geïmplementeerde service pakket met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) die wordt beschreven in de hoofdtekst van het statusbeleid bevat.
+U kunt de status van de geïmplementeerde service pakket met krijgen een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) die statusbeleid dat wordt beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="health-chunk-queries"></a>Health chunk query 's
-Cluster met meerdere niveaus van kinderen (recursief) per invoer filters kunnen worden geretourneerd door de chunk statusquery's. Biedt ondersteuning voor geavanceerde filters waarmee een grote flexibiliteit bij het kiezen van de onderliggende items moeten worden geretourneerd. De filters kunnen onderliggende items opgeven door de unieke id of door andere groeps-id's en/of de statussen. Geen onderliggende elementen zijn standaard opgenomen in plaats van de health-opdrachten die altijd eerste niveau onderliggende elementen bevatten.
+Hallo health chunk query's kunnen cluster met meerdere niveaus van kinderen (recursief) per invoer filters worden geretourneerd. Ondersteunt geavanceerde filters waarmee een grote flexibiliteit bij het kiezen van de onderliggende hello toobe geretourneerd. Hallo filters kunnen onderliggende items met de unieke id Hallo of door andere groeps-id's en/of de statussen opgeven. Geen onderliggende elementen zijn standaard opgenomen als tegengestelde toohealth-opdrachten die altijd eerste niveau onderliggende elementen bevatten.
 
-De [statusquery's](service-fabric-view-entities-aggregated-health.md#health-queries) alleen eerste niveau onderliggende elementen van de opgegeven entiteit per vereist filters retourneren. Als u de onderliggende leden van de onderliggende elementen, moet u extra health API's voor elke entiteit van belang aanroepen. Op dezelfde manier als u de status van specifieke entiteiten, moet u voor elke gewenste entiteit één health API aanroepen. Chunk kunt geavanceerde filteren u de query voor het aanvragen van meerdere items in een query, de grootte van het bericht en het aantal berichten voor het minimaliseren van belang.
+Hallo [statusquery's](service-fabric-view-entities-aggregated-health.md#health-queries) return alleen eerste niveau kinderen Hallo opgegeven entiteit per vereist filters. tooget hello kinderen van onderliggende items hello, moet u extra health API's voor elke entiteit van belang aanroepen. Op deze manier tooget Hallo status van specifieke entiteiten, moet u aanroepen één health API voor elke gewenste entiteit. Hallo chunk geavanceerde filteren kunt u query toorequest meerdere items in één query op het Hallo-berichtgrootte en Hallo aantal berichten voor het minimaliseren van belang.
 
-De waarde van de query chunk is dat u de status voor meer cluster entiteiten (mogelijk alle cluster entiteiten starten in de hoofdmap van de vereiste) kunt krijgen in één aanroep. U kunt de gezondheid van complexe query zoals express:
+Hallo-waarde van Hallo chunk query is dat u de status voor meer cluster entiteiten (mogelijk alle cluster entiteiten starten in de hoofdmap van de vereiste) kunt krijgen in één aanroep. U kunt de gezondheid van complexe query zoals express:
 
 * Retour alleen toepassingen in de fout en voor die toepassingen bevatten alle services in waarschuwing of fout. Voor de geretourneerde services omvatten alle partities.
-* Alleen de status van de opgegeven door de namen van de vier toepassingen retourneren.
-* Retourneert alleen de status van toepassingen van een type van de gewenste toepassing.
-* Retourneert alle geïmplementeerde entiteiten op een knooppunt. Retourneert alle toepassingen, alle toepassingen op het opgegeven knooppunt en alle geïmplementeerde servicepakketten op dat knooppunt geïmplementeerd.
+* Alleen Hallo status van de opgegeven door de namen van de vier toepassingen retourneren.
+* Alleen Hallo status van toepassingen van een type van de gewenste toepassing retourneren.
+* Retourneert alle geïmplementeerde entiteiten op een knooppunt. Retourneert alle toepassingen, alle geïmplementeerde toepassingen op Hallo opgegeven knooppunt en alle Hallo geïmplementeerde servicepakketten op dat knooppunt.
 * Alle replica's in een fout geretourneerd. Retourneert alle toepassingen, services, partities en alleen replica's in de fout.
 * Retourneren van alle toepassingen. Voor een opgegeven service omvatten alle partities.
 
-Op dit moment wordt de status chunk query blootgesteld alleen voor de entiteit van het cluster. Een cluster health chunk, waarin wordt:
+Hallo health chunk query is momenteel toegankelijk alleen voor Hallo cluster entiteit. Een cluster health chunk, waarin wordt:
 
-* De status van het cluster geaggregeerd.
-* De health status chunk lijst met knooppunten die fungeren als invoer filters respecteren.
-* De health status chunk lijst met toepassingen die invoer filters respecteren. Elk segment application health-status bevat een lijst chunk met alle services die invoer filters en een chunk-lijst met alle geïmplementeerde toepassingen die de filters respecteren respecteren. Hetzelfde voor de onderliggende elementen van services en geïmplementeerde toepassingen. Op deze manier alle entiteiten in het cluster kunnen worden mogelijk geretourneerd als in een hiërarchische aangevraagd.
+* Hallo cluster geaggregeerd status.
+* Hallo health status chunk lijst met knooppunten die fungeren als invoer filters respecteren.
+* Hallo health status chunk lijst met toepassingen die invoer filters respecteren. Elk segment application health-status bevat een lijst chunk met alle services die respecteren invoer filters en een chunk-lijst met alle geïmplementeerde toepassingen die Hallo filters respecteren. Hetzelfde voor Hallo onderliggende elementen van services en geïmplementeerde toepassingen. Op deze manier alle entiteiten in Hallo cluster kunnen worden mogelijk geretourneerd als in een hiërarchische aangevraagd.
 
 ### <a name="cluster-health-chunk-query"></a>Cluster health chunk query
-Retourneert de status van de entiteit van het cluster en de hiërarchische health status segmenten van vereiste onderliggende items bevat. Invoer:
+Retourneert Hallo health van Hallo cluster entiteit en Hallo hiërarchische health status segmenten van vereiste onderliggende items bevat. Invoer:
 
-* [Optioneel] Het cluster statusbeleid gebruikt voor het evalueren van de knooppunten en de Clustergebeurtenissen.
-* [Optioneel] De toepassing health beleid kaart met het statusbeleid dat wordt gebruikt voor het overschrijven van de application manifest beleidsregels.
-* [Optioneel] Filters voor knooppunten en toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in het resultaat. De filters zijn specifiek voor een entiteit of de groep van entiteiten of zijn van toepassing op alle entiteiten op dat niveau. De lijst met filters kan bevatten één algemene filter en/of filters voor specifieke id's voor fijnmazige entiteiten die door de query zijn geretourneerd. Als u niets opgeeft, worden de onderliggende elementen niet standaard geretourneerd.
-  Meer informatie over de filters op [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) en [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). De toepassing filters kunnen recursief geavanceerde filters voor kinderen opgeven.
+* [Optioneel] Hallo cluster statusbeleid gebruikt tooevaluate Hallo knooppunten en Hallo Clustergebeurtenissen.
+* [Optioneel] Hallo application health beleid kaart gebruikt toooverride Hallo application manifest beleid met Hallo statusbeleid.
+* [Optioneel] Filters voor knooppunten en toepassingen die welke vermeldingen opgeeft van belang zijn en moeten worden geretourneerd in Hallo resultaat. Hallo filters specifieke tooan entiteit of groep van entiteiten zijn of zijn van toepassing tooall entiteiten op dat niveau. lijst met filters Hallo kan bevatten één algemene filter en/of filters voor specifieke id's toofine-gebruikerssegmentatie entiteiten die door Hallo query zijn geretourneerd. Als u niets opgeeft, worden niet Hallo kinderen standaard geretourneerd.
+  Meer informatie over filters op Hallo [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) en [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). Hallo toepassing filters kunnen recursief geavanceerde filters voor kinderen opgeven.
 
-Het resultaat van het segment bevat de onderliggende items waarvan de filters respecteren.
+Hallo chunk resultaat bevat Hallo onderliggende items waarvan Hallo filters respecteren.
 
-De query chunk levert op dit moment geen slechte evaluaties of entiteit gebeurtenissen. Deze extra informatie kan worden verkregen met behulp van de bestaande query van de cluster-status.
+Hallo chunk query retourneert op dit moment geen slechte evaluaties of entiteit gebeurtenissen. Deze extra informatie kan worden verkregen met behulp van Hallo bestaande cluster health query.
 
 ### <a name="api"></a>API
-Als u het cluster health chunk, maakt een `FabricClient` en roept u de [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) methode op de **HealthManager**. U kunt doorgeven [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) te beschrijven statusbeleid en geavanceerde filters.
+tooget cluster health Segmentselectie, maakt u een `FabricClient` en aanroep Hallo [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) methode op de **HealthManager**. U kunt doorgeven [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) toodescribe statusbeleid en geavanceerde filters.
 
-De volgende code haalt cluster health chunk met geavanceerde filters.
+Hallo haalt volgende code cluster health chunk met geavanceerde filters.
 
 ```csharp
 var queryDescription = new ClusterHealthChunkQueryDescription();
@@ -857,7 +857,7 @@ var wordCountServiceFilter = new ServiceHealthStateFilter()
 };
 wordCountServiceFilter.PartitionFilters.Add(wordCountServicePartitionFilter);
 
-// Application filter: for specific application, return no services except the ones of interest
+// Application filter: for specific application, return no services except hello ones of interest
 var wordCountApplicationFilter = new ApplicationHealthStateFilter()
     {
         // Always return fabric:/WordCount application
@@ -871,9 +871,9 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-De cmdlet om op te halen van de status van het cluster is [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Eerst verbinding met het cluster met behulp van de [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+Hallo cmdlet tooget Hallo cluster status is [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Toohello cluster eerst verbinding te maken met behulp van Hallo [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-De volgende code haalt knooppunten alleen als deze fout, met uitzondering van een specifiek knooppunt dat moet altijd worden geretourneerd.
+Hallo haalt volgende code knooppunten alleen als deze fout, met uitzondering van een specifiek knooppunt dat moet altijd worden geretourneerd.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -881,7 +881,7 @@ $allFilter = [System.Fabric.Health.HealthStateFilter]::All;
 
 $nodeFilter1 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
 $nodeFilter2 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{NodeNameFilter="_Node_1";HealthStateFilter=$allFilter}
-# Create node filter list that will be passed in the cmdlet
+# Create node filter list that will be passed in hello cmdlet
 $nodeFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.NodeHealthStateFilter]
 $nodeFilters.Add($nodeFilter1)
 $nodeFilters.Add($nodeFilter2)
@@ -899,7 +899,7 @@ NodeHealthStateChunks        :
 ApplicationHealthStateChunks : None
 ```
 
-De volgende cmdlet haalt cluster chunk met toepassingsfilters.
+Hallo volgende cmdlet haalt cluster chunk met toepassingsfilters.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -965,7 +965,7 @@ ApplicationHealthStateChunks :
                                         HealthState           : Error
 ```
 
-De volgende cmdlet retourneert alle geïmplementeerde entiteiten op een knooppunt.
+Hallo retourneert volgende cmdlet alle geïmplementeerde entiteiten op een knooppunt.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -1021,56 +1021,56 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-U krijgt cluster health chunk gevonden met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) die statusbeleid en geavanceerde filters wordt beschreven in de hoofdtekst bevat.
+U krijgt cluster health chunk gevonden met een [GET-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) of een [POST-aanvraag](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) die statusbeleid en geavanceerde filters beschreven in de hoofdtekst van het Hallo bevat.
 
 ## <a name="general-queries"></a>Algemene query 's
-Algemene query's retourneren een lijst met Service Fabric-entiteiten van een bepaald type. Ze beschikbaar worden gesteld via de API (via de methoden op **FabricClient.QueryManager**), PowerShell-cmdlets en REST. Deze query's samenvoegen subquery's uit meerdere onderdelen. Een ervan de [health store](service-fabric-health-introduction.md#health-store), die de geaggregeerde status voor elke queryresultaat wordt gevuld.  
+Algemene query's retourneren een lijst met Service Fabric-entiteiten van een bepaald type. Ze worden weergegeven via Hallo API (via de methoden op Hallo **FabricClient.QueryManager**), PowerShell-cmdlets en REST. Deze query's samenvoegen subquery's uit meerdere onderdelen. Een van beide is Hallo [health store](service-fabric-health-introduction.md#health-store), de status voor elke queryresultaat die Hallo gevuld geaggregeerd.  
 
 > [!NOTE]
-> Algemene query's terug van de cumulatieve status van de entiteit en bevatten geen uitgebreide statusgegevens. Als u een entiteit is niet in orde, kunt u met statusquery's voor alle de health-informatie, zoals gebeurtenissen, onderliggende statussen en slecht evaluaties opvolgen.
+> Algemene query's terug Hallo geaggregeerd status van de entiteit Hallo en bevatten geen uitgebreide statusgegevens. Als u een entiteit is niet in orde, kunt u volgen met health-query's tooget alle de health-gegevens, inclusief gebeurtenissen, onderliggende statussen en slecht evaluaties.
 >
 >
 
-Als algemene query's een onbekende status voor een entiteit retourneren, is het mogelijk dat de health store geen volledige gegevens over de entiteit. Het is ook mogelijk dat een subquery naar de health store niet geslaagd is (bijvoorbeeld: Er is een communicatiefout opgetreden of de health store is beperkt). Opvolgen met een status-query voor de entiteit. Als de subquery tijdelijke fouten, zoals netwerkproblemen aangetroffen, kan deze vervolgzelfstudie query slagen. Ook kan geven u meer informatie uit de store health over waarom de entiteit is niet beschikbaar gemaakt.
+Als algemene query's een onbekende status voor een entiteit retourneren, is het mogelijk dat Hallo health store bevat geen volledige gegevens over Hallo entiteit. Het is ook mogelijk dat een subquery toohello health store niet geslaagd is (bijvoorbeeld: Er is een communicatiefout opgetreden of Hallo health store is beperkt). Een health-query voor de entiteit Hallo opvolgen. Als de subquery Hallo tijdelijke fouten, zoals netwerkproblemen optreden, kan deze vervolgzelfstudie query slagen. Ook kan geven u meer informatie uit health store Hallo over waarom Hallo entiteit is niet beschikbaar gemaakt.
 
-De query's met **HealthState** voor entiteiten zijn:
+query's met Hallo **HealthState** voor entiteiten zijn:
 
-* Lijst met knooppunten: de lijst met knooppunten in het cluster (wisselbare) retourneert.
+* Lijst met knooppunten: retourneert Hallo lijst met knooppunten in Hallo-cluster (wisselbare).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lijst met toepassingen: de lijst met toepassingen in het cluster (wisselbare) retourneert.
+* Lijst met toepassingen: retourneert Hallo lijst met toepassingen in Hallo-cluster (wisselbare).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* De lijst service: de lijst met services in een toepassing (wisselbare) retourneert.
+* Lijst met Services: retourneert Hallo lijst met services in een toepassing (wisselbare).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Lijst met partitie: de lijst met partities in een service (wisselbare) retourneert.
+* Lijst met partitie: retourneert Hallo lijst met partities in een service (wisselbare).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lijst met replica's: de lijst met replica's in een partitie (wisselbare) retourneert.
+* Lijst met replica's: retourneert Hallo lijst met replica's in een partitie (wisselbare).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
-* Lijst met toepassingen geïmplementeerd: de lijst met geïmplementeerde toepassingen op een knooppunt retourneert.
+* Lijst met toepassingen geïmplementeerd: retourneert Hallo lijst met geïmplementeerde toepassingen op een knooppunt.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* De lijst van de service-pakket wordt geïmplementeerd: retourneert de lijst met servicepakketten in een geïmplementeerde toepassing.
+* De lijst van de service-pakket wordt geïmplementeerd: retourneert Hallo lijst met servicepakketten in een geïmplementeerde toepassing.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Sommige van de query's wisselbare resultaten geretourneerd. Het retourtype van deze query's is een lijst die is afgeleid van [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Als de resultaten een bericht niet past alleen een pagina wordt geretourneerd en een ContinuationToken die houdt waarin de opsomming is gestopt. Aanroepen van dezelfde query- en in het vervolgtoken uit de vorige query ophalen van de volgende resultaten blijven.
+> Hallo zoekopdrachten wisselbare resultaten geretourneerd. Hallo retourtype van deze query's is een lijst die is afgeleid van [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Hallo resultaten een bericht niet passen, alleen een pagina wordt geretourneerd als een ContinuationToken die houdt waarin de opsomming is gestopt. Blijven toocall Hallo dezelfde query- en in vervolgtoken Hallo van Hallo vorige tooget volgende queryresultaten.
 >
 >
 
 ### <a name="examples"></a>Voorbeelden
-De volgende code haalt de slechte toepassingen in het cluster:
+Hallo volgende code wordt opgehaald Hallo slecht toepassingen in Hallo-cluster:
 
 ```csharp
 var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Where(
   app => app.HealthState == HealthState.Error);
 ```
 
-De volgende cmdlet haalt de toepassingsgegevens voor de fabric: / WordCount-toepassing. U ziet dat de status op de waarschuwing.
+Hallo volgende cmdlet opgehaald Hallo toepassingsgegevens voor Hallo fabric: / WordCount-toepassing. U ziet dat de status op de waarschuwing.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
@@ -1090,7 +1090,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-De volgende cmdlet wordt opgehaald van de services met een status van de fout:
+Hallo volgende cmdlet opgehaald Hallo services met een status van de fout:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
@@ -1107,13 +1107,13 @@ HealthState            : Error
 ```
 
 ## <a name="cluster-and-application-upgrades"></a>Cluster en de toepassing upgrades
-Tijdens een bewaakte upgrade van het cluster en de toepassing controleert Service Fabric health om ervoor te zorgen dat alles in orde blijft. Als een entiteit niet in orde is als geëvalueerd met behulp van de geconfigureerde statusbeleid, geldt de upgrade upgrade-specifiek beleid om te bepalen van de volgende actie. De upgrade kan worden onderbroken zodat gebruikersinteractie (zoals de vaststelling van de fout of wijzigen van beleid) of het mogelijk automatisch terugkeren naar de vorige versie goed.
+Tijdens een bewaakte upgrade van het Hallo-cluster en de toepassing controleert Service Fabric health tooensure dat alles in orde blijft. Als een entiteit niet in orde is als geëvalueerd met behulp van de geconfigureerde statusbeleid, geldt Hallo upgrade upgrade-specifiek beleid toodetermine Hallo volgende actie. Hallo upgrade mogelijk onderbroken tooallow gebruikersinteractie (zoals de vaststelling van de fout of wijzigen van beleid) of het mogelijk automatisch terugdraaien toohello vorige goede versie.
 
-Tijdens een *cluster* bijwerkt, krijgt u de upgradestatus van het cluster. De upgradestatus omvat slecht evaluaties die verwijzen naar wat is er niet in orde in het cluster. Als de upgrade is teruggedraaid vanwege statusproblemen met de, onthoudt de upgradestatus van de laatste slecht redenen. Deze informatie kunt beheerders onderzoeken wat er mis ging nadat de upgrade is teruggedraaid of gestopt.
+Tijdens een *cluster* bijwerkt, kunt u Hallo cluster upgradestatus krijgen. Hallo upgradestatus omvat slecht evaluaties, welke toowhat punt niet in orde in Hallo-cluster is. Als het Hallo-upgrade is teruggedraaid vanwege toohealth problemen, onthoudt upgradestatus Hallo Hallo laatste slecht redenen. Deze informatie kunt beheerders onderzoeken wat er mis ging nadat het Hallo-upgrade is teruggedraaid of gestopt.
 
-Op deze manier tijdens een *toepassing* bijwerkt, alle slechte beoordelingen zijn opgenomen in de upgradestatus van toepassing.
+Op deze manier tijdens een *toepassing* bijwerkt, alle slechte beoordelingen zijn opgenomen in upgradestatus Hallo-toepassing.
 
-Hieronder vindt u de status van de toepassing bijwerken voor een gewijzigde fabric: / WordCount-toepassing. Een watchdog heeft een fout gerapporteerd op een van de replica's. De upgrade is rolling omdat de statuscontroles niet worden nageleefd.
+Hallo hieronder vindt u upgradestatus Hallo-toepassing voor een gewijzigde fabric: / WordCount-toepassing. Een watchdog heeft een fout gerapporteerd op een van de replica's. Hallo upgrade ongedaan omdat Hallo statuscontroles niet worden nageleefd.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -1167,12 +1167,12 @@ ForceRestart                  : False
 UpgradeReplicaSetCheckTimeout : 00:15:00
 ```
 
-Meer informatie over de [upgrade van de Service Fabric-toepassing](service-fabric-application-upgrade.md).
+Lees meer over Hallo [upgrade van de Service Fabric-toepassing](service-fabric-application-upgrade.md).
 
-## <a name="use-health-evaluations-to-troubleshoot"></a>Gebruik health evaluaties om op te lossen
-Wanneer er een probleem met het cluster of een toepassing wordt gebruikt, bekijkt u de status van het cluster of de toepassing te achterhalen wat is het probleem. De slechte evaluaties bieden informatie over wat de huidige slecht geactiveerd. Als u wilt, kunt u inzoomen op beschadigde onderliggende entiteiten voor het identificeren van de hoofdoorzaak te achterhalen.
+## <a name="use-health-evaluations-tootroubleshoot"></a>Gebruik health evaluaties tootroubleshoot
+Wanneer er een probleem met het Hallo-cluster of een toepassing, bekijkt hello cluster of de toepassing health toopinpoint wat is het probleem. Hallo slecht evaluaties bieden informatie over welke triggered Hallo huidige slecht. Als u wilt, kunt u inzoomen op Hallo hoofdoorzaak voor beschadigde onderliggende entiteiten tooidentify.
 
-Neem bijvoorbeeld een toepassing slecht omdat er een foutenrapport op een van de replica's. De volgende Powershell-cmdlet ziet u de slechte evaluaties:
+Neem bijvoorbeeld een toepassing slecht omdat er een foutenrapport op een van de replica's. Hallo toont volgende Powershell-cmdlet Hallo slecht evaluaties:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -1200,7 +1200,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-U kunt de replica voor meer informatie bekijken:
+U kunt bekijkt hello replica tooget meer informatie:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricReplicaHealth -ReplicaOrInstanceId 131444422260002646 -PartitionId af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -1239,16 +1239,16 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> De slechte evaluaties weergeven in dat de eerste reden de entiteit wordt geëvalueerd naar de huidige status. Mogelijk zijn er meerdere andere gebeurtenissen die deze status activeren, maar ze niet zijn doorgevoerd bij de evaluatie. Voor meer informatie, Inzoomen op de health-entiteiten om alle slechte rapporten in het cluster te achterhalen.
+> Hallo slecht evaluaties weergeven Hallo eerste reden Hallo entiteit is geëvalueerd toocurrent status heeft. Mogelijk zijn er meerdere andere gebeurtenissen die deze status activeren, maar worden ze niet worden doorgevoerd in Hallo evaluaties. tooget zoomen op Hallo health entiteiten toofigure uit alle slechte Hallo-rapporten in Hallo-cluster met meer informatie.
 >
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-[Use system health reports to troubleshoot (Systeemstatusrapporten gebruiken om problemen op te lossen)](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Gebruik system health rapporten tootroubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Aangepaste Service Fabric-statusrapporten toevoegen](service-fabric-report-health.md)
 
-[Het rapport en controleer de servicestatus van de](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Hoe tooreport en controleer health service](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Controle en diagnose van lokaal services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

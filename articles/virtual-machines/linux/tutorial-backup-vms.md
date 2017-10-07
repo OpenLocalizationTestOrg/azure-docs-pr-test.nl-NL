@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7c00392d5185a2f067f2ee2717529dcbde1e71f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Back-up van Linux virtuele machines in Azure
 
-U kunt uw gegevens beschermen door regelmatig back-ups te maken. Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele virtuele machine of alleen specifieke bestanden kunt herstellen. In dit artikel wordt uitgelegd hoe een enkel bestand terugzetten naar een Linux-VM met nginx. Als u een VM voor gebruik van nog geen hebt, kunt u één die gebruikmaakt van de [Linux Quick Start](quick-create-cli.md). In deze zelfstudie leert u het volgende:
+U kunt uw gegevens beschermen door regelmatig back-ups te maken. Azure Backup maakt herstelpunten die zijn opgeslagen in een geografisch redundante recovery kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u herstellen Hallo hele virtuele machine of alleen specifieke bestanden. Dit artikel wordt uitgelegd hoe toorestore één tooa Linux VM actieve nginx-bestand. Als u een VM-toouse nog geen hebt, kunt u een maken met behulp van Hallo [Linux Quick Start](quick-create-cli.md). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Maak een back-up van een virtuele machine
@@ -35,43 +35,43 @@ U kunt uw gegevens beschermen door regelmatig back-ups te maken. Azure Backup ma
 
 ## <a name="backup-overview"></a>Overzicht van Backup
 
-Wanneer de Azure Backup-service een back-up begint, wordt de Backup-extensie om een momentopname punt in tijd geactiveerd. De Azure Backup-service wordt gebruikt de _VMSnapshotLinux_ extensie in Linux. De uitbreiding wordt geïnstalleerd tijdens de eerste VM back-up als de virtuele machine wordt uitgevoerd. Als de virtuele machine niet wordt uitgevoerd, maakt de Backup-service een momentopname van de onderliggende opslag (omdat er geen schrijfbewerkingen toepassing optreden terwijl de virtuele machine is gestopt).
+Wanneer hello Azure Backup-service een back-up begint, activeert het Hallo Backup-extensie tootake een momentopname van een punt in tijd. Hello Azure Backup-service gebruikt Hallo _VMSnapshotLinux_ extensie in Linux. Hallo-extensie wordt geïnstalleerd tijdens Hallo eerste VM back-up als Hallo VM wordt uitgevoerd. Als hello VM niet wordt uitgevoerd, wordt Hallo Backup-service een momentopname van Hallo onderliggende opslag (omdat er geen schrijfbewerkingen toepassing tijdens het Hallo die VM is gestopt optreden).
 
-Standaard Azure Backup duurt een bestand system consistente back-up voor Linux VM maar kan worden geconfigureerd om te [toepassing consistente back-up met script voor vóór en na-framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Zodra de Azure Backup-service de momentopname maakt, worden de gegevens worden overgedragen naar de kluis. Als u wilt optimaliseren, wordt de service identificeert en draagt alleen de blokken met gegevens die zijn gewijzigd sinds de vorige back-up.
+Standaard Azure Backup heeft een bestand system consistente back-up voor Linux VM maar het kan geconfigureerde tootake [toepassing consistente back-up met script voor vóór en na-framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Zodra hello Azure Backup-service Hallo momentopname maakt, is Hallo gegevens overgedragen toohello kluis. toomaximize-efficiëntie Hallo service identificeert en alleen Hallo blokken met gegevens die zijn gewijzigd sinds de vorige back-up Hallo overdraagt.
 
-Wanneer de overdracht van gegevens voltooid is, wordt de momentopname is verwijderd en een herstelpunt wordt gemaakt.
+Hallo-gegevensoverdracht is voltooid, Hallo momentopname wordt verwijderd als een herstelpunt wordt gemaakt.
 
 
 ## <a name="create-a-backup"></a>Maak een back-up
-U plant als volgt een eenvoudige dagelijkse back-up naar een Recovery Services-kluis. 
+Maak een eenvoudige geplande dagelijkse back-tooa Recovery Services-kluis. 
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **Virtuele machines** in het menu aan de linkerkant. 
-3. Selecteer in de lijst de virtuele machine waarvan u een back-up wilt maken.
-4. Op de blade VM in de **instellingen** sectie, klikt u op **back-up**. De **back-up** blade wordt geopend.
-5. In **Recovery Services-kluis**, klikt u op **nieuw** en geef de naam op voor de nieuwe kluis. Een nieuwe kluis wordt gemaakt in dezelfde resourcegroep en locatie als de virtuele machine.
-6. Klik op **back-up maken van beleid**. In dit voorbeeld behoud de standaardinstellingen en klik op **OK**.
-7. Op de **back-up** blade, klikt u op **back-up inschakelen**. Hiermee maakt u een dagelijkse back-up op basis van het standaardschema.
-10. Een eerste herstelpunt maken op de **back-up** Klik op de blade **back-up nu**.
-11. Op de **back-up nu** blade, klikt u op het pictogram Agenda, gebruikt u het kalenderbesturingselement selecteren van de laatste dag van dit herstelpunt wordt bewaard en op **back-up**.
-12. In de **back-up** blade voor uw virtuele machine, ziet u het aantal herstelpunten die voltooid zijn.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com/).
+2. Selecteer in het menu aan de linkerkant Hallo Hallo **virtuele machines**. 
+3. Selecteer een VM-tooback uit Hallo-lijst.
+4. Op Hallo VM blade in Hallo **instellingen** sectie, klikt u op **back-up**. Hallo **back-up** blade wordt geopend.
+5. In **Recovery Services-kluis**, klikt u op **nieuw** en geef de naam Hallo voor Hallo nieuwe kluis. Een nieuwe kluis is gemaakt in Hallo dezelfde resourcegroep en locatie als Hallo virtuele machine.
+6. Klik op **back-up maken van beleid**. In dit voorbeeld blijven Hallo standaardwaarden en klik op **OK**.
+7. Op Hallo **back-up** blade, klikt u op **back-up inschakelen**. Hiermee maakt u een dagelijkse back-up op basis van het standaardschema Hallo.
+10. een eerste herstelpunt op Hallo toocreate **back-up** Klik op de blade **back-up nu**.
+11. Op Hallo **back-up nu** blade, klikt u op het pictogram Kalender Hallo, gebruikt u Hallo kalender besturingselement tooselect Hallo laatste dag van dit herstelpunt wordt bewaard en op **back-up**.
+12. In Hallo **back-up** blade voor uw virtuele machine, ziet u Hallo aantal herstelpunten die voltooid zijn.
 
     ![Herstelpunten](./media/tutorial-backup-vms/backup-complete.png)
 
-De eerste back-up duurt ongeveer 20 minuten. Ga naar het volgende gedeelte van deze zelfstudie nadat de back-up is voltooid.
+de eerste back-up Hallo duurt ongeveer 20 minuten. Toohello volgende deel van deze zelfstudie worden voortgezet nadat de back-up is voltooid.
 
 ## <a name="restore-a-file"></a>Een bestand te herstellen
 
-Als u per ongeluk verwijdert of wijzigingen in een bestand aanbrengen, kunt u bestandsherstel het bestand te herstellen vanuit uw back-upkluis. Bestandsherstel maakt gebruik van een script dat wordt uitgevoerd op de virtuele machine te koppelen van het herstelpunt als lokale schijf. Deze stations blijft gekoppelde 12 uur zodat u kunt bestanden van het herstelpunt kopiëren en deze naar de virtuele machine terugzetten.  
+Als u per ongeluk verwijdert of wijzigingen tooa bestand maken, kunt u bestandsherstel toorecover Hallo bestand vanuit uw back-upkluis. Bestandsherstel maakt gebruik van een script dat wordt uitgevoerd op virtuele machine, Hallo toomount Hallo herstelpunt als lokale schijf. Deze stations blijft gekoppelde 12 uur zodat u kunt bestanden vanaf Hallo herstelpunt kopiëren en herstel deze toohello VM.  
 
-In dit voorbeeld laten we zien hoe de standaard nginx webpagina /var/www/html/index.nginx-debian.html herstellen. Het openbare IP-adres van de virtuele machine in dit voorbeeld is *13.69.75.209*. U vindt het IP-adres van het gebruik van uw vm:
+In dit voorbeeld laten we zien hoe toorecover standaard nginx webpagina /var/www/html/index.nginx-debian.html Hallo. Hallo openbare IP-adres van de virtuele machine in dit voorbeeld is *13.69.75.209*. U vindt Hallo IP-adres van uw virtuele machine met:
 
  ```bash 
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
  
-1. Open een browser en typ in het openbare IP-adres van uw virtuele machine om te zien van de nginx-standaardwebpagina op uw lokale computer.
+1. Open een browser en typ Hallo openbare IP-adres van uw VM toosee hello nginx standaardwebpagina op uw lokale computer.
 
     ![Standaard nginx-webpagina](./media/tutorial-backup-vms/nginx-working.png)
 
@@ -86,78 +86,78 @@ In dit voorbeeld laten we zien hoe de standaard nginx webpagina /var/www/html/in
     sudo rm /var/www/html/index.nginx-debian.html
     ```
     
-4. Vernieuwt de browser op uw lokale computer, kunt u door op CTRL + F5 om te zien dat die standaard nginx-pagina is verwijderd.
+4. Op de lokale computer, vernieuwt u Hallo browser kunt u door op CTRL + F5 toosee die standaard nginx-pagina is verwijderd.
 
     ![Standaard nginx-webpagina](./media/tutorial-backup-vms/nginx-broken.png)
     
-1. Op de lokale computer, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/).
-6. Selecteer **Virtuele machines** in het menu aan de linkerkant. 
-7. Selecteer de virtuele machine uit de lijst.
-8. Op de blade VM in de **instellingen** sectie, klikt u op **back-up**. De **back-up** blade wordt geopend. 
-9. Selecteer in het menu bovenaan de blade **bestandsherstel**. De **bestandsherstel** blade wordt geopend.
-10. In **stap 1: Selecteer herstelpunt**, selecteer een herstelpunt in de vervolgkeuzelijst.
-11. In **stap 2: downloaden script om te zoeken en herstellen van bestanden**, klikt u op de **uitvoerbaar bestand downloaden** knop. Sla het gedownloade bestand op uw lokale computer.
-7. Klik op **script downloaden** voor het downloaden van het scriptbestand lokaal.
-8. Open een Bash-opdrachtprompt en typ het volgende, vervangen *Linux_myVM_05-05-2017.sh* met het juiste pad en bestandsnaam op van het script dat u hebt gedownload, *azureuser* met de gebruikersnaam voor de virtuele machine en *13.69.75.209* met het openbare IP-adres voor uw virtuele machine.
+1. Meld u op uw lokale computer aan toohello [Azure-portal](https://portal.azure.com/).
+6. Selecteer in het menu aan de linkerkant Hallo Hallo **virtuele machines**. 
+7. Selecteer in Hallo lijst Hallo VM.
+8. Op Hallo VM blade in Hallo **instellingen** sectie, klikt u op **back-up**. Hallo **back-up** blade wordt geopend. 
+9. Selecteer in het menu Hallo Hallo boven aan het Hallo-blade **bestandsherstel**. Hallo **bestandsherstel** blade wordt geopend.
+10. In **stap 1: Selecteer herstelpunt**, selecteer een herstelpunt in de vervolgkeuzelijst Hallo.
+11. In **stap 2: downloaden script toobrowse en bestanden herstellen**, klikt u op Hallo **uitvoerbaar bestand downloaden** knop. Hallo gedownloade bestand tooyour lokale computer opslaan.
+7. Klik op **script downloaden** toodownload Hallo scriptbestand lokaal.
+8. Open een Bash-prompt en type hello te volgen en vervangt *Linux_myVM_05-05-2017.sh* met Hallo de juiste pad en bestandsnaam voor Hallo-script dat u hebt gedownload, *azureuser* met Hallo gebruikersnaam voor Hallo VM en *13.69.75.209* Hallo openbare IP-adres voor uw virtuele machine.
     
     ```bash
     scp Linux_myVM_05-05-2017.sh azureuser@13.69.75.209:
     ```
     
-9. Open op uw lokale computer, een SSH-verbinding naar de virtuele machine.
+9. Open op uw lokale computer, een SSH-verbinding toohello VM.
 
     ```bash
     ssh 13.69.75.209
     ```
     
-10. Voeg op de virtuele machine, schrijfrechten hebben voor het scriptbestand.
+10. Voeg op de virtuele machine, machtigingen toohello scriptbestand uitvoeren.
 
     ```bash
     chmod +x Linux_myVM_05-05-2017.sh
     ```
     
-11. Op de virtuele machine, voer het script voor het koppelen van het herstelpunt dat als een bestandssysteem.
+11. Op de virtuele machine, Hallo herstelpunt voor Hallo script toomount worden uitgevoerd als een bestandssysteem.
 
     ```bash
     ./Linux_myVM_05-05-2017.sh
     ```
     
-12. De uitvoer van het script hebt u het pad voor het koppelpunt wordt gehost. De uitvoer ziet er ongeveer als volgt uit:
+12. Hallo de uitvoer van Hallo script geeft dat u het pad naar het koppelpunt Hallo Hallo. Hallo-uitvoer ziet er vergelijkbare toothis:
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
-    Connecting to recovery point using ISCSI service...
+    Connecting toorecovery point using ISCSI service...
     
     Connection succeeded!
     
-    Please wait while we attach volumes of the recovery point to this machine...
+    Please wait while we attach volumes of hello recovery point toothis machine...
                          
-    ************ Volumes of the recovery point and their mount paths on this machine ************
+    ************ Volumes of hello recovery point and their mount paths on this machine ************
 
     Sr.No.  |  Disk  |  Volume  |  MountPath 
 
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170505191055/Volume1
 
-    ************ Open File Explorer to browse for files. ************
+    ************ Open File Explorer toobrowse for files. ************
 
-    After recovery, to remove the disks and close the connection to the recovery point, please click 'Unmount Disks' in step 3 of the portal.
+    After recovery, tooremove hello disks and close hello connection toohello recovery point, please click 'Unmount Disks' in step 3 of hello portal.
 
-    Please enter 'q/Q' to exit...
+    Please enter 'q/Q' tooexit...
     ```
 
-12. Op de virtuele machine, kopieert u de nginx-standaardwebpagina van het koppelpunt terug naar de plaats waar u het bestand verwijderd.
+12. Op de virtuele machine, kopieert u Hallo nginx-standaardwebpagina van Hallo koppelpunt punt back toowhere u Hallo bestand verwijderd.
 
     ```bash
     sudo cp ~/myVM-20170505191055/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
     
-17. Open het browsertabblad waar u bent verbonden met het IP-adres van de virtuele machine met de standaardpagina nginx op uw lokale computer. Druk op CTRL + F5 om de browserpagina te vernieuwen. U ziet nu de standaardpagina weer werkt.
+17. Open op uw lokale computer Hallo browsertabblad waar u bent verbonden toohello IP-adres van Hallo VM van Hallo nginx standaard de pagina. Druk op CTRL + F5 toorefresh Hallo browserpagina. U ziet nu dat Hallo standaardpagina weer werkt.
 
     ![Standaard nginx-webpagina](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Op de lokale computer terug naar het browsertabblad voor de Azure-portal en in **stap 3: Ontkoppel de schijven na het herstel** klikt u op de **schijven ontkoppelen** knop. Als u vergeet Voer deze stap, is de verbinding met het koppelpunt wordt automatisch sluiten na 12 uur. Na deze 12 uur moet u een nieuw script voor het maken van een nieuwe koppelpunt downloaden.
+18. Op de lokale computer, gaat u terug toohello browsertabblad voor hello Azure-portal en in **stap 3: Hallo schijven ontkoppelen na het herstel** klikt u op Hallo **schijven ontkoppelen** knop. Als u toodo deze stap vergeet, wordt na 12 uur Hallo verbinding toohello koppelpunt automatisch sluiten. Na deze 12 uur moet u een nieuwe script toocreate een nieuwe koppelpunt toodownload.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -169,7 +169,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een dagelijkse back-up plannen
 > * Een bestand te herstellen vanaf een back-up
 
-Ga naar de volgende zelfstudie voor meer informatie over het bewaken van virtuele machines.
+Ga toohello volgende zelfstudie toolearn over het bewaken van virtuele machines.
 
 > [!div class="nextstepaction"]
 > [Virtuele machines bewaken](tutorial-monitoring.md)

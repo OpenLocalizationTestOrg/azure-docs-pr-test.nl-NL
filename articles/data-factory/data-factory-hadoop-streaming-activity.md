@@ -1,6 +1,6 @@
 ---
-title: Transformeer gegevens met Hadoop-Streamingactiviteit - Azure | Microsoft Docs
-description: Meer informatie over hoe u de Hadoop-Streamingactiviteit kunt gebruiken in een Azure data factory om gegevens te transformeren met Hadoop-Streaming programma's uitvoeren op een op-verzoek/uw eigen HDInsight-cluster.
+title: aaaTransform gegevens met Hadoop-Streamingactiviteit - Azure | Microsoft Docs
+description: Meer informatie over hoe u Hallo Hadoop-Streamingactiviteit in een Azure data factory tootransform gegevens kunt gebruiken met Hadoop-Streaming programma's uitvoeren op een op-verzoek/uw eigen HDInsight-cluster.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: bfe62aa60f5a0ff339e1d495d22a5fdfac10d5dc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a7ddb7268f47162709a9c8136ccd69e0b7d4ad7d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformeer gegevens met Hadoop-Streamingactiviteit in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,15 +33,15 @@ ms.lasthandoff: 08/18/2017
 > * [Data Lake Analytics U-SQL-activiteit](data-factory-usql-activity.md)
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
-U kunt de activiteit HDInsightStreamingActivity aanroepen van een Hadoop-Streaming-taak van een Azure Data Factory-pijplijn. De volgende JSON-fragment toont de syntaxis voor het gebruik van de HDInsightStreamingActivity in een pijplijn-JSON-bestand. 
+U kunt een Hadoop-Streaming-taak van een Azure Data Factory-pijplijn Hallo HDInsightStreamingActivity activiteit worden aangeroepen. Hallo toont volgende JSON-fragment Hallo-syntaxis voor het gebruik van Hallo HDInsightStreamingActivity in een pijplijn-JSON-bestand. 
 
-De HDInsight Streaming-activiteit in een Data Factory [pijplijn](data-factory-create-pipelines.md) Hadoop-Streaming programma's worden uitgevoerd op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en de ondersteunde transformatieactiviteiten toont.
+Hallo Streaming HDInsight-activiteit in een Gegevensfactory [pijplijn](data-factory-create-pipelines.md) Hadoop-Streaming programma's worden uitgevoerd op [uw eigen](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) of [op aanvraag](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows, Linux-gebaseerde HDInsight cluster. In dit artikel is gebaseerd op Hallo [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) artikel, hetgeen een algemeen overzicht van gegevenstransformatie en activiteiten voor gegevenstransformatie Hallo ondersteund toont.
 
 > [!NOTE] 
-> Als u niet bekend met Azure Data Factory bent, Lees [Inleiding tot Azure Data Factory](data-factory-introduction.md) en voer de zelfstudie: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
+> Als u nieuwe tooAzure Data Factory, Lees [inleiding tooAzure Data Factory](data-factory-introduction.md) en zelfstudie Hallo: [bouwen van uw eerste pijplijn voor gegevens](data-factory-build-your-first-pipeline.md) voordat u dit artikel leest. 
 
 ## <a name="json-sample"></a>JSON-voorbeeld
-Het HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Naam van de container die wordt gebruikt door het HDInsight-cluster is standaard de naam van het cluster zelf. Als de clusternaam van uw myhdicluster is, zou de naam van de blob-container die is gekoppeld myhdicluster zijn. 
+Hallo HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Standaard is de naam van Hallo-container die wordt gebruikt door Hallo HDInsight-cluster Hallo-naam van Hallo cluster zelf. Als de clusternaam van uw myhdicluster is, zou naam van Hallo blob-container die is gekoppeld myhdicluster zijn. 
 
 ```JSON
 {
@@ -89,30 +89,30 @@ Het HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.
 }
 ```
 
-Houd rekening met de volgende punten:
+Houd er rekening mee Hallo volgende punten:
 
-1. Stel de **linkedServiceName** naar de naam van de gekoppelde service die naar uw HDInsight verwijst-cluster op het streaming mapreduce-taak wordt uitgevoerd.
-2. Het type van de activiteit instellen **HDInsightStreaming**.
-3. Voor de **mapper** eigenschap, geef de naam van de uitvoerbare toewijzen. In het voorbeeld is cat.exe de uitvoerbare toewijzen.
-4. Voor de **reducer** eigenschap, de naam van de uitvoerbare reducer opgeven. In het voorbeeld is wc.exe de uitvoerbare reducer.
-5. Voor de **invoer** eigenschap type, geeft u het invoerbestand (inclusief de locatie) voor de toewijzing. In het voorbeeld: ' wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt ': adfsample is de blob-container, gegevens-voorbeeld/Gutenberg is de map en davinci.txt is de blob.
-6. Voor de **uitvoer** eigenschap type, het uitvoerbestand (inclusief de locatie) voor de reducer opgeven. De uitvoer van de Hadoop-Streaming-taak wordt geschreven naar de locatie die is opgegeven voor deze eigenschap.
-7. In de **filePaths** sectie, geeft u de paden voor de toewijzing en reducer uitvoerbare bestanden. In het voorbeeld: 'adfsample/example/apps/wc.exe' adfsample is de blob-container, bijvoorbeeld/apps is de map en wc.exe is het uitvoerbare bestand.
-8. Voor de **fileLinkedService** -eigenschap geeft u de gekoppelde Azure Storage-service die de Azure-opslag met de bestanden die zijn opgegeven in de sectie filePaths vertegenwoordigt.
-9. Voor de **argumenten** eigenschap, geef de argumenten voor de streaming-taak.
-10. De **getDebugInfo** eigenschap is een optioneel element. Wanneer deze is ingesteld op mislukt, worden de logboeken gedownload alleen bij fouten. Wanneer deze is ingesteld op Always, worden altijd logboeken ongeacht de uitvoeringsstatus gedownload.
+1. Set Hallo **linkedServiceName** toohello naam Hallo gekoppelde service die wijst tooyour HDInsight-cluster op welke Hallo streaming mapreduce taak wordt uitgevoerd.
+2. Hallo type Hallo activiteit te ingesteld**HDInsightStreaming**.
+3. Voor Hallo **mapper** eigenschap Hallo naam opgeven van uitvoerbare toewijzen. In voorbeeld Hallo is cat.exe Hallo mapper uitvoerbare.
+4. Voor Hallo **reducer** eigenschap Hallo-naam van de uitvoerbare reducer opgeven. In voorbeeld Hallo is wc.exe hello reducer uitvoerbare.
+5. Voor Hallo **invoer** eigenschap type, Hallo invoerbestand (inclusief Hallo locatie) opgeven voor Hallo toewijzen. In Hallo-voorbeeld: ' wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt ': adfsample is Hallo blob-container, gegevens-voorbeeld/Gutenberg Hallo-map en davinci.txt Hallo blob is.
+6. Voor Hallo **uitvoer** eigenschap type, Hallo uitvoerbestand (inclusief Hallo locatie) voor Hallo reducer opgeven. Hallo-uitvoer van Hallo Hadoop streamingtaak geschreven toohello locatie die is opgegeven voor deze eigenschap.
+7. In Hallo **filePaths** sectie, geeft u Hallo paden voor Hallo toewijzen en reducer uitvoerbare bestanden. In Hallo-voorbeeld: 'adfsample/example/apps/wc.exe' adfsample is Hallo blob-container, voorbeeld/apps Hallo-map en wc.exe Hallo uitvoerbare is.
+8. Voor Hallo **fileLinkedService** eigenschap hello Azure Storage gekoppelde service die vertegenwoordigt hello Azure-opslag met Hallo-bestanden die zijn opgegeven in Hallo filePaths sectie opgeven.
+9. Voor Hallo **argumenten** eigenschap Hallo-argumenten voor streaming-taak Hallo opgeven.
+10. Hallo **getDebugInfo** eigenschap is een optioneel element. Wanneer deze tooFailure is ingesteld, worden alleen op fout Hallo logboeken gedownload. Wanneer deze tooAlways is ingesteld, worden altijd logboeken ongeacht de uitvoeringsstatus van Hallo gedownload.
 
 > [!NOTE]
-> In het voorbeeld ziet u een uitvoergegevensset opgeven voor het Hadoop-Streamingactiviteit voor de **levert** eigenschap. Deze gegevensset is slechts een dummy gegevensset die is vereist voor het station van de planning van de pijplijn. U hoeft niet te geven van een invoergegevensset voor de activiteit voor het **invoer** eigenschap.  
+> In het Hallo-voorbeeld ziet u een uitvoergegevensset voor Hadoop-Streamingactiviteit Hallo voor Hallo opgeven **levert** eigenschap. Deze gegevensset is slechts een dummy gegevensset die is vereist toodrive Hallo pijplijn planning. U hoeft geen toospecify invoergegevensset voor de activiteit voor Hallo Hallo **invoer** eigenschap.  
 > 
 > 
 
 ## <a name="example"></a>Voorbeeld
-De pijplijn in dit scenario voert het programma voor streaming kaart/verminderen van aantal woorden in uw Azure HDInsight-cluster. 
+Hallo-pijplijn in dit scenario voert Hallo aantal woorden streaming kaart/verminderen programma op Azure HDInsight-cluster. 
 
 ### <a name="linked-services"></a>Gekoppelde services
 #### <a name="azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service
-U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die wordt gebruikt door de Azure HDInsight-cluster aan het Azure data factory. Vergeet niet te vervangen door de naam en sleutel van uw Azure Storage accountnaam en accountsleutel als kopiëren en plakken van de volgende code. 
+U maakt eerst een gekoppelde service toolink hello Azure Storage dat wordt gebruikt door hello Azure HDInsight-cluster toohello Azure data factory. Als u kopiëren en plakken Hallo code te volgen, vergeet niet tooreplace account naam en een account met Hallo naam en sleutel van uw Azure-opslag. 
 
 ```JSON
 {
@@ -127,7 +127,7 @@ U maakt eerst een gekoppelde service voor het koppelen van de Azure-opslag die w
 ```
 
 #### <a name="azure-hdinsight-linked-service"></a>Azure gekoppelde HDInsight-service
-Maak vervolgens een gekoppelde service voor uw Azure HDInsight-cluster koppelen aan de Azure-gegevensfactory. Als kopiëren en plakken van de volgende code vervangen door de naam van de HDInsight-cluster met de naam van uw HDInsight-cluster en waarden van gebruikersnaam en wachtwoord wijzigen. 
+Vervolgens maakt u een gekoppelde service toolink uw Azure HDInsight-cluster toohello Azure-gegevensfactory. Als kopiëren en plakken van Hallo na code vervangen door de naam van de HDInsight-cluster Hallo-naam van uw HDInsight-cluster en waarden van gebruikersnaam en wachtwoord wijzigen. 
 
 ```JSON
 {
@@ -146,7 +146,7 @@ Maak vervolgens een gekoppelde service voor uw Azure HDInsight-cluster koppelen 
 
 ### <a name="datasets"></a>Gegevenssets
 #### <a name="output-dataset"></a>Uitvoergegevensset
-De pijplijn in dit voorbeeld vindt niet alle invoer. U kunt een uitvoergegevensset opgeven voor de activiteit voor het streamen van HDInsight. Deze gegevensset is slechts een dummy gegevensset die is vereist voor het station van de planning van de pijplijn. 
+Hallo-pijplijn in dit voorbeeld vindt niet alle invoer. U een uitvoergegevensset voor Hallo Streaming HDInsight-activiteit. Deze gegevensset is slechts een dummy gegevensset die is vereist toodrive Hallo pijplijn planning. 
 
 ```JSON
 {
@@ -171,9 +171,9 @@ De pijplijn in dit voorbeeld vindt niet alle invoer. U kunt een uitvoergegevenss
 ```
 
 ### <a name="pipeline"></a>Pijplijn
-De pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type: **HDInsightStreaming**. 
+Hallo-pijplijn in dit voorbeeld heeft slechts één activiteit die is van het type: **HDInsightStreaming**. 
 
-Het HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Naam van de container die wordt gebruikt door het HDInsight-cluster is standaard de naam van het cluster zelf. Als de clusternaam van uw myhdicluster is, zou de naam van de blob-container die is gekoppeld myhdicluster zijn.  
+Hallo HDInsight-cluster wordt automatisch gevuld met de voorbeeld-programma's (wc.exe en cat.exe) en gegevens (davinci.txt). Standaard is de naam van Hallo-container die wordt gebruikt door Hallo HDInsight-cluster Hallo-naam van Hallo cluster zelf. Als de clusternaam van uw myhdicluster is, zou naam van Hallo blob-container die is gekoppeld myhdicluster zijn.  
 
 ```JSON
 {

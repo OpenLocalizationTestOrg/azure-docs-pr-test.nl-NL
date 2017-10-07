@@ -1,6 +1,6 @@
 ---
-title: Een webserver met SSL-certificaten in Azure beveiligen | Microsoft Docs
-description: Meer informatie over het beveiligen van de NGINX-webserver met SSL-certificaten op een Linux VM in Azure
+title: een webserver met SSL-in Azure certificaten aaaSecure | Microsoft Docs
+description: Meer informatie over hoe toosecure hello NGINX-webserver met SSL-certificaten op een Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,40 +16,40 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 181be35aeb61020db3abaeba22aa882848923c31
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d3a62d77ac05c9aa2a44356b7c8e44cb485b81aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Een webserver met SSL-certificaten op een virtuele Linux-machine in Azure beveiligen
-Beveiligde webservers, kan een certificaat Later SSL (Secure Sockets) worden gebruikt voor het versleutelen van internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Sleutelkluis en beveiligde implementaties van certificaten aan virtuele Linux-machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
+toosecure webservers, een certificaat Later SSL (Secure Sockets) kan worden gebruikt tooencrypt internetverkeer. Deze SSL-certificaten kunnen worden opgeslagen in Azure Sleutelkluis en beveiligde implementaties van certificaten tooLinux virtuele machines (VM's) in Azure toestaan. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Maken van een Azure Sleutelkluis
-> * Genereren of een certificaat uploaden naar de Sleutelkluis
-> * Een virtuele machine maken en de NGINX-webserver installeren
-> * Het certificaat invoeren in de virtuele machine en NGINX configureren met een SSL-binding
+> * Upload een certificaat toohello Sleutelkluis of genereren
+> * Een virtuele machine maken en Hallo NGINX-webserver installeren
+> * Hallo certificaat invoeren in Hallo VM en NGINX configureren met een SSL-binding
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, deze zelfstudie vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Overzicht
-Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt het beheerproces van het certificaat te stroomlijnen en kunt u controle houdt over sleutels die toegang hebben tot deze certificaten. U kunt een zelfondertekend certificaat in de Sleutelkluis maken of een bestaande, vertrouwd certificaat dat u al bezit uploaden.
+Azure Sleutelkluis beschermt cryptografische sleutels en geheimen, zoals certificaten of wachtwoorden. Sleutelkluis helpt Hallo certificate management stroomlijnen en kunt u toomaintain beheer van sleutels die toegang hebben tot deze certificaten. U kunt een zelfondertekend certificaat in de Sleutelkluis maken of een bestaande, vertrouwd certificaat dat u al bezit uploaden.
 
-In plaats van met een aangepaste VM-installatiekopie die certificaten bevat standaard uitbreidbaar module u certificaten kunt invoeren in een actieve virtuele machine. Dit proces zorgt ervoor dat de meest recente certificaten tijdens de implementatie op een webserver zijn geïnstalleerd. Als u vernieuwen of vervangen van een certificaat, hebt u niet ook een nieuwe aangepaste VM-installatiekopie maken. De meest recente certificaten worden automatisch toegevoegd als u extra virtuele machines maken. Tijdens het hele proces, de certificaten nooit laat u de Azure-platform of beschikbaar worden gesteld in een script, opdrachtregel geschiedenis of sjabloon.
+In plaats van met een aangepaste VM-installatiekopie die certificaten bevat standaard uitbreidbaar module u certificaten kunt invoeren in een actieve virtuele machine. Dit proces zorgt ervoor dat de meest recente certificaten Hallo tijdens de implementatie op een webserver zijn geïnstalleerd. Als u vernieuwen of vervangen van een certificaat, hebt u niet ook toocreate een nieuwe aangepaste VM-installatiekopie. Hallo nieuwste certificaten worden automatisch ingevoegd als u extra virtuele machines maken. Tijdens het hele proces hello, Hallo certificaten nooit laat hello Azure-platform of beschikbaar worden gesteld in een script, opdrachtregel geschiedenis of sjabloon.
 
 
 ## <a name="create-an-azure-key-vault"></a>Maken van een Azure Sleutelkluis
-Voordat u certificaten en een Sleutelkluis maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupSecureWeb* in de *eastus* locatie:
+Voordat u certificaten en een Sleutelkluis maken kunt, maakt u een resourcegroep met [az groep maken](/cli/azure/group#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroupSecureWeb* in Hallo *eastus* locatie:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Maak vervolgens een Sleutelkluis met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen voor gebruik wanneer u een virtuele machine implementeert. Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang  *<mykeyvault>*  in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis:
+Maak vervolgens een Sleutelkluis met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen voor gebruik wanneer u een virtuele machine implementeert. Elke Sleutelkluis moet een unieke naam hebben en moet alle kleine letters. Vervang  *<mykeyvault>*  in het volgende voorbeeld met de naam van uw eigen unieke Sleutelkluis Hallo:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -60,7 +60,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Een certificaat genereren en opslaan in de Sleutelkluis
-Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [az keyvault certificaat importeren](/cli/azure/certificate#import). Voor deze zelfstudie, het volgende voorbeeld toont hoe kunt u een zelfondertekend certificaat met genereren [az keyvault-certificaat maken](/cli/azure/certificate#create) die gebruikmaakt van het standaardbeleid voor certificaat:
+Voor gebruik in productieomgevingen, moet u een geldig certificaat dat is ondertekend door een vertrouwde provider met importeren [az keyvault certificaat importeren](/cli/azure/certificate#import). Voor deze zelfstudie hello volgende voorbeeld ziet u hoe u een zelfondertekend certificaat met genereren [az keyvault-certificaat maken](/cli/azure/certificate#create) die gebruikmaakt van Hallo-standaardbeleid certificaat:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -70,7 +70,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Een certificaat voor gebruik met een virtuele machine voorbereiden
-Het certificaat te gebruiken tijdens de virtuele machine proces voor het maken, verkrijgen van de ID van het certificaat met [az keyvault lijst-versies van het clientgeheim](/cli/azure/keyvault/secret#list-versions). Converteren van het certificaat met [az vm indeling-geheim](/cli/azure/vm#format-secret). Het volgende voorbeeld wordt de uitvoer van deze opdrachten naar variabelen voor eenvoudig te gebruiken in de volgende stappen:
+toouse hello certificaat tijdens Hallo VM proces voor het maken, verkrijgen Hallo-ID van uw certificaat met [az keyvault lijst-versies van het clientgeheim](/cli/azure/keyvault/secret#list-versions). Hallo-certificaat met converteren [az vm indeling-geheim](/cli/azure/vm#format-secret). Hallo volgt toegewezen Hallo-uitvoer van deze opdrachten toovariables voor eenvoudig te gebruiken in Hallo volgende stappen:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -80,12 +80,12 @@ secret=$(az keyvault secret list-versions \
 vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
-### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Maken van een cloud-init-config NGINX beveiligen
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
+### <a name="create-a-cloud-init-config-toosecure-nginx"></a>Maken van een cloud-init config toosecure NGINX
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte methode toocustomize zoals deze wordt opgestart voor Hallo eerst een Linux-VM. U kunt de cloud init tooinstall pakketten gebruiken en schrijven van bestanden, of tooconfigure gebruikers en beveiliging. Cloud-init wordt uitgevoerd tijdens het opstartproces hello, er zijn geen extra stappen of agents tooapply uw configuratie is vereist.
 
-Wanneer u maakt een virtuele machine, certificaten en sleutels worden opgeslagen in de beveiligde */var/lib/waagent/* directory. Gebruik cloud init voor het automatiseren van het certificaat toevoegen aan de virtuele machine en de webserver configureren. In dit voorbeeld we installeren en configureren van de NGINX-webserver. U kunt hetzelfde proces gebruiken voor het installeren en configureren van Apache. 
+Wanneer u maakt een virtuele machine, certificaten en sleutels worden opgeslagen in Hallo beveiligd */var/lib/waagent/* directory. tooautomate toe te voegen Hallo certificaat toohello VM en cloud-init Hallo webserver configureren gebruiken. In dit voorbeeld we installeren en configureren van Hallo NGINX-webserver. U kunt Hallo dezelfde tooinstall verwerken en Apache configureren. 
 
-Maak een bestand met de naam *cloud-init-web-server.txt* en plak de volgende configuratie:
+Maak een bestand met de naam *cloud-init-web-server.txt* en plakken Hallo volgende configuratie:
 
 ```yaml
 #cloud-config
@@ -110,7 +110,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Een beveiligde virtuele machine maken
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). De gegevens van het certificaat wordt geïnjecteerd uit de Sleutelkluis met de `--secrets` parameter. U kunt doorgeven in de cloud init-configuratie met de `--custom-data` parameter:
+Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create). Hallo certificaatgegevens wordt geïnjecteerd uit Sleutelkluis Hello `--secrets` parameter. U doorgeeft in Hallo cloud init-config Hallo `--custom-data` parameter:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,9 +123,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Het duurt enkele minuten duren voordat de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot uw site in een webbrowser.
+Het duurt enkele minuten voordat Hallo VM toobe gemaakt, hello-pakketten tooinstall en Hallo app toostart. Wanneer Hallo VM is gemaakt, noteer Hallo `publicIpAddress` weergegeven door hello Azure CLI. Dit adres wordt gebruikt tooaccess uw site in een webbrowser.
 
-Zodat beveiligde webverkeer bereiken van uw virtuele machine poort 443 openen vanaf het Internet met [az vm open poort](/cli/azure/vm#open-port):
+virtuele machine, open poort 443 van Hallo Internet met voor secure web verkeer tooreach tooallow [az vm open poort](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -135,27 +135,27 @@ az vm open-port \
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Testen van de beveiligde web-app
-Nu kunt u een webbrowser openen en voer *https://<publicIpAddress>*  in de adresbalk. Geef uw eigen openbare IP-adres van de virtuele machine proces maken. De beveiligingswaarschuwing accepteren als u een zelfondertekend certificaat gebruikt:
+### <a name="test-hello-secure-web-app"></a>Test Hallo beveiligde web-app
+Nu kunt u een webbrowser openen en voer *https://<publicIpAddress>*  in de adresbalk Hallo. Geef uw eigen openbare IP-adres uit Hallo VM proces maken. Beveiligingswaarschuwing Hallo accepteren als u een zelfondertekend certificaat gebruikt:
 
 ![Beveiligingswaarschuwing voor web browser accepteren](./media/tutorial-secure-web-server/browser-warning.png)
 
-Uw beveiligde NGINX-site wordt vervolgens weergegeven zoals in het volgende voorbeeld:
+Uw beveiligde NGINX-site wordt vervolgens weergegeven zoals in het volgende voorbeeld Hallo:
 
 ![Actief beveiligde NGINX-site weergeven](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt beveiligd u een NGINX-webserver met een SSL-certificaat dat is opgeslagen in Azure Sleutelkluis. U leert hoe naar:
+In deze zelfstudie maakt beveiligd u een NGINX-webserver met een SSL-certificaat dat is opgeslagen in Azure Sleutelkluis. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Maken van een Azure Sleutelkluis
-> * Genereren of een certificaat uploaden naar de Sleutelkluis
-> * Een virtuele machine maken en de NGINX-webserver installeren
-> * Het certificaat invoeren in de virtuele machine en NGINX configureren met een SSL-binding
+> * Upload een certificaat toohello Sleutelkluis of genereren
+> * Een virtuele machine maken en Hallo NGINX-webserver installeren
+> * Hallo certificaat invoeren in Hallo VM en NGINX configureren met een SSL-binding
 
-Volg deze link om te zien van de vooraf gemaakte virtuele machine scriptvoorbeelden.
+Volg deze link toosee vooraf gemaakte virtuele machine scriptvoorbeelden.
 
 > [!div class="nextstepaction"]
 > [Windows virtuele machine scriptvoorbeelden](./cli-samples.md)

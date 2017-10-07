@@ -1,5 +1,5 @@
 ---
-title: Voorbeeldgegevens in Azure blob storage | Microsoft Docs
+title: aaaSample gegevens in Azure blob storage | Microsoft Docs
 description: Voorbeeldgegevens in Azure Blob-opslag
 services: machine-learning,storage
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: aa9ab454706429682a393c3d5758cebe20790e19
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cceadf1fb1fb4804fc5b5a3da55c82854651026e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-opslag
 Dit document bevat informatie over steekproeven opgeslagen gegevens in Azure blob-opslag door programmatisch downloaden en vervolgens wordt met behulp van de procedures die zijn geschreven in Python.
 
-De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u voorbeeldgegevens uit verschillende omgevingen voor opslag. 
+Hallo volgende **menu** koppelingen tootopics waarin wordt beschreven hoe toosample gegevens uit verschillende omgevingen voor opslag. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 **Waarom een steekproef nemen uit uw gegevens?**
-Als de gegevensset die u wilt analyseren groot is, is het meestal een goed idee om de gegevens om deze aan de grootte van een kleinere maar representatief en gemakkelijker down-voorbeeld. Dit vereenvoudigt het begrip van de gegevens, exploratie en functie-engineering. De rol in de Cortana-Analytics-proces is om in te schakelen snel maken van een prototype van de functies voor het verwerken van gegevens en machine learning-modellen.
+Als u van plan bent tooanalyze Hallo-gegevensset te groot is, is het meestal een goed idee Hallo toodown-sample data tooreduce het tooa kleiner, maar representatief en gemakkelijker grootte. Dit vereenvoudigt het begrip van de gegevens, exploratie en functie-engineering. De rol in Hallo Cortana-Analytics-proces is tooenable snel maken van een prototype van Hallo gegevensverwerking functies en machine learning-modellen.
 
-Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Deze taak steekproeven is een stap in Hallo [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="download-and-down-sample-data"></a>De download- en omlaag voorbeeldgegevens
-1. De gegevens uit Azure blob storage met behulp van de blob-service van de volgende voorbeeldcode voor Python downloaden: 
+1. Hallo gegevens uit Azure blob storage met blob-service van de volgende voorbeeldcode Python Hallo Hallo downloaden: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -49,16 +49,16 @@ Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)
         blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
-        print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+        print(("It takes %s seconds toodownload "+blobname) % (t2 - t1))
 
-2. Gegevens lezen in een Pandas gegevens tijdskader uit het bestand gedownload hierboven.
+2. Gegevens in een Pandas gegevens tijdskader uit gedownloade hierboven Hallo-bestand gelezen.
    
         import pandas as pd
    
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Omlaag-voorbeeld de gegevens met behulp van de `numpy`van `random.choice` als volgt:
+3. Hallo-gegevens met behulp van Hallo down-sample `numpy`van `random.choice` als volgt:
    
         # A 1 percent sample
         sample_ratio = 0.01 
@@ -66,16 +66,16 @@ Deze taak steekproeven is een stap in de [Team gegevens wetenschap proces (TDSP)
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Nu kunt u werken met de bovenstaande gegevensframe met het voorbeeld 1 procent voor verdere verkenning en functie generatie.
+Nu kunt u werken met Hallo boven gegevensframe met Hallo 1 procent voorbeeld voor verdere verkenning en functie generatie.
 
 ## <a name="heading"></a>Gegevens uploaden en lezen in Azure Machine Learning
-U kunt de volgende voorbeeldcode down-voorbeeld de gegevens en deze rechtstreeks in Azure Machine Learning gebruiken:
+U kunt gebruiken Hallo voorbeeldgegevens code Hallo toodown voorbeeld te volgen en deze rechtstreeks in Azure Machine Learning gebruiken:
 
-1. Het gegevensframe schrijven naar een lokaal bestand
+1. Hallo frame tooa lokale gegevensbestand schrijven
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Het lokale bestand uploaden naar een Azure-blob met behulp van de volgende voorbeeldcode:
+2. Hallo lokaal bestand tooan Azure uploaden blob met behulp van de volgende voorbeeldcode Hallo:
    
         from azure.storage.blob import BlobService
         import tables
@@ -95,9 +95,9 @@ U kunt de volgende voorbeeldcode down-voorbeeld de gegevens en deze rechtstreeks
         output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
    
         except:            
-            print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
+            print ("Something went wrong with uploading toohello blob:"+ BLOBNAME)
 
-3. De gegevens lezen van de blob van Azure met Azure Machine Learning [importgegevens](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) zoals weergegeven in de onderstaande afbeelding:
+3. Hallo-gegevens lezen uit hello Azure blob met Azure Machine Learning [importgegevens](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) zoals weergegeven in onderstaande afbeelding voor Hallo:
 
 ![lezer blob](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 

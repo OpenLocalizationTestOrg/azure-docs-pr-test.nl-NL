@@ -1,6 +1,6 @@
 ---
-title: Logboekregistratie van Azure Sleutelkluis | Microsoft Docs
-description: Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis.
+title: Logboekregistratie van Sleutelkluis aaaAzure | Microsoft Docs
+description: Gebruik deze zelfstudie toohelp die u aan de slag met Azure Key Vault logboekregistratie.
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.openlocfilehash: e9a4f16f048833dab49f7db79892fe47a5aeff37
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 38a173297948748bef45e3d857c06b50b3e21e74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
-Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
+Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie voor meer informatie, Hallo [pagina prijzen van Sleutelkluis](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Inleiding
-Nadat u een of meer sleutelkluizen hebt gemaakt, wilt u wellicht controleren hoe en wanneer uw sleutelkluizen toegankelijk zijn en voor wie. U kunt dit doen door logboekregistratie in te schakelen voor Sleutelkluis. Hierbij wordt de informatie opgeslagen in een Azure-opslagaccount dat u opgeeft. Er wordt automatisch een nieuwe container met de naam **insights-logboeken-auditevent** gemaakt voor het opgegeven opslagaccount en u kunt hetzelfde opslagaccount gebruiken voor het verzamelen van logboeken voor meerdere sleutelkluizen.
+Wanneer u een of meer sleutelkluizen hebt gemaakt, wilt u waarschijnlijk toomonitor hoe en wanneer uw sleutel kluizen toegankelijk zijn en door wie. U kunt dit doen door logboekregistratie in te schakelen voor Sleutelkluis. Hierbij wordt de informatie opgeslagen in een Azure-opslagaccount dat u opgeeft. Er wordt automatisch een nieuwe container met de naam **insights-logboeken-auditevent** gemaakt voor het opgegeven opslagaccount en u kunt hetzelfde opslagaccount gebruiken voor het verzamelen van logboeken voor meerdere sleutelkluizen.
 
-U kunt uw logboekgegevens maximaal tien minuten nadat de sleutelkluisbewerking is uitgevoerd, bekijken. In de meeste gevallen gaat het echter veel sneller.  Het is aan u om uw logboeken in uw opslagaccount te beheren:
+U kunt uw logboekgegevens maximaal openen, 10 minuten nadat de Hallo sleutel sleutelkluisbewerking is uitgevoerd. In de meeste gevallen gaat het echter veel sneller.  Het is tooyou toomanage uw logboeken in uw opslagaccount:
 
-* Gebruik standaardmethoden van Azure voor toegangsbeheer om uw logboeken te beveiligen door het aantal gebruikers te beperken dat toegang heeft tot de logboeken.
-* Verwijder de logboeken die u niet meer in uw opslagaccount wilt bewaren.
+* Gebruik standaard Azure access control methoden toosecure uw logboeken door te beperken wie er toegang toe.
+* Logboeken die u niet meer tookeep in uw opslagaccount wilt verwijderen.
 
-Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis, het maken van uw opslagaccount, het inschakelen van logboekregistratie en het interpreteren van de logboekgegevens die worden verzameld.  
+Gebruik deze zelfstudie toohelp die u aan de slag met Azure Key Vault aan te melden, toocreate uw storage-account inschakelen van logboekregistratie en interpreteren Hallo logboekgegevens die worden verzameld.  
 
 > [!NOTE]
-> Deze zelfstudie bevat geen instructies voor het maken van sleutelkluizen, sleutels of geheimen. Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor meer informatie. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli2.md) voor instructies voor het maken van een platformonafhankelijke opdrachtregelinterface.
+> Deze zelfstudie bevat geen instructies voor hoe toocreate sleutel kluizen, sleutels of geheimen. Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor meer informatie. Zie [deze equivalente zelfstudie](key-vault-manage-with-cli2.md) voor instructies voor het maken van een platformonafhankelijke opdrachtregelinterface.
 >
-> Het is momenteel niet mogelijk om Azure Sleutelkluis in de Azure-portal te configureren. Gebruik in plaats daarvan deze instructies voor Azure PowerShell.
+> U kunt op dit moment is Azure Sleutelkluis in hello Azure-portal configureren. Gebruik in plaats daarvan deze instructies voor Azure PowerShell.
 >
 >
 
 Zie [Wat is Azure Key Vault?](key-vault-whatis.md) voor algemene informatie over Azure Key Vault.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie hebt u hello te volgen:
 
 * Een bestaande sleutelkluis die u hebt gebruikt.  
-* Azure PowerShell, **versie 1.0.1 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. Als u Azure PowerShell al hebt geïnstalleerd, maar niet weet welke versie u hebt, typt u `(Get-Module azure -ListAvailable).Version` in de Azure PowerShell-console.  
+* Azure PowerShell, **versie 1.0.1 of hoger**. tooinstall Azure PowerShell en deze koppelen aan uw Azure-abonnement, Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview). Als u Azure PowerShell al hebt geïnstalleerd en het Hallo-versie van hello Azure PowerShell-console niet weet, typt u `(Get-Module azure -ListAvailable).Version`.  
 * Voldoende opslagruimte op Azure voor uw Sleutelkluis-logboeken.
 
-## <a id="connect"></a>Verbinding maken met uw abonnementen
-Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
+## <a id="connect"></a>Verbinding maken met tooyour abonnementen
+Start een Azure PowerShell-sessie en meld u aan tooyour Azure-account met de volgende opdracht Hallo:  
 
     Login-AzureRmAccount
 
-Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Azure PowerShell haalt alle abonnementen op die zijn gekoppeld aan dit account en gebruikt standaard het eerste.
+In het pop-browservenster hello, Voer uw Azure-account, gebruikersnaam en wachtwoord. Azure PowerShell haalt alle Hallo-abonnementen die gekoppeld aan dit account en standaard zijn, gebruikt de eerste Hallo.
 
-Als u meerdere abonnementen hebt, moet u wellicht specifiek opgeven welk abonnement is gebruikt voor het maken van uw Azure Sleutelkluis. Typ het volgende als u de abonnementen voor uw account wilt zien:
+Als u meerdere abonnementen hebt, moet u wellicht toospecify een specifiek abonnement dat gebruikt toocreate is uw Azure Sleutelkluis. Type Hallo toosee Hallo abonnementen voor uw account te volgen:
 
     Get-AzureRmSubscription
 
-Geef vervolgens op welk abonnement is gekoppeld aan de sleutelkluis waarvoor u logboekregistratie wilt inschakelen. Typ:
+Vervolgens toospecify Hallo abonnement is gekoppeld aan de sleutelkluis die u logboekregistratie inschakelen wilt, type:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
 > [!NOTE]
-> Dit is een belangrijke stap, die met name handig is als er meerdere abonnementen zijn gekoppeld aan uw account. Mogelijk wordt er een fout weergegeven voor het registreren van Microsoft.Insights als deze stap wordt overgeslagen.
+> Dit is een belangrijke stap, die met name handig is als er meerdere abonnementen zijn gekoppeld aan uw account. U krijgt een fout tooregister Microsoft.Insights als deze stap overgeslagen.
 >   
 >
 
-Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het configureren van Azure PowerShell.
+Zie voor meer informatie over het configureren van Azure PowerShell [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
-Hoewel u een bestaand opslagaccount voor uw logboeken kunt gebruiken, maken we hier een nieuw opslagaccount, speciaal voor Sleutelkluis-logboeken. Voor het gemak slaan we de details op in een variabele met de naam **sa**. Deze moeten we later namelijk opgeven.
+Hoewel u een bestaand opslagaccount voor uw Logboeken gebruiken kunt, maakt een nieuw opslagaccount die toegewezen tooKey kluis logboeken worden. Voor het gemak wanneer we toospecify dit hebt later Hallo details hebt opgeslagen in een variabele met de naam **sa**.
 
-En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de sleutelkluis bevat. In de [zelfstudie Aan de slag](key-vault-get-started.md) heeft deze resourcegroep de naam **ContosoResourceGroup** en we gebruiken hier ook de locatie Oost-Azië. Vervang deze waarden voor uzelf, indien van toepassing:
+Voor extra beheer te vereenvoudigen, gebruiken we Hallo van dezelfde resourcegroep als een bestand met onze sleutelkluis Hallo. Van Hallo [zelfstudie aan de slag](key-vault-get-started.md), deze resourcegroep de naam **ContosoResourceGroup** en we toouse Hallo Oost-Azië locatie. Vervang deze waarden voor uzelf, indien van toepassing:
 
     $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
 
 > [!NOTE]
-> Als u een bestaand opslagaccount gebruikt, moet hiervoor hetzelfde abonnement worden gebruikt als voor uw sleutelkluis. Ook moet het opslagaccount gebruikmaken van het Resource Manager-implementatiemodel, niet van het klassieke implementatiemodel.
+> Als u een bestaand opslagaccount toouse beslist, moet hiervoor hetzelfde abonnement Hallo als uw sleutelkluis en deze Hallo Resource Manager-implementatiemodel, in plaats van Hallo klassieke implementatiemodel gebruiken moeten.
 >
 >
 
-## <a id="identify"></a>De sleutelkluis voor uw logboeken identificeren
-In de zelfstudie Aan de slag is de naam van de sleutelkluis **ContosoKeyVault**. We gaan deze naam ook hier gebruiken en de details in een variabele met de naam **kv** opslaan:
+## <a id="identify"></a>Hallo sleutelkluis voor uw logboeken identificeren
+In onze zelfstudie aan de slag is de naam van onze sleutelkluis **ContosoKeyVault**, zodat we toouse die een naam Hallo details opslaan in een variabele met de naam ook **kv**:
 
     $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 
 ## <a id="enable"></a>Logboekregistratie inschakelen
-Als u logboekregistratie wilt inschakelen voor Sleutelkluis, gebruikt u de cmdlet Set-AzureRmDiagnosticSetting, samen met de variabelen die we voor ons nieuwe opslagaccount en onze sleutelkluis hebben gemaakt. We moeten de markering **-Ingeschakeld** instellen op **$true** en de categorie instellen op AuditEvent (de enige categorie voor logboekregistratie van Key Vault):
+tooenable logboekregistratie voor Sleutelkluis, gebruiken we de cmdlet Set-AzureRmDiagnosticSetting hello, samen met de Hallo variabelen die we voor ons nieuwe opslagaccount en onze sleutelkluis hebt gemaakt. We ook Hallo hebt ingesteld **-ingeschakeld** te markeren**$true** en stel Hallo categorie tooAuditEvent (Hallo enige categorie voor logboekregistratie van Sleutelkluis):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
-De uitvoer hiervoor bevat het volgende:
+Hallo-uitvoer hiervoor bevat:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -108,30 +108,30 @@ De uitvoer hiervoor bevat het volgende:
         Days    : 0
 
 
-Hiermee bevestigt u dat logboekregistratie nu is ingeschakeld voor uw sleutelkluis, waarbij de informatie wordt opgeslagen in uw opslagaccount.
+Hiermee bevestigt u dat logboekregistratie nu is ingeschakeld voor uw sleutelkluis, het opslaan van informatie tooyour storage-account.
 
-U kunt eventueel ook een retentiebeleid instellen voor uw logboeken, zodat oudere logboeken automatisch worden verwijderd. Stel bijvoorbeeld een retentiebeleid in met behulp van de vlag **- RetentionEnabled** ingesteld op **$true** en stel de parameter **- RetentionInDays** in op **90**, zodat logboeken die ouder zijn dan 90 dagen automatisch worden verwijderd.
+U kunt eventueel ook een retentiebeleid instellen voor uw logboeken, zodat oudere logboeken automatisch worden verwijderd. Bijvoorbeeld ingesteld bewaren beleid met **- RetentionEnabled** te markeren**$true** en stel **- RetentionInDays** parameter te**90** zodat dat Logboeken ouder is dan 90 dagen automatisch worden verwijderd.
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 Wat wordt in het logboek vastgelegd?
 
 * Alle geverifieerde REST-API-aanvragen worden vastgelegd, ook mislukte aanvragen als gevolg van toegangsmachtigingen, systeemfouten of ongeldige aanvragen.
-* Bewerkingen voor de sleutelkluis zelf, zoals het maken, verwijderen en instellen van het toegangsbeleid voor sleutelkluizen, en het bijwerken van de kenmerken van sleutelkluizen, zoals tags.
-* Bewerkingen voor sleutels en geheimen in de sleutelkluis, zoals het maken, wijzigen of verwijderen van deze sleutels of geheimen; bewerkingen zoals het ondertekenen, controleren, versleutelen, ontsleutelen, inpakken en uitpakken van sleutels, het ophalen van geheimen en het weergeven van sleutels, geheimen en hun versies.
+* Bewerkingen op Hallo sleutel sleutelkluis zelf, waaronder het maken, verwijderen, instelling toegangsbeleid voor sleutelkluizen, en bijwerken van de kenmerken, zoals tags.
+* Bewerkingen voor sleutels en geheimen in Hallo sleutelkluis, waaronder maken, wijzigen of verwijderen van deze sleutels of geheimen; bewerkingen zoals het ondertekenen, controleren, versleutelen, ontsleutelen, Inpakken en uitpakken van sleutels, geheimen, lijst met sleutels en geheimen en hun versies ophalen.
 * Niet-geverifieerde aanvragen die in een 401-respons resulteren. Dit zijn bijvoorbeeld aanvragen die geen Bearer-token hebben, ongeldige of verlopen aanvragen of aanvragen met een ongeldig token.  
 
 ## <a id="access"></a>Toegang tot uw logboeken
-Sleutelkluis-logboeken worden opgeslagen in de container **insights-logs-auditevent** in het opslagaccount dat u hebt opgegeven. Als u alle blobs in deze container wilt weergeven, typt u:
+Sleutelkluis-logboeken worden opgeslagen in Hallo **insights-logs-auditevent** container in Hallo storage-account u hebt opgegeven. toolist alle Hallo blobs in deze container, typt u:
 
-Maak eerst een variabele voor de containernaam. Deze wordt gebruikt in de rest van de procedure.
+Maak eerst een variabele voor naam van de container Hallo. Deze wordt gebruikt in de rest Hallo van Hallo doorlopen.
 
     $container = 'insights-logs-auditevent'
 
-Als u alle blobs in deze container wilt weergeven, typt u:
+toolist alle Hallo blobs in deze container, typt u:
 
     Get-AzureStorageBlob -Container $container -Context $sa.Context
-De uitvoer ziet er ongeveer als volgt uit:
+Hallo-uitvoer ziet er iets dergelijks toothis:
 
 **Container-URI: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -144,13 +144,13 @@ De uitvoer ziet er ongeveer als volgt uit:
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
 
-Zoals u in deze uitvoer kunt zien, hebben de blobs de volgende naamgevingsregels: **resourceId =<ARM resource ID>/y =<year>/m =<month>/d =<day of month>/h =<hour>/m =<minute>/filename.json**
+Als u in deze uitvoer zien kunt, Hallo blobs de volgende naamgevingsregels: **resourceId =<ARM resource ID>/y =<year>/m =<month>/d =<day of month>/h =<hour>/m =<minute>/filename.json**
 
-De datum- en tijdwaarden maken gebruik van UTC.
+de datum- en tijdwaarden Hallo gebruik UTC.
 
-Aangezien hetzelfde opslagaccount kan worden gebruikt voor het verzamelen van logboeken voor meerdere resources, is de volledige resource-id in de blobnaam zeer handig voor toegang tot of het downloaden van alleen de blobs die u nodig hebt. Maar eerst laten we zien hoe u alle blobs kunt downloaden.
+Omdat hello hetzelfde opslagaccount kan gebruikte toocollect logboeken voor meerdere resources, is hello volledige resource-ID in de blob-naam Hallo zeer nuttig tooaccess of download alleen Hallo blobs die u nodig hebt. Maar voordat we dat doen, eerst aan bod hoe toodownload alle blobs Hallo.
 
-Maak eerst een map waarin u de blobs wilt downloaden. Bijvoorbeeld:
+Maak een map toodownload Hallo eerst blobs. Bijvoorbeeld:
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -158,28 +158,28 @@ Haal vervolgens een lijst met alle blobs op:
 
     $blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
 
-Sluis deze lijst via 'Get-AzureStorageBlobContent' door om de blobs in de doelmap te downloaden:
+Sluis deze lijst via 'Get-AzureStorageBlobContent' toodownload Hallo blobs in de doelmap:
 
     $blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
 
-Wanneer u deze tweede opdracht uitvoert maakt het **/** scheidingsteken in de blobnamen een volledige mapstructuur onder de doelmap. Deze structuur wordt gebruikt voor het downloaden en opslaan van de blobs als bestanden.
+Wanneer u deze tweede opdracht uitvoert, Hallo  **/**  scheidingsteken in Hallo blobnamen een volledige mapstructuur onder de doelmap Hallo maken en deze structuur worden gebruikte toodownload en store Hallo blobs als bestanden.
 
-Als u alleen specifieke blobs wilt downloaden, moet u jokertekens gebruiken. Bijvoorbeeld:
+tooselectively blobs downloaden, jokertekens gebruiken. Bijvoorbeeld:
 
-* Als u meerdere sleutelkluizen hebt en het logboek voor slechts één sleutelkluis wilt downloaden met de naam CONTOSOKEYVAULT3:
+* Als u meerdere sleutelkluizen hebt en toodownload logboeken voor slechts één sleutelkluis wilt instellen, met de naam CONTOSOKEYVAULT3:
 
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
-* Als u meerdere resourcegroepen hebt en logboeken voor slechts één resourcegroep wilt downloaden, gebruikt u `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+* Als u meerdere resourcegroepen hebt en toodownload logboeken voor slechts één resourcegroep wilt instellen, gebruikt u `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
-* Als u alle logboeken voor de maand januari 2016 wilt, gebruikt u `-Blob '*/year=2016/m=01/*'`:
+* Als u alle Hallo logboeken toodownload Hallo maand januari 2016 wilt, gebruik `-Blob '*/year=2016/m=01/*'`:
 
         Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
-We gaan zo kijken wat er precies in de logboeken staat. Maar eerst behandelen we nog twee parameters voor Get-AzureRmDiagnosticSetting die handig kunnen zijn:
+U bent nu klaar toostart kijken wat is er in Hallo registreert. Maar eerst die twee parameters voor Get-AzureRmDiagnosticSetting tooknow moet mogelijk:
 
-* De status van diagnostische instellingen voor uw sleutelkluisresource opvragen: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* Logboekregistratie voor uw sleutelkluisresource uitschakelen: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* tooquery hello status van diagnostische instellingen voor uw sleutelkluisresource:`Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+* toodisable logboekregistratie in voor uw sleutelkluisresource:`Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 ## <a id="interpret"></a>De Sleutelkluis-logboekgegevens interpreteren
 Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-blob. Dit is een voorbeeld van een logboekvermelding van het uitvoeren van `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
@@ -206,31 +206,31 @@ Afzonderlijke blobs worden opgeslagen als tekst, die is opgemaakt als een JSON-b
     }
 
 
-De volgende tabel bevat de namen en beschrijvingen van velden.
+Hallo volgende tabel bevat Hallo veldnamen en beschrijvingen.
 
 | Veldnaam | Beschrijving |
 | --- | --- |
 | tijd |Datum en tijd (UTC). |
-| resourceId |Azure Resource Manager-resource-id. Voor Sleutelkluis-logboeken is dit altijd de Sleutelkluis-resource-id. |
-| operationName |Naam van de bewerking, zoals beschreven in de volgende tabel. |
-| operationVersion |Dit is de REST-API-versie die door de client is aangevraagd. |
-| category |Voor Sleutelkluis-logboeken is AuditEvent de enige beschikbare waarde. |
+| resourceId |Azure Resource Manager-resource-id. Voor Sleutelkluis-Logboeken is dit altijd Hallo Sleutelkluis bron-ID. |
+| operationName |Naam van het Hallo-bewerking, zoals beschreven in de volgende tabel Hallo. |
+| operationVersion |Dit is Hallo REST-API-versie door Hallo-client wordt aangevraagd. |
+| category |Voor Sleutelkluis-Logboeken is AuditEvent Hallo enige beschikbare waarde. |
 | resultType |Resultaat van de REST-API-aanvraag. |
 | resultSignature |HTTP-status. |
-| resultDescription |Extra beschrijving van het resultaat, indien beschikbaar. |
-| durationMs |De tijd die nodig was om de REST-API-aanvraag af te handelen in milliseconden. Hierbij wordt geen rekening gehouden met de netwerklatentie, zodat de tijd die u aan de clientzijde meet mogelijk niet overeenkomt met de tijd die hier wordt weergegeven. |
-| callerIpAddress |IP-adres van de client die de aanvraag heeft ingediend. |
-| correlationId |Een optionele GUID die de client kan doorgeven om de logboeken aan de clientzijde te relateren aan (Sleutelkluis-)logboeken aan de servicezijde. |
-| identity |De identiteit van het token dat is opgegeven bij het maken van de REST-API-aanvraag. Dit is meestal user, service principal of een combinatie user+ appId, bijvoorbeeld bij een aanvraag via een Azure PowerShell-cmdlet. |
-| properties |Dit veld bevat verschillende gegevens op basis van de bewerking (operationName). In de meeste gevallen bevat dit veld clientgegevens (de useragent-tekenreeks die door de client wordt doorgegeven), de exacte URI voor de REST-API-aanvraag en de HTTP-statuscode. Als een object wordt geretourneerd als gevolg van een aanvraag (bijvoorbeeld KeyCreate of VaultGet) bevat dit veld ook de Key URI (als 'id'), Vault URI of Secret URI. |
+| resultDescription |Extra beschrijving van Hallo resultaat, indien beschikbaar. |
+| durationMs |De tijd die nodig tooservice Hallo REST-API-aanvraag in milliseconden was. Dit omvat geen Hallo netwerklatentie, zodat u aan de clientzijde Hallo meten Hallo-tijd mogelijk niet overeenkomt met deze tijd. |
+| callerIpAddress |IP-adres van Hallo-client die Hallo-aanvraag heeft ingediend. |
+| correlationId |Een optionele GUID die client Hallo kunt toocorrelate doorgeven aan de clientzijde logboeken met servicezijde (Sleutelkluis-) Logboeken. |
+| identity |De identiteit van de Hallo-token dat is opgegeven bij het maken van Hallo REST-API-aanvraag. Dit is meestal user, service principal of een combinatie user+ appId, bijvoorbeeld bij een aanvraag via een Azure PowerShell-cmdlet. |
+| properties |Dit veld bevat verschillende gegevens op basis van het Hallo-bewerking (operationName). In de meeste gevallen bevat informatie over de client (Hallo useragent-tekenreeks doorgegeven door de client Hallo), Hallo exacte REST-API aanvraag-URI en HTTP-statuscode. Bovendien wanneer een object wordt geretourneerd als gevolg van een aanvraag (bijvoorbeeld KeyCreate of VaultGet) bevat ook Hallo Key URI (als 'id'), Vault URI of Secret URI. |
 
-De velwaarden voor **operationName** hebben de ObjectVerb-indeling. Bijvoorbeeld:
+Hallo **operationName** veldwaarden hebben de ObjectVerb-indeling. Bijvoorbeeld:
 
-* Alle sleutelkluisbewerkingen hebben de indeling 'Sleutelkluis`<action>`', zoals `VaultGet` en `VaultCreate`.
-* Alle sleutelbewerkingen hebben de indeling 'Sleutel`<action>`', zoals `KeySign` en `KeyList`.
-* Alle geheime bewerkingen hebben de indeling 'Geheim`<action>`', zoals `SecretGet` en `SecretListVersions`.
+* Alle sleutelkluisbewerkingen hebben Hallo ' kluis`<action>`'-indeling, zoals `VaultGet` en `VaultCreate`.
+* Alle sleutelbewerkingen hebben Hallo ' sleutel`<action>`'-indeling, zoals `KeySign` en `KeyList`.
+* Alle geheime bewerkingen hebben Hallo ' geheim`<action>`'-indeling, zoals `SecretGet` en `SecretListVersions`.
 
-De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
+Hallo volgende tabel geeft een lijst Hallo operationName en de bijbehorende REST-API-opdracht.
 
 | operationName | REST-API-opdracht |
 | --- | --- |
@@ -253,8 +253,8 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 | KeyEncrypt |[Versleutelen met een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
 | KeyDecrypt |[Ontsleutelen met een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
 | KeyUpdate |[Een sleutel bijwerken](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[De sleutels in een kluis weergeven](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[De versies van een sleutel weergeven](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
+| KeyList |[Lijst Hallo sleutels in een kluis](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
+| KeyListVersions |[Lijst Hallo versies van een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
 | SecretSet |[Een geheim maken](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
 | SecretGet |[Een geheim ophalen](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
 | SecretUpdate |[Een geheim bijwerken](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
@@ -264,13 +264,13 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 
 ## <a id="loganalytics"></a>Log Analytics gebruiken
 
-Met de oplossing Azure Key Vault in Log Analytics kunt u de AuditEvent-logboeken van Azure Key Vault controleren. Zie [Azure Key Vault solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (De oplossing Azure Key Vault in Log Analytics) voor meer informatie. Dit artikel bevat ook instructies voor als u moet migreren van de oude Key Vault-oplossing die tijdens de preview van Log Analytics werd aangeboden en waarbij u uw logboeken eerst moest doorsturen naar een Azure-opslagaccount en Log Analytics moest configureren om van daaruit te lezen.
+U kunt hello Azure Key Vault oplossing gebruiken in logboekanalyse tooreview die Azure Key Vault AuditEvent registreert. Voor meer informatie, inclusief hoe tooset, Zie [oplossing voor Azure Sleutelkluis in logboekanalyse](../log-analytics/log-analytics-azure-key-vault.md). In dit artikel bevat ook instructies als u nodig hebt toomigrate van het oude Sleutelkluis oplossing hello, die wordt aangeboden tijdens Hallo logboekanalyse preview, waarbij u eerst gerouteerd uw logboeken tooan Azure Storage-account en Log Analytics tooread van daaruit geconfigureerd.
 
 ## <a id="next"></a>Volgende stappen
 Zie [Azure Key Vault in een webtoepassing gebruiken](key-vault-use-from-web-application.md) voor een zelfstudie over het gebruik van Azure Key Vault in een webtoepassing.
 
-Zie de [Ontwikkelaarshandleiding voor Azure Key Vault](key-vault-developers-guide.md) voor het programmeren van verwijzingen.
+Zie voor het programmeren van verwijzingen [Hallo ontwikkelaarshandleiding Azure Key Vault](key-vault-developers-guide.md).
 
 Zie [Cmdlets voor Azure Sleutelkluis](/powershell/module/azurerm.keyvault/#key_vault) voor een lijst met Azure PowerShell 1.0- cmdlets voor Azure Sleutelkluis.
 
-Zie [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Sleutelkluis instellen met end-to-endsleutelrotatie en -controle) voor een zelfstudie over sleutelrotatie en logboekcontrole met Azure Sleutelkluis.
+Zie voor een zelfstudie over de sleutel worden gedraaid en logboek controle met Azure Sleutelkluis, [hoe toosetup Sleutelkluis met einde tooend sleutel worden gedraaid en controle](key-vault-key-rotation-log-monitoring.md).

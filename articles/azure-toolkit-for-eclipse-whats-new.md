@@ -1,6 +1,6 @@
 ---
-title: Wat is er nieuw in de Azure werkset voor Eclipse
-description: Meer informatie over de nieuwste functies in de Azure-werkset voor Eclipse.
+title: aaaWhat's New in hello Azure Toolkit voor Eclipse
+description: Meer informatie over de nieuwste functies Hallo in hello Azure Toolkit voor Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,315 +14,315 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
-ms.openlocfilehash: 71c4f2d2298ea54f18e9ed64b246966b470a4ff4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d74eacfb75447a3d659a0c2dc2e247ae6e3ce1b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="whats-new-in-the-azure-toolkit-for-eclipse"></a>Wat is er nieuw in de Azure werkset voor Eclipse
+# <a name="whats-new-in-hello-azure-toolkit-for-eclipse"></a>Wat is er nieuw in hello Azure Toolkit voor Eclipse
 ## <a name="azure-toolkit-for-eclipse-releases"></a>Azure Toolkit voor Eclipse-versies
-In dit artikel bevat informatie over de verschillende versies en de meest recente updates voor de Azure-werkset voor Eclipse.
+Dit artikel bevat informatie over Hallo verschillende releases en meest recente updates toohello Azure Toolkit voor Eclipse.
 
 > [!NOTE]
-> Er is ook een Azure-werkset voor de IntelliJ IDE. Zie voor meer informatie [Azure Toolkit voor IntelliJ].
+> Er is ook een Azure-Toolkit voor Hallo IntelliJ IDE. Zie voor meer informatie [Azure Toolkit voor IntelliJ].
 > 
 > 
 
 ### <a name="april-14-2017"></a>14 april 2017
-De Azure-werkset voor Eclipse - release van April 2017 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van April 2017 bevat Hallo volgende uitbreidingen:
 
-* **Verbeterde Azure-aanmelding In ervaring**: de Azure-Toolkit voor Eclipse ondersteunt nu twee methoden voor het aanmelden bij uw Azure-account: *interactief* en *automatisch*. Zie voor meer informatie [Azure aanmelding In instructies voor de Azure-werkset voor Eclipse].
-* **Publiceren met behulp van Docker Containers**: U kunt nu uw webtoepassingen publiceren als Docker-Containers met Azure-Toolkit voor Eclipse. Zie voor meer informatie [het publiceren van een Web-App als een Docker-Container met de Azure-Toolkit voor Eclipse].
-* **Opslagbeheer voor Account**: de Azure-Toolkit voor Eclipse biedt nu ondersteuning voor het beheer van uw storage-accounts vanuit de Verkenner-weergave van Azure. Zie voor meer informatie [beheren Storage-Accounts met de Azure-Explorer voor Eclipse].
-* **Virtual Machine Management**: de Azure-Toolkit voor Eclipse biedt nu ondersteuning voor het beheren van uw virtuele machines vanuit de Verkenner-weergave van Azure. Zie voor meer informatie [het beheren van virtuele Machines met behulp van de Azure-Explorer voor Eclipse].
-* **Verwijderen van de extern-ondersteuning voor foutopsporing**. Foutopsporing op afstand van Java-web-apps op Azure App Service is verwijderd uit de werkset Azure voor Eclipse; Dit is het nodig zijn voor het oplossen van problemen die klanten zijn krijgen als ze met de toolkit.
+* **Verbeterde Azure-aanmelding In ervaring**: hello Azure Toolkit voor Eclipse biedt nu ondersteuning voor twee methoden voor het aanmelden bij uw Azure-account: *interactief* en *automatisch*. Zie voor meer informatie [Azure aanmelding In instructies voor het hello Azure Toolkit voor Eclipse].
+* **Publiceren met behulp van Docker Containers**: U kunt nu uw webtoepassingen publiceren als Docker-Containers met Azure-Toolkit voor Eclipse. Zie voor meer informatie [hoe toopublish een Web-App als een Docker-Container met Azure Toolkit voor Eclipse Hallo].
+* **Opslagbeheer voor Account**: Azure Toolkit Hallo Eclipse nu ondersteuning voor het beheren van uw storage-accounts van hello Azure Verkenner-weergave. Zie voor meer informatie [Storage-Accounts beheren met behulp van Azure Explorer voor Eclipse Hallo].
+* **Virtual Machine Management**: Azure Toolkit Hallo Eclipse nu ondersteuning voor het beheren van uw virtuele machines vanuit hello Azure Verkenner-weergave. Zie voor meer informatie [met behulp van het beheer van virtuele Machines hello Azure Explorer voor Eclipse].
+* **Verwijderen van de extern-ondersteuning voor foutopsporing**. Foutopsporing op afstand van Java-web-apps op Azure App Service is verwijderd uit hello Azure Toolkit voor Eclipse; Dit is noodzakelijk tooresolve welke klanten zijn wanneer u ondervindt problemen Hallo toolkit.
 
 ### <a name="august-26-2016"></a>26 augustus 2016
-De Azure-werkset voor Eclipse - augustus 2016-release zijn de volgende uitbreidingen bevat:
+Hello Azure Toolkit voor Eclipse - augustus 2016 release bevat Hallo volgende verbeteringen:
 
-* **Aangepaste JDK distributies**. De Azure-werkset voor Eclipse ondersteunt nu opgeven en het implementeren van een willekeurige versie van de JDK aan uw Azure-Web-App-container:
-  * Naast de JDKs verstrekt door Azure, kunt u ook kiezen uit een breed selectie van Zulu OpenJDK versies beschikbaar gesteld in Azure door Azul systemen.
-  * U kunt ook uw eigen distributie JDK opgeven als u deze als een ZIP-bestand naar uw opslagaccount uploaden.
-* **Verbeteringen in de weergave Azure Explorer**:
-  * Ondersteuning voor het beheer van virtuele Machine met behulp van de nieuwe Resource Manager-model van Azure: u kunt weergeven, maken en verwijderen van resource manager gebaseerde virtuele machines zonder de IDE.
-  * Ondersteuning voor het Opslagaccount blob beheren met behulp van Azure Resource Manager, die is een aanvulling op de bestaande functionaliteit voor het beheren van 'klassiek' storage-accounts.
-* **Microsoft JDBC-stuurprogramma 6.0 voor SQL Server**. Deze update bevat de meest recente JDBC-stuurprogramma voor Microsoft SQL Server (6.0), die is nu opgenomen als een bibliotheek die u eenvoudig aan uw Java-projecten toevoegen kunt, waardoor de oudere versie vervangen.
+* **Aangepaste JDK distributies**. Hello Azure Toolkit voor Eclipse ondersteunt nu opgeven en het implementeren van een willekeurige JDK versie tooyour Azure WebApp-container:
+  * Bovendien kunt toohello JDKs geleverd door Azure, u ook kiezen uit een breed selectie van Zulu OpenJDK versies beschikbaar gesteld in Azure door Azul systemen.
+  * U kunt ook uw eigen distributie JDK opgeven als u deze als een ZIP-bestand tooyour storage-account uploaden.
+* **Verbeteringen toohello Azure Verkenner-weergave**:
+  * Ondersteuning voor het beheer van virtuele Machine met behulp van de nieuwe Resource Manager-model van Azure: u kunt weergeven, maken en verwijderen van resource manager gebaseerde virtuele machines zonder Hallo IDE.
+  * Ondersteuning voor het Opslagaccount blob beheren met behulp van Azure Resource Manager, die Hallo bestaande functionaliteit aanvult voor het beheren van 'klassiek' storage-accounts.
+* **Microsoft JDBC-stuurprogramma 6.0 voor SQL Server**. Deze update bevat de meest recente JDBC-stuurprogramma Hallo voor Microsoft SQL Server (6.0), die nu is opgenomen als een bibliotheek die u eenvoudig tooyour Java projecten toevoegen kunt, vervangen, waardoor Hallo oudere versie.
 
 ### <a name="june-29-2016"></a>29 juni 2016
-De Azure-werkset voor Eclipse - release van juni 2016 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van juni 2016 bevat Hallo volgende uitbreidingen:
 
-* **Java 8 vereiste**. De Azure-werkset voor Eclipse vereist nu Java 8, hoewel deze vereiste alleen voor de toolkit geldt-uw toepassingen kunnen blijven gebruiken van alle versies van Java die worden ondersteund door Azure.
-* **Ondersteuning voor de meest recente Java-JDKs**. De nieuwste versies van de Java-JDKs worden nu ondersteund door de Azure-werkset voor Eclipse.
-* **Ondersteuning voor Azure SDK v2.9.1**. De nieuwste versie van de Azure SDK is nu de minimale vereiste voor de Azure-werkset voor Eclipse.
-* **Voorbeelden geïntegreerd**. De Azure-werkset voor Eclipse biedt nu verschillende voorbeeldtoepassingen waarmee ontwikkelaars aan de slag.
-* **HDInsight-hulpprogramma integratie**. Azure HDInsight-hulpprogramma's worden nu gebundeld met de Azure-werkset voor Eclipse. Zie voor meer informatie [invoegtoepassing HDInsight Tools for Eclipse].
-* **Foutopsporing op afstand van Java-Web-Apps**. De Azure-werkset voor Eclipse biedt nu ondersteuning voor foutopsporing op afstand van Java-web-apps op Azure App Service.
-* **Ondersteuning voor de Eclipse-standaard-release.** De nieuwe Eclipse IDE voor minimaal vereiste versie is standaard.
+* **Java 8 vereiste**. Hello Azure Toolkit voor Eclipse vereist nu Java 8, hoewel deze vereiste alleen voor Hallo toolkit geldt-uw toepassingen kunnen worden voortgezet toouse alle versies van Java die worden ondersteund door Azure.
+* **Ondersteuning voor de meest recente Java JDKs Hallo**. de meest recente versies Hallo Hallo Java JDKs worden nu ondersteund door hello Azure Toolkit voor Eclipse.
+* **Ondersteuning voor Azure SDK v2.9.1**. Hallo meest recente versie van hello Azure SDK is nu Hallo minimale vereiste voor hello Azure Toolkit voor Eclipse.
+* **Voorbeelden geïntegreerd**. Hello Azure Toolkit voor Eclipse biedt nu verschillende voorbeeldtoepassingen toohelp ontwikkelaars aan de slag.
+* **HDInsight-hulpprogramma integratie**. Azure HDInsight-hulpprogramma's worden nu gebundeld met hello Azure Toolkit voor Eclipse. Zie voor meer informatie [invoegtoepassing HDInsight Tools for Eclipse].
+* **Foutopsporing op afstand van Java-Web-Apps**. Hello Azure Toolkit voor Eclipse biedt nu ondersteuning voor foutopsporing op afstand van Java-web-apps op Azure App Service.
+* **Ondersteuning voor Hallo Eclipse standaard release.** Hallo nieuwe vereiste Eclipse IDE minimumversie is standaard.
 
 ### <a name="april-12-2016"></a>12 april 2016
-De Azure-werkset voor Eclipse - release van April 2016 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van April 2016 bevat Hallo volgende uitbreidingen:
 
-* **Ondersteuning voor Azure SDK v2.9.0**. De nieuwste versie van de Azure SDK is nu de minimale vereiste voor de Azure-werkset voor Eclipse.
-* **Diverse verbeteringen van bruikbaarheid, reactiesnelheid en prestaties gerelateerd aan Azure-Web-App ondersteuning**. Een aantal prestatieverbeteringen in hoe de Toolkit met Azure resultaat communiceert in een responsievere gebruikersinterface.
-* **Mogelijkheid tot het verwijderen van een bestaande Web-App-container in Azure uit in Eclipse**. De Azure-werkset voor Eclipse kunt u nu een bestaande Azure-Web-container zonder Eclipse verwijderen.
+* **Ondersteuning voor Azure SDK v2.9.0**. Hallo meest recente versie van hello Azure SDK is nu Hallo minimale vereiste voor hello Azure Toolkit voor Eclipse.
+* **Diverse verbeteringen van bruikbaarheid, reactiesnelheid en prestaties gerelateerd tooAzure Web-App ondersteuning**. Een aantal prestatieverbeteringen in hoe Hallo Toolkit met Azure resultaat communiceert in een responsievere gebruikersinterface.
+* **Mogelijkheid toodelete een bestaande Web-App-container in Azure uit in Eclipse**. Hello Azure Toolkit voor Eclipse kunt u nu een bestaande Azure-Web-container toodelete zonder Eclipse.
 
 ### <a name="march-7-2016"></a>7 maart 2016
-De Azure-werkset voor Eclipse - release van maart 2016 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van maart 2016 bevat Hallo volgende verbeteringen:
 
-* **Ondersteuning voor de snelle implementatie van lightweight Java-toepassingen**. De Azure-werkset voor Eclipse biedt nu ondersteuning voor de snelle implementatie van lightweight Java-toepassingen in Azure Web App Containers, zodat de Java-toepassingen nu implementeren seconden in plaats van minuten duurt.
-* **Ondersteuning voor het beheer van Web-App de Azure-Verkenner-weergave**. De Azure-Verkenner-weergave in de werkset is nu ondersteuning biedt voor de aanbieding, starten en stoppen van Azure Web Apps.
-* **Tomcat en Jetty Zulu OpenJDK distributies bijgewerkt**. De Azure-werkset voor Eclipse biedt ondersteuning voor bijgewerkte versies van Tomcat en Jetty van Zulu OpenJDK voor implementaties van Java in Azure-cloudservices.
+* **Ondersteuning voor de snelle implementatie van lightweight Java-toepassingen**. Hello Azure Toolkit voor Eclipse ondersteunt nu Hallo snelle implementatie van lightweight Java-toepassingen in Azure Web App Containers, zodat de Java-toepassingen nu implementeren seconden in plaats van minuten duurt.
+* **Ondersteuning voor Web-App management hello Azure Verkenner-weergave**. Hello Azure Verkenner-weergave in de werkset Hallo is nu ondersteuning biedt voor de aanbieding, starten en stoppen van Azure Web Apps.
+* **Tomcat en Jetty Zulu OpenJDK distributies bijgewerkt**. Hello Azure Toolkit voor Eclipse biedt ondersteuning voor bijgewerkte versies van Tomcat en Jetty van Zulu OpenJDK voor implementaties van Java in Azure-cloudservices.
 
 ### <a name="january-4-2016"></a>4 januari 2016
-De Azure-werkset voor Eclipse - januari 2016-release zijn de volgende uitbreidingen bevat:
+Hello Azure Toolkit voor Eclipse - januari 2016 release bevat Hallo volgende verbeteringen:
 
-* **Ondersteuning voor de updates Zulu OpenJDK**. Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Tomcat en Jetty distributies bijgewerkt**. De Jetty en Tomcat-distributies die beschikbaar op Microsoft Azure voor gebruik met de Azure-Toolkit voor Eclipse zijn zijn bijgewerkt.
-* **Pariteit tussen Eclipse en IntelliJ Toolkits voor Azure functie**. De Azure-werkset voor Eclipse en de [Azure Toolkit voor IntelliJ] nu ondersteuning voor dezelfde reeks functies.
+* **Ondersteuning voor Hallo Zulu OpenJDK updates**. Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Tomcat en Jetty distributies bijgewerkt**. Hallo Jetty en Tomcat-distributies die beschikbaar op Microsoft Azure voor gebruik met hello Azure Toolkit voor Eclipse zijn zijn bijgewerkt.
+* **Pariteit tussen Eclipse en IntelliJ Toolkits voor Azure functie**. Hello Azure Toolkit voor Eclipse en Hallo [Azure Toolkit voor IntelliJ] bieden nu ondersteuning voor dezelfde reeks functies Hallo.
 
 ### <a name="september-1-2015"></a>1 september 2015
-De Azure-werkset voor Eclipse - release van September 2015 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van September 2015 bevat Hallo volgende uitbreidingen:
 
-* **Ondersteuning voor de updates Zulu OpenJDK**. Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Tomcat en Jetty distributies bijgewerkt**. De Jetty en Tomcat-distributies die beschikbaar op Microsoft Azure voor gebruik met de Azure-Toolkit voor Eclipse zijn zijn bijgewerkt. (Deze verdelingen kunnen ontwikkelaars maken snelle ontwikkeling en testen van de Azure-werkset voor Eclipse-projecten.
-* **Ondersteuning voor automatisch bijgewerkt Tomcat en Jetty verwijzingen**. Naast de specifieke versies van Tomcat en Jetty die beschikbaar op Azure zijn, ontwikkelaars kunnen nu verwijzen naar een distributiepunt aangeduid als de ' nieuwste (automatisch bijgewerkt) ', die automatisch bijgewerkt naar de meest recente distributie van elke primaire versie van de Jetty of de volgende keer dat uw rolinstanties gerecycled zijn Tomcat. (Herhaald automatisch, maar ontwikkelaars kunnen handmatig een recyclebewerking via de Azure portal activeren.) Deze nieuwe functie betekent dat ontwikkelaars niet hoeft te implementeren om mogelijk zijn de server-software bijgewerkt om de toepassing. (
+* **Ondersteuning voor Hallo Zulu OpenJDK updates**. Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Tomcat en Jetty distributies bijgewerkt**. Hallo Jetty en Tomcat-distributies die beschikbaar op Microsoft Azure voor gebruik met hello Azure Toolkit voor Eclipse zijn zijn bijgewerkt. (Kunnen deze verdelingen ontwikkelaars toocreate snelle ontwikkeling en tests projecten Hello Azure Toolkit voor Eclipse.
+* **Ondersteuning voor automatisch bijgewerkt Tomcat en Jetty verwijzingen**. In aanvulling toohello specifieke versies van Tomcat en Jetty die beschikbaar op Azure zijn, ontwikkelaars kunnen nu verwijzen naar een distributiepunt waarnaar wordt verwezen tooas Hallo ' nieuwste (automatisch bijgewerkt) ', die wordt automatisch bijgewerkt met de meest recente distributie toohello van elke primaire versie van de Jetty of Tomcat Hallo zodra uw rolinstanties zijn gerecycled. (Herhaald automatisch, maar ontwikkelaars kunnen handmatig een recyclebewerking via hello Azure-portal activeren.) Deze nieuwe functie betekent dat ontwikkelaars geen tooredeploy hun toepassing toobe kunnen toohave hun serversoftware bijgewerkt. (
 * Deze functionaliteit is momenteel alleen bedoeld voor ontwikkelings- en testdoeleinden of niet-bedrijfskritieke toepassingen, en wordt niet aanbevolen voor productie.)
-* **Azure Verkenner-weergave voor blobs, wachtrijen en tabellen in Azure storage**. Hierdoor kunnen ontwikkelaars een aantal algemene taken met hun artefacten opslag rechtstreeks vanuit de Eclipse IDE uitvoeren. Bijvoorbeeld: verwijderen, uploaden of blobs downloaden.
+* **Azure Verkenner-weergave voor blobs, wachtrijen en tabellen in Azure storage**. Hierdoor kunnen ontwikkelaars tooperform een aantal algemene taken met hun artefacten opslag rechtstreeks vanuit Hallo Eclipse IDE. Bijvoorbeeld: verwijderen, uploaden of blobs downloaden.
 
 ### <a name="august-1-2015"></a>1 augustus 2015
-De Azure-werkset voor Eclipse - augustus 2015-release zijn de volgende uitbreidingen bevat:
+Hello Azure Toolkit voor Eclipse - augustus 2015-release bevat Hallo volgende uitbreidingen:
 
-* **Application Insights Instrumentation Sleutelbeheer**. Deze update kunt u verkrijgen, maken en beheren van uw Application Insights-instrumentatiesleutels rechtstreeks vanuit de Eclipse IDE.
-* **Microsoft JDBC-stuurprogramma 4.1 voor SQL Server**. Deze update bevat ondersteuning voor de meest recente JDBC-stuurprogramma voor Microsoft SQL Server.
-* **2.7-versie van de Azure SDK**. Deze meest recente update voor de Azure SDK is de nieuwe vereiste voor de Toolkit wanneer geïnstalleerd onder Windows. (Opmerking: dit is niet nodig op niet-Windows-besturingssystemen.)
-* **Ondersteuning voor het bijwerken van de v7 Zulu OpenJDK**. Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
+* **Application Insights Instrumentation Sleutelbeheer**. Deze update kunt u tooacquire, maken en beheren van uw Application Insights-instrumentatiesleutels rechtstreeks vanuit Hallo Eclipse IDE.
+* **Microsoft JDBC-stuurprogramma 4.1 voor SQL Server**. Deze update bevat ondersteuning voor de meest recente JDBC-stuurprogramma Hallo voor Microsoft SQL Server.
+* **Versie 2.7 van hello Azure SDK**. Deze meest recente update toohello Azure SDK is een nieuwe vereiste is Hallo voor Toolkit wanneer geïnstalleerd onder Windows hello. (Opmerking: dit is niet nodig op niet-Windows-besturingssystemen.)
+* **Ondersteuning voor het bijwerken van Hallo Zulu OpenJDK v7**. Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
 
 ### <a name="may-1-2015"></a>1 mei 2015
-De Azure-werkset voor Eclipse - release van mei 2015 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van mei 2015 bevat Hallo volgende uitbreidingen:
 
-* **Verbeterde serverselectie UI**. Deze release vereenvoudigt het gebruik van de toolkit op niet-Windows-besturingssystemen.
-* **Ondersteuning voor Maven-projecten**. Deze release ondersteunt Maven-projecten als toepassingen, wat de toolkit in Azure kunt implementeren en configureren van Application Insights.
-* **Versie 2.6 van de Azure SDK**. Deze meest recente update voor de Azure SDK is de nieuwe vereiste voor de Toolkit wanneer geïnstalleerd onder Windows. (Opmerking: dit is niet nodig op niet-Windows-besturingssystemen.)
-* **Upgrade van de implementatie in plaats van opnieuw publiceren**. Als u opnieuw een implementatieproject publiceert wanneer de vorige versie al live is, gebruikt de toolkit nu upgrade functionaliteit van Azure implementatie in plaats van de vorige implementatie wordt afgesloten en opnieuw vanaf het begin te publiceren als in het verleden. Hiermee kunt de cloudservice om uit te voeren zonder onderbreking waar mogelijk, zodat een maximale beschikbaarheid realiseren zelfs tijdens een update en sneller opnieuw publiceren.
-* **Ondersteuning voor de meest recente Zulu OpenJDK v8 - 40 bijwerken**. Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
+* **Verbeterde serverselectie UI**. Deze release vereenvoudigt Hallo gebruik van de toolkit Hallo op niet-Windows-besturingssystemen.
+* **Ondersteuning voor Maven-projecten**. Deze release ondersteunt Maven-projecten als toepassingen, welke Hallo toolkit kunt tooAzure implementeren en configureren van Application Insights.
+* **Versie 2.6 Hallo Azure SDK**. Deze meest recente update toohello Azure SDK is een nieuwe vereiste is Hallo voor Toolkit wanneer geïnstalleerd onder Windows hello. (Opmerking: dit is niet nodig op niet-Windows-besturingssystemen.)
+* **Upgrade van de implementatie in plaats van opnieuw publiceren**. Als u opnieuw een implementatieproject publiceert als de vorige versie Hallo al live, Hallo toolkit nu maakt gebruik van Azure implementatie upgrade functionaliteit in plaats van de vorige implementatie hello wordt afgesloten en opnieuw vanaf het begin te publiceren als in de afgelopen Hallo. Dit kunt uw toorun cloud service zonder onderbreking waar mogelijk, zodat een maximale beschikbaarheid realiseren zelfs tijdens het bijwerken, en sneller Hallo opnieuw publicatieproces.
+* **Ondersteuning voor de meest recente Zulu OpenJDK v8 Hallo - 40 bijwerken**. Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
 
 ### <a name="march-9-2015"></a>9 maart 2015
-De Azure-werkset voor Eclipse - release van maart 2015 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van maart 2015 bevat Hallo volgende uitbreidingen:
 
-* **Ondersteuning voor Mac, Ubuntu en aanvullende versies van Linux**. Deze versie van de Azure-werkset voor Eclipse voegt ondersteuning toe voor Mac OS en verschillende Unix-platforms, zodat ontwikkelaars de toolkit als u wilt maken, configureren en publiceren van Java-projecten voor Azure-Cloudservices (PaaS) van Eclipse dan uitgevoerd op besturingssystemen kunnen installeren Windows.
+* **Ondersteuning voor Mac, Ubuntu en aanvullende versies van Linux**. Deze release van hello Azure Toolkit voor Eclipse voegt ondersteuning toe voor Mac OS en verschillende Unix-platforms, zodat ontwikkelaars kunnen Hallo toolkit toocreate installeren, configureren en publiceren van Java-projecten tooAzure Cloudservices (PaaS) van Eclipse uitgevoerd op besturingssystemen andere dan Windows.
 
 > [!NOTE]
 > Deze mogelijkheid is een Preview-versie en het wordt niet aangeraden voor gebruik in productieomgevingen. Er is geen ondersteuning voor customer Service Level Agreement (SLA), maar alle feedback op prijs gesteld en aangemoedigd.
 > 
 > 
 
-* **Nieuwe Application Insights-invoegtoepassing**. Ontwikkelaars kunnen nu voor het configureren van automatische servertelemetrie met behulp van Application Insights in Azure.
-* **Opdrachtregel ant gebaseerde implementatie automation**. Deze functie kan ontwikkelaars de publicatie voor nieuwere versies van implementaties met Ant buiten Eclipse automatiseren. Een vooraf gegenereerde script wordt automatisch geconfigureerd voor een project nadat de eerste keer dat deze is geïmplementeerd vanaf Eclipse en latere implementaties het script gebruiken kunnen voor een volledig automatische implementaties via de opdrachtregel gebruikt.
-* **Beschikbaarheid in Azure voor de implementatie van eenvoudiger, sneller Tomcat en Jetty**. Ontwikkelaars kunnen nu verwijzen naar verschillende versies voor Tomcat en Jetty die beschikbaar op Azure zijn rechtstreeks in plaats daarvan een Java-server bij hun account (of via de Toolkit), dus uploaden dat niet nodig is voor het uploaden van een Java-server voor snel aan de slag scenario's.
-* **Snelle methode voor het publiceren van Java-web-apps naar Azure-cloudservices**. Als u het leerproces voor eenvoudige scenario's voor ontwikkeling en tests, kunnen ontwikkelaars Java-toepassingen meer direct naar Azure nu publiceren. In plaats van te doorlopen van het proces van het maken en configureren van een Azure-implementatie-project, zullen toepassingen worden geïmplementeerd met een standaardexemplaar van Tomcat v8 en Zulu JVM (OpenJDK).
+* **Nieuwe Application Insights-invoegtoepassing**. Ontwikkelaars kunnen nu kunnen tooconfigure server voor automatische telemetrie met Application Insights op Azure.
+* **Opdrachtregel ant gebaseerde implementatie automation**. Deze functie kunnen ontwikkelaars tooautomate Hallo publiceren voor nieuwere versies van implementaties met Ant buiten Eclipse. Een vooraf gegenereerde script wordt automatisch geconfigureerd voor een project nadat hello eerste keer dat deze is geïmplementeerd in Eclipse en latere implementaties gebruik Hallo script toofully implementaties via alleen Hallo-opdrachtregel automatiseren kunt.
+* **Beschikbaarheid in Azure voor de implementatie van eenvoudiger, sneller Tomcat en Jetty**. Ontwikkelaars kunnen nu verwijzen naar verschillende Tomcat en Jetty-versies die beschikbaar zijn op Azure rechtstreeks in plaats daarvan tooupload dat een Java-serveraccounts tootheir (of via Hallo Toolkit), dus er is geen tooupload moet een Java-server voor snel aan de slag scenario's.
+* **Snelle methode voor het publiceren van cloudservices voor Java web apps tooAzure**. Hallo leercurve tooreduce voor eenvoudige scenario's voor ontwikkeling en tests, ontwikkelaars kunnen nu publiceren Java-toepassingen meer direct tooAzure. In plaats van toogo via Hallo-proces voor het maken en configureren van een Azure-implementatie-project, wordt de toepassingen worden geïmplementeerd met een standaardexemplaar van Tomcat v8 en Zulu JVM (OpenJDK).
 
 ### <a name="january-30-2015"></a>30 januari 2015
-De Azure-werkset voor Eclipse - release van januari 2015 omvat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van januari 2015 bevat Hallo volgende uitbreidingen:
 
-* **Ondersteuning voor IBM® WebSphere® Application Server Liberty Core**. Deze release voegt IBM WebSphere Application Server Liberty Core toe aan de lijst met ondersteunde toepassingsservers van waaruit de toolkit kunt implementeren naar Azure is. De huidige lijst van de toepassingsservers die worden ondersteund door de meest recente toevoeging wordt uitgebreid &quot;out-of-the-box&quot; door de Toolkit die verschillende versies van Tomcat, Jetty, JBoss en GlassFish al is opgenomen.
-* **Opname van Application Insights-SDK**. Deze bibliotheek nieuw uitgebrachte client-API (v0.9.0) maakt nu deel uit van het pakket voor Azure-beheerbibliotheken voor Java.
-* **Pakket bijgewerkt voor Azure-beheerbibliotheken voor Java**. Deze update bevat de Azure-beheerbibliotheken voor Java v0.7.0 en v2.0.0 Storage Client-API, evenals de v0.9.0 nieuw uitgebrachte Application Insights-SDK.
+* **Ondersteuning voor IBM® WebSphere® Application Server Liberty Core**. Deze release voegt Hallo IBM WebSphere Application Server Liberty Core toohello lijst met ondersteunde toepassingsservers van welke Hallo toolkit kunnen toodeploy tooAzure is. De meest recente toevoeging wordt uitgebreid Hallo huidige lijst van toepassingsservers die worden ondersteund &quot;out-of-the-box&quot; door Hallo Toolkit, die verschillende versies van Tomcat, Jetty, JBoss en GlassFish al is opgenomen.
+* **Opname van Application Insights-SDK**. Deze bibliotheek nieuw uitgebrachte client-API (v0.9.0) maakt nu deel uit van het Hallo-pakket voor Azure-beheerbibliotheken voor Java.
+* **Pakket bijgewerkt voor Azure-beheerbibliotheken voor Java**. Deze update bevat de Azure-beheerbibliotheken voor Java v0.7.0 en v2.0.0 Storage Client-API, evenals Hallo nieuw uitgebrachte Application Insights-SDK v0.9.0.
 
 ### <a name="november-12-2014"></a>12 november 2014
-De Azure-werkset voor Eclipse - release van November 2014, bevat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van November 2014 bevat Hallo volgende uitbreidingen:
 
-* **Ondersteuning voor Azure SDK 2.5**. Deze meest recente update voor de Azure SDK is de nieuwe vereiste voor de Toolkit.
-* **Ondersteuning voor bijgewerkte versie van de Zulu OpenJDK v1.8, v1.7 en v1.6 pakketten**. Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Ondersteuning voor de nieuwe standaard D grootten voor cloudservices**, die betere prestaties en extra geheugenbronnen bieden. Zie voor meer informatie [virtuele Machine en Cloud Service Sizes for Azure].
+* **Ondersteuning voor Azure SDK 2.5**. Deze meest recente update toohello Azure SDK is een nieuwe vereiste is Hallo voor Hallo Toolkit.
+* **Ondersteuning voor bijgewerkte versie van Zulu OpenJDK hello-pakketten v1.8, v1.7 en v1.6**. Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Ondersteuning voor nieuwe standaard D grootten voor cloudservices hello**, die betere prestaties en extra geheugenbronnen bieden. Zie voor meer informatie [virtuele Machine en Cloud Service Sizes for Azure].
 
 ### <a name="october-17-2014"></a>17 oktober 2014
-De Azure-werkset voor Eclipse - release van oktober 2014, bevat de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van oktober 2014 bevat Hallo volgende uitbreidingen:
 
-* **Dankzij de prestatieverbeteringen in de publiceren op scenario's voor de**. Laden van gegevens van abonnementen is veel sneller wanneer gebruikers meerdere abonnementen en opslagaccounts hebben.
-* **Ondersteuning voor bijgewerkte versie van het pakket met Zulu OpenJDK v1.8**. Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Ondersteuning voor oudere versies van 3e partij JDKs bestandstypen**. Afgeschafte JDK pakketten wordt niet meer weergegeven in het vervolgkeuzemenu voor nieuwe implementatieprojecten. Bestaande projecten verwijzende afgeschaft JDK-pakketten te kunnen doen voor de tijd wordt, maar het wordt aanbevolen om bij te werken van dergelijke projecten zijn afhankelijk van de meest recente wordt voortgezet.
-* **Bijgewerkte versie van het pakket voor Azure-beheerbibliotheken voor Java-clientbibliotheek API**. Zie voor meer informatie de [Microsoft Azure-Client API].
+* **Verbeterde prestaties in scenario's Hallo publiceren tooCloud**. Laden van gegevens van abonnementen is veel sneller wanneer gebruikers meerdere abonnementen en opslagaccounts hebben.
+* **Ondersteuning voor bijgewerkte versie van Hallo Zulu OpenJDK v1.8 pakket**. Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Ondersteuning voor oudere versies van 3e partij JDKs bestandstypen**. Afgeschaft JDK pakketten wordt niet meer weergegeven in de vervolgkeuzemenu Hallo voor nieuwe implementatieprojecten. Bestaande projecten die verwijzen naar afgeschaft JDK pakketten blijven kunnen toodo wordt dus Hallo tijd wordt, maar het wordt aangeraden tooupgrade dergelijke toorely projecten op Hallo meest recente.
+* **Bijgewerkte versie van het Hallo-pakket voor Azure-beheerbibliotheken voor Java-clientbibliotheek API**. Zie voor meer informatie, Hallo [Microsoft Azure-Client API].
 * **Oplossingen voor problemen.** Deze release bevat een aantal verschillende oplossingen voor problemen die zijn gebaseerd op Gebruikersrapporten en het testen.
 
 ### <a name="august-5-2014"></a>5 augustus 2014
-Bevat de volgende uitbreidingen van de Azure-werkset voor Eclipse - augustus 2014-release
+Hello Azure Toolkit voor Eclipse - augustus 2014-release bevat verbeteringen na Hallo
 
-* **Ondersteuning voor Azure SDK 2.4.** Oudere versies van de Toolkit Eclipse werkt niet met deze nieuw uitgebrachte SDK.
-* **Bijgewerkte versies van de v1.6 Zulu OpenJDK 1.7 en v1.8 pakketten.** Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Bijgewerkte versie van het pakket voor Azure-beheerbibliotheken voor Java-clientbibliotheek API.** Zie voor meer informatie de [Microsoft Azure-Client API].
-* **Ondersteuning voor de meest recente instellingen bestandsindeling publiceren.** Er is ondersteuning toegevoegd voor versie 2.0 van de bestandsindeling van de publicatie-instellingen.
-* **Wijzigingen in de architectuur achter de publiceren naar de Cloud-functie.** De Toolkit maakt nu gebruik van de nieuw uitgebrachte Microsoft Azure-Client-API voor Java voor de ondersteuning voor publiceren-naar-cloud.
+* **Ondersteuning voor Azure SDK 2.4.** Oudere versies van Hallo Eclipse Toolkit werkt niet met deze nieuw uitgebrachte SDK.
+* **Bijgewerkte versies van Hallo Zulu OpenJDK v1.6, 1.7 en v1.8 pakketten.** Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Bijgewerkte versie van het Hallo-pakket voor Azure-beheerbibliotheken voor Java-clientbibliotheek API.** Zie voor meer informatie, Hallo [Microsoft Azure-Client API].
+* **Ondersteuning voor de meest recente instellingen bestandsindeling publiceren.** Er is ondersteuning toegevoegd voor versie 2.0 van Hallo Publish Settings-bestandsindeling.
+* **Wijzigingen in de architectuur achter Hallo publiceren tooCloud functie.** Hallo Toolkit is nu Microsoft Azure-Client-API voor Java voor de ondersteuning voor publiceren-naar-cloud met behulp van Hallo zojuist uitgebracht.
 * **Oplossingen voor problemen.** Deze release bevat een aantal van de gebruiker heeft aangevraagd oplossingen voor problemen.
 
 ### <a name="june-12-2014"></a>12 juni 2014
-De Azure-werkset voor Eclipse - release van juni 2014 is een kleine onderhoud update waarmee u de volgende verbeteringen:
+Hello Azure Toolkit voor Eclipse - release van juni 2014 is een kleine onderhoud update waarmee Hallo volgende verbeteringen:
 
-* **Ondersteuning voor het pakket Zulu OpenJDK v1.8.** Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Bijgewerkte versies van de v1.6 Zulu OpenJDK en 1,7 pakketten.** Zie voor meer informatie de [Azul systemen webpagina voor de OpenJDK Zulu].
-* **Bijgewerkte versie van het pakket voor Azure-beheerbibliotheken voor Java-clientbibliotheek API.** Zie voor meer informatie de [Microsoft Azure-Client API].
+* **Ondersteuning voor Hallo Zulu OpenJDK pakket v1.8.** Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Bijgewerkte versies van Hallo Zulu OpenJDK v1.6 en 1,7 pakketten.** Zie voor meer informatie, Hallo [Azul systemen webpagina Hallo Zulu OpenJDK].
+* **Bijgewerkte versie van het Hallo-pakket voor Azure-beheerbibliotheken voor Java-clientbibliotheek API.** Zie voor meer informatie, Hallo [Microsoft Azure-Client API].
 * **Oplossingen voor problemen.** Deze release bevat een aantal van de gebruiker heeft aangevraagd oplossingen voor problemen.
 
 ### <a name="april-4-2014"></a>4 april 2014
-De Azure-invoegtoepassing voor de Eclipse - release van April 2014 is uitgebracht. Dit is een update bij de release van de Azure SDK 2.3, die een vereiste is en automatisch worden gedownload wanneer u de invoegtoepassing installeren. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid omdat de februari 2014 bekijken:
+Hello Azure-invoegtoepassing voor de Eclipse - release van April 2014 is uitgebracht. Dit is een update Hallo release hello Azure SDK 2.3, dit een vereiste is begeleidende en automatisch worden gedownload wanneer u Hallo-invoegtoepassing installeren. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid sinds Hallo februari 2014 bekijken:
 
-* **Ondersteuning voor de Azure SDK 2.3-release.** De Azure-invoegtoepassing voor de Eclipse - release van April 2014 vereist Azure SDK 2.3. Wanneer u de nieuwe invoegtoepassing gebruikt als u nog geen Azure SDK 2.3, wordt u gevraagd om toe te staan van de installatie. Gebruik geen Azure SDK 2.3 met eerdere versies van de invoegtoepassing.
-* **Een upgrade van toepassingen zonder de volledige package-implementatie.** Bij het implementeren van Java-toepassingen die deel van uw project uitmaken, de invoegtoepassing nu automatisch geüpload in het geselecteerde opslagaccount zodat u kunt bijwerken en de Prullenbak van de rolinstanties voor het implementeren van de meest recente bits van de toepassing zonder te bouwen en Implementeer het volledige pakket opnieuw.
-* **Tomcat 8 is nu een herkende toepassingsserver.** Als u een Tomcat-8-installatiemap op uw computer in de **Server** tabblad van de **Azure implementatieproject** dialoogvenster de invoegtoepassing wordt nu automatisch worden gedetecteerd en kunnen implementeren Tomcat 8 in een Automatische wijze, vergelijkbaar met de oudere versies van Tomcat al in de lijst.
-* **Azul Zulu OpenJDK pakket updates: v1.7 update 51 en v1.6 47 bijwerken.** Met name handig bij deze release, van het systeem Azul Zulu Open JDK v7 pakketupdate 51 is beschikbaar. Bovendien gestart Zulu Open JDK v6-pakketten beschikbaar vanaf update 47. Deze updates zijn naast de eerder beschikbaar Zulu Open JDK v7 pakket update 45, 40 en 25 bijwerken.
-* **Ondersteuning voor de grootte van A8 en A9 Microsoft Azure virtuele Machine.** U kunt nu een cloudservice op het hoge geheugen A8 en A9-VM-grootten implementeren. Zie voor meer informatie over deze VM-grootten [virtuele Machine en Cloud Service Sizes for Azure].
-* **Automatische omleiding van HTTP naar HTTPS voor rollen SSL zijn ingeschakeld.** Wanneer de cloudservice alleen HTTPS-rollen, bevat als de aanvraag van de gebruiker is opgegeven voor HTTP, wordt het automatisch omgeleid naar HTTPS. Er is niet nodig voor het maken van een afzonderlijke rol voor het afhandelen van de HTTP-aanvragen.
-* **Snelle Emulator gebruikt voor lokale geëmuleerd.** De Azure-Emulator Express wordt nu gebruikt als de emulator als uw toepassingen lokaal fouten opsporen.
+* **Ondersteuning voor hello Azure SDK 2.3 release.** Azure-invoegtoepassing voor de Eclipse - release van April 2014 Hello vereist Azure SDK 2.3. Wanneer u nieuwe Hallo-invoegtoepassing, als u nog geen Azure SDK 2.3, wordt u mogelijk na vragen aan gebruiker tooallow de installatie. Gebruik geen Azure SDK 2.3 met eerdere versies van het Hallo-invoegtoepassing.
+* **Een upgrade van toepassingen zonder de volledige package-implementatie.** Bij het implementeren van Java-toepassingen die deel van uw project uitmaken Hallo invoegtoepassing nu automatisch geüpload in het geselecteerde opslagaccount zodat u kunt bijwerken en Hallo rol exemplaren toodeploy Hallo nieuwste toepassing bits zonder recyclen toorebuild en de implementatie opnieuw Hallo volledige pakket.
+* **Tomcat 8 is nu een herkende toepassingsserver.** Als u een Tomcat-8-installatiemap op uw computer in Hallo **Server** tabblad Hallo **Azure implementatieproject** dialoogvenster Hallo-invoegtoepassing wordt nu automatisch worden gedetecteerd en worden kunnen toodeploy Tomcat 8 op automatische wijze, vergelijkbare toohello oudere versies van Tomcat al in het Hallo-lijst.
+* **Azul Zulu OpenJDK pakket updates: v1.7 update 51 en v1.6 47 bijwerken.** Met name handig bij deze release, van het systeem Azul Zulu Open JDK v7 pakketupdate 51 is beschikbaar. Bovendien gestart Zulu Open JDK v6-pakketten beschikbaar vanaf update 47. Deze updates zijn bovendien toohello eerder beschikbaar Zulu Open JDK v7 pakketupdate 45, 40 bijwerken en 25 bijwerken.
+* **Ondersteuning voor de grootte van A8 en A9 Microsoft Azure virtuele Machine.** U kunt nu implementeren in een cloud service toohello veel geheugen A8 en A9-VM-grootte. Zie voor meer informatie over deze VM-grootten [virtuele Machine en Cloud Service Sizes for Azure].
+* **Automatische omleiding van HTTP-tooHTTPS voor rollen SSL zijn ingeschakeld.** Wanneer de cloudservice alleen HTTPS-rollen bevat als HTTP is opgegeven voor de gebruikersaanvraag hello, worden deze automatisch tooHTTPS omgeleid. Er is geen toocreate moet een afzonderlijke functie toohandle Hallo HTTP-aanvragen.
+* **Snelle Emulator gebruikt voor lokale geëmuleerd.** Hello Azure Express-Emulator wordt nu gebruikt als Hallo-emulator als uw toepassingen lokaal fouten opsporen.
 * **Azure heeft is rebranded als Microsoft Azure.** UI-schermen weerspiegelen nu Azure rebranded en niet langer Azure aangeroepen.
 
 ### <a name="february-6-2014"></a>6 februari 2014
-De Azure-invoegtoepassing voor de Eclipse - februari 2014 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid omdat de oktober 2013 Preview:
+Hello Azure-invoegtoepassing voor de Eclipse - februari 2014 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid sinds Hallo oktober 2013 Preview:
 
-* **Ondersteuning voor SSL-offloading.** Offloading van Secure Sockets Layer (SSL) is toegevoegd als een functie, zodat u eenvoudig Hypertext Transfer Protocol Secure (HTTPS)-ondersteuning inschakelen in uw implementatie Java in Azure, zonder dat u SSL configureren op uw Java-toepassingsserver. Dit is met name relevant is in de sessie affiniteit en/of communicatiescenario geverifieerd. Bijvoorbeeld wanneer u het Filter Access Control Service (ACS), die al wordt ondersteund door de toolkit. Zie voor meer informatie [SSL-Offloading] en [hoe gebruik SSL-Offloading].
-* **GlassFish 4 is nu een herkende toepassingsserver.** Als u een GlassFish 4-installatiemap op uw computer in de **Server** tabblad van de **Azure implementatieproject** dialoogvenster de invoegtoepassing wordt nu automatisch worden gedetecteerd en GlassFish implementeren UITEN 4 op automatische wijze, vergelijkbaar met de versie GlassFish UITEN 3 al in de lijst.
-* **Pakketupdate Azul Zulu OpenJDK 45.** Effectieve met deze release, van het systeem Azul Zulu (v7-pakket openen JDK) update 45 is nu beschikbaar zijn; Dit is naast de update eerder beschikbaar 40 en update 25.
-* **Ondersteuning voor 'auto' voor particuliere eindpuntpoorten.** U kunt een particuliere poort instellen op automatisch voor invoereindpunten en interne eindpunten om Azure automatisch toewijzen van een poort naar dat eindpunt te laten. Eerder kon u slechts een specifiek poortnummer toewijzen.
-* **Ondersteuning voor het aanpassen van de naam (CN) van het certificaat in de gebruikersinterface voor het maken van de zelf-ondertekend certificaat.** Eerder is vastgelegde gelijknamige gebruikt voor alle nieuwe certificaten; Nu kunt u de naam van uw eigen certificaat te onderscheiden meerdere certificaten in de Azure portal gebruikt voor verschillende doeleinden.
-* **Azure werkbalk:** de Azure-werkbalk heeft een bijgewerkt met de volgende wijzigingen: 
-  * ![][ic710876]Dit pictogram is toegevoegd voor de **nieuwe Azure-implementatieproject**.
-  * ![][ic710877]Dit pictogram is als een snelkoppeling toegevoegd aan het dialoogvenster voor het zelfondertekend certificaat maken.
-* **Ondersteuning voor de grootte A5 Azure virtuele Machine.** U kunt nu een cloudservice implementeren voor het hoge geheugen A5-VM-grootte. Zie voor meer informatie over deze VM-grootte [virtuele Machine en Cloud Service Sizes for Azure].
-* **Ondersteuning voor Microsoft Windows Server 2012 R2.** Windows Server 2012 R2 kunt u nu selecteren als het besturingssysteem van de cloud.
+* **Ondersteuning voor SSL-offloading.** Offloading van Secure Sockets Layer (SSL) is toegevoegd als een functie, zodat u tooeasily inschakelen Hypertext Transfer Protocol Secure (HTTPS) in uw implementatie Java in Azure, ondersteunen zonder dat u tooconfigure SSL in uw Java-toepassingsserver. Dit is met name relevant is in de sessie affiniteit en/of communicatiescenario geverifieerd. Bijvoorbeeld, wanneer u Hallo Access Control Service (ACS) filteren, die al door Hallo toolkit wordt ondersteund. Zie voor meer informatie [SSL-Offloading] en [hoe tooUse SSL-Offloading].
+* **GlassFish 4 is nu een herkende toepassingsserver.** Als u een GlassFish 4-installatiemap op uw computer in Hallo **Server** tabblad Hallo **Azure implementatieproject** dialoogvenster Hallo-invoegtoepassing wordt nu automatisch worden gedetecteerd en kunnen toodeploy worden GlassFish UITEN 4 op automatische wijze, vergelijkbare toohello GlassFish UITEN 3-versie is al in het Hallo-lijst.
+* **Pakketupdate Azul Zulu OpenJDK 45.** Effectieve met deze release, van het systeem Azul Zulu (v7-pakket openen JDK) update 45 is nu beschikbaar zijn; Dit is bovendien toohello eerder beschikbare update 40 en 25 bijwerken.
+* **Ondersteuning voor 'auto' voor particuliere eindpuntpoorten.** U kunt een particuliere poort tooautomatic voor invoereindpunten instellen en interne eindpunten toolet Azure automatisch een poort toothat eindpunt toewijzen. Eerder kon u slechts een specifiek poortnummer toewijzen.
+* **Ondersteuning voor het aanpassen van Hallo certificaatnaam (CN) in Hallo zelfondertekend certificaat maken gebruikersinterface.** Voorheen Hallo dezelfde naam van de vastgelegde is gebruikt voor alle nieuwe certificaten; Nu kunt u uw eigen certificaat naam toohelp onderscheid gemaakt tussen meerdere certificaten in hello Azure-portal gebruikt voor verschillende doeleinden.
+* **Azure werkbalk:** hello Azure werkbalk is een bijgewerkte Hello volgende wijzigingen: 
+  * ![][ic710876]Dit pictogram is toegevoegd voor Hallo **nieuwe Azure-implementatieproject**.
+  * ![][ic710877]Dit pictogram toegevoegd als het dialoogvenster voor een snelkoppeling toohello zelfondertekend certificaat maken.
+* **Ondersteuning voor de grootte A5 Azure virtuele Machine.** U kunt nu een cloud service toohello veel geheugen grootte A5 virtuele Machine implementeren. Zie voor meer informatie over deze VM-grootte [virtuele Machine en Cloud Service Sizes for Azure].
+* **Ondersteuning voor Microsoft Windows Server 2012 R2.** U kunt nu Windows Server 2012 R2 als besturingssysteem Hallo-cloud selecteren.
 
 ### <a name="october-22-2013"></a>22 oktober 2013
-De Azure-invoegtoepassing voor de Eclipse - oktober 2013 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid nadat de September 2013 Preview:
+Hello Azure-invoegtoepassing voor de Eclipse - oktober 2013 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid sinds Hallo September 2013 Preview:
 
-* **Ondersteuning voor de Azure SDK 2.2-release.** De Azure-invoegtoepassing voor de Eclipse - Preview oktober 2013 ondersteunt Azure SDK 2.2. De invoegtoepassing wordt nog steeds werken met Azure SDK 2.1 en Azure SDK 2.2 worden automatisch geïnstalleerd als u nog geen ten minste Azure SDK 2.1 geïnstalleerd.
-* **Pakketupdate Azul Zulu OpenJDK 40.** Als voor de September 2013 aangekondigd bekijken, de invoegtoepassing nu kunt met behulp van een derde partij geleverde JDK rechtstreeks in Azure, zonder dat u uw eigen JDK uploaden. In de release van oktober 2013 is van het systeem Azul Zulu (v7-pakket openen JDK) update 40 nu beschikbaar. Dit is naast de oorspronkelijk gepubliceerde update 25.
-* **Koppeling van de cloud-implementatie in het gebeurtenissenlogboek.** Binnen Azure Activity Log, wanneer uw implementatie de status van heeft **gepubliceerde**, klikt u op **gepubliceerde** sinds het is nu een koppeling naar uw implementatie; uw implementatie wordt vervolgens in uw browser worden geopend. (De status van **gepubliceerde** eerder is met het label **met**.)
-* **OS doelselectie beschikbaar op tijd publiceren.** De **publiceren naar Azure** dialoogvenster bevat een nieuw veld **doel OS**, waarmee u een overzichtelijker manier voor het instellen van het beoogde besturingssysteem.
-* **De vorige implementatie automatisch overschreven.** De **publiceren naar Azure** dialoogvenster bevat een nieuwe selectievakje **overschrijven van de vorige implementatie**. Als deze optie is ingeschakeld, wanneer uw nieuwe implementatie gepubliceerd overschrijft automatisch de vorige implementatie; u zou niet ervaren &quot;409 conflict&quot; problemen bij het publiceren naar dezelfde locatie zonder eerst de vorige implementatie publicatie.
-* **Jetty 9 is nu een herkende toepassingsserver.** Als u een Jetty 9-installatiemap op uw computer in de **Server** tabblad van de **Azure implementatieproject** dialoogvenster de invoegtoepassing wordt nu automatisch worden gedetecteerd en kunnen implementeren Jetty 9 in een Automatische wijze, vergelijkbaar met de oudere versies van Jetty al in de lijst.
-* **Een functie in het contextmenu Project toevoegen.** De **Azure** contextmenu project bevat nu een nieuwe menuopdracht **rol toevoegen**, waarmee u een snellere en meer detecteerbaar manier om een nieuwe rol toevoegen aan uw Azure-project.
-* **Een update van het pakket voor de Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.6 van de [Microsoft Azure-Client API].
+* **Ondersteuning voor hello Azure SDK 2.2 release.** Hello Preview Azure-Eclipse - invoegtoepassing oktober 2013 ondersteunt Azure SDK 2.2. Hallo-invoegtoepassing wordt nog steeds werken met Azure SDK 2.1 en Azure SDK 2.2 worden automatisch geïnstalleerd als u nog geen ten minste Azure SDK 2.1 geïnstalleerd.
+* **Pakketupdate Azul Zulu OpenJDK 40.** Zoals aangekondigd voor Hallo September 2013 Preview, nu Hallo-invoegtoepassing met behulp van een derde partij geleverde JDK rechtstreeks in Azure kunt, zonder dat u tooupload uw eigen JDK. In Hallo versie van oktober 2013 is van het systeem Azul Zulu (v7-pakket openen JDK) update 40 nu beschikbaar. Dit is in de toevoeging toohello oorspronkelijk gepubliceerd bijwerken 25.
+* **Koppeling van de cloud-implementatie in Hallo activiteitenlogboek.** Binnen hello Azure Activity Log, wanneer uw implementatie de status van heeft **gepubliceerde**, klikt u op **gepubliceerde** sinds het is nu de implementatie van een koppeling tooyour; uw implementatie wordt vervolgens in uw browser worden geopend. (status van Hallo **gepubliceerde** eerder is met het label **met**.)
+* **OS doelselectie beschikbaar op tijd publiceren.** Hallo **publiceren tooAzure** dialoogvenster bevat een nieuw veld **doel OS**, waarmee een overzichtelijker manier voor u tooset het beoogde besturingssysteem.
+* **De vorige implementatie automatisch overschreven.** Hallo **publiceren tooAzure** dialoogvenster bevat een nieuwe selectievakje **overschrijven van de vorige implementatie**. Als deze optie is ingeschakeld, wanneer uw nieuwe implementatie gepubliceerd overschrijft automatisch de vorige implementatie Hallo; u zou niet ervaren &quot;409 conflict&quot; problemen bij het publiceren van toohello dezelfde locatie zonder eerst de publicatie Hallo eerdere implementatie.
+* **Jetty 9 is nu een herkende toepassingsserver.** Als u een Jetty 9-installatiemap op uw computer in Hallo **Server** tabblad Hallo **Azure implementatieproject** dialoogvenster Hallo-invoegtoepassing wordt nu automatisch worden gedetecteerd en worden kunnen toodeploy Jetty 9 in Automatische wijze, vergelijkbare toohello oudere versies van Jetty al in het Hallo-lijst.
+* **Een functie in contextmenu Hallo-Project toevoegen.** Hallo **Azure** contextmenu project bevat nu een nieuwe menuopdracht **rol toevoegen**, waarmee u een snellere en meer detecteerbaar manier voor tooadd u een nieuwe rol tooyour Azure-project.
+* **Een update toohello pakket voor hello Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.6 Hallo [Microsoft Azure-Client API].
 
 ### <a name="september-25-2013"></a>25 september 2013
-De Azure-invoegtoepassing voor de Eclipse - September 2013 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid omdat de augustus 2013 Preview:
+Hello Azure-invoegtoepassing voor de Eclipse - September 2013 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid sinds Hallo augustus 2013 Preview:
 
-* **Mogelijkheid tot het implementeren van het pakket Azul Zulu OpenJDK beschikbaar zijn op Azure.** Een nieuwe optie is toegevoegd bij het opgeven van de JDK die voor gebruik met uw Azure-implementatie. Deze optie gebruikt, kunt u een pakket van derden JDK rechtstreeks op de Azure-cloud implementeren zonder voor het uploaden van uw eigen. De eerste zoals opgeroepen Zulu pakket, op basis van de OpenJDK, kan nu worden geïmplementeerd met deze optie is het bieden van Azul systemen.
-* **Een update van het pakket voor de Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.5 van de [Microsoft Azure-Client API].
+* **Mogelijkheid toodeploy hello Azul Zulu OpenJDK pakket beschikbaar zijn op Azure.** Een nieuwe optie is toegevoegd bij het opgeven van Hallo JDK toouse met uw Azure-implementatie. Deze optie gebruikt, kunt u een pakket van derden JDK rechtstreeks op Hallo Azure-cloud, kunt implementeren zonder tooupload zelf. Azul systemen levert Hallo eerst dergelijke pakket Zulu, op basis van Hallo OpenJDK die kan nu worden geïmplementeerd met deze optie wordt aangeroepen.
+* **Een update toohello pakket voor hello Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.5 Hallo [Microsoft Azure-Client API].
 
 ### <a name="august-1-2013"></a>1 augustus 2013
-De Azure-invoegtoepassing voor de Eclipse - augustus 2013 Preview heeft uitgegeven. Dit is een update bij de release van de Azure SDK 2.1, die een vereiste is en automatisch worden gedownload wanneer u de invoegtoepassing installeren. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid omdat de juli 2013 Preview:
+Hello Azure-invoegtoepassing voor de Eclipse - augustus 2013 Preview heeft uitgegeven. Dit is een update Hallo de release van hello Azure SDK 2.1 een vereiste begeleidende en automatisch worden gedownload wanneer u Hallo-invoegtoepassing installeren. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid sinds Hallo juli 2013 Preview:
 
-* **Het verwijderen van de opties voor de lokale JDK en lokale toepassingsserver opnemen als onderdeel van het implementatiepakket.** Downloaden van de JDK en toepassingsserver van cloud-opslag tijdens de implementatie is voor het insluiten van deze onderdelen in het pakket, omdat het downloaden van de items resulteert in kleinere implementatie pakket grootte, of sneller implementatietijden beter en eenvoudiger onderhoud. Als gevolg hiervan zijn de opties om op te nemen van de JDK en de toepassingsserver in het implementatiepakket zijn verwijderd. Bestaande projecten die zijn geconfigureerd voor de lokale JDK en lokale toepassingsserver opnemen als onderdeel van het implementatiepakket wordt automatisch geconverteerd naar de JDK automatisch-upload en cloud-opslag-toepassingsserver.
-* **Ondersteuning voor de Azure SDK 2.1-release.** De Azure-invoegtoepassing voor de Eclipse - augustus 2013 Preview vereist Azure SDK 2.1. Gebruik niet de augustus 2013 preview met eerdere versies van de Azure SDK en gebruik geen Azure SDK 2.1 met eerdere versies van de Azure-invoegtoepassing voor Eclipse.
-* **Ondersteuning voor de Eclipse Kepler-release.** Daarmee kunnen vereiste de nieuwe minimaal versie Eclipse IDE Indigo is. De Azure-invoegtoepassing voor Eclipse is niet langer officieel getest op Helios.
+* **Verwijderen van de opties tooinclude Hallo lokale JDK en lokale toepassingsserver als onderdeel van het implementatiepakket Hallo.** Het downloaden van hello JDK- en toepassingsserver van cloud-opslag tijdens de implementatie van Hallo is beter tooembedding deze onderdelen in Hallo pakket sinds Hallo items resultaten in kleinere implementatie pakket grootte, of sneller implementatietijden, en gemakkelijker te downloaden onderhoud. Als gevolg hiervan zijn Hallo opties tooinclude hello JDK- en toepassingsserver in Hallo implementatiepakket verwijderd. Bestaande projecten die geconfigureerd tooinclude waren Hallo lokale JDK en lokale toepassingsserver als onderdeel van het implementatiepakket Hallo automatisch geconverteerd tooauto-upload Hallo JDK en application server toocloud storage worden.
+* **Ondersteuning voor hello Azure SDK 2.1-release.** Hello Azure-invoegtoepassing voor de Eclipse - augustus 2013 Preview vereist Azure SDK 2.1. Gebruik geen Hallo augustus 2013 preview met eerdere versies van hello Azure SDK en gebruik geen Azure SDK 2.1 met eerdere versies van hello Azure-invoegtoepassing voor Eclipse.
+* **Ondersteuning voor Hallo Eclipse Kepler release.** Verwante toothis Hallo nieuwe minimaal vereiste versie van Eclipse IDE is Indigo. Hello Azure Eclipse-invoegtoepassing wordt niet langer officieel getest op Helios.
 
 ### <a name="july-3-2013"></a>3 juli 2013
-De Azure-invoegtoepassing voor de Eclipse - juli 2013 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid omdat de mei 2013 Preview:
+Hello Azure-invoegtoepassing voor de Eclipse - juli 2013 Preview heeft uitgegeven. Deze update bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid omdat Hallo mogelijk 2013 Preview:
 
-* **De mogelijkheid een nieuw opslagaccount maken.** Een **nieuw** knop is toegevoegd aan de **Storage-Account toevoegen** dialoogvenster. Hiermee kunt u een opslagaccount binnen de Eclipse-invoegtoepassing maken zonder dat u zich aanmelden bij de Azure-beheerportal. (U moet al een Azure-abonnement om deze functie te gebruiken.) Zie voor meer informatie over het maken van een nieuw opslagaccount [voor het maken van een nieuw opslagaccount].
-* **Nieuwe &quot;(automatisch)&quot; optie voor het opslagaccount voor automatische implementatie van JDK en de server en voor het opslaan in cache gebruikt.** Wanneer u de **automatisch uploaden** optie voor de JDK en toepassingsserver, kunt u nu opgeven **(automatisch)** voor het account-URL en de opslag moet worden gebruikt tijdens het uploaden van de JDK en toepassingsserver, of wanneer met behulp van Azure Caching. Vervolgens deze functies worden automatisch gebruikt hetzelfde opslagaccount als het account dat u selecteert in de **publiceren naar Azure** dialoogvenster. De [maken van een Hallo wereld-toepassing voor Azure in Eclipse] zelfstudie is bijgewerkt, zodat het gebruik van de nieuwe **(automatisch)** optie.
-* **De mogelijkheid om in te stellen van uw Azure-service-eindpunten.** Geef op de service-eindpunten die bepalen dat of uw toepassing is geïmplementeerd en beheerd door de globale Azure-platform, door Azure worden beheerd door 21Vianet in China, of een persoonlijk die door Azure-platform. Zie voor meer informatie [Azure Service-eindpunten].
-* **Grote implementaties kunnen opgeven van een resource voor lokale opslag.** In het geval dat de implementatie te groot om te worden opgenomen in de standaard approot-map is, kunt u nu een resource voor lokale opslag opgeven als het doel van de implementatie voor uw JDK en toepassingsservers. Zie voor meer informatie [grote implementaties implementeren].
-* **Ondersteuning voor de grootte van A6 en A7 Azure virtuele Machine.** U kunt nu een cloudservice op het hoge geheugen A6 en A7-VM-grootten implementeren. Zie voor meer informatie over deze formaten [virtuele Machine en Cloud Service Sizes for Azure].
-* **Een update van het pakket voor de Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.4 van de [Microsoft Azure-Client API].
+* **Mogelijkheid toocreate een nieuw opslagaccount.** Een **nieuw** knop toohello is toegevoegd **Storage-Account toevoegen** dialoogvenster. Hiermee kunt u toocreate een opslagaccount in Eclipse-invoegtoepassing hello, zonder dat u toolog in toohello Azure Management Portal. (U moet al een Azure-abonnement toouse deze functie.) Zie voor meer informatie over het maken van een nieuw opslagaccount [toocreate een nieuw opslagaccount].
+* **Nieuwe &quot;(automatisch)&quot; optie voor het opslagaccount voor automatische implementatie van JDK en de server en voor het opslaan in cache gebruikt.** Wanneer u Hallo **automatisch uploaden** optie voor Hallo JDK en toepassingsserver, kunt u **(automatisch)** voor Hallo-URL en storage-account toouse tijdens het uploaden van hello JDK- en toepassingsserver of bij het gebruik van Azure Caching. Deze functies worden vervolgens automatisch gebruikt hetzelfde opslagaccount hello, zoals een die u in Hallo selecteert Hallo **tooAzure publiceren** dialoogvenster. Hallo [maken van een toepassing Hello World voor Azure in Eclipse] zelfstudie is een bijgewerkte toouse Hallo nieuwe **(automatisch)** optie.
+* **Mogelijkheid tooset uw Azure-service-eindpunten.** Geef Hallo service-eindpunten die bepalen dat of uw toepassing geïmplementeerd tooand beheerd door Hallo globale Azure-platform wordt, door Azure worden beheerd door 21Vianet in China, of een persoonlijk die door Azure-platform. Zie voor meer informatie [Azure Service-eindpunten].
+* **Grote implementaties kunnen opgeven van een resource voor lokale opslag.** In gebeurtenis Hallo die uw implementatie te groot toobe opgenomen in de standaardmap approot hello is, kunt u nu een resource voor lokale opslag opgeven als bestemming voor Hallo-implementatie voor uw JDK en toepassingsservers. Zie voor meer informatie [grote implementaties implementeren].
+* **Ondersteuning voor de grootte van A6 en A7 Azure virtuele Machine.** U kunt nu implementeren in een cloud service toohello veel geheugen A6 en A7-VM-grootte. Zie voor meer informatie over deze formaten [virtuele Machine en Cloud Service Sizes for Azure].
+* **Een update toohello pakket voor hello Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.4 Hallo [Microsoft Azure-Client API].
 
 ### <a name="may-1-2013"></a>1 mei 2013
-De Azure-Eclipse - invoegtoepassing kan 2013 Preview is vrijgegeven. Dit is een belangrijke update bij de release van de Azure SDK 2.0, die een vereiste is en automatisch worden gedownload wanneer u de invoegtoepassing installeren. Deze versie bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid, omdat de februari 2013 Preview:
+Hello Azure-Eclipse - invoegtoepassing kan 2013 Preview is vrijgegeven. Dit is een belangrijke update begeleidende Hallo release hello Azure SDK 2.0, die een vereiste is en automatisch worden gedownload wanneer u Hallo-invoegtoepassing installeren. Deze versie bevat nieuwe functies, oplossingen voor problemen en een aantal verbeteringen feedback aangestuurde bruikbaarheid sinds Hallo februari 2013 Preview:
 
-* **Automatische uploaden van de JDK en de toepassingsserver en de implementatie van Azure-opslag.** Een nieuwe optie die automatisch wordt geüpload de geselecteerde JDK en toepassingsservers, indien nodig, naar een opgegeven Azure storage-account en implementeert deze onderdelen van daaruit in plaats van insluiten in het implementatiepakket of het uploaden van de gebruiker vervolgens handmatig hebben. Deze veelvuldig opgevraagde functie kunt u het gemak van de implementatie van de JDK- en serveronderdelen, met name voor beginnende gebruikers aanzienlijk verbeteren. Zie voor een procedure die deze opties gebruikt, [maken van een Hallo wereld-toepassing voor Azure in Eclipse].
-* **Centraal opslagaccount bijhouden en de mogelijkheid om verwijzing storage-accounts meer eenvoudig (via een besturingselement voor vervolgkeuzelijst).** Dit geldt voor meerdere functies die van opslag, zoals JDK en implementatie van de server-onderdeel en opslaan in cache gebruikmaken. Zie voor meer informatie [Azure Storage-Accountlijst].
-* **Eenvoudig instellen van externe toegang in het publiceren naar de wizard Cloud.** U hoeft alleen type in een gebruikersnaam en wachtwoord inschakelen van externe toegang of laat dit veld leeg te houden van externe toegang uitgeschakeld is.
-* **Een update van het pakket voor de Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.2 van de [Microsoft Azure-Client API].
+* **Automatische upload Hallo JDK en toepassingsserver en implementatie van Azure-opslag.** Een nieuwe optie waarmee uploadt automatisch Hallo geselecteerde JDK en toepassingsserver, indien nodig, tooa Azure storage-account opgegeven en implementeert u deze onderdelen van daaruit in plaats van insluiten in Hallo-implementatiepakket of het uploaden van de gebruiker Hallo vervolgens hebben handmatig. Deze functie veelvuldig opgevraagde kunt implementeren hello JDK- en serveronderdelen, met name voor beginnende gebruikers eenvoudig hello aanzienlijk verbeteren. Zie voor een procedure die deze opties gebruikt, [maken van een toepassing Hello World voor Azure in Eclipse].
+* **Centraal opslagaccount bijhouden en de mogelijkheid tooreference storage-accounts eenvoudiger (via een besturingselement voor vervolgkeuzelijst).** Dit geldt toomultiple-functies die van opslag, zoals JDK en implementatie van de server-onderdeel en opslaan in cache gebruikmaken. Zie voor meer informatie [Azure Storage-Accountlijst].
+* **Eenvoudig instellen van externe toegang in Hallo publiceren tooCloud wizard.** U hoeft alleen toodo typt u een gebruikersnaam en wachtwoord tooenable externe toegang, of laat dit blanco tookeep externe toegang uitgeschakeld is.
+* **Een update toohello pakket voor hello Azure-beheerbibliotheken voor Java-bibliotheek.** Dit is gebaseerd op versie 0.4.2 Hallo [Microsoft Azure-Client API].
 * **Ondersteuning voor een tijdelijke sessies op Windows Server 2012.** Een tijdelijke sessies gewerkt voorheen alleen op Windows Server 2008 R2 nu beide besturingssysteem doelen ondersteuning sessie affiniteit cloud.
-* **Prestatieverbeteringen voor pakket uploaden.** Zelfs wanneer de JDK en toepassingsserver zijn ingesloten in het implementatiepakket, is het gedeelte van het uploaden van het implementatieproces kan ongeveer twee keer zo snel in vergelijking met vorige versies.
+* **Prestatieverbeteringen voor pakket uploaden.** Zelfs wanneer hello JDK- en toepassingsserver zijn ingesloten in het implementatiepakket hello, Hallo uploaden gedeelte van het implementatieproces Hallo kan ongeveer twee keer zo snel zijn vergeleken tooprevious versies.
 
 ### <a name="february-8-2013"></a>8 februari 2013
-De Azure-invoegtoepassing voor de Eclipse - februari 2013 Preview heeft uitgegeven. Dit is een kleine update waaronder bugfixes, feedback aangestuurde gebruiksvriendelijkheid en enkele nieuwe functies sinds de November 2012 bekijken:
+Hello Azure-invoegtoepassing voor de Eclipse - februari 2013 Preview heeft uitgegeven. Dit is een kleine update waaronder bugfixes, feedback aangestuurde gebruiksvriendelijkheid en enkele nieuwe functies sinds Hallo November 2012 bekijken:
 
-* Ondersteuning voor het implementeren van JDKs, toepassingsservers, en willekeurige andere onderdelen van openbare of persoonlijke Azure blob-opslag-downloads in plaats van in het implementatiepakket inclusief, bij het implementeren van de cloud.
-* Mogelijkheid om de volgorde waarin een gebruiker gedefinieerde onderdelen van een rol worden verwerkt, door de toevoeging van **omhoog** en **omlaag** knoppen in de **onderdelen** sectie van de **Azure roleigenschappen**.
-* Een update voor de **-pakket voor de Azure-beheerbibliotheken voor Java** bibliotheek, gebaseerd op versie 0.4.0 van de [Microsoft Azure-Client API].
+* Ondersteuning voor het implementeren van JDKs, toepassingsservers, en willekeurige andere onderdelen van openbare of persoonlijke Azure blob-opslag downloads in plaats van inclusief in Hallo implementatiepakket bij het implementeren van toohello cloud.
+* Mogelijkheid toochange Hallo in welke volgorde gebruiker gedefinieerde onderdelen van een rol worden verwerkt, door toevoeging van Hallo **omhoog** en **omlaag** knoppen in Hallo **onderdelen** sectie van Hallo **Azure roleigenschappen**.
+* Een update toohello **-pakket voor hello Azure-beheerbibliotheken voor Java** bibliotheek, op basis van versie 0.4.0 Hallo [Microsoft Azure-Client API].
 
 ### <a name="november-5-2012"></a>5 november 2012
-De Azure-invoegtoepassing voor de Eclipse - November 2012 Preview heeft uitgegeven. Dit is een belangrijke update waaronder een aantal nieuwe functies, evenals aanvullende oplossingen voor problemen en bruikbaarheid feedback aangestuurde verbeteringen, omdat de September 2012 bekijken:
+Hello Azure-invoegtoepassing voor de Eclipse - November 2012 Preview heeft uitgegeven. Dit is een belangrijke update waaronder een aantal nieuwe functies, evenals aanvullende oplossingen en feedback aangestuurde verbeteringen sinds Hallo September 2012 bekijken:
 
-* Ondersteuning voor Microsoft Windows Server 2012 als het besturingssysteem van de cloud.
+* Ondersteuning voor Microsoft Windows Server 2012 als Hallo cloud-besturingssysteem.
 * Ondersteuning voor Azure CO-locaties opslaan in cache-ondersteuning voor memcached-clients.
-* Het opnemen van de Apache Qpid JMS clientbibliotheken voor profiteren van Azure AMQP gebaseerde uitwisseling van berichten.
-* Een verbeterde **nieuw Project** wizard met een nieuwe pagina aan het einde waarmee gebruikers de mogelijkheid om te snel geschikt maken van verschillende algemene belangrijke functies in hun project: een tijdelijke sessies, opslaan in cache en foutopsporing op afstand.
-* Automatische vermindering van rolinstanties op 1 wanneer uitgevoerd in de rekenemulator om te voorkomen dat poort bindingsconflicten tussen serverexemplaren.
+* Het opnemen van Hallo Apache Qpid JMS clientbibliotheken voor profiteren van Azure AMQP gebaseerde uitwisseling van berichten.
+* Een verbeterde **nieuw Project** wizard met een nieuwe pagina aan Hallo einde waarmee gebruikers met Hallo mogelijkheid tooquickly enkele algemene belangrijke functies in hun project inschakelen: een tijdelijke sessies, opslaan in cache en foutopsporing op afstand.
+* Automatische vermindering van de rol exemplaren too1 bij uitvoering in Hallo-rekenemulator, tooavoid poort bindingsconflicten tussen serverexemplaren.
 
 ### <a name="september-28-2012"></a>28 september 2012
-De Azure-invoegtoepassing voor de Eclipse - September 2012 Preview heeft uitgegeven. Deze service-update bevat een aantal aanvullende oplossingen voor problemen, omdat de augustus 2012 bekijken, evenals een aantal feedback aangestuurde verbeteringen in bestaande functies:
+Hello Azure-invoegtoepassing voor de Eclipse - September 2012 Preview heeft uitgegeven. Deze service-update bevat een aantal aanvullende oplossingen voor problemen sinds Hallo augustus 2012 bekijken, evenals een aantal feedback aangestuurde verbeteringen in bestaande functies:
 
-* Ondersteuning voor Microsoft Windows 8 en Microsoft Windows Server 2012 als het besturingssysteem van de ontwikkeling, het oplossen van problemen die eerder voorkomen dat de invoegtoepassing goed werkt in deze besturingssystemen.
+* Ondersteuning voor Microsoft Windows 8 en Microsoft Windows Server 2012 als besturingssysteem Hallo-ontwikkeling, het oplossen van problemen waardoor eerder Hallo-invoegtoepassing niet goed werkt in deze besturingssystemen.
 * Verbeterde ondersteuning voor het eindpunt poortbereiken opgeven.
-* Oplossingen voor problemen betrekking hebben op paden die spaties bevat.
-* Rol context menu verbeteringen voor sneller toegang tot specifieke configuratie-instellingen.
-* Secundaire verfijningen in de **publiceren naar de cloud** wizard en een aantal aanvullende oplossingen voor problemen.
+* Oplossingen voor problemen gerelateerd toofile paden die spaties bevat.
+* Rol context menu verbeteringen voor snellere toegang toorole-specifieke configuratie-instellingen.
+* Secundaire verfijningen in Hallo **toocloud publiceren** wizard en een aantal aanvullende oplossingen voor problemen.
 
 ### <a name="august-28-2012"></a>28 augustus 2012
-De Azure-invoegtoepassing voor de Eclipse - augustus 2012 Preview heeft uitgegeven. Deze service-update bevat aanvullende oplossingen voor problemen, omdat de juli-2012 bekijken, evenals verschillende feedback aangestuurde bruikbaarheid verbeteringen voor bestaande functies:
+Hello Azure-invoegtoepassing voor de Eclipse - augustus 2012 Preview heeft uitgegeven. Deze service-update bevat aanvullende oplossingen voor problemen sinds Hallo juli 2012 bekijken, evenals verschillende feedback aangestuurde bruikbaarheid verbeteringen voor bestaande functies:
 
-* In het dialoogvenster Azure Access Control-servicefilter:
-  * **Optie voor het insluiten van het handtekeningcertificaat** in uw toepassing WAR-bestand voor het vereenvoudigen van cloudimplementatie.
-  * **Optie voor het maken van een zelfondertekend certificaat** binnen de ACS filteren gebruikersinterface. Zie voor meer informatie over het Filter Azure Access Control-Services, [Web gebruikers verifiëren met Azure Access Control-Service met behulp van Eclipse].
-* In de wizard Azure-implementatieproject (ook van toepassing op de eigenschappenpagina van de rol-serverconfiguratie):
-  * **Automatische detectie van de locatie JDK** op uw computer (die u kunt desgewenst overschrijven).
-  * **Automatische detectie van het servertype** wanneer u de installatiemap van de toepassing-server selecteert.
+* Binnen hello Azure Access Control-servicefilter dialoogvenster:
+  * **Optie tooembed Hallo handtekeningcertificaat** in de WAR-bestand van uw toepassing, toosimplify cloud-implementatie.
+  * **Optie toocreate een zelfondertekend certificaat** binnen Hallo ACS filteren gebruikersinterface. Zie voor meer informatie over hello Azure Access Control-servicefilter [hoe tooAuthenticate webgebruikers met Azure Access Control-Service met behulp van Eclipse].
+* Binnen hello Azure implementatieproject wizard (geldt ook toohello-rol serverconfiguratie eigenschappenpagina):
+  * **Automatische detectie van Hallo JDK locatie** op uw computer (die u kunt desgewenst overschrijven).
+  * **Automatische detectie van het type van de server Hallo** wanneer u de installatiemap van Hallo application server selecteert.
 
 ### <a name="july-15-2012"></a>15 juli 2012
-De Azure-invoegtoepassing voor de Eclipse - juli 2012 Preview waarin een aantal van de hoogste prioriteit fouten gevonden en/of door gebruikers zijn gerapporteerd na de release van juni 2012 heeft uitgegeven. Dit is een service-update alleen, er zijn geen nieuwe functies zijn opgenomen.
+Hello Azure-invoegtoepassing voor de Eclipse - juli 2012 Preview waarin een aantal Hallo hoogste prioriteit fouten gevonden en/of door gebruikers zijn gerapporteerd na de release van juni 2012 Hallo heeft uitgegeven. Dit is een service-update alleen, er zijn geen nieuwe functies zijn opgenomen.
 
 ### <a name="june-7-2012"></a>7 juni 2012
 Azure-invoegtoepassing voor de Eclipse - juni 2012 CTP heeft uitgegeven. Nieuwe functies:
 
-* **Wizard Nieuw Project voor Azure-implementatie:** kunt u uw JDK Java-toepassingsserver en Java-toepassingen rechtstreeks in de verbeterde wizard gebruikersinterface. Opgenomen in de lijst met out-of-the-box-serverconfiguraties kiezen die zijn Tomcat 6 Tomcat 7, GlassFish UITEN 3, Jetty 7, 8 Jetty, 6 JBoss en JBoss 7 (zelfstandig). Bovendien kunt u de lijst met serverconfiguraties aanpassen. Deze gebruikersinterface verbetering vormt een alternatief slepen en neerzetten van gecomprimeerde bestanden en kopiëren over opstartscripts, voorheen de belangrijkste benadering. Deze methode werkt goed samen, maar die waarschijnlijk alleen voor meer geavanceerde scenario's wordt gebruikt.
-* **Configuratie-eigenschappenpagina met de serverfunctie:** kunt u gemakkelijk veranderen de JDKs, Java-toepassingsservers en toepassingen die zijn gekoppeld aan uw implementatie, nadat u het project hebt gemaakt. Zie voor meer informatie [configuratie-eigenschappen Server].
-* **&quot;Publiceren naar cloud&quot; wizard:** biedt een eenvoudige manier voor het implementeren van uw project naar Azure rechtstreeks vanaf Eclipse automatisering van de eerder handmatige zware-verhoging van het ophalen van referenties, aanmelding bij de Azure-beheerportal uploaden van een pakket, enzovoort. Zie voor een voorbeeld van het implementeren van uw project direct naar Azure, [maken van een Hallo wereld-toepassing voor Azure in Eclipse].
-* **Azure werkbalk:** Azure werkbalk is nu beschikbaar in Eclipse met knoppen die gebruikmaken van de volgende functies:
-  * ![][ic710879]**Uitvoeren in Azure-Emulator**: uw project in de emulator wordt uitgevoerd.
-  * ![][ic710880]**Opnieuw instellen van de Azure-Emulator**: Hiermee stelt u de emulator.
+* **Wizard Nieuw Project voor Azure-implementatie:** kunt u tooselect uw JDK Java-toepassingsserver en Java-toepassingen rechtstreeks in Hallo verbeterde wizard gebruikersinterface. Opgenomen in de lijst Hallo van server voor out-of-the-box-configuraties toochoose van zijn Tomcat 6 Tomcat 7, GlassFish UITEN 3, Jetty 7, 8 Jetty, 6 JBoss en JBoss 7 (zelfstandig). Bovendien kunt u de lijst Hallo van server-configuraties aanpassen. Dankzij deze verbetering van de gebruikersinterface is een alternatieve toodragging en gecomprimeerde bestanden verwijderen en kopiëren over opstartscripts die was eerder Hallo belangrijkste benadering. Deze methode werkt goed samen, maar die waarschijnlijk alleen voor meer geavanceerde scenario's wordt gebruikt.
+* **Configuratie-eigenschappenpagina met de serverfunctie:** kunt u tooeasily switch Hallo JDKs, Java-toepassingsservers en toepassingen die zijn gekoppeld aan uw implementatie, nadat u het Hallo-project hebt gemaakt. Zie voor meer informatie [configuratie-eigenschappen Server].
+* **&quot;Publiceren toocloud&quot; wizard:** biedt een eenvoudige manier toodeploy uw project tooAzure rechtstreeks vanaf Eclipse automatiseren Hallo eerder handmatige zware opheffing van het ophalen van referenties, meldt u zich toohello Azure Management Portal uploaden van een pakket, enzovoort. Zie voor een voorbeeld van hoe toodirectly implementeren voor uw project tooAzure [maken van een toepassing Hello World voor Azure in Eclipse].
+* **Azure werkbalk:** Azure werkbalk is nu beschikbaar in Eclipse die knoppen die gebruikmaken van de volgende kenmerken Hallo bevat:
+  * ![][ic710879]**Uitvoeren in Azure-Emulator**: uw project in Hallo-emulator wordt uitgevoerd.
+  * ![][ic710880]**Opnieuw instellen van de Azure-Emulator**: opnieuw instellen van Hallo emulator.
   * ![][ic710881]**Cloud-pakket voor Azure bouwen**: het pakket voor de implementatie wordt gecompileerd.
   * ![][ic710876]**Nieuwe Azure-implementatieproject**: maakt een nieuw project in de Azure-implementatie.
-  * ![][ic710882]**Publiceren naar Azure-Cloud**: uw project naar Azure publiceert.
+  * ![][ic710882]**TooAzure Cloud publiceren**: uw project tooAzure publiceert.
   * ![][ic710883]**Publicatie ongedaan maken**: Hiermee verwijdert u uw implementatie.
-  * Veel van deze Azure werkbalkknoppen worden gebruikt in [maken van een Hallo wereld-toepassing voor Azure in Eclipse].
-* **Azure-beheerbibliotheken voor Java:** nu beschikbaar als onderdeel van het één pakket voor Azure-beheerbibliotheken voor Java-bibliotheek in Eclipse, waarvan de installatie van de invoegtoepassing en met alle vereiste afhankelijkheden. Alleen een verwijzing naar de bibliotheek toevoegen in uw Java-project en u hoeft niet te downloaden van items die afzonderlijk. Zie voor meer informatie [installeren van de Azure-werkset voor Eclipse].
-* **Microsoft JDBC-stuurprogramma 4.0 voor SQL Server beschikbaar is tijdens de installatie van de invoegtoepassing:** tijdens de installatie van de nieuwe invoegtoepassing de nieuwste versie van het Microsoft JDBC-stuurprogramma voor SQL Server kan worden geïnstalleerd.
-* **Azure Access Control Service Filter beschikbaar tijdens de installatie van de invoegtoepassing:** deze nieuw onderdeel als een Eclipse-bibliotheek in de werkset kunt u uw Java-webtoepassing naadloos profiteren van Azure Access Control Service (ACS) verificatie met behulp van verschillende identiteitsproviders, zoals Google en Live.com Yahoo!. U hoeft niet te verificatielogica zelf schrijven, slechts enkele opties configureren en kunt het filter doen het zware werk gebruikers zich aanmelden met ACS in te schakelen. U kunt alleen zich richten op het schrijven van de code die gebruikers toegang tot bronnen op basis van hun identiteit biedt voor uw toepassing door het filter in het Request-object geretourneerd. Zie voor een zelfstudie over het gebruik van de ACS-filter [Web gebruikers verifiëren met Azure Access Control-Service met behulp van Eclipse].
-* **Automatische detectie van de Azure SDK 1.7 vereiste:** wanneer u een nieuw Project voor de Azure-implementatie maakt, Azure SDK 1.7 automatisch wordt gedownload als deze nog niet is geïnstalleerd.
-* **Exemplaar van eindpunten:** Hiermee kunt u directe poort eindpunt toegang voor communicatie met load balanced rolinstanties. Exemplaareindpunten kunnen worden toegevoegd via de eindpunten-gebruikersinterface beschikbaar via de [eindpunten eigenschappen] pagina. Dit helpt foutopsporing op afstand inschakelen en JMX diagnostische gegevens voor bepaalde berekeningen uitgevoerd in de cloud in scenario's met meerdere exemplaren-implementaties-instantie. 
-* **UI-onderdelen:** eenvoudiger voor ervaren gebruikers voor het instellen van projectafhankelijkheden tussen de afzonderlijke Azure rollen in het project en andere externe bronnen zoals Java-toepassing projecten; ook kunt u eenvoudig de logica van de implementatie wordt beschreven. Zie voor meer informatie [onderdelen eigenschappen].
-* **Automatische upgrade van eerdere versies van de projecten:** wanneer u een werkruimte met Azure-project gemaakt met een eerdere versie van de invoegtoepassing opent, de oude projecten wordt weergegeven in Eclipse als gesloten, omdat eerdere versies van de projecten niet compatibel met de nieuwe versie. Als u probeert een van deze oude projecten wilt openen, wordt een wizard upgrade wordt gestart. Als u akkoord met de upgrade, een nieuw project met gaat **_Upgraded** toegevoegd aan de naam, wordt gemaakt en automatisch bijgewerkt om te werken met de nieuwe versie. U kunt het nieuwe project hernoemen naar behoefte. Als onderdeel van de upgrade wordt het oorspronkelijke project worden niet gewijzigd (en blijft gesloten).
+  * Veel van deze Azure werkbalkknoppen worden gebruikt in [maken van een toepassing Hello World voor Azure in Eclipse].
+* **Azure-beheerbibliotheken voor Java:** nu beschikbaar enkel als onderdeel van Hallo pakket voor Azure-beheerbibliotheken voor Java-bibliotheek in Eclipse begeleidende Hallo-invoegtoepassing installeren en met alle Hallo ook nodig afhankelijkheden. Slechts één verwijzing toohello bibliotheek toevoegen in uw Java-project en hoeft u geen toodownload iets afzonderlijk. Zie voor meer informatie [installeren hello Azure Toolkit voor Eclipse].
+* **Microsoft JDBC-stuurprogramma 4.0 voor SQL Server beschikbaar is tijdens de installatie van de invoegtoepassing:** tijdens de installatie van de nieuwe invoegtoepassing Hallo Hallo nieuwste versie van Hallo Microsoft JDBC-stuurprogramma voor SQL Server kan worden geïnstalleerd.
+* **Azure Access Control Service Filter beschikbaar tijdens de installatie van de invoegtoepassing:** dit nieuwe onderdeel opgenomen als een bibliotheek Eclipse in Hallo toolkit, kan uw Java web application tooseamlessly profiteren van Azure Access Control Service (ACS) verificatie met behulp van verschillende identiteitsproviders, zoals Google en Live.com Yahoo!. U hoeft niet toowrite verificatielogica uzelf, slechts enkele opties configureren en laat Hallo filter doen Hallo zware gebruikers toosign bij het gebruik van ACS inschakelen op te heffen. U kunt alleen de nadruk op het Hallo-code waarmee gebruikers toegang tooresources op basis van hun identiteit schrijft, als tooyour toepassing geretourneerd door Hallo filter binnen Hallo Request-object. Voor een zelfstudie over het gebruik van Hallo ACS filteren, Zie [hoe tooAuthenticate webgebruikers met Azure Access Control-Service met behulp van Eclipse].
+* **Automatische detectie van hello Azure SDK 1.7 vereiste:** wanneer u een nieuw Project voor de Azure-implementatie maakt, Azure SDK 1.7 automatisch wordt gedownload als deze nog niet is geïnstalleerd.
+* **Exemplaar van eindpunten:** Hiermee kunt u directe poort eindpunt toegang voor communicatie met load balanced rolinstanties. Exemplaareindpunten kunnen worden toegevoegd via het Hallo-eindpunten-gebruikersinterface beschikbaar via Hallo [eindpunten eigenschappen] pagina. Dit helpt foutopsporing op afstand inschakelen en JMX diagnostische gegevens voor bepaalde berekeningen uitgevoerd in de cloud Hallo in scenario's met meerdere exemplaren-implementaties-instantie. 
+* **UI-onderdelen:** eenvoudiger voor ervaren gebruikers tooset up Projectafhankelijkheden tussen de afzonderlijke Azure rollen in Hallo-project en andere externe bronnen zoals Java-toepassing projecten; ook kunt u eenvoudig toodescribe hun logica implementatie . Zie voor meer informatie [onderdelen eigenschappen].
+* **Automatische upgrade van eerdere versies van de projecten:** wanneer u een werkruimte met Azure-project gemaakt met een eerdere versie van de invoegtoepassing Hallo opent, de oude projecten hello wordt weergegeven in Eclipse als gesloten, omdat eerdere versies van de projecten niet compatibel met de nieuwe release Hallo. Als u tooopen een van deze oude projecten probeert, wordt een wizard upgrade wordt gestart. Als u akkoord toohello upgrade, een nieuw project met gaat **_Upgraded** toegevoegde toohello-naam wordt gemaakt en toowork automatisch bijgewerkt met nieuwe Hallo-release. Hallo-nieuw project kunt u zo nodig wijzigen. Als onderdeel van het Hallo-upgrade wordt het oorspronkelijke project worden niet gewijzigd (en blijft gesloten).
 
 ### <a name="december-10-2011"></a>10 december 2011
 Azure-invoegtoepassing voor de Eclipse - December 2011 CTP heeft uitgegeven. Nieuwe functies:
 
 * **Sessie affiniteit (&quot;een tijdelijke sessies&quot;) ondersteunen:** helpen inschakelen stateful, Java-toepassingen met één checkbox geclusterd. Zie voor meer informatie [sessie affiniteit].
-* **Starten van de script-voorbeelden en-klare:** voor de meest populaire Java-servers (Tomcat, Jetty, JBoss, GlassFish), die u kunt alleen kopiëren en plakken van uw project voorbeelden directory in uw opstartscript.
-* **Uitvoer van de emulator opstarten in realtime:** u kunt nu bekijken tijdens de uitvoering van alle stappen van het opstartscript in een speciale consolevenster, waarin u de voortgang en fouten in het script als deze wordt uitgevoerd door Azure.
+* **Starten van de script-voorbeelden en-klare:** voor Hallo meest populaire Java-servers (Tomcat, Jetty, JBoss, GlassFish), die u kunt alleen kopiëren en plakken van uw project voorbeelden directory in uw opstartscript.
+* **Uitvoer van de emulator opstarten in realtime:** u kunt nu bekijken Hallo uitvoering van alle Hallo stappen van uw opstartscript in een speciale consolevenster met u Hallo uitgevoerd en fouten in uw script zoals deze door Azure wordt uitgevoerd.
 * **Automatische, lichte java.exe bewaking:** die een rol recycle forceert nadat java.exe uitgevoerd, met een lichtgewicht, vooraf gemaakte script automatisch opgenomen in uw implementatie.
-* **Externe Java-app foutopsporing van de gebruikersinterface voor configuratie:** kunt u eenvoudig inschakelen van Eclipse externe foutopsporingsprogramma voor toegang tot uw Java-app uitgevoerd in de Emulator of de Azure-cloud, zodat u kunt doorlopen en foutopsporing van uw Java-code in realtime. Zie voor meer informatie [Azure-toepassingen foutopsporing in Eclipse].
-* **Lokale opslag resourceconfiguratie UI:** zodat u niet langer hoeft te configureren van lokale bronnen door het XML-bestand rechtstreeks bewerken. Deze functie kunt u toegang tot het effectieve bestandspad van de lokale resource nadat deze geïmplementeerd via een omgevingsvariabele die u kunt verwijzen naar rechtstreeks vanuit uw opstartscript. Zie voor meer informatie [eigenschappen van lokale opslag].
-* **Configuratie van de omgeving variabele gebruikersinterface:** zodat u niet langer hoeft in te stellen omgevingsvariabelen via handmatige bewerking van de configuratie-XML. Zie voor meer informatie [variabelen omgevingseigenschappen].
-* **JDBC-stuurprogramma voor SQL Azure:** via de invoegtoepassing wordt geïnstalleerd als een naadloos geïntegreerde Eclipse-bibliotheek eenvoudiger programmeren voor SQL Azure inschakelen. 
-* **Contextmenu is snel toegang tot rolconfiguratie UI**: alleen met de rechtermuisknop op de map voor de rol en klikt u op **eigenschappen**.
+* **Externe Java-app foutopsporing van de gebruikersinterface voor configuratie:** Hiermee kunt u tooeasily inschakelen van Eclipse externe foutopsporingsprogramma tooaccess voor de Java-app uitgevoerd in Hallo Emulator of hello Azure-cloud, zodat u kunt doorlopen en foutopsporing van uw Java-code in realtime. Zie voor meer informatie [Azure-toepassingen foutopsporing in Eclipse].
+* **Lokale opslag resourceconfiguratie UI:** hoeft u niet langer tooconfigure lokale bronnen door Hallo XML rechtstreeks bewerken. Deze functie kunt u ook tooaccess toohello effectieve bestandspad van de lokale resource nadat deze geïmplementeerd via een omgevingsvariabele die u kunt verwijzen naar rechtstreeks vanuit uw opstartscript. Zie voor meer informatie [eigenschappen van lokale opslag].
+* **Configuratie van de omgeving variabele gebruikersinterface:** hoeft u niet langer tooset omgevingsvariabelen via handmatige bewerking van Hallo configuratie-XML. Zie voor meer informatie [variabelen omgevingseigenschappen].
+* **JDBC-stuurprogramma voor SQL Azure:** via Hallo-invoegtoepassing wordt geïnstalleerd als een naadloos geïntegreerde Eclipse-bibliotheek eenvoudiger programmeren voor SQL Azure inschakelen. 
+* **Snelle contextmenu toegang toorole de gebruikersinterface voor configuratie**: alleen met de rechtermuisknop op Hallo rol map en klik op **eigenschappen**.
 * **Aangepaste Azure project en rol pictogrammen van de map:** voor betere zichtbaarheid en navigatie in uw werkruimte en het project te vereenvoudigen.
 
 ## <a name="see-also"></a>Zie ook
-Voor meer informatie over de Azure Toolkits voor Java-IDE's klikt u op de volgende koppelingen:
+Zie voor meer informatie over hello Azure Toolkits voor IDE voor Java Hallo koppelingen te volgen:
 
 * [Azure Toolkit voor Eclipse]
-  * *Wat is er nieuw in de Azure werkset voor Eclipse (in dit artikel)*
-  * [installeren van de Azure-werkset voor Eclipse] (De Azure Toolkit voor Eclipse installeren)
+  * *Wat is er nieuw in hello Azure Toolkit voor Eclipse (dit artikel)*
+  * [installeren hello Azure Toolkit voor Eclipse]
   * [Een Hallo wereld Web-App maken voor Azure in Eclipse]
-  * [Sign In Instructions for the Azure Toolkit for Eclipse] (Aanmeldingsinstructies voor de Azure Toolkit voor Eclipse)
+  * [Meld u In instructies voor het hello Azure Toolkit voor Eclipse]
 * [Azure Toolkit voor IntelliJ] (Azure Toolkit voor IntelliJ)
-  * [What's New in the Azure Toolkit for IntelliJ] (Nieuw in de Azure Toolkit voor IntelliJ)
-  * [Installing the Azure Toolkit for IntelliJ] (De Azure Toolkit voor IntelliJ installeren)
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ] (Aanmeldingsinstructies voor de Azure Toolkit voor IntelliJ)
+  * [Wat is er nieuw in hello Azure Toolkit voor IntelliJ]
+  * [Hello Azure Toolkit voor IntelliJ installeren]
+  * [Meld u In instructies voor het hello Azure Toolkit voor IntelliJ]
   * [Een Hallo wereld Web-App maken voor Azure in IntelliJ]
 
-In het [Azure Java Developer Center] vindt u meer informatie over het gebruik van Azure met Java.
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -330,39 +330,39 @@ In het [Azure Java Developer Center] vindt u meer informatie over het gebruik va
 [Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij.md (Azure Toolkit voor IntelliJ)
 [Een Hallo wereld Web-App maken voor Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Een Hallo wereld Web-App maken voor Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[installeren van de Azure-werkset voor Eclipse]: ./azure-toolkit-for-eclipse-installation.md (De Azure Toolkit voor Eclipse installeren)
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md (De Azure Toolkit voor IntelliJ installeren)
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Aanmeldingsinstructies voor de Azure Toolkit voor Eclipse)
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Aanmeldingsinstructies voor de Azure Toolkit voor IntelliJ)
-[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md (Nieuw in de Azure Toolkit voor IntelliJ)
+[installeren hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Hello Azure Toolkit voor IntelliJ installeren]: ./azure-toolkit-for-intellij-installation.md
+[Meld u In instructies voor het hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Meld u In instructies voor het hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[What's New in hello Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Wat is er nieuw in hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Azure aanmelding In instructies voor de Azure-werkset voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[het publiceren van een Web-App als een Docker-Container met de Azure-Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-publish-as-docker-container.md
-[beheren Storage-Accounts met de Azure-Explorer voor Eclipse]: ./azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md
-[het beheren van virtuele Machines met behulp van de Azure-Explorer voor Eclipse]: ./azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
+[Azure aanmelding In instructies voor het hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[hoe toopublish een Web-App als een Docker-Container met Azure Toolkit voor Eclipse Hallo]: ./azure-toolkit-for-eclipse-publish-as-docker-container.md
+[Storage-Accounts beheren met behulp van Azure Explorer voor Eclipse Hallo]: ./azure-toolkit-for-eclipse-managing-storage-accounts-using-azure-explorer.md
+[met behulp van het beheer van virtuele Machines hello Azure Explorer voor Eclipse]: ./azure-toolkit-for-eclipse-managing-virtual-machines-using-azure-explorer.md
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-[Azul systemen webpagina voor de OpenJDK Zulu]: http://go.microsoft.com/fwlink/?LinkId=402457
+[Azul systemen webpagina Hallo Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Service-eindpunten]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage-Accountlijst]: http://go.microsoft.com/fwlink/?LinkID=699528
 [onderdelen eigenschappen]: http://go.microsoft.com/fwlink/?LinkID=699525#components_properties
-[maken van een Hallo wereld-toepassing voor Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[maken van een toepassing Hello World voor Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Azure-toepassingen foutopsporing in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [grote implementaties implementeren]: http://go.microsoft.com/fwlink/?LinkID=699536
 [eindpunten eigenschappen]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
 [variabelen omgevingseigenschappen]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
 [invoegtoepassing HDInsight Tools for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
-[Web gebruikers verifiëren met Azure Access Control-Service met behulp van Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
-[hoe gebruik SSL-Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546 (De Azure Toolkit voor Eclipse installeren)
+[hoe tooAuthenticate webgebruikers met Azure Access Control-Service met behulp van Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
+[hoe tooUse SSL-Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Hello Azure Toolkit voor Eclipse installeren]: http://go.microsoft.com/fwlink/?LinkId=699546
 [eigenschappen van lokale opslag]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 [Microsoft Azure-Client API]: http://go.microsoft.com/fwlink/?LinkId=280397
 [configuratie-eigenschappen Server]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
 [sessie affiniteit]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL-Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
-[voor het maken van een nieuw opslagaccount]: http://go.microsoft.com/fwlink/?LinkID=699528#create_new
+[toocreate een nieuw opslagaccount]: http://go.microsoft.com/fwlink/?LinkID=699528#create_new
 [virtuele Machine en Cloud Service Sizes for Azure]: http://go.microsoft.com/fwlink/?LinkId=466520
 
 <!-- IMG List -->

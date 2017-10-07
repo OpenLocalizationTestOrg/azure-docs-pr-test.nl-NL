@@ -1,6 +1,6 @@
 ---
-title: Continue levering met Git en Visual Studio Team Services in Azure | Microsoft Docs
-description: Informatie over het configureren van uw teamprojecten Visual Studio Team Services voor het gebruik van Git om automatisch te bouwen en implementeren voor de functie Web-App in Azure App Service- of cloud-services.
+title: aaaContinuous levering met Git en Visual Studio Team Services in Azure | Microsoft Docs
+description: Meer informatie over hoe tooconfigure uw Visual Studio Team Services team projecten toouse Git tooautomatically bouwen en implementeren van de functie van de toohello Web-App in Azure App Service- of cloud-services.
 services: cloud-services
 documentationcenter: .net
 author: mlearned
@@ -14,178 +14,178 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 936c42194f45be55597a77f9a3a6deb4480ed94b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="continuous-delivery-to-azure-using-visual-studio-team-services-and-git"></a>Onafgebroken levering naar Azure met Visual Studio Team Services en Git
-Teamprojecten Visual Studio Team Services kunt u een Git-opslagplaats host voor de broncode en om automatisch te bouwen en implementeren voor Azure-web-apps of cloudservices wanneer u een doorvoeren naar de opslagplaats forceren.
+# <a name="continuous-delivery-tooazure-using-visual-studio-team-services-and-git"></a>Continue levering tooAzure met behulp van Visual Studio Team Services en Git
+U kunt Visual Studio Team Services team projecten toohost een Git-opslagplaats gebruiken voor de broncode en automatisch bouwen en tooAzure web-apps implementeren of cloudservices wanneer u een commit toohello opslagplaats pushen.
 
-U moet Visual Studio 2013 en de Azure-SDK geïnstalleerd. Als u nog geen Visual Studio 2013 hebt, downloadt u dit door het kiezen van de **gratis aan de slag** koppeling [www.visualstudio.com](http://www.visualstudio.com). Installeer de Azure-SDK van [hier](http://go.microsoft.com/fwlink/?LinkId=239540).
+U moet Visual Studio 2013 en hello Azure SDK is geïnstalleerd. Als u nog geen Visual Studio 2013 hebt, downloadt u dit door te kiezen Hallo **gratis aan de slag** koppeling [www.visualstudio.com](http://www.visualstudio.com). Installeren Azure SDK Hallo [hier](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 > [!NOTE]
-> U moet een Visual Studio Team Services-account om deze zelfstudie te voltooien: U kunt [gratis een Visual Studio Team Services-account openen](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> U moet een toocomplete Visual Studio Team Services-account van deze zelfstudie: U kunt [gratis een Visual Studio Team Services-account openen](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 > 
 > 
 
-Voer de volgende stappen uit voordat u een cloudservice om automatisch te bouwen en implementeren in Azure met behulp van Visual Studio Team Services kunt instellen.
+tooset van een cloud service tooautomatically bouwen en tooAzure implementeren met behulp van Visual Studio Team Services, als volgt te werk.
 
 ## <a name="1-create-a-git-repository"></a>1: een Git-opslagplaats maken
-1. Als u nog een Visual Studio Team Services-account hebt, kunt u een [hier](http://go.microsoft.com/fwlink/?LinkId=397665). Wanneer u uw teamproject maakt, kiest u Git als uw bronbeheersysteem. Volg de instructies voor het verbinden van Visual Studio aan uw teamproject.
-2. In **Team Explorer**, kies de **deze opslagplaats klonen** koppeling.
+1. Als u nog een Visual Studio Team Services-account hebt, kunt u een [hier](http://go.microsoft.com/fwlink/?LinkId=397665). Wanneer u uw teamproject maakt, kiest u Git als uw bronbeheersysteem. Ga als volgt Hallo instructies tooconnect Visual Studio tooyour teamproject.
+2. In **Team Explorer**, kies Hallo **deze opslagplaats klonen** koppeling.
    
     ![][3]
-3. Geef de locatie van de lokale kopie en kies vervolgens de **kloon** knop.
+3. Locatie van de lokale kopie Hallo Hallo opgeven en kies vervolgens Hallo **kloon** knop.
 
-## <a name="2-create-a-project-and-commit-it-to-the-repository"></a>2: Maak een project en het doorvoeren naar de opslagplaats
-1. In **Team Explorer**, in de **oplossingen** sectie, kiest u de **nieuw** koppeling naar een nieuw project maken in de lokale opslagplaats.
+## <a name="2-create-a-project-and-commit-it-toohello-repository"></a>2: een project maken en deze opslagplaats toohello doorvoeren
+1. In **Team Explorer**, in Hallo **oplossingen** sectie, kiest u Hallo **nieuw** toocreate een nieuw project in de lokale opslagplaats Hallo koppelen.
    
     ![][4]
-2. De stappen in dit scenario kunt u een web-app of een service in de cloud (Azure-toepassing) implementeren. Maak een nieuw Azure Cloud Service-project of een nieuw ASP.NET MVC-project. Controleer of het project gericht op .NET Framework 4 of hoger. Als u een cloudserviceproject maakt, een ASP.NET MVC-Webrol en een werkrol toevoegen.
-   Als u maken van een web-app wilt, kiest u de **ASP.NET-webtoepassing** sjabloon project en kies vervolgens **MVC**. Zie [een ASP.NET-web-app maken in Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md) voor meer informatie.
-3. Open het snelmenu voor de oplossing en kies **doorvoeren**.
+2. U kunt een web-app implementeren of een service in de cloud (Azure-toepassing) door de volgende Hallo stappen in dit scenario. Maak een nieuw Azure Cloud Service-project of een nieuw ASP.NET MVC-project. Controleer of dat Hallo project doelen Hallo .NET Framework 4 of hoger. Als u een cloudserviceproject maakt, een ASP.NET MVC-Webrol en een werkrol toevoegen.
+   Als u een web-app toocreate wilt, kunt u Hallo **ASP.NET-webtoepassing** sjabloon project en kies vervolgens **MVC**. Zie [een ASP.NET-web-app maken in Azure App Service](../app-service-web/app-service-web-get-started-dotnet.md) voor meer informatie.
+3. Open Hallo snelmenu voor Hallo oplossing en kies **doorvoeren**.
    
     ![][7]
-4. Als dit de eerste keer dat u Git in Visual Studio Team Services hebt gebruikt, moet u bepaalde informatie gegeven om u te identificeren in Git. In de **wijzigingen in behandeling** gebied van **Team Explorer**, Voer uw gebruikersnaam en e-mailadres. Voer een opmerking in voor het doorvoeren en kies vervolgens de **doorvoeren** knop.
+4. Als dit Hallo eerst die u Git in Visual Studio Team Services hebt gebruikt, moet u tooprovide sommige tooidentify informatie zelf in Git. In Hallo **wijzigingen in behandeling** gebied van **Team Explorer**, Voer uw gebruikersnaam en e-mailadres. Voer een opmerking voor Hallo doorvoeren en kies vervolgens Hallo **doorvoeren** knop.
    
     ![][8]
-5. Noteer de opties die u wilt opnemen of uitsluiten van specifieke wijzigingen wanneer u incheckt. Als u de gewenste wijzigingen zijn uitgesloten, kiest u **omvatten alle**.
-6. U hebt nu de wijzigingen doorgevoerd in het lokale exemplaar van de opslagplaats. Vervolgens deze wijzigingen met de server te synchroniseren door het kiezen van de **Sync** koppeling.
+5. Houd er rekening mee Hallo opties tooinclude of specifieke wijzigingen uitsluiten wanneer u incheckt. Als Hallo wijzigingen u wilt worden uitgesloten, kiest u **omvatten alle**.
+6. U hebt nu doorgevoerd Hallo in de lokale kopie van het Hallo-opslagplaats wijzigingen. Vervolgens deze wijzigingen met Hallo-server te synchroniseren door te kiezen Hallo **Sync** koppeling.
 
-## <a name="3-connect-the-project-to-azure"></a>3: verbinding maken met het project naar Azure
-1. Nu dat u een Git-opslagplaats in Visual Studio Team Services met sommige broncode erin hebt, bent u klaar om de git-opslagplaats met in Azure.  In de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), selecteer uw cloud-service of web-app of een nieuwe maken door het kiezen van de + pictogram naar links en te kiezen onder **Cloudservice** of **Web-App** en vervolgens **snelle invoer**.
+## <a name="3-connect-hello-project-tooazure"></a>3: verbinding maken met de Hallo project tooAzure
+1. Nu dat u een Git-opslagplaats in Visual Studio Team Services met sommige broncode erin hebt, bent u klaar tooconnect uw tooAzure git-opslagplaats.  In Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), selecteer uw cloud-service of web-app of een nieuwe maken door te kiezen Hallo + pictogram op Hallo linksonder en kiezen **Cloudservice** of **Web-App**en vervolgens **snelle invoer**.
    
     ![][9]
-2. Kies voor cloudservices, de **publiceren met Visual Studio Team Services instellen** koppeling. Kies voor web-apps, de **implementatie vanuit resourcebeheer instellen** koppeling.
+2. Kies voor cloudservices, Hallo **publiceren met Visual Studio Team Services instellen** koppeling. Kies voor web-apps, Hallo **implementatie vanuit resourcebeheer instellen** koppeling.
    
     ![][10]
-3. Typ de naam van uw Visual Studio Team Services-account in het tekstvak in de wizard en kies de **autoriseren nu** koppeling. U wordt mogelijk gevraagd aan te melden.
+3. In de wizard Hallo typenaam Hallo van uw Visual Studio Team Services-account in Hallo tekstvak en kies Hallo **autoriseren nu** koppeling. U wordt mogelijk gevraagd toosign in.
    
     ![][11]
-4. In de **verbindingsaanvraag** pop-upvenster kiezen **accepteren** voor het autoriseren van Azure voor het configureren van uw teamproject in Visual Studio Team Services.
+4. In Hallo **verbindingsaanvraag** pop-upvenster kiezen **accepteren** tooauthorize Azure tooconfigure uw team in Visual Studio Team Services project.
    
     ![][12]
-5. Nadat de autorisatie is geslaagd, ziet u een vervolgkeuzelijst met uw teamprojecten Visual Studio Team Services.  Selecteer de naam van teamproject dat u in de vorige stappen hebt gemaakt en kies selectievakje-knop van de wizard.
+5. Nadat de autorisatie is geslaagd, ziet u een vervolgkeuzelijst met uw teamprojecten Visual Studio Team Services.  Selecteer de naam Hallo van teamproject dat u hebt gemaakt in de vorige stappen Hallo en kies van de wizard Hallo vinkje knop.
    
     ![][13]
    
-    De volgende keer dat u het doorvoeren van gegevens naar uw opslagplaats pushen Visual Studio Team Services bouwt en uw project implementeren in Azure.
+    Hallo volgende keer dat u Visual Studio Team Services van een commit tooyour opslagplaats pushen bouwt en implementeren van uw project tooAzure.
 
 ## <a name="4-trigger-a-rebuild-and-redeploy-your-project"></a>4: de tabel opnieuw activeren en implementeren van uw project
-1. In Visual Studio, opent u een bestand en deze te wijzigen. Wijzig bijvoorbeeld het bestand `_Layout.cshtml` onder de weergaven\\gedeelde map in een MVC-Webrol.
+1. In Visual Studio, opent u een bestand en deze te wijzigen. Wijzig bijvoorbeeld Hallo bestand `_Layout.cshtml` onder Hallo weergaven\\gedeelde map in een MVC-Webrol.
    
     ![][17]
-2. Bewerk de voettekst voor de site en sla het bestand.
+2. Hallo voettekst voor Hallo site bewerken en sla Hallo-bestand.
    
     ![][18]
-3. In **Solution Explorer**, open het snelmenu voor het knooppunt oplossing, projectknooppunt of het bestand gewijzigd, en kies vervolgens **doorvoeren**.
+3. In **Solution Explorer**, open de Hallo snelmenu voor hello oplossing knooppunt, projectknooppunt of Hallo bestand dat u gewijzigd en kies vervolgens **doorvoeren**.
 4. Typ in een opmerking en kies **doorvoeren**.
    
     ![][20]
-5. Kies de **Sync** koppeling.
+5. Kies Hallo **Sync** koppeling.
    
     ![][38]
-6. Kies de **Push** koppeling naar uw commit push naar de opslagplaats in Visual Studio Team Services. (U kunt ook de **Sync** knop uw doorvoeracties kopiëren naar de opslagplaats. Het verschil is dat **Sync** ook de meest recente wijzigingen ophaalt uit de opslagplaats.)
+6. Kies Hallo **Push** koppelen toopush uw opslagplaats doorvoeren toohello in Visual Studio Team Services. (U kunt ook Hallo **Sync** knop toocopy uw doorvoeracties toohello-opslagplaats. Hallo verschil is dat **Sync** ook worden de meest recente wijzigingen in de opslagplaats voor Hallo Hallo.)
    
     ![][39]
-7. Kies de **thuis** terug te keren naar de **Team Explorer** startpagina.
+7. Kies Hallo **thuis** knop tooreturn toohello **Team Explorer** startpagina.
    
     ![][21]
-8. Kies **Builds** om weer te geven van de opbouw uitgevoerd.
+8. Kies **Builds** tooview hello-bouwt uitgevoerd.
    
     ![][22]
    
     **In een team Explorer** ziet u dat een build voor uw inchecken is geactiveerd.
    
     ![][23]
-9. Om weer te geven een gedetailleerd logboek in de loop van de build, dubbelklikt u op de naam van de build uitgevoerd.
-10. Hoewel de build in voortgang, bekijk de build-definitie die is gemaakt toen u de wizard hebt gebruikt om te koppelen aan Azure.  Open het snelmenu voor de definitie van de build en kies **bouwen definitie bewerken**.
+9. tooview een gedetailleerd logboek terwijl Hallo maakt de voortgang van Dubbelklik op Hallo van Hallo build uitgevoerd.
+10. Hallo build is uitgevoerd, bekijk Hallo build definitie die is gemaakt toen u Hallo wizard toolink tooAzure gebruikt.  Hallo snelmenu voor Hallo build definitie openen en kies **bouwen definitie bewerken**.
     
     ![][25]
-11. In de **Trigger** tabblad ziet u dat de definitie van de build is standaard ingesteld op voor elke inchecken bouwen. (Voor een cloudservice, Visual Studio Team Services bouwt en worden de hoofdvertakking geïmplementeerd op de testomgeving. U hebt nog wel een handmatige stap naar de live site implementeren. Voor een web-app dat geen staging-omgeving, wordt de hoofdvertakking geïmplementeerd rechtstreeks naar de live site.
+11. In Hallo **Trigger** tabblad ziet u dat Hallo build definitie toobuild is ingesteld op elke inchecken standaard. (Voor een cloudservice Visual Studio Team Services maakt en implementeert Hallo hoofdvertakking toohello automatisch staging-omgeving. U hebt nog toodo een handmatige stap toodeploy toohello live site. Voor een web-app dat geen staging-omgeving, wordt het Hallo hoofdvertakking direct toohello live site geïmplementeerd.
     
     ![][26]
-12. In de **proces** tabblad ziet u de implementatieomgeving is ingesteld op de naam van uw cloud-service of web-app.
+12. In Hallo **proces** tabblad ziet u de implementatieomgeving Hallo toohello naam van uw cloud-service of web-app is ingesteld.
     
      ![][27]
-13. Geef waarden voor de eigenschappen als u wilt dat andere waarden dan de standaardwaarden. De eigenschappen voor Azure publicatie zijn de **implementatie** sectie en kunt u wellicht ook MSBuild-parameters instellen. Bijvoorbeeld in een cloud service-project op te geven van een serviceconfiguratie dan 'Cloud' ingesteld de MSbuild-parameters op `/p:TargetProfile=[YourProfile]` waar *[YourProfile]* overeenkomt met een configuratiebestand voor de service met een naam zoals serviceconfiguration zijn. *YourProfile*cscfg-bestand.
+13. Geef waarden voor Hallo eigenschappen als u wilt dat andere waarden dan Hallo standaardwaarden. Hallo-eigenschappen voor Azure publicatie worden in Hallo **implementatie** sectie en kunt u wellicht ook tooset MSBuild-parameters. Bijvoorbeeld in een cloud service-project toospecify een serviceconfiguratie dan 'Cloud' hello MSbuild parameters instellen te`/p:TargetProfile=[YourProfile]` waar *[YourProfile]* overeenkomt met een configuratiebestand voor de service met een naam zoals Serviceconfiguration zijn. *YourProfile*cscfg-bestand.
     
-     De volgende tabel bevat de beschikbare eigenschappen in de **implementatie** sectie:
+     Hallo volgende tabel bevat de beschikbare eigenschappen Hallo in Hallo **implementatie** sectie:
     
     | Eigenschap | Standaardwaarde |
     | --- | --- |
     | Niet-vertrouwde certificaten toestaan |Als het ONWAAR is, moeten de SSL-certificaten zijn ondertekend door een basisinstantie. |
-    | Upgrade toestaan |Hiermee kunt de implementatie bijwerken van een bestaande implementatie in plaats van een nieuwe maken. Het IP-adres, blijft behouden. |
+    | Upgrade toestaan |Hiermee kunt Hallo implementatie tooupdate een bestaande implementatie in plaats van een nieuwe maken. Bewaart Hallo IP-adres. |
     | Niet verwijderen |Indien waar, de implementatie van een bestaande niet-verwante niet overschrijven (upgrade is toegestaan). |
-    | Pad naar de implementatie-instellingen |Het pad naar het bestand .pubxml voor een web-app, ten opzichte van de hoofdmap van de opslagplaats. Genegeerd voor cloud-services. |
-    | SharePoint-omgeving voor implementatie |Hetzelfde als de naam van de service. |
-    | Azure-implementatie-omgeving |De web-app of cloud servicenaam. |
+    | Pad tooDeployment instellingen |Hallo pad tooyour .pubxml bestand voor een web-app relatieve toohello-hoofdmap van het Hallo-opslagplaats. Genegeerd voor cloud-services. |
+    | SharePoint-omgeving voor implementatie |dezelfde als de servicenaam Hallo Hallo. |
+    | Azure-implementatie-omgeving |Hallo-app of cloud naam van de webservice. |
 14. Op dit tijdstip moet uw build worden voltooid.
     
      ![][28]
-15. Als u dubbelklikt op de naam van de build, ziet u Visual Studio een **bouwen samenvatting**, met inbegrip van de testresultaten van eenheid Testprojecten die is gekoppeld.
+15. Als u dubbelklikt op de naam van de build hello, ziet u Visual Studio een **bouwen samenvatting**, met inbegrip van de testresultaten van eenheid Testprojecten die is gekoppeld.
     
      ![][29]
-16. In de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), kunt u de gekoppelde implementatie bekijken op de **implementaties** tabblad wanneer de faseringsomgeving is geselecteerd.
+16. In Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), kunt u Hallo gekoppeld implementatie bekijken op Hallo **implementaties** tabblad wanneer Hallo staging-omgeving is geselecteerd.
     
      ![][30]
-17. Blader naar de URL van uw site. Voor een web-app, kies de **Bladeren** knop in de portal. Voor een cloudservice, kiest u de URL in de **snel in één oogopslag** sectie van de **Dashboard** pagina waarin de Staging-omgeving.
+17. De URL van de site tooyour bladeren. Kies voor een web-app Hallo **Bladeren** knop in Hallo-portal. Kies voor een cloudservice Hallo URL uit Hallo **snel in één oogopslag** sectie Hallo **Dashboard** pagina waarin de faseringsomgeving Hallo.
     
-    Implementaties van continue integratie voor cloud-services worden gepubliceerd op de faseringsomgeving standaard. U kunt dit wijzigen door in te stellen de **alternatieve Cloudserviceomgeving** eigenschap **productie**. Hier is waarbij de URL van de site op de dashboardpagina van de cloudservice.
+    Implementaties van continue integratie voor cloud-services worden gepubliceerde toohello faseringsomgeving standaard. U kunt dit wijzigen door de instelling Hallo **alternatieve Cloudserviceomgeving** eigenschap te**productie**. Hier is waarbij Hallo site-URL op de dashboardpagina Hallo cloudservice.
     
     ![][31]
     
-    Een nieuw browsertabblad geopend om uw actieve site weer te geven.
+    Een nieuw browsertabblad geopend tooreveal uw site uitgevoerd.
     
     ![][32]
-18. Als u andere wijzigingen aan uw project aanbrengt, u trigger meer maakt en u kunt meerdere implementaties wordt verzameld. De meest recente versie is gemarkeerd als actief.
+18. Als u andere wijzigingen tooyour project, u trigger builds meer en wordt u meerdere implementaties verzamelt. Hallo laatste één is gemarkeerd als actief.
     
     ![][33]
 
 ## <a name="5-redeploy-an-earlier-build"></a>5: een eerdere build implementeren
-Deze stap is optioneel. In de klassieke Azure portal, kiest u een eerdere implementatie en kies **implementeren** terugspoelen van uw site een eerdere in te checken. Houd er rekening mee dat dit een nieuwe build in TFS activeren en maken van een nieuwe vermelding in de geschiedenis van uw implementatie.
+Deze stap is optioneel. In klassieke Azure-portal hello, kies een eerdere implementatie en **implementeren** toorewind uw site tooan eerder incheckt. Houd er rekening mee dat dit een nieuwe build in TFS activeren en maken van een nieuwe vermelding in de geschiedenis van uw implementatie.
 
 ![][34]
 
-## <a name="6-change-the-production-deployment"></a>6: de productie-implementatie wijzigen
-Wanneer u klaar bent, kunt u de faseringsomgeving naar de productieomgeving promoveren kiezen **wisselen** in de klassieke Azure portal. De zojuist geïmplementeerde faseringsomgeving wordt gepromoveerd voor productie en de vorige productie-omgeving, indien aanwezig, wordt een Staging-omgeving. De actieve implementatie mogelijk anders voor de productie- en Faseringsomgevingen, maar de geschiedenis van de implementatie van recente builds is hetzelfde, ongeacht de omgeving.
+## <a name="6-change-hello-production-deployment"></a>6: Hallo productie-implementatie wijzigen
+Wanneer u klaar bent, kunt u Hallo fasering toohello productieomgeving promoveren kiezen **wisselen** in Hallo klassieke Azure-portal. faseringsomgeving Hallo zojuist geïmplementeerde is gepromoveerde tooProduction en Hallo vorige productie-omgeving, indien aanwezig, wordt een Staging-omgeving. Hallo actieve implementatie mogelijk anders voor hello productie- en faseringsomgevingen, maar de implementatiegeschiedenis Hallo van recente builds is Hallo dezelfde omgeving ongeacht.
 
 ![][35]
 
 ## <a name="7-deploy-from-a-working-branch"></a>7: implementeren vanuit een werkvertakking.
-Wanneer u met Git, meestal wijzigingen aanbrengt in een werkvertakking en integreren in de hoofdvertakking wanneer de ontwikkeling van een voltooide status bereikt. Tijdens de ontwikkelingsfase van een project, moet u het bouwen en implementeren van de werkvertakking in Azure.
+Wanneer u met Git, meestal wijzigingen aanbrengt in een werkvertakking en integreren in de hoofdvertakking Hallo wanneer de ontwikkeling van een voltooide status bereikt. Tijdens de ontwikkelingsfase Hallo van een project, u wilt toobuild en Hallo werkende vertakking tooAzure implementeren.
 
-1. In **Team Explorer**, kies de **Start** knop en kies vervolgens de **vertakkingen** knop.
+1. In **Team Explorer**, kies Hallo **Start** knop en kies vervolgens Hallo **vertakkingen** knop.
    
     ![][40]
-2. Kies de **nieuwe vertakking** koppeling.
+2. Kies Hallo **nieuwe vertakking** koppeling.
    
     ![][41]
-3. Voer de naam van de vertakking, zoals 'werken', en kies **vertakking maken**. Hiermee maakt u een nieuwe lokale vertakking.
+3. Geef de naam Hallo van Hallo vertakking, zoals 'werken', en kies **vertakking maken**. Hiermee maakt u een nieuwe lokale vertakking.
    
     ![][42]
-4. Publiceer de vertakking. Kies de naam van de vertakking in **niet gepubliceerd vertakkingen**, en kies **publiceren**.
+4. Hallo vertakking publiceren. Kies Hallo vertakking naam in **niet gepubliceerd vertakkingen**, en kies **publiceren**.
    
     ![][44]
-5. Alleen de wijzigingen naar de hoofdvertakking activeren standaard een continue build. Als u continue build voor een werkvertakking instelt, kies de **Builds** pagina in **Team Explorer**, en kies **bouwen definitie bewerken**.
-6. Open de **broninstellingen** tabblad. Onder **bewaakt vertakkingen voor continue integratie en build**, kies **Klik hier om een nieuwe rij toegevoegd**.
+5. Standaard verandert alleen toohello hoofdvertakking trigger een continue build. tooset up continue build voor een werkvertakking, kies Hallo **Builds** pagina in **Team Explorer**, en kies **bouwen definitie bewerken**.
+6. Open Hallo **broninstellingen** tabblad. Onder **bewaakt vertakkingen voor continue integratie en build**, kies **Klik hier tooadd een nieuwe rij**.
    
     ![][47]
-7. Geef de vertakking die u hebt gemaakt, zoals koppen refs werkende.
+7. Hallo vertakking die u hebt gemaakt, zoals koppen refs werkende opgeven.
    
     ![][48]
-8. Een wijziging aanbrengt in de code en kies vervolgens opent u het snelmenu voor het gewijzigde bestand **doorvoeren**.
+8. Een wijziging aanbrengt in Hallo code, open Hallo snelmenu voor het bestand Hallo gewijzigd, en kies vervolgens **doorvoeren**.
    
     ![][43]
-9. Kies de **niet-gesynchroniseerde doorvoeracties** koppeling en kies de **Sync** knop of de **Push** koppeling kopiëren van de wijzigingen naar de kopie van de werkvertakking in Visual Studio Team Services.
+9. Kies Hallo **niet-gesynchroniseerde doorvoeracties** koppeling en kies Hallo **synchronisatie** knop of Hallo **Push** koppeling toocopy Hallo wijzigingen toohello kopie van de werkvertakking Hallo in Visual Studio Teamservices.
    
    ![][45]
-10. Navigeer naar de **Builds** bekijken en de build die zojuist is geactiveerd voor de werkvertakking niet vinden.
+10. Navigeer toohello **Builds** weergeven en Hallo-build die zojuist is geactiveerd voor Hallo werkvertakking niet vinden.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips over het gebruik van Git met Visual Studio Team Services meer [ontwikkelen en delen van uw code in Git met Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) en Zie voor meer informatie over het gebruik van een Git-opslagplaats die niet wordt beheerd door Visual Studio Team Services te publiceren naar Azure [continue implementatie naar Azure App Service](../app-service-web/app-service-continuous-deployment.md). Zie voor meer informatie over Visual Studio Team Services [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+toolearn meer tips over het gebruik van Git met Visual Studio Team Services, Zie [ontwikkelen en delen van uw code in Git met Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) en voor informatie over het gebruik van een Git-opslagplaats die niet wordt beheerd door Visual Studio Team Services toopublish tooAzure, Zie [continue implementatie tooAzure App Service](../app-service-web/app-service-continuous-deployment.md). Zie voor meer informatie over Visual Studio Team Services [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

@@ -1,6 +1,6 @@
 ---
-title: Azure Batch-API's en -hulpprogramma's gebruiken voor het ontwikkelen van grootschalige parallelle verwerkingsoplossingen | Microsoft Docs
-description: Meer informatie over de API's en hulpprogramma's voor het ontwikkelen van oplossingen met de Azure Batch-service.
+title: aaaUse Azure Batch-API's en hulpprogramma's toodevelop grootschalige parallelle verwerking oplossingen | Microsoft Docs
+description: Meer informatie over Hallo API's en hulpprogramma's voor het ontwikkelen van oplossingen met hello Azure Batch-service.
 services: batch
 author: tamram
 manager: timlt
@@ -8,33 +8,33 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.openlocfilehash: c8c76944f4a95d3c8181454a7103ea0a3022189a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ca75a1a63b3e7e6b0805e79a63685bc49aaaca8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Overzicht van Batch-API's en -hulpprogramma's
 
-Het verwerken van parallelle workloads met Azure Batch gebeurt gewoonlijk op programmatische wijze met behulp van een van de [Batch-API's](#batch-development-apis). Uw clienttoepassing of -service kan de Batch-API's gebruiken om met de Batch-service te communiceren. Met de Batch-API's kunt u pools van rekenknooppunten maken en beheren, ofwel virtuele machines ofwel cloudservices. Vervolgens kunt u jobs en taken plannen voor uitvoering op deze knooppunten. 
+Verwerking van parallelle workloads met Azure Batch gewoonlijk wordt uitgevoerd via een programma met behulp van een Hallo [Batch-API's](#batch-development-apis). Uw clienttoepassing of service kunt Hallo Batch-API's toocommunicate met Hallo Batch-service gebruiken. Met de Hallo Batch-API's, kunt u maken en beheren van pools van rekenknooppunten, virtuele machines of cloudservices. Vervolgens kunt u jobs en taken toorun op die knooppunten plannen. 
 
-U kunt voor uw organisatie efficiënt grootschalige workloads verwerken of uw klanten een front-endservice aanbieden, zodat zij (op aanvraag of gepland) jobs en taken kunnen uitvoeren op één knooppunt of honderden of zelfs duizenden knooppunten. U kunt Azure Batch ook gebruiken als onderdeel van een grotere werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
+U kunt efficiënt grootschalige workloads verwerken voor uw organisatie of bieden een service-front-end tooyour klanten, zodat ze kunnen worden uitgevoerd jobs en taken--op aanvraag of volgens een schema--op één, honderden of zelfs duizenden knooppunten. U kunt Azure Batch ook gebruiken als onderdeel van een grotere werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
-> Wanneer u gereed bent om met de Batch-API aan de slag te gaan en u te verdiepen in de mogelijkheden ervan, leest u het [Overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md).
+> Wanneer u klaar bent toodig in toohello Batch-API voor een uitgebreidere kennis van Hallo deze functies biedt, bekijk Hallo [overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md).
 > 
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Azure-accounts voor Batch-ontwikkeling
-Wanneer u Batch-oplossingen ontwikkelt, gebruikt u de volgende accounts in Microsoft Azure.
+Wanneer u Batch-oplossingen ontwikkelt, gebruikt u Hallo accounts in Microsoft Azure te volgen.
 
 * **Azure-account en -abonnement**: als u nog geen Azure-abonnement hebt, kunt u uw [voordelen als MSDN-abonnee][msdn_benefits] activeren of u aanmelden voor een [gratis Azure-account][free_account]. Wanneer u een account maakt, wordt voor u een standaardabonnement gemaakt.
-* **Batch-account**: Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Azure Batch-account gekoppeld. Als uw toepassing een aanvraag indient voor de Batch-service, verifieert deze de aanvraag met de Azure Batch-accountnaam, de URL van het account en een toegangssleutel. U kunt een [Batch-account maken](batch-account-create-portal.md) in Azure Portal.
-* **Storage-account**: Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het faseren van de programma's die door de taken worden uitgevoerd en de gegevens die ze verwerken, en voor de opslag van uitvoergegevens die ze genereren. Zie [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md) voor het maken van een opslagaccount.
+* **Batch-account**: Batch-resources zoals pools, rekenknooppunten, jobs en taken worden aan een Azure Batch-account gekoppeld. Wanneer uw toepassing een aanvraag in voor Hallo Batch-service maakt, verifieert het Hallo-aanvraag met hello Azure Batch-accountnaam, URL op Hallo van Hallo-account en een toegangssleutel. U kunt [Batch-account maken](batch-account-create-portal.md) in hello Azure-portal.
+* **Storage-account**: Batch bevat ingebouwde ondersteuning voor het werken met bestanden in [Azure Storage][azure_storage]. Vrijwel elk Batch-scenario gebruikt Azure Blob-opslag voor het Faseren van Hallo-programma's die de taken worden uitgevoerd en Hallo-gegevens die zij verwerken, en voor Hallo opslag van uitvoergegevens die zij genereren. een opslagaccount toocreate Zie [over Azure storage-accounts](../storage/common/storage-create-storage-account.md).
 
 ## <a name="batch-service-apis"></a>API’s voor Batch-service
 
-Uw toepassingen en services kunnen direct REST-API-aanroepen verstrekken of een of meer van de volgende clientbibliotheken gebruiken voor het uitvoeren en beheren van uw Azure Batch-workloads.
+Uw toepassingen en services kunnen rechtstreekse REST-API-aanroepen uitgeven of een of meer van de volgende client-bibliotheken toorun hello gebruiken en beheren van uw Azure Batch-workloads.
 
 | API | API-verwijzing | Download | Zelfstudie | Codevoorbeelden | Meer informatie |
 | --- | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Uw toepassingen en services kunnen direct REST-API-aanroepen verstrekken of een 
 
 ## <a name="batch-management-apis"></a>API’s voor Batch Management
 
-De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Batch-accounts. Met deze API's kunt u programmatisch Batch-accounts, quota en toepassingspakketten beheren.  
+Hello Azure Resource Manager-API's voor Batch bieden toegang op programmeerniveau tooBatch accounts. Met deze API's kunt u programmatisch Batch-accounts, quota en toepassingspakketten beheren.  
 
 | API | API-verwijzing | Download | Zelfstudie | Codevoorbeelden |
 | --- | --- | --- | --- | --- |
@@ -55,30 +55,30 @@ De Azure Resource Manager-API's voor Batch bieden programmatisch toegang tot Bat
 
 ## <a name="batch-command-line-tools"></a>Batch-opdrachtregelprogramma's
 
-Deze opdrachtregelprogramma's bieden dezelfde functionaliteit als de API’s voor de Batch-service en Batch Management: 
+Deze opdrachtregelprogramma's bieden dezelfde functionaliteit Hallo zoals Hallo Batch-service en de Batch-API's voor beheer: 
 
-* [PowerShell-cmdlets voor Batch][batch_ps]: met de Azure Batch-cmdlets in de [Azure PowerShell](/powershell/azure/overview)-module kunt u Batch-resources beheren met PowerShell.
-* [Azure CLI](/cli/azure/overview): de Azure Command-Line Interface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder de Batch-service en Batch Management-service. Zie [Batch-resources beheren met de Azure CLI](batch-cli-get-started.md) voor meer informatie over het gebruik van de Azure CLI met Batch.
+* [Batch PowerShell-cmdlets][batch_ps]: Azure Batch-cmdlets in Hallo Hallo [Azure PowerShell](/powershell/azure/overview) module kunt u toomanage Batch-resources met PowerShell.
+* [Azure CLI](/cli/azure/overview): hello Azure-opdrachtregelinterface (Azure CLI) is een platformoverschrijdende hulpmiddelenset die shellopdrachten biedt voor interactie met vele Azure-services, waaronder Hallo Batch-service en de Batch-Management-service. Zie [beheren Batch-resources met Azure CLI](batch-cli-get-started.md) voor meer informatie over het gebruik van Azure CLI Hallo met Batch.
 
 ## <a name="other-tools-for-application-development"></a>Andere hulpmiddelen voor toepassingsontwikkeling
 
 Hier volgen enkele extra hulpprogramma's die mogelijk nuttig zijn voor het bouwen van uw Batch-toepassingen en -services en het opsporen van fouten daarin:
 
-* [Azure Portal][portal]: u kunt Batch-pools, -taken en -opdrachten in de Batch-blades van Azure Portal maken, controleren en verwijderen. U kunt de statusinformatie voor deze en andere resources bekijken terwijl u taken uitvoert en zelfs taken downloadt van de rekenknooppunten in uw pools. U kunt bijvoorbeeld de `stderr.txt` van een taak downloaden bij het oplossen van problemen. U kunt ook Remote Desktop (RDP)-bestanden downloaden die u kunt gebruiken om aan te melden om knooppunten te berekenen.
-* [Azure Batch Explorer][batch_explorer]: Batch Explorer biedt een vergelijkbare functionaliteit voor Batch resource management als de Azure Portal, maar in een standalone clienttoepassing Windows Presentation Foundation (WPF). U kunt een van de Batch .NET-voorbeeldtoepassingen beschikbaar op [GitHub][github_samples] bouwen met Visual Studio 2015 of hoger en gebruiken voor het bladeren door en het beheren van de resources in uw Batch-account terwijl u uw Batch-oplossingen ontwikkelt en debugt. Bekijk job-, pool- en opdrachtdetails, download bestanden van rekenknooppunten en maak op afstand verbinding met knooppunten met behulp van Remote Desktop (RDP)-bestanden die u kunt downloaden met de Batch Explorer-interface.
-* [Microsoft Azure Storage Explorer][storage_explorer]: hoewel dit strikt genomen geen Azure Batch-hulpprogramma is, is Opslagverkenner wel een waardevol hulpmiddel voor de ontwikkeling en foutopsporing van uw Batch-oplossingen.
+* [Azure-portal][portal]: U kunt maken, bewaken en verwijderen van de Batch-pools, jobs en taken in hello Azure-portal-blades voor Batch. U kunt Hallo statusinformatie over deze en andere resources bekijken terwijl u uw taken uitvoeren, en zelfs bestanden van Hallo rekenknooppunten in uw pools downloaden. U kunt bijvoorbeeld de `stderr.txt` van een taak downloaden bij het oplossen van problemen. U kunt ook Remote Desktop (RDP)-bestanden waarmee u toolog in toocompute knooppunten kunt downloaden.
+* [Azure Batch Explorer][batch_explorer]: Batch Explorer vergelijkbare functionaliteit biedt als Batch resource management zoals hello Azure-portal, maar in een zelfstandige toepassing voor Windows Presentation Foundation (WPF)-client. Een van de Hallo Batch .NET-voorbeeldtoepassingen beschikbaar op [GitHub][github_samples], kunt u samenstellen met Visual Studio 2015 of hoger en toobrowse gebruiken en beheren van Hallo resources in uw Batch-account bij het ontwikkelen van en fouten opsporen in uw Batch-oplossingen. Taak weergeven, toepassingen en taakdetails, download bestanden van rekenknooppunten en toonodes op afstand verbinding maken met behulp van extern bureaublad (RDP)-bestanden die kunt u downloaden met Batch Explorer.
+* [Microsoft Azure Storage Explorer][storage_explorer]: tijdens het niet strikt in een Azure Batch-hulpprogramma Hallo Storage Explorer een ander waardevol hulpmiddel toohave is bij de ontwikkeling en foutopsporing van uw Batch-oplossingen.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-- Zie [Logboekgebeurtenissen voor diagnostische evaluatie en bewaking van de Batch-oplossingen](batch-diagnostics.md) voor meer informatie over het vastleggen van gebeurtenissen van uw Batch-toepassing. Zie [Batch-analyses](batch-analytics.md) voor informatie over gebeurtenissen die worden gegenereerd door de Batch-service.
+- Zie toolearn over het vastleggen van gebeurtenissen van uw toepassing Batch [gebeurtenissen voor diagnostische evaluatie en bewaking van Batch-oplossingen](batch-diagnostics.md). Zie voor een overzicht van gebeurtenissen die worden gegenereerd door de Batch-service Hallo [Batch Analytics](batch-analytics.md).
 - Zie [Omgevingsvariabelen van Azure Batch-rekenknooppunten](batch-compute-node-environment-variables.md) voor meer informatie over omgevingsvariabelen voor rekenknooppunten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Bekijk het [overzicht met Batch-functies voor ontwikkelaars](batch-api-basics.md), essentiële informatie voor iedereen die Batch wil gaan gebruiken. Het artikel bevat meer gedetailleerde informatie over de Batch-serviceresources zoals groepen, knooppunten, jobs en taken, en de vele API-functies die u tijdens het maken van de Batch-toepassing kunt gebruiken.
-* Lees [Aan de slag met de Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md) voor informatie over het gebruik van C# en de Batch .NET-bibliotheek om een eenvoudige workload uit te voeren met een gebruikelijke Batch-werkstroom. Als u de Batch-service wilt leren gebruiken, is dit artikel een van de eerste artikelen die u zeker moet lezen. Er is ook een [Python-versie](batch-python-tutorial.md) van de zelfstudie.
-* Download de [codevoorbeelden op GitHub][github_samples] om te zien hoe C# en Python kunnen samenwerken met Batch om voorbeeldworkloads te plannen en te verwerken.
-* Bekijk het [Batch-leertraject][learning_path] voor een beter beeld van de resources die beschikbaar zijn terwijl u met Batch leert werken.
+* Lees Hallo [overzicht van de Batch-functies voor ontwikkelaars](batch-api-basics.md), essentiële informatie voor iedereen toouse Batch voorbereiden. Hallo artikel bevat meer gedetailleerde informatie over Batch-service-resources zoals pools, knooppunten, jobs en taken en Hallo veel API-functies die u tijdens het bouwen van uw Batch-toepassing kunt gebruiken.
+* [Aan de slag met hello Azure Batch-bibliotheek voor .NET](batch-dotnet-get-started.md) toolearn hoe toouse C# en Hallo Batch .NET-bibliotheek tooexecute een eenvoudige werkbelasting gebruik van een algemene Batch-werkstroom. In dit artikel moet een van uw eerste reageert tijdens het leren hoe toouse Hallo Batch-service. Er is ook een [Python-versie](batch-python-tutorial.md) van Hallo zelfstudie.
+* Hallo downloaden [codevoorbeelden op GitHub] [ github_samples] toosee hoe zowel C# en Python kan verbinding maken met de Batch tooschedule en proces voorbeeld werkbelastingen.
+* Bekijk Hallo [Batch-Leertraject] [ learning_path] tooget een idee van Hallo resources beschikbaar tooyou als u meer informatie over toowork met Batch.
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/

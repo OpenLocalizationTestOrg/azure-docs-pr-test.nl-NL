@@ -1,6 +1,6 @@
 ---
-title: Programmatisch bewaken taken in de Stream Analytics | Microsoft Docs
-description: Informatie over het bewaken van programmatisch Stream Analytics-taken die zijn gemaakt via de REST-API's, Azure SDK of PowerShell.
+title: aaaProgrammatically monitor taken in de Stream Analytics | Microsoft Docs
+description: Meer informatie over hoe tooprogrammatically Stream Analytics-taken die zijn gemaakt via de REST-API's, Azure SDK of PowerShell bewaken.
 keywords: .NET-monitor, taak monitor, bewaking van app
 services: stream-analytics
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
-ms.openlocfilehash: 0d39e77316a03a705586af3ba970a7be1208ec85
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 44a9c29c2161ee81ea76ece4646a8691bf5d5b48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Een monitor Stream Analytics-taak maken
 
-In dit artikel laat zien hoe bewaking voor een Stream Analytics-taak inschakelen. Stream Analytics-taken die zijn gemaakt via de REST-API's, Azure SDK of PowerShell beschikt niet over bewaking standaard ingeschakeld. U kunt handmatig inschakelen in de Azure portal door te gaan naar de pagina van de Monitor van de taak en te klikken op de knop inschakelen of u kunt dit proces automatiseren door de stappen in dit artikel. De bewakingsgegevens wordt weergegeven in het gebied van de metrische gegevens van de Azure-portal voor uw Stream Analytics-taak.
+Dit artikel wordt gedemonstreerd hoe tooenable bewaking voor een Stream Analytics-taak. Stream Analytics-taken die zijn gemaakt via de REST-API's, Azure SDK of PowerShell beschikt niet over bewaking standaard ingeschakeld. U kunt handmatig inschakelen in hello Azure-portal door te gaan van de taak toohello Monitor pagina en knop te klikken op Hallo inschakelen of u kunt dit proces automatiseren door Hallo stappen in dit artikel. Hallo bewakingsgegevens wordt weergegeven in Hallo metrische gegevens gebied van hello Azure-portal voor uw Stream Analytics-taak.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u deze procedure begint, moet u het volgende hebben:
+Voordat u deze procedure begint, moet u de volgende Hallo hebben:
 
 * Visual Studio 2017 of 2015
 * [Azure SDK voor .NET](https://azure.microsoft.com/downloads/) gedownload en geïnstalleerd
-* Een bestaande Stream Analytics-taak die u moet beschikken over bewaking ingeschakeld
+* Een bestaande Stream Analytics-taak die toohave bewaking ingeschakeld moet
 
 ## <a name="create-a-project"></a>Een project maken
 
 1. Maak een Visual Studio C# .NET-consoletoepassing.
-2. Voer de volgende opdrachten om de NuGet-pakketten te installeren in de Package Manager-Console. De eerste is de Azure Stream Analytics Management .NET SDK. Het tweede is de Monitor-SDK van Azure die wordt gebruikt voor het inschakelen van bewaking. Laatste is de Azure Active Directory-client die wordt gebruikt voor verificatie.
+2. Voer Hallo volgende opdrachten in Hallo Package Manager-Console, tooinstall hello NuGet-pakketten. Hallo eerst is een hello Azure Stream Analytics Management .NET SDK. Hallo tweede is hello Azure Monitor SDK die wordt gebruikt tooenable bewaking. Hallo laatste is een hello Azure Active Directory-client die wordt gebruikt voor verificatie.
    
    ```
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
-3. Voeg de volgende sectie appSettings aan het bestand App.config.
+3. Hallo na appSettings sectie toohello App.config-bestand toevoegen.
    
    ```
    <appSettings>
@@ -60,12 +60,12 @@ Voordat u deze procedure begint, moet u het volgende hebben:
      <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
    </appSettings>
    ```
-   Vervang de waarden voor *SubscriptionId* en *ActiveDirectoryTenantId* met uw Azure-abonnement en tenant-id. U kunt deze waarden krijgen door de volgende PowerShell-cmdlet:
+   Vervang de waarden voor *SubscriptionId* en *ActiveDirectoryTenantId* met uw Azure-abonnement en tenant-id. U kunt deze waarden krijgen door het volgende PowerShell-cmdlet Hallo uitvoeren:
    
    ```
    Get-AzureAccount
    ```
-4. Voeg de volgende using-instructies aan het bronbestand (Program.cs) in het project.
+4. Voeg de volgende Hallo met behulp van instructies toohello bronbestand (Program.cs) in het Hallo-project.
    
    ```
      using System;
@@ -114,12 +114,12 @@ Voordat u deze procedure begint, moet u het volgende hebben:
                  return result.AccessToken;
              }
    
-             throw new InvalidOperationException("Failed to acquire token");
+             throw new InvalidOperationException("Failed tooacquire token");
      }
 
 ## <a name="create-management-clients"></a>Management-clients maken
 
-De volgende code wordt de benodigde variabelen en van beheerclients instellen.
+Hallo stelt volgende code Hallo nodig variabelen en van beheerclients.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
@@ -141,16 +141,16 @@ De volgende code wordt de benodigde variabelen en van beheerclients instellen.
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Bewaking voor een bestaande Stream Analytics-taak inschakelen
 
-De volgende code kunt bewaking voor een **bestaande** Stream Analytics-taak. Het eerste deel van de code wordt een GET-aanvraag tegen de Stream Analytics-service voor het ophalen van informatie over de specifieke Stream Analytics-taak uitgevoerd. Dit maakt gebruik van de *Id* eigenschap (opgehaald uit de GET-aanvraag) als een parameter voor de Put-methode in de tweede helft van de code die u een PUT verzendt-controle voor de Stream Analytics-taak inschakelen verzoek aan de Insights-service.
+Hallo volgende code kunt bewaking voor een **bestaande** Stream Analytics-taak. Hallo eerste deel van de code Hallo voert een GET-aanvraag tegen Hallo Stream Analytics-service tooretrieve informatie over Hallo bepaalde Stream Analytics-taak. Hierbij Hallo *Id* eigenschap (opgehaald uit de GET-aanvraag Hallo) als een parameter voor Put-methode in Hallo Hallo tweede helft van het Hallo-code, die een PUT-aanvraag toohello Insights verzendt service tooenable bewaking voor Hallo Stream Analytics taak.
 
 >[!WARNING]
->Als u eerder hebt ingeschakeld bewaking voor een andere Stream Analytics-taak, via de Azure portal of programmatisch via de onderstaande code, **wordt aangeraden dat u dezelfde naam van het opslagaccount dat u hebt gebruikt toen u eerder hebt ingeschakeld bewaking bieden.**
+>Als u eerder hebt ingeschakeld voor een andere Stream Analytics-taak, via hello Azure-portal of programmatisch via Hallo hieronder de code, bewaking **wordt aangeraden dat u Hallo bieden dezelfde naam van het opslagaccount dat u hebt gebruikt toen u eerder ingeschakeld bewaking.**
 > 
-> Het opslagaccount is gekoppeld aan de regio die u hebt uw Stream Analytics-taak in, niet expliciet aan de taak zelf gemaakt.
+> Hallo storage-account is gekoppeld toohello regio die u in niet specifiek toohello taak zelf uw Stream Analytics-taak gemaakt.
 > 
-> Alle Stream Analytics-taken (en alle andere Azure-resources) in die dezelfde regio dit opslagaccount voor het opslaan van bewakingsgegevens delen. Als u een ander opslagaccount opgeeft, kan dit ertoe leiden dat onbedoelde bijwerkingen in de bewaking van uw Stream Analytics-taken of andere Azure-resources.
+> Alle Stream Analytics-taken (en alle andere Azure-resources) in die dezelfde regio, delen deze storage account toostore bewakingsgegevens. Als u een ander opslagaccount opgeeft, kan dit ertoe leiden dat onbedoelde bijwerkingen Hallo bewaking van uw Stream Analytics-taken of andere Azure-resources.
 > 
-> De opslagaccountnaam die u gebruikt ter vervanging van `<YOUR STORAGE ACCOUNT NAME>` in de volgende code moet een opslagaccount die zich in hetzelfde abonnement als de Stream Analytics-taak die u inschakelen wilt voor bewaking.
+> Hallo opslagaccountnaam dat u tooreplace `<YOUR STORAGE ACCOUNT NAME>` in de volgende code Hallo moet een opslagaccount die zich in Hallo hetzelfde abonnement als Hallo Stream Analytics-taak die u inschakelen wilt voor bewaking.
 > 
 > 
 
@@ -179,7 +179,7 @@ Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://so
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)
+* [Inleiding tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor Azure Stream Analytics Query](https://msdn.microsoft.com/library/azure/dn834998.aspx)

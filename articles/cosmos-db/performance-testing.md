@@ -1,6 +1,6 @@
 ---
-title: Azure DB Cosmos schaal en prestaties testen | Microsoft Docs
-description: Meer informatie over het uitvoeren van de schaal en prestaties testen met Azure Cosmos-DB
+title: aaaAzure Cosmos DB schaal en prestaties testen | Microsoft Docs
+description: Meer informatie over hoe tooperform schaal en prestaties testen met Azure Cosmos-DB
 keywords: Prestaties testen
 services: cosmos-db
 author: arramac
@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: arramac
-ms.openlocfilehash: b5a1edd08819e82437c5b22d8eb131665d7c9645
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 46d1217e11a39ee970a868de9a5c5dfcf52cedf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos-DB
-Prestaties en schaal testen is een belangrijke stap in de ontwikkeling van toepassingen. De databaselaag heeft een aanzienlijke invloed op de algehele prestaties en schaalbaarheid en kan daarom een essentieel onderdeel van de prestatietests voor veel toepassingen. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is speciaal hiervoor gemaakte voor elastisch schalen en voorspelbare prestaties en daarom een geweldige geschikt voor toepassingen die een krachtige databaselaag moeten. 
+Prestaties en schaal testen is een belangrijke stap in de ontwikkeling van toepassingen. Voor veel toepassingen Hallo databaselaag heeft een aanzienlijke invloed op Hallo van de algehele prestaties en schaalbaarheid en is daarom een essentieel onderdeel van de prestaties van het testen. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is speciaal hiervoor gemaakte voor elastisch schalen en voorspelbare prestaties en daarom een geweldige geschikt voor toepassingen die een krachtige databaselaag moeten. 
 
-In dit artikel is een verwijzing voor ontwikkelaars Cosmos DB evalueren voor hoge prestaties toepassingsscenario's of prestaties testen van suites voor hun Cosmos-DB-werkbelastingen te implementeren. Richt zich voornamelijk op de geïsoleerde prestaties testen van de database, maar bevat ook aanbevolen procedures voor productietoepassingen.
+In dit artikel is een verwijzing voor ontwikkelaars Cosmos DB evalueren voor hoge prestaties toepassingsscenario's of prestaties testen van suites voor hun Cosmos-DB-werkbelastingen te implementeren. Richt zich voornamelijk op de geïsoleerde prestatietests van Hallo-database, maar bevat ook aanbevolen procedures voor productietoepassingen.
 
-Na het lezen van dit artikel kunt u zich de volgende vragen beantwoorden:   
+Na het lezen van dit artikel kunt u zich kunt tooanswer Hallo vragen te volgen:   
 
 * Waar vind ik een voorbeeld .NET client-toepassing voor het testen van de prestaties van de Cosmos-DB 
 * Hoe ik hoge doorvoersnelheid niveaus met Cosmos DB van mijn clienttoepassing bereikt?
 
-Download het project uit om te beginnen met code [Azure Cosmos DB prestaties testen Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
+tooget gestart met code, download Hallo-project uit [Azure Cosmos DB prestaties testen Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
-> Het doel van deze toepassing is voor het demonstreren van aanbevolen procedures voor het uitpakken van betere prestaties buiten Cosmos DB met een beperkt aantal clientcomputers. Dit is niet gemaakt voor het demonstreren van de piek-capaciteit van de service, die kan worden geschaald onbeperkt.
+> Hallo-doel van deze toepassing is toodemonstrate aanbevolen procedures voor het uitpakken van betere prestaties buiten Cosmos DB met een beperkt aantal clientcomputers. Dit is niet gemaakt toodemonstrate Hallo piek-capaciteit van Hallo-service, die kan worden geschaald onbeperkt.
 > 
 > 
 
-Als u op zoek bent voor clientzijde configuratieopties Cosmos DB prestaties te verbeteren, Zie [tips voor betere prestaties van Azure DB die Cosmos](performance-tips.md).
+Als u configuratie clientzijde opties tooimprove Cosmos DB prestaties zoekt, Zie [tips voor betere prestaties van Azure DB die Cosmos](performance-tips.md).
 
-## <a name="run-the-performance-testing-application"></a>De toepassing testen uitvoeren
-De snelste manier om te beginnen is compileren en het .NET-voorbeeld hieronder, zoals beschreven in de onderstaande stappen uitvoeren. U kunt ook de broncode controleren en gelijkaardige configuraties implementeren voor uw eigen clienttoepassingen.
+## <a name="run-hello-performance-testing-application"></a>Hallo-prestaties testen van de toepassing uitvoeren
+Hallo snelste manier tooget gestart is toocompile en Voer Hallo .NET voorbeeldcode hieronder, zoals beschreven in de onderstaande stappen voor Hallo. Ook kunt u de broncode Hallo bekijken en implementeren van vergelijkbare configuraties tooyour eigen clienttoepassingen.
 
-**Stap 1:** downloaden van het project uit [Azure Cosmos DB prestaties testen Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), of de GitHub-opslagplaats vertakken.
+**Stap 1:** Hallo-project downloaden uit [Azure Cosmos DB prestaties testen Sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), of fork Hallo GitHub-opslagplaats.
 
-**Stap 2:** Wijzig de instellingen voor EndpointUrl, AuthorizationKey, CollectionThroughput en DocumentTemplate App.config (optioneel).
+**Stap 2:** Hallo instellingen wijzigen voor EndpointUrl, AuthorizationKey, CollectionThroughput en DocumentTemplate App.config (optioneel).
 
 > [!NOTE]
-> Voordat u verzamelingen met hoge doorvoer inricht, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) als indicatie van de kosten per verzameling. Azure DB Cosmos facturen opslag en doorvoer onafhankelijk op uurbasis, zodat u kunt u kosten besparen door te verwijderen of te verlagen van de doorvoer van uw Azure Cosmos DB verzamelingen nadat u hebt getest.
+> Raadpleeg voor het inrichten van verzamelingen met hoge doorvoer toohello [pagina met prijzen](https://azure.microsoft.com/pricing/details/cosmos-db/) tooestimate Hallo kosten per verzameling. Azure DB Cosmos facturen opslag en doorvoer onafhankelijk op uurbasis, zodat u kunt u kosten besparen door te verwijderen of te verlagen Hallo doorvoer van uw Azure Cosmos DB verzamelingen nadat u hebt getest.
 > 
 > 
 
-**Stap 3:** compileren en de console-app uitvoeren vanaf de opdrachtregel. Hier ziet u de volgende uitvoer:
+**Stap 3:** compileren en Hallo console-app uitvoeren vanaf de opdrachtregel Hallo. Hier ziet u uitvoer zoals Hallo volgende:
 
     Summary:
     ---------------------------------------------------------------------
@@ -98,15 +98,15 @@ De snelste manier om te beginnen is compileren en het .NET-voorbeeld hieronder, 
     DocumentDBBenchmark completed successfully.
 
 
-**Stap 4 (indien nodig):** de doorvoer gerapporteerd (RU/s) uit het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling. Als dat niet het geval is, de DegreeOfParallelism in kleine stappen verhogen, kunt u de limiet is bereikt. Als de doorvoer van uw clientapp plateaus, kunt meerdere exemplaren van de app op de dezelfde of andere machines starten u de ingerichte limiet bereikt over de verschillende exemplaren. Als u hulp nodig hebt bij deze stap, schrijft u een e-mail naar askcosmosdb@microsoft.com of het bestand een ondersteuningsticket vanuit de [Azure Portal](https://portal.azure.com).
+**Stap 4 (indien nodig):** Hallo doorvoer gerapporteerd (RU/s) uit Hallo hulpprogramma moet Hallo dezelfde of hoger is dan Hallo ingerichte doorvoer van Hallo-verzameling. Als dat niet het geval is, toenemende Hallo DegreeOfParallelism in kleine stappen helpen u mogelijk de Hallo limiet is bereikt. Als Hallo doorvoer van uw clientapp plateaus, meerdere exemplaren van Hallo app starten op Hallo van dezelfde of verschillende computers vindt u een limiet is bereikt Hallo ingericht via Hallo verschillende exemplaren. Als u hulp nodig hebt bij deze stap, schrijft u een e-mailbericht tooaskcosmosdb@microsoft.com of een ondersteuningsticket vanuit Hallo bestand [Azure Portal](https://portal.azure.com).
 
-Zodra u de app actief hebt, kunt u proberen andere [beleid indexeren](indexing-policies.md) en [consistentieniveaus](consistency-levels.md) om te begrijpen van de impact op de doorvoer en latentie. Ook kunt u de broncode controleren en soortgelijke configuraties voor uw eigen tests suites of productietoepassingen implementeren.
+Zodra u Hallo-app die wordt uitgevoerd hebt, kunt u proberen andere [beleid indexeren](indexing-policies.md) en [consistentieniveaus](consistency-levels.md) toounderstand de impact op de doorvoer en latentie. Ook kunt u de broncode Hallo bekijken en vergelijkbare configuraties tooyour eigen testsuites of productietoepassingen implementeren.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel, die we kijken hoe u de prestaties en schaal testen met Cosmos-database met een .NET-console-app kunt uitvoeren. Raadpleeg de onderstaande koppelingen voor meer informatie over het werken met Azure Cosmos DB.
+In dit artikel, die we kijken hoe u de prestaties en schaal testen met Cosmos-database met een .NET-console-app kunt uitvoeren. Raadpleeg toohello onderstaande koppelingen voor meer informatie over het werken met Azure Cosmos DB.
 
 * [Azure DB Cosmos-prestaties testen voorbeeld](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
-* [Client-configuratieopties voor het verbeteren van Azure DB die Cosmos-prestaties](performance-tips.md)
+* [Client configuration opties tooimprove Azure DB die Cosmos-prestaties](performance-tips.md)
 * [Serverzijde partitioneren in Azure Cosmos-DB](partition-data.md)
 
 

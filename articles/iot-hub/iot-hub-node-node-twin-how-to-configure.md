@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure IoT Hub apparaat twin eigenschappen (knooppunt) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub apparaat horende apparaten configureren. U de Azure IoT SDK's voor Node.js gebruiken voor het implementeren van een gesimuleerde apparaattoepassing en een service-app die de apparaatconfiguratie van een met behulp van een apparaat-twin wijzigt.
+title: aaaUse Azure IoT Hub twin apparaateigenschappen (knooppunt) | Microsoft Docs
+description: Hoe toouse Azure IoT Hub apparaat horende tooconfigure apparaten. U gebruikt hello Azure IoT SDK's voor Node.js tooimplement een gesimuleerde apparaattoepassing en een service-app die de apparaatconfiguratie van een met behulp van een apparaat-twin wijzigt.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
-ms.openlocfilehash: 771106ce7b00a5231d9929e4b5ea34aefe693597
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ebfe2dfa0876bf04fdbaceae55db76456523e8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-desired-properties-to-configure-devices-node"></a>Gewenste eigenschappen gebruiken voor het configureren van apparaten (knooppunt)
+# <a name="use-desired-properties-tooconfigure-devices-node"></a>Gebruik gewenst eigenschappen tooconfigure apparaten (knooppunt)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-Aan het einde van deze zelfstudie hebt u twee console Node.js-apps:
+Aan het einde van de Hallo van deze zelfstudie hebt u twee console Node.js-apps:
 
-* **SimulateDeviceConfiguration.js**, een gesimuleerde apparaattoepassing die wordt gewacht op een gewenste configuratie-update en rapporteert de status van een gesimuleerde configuratie updateproces.
-* **SetDesiredConfigurationAndQuery.js**, een Node.js back-end-app, die de gewenste configuratie ingesteld op een apparaat en het configuratieproces van de update-query's.
+* **SimulateDeviceConfiguration.js**, een gesimuleerde apparaattoepassing die wordt gewacht op een gewenste configuratie-update en rapporten Hallo status van een gesimuleerde configuratieproces voor de update.
+* **SetDesiredConfigurationAndQuery.js**, een Node.js back-end-app, die ingesteld Hallo gewenste configuratie op een apparaat en query's Hallo update configuratieproces.
 
 > [!NOTE]
-> Het artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over de Azure IoT SDK's dat u gebruiken kunt om zowel apparaatgegevens als back-end-apps te bouwen.
+> Hallo artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over hello Azure IoT SDK's waarmee u toobuild kunt apparaat- en back-end-apps.
 > 
 > 
 
-Voor deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie hebt u Hallo volgende nodig:
 
 * Node.js versie 0.10.x of hoger.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
-Als u hebt gevolgd de [aan de slag met apparaat horende] [ lnk-twin-tutorial] zelfstudie, u hebt al een IoT-hub en een apparaat-id genoemd **myDeviceId**; en u kunt doorgaan met de [de gesimuleerde apparaattoepassing maken] [ lnk-how-to-configure-createapp] sectie.
+Als u Hallo gevolgd [aan de slag met apparaat horende] [ lnk-twin-tutorial] zelfstudie, u hebt al een IoT-hub en een apparaat-id genoemd **myDeviceId**; en kunt u toohello overslaan[ Hallo gesimuleerde apparaattoepassing maken] [ lnk-how-to-configure-createapp] sectie.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-simulated-device-app"></a>De gesimuleerde apparaattoepassing maken
-In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub als **myDeviceId**, wordt gewacht op een gewenste configuratie-update en vervolgens rapporten updates op het updateproces gesimuleerde configuratie.
+## <a name="create-hello-simulated-device-app"></a>Hallo gesimuleerde apparaattoepassing maken
+In deze sectie maakt u een Node.js-consoletoepassing die verbinding tooyour hub als maakt **myDeviceId**, wordt gewacht op een gewenste configuratie-update en vervolgens rapporten updates op Hallo gesimuleerde update configuratieproces.
 
-1. Maak een nieuwe lege map genaamd **simulatedeviceconfiguration**. In de **simulatedeviceconfiguration** map, maak een nieuw package.json-bestand met de volgende opdracht achter de opdrachtprompt. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map genaamd **simulatedeviceconfiguration**. In Hallo **simulatedeviceconfiguration** map, een nieuw package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de **simulatedeviceconfiguration** map, voer de volgende opdracht voor het installeren van de **azure-iot-device**, en **azure-iot-device-mqtt** pakket:
+2. Bij de opdrachtprompt in Hallo **simulatedeviceconfiguration** map na de opdracht tooinstall Hallo Hallo **azure-iot-device**, en **azure-iot-device-mqtt**pakket:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Start een teksteditor en maak een nieuwe **SimulateDeviceConfiguration.js** bestand de **simulatedeviceconfiguration** map.
-4. Voeg de volgende code naar de **SimulateDeviceConfiguration.js** -bestand en vervang de **{verbindingsreeks apparaat}** tijdelijke aanduiding met de apparaat-verbindingsreeks die u hebt gekopieerd tijdens het maken van de **myDeviceId** apparaat-id:
+3. Start een teksteditor en maak een nieuwe **SimulateDeviceConfiguration.js** bestand in Hallo **simulatedeviceconfiguration** map.
+4. Hallo na code toohello toevoegen **SimulateDeviceConfiguration.js** -bestand en vervang Hallo **{verbindingsreeks apparaat}** aanduiding voor items met de verbindingsreeks voor Hallo apparaat u hebt gekopieerd wanneer u Hallo gemaakt **myDeviceId** apparaat-id:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -92,15 +92,15 @@ In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub
             }
         });
    
-    De **Client** object bevat de methoden die zijn vereist voor interactie met horende apparaten van het apparaat. De vorige code nadat het initialiseren van de **Client** object, haalt de apparaat-twin voor **myDeviceId**, en koppelt u een handler voor de update op de gewenste eigenschappen. De handler controleert of dat er een wijzigingsaanvraag voor de huidige configuratie door te vergelijken met de configIds is, wordt een methode die de configuratiewijziging begint aanroept.
+    Hallo **Client** object beschrijft alle Hallo methoden vereist toointeract met apparaat horende van Hallo-apparaat. vorige code Hallo nadat het Hallo initialiseert **Client** -object is opgehaald Hallo apparaat twin voor **myDeviceId**, en koppelt u een handler voor Hallo-update op de gewenste eigenschappen. Hallo-handler controleert of dat er een wijzigingsaanvraag voor de huidige configuratie door te vergelijken Hallo configIds is, wordt een methode die de configuratiewijziging Hallo begint roept.
    
-    Houd er rekening mee dat omwille van de eenvoud de vorige code gebruikmaakt van een vastgelegde standaard voor de eerste configuratie. Een echte app zou waarschijnlijk dat de configuratie van een lokale opslag laden.
+    Houd er rekening mee dat voor Hallo mogelijk te houden van eenvoud, Hallo vorige code een vastgelegde standaardinstallatielocatie voor de initiële configuratie Hallo gebruikt. Een echte app zou waarschijnlijk dat de configuratie van een lokale opslag laden.
    
    > [!IMPORTANT]
-   > Gewenste eigenschap wijzigingsgebeurtenissen altijd één keer worden verzonden op het apparaatverbinding, Controleer of er een werkelijke wijziging in de eigenschappen van de gewenste is voordat u een actie uitvoert.
+   > Gewenste eigenschap wijzigingsgebeurtenissen altijd één keer worden verzonden op het apparaatverbinding en zorg ervoor dat er sprake is van een werkelijke wijziging in Hallo toocheck gewenst eigenschappen voordat u een actie uitvoert.
    > 
    > 
-5. Voeg de volgende methoden voordat de `client.open()` aanroepen:
+5. Toevoegen van de volgende methoden voordat Hallo Hallo `client.open()` aanroepen:
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -141,35 +141,35 @@ In deze sectie maakt u een Node.js-consoletoepassing die is verbonden met uw hub
             });
         };
    
-    De **initConfigChange** methode gemelde eigenschappen van het lokale apparaat twin-object wordt bijgewerkt met de configuratie-update-aanvraag en stelt de status op **in behandeling**, werkt u vervolgens de twin apparaat van de service. Nadat het apparaat twin is bijgewerkt, wordt een langdurige proces dat wordt beëindigd bij de uitvoering van gesimuleerd **completeConfigChange**. Deze methode werkt u het lokale apparaat-twin gemelde eigenschappen van de status is ingesteld op **geslaagd** en verwijderen van de **pendingConfig** object. De apparaat-twin op de service wordt vervolgens bijgewerkt.
+    Hallo **initConfigChange** methode updates gerapporteerd eigenschappen Hallo lokale apparaat twin object met de configuratieaanvraag update Hallo en stelt de status te Hallo**in behandeling**, en vervolgens de updates Hallo apparaat Twin op Hallo-service. Nadat Hallo apparaat twin is bijgewerkt, wordt een langdurige proces dat wordt beëindigd bij uitvoering van Hallo gesimuleerd **completeConfigChange**. Deze methode updates Hallo lokale apparaat twin de eigenschappen te Hallo status instellen gerapporteerd**geslaagd** en verwijderen van Hallo **pendingConfig** object. Hallo apparaat twin op Hallo-service wordt vervolgens bijgewerkt.
    
-    Dat het, voor het opslaan van bandbreedte, gerapporteerd eigenschappen zijn bijgewerkt door te geven alleen de eigenschappen te wijzigen (met de naam **patch** in de bovenstaande code), in plaats van het hele document vervangen.
+    Die toosave bandbreedte, gerapporteerd eigenschappen zijn bijgewerkt door te geven alleen Hallo eigenschappen toobe gewijzigd (met de naam **patch** in Hallo bovenstaande code), in plaats van het hele document Hallo vervangen.
    
    > [!NOTE]
-   > Deze zelfstudie wordt een gedrag voor updates voor gelijktijdige configuratie niet simuleren. Bepaalde configuratie-update-processen mogelijk wijzigingen van de doelconfiguratie voor terwijl de update wordt uitgevoerd, anderen mogelijk moet u ze in de wachtrij en anderen met een fout opgetreden weigeren kunnen. Zorg ervoor dat rekening houden met het gewenste gedrag voor uw specifieke configuratie-proces en de juiste logica toevoegen voordat u begint de wijziging in de configuratie.
+   > Deze zelfstudie wordt een gedrag voor updates voor gelijktijdige configuratie niet simuleren. Bepaalde configuratie-update-processen mogelijk wijzigingen van de doelconfiguratie kunnen tooaccommodate terwijl Hallo update wordt uitgevoerd, anderen mogelijk tooqueue deze en andere kunnen weigeren met een fout opgetreden. Zorg ervoor dat tooconsider Hallo gewenste gedrag voor uw specifieke configuratieproces en Hallo juiste logica toevoegen voordat u begint Hallo configuratiewijziging.
    > 
    > 
-6. Voer de app voor apparaat:
+6. Hallo apparaattoepassing uitvoeren:
    
         node SimulateDeviceConfiguration.js
    
-    U ziet het bericht `retrieved device twin`. De app actief houden.
+    U ziet het Hallo-bericht `retrieved device twin`. Houd Hallo-app die wordt uitgevoerd.
 
-## <a name="create-the-service-app"></a>De service-app maken
-In deze sectie maakt u een Node.js-consoletoepassing die updates de *gewenst eigenschappen* op het apparaat twin gekoppeld **myDeviceId** met een nieuwe telemetrie configuration-object. Vervolgens zoekt de horende apparaat is opgeslagen in de IoT-hub en ziet u het verschil tussen de gewenste en gerapporteerde configuraties van het apparaat.
+## <a name="create-hello-service-app"></a>Hallo-service-app maken
+In deze sectie maakt u een Node.js-consoletoepassing die updates Hallo *gewenst eigenschappen* op Hallo apparaat twin gekoppeld **myDeviceId** met een nieuwe telemetrie configuration-object. Vervolgens vraagt Hallo apparaat horende opgeslagen in Hallo IoT-hub en toont Hallo verschil tussen Hallo gewenst en configuraties van Hallo apparaat gerapporteerd.
 
-1. Maak een nieuwe lege map genaamd **setdesiredandqueryapp**. In de **setdesiredandqueryapp** map, maak een nieuw package.json-bestand met de volgende opdracht achter de opdrachtprompt. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map genaamd **setdesiredandqueryapp**. In Hallo **setdesiredandqueryapp** map, een nieuw package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de **setdesiredandqueryapp** map, voer de volgende opdracht voor het installeren van de **azure-iothub** pakket:
+2. Bij de opdrachtprompt in Hallo **setdesiredandqueryapp** map na de opdracht tooinstall Hallo Hallo **azure-iothub** pakket:
    
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Start een teksteditor en maak een nieuwe **SetDesiredAndQuery.js** bestand de **addtagsandqueryapp** map.
-4. Voeg de volgende code naar de **SetDesiredAndQuery.js** -bestand en vervang de **{iot hub verbindingsreeks}** aanduiding voor items met de IoT Hub-verbindingsreeks die u tijdens het maken van uw hub hebt gekopieerd:
+3. Start een teksteditor en maak een nieuwe **SetDesiredAndQuery.js** bestand in Hallo **addtagsandqueryapp** map.
+4. Hallo na code toohello toevoegen **SetDesiredAndQuery.js** -bestand en vervang Hallo **{iot hub verbindingsreeks}** aanduiding voor items met Hallo IoT Hub-verbindingsreeks die u tijdens het maken van uw hub gekopieerd :
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -204,20 +204,20 @@ In deze sectie maakt u een Node.js-consoletoepassing die updates de *gewenst eig
             }
         });
 
-    De **register** object bevat de methoden die zijn vereist voor interactie met horende apparaten van de service. De vorige code nadat het initialiseren van de **register** object, haalt de apparaat-twin voor **myDeviceId**, en de gewenste eigenschappen bijgewerkt met een nieuwe telemetrie configuration-object. Daarna roept deze de **queryTwins** werken gebeurtenis 10 seconden.
+    Hallo **register** object beschrijft alle Hallo methoden vereist toointeract met apparaat horende van Hallo-service. vorige code Hallo nadat het Hallo initialiseert **register** -object is opgehaald Hallo apparaat twin voor **myDeviceId**, en de gewenste eigenschappen bijgewerkt met een nieuwe telemetrie configuration-object. Daarna roept Hallo **queryTwins** werken gebeurtenis 10 seconden.
 
     > [!IMPORTANT]
-    > Deze toepassing een IoT Hub query elke 10 seconden ter illustratie. Met query's gebruikersgerichte om rapporten te genereren over verschillende apparaten en niet voor het detecteren van wijzigingen. Als uw oplossing realtime meldingen over apparaatgebeurtenissen vereist, gebruikt u [twin meldingen][lnk-twin-notifications].
+    > Deze toepassing een IoT Hub query elke 10 seconden ter illustratie. Gebruik een query toogenerate gebruikersgerichte rapporten over veel apparaten, en niet toodetect wijzigingen. Als uw oplossing realtime meldingen over apparaatgebeurtenissen vereist, gebruikt u [twin meldingen][lnk-twin-notifications].
     > 
     >.
 
-1. Voeg de volgende code precies vóór de `registry.getDeviceTwin()` aanroepen voor het implementeren van de **queryTwins** functie:
+1. Toevoegen van de volgende code precies vóór Hallo Hallo `registry.getDeviceTwin()` aanroep tooimplement hello **queryTwins** functie:
    
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log();
                     results.forEach(function(twin) {
@@ -233,26 +233,26 @@ In deze sectie maakt u een Node.js-consoletoepassing die updates de *gewenst eig
             });
         };
    
-    De vorige code query's de horende apparaten opgeslagen in de IoT-hub en de gewenste en gerapporteerde telemetrie-configuraties worden afgedrukt. Raadpleeg de [IoT Hub-querytaal] [ lnk-query] voor informatie over het uitgebreide om rapporten te genereren in al uw apparaten.
-2. Met **SimulateDeviceConfiguration.js** wordt uitgevoerd, voert u de toepassing met:
+    Hallo vorige code query's Hallo apparaat horende opgeslagen in Hallo IoT-hub en afdrukken bestellen Hallo gewenst en telemetrie configuraties gerapporteerd. Raadpleeg toohello [IoT Hub-querytaal] [ lnk-query] toolearn hoe toogenerate rich op alle apparaten in uw rapporten.
+2. Met **SimulateDeviceConfiguration.js** toepassing hello met wordt uitgevoerd, worden uitgevoerd:
    
         node SetDesiredAndQuery.js 5m
    
-    Ziet u de configuratie van de gerapporteerde gewijzigd van **geslaagd** naar **in behandeling** naar **geslaagd** opnieuw met de nieuwe actieve verzenden frequentie van vijf minuten in plaats van 24 uur.
+    Er is gemeld Hallo-configuratie wijzigen vanuit **geslaagd** te**in behandeling** te**geslaagd** opnieuw met de nieuwe actief Hallo verzenden frequentie van vijf minuten in plaats van 24 uren.
    
    > [!IMPORTANT]
-   > Er is een vertraging van maximaal een minuut tussen het apparaat rapport opnieuw en het queryresultaat. Dit is het inschakelen van de query-infrastructuur om te werken op zeer grote schaal. Voor het ophalen van consistente weergaven van een enkel apparaat twin gebruiken de **getDeviceTwin** methode in de **register** klasse.
+   > Er is een vertraging van up tooa minuut tussen Hallo apparaat rapport opnieuw en Hallo queryresultaat. Dit is tooenable Hallo query infrastructuur toowork op zeer grote schaal. tooretrieve consistente weergaven van een enkel apparaat twin gebruiken Hallo **getDeviceTwin** methode in Hallo **register** klasse.
    > 
    > 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie stelt u een gewenste configuratie als *gewenst eigenschappen* vanuit een back-end-app en een gesimuleerde apparaattoepassing om te detecteren die wijziging en een updateproces van meerdere stappen zijn status als reporting simuleren geschreven *eigenschappen gerapporteerd* aan de apparaat-twin.
+In deze zelfstudie stelt u een gewenste configuratie als *gewenst eigenschappen* vanuit een back-end-app en een gesimuleerd apparaat app toodetect die wijzigen en een updateproces van meerdere stappen zijn status als reporting simuleren geschreven  *Eigenschappen gerapporteerd* toohello apparaat twin.
 
-Gebruik de volgende bronnen voor meer informatie over hoe:
+Gebruik Hallo resources toolearn hoe volgende aan:
 
-* verzenden van telemetrie vanaf apparaten met de [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
-* schema of bewerkingen uitvoeren op grote sets van apparaten, Zie de [planning en broadcast taken] [ lnk-schedule-jobs] zelfstudie.
-* beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app), met de [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
+* verzenden van telemetrie vanaf apparaten Hello [aan de slag met IoT Hub] [ lnk-iothub-getstarted] zelfstudie
+* plannen of uitvoeren van bewerkingen op grote sets van apparaten Zie Hallo [planning en broadcast taken] [ lnk-schedule-jobs] zelfstudie.
+* beheren van apparaten interactief (zoals het inschakelen van een ventilator van een gebruiker beheerde app), met Hallo [direct methoden gebruiken] [ lnk-methods-tutorial] zelfstudie.
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

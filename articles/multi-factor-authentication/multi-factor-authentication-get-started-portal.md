@@ -1,6 +1,6 @@
 ---
-title: Gebruikersportal voor Azure MFA-server | Microsoft Docs
-description: Dit is de Azure Multi-Factor Authentication-pagina waarop wordt beschreven hoe u met Azure MFA en de gebruikersportal aan de slag kunt gaan.
+title: aaaUser-portal voor Azure MFA-Server | Microsoft Docs
+description: Dit is hello Azure multi-factor authentication-pagina waarop wordt beschreven hoe tooget de slag met Azure MFA en Hallo gebruikersportal.
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
@@ -15,170 +15,170 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: a4eb403d3d21b7dbe63c2645b488a7bddb6d39fd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0e36644c3d780249fb98d5da654e9d267c63561a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Gebruikersportal voor de Azure Multi-Factor Authentication-server
+# <a name="user-portal-for-hello-azure-multi-factor-authentication-server"></a>Gebruikersportal voor hello Azure multi-factor Authentication-Server
 
-De gebruikersportal is een IIS-website waar gebruikers zich kunnen registreren bij Azure Multi-Factor Authentication (MFA) en hun account kunnen beheren. Een gebruiker kan bij de volgende aanmelding zijn telefoonnummer en pincode wijzigen of verificatie in twee stappen overslaan.
+Hallo-gebruikersportal is een IIS-website die u kunt gebruikers tooenroll in Azure multi-factor Authentication (MFA) en hun accounts kunnen onderhouden. Een gebruiker kan hun telefoonnummer wijzigen, hun PINCODE wijzigen of kies toobypass verificatie in twee stappen tijdens de volgende aanmelding.
 
-Gebruikers kunnen zich bij de gebruikersportal aanmelden met hun gebruikelijke gebruikersnaam en wachtwoord en zullen een telefoonoproep voor verificatie in twee stappen aannemen of beveiligingsvragen beantwoorden om hun verificatie te voltooien. Als gebruikersregistratie is toegestaan, configureren gebruikers hun telefoonnummer en pincode de eerste keer dat ze zich aanmelden bij de gebruikersportal.
+Gebruikers toohello gebruikersportal met hun normale gebruikersnaam en wachtwoord aanmelden, vervolgens een aanroep van de verificatie in twee stappen voltooien of beveiliging vragen toocomplete hun verificatie te beantwoorden. Als gebruikersregistratie is toegestaan, configureren gebruikers hun telefoonnummer en PINCODE Hallo eerste keer dat ze zich in de gebruikersportal toohello.
 
-Er kunnen beheerders voor de gebruikersportal worden ingesteld. Aan hen kan ook een machtiging worden verleend om nieuwe gebruikers toe te voegen en bestaande gebruikers bij te werken.
+Beheerders van gebruikersportal kan worden ingesteld en verleend machtiging tooadd nieuwe gebruikers en bestaande gebruikers bijwerken.
 
-Afhankelijk van uw omgeving kan het raadzaam zijn om de gebruikersportal te implementeren op dezelfde server als de Azure Multi-Factor Authentication Server of op een andere internetgerichte server.
+Afhankelijk van uw omgeving, kunt u het Hallo-gebruikersportal toodeploy op Hallo dezelfde server als de Azure multi-factor Authentication-Server of op een andere internetgerichte server.
 
 ![MFA-gebruikersportal](./media/multi-factor-authentication-get-started-portal/portal.png)
 
 > [!NOTE]
-> De gebruikersportal is alleen beschikbaar met Multi-Factor Authentication Server. Als u Multi-Factor Authentication in de cloud gebruikt, verwijst u uw gebruikers naar [Uw account instellen voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-first-time.md) of [Uw instellingen beheren voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-manage-settings.md).
+> Hallo-gebruikersportal is alleen beschikbaar met multi-factor Authentication-Server. Als u multi-factor Authentication in Hallo cloud gebruikt, raadpleegt u uw gebruikers toohello [Set-up uw account voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-first-time.md) of [beheren van uw instellingen voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-manage-settings.md).
 
-## <a name="install-the-web-service-sdk"></a>De webservice-SDK installeren
+## <a name="install-hello-web-service-sdk"></a>Hallo webservice SDK installeren
 
-Als de SDK van de webservice Azure Multi-Factor Authentication nog **niet** is geïnstalleerd op de Azure MFA-server (Multi-Factor Authentication), geldt voor beide scenario's dat u de volgende stappen moet uitvoeren.
+In beide scenario's moet hello Azure multi-factor Authentication Web Service SDK is **niet** op Hallo Azure multi-factor Authentication (MFA)-Server zijn geïnstalleerd, volledige Hallo onderstaande stappen.
 
-1. Open de console van de Multi-Factor Authentication-server.
-2. Ga naar **Webservice-SDK** en selecteer **Webservice-SDK installeren**.
-3. Voltooi de installatie met de standaardinstellingen, tenzij u een speciale reden hebt om een andere instelling te kiezen.
-4. Bind een SSL-certificaat aan de site in IIS.
+1. Open de console van Hallo multi-factor Authentication-Server.
+2. Ga toohello **Web Service SDK** en selecteer **Web Service SDK installeren**.
+3. Volledige Hallo installeren met behulp van Hallo standaardwaarden tenzij u toochange hoeft ze om een bepaalde reden.
+4. Binden van een SSL-certificaat toohello-website in IIS.
 
-Als u vragen hebt over het configureren van een SSL-certificaat op een IIS-server, raadpleegt u het artikel [How to Set Up SSL on IIS 7](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (SSL configureren in IIS 7).
+Als u vragen over het configureren van een SSL-certificaat op een IIS-server hebt, raadpleegt u Hallo artikel [hoe tooSet SSL op IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-De webservice-SDK moet met een SSL-certificaat worden beveiligd. Voor dit doel kan een zelfondertekend certificaat worden gebruikt. Importeer het certificaat in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht.
+Hallo Web Service SDK moet worden beveiligd met een SSL-certificaat. Voor dit doel kan een zelfondertekend certificaat worden gebruikt. Hallo-certificaat importeren in Hallo 'Trusted Root Certification Authorities' archief van de lokale computeraccount Hallo op Hallo User Portal-webserver, zodat wordt dat certificaat vertrouwd wanneer Hallo SSL-verbinding tot stand brengen.
 
 ![Configuratie van MFA-server - webservice-SDK installeren](./media/multi-factor-authentication-get-started-portal/sdk.png)
 
-## <a name="deploy-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>De gebruikersportal op dezelfde server implementeren als de Azure Multi-Factor Authentication-server
+## <a name="deploy-hello-user-portal-on-hello-same-server-as-hello-azure-multi-factor-authentication-server"></a>De gebruikersportal Hallo op Hallo implementeren dezelfde server als hello Azure multi-factor Authentication-Server
 
-Als u de gebruikersportal wilt installeren op **dezelfde server** als de Azure Multi-Factor Authentication-server, moet aan de volgende vereisten worden voldaan:
+Hallo volgende vereisten worden vereist tooinstall hello gebruikersportal op Hallo **dezelfde server** zoals hello Azure multi-factor Authentication-Server:
 
 * IIS, inclusief ASP.NET, en compatibiliteit met IIS 6-metabase (voor IIS 7 of hoger)
-* Een account met beheerdersrechten voor de computer en het domein, indien van toepassing. Het account heeft machtigingen nodig om Active Directory-beveiligingsgroepen te maken.
-* De gebruikersportal moet zijn beveiligd met een SSL-certificaat.
-* De webservice-SDK van Azure Multi-Factor Authentication moet zijn beveiligd met een SSL-certificaat.
+* Een account met beheerdersrechten voor Hallo-computer en domein indien van toepassing. Hallo-account moet machtigingen toocreate Active Directory-beveiligingsgroepen.
+* Beveilig de gebruikersportal Hallo met een SSL-certificaat.
+* Hello Azure multi-factor Authentication Web Service SDK is beveiligd met een SSL-certificaat.
 
-Voer de volgende stappen uit om de gebruikersportal te implementeren:
+toodeploy Hallo gebruiker portal, volg deze stappen:
 
-1. Open de console van de Azure Multi-Factor Authentication-server, klik in het menu aan de linkerkant op **Gebruikersportal** en klik daarna op **Gebruikersportal installeren**.
-2. Voltooi de installatie met de standaardinstellingen, tenzij u een speciale reden hebt om een andere instelling te kiezen.
-3. Een SSL-certificaat aan de site binden in IIS.
+1. Open de console van hello Azure multi-factor Authentication-Server, klikt u op Hallo **Gebruikersportal** pictogram in Hallo links menu, klikt u op **Gebruikersportal installeren**.
+2. Volledige Hallo installeren met behulp van Hallo standaardwaarden tenzij u toochange hoeft ze om een bepaalde reden.
+3. Binden van een SSL-certificaat toohello-website in IIS
 
    > [!NOTE]
    > Dit SSL-certificaat is meestal een openbaar ondertekend SSL-certificaat.
 
-4. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld: https://mfa.contoso.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+4. Open een webbrowser op een computer en navigeer toohello-URL waar de gebruikersportal Hallo is geïnstalleerd (voorbeeld: https://mfa.contoso.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
 ![Installatie van gebruikersportal van MFA-server](./media/multi-factor-authentication-get-started-portal/install.png)
 
-Als u vragen hebt over het configureren van een SSL-certificaat op een IIS-server, raadpleegt u het artikel [How to Set Up SSL on IIS 7](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (SSL configureren in IIS 7).
+Als u vragen over het configureren van een SSL-certificaat op een IIS-server hebt, raadpleegt u Hallo artikel [hoe tooSet SSL op IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-## <a name="deploy-the-user-portal-on-a-separate-server"></a>De gebruikersportal implementeren op een afzonderlijke server
+## <a name="deploy-hello-user-portal-on-a-separate-server"></a>Hallo-gebruikersportal op een afzonderlijke server implementeren
 
-Als de server waarop Azure Multi-Factor Authentication wordt uitgevoerd niet internetgericht is, moet u de gebruikersportal installeren op een **afzonderlijke, internetgerichte server**.
+Als het Hallo-server waarop de Azure multi-factor Authentication-Server wordt uitgevoerd, is niet verbonden met internet, moet u Hallo gebruikersportal installeren op een **afzonderlijk, internetgerichte server**.
 
-Als uw organisatie gebruikmaakt van de Microsoft Authenticator-app als een van de verificatiemethoden en de gebruikersportal op een eigen server wil implementeren, moet u aan de volgende vereisten voldoen:
+Als uw organisatie gebruikt Microsoft Authenticator-app als een van de verificatiemethoden Hallo Hallo en toodeploy hello gebruikersportal op een eigen server wilt, voltooit u Hallo volgens de vereisten:
 
-* U moet versie 6.0 of een recentere versie van de Azure Multi-Factor Authentication-server gebruiken.
-* De gebruikersportal moet zijn geïnstalleerd op een internetgerichte webserver waarop Microsoft Internet Information Services (IIS) 6.x of een recentere versie wordt uitgevoerd.
-* Wanneer u IIS 6.x gebruikt, zorgt u ervoor dat ASP.NET v2.0.50727 is geïnstalleerd, is geregistreerd en is ingesteld op **Toegestaan**.
+* Gebruik 6.0 of hoger van hello Azure multi-factor Authentication-Server.
+* Hallo-gebruikersportal installeren op een internetgerichte webserver met Microsoft internet Information Services (IIS) 6.x of hoger.
+* Wanneer u IIS 6.x, zorg ervoor dat ASP.NET v2.0.50727 is geïnstalleerd, is geregistreerd en ingesteld te**toegestane**.
 * Wanneer u IIS 7.x of hoger gebruikt, IIS, inclusief basisverificatie, ASP.NET en compatibiliteit met IIS 6-metagegevens.
-* De gebruikersportal moet zijn beveiligd met een SSL-certificaat.
-* De webservice-SDK van Azure Multi-Factor Authentication moet zijn beveiligd met een SSL-certificaat.
-* Zorg dat de gebruikersportal via SSL verbinding kan maken met de webservice-SDK van Azure Multi-Factor Authentication.
-* Zorg dat de gebruikersportal bij de webservice-SDK van Azure Multi-Factor Authentication kan verifiëren met behulp van de referenties van een serviceaccount in de beveiligingsgroep PhoneFactor Admins. Dit serviceaccount en deze groep moeten zijn opgenomen in Active Directory als de Azure Multi-Factor Authentication-server wordt uitgevoerd op een server die aan een domein is gekoppeld. Dit serviceaccount en deze groep bevinden zich lokaal op de Azure Multi-Factor Authentication-server als deze niet aan een domein is gekoppeld.
+* Beveilig de gebruikersportal Hallo met een SSL-certificaat.
+* Hello Azure multi-factor Authentication Web Service SDK is beveiligd met een SSL-certificaat.
+* Zorg ervoor dat gebruikersportal Hallo verbinding kan maken van Azure multi-factor Authentication Web Service SDK toohello via SSL.
+* Zorg ervoor dat gebruikersportal hello toohello Azure multi-factor Authentication Web Service SDK kan worden geverifieerd met behulp van Hallo-referenties van een serviceaccount in Hallo "PhoneFactor Admins" beveiligingsgroep. Dit serviceaccount en deze groep moeten bestaan in Active Directory als hello Azure multi-factor Authentication-Server wordt uitgevoerd op een domein-server. Dit serviceaccount en deze groep bevinden zich lokaal op Hallo Azure multi-factor Authentication-Server als geen gekoppelde tooa-domein is.
 
-Voor de installatie van de gebruikersportal op een andere server dan de Azure Multi-Factor Authentication-server moeten de volgende stappen worden uitgevoerd:
+Hallo-gebruikersportal installeren op een andere server dan hello Azure multi-factor Authentication-Server vereist Hallo stappen te volgen:
 
-1. Blader **op de MFA-server** naar het installatiepad (voorbeeld: C:\Program Files\Multi-Factor Authentication-Server) en kopieer het bestand **MultiFactorAuthenticationUserPortalSetup64** naar een locatie die toegankelijk is voor de internetgerichte server waarop u het wilt installeren.
-2. Voer **op de internetgerichte webserver** het installatiebestand MultiFactorAuthenticationUserPortalSetup64 uit als beheerder, wijzig de site desgewenst en wijzig de naam van de virtuele map eventueel in een korte naam.
-3. Bind een SSL-certificaat aan de site in IIS.
+1. **Op Hallo MFA-Server**, bladeren installatiepad toohello (voorbeeld: C:\Program Files\Multi-Factor Authentication-Server), en het Hallo-bestand kopiëren **MultiFactorAuthenticationUserPortalSetup64** tooa locatie toegankelijk toohello internetgerichte server waarop u het wilt installeren.
+2. **Op Hallo internetgerichte webserver**, Hallo MultiFactorAuthenticationUserPortalSetup64-installatiebestand uitvoeren als beheerder, Hallo Site desgewenst wijzigen en Hallo virtuele directory tooa korte naam wijzigen als u wilt.
+3. Binden van een SSL-certificaat toohello-website in IIS.
 
    > [!NOTE]
    > Dit SSL-certificaat is meestal een openbaar ondertekend SSL-certificaat.
 
-4. Blader naar **C:\inetpub\wwwroot\MultiFactorAuth**
-5. Bewerk het bestand Web.Config in Kladblok
+4. Te bladeren**C:\inetpub\wwwroot\MultiFactorAuth**
+5. Hallo Web.Config-bestand in Kladblok bewerken
 
-    * Zoek de sleutel **'USE_WEB_SERVICE_SDK'** en wijzig de waarde **value='false'** in **value='true'**
-    * Zoek de sleutel **'WEB_SERVICE_SDK_AUTHENTICATION_USERNAME'** en wijzig **value=''** in **value='DOMAIN\User'** waarbij DOMAIN\User een serviceaccount is dat deel uitmaakt van de groep 'PhoneFactor Admins'.
-    * Zoek de sleutel **'WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD'** en wijzig **value=''** in **value='Password"** waarbij Password het wachtwoord is voor het serviceaccount dat is ingevoerd op de vorige regel.
-    * Zoek de waarde **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** en wijzig deze tijdelijke aanduiding voor een URL in de webservice-URL die we hebben geïnstalleerd in stap 2.
-    * Sla het bestand Web.Config op en sluit Kladblok.
+    * Hallo sleutel vinden **'USE_WEB_SERVICE_SDK'** en wijzig **waarde = "false"** te**waarde = "true"**
+    * Hallo sleutel vinden **'Sleutels WEB_SERVICE_SDK_AUTHENTICATION_USERNAME'** en wijzig **waarde = ""** te**waarde = 'Domein\gebruiker'** waar domein\gebruiker is een Service-Account dat deel uitmaakt van 'PhoneFactor Admins'-groep.
+    * Hallo sleutel vinden **'WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD'** en wijzig **waarde = ""** te**waarde = 'Password'** waar het wachtwoord is Hallo-wachtwoord voor Hallo Service Het account is ingevoerd in de vorige regel Hallo.
+    * Hallo waarde zoeken **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** en wijzigt u deze tijdelijke aanduiding voor URL toohello Web Service SDK-URL die we in stap 2 hebt geïnstalleerd.
+    * Sla Hallo Web.Config-bestand op en sluit Kladblok.
 
-6. Open op een computer een webbrowser en navigeer naar de URL waar de gebruikersportal is geïnstalleerd (bijvoorbeeld: https://mfa.contoso.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+6. Open een webbrowser op een computer en navigeer toohello-URL waar de gebruikersportal Hallo is geïnstalleerd (voorbeeld: https://mfa.contoso.com/MultiFactorAuth). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
 
-Als u vragen hebt over het configureren van een SSL-certificaat op een IIS-server, raadpleegt u het artikel [How to Set Up SSL on IIS 7](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (SSL configureren in IIS 7).
+Als u vragen over het configureren van een SSL-certificaat op een IIS-server hebt, raadpleegt u Hallo artikel [hoe tooSet SSL op IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Instellingen voor de gebruikersportal configureren op de Azure Multi-Factor Authentication-server
+## <a name="configure-user-portal-settings-in-hello-azure-multi-factor-authentication-server"></a>Instellingen voor gebruikersportal in hello Azure multi-factor Authentication-Server configureren
 
-Nu de gebruikersportal is geïnstalleerd, dient u de Azure Multi-Factor Authentication-server te configureren voor gebruik met de portal.
+Nu dat Hallo gebruikersportal is geïnstalleerd, moet u tooconfigure hello Azure multi-factor Authentication-Server toowork met Hallo-portal.
 
-1. Klik in de console van de Azure Multi-Factor Authentication-server op het pictogram **Gebruikersportal**. Voer op het tabblad Instellingen in het tekstvak **URL gebruikersportal** de URL naar de gebruikersportal in. Als de e-mailfunctionaliteit is ingeschakeld, zal deze URL worden ingevoegd in e-mailberichten die worden verzonden naar gebruikers wanneer ze worden geïmporteerd op de Azure Multi-Factor Authentication-server.
-2. Kies de instellingen die u in de gebruikersportal wilt gebruiken. Als u bijvoorbeeld wilt toestaan dat gebruikers hun verificatiemethoden kiezen, zorgt u ervoor dat de optie **Toestaan dat gebruikers de methode selecteren** wordt ingeschakeld, samen met de methoden waaruit ze kunnen kiezen.
-3. Geef op het tabblad **Beheerders** aan wie de beheerders moeten zijn. U kunt gedetailleerde beheerdersmachtigingen maken met behulp van de selectievakjes en vervolgkeuzelijsten in de vakken voor toevoegen en bewerken.
+1. Klik in-console hello Azure multi-factor Authentication-Server op Hallo **Gebruikersportal** pictogram. Voer op tabblad Instellingen Hallo Hallo URL toohello gebruikersportal in Hallo **Gebruikersportal-URL** textbox. Als e-mailfunctionaliteit is ingeschakeld, wordt deze URL is opgenomen in Hallo e-mails die toousers worden verzonden wanneer ze worden geïmporteerd in hello Azure multi-factor Authentication-Server.
+2. Hallo instellingen kiezen dat u wilt dat toouse in Hallo Gebruikersportal. Bijvoorbeeld gebruikers zijn niet toegestaan als toochoose hun verificatiemethoden ervoor zorgen dat **toestaan dat gebruikers de methode tooselect** is ingeschakeld, samen met de Hallo methoden waaruit ze kunnen kiezen.
+3. Definiëren die beheerders moeten zich op Hallo **beheerders** tabblad. U kunt gedetailleerde beheerdersmachtigingen met Hallo selectievakjes en vervolgkeuzelijsten in Hallo toevoegen/bewerken vakken maken.
 
 Optionele configuratie:
-- **Beveiligingsvragen** -Definieer goedgekeurde beveiligingsvragen voor uw omgeving en de taal waarin ze worden weergegeven.
+- **Beveiligingsvragen** -definiëren beveiligingsvragen voor uw omgeving en Hallo taal ze worden weergegeven in goedgekeurd.
 - **Doorgegeven sessies** - Configureer de integratie van de gebruikersportal met een formuliergebaseerde website met MFA.
-- **Vertrouwde IP-adressen** -U kunt toestaan dat gebruikers MFA overslaan wanneer ze worden geverifieerd aan de hand van een lijst met vertrouwde IP-adressen of bereiken.
+- **Goedgekeurde IP-adressen** -toestaan dat gebruikers tooskip MFA bij het verifiëren van een lijst met goedgekeurde IP-adressen of adresbereiken.
 
 ![Configuratie van gebruikersportal van MFA-server](./media/multi-factor-authentication-get-started-portal/config.png)
 
-De Azure Multi-Factor Authentication-server biedt verschillende opties voor de gebruikersportal. De volgende tabel geeft een lijst van deze opties en een verklaring van de taak waarvoor ze worden gebruikt.
+Azure multi-factor Authentication-server biedt verschillende opties voor de gebruikersportal Hallo. Hallo bevat volgende tabel een lijst van deze opties en een beschrijving van wat ze worden gebruikt.
 
 | Instellingen van gebruikersportal | Beschrijving |
 |:--- |:--- |
-| URL gebruikersportal | Hiermee kunt u de URL invoeren van de locatie waar de portal wordt gehost. |
-| Primaire authenticatie | Hiermee kunt u opgeven welk verificatietype moet worden gebruikt bij de aanmelding bij de portal. Windows-, Radius- of LDAP-authenticatie. |
-| Aanmelden van gebruikers toestaan | Hiermee kunnen gebruikers een gebruikersnaam en wachtwoord invoeren op de aanmeldingspagina voor de gebruikersportal. Als deze optie niet is geselecteerd, worden de vakken grijs weergegeven. |
-| Registreren van gebruikers toestaan | Hiermee kunnen gebruikers zich registreren voor Multi-Factor Authentication doordat ze naar een installatiescherm worden geleid waar om aanvullende informatie zoals een telefoonnummer wordt gevraagd. Bij Vragen om alternatief telefoonnummer kunnen gebruikers een tweede telefoonnummer opgeven. Bij Vragen om OATH-token van derden kunnen gebruikers een OATH-token van een derde opgeven. |
-| Gebruikers toestaan om eenmalige toegang te initiëren | Hiermee kunt u gebruikers toestaan om eenmalige toegang te initiëren. Als een gebruiker deze optie instelt, wordt deze van kracht wanneer de gebruiker zich de volgende keer aanmeldt. De optie Vragen om bypass-seconden biedt gebruikers een invoervak, waarin zij de standaardwaarde van 300 seconden kunnen wijzigen. Anders duurt de eenmalige toegang slechts 300 seconden. |
-| Toestaan dat gebruikers de methode selecteren | Hiermee kunnen gebruikers hun primaire contactmethode opgeven. De volgende methoden zijn beschikbaar: telefoonoproep, sms-bericht, mobiele app of OATH-token. |
-| Toestaan dat gebruikers de taal selecteren | Hiermee kunnen gebruikers de taal wijzigen die wordt gebruikt voor de telefoonoproep, het sms-bericht, de mobiele app of het OATH-token. |
-| Toestaan dat gebruikers de mobiele app activeren | Hiermee kunnen gebruikers een activeringscode genereren om het activeringsproces van de mobiele app te voltooien dat bij de server wordt gebruikt.  U kunt ook instellen op hoeveel apparaten zij dit kunnen activeren, met een aantal van 1 t/m 10. |
-| Beveiligingsvragen gebruiken als terugvaloptie | Hiermee kunt u beveiligingsvragen toestaan als verificatie in twee stappen is mislukt. U kunt opgeven hoeveel beveiligingsvragen juist moeten worden beantwoord. |
-| Toestaan dat gebruikers OATH-token van derden koppelen | Hiermee kunnen gebruikers een OATH-token van derden opgeven. |
-| OATH-token gebruiken als terugvaloptie | Hiermee kunt u het gebruik van een OATH-token toestaan als verificatie in twee stappen is mislukt. U kunt ook de sessietime-out in minuten opgeven. |
-| Logboekregistratie inschakelen | Hiermee schakelt u de logboekregistratie in op de gebruikersportal. De logboekbestanden bevinden zich op: C:\Program Files\Multi-Factor Authentication Server\Logs. |
+| URL gebruikersportal | Voer Hallo-URL van de waar Hallo portal wordt gehost. |
+| Primaire authenticatie | Hallo type verificatie toouse opgeven als u zich aanmeldt toohello-portal. Windows-, Radius- of LDAP-authenticatie. |
+| Toestaan dat gebruikers toolog in | Toestaan dat gebruikers tooenter een gebruikersnaam en wachtwoord op Hallo aanmeldingspagina voor de gebruikersportal Hallo. Als deze optie niet is geselecteerd, worden Hallo vakken grijs weergegeven. |
+| Registreren van gebruikers toestaan | Een gebruiker tooenroll in multi-factor Authentication doordat ze tooa setup-scherm waarin wordt ze gevraagd om aanvullende informatie zoals een telefoonnummer toestaan. Vragen om alternatief telefoonnummer gebruikers toospecify een tweede telefoonnummer kunnen. Vragen om de derde partij OATH-token kunt toospecify gebruikers een OATH-token van derden. |
+| Toestaan dat gebruikers tooinitiate eenmalig overslaan | Toestaan dat gebruikers tooinitiate eenmalig overslaan. Als een gebruiker deze optie stelt, duurt het effect Hallo zodra Hallo gebruiker zich aanmeldt. Vragen om bypass seconden biedt Hallo-gebruiker met een selectievakje dat zij Hallo standaardwaarde van 300 seconden kunnen wijzigen. Anders geldt Hallo eenmalig overslaan slechts 300 seconden. |
+| Gebruikers toestaan tooselect methode | Toestaan dat gebruikers toospecify zijn primaire contactmethode. De volgende methoden zijn beschikbaar: telefoonoproep, sms-bericht, mobiele app of OATH-token. |
+| Toestaan dat gebruikers de taal tooselect | Toestaan dat gebruikers toochange Hallo taal die wordt gebruikt voor het Hallo-telefoongesprek, tekstbericht, mobiele app of OATH-token. |
+| Toestaan dat gebruikers tooactivate mobiele app | Toestaan dat gebruikers toogenerate een code toocomplete Hallo mobiele app activeren activeringsproces dat wordt gebruikt met Hallo-server.  U kunt ook het aantal apparaten kunnen worden geactiveerd Hallo instellen Hallo app op tussen 1 en 10. |
+| Beveiligingsvragen gebruiken als terugvaloptie | Hiermee kunt u beveiligingsvragen toestaan als verificatie in twee stappen is mislukt. U kunt het aantal beveiligingsvragen juist moeten worden beantwoord Hallo opgeven. |
+| OATH-token van gebruikers tooassociate van derden toestaan | Toestaan dat gebruikers toospecify OATH-token van een derde partij. |
+| OATH-token gebruiken als terugvaloptie | Bieden voor Hallo gebruik van een OATH-token als verificatie in twee stappen niet geslaagd is. U kunt ook Hallo sessietime-out in minuten opgeven. |
+| Logboekregistratie inschakelen | Logboekregistratie inschakelen op Hallo gebruikersportal. Hallo logboekbestanden bevinden zich op: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
-Deze instellingen zijn zichtbaar voor de gebruiker in de portal zodra deze zijn ingeschakeld en de gebruiker zich bij de gebruikersportal heeft aangemeld.
+Deze instellingen worden zichtbaar toohello gebruiker in de portal Hallo zodra ze zijn ingeschakeld en deze in de gebruikersportal toohello zijn ondertekend.
 
 ![Instellingen gebruikersportal](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Selfservice voor gebruikersregistratie
 
-Als u wilt dat uw gebruikers zich kunnen aanmelden en registreren, selecteert u op het tabblad Instellingen de opties **Aanmelden van gebruikers toestaan** en **Registreren van gebruikers toestaan**. Houd er rekening mee dat de instellingen die u selecteert, invloed hebben op de gebruikerservaring bij het aanmelden.
+Als u wilt dat uw gebruikers toosign in en inschrijven, moet u Hallo **toestaan dat gebruikers toolog in** en **gebruikersregistratie toestaan** opties onder het tabblad Hallo-instellingen. Houd er rekening mee dat Hallo-instellingen die u selecteert, invloed zijn op Hallo aanmelden gebruikerservaring.
 
-Wanneer bijvoorbeeld een gebruiker zich voor het eerst bij de gebruikersportal aanmeldt, wordt de gebruiker naar de pagina met gebruikersinstellingen van Azure Multi-Factor Authentication geleid. Afhankelijk van hoe u Azure Multi-Factor Authentication hebt geconfigureerd, kan een gebruiker al dan niet de verificatiemethode selecteren.
+Wanneer een gebruiker zich in de gebruikersportal toohello voor Hallo eerst, worden ze bijvoorbeeld vervolgens toohello gebruikersinstellingen van Azure multi-factor Authentication-pagina genomen. Afhankelijk van hoe u Azure multi-factor Authentication hebt geconfigureerd, Hallo-gebruiker kan worden kunnen tooselect de verificatiemethode.
 
-Als de gebruiker de verificatiemethode Spraakoproep selecteert of als de gebruiker vooraf is geconfigureerd om die methode te gebruiken, wordt de gebruiker gevraagd zijn of haar primaire telefoonnummer en, indien van toepassing, zijn of haar toestelnummer op te geven. Mogelijk kan de gebruiker ook een alternatief telefoonnummer invoeren.
+Als ze Hallo Spraakoproep verificatiemethode selecteren of vooraf geconfigureerde toouse die methode is, vraagt Hallo pagina Hallo gebruiker tooenter hun primaire telefoonnummer en de extensie, indien van toepassing. Ze kunnen ook worden toegestaan tooenter een alternatief telefoonnummer.
 
 ![Primaire en alternatieve telefoonnummers registreren](./media/multi-factor-authentication-get-started-portal/backupphone.png)
 
-Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker gevraagd een pincode te maken. Nadat de gebruiker zijn of haar telefoonnummer(s) en pincode (indien van toepassing) heeft ingevoerd, klikt de gebruiker op de knop **Bel me nu om te authenticeren**. Azure Multi-Factor Authentication zal een verificatie door middel van een spraakoproep uitvoeren met behulp van het primaire telefoonnummer van de gebruiker. De gebruiker moet de spraakoproep beantwoorden en zijn of haar pincode invoeren (indien van toepassing) en daarna op # drukken om door te gaan naar de volgende stap van het zelfregistratieproces.
+Als de gebruiker Hallo vereist toouse een PINCODE bij de verificatie, vraagt Hallo pagina hen toocreate een PINCODE. Na het invoeren van hun telefoonnummer (s) en PINCODE (indien van toepassing), klikt de gebruiker Hallo op Hallo **Bel Me nu tooAuthenticate** knop. Azure multi-factor Authentication voert een telefonische oproep verificatie toohello gebruiker primaire telefoonnummer. Hallo-gebruiker moet beantwoorden Hallo telefoongesprek en hun PINCODE invoeren (indien van toepassing) en druk op # toomove op de volgende stap van het zelfregistratieproces hello toohello.
 
-Als de gebruiker de verificatiemethode Sms-bericht selecteert of vooraf is geconfigureerd om die methode te gebruiken, wordt de gebruiker gevraagd zijn of haar mobiele telefoonnummer op te geven. Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven.  Nadat de gebruiker zijn of haar telefoonnummer en pincode (indien van toepassing) heeft ingevoerd, klikt de gebruiker op de knop **Sms me nu om te authenticeren**. Azure Multi-Factor Authentication zal een sms-verificatie uitvoeren met behulp van de mobiele telefoon van de gebruiker. De gebruiker ontvangt een sms-bericht met een eenmalige-wachtwoordcode (OTP). Vervolgens beantwoordt de gebruiker het bericht met die OTP plus de pincode (indien van toepassing).
+Als Hallo gebruiker verificatiemethode Hallo-tekstbericht selecteert of vooraf geconfigureerde toouse die methode is, vraagt Hallo pagina Hallo gebruiker naar het nummer van hun mobiele telefoon. Als de gebruiker Hallo vereist toouse een PINCODE bij de verificatie, vraagt Hallo pagina ook hen tooenter een PINCODE.  Na het invoeren van hun telefoonnummer en PINCODE (indien van toepassing), klikt de gebruiker Hallo op Hallo **SMS Me nu tooAuthenticate** knop. Azure multi-factor Authentication voert een SMS-verificatie toohello gebruiker mobiele telefoon. Hallo gebruiker ontvangt Hallo SMS-bericht met een een-eenmalig-OTP (wachtwoordcode) en vervolgens antwoorden toohello bericht met die Eenmalige plus de PINCODE (indien van toepassing).
 
 ![Sms gebruikersportal](./media/multi-factor-authentication-get-started-portal/text.png)
 
-Als de gebruiker de verificatiemethode Mobiele app selecteert, wordt de gebruiker op de pagina gevraagd om de Microsoft Authenticator-app op zijn of haar apparaat te installeren en een activeringscode te genereren. Na de installatie van de app klikt de gebruiker op de knop Activeringscode genereren.
+Hallo-gebruiker selecteert Hallo mobiele App verificatiemethode, Hallo pagina Hallo gebruiker tooinstall Hallo Microsoft Authenticator-app op hun apparaat gevraagd als een activeringscode genereren. Na de installatie van Hallo app klikt Hallo gebruiker op de knop activeringscode genereren Hallo.
 
 > [!NOTE]
-> De gebruiker dient pushmeldingen voor het apparaat in te schakelen om de Microsoft Authenticator-app te gebruiken.
+> toouse hello Microsoft Authenticator-app moet Hallo gebruiker pushmeldingen voor hun apparaat inschakelen.
 
-Op de pagina worden vervolgens een activeringscode en een URL weergegeven, samen met een afbeelding van een streepjescode. Als de gebruiker bij de verificatie een pincode moet gebruiken, wordt de gebruiker ook gevraagd een pincode op te geven. De gebruiker voert de activeringscode en URL in de Microsoft Authenticator-app in of gebruikt de streepjescodescanner om de afbeelding van de streepjescode te scannen en klikt op de knop Activeren.
+Hallo pagina geeft een activeringscode en URL samen met een streepjescode. Als de gebruiker Hallo vereist toouse een PINCODE bij de verificatie, vraagt Hallo pagina bovendien hen tooenter een PINCODE. Hallo gebruiker voert Hallo activeringscode en URL in Hallo Microsoft Authenticator-app of Hallo scanner tooscan Hallo streepjescode streepjescode gebruikt en klikt op de knop activeren Hallo.
 
-Nadat de activering is voltooid, klikt de gebruiker op de knop **Nu verifiëren**. Azure Multi-Factor Authentication zal een verificatie uitvoeren met behulp van de mobiele app van de gebruiker. De gebruiker moet in de mobiele app de pincode invoeren (indien van toepassing) en op de knop Verifiëren drukken om door te gaan naar de volgende stap van het zelfregistratieproces.
+Nadat het Hallo-activering is voltooid, Hallo gebruiker Hallo **Verifieer Me nu** knop. Azure multi-factor Authentication voert een verificatie toohello gebruiker mobiele app. Hallo-gebruiker moet hun PINCODE invoeren (indien van toepassing) en drukt u op de knop Authenticeren Hallo in hun toomove mobiele app op de volgende stap van het zelfregistratieproces hello toohello.
 
-Als de beheerders de Azure Multi-Factor Authentication-server hebben geconfigureerd om beveiligingsvragen en antwoorden te verzamelen, wordt de gebruiker hierna naar de pagina Beveiligingsvragen geleid. De gebruiker moet vier beveiligingsvragen selecteren en deze juist beantwoorden.
+Als beheerders Hallo hebt geconfigureerd hello Azure multi-factor Authentication-Server toocollect beveiligingsvragen en antwoorden, Hallo gebruiker hierna toohello beveiligingsvragen pagina. Hallo-gebruiker moet vier beveiligingsvragen selecteren en antwoorden tootheir geselecteerd vragen geven.
 
 ![Beveiligingsvragen van gebruikersportal](./media/multi-factor-authentication-get-started-portal/secq.png)
 
-De zelfregistratie van de gebruiker is nu voltooid en de gebruiker is aangemeld bij de gebruikersportal. Gebruikers kunnen zich later op elk gewenst moment opnieuw aanmelden bij de gebruikersportal om hun telefoonnummers, pincodes, verificatiemethoden en beveiligingsvragen te wijzigen als dat door de beheerders is toegestaan.
+Hallo gebruiker inschrijving is nu voltooid en Hallo gebruiker is aangemeld in toohello gebruikersportal. Kunnen gebruikers zich aanmelden terug in de gebruikersportal toohello op elk gewenst moment in toekomstige toochange Hallo hun telefoonnummers, pincodes, verificatiemethoden en beveiligingsvragen als de methoden wijzigen door de beheerders is toegestaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Authenticatie met de mobiele app integreren met Azure Multi-Factor Authentication-server](multi-factor-authentication-get-started-server-webservice.md)
+- [Hello Azure multi-factor Authentication Server Mobile App Web Service implementeren](multi-factor-authentication-get-started-server-webservice.md)

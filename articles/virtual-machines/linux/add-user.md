@@ -1,6 +1,6 @@
 ---
-title: Een gebruiker toevoegen aan een Linux-VM op Azure | Microsoft Docs
-description: Een gebruiker toevoegen aan een Linux-VM op Azure.
+title: een gebruiker tooa Linux VM op Azure aaaAdd | Microsoft Docs
+description: Een gebruiker tooa Linux VM op Azure toevoegen.
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-livech
-ms.openlocfilehash: a95157f57c0cbd1f2a9ed68a0fe83140d7c9ec40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eed050154adf0cbed2c168e7aa675bd3ded85fcd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-user-to-an-azure-vm"></a>Een gebruiker toevoegen aan een Azure VM
-Een van de eerste taken op een nieuwe Linux-VM is het maken van een nieuwe gebruiker.  In dit artikel we doorlopen een sudo-gebruikersaccount maken voor het instellen van het wachtwoord toe te voegen SSH openbare sleutels, en ten slotte gebruiken `visudo` om toe te staan sudo zonder wachtwoord.
+# <a name="add-a-user-tooan-azure-vm"></a>Toevoegen van een gebruiker tooan Azure VM
+Een eerste taken op een nieuwe Linux-VM Hallo is toocreate een nieuwe gebruiker.  In dit artikel we helpt bij het maken van een sudo-gebruikersaccount en wachtwoord instellen hello, toe te voegen SSH openbare sleutels, en ten slotte gebruiken `visudo` tooallow sudo zonder wachtwoord.
 
-Vereisten zijn: [een Azure-account](https://azure.microsoft.com/pricing/free-trial/), [SSH openbare en persoonlijke sleutels](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), een Azure-resourcegroep en Azure CLI geïnstalleerd en wordt overgeschakeld naar het gebruik van Azure Resource Manager-modus `azure config mode arm`.
+Vereisten zijn: [een Azure-account](https://azure.microsoft.com/pricing/free-trial/), [SSH openbare en persoonlijke sleutels](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), een Azure-resourcegroep en hello Azure CLI geïnstalleerd en gewijzigd tooAzure Resource Manager modus gebruiken `azure config mode arm`.
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 ```bash
@@ -40,30 +40,30 @@ Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 
-# Copy the SSH Public Key to the new user
+# Copy hello SSH Public Key toohello new user
 ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 
-# Change sudoers to allow no password
-# Execute visudo as root to edit the /etc/sudoers file
+# Change sudoers tooallow no password
+# Execute visudo as root tooedit hello /etc/sudoers file
 visudo
 
 # On RedHat family distros uncomment this line:
 ## Same thing without a password
 # %wheel        ALL=(ALL)       NOPASSWD: ALL
 
-# to this
+# toothis
 ## Same thing without a password
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 
 # On Debian family distros change this line:
-# Allow members of group sudo to execute any command
+# Allow members of group sudo tooexecute any command
 %sudo   ALL=(ALL:ALL) ALL
 
-# to this
+# toothis
 %sudo   ALL=(ALL) NOPASSWD:ALL
 
 # Verify everything
-# Verify the SSH keys & User account
+# Verify hello SSH keys & User account
 bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Verify sudo access
@@ -72,23 +72,23 @@ sudo top
 
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 ### <a name="introduction"></a>Inleiding
-Een van de eerste en de meest voorkomende taak met een nieuwe server is het toevoegen van een gebruikersaccount.  Hoofdmap aanmeldingen moeten zijn uitgeschakeld en het hoofdaccount zelf mag niet worden gebruikt met uw Linux-server alleen sudo.  Uitbreiding van bevoegdheden met ' sudo ' voor de hoofdmap van een gebruiker zodat deze de juiste manier te beheren en gebruiken van Linux.
+Een van de eerste en de meest voorkomende taak Hallo met een nieuwe server is tooadd een gebruikersaccount.  Hoofdmap aanmeldingen moeten zijn uitgeschakeld en Hallo root-account zelf mag niet worden gebruikt met uw Linux-server alleen sudo.  Geeft een gebruiker hoofdmap escalatie bevoegdheden met ' sudo ' het juiste manier tooadminister Hallo samen met Linux.
 
-Met de opdracht `useradd` we gebruikersaccounts toevoegen aan de Linux-VM.  Met `useradd` wijzigt `/etc/passwd`, `/etc/shadow`, `/etc/group`, en `/etc/gshadow`.  We een opdrachtregelprogramma vlag wilt toevoegen de `useradd` opdracht ook de nieuwe gebruiker toevoegen aan de juiste sudo-groep op Linux.  Zelfs als u `useradd` maakt u een vermelding in de `/etc/passwd` deze geeft geen nieuwe gebruikersaccount een wachtwoord.  Maakt u een eerste wachtwoord voor de nieuwe gebruiker met behulp van de eenvoudige `passwd` opdracht.  De laatste stap is het wijzigen van de sudo-regels voor het toestaan van die gebruiker met bevoegdheden voor sudo-opdrachten uitvoeren zonder een wachtwoord opgeven voor elke opdracht.  Aanmelden met behulp van de persoonlijke sleutel wordt uitgegaan van een gebruikersaccount is beschermd tegen ongewenste actoren en gaan sudo toegang zonder wachtwoord toestaan.  
+Met de opdracht Hallo `useradd` we gebruiker accounts toohello Linux VM toevoegen.  Met `useradd` wijzigt `/etc/passwd`, `/etc/shadow`, `/etc/group`, en `/etc/gshadow`.  We een opdrachtregelprogramma vlag toohello toevoegen `useradd` opdracht tooalso Hallo nieuwe toohello juiste sudo gebruikersgroep toevoegen op Linux.  Zelfs als u `useradd` maakt u een vermelding in de `/etc/passwd` deze geeft geen nieuwe gebruikersaccount Hallo een wachtwoord.  Maakt een initiële wachtwoord voor de nieuwe gebruiker Hallo Hallo eenvoudig met `passwd` opdracht.  de laatste stap Hallo is toomodify hello sudo regels tooallow die gebruiker tooexecute opdrachten met bevoegdheden voor sudo zonder tooenter een wachtwoord op voor elke opdracht.  Aanmelden met behulp van de persoonlijke sleutel hello wordt uitgegaan van een gebruikersaccount is beschermd tegen ongewenste actoren en gaat tooallow sudo toegang zonder een wachtwoord.  
 
-### <a name="adding-a-single-sudo-user-to-an-azure-vm"></a>Een gebruiker één sudo toe te voegen aan een Azure VM
-Aanmelden bij de virtuele machine in Azure met behulp van SSH-sleutels.  Als er geen installatie SSH openbare toegang tot de sleutel, eerst te voltooien in dit artikel [verificatie van openbare sleutel met Azure met behulp van](http://link.to/article).  
+### <a name="adding-a-single-sudo-user-tooan-azure-vm"></a>Toevoegen van een sudo met één gebruiker tooan Azure VM
+Meld u bij toohello Azure VM SSH-sleutels gebruiken.  Als er geen installatie SSH openbare toegang tot de sleutel, eerst te voltooien in dit artikel [verificatie van openbare sleutel met Azure met behulp van](http://link.to/article).  
 
-De `useradd` opdracht is voltooid de volgende taken:
+Hallo `useradd` opdracht is voltooid Hallo taken te volgen:
 
 * een nieuw gebruikersaccount maken
-* Maak een nieuwe groep met dezelfde naam
-* een lege vermelding toevoegen`/etc/passwd`
-* een lege vermelding toevoegen`/etc/gpasswd`
+* Maak een nieuwe gebruikersgroep met de Hallo dezelfde naam
+* een lege waarde te toevoegen`/etc/passwd`
+* een lege waarde te toevoegen`/etc/gpasswd`
 
-De `-G` opdrachtregelprogramma vlag wordt het nieuwe gebruikersaccount toegevoegd aan de juiste Linux-groep geeft het nieuwe gebruikersaccount hoofdmap uitbreiding van bevoegdheden.
+Hallo `-G` opdrachtregelprogramma vlag Hallo nieuwe gebruiker account toohello juiste Linux groep toegevoegd zodat nieuwe gebruikersaccount Hallo hoofdmap uitbreiding van bevoegdheden.
 
-#### <a name="add-the-user"></a>De gebruiker toevoegen
+#### <a name="add-hello-user"></a>Hallo-gebruiker toevoegen
 ```bash
 # On RedHat family distros
 sudo useradd -G wheel exampleUser
@@ -98,7 +98,7 @@ sudo useradd -G sudo exampleUser
 ```
 
 #### <a name="set-a-password"></a>Een wachtwoord instellen
-De `useradd` opdracht maakt u de gebruiker en wordt een vermelding toegevoegd aan beide `/etc/passwd` en `/etc/gpasswd` , maar het wachtwoord niet daadwerkelijk ingesteld.  Het wachtwoord wordt toegevoegd aan de vermelding met behulp van de `passwd` opdracht.
+Hallo `useradd` opdracht Hallo gebruiker maakt en voegt u een vermelding tooboth `/etc/passwd` en `/etc/gpasswd` maar niet daadwerkelijk Hallo wachtwoord ingesteld.  Hallo wachtwoord wordt toegevoegd toohello vermelding met Hallo `passwd` opdracht.
 
 ```bash
 sudo passwd exampleUser
@@ -107,43 +107,43 @@ Retype new UNIX password:
 passwd: password updated successfully
 ```
 
-We hebben nu een gebruiker met sudo-machtigingen op de server.
+We nu hebben een gebruiker met sudo-machtigingen op Hallo-server.
 
-### <a name="add-your-ssh-public-key-to-the-new-user-account"></a>Uw openbare SSH-sleutel aan het nieuwe gebruikersaccount toevoegen
-Gebruik van uw computer, de `ssh-copy-id` opdracht met het nieuwe wachtwoord.
+### <a name="add-your-ssh-public-key-toohello-new-user-account"></a>Uw openbare SSH-sleutel toohello nieuwe gebruikersaccount toevoegen
+Gebruik van uw computer, Hallo `ssh-copy-id` opdracht met Hallo nieuwe wachtwoord.
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 ```
 
-### <a name="using-visudo-to-allow-sudo-usage-without-a-password"></a>Met behulp van visudo voor het gebruik van sudo zonder wachtwoord toestaan
-Met behulp van `visudo` bewerken de `/etc/sudoers` bestand enkele lagen van bescherming tegen onjuist wijzigen van deze belangrijk bestand toegevoegd.  Bij het uitvoeren van `visudo`, wordt de `/etc/sudoers` bestand is vergrendeld zodat andere gebruikers geen wijzigingen kunt aanbrengen, terwijl deze actief wordt bewerkt.  De `/etc/sudoers` bestand ook gecontroleerd op fouten door `visudo` wanneer u probeert op te slaan of te sluiten, zodat u een verbroken sudoers-bestand niet opslaan.
+### <a name="using-visudo-tooallow-sudo-usage-without-a-password"></a>Met behulp van visudo tooallow sudo gebruik zonder wachtwoord
+Met behulp van `visudo` tooedit hello `/etc/sudoers` bestand enkele lagen van bescherming tegen onjuist wijzigen van deze belangrijk bestand toegevoegd.  Bij het uitvoeren van `visudo`, Hallo `/etc/sudoers` bestand is vergrendeld tooensure andere gebruikers geen wijzigingen kunt aanbrengen, terwijl deze actief wordt bewerkt.  Hallo `/etc/sudoers` bestand ook gecontroleerd op fouten door `visudo` wanneer u probeert toosave of sluiten zodat u een verbroken sudoers-bestand niet opslaan.
 
-Er bestaat reeds gebruikers in de juiste standaardgroep voor sudo-toegang.  Nu gaan we om in te schakelen die groepen sudo gebruiken zonder wachtwoord.
+Er bestaat reeds gebruikers in de juiste standaardgroep Hallo voor sudo-toegang.  Nu gaan we tooenable die groepen toouse sudo zonder wachtwoord.
 
 ```bash
-# Execute visudo as root to edit the /etc/sudoers file
+# Execute visudo as root tooedit hello /etc/sudoers file
 visudo
 
 # On RedHat family distros uncomment this line:
 ## Same thing without a password
 # %wheel        ALL=(ALL)       NOPASSWD: ALL
 
-# to this
+# toothis
 ## Same thing without a password
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 
 # On Debian family distros change this line:
-# Allow members of group sudo to execute any command
+# Allow members of group sudo tooexecute any command
 %sudo   ALL=(ALL:ALL) ALL
 
-# to this
+# toothis
 %sudo   ALL=(ALL) NOPASSWD:ALL
 ```
 
-### <a name="verify-the-user-ssh-keys-and-sudo"></a>Controleer of de gebruiker de ssh-sleutels en sudo
+### <a name="verify-hello-user-ssh-keys-and-sudo"></a>Controleer of gebruiker hello, ssh-sleutels en sudo
 ```bash
-# Verify the SSH keys & User account
+# Verify hello SSH keys & User account
 ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Verify sudo access

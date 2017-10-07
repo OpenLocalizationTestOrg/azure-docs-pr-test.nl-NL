@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Azure Marketplace verkoper Insights-portal | Microsoft Docs
-description: Begrijpen hoe de Azure Marketplace verkoper Insights-portal als verkoper op Azure Marketplace.
+title: aaaHow toouse hello Azure Marketplace verkoper Insights-portal | Microsoft Docs
+description: Begrijpen hoe toouse hello Azure Marketplace verkoper Insights-portal als verkoper op Hallo Azure Marketplace.
 services: marketplace publishing
 documentationcenter: na
 author: DavidBosland
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-dabosl
-ms.openlocfilehash: cd5db703ab0b89b8597c99c0d536bc07f883ebc6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a3c0438d26da7199a818a7927ca8e17c95b8ecc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-azure-marketplace-seller-insights-portal"></a>Het gebruik van de Azure Marketplace verkoper Insights-portal
+# <a name="how-toouse-hello-azure-marketplace-seller-insights-portal"></a>Hoe toouse hello Azure Marketplace verkoper Insights-portal
 
-Dit artikel wordt beschreven hoe beheerders toegang tot de verkoper Insights-portal, toevoegen of verwijderen van gebruikers en machtigingen instellen voor gebruikers.
+Dit artikel wordt beschreven hoe beheerders toegang hebben tot Hallo verkoper Insights-portal, toevoegen of verwijderen van gebruikers en machtigingen instellen voor gebruikers.
 
 ## <a name="onboard-users"></a>Ingebouwde gebruikers
 
-Deze sectie wordt beschreven hoe beheerders toegang hebben tot de verkoper Insights-portal voor het eerst. De taken in deze sectie zijn gereserveerd voor beheerders. 
+Deze sectie wordt beschreven hoe beheerders toegang hebben tot Hallo verkoper Insights-portal voor Hallo eerst. Hallo-taken in deze sectie zijn gereserveerd voor beheerders. 
 
 
 ### <a name="overview-of-roles"></a>Overzicht van rollen
 
-De verkoper Insights portalbeheerder voegt gebruikers, gebruikers bewerken en verwijderen van gebruikers.
+Hallo verkoper Insights beheerder voegt gebruikers, gebruikers bewerken en verwijderen van gebruikers.
 
-Een gebruiker van verkoper Insights-portal kunt weergeven van alle gegevens die beschikbaar is voor uw organisatie.
+Een gebruiker van verkoper Insights-portal kunt alle gegevens die beschikbaar tooyour organisatie weergeven.
 
-Beheerders en gebruikers zijn vereist om te verifiëren met behulp van een geldige [Microsoft-account](http://signup.live.com), of uw organisaties werk of schoolaccount. Zorg ervoor dat de nieuwe account-ID gekoppeld aan een gecontroleerde postvak is.
+Beheerders en gebruikers zijn vereiste tooauthenticate met behulp van een geldige [Microsoft-account](http://signup.live.com), of uw organisaties werk of schoolaccount. Zorg ervoor dat de nieuwe account-ID Hallo gekoppeld aan een gecontroleerde postvak is.
 
 ![Type account][5]
 
 
 
-### <a name="invitation-to-activate-your-account"></a>Een uitnodiging om uw account te activeren
+### <a name="invitation-tooactivate-your-account"></a>Uitnodiging tooactivate uw account
 
-Voordat u zich aanmeldt bij de verkoper Insights-portal, moet de beheerder van de identificatie van de accounts van de personen die ze willen instellen als gebruikers. Gebruikers met een werk- of schoolaccount of een Microsoft-account instellen.
+Hallo beheerder dient voordat u zich aanmeldt toohello verkoper Insights-portal, Hallo accounts van Hallo personen die ze tooset up als gebruikers willen te identificeren. Gebruikers met een werk- of schoolaccount of een Microsoft-account instellen.
 
-Voor het activeren van uw service moet de beheerder moet gaat u naar de [URL-adres](https://reports.azure.com) dat wordt weergegeven in de e-mail uitnodiging.
+uw service, Hallo beheerder moet tooactivate toohello gaat [URL-adres](https://reports.azure.com) dat wordt weergegeven in Hallo uitnodigingsmail.
 
 >[!NOTE]
->Als de beheerders-e wordt vermeld als een Microsoft-account en u een Microsoft-account die is gekoppeld aan het e-mailadres van waaruit u de uitnodiging ontvangen geen hebt gemaakt, moet u [Maak de account](https://signup.live.com) voordat u zich aanmeldt.
+>Als Hallo beheerder e-mailbericht wordt vermeld als een Microsoft-account en u een Microsoft-account dat is gekoppeld met Hallo e-mailadres van waaruit u Hallo-uitnodiging ontvangen geen hebt gemaakt, moet u deze te[Hallo-account maken](https://signup.live.com) voordat u zich aanmeldt.
 
 
-### <a name="administrator-sign-in-to-the-seller-insights-portal"></a>Beheerder aanmelden bij de verkoper Insights-portal
+### <a name="administrator-sign-in-toohello-seller-insights-portal"></a>Beheerder aanmelden toohello verkoper Insights-portal
 
-1. Aanmelden bij de verkoper Insights-portal door te klikken op de URL in de e-mail die aan u is toegezonden.
-2. Voer de beheerder e-mailadres en wachtwoord.
-3. Klik op de **aanmelden** knop.
-4. Begin met het beheren van uw account. Gebruikers toevoegen, machtigingen instellen en bewerken van gebruikers.
-5. Zorg ervoor dat uw gebruikers beschikken over de URL voor de verkoper Insights-portal.
+1. Meld u toohello verkoper Insights-portal door te klikken op Hallo-URL in Hallo e-mailbericht tooyou wordt verzonden.
+2. Hallo beheerder e-mailadres en wachtwoord opgeven.
+3. Klik op Hallo **aanmelden** knop.
+4. Beginnen met het tooadminister uw account. Gebruikers toevoegen, machtigingen instellen en bewerken van gebruikers.
+5. Zorg ervoor dat uw gebruikers hebben Hallo-URL voor Hallo verkoper Insights-portal.
 
     ![Aanmeldingspagina][6]
 
-## <a name="user-sign-in-to-the-portal"></a>Gebruiker aanmelden bij de portal
+## <a name="user-sign-in-toohello-portal"></a>Aanmelden toohello gebruikersportal
 
-De beheerder moet u een melding via e-mail of uw account is gemaakt en share de [URL-adres](https://reports.azure.com) voor de verkoper Insights-portal met u.
+De beheerder moet u een melding via e-mail of uw account is gemaakt en delen Hallo [URL-adres](https://reports.azure.com) voor Hallo verkoper Insights-portal met u.
 
 >[!NOTE]
->De beheerder is de eigenaar van het account dat oplossingen naar Azure Marketplace publiceert. De eigenaar van dit account biedt toegang tot andere.  Als u toegang tot de portal voor publiceren als een CO-beheerder hebt, kunt u het adres van de beheerder vinden met de volgende stappen:
->1. Aanmelden bij de portal voor publiceren.
->2. Klik op de **uitgevers** tabblad.
->3. Open de uitgever in kwestie (meestal er is slechts een).
->4. Klik op **beheerders** in de linkerbenedenhoek.
->5. De beheerder e-mailadres dat u zoekt is gelabeld *eigenaar*.
+>Hallo beheerder is de eigenaar Hallo Hallo-account dat wordt gepubliceerd oplossingen toohello Azure Marketplace. Hallo-eigenaar van dit account kan toegang tooothers bieden.  Hebt u toegang toohello publishing portal als medebeheerder, kunt u Hallo beheerder adres vinden met de volgende stappen:
+>1. Meld u aan de portal voor het publiceren van toohello.
+>2. Klik op Hallo **uitgevers** tabblad.
+>3. Open Hallo publisher in kwestie (meestal er is slechts een).
+>4. Klik op **beheerders** in de linkerbenedenhoek Hallo.
+>5. Hallo beheerder e-mailadres dat u zoekt is gelabeld *eigenaar*.
 
 
-U kunt aanmelden bij de verkoper Insights-portal met behulp van een persoonlijk Microsoft-account of met behulp van een account voor werk of school. Het soort account is afhankelijk van wat de beheerder heeft ingesteld in uw profiel. De beheerder moet adviseren u over de account die u gebruikt.
+U kunt toohello verkoper Insights-portal aanmelden via een persoonlijk Microsoft-account of met behulp van een account voor werk of school. Hallo soort account is afhankelijk van wat de beheerder heeft ingesteld in uw profiel. De beheerder moet adviseren u over Hallo account dat u gebruikt.
 
 ![Type account][1]
 
 
 
-**Welkom bij de verkoper Insights-portal.**
+**Welkom toohello verkoper Insights-portal.**
 
-1. Nadat u zich hebt aangemeld, u komt dan uit op de **samenvatting** pagina.
-2. Privacybeleid voor het lezen van een paar minuten duren.
-3. U kunt **Contact met ons** op elk moment via e-mail, als u vragen hebt u wellicht die gerelateerd zijn aan de verkoper Insights-portal.
-4. U kunt rond verplaatsen in de verkoper Insights-portal met behulp van de tabbladen boven aan de pagina.  Wacht op de tabbladen boven aan de pagina's in deze handleiding kunt u zich te richten in de verkoper Insights-portal.
-5. Klik op het pictogram glimlach op elk gewenst moment om feedback die gerelateerd is aan de verkoper Insights-portal te verzenden.
-6. Als u wilt afmelden bij de verkoper Insights-portal, klikt u op uw naam in de rechterbovenhoek.
+1. Nadat u zich hebt aangemeld, wordt u land op Hallo **samenvatting** pagina.
+2. Een paar minuten tooread Hallo privacybeleid duren.
+3. U kunt **Contact met ons** op elk moment via e-mail, als u vragen hebt u wellicht die gerelateerd toohello verkoper Insights-portal zijn.
+4. U kunt verplaatsen rond in Hallo verkoper Insights-portal met behulp van Hallo tabbladen bovenaan Hallo Hallo pagina.  Bekijk de Hallo tabbladen boven Hallo Hallo pagina's in deze handleiding toohelp plaatsen volgens u in Hallo verkoper Insights-portal.
+5. Klik op tijd toosend feedback die gerelateerde toohello verkoper Insights-portal Hallo glimlach-pictogram.
+6. toosign buiten Hallo verkoper Insights-portal, klikt u op uw naam in de rechterbovenhoek Hallo.
 
     ![Standaard-startpagina][2]
 
@@ -95,25 +95,25 @@ U kunt aanmelden bij de verkoper Insights-portal met behulp van een persoonlijk 
 ## <a name="summary-view"></a>Overzicht
 
 
-1. Selecteer de **samenvatting** tabblad.
-2. Voer de **begindatum** van de periode die u geïnteresseerd bent in het hier en klik vervolgens op **toepassen**. Gegevens van drie maanden worden weergegeven.
-3. Nieuwe volgorde trendgegevens voor de periode van drie maanden die u hebt geselecteerd, wordt hier weergegeven.
-4. Nieuwe orders voor de geselecteerde tijdsperiode hier worden weergegeven door het kanaal en type aanbieden.
+1. Selecteer Hallo **samenvatting** tabblad.
+2. Voer Hallo **begindatum** Hallo periode u hier bent geïnteresseerd zijn, en klik vervolgens op **toepassen**. Gegevens van drie maanden worden weergegeven.
+3. Nieuwe volgorde trendgegevens voor Hallo drie maanden wordt periode die u hebt geselecteerd hier weergegeven.
+4. Nieuwe orders voor de geselecteerde periode Hallo hier worden weergegeven door het kanaal en type aanbieden.
 5. Selecteer een weergave in dit deelvenster. **Top 5 markt**, **Top 5 uitvoeren aanbiedingen**, of **Top 5 klanten**.
-6. Toekenning trend voor de geselecteerde is periode hier voor betaalde aanbiedingen weergegeven. Als u alleen BYOL of aanbiedingen van de 1e van derden hebt, wordt dit deelvenster niet weergegeven.
+6. Toekenning trend voor de geselecteerde periode Hallo wordt voor betaalde aanbiedingen hier weergegeven. Als u alleen BYOL of aanbiedingen van de 1e van derden hebt, wordt dit deelvenster niet weergegeven.
 
     ![Overzicht][7]
 
 ## <a name="orders-and-usage"></a>Backorders en gebruik
 ### <a name="overview"></a>Overzicht
 
-In *Configuratiescherm A*, kunt u de **backorders en gebruik** tabblad.  Hier kunt u **Orders** of **gebruik** van **rapporttype**, en gebruik vervolgens de schuifregelaars om de gegevens van belang te selecteren.
+In *Configuratiescherm A*, kunt u Hallo **backorders en gebruik** tabblad.  Hier kunt u **Orders** of **gebruik** van **rapporttype**, en gebruik vervolgens Hallo schuifregelaars tooselect Hallo gegevens van belang.
 
-In *Configuratiescherm B*, kunt u uw maandelijkse gegevens. Selecteer **Orders** of **gebruik** , afhankelijk van uw selectie in **rapporttype** in Configuratiescherm A.  De gegevens die wordt weergegeven, geeft de datums die u invoert en de filters die u hebt toegepast met behulp van de schuifregelaars in Configuratiescherm A.
+In *Configuratiescherm B*, kunt u uw maandelijkse gegevens. Selecteer **Orders** of **gebruik** , afhankelijk van uw selectie in **rapporttype** in Configuratiescherm A.  Hallo-gegevens die wordt weergegeven weerspiegelt Hallo datums die u invoert en Hallo filters die u hebt toegepast met behulp van Hallo schuifregelaars in Configuratiescherm A.
 
-In *Configuratiescherm C*, kunt u uw trendgegevens van drie maanden. Selecteer **Orders** of **gebruik** , afhankelijk van uw selectie in **rapporttype** in Configuratiescherm A.  De gegevens die wordt weergegeven, geeft de datums die u invoert en de filters die u hebt toegepast met behulp van de schuifregelaars in Configuratiescherm A.
+In *Configuratiescherm C*, kunt u uw trendgegevens van drie maanden. Selecteer **Orders** of **gebruik** , afhankelijk van uw selectie in **rapporttype** in Configuratiescherm A.  Hallo-gegevens die wordt weergegeven weerspiegelt Hallo datums die u invoert en u hebt toegepast via Hallo schuifregelaars in Configuratiescherm A. Hallo-filters
 
-In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt vermeld.  Gegevens zijn kunt downloaden van dit deelvenster in Excel- of CSV-indeling.
+In *Configuratiescherm D*, Hallo abonnementsgegevens voor elke afzonderlijke wordt vermeld.  Gegevens zijn kunt downloaden van dit deelvenster in Excel- of CSV-indeling.
 
 ![Overzicht van de orders][8]
 ![Orders overzichtskaart][9]
@@ -124,10 +124,10 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
 ![Deelvenster kaart A][10]
 
-  1. Selecteer de **backorders en gebruik** tabblad van de bovenste rij voor toegang tot uw orders en gebruiksgegevens.
+  1. Selecteer Hallo **backorders en gebruik** TAB-toets van Hallo bovenste rij tooaccess uw backorders en gebruiksgegevens.
   2. Selecteer **Orders** van **rapporttype**.
-  3. Gebruik het symbool filter naar de slicer-opties weergeven of verbergen.  Deze slicers gebruiken voor het filteren van de gegevens die u weergeven wilt door **Azure licentietype**, **Marketplace licentietype**, **markt**, **Offertype**, en **Preview** status.  Zie de **Help** tabblad voor definities van deze voorwaarden.
-  4. Selecteer de begindatum u geïnteresseerd bent in en klik vervolgens op **gaat**.
+  3. Hallo filter symbool tooshow gebruiken of Hallo slicer opties verbergen.  Gebruik van deze slicers toofilter Hallo gegevens die u wilt dat tooview door **Azure licentietype**, **Marketplace licentietype**, **markt**, **Offertype**, en **Preview** status.  Zie Hallo **Help** tabblad voor definities van deze voorwaarden.
+  4. Selecteer de begindatum Hallo u geïnteresseerd bent in en klik vervolgens op **gaat**.
 
   ![Orders weergeven maandelijks Configuratiescherm A][14]
 
@@ -137,7 +137,7 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
   1. Selecteer **maandelijkse weergave**.
   2. Volgorde overzichtsgegevens worden weergegeven door kanaal: CSP, Direct Enterprise, indirecte Enterprise en Web Direct.
-  3. Voor de **maandelijkse weergave**, wordt de **Orders overzichtsgegevens** Configuratiescherm biedt de volgende grafiekweergaven:
+  3. Voor Hallo **maandelijkse weergave**, Hallo **Orders overzichtsgegevens** Configuratiescherm Hallo diagramweergaven volgende biedt:
 
 * Orders door markt (Top 10)
 * Orders door de titel van aanbieding (Top 10)
@@ -152,16 +152,16 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
   ![Deelvenster kaart C][12]
 
   1. Selecteer **Trend weergave**.
-  2. Selecteer de items die u weergeven wilt van de **onderwerp** lijst en klik vervolgens op **toepassen**. De standaardwaarde is **Alles selecteren**.
+  2. Selecteer Hallo items tooview van Hallo **onderwerp** lijst en klik vervolgens op **toepassen**. Hallo standaardwaarde is **Alles selecteren**.
 
   ![Deelvenster C onderwerpsgebied lijst orders maandelijkse weergeven][17]
 
-  3. Het symbool filter gebruiken om te selecteren **alle** gegevens of **Top 10** voor al uw selecties. De standaardwaarde is **Top 10**.
+  3. Gebruik Hallo filter symbool tooselect **alle** gegevens of **Top 10** voor al uw selecties. Hallo standaardwaarde is **Top 10**.
 
   ![Weergave maandelijks orders Configuratiescherm C filter symbool][18]
 
-  4. Wijs elke balk in de grafieken die u hebt geselecteerd om de onderliggende gegevens zichtbaar te maken.
-  5. Gebruik de  **+**  symbool overschakelen naar een modus waarbij de gegevens onder elk van de grafieken die u hebt geselecteerd worden weergegeven.
+  4. Punt tooeach balk in Hallo-grafieken tooreveal Hallo onderliggende gegevens hebt geselecteerd.
+  5. Gebruik Hallo  **+**  symbool tooswitch tooa modus waar Hallo gegevens onder elke Hallo grafieken die u hebt geselecteerd wordt weergegeven.
 
   ![Weergave van de trend orders Configuratiescherm C][16]
 
@@ -171,13 +171,13 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
   ![Deelvenster kaart D][13]
 
-  1. De **volgorde Detail** deelvenster toont gedetailleerde ordenen van gegevens.
-  2. De filters aan het begin van elke kolom gebruiken om de gegevens filteren met behulp van een reeks opdrachten en -waarden.
+  1. Hallo **volgorde Detail** deelvenster toont gedetailleerde ordenen van gegevens.
+  2. Hallo-filters gebruiken boven Hallo van elke kolom toofilter Hallo-gegevens met behulp van een reeks opdrachten en -waarden.
 
   ![Orders weergeven maandelijks Configuratiescherm D filters][20]
 
-  3. Selecteer het aantal items per pagina die u wilt weergeven. 10, 20 of 50 items per pagina zijn beschikbaar.
-  4. Download de gegevens in Excel- of CSV-indeling voor offline-analyse.
+  3. Selecteer het aantal items per pagina die u wilt dat tooview Hallo. 10, 20 of 50 items per pagina zijn beschikbaar.
+  4. Hallo-gegevens in Excel- of CSV-indeling voor offline-analyse te downloaden.
 
   ![Orders orders gedetailleerde weergave van Configuratiescherm D][19]
 
@@ -188,10 +188,10 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
   ![Deelvenster kaart A][10]
 
 
-  1. Voor toegang tot uw orders en gebruiksgegevens, selecteer de **backorders en gebruik** tabblad.
+  1. tooaccess uw backorders en gebruiksgegevens, selecteer Hallo **backorders en gebruik** tabblad.
   2. Selecteer **gebruik** van **rapporttype**.
-  3. Gebruik het symbool filter naar de slicer-opties weergeven of verbergen.  Deze slicers gebruiken voor het filteren van de gegevens die u weergeven wilt door **Azure licentietype**, **Marketplace licentietype**, **markt**, **Offertype**, **Preview** status, en **gebruikstype**.  Zie de **Help** tabblad voor definities van deze voorwaarden.
-  4. Selecteer de begindatum u geïnteresseerd bent in en klik vervolgens op **gaat**.
+  3. Hallo filter symbool tooshow gebruiken of Hallo slicer opties verbergen.  Gebruik van deze slicers toofilter Hallo gegevens die u wilt dat tooview door **Azure licentietype**, **Marketplace licentietype**, **markt**, **Offertype**, **Preview** status, en **gebruikstype**.  Zie Hallo **Help** tabblad voor definities van deze voorwaarden.
+  4. Selecteer de begindatum Hallo u geïnteresseerd bent in en klik vervolgens op **gaat**.
 
   ![Maandelijkse Resourcegebruik Configuratiescherm A][21]
 
@@ -201,7 +201,7 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
   1. Selecteer **maandelijkse weergave**.
   2. Het gebruik van overzichtsgegevens worden weergegeven, in uren.
-  3. Voor de **maandelijkse weergave**, wordt de **Orders overzichtsgegevens** Configuratiescherm biedt de volgende grafiekweergaven:
+  3. Voor Hallo **maandelijkse weergave**, Hallo **Orders overzichtsgegevens** Configuratiescherm Hallo diagramweergaven volgende biedt:
 
 * Orders door markt (Top 10)
 * Orders door de titel van aanbieding (Top 10)
@@ -210,7 +210,7 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
 
 >[!NOTE]
->De slicers in Configuratiescherm A zijn gebruikt voor het filteren van de gegevens die wordt weergegeven in het deelvenster B. Bijvoorbeeld, de grafieken worden ingesteld voor **genormaliseerd gebruik**.
+>Hallo slicers in Configuratiescherm een weet gebruikt toofilter Hallo gegevens die wordt weergegeven in het deelvenster B. Bijvoorbeeld, Hallo grafieken zijn ingesteld voor **genormaliseerd gebruik**.
 
 ![Maandelijkse Resourcegebruik Configuratiescherm B][22]
 
@@ -219,17 +219,17 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
   ![Deelvenster kaart C][12]
 
   1. Selecteer **Trend weergave**.
-  2. Selecteer de items die u weergeven wilt van de **onderwerp** lijst en klik vervolgens op **toepassen**. De standaardwaarde is **Alles selecteren**.
+  2. Hallo-items die u wilt dat tooview van Hallo selecteren **onderwerp** lijst en klik vervolgens op **toepassen**. Hallo standaardwaarde is **Alles selecteren**.
 
 
   ![Maandelijkse Resourcegebruik lijst van het Configuratiescherm C onderwerpsgebied][17]
 
-  3. Het symbool filter gebruiken om te selecteren **alle** gegevens of **Top 10** voor al uw selecties. De standaardwaarde is **Top 10**.
+  3. Gebruik Hallo filter symbool tooselect **alle** gegevens of **Top 10** voor al uw selecties. Hallo standaardwaarde is **Top 10**.
 
   ![Maandelijkse Resourcegebruik Configuratiescherm C filter symbool][18]
 
-  4. Wijs elke balk in de grafieken die u hebt geselecteerd om de onderliggende gegevens zichtbaar te maken.
-  5. Gebruik de  **+**  symbool om weer te geven gegevens onder elk van de grafieken die u hebt geselecteerd om weer te geven.
+  4. Punt tooeach balk in Hallo grafieken dat u tooreveal Hallo onderliggende gegevens hebt geselecteerd.
+  5. Gebruik Hallo  **+**  symbool tooshow gegevens onder elke Hallo grafieken dat u tooview hebt geselecteerd.
 
   ![Trend van Resourcegebruik Configuratiescherm C][23]
 
@@ -239,13 +239,13 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
   ![Deelvenster kaart D][13]
 
-  1. De **gebruik Detail** deelvenster toont gedetailleerde ordenen van gegevens.
-  2. De filters aan het begin van elke kolom gebruiken om de gegevens filteren met behulp van verschillende opdrachten en waarden.
+  1. Hallo **gebruik Detail** deelvenster toont gedetailleerde ordenen van gegevens.
+  2. Hallo-filters gebruiken boven Hallo van elke kolom toofilter Hallo-gegevens met behulp van verschillende opdrachten en waarden.
 
   ![Maandelijkse Resourcegebruik Configuratiescherm D filtert][20]
 
-  3. Selecteer het aantal items per pagina die u wilt weergeven. 10, 20 of 50 items per pagina zijn beschikbaar.
-  4. Download de gegevens in Excel- of CSV-indeling voor offline-analyse.
+  3. Selecteer het aantal items per pagina die u wilt dat tooview Hallo. 10, 20 of 50 items per pagina zijn beschikbaar.
+  4. Hallo-gegevens in Excel- of CSV-indeling voor offline-analyse te downloaden.
 
 
   ![Gebruik Configuratiescherm D maandelijks weergeven][24]
@@ -253,117 +253,117 @@ In *Configuratiescherm D*, de abonnementsgegevens voor elke afzonderlijke wordt 
 
 ### <a name="accessing-detailed-customer-data"></a>Toegang tot de gedetailleerde klantgegevens
 
-  1. Van de **volgorde Detail** -scherm, klikt u op de Azure-abonnement-ID die u geïnteresseerd bent in.  U kunt alleen de niet - BYOL Marketplace licentie Type-id's klikken. BYOL abonnement-id's worden opgedeeld uit veiligheidsoverwegingen.
+  1. Van Hallo **volgorde Detail** -scherm, klikt u op Hallo Azure-abonnement-ID die u geïnteresseerd bent in.  U kunt alleen Hallo niet - BYOL Marketplace licentie Type-id's klikken. BYOL abonnement-id's worden opgedeeld uit veiligheidsoverwegingen.
 
   ![Backorders en gebruik klant gegevens Configuratiescherm][26]
 
-  2. U wordt omgeleid naar de **klanten gedetailleerde gegevens** Configuratiescherm. De gegevens voor de klant worden opgehaald.
-  3. U kunt de gegevens in Excel- of CSV-indeling downloaden.
+  2. U staat op het omgeleide toohello **klanten gedetailleerde gegevens** Configuratiescherm. Hallo-gegevens voor de klant Hallo worden opgehaald.
+  3. Hallo-gegevens in Excel- of CSV-indeling, kunt u downloaden.
 
   ![Backorders en gebruik klant gegevens Configuratiescherm][27]
 
 ### <a name="customer-data"></a>Klantgegevens
 
-  1. Selecteer de **klant** tabblad.
-  2. De slicers gebruiken voor het filteren van de gegevens die u weergeven wilt door **Azure licentietype** of **Marketplace licentietype**.
-  3. Selecteer de **begindatum** en **einddatum** voor de periode van belang.
+  1. Selecteer Hallo **klant** tabblad.
+  2. Hallo slicers toofilter Hallo gegevens gebruiken die u wilt dat tooview door **Azure licentietype** of **Marketplace licentietype**.
+  3. Selecteer Hallo **begindatum** en **einddatum** voor Hallo periode van belang.
   4. Overzichtsgegevens door klant **Marketplace licentietype** worden weergegeven.
-  5. De filters aan het begin van elke kolom gebruiken om de gegevens filteren met behulp van verschillende opdrachten en waarden.
-  6. Download de gegevens in Excel- of CSV-indeling.
+  5. Hallo-filters gebruiken boven Hallo van elke kolom toofilter Hallo-gegevens met behulp van verschillende opdrachten en waarden.
+  6. Download Hallo-gegevens in Excel- of CSV-indeling.
 
   ![Klant gegevens Configuratiescherm][28]
 
 
 ## <a name="user-management"></a>Gebruikersbeheer
 
-De taken in deze sectie zijn gereserveerd voor beheerders. Gebruik de volgende procedures om gebruikers toevoegen, machtigingen wijzigen of verwijderen van gebruikers van de verkoper Insights-portal.
+Hallo-taken in deze sectie zijn gereserveerd voor beheerders. Hallo procedures tooadd gebruikers na gebruik, machtigingen wijzigen of verwijderen van gebruikers uit Hallo verkoper Insights-portal.
 
 
 ### <a name="add-user"></a>Gebruiker toevoegen
 
-Deze sectie wordt beschreven hoe u nieuwe gebruikers toevoegen of wijzigen van hun machtigingen in de verkoper Insights-portal.
+Deze sectie leest u hoe tooadd nieuwe gebruikers hun machtigingen in Hallo verkoper Insights-portal of wijzigen.
 
 
-1. Selecteer de **Gebruikersbeheer** tabblad.
-2. Selecteer om een gebruiker toe **gebruiker toevoegen**.
-3. Voer het e-mailadres dat is gekoppeld aan hun Microsoft-account of hun account voor werk of school. Klik vervolgens op **doorgaan**.
-4. Als beheerder, kunt u toegang tot alleen-lezen rapporten toewijzen aan gebruikers.
-5. Geef de Gebruikersdetails **voornaam**, **achternaam**, en **e**, en klik vervolgens op **doorgaan**.
-6. De machtigingen selecteren die u wilt toewijzen aan de gebruiker en klik vervolgens op **doorgaan**.
-7. Zorg ervoor dat de informatie die u hebt ingevoerd juist is en klik vervolgens op **opslaan** om door te gaan.  U hebt een gebruiker is toegevoegd.
+1. Selecteer Hallo **Gebruikersbeheer** tabblad.
+2. selecteert u een gebruiker tooadd **gebruiker toevoegen**.
+3. Voer Hallo e-mailadres dat is gekoppeld aan hun Microsoft-account of hun account voor werk of school. Klik vervolgens op **doorgaan**.
+4. Als beheerder, kunt u een rapport voor alleen-lezen toegang toousers toewijzen.
+5. Voer Hallo gebruikersgegevens **voornaam**, **achternaam**, en **e**, en klik vervolgens op **doorgaan**.
+6. Selecteer Hallo machtigingen die u tooallocate toohello gebruiker wilt en klik vervolgens op **doorgaan**.
+7. Hallo-informatie die u hebt ingevoerd juist is, en klik vervolgens op **opslaan** toocontinue.  U hebt een gebruiker is toegevoegd.
 
   ![Een paneel gebruiker toevoegen][29]
 
 
 ### <a name="edit-user"></a>Gebruiker bewerken
 
-1. Selecteer de **Gebruikersbeheer** tabblad en selecteer vervolgens **gebruikers bewerken**.
-2. Zoek de gebruiker wiens machtigingen die u wilt wijzigen.  U kunt ook nieuwe gebruikers toevoegen. Klik op **gebruikers toevoegen**.
-3. Klik op de machtigingen die u wilt verwijderen voor de gebruiker.  U kunt ook een gebruiker verwijderen. Klik op **gebruiker verwijderen**.
-4. Klik op **opslaan** om door te gaan.  U hebt machtigingen van de gebruiker is bewerkt.
+1. Selecteer Hallo **Gebruikersbeheer** tabblad en selecteer vervolgens **gebruikers bewerken**.
+2. Zoek Hallo gebruiker waarvan de machtigingen gewenste toomodify.  U kunt ook nieuwe gebruikers toevoegen. Klik op **gebruikers toevoegen**.
+3. Klik op Hallo gewenste machtigingen tooremove voor Hallo-gebruiker.  U kunt ook een gebruiker verwijderen. Klik op **gebruiker verwijderen**.
+4. Klik op **opslaan** toocontinue.  U hebt Hallo gebruikersmachtigingen is bewerkt.
 
   ![Een paneel gebruiker bewerken][30]
 
 ## <a name="help-support-requests"></a>Ondersteuning van aanvragen
 
 
-### <a name="access-the-support-request-format"></a>Toegang tot de Aanvraagindeling ondersteuning
+### <a name="access-hello-support-request-format"></a>Toegang Hallo ondersteuning voor de indeling van aanvraag
 
-1. Selecteer de **Help** tabblad.
+1. Selecteer Hallo **Help** tabblad.
 2. Selecteer **ondersteuning & documentatie**, en selecteer vervolgens **Start aanvragen**.
-3. U kunt ook verzenden een aanvraag voor ondersteuning van de **Contact met ons** koppeling. Deze koppeling wordt weergegeven aan de onderkant van elke pagina in de toepassing.
+3. U kunt ook een verzoek om ondersteuning van Hallo verzenden **Contact met ons** koppeling. Deze koppeling wordt weergegeven onder Hallo van elke pagina in de toepassing hello.
 4. Een nieuw tabblad geopend waarin u een verzoek om ondersteuning kunt verzenden.
 
-  ![Het ondersteuningsformulier openen][31]
+  ![Toegang Hallo ondersteuningsformulier][31]
 
 ### <a name="review-helpful-information"></a>Nuttige informatie bekijken
 
-1. Als u een ondersteuningsaanvraag die is gerelateerd aan uw rapporten, selecteer **rapporten en inzichten** van **probleemtype**.
-2. Selecteer een categorie.  De opties zijn **vragen betrekking hebben op rapporten** en **andere**.
-3. Sommige nuttige koppelingen worden weergegeven, die een antwoord op uw query kunnen bieden.  Deze koppelingen controleren voordat u uw ondersteuningsaanvraag indienen.
-4. Als u nog moet ondersteuning te vragen, selecteert u **Start-aanvragen**.
+1. Selecteer toosubmit ondersteuning aan te vragen die gerelateerde tooyour rapporten, **rapporten en inzichten** van **probleemtype**.
+2. Selecteer een categorie.  Hallo-opties zijn **vragen gerelateerde tooreports** en **andere**.
+3. Sommige nuttige koppelingen worden weergegeven, die een antwoord tooyour query kunnen bieden.  Deze koppelingen controleren voordat u uw ondersteuningsaanvraag indienen.
+4. Als u nog steeds toosubmit ondersteuning aan te vragen moet, selecteert u **Start-aanvragen**.
 
   ![Een paneel gebruiker bewerken][32]
 
 
-### <a name="enter-information-and-submit-the-request"></a>Geef informatie op en dien de aanvraag
+### <a name="enter-information-and-submit-hello-request"></a>Geef informatie op en het Hallo-aanvraag verzenden
 
 1. Voer uw contactgegevens, de tijdzone, de regio en het taalvoorkeuren en selecteer vervolgens **doorgaan**.
 2. Geef uw incident een titel en Geef zoveel mogelijk gegevens.  U kunt ook uploaden ondersteunende bestanden zoals een schermopname en selecteer vervolgens **indienen**.
 3. U ontvangt een bevestiging dat uw ondersteuningsaanvraag geslaagd is.
-4. U kunt de status van uw ondersteuningsaanvraag op elk gewenst moment controleren.
+4. U kunt Hallo-status van uw ondersteuningsaanvraag op elk gewenst moment controleren.
 
-  ![Het ondersteuningsformulier openen][33]
+  ![Toegang Hallo ondersteuningsformulier][33]
 
 
 ## <a name="reset-a-password"></a>Uw wachtwoord opnieuw instellen
 
 **Validatie van het account en wachtwoord**
 
-1. *Valideren dat het account dat u gebruikt, is geregistreerd en het wachtwoord werkt niet.* Als u een account dat is geregistreerd in Azure Active Directory invoert, automatisch wordt u gevraagd om te kiezen hoe u zich aanmelden met het account. U een werk- of schoolaccount of een Microsoft-account die als uw persoonlijke account fungeert gebruiken.
-2. Ga naar [https://reports.azure.com](https://reports.azure.com) en meld u af bij alle accounts die u kan worden aangemeld. U kunt deze ook openen binnen een privé-venster om te controleren of dat er zijn geen andere accounts bent aangemeld.
-3. Voer het e-mailadres van de uitgever, maar geen wachtwoord invoert. Als deze geregistreerd in Azure Active Directory, wordt het omleiden naar stap 4.
+1. *Controleer of u Hallo-account is geregistreerd en Hallo wachtwoord werkt niet.* Als u een account dat is geregistreerd in Azure Active Directory invoert, automatisch wordt u gevraagd toochoose hoe toosign met Hallo-account. U een werk- of schoolaccount of een Microsoft-account die als uw persoonlijke account fungeert gebruiken.
+2. Ga te[https://reports.azure.com](https://reports.azure.com) en meld u af bij alle accounts die u kan worden aangemeld. U kunt deze ook openen binnen een privé-venster tooensure die geen andere accounts bent aangemeld.
+3. Voer het e-mailadres van de uitgever van de hello, maar geen wachtwoord invoert. Als deze geregistreerd in Azure Active Directory, wordt deze toostep 4 omleiden.
 
     >[!NOTE]
-    >Administrator-accounts zijn geregistreerd. Werk- of schoolaccount accounts die zijn gedefinieerd door de administrator-account zijn ook geregistreerd.
+    >Administrator-accounts zijn geregistreerd. Werk- of schoolaccount accounts die zijn gedefinieerd door de administrator-account Hallo zijn ook geregistreerd.
 
 4. Kies **werk- of schoolaccount**. Werk-of schoolaccounts zijn ingesteld door bedrijven die zijn geregistreerd bij Azure. 
 
     >[!NOTE]
-    >Het is mogelijk dat een gebruiker een Microsoft-account heeft ingesteld met behulp van e-mailadres van hun organisatie. In dit scenario wordt de organisatie hoger onboards met Azure en hetzelfde e-mailadres is geregistreerd als een account voor werk of school. Deze gebruiker kan een Microsoft-account met hetzelfde wachtwoord dat ze gebruikt voor het maken van het werk of school-account hebben. Deze gebruiker kan ook een account voor werk of school met een afzonderlijk wachtwoord dat wordt gebruikt door hun organisatie hebben.
+    >Het is mogelijk dat een gebruiker een Microsoft-account heeft ingesteld met behulp van e-mailadres van hun organisatie. In dit scenario Hallo organisatie hoger onboards tooAzure en Hallo hetzelfde e-mailadres is geregistreerd als een account voor werk of school. Deze gebruiker een Microsoft-account met Hallo kan hebben hetzelfde wachtwoord dat ze toocreate Hallo gebruikt werk- of schoolaccount. Deze gebruiker kan ook een account voor werk of school met een afzonderlijk wachtwoord dat wordt gebruikt door hun organisatie hebben.
 
-5. Voor de verkoper Insights-portal, wanneer u selecteert **werk- of schoolaccount**, zorg ervoor dat u uw werk of school accountwachtwoord en niet een wachtwoord in de Microsoft-account.
-6. Een account voor werk of school wordt omgeleid naar de pagina van de uitgever aan te melden.
-7. Hier kunt valideren dat het wachtwoord voor het account voor werk of school werkt. Als dit niet werkt, gaat u verder naar de sectie 'Wachtwoord opnieuw instellen' in dit artikel.
+5. Voor Hallo verkoper Insights-portal, wanneer u selecteert **werk- of schoolaccount**, zorg ervoor dat u uw werk of school accountwachtwoord en niet een wachtwoord in de Microsoft-account.
+6. Een account voor werk of school leidt van de uitgever van de toohello pagina toosign in.
+7. Hier kunt valideren dat wachtwoord Hallo voor Hallo werk of school-account werkt. Als dit niet werkt, gaat u verder toohello sectie 'Wachtwoord opnieuw instellen' in dit artikel.
 
 
 
 **Wachtwoord opnieuw instellen**
 
-Gebruik de volgende Microsoft- en werk-of schoolaccounts voor uw wachtwoord opnieuw instellen.
+Gebruik Hallo Microsoft en werk of school accounts tooreset uw wachtwoord.
 
 >[!NOTE]
->Voor werk of school-accounts die zijn gedefinieerd door de administrator-account als de beheerder van de mogelijkheden ingeschakeld zodat u kunt uw eigen wachtwoord opnieuw instellen, kunt u uw eigen wachtwoord opnieuw instellen. Anders wordt kunt het wachtwoord opnieuw instellen van formulier u contact opnemen met uw beheerder.
+>Voor werk of school-accounts die zijn gedefinieerd door de administrator-account Hallo als Hallo beheerder Hallo-mogelijkheden ingeschakeld zodat u kunt uw eigen wachtwoord opnieuw instellen, kunt u uw eigen wachtwoord opnieuw instellen. Anders wachtwoordherstel Hallo formulier geeft u een optie toocontact Hallo uw beheerder.
 
 * [Microsoft-account](https://account.live.com/ResetPassword.aspx)
 ![wachtwoord opnieuw instellen van Microsoft-account][3]
@@ -372,9 +372,9 @@ Gebruik de volgende Microsoft- en werk-of schoolaccounts voor uw wachtwoord opni
 ![werk-of schoolaccount voor wachtwoordherstel][4]
 
 
-## <a name="send-feedback-to-improve-the-seller-insights-portal"></a>Feedback geven voor het verbeteren van de verkoper Insights-portal
+## <a name="send-feedback-tooimprove-hello-seller-insights-portal"></a>Verzenden van feedback tooimprove Hallo verkoper Insights-portal
 
-  U kunt klikken op het pictogram glimlach op elk gewenst moment om feedback te geven.
+  U kunt klikken op tijd tooprovide feedback Hallo glimlach-pictogram.
 
 
   ![Feedbackformulier][34]

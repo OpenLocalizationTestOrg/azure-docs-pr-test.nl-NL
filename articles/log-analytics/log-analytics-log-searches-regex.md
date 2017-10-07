@@ -1,6 +1,6 @@
 ---
-title: Meld u reguliere expressies in de OMS-logboekanalyse zoekopdrachten | Microsoft Docs
-description: U kunt de RegEx-sleutelwoord in logboekanalyse logboek zoekopdrachten aan het filter de resultaten volgens een reguliere expressie.  Dit artikel bevat de syntaxis voor deze expressies met enkele voorbeelden.
+title: aaaRegular expressies in de OMS-logboekanalyse Meld zoekopdrachten | Microsoft Docs
+description: Kunt u Hallo RegEx-sleutelwoord in logboekanalyse logboek zoekopdrachten toohello Hallo filterresultaten volgens tooa reguliere expressie.  In dit artikel biedt Hallo-syntaxis voor deze expressies met enkele voorbeelden.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: bwren
-ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3033593dac2c50e911fc69054947d40d4a74369b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Reguliere expressies gebruiken voor het filteren van logboek zoekt in Log Analytics
+# <a name="using-regular-expressions-toofilter-log-searches-in-log-analytics"></a>Met behulp van reguliere expressies toofilter logboek zoekt in Log Analytics
 
-[Meld u zoekopdrachten](log-analytics-log-searches.md) kunt u gegevens ophalen uit de opslagplaats voor logboekanalyse.  [Filterexpressies](log-analytics-search-reference.md#filter-expressions) kunt u de resultaten van de zoekopdracht volgens specifieke criteria filteren.  De **RegEx** sleutelwoord kunt u een reguliere expressie voor dit filter opgeven.  
+[Meld u zoekopdrachten](log-analytics-log-searches.md) kunt u tooextract informatie uit Hallo Log Analytics-bibliotheek.  [Filterexpressies](log-analytics-search-reference.md#filter-expressions) kunt u de resultaten van de toofilter Hallo van Hallo zoeken op basis van criteria toospecific.  Hallo **RegEx** sleutelwoord kunt u toospecify een reguliere expressie voor dit filter.  
 
-Dit artikel bevat informatie over de syntaxis van de reguliere expressie die wordt gebruikt door logboekanalyse.
+In dit artikel biedt details over de syntaxis met gewone uitdrukkingen Hallo door Log Analytics gebruikt.
 
 > [!NOTE]
 > U kunt alleen RegEx met doorzoekbare velden.  Zie voor meer informatie over de doorzoekbare velden **veldtypen** in [vinden van gegevens met behulp van logboek zoekopdrachten in logboekanalyse](log-analytics-log-searches.md#use-additional-filters).
@@ -31,21 +31,21 @@ Dit artikel bevat informatie over de syntaxis van de reguliere expressie die wor
 
 ## <a name="regex-keyword"></a>RegEx-sleutelwoord
 
-Gebruik de volgende syntaxis gebruiken de **RegEx** -sleutelwoord in een logboek zoekopdracht.  U kunt de andere secties in dit artikel gebruiken om te bepalen van de syntaxis van de reguliere expressie zelf.
+Gebruik Hallo na syntaxis toouse hello **RegEx** -sleutelwoord in een logboek zoekopdracht.  U kunt andere secties in dit artikel toodetermine Hallo syntaxis van de reguliere expressie Hallo zelf Hallo.
 
     field:Regex("Regular Expression")
     field=Regex("Regular Expression")
 
-Als u bijvoorbeeld een reguliere expressie gebruiken om te retourneren van waarschuwing records met een type *waarschuwing* of *fout*, gebruikt u de volgende logboek zoekopdracht.
+Bijvoorbeeld, een reguliere expressie tooreturn waarschuwing toouse registreert met een type *waarschuwing* of *fout*, gebruikt u Hallo logboek zoeken te volgen.
 
     Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## <a name="partial-matches"></a>Gedeeltelijke overeenkomsten
-Houd er rekening mee dat de volledige tekst van de eigenschap moet overeenkomen met de reguliere expressie.  Gedeeltelijke overeenkomsten worden geen records geretourneerd.  Bijvoorbeeld, als u probeert te retourneren van records op een computer met de naam srv01.contoso.com, het volgende logboek zoeken zou **niet** records geretourneerd.
+Houd er rekening mee dat Hallo reguliere expressie moet overeenkomen met volledige tekst van de eigenschap Hallo Hallo.  Gedeeltelijke overeenkomsten worden geen records geretourneerd.  Bijvoorbeeld, als u tooreturn records uit een computer met de naam srv01.contoso.com probeerde, Hallo na logboek zoeken zou **niet** records geretourneerd.
 
     Computer=RegEx("srv..")
 
-Dit is omdat alleen het eerste deel van de naam overeenkomt met de reguliere expressie.  De volgende twee logboek zoekopdrachten zou records retourneren vanaf deze computer omdat ze overeenkomen met de volledige naam.
+Dit is omdat het eerste gedeelte alleen Hallo van Hallo naam overeenkomt met de reguliere expressie Hallo.  Hallo zou volgende twee logboek zoekopdrachten retourneren records van deze computer omdat ze overeenkomen met de volledige naam Hallo.
 
     Computer=RegEx("srv..@")
     Computer=RegEx("srv...contoso.com")
@@ -55,15 +55,15 @@ Geef andere tekens.
 
 | Teken | Beschrijving | Voorbeeld | Voorbeeld komt overeen met |
 |:--|:--|:--|:--|
-| een | Een exemplaar van het teken. | Computer=RegEx("Srv01.contoso.com") | Srv01.contoso.com |
+| een | Een exemplaar van de Hallo-teken. | Computer=RegEx("Srv01.contoso.com") | Srv01.contoso.com |
 | . | Een willekeurig teken. | Computer=RegEx("SRV...contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
-| een? | Nul of één exemplaar van het teken. | Computer RegEx = (' srv01?. Contoso.com') | srv0.contoso.com<br>Srv01.contoso.com |
-| een * | Nul of meer exemplaren van het teken. | Computer=RegEx("Srv01*.contoso.com") | srv0.contoso.com<br>Srv01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
-| een + | Een of meer exemplaren van het teken. | Computer=RegEx("Srv01+.contoso.com") | Srv01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
-| [*abc*] | Overeenkomen met een willekeurig teken in de vierkante haken | Computer=RegEx("srv0[123].contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
-| [*een*-*z*] | Overeen met een enkel teken in het bereik.  Kan bestaan uit meerdere adresbereiken. | Computer=RegEx("srv0[1-3].contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
-| [^*abc*] | Geen van de tekens in de vierkante haken | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
-| [^*een*-*z*] | Geen van de tekens in het bereik. | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
+| een? | Nul of één exemplaar van Hallo-teken. | Computer RegEx = (' srv01?. Contoso.com') | srv0.contoso.com<br>Srv01.contoso.com |
+| een * | Nul of meer exemplaren van Hallo-teken. | Computer=RegEx("Srv01*.contoso.com") | srv0.contoso.com<br>Srv01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
+| een + | Een of meer exemplaren van Hallo-teken. | Computer=RegEx("Srv01+.contoso.com") | Srv01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
+| [*abc*] | Overeenkomen met een willekeurig teken Hallo haakjes | Computer=RegEx("srv0[123].contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
+| [*een*-*z*] | Overeen met een enkel teken in Hallo bereik.  Kan bestaan uit meerdere adresbereiken. | Computer=RegEx("srv0[1-3].contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
+| [^*abc*] | Geen van de tekens Hallo Hallo haakjes | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
+| [^*een*-*z*] | Geen van Hallo tekens in Hallo bereik. | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
 | [*n*-*m*] | Overeen met een reeks numerieke tekens. | Computer=RegEx("SRV[01-03].contoso.com") | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
 | @ | Een tekenreeks. | Computer RegEx = ('srv@.contoso.com') | Srv01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
 
@@ -73,9 +73,9 @@ Geef meerdere exemplaren van een bepaalde tekens.
 
 | Teken | Beschrijving | Voorbeeld | Voorbeeld komt overeen met |
 |:--|:--|:--|:--|
-| een {n} |  *n*instanties van het teken. | Computer=RegEx("BW-Win-sc01{3}.bwren.Lab") | BW-win-sc0111.bwren.lab |
-| een {n} |  *n*of meer exemplaren van het teken. | Computer=RegEx("BW-Win-sc01{3,}.bwren.Lab") | BW-win-sc0111.bwren.lab<br>BW-win-sc01111.bwren.lab<br>BW-win-sc011111.bwren.lab<br>BW-win-sc0111111.bwren.lab |
-| {n, m} |  *n*naar *m* exemplaren van het teken. | Computer=RegEx("BW-Win-sc01{3,5}.bwren.Lab") | BW-win-sc0111.bwren.lab<br>BW-win-sc01111.bwren.lab<br>BW-win-sc011111.bwren.lab |
+| een {n} |  *n*exemplaren van Hallo-teken. | Computer=RegEx("BW-Win-sc01{3}.bwren.Lab") | BW-win-sc0111.bwren.lab |
+| een {n} |  *n*of meer exemplaren van Hallo-teken. | Computer=RegEx("BW-Win-sc01{3,}.bwren.Lab") | BW-win-sc0111.bwren.lab<br>BW-win-sc01111.bwren.lab<br>BW-win-sc011111.bwren.lab<br>BW-win-sc0111111.bwren.lab |
+| {n, m} |  *n*te*m* exemplaren van Hallo-teken. | Computer=RegEx("BW-Win-sc01{3,5}.bwren.Lab") | BW-win-sc0111.bwren.lab<br>BW-win-sc01111.bwren.lab<br>BW-win-sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>Logische expressies
@@ -88,13 +88,13 @@ Selecteer in meerdere waarden.
 
 
 ## <a name="literals"></a>Letterlijke waarden
-Speciale tekens niet converteren naar letterlijke tekens.  Deze tekens bevat die voorzien in functionaliteit om reguliere expressies zoals?-\*^\[\]{}\(\)+\|. &.
+Speciale tekens tooliteral tekens worden geconverteerd.  Dit omvat tekens die functionaliteit, zoals tooregular expressies bieden?-\*^\[\]{}\(\)+\|. &.
 
 | Teken | Beschrijving | Voorbeeld | Voorbeeld komt overeen met |
 |:--|:--|:--|:--|
-| \\ | Zet een speciaal teken om een letterlijke waarde. | Status_CF =\\[fout\\] @<br>Status_CF fout =\\-@ | [Fout] Bestand niet gevonden.<br>Fout-bestand niet gevonden. |
+| \\ | Converteert een speciaal teken tooa literal. | Status_CF =\\[fout\\] @<br>Status_CF fout =\\-@ | [Fout] Bestand niet gevonden.<br>Fout-bestand niet gevonden. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Raken met [Meld zoekopdrachten](log-analytics-log-searches.md) weergeven en analyseren van gegevens in de opslagplaats logboekanalyse.
+* Raken met [Meld zoekopdrachten](log-analytics-log-searches.md) tooview en analyseren in Hallo Log Analytics-opslagplaats.

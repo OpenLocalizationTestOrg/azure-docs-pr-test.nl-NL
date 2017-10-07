@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Profiler van een resource Cloud Services inschakelen | Microsoft Docs
-description: Informatie over het instellen van de profiler op een ASP.NET-toepassing die wordt gehost door een Azure Cloud Services-resource.
+title: Azure Application Insights Profiler aaaEnable van een resource Cloud Services | Microsoft Docs
+description: Meer informatie over hoe tooset up Hallo profiler op een ASP.NET-toepassing wordt gehost door een Azure Cloud Services-resource.
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,106 +12,106 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.openlocfilehash: 5ff062ac81dca9d8b205cec966d2a9c11a4005b6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b9ac3bca513bf4518f44780389a9f2945f6ccc98
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-application-insights-profiler-on-an-azure-cloud-services-resource"></a>Application Insights Profiler inschakelen op een Azure Cloud Services-bron
 
-In dit scenario laat zien hoe Azure Application Insights Profiler inschakelen op een ASP.NET-toepassing die wordt gehost door een Azure Cloud Services-resource. De voorbeelden zijn onder meer ondersteuning voor Azure Virtual Machines, virtuele-machineschaalsets en Azure Service Fabric. De voorbeelden zijn afhankelijk van sjablonen die ondersteuning bieden voor het Azure Resource Manager-implementatiemodel. Raadpleeg voor meer informatie over het implementatiemodel [Azure Resource Manager versus klassieke implementatie: begrijpen implementatiemodellen en de status van uw resources](/azure-resource-manager/resource-manager-deployment-model).
+In dit scenario laat zien hoe de tooenable Azure Application Insights Profiler op een ASP.NET-toepassing wordt gehost door een Azure Cloud Services-resource. Hallo-voorbeelden zijn ondersteuning voor Azure Virtual Machines, virtuele-machineschaalsets en Azure Service Fabric. alle Hallo-voorbeelden zijn afhankelijk van sjablonen die ondersteuning bieden voor hello Azure Resource Manager-implementatiemodel. Raadpleeg voor meer informatie over het implementatiemodel Hallo [Azure Resource Manager versus klassieke implementatie: implementatiemodellen begrijpen en de status van uw resources Hallo](/azure-resource-manager/resource-manager-deployment-model).
 
 ## <a name="overview"></a>Overzicht
 
-Het volgende diagram illustreert de werking van de profiler voor Azure Cloud Services-bronnen. Een virtuele machine van Azure wordt gebruikt als voorbeeld.
+Hallo volgende diagram illustreert hoe Hallo profiler werkt voor Azure Cloud Services-bronnen. Een virtuele machine van Azure wordt gebruikt als voorbeeld.
 
-![Overzicht](./media/enable-profiler-compute/overview.png) om informatie te verzamelen voor verwerking en weergeven in de Azure portal, moet u het onderdeel van de Diagnostics-Agent voor de resources voor Azure Cloud Services installeren. De rest van de procedure biedt richtlijnen voor het installeren en configureren van de Agent diagnostische gegevens om in te schakelen van Application Insights Profiler.
+![Overzicht](./media/enable-profiler-compute/overview.png) toocollect-informatie voor verwerking en worden weergegeven op Hallo Azure-portal, moet u Hallo Diagnostics Agent onderdeel voor hello Azure Cloud Services-bronnen installeren. Hallo rest van Hallo scenario biedt richtlijnen voor het tooinstall en Hallo Diagnostics Agent tooenable Application Insights Profiler configureren.
 
-## <a name="prerequisites-for-the-walkthrough"></a>Vereisten voor het scenario
+## <a name="prerequisites-for-hello-walkthrough"></a>Vereisten voor het Hallo-overzicht
 
-* Implementatie van Resource Manager-sjabloon die de profiler agenten op de virtuele machines installeert ([WindowsVirtualMachine.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)) of sets schalen ([WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)).
+* Implementatie van Resource Manager-sjabloon die wordt geïnstalleerd Hallo profiler agents op Hallo VMs ([WindowsVirtualMachine.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)) of sets schalen ([WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)).
 
-* Een Application Insights-exemplaar dat is ingeschakeld voor het samenstellen van profiel. Zie voor instructies [inschakelen van het profiel](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
+* Een Application Insights-exemplaar dat is ingeschakeld voor het samenstellen van profiel. Zie voor instructies [Hallo profiel inschakelen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
 
-* .NET framework 4.6.1 of hoger is geïnstalleerd op de doel-Azure Cloud Services-resource.
+* .NET framework 4.6.1 of hoger geïnstalleerd op Hallo gericht op Azure Cloud Services-resource.
 
 ## <a name="create-a-resource-group-in-your-azure-subscription"></a>Een resourcegroep in uw Azure-abonnement maken
-Het volgende voorbeeld laat zien hoe een resourcegroep maken met behulp van een PowerShell-script:
+Hallo volgende voorbeeld laat zien hoe een resource toocreate groeperen op basis van een PowerShell-script:
 
 ```
 New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Replace_With_Resource_Group_Location"
 ```
 
-## <a name="create-an-application-insights-resource-in-the-resource-group"></a>Een Application Insights-resource maken in de resourcegroep
-Op de **Application Insights** blade, voert u de gegevens voor uw resource, zoals in dit voorbeeld: 
+## <a name="create-an-application-insights-resource-in-hello-resource-group"></a>Een Application Insights-resource maken in de resourcegroep Hallo
+Op Hallo **Application Insights** blade Voer Hallo-informatie voor uw resource, zoals in dit voorbeeld: 
 
 ![Application Insights-blade](./media/enable-profiler-compute/createai.png)
 
-## <a name="apply-an-application-insights-instrumentation-key-in-the-azure-resource-manager-template"></a>Een Application Insights-instrumentatiesleutel in de Azure Resource Manager-sjabloon toepassen
+## <a name="apply-an-application-insights-instrumentation-key-in-hello-azure-resource-manager-template"></a>Een Application Insights-instrumentatiesleutel in hello Azure Resource Manager-sjabloon toepassen
 
-1. Als u de sjabloon nog niet hebt gedownload, downloaden via [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
+1. Als u Hallo sjabloon nog niet hebt gedownload, downloaden via [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
 
-2. De Application Insights-sleutel vinden.
+2. Hallo Application Insights sleutel vinden.
    
-   ![Locatie van de sleutel](./media/enable-profiler-compute/copyaikey.png)
+   ![Locatie van Hallo-sleutel](./media/enable-profiler-compute/copyaikey.png)
 
-3. Vervang de waarde van sjabloon.
+3. Vervang de waarde van sjabloon Hallo.
    
-   ![Waarde vervangen in de sjabloon](./media/enable-profiler-compute/copyaikeytotemplate.png)
+   ![Waarde vervangen in Hallo-sjabloon](./media/enable-profiler-compute/copyaikeytotemplate.png)
 
-## <a name="create-an-azure-vm-to-host-the-web-application"></a>Een Azure-VM voor het hosten van de webtoepassing maken
-1. Maak een veilige tekenreeks voor het opslaan van het wachtwoord.
+## <a name="create-an-azure-vm-toohost-hello-web-application"></a>Een virtuele machine van Azure toohost Hallo-webtoepassing maken
+1. Een beveiligde tekenreeks toosave Hallo-wachtwoord maken.
 
    ```
    $password = ConvertTo-SecureString -String "Replace_With_Your_Password" -AsPlainText -Force
    ```
 
-2. De Azure Resource Manager-sjabloon implementeren.
+2. Hello Azure Resource Manager-sjabloon implementeren.
 
-   Wijzig de directory in de PowerShell-console in de map waarin de Resource Manager-sjabloon. Voer de volgende opdracht voor het implementeren van de sjabloon:
+   Hallo-map in Hallo PowerShell console toohello map met Resource Manager-sjabloon wijzigen. toodeploy hello sjabloon Hallo volgende opdracht uitvoeren:
 
    ```
    New-AzureRmResourceGroupDeployment -ResourceGroupName "Replace_With_Resource_Group_Name" -TemplateFile .\WindowsVirtualMachine.json -adminUsername "Replace_With_your_user_name" -adminPassword $password -dnsNameForPublicIP "Replace_WIth_your_DNS_Name" -Verbose
    ```
 
-Nadat het script wordt uitgevoerd, vindt u een virtuele machine met de naam **MyWindowsVM** in de resourcegroep.
+Nadat Hallo script wordt uitgevoerd, vindt u een virtuele machine met de naam **MyWindowsVM** in de resourcegroep.
 
-## <a name="configure-web-deploy-on-the-vm"></a>Web configureren op de virtuele machine implementeren
+## <a name="configure-web-deploy-on-hello-vm"></a>Web Deploy op Hallo VM configureren
 Zorg ervoor dat Web Deploy is ingeschakeld op de virtuele machine zodat u uw webtoepassing vanuit Visual Studio kunt publiceren.
 
-Web Deploy op een virtuele machine handmatig via WebPI Zie installeren [installeren en configureren van Web Deploy op IIS 8.0 of Later](https://docs.microsoft.com/en-us/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later). Zie voor een voorbeeld van het automatiseren van Web Deploy installeren met behulp van een Azure Resource Manager-sjabloon, [maken, configureren en implementeren van een webtoepassing naar een Azure-virtuele machine](https://azure.microsoft.com/en-us/resources/templates/201-web-app-vm-dsc/).
+tooinstall Web Deploy op een virtuele machine handmatig via WebPI, Zie [installeren en configureren van Web Deploy op IIS 8.0 of Later](https://docs.microsoft.com/en-us/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later). Voor een voorbeeld van hoe tooautomate Web Deploy installeren met behulp van een Azure Resource Manager-sjabloon, Zie [maken, configureren en implementeren van een web application tooan Azure VM](https://azure.microsoft.com/en-us/resources/templates/201-web-app-vm-dsc/).
 
-Als u een ASP.NET MVC-toepassing, gaat u naar Serverbeheer implementeert selecteert **functies en onderdelen toevoegen** > **webserver (IIS)** > **webserver** > **toepassingsontwikkeling**, en schakel ASP.NET 4.5 in op uw server.
+Als u een ASP.NET MVC-toepassing implementeert, gaat u tooServer Manager, selecteer **functies en onderdelen toevoegen** > **webserver (IIS)** > **webserver**  >  **Toepassingsontwikkeling**, en schakel ASP.NET 4.5 in op uw server.
 
 ![ASP.NET toevoegen](./media/enable-profiler-compute/addaspnet45.png)
 
-## <a name="install-the-azure-application-insights-sdk-for-your-project"></a>Installeer de Azure Application Insights-SDK voor uw project
+## <a name="install-hello-azure-application-insights-sdk-for-your-project"></a>Hello Azure Application Insights-SDK voor uw project installeren
 1. Open uw ASP.NET-webtoepassing in Visual Studio.
 
-2. Met de rechtermuisknop op het project en selecteer **toevoegen** > **verbonden Services**.
+2. Met de rechtermuisknop op het Hallo-project en selecteer **toevoegen** > **verbonden Services**.
 
 3. Selecteer **Application Insights**.
 
-4. Volg de instructies op de pagina. Selecteer de Application Insights-resource die u eerder hebt gemaakt.
+4. Hallo instructies op de pagina Hallo. Selecteer Hallo Application Insights-resource die u eerder hebt gemaakt.
 
-5. Selecteer de **registreren** knop.
+5. Selecteer Hallo **registreren** knop.
 
 
-## <a name="publish-the-project-to-an-azure-vm"></a>Het project publiceren naar een Azure VM
-Er zijn verschillende manieren voor het publiceren van een toepassing naar een Azure-virtuele machine. Een manier is het gebruik van Visual Studio 2017.
+## <a name="publish-hello-project-tooan-azure-vm"></a>Hallo project tooan virtuele machine in Azure publiceren
+Er zijn verschillende manieren toopublish van een toepassing tooan Azure VM. Een manier is toouse Visual Studio 2017.
 
-1. Met de rechtermuisknop op het project en selecteer **publiceren**.
+1. Met de rechtermuisknop op het Hallo-project en selecteer **publiceren**.
 
-2. Selecteer **Microsoft Azure Virtual Machines** als het publiceren als doel en volg de stappen.
+2. Selecteer **Microsoft Azure Virtual Machines** als Hallo doel publiceren en Hallo stappen.
 
    ![Publiceren FromVS](./media/enable-profiler-compute/publishtoVM.png)
 
-3. Voer een belastingtest uit op basis van uw toepassing. U ziet de resultaten op de portal webpagina voor Application Insights-exemplaar.
+3. Voer een belastingtest uit op basis van uw toepassing. U ziet de resultaten op Hallo Application Insights exemplaar portal webpagina.
 
 
-## <a name="enable-the-profiler"></a>De profiler inschakelen
-1. Ga naar uw Application Insights **prestaties** blade en selecteer **configureren**.
+## <a name="enable-hello-profiler"></a>Hallo profiler inschakelen
+1. Ga tooyour Application Insights **prestaties** blade en selecteer **configureren**.
    
    ![Pictogram configureren](./media/enable-profiler-compute/enableprofiler1.png)
  
@@ -119,41 +119,41 @@ Er zijn verschillende manieren voor het publiceren van een toepassing naar een A
    
    ![Pictogram Profiler inschakelen](./media/enable-profiler-compute/enableprofiler2.png)
 
-## <a name="add-a-performance-test-to-your-application"></a>Een prestatietest aan uw toepassing toevoegen
-Volg deze stappen zodat we voorbeeldgegevens moet worden weergegeven in Application Insights Profiler kunt verzamelen:
+## <a name="add-a-performance-test-tooyour-application"></a>Prestaties test tooyour toepassing toevoegen
+Volg deze stappen zodat we enkele sample data toobe weergegeven in Application Insights Profiler kunt verzamelen:
 
-1. Blader naar de Application Insights-resource die u eerder hebt gemaakt. 
+1. Blader toohello Application Insights-resource die u eerder hebt gemaakt. 
 
-2. Ga naar de **beschikbaarheid** blade en een prestatietest die webaanvragen naar de URL van uw toepassing verzendt toevoegen. 
+2. Ga toohello **beschikbaarheid** blade en voeg een prestatietest waarmee tooyour de URL van webtoepassing aanvragen worden verzonden. 
 
    ![Prestatietest toevoegen](./media/enable-profiler-compute/AvailabilityTest.png)
 
 ## <a name="view-your-performance-data"></a>U prestatiegegevens weergeven
 
-1. Wacht 10-15 minuten tot de profiler om te verzamelen en analyseren van de gegevens. 
+1. Hallo profiler toocollect 10-15 minuten wachten tot gegevens en analyseren Hallo. 
 
-2. Ga naar de **prestaties** blade in uw Application Insights-resource en hoe uw toepassing wordt uitgevoerd wanneer deze wordt belast.
+2. Ga toohello **prestaties** blade in uw Application Insights-resource en hoe uw toepassing wordt uitgevoerd wanneer deze wordt belast.
 
    ![Prestaties weergeven](./media/enable-profiler-compute/aiperformance.png)
 
-3. Selecteer het pictogram onder **voorbeelden** openen de **Trace weergave** blade.
+3. Selecteer Hallo pictogram onder **voorbeelden** tooopen hello **Trace weergave** blade.
 
-   ![Openen van de blade tracering weergeven](./media/enable-profiler-compute/traceview.png)
+   ![Hallo Trace weergave blade openen](./media/enable-profiler-compute/traceview.png)
 
 
 ## <a name="work-with-an-existing-template"></a>Werken met een bestaande sjabloon
 
-1. De declaratie van Azure Diagnostics resource niet vinden in de sjabloon voor uw implementatie.
+1. Hello Azure Diagnostics brondeclaratie niet vinden in de sjabloon voor uw implementatie.
    
-   Als u een declaratie geen hebt, kunt u een bestand dat lijkt op de declaratie in het volgende voorbeeld. U kunt de sjabloon bijwerken de [Azure Resource Explorer website](https://resources.azure.com).
+   Als u een declaratie geen hebt, kunt u een dat lijkt op Hallo declaratie in Hallo voorbeeld te volgen. U kunt bijwerken Hallo sjabloon van Hallo [Azure Resource Explorer website](https://resources.azure.com).
 
-2. Wijzigen van de uitgever van `Microsoft.Azure.Diagnostics` naar `AIP.Diagnostics.Test`.
+2. Hallo-uitgever van wijzigingen uit `Microsoft.Azure.Diagnostics` te`AIP.Diagnostics.Test`.
 
 3. Voor `typeHandlerVersion`, gebruik `0.0`.
 
-4. Zorg ervoor dat `autoUpgradeMinorVersion` is ingesteld op `true`.
+4. Zorg ervoor dat `autoUpgradeMinorVersion` te is ingesteld`true`.
 
-5. Toevoegen van de nieuwe `ApplicationInsightsProfiler` sink-exemplaar in de `WadCfg` instellingenobject, zoals wordt weergegeven in het volgende voorbeeld:
+5. Toevoegen van nieuwe Hallo `ApplicationInsightsProfiler` sink-exemplaar in Hallo `WadCfg` instellingenobject, zoals wordt weergegeven in Hallo voorbeeld te volgen:
 
 ```
 "resources": [
@@ -172,7 +172,7 @@ Volg deze stappen zodat we voorbeeldgegevens moet worden weergegeven in Applicat
                   "Sink": [
                     {
                       "name": "Give a descriptive short name. E.g.: MyApplicationInsightsProfilerSink",
-                      "ApplicationInsightsProfiler": "Enter the Application Insights instance instrumentation key guid here"
+                      "ApplicationInsightsProfiler": "Enter hello Application Insights instance instrumentation key guid here"
                     }
                   ]
                 },
@@ -189,20 +189,20 @@ Volg deze stappen zodat we voorbeeldgegevens moet worden weergegeven in Applicat
 ]
 ```
 
-## <a name="enable-the-profiler-on-virtual-machine-scale-sets"></a>Inschakelen van de profiler op virtuele-machineschaalsets
-Informatie over het inschakelen van de profiler, downloaden de [WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json) sjabloon. De dezelfde wijzigingen in een VM-sjabloon toepassen op de bron van de extensie diagnostische gegevens voor de virtuele-machineschaalset.
+## <a name="enable-hello-profiler-on-virtual-machine-scale-sets"></a>Hallo profiler op virtuele-machineschaalsets inschakelen
+hoe tooenable Hallo profiler downloaden Hallo toosee [WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json) sjabloon. Toepassing hello dezelfde in een VM-sjabloon toohello diagnostics extensie resource voor Hallo virtuele-machineschaalset wijzigingen.
 
-Zorg ervoor dat elk exemplaar in de schaalset toegang tot internet heeft. De Profiler-Agent kan de verzamelde voorbeelden vervolgens verzenden naar Application Insights voor het weergeven en analyseren.
+Zorg ervoor dat elk exemplaar in de schaalset hello toohello toegang tot internet. Hallo Profiler Agent kunt vervolgens verzenden Hallo verzamelde steekproeven tooApplication Insights voor het weergeven en analyseren.
 
-## <a name="enable-the-profiler-on-service-fabric-applications"></a>De profiler op Service Fabric-toepassingen inschakelen
-1. De Service Fabric-cluster om de Azure Diagnostics-extensie die u de Agent Profiler installeert inrichten.
+## <a name="enable-hello-profiler-on-service-fabric-applications"></a>Hallo profiler op Service Fabric-toepassingen inschakelen
+1. Inrichten hello Service Fabric-cluster toohave hello Azure extensie voor diagnostische gegevens die Hallo Profiler Agent installeert.
 
-2. De Application Insights-SDK installeren in het project en configureren van de Application Insights-sleutel.
+2. Hallo Application Insights-SDK in Hallo project installeren en configureren van Hallo Application Insights-sleutel.
 
-3. Toepassingscode toevoegen aan instrument telemetrie.
+3. Toepassingstelemetrie code tooinstrument toevoegen.
 
-### <a name="provision-the-service-fabric-cluster-to-have-the-azure-diagnostics-extension-that-installs-the-profiler-agent"></a>De Service Fabric-cluster om de Azure Diagnostics-extensie die u de Agent Profiler installeert inrichten
-Een Service Fabric-cluster kan worden beveiligd of niet-beveiligde. U kunt één gateway-cluster worden niet-beveiligde zodat deze niet wordt een certificaat voor toegang vereist instellen. Clusters die als host voor zakelijke logica en gegevens moeten worden beveiligd. U kunt de profiler op zowel beveiligde als niet-beveiligde Service Fabric-clusters inschakelen. In dit scenario gebruikt een niet-beveiligde cluster als een voorbeeld waarin wordt uitgelegd welke wijzigingen zijn vereist voor het inschakelen van de profiler. Op dezelfde manier kunt u een beveiligde cluster inrichten.
+### <a name="provision-hello-service-fabric-cluster-toohave-hello-azure-diagnostics-extension-that-installs-hello-profiler-agent"></a>Inrichten Hallo Service Fabric-cluster toohave hello Azure Diagnostics-extensie die Hallo Profiler Agent is geïnstalleerd
+Een Service Fabric-cluster kan worden beveiligd of niet-beveiligde. U kunt één gateway-cluster toobe niet-beveiligde zodanig instellen een certificaat niet nodig is om toegang te krijgen. Clusters die als host voor zakelijke logica en gegevens moeten worden beveiligd. U kunt de profiler Hallo op zowel beveiligde als niet-beveiligde Service Fabric-clusters inschakelen. In dit scenario wordt een niet-beveiligde cluster gebruikt als een voorbeeld tooexplain welke wijzigingen zijn vereist tooenable Hallo profiler. U kunt een beveiligde cluster in Hallo inrichten dezelfde manier.
 
 1. Download [ServiceFabricCluster.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json). Als u dit hebt gedaan voor virtuele machines en virtuele-machineschaalsets, vervangen `Application_Insights_Key` met uw Application Insights-sleutel:
 
@@ -220,7 +220,7 @@ Een Service Fabric-cluster kan worden beveiligd of niet-beveiligde. U kunt één
                      },
    ```
 
-2. De sjabloon implementeren met behulp van een PowerShell-script:
+2. Hallo-sjabloon implementeren met een PowerShell-script:
 
    ```
    Login-AzureRmAccount
@@ -229,20 +229,20 @@ Een Service Fabric-cluster kan worden beveiligd of niet-beveiligde. U kunt één
 
    ```
 
-### <a name="install-the-application-insights-sdk-in-the-project-and-configure-the-application-insights-key"></a>De Application Insights-SDK installeren in het project en configureren van de Application Insights-sleutel
-Installeer de Application Insights-SDK van de [NuGet-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Zorg ervoor dat u een stabiele versie 2.3 of hoger installeert. 
+### <a name="install-hello-application-insights-sdk-in-hello-project-and-configure-hello-application-insights-key"></a>Hallo Application Insights-SDK in Hallo project installeren en configureren van Hallo Application Insights-sleutel
+Hallo Application Insights-SDK installeren vanaf Hallo [NuGet-pakket](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). Zorg ervoor dat u een stabiele versie 2.3 of hoger installeert. 
 
 Zie voor meer informatie over het configureren van Application Insights in uw projecten [met behulp van Service Fabric met Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).
 
-### <a name="add-application-code-to-instrument-telemetry"></a>Toepassingscode toevoegen aan instrument telemetrie
-1. Voor elk deel van de code die u wilt softwareontwikkelaars, het toevoegen van een met instructie omheen. 
+### <a name="add-application-code-tooinstrument-telemetry"></a>Toepassingstelemetrie code tooinstrument toevoegen
+1. Voor een stuk code dat u wilt dat tooinstrument, Voeg een met instructie omheen. 
 
-   In het volgende voorbeeld wordt de `RunAsync` methode doet werk, en de `telemetryClient` klasse bevat de telemetrie nadat deze is gestart. De gebeurtenis moet een unieke naam voor de toepassing.
+   Hallo in Hallo voorbeeld te volgen, `RunAsync` methode is sommige werk en Hallo `telemetryClient` klasse vastgelegd Hallo telemetrie nadat deze is gestart. Hallo-gebeurtenis moet een unieke naam voor de toepassing hello.
 
    ```
    protected override async Task RunAsync(CancellationToken cancellationToken)
        {
-           // TODO: Replace the following sample code with your own logic
+           // TODO: Replace hello following sample code with your own logic
            //       or remove this RunAsync override if it's not needed in your service.
 
            while (true)
@@ -262,15 +262,15 @@ Zie voor meer informatie over het configureren van Application Insights in uw pr
        }
    ```
 
-2. Uw toepassing met het Service Fabric-cluster implementeren. Wacht tot de app voor 10 minuten worden uitgevoerd. Voor betere effect, kunt u een load-test uitvoeren op de app. Ga naar de Application Insights-portal **prestaties** blade, en u ziet enkele voorbeelden van profilering traceringen worden weergegeven.
+2. Uw toepassing toohello Service Fabric-cluster implementeren. Hallo app toorun wacht 10 minuten. U kunt een load-test uitvoeren op Hallo-app voor betere effect. Ga toohello Application Insights-portal van **prestaties** blade, en u ziet enkele voorbeelden van profilering traceringen worden weergegeven.
 
 <!---
 Commenting out these sections for now
-## Enable the Profiler on Cloud Services applications
+## Enable hello Profiler on Cloud Services applications
 [TODO]
-## Enable the Profiler on classic Azure Virtual Machines
+## Enable hello Profiler on classic Azure Virtual Machines
 [TODO]
-## Enable the Profiler on on-premise servers
+## Enable hello Profiler on on-premise servers
 [TODO]
 --->
 
@@ -278,4 +278,4 @@ Commenting out these sections for now
 
 - Hulp zoeken bij het oplossen van problemen in profiler [Profiler probleemoplossing](app-insights-profiler.md#troubleshooting).
 
-- Meer informatie over de profiler in [Application Insights Profiler](app-insights-profiler.md).
+- Meer informatie over de profiler Hallo in [Application Insights Profiler](app-insights-profiler.md).

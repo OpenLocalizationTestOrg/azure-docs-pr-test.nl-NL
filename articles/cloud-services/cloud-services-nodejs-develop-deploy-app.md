@@ -1,6 +1,6 @@
 ---
-title: Instructiehandleiding voor Node.js | Microsoft Docs
-description: Informatie over het maken van een eenvoudige Node.js-webtoepassing en het implementeren van deze toepassing in een cloudservice van Azure.
+title: aaaNode.js Getting Started Guide | Microsoft Docs
+description: Ontdek hoe toocreate een eenvoudige Node.js-webtoepassing en tooan Azure cloudservice implementeren.
 services: cloud-services
 documentationcenter: nodejs
 author: TomArcher
@@ -14,65 +14,65 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 980643f35c78bbae7b1b12336331ca15ad4fb89b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 22945bfcc1b0e5da2a2d37dc5cc86be013cc0b5c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Een Node.js-toepassing maken en implementeren in een Azure Cloud Service
+# <a name="build-and-deploy-a-nodejs-application-tooan-azure-cloud-service"></a>Bouw en implementeer een Node.js-toepassing tooan Azure Cloud Service
 
-In deze zelfstudie kunt u zien hoe u een eenvoudige Node.js-toepassing kunt maken die wordt uitgevoerd in een Azure Cloud Service. Cloud Services vormen de bouwstenen van schaalbare cloudtoepassingen in Azure. Deze bieden de mogelijkheid om de front-end- en back-end-onderdelen van uw toepassing te scheiden en onafhankelijk van elkaar te beheren en uit te schalen.  Cloud Services bieden een robuuste toegewezen virtuele machine voor het op betrouwbare wijze hosten van elke rol.
+Deze zelfstudie laat zien hoe een eenvoudige Node.js toocreate toepassing die in een Azure Cloud Service wordt uitgevoerd. Cloudservices zijn Hallo bouwstenen van schaalbare cloudtoepassingen in Azure. Ze staan Hallo scheiding en onafhankelijke management en scale-out van de front-end en back-end-onderdelen van uw toepassing.  Cloud Services bieden een robuuste toegewezen virtuele machine voor het op betrouwbare wijze hosten van elke rol.
 
-Zie [Vergelijking van Azure Websites, Cloud Services en Virtual Machines] voor meer informatie over Cloud Services en hoe deze zich verhouden tot Azure Websites en Virtual Machines.
+Zie voor meer informatie over Cloudservices en hoe ze zich verhouden tooAzure Websites en virtuele machines [vergelijking van Azure Websites, Cloudservices en virtuele Machines].
 
 > [!TIP]
-> Wilt u een eenvoudige website bouwen? Als uw scenario alleen een ongecompliceerde website-front-end omvat, kunt u overwegen [een eenvoudige web-app-functie te gebruiken]. U kunt vervolgens gemakkelijk upgraden naar een cloudservice naarmate uw web-app groeit en uw vereisten veranderen.
+> Zoek toobuild een ongecompliceerde website? Als uw scenario alleen een ongecompliceerde website-front-end omvat, kunt u overwegen [een eenvoudige web-app-functie te gebruiken]. U kunt eenvoudig tooa Cloudservice bijwerken naarmate uw web-app groeit en uw vereisten veranderen.
 
-In deze zelfstudie maakt u een eenvoudige webtoepassing gehost binnen een webrol. U gebruikt de rekenemulator om uw toepassing lokaal te testen, en vervolgens implementeert u de toepassing met behulp van PowerShell- opdrachtregelprogramma's.
+In deze zelfstudie maakt u een eenvoudige webtoepassing gehost binnen een webrol. U wordt Hallo compute-emulator tootest lokaal uw toepassing gebruiken, en vervolgens implementeren met behulp van PowerShell-opdrachtregelprogramma's.
 
-De toepassing is een eenvoudige 'Hallo wereld'-toepassing:
+Hallo-toepassing is een eenvoudige 'Hallo wereld'-toepassing:
 
-![Een webbrowser waarin de webpagina 'Hallo wereld' wordt weergegeven][A web browser displaying the Hello World web page]
+![Een webbrowser waarin Hallo Hallo wereld-webpagina][A web browser displaying hello Hello World web page]
 
 ## <a name="prerequisites"></a>Vereisten
 > [!NOTE]
 > In deze zelfstudie wordt Azure PowerShell gebruikt waarvoor Windows is vereist.
 
 * Installeer en configureer [Azure Powershell].
-* Download en installeer [Azure SDK voor .NET 2.7]. Selecteer in de installatie-instellingen:
+* Download en installeer Hallo [Azure SDK voor .NET 2.7]. Installeer in Hallo setup, selecteren:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
 
 ## <a name="create-an-azure-cloud-service-project"></a>Een Azure Cloud Service-project maken
-Voer de volgende taken uit om een nieuw Azure Cloud Services-project te maken, samen met een Node.js-basisstructuur:
+Voer Hallo taken toocreate een nieuw Azure Cloud Service-project, samen met Node.js-basisstructuur volgen:
 
-1. Voer **Windows PowerShell** als administrator uit. Zoek in het **Startmenu** of **Startscherm** naar **Windows PowerShell**.
-2. [Koppel PowerShell] aan uw abonnement.
-3. Voer de volgende PowerShell-cmdlet in om het project te maken:
+1. Uitvoeren **Windows PowerShell** als Administrator; van Hallo **startmenu** of **startscherm**, zoeken naar **Windows PowerShell**.
+2. [Koppel PowerShell] tooyour abonnement.
+3. Voer Hallo PowerShell cmdlet toocreate toocreate Hallo project te volgen:
 
         New-AzureServiceProject helloworld
 
-    ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
+    ![Hallo resultaat van de helloworld-opdracht Hallo New-AzureService][hello result of hello New-AzureService helloworld command]
 
-    De **New-AzureServiceProject**-cmdlet genereert een basisstructuur voor het publiceren van een Node.js-toepassing naar een cloudservice. Deze bevat configuratiebestanden die nodig zijn voor publicatie naar Azure. De cmdlet wijzigt ook uw werkmap naar de map voor de service.
+    Hallo **New-AzureServiceProject** cmdlet genereert een basisstructuur voor het publiceren van een Node.js-toepassing tooa Service in de Cloud. Deze bevat configuratiebestanden die nodig zijn voor publicatie tooAzure. Hallo cmdlet wijzigt ook uw werkmap voor het toohello van directory voor Hallo-service.
 
-    De cmdlet maakt de volgende bestanden:
+    Hallo-cmdlet maakt Hallo volgende bestanden:
 
    * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** en **ServiceDefinition.csdef**: Azure-specifieke bestanden die nodig zijn voor het publiceren van uw toepassing. Zie [Overzicht van het maken van een gehoste service voor Azure].
-   * **deploymentSettings.json**: lokale instellingen die worden gebruikt door de Azure PowerShell-cmdlets voor implementatie.
-4. Voer de volgende opdracht in om een nieuwe webrol toe te voegen:
+   * **deploymentSettings.json**: lokale instellingen die worden gebruikt door hello Azure PowerShell-cmdlets voor implementatie.
+4. Voer Hallo opdracht tooadd een nieuwe Webrol te volgen:
 
        Add-AzureNodeWebRole
 
-   ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
+   ![Hallo-uitvoer van de opdracht Add-AzureNodeWebRole Hallo][hello output of hello Add-AzureNodeWebRole command]
 
-   De **Add-AzureNodeWebRole**-cmdlet maakt een eenvoudige Node.js-toepassing. Ook worden de **.csfg**- en **.csdef**-bestanden aangepast met configuratie-items voor de nieuwe rol.
+   Hallo **Add-AzureNodeWebRole** cmdlet maakt een eenvoudige Node.js-toepassing. Hallo ook gewijzigd **.csfg** en **csdef** tooadd configuratie-items voor de nieuwe rol Hallo-bestanden.
 
    > [!NOTE]
-   > Als u geen rolnaam opgeeft, wordt een standaardnaam gebruikt. U kunt een naam opgeven als de eerste parameter van de cmdlet: `Add-AzureNodeWebRole MyRole`
+   > Als u geen rolnaam opgeeft, wordt een standaardnaam gebruikt. U kunt een naam opgeven als eerste Hallo-cmdlet-parameter:`Add-AzureNodeWebRole MyRole`
 
-De Node.js-app is gedefinieerd in het bestand **server.js**, dat zich bevindt in de map voor de webrol (standaard **WebRole1**). Dit is de code:
+Hallo Node.js-app is gedefinieerd in Hallo bestand **server.js**, dat zich bevindt in de directory voor de Webrol Hallo Hallo (**WebRole1** standaard). Dit is Hallo code:
 
     var http = require('http');
     var port = process.env.port || 1337;
@@ -81,89 +81,89 @@ De Node.js-app is gedefinieerd in het bestand **server.js**, dat zich bevindt in
         res.end('Hello World\n');
     }).listen(port);
 
-Deze code is in wezen hetzelfde als het testitem 'Hallo wereld' op de [nodejs.org]-website, behalve dat het poortnummer wordt gebruikt dat is toegewezen door de cloudomgeving.
+Deze code is in wezen Hallo hetzelfde als 'Hallo wereld' Hallo steekproef op Hallo [nodejs.org] website, behalve het Hallo-poortnummer dat is toegewezen door de cloudomgeving Hallo gebruikt.
 
-## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
+## <a name="deploy-hello-application-tooazure"></a>Hallo toepassing tooAzure implementeren
 
 > [!NOTE]
-> U hebt een Azure-account nodig om deze zelfstudie te voltooien. U kunt [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) of [u aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+> toocomplete in deze zelfstudie, moet u een Azure-account. U kunt [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) of [u aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
-### <a name="download-the-azure-publishing-settings"></a>De Azure-publicatie-instellingen downloaden
-Voor het implementeren van uw toepassing naar Azure moet u eerst de publicatie-instellingen voor uw Azure-abonnement downloaden.
+### <a name="download-hello-azure-publishing-settings"></a>Hello Azure downloaden instellingen publiceren
+toodeploy uw tooAzure toepassing moet u eerst Hallo publicatie-instellingen voor uw Azure-abonnement downloaden.
 
-1. Voer de volgende Azure PowerShell-cmdlet uit:
+1. Voer hello Azure PowerShell-cmdlet te volgen:
 
        Get-AzurePublishSettingsFile
 
-   Hierbij wordt uw browser gebruikt om te navigeren naar de downloadpagina voor publicatie-instellingen. U wordt mogelijk gevraagd om aan te melden met een Microsoft-account. Als dit het geval is, gebruikt u het account dat is gekoppeld aan uw Azure-abonnement.
+   Hiermee worden gebruikt. uw browser toonavigate toohello publiceren downloadpagina van instellingen. Hebt u mogelijk na vragen aan gebruiker toolog met een Microsoft-Account. Als dit het geval is, moet u Hallo-account die is gekoppeld aan uw Azure-abonnement gebruiken.
 
-   Sla het gedownloade profiel op naar een bestandslocatie waar u gemakkelijk bij kunt.
-2. Voer de volgende cmdlet uit om het publicatieprofiel te importeren dat u hebt gedownload:
+   Hallo gedownload profiel tooa bestandslocatie u gemakkelijk bij kunt opslaan.
+2. Voer de volgende cmdlet tooimport Hallo publiceren profiel dat u hebt gedownload:
 
-       Import-AzurePublishSettingsFile [path to file]
+       Import-AzurePublishSettingsFile [path toofile]
 
     > [!NOTE]
-    > Na het importeren van de publicatie-instellingen is het raadzaam het gedownloade .publishSettings-bestand te verwijderen, omdat dit informatie bevat die iemand toegang zou kunnen geven tot uw account.
+    > Na het importeren van Hallo publicatie-instellingen, overweeg dan verwijderen Hallo gedownloade .publishSettings-bestand, omdat dit informatie bevat die iemand zou kunnen tooaccess uw account.
 
-### <a name="publish-the-application"></a>De toepassing publiceren
-Voer de volgende opdrachten uit om de toepassing te publiceren:
+### <a name="publish-hello-application"></a>Hallo toepassing publiceren
+toopublish hello volgende opdrachten uitvoeren:
 
       $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-* **-ServiceName** is de naam voor de implementatie. Dit moet een unieke naam zijn, anders mislukt het publicatieproces. De **Get-Date**-opdracht voegt een datum/tijd-tekenreeks toe die de naam uniek zou moeten maken.
-* Met **-Location** geeft u het datacenter op waarin de toepassing wordt gehost. Gebruik de **Get-AzureLocation**- cmdlet als u een lijst van beschikbare datacenters wilt bekijken.
-* Met **-Launch** opent u een browservenster en gaat u naar de gehoste service nadat de implementatie is voltooid.
+* **-ServiceName** Hallo-naam voor het Hallo-implementatie. Dit moet een unieke naam, anders Hallo publicatieproces zal mislukken. Hallo **Get-Date** opdracht voegt een datum/tijd-tekenreeks die Hallo naam uniek te maken.
+* **-Locatie** geeft Hallo datacenter waarin de toepassing hello zal worden gehost in. een lijst van beschikbare datacenters, gebruik Hallo toosee **Get-AzureLocation** cmdlet.
+* **-Launch** opent een browservenster en gaat u toohello gehoste service nadat de implementatie is voltooid.
 
-Nadat de publicatie is uitgevoerd, ziet u een reactie vergelijkbaar met de volgende:
+Nadat de publicatie is uitgevoerd, ziet u een reactie vergelijkbaar toohello volgende:
 
-![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
+![Hallo-uitvoer van Hallo opdracht Publish-AzureService][hello output of hello Publish-AzureService command]
 
 > [!NOTE]
-> Het kan enkele minuten duren voordat de toepassing is geïmplementeerd en beschikbaar is wanneer dit de eerste keer is dat de toepassing wordt gepubliceerd.
+> Het kan enkele minuten duren voordat Hallo toepassing toodeploy en beschikbaar is wanneer de eerste keer wordt gepubliceerd.
 
-Zodra de implementatie is voltooid, wordt een browservenster geopend waarin naar de cloudservice wordt genavigeerd.
+Zodra het Hallo-implementatie is voltooid, wordt een browservenster open en navigeer toohello-cloudservice.
 
-![A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
+![Een browservenster met Hallo Hallo wereld-pagina. Hallo URL geeft Hallo pagina wordt gehost in Azure.][A browser window displaying hello hello world page; hello URL indicates hello page is hosted on Azure.]
 
 Uw toepassing wordt nu uitgevoerd in Azure.
 
-De **Publish-AzureServiceProject**-cmdlet voert de volgende stappen uit:
+Hallo **Publish-AzureServiceProject** cmdlet voert Hallo stappen te volgen:
 
-1. Er wordt een implementatiepakket gemaakt. Het pakket bevat alle bestanden in de toepassingsmap.
-2. Er wordt een nieuw **opslagaccount** gemaakt, als dit nog niet bestaat. Het Azure-opslagaccount wordt gebruikt voor het opslaan van het toepassingspakket tijdens de implementatie. U kunt het opslagaccount gewoon verwijderen nadat de implementatie is voltooid.
-3. Er wordt een nieuwe **cloudservice** gemaakt als deze nog niet bestaat. Een **cloudservice** is de container waarin uw toepassing wordt gehost wanneer deze naar Azure wordt geïmplementeerd. Zie [Overzicht van het maken van een gehoste service voor Azure].
-4. Het implementatiepakket wordt gepubliceerd naar Azure.
+1. Hiermee maakt u een pakket toodeploy. Hallo-pakket bevat alle Hallo-bestanden in de toepassingsmap.
+2. Er wordt een nieuw **opslagaccount** gemaakt, als dit nog niet bestaat. gebruikte toostore Hallo toepassingspakket is Hello Azure storage-account tijdens de implementatie. Nadat de implementatie is voltooid, kunt u veilig Hallo storage-account verwijderen.
+3. Er wordt een nieuwe **cloudservice** gemaakt als deze nog niet bestaat. Een **cloudservice** Hallo container waarin uw toepassing wordt gehost wanneer deze geïmplementeerde tooAzure is. Zie [Overzicht van het maken van een gehoste service voor Azure].
+4. Hallo implementatie pakket tooAzure publiceert.
 
 ## <a name="stopping-and-deleting-your-application"></a>De toepassing stoppen en verwijderen
-Nadat u uw toepassing hebt geïmplementeerd, wilt u deze mogelijk uitschakelen om extra kosten te vermijden. Webrolexemplaren in Azure worden per uur van verbruikte servertijd in rekening gebracht. Er wordt servertijd verbruikt zodra de toepassing is geïmplementeerd, zelfs als de exemplaren niet worden uitgevoerd en de gestopte status hebben.
+Na implementatie van uw toepassing, kunt u toodisable zodat u extra kosten kunt voorkomen. Webrolexemplaren in Azure worden per uur van verbruikte servertijd in rekening gebracht. Er wordt servertijd verbruikt zodra uw toepassing is geïmplementeerd, zelfs als Hallo exemplaren niet worden uitgevoerd en met de status Hallo gestopt.
 
-1. In het Windows PowerShell-venster stopt u de service-implementatie die u in de vorige sectie hebt gemaakt, met de volgende cmdlet:
+1. In Hallo Windows PowerShell-venster stopt Hallo service-implementatie gemaakt in de vorige sectie Hallo Hello volgende cmdlet:
 
        Stop-AzureService
 
-   Het kan enkele minuten duren voordat de service is gestopt. Als de service is gestopt, krijgt u een bericht waarin dit wordt aangegeven.
+   Hallo-service wordt gestopt, kan dit enkele minuten duren. Wanneer het Hallo-service wordt gestopt, krijgt u een bericht weergegeven dat aangeeft dat deze is gestopt.
 
-   ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
-2. Als u de service wilt verwijderen, roept u de volgende cmdlet aan:
+   ![Hallo-status van de opdracht Hallo Stop-AzureService][hello status of hello Stop-AzureService command]
+2. toodelete hello service aanroep Hallo volgende cmdlet:
 
        Remove-AzureService
 
-   Wanneer dit wordt gevraagd, typt u **Y** om de service te verwijderen.
+   Wanneer u wordt gevraagd, typt u **Y** toodelete Hallo-service.
 
-   Het kan enkele minuten duren voordat de service is verwijderd. Als de service is verwijderd, krijgt u een bericht waarin dit wordt aangegeven.
+   Verwijderen van Hallo-service kan enkele minuten duren. U ontvangt een bericht weergegeven dat aangeeft dat het Hallo-service is verwijderd nadat het Hallo-service is verwijderd.
 
-   ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
+   ![Hallo-status van de opdracht Hallo Remove-AzureService][hello status of hello Remove-AzureService command]
 
    > [!NOTE]
-   > Als u de service verwijdert, wordt niet het opslagaccount verwijderd dat is gemaakt toen de service voor de eerste keer werd gepubliceerd, en de kosten voor gebruikte opslag worden nog wel in rekening gebracht. Als niets anders de opslag gebruikt, kunt u deze verwijderen.
+   > Hallo-service verwijderen Hallo storage-account dat is gemaakt tijdens het Hallo-service is in eerste instantie gepubliceerd niet verwijderd en u blijft toobe kosten in rekening gebracht voor opslag gebruikt. Als niets anders Hallo opslag wordt gebruikt, kunt u toodelete deze.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het [Node.js Developer Center] voor meer informatie.
+Zie voor meer informatie, Hallo [Node.js Developer Center].
 
 <!-- URL List -->
 
-[Vergelijking van Azure Websites, Cloud Services en Virtual Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
+[vergelijking van Azure Websites, Cloudservices en virtuele Machines]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [een eenvoudige web-app-functie te gebruiken]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK voor .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
@@ -174,10 +174,10 @@ Zie het [Node.js Developer Center] voor meer informatie.
 
 <!-- IMG List -->
 
-[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[hello result of hello New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[hello output of hello Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying hello Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[hello output of hello Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying hello hello world page; hello URL indicates hello page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[hello status of hello Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[hello status of hello Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png

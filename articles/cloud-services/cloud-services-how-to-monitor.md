@@ -1,6 +1,6 @@
 ---
-title: Het bewaken van een service in de cloud | Microsoft Docs
-description: Informatie over het bewaken van cloud-services met behulp van de klassieke Azure portal.
+title: aaaHow toomonitor een cloudservice | Microsoft Docs
+description: Meer informatie over hoe toomonitor cloudservices met behulp van Hallo klassieke Azure-portal.
 services: cloud-services
 documentationcenter: 
 author: thraka
@@ -14,111 +14,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ee98c56e0b98b85d75a5c1d796800069c4f06d20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-monitor-cloud-services"></a>Cloud Services bewaken
+# <a name="how-toomonitor-cloud-services"></a>Hoe tooMonitor Cloud-Services
 [!INCLUDE [disclaimer](../../includes/disclaimer.md)]
 
-U kunt bewaken `key` maatstaven voor prestaties voor uw cloudservices in de klassieke Azure portal. U kunt het niveau van bewaking aan de minimale en uitgebreide voor elke rol service instellen en de bewaking wordt weergegeven kunt aanpassen. Uitgebreide controle gegevens worden opgeslagen in een opslagaccount dat u toegang hebt tot buiten de portal. 
+U kunt bewaken `key` maatstaven voor prestaties voor uw cloudservices in Hallo klassieke Azure-portal. U kunt instellen Hallo niveau van de bewaking van toominimal en uitgebreide voor elke rol service en Hallo geeft bewaking kunt aanpassen. Uitgebreide controle gegevens worden opgeslagen in een opslagaccount dat u toegang hebt tot buiten Hallo-portal. 
 
-Controle worden weergegeven in de klassieke Azure portal zijn configureerbaar. U kunt de metrische gegevens die u bewaken in de lijst met metrische gegevens wilt op de **Monitor** , en u kunt kiezen welke metrische gegevens moeten worden getekend in metrics grafieken op de **Monitor** pagina en het dashboard. 
+Controle worden weergegeven in de klassieke Azure-portal Hallo zijn configureerbaar. U kunt metrische gegevens Hallo gewenste toomonitor in de lijst met de Hallo metrische gegevens op Hallo **Monitor** pagina, en kunt u welke tooplot metrische gegevens in de grafieken metrische gegevens op Hallo **Monitor** pagina en Hallo dashboard. 
 
 ## <a name="concepts"></a>Concepten
-Standaard is minimale bewaking opgegeven voor een nieuwe cloudservice met behulp van prestatiemeteritems die afkomstig zijn van het besturingssysteem van de host voor de functies exemplaren (virtuele machines). De minimale metrische gegevens zijn beperkt tot de CPU-Percentage, Data, gegevensuitvoer, doorvoercapaciteit van de schijf lezen en schrijven doorvoercapaciteit van de schijf. Uitgebreide bewaking configureert, kunt u aanvullende gegevens op basis van prestatiegegevens binnen de virtuele machines (rolexemplaren) ontvangen. De uitgebreide metrische gegevens inschakelen dichter analyse van problemen die tijdens de bewerkingen van de toepassing optreden.
+Standaard is minimale bewaking opgegeven voor een nieuwe cloudservice met behulp van prestatiemeteritems die afkomstig zijn van het hostbesturingssysteem Hallo voor Hallo rollen exemplaren (virtuele machines). Hallo minimale metrische gegevens zijn beperkt tooCPU Percentage, Data, gegevensuitvoer, doorvoercapaciteit van de schijf lezen en schrijven doorvoercapaciteit van de schijf. Uitgebreide bewaking configureert, kunt u aanvullende gegevens op basis van prestatiegegevens Hallo virtuele machines (rolexemplaren) ontvangen. Hallo uitgebreide metrische gegevens inschakelen dichter analyse van problemen die tijdens de bewerkingen van de toepassing optreden.
 
-Standaard wordt prestatiemeteritemgegevens van rolinstanties door actieve en overgebracht van de rolinstantie om de 3 minuten. Wanneer u uitgebreide bewaking inschakelt, wordt de onbewerkte gegevens van prestatiemeteritems voor elk rolexemplaar en over rolexemplaren voor elke rol geaggregeerd met een interval van 5 minuten, 1 uur en 12 uur. De verzamelde gegevens worden verwijderd na 10 dagen.
+Standaard prestatiemeteritemgegevens van rolinstanties door actieve en van de rolinstantie Hallo overgedragen om de 3 minuten. Wanneer u uitgebreide bewaking inschakelt, wordt Hallo onbewerkte gegevens van prestatiemeteritems voor elk rolexemplaar en over rolexemplaren voor elke rol geaggregeerd met een interval van 5 minuten, 1 uur en 12 uur. Hallo worden verzamelde gegevens verwijderd na 10 dagen.
 
-Nadat u uitgebreide bewaking ingeschakeld, wordt de geaggregeerde bewakingsgegevens opgeslagen in de tabellen in uw opslagaccount. Als u wilt inschakelen voor uitgebreide bewaking voor een rol, moet u een verbindingsreeks diagnostische gegevens die is gekoppeld aan het storage-account configureren. U kunt verschillende storage-accounts gebruiken voor andere rollen.
+Nadat u hebt ingeschakeld verbose bewaking, Hallo geaggregeerd wordt bewakingsgegevens opgeslagen in de tabellen in uw opslagaccount. tooenable uitgebreide bewaking voor een rol, moet u een verbindingsreeks voor diagnostische gegevens die is gekoppeld aan toohello storage-account configureren. U kunt verschillende storage-accounts gebruiken voor andere rollen.
 
-Inschakelen van uitgebreide bewaking toeneemt gerelateerde uw opslagkosten voor opslag van gegevens, gegevensoverdracht en opslag transacties. Minimale bewaking is niet vereist voor een opslagaccount. De gegevens voor de metrische gegevens die worden weergegeven op het niveau van de minimale controle worden niet opgeslagen in uw opslagaccount, zelfs als u de bewaking niveau op uitgebreide instellen.
+Inschakelen van uitgebreide bewaking toeneemt uw opslagkosten gerelateerd toodata storage, gegevensoverdracht en opslagtransacties. Minimale bewaking is niet vereist voor een opslagaccount. Hallo-gegevens voor Hallo metrische gegevens die beschikbaar worden gesteld op Hallo minimumniveau bewaking worden niet opgeslagen in uw opslagaccount, zelfs als u bewaking niveau tooverbose Hallo instelt.
 
 ## <a name="how-to-configure-monitoring-for-cloud-services"></a>Procedure: het bewaken configureren voor cloud-services
-Gebruik de volgende procedures voor het configureren van uitgebreide of minimale bewaken in de klassieke Azure portal. 
+Gebruik Hallo procedures tooconfigure uitgebreide of minimale bewaken in de klassieke Azure-portal hello te volgen. 
 
 ### <a name="before-you-begin"></a>Voordat u begint
-* Maak een *klassieke* storage-account voor het opslaan van de bewakingsgegevens. U kunt verschillende storage-accounts gebruiken voor andere rollen. Zie voor meer informatie [het maken van een opslagaccount](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Maak een *klassieke* storage account toostore Hallo bewakingsgegevens. U kunt verschillende storage-accounts gebruiken voor andere rollen. Zie voor meer informatie [hoe toocreate een opslagaccount](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Schakel diagnostische Azure-gegevens voor rollen van uw cloudservice. Zie [diagnostische gegevens configureren voor Cloudservices](cloud-services-dotnet-diagnostics.md).
 
-Zorg ervoor dat de verbindingsreeks van diagnostische gegevens aanwezig in de configuratie van de functie is. U inschakelen uitgebreide bewaking totdat u Azure diagnostische gegevens inschakelen en een verbindingsreeks diagnostische gegevens in de configuratie van de functie opnemen niet.   
+Zorg ervoor dat Hallo diagnostics verbindingsreeks aanwezig is in de configuratie van de functie Hallo. U inschakelen uitgebreide bewaking totdat u Azure diagnostische gegevens inschakelen en een verbindingsreeks diagnostische gegevens in de rolconfiguratie Hallo opnemen niet.   
 
 > [!NOTE]
-> Projecten die gericht is op Azure SDK 2.5 heeft de verbindingsreeks van diagnostische gegevens niet automatisch opgenomen in de projectsjabloon. Voor deze projecten moet u de verbindingsreeks van diagnostische gegevens handmatig toevoegen aan de configuratie van de functie.
+> Projecten die gericht is op Azure SDK 2.5 bevat automatisch geen Hallo diagnostics verbindingsreeks in de projectsjabloon Hallo. Voor deze projecten, moet u toomanually Hallo diagnostics verbinding tekenreeks toohello rolconfiguratie toevoegen.
 > 
 > 
 
-**Verbindingsreeks diagnostische gegevens handmatig toevoegen aan rollen configureren**
+**toomanually diagnostics connection string tooRole configuratie toevoegen**
 
-1. Open het Cloudservice-project in Visual Studio
-2. Dubbelklik op de **rol** openen van de rol ontwerpen en selecteer de **instellingen** tabblad
+1. Open Hallo Cloud Services-project in Visual Studio
+2. Dubbelklik op Hallo **rol** tooopen rol designer Hallo en selecteer Hallo **instellingen** tabblad
 3. Zoek naar een instelling met de naam **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. 
-4. Als deze instelling niet aanwezig is is, klikt u op de **instelling toevoegen** knop toe te voegen aan de configuratie en het wijzigen van het type voor de nieuwe instellingen worden **ConnectionString**
-5. Stel de waarde voor de verbindingsreeks de door te klikken op de **...**  knop. Hiermee opent u een dialoogvenster weergegeven zodat u een opslagaccount selecteren.
+4. Als deze instelling niet aanwezig is is, klikt u op Hallo **instelling toevoegen** knop tooadd het toohello configuratie en wijzig Hallo type voor Hallo nieuwe instelling te**ConnectionString**
+5. Hallo waarde instellen voor verbinding tekenreeks Hallo door te klikken op Hallo **...**  knop. Hiermee opent u een dialoogvenster waarin u tooselect een opslagaccount.
    
     ![Visual Studio-instellingen](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioDiagnosticsConnectionString.png)
 
-### <a name="to-change-the-monitoring-level-to-verbose-or-minimal"></a>Wijzigen van het niveau van de bewaking in uitgebreide of minimale
-1. In de [klassieke Azure-portal](https://manage.windowsazure.com/), open de **configureren** pagina voor de cloud service-implementatie.
+### <a name="toochange-hello-monitoring-level-tooverbose-or-minimal"></a>toochange hello niveau tooverbose bewaking of minimale
+1. In Hallo [klassieke Azure-portal](https://manage.windowsazure.com/)Open Hallo **configureren** pagina voor Hallo cloud service-implementatie.
 2. In **niveau**, klikt u op **uitgebreid** of **minimale**. 
 3. Klik op **Opslaan**.
 
-Nadat u ingeschakeld verbose bewaking, moet u eerst de bewakingsgegevens in de klassieke Azure portal ziet binnen het uur.
+Nadat u ingeschakeld verbose bewaking, moet u eerst Hallo voor het bewaken van gegevens in de klassieke Azure-portal Hallo binnen Hallo uur te zien.
 
-De onbewerkte gegevens van prestatiemeteritems en geaggregeerde bewakingsgegevens worden opgeslagen in het opslagaccount in tabellen gekwalificeerd door de implementatie-ID voor de rollen. 
+Hallo onbewerkte gegevens van prestatiemeteritems en geaggregeerde bewakingsgegevens worden opgeslagen in de opslagaccount hello in tabellen gekwalificeerd door Hallo implementatie-ID voor Hallo rollen. 
 
 ## <a name="how-to-receive-alerts-for-cloud-service-metrics"></a>Procedure: waarschuwingen voor cloud service metrische gegevens ontvangen
-U kunt waarschuwingen op basis van de cloudservice bewaken metrische gegevens kunt ontvangen. Op de **beheerservices** pagina van de klassieke Azure portal, kunt u een regel voor het activeren van een waarschuwing wanneer de metrische gegevens die u kiest een waarde die u opgeeft bereikt. U kunt ook e-mailbericht verzonden wanneer de waarschuwing wordt geactiveerd. Zie voor meer informatie [hoe: waarschuwingsmeldingen ontvangen en regels voor waarschuwingen beheren in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+U kunt waarschuwingen op basis van de cloudservice bewaken metrische gegevens kunt ontvangen. Op Hallo **beheerservices** pagina van Hallo klassieke Azure-portal, kunt u een tootrigger regel een waarschuwing wanneer Hallo metrische gegevens die u kiest een waarde die u opgeeft bereikt. U kunt ook toohave e-mail verzonden wanneer Hallo waarschuwing wordt geactiveerd. Zie voor meer informatie [hoe: waarschuwingsmeldingen ontvangen en regels voor waarschuwingen beheren in Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
-## <a name="how-to-add-metrics-to-the-metrics-table"></a>Hoe: metrische gegevens toevoegen aan de tabel metrische gegevens
-1. In de [klassieke Azure-portal](http://manage.windowsazure.com/), open de **Monitor** pagina voor de cloudservice.
+## <a name="how-to-add-metrics-toohello-metrics-table"></a>Hoe: metrische gegevens toohello metrische gegevens tabel toevoegen
+1. In Hallo [klassieke Azure-portal](http://manage.windowsazure.com/)Open Hallo **Monitor** pagina voor het Hallo-cloudservice.
    
-    Standaard worden in de tabel metrische gegevens een subset van de beschikbare metrische gegevens bevat. De afbeelding ziet u de standaard uitgebreide metrische gegevens voor een cloudservice, die beperkt tot het prestatiemeteritem Geheugen\Beschikbare megabytes (MB) met gegevens geaggregeerd op het rolniveau van de is. Gebruik **toevoegen metrische gegevens** aanvullende statistische en quotumwaarde op gegevens controleren in de klassieke Azure portal te selecteren.
+    Hallo metrische gegevens tabel geeft standaard een subset van de beschikbare metrische gegevens Hallo weer. Hallo-afbeelding ziet u Hallo standaard uitgebreide metrische gegevens voor een cloudservice, die het prestatiemeteritem Geheugen\Beschikbare megabytes (MB) voor beperkte toohello, met gegevens geaggregeerd op Hallo rolniveau. Gebruik **toevoegen metrische gegevens** tooselect extra aggregaat- en toomonitor quotumwaarde op metrische gegevens in de klassieke Azure-portal Hallo.
    
     ![Uitgebreide weergave](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
-2. Metrische gegevens toevoegen aan de tabel metrische gegevens:
+2. tooadd metrische gegevens toohello metrische gegevens tabel:
    
-   1. Klik op **toevoegen metrische gegevens** openen **kiezen metrische gegevens**, u hieronder kunt zien.
+   1. Klik op **toevoegen metrische gegevens** tooopen **kiezen metrische gegevens**, u hieronder kunt zien.
       
-       De eerste beschikbare metriek uitgevouwen zodat de opties die beschikbaar zijn. De eerste optie bevat voor elke metriek geaggregeerde bewakingsgegevens voor alle functies. Bovendien kunt u afzonderlijke rollen om gegevens weer te kiezen.
+       de eerste beschikbare metriek Hallo is uitgevouwen tooshow opties die beschikbaar zijn. Voor elke metriek weergegeven Hallo optie geaggregeerde bewakingsgegevens voor alle functies. Bovendien kunt u afzonderlijke rollen toodisplay gegevens voor.
       
        ![Metrische gegevens toevoegen](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png)
-   2. Selecteer de metrische gegevens om weer te geven
+   2. tooselect metrische gegevens toodisplay
       
-      * Klik op de pijl-omlaag door de metriek uit te breiden, de controle-opties.
-      * Schakel het selectievakje in voor elke controleoptie die u wilt weergeven.
+      * Klik op Hallo pijl-omlaag door Hallo metrische tooexpand Hallo controle-opties.
+      * Selecteer Hallo selectievakje in voor elke bewaken optie die u wilt toodisplay.
         
-        U kunt maximaal 50 metrische gegevens weergeven in de tabel metrische gegevens.
+        U kunt maximaal too50 metrische gegevens in de tabel van Hallo metrische gegevens weergeven.
         
         > [!TIP]
-        > In uitgebreide bewaking, wordt de tientallen metrische gegevens in de lijst van de metrische gegevens kan bevatten. Om weer te geven van een schuifbalk, houd de muis boven aan de rechterkant van het dialoogvenster. Klik op het zoekpictogram om te filteren in de lijst, en voer tekst in het zoekvak, zoals hieronder wordt weergegeven.
+        > In uitgebreide bewaking bevatten Hallo metrische gegevens lijst tientallen metrische gegevens. toodisplay een scrollbar Beweeg de muisaanwijzer over de rechterkant Hallo van dialoogvenster Hallo. toofilter Hallo-lijst, klik op het zoekpictogram Hallo en voer tekst in het zoekvak hello, zoals hieronder wordt weergegeven.
         > 
         > 
         
         ![Toevoegen van metrische gegevens zoeken](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 3. Nadat u metrische gegevens te selecteren, klik op OK (vinkje).
    
-    De geselecteerde metrische gegevens worden toegevoegd aan de tabel metrische gegevens, zoals hieronder wordt weergegeven.
+    Hallo worden geselecteerde metrische gegevens toegevoegd toohello metrische gegevens tabel, zoals hieronder wordt weergegeven.
    
     ![monitor metrische gegevens](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
-4. Als u wilt een metriek verwijderen uit de tabel metrische gegevens, klikt u op de metriek selecteren en klik vervolgens op **metriek verwijderen**. (Alleen zien **metriek verwijderen** wanneer er een geselecteerde waarde.)
+4. toodelete metric van Hallo metrische gegevens tabel, klikt u op Hallo metrische tooselect en klik vervolgens op **metriek verwijderen**. (Alleen zien **metriek verwijderen** wanneer er een geselecteerde waarde.)
 
-### <a name="to-add-custom-metrics-to-the-metrics-table"></a>Aangepaste metrische gegevens toevoegen aan de tabel metrische gegevens
-De **uitgebreid** bewaking niveau voorziet in een lijst met standaard metrische gegevens die u kunt controleren op de portal. Naast deze informatie kunt u een aangepaste metrische gegevens of de prestatiemeteritems die zijn gedefinieerd door uw toepassing via de portal bewaken.
+### <a name="tooadd-custom-metrics-toohello-metrics-table"></a>tooadd aangepaste metrische gegevens toohello metrische gegevens tabel
+Hallo **uitgebreid** niveau bewaking biedt u een lijst met standaard metrische gegevens die u kunt controleren op Hallo-portal. Bovendien toothese u kunt aangepaste metrische gegevens of bewaken prestatiemeteritems die zijn gedefinieerd door uw toepassing via Hallo-portal.
 
-De volgende stappen wordt ervan uitgegaan dat u hebt ingeschakeld **uitgebreid** niveau bewaking en uw toepassing voor het verzamelen en aangepaste prestatiemeteritems transfer hebt geconfigureerd. 
+Hallo volgende stappen wordt ervan uitgegaan dat u hebt ingeschakeld **uitgebreid** niveau bewaking en uw toepassing toocollect en overdracht aangepaste prestatiemeteritems hebt geconfigureerd. 
 
-Als u wilt weergeven van de aangepaste prestatiemeteritems in de portal moet u de configuratie in af-besturingselement-container bijwerken:
+toodisplay hello aangepaste prestatiemeters in Hallo portal moet u de configuratie van de tooupdate Hallo in af-besturingselement-container:
 
-1. Open de blob af-besturingselement-container in uw opslagaccount voor diagnostische gegevens. U kunt Visual Studio of andere Opslagverkenner gebruiken om dit te doen.
+1. Hallo af-besturingselement-container blob in uw opslagaccount voor diagnostische gegevens openen. U kunt Visual Studio of een andere opslag explorer toodo dit.
    
     ![Visual Studio Server Explorer](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioBlobExplorer.png)
-2. De blobpad met behulp van het patroon gaat **RoleName/DeploymentId/RoleInstance** vinden van de configuratie voor uw rolexemplaar. 
+2. Navigeer Hallo blobpad met Hallo patroon **RoleName/DeploymentId/RoleInstance** toofind Hallo configuratie voor uw rolexemplaar. 
    
     ![Visual Studio Opslagverkenner](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Het configuratiebestand voor de rolinstantie downloaden en werk deze zodanig dat eventuele aangepaste prestatiemeteritems. Zo moeten worden bewaakt *schijf geschreven Bytes per seconde* voor de *station C* Voeg de volgende onder **PerformanceCounters\Subscriptions** knooppunt
+3. Hallo-configuratiebestand voor de rolinstantie downloaden bij te werken tooinclude aangepaste prestatiemeteritems. Bijvoorbeeld toomonitor *schijf geschreven Bytes per seconde* voor Hallo *station C* Voeg de volgende Hallo onder **PerformanceCounters\Subscriptions** knooppunt
    
     ```xml
     <PerformanceCounterConfiguration>
@@ -126,37 +126,37 @@ Als u wilt weergeven van de aangepaste prestatiemeteritems in de portal moet u d
     <SampleRateInSeconds>180</SampleRateInSeconds>
     </PerformanceCounterConfiguration>
     ```
-4. De wijzigingen opslaan en upload het configuratiebestand terug naar dezelfde locatie als het bestaande bestand in de blob wordt overschreven.
-5. Schakelen naar de uitgebreide modus in de configuratie voor Azure classic portal. Als u al in de uitgebreide modus zou moet u minimaal en terug naar de uitgebreide in-of uitschakelen.
-6. Het aangepaste prestatiemeteritem is nu beschikbaar in de **toevoegen metrische gegevens** in het dialoogvenster. 
+4. Sla Hallo wijzigingen en het uploaden van Hallo configuratie bestand back toohello dezelfde locatie wordt overschreven Hallo bestaand bestand in Hallo blob.
+5. Wisselknop tooVerbose modus in hello Azure classic portal-configuratie. Als u in de uitgebreide modus al hebt u tootoggle toominimal en terug tooverbose.
+6. Hallo aangepaste prestatiemeteritem is nu beschikbaar in Hallo **toevoegen metrische gegevens** in het dialoogvenster. 
 
-## <a name="how-to-customize-the-metrics-chart"></a>Procedure: de metrische gegevens grafiek aanpassen
-1. Selecteer maximaal 6 metrische gegevens om te tekenen op de grafiek metrische gegevens in de tabel metrische gegevens. Als u wilt een metriek selecteert, klikt u op het selectievakje aan de linkerkant. Als u wilt verwijderen een waarde van de grafiek metrische gegevens, schakel het selectievakje in de tabel metrische gegevens.
+## <a name="how-to-customize-hello-metrics-chart"></a>Hoe: Hallo metrische gegevens grafiek aanpassen
+1. Selecteer in de tabel van de metrische gegevens Hallo, too6 metrische gegevens tooplot op Hallo metrische gegevens grafiek. een metriek tooselect klikt u op Hallo selectievakje aan de linkerkant. tooremove metric van Hallo metrische gegevens grafiek, schakel het selectievakje in Hallo metrische gegevens tabel.
    
-    Als u metrische gegevens in de tabel metrische gegevens selecteert, worden de metrische gegevens worden toegevoegd aan de grafiek metrische gegevens. Op een beperkte weergave een **n meer** vervolgkeuzelijst bevat metrische headers die de weergave niet past.
-2. Selecteer voor schakelen tussen het weergeven van relatieve waarden (laatste waarde alleen voor elke metriek) en absolute waarden (Y-as weergegeven), relatief of absoluut boven aan de grafiek.
+    Als u metrische gegevens in de tabel van Hallo metrische gegevens selecteert, kan Hallo metrische gegevens toohello metrische gegevens grafiek worden toegevoegd. Op een beperkte weergave een **n meer** vervolgkeuzelijst metrische headers die niet, Hallo-weergave past bevat.
+2. tooswitch tussen de weergave relatieve waarden (laatste waarde alleen voor elke metriek) en absolute waarden (Y-as weergegeven), selecteer relatieve of een absoluut Hallo boven aan het Hallo-grafiek.
    
     ![Relatief of absoluut](./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png)
-3. Als u wilt wijzigen van het tijdsbereik selecteren de metrische gegevens grafiek wordt weergegeven, 1 uur, 24 uur of zeven dagen aan de bovenkant van de grafiek.
+3. toochange hello tijd bereik Hallo metrische gegevens grafiek wordt weergegeven, selecteert u 1 uur, 24 uur of zeven dagen Hallo boven aan het Hallo-grafiek.
    
     ![Weergaveperiode van de monitor](./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
    
-    In het diagram van de metrische gegevens dashboard verschilt de methode voor het uitzetten van de metrische gegevens. Een standaardset metrische gegevens beschikbaar is en metrische gegevens worden toegevoegd of verwijderd door het selecteren van de metrische header.
+    Op Hallo dashboard metrische gegevens grafiek verschilt Hallo-methode voor het tekengebied metrische gegevens. Een standaardset metrische gegevens beschikbaar is en metrische gegevens worden toegevoegd of verwijderd door het selecteren van metrische Hallo-header.
 
-### <a name="to-customize-the-metrics-chart-on-the-dashboard"></a>De grafiek metrische gegevens op het dashboard aanpassen
-1. Open het dashboard voor de cloudservice.
-2. Toevoegen of verwijderen van metrische gegevens van de grafiek:
+### <a name="toocustomize-hello-metrics-chart-on-hello-dashboard"></a>diagram van toocustomize Hallo metrische gegevens op Hallo-dashboard
+1. Open Hallo dashboard voor Hallo-cloudservice.
+2. Toevoegen of verwijderen van metrische gegevens uit Hallo grafiek:
    
-   * Om een nieuwe waarde getekend, selecteer het selectievakje in voor de metrische gegevens in de grafiek headers. Klik op een beperkte weergave op de pijl-omlaag door  ***n* veldnamenrij? metrische gegevens** om te tekenen van een waarde die het grafiekgebied van de header kan niet worden weergegeven.
-   * Schakel het selectievakje door de header voor het verwijderen van een waarde die in de grafiek wordt getekend.
+   * tooplot nieuwe Hallo metrische, selecteer het selectievakje voor de metriek Hallo in Hallo grafiek headers. Klik op een beperkte weergave Hallo pijl-omlaag door  ***n* veldnamenrij? metrische gegevens** tooplot een koptekst van metrische Hallo grafiekgebied kan niet worden weergegeven.
+   * een waarde die wordt getekend op Hallo grafiek, selectievakje Hallo wissen door de header toodelete.
    
 3. Schakelen tussen **relatieve** en **Absolute** wordt weergegeven.
-4. Kies 1 uur, 24 uur of zeven dagen aan gegevens om weer te geven.
+4. 1 uur, 24 uur of zeven dagen aan gegevens toodisplay kiezen.
 
-## <a name="how-to-access-verbose-monitoring-data-outside-the-azure-classic-portal"></a>Procedure: toegang uitgebreide bewaking gegevens buiten de klassieke Azure portal
-Uitgebreide bewakingsgegevens wordt opgeslagen in de tabellen in de storage-accounts die u voor elke rol opgeeft. Zes tabellen worden voor elke cloud service-implementatie gemaakt voor de rol. Twee tabellen worden gemaakt voor elk (5 minuten, 1 uur en 12 uur). Een van deze tabellen slaat quotumwaarde op aggregaties; de andere tabel bevat aggregaties voor rolinstanties. 
+## <a name="how-to-access-verbose-monitoring-data-outside-hello-azure-classic-portal"></a>Procedure: toegang tot uitgebreide bewakingsgegevens buiten Hallo klassieke Azure-portal
+Uitgebreide bewakingsgegevens wordt opgeslagen in de tabellen in Hallo storage-accounts die u voor elke rol opgeeft. Voor elke cloud service-implementatie worden de zes tabellen gemaakt voor Hallo-rol. Twee tabellen worden gemaakt voor elk (5 minuten, 1 uur en 12 uur). Een van deze tabellen slaat quotumwaarde op aggregaties; Hallo andere tabel winkels aggregaties voor rolinstanties. 
 
-De tabelnamen van de hebben de volgende notatie:
+Hallo tabelnamen hebben Hallo volgende indeling:
 
 ```
 WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
@@ -164,15 +164,15 @@ WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
 
 Waarbij:
 
-* *deploymentID* is de GUID die is toegewezen aan de cloud service-implementatie
+* *deploymentID* is Hallo GUID die is toegewezen toohello cloud service-implementatie
 * *aggregation_interval* = 5 M, 1U of 12 uur
 * niveau van de rol aggregaties = R
 * aggregaties voor rolinstanties k =
 
-De volgende tabellen bewaren bijvoorbeeld uitgebreide bewakingsgegevens geaggregeerd interval van 1 uur:
+Bijvoorbeeld: hello volgende tabellen opgeslagen uitgebreide bewakingsgegevens geaggregeerd interval van 1 uur:
 
 ```
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
+WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for hello role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```

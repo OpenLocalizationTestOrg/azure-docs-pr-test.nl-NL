@@ -1,6 +1,6 @@
 ---
-title: Met dynamische AES-128-versleuteling en sleutellevering service | Microsoft Docs
-description: Microsoft Azure Media Services kunt u de inhoud die is versleuteld met AES-128-bits versleutelingssleutels bezorgen. Media Services biedt ook de service voor het leveren van de sleutel die zorgt voor versleutelingssleutels tot gemachtigde gebruikers. Dit onderwerp wordt beschreven hoe dynamisch versleutelen met AES-128 en de service sleutellevering te gebruiken.
+title: dynamische aaaUsing AES-128-versleuteling en de sleutel service voor het leveren | Microsoft Docs
+description: Microsoft Azure Media Services kunt u toodeliver uw inhoud die is versleuteld met AES-128-bits versleutelingssleutels. Media Services biedt ook een service voor het leveren van de sleutel Hallo die zorgt voor versleuteling sleutels tooauthorized gebruikers. Dit onderwerp wordt beschreven hoe toodynamically versleutelen met AES-128 en Hallo sleutellevering service gebruiken.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: ae1b36c26e688e74eb8fcc1a4cdbd3be0c014c08
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cb1b413ec2ba79f7437464099cf72236ab93f312
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Met behulp van dynamische AES-128-versleuteling en sleutellevering service
 > [!div class="op_single_selector"]
@@ -30,112 +30,112 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="overview"></a>Overzicht
 > [!NOTE]
-> Zie [dit](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption) video voor een overzicht van het beveiligen van uw Media-inhoud met AES-versleuteling.
+> Zie [dit](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption) video voor een overzicht van hoe tooprotect uw Media Content met AES-versleuteling.
 > 
 > 
 
-Microsoft Azure Media Services kunt u om Http-Live-Streaming (HLS) en Smooth Streams versleuteld met Advanced Encryption Standard (AES) (met behulp van coderingssleutels 128-bits) te leveren. Media Services biedt ook de service voor het leveren van de sleutel die zorgt voor versleutelingssleutels tot gemachtigde gebruikers. Als u voor Media Services wilt voor het versleutelen van een asset, moet u een versleutelingssleutel koppelen aan de asset en ook autorisatiebeleid voor de sleutel te configureren. Wanneer een stream is aangevraagd door een speler, gebruikt Media Services de opgegeven sleutel voor het dynamisch versleutelen van uw inhoud met behulp van AES-versleuteling. Voor het ontsleutelen van de stroom, Windows media player vraagt om de sleutel van de service sleutellevering. De service beoordeelt om te bepalen of de gebruiker is gemachtigd om op te halen van de sleutel, de autorisatie-beleidsregels die u hebt opgegeven voor de sleutel.
+Microsoft Azure Media Services kunt u toodeliver Http-Live-Streaming (HLS) en Smooth Streams versleuteld met Advanced Encryption Standard (AES) (met behulp van coderingssleutels 128-bits). Media Services biedt ook een service voor het leveren van de sleutel Hallo die zorgt voor versleuteling sleutels tooauthorized gebruikers. Als u voor Media Services tooencrypt een asset wilt, u moet een versleutelingssleutel met Hallo asset tooassociate en autorisatiebeleid voor Hallo sleutel ook configureren. Wanneer een stream is aangevraagd door een speler, Media Services gebruikt Hallo opgegeven sleutel toodynamically versleutelen van uw inhoud met behulp van AES-versleuteling. toodecrypt hello stream, Hallo player vraagt de Hallo sleutel van Hallo sleutellevering-service. toodecide of Hallo gebruiker is gemachtigd tooget Hallo sleutel, Hallo service beoordeelt Hallo autorisatiebeleid die u hebt opgegeven voor Hallo-sleutel.
 
-Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: beperking voor openen of tokenbeperking. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door Secure Token Service (STS). Media Services ondersteunt tokens in de indelingen [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) en [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Zie voor meer informatie [autorisatiebeleid voor de inhoudssleutel configureren](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Hallo autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: openen of tokenbeperking beperking. Hallo token beleid voor de beperkte vergezeld van een token dat is uitgegeven door een Secure Token Service (STS). Media Services ondersteunt tokens in Hallo [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) -indeling (SWT) en [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT)-indeling. Zie voor meer informatie [autorisatiebeleid Hallo de inhoudssleutel configureren](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-Als u dynamische versleuteling wilt gebruiken, moet u een asset hebben die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. Ook moet u het leveringsbeleid voor de asset (Zie verderop in dit onderwerp) configureren. Vervolgens zorgt de server voor streaming on demand er op basis van de indeling die is opgegeven in de streaming-URL voor dat de stream wordt geleverd in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client.
+tootake profiteren van dynamische versleuteling hoeft u toohave een asset die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. U moet ook tooconfigure Hallo leveringsbeleid voor Hallo asset (Zie verderop in dit onderwerp). Vervolgens, op basis van opgegeven in de streaming-URL Hallo Hallo-indeling, Hallo On-Demand Streaming server zorgt ervoor dat Hallo-stream wordt geleverd in Hallo protocol dat u hebt gekozen. Hierdoor hoeft u alleen toostore en betalen voor Hallo-bestanden in één opslagindeling en Media Services-service bouwt en levert de juiste reactie Hallo op basis van aanvragen van een client.
 
-In dit onderwerp is nuttig voor ontwikkelaars die werken aan toepassingen die beveiligde media leveren. Het onderwerp leest u hoe de service sleutellevering met een autorisatiebeleid zodanig configureren dat alleen geautoriseerde clients de versleutelingssleutels kunnen ontvangen. Ook ziet u hoe u dynamische versleuteling wilt gebruiken.
+In dit onderwerp is nuttig toodevelopers die werken aan toepassingen die beveiligde media leveren. Hallo onderwerp leest u hoe tooconfigure sleutellevering service met een autorisatiebeleid Hallo zodat alleen geautoriseerde clients Hallo versleutelingssleutels kunnen ontvangen. U ziet ook hoe toouse dynamische versleuteling.
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Sleutellevering servicewerkstroom en dynamische AES-128-versleuteling
 
-Hieronder vindt u algemene stappen die u uitvoeren moet bij het versleutelen van uw assets met AES, met behulp van de Media Services-service sleutellevering en dynamische versleuteling.
+Hallo hieronder vindt u algemene stappen zou u tooperform moet bij het versleutelen van uw assets met AES, met behulp van Hallo Media Services sleutellevering service en dynamische versleuteling.
 
-1. [Maak een asset en upload bestanden in de asset](media-services-protect-with-aes128.md#create_asset).
-2. [Codeer de asset met het bestand naar de adaptive bitrate MP4-set](media-services-protect-with-aes128.md#encode_asset).
-3. [Maak een inhoudssleutel en deze koppelen aan de gecodeerde asset](media-services-protect-with-aes128.md#create_contentkey). De inhoudssleutel bevat in Media Services de versleutelingssleutel van de asset.
-4. [Autorisatiebeleid voor de inhoudssleutel configureren](media-services-protect-with-aes128.md#configure_key_auth_policy). U moet het autorisatiebeleid voor de inhoudssleutel hebben geconfigureerd en de client moet aan dit beleid voldoen om de inhoudssleutel aan de client te kunnen leveren.
-5. [Configureer het leveringsbeleid voor een asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). De configuratie van een leveringsbeleid omvat:-URL voor het verkrijgen en initialisatie-Vector (IV) (AES 128 vereist dat de dezelfde IV worden opgegeven bij het versleutelen en ontsleutelen), leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), het type dynamische versleuteling (bijvoorbeeld envelop of er geen dynamische versleuteling).
+1. [Maak een asset en upload bestanden in Hallo asset](media-services-protect-with-aes128.md#create_asset).
+2. [Hallo asset met Hallo bestand toohello adaptive bitrate MP4-set coderen](media-services-protect-with-aes128.md#encode_asset).
+3. [Maak een inhoudssleutel en deze koppelen aan Hallo gecodeerde asset](media-services-protect-with-aes128.md#create_contentkey). Hallo inhoudssleutel bevat in Media Services de versleutelingssleutel van Hallo actief.
+4. [Hallo de inhoudssleutel verificatiebeleid configureren](media-services-protect-with-aes128.md#configure_key_auth_policy). Hallo autorisatiebeleid voor inhoudssleutels moet worden geconfigureerd door u en door de client Hallo Hallo inhoud sleutel toobe geleverde toohello client zodat wordt voldaan.
+5. [Configureer het leveringsbeleid Hallo voor een asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). Hallo levering-beleidsconfiguratie omvat:-URL voor het verkrijgen en initialisatie-Vector (IV) (AES 128 vereist Hallo dezelfde IV toobe opgegeven bij het versleutelen en ontsleutelen), leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle), Hallo type dynamische versleuteling (bijvoorbeeld envelop of er geen dynamische versleuteling).
 
-    U kunt voor dezelfde asset een ander beleid voor elk protocol toepassen. U kunt bijvoorbeeld PlayReady-versleuteling toepassen op Smooth/DASH en AES Envelope op HLS. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (u voegt bijvoorbeeld één beleid toe waarmee alleen HLS als protocol wordt opgegeven), worden voor streaming geblokkeerd. De uitzondering hierop is als u helemaal geen leveringsbeleid voor assets hebt gedefinieerd. In dat geval is streaming voor alle protocollen toegestaan.
+    U kunt verschillende beleid tooeach protocol toepassen op Hallo dezelfde asset. U kunt bijvoorbeeld PlayReady-versleuteling tooSmooth/DASH en AES Envelope tooHLS toepassen. Alle protocollen die niet zijn gedefinieerd in een leveringsbeleid (bijvoorbeeld, u toevoegen één beleid waarmee alleen HLS als protocol Hallo) van streaming wordt geblokkeerd. Hallo uitzondering toothis is als u geen leveringsbeleid voor Assets helemaal gedefinieerd. Vervolgens zijn alle protocollen toegestaan in Hallo wissen.
 
-6. [Maak een OnDemand-locator](media-services-protect-with-aes128.md#create_locator) om op te halen van een streaming-URL.
+6. [Maak een OnDemand-locator](media-services-protect-with-aes128.md#create_locator) in volgorde tooget een streaming-URL.
 
-Ook ziet u het onderwerp [hoe een clienttoepassing kan aanvragen voor een sleutel van de service sleutellevering](media-services-protect-with-aes128.md#client_request).
+Hallo-onderwerp bevat ook [hoe een clienttoepassing kan aanvragen voor een sleutel van Hallo sleutellevering service](media-services-protect-with-aes128.md#client_request).
 
-Vindt u een volledige .NET [voorbeeld](media-services-protect-with-aes128.md#example) aan het einde van het onderwerp.
+Vindt u een volledige .NET [voorbeeld](media-services-protect-with-aes128.md#example) achter Hallo Hallo onderwerp.
 
-De volgende afbeelding geeft een illustratie van de hierboven beschreven werkstroom. Hier wordt het token gebruikt voor verificatie.
+Hallo volgende afbeelding ziet u Hallo werkstroom die hierboven worden beschreven. Hallo-token wordt hier gebruikt voor verificatie.
 
 ![Beschermen met AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-De rest van dit onderwerp bevat gedetailleerde uitleg, codevoorbeelden en koppelingen naar onderwerpen waarin u ziet hoe u de hierboven beschreven taken kunt uitvoeren.
+Hallo rest van dit onderwerp bevat gedetailleerde uitleg, codevoorbeelden en koppelingen tootopics waarin u kunt hoe tooachieve Hallo zien hierboven beschreven taken.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 Als u het leveringsbeleid voor uw asset toevoegt of bijwerkt, moet u een bestaande locator (indien aanwezig) verwijderen en een nieuwe locator maken.
 
-## <a id="create_asset"></a>Maak een asset en upload bestanden in de asset
-Als u uw video's wilt beheren, coderen en streamen, moet u eerst uw inhoud uploaden naar Microsoft Azure Media Services. Uw inhoud wordt na het uploaden veilig opgeslagen in de cloud voor verdere verwerking en streaming. 
+## <a id="create_asset"></a>Maak een asset en upload bestanden in Hallo asset
+In de volgorde toomanage, coderen en streamen video's, moet u eerst uw inhoud uploaden naar Microsoft Azure Media Services. Na het uploaden, wordt uw inhoud veilig opgeslagen in Hallo cloud voor verdere verwerking en streaming. 
 
 Zie [Upload Files into a Media Services account](media-services-dotnet-upload-files.md) (Bestanden uploaden naar een Media Services-account) voor gedetailleerde informatie.
 
-## <a id="encode_asset"></a>De asset met het bestand naar de adaptive bitrate die MP4-set coderen
-Bij dynamische versleuteling hoeft u alleen maar een asset te maken die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. Klik, op basis van de opgegeven indeling de manifest- of fragmentdeel aanvraag, de On-Demand Streaming server zorgt ervoor dat u de stream ontvangt in het protocol dat u hebt gekozen. Hierdoor hoeft u voor slechts één opslagindeling de bestanden op te slaan en hiervoor te betalen. De Media Services-service bouwt en levert de juiste reactie op basis van aanvragen van een client. Zie het onderwerp [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) (Overzicht van dynamische pakketten) voor meer informatie.
+## <a id="encode_asset"></a>Hallo asset met Hallo bestand toohello adaptive bitrate die MP4-set coderen
+Bij dynamische versleuteling hoeft u toocreate een asset die een set multi-bitrate MP4-bestanden of multi-bitrate Smooth Streaming-bronbestanden bevat. Vervolgens, op basis van de opgegeven indeling in het manifest Hallo Hallo of fragment aanvraag, Hallo On-Demand Streaming server zorgt ervoor dat u Hallo stream ontvangt in Hallo protocol dat u hebt gekozen. Hierdoor hoeft u alleen toostore en betalen voor Hallo-bestanden in één opslagindeling en Media Services-service bouwt en levert de juiste reactie Hallo op basis van aanvragen van een client. Zie voor meer informatie, Hallo [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) onderwerp.
 
 >[!NOTE]
->Wanneer uw AMS-account is gemaakt, wordt er een **standaardstreaming-eindpunt** met de status **Gestopt** toegevoegd aan uw account. Als u inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eindpunt van waar u inhoud wilt streamen, de status **Wordt uitgevoerd** hebben. 
+>Wanneer uw AMS-account wordt gemaakt een **standaard** tooyour account streaming-eindpunt is toegevoegd in Hallo **gestopt** status. uw inhoud en los het voordeel van dynamische pakketten en dynamische versleuteling streaming toostart Hallo streaming-eindpunt van waaruit u wilt toostream inhoud heeft toobe in Hallo **met** status. 
 >
->Uw asset moet ook om het gebruik van dynamische pakketten en dynamische versleuteling te kunnen bevatten een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden.
+>Bovendien toobe kunnen toouse dynamische pakketten en dynamische versleuteling uw asset moet bevatten een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden.
 
-Zie [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) (Een asset coderen met Media Encoder Standard) voor instructies voor het coderen.
+Voor instructies over het tooencode, Zie [hoe tooencode een asset met Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Een inhoudssleutel maken en deze koppelen aan de gecodeerde asset
-In Media Services bevat de inhoudssleutel de sleutel waarmee u een asset wilt coderen.
+## <a id="create_contentkey"></a>Maak een inhoudssleutel en deze koppelen aan Hallo gecodeerde asset
+In Media Services bevat inhoudssleutel Hallo Hallo-sleutel die u een asset tooencrypt wilt met.
 
 Zie [Create content key](media-services-dotnet-create-contentkey.md) (Inhoudssleutel maken) voor gedetailleerde informatie.
 
-## <a id="configure_key_auth_policy"></a>Het autorisatiebeleid voor de inhoudssleutel configureren
-Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. U moet het autorisatiebeleid voor inhoudssleutels hebben geconfigureerd en de client (speler) moet aan dit beleid voldoen om de sleutel aan de client te kunnen leveren. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: open, token beperking of IP-beperking.
+## <a id="configure_key_auth_policy"></a>Autorisatiebeleid Hallo de inhoudssleutel configureren
+Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Hallo autorisatiebeleid voor inhoudssleutels moet worden geconfigureerd door u en voldaan door Hallo-client (speler) om Hallo sleutel toobe toohello client geleverd. Hallo autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: open, token beperking of IP-beperking.
 
 Zie [Autorisatiebeleid voor inhoudssleutels configureren](media-services-dotnet-configure-content-key-auth-policy.md) voor gedetailleerde informatie.
 
 ## <a id="configure_asset_delivery_policy"></a>Leveringsbeleid voor assets configureren
-Configureer het leveringsbeleid voor uw asset. De configuratie van het leveringsbeleid voor assets omvat onder andere het volgende:
+Configureer Hallo leveringsbeleid voor uw asset. Een aantal zaken die Hallo asset configuratie van een leveringsbeleid omvat:
 
-* De URL van de Key-overname. 
-* De initialisatie van de Vector (IV) voor de envelop-versleuteling. AES-128 is vereist dat de dezelfde IV worden opgegeven bij het versleutelen en ontsleutelen. 
-* Het protocol voor het leveren van assets (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle).
-* Het type dynamische versleuteling (bijvoorbeeld AES envelope) of er geen dynamische versleuteling. 
+* Hallo-URL voor het verkrijgen van sleutel. 
+* Hallo initialisatie Vector (IV) toouse voor Hallo envelop versleuteling. AES-128 vereist Hallo dezelfde IV toobe opgegeven bij het versleutelen en ontsleutelen. 
+* Hallo asset leveringsprotocol (bijvoorbeeld MPEG DASH, HLS, Smooth Streaming of alle).
+* Hallo type dynamische versleuteling (bijvoorbeeld AES envelope) of er geen dynamische versleuteling. 
 
 Zie [Leveringsbeleid voor assets configureren](media-services-rest-configure-asset-delivery-policy.md) voor gedetailleerde informatie.
 
-## <a id="create_locator"></a>Een OnDemand-streaminglocator maken om een streaming-URL op te halen
-U moet de gebruiker voorzien van de streaming-URL voor Smooth, DASH of HLS.
+## <a id="create_locator"></a>Maak een OnDemand-streaminglocator in volgorde tooget een streaming-URL
+U moet tooprovide uw gebruiker Hello streaming-URL voor Smooth, DASH of HLS.
 
 > [!NOTE]
 > Als u het leveringsbeleid voor uw asset toevoegt of bijwerkt, moet u een bestaande locator (indien aanwezig) verwijderen en een nieuwe locator maken.
 > 
 > 
 
-Zie [Build a streaming URL](media-services-deliver-streaming-content.md) (Een streaming-URL bouwen) voor instructies over het publiceren van een asset en bouwen van een streaming-URL.
+Voor instructies over hoe toopublish een asset en bouwen van een streaming-URL, Zie [bouwen van een streaming-URL](media-services-deliver-streaming-content.md).
 
 ## <a name="get-a-test-token"></a>Een test-token ophalen
-Haal op basis van de tokenbeperking een test-token op die is gebruikt voor het sleutelautorisatiebeleid.
+Een test-token ophalen op basis van de tokenbeperking Hallo die werd gebruikt voor het sleutelautorisatiebeleid Hallo.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on the data in the given TokenRestrictionTemplate.
-    //The GenerateTestToken method returns the token without the word “Bearer” in front
-    //so you have to add it in front of the token string. 
+    // Generate a test token based on hello data in hello given TokenRestrictionTemplate.
+    //hello GenerateTestToken method returns hello token without hello word “Bearer” in front
+    //so you have tooadd it in front of hello token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
-    Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+    Console.WriteLine("hello authorization token is:\nBearer {0}", testToken);
 
-U kunt [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) gebruiken om uw stream te testen.
+U kunt Hallo [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) tootest uw stream.
 
-## <a id="client_request"></a>Hoe kan de client een sleutel van de service sleutellevering aanvragen?
-In de vorige stap, moet u de URL die naar een manifestbestand verwijst samengesteld. De client moet de benodigde gegevens ophalen uit de streaming-manifestbestanden als doel het maken van een aanvraag naar de service sleutellevering.
+## <a id="client_request"></a>Hoe kan de client een sleutel van Hallo sleutellevering service aanvragen?
+In de vorige stap hello, moet u Hallo-URL die tooa manifestbestand verwijst samengesteld. De client moet tooextract Hallo benodigde gegevens van de manifest-bestanden in de volgorde toomake een aanvraag toohello sleutellevering service streaming Hallo.
 
 ### <a name="manifest-files"></a>Manifestbestanden
-De client om op te halen van de URL (dat ook bevat inhoudssleutel Id (kid)) moet de waarde van het manifestbestand. De client probeert vervolgens te ontvangen van de versleutelingssleutel van de service sleutellevering. De client moet ook de IV waarde en het gebruik het ontsleutelen van de stroom extraheren. Het volgende codefragment bevat de <Protection> element van het manifest Smooth Streaming.
+Hallo client tooextract Hallo URL (dat ook bevat inhoudssleutel Id (kid)) moet de waarde van het manifestbestand Hallo. Hallo-client wordt en probeer het tooget Hallo versleutelingssleutel van Hallo sleutellevering-service. Hallo client moet ook tooextract Hallo IV waarde en gebruik het Hallo stream.hello volgende codefragment ontsleutelen toont Hallo <Protection> element van Hallo Smooth Streaming manifest.
 
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -149,9 +149,9 @@ De client om op te halen van de URL (dat ook bevat inhoudssleutel Id (kid)) moet
       </ProtectionHeader>
     </Protection>
 
-In het geval van HLS, is het manifest hoofdmap onderverdeeld in segment bestanden. 
+In geval van HLS Hallo is Hallo hoofdmap manifest onderverdeeld in segment bestanden. 
 
-Bijvoorbeeld: het manifest voor de hoofdmap is: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) en het bevat een lijst met bestandsnamen segment.
+Hallo hoofdmap manifest is bijvoorbeeld: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) en het bevat een lijst met bestandsnamen segment.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -160,7 +160,7 @@ Bijvoorbeeld: het manifest voor de hoofdmap is: http://test001.origin.mediaservi
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Als u een van de segment-bestanden in de teksteditor (bijvoorbeeld http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it should contain openen #EXT-X-sleutel waarmee wordt aangegeven dat het bestand is versleuteld.
+Als u een van Hallo segment bestanden in de teksteditor (bijvoorbeeld http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it should openen bevatten #EXT-X-sleutel, waarmee wordt aangegeven dat Hallo-bestand is versleuteld.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -177,11 +177,11 @@ Als u een van de segment-bestanden in de teksteditor (bijvoorbeeld http://test00
     #EXT-X-ENDLIST
 
 >[!NOTE] 
->Als u van plan bent om af te spelen een AES HLS in Safari versleuteld, Zie [deze blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Als u van plan bent tooplay een AES HLS in Safari versleuteld, Zie [deze blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
-### <a name="request-the-key-from-the-key-delivery-service"></a>De sleutel van de service sleutellevering aanvragen
+### <a name="request-hello-key-from-hello-key-delivery-service"></a>Hallo-sleutel van Hallo sleutellevering service aanvragen
 
-De volgende code laat zien hoe een aanvraag te verzenden naar de Media Services-sleutellevering-service via een sleutellevering Uri (dat is opgehaald uit het manifest) en een token (in dit onderwerp spreekt niet over het ophalen van Simple Web Tokens uit een Secure Token Service).
+Hallo volgende code toont hoe toosend een aanvraag toohello Media Services sleutel service voor het leveren met behulp van een sleutel levering Uri (dat is opgehaald uit Hallo manifest) en een token (in dit onderwerp spreekt niet over hoe tooget Simple Web Tokens uit een Secure Token Service).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
@@ -227,20 +227,20 @@ De volgende code laat zien hoe een aanvraag te verzenden naar de Media Services-
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-1. Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
-2. Voeg de volgende elementen toe aan **appSettings** dat in het bestand app.config is gedefinieerd:
+1. Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md). 
+2. Hallo elementen te volgen toevoegen**appSettings** gedefinieerd in het bestand app.config:
 
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
 ### <a id="example"></a>Voorbeeld
 
-Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
+Hallo-code in uw Program.cs-bestand met de Hallo-code die wordt weergegeven in deze sectie worden overschreven.
  
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Hallo moet u dezelfde beleids-ID als u altijd dezelfde Hallo dagen / toegangsmachtigingen, bijvoorbeeld een beleid voor locators die beoogde tooremain aanwezig gedurende een lange periode (niet-upload policies zijn). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
 
-Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen waar uw invoerbestanden zich bevinden.
+Zorg ervoor dat tooupdate variabelen toopoint toofolders waar uw invoerbestanden zich bevinden.
 
     using System;
     using System.Collections.Generic;
@@ -257,18 +257,18 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
         ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-        // A Uri describing the issuer of the token.  
-        // Must match the value in the token for the token to be considered valid.
+        // A Uri describing hello issuer of hello token.  
+        // Must match hello value in hello token for hello token toobe considered valid.
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
-        // The Audience or Scope of the token.  
-        // Must match the value in the token for the token to be considered valid.
+        // hello Audience or Scope of hello token.  
+        // Must match hello value in hello token for hello token toobe considered valid.
         private static readonly Uri _sampleAudience =
             new Uri(ConfigurationManager.AppSettings["Audience"]);
 
@@ -298,7 +298,7 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
             Console.WriteLine("Encoded asset: {0}", encodedAsset.Id);
 
             IContentKey key = CreateEnvelopeTypeContentKey(encodedAsset);
-            Console.WriteLine("Created key {0} for the asset {1} ", key.Id, encodedAsset.Id);
+            Console.WriteLine("Created key {0} for hello asset {1} ", key.Id, encodedAsset.Id);
             Console.WriteLine();
 
             if (tokenRestriction)
@@ -320,21 +320,21 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
             TokenRestrictionTemplate tokenTemplate =
                 TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified 
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+            // Generate a test token based on hello data in hello given TokenRestrictionTemplate.
+            // Note, you need toopass hello key id Guid because we specified 
+            // TokenClaim.ContentKeyIdentifierClaim in during hello creation of TokenRestrictionTemplate.
             Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
 
-            //The GenerateTestToken method returns the token without the word “Bearer” in front
-            //so you have to add it in front of the token string. 
+            //hello GenerateTestToken method returns hello token without hello word “Bearer” in front
+            //so you have tooadd it in front of hello token string. 
             string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey);
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+            Console.WriteLine("hello authorization token is:\nBearer {0}", testToken);
             Console.WriteLine();
             }
 
-            // You can use the bit.ly/aesplayer Flash player to test the URL 
+            // You can use hello bit.ly/aesplayer Flash player tootest hello URL 
             // (with open authorization policy). 
-            // Paste the URL and click the Update button to play the video. 
+            // Paste hello URL and click hello Update button tooplay hello video. 
             //
             string URL = GetStreamingOriginLocator(encodedAsset);
             Console.WriteLine("Smooth Streaming Url: {0}/manifest", URL);
@@ -373,22 +373,22 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
         {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Create a task with the encoding details, using a string preset.
+            // Create a task with hello encoding details, using a string preset.
             // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
             processor,
             "Adaptive Streaming",
             TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // means hello output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
             AssetCreationOptions.StorageEncrypted);
 
@@ -422,7 +422,7 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
                 "ContentKey",
                 ContentKeyType.EnvelopeEncryption);
 
-            // Associate the key with the asset.
+            // Associate hello key with hello asset.
             asset.ContentKeys.Add(key);
 
             return key;
@@ -458,10 +458,10 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
 
             policy.Options.Add(policyOption);
 
-            // Add ContentKeyAutorizationPolicy to ContentKey
+            // Add ContentKeyAutorizationPolicy tooContentKey
             contentKey.AuthorizationPolicyId = policy.Id;
             IContentKey updatedKey = contentKey.UpdateAsync().Result;
-            Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
+            Console.WriteLine("Adding Key tooAsset: Key ID is " + updatedKey.Id);
         }
 
         public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
@@ -496,10 +496,10 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
 
             policy.Options.Add(policyOption);
 
-            // Add ContentKeyAutorizationPolicy to ContentKey
+            // Add ContentKeyAutorizationPolicy tooContentKey
             contentKey.AuthorizationPolicyId = policy.Id;
             IContentKey updatedKey = contentKey.UpdateAsync().Result;
-            Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
+            Console.WriteLine("Adding Key tooAsset: Key ID is " + updatedKey.Id);
 
             return tokenTemplateString;
         }
@@ -510,17 +510,17 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
 
             string envelopeEncryptionIV = Convert.ToBase64String(GetRandomBuffer(16));
 
-            // When configuring delivery policy, you can choose to associate it
+            // When configuring delivery policy, you can choose tooassociate it
             // with a key acquisition URL that has a KID appended or
             // or a key acquisition URL that does not have a KID appended  
             // in which case a content key can be reused. 
 
-            // EnvelopeKeyAcquisitionUrl:  contains a key ID in the key URL.
-            // EnvelopeBaseKeyAcquisitionUrl:  the URL does not contains a key ID
+            // EnvelopeKeyAcquisitionUrl:  contains a key ID in hello key URL.
+            // EnvelopeBaseKeyAcquisitionUrl:  hello URL does not contains a key ID
 
-            // The following policy configuration specifies: 
-            // key url that will have KID=<Guid> appended to the envelope and
-            // the Initialization Vector (IV) to use for the envelope encryption.
+            // hello following policy configuration specifies: 
+            // key url that will have KID=<Guid> appended toohello envelope and
+            // hello Initialization Vector (IV) toouse for hello envelope encryption.
 
             Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -535,7 +535,7 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
                 AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                 assetDeliveryPolicyConfiguration);
 
-            // Add AssetDelivery Policy to the asset
+            // Add AssetDelivery Policy toohello asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
             Console.WriteLine();
             Console.WriteLine("Adding Asset Delivery Policy: " +
@@ -545,8 +545,8 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
         static public string GetStreamingOriginLocator(IAsset asset)
         {
 
-            // Get a reference to the streaming manifest file from the  
-            // collection of files in the asset. 
+            // Get a reference toohello streaming manifest file from hello  
+            // collection of files in hello asset. 
 
             var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
@@ -558,12 +558,12 @@ Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen 
             TimeSpan.FromDays(30),
             AccessPermissions.Read);
 
-            // Create a locator to the streaming content on an origin. 
+            // Create a locator toohello streaming content on an origin. 
             ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
             policy,
             DateTime.UtcNow.AddMinutes(-5));
 
-            // Create a URL to the manifest file. 
+            // Create a URL toohello manifest file. 
             return originLocator.Path + assetFile.Name;
         }
 

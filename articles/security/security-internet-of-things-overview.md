@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van uw Internet der dingen (IoT) in Azure | Microsoft Docs
-description: " Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. In dit artikel helpt u begrijpen hoe voor het beveiligen van uw IoT-oplossingen in Azure. "
+title: aaaSecure uw Internet der dingen (IoT) in Azure | Microsoft Docs
+description: " Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. In dit artikel helpt u begrijpen hoe toosecure uw IoT-oplossingen in Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.openlocfilehash: 3793f5453b74b6c06d9e58b426d89099298e1288
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b6cb2ea1c1facada854fb52c55066f34a8289e47
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="internet-of-things-security-overview"></a>Overzicht van Internet of Things-beveiliging
 Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. Met deze hoogwaardige services kunt u het volgende doen:
@@ -29,39 +29,39 @@ Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkhede
 * Gegevens in realtime en historische gegevens visualiseren
 * Integraties met back-officesystemen uitvoeren
 
-Voor deze mogelijkheden, Azure IoT Suite-pakketten samen meerdere Azure-services met aangepaste extensies als vooraf geconfigureerde oplossingen. Deze vooraf geconfigureerde oplossingen zijn basisimplementaties van algemene patronen van IoT-oplossingen die u helpen de tijd voor het leveren van uw IoT-oplossingen te verkorten. Met behulp van de IoT-SDK's, kunt u aanpassen en uitbreiden van deze oplossingen om te voldoen aan uw eigen vereisten. U kunt deze oplossingen gebruiken als voorbeelden of sjablonen als u nieuwe IoT-oplossingen ontwikkelt.
+toodeliver deze mogelijkheden kunnen Azure IoT Suite-pakketten meerdere Azure services met aangepaste extensies als vooraf geconfigureerde oplossingen. Deze vooraf geconfigureerde oplossingen zijn basisimplementaties van algemene patronen van IoT-oplossing waarmee tooreduce Hallo u tijd toodeliver uw IoT-oplossingen. Hallo IoT-SDK's gebruikt, kunt u aanpassen en uitbreiden van deze oplossingen toomeet uw eigen vereisten. U kunt deze oplossingen gebruiken als voorbeelden of sjablonen als u nieuwe IoT-oplossingen ontwikkelt.
 
-De Azure IoT suite is een krachtige oplossing voor uw IoT-behoeften. Het is echter van upmost belang dat uw IoT-oplossingen zijn ontworpen met beveiligd zijn vanaf het begin. Alle beveiligingsincidenten vanwege het grote aantal IoT-apparaten, kan snel een wijdverbreid gebeurtenis met grote gevolgen worden.
+Hello Azure IoT suite is een krachtige oplossing voor uw IoT-behoeften. Het is echter van upmost belang dat uw IoT-oplossingen zijn ontworpen met beveiligd zijn van Hallo starten. Alle beveiligingsincidenten vanwege het grote aantal Hallo van IoT-apparaten, kan snel een wijdverbreid gebeurtenis met grote gevolgen worden.
 
-We hebben de volgende informatie om te begrijpen hoe u voor het beveiligen van uw IoT-oplossingen.
+toohelp u begrijpt hoe toosecure uw IoT-oplossingen hebben we Hallo informatie te volgen.
 
 ## <a name="security-architecture"></a>Beveiligingsarchitectuur
-Bij het ontwerpen van een systeem, is het belangrijk om te begrijpen van de mogelijke bedreigingen tot dat systeem en dienovereenkomstig juiste beveiliging niet toevoegen als het systeem is ontworpen en ontworpen. Het is belangrijk voor het ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller mogelijk een systeem kunt u ervoor dat de juiste oplossingen in plaats vanaf het begin.
+Bij het ontwerpen van een systeem is belangrijk toounderstand Hallo mogelijke bedreigingen toothat systeem en dienovereenkomstig juiste beveiliging niet toevoegen als Hallo system is ontworpen en ontworpen. Het is belangrijk toodesign Hallo product van Hallo begin rekening met beveiliging omdat informatie over hoe een hacker mogelijk kunnen toocompromise een systeem zorgt ervoor geschikt oplossingen zijn in plaats van Hallo begin.
 
 U kunt meer informatie over IoT-beveiligingsarchitectuur door te lezen [Internet van dingen beveiligingsarchitectuur](../iot-suite/iot-security-architecture.md).
 
-Dit artikel wordt beschreven in de volgende onderwerpen:
+Dit artikel worden de volgende onderwerpen Hallo:
 
 * [Beveiliging begint met een risicomodel](../iot-suite/iot-security-architecture.md#security-starts-with-a-threat-model)
 * [Beveiliging in IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
-* [Threat Modeling de naslaginformatie over Azure IoT-architectuur](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
+* [Threat modellering hello Azure IoT Reference Architecture](../iot-suite/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
 
-## <a name="security-from-the-ground-up"></a>Fundamentele beveiliging
-De IoT vormt unieke beveiliging, privacy en naleving uitdagingen voor bedrijven overal ter wereld. In tegenstelling tot traditionele cyberbeveiliging technologie waar deze problemen gebaseerd op software- en hoe deze wordt geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberbeveiliging en de fysieke werelden convergeren. Beveiligen van IoT-oplossingen vereist gezorgd beveiligde inrichting van de apparaten, beveiligde verbindingen tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Werken met dergelijke functionaliteit, zijn echter resource beperkte apparaten, geografische verdeling van implementaties en veel apparaten binnen een oplossing.
+## <a name="security-from-hello-ground-up"></a>Beveiliging van Hallo gemalen
+Hallo IoT vormt unieke beveiliging, privacy en naleving uitdagingen toobusinesses overal ter wereld. In tegenstelling tot traditionele cyberbeveiliging technologie waar deze problemen gebaseerd op software- en hoe deze wordt geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer Hallo cyberbeveiliging en Hallo fysieke werelden convergeren. Beveiligen van IoT-oplossingen vereist gezorgd beveiligde inrichting van de apparaten, beveiligde verbindingen tussen deze apparaten en het Hallo cloud en de beveiliging van de beveiligde gegevens in de cloud Hallo tijdens de verwerking en opslag. Werken met dergelijke functionaliteit, zijn echter resource beperkte apparaten, geografische verdeling van implementaties en veel apparaten binnen een oplossing.
 
-U leert hoe beveiliging in de volgende gebieden verwerkt door te lezen [beveiliging van Internet der dingen van een compleet nieuwe](../iot-suite/securing-iot-ground-up.md).
+U leert hoe beveiliging toohandle in de volgende gebieden door te lezen [beveiliging van Internet der dingen van Hallo gemalen](../iot-suite/securing-iot-ground-up.md).
 
-Het artikel worden de volgende onderwerpen:
+Hallo aan de orde Hallo volgende onderwerpen:
 
-* [Beveiligde infrastructuur niet vanuit een compleet nieuwe](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
+* [Infrastructuur niet vanuit Hallo gemalen beveiligen](../iot-suite/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
 * [Microsoft Azure: beveiligde IoT-infrastructuur voor uw bedrijf](../iot-suite/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## <a name="best-practices"></a>Beste praktijken
-Een IoT-infrastructuur beveiligen vereist een strengere beveiliging-in-depth-strategie. Elke laag is gebaseerd, is groter beveiligingscontrole in de algehele infrastructuur van de beveiliging van gegevens in de cloud, de integriteit van de gegevens onderweg te beschermen via het openbare internet, voor het inrichten van apparaten, veilig.
+Een IoT-infrastructuur beveiligen vereist een strengere beveiliging-in-depth-strategie. Van de beveiliging van gegevens in de cloud hello, integriteit van gegevens beveiligt terwijl overdracht in Hallo builds openbare internet, toosecurely inrichting apparaten, elke laag groter beveiligingscontrole Hallo algehele infrastructuur.
 
 U kunt meer informatie over beveiliging van Internet der dingen aanbevolen procedures door te lezen [aanbevolen beveiligingsprocedures voor Internet der dingen](../iot-suite/iot-security-best-practices.md).
 
-Het artikel worden de volgende onderwerpen:
+Hallo aan de orde Hallo volgende onderwerpen:
 
 * [IoT hardware fabrikant/integrator](../iot-suite/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
 * [Ontwikkelaars van IoT-oplossing](../iot-suite/iot-security-best-practices.md#iot-solution-developer)

@@ -1,6 +1,6 @@
 ---
-title: Toegang tot virtuele Machines van Azure in Server Explorer | Microsoft Docs
-description: Krijg een overzicht van het weergeven van maken en beheren van Azure virtuele machines (VM's) in Server Explorer in Visual Studio.
+title: Azure virtuele Machines in Server Explorer aaaAccessing | Microsoft Docs
+description: Biedt een overzicht van hoe tooview maken en beheren van Azure virtuele machines (VM's) in Server Explorer in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: fcbb00cc2f00691e25ea84333e8c418b08210a67
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f8326aed105a64ca558f766d712cc68701f82c15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Toegang tot virtuele Machines van Azure in Server Explorer
 Server Explorer in Visual Studio gebruikt, kunt u informatie weergeven over uw virtuele machines die door Azure worden gehost.
 
 ## <a name="accessing-virtual-machines-in-server-explorer"></a>Toegang tot virtuele machines in Server Explorer
-Als u virtuele machines die worden gehost door Azure hebt, kunt u deze kunt openen in Server Explorer. U moet eerst aanmelden bij uw Azure-abonnement om uw mobiele services weer te geven. Als u wilt aanmelden, opent u het snelmenu voor het Azure-knooppunt in Server Explorer en kies **verbinding maken met Microsoft Azure**.
+Als u virtuele machines die worden gehost door Azure hebt, kunt u deze kunt openen in Server Explorer. U moet eerst aanmelden tooyour Azure-abonnement tooview uw mobile services. toosign, Hallo snelmenu voor hello Azure knooppunt in Server Explorer te openen en kies **tooMicrosoft Azure verbinding**.
 
-### <a name="to-get-information-about-your-virtual-machines"></a>Voor informatie over uw virtuele machines
-1. In Server Explorer, kiest u een virtuele machine en kies vervolgens de sleutel F4 het eigenschappenvenster weer te geven.
+### <a name="tooget-information-about-your-virtual-machines"></a>tooget informatie over uw virtuele machines
+1. In Server Explorer, kiest u een virtuele machine en kies vervolgens Hallo F4 sleutel tooshow het eigenschappenvenster.
    
-    De volgende tabel ziet u welke eigenschappen beschikbaar zijn, maar ze zijn allemaal alleen-lezen. Om deze te wijzigen, gebruikt u de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-   
-   | Eigenschap | Beschrijving |
-   | --- | --- |
-   | DNS-naam |De URL met het internetadres van de virtuele machine. |
-   | Omgeving |De waarde van deze eigenschap is voor een virtuele machine altijd productie. |
-   | Naam |De naam van de virtuele machine. |
-   | Grootte |De grootte van de virtuele machine, dat overeenkomt met de hoeveelheid geheugen en schijfruimte ruimte die beschikbaar is. Zie voor meer informatie How To: grootte van virtuele machines configureren. |
-   | Status |Waarden zijn starten, gestart, gestopt, gestopt en Status ophalen. Als bij het ophalen van de Status wordt weergegeven, is de huidige status is onbekend. De waarden voor deze eigenschap afwijken van de waarden die worden gebruikt op de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885). |
-   | Abonnements-id |De abonnement-ID voor uw Azure-account. U kunt deze informatie weergeven op de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885) door de eigenschappen voor een abonnement te bekijken. |
-2. Kies een knooppunt van het eindpunt en bekijk vervolgens de **eigenschappen** venster.
-3. De volgende tabel beschrijft de beschikbare eigenschappen van eindpunten, maar ze zijn alleen-lezen. Als u wilt toevoegen of bewerken van de eindpunten voor een virtuele machine, gebruikt u de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+    Hallo volgende tabel ziet u welke eigenschappen beschikbaar zijn, maar ze zijn allemaal alleen-lezen. toochange ze, gebruikt u Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).
    
    | Eigenschap | Beschrijving |
    | --- | --- |
-   | Naam |Een id voor het eindpunt. |
-   | Particuliere poort |De poort voor intern gebruik binnen uw toepassing netwerktoegang. |
-   | Protocol |Het protocol dat gebruikmaakt van de transportlaag is opgehaald voor dit eindpunt, TCP of UDP. |
-   | Openbare poort |De poort die wordt gebruikt voor openbare toegang tot uw toepassing. |
+   | DNS-naam |Hallo-URL met Hallo internetadres van Hallo virtuele machine. |
+   | Omgeving |Hallo-waarde van deze eigenschap is voor een virtuele machine altijd productie. |
+   | Naam |Hallo-naam van Hallo virtuele machine. |
+   | Grootte |Hallo-grootte van Hallo virtuele machine, die weerspiegelt Hallo en de hoeveelheid geheugen en schijfruimte ruimte die beschikbaar is. Zie voor meer informatie How To: grootte van virtuele machines configureren. |
+   | Status |Waarden zijn starten, gestart, gestopt, gestopt en Status ophalen. Als bij het ophalen van de Status wordt weergegeven, is de huidige status Hallo is onbekend. Hallo-waarden voor deze eigenschap verschillen van Hallo-waarden die worden gebruikt op Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885). |
+   | Abonnements-id |Hallo abonnements-ID voor uw Azure-account. U kunt deze informatie weergeven op Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885) door Hallo-eigenschappen voor een abonnement te bekijken. |
+2. Kies een knooppunt van het eindpunt en bekijkt hello **eigenschappen** venster.
+3. Hallo volgende tabel beschrijft Hallo beschikbare eigenschappen van eindpunten, maar ze zijn alleen-lezen. Hallo-eindpunten voor tooadd of bewerken voor een virtuele machine, gebruik Hallo [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885). 
+   
+   | Eigenschap | Beschrijving |
+   | --- | --- |
+   | Naam |Een id voor het Hallo-eindpunt. |
+   | Particuliere poort |Hallo-poort voor het netwerk toegang tot interne tooyour toepassing. |
+   | Protocol |Hallo-protocol dat Hallo transportlaag voor dit eindpunt wordt gebruikt, TCP of UDP. |
+   | Openbare poort |Hallo-poort die wordt gebruikt voor openbare toegang tooyour toepassing. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het gebruik van Azure-functies in Visual Studio, [met behulp van extern bureaublad met de Azure-rollen](vs-azure-tools-remote-desktop-roles.md).
+toolearn meer informatie over het gebruik van Azure-functies in Visual Studio, Zie [met behulp van extern bureaublad met de Azure-rollen](vs-azure-tools-remote-desktop-roles.md).
 

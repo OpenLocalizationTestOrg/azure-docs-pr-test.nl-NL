@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Docker Compose Preview | Microsoft Docs
-description: Azure Service Fabric accepteert Docker Compose indeling u indeelt exsiting containers met behulp van Service Fabric te vereenvoudigen. Deze ondersteuning is momenteel in preview.
+title: Service Fabric Docker Compose Preview aaaAzure | Microsoft Docs
+description: Azure Service Fabric-indeling toomake Docker Compose accepteert deze eenvoudiger tooorchestrate exsiting containers met behulp van Service Fabric. Deze ondersteuning is momenteel in preview.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 824044fd698f0ed94c4212722bc82187905315dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>Geven volume invoegtoepassingen en stuurprogramma's voor de container logboekregistratie
 
-Service Fabric ondersteunt het opgeven van [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) en [Docker-logboekregistratie stuurprogramma's](https://docs.docker.com/engine/admin/logging/overview/) voor uw containerservice. De invoegtoepassingen zijn opgegeven in het toepassingsmanifest, zoals wordt weergegeven in het manifest van de volgende:
+Service Fabric ondersteunt het opgeven van [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) en [Docker-logboekregistratie stuurprogramma's](https://docs.docker.com/engine/admin/logging/overview/) voor uw containerservice. Hallo invoegtoepassingen zijn opgegeven in Hallo toepassingsmanifest zoals weergegeven in de volgende manifest Hallo:
 
 
 ```xml
@@ -56,9 +56,9 @@ Service Fabric ondersteunt het opgeven van [Docker volume plugins](https://docs.
 </ApplicationManifest>
 ```
 
-In het voorgaande voorbeeld de `Source` tag voor de `Volume` verwijst naar de bronmap. De bronmap wordt mogelijk een map in de virtuele machine die als host fungeert voor de containers of een permanente externe opslag. De `Destination` label is de locatie die het `Source` is toegewezen aan in de actieve container. 
+Hallo in Hallo voorgaande voorbeeld, `Source` tag voor Hallo `Volume` toohello bronmap verwijst. Hallo bronmap mogelijk een map in Hallo VM die als host fungeert voor Hallo containers of een permanente externe opslag. Hallo `Destination` tag is Hallo-locatie waar Hallo `Source` wordt toegewezen toowithin Hallo container uitgevoerd. 
 
-Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch het volume met de opgegeven parameters. De `Source` label is de naam van het volume en de `Driver` tag geeft de stuurprogramma-invoegtoepassing voor volume. Opties kunnen worden opgegeven met behulp van de `DriverOption` tag zoals weergegeven in het volgende fragment:
+Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch Hallo volume met behulp van Hallo parameters opgegeven. Hallo `Source` tag heet Hallo Hallo volume en Hallo `Driver` code geeft Hallo volume stuurprogramma-invoegtoepassing. Opties kunnen worden opgegeven met behulp van Hallo `DriverOption` zoals weergegeven in het volgende codefragment Hallo tag:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
@@ -66,9 +66,9 @@ Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch 
 </Volume>
 ```
 
-Als een stuurprogramma Docker-logboek is opgegeven, is het voor het implementeren van agents (of containers) voor het afhandelen van de logboeken in het cluster.  De `DriverOption` label kan worden gebruikt om op te geven, evenals stuurprogramma-opties in logboek.
+Als een stuurprogramma Docker-logboek is opgegeven, is het nodig toodeploy agents (of containers) toohandle Hallo Hallo cluster zich aanmeldt.  Hallo `DriverOption` tag gebruikte toospecify logboek stuurprogrammaopties ook kan worden.
 
-Raadpleeg de volgende artikelen voor het implementeren van containers naar een Service Fabric-cluster:
+Raadpleeg toohello artikelen toodeploy containers tooa Service Fabric-cluster te volgen:
 
 
 [Een Service Fabric-container implementeren](service-fabric-deploy-container.md)

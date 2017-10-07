@@ -1,6 +1,6 @@
 ---
-title: Gebruikersinterface van Azure Mobile Engagement - Monitor
-description: Informatie over het bewaken van realtime gegevens over uw toepassing met behulp van Azure Mobile Engagement
+title: aaaAzure gebruikersinterface van de Mobile Engagement - Monitor
+description: Meer informatie over hoe toomonitor realtime-gegevens over uw toepassing met behulp van Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3a581e4166bc88e6ee7aa784d4047c94533685b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-monitor-real-time-data-about-your-application"></a>Realtime-gegevens over uw toepassing bewaken
-In dit artikel beschrijft de **MONITOR** tabblad van de **Mobile Engagement** portal. U gebruikt de **Mobile Engagement** portal om te controleren en beheren van uw mobiele apps. Opmerking dat aan de slag met de portal moet u eerst maken een **Azure Mobile Engagement** account. 
+# <a name="how-toomonitor-real-time-data-about-your-application"></a>Hoe toomonitor realtime gegevens over uw toepassing
+Dit artikel wordt beschreven Hallo **MONITOR** tabblad Hallo **Mobile Engagement** portal. Gebruik van Hallo **Mobile Engagement** portal toomonitor en beheren van uw mobiele apps. Houd er rekening mee dat toostart met Hallo portal toocreate moet u eerst een **Azure Mobile Engagement** account. 
 
-De Monitor-sectie van de gebruikersinterface biedt realtime-analyses informatie en kunt u waarschuwingen instellen wanneer drempelwaarden worden bereikt voor het merendeel van de dezelfde informatie die beschikbaar is in het verleden in de [ANALYTICS](mobile-engagement-user-interface-analytics.md) sectie van de gebruikersinterface. Zie de **verklarende woordenlijst** sectie het [concepten](http://go.microsoft.com/fwlink/?LinkId=525555) onderwerp voor definities van termen en afkortingen in Analytics en -bewaking (zoals het volgende: actieve gebruiker, de nieuwe gebruiker, bewaard gebruiker, sessie, pad van de gebruiker Grafiek, gebruikers-kaart, tracerings-URL's, Trends, activiteit, gebeurtenis, taak, fout, Extra gegevens, crashes en App-info).
+Hallo Monitor sectie Hallo gebruikersinterface biedt realtime-analyses informatie en kunt u tooset meldingen wanneer drempelwaarden worden bereikt voor de meeste Hallo dezelfde informatie die beschikbaar is in het verleden in Hallo [ANALYTICS](mobile-engagement-user-interface-analytics.md) sectie Hallo gebruikersinterface. Zie Hallo **verklarende woordenlijst** sectie in Hallo [concepten](http://go.microsoft.com/fwlink/?LinkId=525555) onderwerp voor definities van termen en afkortingen in Analytics en -bewaking (zoals de volgende Hallo: actieve gebruiker, de nieuwe gebruiker, bewaard gebruiker, sessie Gebruiker pad grafiek, gebruikers-kaart, tracerings-URL's, Trends, activiteit, gebeurtenis, taak, fout, Extra gegevens, crashes en App-info).
 
 > [!NOTE]
-> Veel secties van de **Mobile Engagement** portal UI bevatten de **HELP weergeven** knop. Druk op deze knop om meer contextuele informatie over een sectie.
+> Veel secties Hallo **Mobile Engagement** gebruikersinterface portal bevatten Hallo **HELP weergeven** knop. Druk op deze knop tooget meer contextuele informatie over een sectie.
 > 
 > 
 
 ## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>Monitor - sessies, taken, gebeurtenissen, fouten en Crashes
-U kunt zien hoeveel gebruikers zijn momenteel in de sessie en op specifieke schermen of bepaalde acties uitvoeren. U kunt gebruikersactiviteit gedeeld door sessies, taken, gebeurtenissen, fouten en Crashes weergeven. U kunt de huidige informatie zien en weergeven van de gegevens van de laatste uur, dag of week. U kunt zien dat alle gegevens in elke categorie of sorteren door de specifieke sessie, taak, gebeurtenis, fout en crashes.  Live-controle is handig om te gebruiken om tijdens gebeurtenissen, zoals een pushcampagne te zien of er een uptick in actie rechts nadat u de Push-bericht verzonden.
+U kunt zien hoeveel gebruikers zijn momenteel in de sessie en op specifieke schermen of bepaalde acties uitvoeren. U kunt gebruikersactiviteit gedeeld door sessies, taken, gebeurtenissen, fouten en Crashes weergeven. U kunt zien Hallo actuele informatie en Hallo gegevens uit Hallo laatste uur, dag of week weergegeven. U kunt alle informatie in elke categorie Hallo Zie of sorteren op Hallo specifieke sessie, taak, gebeurtenis, fout en crashes.  Live bewaking is handig toouse tijdens gebeurtenissen, zoals een campagne Push toosee als er een uptick in actie rechts nadat u de Push-bericht verzonden.
 
 ![Monitor1][14]  
 
 ## <a name="troubleshooting-with-monitor---events---details"></a>Het oplossen van problemen met Monitor - gebeurtenissen - Details
-Genereren van een gebeurtenis in uw toepassing op uw testapparaat en het zoeken in de Details van de Monitor - gebeurtenissen - is een van de eenvoudigste manieren uw apparaat-ID vinden voor uw testapparaat en te bevestigen dat Azure Mobile Engagement-integratie van Analytics, bewaking, en Segmenten van uw toepassing werkt. Zodra u de apparaat-ID van uw testapparaat hebt, kunt u deze toevoegen aan uw testapparaten in 'Mijn Account--apparaten'. Als u een gebeurtenis niet genereren, ervoor zorgen dat Azure Mobile Engagement correct is geïntegreerd in uw Android/iOS/Web/Windows/Windows Phone-app met de SDK.
+Genereren van een gebeurtenis in uw toepassing op uw testapparaat en vinden in de Details van de Monitor - gebeurtenissen - is een van de Hallo eenvoudigste manieren toofind uw apparaat-ID van het testapparaat en de tooconfirm die Azure Mobile Engagement-integratie van Analytics, bewaking, en Segmenten van uw toepassing werkt. Zodra u Hallo apparaat-ID van uw testapparaat hebt, kunt u deze tooyour testapparaten in 'Mijn Account--apparaten' toevoegen. Als u een gebeurtenis niet genereren, ervoor zorgen dat Azure Mobile Engagement correct is geïntegreerd in uw Android/iOS/Web/Windows/Windows Phone-app met Hallo SDK.
 
 Zie voor meer informatie: [SDK-documentatie][Link 5]
 
 ![Monitor2][15]  
 
 ## <a name="troubleshooting-with-monitor---crashes---details"></a>Het oplossen van problemen met Monitor vastloopt - - Details
-U kunt informatie over de crash bekijken over uw app uit een Monitor - Crashes - informatie om te bepalen waarom de app vastloopt. U moet ook bekende problemen met elke versie van de SDK in de release-opmerkingen voor elke versie van de SDK voor Android/iOS/Web/Windows/Windows Phone opzoeken.
+U kunt informatie over de crash bekijken over uw app uit een Monitor - Crashes - Details toohelp bepalen waarom de app vastloopt. U moet ook bekende problemen met elke versie van Hallo SDK in de releaseopmerkingen Hallo voor elke versie van de SDK voor Android/iOS/Web/Windows/Windows Phone Hallo opzoeken.
 
 Zie voor meer informatie: [SDK-documentatie - Release-opmerkingen][Link 5]
 
 ![Monitor3][16]
 
 ## <a name="monitor---alerts"></a>Monitor - waarschuwingen
-U kunt ook de voorwaarden voor waarschuwingen die automatisch wordt verzonden naar u via e-mail of chatbericht opgeven. (XMPP-compatibele services, zoals Google GTalk of Apples iChat worden ondersteund.) Waarschuwingen zijn gebaseerd op een vooraf gedefinieerde detectie-drempelwaarde (>) groter of kleiner zijn dan (<) een bepaald aantal sessies, taken, gebeurtenissen, fouten of Crashes per seconde, minuut, uur. Waarschuwingen kunnen bewaken van alle activiteiten van een bepaald type, of alleen een specifieke taak, gebeurtenis of fout-activiteit controleren. 
+U kunt ook de voorwaarden voor waarschuwingen die automatisch wordt verzonden tooyou via e-mail of chatbericht opgeven. (XMPP-compatibele services, zoals Google GTalk of Apples iChat worden ondersteund.) Waarschuwingen zijn gebaseerd op een vooraf gedefinieerde detectie-drempelwaarde (>) groter of kleiner zijn dan (<) een bepaald aantal sessies, taken, gebeurtenissen, fouten of Crashes per seconde, minuut, uur. Waarschuwingen kunnen bewaken van alle activiteiten van een bepaald type, of alleen een specifieke taak, gebeurtenis of fout-activiteit controleren. 
 
-U kunt ook een minimale Detectiesnelheid de minimale hoeveelheid minuten die worden gescheiden twee meldingen voor dezelfde waarschuwing is om ervoor te zorgen dat wanneer de waarschuwing wordt geactiveerd, nooit u meer dan 1 melding per interval opgegeven ontvangt opgeven.
+U kunt ook een minimale Detectiesnelheid, minimale hoeveelheid minuten die worden gescheiden twee meldingen voor dezelfde toomake ervoor dat wanneer de waarschuwing wordt geactiveerd, nooit u ontvangt een waarschuwing Hallo invoert 1 melding per interval opgegeven Hallo opgeven.
 
 ![Monitor4][17]
 

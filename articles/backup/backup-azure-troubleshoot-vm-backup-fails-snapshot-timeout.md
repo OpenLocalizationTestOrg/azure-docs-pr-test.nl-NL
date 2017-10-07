@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup-fout oplossen: Guest Agent Status niet beschikbaar | Microsoft Docs'
-description: 'Symptomen, oorzaken en oplossingen van Azure Backup-fouten die zijn gerelateerd aan de fout: kan niet communiceren met de VM-agent'
+description: 'Symptomen, oorzaken en oplossingen van Azure Backup fouten gerelateerde tooerror: kan niet communiceren met de Hallo VM-agent'
 services: backup
 documentationcenter: 
 author: genlin
@@ -15,115 +15,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 724c61ba80d0a9ef91a5f8543ae72bb86968881b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup-fout oplossen: problemen met de agent en/of extensie
 
-In dit artikel bevat stappen voor probleemoplossing op te lossen back-up-fouten die betrekking hebben op problemen in de communicatie met VM-agent en -extensie.
+Dit artikel bevat voor probleemoplossing stappen toohelp u back-up fouten oplossen gerelateerde tooproblems communicatie met VM-agent en de extensie.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM-Agent kan niet communiceren met Azure Backup
-Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de VM-agent de momentopname van een punt in tijd. Een van de volgende voorwaarden kan verhinderen dat de momentopname wordt geactiveerd, wat op zijn beurt tot het mislukken van de back-up leiden kan. Volg onderstaande stappen in de gegeven volgorde voor probleemoplossing en probeer de bewerking opnieuw.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1 oorzaak: [de virtuele machine geen internettoegang heeft](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>2 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar is niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4 oorzaak: [de status van de momentopname kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)
+## <a name="vm-agent-unable-toocommunicate-with-azure-backup"></a>VM-Agent kan geen toocommunicate met Azure Backup
+Nadat u registreren en plannen van een VM voor hello Azure Backup-service, initieert back-up Hallo taak door de communicatie met de Hallo VM-agent tootake een momentopname van een punt in tijd. Een van de volgende voorwaarden Hallo Hallo momentopname wordt geactiveerd, wat op zijn beurt tooBackup fout kan leiden mogelijk niet. Volg onderstaande stappen in de gegeven volgorde Hallo voor probleemoplossing en probeer de bewerking opnieuw.
+##### <a name="cause-1-hello-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1 oorzaak: [Hallo VM geen internettoegang heeft](#the-vm-has-no-internet-access)
+##### <a name="cause-2-hello-agent-is-installed-in-hello-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>2 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM, maar reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-3-hello-agent-installed-in-hello-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-4-hello-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4 oorzaak: [Hallo momentopname status kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-5-hello-backup-extension-fails-tooupdate-or-loadthe-backup-extension-fails-to-update-or-load"></a>5 oorzaak: [Hallo Backup-extensie tooupdate of laden mislukt](#the-backup-extension-fails-to-update-or-load)
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Momentopname-bewerking is mislukt, omdat er geen verbinding met het netwerk op de virtuele machine
-Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan verhinderen dat de momentopname wordt geactiveerd, wat op zijn beurt tot het mislukken van de back-up leiden kan. Volg onderstaande stappen in de gegeven volgorde voor probleemoplossing en probeer de bewerking opnieuw.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1 oorzaak: [de virtuele machine geen internettoegang heeft](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>2 oorzaak: [de status van de momentopname kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-3-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>3 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)
+## <a name="snapshot-operation-failed-due-toono-network-connectivity-on-hello-virtual-machine"></a>Momentopname-bewerking is mislukt vanwege de netwerkverbinding toono op Hallo virtuele machine
+Nadat u registreren en plannen van een VM voor hello Azure Backup-service, initieert back-up taak Hallo door Hallo VM Backup-extensie tootake punt in tijd momentopname communiceert. Een van de volgende voorwaarden Hallo Hallo momentopname wordt geactiveerd, wat op zijn beurt tooBackup fout kan leiden mogelijk niet. Volg onderstaande stappen in de gegeven volgorde Hallo voor probleemoplossing en probeer de bewerking opnieuw.
+##### <a name="cause-1-hello-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1 oorzaak: [Hallo VM geen internettoegang heeft](#the-vm-has-no-internet-access)
+##### <a name="cause-2-hello-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>2 oorzaak: [Hallo momentopname status kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-3-hello-backup-extension-fails-tooupdate-or-loadthe-backup-extension-fails-to-update-or-load"></a>3 oorzaak: [Hallo Backup-extensie tooupdate of laden mislukt](#the-backup-extension-fails-to-update-or-load)
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot extensie-bewerking is mislukt.
 
-Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan verhinderen dat de momentopname wordt geactiveerd, wat op zijn beurt tot het mislukken van de back-up leiden kan. Volg onderstaande stappen in de gegeven volgorde voor probleemoplossing en probeer de bewerking opnieuw.
-##### <a name="cause-1-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>1 oorzaak: [de status van de momentopname kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-2-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>2 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>3 oorzaak: [de virtuele machine geen internettoegang heeft](#the-vm-has-no-internet-access)
-##### <a name="cause-4-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>4 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar is niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-5-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>5 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+Nadat u registreren en plannen van een VM voor hello Azure Backup-service, initieert back-up taak Hallo door Hallo VM Backup-extensie tootake punt in tijd momentopname communiceert. Een van de volgende voorwaarden Hallo Hallo momentopname wordt geactiveerd, wat op zijn beurt tooBackup fout kan leiden mogelijk niet. Volg onderstaande stappen in de gegeven volgorde Hallo voor probleemoplossing en probeer de bewerking opnieuw.
+##### <a name="cause-1-hello-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>1 oorzaak: [Hallo momentopname status kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-2-hello-backup-extension-fails-tooupdate-or-loadthe-backup-extension-fails-to-update-or-load"></a>2 oorzaak: [Hallo Backup-extensie tooupdate of laden mislukt](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-3-hello-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>3 oorzaak: [Hallo VM geen internettoegang heeft](#the-vm-has-no-internet-access)
+##### <a name="cause-4-hello-agent-is-installed-in-hello-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>4 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM, maar reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-5-hello-agent-installed-in-hello-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>5 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 
-## <a name="unable-to-perform-the-operation-as-the-vm-agent-is-not-responsive"></a>Kan de bewerking niet uitvoeren omdat de VM-Agent niet reageert niet
+## <a name="unable-tooperform-hello-operation-as-hello-vm-agent-is-not-responsive"></a>Kan geen tooperform Hallo bewerking als Hallo VM-Agent is niet reageren
 
-Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan verhinderen dat de momentopname wordt geactiveerd, wat op zijn beurt tot het mislukken van de back-up leiden kan. Volg onderstaande stappen in de gegeven volgorde voor probleemoplossing en probeer de bewerking opnieuw.
-##### <a name="cause-1-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>1 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar is niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>2 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>3 oorzaak: [de virtuele machine geen internettoegang heeft](#the-vm-has-no-internet-access)
+Nadat u registreren en plannen van een VM voor hello Azure Backup-service, initieert back-up taak Hallo door Hallo VM Backup-extensie tootake punt in tijd momentopname communiceert. Een van de volgende voorwaarden Hallo Hallo momentopname wordt geactiveerd, wat op zijn beurt tooBackup fout kan leiden mogelijk niet. Volg onderstaande stappen in de gegeven volgorde Hallo voor probleemoplossing en probeer de bewerking opnieuw.
+##### <a name="cause-1-hello-agent-is-installed-in-hello-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>1 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM, maar reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-2-hello-agent-installed-in-hello-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>2 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-3-hello-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>3 oorzaak: [Hallo VM geen internettoegang heeft](#the-vm-has-no-internet-access)
 
-## <a name="backup-failed-with-an-internal-error---please-retry-the-operation-in-a-few-minutes"></a>Back-up is mislukt met een interne fout: probeer de bewerking over enkele minuten opnieuw
+## <a name="backup-failed-with-an-internal-error---please-retry-hello-operation-in-a-few-minutes"></a>Back-up is mislukt met een interne fout: Voer de bewerking Hallo over een paar minuten opnieuw uit
 
-Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan verhinderen dat de momentopname wordt geactiveerd, wat op zijn beurt tot het mislukken van de back-up leiden kan. Volg onderstaande stappen in de gegeven volgorde voor probleemoplossing en probeer de bewerking opnieuw.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1 oorzaak: [de virtuele machine geen internettoegang heeft](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>2 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar niet reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4 oorzaak: [de status van de momentopname kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)
+Nadat u registreren en plannen van een VM voor hello Azure Backup-service, initieert back-up taak Hallo door Hallo VM Backup-extensie tootake punt in tijd momentopname communiceert. Een van de volgende voorwaarden Hallo Hallo momentopname wordt geactiveerd, wat op zijn beurt tooBackup fout kan leiden mogelijk niet. Volg onderstaande stappen in de gegeven volgorde Hallo voor probleemoplossing en probeer de bewerking opnieuw.
+##### <a name="cause-1-hello-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>1 oorzaak: [Hallo VM geen internettoegang heeft](#the-vm-has-no-internet-access)
+##### <a name="cause-2-hello-agent-installed-in-hello-vm-but-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>2 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM maar niet reageert (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+##### <a name="cause-3-hello-agent-installed-in-hello-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3 oorzaak: [Hallo-agent is geïnstalleerd in Hallo VM is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+##### <a name="cause-4-hello-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4 oorzaak: [Hallo momentopname status kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
+##### <a name="cause-5-hello-backup-extension-fails-tooupdate-or-loadthe-backup-extension-fails-to-update-or-load"></a>5 oorzaak: [Hallo Backup-extensie tooupdate of laden mislukt](#the-backup-extension-fails-to-update-or-load)
 
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
 
-### <a name="the-vm-has-no-internet-access"></a>De virtuele machine heeft geen internettoegang
-Per de implementatievereiste van de virtuele machine geen internettoegang heeft of beperkingen die voorkomen toegang tot de Azure-infrastructuur dat heeft.
+### <a name="hello-vm-has-no-internet-access"></a>Hallo VM heeft geen internettoegang
+Per implementatievereiste hello, Hallo VM geen internettoegang heeft of beperkingen waardoor toegang toohello Azure-infrastructuur heeft.
 
-Voor een juiste werking van de Backup-extensie is verbinding naar Azure openbare IP-adressen vereist. De extensie stuurt opdrachten naar een Azure Storage-eindpunt (http-URL) voor het beheren van de momentopnamen van de virtuele machine. Als de extensie geen toegang tot het openbare Internet heeft, wordt uiteindelijk de back-up mislukt.
+toofunction correct Hallo Backup-extensie vereist connectiviteit toohello Azure openbare IP-adressen. Hallo-extensie verzendt opdrachten tooan Azure Storage-eindpunt (http-URL) toomanage Hallo momentopnamen van Hallo VM. Als het Hallo-uitbreiding heeft geen toegang tot toohello die openbare Internet, uiteindelijk Backup mislukt.
 
 ####  <a name="solution"></a>Oplossing
-U lost het probleem probeert u een van de methoden die hier worden vermeld.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Toegang tot de Azure datacenter IP-adresbereiken toestaan
+tooresolve hello probleem, probeer van Hallo methoden die hier worden vermeld.
+##### <a name="allow-access-toohello-azure-datacenter-ip-ranges"></a>Toegang toestaan toohello Azure datacenter IP-adresbereiken
 
-1. Verkrijgen van de [lijst met Azure datacenter IP-adressen](https://www.microsoft.com/download/details.aspx?id=41653) zodat toegang heeft.
-2. De IP-adressen deblokkeren door het uitvoeren van de **nieuw NetRoute** cmdlet in de Azure VM in een PowerShell-venster met verhoogde bevoegdheid. De cmdlet uitvoeren als beheerder.
-3. Voor toegang tot de IP-adressen, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
+1. Hallo verkrijgen [lijst met Azure datacenter IP-adressen](https://www.microsoft.com/download/details.aspx?id=41653) tooallow toegang tot.
+2. Hallo IP-adressen door het uitvoeren van Hallo deblokkeren **nieuw NetRoute** cmdlet in hello Azure virtuele machine in een PowerShell-venster met verhoogde bevoegdheid. Hallo-cmdlet uitvoeren als beheerder.
+3. tooallow toegang toohello IP-adressen, toevoegen regels toohello netwerkbeveiligingsgroep, als er een.
 
-##### <a name="create-a-path-for-http-traffic-to-flow"></a>Maken van een pad voor de HTTP-verkeer
+##### <a name="create-a-path-for-http-traffic-tooflow"></a>Een pad voor de HTTP-verkeer tooflow maken
 
-1. Als u beschikken over netwerkbeperkingen (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTP-proxyserver om het verkeer te routeren.
-2. Als u wilt toegang tot het Internet toestaat vanaf de HTTP-proxyserver, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
+1. Als u beschikken over netwerkbeperkingen (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTP-proxy server tooroute Hallo verkeer.
+2. tooallow toegang toohello Internet van de HTTP-proxyserver Hallo toevoegen regels toohello netwerkbeveiligingsgroep, als er een.
 
-Zie voor meer informatie over het instellen van een HTTP-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+hoe tooset van een HTTP-proxy voor back-ups van virtuele machine, Zie toolearn [voorbereiden van uw omgeving tooback van virtuele machines in Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
 
-Als u van schijven worden beheerd gebruikmaakt, moet u een extra poort (8443) geopend op de firewalls.
+Als u van schijven worden beheerd gebruikmaakt, moet u een extra poort (8443) openen op Hallo firewalls.
 
-### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>De agent is geïnstalleerd in de virtuele machine, maar niet reageert (voor Windows-VM's)
+### <a name="hello-agent-installed-in-hello-vm-but-unresponsive-for-windows-vms"></a>Hallo-agent is geïnstalleerd in Hallo VM maar niet reageert (voor Windows-VM's)
 
 #### <a name="solution"></a>Oplossing
-De VM-Agent is beschadigd of de service is gestopt. De VM-agent opnieuw te installeren kan helpen de nieuwste versie downloaden en opnieuw starten de communicatie.
+Hallo VM-Agent is beschadigd of Hallo-service is gestopt. Opnieuw te installeren Hallo VM-agent kan helpen de meest recente versie Hallo ophalen en start opnieuw op Hallo communicatie.
 
-1. Controleer of Windows Guest Agent-service die wordt uitgevoerd in de services (services.msc) van de virtuele Machine. Probeer het opnieuw opstarten van de Gast-Agent voor Windows-service en starten van de back-up<br>
+1. Controleer of Windows Guest Agent-service die wordt uitgevoerd in services (services.msc) van de virtuele Machine Hallo. Probeer Hallo Windows Guest Agent-service opnieuw starten en Hallo back-up starten<br>
 2. Als dit niet zichtbaar in de services is, controleert u of in programma's en onderdelen of Windows Guest agent-service is geïnstalleerd.
-4. Als u zich kunt weergeven in programma's en onderdelen verwijderen van de Windows Guest-Agent.
-5. Download en installeer de [meest recente versie van de agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt beheerdersmachtigingen nodig om de installatie te kunnen uitvoeren.
-6. Vervolgens moet u kunnen Windows Guest Agent-services in services weergeven
-7. Voer een op-verzoek/ad-hoc back-up door te klikken op 'Nu back-up' in de portal.
+4. Als u kunnen tooview in programma's en onderdelen verwijderen Hallo Windows Guest Agent.
+5. Download en installeer Hallo [meest recente versie van de agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet Administrator-bevoegdheden toocomplete Hallo installatie.
+6. Vervolgens moet u kunnen tooview Guest-Agent voor Windows-services in services
+7. Voer een op-verzoek/ad-hoc back-up door te klikken op 'Nu back-up' in Hallo-portal.
 
-Controleer ook de virtuele Machine is  **[.NET 4.5 geïnstalleerd in het systeem](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Het is vereist voor de VM-agent te communiceren met de service
+Controleer ook de virtuele Machine is  **[.NET 4.5 geïnstalleerd in Hallo systeem](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Het is vereist voor Hallo VM-agent toocommunicate met Hallo-service
 
-### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>De agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)
+### <a name="hello-agent-installed-in-hello-vm-is-out-of-date-for-linux-vms"></a>Hallo-agent is geïnstalleerd in Hallo VM is verouderd (voor Linux VM's)
 
 #### <a name="solution"></a>Oplossing
-Meest agent gerelateerde of extensie-gerelateerde fouten voor virtuele Linux-machines worden veroorzaakt door problemen met een verouderd VM-agent. Ga als volgt deze algemene richtlijnen voor het oplossen van dit probleem:
+Meest agent gerelateerde of extensie-gerelateerde fouten voor virtuele Linux-machines worden veroorzaakt door problemen met een verouderd VM-agent. tootroubleshoot dit probleem, volgt u deze algemene richtlijnen:
 
-1. Volg de instructies voor [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md).
+1. Volg de instructies Hallo voor [Hallo Linux VM-agent bijwerken](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
- >We *aangeraden* dat u de agent beperken tot een opslagplaats distributiepunten bijwerken. We raden niet downloaden van de code van de agent rechtstreeks vanuit GitHub en wordt bijgewerkt. Als de nieuwste agent niet beschikbaar voor de distributie is, contact op met ondersteuning van de distributiepunten voor instructies over hoe u deze installeert. Om te controleren of de meest recente agent, gaat u naar de [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) pagina in de GitHub-opslagplaats.
+ >We *aangeraden* Hallo agent beperken tot een opslagplaats distributiepunten bij te werken. We raden niet Hallo agent code rechtstreeks vanuit GitHub downloaden en wordt bijgewerkt. Als de nieuwste agent Hallo niet beschikbaar voor de distributie is, contact op met ondersteuning van de distributie voor instructies over het tooinstall deze. toocheck voor de meest recente agent hello, Ga toohello [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) pagina in Hallo GitHub-opslagplaats.
 
-2. Zorg ervoor dat de Azure-agent wordt uitgevoerd op de virtuele machine met de volgende opdracht:`ps -e`
+2. Zorg ervoor dat hello Azure-agent wordt uitgevoerd op Hallo VM door het uitvoeren van de volgende opdracht Hallo:`ps -e`
 
- Als het proces wordt niet uitgevoerd, start u deze opnieuw met behulp van de volgende opdrachten:
+ Als Hallo proces niet wordt uitgevoerd, start u deze opnieuw met Hallo volgende opdrachten:
 
  * Voor Ubuntu:`service walinuxagent start`
  * Voor andere distributies:`service waagent start`
 
-3. [Configureren van de agent van automatisch opnieuw opstarten](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Voer een nieuwe test back-up. Als de fout zich blijft voordoen, verzamelt u de volgende logboeken van de klant VM:
+3. [Hallo automatisch opnieuw opstarten agent configureren](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
+4. Voer een nieuwe test back-up. Als Hallo fout zich blijft voordoen, neem Hallo volgende Logboeken uit van de klant Hallo VM te verzamelen:
 
    * /var/lib/waagent/*.XML
    * /var/log/waagent.log
@@ -131,44 +131,44 @@ Meest agent gerelateerde of extensie-gerelateerde fouten voor virtuele Linux-mac
 
 Als we uitgebreide logboekregistratie is vereist voor waagent, volg deze stappen:
 
-1. Zoek de volgende regel in het bestand /etc/waagent.conf: **uitgebreide logboekregistratie inschakelen (y | n)**
-2. Wijzig de **Logs.Verbose** waarde uit de  *n*  naar *y*.
-3. Sla de wijziging op en start waagent de vorige stappen in deze sectie.
+1. Zoek in Hallo /etc/waagent.conf bestand Hallo volgt regel: **uitgebreide logboekregistratie inschakelen (y | n)**
+2. Wijziging Hallo **Logs.Verbose** waarde uit de  *n*  te*y*.
+3. Hallo wijziging opslaan en start waagent Hallo vorige stappen in deze sectie.
 
-### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>De status van de momentopname kan niet worden opgehaald of een momentopname kan niet worden gemaakt.
-De virtuele machine back-up is afhankelijk van de opdracht van een momentopname met de onderliggende opslagaccount. Back-up kan mislukken omdat deze geen toegang tot het opslagaccount heeft of omdat de uitvoering van de momentopname-taak wordt vertraagd.
+### <a name="hello-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Hallo momentopname status kan niet worden opgehaald of een momentopname kan niet worden gemaakt.
+VM-back-Hallo afhankelijk van het uitgeven van een momentopname opdracht toohello onderliggende storage-account. Back-up kan mislukken omdat er geen toegang tot toohello storage-account of omdat het Hallo-uitvoering van Hallo momentopname taak wordt vertraagd.
 
 #### <a name="solution"></a>Oplossing
-Taakfout momentopname kunnen worden veroorzaakt door de volgende voorwaarden:
+Taakfout momentopname kan worden veroorzaakt door Hallo volgende voorwaarden:
 
 | Oorzaak | Oplossing |
 | --- | --- |
-| De virtuele machine heeft de SQL Server back-up is geconfigureerd. | Standaard back-up van de virtuele machine wordt uitgevoerd een VSS volledige back-ups op VM's van Windows. Op virtuele machines die worden uitgevoerd op basis van SQL Server-servers en op welke SQL-Server worden de back-up geconfigureerd, is de momentopname uitvoering vertragingen optreden.<br><br>Als u een back-up mislukt vanwege een probleem met de momentopname ondervindt, stelt u de volgende registersleutel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] 'USEVSSCOPYBACKUP '=' TRUE'** |
-| De status van de virtuele machine is niet juist gerapporteerd, omdat de virtuele machine wordt afgesloten in RDP. | Als u de virtuele machine in Remote Desktop Protocol (RDP) afsluit, controleert u de portal om te bepalen of de status van de VM juist is. Als dit niet juist is, sluit u de virtuele machine in de portal met behulp van de **afsluiten** optie op de VM-dashboard. |
-| Veel virtuele machines in dezelfde cloudservice zijn geconfigureerd voor back-up op hetzelfde moment. | Het is een best practice verspreiden uit de back-upschema's voor virtuele machines in dezelfde cloudservice. |
-| De virtuele machine wordt uitgevoerd op een hoog gebruik van CPU of geheugen. | Als de virtuele machine wordt uitgevoerd op een hoog CPU-gebruik (meer dan 90 procent) of hoog geheugengebruik, wordt de momentopname-taak is in de wachtrij en vertraagd en wordt er uiteindelijk een time-out optreedt. In deze situatie probeert een-op-verzoek back-up. |
-| De virtuele machine kan de host/fabric-adres niet ophalen van DHCP. | DHCP moet binnen het gastbesturingssysteem voor de back-up van IaaS VM werken zijn ingeschakeld.  Als de virtuele machine niet het adres van de host/fabric uit DHCP-antwoord 245, kan het downloaden of uitvoeren van de uitbreidingen. Als u een statisch privé IP-adres nodig hebt, moet u deze via het platform configureren. De DHCP-optie in de virtuele machine moet naar links worden ingeschakeld. Zie voor meer informatie [instellen van een statische interne persoonlijke IP-adres](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| Hallo VM heeft SQL Server back-up is geconfigureerd. | Standaard wordt een volledige back-up voor VSS Hallo VM-back-uitgevoerd op virtuele machines van Windows. Op virtuele machines die worden uitgevoerd op basis van SQL Server-servers en op welke SQL-Server worden de back-up geconfigureerd, is de momentopname uitvoering vertragingen optreden.<br><br>Als er een back-up mislukt vanwege een probleem met de momentopname, stel Hallo volgende registersleutel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] 'USEVSSCOPYBACKUP '=' TRUE'** |
+| Hallo VM-status is niet juist gerapporteerd, omdat Hallo VM wordt afgesloten in RDP. | Als u Hallo VM in Remote Desktop Protocol (RDP) afsluit, controleert u Hallo portal toodetermine of Hallo VM-status juist is. Als dit niet juist is, afgesloten Hallo VM in Hallo-portal met behulp van Hallo **afsluiten** optie op Hallo VM dashboard. |
+| Veel virtuele machines van Hallo dezelfde cloudservice zijn geconfigureerd tooback up op Hallo hetzelfde moment. | Het is een best practice toospread uit Hallo back-upschema's voor virtuele machines van Hallo dezelfde cloudservice. |
+| Hallo VM wordt uitgevoerd op een hoog gebruik van CPU of geheugen. | Hallo VM wordt uitgevoerd op een hoog CPU-gebruik (meer dan 90 procent) of hoog geheugengebruik, Hallo momentopname taak in de wachtrij geplaatst en wordt vertraagd als er uiteindelijk een time-out optreedt. In deze situatie probeert een-op-verzoek back-up. |
+| Hallo VM ontvangen geen Hallo host/fabric-adres van DHCP. | DHCP moet binnen Hallo gastbesturingssysteem voor Hallo back-toowork IaaS VM zijn ingeschakeld.  Als hello VM niet Hallo host/fabric-adres van de DHCP-antwoord 245, kan het downloaden of uitvoeren van de uitbreidingen. Als u een statisch privé IP-adres nodig hebt, moet u deze configureren via Hallo-platform. Hallo DHCP-optie binnen Hallo VM moet blijven ingeschakeld. Zie voor meer informatie [instellen van een statische interne persoonlijke IP-adres](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
-### <a name="the-backup-extension-fails-to-update-or-load"></a>De Backup-extensie niet bijwerken of laden
+### <a name="hello-backup-extension-fails-tooupdate-or-load"></a>Hallo Backup-extensie mislukt tooupdate of laden
 Als extensies kunnen niet worden geladen, wordt de back-up mislukt omdat een momentopname kan niet worden gemaakt.
 
 #### <a name="solution"></a>Oplossing
 
-**Voor Windows-gasten:** controleren dat de iaasvmprovider-service is ingeschakeld en het opstarttype van *automatische*. Als de service niet op deze manier is geconfigureerd, het inschakelen om te bepalen of de volgende back-up is geslaagd.
+**Voor Windows-gasten:** Verifieer dat Hallo iaasvmprovider service is ingeschakeld en een opstarttype is *automatische*. Als Hallo-service is niet geconfigureerd op deze manier, inschakelen toodetermine of Hallo volgende back-up is geslaagd.
 
-**Voor Linux-gasten:** Controleer of de nieuwste versie van VMSnapshot voor Linux (de extensie die wordt gebruikt door de back-up) 1.0.91.0 is.<br>
+**Voor Linux-gasten:** Controleer Hallo meest recente versie van VMSnapshot voor Linux (Hallo-extensie wordt gebruikt door de back-up) 1.0.91.0 is.<br>
 
 
-Als de Backup-extensie wordt nog steeds niet bijwerken of geladen, kunt u de extensie VMSnapshot kan worden geladen door de uitbreiding verwijderen afdwingen. De volgende back-poging laadt u opnieuw de extensie.
+Als de Backup-extensie Hallo nog steeds niet tooupdate of belasting, kunt u Hallo VMSnapshot extensie toobe is opnieuw geladen met het verwijderen van extensie Hallo afdwingen. de volgende back-poging Hallo laadt u opnieuw Hallo-extensie.
 
-Wilt u de uitbreiding verwijderen, het volgende doen:
+toouninstall Hallo uitbreiding, Hallo te volgen:
 
-1. Ga naar de [Azure Portal](https://portal.azure.com/).
-2. Ga naar de virtuele machine die u problemen met de back-up kent.
+1. Ga toohello [Azure-portal](https://portal.azure.com/).
+2. Zoek Hallo VM die back-problemen.
 3. Klik op **instellingen**.
 4. Klik op **extensies**.
 5. Klik op **Vmsnapshot extensie**.
 6. Klik op **verwijderen**.
 
-Deze procedure zorgt ervoor dat de extensie opnieuw worden geïnstalleerd tijdens de volgende back-up.
+Deze procedure wordt Hallo extensie toobe opnieuw geïnstalleerd tijdens de volgende back-up Hallo.
 

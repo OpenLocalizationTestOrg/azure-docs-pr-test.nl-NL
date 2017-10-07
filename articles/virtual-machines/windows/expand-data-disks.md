@@ -1,6 +1,6 @@
 ---
-title: Vouw een gegevensschijf gekoppeld aan een Windows-VM in Azure | Microsoft Docs
-description: Vouw de grootte van een gegevensschijf die is gekoppeld aan een virtuele Windows-machine met behulp van PowerShell.
+title: aaaExpand een gegevensschijf gekoppeld tooa Windows virtuele machine in Azure | Microsoft Docs
+description: Vouw Hallo grootte van een gegevensschijf die is aangesloten tooa Windows virtuele machine met behulp van PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: cynthn
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: cynthn
-ms.openlocfilehash: 5529856c2ffcd2942fe3fc2b438f7e3fd16a67b2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b16ad0da9cff9dfffc9dc9ec7dd72891e7ddd745
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="increase-the-size-of-a-data-disk-attached-to-a-windows-vm"></a>Verhoog de grootte van een gegevensschijf gekoppeld aan een Windows-VM
+# <a name="increase-hello-size-of-a-data-disk-attached-tooa-windows-vm"></a>Verhoging van het Hallo-grootte van een gegevensschijf gekoppeld tooa Windows VM
 
-Als u de grootte van de gegevensschijf gekoppeld aan uw virtuele machine vergroten wilt, kunt u de grootte die met behulp van PowerShell verhogen. Nadat u de grootte van de gegevensschijf in de instellingen voor virtuele machine van Azure verhoogt, moet u ook de nieuwe schijfruimte in de virtuele machine.
+Als u tooincrease Hallo grootte van Hallo gegevens schijf is gekoppeld aan tooyour virtuele machine nodig hebt, kunt u vergroten Hallo met behulp van PowerShell. Nadat u Hallo Hallo gegevensschijf in hello Azure VM-instellingen tekengrootte, moet u ook tooallocate Hallo nieuwe schijfruimte vrij binnen Hallo VM.
 
 
-## <a name="use-powershell-to-increase-the-size-of-a-managed-data-disk"></a>Gebruik Powershell om de grootte van een beheerde gegevensschijf
+## <a name="use-powershell-tooincrease-hello-size-of-a-managed-data-disk"></a>Gebruik Powershell tooincrease Hallo grootte van een beheerde gegevensschijf
 
-Gebruik de volgende PowerShell-cmdlets voor een verhoging van de grootte van de schijf van een beheerd gegevens:
+tooincrease hello grootte van een beheerde gegevensschijf gebruik Hallo PowerShell-cmdlets te volgen:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -37,18 +37,18 @@ Gebruik de volgende PowerShell-cmdlets voor een verhoging van de grootte van de 
  | [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm)             |
 <br>
 
-Het volgende script begeleidt u bij het ophalen van de VM-gegevens, te selecteren van de gegevensschijf en geven de nieuwe grootte.
+Hallo begeleidt volgende script u bij het ophalen van informatie over het Hallo-VM, Hallo gegevensschijf selecteren en Hallo nieuwe grootte opgeven.
 
 ```powershell
 # Select resource group
 
     $rg = Get-AzureRMResourceGroup | Out-GridView `
-        -Title "Select the resource group" `
+        -Title "Select hello resource group" `
         -PassThru
 
     $rgName = $rg.ResourceGroupName
 
-# Select the VM
+# Select hello VM
 
     $vm = Get-AzureRMVM -ResourceGroupName $rgName `
         | Out-GridView `
@@ -61,32 +61,32 @@ Het volgende script begeleidt u bij het ophalen van de VM-gegevens, te selectere
         -Title "Select a data disk" `
         -PassThru
 
-# Specify a larger size for the data disk
+# Specify a larger size for hello data disk
 
     $size =  Read-Host `
         -Prompt "New size in GB"
 
-# Stop and Deallocate VM prior to resizing data disk
+# Stop and Deallocate VM prior tooresizing data disk
 
     $vm | Stop-AzureRMVM -Force
 
-# Set the new disk size
+# Set hello new disk size
 
     $diskUpdateConfig = New-AzureRmDiskUpdateConfig -DiskSizeGB $size
 
-# Update the configuration in Azure
+# Update hello configuration in Azure
 
     $managedDisk = Get-AzureRmResource -ResourceId $disk.ManagedDisk.Id
     Update-AzureRmDisk -DiskName $managedDisk.ResourceName -ResourceGroupName $managedDisk.ResourceGroupName -DiskUpdate $diskUpdateConfig
 
-# Start the VM
+# Start hello VM
 
     Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
 ```
 
-## <a name="use-powershell-to-increase-the-size-of-an-unmanaged-data-disk"></a>Gebruik PowerShell om de grootte van de gegevensschijf van een niet-beheerde
+## <a name="use-powershell-tooincrease-hello-size-of-an-unmanaged-data-disk"></a>Gebruik PowerShell tooincrease Hallo grootte van de gegevensschijf van een niet-beheerde
 
-Gebruik de volgende PowerShell-cmdlets voor een verhoging van de grootte van niet-beheerde gegevensschijven in een opslagaccount:
+tooincrease hello grootte van niet-beheerde gegevensschijven in een opslagaccount, gebruik Hallo PowerShell-cmdlets te volgen:
 
 |                                                                    |                                                            |
 |--------------------------------------------------------------------|------------------------------------------------------------|
@@ -96,7 +96,7 @@ Gebruik de volgende PowerShell-cmdlets voor een verhoging van de grootte van nie
 
 <br>
 
-Het volgende script helpt u bij het ophalen van de virtuele machine en opslag accountgegevens, de gegevensschijf selecteren en de nieuwe grootte op te geven.
+Hallo begeleidt volgende script u bij Hallo virtuele machine en opslag accountgegevens ophalen, Hallo gegevensschijf selecteren en Hallo nieuwe grootte opgeven.
 
 ```powershell
 
@@ -109,18 +109,18 @@ Het volgende script helpt u bij het ophalen van de virtuele machine en opslag ac
 
     $rgName = $storageAccount.ResourceGroupName
 
-# Select the VM
+# Select hello VM
 
     $vm = Get-AzureRMVM `
     -ResourceGroupName $rgName | Out-GridView `
             -Title "Select a VM …" `
             -PassThru
 
-# Select Data Disk to resize
+# Select Data Disk tooresize
 
     $disk =
         $vm.DataDiskNames | Out-GridView `
-            -Title "Select a data disk to resize" `
+            -Title "Select a data disk tooresize" `
             -PassThru
 
 
@@ -129,28 +129,28 @@ Het volgende script helpt u bij het ophalen van de virtuele machine en opslag ac
     $size =  Read-Host `
         -Prompt "New size in GB"
 
-# Stop and Deallocate VM prior to resizing data disk
+# Stop and Deallocate VM prior tooresizing data disk
 
     $vm | Stop-AzureRMVM -Force
 
-# Set the new disk size
+# Set hello new disk size
 
     Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
         -DiskSizeInGB $size
 
-# Update the configuration in Azure
+# Update hello configuration in Azure
 
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
-# Start the VM
+# Start hello VM
     Start-AzureRmVM -ResourceGroupName $rgName `
     -VMName $vm.name
 
 ```
 
-## <a name="allocate-the-unallocated-disk-space"></a>De niet-toegewezen schijfruimte toewijzen
+## <a name="allocate-hello-unallocated-disk-space"></a>Hallo niet-toegewezen schijfruimte toewijzen
 
-Nadat u hebt de schijf groter is aangebracht, moet u de nieuwe niet-toegewezen ruimte uit vanuit de virtuele machine toe te wijzen. Als u wilt de ruimte toewijzen, kunt u verbinding met het VM-Gebruik Schijfbeheer (diskmgmt.msc). Of als u WinRM en een certificaat op de virtuele machine ingeschakeld wanneer u het hebt gemaakt, kunt u extern PowerShell Initialiseer de schijf. U kunt ook een extensie voor aangepaste scripts gebruiken:
+Nadat u Hallo station groter gemaakt hebt, moet u tooallocate Hallo nieuwe vrije ruimte van binnen Hallo VM. tooallocate hello ruimte, kunt u toohello VM Gebruik Schijfbeheer (diskmgmt.msc). Of als u de WinRM- en een certificaat op Hallo VM ingeschakeld wanneer u het hebt gemaakt, kunt u extern PowerShell tooinitialize Hallo schijf. U kunt ook een extensie voor aangepaste scripts gebruiken:
 
 ```powershell
     $location = "location-name"
@@ -159,7 +159,7 @@ Nadat u hebt de schijf groter is aangebracht, moet u de nieuwe niet-toegewezen r
     Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-Het scriptbestand bevatten dat lijkt op deze code naar het station toewijzen aan de maximale grootte verhogen de schijven:
+Hallo-scriptbestand kan bevatten dat lijkt op deze code tooincrease Hallo station toewijzing toohello maximumgrootte Hallo schijven:
 
 ```powershell
 $driveLetter= "F"

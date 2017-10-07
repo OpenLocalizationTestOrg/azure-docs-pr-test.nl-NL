@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
-description: Hoe u aan de slag met Azure queue storage in een ASP.NET-project in Visual Studio nadat u een opslagaccount met behulp van Visual Studio verbonden Services
+title: aaaGet de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
+description: Hoe tooget gestart met behulp van Azure queue storage nadat u hebt aangesloten tooa storage-account met behulp van Visual Studio verbonden Services in een ASP.NET-project in Visual Studio
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
 ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 415a437c4ce60b1e2e328f8e937c73b0d5c50e78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
 
-Azure queue storage biedt cloud messaging tussen toepassingsonderdelen. Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue Storage biedt asynchrone uitwisseling van berichten voor communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat. Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
+Azure queue storage biedt cloud messaging tussen toepassingsonderdelen. Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue storage biedt asynchrone messaging voor communicatie tussen toepassingsonderdelen, of ze worden uitgevoerd in Hallo cloud, op Hallo bureaublad, op een on-premises server of op een mobiel apparaat. Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
 
-Deze zelfstudie laat zien hoe ASP.NET code schrijven voor enkele algemene scenario's met Azure queue storage entiteiten. Deze scenario's omvatten algemene taken, zoals het maken van een Azure-wachtrij en toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten.
+Deze zelfstudie laat zien hoe toowrite ASP.NET-code voor enkele algemene scenario's met Azure queue storage entiteiten. Deze scenario's omvatten algemene taken, zoals het maken van een Azure-wachtrij en toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten.
 
 ##<a name="prerequisites"></a>Vereisten
 
@@ -42,19 +42,19 @@ Deze zelfstudie laat zien hoe ASP.NET code schrijven voor enkele algemene scenar
 
 ### <a name="create-an-mvc-controller"></a>Maken van een MVC-controller 
 
-1. In de **Solution Explorer**, met de rechtermuisknop op **domeincontrollers**, en selecteer in het contextmenu **toevoegen -> Controller**.
+1. In Hallo **Solution Explorer**, met de rechtermuisknop op **domeincontrollers**, en selecteer in het contextmenu hello, **toevoegen -> Controller**.
 
-    ![Een domeincontroller toevoegen aan een ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
+    ![Een controller tooan ASP.NET MVC-app toevoegen](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
-1. Op de **Add Scaffold** dialoogvenster Selecteer **MVC 5 Controller - leeg**, en selecteer **toevoegen**.
+1. Op Hallo **Add Scaffold** dialoogvenster Selecteer **MVC 5 Controller - leeg**, en selecteer **toevoegen**.
 
     ![Geef een MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
-1. Op de **Controller toevoegen** dialoogvenster, de naam van de controller *QueuesController*, en selecteer **toevoegen**.
+1. Op Hallo **Controller toevoegen** dialoogvenster, naam Hallo controller *QueuesController*, en selecteer **toevoegen**.
 
-    ![De naam van de MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+    ![Naam Hallo MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Voeg de volgende *met* richtlijnen voor de `QueuesController.cs` bestand:
+1. Voeg de volgende Hallo *met* richtlijnen toohello `QueuesController.cs` bestand:
 
     ```csharp
     using Microsoft.Azure;
@@ -64,26 +64,26 @@ Deze zelfstudie laat zien hoe ASP.NET code schrijven voor enkele algemene scenar
     ```
 ## <a name="create-a-queue"></a>Een wachtrij maken
 
-De volgende stappen laten zien hoe een wachtrij maken:
+Hallo volgende stappen laten zien hoe een wachtrij toocreate:
 
 > [!NOTE]
 > 
-> Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment). 
 
-1. Open het `QueuesController.cs`-bestand. 
+1. Open Hallo `QueuesController.cs` bestand. 
 
 1. Toevoegen van een methode aangeroepen **CreateQueue** die retourneert een **ActionResult**.
 
     ```csharp
     public ActionResult CreateQueue()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. Binnen de **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)
+1. Binnen Hallo **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -95,29 +95,29 @@ De volgende stappen laten zien hoe een wachtrij maken:
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. Ophalen van een **CloudQueue** -object met een verwijzing naar de naam van de gewenste wachtrij. De **CloudQueueClient.GetQueueReference** methode heeft een aanvraag in voor wachtrijopslag moet fungeren niet maken. De verwijzing wordt geretourneerd of de wachtrij bestaat of niet. 
+1. Ophalen van een **CloudQueue** -object met de naam van een verwijzing toohello gewenste wachtrij. Hallo **CloudQueueClient.GetQueueReference** methode heeft een aanvraag in voor wachtrijopslag moet fungeren niet maken. Hallo verwijzing wordt geretourneerd of Hallo wachtrij bestaat of niet. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.CreateIfNotExists** methode voor het maken van de wachtrij als deze nog niet bestaat. De **CloudQueue.CreateIfNotExists** methode retourneert **true** als de wachtrij niet bestaat en is gemaakt. Anders **false** wordt geretourneerd.    
+1. Hallo aanroepen **CloudQueue.CreateIfNotExists** methode toocreate Hallo wachtrij als deze nog niet bestaat. Hallo **CloudQueue.CreateIfNotExists** methode retourneert **true** als Hallo wachtrij niet bestaat en is gemaakt. Anders **false** wordt geretourneerd.    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
     ```
 
-1. Update de **ViewBag** met de naam van de wachtrij.
+1. Update Hallo **ViewBag** met de naam van de wachtrij Hallo Hallo.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **CreateQueue** voor de weergavenaam en selecteer **toevoegen**.
+1. Op Hallo **weergave toevoegen** dialoogvenster Voer **CreateQueue** voor Hallo weergavenaam en selecteer **toevoegen**.
 
-1. Open `CreateQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:
+1. Open `CreateQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:
 
     ```csharp
     @{
@@ -129,42 +129,42 @@ De volgende stappen laten zien hoe een wachtrij maken:
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.
 
-1. Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Voer de toepassing en selecteer **wachtrij maken** om vergelijkbaar met de volgende schermopname resultaten te bekijken:
+1. Voer Hallo toepassing uit en selecteer **wachtrij maken** toosee resulteert vergelijkbare toohello schermopname te volgen:
   
     ![Wachtrij maken](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Zoals eerder vermeld de **CloudQueue.CreateIfNotExists** methode retourneert **true** alleen wanneer de wachtrij bestaat niet en is gemaakt. Dus als u de app wordt uitgevoerd wanneer de wachtrij bestaat, de methode retourneert **false**. Als u wilt de app meerdere keren uitvoert, moet u de wachtrij verwijderen voordat u de app opnieuw uitvoert. Kan het verwijderen van de wachtrij worden uitgevoerd via de **CloudQueue.Delete** methode. U kunt ook verwijderen voor de wachtrij met behulp van de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Zoals eerder vermeld, Hallo **CloudQueue.CreateIfNotExists** methode retourneert **true** alleen wanneer Hallo wachtrij bestaat niet en is gemaakt. Dus als u Hallo app uitvoeren wanneer de wachtrij Hallo bestaat, Hallo methode retourneert **false**. toorun hello app meerdere keren moet u Hallo wachtrij verwijderen voordat u Hallo app opnieuw uitvoert. Verwijderen Hallo wachtrij kan worden uitgevoerd via Hallo **CloudQueue.Delete** methode. U kunt ook Hallo wachtrij met Hallo verwijderen [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) of Hallo [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
+## <a name="add-a-message-tooa-queue"></a>Een berichtenwachtrij tooa toevoegen
 
-Zodra u hebt [wachtrij](#create-a-queue), kunt u berichten naar die wachtrij toevoegen. Deze sectie helpt u bij het toevoegen van een bericht naar een wachtrij *test wachtrij*. 
+Zodra u hebt [wachtrij](#create-a-queue), kunt u berichten toothat wachtrij toevoegen. Deze sectie helpt u bij het toevoegen van een berichtenwachtrij tooa *test wachtrij*. 
 
 > [!NOTE]
 > 
-> Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment). 
 
-1. Open het `QueuesController.cs`-bestand.
+1. Open Hallo `QueuesController.cs` bestand.
 
 1. Toevoegen van een methode aangeroepen **AddMessage** die retourneert een **ActionResult**.
 
     ```csharp
     public ActionResult AddMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. Binnen de **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)
+1. Binnen Hallo **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -177,36 +177,36 @@ Zodra u hebt [wachtrij](#create-a-queue), kunt u berichten naar die wachtrij toe
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Maak de **CloudQueueMessage** -object dat het bericht dat u wilt toevoegen aan de wachtrij aangeeft. Een **CloudQueueMessage** object kan worden gemaakt vanuit een tekenreeks (in UTF-8-indeling) of een byte-matrix.
+1. Hallo maken **CloudQueueMessage** -object dat u wilt dat tooadd toohello wachtrij het Hallo-bericht vertegenwoordigt. Een **CloudQueueMessage** object kan worden gemaakt vanuit een tekenreeks (in UTF-8-indeling) of een byte-matrix.
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
     ```
 
-1. Roep de **CloudQueue.AddMessage** methode de messaged toevoegen aan de wachtrij.
+1. Hallo aanroepen **CloudQueue.AddMessage** methode tooadd Hallo mailberichten toohello wachtrij.
 
     ```csharp
     queue.AddMessage(message);
     ```
 
-1. Maken en een aantal **ViewBag** eigenschappen voor weergave in de weergave.
+1. Maken en een aantal **ViewBag** eigenschappen weergegeven in de Hallo weergeven.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **AddMessage** voor de weergavenaam en selecteer **toevoegen**.
+1. Op Hallo **weergave toevoegen** dialoogvenster Voer **AddMessage** voor Hallo weergavenaam en selecteer **toevoegen**.
 
-1. Open `AddMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:
+1. Open `AddMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:
 
     ```csharp
     @{
@@ -215,45 +215,45 @@ Zodra u hebt [wachtrij](#create-a-queue), kunt u berichten naar die wachtrij toe
     
     <h2>Add Message results</h2>
     
-    The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
+    hello message '@ViewBag.Message' was added toohello queue '@ViewBag.QueueName'.
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.
 
-1. Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing en selecteer **toevoegen bericht** om vergelijkbaar met de volgende schermopname resultaten te bekijken:
+1. Voer Hallo toepassing uit en selecteer **toevoegen bericht** toosee resulteert vergelijkbare toohello schermopname te volgen:
   
     ![Bericht toevoegen](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-De twee secties - [een bericht in een wachtrij lezen zonder het te verwijderen](#read-a-message-from-a-queue-without-removing-it) en [lezen en verwijderen van een bericht van een wachtrij](#read-and-remove-a-message-from-a-queue) -te laten zien hoe u berichten in een wachtrij lezen.    
+twee secties - Hallo [een bericht in een wachtrij lezen zonder het te verwijderen](#read-a-message-from-a-queue-without-removing-it) en [lezen en verwijderen van een bericht van een wachtrij](#read-and-remove-a-message-from-a-queue) -laten zien hoe tooread berichten uit een wachtrij.  
 
 ## <a name="read-a-message-from-a-queue-without-removing-it"></a>Een bericht in een wachtrij lezen zonder het te verwijderen
 
-Deze sectie ziet u hoe bekijken van een wachtrij bericht (het eerste bericht gelezen zonder het te verwijderen).  
+Deze sectie ziet u hoe toopeek op een bericht in de wachtrij (lezen Hallo eerste bericht zonder het te verwijderen).  
 
 > [!NOTE]
 > 
-> Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment). 
 
-1. Open het `QueuesController.cs`-bestand.
+1. Open Hallo `QueuesController.cs` bestand.
 
 1. Toevoegen van een methode aangeroepen **PeekMessage** die retourneert een **ActionResult**.
 
     ```csharp
     public ActionResult PeekMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. Binnen de **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)
+1. Binnen Hallo **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -266,30 +266,30 @@ Deze sectie ziet u hoe bekijken van een wachtrij bericht (het eerste bericht gel
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.PeekMessage** methode om te lezen van het eerste bericht in de wachtrij zonder het te verwijderen uit de wachtrij. 
+1. Hallo aanroepen **CloudQueue.PeekMessage** methode tooread Hallo eerste bericht in de wachtrij Hallo zonder het te verwijderen uit de wachtrij Hallo. 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Update de **ViewBag** met twee waarden: naam van de wachtrij en het bericht dat is gelezen. De **CloudQueueMessage** object beschrijft de twee eigenschappen voor het ophalen van de waarde van het object: **CloudQueueMessage.AsBytes** en **CloudQueueMessage.AsString**. **AsString** (gebruikt in dit voorbeeld) retourneert een tekenreeks, terwijl **AsBytes** retourneert een bytematrix.
+1. Update Hallo **ViewBag** met twee waarden: Hallo wachtrijnaam en het Hallo-bericht dat is gelezen. Hallo **CloudQueueMessage** object beschrijft de twee eigenschappen voor het ophalen van de waarde van het object Hallo: **CloudQueueMessage.AsBytes** en **CloudQueueMessage.AsString**. **AsString** (gebruikt in dit voorbeeld) retourneert een tekenreeks, terwijl **AsBytes** retourneert een bytematrix.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **PeekMessage** voor de weergavenaam en selecteer **toevoegen**.
+1. Op Hallo **weergave toevoegen** dialoogvenster Voer **PeekMessage** voor Hallo weergavenaam en selecteer **toevoegen**.
 
-1. Open `PeekMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:
+1. Open `PeekMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:
 
     ```csharp
     @{
@@ -304,40 +304,40 @@ Deze sectie ziet u hoe bekijken van een wachtrij bericht (het eerste bericht gel
     </table>    
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.
 
-1. Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing en selecteer **Peek bericht** om vergelijkbaar met de volgende schermopname resultaten te bekijken:
+1. Voer Hallo toepassing uit en selecteer **Peek bericht** toosee resulteert vergelijkbare toohello schermopname te volgen:
   
     ![Bericht](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
 ## <a name="read-and-remove-a-message-from-a-queue"></a>Lezen en verwijderen van een bericht van een wachtrij
 
-Informatie over het lezen en verwijderen van een bericht van een wachtrij in deze sectie.   
+In deze sectie leest u hoe tooread en verwijderen van een bericht van een wachtrij.   
 
 > [!NOTE]
 > 
-> Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment). 
 
-1. Open het `QueuesController.cs`-bestand.
+1. Open Hallo `QueuesController.cs` bestand.
 
 1. Toevoegen van een methode aangeroepen **gelezenBericht** die retourneert een **ActionResult**.
 
     ```csharp
     public ActionResult ReadMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)
+1. Binnen Hallo **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -350,37 +350,37 @@ Informatie over het lezen en verwijderen van een bericht van een wachtrij in dez
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.GetMessage** methode het eerste bericht in de wachtrij te lezen. De **CloudQueue.GetMessage** methode kunt u het bericht onzichtbaar gedurende 30 seconden (standaard) om te lezen van berichten, zodat er geen andere code kunt wijzigen of verwijderen van bericht tijdens de verwerking van deze code. Als u wilt wijzigen van de hoeveelheid tijd die het bericht onzichtbaar is, wijzigt u de **visibilityTimeout** parameter worden doorgegeven aan de **CloudQueue.GetMessage** methode.
+1. Hallo aanroepen **CloudQueue.GetMessage** methode tooread Hallo eerste bericht in Hallo wachtrij. Hallo **CloudQueue.GetMessage** Hallo bericht onzichtbaar voor 30 seconden (standaard) tooany andere codes die berichten lezen, zodat er geen andere code kunt wijzigen of verwijderen van het Hallo-bericht tijdens de verwerking van deze methode kunt u. toochange hello hoeveelheid tijd Hallo-bericht onzichtbaar is, wijzigt u Hallo **visibilityTimeout** parameter worden doorgegeven toohello **CloudQueue.GetMessage** methode.
 
     ```csharp
-    // This message will be invisible to other code for 30 seconds.
+    // This message will be invisible tooother code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. Roep de **CloudQueueMessage.Delete** methode om te verwijderen van het bericht uit de wachtrij.
+1. Hallo aanroepen **CloudQueueMessage.Delete** methode toodelete Hallo-bericht uit de wachtrij Hallo.
 
     ```csharp
     queue.DeleteMessage(message);
     ```
 
-1. Update de **ViewBag** met het bericht is verwijderd en de naam van de wachtrij.
+1. Update Hallo **ViewBag** Hello bericht verwijderd en de naam van de wachtrij Hallo Hallo.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
  
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **gelezenBericht** voor de weergavenaam en selecteer **toevoegen**.
+1. Op Hallo **weergave toevoegen** dialoogvenster Voer **gelezenBericht** voor Hallo weergavenaam en selecteer **toevoegen**.
 
-1. Open `ReadMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:
+1. Open `ReadMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:
 
     ```csharp
     @{
@@ -395,40 +395,40 @@ Informatie over het lezen en verwijderen van een bericht van een wachtrij in dez
     </table>
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.
 
-1. Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing en selecteer **Lees-/ verwijderingsbericht** om vergelijkbaar met de volgende schermopname resultaten te bekijken:
+1. Voer Hallo toepassing uit en selecteer **Lees-/ verwijderingsbericht** toosee resulteert vergelijkbare toohello schermopname te volgen:
   
     ![Lezen en verwijderen van bericht](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
-## <a name="get-the-queue-length"></a>Lengte van de wachtrij ophalen
+## <a name="get-hello-queue-length"></a>Hallo-wachtrijlengte ophalen
 
-Deze sectie ziet u hoe u de lengte van de wachtrij (het aantal berichten). 
+Deze sectie ziet u hoe tooget Hallo wachtrijlengte (aantal berichten). 
 
 > [!NOTE]
 > 
-> Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment). 
 
-1. Open het `QueuesController.cs`-bestand.
+1. Open Hallo `QueuesController.cs` bestand.
 
 1. Toevoegen van een methode aangeroepen **GetQueueLength** die retourneert een **ActionResult**.
 
     ```csharp
     public ActionResult GetQueueLength()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)
+1. Binnen Hallo **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -441,36 +441,36 @@ Deze sectie ziet u hoe u de lengte van de wachtrij (het aantal berichten).
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.FetchAttributes** methode voor het ophalen van de wachtrij-kenmerken (met inbegrip van de lengte). 
+1. Hallo aanroepen **CloudQueue.FetchAttributes** methode tooretrieve Hallo van wachtrij-kenmerken (met inbegrip van de lengte). 
 
     ```csharp
     queue.FetchAttributes();
     ```
 
-6. Toegang tot de **CloudQueue.ApproximateMessageCount** eigenschap ophalen van de lengte van de wachtrij.
+6. Toegang Hallo **CloudQueue.ApproximateMessageCount** wachtrijlengte van eigenschap tooget Hallo.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. Update de **ViewBag** met de naam van de wachtrij en de lengte.
+1. Update Hallo **ViewBag** Hallo-naam van Hallo wachtrij en de lengte.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **GetQueueLength** voor de weergavenaam en selecteer **toevoegen**.
+1. Op Hallo **weergave toevoegen** dialoogvenster Voer **GetQueueLength** voor Hallo weergavenaam en selecteer **toevoegen**.
 
-1. Open `GetQueueLengthMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:
+1. Open `GetQueueLengthMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:
 
     ```csharp
     @{
@@ -479,43 +479,43 @@ Deze sectie ziet u hoe u de lengte van de wachtrij (het aantal berichten).
     
     <h2>Get Queue Length results</h2>
     
-    The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
+    hello queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.
 
-1. Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Voer de toepassing en selecteer **ophalen wachtrijlengte** om vergelijkbaar met de volgende schermopname resultaten te bekijken:
+1. Voer Hallo toepassing uit en selecteer **ophalen wachtrijlengte** toosee resulteert vergelijkbare toohello schermopname te volgen:
   
     ![Wachtrijlengte ophalen](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
 
 ## <a name="delete-a-queue"></a>Een wachtrij verwijderen
-Deze sectie ziet u hoe een wachtrij verwijderen. 
+Deze sectie wordt beschreven hoe een wachtrij toodelete. 
 
 > [!NOTE]
 > 
-> Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment). 
 
-1. Open het `QueuesController.cs`-bestand.
+1. Open Hallo `QueuesController.cs` bestand.
 
 1. Toevoegen van een methode aangeroepen **DeleteQueue** die retourneert een **ActionResult**.
 
     ```csharp
     public ActionResult DeleteQueue()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. Binnen de **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)
+1. Binnen Hallo **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account. Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -528,29 +528,29 @@ Deze sectie ziet u hoe een wachtrij verwijderen.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.Delete** methode om te verwijderen van de wachtrij dat wordt vertegenwoordigd door de **CloudQueue** object.
+1. Hallo aanroepen **CloudQueue.Delete** methode toodelete Hallo wachtrij vertegenwoordigd door Hallo **CloudQueue** object.
 
     ```csharp
     queue.Delete();
     ```
 
-1. Update de **ViewBag** met de naam van de wachtrij en de lengte.
+1. Update Hallo **ViewBag** Hallo-naam van Hallo wachtrij en de lengte.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **DeleteQueue** voor de weergavenaam en selecteer **toevoegen**.
+1. Op Hallo **weergave toevoegen** dialoogvenster Voer **DeleteQueue** voor Hallo weergavenaam en selecteer **toevoegen**.
 
-1. Open `DeleteQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:
+1. Open `DeleteQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:
 
     ```csharp
     @{
@@ -562,20 +562,20 @@ Deze sectie ziet u hoe een wachtrij verwijderen.
     @ViewBag.QueueName deleted.
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.
 
-1. Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:
 
     ```html
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Voer de toepassing en selecteer **ophalen wachtrijlengte** om vergelijkbaar met de volgende schermopname resultaten te bekijken:
+1. Voer Hallo toepassing uit en selecteer **ophalen wachtrijlengte** toosee resulteert vergelijkbare toohello schermopname te volgen:
   
     ![Wachtrij verwijderen](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk meer functiehandleidingen voor informatie over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.
+Bekijk meer functie handleidingen toolearn over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.
 
   * [Aan de slag met Azure blob storage en Visual Studio verbonden Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
   * [Aan de slag met Azure-tabelopslag en Visual Studio verbonden Services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)

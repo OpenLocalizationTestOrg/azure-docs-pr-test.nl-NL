@@ -1,6 +1,6 @@
 ---
-title: Gepland onderhoud plannen voor virtuele Linux-machines in Azure | Microsoft Docs
-description: Informatie over het plannen van gepland onderhoud op Azure Virtual machines.
+title: aaaHow tooSchedule gepland onderhoud voor virtuele Linux-machines in Azure | Microsoft Docs
+description: Meer informatie over hoe tooschedule gepland onderhoud op Azure Virtual machines.
 services: virtual-machines-linux
 documentationcenter: 
 author: igalf
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: igalf
-ms.openlocfilehash: 84a61313547e0e7b3715552ab8b20f76eda39db7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4bc026887c74f7fea71720995c062a8476416395
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Het plannen van gepland onderhoud op virtuele machines in Azure
+# <a name="how-tooschedule-planned-maintenance-on-azure-vms"></a>Hoe tooSchedule gepland onderhoud op Azure Virtual machines
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie voor meer informatie over gepland onderhoud in het Resource Manager-model [hier](../windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van Hallo klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-model hello gebruiken. Zie voor meer informatie over gepland onderhoud in het Resource Manager-model Hallo [hier](../windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
  
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../../includes/virtual-machines-common-planned-maintenance-schedule.md)]

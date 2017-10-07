@@ -1,6 +1,6 @@
 ---
-title: Een functie maken in Azure die volgens een schema wordt uitgevoerd | Microsoft Docs
-description: Ontdek hoe u in Azure een functie maakt die wordt uitgevoerd op basis van een schema dat u definieert.
+title: aaaCreate een functie die wordt uitgevoerd volgens een schema in Azure | Microsoft Docs
+description: Meer informatie over hoe toocreate een functie in Azure die wordt uitgevoerd op basis van een planning die u definieert.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03cc5e71e8eb20002cf58e713fc0fc92a9129874
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 793b06a65a154466dfd4c121bcc88082227cd597
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
-Ontdek hoe u Azure Functions gebruikt om een functie te maken die wordt uitgevoerd op basis van een schema dat u definieert.
+Meer informatie over hoe toouse Azure Functions toocreate een functie die wordt uitgevoerd op basis van een planning die u definieert.
 
-![Functie-app maken in Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
+![Functie-app maken in hello Azure-portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+toocomplete in deze zelfstudie:
 
 + Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -42,40 +42,40 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 ![De functie-app is gemaakt.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Vervolgens maakt u een functie in de nieuwe functie-app.
+Vervolgens maakt u een functie in nieuwe Hallo-functie-app.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-timer-triggered-function"></a>Een door een timer geactiveerde functie maken
 
-1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
+1. Vouw de functie-app en klik op Hallo  **+**  knop naast te**functies**. Als dit eerste functie in uw app functie hello, selecteer **aangepaste functie**. De volledige set Hallo van functie-sjablonen worden weergegeven.
 
-    ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
+    ![Functies Quick Start-pagina in hello Azure-portal](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Selecteer de sjabloon **TimerTrigger** voor de gewenste taal. Gebruik vervolgens de instellingen zoals opgegeven in de tabel:
+2. Selecteer Hallo **TimerTrigger** sjabloon voor de gewenste taal. Gebruik vervolgens Hallo instellingen zoals opgegeven in de tabel Hallo:
 
-    ![Maak een door een timer geactiveerde functie in Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Maak een geactiveerd door de timerfunctie in hello Azure-portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
     | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
-    | **Een naam voor de functie opgeven** | TimerTriggerCSharp1 | Bepaalt de naam van de door de timer geactiveerde functie. |
-    | **[Planning](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Een [CRON-expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) met zes velden aan de hand waarvan uw functie elke minuut wordt uitgevoerd. |
+    | **Een naam voor de functie opgeven** | TimerTriggerCSharp1 | Hallo-naam van de timerfunctie geactiveerd definieert. |
+    | **[Planning](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Een veld zes [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) die uw toorun functie plant u elke minuut. |
 
 2. Klik op **Create**. Er wordt een functie gemaakt in uw gekozen taal en deze wordt elke minuut uitgevoerd.
 
-3. Controleer of dit correct wordt uitgevoerd door de traceringsinformatie die naar logboeken wordt geschreven te bekijken.
+3. Controleer of u kan worden uitgevoerd door toohello Logboeken geschreven traceringsinformatie weer te geven.
 
-    ![De viewer voor functielogboeken in Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+    ![Functies melden viewer hello Azure-portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-U kunt het schema voor de functie wijzigen zodat deze minder vaak wordt uitgevoerd (bijvoorbeeld één keer per uur). 
+U kunt nu de planning van de functie Hallo wijzigen zodat deze minder vaak zoals één keer per uur wordt uitgevoerd. 
 
-## <a name="update-the-timer-schedule"></a>Het timerschema bijwerken
+## <a name="update-hello-timer-schedule"></a>Hallo timer schema bijwerken
 
-1. Vouw de functie uit en klik op **Integreren**. Dit is waar u de invoer- en uitvoerbindingen voor de functie definieert en het schema instelt. 
+1. Vouw de functie uit en klik op **Integreren**. Dit is waar u definieert u welke invoer en uitvoer van de bindingen voor de functie en ook Hallo-planning instellen. 
 
 2. Voer voor de nieuwe **Planning** een waarde van `0 0 */1 * * *` in en klik vervolgens op **Opslaan**.  
 
-![Het timerschema voor het bijwerken van functies in Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
+![Functies bijwerken in hello Azure-portal timer planning.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
 U hebt nu een functie die één keer per uur wordt uitgevoerd. 
 
