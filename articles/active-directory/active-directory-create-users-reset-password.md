@@ -1,5 +1,5 @@
 ---
-title: Het wachtwoord voor een gebruiker in Azure Active Directory opnieuw instellen | Microsoft Docs
+title: aaaReset hello wachtwoord voor een gebruiker in Azure Active Directory | Microsoft Docs
 description: Legt uit hoe een beheerder opnieuw moet worden ingesteld wachtwoord van een gebruiker in een Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deec642a240cb6f088210748b0ef3a3636a88405
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8ed7643d9ad375b1e46bac8f5aa610b03fccf3fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a><span data-ttu-id="482da-103">Een wachtwoord voor een gebruiker in de klassieke Azure portal opnieuw instellen</span><span class="sxs-lookup"><span data-stu-id="482da-103">Reset a password for a user in the Azure classic portal</span></span>
+# <a name="reset-a-password-for-a-user-in-hello-azure-classic-portal"></a><span data-ttu-id="352bf-103">Een wachtwoord voor een gebruiker in de klassieke Azure-portal Hallo opnieuw instellen</span><span class="sxs-lookup"><span data-stu-id="352bf-103">Reset a password for a user in hello Azure classic portal</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="482da-104">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="482da-104">Azure portal</span></span>](active-directory-users-reset-password-azure-portal.md)
-> * [<span data-ttu-id="482da-105">Klassieke Azure Portal</span><span class="sxs-lookup"><span data-stu-id="482da-105">Azure classic portal</span></span>](active-directory-create-users-reset-password.md)
+> * [<span data-ttu-id="352bf-104">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="352bf-104">Azure portal</span></span>](active-directory-users-reset-password-azure-portal.md)
+> * [<span data-ttu-id="352bf-105">Klassieke Azure Portal</span><span class="sxs-lookup"><span data-stu-id="352bf-105">Azure classic portal</span></span>](active-directory-create-users-reset-password.md)
 >
 >
 
-<span data-ttu-id="482da-106">Azure Active Directory (Azure AD) vereenvoudigt het proces van het wachtwoord van een gebruiker opnieuw instellen als ze vergeet en zien of tijdens het uitvoeren van beveiligingsonderhoud routinematige zijn vergrendeld.</span><span class="sxs-lookup"><span data-stu-id="482da-106">Azure Active Directory (Azure AD) simplifies the process of resetting a user's password if they forget and are locked out, or while performing routine security maintenance.</span></span> 
+<span data-ttu-id="352bf-106">Azure Active Directory (Azure AD) vereenvoudigt Hallo proces van het wachtwoord van een gebruiker opnieuw instellen als ze vergeet en zien of tijdens het uitvoeren van beveiligingsonderhoud routinematige zijn vergrendeld.</span><span class="sxs-lookup"><span data-stu-id="352bf-106">Azure Active Directory (Azure AD) simplifies hello process of resetting a user's password if they forget and are locked out, or while performing routine security maintenance.</span></span> 
 
 > [!IMPORTANT]
-> <span data-ttu-id="482da-107">Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.</span><span class="sxs-lookup"><span data-stu-id="482da-107">Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal instead of using the Azure classic portal referenced in this article.</span></span> <span data-ttu-id="482da-108">Voor het opnieuw instellen van het wachtwoord van een gebruiker in de Azure AD-beheercentrum, Zie [opnieuw instellen van het wachtwoord voor een gebruiker in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).</span><span class="sxs-lookup"><span data-stu-id="482da-108">For how to reset a user password in the Azure AD admin center, see [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).</span></span>
+> <span data-ttu-id="352bf-107">Microsoft raadt aan dat u Azure AD beheren met Hallo [Azure AD-beheercentrum](https://aad.portal.azure.com) in Hallo hello Azure-portal in plaats van de klassieke Azure-portal waarnaar wordt verwezen in dit artikel.</span><span class="sxs-lookup"><span data-stu-id="352bf-107">Microsoft recommends that you manage Azure AD using hello [Azure AD admin center](https://aad.portal.azure.com) in hello Azure portal instead of using hello Azure classic portal referenced in this article.</span></span> <span data-ttu-id="352bf-108">Voor hoe tooreset een gebruikerswachtwoord in hello Azure AD-beheercentrum, Zie [Hallo-wachtwoord opnieuw instellen voor een gebruiker in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).</span><span class="sxs-lookup"><span data-stu-id="352bf-108">For how tooreset a user password in hello Azure AD admin center, see [Reset hello password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).</span></span>
 
-1. <span data-ttu-id="482da-109">Open uw directory.</span><span class="sxs-lookup"><span data-stu-id="482da-109">Open your directory.</span></span>
-2. <span data-ttu-id="482da-110">Selecteer de tab **Gebruikers** en selecteer vervolgens de weergavenaam van de gebruiker die u wilt wijzigen.</span><span class="sxs-lookup"><span data-stu-id="482da-110">Select the **Users** tab, and then select the display name of the user you want to change.</span></span>
-3. <span data-ttu-id="482da-111">Selecteer in de opdrachtbalk **wachtwoord opnieuw instellen**.</span><span class="sxs-lookup"><span data-stu-id="482da-111">In the command bar, select **Reset Password**.</span></span>
-4. <span data-ttu-id="482da-112">Klik in het dialoogvenster van het wachtwoord opnieuw instellen op **opnieuw**.</span><span class="sxs-lookup"><span data-stu-id="482da-112">In the reset password dialog, click **reset**.</span></span>
-5. <span data-ttu-id="482da-113">Selecteer het selectievakje voor het voltooien van het wachtwoord opnieuw instellen.</span><span class="sxs-lookup"><span data-stu-id="482da-113">Select the check mark to finish resetting the password.</span></span>
+1. <span data-ttu-id="352bf-109">Open uw directory.</span><span class="sxs-lookup"><span data-stu-id="352bf-109">Open your directory.</span></span>
+2. <span data-ttu-id="352bf-110">Selecteer Hallo **gebruikers** tabblad en selecteer vervolgens Hallo weergavenaam van de gebruiker die u wilt dat toochange Hallo.</span><span class="sxs-lookup"><span data-stu-id="352bf-110">Select hello **Users** tab, and then select hello display name of hello user you want toochange.</span></span>
+3. <span data-ttu-id="352bf-111">Selecteer in de opdrachtbalk Hallo **wachtwoord opnieuw instellen**.</span><span class="sxs-lookup"><span data-stu-id="352bf-111">In hello command bar, select **Reset Password**.</span></span>
+4. <span data-ttu-id="352bf-112">Klik in het dialoogvenster voor wachtwoordherstel hello, **opnieuw**.</span><span class="sxs-lookup"><span data-stu-id="352bf-112">In hello reset password dialog, click **reset**.</span></span>
+5. <span data-ttu-id="352bf-113">Selecteer Hallo vinkje toofinish Hallo wachtwoord in te stellen.</span><span class="sxs-lookup"><span data-stu-id="352bf-113">Select hello check mark toofinish resetting hello password.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="482da-114">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="482da-114">Next steps</span></span>
-* [<span data-ttu-id="482da-115">Nieuwe gebruikers toevoegen aan Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="482da-115">Add new users to Azure Active Directory</span></span>](active-directory-create-users.md)
-* [<span data-ttu-id="482da-116">Azure AD beheren</span><span class="sxs-lookup"><span data-stu-id="482da-116">Administering Azure AD</span></span>](active-directory-administer.md)
-* [<span data-ttu-id="482da-117">Wachtwoorden beheren in Azure AD</span><span class="sxs-lookup"><span data-stu-id="482da-117">Manage passwords in Azure AD</span></span>](active-directory-manage-passwords.md)
-* [<span data-ttu-id="482da-118">Groepen beheren in Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="482da-118">Manage groups in Azure AD</span></span>](active-directory-manage-groups.md)
+## <a name="next-steps"></a><span data-ttu-id="352bf-114">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="352bf-114">Next steps</span></span>
+* [<span data-ttu-id="352bf-115">Toevoegen van nieuwe gebruikers tooAzure Active Directory</span><span class="sxs-lookup"><span data-stu-id="352bf-115">Add new users tooAzure Active Directory</span></span>](active-directory-create-users.md)
+* [<span data-ttu-id="352bf-116">Azure AD beheren</span><span class="sxs-lookup"><span data-stu-id="352bf-116">Administering Azure AD</span></span>](active-directory-administer.md)
+* [<span data-ttu-id="352bf-117">Wachtwoorden beheren in Azure AD</span><span class="sxs-lookup"><span data-stu-id="352bf-117">Manage passwords in Azure AD</span></span>](active-directory-manage-passwords.md)
+* [<span data-ttu-id="352bf-118">Groepen beheren in Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="352bf-118">Manage groups in Azure AD</span></span>](active-directory-manage-groups.md)

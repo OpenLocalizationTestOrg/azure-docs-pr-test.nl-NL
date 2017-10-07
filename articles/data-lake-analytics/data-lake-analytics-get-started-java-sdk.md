@@ -1,6 +1,6 @@
 ---
-title: Data Lake Analytics Java SDK gebruiken om toepassingen te ontwikkelen | Microsoft Docs
-description: Azure Data Lake Analytics Java SDK gebruiken om toepassingen te ontwikkelen
+title: aaaUse Data Lake Analytics Java SDK toodevelop toepassingen | Microsoft Docs
+description: Azure Data Lake Analytics Java SDK toodevelop toepassingen gebruiken
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d975812fe659ed34ee9befd37ee7c0bf50d3414
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a><span data-ttu-id="a0a40-103">Aan de slag met Azure Data Lake Analytics met Java-SDK</span><span class="sxs-lookup"><span data-stu-id="a0a40-103">Get started with Azure Data Lake Analytics using Java SDK</span></span>
+# <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a><span data-ttu-id="83242-103">Aan de slag met Azure Data Lake Analytics met Java-SDK</span><span class="sxs-lookup"><span data-stu-id="83242-103">Get started with Azure Data Lake Analytics using Java SDK</span></span>
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-<span data-ttu-id="a0a40-104">Informatie over het gebruik van Azure Data Lake Analytics Java SDK een Azure Data Lake-account maken en basisbewerkingen uitvoert, zoals maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, en werken met taken.</span><span class="sxs-lookup"><span data-stu-id="a0a40-104">Learn how to use the Azure Data Lake Analytics Java SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs.</span></span> <span data-ttu-id="a0a40-105">Zie voor meer informatie over Data Lake [Azure Data Lake Analytics](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="a0a40-105">For more information about Data Lake, see [Azure Data Lake Analytics](data-lake-analytics-overview.md).</span></span>
+<span data-ttu-id="83242-104">Informatie over hoe toouse Hallo toocreate Azure Data Lake Analytics Java SDK een Azure Data Lake-account en basisbewerkingen uitvoert, zoals maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, en werken met taken.</span><span class="sxs-lookup"><span data-stu-id="83242-104">Learn how toouse hello Azure Data Lake Analytics Java SDK toocreate an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, and work with jobs.</span></span> <span data-ttu-id="83242-105">Zie voor meer informatie over Data Lake [Azure Data Lake Analytics](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="83242-105">For more information about Data Lake, see [Azure Data Lake Analytics](data-lake-analytics-overview.md).</span></span>
 
-<span data-ttu-id="a0a40-106">In deze zelfstudie maakt ontwikkelen u een Java-consoletoepassing die bevat voorbeelden van algemene beheertaken alsook testgegevens maken en verzenden van een taak.</span><span class="sxs-lookup"><span data-stu-id="a0a40-106">In this tutorial, you will develop a Java console application which contains samples of common administrative tasks as well as creating test data and submitting a job.</span></span>  <span data-ttu-id="a0a40-107">Om de zelfstudie te volgen met andere ondersteunde hulpprogramma’s klikt u op de tabbladen boven aan deze sectie.</span><span class="sxs-lookup"><span data-stu-id="a0a40-107">To go through the same tutorial using other supported tools, click the tabs on the top of this section.</span></span>
+<span data-ttu-id="83242-106">In deze zelfstudie maakt ontwikkelen u een Java-consoletoepassing die bevat voorbeelden van algemene beheertaken alsook testgegevens maken en verzenden van een taak.</span><span class="sxs-lookup"><span data-stu-id="83242-106">In this tutorial, you will develop a Java console application which contains samples of common administrative tasks as well as creating test data and submitting a job.</span></span>  <span data-ttu-id="83242-107">toogo via Hallo dezelfde zelfstudie met behulp van andere ondersteunde hulpprogramma's, klikt u op Hallo tabbladen op Hallo boven aan deze sectie.</span><span class="sxs-lookup"><span data-stu-id="83242-107">toogo through hello same tutorial using other supported tools, click hello tabs on hello top of this section.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="a0a40-108">Vereisten</span><span class="sxs-lookup"><span data-stu-id="a0a40-108">Prerequisites</span></span>
-* <span data-ttu-id="a0a40-109">Java Development Kit (JDK) 8 (met Java-versie 1.8).</span><span class="sxs-lookup"><span data-stu-id="a0a40-109">Java Development Kit (JDK) 8 (using Java version 1.8).</span></span>
-* <span data-ttu-id="a0a40-110">IntelliJ of een andere geschikte Java-ontwikkelomgeving.</span><span class="sxs-lookup"><span data-stu-id="a0a40-110">IntelliJ or another suitable Java development environment.</span></span> <span data-ttu-id="a0a40-111">Dit is optioneel, maar wordt wel aanbevolen.</span><span class="sxs-lookup"><span data-stu-id="a0a40-111">This is optional but recommended.</span></span> <span data-ttu-id="a0a40-112">In onderstaande instructies wordt IntelliJ gebruikt.</span><span class="sxs-lookup"><span data-stu-id="a0a40-112">The instructions below use IntelliJ.</span></span>
-* <span data-ttu-id="a0a40-113">**Een Azure-abonnement**.</span><span class="sxs-lookup"><span data-stu-id="a0a40-113">**An Azure subscription**.</span></span> <span data-ttu-id="a0a40-114">Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="a0a40-114">See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
-* <span data-ttu-id="a0a40-115">Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op.</span><span class="sxs-lookup"><span data-stu-id="a0a40-115">Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**.</span></span> <span data-ttu-id="a0a40-116">Zie [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Een Active Directory-toepassing en service-principal maken met de portal) voor meer informatie over AAD-toepassingen en instructies voor het verkrijgen van een client-ID.</span><span class="sxs-lookup"><span data-stu-id="a0a40-116">For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="a0a40-117">Zodra u de toepassing hebt gemaakt en de sleutel hebt gegenereerd, zullen de antwoord-URI en sleutel ook beschikbaar zijn vanuit de portal.</span><span class="sxs-lookup"><span data-stu-id="a0a40-117">The Reply URI and Key will also be available from the portal once you have the application created and key generated.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="83242-108">Vereisten</span><span class="sxs-lookup"><span data-stu-id="83242-108">Prerequisites</span></span>
+* <span data-ttu-id="83242-109">Java Development Kit (JDK) 8 (met Java-versie 1.8).</span><span class="sxs-lookup"><span data-stu-id="83242-109">Java Development Kit (JDK) 8 (using Java version 1.8).</span></span>
+* <span data-ttu-id="83242-110">IntelliJ of een andere geschikte Java-ontwikkelomgeving.</span><span class="sxs-lookup"><span data-stu-id="83242-110">IntelliJ or another suitable Java development environment.</span></span> <span data-ttu-id="83242-111">Dit is optioneel, maar wordt wel aanbevolen.</span><span class="sxs-lookup"><span data-stu-id="83242-111">This is optional but recommended.</span></span> <span data-ttu-id="83242-112">Hallo onderstaande instructies wordt IntelliJ gebruikt.</span><span class="sxs-lookup"><span data-stu-id="83242-112">hello instructions below use IntelliJ.</span></span>
+* <span data-ttu-id="83242-113">**Een Azure-abonnement**.</span><span class="sxs-lookup"><span data-stu-id="83242-113">**An Azure subscription**.</span></span> <span data-ttu-id="83242-114">Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="83242-114">See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+* <span data-ttu-id="83242-115">Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op.</span><span class="sxs-lookup"><span data-stu-id="83242-115">Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**.</span></span> <span data-ttu-id="83242-116">Voor meer informatie over AAD-toepassingen en instructies over het tooget een client-ID, Zie [een Active Directory-toepassing en service-principal maken met portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span><span class="sxs-lookup"><span data-stu-id="83242-116">For more information about AAD applications and instructions on how tooget a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="83242-117">Hallo antwoord-URI en sleutel ook zijn beschikbaar via de portal Hallo zodra u hebt Hallo toepassing gemaakt en sleutel gegenereerd.</span><span class="sxs-lookup"><span data-stu-id="83242-117">hello Reply URI and Key will also be available from hello portal once you have hello application created and key generated.</span></span>
 
-## <a name="how-do-i-authenticate-using-azure-active-directory"></a><span data-ttu-id="a0a40-118">Hoe verifieer ik met Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="a0a40-118">How do I authenticate using Azure Active Directory?</span></span>
-<span data-ttu-id="a0a40-119">In onderstaand codefragment vindt u code voor **niet-interactieve** verificatie, waarbij de toepassing zijn eigen referenties verstrekt.</span><span class="sxs-lookup"><span data-stu-id="a0a40-119">The code snippet below provides code for **non-interactive** authentication, where the application provides its own credentials.</span></span>
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a><span data-ttu-id="83242-118">Hoe verifieer ik met Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="83242-118">How do I authenticate using Azure Active Directory?</span></span>
+<span data-ttu-id="83242-119">onderstaande Hallo codefragment vindt u code voor **niet-interactieve** verificatie, waarbij Hallo toepassing eigen referenties verstrekt.</span><span class="sxs-lookup"><span data-stu-id="83242-119">hello code snippet below provides code for **non-interactive** authentication, where hello application provides its own credentials.</span></span>
 
-<span data-ttu-id="a0a40-120">Deze zelfstudie werkt alleen wanneer u uw toepassing machtigt om resources te maken in Azure.</span><span class="sxs-lookup"><span data-stu-id="a0a40-120">You will need to give your application permission to create resources in Azure for this tutorial to work.</span></span> <span data-ttu-id="a0a40-121">Het wordt **ten zeerste aangeraden** dat u deze toepassing voor het doel van deze zelfstudie alleen Inzender-rechten geeft voor een nieuwe, ongebruikte en lege resourcegroep in uw Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="a0a40-121">It is **highly recommended** that you only give this application Contributor permissions to a new, unused, and empty resource group in your Azure subscription for the purposes of this tutorial.</span></span>
+<span data-ttu-id="83242-120">U moet toogive uw toepassing machtiging toocreate resources in Azure voor deze zelfstudie toowork.</span><span class="sxs-lookup"><span data-stu-id="83242-120">You will need toogive your application permission toocreate resources in Azure for this tutorial toowork.</span></span> <span data-ttu-id="83242-121">Het is **ten zeerste aangeraden** u alleen deze toepassing Inzender machtigingen tooa nieuwe, ongebruikte en lege resourcegroep in uw Azure-abonnement voor de toepassing hello van deze zelfstudie geeft.</span><span class="sxs-lookup"><span data-stu-id="83242-121">It is **highly recommended** that you only give this application Contributor permissions tooa new, unused, and empty resource group in your Azure subscription for hello purposes of this tutorial.</span></span>
 
-## <a name="create-a-java-application"></a><span data-ttu-id="a0a40-122">Een Java-toepassing maken</span><span class="sxs-lookup"><span data-stu-id="a0a40-122">Create a Java application</span></span>
-1. <span data-ttu-id="a0a40-123">Open IntelliJ en maak een nieuw Java-project met de **Command Line Application**-sjabloon.</span><span class="sxs-lookup"><span data-stu-id="a0a40-123">Open IntelliJ and create a new Java project using the **Command Line App** template.</span></span>
-2. <span data-ttu-id="a0a40-124">Klik met de rechtermuisknop op het project aan de linkerkant van het scherm en klik op **Add Framework Support** (Framework-ondersteuning toevoegen).</span><span class="sxs-lookup"><span data-stu-id="a0a40-124">Right-click on the project on the left-hand side of your screen and click **Add Framework Support**.</span></span> <span data-ttu-id="a0a40-125">Kies **Maven** en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="a0a40-125">Choose **Maven** and click **OK**.</span></span>
-3. <span data-ttu-id="a0a40-126">Open het zojuist gemaakte bestand **pom.xml** en voeg het volgende tekstfragment toe tussen de tag **\</version>** en de tag **\</project>**:</span><span class="sxs-lookup"><span data-stu-id="a0a40-126">Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:</span></span>
+## <a name="create-a-java-application"></a><span data-ttu-id="83242-122">Een Java-toepassing maken</span><span class="sxs-lookup"><span data-stu-id="83242-122">Create a Java application</span></span>
+1. <span data-ttu-id="83242-123">Open IntelliJ en maak een nieuw Java-project met behulp van Hallo **Command Line Application** sjabloon.</span><span class="sxs-lookup"><span data-stu-id="83242-123">Open IntelliJ and create a new Java project using hello **Command Line App** template.</span></span>
+2. <span data-ttu-id="83242-124">Met de rechtermuisknop op het Hallo-project aan de linkerkant Hallo van het scherm en klikt u op **Framework-ondersteuning toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="83242-124">Right-click on hello project on hello left-hand side of your screen and click **Add Framework Support**.</span></span> <span data-ttu-id="83242-125">Kies **Maven** en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="83242-125">Choose **Maven** and click **OK**.</span></span>
+3. <span data-ttu-id="83242-126">Open Hallo nieuw gemaakte **'pom.xml'** bestand en Voeg na tekstfragment tussen Hallo Hallo  **\</version >** tag en Hallo  **\< /project >** tag:</span><span class="sxs-lookup"><span data-stu-id="83242-126">Open hello newly created **"pom.xml"** file and add hello following snippet of text between hello **\</version>** tag and hello **\</project>** tag:</span></span>
 
     >[!NOTE]
-    ><span data-ttu-id="a0a40-127">Deze stap is tijdelijk totdat de Azure Data Lake Analytics-SDK beschikbaar in Maven is.</span><span class="sxs-lookup"><span data-stu-id="a0a40-127">This step is temporary until the Azure Data Lake Analytics SDK is available in Maven.</span></span> <span data-ttu-id="a0a40-128">Dit artikel wordt bijgewerkt wanneer de SDK beschikbaar in Maven is.</span><span class="sxs-lookup"><span data-stu-id="a0a40-128">This article will be updated once the SDK is available in Maven.</span></span> <span data-ttu-id="a0a40-129">Alle toekomstige updates voor deze SDK komen beschikbaar via Maven.</span><span class="sxs-lookup"><span data-stu-id="a0a40-129">All future updates to this SDK will be availble through Maven.</span></span>
+    ><span data-ttu-id="83242-127">Deze stap is tijdelijk totdat hello Azure Data Lake Analytics SDK beschikbaar in Maven is.</span><span class="sxs-lookup"><span data-stu-id="83242-127">This step is temporary until hello Azure Data Lake Analytics SDK is available in Maven.</span></span> <span data-ttu-id="83242-128">In dit artikel wordt bijgewerkt zodra Hallo SDK beschikbaar in Maven is.</span><span class="sxs-lookup"><span data-stu-id="83242-128">This article will be updated once hello SDK is available in Maven.</span></span> <span data-ttu-id="83242-129">Alle toekomstige updates toothis SDK is beschikbaar via Maven.</span><span class="sxs-lookup"><span data-stu-id="83242-129">All future updates toothis SDK will be availble through Maven.</span></span>
     >
 
         <repositories>
@@ -95,13 +95,13 @@ ms.lasthandoff: 07/11/2017
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
-4. <span data-ttu-id="a0a40-130">Ga naar **bestand**, klikt u vervolgens **instellingen**, klikt u vervolgens **bouwen**, **uitvoering**, **implementatie**.</span><span class="sxs-lookup"><span data-stu-id="a0a40-130">Go to **File**, then **Settings**, then **Build**, **Execution**, **Deployment**.</span></span> <span data-ttu-id="a0a40-131">Selecteer **Build Tools**, **Maven**, **importeren**.</span><span class="sxs-lookup"><span data-stu-id="a0a40-131">Select **Build Tools**, **Maven**, **Importing**.</span></span> <span data-ttu-id="a0a40-132">Controleer vervolgens **Import Maven projects automatisch**.</span><span class="sxs-lookup"><span data-stu-id="a0a40-132">Then check **Import Maven projects automatically**.</span></span>
-5. <span data-ttu-id="a0a40-133">Open **Main.java** en vervang het bestaande codeblok door de volgende code.</span><span class="sxs-lookup"><span data-stu-id="a0a40-133">Open **Main.java** and replace the existing code block with the following code.</span></span> <span data-ttu-id="a0a40-134">Geef ook de waarden voor parameters die in het codefragment worden genoemd, zoals **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_ resourceGroupName** en vervang de tijdelijke aanduidingen voor **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, en  **ABONNEMENT-ID**.</span><span class="sxs-lookup"><span data-stu-id="a0a40-134">Also, provide the values for parameters called out in the code snippet, such as **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.</span></span>
+4. <span data-ttu-id="83242-130">Ga te**bestand**, vervolgens **instellingen**, klikt u vervolgens **bouwen**, **uitvoering**, **implementatie**.</span><span class="sxs-lookup"><span data-stu-id="83242-130">Go too**File**, then **Settings**, then **Build**, **Execution**, **Deployment**.</span></span> <span data-ttu-id="83242-131">Selecteer **Build Tools**, **Maven**, **importeren**.</span><span class="sxs-lookup"><span data-stu-id="83242-131">Select **Build Tools**, **Maven**, **Importing**.</span></span> <span data-ttu-id="83242-132">Controleer vervolgens **Import Maven projects automatisch**.</span><span class="sxs-lookup"><span data-stu-id="83242-132">Then check **Import Maven projects automatically**.</span></span>
+5. <span data-ttu-id="83242-133">Open **Main.java** en vervang Hallo bestaande codeblok Hello de volgende code.</span><span class="sxs-lookup"><span data-stu-id="83242-133">Open **Main.java** and replace hello existing code block with hello following code.</span></span> <span data-ttu-id="83242-134">Geef ook Hallo waarden voor parameters die worden genoemd, zoals in het codefragment hello, **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_ resourceGroupName** en vervang de tijdelijke aanduidingen voor **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, en  **ABONNEMENT-ID**.</span><span class="sxs-lookup"><span data-stu-id="83242-134">Also, provide hello values for parameters called out in hello code snippet, such as **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_resourceGroupName** and replace placeholders for **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID**, and **SUBSCRIPTION-ID**.</span></span>
 
-    <span data-ttu-id="a0a40-135">Deze code doorloopt van het proces van het Data Lake Store en Data Lake Analytics-accounts maken, het maken van bestanden in de store, een taak wordt uitgevoerd, taakstatus ophalen, taakuitvoer downloaden en tot slot de account wordt verwijderd.</span><span class="sxs-lookup"><span data-stu-id="a0a40-135">This code goes through the process of creating Data Lake Store and Data Lake Analytics accounts, creating files in the store, running a job, getting job status, downloading job output, and finally deleting the account.</span></span>
+    <span data-ttu-id="83242-135">Deze code gaat via Hallo-proces voor het maken van Data Lake Store en Data Lake Analytics-accounts, het maken van bestanden in archief Hallo, een taak wordt uitgevoerd, taakstatus ophalen, taakuitvoer downloaden en tot slot Hallo-account wordt verwijderd.</span><span class="sxs-lookup"><span data-stu-id="83242-135">This code goes through hello process of creating Data Lake Store and Data Lake Analytics accounts, creating files in hello store, running a job, getting job status, downloading job output, and finally deleting hello account.</span></span>
 
    > [!NOTE]
-   > <span data-ttu-id="a0a40-136">Er is een bekend probleem met de Azure Data Lake-service.</span><span class="sxs-lookup"><span data-stu-id="a0a40-136">There is currently a known issue with the Azure Data Lake Service.</span></span>  <span data-ttu-id="a0a40-137">Als de voorbeeldapp wordt onderbroken of als er een fout in optreedt, moet u de Data Lake Store- & Data Lake Analytics-accounts die door het script worden gemaakt mogelijk handmatig verwijderen.</span><span class="sxs-lookup"><span data-stu-id="a0a40-137">If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.</span></span>  <span data-ttu-id="a0a40-138">Als u niet vertrouwd bent met de Portal, leest u eerst [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voordat u aan de slag gaat.</span><span class="sxs-lookup"><span data-stu-id="a0a40-138">If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.</span></span>
+   > <span data-ttu-id="83242-136">Er is een bekend probleem met hello Azure Data Lake-Service.</span><span class="sxs-lookup"><span data-stu-id="83242-136">There is currently a known issue with hello Azure Data Lake Service.</span></span>  <span data-ttu-id="83242-137">Als de voorbeeld-app Hallo wordt onderbroken of er een fout optreedt, moet u mogelijk toomanually verwijderen Hallo Data Lake Store & Data Lake Analytics-accounts die Hallo script maakt.</span><span class="sxs-lookup"><span data-stu-id="83242-137">If hello sample app is interrupted or encounters an error, you may need toomanually delete hello Data Lake Store & Data Lake Analytics accounts that hello script creates.</span></span>  <span data-ttu-id="83242-138">Als u niet bekend met Hallo Portal bent, Hallo [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) handleiding krijgt u aan de slag.</span><span class="sxs-lookup"><span data-stu-id="83242-138">If you're not familiar with hello Portal, hello [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.</span></span>
    >
    >
 
@@ -149,9 +149,9 @@ ms.lasthandoff: 07/11/2017
                 _subId =  "<SUBSCRIPTION-ID>";
                 _clientId = "<CLIENT-ID>";
 
-                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
+                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring hello application client secret, rather than hard-coding it in hello source code.
 
-                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
+                String localFolderPath = "C:\\local_path\\"; // TODO: Change this tooany unused, new, empty folder on your local machine.
 
                 // Authenticate
                 ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
@@ -176,14 +176,14 @@ ms.lasthandoff: 07/11/2017
                 WaitForNewline("Accounts displayed.", "Creating files.");
 
                 // Create a file in Data Lake Store: input1.csv
-                // TODO: these change order in the next patch
+                // TODO: these change order in hello next patch
                 byte[] bytesContents = "123,abc".getBytes();
                 _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, "/input1.csv", bytesContents, true);
 
                 WaitForNewline("File created.", "Submitting a job.");
 
-                // Submit a job to Data Lake Analytics
-                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob");
+                // Submit a job tooData Lake Analytics
+                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input too@\"/output1.csv\" USING Outputters.Csv();", "testJob");
                 WaitForNewline("Job submitted.", "Getting job status.");
 
                 // Wait for job completion and output job status
@@ -219,13 +219,13 @@ ms.lasthandoff: 07/11/2017
                 _adlaClient.setSubscriptionId(_subId);
             }
 
-            // Helper function to show status and wait for user input
+            // Helper function tooshow status and wait for user input
             public static void WaitForNewline(String reason, String nextAction)
             {
                 if (nextAction == null)
                     nextAction = "";
 
-                System.out.println(reason + "\r\nPress ENTER to continue...");
+                System.out.println(reason + "\r\nPress ENTER toocontinue...");
                 try{System.in.read();}
                 catch(Exception e){}
 
@@ -262,12 +262,12 @@ ms.lasthandoff: 07/11/2017
                 adlaParameters.setName(_adlaAccountName);
                 adlaParameters.setProperties(adlaProperties);
 
-                    /* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
+                    /* If this line generates an error message like "hello deep update for property 'DataLakeStoreAccounts' is not supported", please delete hello ADLS and ADLA accounts via hello portal and re-run your script. */
 
                 _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
             }
 
-            //todo: this changes in the next version of the API
+            //todo: this changes in hello next version of hello API
             public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
 
@@ -307,7 +307,7 @@ ms.lasthandoff: 07/11/2017
             }
 
             // Submit a U-SQL job by providing script contents.
-            // Returns the job ID
+            // Returns hello job ID
             public static UUID SubmitJobByScript(String script, String jobName) throws IOException, CloudException {
                 UUID jobId = java.util.UUID.randomUUID();
                 USqlJobProperties properties = new USqlJobProperties();
@@ -340,12 +340,12 @@ ms.lasthandoff: 07/11/2017
             }
         }
 
-1. <span data-ttu-id="a0a40-139">Volg de aanwijzingen om de toepassing uit te voeren en te voltooien.</span><span class="sxs-lookup"><span data-stu-id="a0a40-139">Follow the prompts to run and complete the application.</span></span>
+1. <span data-ttu-id="83242-139">Volg Hallo prompts toorun en volledige Hallo-toepassing.</span><span class="sxs-lookup"><span data-stu-id="83242-139">Follow hello prompts toorun and complete hello application.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="a0a40-140">Zie ook</span><span class="sxs-lookup"><span data-stu-id="a0a40-140">See also</span></span>
-* <span data-ttu-id="a0a40-141">Als u dezelfde zelfstudie wilt bekijken met een ander hulpprogramma, klikt u op de tabselectors boven aan de pagina.</span><span class="sxs-lookup"><span data-stu-id="a0a40-141">To see the same tutorial using other tools, click the tab selectors on the top of the page.</span></span>
-* <span data-ttu-id="a0a40-142">Zie [Websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md) voor een complexere query.</span><span class="sxs-lookup"><span data-stu-id="a0a40-142">To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).</span></span>
-* <span data-ttu-id="a0a40-143">Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) om aan de slag te gaan met het ontwikkelen van U-SQL-toepassingen.</span><span class="sxs-lookup"><span data-stu-id="a0a40-143">To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).</span></span>
-* <span data-ttu-id="a0a40-144">Zie [Aan de slag met de Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md) en [Naslaginformatie voor de U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348) om U-SQL te leren.</span><span class="sxs-lookup"><span data-stu-id="a0a40-144">To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).</span></span>
-* <span data-ttu-id="a0a40-145">Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.</span><span class="sxs-lookup"><span data-stu-id="a0a40-145">For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).</span></span>
-* <span data-ttu-id="a0a40-146">Zie [Overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md) voor een overzicht van Data Lake Analytics.</span><span class="sxs-lookup"><span data-stu-id="a0a40-146">To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).</span></span>
+## <a name="see-also"></a><span data-ttu-id="83242-140">Zie ook</span><span class="sxs-lookup"><span data-stu-id="83242-140">See also</span></span>
+* <span data-ttu-id="83242-141">toosee Hallo dezelfde zelfstudie met een ander hulpprogramma, klikt u op Hallo-tabselectors op Hallo Hallo pagina bovenaan.</span><span class="sxs-lookup"><span data-stu-id="83242-141">toosee hello same tutorial using other tools, click hello tab selectors on hello top of hello page.</span></span>
+* <span data-ttu-id="83242-142">Zie voor een complexere query toosee [websitelogboeken analyseren met Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).</span><span class="sxs-lookup"><span data-stu-id="83242-142">toosee a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).</span></span>
+* <span data-ttu-id="83242-143">tooget gestart met het ontwikkelen van U-SQL-toepassingen, Zie [U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="83242-143">tooget started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).</span></span>
+* <span data-ttu-id="83242-144">toolearn U-SQL, Zie [aan de slag met Azure Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md), en [naslaginformatie U-SQL-taal](http://go.microsoft.com/fwlink/?LinkId=691348).</span><span class="sxs-lookup"><span data-stu-id="83242-144">toolearn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).</span></span>
+* <span data-ttu-id="83242-145">Zie [Azure Data Lake Analytics beheren met Azure Portal](data-lake-analytics-manage-use-portal.md) voor informatie over beheertaken.</span><span class="sxs-lookup"><span data-stu-id="83242-145">For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).</span></span>
+* <span data-ttu-id="83242-146">Zie tooget een overzicht van Data Lake Analytics [overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md).</span><span class="sxs-lookup"><span data-stu-id="83242-146">tooget an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).</span></span>

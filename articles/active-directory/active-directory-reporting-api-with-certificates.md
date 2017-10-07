@@ -1,6 +1,6 @@
 ---
-title: Gegevens opvragen met de rapportage-API van Azure AD met certificaten | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory's.
+title: aaaGet gegevens met Azure AD rapportage-API met certificaten Hallo | Microsoft Docs
+description: Legt uit hoe toouse hello Azure AD rapportage-API met referenties tooget certificaatgegevens van Directory's zonder tussenkomst van de gebruiker.
 services: active-directory
 documentationcenter: 
 author: ramical
@@ -14,82 +14,82 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2017
 ms.author: ramical
-ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00ddfaefe32ea6ae48f276c974a17ddcf84f7894
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a><span data-ttu-id="23605-103">Gegevens ophalen met de rapportage-API van Azure AD met certificaten</span><span class="sxs-lookup"><span data-stu-id="23605-103">Get data using the Azure AD Reporting API with certificates</span></span>
-<span data-ttu-id="23605-104">In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory's.</span><span class="sxs-lookup"><span data-stu-id="23605-104">This article discusses how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention.</span></span> 
+# <a name="get-data-using-hello-azure-ad-reporting-api-with-certificates"></a><span data-ttu-id="be147-103">Gegevens hello Azure AD-rapportage-API gebruiken met certificaten ophalen</span><span class="sxs-lookup"><span data-stu-id="be147-103">Get data using hello Azure AD Reporting API with certificates</span></span>
+<span data-ttu-id="be147-104">Dit artikel wordt beschreven hoe toouse hello Azure AD rapportage-API met referenties tooget certificaatgegevens van Directory's zonder tussenkomst van de gebruiker.</span><span class="sxs-lookup"><span data-stu-id="be147-104">This article discusses how toouse hello Azure AD Reporting API with certificate credentials tooget data from directories without user intervention.</span></span> 
 
-## <a name="use-the-azure-ad-reporting-api"></a><span data-ttu-id="23605-105">De rapportage-API voor Azure AD gebruiken</span><span class="sxs-lookup"><span data-stu-id="23605-105">Use the Azure AD Reporting API</span></span> 
-<span data-ttu-id="23605-106">U moet de volgende stappen uitvoeren voordat u de rapportage-API van Azure AD kunt gebruiken:</span><span class="sxs-lookup"><span data-stu-id="23605-106">Azure AD Reporting API requires that you complete the following steps:</span></span>
- *  <span data-ttu-id="23605-107">Vereiste onderdelen installeren</span><span class="sxs-lookup"><span data-stu-id="23605-107">Install prerequisites</span></span>
- *  <span data-ttu-id="23605-108">Het certificaat instellen in uw app</span><span class="sxs-lookup"><span data-stu-id="23605-108">Set the certificate in your app</span></span>
- *  <span data-ttu-id="23605-109">Een toegangstoken opvragen</span><span class="sxs-lookup"><span data-stu-id="23605-109">Get an access token</span></span>
- *  <span data-ttu-id="23605-110">Het toegangstoken gebruiken om de Graph API aan te roepen</span><span class="sxs-lookup"><span data-stu-id="23605-110">Use the access token to call the Graph API</span></span>
+## <a name="use-hello-azure-ad-reporting-api"></a><span data-ttu-id="be147-105">Gebruik hello Azure AD rapportage-API</span><span class="sxs-lookup"><span data-stu-id="be147-105">Use hello Azure AD Reporting API</span></span> 
+<span data-ttu-id="be147-106">Azure AD rapportage-API is vereist dat Hallo stappen te voltooien:</span><span class="sxs-lookup"><span data-stu-id="be147-106">Azure AD Reporting API requires that you complete hello following steps:</span></span>
+ *  <span data-ttu-id="be147-107">Vereiste onderdelen installeren</span><span class="sxs-lookup"><span data-stu-id="be147-107">Install prerequisites</span></span>
+ *  <span data-ttu-id="be147-108">Hallo-certificaat in uw app instellen</span><span class="sxs-lookup"><span data-stu-id="be147-108">Set hello certificate in your app</span></span>
+ *  <span data-ttu-id="be147-109">Een toegangstoken opvragen</span><span class="sxs-lookup"><span data-stu-id="be147-109">Get an access token</span></span>
+ *  <span data-ttu-id="be147-110">Hallo access token toocall Hallo Graph API gebruiken</span><span class="sxs-lookup"><span data-stu-id="be147-110">Use hello access token toocall hello Graph API</span></span>
 
-<span data-ttu-id="23605-111">Zie [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Rapportage-API-module gebruiken) voor meer informatie over broncode.</span><span class="sxs-lookup"><span data-stu-id="23605-111">For information about source code, see [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils).</span></span> 
+<span data-ttu-id="be147-111">Zie [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Rapportage-API-module gebruiken) voor meer informatie over broncode.</span><span class="sxs-lookup"><span data-stu-id="be147-111">For information about source code, see [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils).</span></span> 
 
-### <a name="install-prerequisites"></a><span data-ttu-id="23605-112">Vereiste onderdelen installeren</span><span class="sxs-lookup"><span data-stu-id="23605-112">Install prerequisites</span></span>
-<span data-ttu-id="23605-113">Azure AD PowerShell V2 en de module AzureADUtils moeten zijn geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="23605-113">You will need to have Azure AD PowerShell V2 and AzureADUtils module installed.</span></span>
+### <a name="install-prerequisites"></a><span data-ttu-id="be147-112">Vereiste onderdelen installeren</span><span class="sxs-lookup"><span data-stu-id="be147-112">Install prerequisites</span></span>
+<span data-ttu-id="be147-113">U moet toohave Azure AD PowerShell V2 en AzureADUtils-module geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="be147-113">You will need toohave Azure AD PowerShell V2 and AzureADUtils module installed.</span></span>
 
-1. <span data-ttu-id="23605-114">Download en installeer Azure AD Powershell V2 met behulp van de instructies in [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span><span class="sxs-lookup"><span data-stu-id="23605-114">Download and install Azure AD Powershell V2, following the instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span></span>
-2. <span data-ttu-id="23605-115">Download de Azure AD Utils-module van [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span><span class="sxs-lookup"><span data-stu-id="23605-115">Download the Azure AD Utils module from [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span></span> 
-  <span data-ttu-id="23605-116">Deze module biedt verschillende cmdlets, waaronder:</span><span class="sxs-lookup"><span data-stu-id="23605-116">This module provides several utility cmdlets including:</span></span>
-   * <span data-ttu-id="23605-117">De nieuwste versie van ADAL met Nuget</span><span class="sxs-lookup"><span data-stu-id="23605-117">The latest version of ADAL using Nuget</span></span>
-   * <span data-ttu-id="23605-118">Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL</span><span class="sxs-lookup"><span data-stu-id="23605-118">Access tokens from user, application keys, and certificates using ADAL</span></span>
-   * <span data-ttu-id="23605-119">Afhandeling van pagina's met zoekresultaten door Graph API</span><span class="sxs-lookup"><span data-stu-id="23605-119">Graph API handling paged results</span></span>
+1. <span data-ttu-id="be147-114">Download en installeer Azure AD Powershell V2, Hallo instructies te volgen op [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span><span class="sxs-lookup"><span data-stu-id="be147-114">Download and install Azure AD Powershell V2, following hello instructions at [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).</span></span>
+2. <span data-ttu-id="be147-115">Download hello Azure AD Utils module op basis van [AzureAD/azure-Active Directory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span><span class="sxs-lookup"><span data-stu-id="be147-115">Download hello Azure AD Utils module from [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1).</span></span> 
+  <span data-ttu-id="be147-116">Deze module biedt verschillende cmdlets, waaronder:</span><span class="sxs-lookup"><span data-stu-id="be147-116">This module provides several utility cmdlets including:</span></span>
+   * <span data-ttu-id="be147-117">Hallo meest recente versie van Nuget met ADAL</span><span class="sxs-lookup"><span data-stu-id="be147-117">hello latest version of ADAL using Nuget</span></span>
+   * <span data-ttu-id="be147-118">Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL</span><span class="sxs-lookup"><span data-stu-id="be147-118">Access tokens from user, application keys, and certificates using ADAL</span></span>
+   * <span data-ttu-id="be147-119">Afhandeling van pagina's met zoekresultaten door Graph API</span><span class="sxs-lookup"><span data-stu-id="be147-119">Graph API handling paged results</span></span>
 
-<span data-ttu-id="23605-120">**De Azure AD Utils-module installeren:**</span><span class="sxs-lookup"><span data-stu-id="23605-120">**To install the Azure AD Utils module:**</span></span>
+<span data-ttu-id="be147-120">**tooinstall hello Utils van Azure AD-module:**</span><span class="sxs-lookup"><span data-stu-id="be147-120">**tooinstall hello Azure AD Utils module:**</span></span>
 
-1. <span data-ttu-id="23605-121">Maak een directory voor het opslaan van de module met hulpprogramma's (bijvoorbeeld c:\azureAD) en downloadt de module in GitHub.</span><span class="sxs-lookup"><span data-stu-id="23605-121">Create a directory to save the utilities module (for example, c:\azureAD) and download the module from GitHub.</span></span>
-2. <span data-ttu-id="23605-122">Open een PowerShell-sessie en ga naar de directory die u net hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="23605-122">Open a PowerShell session, and go to the directory you just created.</span></span> 
-3. <span data-ttu-id="23605-123">Importeer de module en installeer deze met de cmdlet Install-AzureADUtilsModule in het pad van de PowerShell-module.</span><span class="sxs-lookup"><span data-stu-id="23605-123">Import the module, and install it in the PowerShell module path using the Install-AzureADUtilsModule cmdlet.</span></span> 
+1. <span data-ttu-id="be147-121">Maken van een directory toosave Hallo hulpprogramma's-module (bijvoorbeeld c:\azureAD) en Hallo module vanuit GitHub downloaden.</span><span class="sxs-lookup"><span data-stu-id="be147-121">Create a directory toosave hello utilities module (for example, c:\azureAD) and download hello module from GitHub.</span></span>
+2. <span data-ttu-id="be147-122">Open een PowerShell-sessie en gaat u toohello directory die u zojuist hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="be147-122">Open a PowerShell session, and go toohello directory you just created.</span></span> 
+3. <span data-ttu-id="be147-123">Hallo-module importeren en installeer het in Hallo PowerShell-module pad met de cmdlet Install-AzureADUtilsModule Hallo.</span><span class="sxs-lookup"><span data-stu-id="be147-123">Import hello module, and install it in hello PowerShell module path using hello Install-AzureADUtilsModule cmdlet.</span></span> 
 
-<span data-ttu-id="23605-124">De sessie moet er ongeveer uitzien zoals op dit scherm:</span><span class="sxs-lookup"><span data-stu-id="23605-124">The session should look similar to this screen:</span></span>
+<span data-ttu-id="be147-124">Hallo-sessie ziet vergelijkbare toothis scherm:</span><span class="sxs-lookup"><span data-stu-id="be147-124">hello session should look similar toothis screen:</span></span>
 
   ![Windows Powershell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
 
-### <a name="set-the-certificate-in-your-app"></a><span data-ttu-id="23605-126">Het certificaat instellen in uw app</span><span class="sxs-lookup"><span data-stu-id="23605-126">Set the certificate in your app</span></span>
-1. <span data-ttu-id="23605-127">Als u al een app hebt, vraagt u de bijbehorende object-id op uit Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="23605-127">If you already have an app, get its Object ID from the Azure Portal.</span></span> 
+### <a name="set-hello-certificate-in-your-app"></a><span data-ttu-id="be147-126">Hallo-certificaat in uw app instellen</span><span class="sxs-lookup"><span data-stu-id="be147-126">Set hello certificate in your app</span></span>
+1. <span data-ttu-id="be147-127">Als u een app al hebt, moet u de Object-ID ophalen van hello Azure-Portal.</span><span class="sxs-lookup"><span data-stu-id="be147-127">If you already have an app, get its Object ID from hello Azure Portal.</span></span> 
 
   ![Azure Portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
 
-2. <span data-ttu-id="23605-129">Open een PowerShell-sessie en maak verbinding met Azure AD via de cmdlet Connect-AzureAD.</span><span class="sxs-lookup"><span data-stu-id="23605-129">Open a PowerShell session and connect to Azure AD using the Connect-AzureAD cmdlet.</span></span>
+2. <span data-ttu-id="be147-129">Open een PowerShell-sessie en tooAzure AD verbinding maken met de cmdlet Hallo Connect-AzureAD.</span><span class="sxs-lookup"><span data-stu-id="be147-129">Open a PowerShell session and connect tooAzure AD using hello Connect-AzureAD cmdlet.</span></span>
 
   ![Azure Portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
 
-3. <span data-ttu-id="23605-131">Gebruik de cmdlet New-AzureADApplicationCertificateCredential van AzureADUtils om er een certificaatreferentie aan toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="23605-131">Use the New-AzureADApplicationCertificateCredential cmdlet from AzureADUtils to add a certificate credential to it.</span></span> 
+3. <span data-ttu-id="be147-131">Hallo nieuw AzureADApplicationCertificateCredential cmdlet van AzureADUtils tooadd een certificaat referentie tooit gebruiken.</span><span class="sxs-lookup"><span data-stu-id="be147-131">Use hello New-AzureADApplicationCertificateCredential cmdlet from AzureADUtils tooadd a certificate credential tooit.</span></span> 
 
 >[!Note]
-><span data-ttu-id="23605-132">U moet de object-id van de toepassing opgeven die u eerder hebt opgevraagd, evenals het certificaatobject (vraag dit op met behulp van het Cert:-station).</span><span class="sxs-lookup"><span data-stu-id="23605-132">You need to provide the application Object ID that you captured earlier, as well as the certificate object (get this using the Cert: drive).</span></span>
+><span data-ttu-id="be147-132">U moet tooprovide Hallo toepassing Object-ID die u eerder hebt vastgelegd, evenals Hallo certificaatobject (ophalen deze met Hallo Cert: station).</span><span class="sxs-lookup"><span data-stu-id="be147-132">You need tooprovide hello application Object ID that you captured earlier, as well as hello certificate object (get this using hello Cert: drive).</span></span>
 >
 
 
   ![Azure Portal](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-### <a name="get-an-access-token"></a><span data-ttu-id="23605-134">Een toegangstoken opvragen</span><span class="sxs-lookup"><span data-stu-id="23605-134">Get an access token</span></span>
+### <a name="get-an-access-token"></a><span data-ttu-id="be147-134">Een toegangstoken opvragen</span><span class="sxs-lookup"><span data-stu-id="be147-134">Get an access token</span></span>
 
-<span data-ttu-id="23605-135">U kunt een toegangstoken opvragen met de cmdlet Get-AzureADGraphAPIAccessTokenFromCert van AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="23605-135">To get an access token, use the Get-AzureADGraphAPIAccessTokenFromCert cmdlet from AzureADUtils.</span></span> 
+<span data-ttu-id="be147-135">tooget een toegangstoken Hallo Get AzureADGraphAPIAccessTokenFromCert cmdlet van AzureADUtils gebruiken.</span><span class="sxs-lookup"><span data-stu-id="be147-135">tooget an access token, use hello Get-AzureADGraphAPIAccessTokenFromCert cmdlet from AzureADUtils.</span></span> 
 
 >[!NOTE]
-><span data-ttu-id="23605-136">Gebruik de toepassings-id en niet de object-id die u in de laatste sectie hebt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="23605-136">You need to use the Application ID instead of the Object ID that you used in the last section.</span></span>
+><span data-ttu-id="be147-136">U moet toouse Hallo toepassings-ID in plaats van de Object-ID die u hebt gebruikt in de laatste sectie Hallo Hallo.</span><span class="sxs-lookup"><span data-stu-id="be147-136">You need toouse hello Application ID instead of hello Object ID that you used in hello last section.</span></span>
 >
 
  ![Azure Portal](./media/active-directory-report-api-with-certificates/application-id.png)
 
-### <a name="use-the-access-token-to-call-the-graph-api"></a><span data-ttu-id="23605-138">Het toegangstoken gebruiken om de Graph API aan te roepen</span><span class="sxs-lookup"><span data-stu-id="23605-138">Use the access token to call the Graph API</span></span>
+### <a name="use-hello-access-token-toocall-hello-graph-api"></a><span data-ttu-id="be147-138">Hallo access token toocall Hallo Graph API gebruiken</span><span class="sxs-lookup"><span data-stu-id="be147-138">Use hello access token toocall hello Graph API</span></span>
 
-<span data-ttu-id="23605-139">U kunt nu het script maken.</span><span class="sxs-lookup"><span data-stu-id="23605-139">Now you can create the script.</span></span> <span data-ttu-id="23605-140">Hieronder ziet u een voorbeeld waarin de cmdlet Invoke-AzureADGraphAPIQuery van AzureADUtils wordt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="23605-140">Below is an example using the Invoke-AzureADGraphAPIQuery cmdlet from the AzureADUtils.</span></span> <span data-ttu-id="23605-141">Met deze cmdlet worden meerdere pagina's met zoekresultaten verwerkt, waarna deze resultaten naar de PowerShell-pijplijn worden verstuurd.</span><span class="sxs-lookup"><span data-stu-id="23605-141">This cmdlet handles multi-paged results, and then sends those results to the PowerShell pipeline.</span></span> 
+<span data-ttu-id="be147-139">U kunt nu Hallo script maken.</span><span class="sxs-lookup"><span data-stu-id="be147-139">Now you can create hello script.</span></span> <span data-ttu-id="be147-140">Hieronder vindt u een voorbeeld met de cmdlet Invoke-AzureADGraphAPIQuery Hallo van Hallo AzureADUtils.</span><span class="sxs-lookup"><span data-stu-id="be147-140">Below is an example using hello Invoke-AzureADGraphAPIQuery cmdlet from hello AzureADUtils.</span></span> <span data-ttu-id="be147-141">Deze cmdlet verwerkt met meerdere pagina's met zoekresultaten en stuurt vervolgens deze resultaten toohello PowerShell-pijplijn.</span><span class="sxs-lookup"><span data-stu-id="be147-141">This cmdlet handles multi-paged results, and then sends those results toohello PowerShell pipeline.</span></span> 
 
  ![Azure Portal](./media/active-directory-report-api-with-certificates/script-completed.png)
 
-<span data-ttu-id="23605-143">U bent nu klaar om te gaan exporteren naar een CSV-bestand en dit bestand op te slaan in een SIEM-systeem.</span><span class="sxs-lookup"><span data-stu-id="23605-143">You are now ready to export to a CSV and save to a SIEM system.</span></span> <span data-ttu-id="23605-144">U kunt uw script ook verpakken in een geplande taak om periodiek gegevens van Azure AD op te halen uit uw tenant zonder dat u toepassingssleutels hoeft op te slaan in de broncode.</span><span class="sxs-lookup"><span data-stu-id="23605-144">You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code.</span></span> 
+<span data-ttu-id="be147-143">U bent nu klaar tooexport tooa CSV en slaat tooa SIEM-systeem.</span><span class="sxs-lookup"><span data-stu-id="be147-143">You are now ready tooexport tooa CSV and save tooa SIEM system.</span></span> <span data-ttu-id="be147-144">U kunt ook inpakken uw script in een geplande taak tooget Azure AD-gegevens van uw tenant periodiek zonder toostore toepassing sleutels in de broncode Hallo.</span><span class="sxs-lookup"><span data-stu-id="be147-144">You can also wrap your script in a scheduled task tooget Azure AD data from your tenant periodically without having toostore application keys in hello source code.</span></span> 
 
-## <a name="next-steps"></a><span data-ttu-id="23605-145">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="23605-145">Next steps</span></span>
-<span data-ttu-id="23605-146">[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (De grondbeginselen van Azure-identiteitsbeheer)</span><span class="sxs-lookup"><span data-stu-id="23605-146">[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)</span></span><br>
+## <a name="next-steps"></a><span data-ttu-id="be147-145">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="be147-145">Next steps</span></span>
+[<span data-ttu-id="be147-146">Hallo grondbeginselen van Azure identity management</span><span class="sxs-lookup"><span data-stu-id="be147-146">hello fundamentals of Azure identity management</span></span>](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
 
 
 

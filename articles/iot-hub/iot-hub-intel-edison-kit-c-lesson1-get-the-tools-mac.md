@@ -1,6 +1,6 @@
 ---
-title: 'Connect Intel Edison (C) naar Azure IoT - les 1: download hulpprogramma''s (Mac OS) | Microsoft Docs'
-description: Download en installeer de benodigde hulpprogramma's en -software voor de eerste voorbeeldtoepassing voor Edison op Mac OS.
+title: 'Connect Intel Edison (C) tooAzure IoT - les 1: download hulpprogramma''s (Mac OS) | Microsoft Docs'
+description: Download en installeer de benodigde Hallo-hulpprogramma's en -software voor Hallo eerste voorbeeldtoepassing voor Edison op Mac OS.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,75 +17,75 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 27939f731121522f688e606052492bda8ae045fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a53331b0dce73c3dd51de91f07df86e28cbb6b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-macos-1010"></a><span data-ttu-id="21e66-104">De hulpprogramma's downloaden (macOS 10.10)</span><span class="sxs-lookup"><span data-stu-id="21e66-104">Get the tools (macOS 10.10)</span></span>
+# <a name="get-hello-tools-macos-1010"></a><span data-ttu-id="e72b7-104">Hallo hulpprogramma's (Mac OS 10.10) ophalen</span><span class="sxs-lookup"><span data-stu-id="e72b7-104">Get hello tools (macOS 10.10)</span></span>
 > [!div class="op_single_selector"]
-> * <span data-ttu-id="21e66-105">[Windows 7 of hoger][windows]</span><span class="sxs-lookup"><span data-stu-id="21e66-105">[Windows 7 or later][windows]</span></span>
-> * <span data-ttu-id="21e66-106">[Ubuntu 16.04][ubuntu]</span><span class="sxs-lookup"><span data-stu-id="21e66-106">[Ubuntu 16.04][ubuntu]</span></span>
-> * <span data-ttu-id="21e66-107">[Mac OS 10.10][macos]</span><span class="sxs-lookup"><span data-stu-id="21e66-107">[macOS 10.10][macos]</span></span>
+> * <span data-ttu-id="e72b7-105">[Windows 7 of hoger][windows]</span><span class="sxs-lookup"><span data-stu-id="e72b7-105">[Windows 7 or later][windows]</span></span>
+> * <span data-ttu-id="e72b7-106">[Ubuntu 16.04][ubuntu]</span><span class="sxs-lookup"><span data-stu-id="e72b7-106">[Ubuntu 16.04][ubuntu]</span></span>
+> * <span data-ttu-id="e72b7-107">[Mac OS 10.10][macos]</span><span class="sxs-lookup"><span data-stu-id="e72b7-107">[macOS 10.10][macos]</span></span>
 
-## <a name="what-you-will-do"></a><span data-ttu-id="21e66-108">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="21e66-108">What you will do</span></span>
-<span data-ttu-id="21e66-109">Download de ontwikkelprogramma's en de software voor de eerste voorbeeldtoepassing voor uw Edison Intel.</span><span class="sxs-lookup"><span data-stu-id="21e66-109">Download the development tools and the software for the first sample application for your Intel Edison.</span></span> <span data-ttu-id="21e66-110">Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="21e66-110">If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="e72b7-108">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="e72b7-108">What you will do</span></span>
+<span data-ttu-id="e72b7-109">Hallo ontwikkelingsprogramma's en software voor eerste voorbeeldtoepassing voor uw Edison Intel Hallo Hallo downloaden.</span><span class="sxs-lookup"><span data-stu-id="e72b7-109">Download hello development tools and hello software for hello first sample application for your Intel Edison.</span></span> <span data-ttu-id="e72b7-110">Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="e72b7-110">If you have any problems, look for solutions on hello [troubleshooting page][troubleshooting].</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="21e66-111">Hoewel de programmeertaal van de belangrijkste logica C, worden in de uitkomsten Node.js-hulpprogramma's om te bouwen en implementeren van de voorbeeldtoepassingen gebruikt.</span><span class="sxs-lookup"><span data-stu-id="21e66-111">Although the programming language of the main logic is C, Node.js tools are used in the lessons to build and deploy sample applications.</span></span>
+> <span data-ttu-id="e72b7-111">Hoewel Hallo programmeertaal van logische Hallo C is, wordt Node.js-hulpprogramma's worden gebruikt in Hallo uitkomsten toobuild en voorbeeldtoepassingen implementeren.</span><span class="sxs-lookup"><span data-stu-id="e72b7-111">Although hello programming language of hello main logic is C, Node.js tools are used in hello lessons toobuild and deploy sample applications.</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="21e66-112">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="21e66-112">What you will learn</span></span>
-<span data-ttu-id="21e66-113">In dit artikel leert u het:</span><span class="sxs-lookup"><span data-stu-id="21e66-113">In this article, you will learn:</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="e72b7-112">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="e72b7-112">What you will learn</span></span>
+<span data-ttu-id="e72b7-113">In dit artikel leert u het:</span><span class="sxs-lookup"><span data-stu-id="e72b7-113">In this article, you will learn:</span></span>
 
-* <span data-ttu-id="21e66-114">Klik hier voor meer informatie over het installeren van Git en Node.js.</span><span class="sxs-lookup"><span data-stu-id="21e66-114">How to install Git and Node.js.</span></span>
-  * <span data-ttu-id="21e66-115">[GIT](https://git-scm.com) is een open-source gedistribueerd versiebeheersysteem.</span><span class="sxs-lookup"><span data-stu-id="21e66-115">[Git](https://git-scm.com) is an open source distributed version control system.</span></span> <span data-ttu-id="21e66-116">De voorbeeldtoepassing voor dit artikel wordt opgeslagen op Git.</span><span class="sxs-lookup"><span data-stu-id="21e66-116">The sample application for this article is stored on Git.</span></span>
-  * <span data-ttu-id="21e66-117">[Node.js](https://nodejs.org/en/) is een JavaScript-runtime met een uitgebreide pakket-ecosysteem.</span><span class="sxs-lookup"><span data-stu-id="21e66-117">[Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.</span></span>
-* <span data-ttu-id="21e66-118">Hoe extra Node.js ontwikkelingsprogramma's installeren met NPM.</span><span class="sxs-lookup"><span data-stu-id="21e66-118">How to use NPM to install additional Node.js development tools.</span></span>
-  * <span data-ttu-id="21e66-119">De minimaal vereiste versie van Node.js is 4.5 TNS.</span><span class="sxs-lookup"><span data-stu-id="21e66-119">The minimum required version of Node.js is 4.5 LTS.</span></span>
-  * <span data-ttu-id="21e66-120">[NPM](https://www.npmjs.com) is een van de pakket-managers voor Node.js.</span><span class="sxs-lookup"><span data-stu-id="21e66-120">[NPM](https://www.npmjs.com) is one of the package managers for Node.js.</span></span>
+* <span data-ttu-id="e72b7-114">Hoe tooinstall Git en Node.js.</span><span class="sxs-lookup"><span data-stu-id="e72b7-114">How tooinstall Git and Node.js.</span></span>
+  * <span data-ttu-id="e72b7-115">[GIT](https://git-scm.com) is een open-source gedistribueerd versiebeheersysteem.</span><span class="sxs-lookup"><span data-stu-id="e72b7-115">[Git](https://git-scm.com) is an open source distributed version control system.</span></span> <span data-ttu-id="e72b7-116">Hallo-voorbeeldtoepassing voor dit artikel wordt opgeslagen op Git.</span><span class="sxs-lookup"><span data-stu-id="e72b7-116">hello sample application for this article is stored on Git.</span></span>
+  * <span data-ttu-id="e72b7-117">[Node.js](https://nodejs.org/en/) is een JavaScript-runtime met een uitgebreide pakket-ecosysteem.</span><span class="sxs-lookup"><span data-stu-id="e72b7-117">[Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.</span></span>
+* <span data-ttu-id="e72b7-118">Hoe toouse NPM tooinstall extra Node.js ontwikkelingsprogramma's.</span><span class="sxs-lookup"><span data-stu-id="e72b7-118">How toouse NPM tooinstall additional Node.js development tools.</span></span>
+  * <span data-ttu-id="e72b7-119">Hallo minimaal vereiste versie van Node.js is 4.5 TNS.</span><span class="sxs-lookup"><span data-stu-id="e72b7-119">hello minimum required version of Node.js is 4.5 LTS.</span></span>
+  * <span data-ttu-id="e72b7-120">[NPM](https://www.npmjs.com) is een van de Hallo pakket managers voor Node.js.</span><span class="sxs-lookup"><span data-stu-id="e72b7-120">[NPM](https://www.npmjs.com) is one of hello package managers for Node.js.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="21e66-121">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="21e66-121">What you need</span></span>
-<span data-ttu-id="21e66-122">Om deze bewerking niet voltooien, moet u het:</span><span class="sxs-lookup"><span data-stu-id="21e66-122">To complete this operation, you will need:</span></span>
-* <span data-ttu-id="21e66-123">Een internetverbinding om de ontwikkelprogramma's en de software te downloaden.</span><span class="sxs-lookup"><span data-stu-id="21e66-123">An Internet connection to download the development tools and the software.</span></span>
-* <span data-ttu-id="21e66-124">Een Mac met Mac OS Yosemite (10.10) of hoger.</span><span class="sxs-lookup"><span data-stu-id="21e66-124">A Mac that is running macOS Yosemite (10.10) or later.</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="e72b7-121">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="e72b7-121">What you need</span></span>
+<span data-ttu-id="e72b7-122">toocomplete deze bewerking moet u:</span><span class="sxs-lookup"><span data-stu-id="e72b7-122">toocomplete this operation, you will need:</span></span>
+* <span data-ttu-id="e72b7-123">Een Internet verbinding toodownload Hallo ontwikkelingsprogramma's en software Hallo.</span><span class="sxs-lookup"><span data-stu-id="e72b7-123">An Internet connection toodownload hello development tools and hello software.</span></span>
+* <span data-ttu-id="e72b7-124">Een Mac met Mac OS Yosemite (10.10) of hoger.</span><span class="sxs-lookup"><span data-stu-id="e72b7-124">A Mac that is running macOS Yosemite (10.10) or later.</span></span>
 
-## <a name="install-git-and-nodejs"></a><span data-ttu-id="21e66-125">Installeer Git en Node.js</span><span class="sxs-lookup"><span data-stu-id="21e66-125">Install Git and Node.js</span></span>
-<span data-ttu-id="21e66-126">U installeert Git en Node.js via de [Homebrew](http://brew.sh) het hulpprogramma voor het pakket met de volgende stappen:</span><span class="sxs-lookup"><span data-stu-id="21e66-126">To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:</span></span>
+## <a name="install-git-and-nodejs"></a><span data-ttu-id="e72b7-125">Installeer Git en Node.js</span><span class="sxs-lookup"><span data-stu-id="e72b7-125">Install Git and Node.js</span></span>
+<span data-ttu-id="e72b7-126">tooinstall Git en Node.js, gebruikt u Hallo [Homebrew](http://brew.sh) het hulpprogramma voor het pakket met de volgende stappen:</span><span class="sxs-lookup"><span data-stu-id="e72b7-126">tooinstall Git and Node.js, use hello [Homebrew](http://brew.sh) package management utility by following these steps:</span></span>
 
-1. <span data-ttu-id="21e66-127">Homebrew installeren.</span><span class="sxs-lookup"><span data-stu-id="21e66-127">Install Homebrew.</span></span> <span data-ttu-id="21e66-128">Als u Homebrew al hebt geïnstalleerd, gaat u naar stap 2.</span><span class="sxs-lookup"><span data-stu-id="21e66-128">If you've already installed Homebrew, go to step 2.</span></span>
+1. <span data-ttu-id="e72b7-127">Homebrew installeren.</span><span class="sxs-lookup"><span data-stu-id="e72b7-127">Install Homebrew.</span></span> <span data-ttu-id="e72b7-128">Als u Homebrew al hebt geïnstalleerd, gaat u toostep 2.</span><span class="sxs-lookup"><span data-stu-id="e72b7-128">If you've already installed Homebrew, go toostep 2.</span></span>
 
-   1. <span data-ttu-id="21e66-129">Druk op `Cmd + Space` en voer `Terminal` een terminal openen.</span><span class="sxs-lookup"><span data-stu-id="21e66-129">Press `Cmd + Space` and enter `Terminal` to open a terminal.</span></span>
-   2. <span data-ttu-id="21e66-130">Voer de volgende opdracht uit:</span><span class="sxs-lookup"><span data-stu-id="21e66-130">Run the following command:</span></span>
+   1. <span data-ttu-id="e72b7-129">Druk op `Cmd + Space` en voer `Terminal` tooopen een terminal.</span><span class="sxs-lookup"><span data-stu-id="e72b7-129">Press `Cmd + Space` and enter `Terminal` tooopen a terminal.</span></span>
+   2. <span data-ttu-id="e72b7-130">Hallo volgende opdracht uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="e72b7-130">Run hello following command:</span></span>
 
       ```bash
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       ```
-2. <span data-ttu-id="21e66-131">Git en Node.js installeren met de volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="21e66-131">Install Git and Node.js by running the following command:</span></span>
+2. <span data-ttu-id="e72b7-131">Installeer Git en Node.js Hallo na de opdracht uitgevoerd:</span><span class="sxs-lookup"><span data-stu-id="e72b7-131">Install Git and Node.js by running hello following command:</span></span>
 
    ```bash
    brew install node git
    ```
 
-## <a name="install-additional-nodejs-development-tools"></a><span data-ttu-id="21e66-132">Extra hulpprogramma's voor Node.js-ontwikkeling</span><span class="sxs-lookup"><span data-stu-id="21e66-132">Install additional Node.js development tools</span></span>
-<span data-ttu-id="21e66-133">Gebruik [gulp.js](http://gulpjs.com) voor de implementatie van de voorbeeldtoepassing op uw Edison automatiseren.</span><span class="sxs-lookup"><span data-stu-id="21e66-133">Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to your Edison.</span></span>
+## <a name="install-additional-nodejs-development-tools"></a><span data-ttu-id="e72b7-132">Extra hulpprogramma's voor Node.js-ontwikkeling</span><span class="sxs-lookup"><span data-stu-id="e72b7-132">Install additional Node.js development tools</span></span>
+<span data-ttu-id="e72b7-133">Gebruik [gulp.js](http://gulpjs.com) tooautomate Hallo implementatie van Hallo voorbeeld toepassing tooyour Edison.</span><span class="sxs-lookup"><span data-stu-id="e72b7-133">Use [gulp.js](http://gulpjs.com) tooautomate hello deployment of hello sample application tooyour Edison.</span></span>
 
-<span data-ttu-id="21e66-134">Installeer `gulp` met de volgende opdracht in de terminal:</span><span class="sxs-lookup"><span data-stu-id="21e66-134">Install `gulp` by running the following command in the terminal:</span></span>
+<span data-ttu-id="e72b7-134">Installeer `gulp` door het uitvoeren van de volgende opdracht in de terminal Hallo Hallo:</span><span class="sxs-lookup"><span data-stu-id="e72b7-134">Install `gulp` by running hello following command in hello terminal:</span></span>
 
 ```bash
 sudo npm install -g gulp
 ```
 
-<span data-ttu-id="21e66-135">Als u problemen hebt met het Node.js en deze extra ontwikkelprogramma's installeert op Mac OS, Zie de [probleemoplossingsgids] [ troubleshooting] voor oplossingen voor bekende problemen.</span><span class="sxs-lookup"><span data-stu-id="21e66-135">If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide][troubleshooting] for solutions to common problems.</span></span>
+<span data-ttu-id="e72b7-135">Als u problemen hebt met het Node.js en deze extra ontwikkelprogramma's installeert op Mac OS, Zie Hallo [probleemoplossingsgids] [ troubleshooting] voor toocommon oplossingen voor problemen.</span><span class="sxs-lookup"><span data-stu-id="e72b7-135">If you experience issues installing Node.js and these additional development tools on macOS, see hello [troubleshooting guide][troubleshooting] for solutions toocommon problems.</span></span>
 
-## <a name="install-visual-studio-code"></a><span data-ttu-id="21e66-136">Visual Studio Code installeren</span><span class="sxs-lookup"><span data-stu-id="21e66-136">Install Visual Studio Code</span></span>
-<span data-ttu-id="21e66-137">[Download](https://code.visualstudio.com/docs/setup/osx) en Visual Studio Code installeren.</span><span class="sxs-lookup"><span data-stu-id="21e66-137">[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code.</span></span> <span data-ttu-id="21e66-138">Visual Studio Code is een eenvoudige maar krachtige broncode-editor voor Windows, Linux en Mac OS.</span><span class="sxs-lookup"><span data-stu-id="21e66-138">Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS.</span></span> <span data-ttu-id="21e66-139">U gebruikt deze editor verderop in de zelfstudie voor het bewerken van de voorbeeldcode.</span><span class="sxs-lookup"><span data-stu-id="21e66-139">You use this editor later in the tutorial to edit the sample code.</span></span>
+## <a name="install-visual-studio-code"></a><span data-ttu-id="e72b7-136">Visual Studio Code installeren</span><span class="sxs-lookup"><span data-stu-id="e72b7-136">Install Visual Studio Code</span></span>
+<span data-ttu-id="e72b7-137">[Download](https://code.visualstudio.com/docs/setup/osx) en Visual Studio Code installeren.</span><span class="sxs-lookup"><span data-stu-id="e72b7-137">[Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code.</span></span> <span data-ttu-id="e72b7-138">Visual Studio Code is een eenvoudige maar krachtige broncode-editor voor Windows, Linux en Mac OS.</span><span class="sxs-lookup"><span data-stu-id="e72b7-138">Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS.</span></span> <span data-ttu-id="e72b7-139">U gebruikt deze editor verderop in Hallo zelfstudie tooedit Hallo voorbeeldcode.</span><span class="sxs-lookup"><span data-stu-id="e72b7-139">You use this editor later in hello tutorial tooedit hello sample code.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="21e66-140">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="21e66-140">Summary</span></span>
-<span data-ttu-id="21e66-141">U kunt de vereiste ontwikkelingsprogramma's en software voor de eerste voorbeeldtoepassing hebt geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="21e66-141">You've installed the required development tools and software for the first sample application.</span></span> <span data-ttu-id="21e66-142">De volgende taak is het maken, implementeren en uitvoeren van de voorbeeldtoepassing op Edison.</span><span class="sxs-lookup"><span data-stu-id="21e66-142">The next task is to create, deploy, and run the sample application on Edison.</span></span>
+## <a name="summary"></a><span data-ttu-id="e72b7-140">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="e72b7-140">Summary</span></span>
+<span data-ttu-id="e72b7-141">U kunt Hallo vereist ontwikkelingsprogramma's en -software voor het eerste voorbeeldtoepassing hello hebt geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="e72b7-141">You've installed hello required development tools and software for hello first sample application.</span></span> <span data-ttu-id="e72b7-142">de volgende taak Hallo is toocreate, implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Edison.</span><span class="sxs-lookup"><span data-stu-id="e72b7-142">hello next task is toocreate, deploy, and run hello sample application on Edison.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="21e66-143">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="21e66-143">Next steps</span></span>
-<span data-ttu-id="21e66-144">[De toepassing knipperen maken en implementeren][create-and-deploy-the-blink-application]</span><span class="sxs-lookup"><span data-stu-id="21e66-144">[Create and deploy the blink application][create-and-deploy-the-blink-application]</span></span>
+## <a name="next-steps"></a><span data-ttu-id="e72b7-143">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="e72b7-143">Next steps</span></span>
+<span data-ttu-id="e72b7-144">[Hallo knipperen toepassing maken en implementeren][create-and-deploy-the-blink-application]</span><span class="sxs-lookup"><span data-stu-id="e72b7-144">[Create and deploy hello blink application][create-and-deploy-the-blink-application]</span></span>
 <!-- Images and links -->
 
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md

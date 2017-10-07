@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Container Registry - zelfstudies, API-verwijzing | Microsoft Docs
-description: "Leer hoe u containerregisters kunt maken en onderhouden voor het opslaan van uw implementatie-installatiekopieën met een beheerde Docker-registerservice. Zelfstudies, API-verwijzing en meer."
+title: aaaAzure Container register documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toocreate en onderhouden van de container registers toostore uw implementatie met een beheerde service voor Docker-register afbeeldingen. Zelfstudies, API-verwijzing en meer.
 services: container-registry
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d759eb2b00b59797cfdf8ce3b4071317a574c2b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-registry-documentation"></a>Documentatie voor Azure Container Registry
 
-Leer hoe u Container Registry kunt gebruiken voor het opslaan en beheren van installatiekopieën voor alle typen containerimplementaties. Zelfstudies, REST-API-verwijzing en andere documentatie laten zien hoe u containerregisters kunt maken en onderhouden met deze beheerde Docker-registerservice.
+Meer informatie over hoe toouse Container register toostore en afbeeldingen voor alle typen containerimplementaties te beheren. Zelfstudies, naslaginformatie over REST API en andere documentatie die u zien hoe toocreate en onderhouden van de container registers met dit beheerde Docker registry-service.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Leer hoe u Container Registry kunt gebruiken voor het opslaan en beheren van ins
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een register maken met de portal</h3>
+                        <h3>Het maken van een register met Hallo-portal aan de slag</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ Leer hoe u Container Registry kunt gebruiken voor het opslaan en beheren van ins
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Een register maken met de CLI</h3>
+                        <h3>Het maken van een register met Hallo CLI aan de slag</h3>
                     </div>
                 </div>
             </div>

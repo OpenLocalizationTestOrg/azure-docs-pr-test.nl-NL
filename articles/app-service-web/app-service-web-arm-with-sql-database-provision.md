@@ -1,6 +1,6 @@
 ---
-title: Inrichten van een web-app die gebruikmaakt van een SQL-Database
-description: Gebruik een Azure Resource Manager-sjabloon voor het implementeren van een web-app met een SQL-Database.
+title: aaaProvision een web-app die gebruikmaakt van een SQL-Database
+description: Gebruik een Azure Resource Manager-sjabloon toodeploy een web-app met een SQL-Database.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: cc34f684f8c50e95a62cb7b04fd2ddce5deb68d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 189c0122d201e88f15013bf241d66652ef23df4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="provision-a-web-app-with-a-sql-database"></a><span data-ttu-id="a031a-103">Inrichten van een web-app met een SQL-Database</span><span class="sxs-lookup"><span data-stu-id="a031a-103">Provision a web app with a SQL Database</span></span>
-<span data-ttu-id="a031a-104">In dit onderwerp leert u hoe u een Azure Resource Manager-sjabloon die u een webtoepassing en SQL-Database implementeert maken.</span><span class="sxs-lookup"><span data-stu-id="a031a-104">In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app and SQL Database.</span></span> <span data-ttu-id="a031a-105">U leert hoe om te definiëren welke bronnen worden geïmplementeerd en het definiëren van de parameters die zijn opgegeven wanneer de implementatie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="a031a-105">You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed.</span></span> <span data-ttu-id="a031a-106">U kunt deze sjabloon gebruiken voor uw eigen implementaties of de sjabloon aanpassen aan uw eisen.</span><span class="sxs-lookup"><span data-stu-id="a031a-106">You can use this template for your own deployments, or customize it to meet your requirements.</span></span>
+# <a name="provision-a-web-app-with-a-sql-database"></a><span data-ttu-id="860b5-103">Inrichten van een web-app met een SQL-Database</span><span class="sxs-lookup"><span data-stu-id="860b5-103">Provision a web app with a SQL Database</span></span>
+<span data-ttu-id="860b5-104">In dit onderwerp leert u hoe toocreate een Azure Resource Manager-sjabloon die u een webtoepassing en SQL-Database implementeert.</span><span class="sxs-lookup"><span data-stu-id="860b5-104">In this topic, you will learn how toocreate an Azure Resource Manager template that deploys a web app and SQL Database.</span></span> <span data-ttu-id="860b5-105">U leert hoe toodefine welke resources zijn geïmplementeerd en hoe toodefine parameters die zijn opgegeven wanneer het Hallo-implementatie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="860b5-105">You will learn how toodefine which resources are deployed and how toodefine parameters that are specified when hello deployment is executed.</span></span> <span data-ttu-id="860b5-106">U kunt deze sjabloon voor uw eigen implementaties gebruiken of aanpassen toomeet uw vereisten.</span><span class="sxs-lookup"><span data-stu-id="860b5-106">You can use this template for your own deployments, or customize it toomeet your requirements.</span></span>
 
-<span data-ttu-id="a031a-107">Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="a031a-107">For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).</span></span>
+<span data-ttu-id="860b5-107">Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="860b5-107">For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).</span></span>
 
-<span data-ttu-id="a031a-108">Zie voor meer informatie over het implementeren van apps [een complexe toepassing zoals verwacht in Azure implementeert](app-service-deploy-complex-application-predictably.md).</span><span class="sxs-lookup"><span data-stu-id="a031a-108">For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).</span></span>
+<span data-ttu-id="860b5-108">Zie voor meer informatie over het implementeren van apps [een complexe toepassing zoals verwacht in Azure implementeert](app-service-deploy-complex-application-predictably.md).</span><span class="sxs-lookup"><span data-stu-id="860b5-108">For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).</span></span>
 
-<span data-ttu-id="a031a-109">Zie voor de volledige sjabloon [Web-App met SQL Database-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="a031a-109">For the complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).</span></span>
+<span data-ttu-id="860b5-109">Zie voor de volledige sjabloon hello, [Web-App met SQL Database-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).</span><span class="sxs-lookup"><span data-stu-id="860b5-109">For hello complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).</span></span>
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="what-you-will-deploy"></a><span data-ttu-id="a031a-110">Wat u wilt implementeren</span><span class="sxs-lookup"><span data-stu-id="a031a-110">What you will deploy</span></span>
-<span data-ttu-id="a031a-111">In deze sjabloon gaat u implementeren:</span><span class="sxs-lookup"><span data-stu-id="a031a-111">In this template, you will deploy:</span></span>
+## <a name="what-you-will-deploy"></a><span data-ttu-id="860b5-110">Wat u wilt implementeren</span><span class="sxs-lookup"><span data-stu-id="860b5-110">What you will deploy</span></span>
+<span data-ttu-id="860b5-111">In deze sjabloon gaat u implementeren:</span><span class="sxs-lookup"><span data-stu-id="860b5-111">In this template, you will deploy:</span></span>
 
-* <span data-ttu-id="a031a-112">Een web-app</span><span class="sxs-lookup"><span data-stu-id="a031a-112">a web app</span></span>
-* <span data-ttu-id="a031a-113">SQL Database-server</span><span class="sxs-lookup"><span data-stu-id="a031a-113">SQL Database server</span></span>
-* <span data-ttu-id="a031a-114">SQL Database</span><span class="sxs-lookup"><span data-stu-id="a031a-114">SQL Database</span></span>
-* <span data-ttu-id="a031a-115">Instellingen voor automatisch schalen</span><span class="sxs-lookup"><span data-stu-id="a031a-115">AutoScale settings</span></span>
-* <span data-ttu-id="a031a-116">Regels voor waarschuwingen</span><span class="sxs-lookup"><span data-stu-id="a031a-116">Alert rules</span></span>
-* <span data-ttu-id="a031a-117">App Insights</span><span class="sxs-lookup"><span data-stu-id="a031a-117">App Insights</span></span>
+* <span data-ttu-id="860b5-112">Een web-app</span><span class="sxs-lookup"><span data-stu-id="860b5-112">a web app</span></span>
+* <span data-ttu-id="860b5-113">SQL Database-server</span><span class="sxs-lookup"><span data-stu-id="860b5-113">SQL Database server</span></span>
+* <span data-ttu-id="860b5-114">SQL Database</span><span class="sxs-lookup"><span data-stu-id="860b5-114">SQL Database</span></span>
+* <span data-ttu-id="860b5-115">Instellingen voor automatisch schalen</span><span class="sxs-lookup"><span data-stu-id="860b5-115">AutoScale settings</span></span>
+* <span data-ttu-id="860b5-116">Regels voor waarschuwingen</span><span class="sxs-lookup"><span data-stu-id="860b5-116">Alert rules</span></span>
+* <span data-ttu-id="860b5-117">App Insights</span><span class="sxs-lookup"><span data-stu-id="860b5-117">App Insights</span></span>
 
-<span data-ttu-id="a031a-118">Klik op de volgende knop om de implementatie automatisch uit te voeren:</span><span class="sxs-lookup"><span data-stu-id="a031a-118">To run the deployment automatically, click the following button:</span></span>
+<span data-ttu-id="860b5-118">toorun implementatie automatisch Hallo, klikt u op de knop volgende Hallo:</span><span class="sxs-lookup"><span data-stu-id="860b5-118">toorun hello deployment automatically, click hello following button:</span></span>
 
-<span data-ttu-id="a031a-119">[![Implementeren in Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)</span><span class="sxs-lookup"><span data-stu-id="a031a-119">[![Deploy to Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)</span></span>
+<span data-ttu-id="860b5-119">[![TooAzure implementeren](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)</span><span class="sxs-lookup"><span data-stu-id="860b5-119">[![Deploy tooAzure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)</span></span>
 
-## <a name="parameters-to-specify"></a><span data-ttu-id="a031a-120">Parameters opgeven</span><span class="sxs-lookup"><span data-stu-id="a031a-120">Parameters to specify</span></span>
+## <a name="parameters-toospecify"></a><span data-ttu-id="860b5-120">Parameters toospecify</span><span class="sxs-lookup"><span data-stu-id="860b5-120">Parameters toospecify</span></span>
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### <a name="administratorlogin"></a><span data-ttu-id="a031a-121">administratorLogin</span><span class="sxs-lookup"><span data-stu-id="a031a-121">administratorLogin</span></span>
-<span data-ttu-id="a031a-122">De accountnaam moet worden gebruikt voor de beheerder van de database.</span><span class="sxs-lookup"><span data-stu-id="a031a-122">The account name to use for the database server administrator.</span></span>
+### <a name="administratorlogin"></a><span data-ttu-id="860b5-121">administratorLogin</span><span class="sxs-lookup"><span data-stu-id="860b5-121">administratorLogin</span></span>
+<span data-ttu-id="860b5-122">Hallo account naam toouse voor serverbeheerder Hallo-database.</span><span class="sxs-lookup"><span data-stu-id="860b5-122">hello account name toouse for hello database server administrator.</span></span>
 
     "administratorLogin": {
       "type": "string"
     }
 
-### <a name="administratorloginpassword"></a><span data-ttu-id="a031a-123">administratorLoginPassword</span><span class="sxs-lookup"><span data-stu-id="a031a-123">administratorLoginPassword</span></span>
-<span data-ttu-id="a031a-124">Het wachtwoord moet worden gebruikt voor de beheerder van de database.</span><span class="sxs-lookup"><span data-stu-id="a031a-124">The password to use for the database server administrator.</span></span>
+### <a name="administratorloginpassword"></a><span data-ttu-id="860b5-123">administratorLoginPassword</span><span class="sxs-lookup"><span data-stu-id="860b5-123">administratorLoginPassword</span></span>
+<span data-ttu-id="860b5-124">Hallo wachtwoord toouse voor serverbeheerder Hallo-database.</span><span class="sxs-lookup"><span data-stu-id="860b5-124">hello password toouse for hello database server administrator.</span></span>
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### <a name="databasename"></a><span data-ttu-id="a031a-125">DatabaseName</span><span class="sxs-lookup"><span data-stu-id="a031a-125">databaseName</span></span>
-<span data-ttu-id="a031a-126">De naam van de nieuwe database maken.</span><span class="sxs-lookup"><span data-stu-id="a031a-126">The name of the new database to create.</span></span>
+### <a name="databasename"></a><span data-ttu-id="860b5-125">DatabaseName</span><span class="sxs-lookup"><span data-stu-id="860b5-125">databaseName</span></span>
+<span data-ttu-id="860b5-126">Hallo-naam van de nieuwe database toocreate Hallo.</span><span class="sxs-lookup"><span data-stu-id="860b5-126">hello name of hello new database toocreate.</span></span>
 
     "databaseName": {
       "type": "string",
       "defaultValue": "sampledb"
     }
 
-### <a name="collation"></a><span data-ttu-id="a031a-127">Sortering</span><span class="sxs-lookup"><span data-stu-id="a031a-127">collation</span></span>
-<span data-ttu-id="a031a-128">De databasesortering moet worden gebruikt voor het juiste gebruik van tekens van bestuur.</span><span class="sxs-lookup"><span data-stu-id="a031a-128">The database collation to use for governing the proper use of characters.</span></span>
+### <a name="collation"></a><span data-ttu-id="860b5-127">Sortering</span><span class="sxs-lookup"><span data-stu-id="860b5-127">collation</span></span>
+<span data-ttu-id="860b5-128">Hallo database sortering toouse voor van bestuur Hallo juiste gebruik van tekens.</span><span class="sxs-lookup"><span data-stu-id="860b5-128">hello database collation toouse for governing hello proper use of characters.</span></span>
 
     "collation": {
       "type": "string",
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### <a name="edition"></a><span data-ttu-id="a031a-129">Editie</span><span class="sxs-lookup"><span data-stu-id="a031a-129">edition</span></span>
-<span data-ttu-id="a031a-130">Het type van de database te maken.</span><span class="sxs-lookup"><span data-stu-id="a031a-130">The type of database to create.</span></span>
+### <a name="edition"></a><span data-ttu-id="860b5-129">Editie</span><span class="sxs-lookup"><span data-stu-id="860b5-129">edition</span></span>
+<span data-ttu-id="860b5-130">Hallo-type van de database toocreate.</span><span class="sxs-lookup"><span data-stu-id="860b5-130">hello type of database toocreate.</span></span>
 
     "edition": {
       "type": "string",
@@ -90,20 +90,20 @@ ms.lasthandoff: 07/11/2017
         "Premium"
       ],
       "metadata": {
-        "description": "The type of database to create."
+        "description": "hello type of database toocreate."
       }
     }
 
-### <a name="maxsizebytes"></a><span data-ttu-id="a031a-131">maxSizeBytes</span><span class="sxs-lookup"><span data-stu-id="a031a-131">maxSizeBytes</span></span>
-<span data-ttu-id="a031a-132">De maximale grootte in bytes, voor de database.</span><span class="sxs-lookup"><span data-stu-id="a031a-132">The maximum size, in bytes, for the database.</span></span>
+### <a name="maxsizebytes"></a><span data-ttu-id="860b5-131">maxSizeBytes</span><span class="sxs-lookup"><span data-stu-id="860b5-131">maxSizeBytes</span></span>
+<span data-ttu-id="860b5-132">Hallo maximale grootte, in bytes, voor Hallo-database.</span><span class="sxs-lookup"><span data-stu-id="860b5-132">hello maximum size, in bytes, for hello database.</span></span>
 
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
-### <a name="requestedserviceobjectivename"></a><span data-ttu-id="a031a-133">requestedServiceObjectiveName</span><span class="sxs-lookup"><span data-stu-id="a031a-133">requestedServiceObjectiveName</span></span>
-<span data-ttu-id="a031a-134">De naam overeenkomt met het prestatieniveau voor de editie.</span><span class="sxs-lookup"><span data-stu-id="a031a-134">The name corresponding to the performance level for edition.</span></span> 
+### <a name="requestedserviceobjectivename"></a><span data-ttu-id="860b5-133">requestedServiceObjectiveName</span><span class="sxs-lookup"><span data-stu-id="860b5-133">requestedServiceObjectiveName</span></span>
+<span data-ttu-id="860b5-134">Hallo naam bijbehorende toohello prestatieniveau voor de editie.</span><span class="sxs-lookup"><span data-stu-id="860b5-134">hello name corresponding toohello performance level for edition.</span></span> 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,12 +118,12 @@ ms.lasthandoff: 07/11/2017
         "P3"
       ],
       "metadata": {
-        "description": "Describes the performance level for Edition"
+        "description": "Describes hello performance level for Edition"
       }
     }
 
-## <a name="variables-for-names"></a><span data-ttu-id="a031a-135">Variabelen voor de namen</span><span class="sxs-lookup"><span data-stu-id="a031a-135">Variables for names</span></span>
-<span data-ttu-id="a031a-136">Deze sjabloon bevat variabelen die namen die worden gebruikt in de sjabloon te maken.</span><span class="sxs-lookup"><span data-stu-id="a031a-136">This template includes variables that construct names used in the template.</span></span> <span data-ttu-id="a031a-137">De variabele waarden gebruikt de **uniqueString** functie voor het genereren van een naam op van de resource-id.</span><span class="sxs-lookup"><span data-stu-id="a031a-137">The variable values use the **uniqueString** function to generate a name from the resource group id.</span></span>
+## <a name="variables-for-names"></a><span data-ttu-id="860b5-135">Variabelen voor de namen</span><span class="sxs-lookup"><span data-stu-id="860b5-135">Variables for names</span></span>
+<span data-ttu-id="860b5-136">Deze sjabloon bevat variabelen die namen die worden gebruikt in Hallo-sjabloon maken.</span><span class="sxs-lookup"><span data-stu-id="860b5-136">This template includes variables that construct names used in hello template.</span></span> <span data-ttu-id="860b5-137">Hallo waarden van variabelen gebruiken Hallo **uniqueString** toogenerate een naam op van de id van de resourcegroep Hallo werken.</span><span class="sxs-lookup"><span data-stu-id="860b5-137">hello variable values use hello **uniqueString** function toogenerate a name from hello resource group id.</span></span>
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,9 +132,9 @@ ms.lasthandoff: 07/11/2017
     },
 
 
-## <a name="resources-to-deploy"></a><span data-ttu-id="a031a-138">Resources om te implementeren</span><span class="sxs-lookup"><span data-stu-id="a031a-138">Resources to deploy</span></span>
-### <a name="sql-server-and-database"></a><span data-ttu-id="a031a-139">SQL Server en Database</span><span class="sxs-lookup"><span data-stu-id="a031a-139">SQL Server and Database</span></span>
-<span data-ttu-id="a031a-140">Maakt een nieuwe SQL Server en database.</span><span class="sxs-lookup"><span data-stu-id="a031a-140">Creates a new SQL Server and database.</span></span> <span data-ttu-id="a031a-141">De naam van de server is opgegeven in de **serverName** parameter en de opgegeven locatie in de **serverLocation** parameter.</span><span class="sxs-lookup"><span data-stu-id="a031a-141">The name of the server is specified in the **serverName** parameter and the location specified in the **serverLocation** parameter.</span></span> <span data-ttu-id="a031a-142">Wanneer u de nieuwe server maakt, moet u een aanmeldingsnaam en wachtwoord opgeven voor de beheerder van de database.</span><span class="sxs-lookup"><span data-stu-id="a031a-142">When creating the new server, you must provide a login name and password for the database server administrator.</span></span> 
+## <a name="resources-toodeploy"></a><span data-ttu-id="860b5-138">Resources toodeploy</span><span class="sxs-lookup"><span data-stu-id="860b5-138">Resources toodeploy</span></span>
+### <a name="sql-server-and-database"></a><span data-ttu-id="860b5-139">SQL Server en Database</span><span class="sxs-lookup"><span data-stu-id="860b5-139">SQL Server and Database</span></span>
+<span data-ttu-id="860b5-140">Maakt een nieuwe SQL Server en database.</span><span class="sxs-lookup"><span data-stu-id="860b5-140">Creates a new SQL Server and database.</span></span> <span data-ttu-id="860b5-141">Hallo-naam van Hallo-server is opgegeven in Hallo **serverName** parameter en Hallo locatie die is opgegeven in Hallo **serverLocation** parameter.</span><span class="sxs-lookup"><span data-stu-id="860b5-141">hello name of hello server is specified in hello **serverName** parameter and hello location specified in hello **serverLocation** parameter.</span></span> <span data-ttu-id="860b5-142">Wanneer u de nieuwe server Hallo maakt, moet u een aanmeldingsnaam en wachtwoord voor de databasebeheerder server Hallo opgeven.</span><span class="sxs-lookup"><span data-stu-id="860b5-142">When creating hello new server, you must provide a login name and password for hello database server administrator.</span></span> 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -185,7 +185,7 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### <a name="web-app"></a><span data-ttu-id="a031a-143">Web-app</span><span class="sxs-lookup"><span data-stu-id="a031a-143">Web app</span></span>
+### <a name="web-app"></a><span data-ttu-id="860b5-143">Web-app</span><span class="sxs-lookup"><span data-stu-id="860b5-143">Web app</span></span>
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -221,7 +221,7 @@ ms.lasthandoff: 07/11/2017
     },
 
 
-### <a name="autoscale"></a><span data-ttu-id="a031a-144">Automatisch schalen</span><span class="sxs-lookup"><span data-stu-id="a031a-144">AutoScale</span></span>
+### <a name="autoscale"></a><span data-ttu-id="860b5-144">Automatisch schalen</span><span class="sxs-lookup"><span data-stu-id="860b5-144">AutoScale</span></span>
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -290,7 +290,7 @@ ms.lasthandoff: 07/11/2017
     },
 
 
-### <a name="alert-rules-for-status-codes-403-and-500s-high-cpu-and-http-queue-length"></a><span data-ttu-id="a031a-145">Waarschuwingsregels voor statuscodes 403 en 500's, hoog CPU- en HTTP-wachtrijlengte</span><span class="sxs-lookup"><span data-stu-id="a031a-145">Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length</span></span>
+### <a name="alert-rules-for-status-codes-403-and-500s-high-cpu-and-http-queue-length"></a><span data-ttu-id="860b5-145">Waarschuwingsregels voor statuscodes 403 en 500's, hoog CPU- en HTTP-wachtrijlengte</span><span class="sxs-lookup"><span data-stu-id="860b5-145">Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length</span></span>
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -373,7 +373,7 @@ ms.lasthandoff: 07/11/2017
       },
       "properties": {
         "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
-        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
+        "description": "[concat('hello average CPU is high across all hello instances of ', variables('hostingPlanName'))]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -407,7 +407,7 @@ ms.lasthandoff: 07/11/2017
       },
       "properties": {
         "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
-        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
+        "description": "[concat('hello HTTP queue for hello instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -428,7 +428,7 @@ ms.lasthandoff: 07/11/2017
       }
     },
 
-### <a name="app-insights"></a><span data-ttu-id="a031a-146">App Insights</span><span class="sxs-lookup"><span data-stu-id="a031a-146">App Insights</span></span>
+### <a name="app-insights"></a><span data-ttu-id="860b5-146">App Insights</span><span class="sxs-lookup"><span data-stu-id="860b5-146">App Insights</span></span>
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -446,22 +446,22 @@ ms.lasthandoff: 07/11/2017
       }
     }
 
-## <a name="commands-to-run-deployment"></a><span data-ttu-id="a031a-147">Opdrachten om implementatie uit te voeren</span><span class="sxs-lookup"><span data-stu-id="a031a-147">Commands to run deployment</span></span>
+## <a name="commands-toorun-deployment"></a><span data-ttu-id="860b5-147">Opdrachten toorun implementatie</span><span class="sxs-lookup"><span data-stu-id="860b5-147">Commands toorun deployment</span></span>
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### <a name="powershell"></a><span data-ttu-id="a031a-148">PowerShell</span><span class="sxs-lookup"><span data-stu-id="a031a-148">PowerShell</span></span>
+### <a name="powershell"></a><span data-ttu-id="860b5-148">PowerShell</span><span class="sxs-lookup"><span data-stu-id="860b5-148">PowerShell</span></span>
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### <a name="azure-cli"></a><span data-ttu-id="a031a-149">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="a031a-149">Azure CLI</span></span>
+### <a name="azure-cli"></a><span data-ttu-id="860b5-149">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="860b5-149">Azure CLI</span></span>
 
     azure config mode arm
     azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### <a name="azure-cli-20"></a><span data-ttu-id="a031a-150">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="a031a-150">Azure CLI 2.0</span></span>
+### <a name="azure-cli-20"></a><span data-ttu-id="860b5-150">Azure CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="860b5-150">Azure CLI 2.0</span></span>
 
     az resource deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE]
-> <span data-ttu-id="a031a-151">Zie voor de inhoud van de parameters-JSON-bestand, [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).</span><span class="sxs-lookup"><span data-stu-id="a031a-151">For content of the parameters JSON file, see [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).</span></span>
+> <span data-ttu-id="860b5-151">Zie voor de inhoud van Hallo parameters JSON-bestand, [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).</span><span class="sxs-lookup"><span data-stu-id="860b5-151">For content of hello parameters JSON file, see [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).</span></span>
 >
 >

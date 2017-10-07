@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
-### [Een aangepast domein aan CDN toewijzen](cdn-map-content-to-custom-domain.md)
+### [Een tooCDN aangepast domein toewijzen](cdn-map-content-to-custom-domain.md)
 ### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
 ## Inhoud optimaliseren
 ### [Optimalisatieoverzicht](cdn-optimization-overview.md)
