@@ -1,6 +1,6 @@
 ---
-title: Handleiding voor het maken van een Service van gegevens voor de Marketplace | Microsoft Docs
-description: Gedetailleerde instructies voor het maken, certificeren en implementeren van een Service voor gegevens aanschaffen op Azure Marketplace.
+title: aaaGuide toocreating een gegevensservice voor Hallo Marketplace | Microsoft Docs
+description: Gedetailleerde instructies waarmee toocreate, certificeren en implementeren van een Service voor gegevens aanschaffen op Hallo Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,181 +14,181 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: deb2e52dd03f5beb2ad6a927bd2d03e47d20b691
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a><span data-ttu-id="23062-103">Toewijzing van een bestaande webservice aan OData via CSDL</span><span class="sxs-lookup"><span data-stu-id="23062-103">Mapping an existing web service to OData through CSDL</span></span>
+# <a name="mapping-an-existing-web-service-tooodata-through-csdl"></a><span data-ttu-id="5d997-103">Toewijzing van een bestaande web service tooOData via CSDL</span><span class="sxs-lookup"><span data-stu-id="5d997-103">Mapping an existing web service tooOData through CSDL</span></span>
 > [!IMPORTANT]
-> <span data-ttu-id="23062-104">**Op dit moment wordt niet langer zijn voorbereiden op alle nieuwe gegevensservice uitgevers. Nieuwe dataservices wordt niet goedgekeurd voor de aanbieding.**</span><span class="sxs-lookup"><span data-stu-id="23062-104">**At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.**</span></span> <span data-ttu-id="23062-105">Als u een SaaS business-toepassing die u wilt publiceren op AppSource hebt u meer informatie vindt [hier](https://appsource.microsoft.com/partners).</span><span class="sxs-lookup"><span data-stu-id="23062-105">If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners).</span></span> <span data-ttu-id="23062-106">Als u beschikt over een IaaS-toepassingen of developer-service die u wilt publiceren op Azure Marketplace u meer informatie vindt [hier](https://azure.microsoft.com/marketplace/programs/certified/).</span><span class="sxs-lookup"><span data-stu-id="23062-106">If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).</span></span>
+> <span data-ttu-id="5d997-104">**Op dit moment wordt niet langer zijn voorbereiden op alle nieuwe gegevensservice uitgevers. Nieuwe dataservices wordt niet goedgekeurd voor de aanbieding.**</span><span class="sxs-lookup"><span data-stu-id="5d997-104">**At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.**</span></span> <span data-ttu-id="5d997-105">Als u een SaaS-business-toepassing hebt wilt toopublish op AppSource vindt u meer informatie [hier](https://appsource.microsoft.com/partners).</span><span class="sxs-lookup"><span data-stu-id="5d997-105">If you have a SaaS business application you would like toopublish on AppSource you can find more information [here](https://appsource.microsoft.com/partners).</span></span> <span data-ttu-id="5d997-106">Als u beschikt over een IaaS-toepassingen of developer-service dat u zou zoals toopublish op Azure Marketplace vindt u meer informatie [hier](https://azure.microsoft.com/marketplace/programs/certified/).</span><span class="sxs-lookup"><span data-stu-id="5d997-106">If you have an IaaS applications or developer service you would like toopublish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).</span></span>
 > 
 > 
 
-<span data-ttu-id="23062-107">In dit artikel biedt een overzicht over het gebruik van een CSDL een bestaande service toewijzen aan een compatibele OData-service.</span><span class="sxs-lookup"><span data-stu-id="23062-107">This article gives an overview on how to use a CSDL to map an existing service to an OData compatible service.</span></span> <span data-ttu-id="23062-108">Hierin wordt uitgelegd hoe de toewijzing-document (CSDL) maken die de invoer-aanvraag van de client via een aanroep van een transformeert en de uitvoer (gegevens) terug naar de client via een compatibel OData-feed.</span><span class="sxs-lookup"><span data-stu-id="23062-108">It explains how to create the mapping document (CSDL) that transforms the input request from the client via a service call and the output (data) back to the client via an OData compatible feed.</span></span> <span data-ttu-id="23062-109">Services voor de eindgebruikers beschrijft van Microsoft Azure Marketplace met behulp van het OData-protocol.</span><span class="sxs-lookup"><span data-stu-id="23062-109">Microsoft’s Azure Marketplace exposes services to the end-users by using the OData protocol.</span></span> <span data-ttu-id="23062-110">Services die beschikbaar worden gesteld door inhoudsproviders (eigenaren) beschikbaar worden gesteld in verschillende vormen, zoals REST, SOAP, enz.</span><span class="sxs-lookup"><span data-stu-id="23062-110">Services that are exposed by content providers (Data Owners) are exposed in a variety of forms, such as REST, SOAP, etc.</span></span>
+<span data-ttu-id="5d997-107">In dit artikel wordt een overzicht over het toouse een CSDL-toomap een bestaande service tooan compatibel OData-service.</span><span class="sxs-lookup"><span data-stu-id="5d997-107">This article gives an overview on how toouse a CSDL toomap an existing service tooan OData compatible service.</span></span> <span data-ttu-id="5d997-108">Hierin wordt uitgelegd hoe toocreate Hallo toewijzing document (CSDL) dat de invoeraanvraag van de client via een Serviceaanroep van de en Hallo HALLO hallo transformeert uitvoer (gegevens) terug toohello client via een compatibel OData-feed.</span><span class="sxs-lookup"><span data-stu-id="5d997-108">It explains how toocreate hello mapping document (CSDL) that transforms hello input request from hello client via a service call and hello output (data) back toohello client via an OData compatible feed.</span></span> <span data-ttu-id="5d997-109">Microsoft Azure Marketplace stelt services toohello eindgebruikers met behulp van Hallo OData-protocol.</span><span class="sxs-lookup"><span data-stu-id="5d997-109">Microsoft’s Azure Marketplace exposes services toohello end-users by using hello OData protocol.</span></span> <span data-ttu-id="5d997-110">Services die beschikbaar worden gesteld door inhoudsproviders (eigenaren) beschikbaar worden gesteld in verschillende vormen, zoals REST, SOAP, enz.</span><span class="sxs-lookup"><span data-stu-id="5d997-110">Services that are exposed by content providers (Data Owners) are exposed in a variety of forms, such as REST, SOAP, etc.</span></span>
 
-## <a name="what-is-a-csdl-and-its-structure"></a><span data-ttu-id="23062-111">Wat is een CSDL en de structuur?</span><span class="sxs-lookup"><span data-stu-id="23062-111">What is a CSDL and its structure?</span></span>
-<span data-ttu-id="23062-112">Een CSDL (conceptuele Schema Definition Language) is een specificatie bepalen op welke manier om te beschrijven, webservice of database-service in het algemene XML-bewoordingen naar Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="23062-112">A CSDL (Conceptual Schema Definition Language) is a specification defining how to describe web service or database service in common XML verbiage to the Azure Marketplace.</span></span>
+## <a name="what-is-a-csdl-and-its-structure"></a><span data-ttu-id="5d997-111">Wat is een CSDL en de structuur?</span><span class="sxs-lookup"><span data-stu-id="5d997-111">What is a CSDL and its structure?</span></span>
+<span data-ttu-id="5d997-112">Een CSDL (conceptuele Schema Definition Language) is een specificatie definiëren hoe toodescribe webservice of database-service in algemene XML-bewoordingen toohello Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="5d997-112">A CSDL (Conceptual Schema Definition Language) is a specification defining how toodescribe web service or database service in common XML verbiage toohello Azure Marketplace.</span></span>
 
-<span data-ttu-id="23062-113">Eenvoudig overzicht van de **stroom aanvragen:**</span><span class="sxs-lookup"><span data-stu-id="23062-113">Simple overview of the **request flow:**</span></span>
+<span data-ttu-id="5d997-113">Eenvoudig overzicht van Hallo **stroom aanvragen:**</span><span class="sxs-lookup"><span data-stu-id="5d997-113">Simple overview of hello **request flow:**</span></span>
 
   `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`
 
-<span data-ttu-id="23062-114">De **gegevensstroom** is in de tegengestelde richting:</span><span class="sxs-lookup"><span data-stu-id="23062-114">The **data flow** is in the opposite direction:</span></span>
+<span data-ttu-id="5d997-114">Hallo **gegevensstroom** bevindt zich in Hallo tegengestelde richting:</span><span class="sxs-lookup"><span data-stu-id="5d997-114">hello **data flow** is in hello opposite direction:</span></span>
 
   `Client <- Azure Marketplace <- Content Provider’s WebService`
 
-<span data-ttu-id="23062-115">**Afbeelding 1** diagrammen hoe een client zou ophalen via een inhoudsprovider (uw service) door te gaan via de Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="23062-115">**Figure 1** diagrams how a client would obtain data from a content provider (your service) by going through the Azure Marketplace.</span></span>  <span data-ttu-id="23062-116">De CSDL door het onderdeel toewijzing/transformatie wordt gebruikt om de aanvraag te verwerken en gegevens uitwisselen tussen de inhoudsprovider service (s) en de aanvragende client.</span><span class="sxs-lookup"><span data-stu-id="23062-116">The CSDL is used by the Mapping/Transformation component to handle the request and data pass between the content provider’s service(s) and the requesting client.</span></span>
+<span data-ttu-id="5d997-115">**Afbeelding 1** diagrammen hoe een client zou ophalen via een inhoudsprovider (uw service) door te gaan via hello Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="5d997-115">**Figure 1** diagrams how a client would obtain data from a content provider (your service) by going through hello Azure Marketplace.</span></span>  <span data-ttu-id="5d997-116">Hallo CSDL wordt gebruikt door Hallo toewijzing/transformatie onderdeel toohandle Hallo aanvraag en gegevens uitwisselen tussen Hallo inhoud en van de provider dienst(en) Hallo vraagt de client.</span><span class="sxs-lookup"><span data-stu-id="5d997-116">hello CSDL is used by hello Mapping/Transformation component toohandle hello request and data pass between hello content provider’s service(s) and hello requesting client.</span></span>
 
-<span data-ttu-id="23062-117">*Afbeelding 1: Gedetailleerde stroom van de aanvragende client naar de provider van inhoud via Azure Marketplace*</span><span class="sxs-lookup"><span data-stu-id="23062-117">*Figure 1: Detailed flow from requesting client to content provider via Azure Marketplace*</span></span>
+<span data-ttu-id="5d997-117">*Afbeelding 1: Gedetailleerde stroom van aanvragende client toocontent provider via Azure Marketplace*</span><span class="sxs-lookup"><span data-stu-id="5d997-117">*Figure 1: Detailed flow from requesting client toocontent provider via Azure Marketplace*</span></span>
 
   ![tekenen](media/marketplace-publishing-data-service-creation-odata-mapping/figure-1.png)
 
-<span data-ttu-id="23062-119">Voor achtergrondinformatie over Atom Atom Pub en het OData-protocol waarop de Azure Marketplace-extensies bouwen, Controleer: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)</span><span class="sxs-lookup"><span data-stu-id="23062-119">For background on Atom, Atom Pub, and the OData protocol upon which the Azure Marketplace extensions build, please review: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)</span></span>
+<span data-ttu-id="5d997-119">Raadpleeg voor de achtergrond van het Atom, Atom Pub en Hallo OData-protocol bij welke hello Azure Marketplace-extensies build: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)</span><span class="sxs-lookup"><span data-stu-id="5d997-119">For background on Atom, Atom Pub, and hello OData protocol upon which hello Azure Marketplace extensions build, please review: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)</span></span>
 
-<span data-ttu-id="23062-120">Fragment boven het koppeling: *"het doel van de Open Data protocol (hierna OData) is een protocol op basis van REST CRUD-stijl-bewerkingen (maken, lezen, bijwerken en verwijderen) op basis van bronnen die worden weergegeven als dataservices van bieden. Een service"gegevens" is een eindpunt wanneer blootgesteld aan een of meer 'verzamelingen' elke met nul of meer 'posten', die bestaan uit gegevens hebt ingevoerd met de naam / waarde-paren. OData is gepubliceerd door Microsoft onder OASIS (organisatie voor de vooruitgang van gestructureerde gegevens normen) standaarden zodat iedereen die wil servers, clients of hulpprogramma's zonder royalties of beperkingen kunt samenstellen."*</span><span class="sxs-lookup"><span data-stu-id="23062-120">Excerpt from above link: *“The purpose of the Open Data protocol (hereafter referred to as OData) is to provide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for the Advancement of Structured Information Standards) Standards so that anyone that wants to can build servers, clients or tools without royalties or restrictions.”*</span></span>
+<span data-ttu-id="5d997-120">Fragment boven het koppeling: *'hello doel van Hallo Open Data protocol (hierna genoemde tooas OData) is een op REST gebaseerde tooprovide protocol voor CRUD-stijl-bewerkingen (maken, lezen, bijwerken en verwijderen) op basis van bronnen die worden weergegeven als dataservices. Een service"gegevens" is een eindpunt wanneer blootgesteld aan een of meer 'verzamelingen' elke met nul of meer 'posten', die bestaan uit gegevens hebt ingevoerd met de naam / waarde-paren. OData is gepubliceerd door Microsoft onder OASIS (organisatie voor Hallo verschuiving van gestructureerde gegevens standaarden) standaarden zodat iedereen die wil toocan bouwen servers, clients of hulpprogramma's zonder royalties of beperkingen."*</span><span class="sxs-lookup"><span data-stu-id="5d997-120">Excerpt from above link: *“hello purpose of hello Open Data protocol (hereafter referred tooas OData) is tooprovide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for hello Advancement of Structured Information Standards) Standards so that anyone that wants toocan build servers, clients or tools without royalties or restrictions.”*</span></span>
 
-### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a><span data-ttu-id="23062-121">Er zijn drie essentiële gegevens die moeten worden gedefinieerd door de CSDL:</span><span class="sxs-lookup"><span data-stu-id="23062-121">Three Critical Pieces that have to be defined by the CSDL are:</span></span>
-* <span data-ttu-id="23062-122">De **eindpunt** van de Service Provider The Web adres (URI) van de Service</span><span class="sxs-lookup"><span data-stu-id="23062-122">The **endpoint** of the Service Provider The Web Address (URI) of the Service</span></span>
-* <span data-ttu-id="23062-123">De **parameters voor** wordt als invoer doorgegeven aan de serviceprovider de definities van de parameters die worden verzonden naar service omlaag naar het gegevenstype van de aanbieder van de inhoud.</span><span class="sxs-lookup"><span data-stu-id="23062-123">The **data parameters** being passed as input to the Service Provider The definitions of the parameters being sent to the Content Provider’s service down to the data type.</span></span>
-* <span data-ttu-id="23062-124">**Schema** van de gegevens worden geretourneerd naar de Service aanvragen van het schema van de gegevens die wordt geleverd door de service van de aanbieder van de inhoud, met inbegrip van Container, verzamelingen/tabellen, variabelen/kolommen en gegevenstypen.</span><span class="sxs-lookup"><span data-stu-id="23062-124">**Schema** of the data being returned to the Requesting Service The schema of the data being delivered by the Content Provider’s service, including Container, collections/tables, variables/columns, and data types.</span></span>
+### <a name="three-critical-pieces-that-have-toobe-defined-by-hello-csdl-are"></a><span data-ttu-id="5d997-121">Er zijn drie essentiële gegevens die gedefinieerd door Hallo CSDL toobe zijn:</span><span class="sxs-lookup"><span data-stu-id="5d997-121">Three Critical Pieces that have toobe defined by hello CSDL are:</span></span>
+* <span data-ttu-id="5d997-122">Hallo **eindpunt** Hallo Hallo serviceprovider Web adres (URI) Hallo Service</span><span class="sxs-lookup"><span data-stu-id="5d997-122">hello **endpoint** of hello Service Provider hello Web Address (URI) of hello Service</span></span>
+* <span data-ttu-id="5d997-123">Hallo **parameters voor** wordt doorgegeven als invoer toohello serviceprovider Hallo definities van Hallo parameters toohello inhoudsprovider-service niet actief toohello gegevenstype worden verzonden.</span><span class="sxs-lookup"><span data-stu-id="5d997-123">hello **data parameters** being passed as input toohello Service Provider hello definitions of hello parameters being sent toohello Content Provider’s service down toohello data type.</span></span>
+* <span data-ttu-id="5d997-124">**Schema** Hallo gegevens toohello Service aanvragen Hallo schema van Hallo-gegevens worden geleverd door Hallo inhoudsprovider-service wordt geretourneerd, met inbegrip van Container, verzamelingen/tabellen, variabelen/kolommen en gegevenstypen.</span><span class="sxs-lookup"><span data-stu-id="5d997-124">**Schema** of hello data being returned toohello Requesting Service hello schema of hello data being delivered by hello Content Provider’s service, including Container, collections/tables, variables/columns, and data types.</span></span>
 
-<span data-ttu-id="23062-125">Het volgende diagram toont een overzicht van de stroom van waar de client voert de OData-instructie (aanroep van de inhoud provider-webservice) is aan de resultaatgegevens om terug te zetten.</span><span class="sxs-lookup"><span data-stu-id="23062-125">The following diagram shows an overview of the flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back.</span></span>
+<span data-ttu-id="5d997-125">Hallo volgende diagram geeft een overzicht van Hallo stroom uit waarbij Hallo-client Hallo OData-instructie (aanroep toohello inhoud van de provider-webservice) toogetting Hallo resultaten/gegevens terug voert.</span><span class="sxs-lookup"><span data-stu-id="5d997-125">hello following diagram shows an overview of hello flow from where hello client enters hello OData statement (call toohello content provider’s web service) toogetting hello results/data back.</span></span>
 
   ![tekenen](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
 
-### <a name="steps"></a><span data-ttu-id="23062-127">stappen:</span><span class="sxs-lookup"><span data-stu-id="23062-127">Steps:</span></span>
-1. <span data-ttu-id="23062-128">Client stuurt via een aanroep van aanvraag voltooid met de invoerparameters in XML-indeling naar Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="23062-128">Client sends request via Service call complete with Input Parameters defined in XML to the Azure Marketplace</span></span>
-2. <span data-ttu-id="23062-129">CSDL wordt gebruikt voor het valideren van de aanroep van de Service.</span><span class="sxs-lookup"><span data-stu-id="23062-129">CSDL is used to validate the Service call.</span></span>
-   * <span data-ttu-id="23062-130">De indeling Service gesprek wordt verzonden naar de inhoud Providers-Service door Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="23062-130">The Formatted Service Call is then sent to the Content Providers Service by the Azure Marketplace</span></span>
-3. <span data-ttu-id="23062-131">De Webservice wordt uitgevoerd en de actie van de Http-term tekstknooppunten wordt uitgevoerd (dat wil zeggen ophalen) de gegevens worden geretourneerd naar Azure Marketplace de aangevraagde gegevens (indien aanwezig) is zichtbaar gemaakt in XML-indeling naar de Client met behulp van de toewijzing is gedefinieerd in de CSDL.</span><span class="sxs-lookup"><span data-stu-id="23062-131">The Webservice executes and preforms the action of the Http Verb (i.e. GET) The data is returned to Azure Marketplace where the requested data (if any) is exposes in XML Format to the Client using the Mapping defined in the CSDL.</span></span>
-4. <span data-ttu-id="23062-132">De Client wordt verzonden de gegevens (indien aanwezig) in XML- of JSON-indeling</span><span class="sxs-lookup"><span data-stu-id="23062-132">The Client is sent the data (if any) in XML or JSON format</span></span>
+### <a name="steps"></a><span data-ttu-id="5d997-127">stappen:</span><span class="sxs-lookup"><span data-stu-id="5d997-127">Steps:</span></span>
+1. <span data-ttu-id="5d997-128">Client stuurt via een aanroep van aanvraag met een invoer gedefinieerde Parameters in XML-toohello Azure Marketplace voltooid</span><span class="sxs-lookup"><span data-stu-id="5d997-128">Client sends request via Service call complete with Input Parameters defined in XML toohello Azure Marketplace</span></span>
+2. <span data-ttu-id="5d997-129">CSDL is gebruikte toovalidate Hallo aanroep.</span><span class="sxs-lookup"><span data-stu-id="5d997-129">CSDL is used toovalidate hello Service call.</span></span>
+   * <span data-ttu-id="5d997-130">Hallo geformatteerd Service aanroepen gestuurd toohello inhoud Providers Service door hello Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="5d997-130">hello Formatted Service Call is then sent toohello Content Providers Service by hello Azure Marketplace</span></span>
+3. <span data-ttu-id="5d997-131">Hallo Webservice wordt uitgevoerd en tekstknooppunten Hallo actie Hallo Http-term wordt uitgevoerd (dat wil zeggen ophalen) Hallo gegevens worden geretourneerd tooAzure Marketplace waar Hallo gegevens aangevraagd (indien aanwezig) is zichtbaar gemaakt in XML-indeling toohello Client met behulp van de toewijzing is gedefinieerd in CSDL Hallo Hallo.</span><span class="sxs-lookup"><span data-stu-id="5d997-131">hello Webservice executes and preforms hello action of hello Http Verb (i.e. GET) hello data is returned tooAzure Marketplace where hello requested data (if any) is exposes in XML Format toohello Client using hello Mapping defined in hello CSDL.</span></span>
+4. <span data-ttu-id="5d997-132">Hallo Client wordt verzonden hello gegevens (indien aanwezig) in XML- of JSON-indeling</span><span class="sxs-lookup"><span data-stu-id="5d997-132">hello Client is sent hello data (if any) in XML or JSON format</span></span>
 
-## <a name="definitions"></a><span data-ttu-id="23062-133">Definities</span><span class="sxs-lookup"><span data-stu-id="23062-133">Definitions</span></span>
-### <a name="odata-atom-pub"></a><span data-ttu-id="23062-134">OData-ATOM pub</span><span class="sxs-lookup"><span data-stu-id="23062-134">OData ATOM pub</span></span>
-<span data-ttu-id="23062-135">Een uitbreiding van het ATOM-pub waarbij elk item staat voor één rij met een resultaat ingesteld.</span><span class="sxs-lookup"><span data-stu-id="23062-135">An extension to the ATOM pub where each entry represents one row of a result set.</span></span> <span data-ttu-id="23062-136">Het inhoud deel van de vermelding is verbeterd zodat de waarden van de rij-als sleutel-waardeparen bevat.</span><span class="sxs-lookup"><span data-stu-id="23062-136">The content part of the entry is enhanced to contain the values of the row – as key value pairs.</span></span> <span data-ttu-id="23062-137">Meer informatie is hier vinden: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)</span><span class="sxs-lookup"><span data-stu-id="23062-137">More information is found here: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)</span></span>
+## <a name="definitions"></a><span data-ttu-id="5d997-133">Definities</span><span class="sxs-lookup"><span data-stu-id="5d997-133">Definitions</span></span>
+### <a name="odata-atom-pub"></a><span data-ttu-id="5d997-134">OData-ATOM pub</span><span class="sxs-lookup"><span data-stu-id="5d997-134">OData ATOM pub</span></span>
+<span data-ttu-id="5d997-135">Een uitbreiding toohello ATOM pub waarbij elk item staat voor één rij met een resultaat ingesteld.</span><span class="sxs-lookup"><span data-stu-id="5d997-135">An extension toohello ATOM pub where each entry represents one row of a result set.</span></span> <span data-ttu-id="5d997-136">Verbeterde toocontain Hallo waarden van Hallo rij – is inhoud deel van de Hallo van Hallo vermelding als sleutel-waardeparen.</span><span class="sxs-lookup"><span data-stu-id="5d997-136">hello content part of hello entry is enhanced toocontain hello values of hello row – as key value pairs.</span></span> <span data-ttu-id="5d997-137">Meer informatie is hier vinden: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)</span><span class="sxs-lookup"><span data-stu-id="5d997-137">More information is found here: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)</span></span>
 
-### <a name="csdl---conceptual-schema-definition-language"></a><span data-ttu-id="23062-138">CSDL - Conceptual Schema Definition Language</span><span class="sxs-lookup"><span data-stu-id="23062-138">CSDL - Conceptual Schema Definition Language</span></span>
-<span data-ttu-id="23062-139">Hiermee kunt u definiëren functies (SPROCs) en de entiteiten die worden weergegeven via een database.</span><span class="sxs-lookup"><span data-stu-id="23062-139">Allows defining functions (SPROCs) and entities that are exposed through a database.</span></span> <span data-ttu-id="23062-140">Meer informatie hier vinden: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)</span><span class="sxs-lookup"><span data-stu-id="23062-140">More information found here: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)</span></span>  
+### <a name="csdl---conceptual-schema-definition-language"></a><span data-ttu-id="5d997-138">CSDL - Conceptual Schema Definition Language</span><span class="sxs-lookup"><span data-stu-id="5d997-138">CSDL - Conceptual Schema Definition Language</span></span>
+<span data-ttu-id="5d997-139">Hiermee kunt u definiëren functies (SPROCs) en de entiteiten die worden weergegeven via een database.</span><span class="sxs-lookup"><span data-stu-id="5d997-139">Allows defining functions (SPROCs) and entities that are exposed through a database.</span></span> <span data-ttu-id="5d997-140">Meer informatie hier vinden: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)</span><span class="sxs-lookup"><span data-stu-id="5d997-140">More information found here: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)</span></span>  
 
 > [!TIP]
-> <span data-ttu-id="23062-141">Klik op de **andere versies** vervolgkeuzelijst en selecteer een versie als u het artikel niet ziet.</span><span class="sxs-lookup"><span data-stu-id="23062-141">Click the **other versions** dropdown and select a version if you don’t see the article.</span></span>
+> <span data-ttu-id="5d997-141">Klik op Hallo **andere versies** vervolgkeuzelijst en selecteer een versie als er geen Hallo artikel.</span><span class="sxs-lookup"><span data-stu-id="5d997-141">Click hello **other versions** dropdown and select a version if you don’t see hello article.</span></span>
 > 
 > 
 
-### <a name="edm---entry-data-model"></a><span data-ttu-id="23062-142">EDM - gegevensmodel vermelding</span><span class="sxs-lookup"><span data-stu-id="23062-142">EDM - Entry Data Model</span></span>
-* <span data-ttu-id="23062-143">Overzicht: [http://msdn.microsoft.com/library/vstudio/ee382825 (v=vs.100).aspx][OverviewLink]</span><span class="sxs-lookup"><span data-stu-id="23062-143">Overview: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]</span></span>
+### <a name="edm---entry-data-model"></a><span data-ttu-id="5d997-142">EDM - gegevensmodel vermelding</span><span class="sxs-lookup"><span data-stu-id="5d997-142">EDM - Entry Data Model</span></span>
+* <span data-ttu-id="5d997-143">Overzicht: [http://msdn.microsoft.com/library/vstudio/ee382825 (v=vs.100).aspx][OverviewLink]</span><span class="sxs-lookup"><span data-stu-id="5d997-143">Overview: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]</span></span>
 
 [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-* <span data-ttu-id="23062-144">Voorbeeld: [http://msdn.microsoft.com/library/aa697428 (v=vs.80).aspx][PreviewLink]</span><span class="sxs-lookup"><span data-stu-id="23062-144">Preview: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]</span></span>
+* <span data-ttu-id="5d997-144">Voorbeeld: [http://msdn.microsoft.com/library/aa697428 (v=vs.80).aspx][PreviewLink]</span><span class="sxs-lookup"><span data-stu-id="5d997-144">Preview: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]</span></span>
 
 [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-* <span data-ttu-id="23062-145">Gegevenstypen: [http://msdn.microsoft.com/library/bb399548 (v=VS.100).aspx][DataTypesLink]</span><span class="sxs-lookup"><span data-stu-id="23062-145">Data types: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]</span></span>
+* <span data-ttu-id="5d997-145">Gegevenstypen: [http://msdn.microsoft.com/library/bb399548 (v=VS.100).aspx][DataTypesLink]</span><span class="sxs-lookup"><span data-stu-id="5d997-145">Data types: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]</span></span>
 
 [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
-<span data-ttu-id="23062-146">De volgende ziet u de gedetailleerde links naar rechts stromen van waar de client voert de OData-instructie (aanroep van de inhoud provider-webservice) voor het ophalen van de resultaatgegevens back:</span><span class="sxs-lookup"><span data-stu-id="23062-146">The following shows the detailed Left to Right flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back:</span></span>
+<span data-ttu-id="5d997-146">Hallo hieronder vindt u Hallo gedetailleerde links tooRight stroom van het waarbij Hallo client Hallo OData-instructie (aanroep toohello inhoud van de provider-webservice) toogetting Hallo resultaten/gegevens terug invoert:</span><span class="sxs-lookup"><span data-stu-id="5d997-146">hello following shows hello detailed Left tooRight flow from where hello client enters hello OData statement (call toohello content provider’s web service) toogetting hello results/data back:</span></span>
 
   ![tekenen](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
-## <a name="csdl-basics"></a><span data-ttu-id="23062-148">CSDL-basisbeginselen</span><span class="sxs-lookup"><span data-stu-id="23062-148">CSDL Basics</span></span>
-<span data-ttu-id="23062-149">Een CSDL (conceptuele Schema Definition Language) is een specificatie bepalen op welke manier om te beschrijven, webservice of database-service in het algemene XML-bewoordingen naar Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="23062-149">A CSDL (Conceptual Schema Definition Language) is a specification defining how to describe web service or database service in common XML verbiage to the Azure Marketplace.</span></span> <span data-ttu-id="23062-150">CSDL beschrijft de kritieke stuks die **het doorgeven van gegevens uit de gegevensbron naar de Azure Marketplace mogelijk maakt.**</span><span class="sxs-lookup"><span data-stu-id="23062-150">CSDL describes the critical pieces that **makes the passing of data from the Data Source to the Azure Marketplace possible.**</span></span> <span data-ttu-id="23062-151">De belangrijkste onderdelen worden hier beschreven:</span><span class="sxs-lookup"><span data-stu-id="23062-151">The main pieces are described here:</span></span>
+## <a name="csdl-basics"></a><span data-ttu-id="5d997-148">CSDL-basisbeginselen</span><span class="sxs-lookup"><span data-stu-id="5d997-148">CSDL Basics</span></span>
+<span data-ttu-id="5d997-149">Een CSDL (conceptuele Schema Definition Language) is een specificatie definiëren hoe toodescribe webservice of database-service in algemene XML-bewoordingen toohello Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="5d997-149">A CSDL (Conceptual Schema Definition Language) is a specification defining how toodescribe web service or database service in common XML verbiage toohello Azure Marketplace.</span></span> <span data-ttu-id="5d997-150">CSDL beschrijft Hallo kritieke stuks die **Hallo doorgeven van gegevens van Hallo gegevensbron toohello Azure Marketplace mogelijk maakt.**</span><span class="sxs-lookup"><span data-stu-id="5d997-150">CSDL describes hello critical pieces that **makes hello passing of data from hello Data Source toohello Azure Marketplace possible.**</span></span> <span data-ttu-id="5d997-151">de belangrijkste onderdelen Hallo worden hier beschreven:</span><span class="sxs-lookup"><span data-stu-id="5d997-151">hello main pieces are described here:</span></span>
 
-* <span data-ttu-id="23062-152">Informatie over de interface met een beschrijving van alle openbaar beschikbare functies (FunctionImport knooppunt)</span><span class="sxs-lookup"><span data-stu-id="23062-152">Interface information describing all publicly available functions (FunctionImport Node)</span></span>
-* <span data-ttu-id="23062-153">Informatie over gegevenstypen voor alle bericht requests(input) en bericht responses(outputs) (EntitySet-EntityContainer/EntityType knooppunten)</span><span class="sxs-lookup"><span data-stu-id="23062-153">Data type information for all message requests(input) and message responses(outputs) (EntityContainer/EntitySet/EntityType Nodes)</span></span>
-* <span data-ttu-id="23062-154">Het binden van informatie over het transportprotocol worden gebruikt (Header knooppunt)</span><span class="sxs-lookup"><span data-stu-id="23062-154">Binding information about the transport protocol to be used (Header Node)</span></span>
-* <span data-ttu-id="23062-155">Adresgegevens voor het zoeken van de opgegeven service (BaseURI kenmerk)</span><span class="sxs-lookup"><span data-stu-id="23062-155">Address information for locating the specified service (BaseURI attribute)</span></span>
+* <span data-ttu-id="5d997-152">Informatie over de interface met een beschrijving van alle openbaar beschikbare functies (FunctionImport knooppunt)</span><span class="sxs-lookup"><span data-stu-id="5d997-152">Interface information describing all publicly available functions (FunctionImport Node)</span></span>
+* <span data-ttu-id="5d997-153">Informatie over gegevenstypen voor alle bericht requests(input) en bericht responses(outputs) (EntitySet-EntityContainer/EntityType knooppunten)</span><span class="sxs-lookup"><span data-stu-id="5d997-153">Data type information for all message requests(input) and message responses(outputs) (EntityContainer/EntitySet/EntityType Nodes)</span></span>
+* <span data-ttu-id="5d997-154">Informatie over Hallo transport protocol toobe binding gebruikt (Header knooppunt)</span><span class="sxs-lookup"><span data-stu-id="5d997-154">Binding information about hello transport protocol toobe used (Header Node)</span></span>
+* <span data-ttu-id="5d997-155">Adresgegevens voor het zoeken van Hallo opgegeven service (BaseURI kenmerk)</span><span class="sxs-lookup"><span data-stu-id="5d997-155">Address information for locating hello specified service (BaseURI attribute)</span></span>
 
-<span data-ttu-id="23062-156">Kortom, vertegenwoordigt de CSDL een platform en taalonafhankelijke overeenkomst tussen de aanvrager service en de serviceprovider.</span><span class="sxs-lookup"><span data-stu-id="23062-156">In a nutshell, the CSDL represents a platform- and language-independent contract between the service requestor and the service provider.</span></span> <span data-ttu-id="23062-157">Met behulp van de CSDL een client een webservice service/database vinden en een van de openbaar beschikbare functies aanroepen.</span><span class="sxs-lookup"><span data-stu-id="23062-157">Using the CSDL, a client can locate a web service/database service and invoke any of its publicly available functions.</span></span>
+<span data-ttu-id="5d997-156">Kortom, vertegenwoordigt Hallo CSDL een contract en taal-platformonafhankelijk tussen Hallo service aanvrager en Hallo-serviceprovider.</span><span class="sxs-lookup"><span data-stu-id="5d997-156">In a nutshell, hello CSDL represents a platform- and language-independent contract between hello service requestor and hello service provider.</span></span> <span data-ttu-id="5d997-157">Hallo CSDL gebruikt, kan een client een webservice service/database vinden en een van de openbaar beschikbare functies aanroepen.</span><span class="sxs-lookup"><span data-stu-id="5d997-157">Using hello CSDL, a client can locate a web service/database service and invoke any of its publicly available functions.</span></span>
 
-### <a name="relating-a-csdl-to-a-database-or-a-collection"></a><span data-ttu-id="23062-158">Een CSDL die betrekking hebben op een Database of een verzameling</span><span class="sxs-lookup"><span data-stu-id="23062-158">Relating a CSDL to a Database or a Collection</span></span>
-<span data-ttu-id="23062-159">**De CSDL-specificatie**</span><span class="sxs-lookup"><span data-stu-id="23062-159">**The CSDL Specification**</span></span>
+### <a name="relating-a-csdl-tooa-database-or-a-collection"></a><span data-ttu-id="5d997-158">In verband met een CSDL-tooa Database of een verzameling</span><span class="sxs-lookup"><span data-stu-id="5d997-158">Relating a CSDL tooa Database or a Collection</span></span>
+<span data-ttu-id="5d997-159">**Hallo CSDL-specificatie**</span><span class="sxs-lookup"><span data-stu-id="5d997-159">**hello CSDL Specification**</span></span>
 
-<span data-ttu-id="23062-160">CSDL is XML-grammatica voor het beschrijven van een webservice.</span><span class="sxs-lookup"><span data-stu-id="23062-160">CSDL is XML grammar for describing a web service.</span></span> <span data-ttu-id="23062-161">De specificatie zelf is onderverdeeld in 4 belangrijke elementen: EntitySet, FunctionImport; Naamruimte en EntityType.</span><span class="sxs-lookup"><span data-stu-id="23062-161">The specification itself is divided into 4 major elements:  EntitySet, FunctionImport; NameSpace, and EntityType.</span></span>
+<span data-ttu-id="5d997-160">CSDL is XML-grammatica voor het beschrijven van een webservice.</span><span class="sxs-lookup"><span data-stu-id="5d997-160">CSDL is XML grammar for describing a web service.</span></span> <span data-ttu-id="5d997-161">Hallo-specificatie zelf is onderverdeeld in 4 belangrijke elementen: EntitySet, FunctionImport; Naamruimte en EntityType.</span><span class="sxs-lookup"><span data-stu-id="5d997-161">hello specification itself is divided into 4 major elements:  EntitySet, FunctionImport; NameSpace, and EntityType.</span></span>
 
-<span data-ttu-id="23062-162">Deze abstractie gemakkelijker te begrijpen kunt relatie tussen een CSDL en een tabel.</span><span class="sxs-lookup"><span data-stu-id="23062-162">To make this abstraction easier to understand lets relate a CSDL to a table.</span></span>
+<span data-ttu-id="5d997-162">toomake deze abstractie eenvoudiger toounderstand kunt hebben CSDL tooa.</span><span class="sxs-lookup"><span data-stu-id="5d997-162">toomake this abstraction easier toounderstand lets relate a CSDL tooa table.</span></span>
 
-<span data-ttu-id="23062-163">Houd er rekening mee;</span><span class="sxs-lookup"><span data-stu-id="23062-163">Remember;</span></span>
+<span data-ttu-id="5d997-163">Houd er rekening mee;</span><span class="sxs-lookup"><span data-stu-id="5d997-163">Remember;</span></span>
 
-  <span data-ttu-id="23062-164">CSDL vertegenwoordigt een platform en taalonafhankelijke overeenkomst tussen de **service aanvrager** en de **serviceprovider**.</span><span class="sxs-lookup"><span data-stu-id="23062-164">CSDL represents a platform- and language-independent contract between the **service requestor** and the **service provider**.</span></span> <span data-ttu-id="23062-165">CSDL, met een **client** kunnen vinden een **servicedatabase/webservice** en aanroepen van de openbaar **functies.**</span><span class="sxs-lookup"><span data-stu-id="23062-165">Using CSDL, a **client** can locate a **web service/database service** and invoke any of its publicly available **functions.**</span></span>
+  <span data-ttu-id="5d997-164">CSDL vertegenwoordigt een contract en taal-platformonafhankelijk tussen Hallo **service aanvrager** en Hallo **serviceprovider**.</span><span class="sxs-lookup"><span data-stu-id="5d997-164">CSDL represents a platform- and language-independent contract between hello **service requestor** and hello **service provider**.</span></span> <span data-ttu-id="5d997-165">CSDL, met een **client** kunnen vinden een **servicedatabase/webservice** en aanroepen van de openbaar **functies.**</span><span class="sxs-lookup"><span data-stu-id="5d997-165">Using CSDL, a **client** can locate a **web service/database service** and invoke any of its publicly available **functions.**</span></span>
 
-<span data-ttu-id="23062-166">Voor een Data-Service kunnen de vier onderdelen van een CSDL in termen van een Database-, tabel-, kolom- of Store Procedure worden beschouwd.</span><span class="sxs-lookup"><span data-stu-id="23062-166">For a Data Service the four parts of a CSDL can be thought of in terms of a Database, Table, Column, and Store Procedure.</span></span>
+<span data-ttu-id="5d997-166">Voor een gegevensservice Hallo kunnen vier onderdelen van een CSDL in termen van een Database-, tabel-, kolom- of Store Procedure worden beschouwd.</span><span class="sxs-lookup"><span data-stu-id="5d997-166">For a Data Service hello four parts of a CSDL can be thought of in terms of a Database, Table, Column, and Store Procedure.</span></span>
 
-<span data-ttu-id="23062-167">Die betrekking hebben op deze als volgt voor een Service van gegevens:</span><span class="sxs-lookup"><span data-stu-id="23062-167">Relating these as follows for a Data Service:</span></span>
+<span data-ttu-id="5d997-167">Die betrekking hebben op deze als volgt voor een Service van gegevens:</span><span class="sxs-lookup"><span data-stu-id="5d997-167">Relating these as follows for a Data Service:</span></span>
 
-* <span data-ttu-id="23062-168">EntityContainer ~ = Database</span><span class="sxs-lookup"><span data-stu-id="23062-168">EntityContainer  ~=  Database</span></span>
-* <span data-ttu-id="23062-169">EntitySet ~ = tabel</span><span class="sxs-lookup"><span data-stu-id="23062-169">EntitySet  ~=  Table</span></span>
-* <span data-ttu-id="23062-170">EntityType ~ kolommen =</span><span class="sxs-lookup"><span data-stu-id="23062-170">EntityType  ~= Columns</span></span>
-* <span data-ttu-id="23062-171">FunctionImport ~ opgeslagen Procedure =</span><span class="sxs-lookup"><span data-stu-id="23062-171">FunctionImport  ~=  Stored Procedure</span></span>
+* <span data-ttu-id="5d997-168">EntityContainer ~ = Database</span><span class="sxs-lookup"><span data-stu-id="5d997-168">EntityContainer  ~=  Database</span></span>
+* <span data-ttu-id="5d997-169">EntitySet ~ = tabel</span><span class="sxs-lookup"><span data-stu-id="5d997-169">EntitySet  ~=  Table</span></span>
+* <span data-ttu-id="5d997-170">EntityType ~ kolommen =</span><span class="sxs-lookup"><span data-stu-id="5d997-170">EntityType  ~= Columns</span></span>
+* <span data-ttu-id="5d997-171">FunctionImport ~ opgeslagen Procedure =</span><span class="sxs-lookup"><span data-stu-id="5d997-171">FunctionImport  ~=  Stored Procedure</span></span>
 
-<span data-ttu-id="23062-172">**HTTP-termen die zijn toegestaan**</span><span class="sxs-lookup"><span data-stu-id="23062-172">**HTTP Verbs allowed**</span></span>
+<span data-ttu-id="5d997-172">**HTTP-termen die zijn toegestaan**</span><span class="sxs-lookup"><span data-stu-id="5d997-172">**HTTP Verbs allowed**</span></span>
 
-* <span data-ttu-id="23062-173">– Retourneert waarden ophalen uit de database (retourneert een verzameling)</span><span class="sxs-lookup"><span data-stu-id="23062-173">GET – returns values from the db (returns a Collection)</span></span>
-* <span data-ttu-id="23062-174">POST – gebruikt voor het doorgeven van gegevens naar en optionele retourwaarden uit de database (een nieuwe vermelding in de verzameling, return-id/URI maken)</span><span class="sxs-lookup"><span data-stu-id="23062-174">POST – used to pass data to and optional return values from the db (Create a new entry in the collection, return id/URI)</span></span>
-* <span data-ttu-id="23062-175">Hiermee verwijdert u gegevens uit de database (een verzameling verwijdert) – verwijderen</span><span class="sxs-lookup"><span data-stu-id="23062-175">DELETE – Deletes data from the DB (Deletes a collection)</span></span>
-* <span data-ttu-id="23062-176">PUT – gegevens bijwerken in een database (vervangen door een verzameling of maak een)</span><span class="sxs-lookup"><span data-stu-id="23062-176">PUT – Update data into a DB (replace a collection or create one)</span></span>
+* <span data-ttu-id="5d997-173">– Retourneert waarden ophalen uit Hallo-db (retourneert een verzameling)</span><span class="sxs-lookup"><span data-stu-id="5d997-173">GET – returns values from hello db (returns a Collection)</span></span>
+* <span data-ttu-id="5d997-174">POST – gebruikt toopass gegevens tooand optionele retourwaarden van Hallo-db (een nieuwe vermelding in de verzameling hello, return-id/URI maken)</span><span class="sxs-lookup"><span data-stu-id="5d997-174">POST – used toopass data tooand optional return values from hello db (Create a new entry in hello collection, return id/URI)</span></span>
+* <span data-ttu-id="5d997-175">Hiermee verwijdert u gegevens van Hallo DB (een verzameling verwijdert) – verwijderen</span><span class="sxs-lookup"><span data-stu-id="5d997-175">DELETE – Deletes data from hello DB (Deletes a collection)</span></span>
+* <span data-ttu-id="5d997-176">PUT – gegevens bijwerken in een database (vervangen door een verzameling of maak een)</span><span class="sxs-lookup"><span data-stu-id="5d997-176">PUT – Update data into a DB (replace a collection or create one)</span></span>
 
-## <a name="metadatamapping-document"></a><span data-ttu-id="23062-177">Metagegevens/toewijzing Document</span><span class="sxs-lookup"><span data-stu-id="23062-177">Metadata/Mapping Document</span></span>
-<span data-ttu-id="23062-178">Het document metagegevens/toewijzing wordt gebruikt voor het toewijzen van een inhoudsprovider bestaande web-services zodat deze door het systeem Azure Marketplace kan worden weergegeven als een OData-webservice.</span><span class="sxs-lookup"><span data-stu-id="23062-178">The metadata/mapping document is used to map a content provider’s existing web services so that it can be exposed as an OData web service by the Azure Marketplace system.</span></span> <span data-ttu-id="23062-179">Deze is gebaseerd op CSDL en implementeert die toegankelijk is via Azure Marketplace-webservices op basis van een paar uitbreidingen voor CSDL om aan de behoeften van REST te.</span><span class="sxs-lookup"><span data-stu-id="23062-179">It is based on CSDL and implements a few extensions to CSDL to accommodate the needs of REST based web services exposed through Azure Marketplace.</span></span> <span data-ttu-id="23062-180">De extensies zijn gevonden in de [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04) naamruimte.</span><span class="sxs-lookup"><span data-stu-id="23062-180">The extensions are found in the [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04) namespace.</span></span>
+## <a name="metadatamapping-document"></a><span data-ttu-id="5d997-177">Metagegevens/toewijzing Document</span><span class="sxs-lookup"><span data-stu-id="5d997-177">Metadata/Mapping Document</span></span>
+<span data-ttu-id="5d997-178">Hallo metagegevens/toewijzing document is gebruikte toomap een inhoudsprovider bestaande webservices zodat deze kan worden weergegeven als een OData-webservice door hello Azure Marketplace-systeem.</span><span class="sxs-lookup"><span data-stu-id="5d997-178">hello metadata/mapping document is used toomap a content provider’s existing web services so that it can be exposed as an OData web service by hello Azure Marketplace system.</span></span> <span data-ttu-id="5d997-179">Deze is gebaseerd op CSDL en implementeert die toegankelijk is via Azure Marketplace-webservices op basis van enkele extensies tooCSDL tooaccommodate Hallo behoeften van de REST.</span><span class="sxs-lookup"><span data-stu-id="5d997-179">It is based on CSDL and implements a few extensions tooCSDL tooaccommodate hello needs of REST based web services exposed through Azure Marketplace.</span></span> <span data-ttu-id="5d997-180">Hallo-uitbreidingen zijn gevonden in Hallo [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04) naamruimte.</span><span class="sxs-lookup"><span data-stu-id="5d997-180">hello extensions are found in hello [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04) namespace.</span></span>
 
-<span data-ttu-id="23062-181">Hier volgt een voorbeeld van de CSDL: (kopiëren en plakken het onderstaande voorbeeld CSDL in een XML-editor en wijzigen die overeenkomen met uw Service.</span><span class="sxs-lookup"><span data-stu-id="23062-181">An example of the CSDL follows:  (Copy and paste the below example CSDL into an XML editor and change to match your Service.</span></span>  <span data-ttu-id="23062-182">Plak in CSDL toewijzing DataService tabblad bij het maken van uw service in de [Azure Marketplace Publishing Portal](https://publish.windowsazure.com)).</span><span class="sxs-lookup"><span data-stu-id="23062-182">Then paste into CSDL Mapping under DataService tab when creating your service in the  [Azure Marketplace Publishing Portal](https://publish.windowsazure.com)).</span></span>
+<span data-ttu-id="5d997-181">Hier volgt een voorbeeld van Hallo CSDL: (kopiëren en plakken Hallo onderstaand voorbeeld CSDL in een XML-editor en wijzig toomatch uw Service.</span><span class="sxs-lookup"><span data-stu-id="5d997-181">An example of hello CSDL follows:  (Copy and paste hello below example CSDL into an XML editor and change toomatch your Service.</span></span>  <span data-ttu-id="5d997-182">Plak in CSDL toewijzing DataService tabblad bij het maken van uw service in Hallo [Azure Marketplace Publishing Portal](https://publish.windowsazure.com)).</span><span class="sxs-lookup"><span data-stu-id="5d997-182">Then paste into CSDL Mapping under DataService tab when creating your service in hello  [Azure Marketplace Publishing Portal](https://publish.windowsazure.com)).</span></span>
 
-<span data-ttu-id="23062-183">**Voorwaarden:** termen met betrekking de CSDL naar de [Publishing Portal](https://publish.windowsazure.com) voorwaarden van de gebruikersinterface (PPUI).</span><span class="sxs-lookup"><span data-stu-id="23062-183">**Terms:** Relating the CSDL terms to the [Publishing Portal](https://publish.windowsazure.com) UI (PPUI) terms.</span></span>
+<span data-ttu-id="5d997-183">**Voorwaarden:** die verband houden met Hallo CSDL termen toohello [Publishing Portal](https://publish.windowsazure.com) voorwaarden van de gebruikersinterface (PPUI).</span><span class="sxs-lookup"><span data-stu-id="5d997-183">**Terms:** Relating hello CSDL terms toohello [Publishing Portal](https://publish.windowsazure.com) UI (PPUI) terms.</span></span>
 
-* <span data-ttu-id="23062-184">"Title" in de PPUI is gekoppeld aan MyWebOffer bieden</span><span class="sxs-lookup"><span data-stu-id="23062-184">Offer “Title” in the PPUI relates to MyWebOffer</span></span>
-* <span data-ttu-id="23062-185">Mijnbedrijf in de PPUI is gekoppeld aan **Publisher weergavenaam** in de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) gebruikersinterface</span><span class="sxs-lookup"><span data-stu-id="23062-185">MyCompany in the PPUI relates to **Publisher Display Name** in the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) UI</span></span>
-* <span data-ttu-id="23062-186">Uw API is gekoppeld aan een webpagina of Service (een Plan in de PPUI) van de gegevens</span><span class="sxs-lookup"><span data-stu-id="23062-186">Your API relates to a Web or Data Service (a Plan in the PPUI)</span></span>
+* <span data-ttu-id="5d997-184">Bieden "Title" in hello PPUI tooMyWebOffer is gekoppeld</span><span class="sxs-lookup"><span data-stu-id="5d997-184">Offer “Title” in hello PPUI relates tooMyWebOffer</span></span>
+* <span data-ttu-id="5d997-185">Mijnbedrijf in Hallo PPUI te is gekoppeld**Publisher weergavenaam** in Hallo [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) gebruikersinterface</span><span class="sxs-lookup"><span data-stu-id="5d997-185">MyCompany in hello PPUI relates too**Publisher Display Name** in hello [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) UI</span></span>
+* <span data-ttu-id="5d997-186">Uw API is gekoppeld tooa Web- of Data-Service (een Plan in Hallo PPUI)</span><span class="sxs-lookup"><span data-stu-id="5d997-186">Your API relates tooa Web or Data Service (a Plan in hello PPUI)</span></span>
 
-<span data-ttu-id="23062-187">**Hiërarchie:** (inhoudsprovider) van een bedrijf eigenaar is van de aanbiedingen die Plan(s) hebben, namelijk service(s), welke uitgelijnd met een API.</span><span class="sxs-lookup"><span data-stu-id="23062-187">**Hierarchy:** A Company (Content Provider) owns Offer(s) which have Plan(s), namely service(s), which line up with an API.</span></span>
+<span data-ttu-id="5d997-187">**Hiërarchie:** (inhoudsprovider) van een bedrijf eigenaar is van de aanbiedingen die Plan(s) hebben, namelijk service(s), welke uitgelijnd met een API.</span><span class="sxs-lookup"><span data-stu-id="5d997-187">**Hierarchy:** A Company (Content Provider) owns Offer(s) which have Plan(s), namely service(s), which line up with an API.</span></span>
 
-### <a name="webservice-csdl-example"></a><span data-ttu-id="23062-188">WebService CSDL-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="23062-188">WebService CSDL Example</span></span>
-<span data-ttu-id="23062-189">Maakt verbinding met een service die een eindpunt van de web-toepassing (zoals een C#-toepassing weergeeft)</span><span class="sxs-lookup"><span data-stu-id="23062-189">Connects to a service that is exposing an web application endpoint (like a C# application)</span></span>
+### <a name="webservice-csdl-example"></a><span data-ttu-id="5d997-188">WebService CSDL-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="5d997-188">WebService CSDL Example</span></span>
+<span data-ttu-id="5d997-189">Maakt verbinding tooa-service die een eindpunt van de web-toepassing (zoals een C#-toepassing weergeeft)</span><span class="sxs-lookup"><span data-stu-id="5d997-189">Connects tooa service that is exposing an web application endpoint (like a C# application)</span></span>
 
         <?xml version="1.0" encoding="utf-8"?>
-        <!-- The namespace attribute below is used by our system to generate C#. You can change “MyCompany.MyOffer” to something that makes sense for you, but change “MyOffer” consistently throughout the document. -->
+        <!-- hello namespace attribute below is used by our system toogenerate C#. You can change “MyCompany.MyOffer” toosomething that makes sense for you, but change “MyOffer” consistently throughout hello document. -->
         <Schema Namespace="MyCompany.MyWebOffer" Alias="MyOffer" xmlns="http://schemas.microsoft.com/ado/2009/08/edm" xmlns:d="http://schemas.microsoft.com/dallas/2010/04" >
-        <!-- EntityContainer groups all the web service calls together into a single offering. Every web service call has a FunctionImport definition. -->
+        <!-- EntityContainer groups all hello web service calls together into a single offering. Every web service call has a FunctionImport definition. -->
           <EntityContainer Name="MyOffer">
         <!-- EntitySet is defined for CSDL compatibility reasons, not required for ReturnType=”Raw”
-        @Name is used as reference by FunctionImport @EntitySet. And is used in the customer facing UI as name of the Service.
-        @EntityType is used to point at the type definition near the bottom of this file. -->
+        @Name is used as reference by FunctionImport @EntitySet. And is used in hello customer facing UI as name of hello Service.
+        @EntityType is used toopoint at hello type definition near hello bottom of this file. -->
             <EntitySet Name="MyEntities" EntityType="MyOffer.MyEntityType" />
         <!-- Add a FunctionImport for every service method. Multiple FunctionImports can share a single return type (EntityType). -->
         <!-- ReturnType is either Raw() for a stream or Collection() for an Atom feed. Ex. of Raw: ReturnType=”Raw(text/plain)” -->
-        <!—EntitySet is the entityset defined above, and is needed if ReturnType is not Raw -->
-        <!-- BaseURI attribute defines the service call, replace & with the encode value (&amp;).
-        In the input name value pairs {param} represents passed in value.
-        Or the value can be hard coded as with AccountKey. -->
-        <!-- AllowedHttpMethods optional (default = “GET”), allows the CSDL to specifically specify the verb of the service, “Get”, “Post”, “Put”, or “Delete”. -->
-        <!-- EncodeParameterValues, True encodes the parameter values, false does not. -->
-        <!-- BaseURI is translated into an URITemplate which defines how the web service call is exposed to marketplace customers.
+        <!—EntitySet is hello entityset defined above, and is needed if ReturnType is not Raw -->
+        <!-- BaseURI attribute defines hello service call, replace & with hello encode value (&amp;).
+        In hello input name value pairs {param} represents passed in value.
+        Or hello value can be hard coded as with AccountKey. -->
+        <!-- AllowedHttpMethods optional (default = “GET”), allows hello CSDL toospecifically specify hello verb of hello service, “Get”, “Post”, “Put”, or “Delete”. -->
+        <!-- EncodeParameterValues, True encodes hello parameter values, false does not. -->
+        <!-- BaseURI is translated into an URITemplate which defines how hello web service call is exposed toomarketplace customers.
         Ex. https://api.datamarket.azure.com/mycompany/MyOfferPlan?name={name}
-        BaseURI is XML encoded, the {...} point to the parameters defined below.
-        Marketplace will read the parameters from this URITemplate and fill the values into the corresponding parameters of the BaseUri or RequestBody (below) during calls to your service.  
-        It is okay for @d:BaseUri to include information only for Marketplace consumption, it will not be exposed to end users. i.e. the hardcoded AccountKey in the above BaseURI does not show up in the client facing URITemplate. -->
+        BaseURI is XML encoded, hello {...} point toohello parameters defined below.
+        Marketplace will read hello parameters from this URITemplate and fill hello values into hello corresponding parameters of hello BaseUri or RequestBody (below) during calls tooyour service.  
+        It is okay for @d:BaseUri tooinclude information only for Marketplace consumption, it will not be exposed tooend users. i.e. hello hardcoded AccountKey in hello above BaseURI does not show up in hello client facing URITemplate. -->
             <FunctionImport Name="MyWebServiceMethod"
                             EntitySet="MyEntities"
                             ReturnType="Collection(MyOffer.MyEntityType)"
         d:AllowedHttpMethods="GET"
         d:EncodeParameterValues="true"
         d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
-        <!-- Definition of the RequestBody is only required for HTTP POST requests and is optional for HTTP GET requests. -->
+        <!-- Definition of hello RequestBody is only required for HTTP POST requests and is optional for HTTP GET requests. -->
         <d:RequestBody d:httpMethod="POST">
-                <!-- Use {} for placeholders to insert parameters. -->
+                <!-- Use {} for placeholders tooinsert parameters. -->
                 <!-- This example uses SOAP formatting, but any POST body can be used. -->
-            <!-- This example shows how to pass userid and password via the header -->
+            <!-- This example shows how toopass userid and password via hello header -->
                 <![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:MyOffer="http://services.organization.net/MyServicePath">
                   <soapenv:Header/>
                   <soapenv:Body>
                     <MyOffer:ws_MyWebServiceMethod>
                       <myWebServiceMethodRequest>
-                        <!--This information is not exposed to end users. -->
+                        <!--This information is not exposed tooend users. -->
                         <UserId>userid</UserId>
                         <Password>password</Password>
-                        <!-- {name} is replaced with the value read from @d:UriTemplate above -->
+                        <!-- {name} is replaced with hello value read from @d:UriTemplate above -->
                         <Name>{name}</Name>
-                        <!-- Parameters can be used more than once and are not limited to appearing as the value of an element -->
+                        <!-- Parameters can be used more than once and are not limited tooappearing as hello value of an element -->
                         <CustomField Name="{name}" />
                         <MyField>Static content</MyField>
                       </myWebServiceMethodRequest>
@@ -197,49 +197,49 @@ ms.lasthandoff: 07/11/2017
                 </soapenv:Envelope>      
               ]]>
         </d:RequestBody>
-        <!-- Title, Rights and Description are optional and used to specify values to insert into the ATOM feed returned to the end user.  You can specify the element to contain a fixed message by providing a value for the element (this is the default value).  @d:Map is an XPath expression that points into the response returned by your service and is optional.  -->
+        <!-- Title, Rights and Description are optional and used toospecify values tooinsert into hello ATOM feed returned toohello end user.  You can specify hello element toocontain a fixed message by providing a value for hello element (this is hello default value).  @d:Map is an XPath expression that points into hello response returned by your service and is optional.  -->
         <d:Title d:Map="/MyResponse/Title">Default title.</d:Title>
-        <d:Rights>© My copyright. This is a fixed response. It is okay to also add a d:Map attribute to override this text.</d:Rights>
+        <d:Rights>© My copyright. This is a fixed response. It is okay tooalso add a d:Map attribute toooverride this text.</d:Rights>
         <d:Description d:Map="/MyResponse/Description"></d:Description>
         <d:Namespaces>
         <d:Namespace d:Prefix="p"  d:Uri="http://schemas.organization.net/2010/04/myNamespace" />
         <d:Namespace d:Prefix="p2" d:Uri="http://schemas.organization.net/2010/04/MyNamespace2" />
         </d:Namespaces>
-        <!-- Parameters of the web service call:
-        @Name should match exactly (case sensitive) the {…} placeholders in the @d:BaseUri, @d:UriTemplate, and d:RequestBody, i.e. “name” parameter in above BaseURI.
+        <!-- Parameters of hello web service call:
+        @Name should match exactly (case sensitive) hello {…} placeholders in hello @d:BaseUri, @d:UriTemplate, and d:RequestBody, i.e. “name” parameter in above BaseURI.
         @Mode is always "In", compatibility with CSDL
-        @Type is the EDM.SimpleType of the parameter, see http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
-        @d:Nullable indicates whether the parameter is required.
-        @d:Regex - optional, attribute to describe the string, limiting unwanted input at the entry of the system
+        @Type is hello EDM.SimpleType of hello parameter, see http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+        @d:Nullable indicates whether hello parameter is required.
+        @d:Regex - optional, attribute toodescribe hello string, limiting unwanted input at hello entry of hello system
         @d:Description - optional, is used by Service Explorer as help information
         @d:SampleValues - optional, is used by Service Explorer as help information. Multiple Sample values are separated by '|', e.g. "804735132|234534224|23409823234"
-        @d:Enum - optional for string type. Contains an enumeration of possible values separated by a '|', e.g. d:enum="english|metric|raw". Will be converted in a dropdown list in the Service Explorer.
+        @d:Enum - optional for string type. Contains an enumeration of possible values separated by a '|', e.g. d:enum="english|metric|raw". Will be converted in a dropdown list in hello Service Explorer.
         -->
         <Parameter name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters"
         d:Enum="George|John|Thomas|James"
         d:SampleValues="George"/>
         <Parameter Name=" AccountKey" Mode="In" Type="String" d:Nullable="false" />
 
-        <!-- d:ErrorHandling is an optional element. Use it define standardized errors by evaluating the service response. -->
+        <!-- d:ErrorHandling is an optional element. Use it define standardized errors by evaluating hello service response. -->
         <d:ErrorHandling>
-        <!-- Any number of d:Condition elements are allowed, they are evaluated in the order listed.
-        @d:Match is an Xpath query on the service response, it should return true or false where true indicates an error.
-        @d:httpStatusCode is the error code to return if an response matches the error.
-        @d:errorMessage is the user friendly message to return when an error occurs.
+        <!-- Any number of d:Condition elements are allowed, they are evaluated in hello order listed.
+        @d:Match is an Xpath query on hello service response, it should return true or false where true indicates an error.
+        @d:httpStatusCode is hello error code tooreturn if an response matches hello error.
+        @d:errorMessage is hello user friendly message tooreturn when an error occurs.
         -->
-        <d:Condition d:Match="/Result/ErrorMessage[text()='Invalid token']" d:HttpStatusCode="403" d:ErrorMessage="User cannot connect to the service." />
+        <d:Condition d:Match="/Result/ErrorMessage[text()='Invalid token']" d:HttpStatusCode="403" d:ErrorMessage="User cannot connect toohello service." />
         </d:ErrorHandling>
            </FunctionImport>
 
-            <!-- The EntityContainer defines the output data schema -->
+            <!-- hello EntityContainer defines hello output data schema -->
         </EntityContainer>
-        <!-- The EntityType @d:Map defines the repeating node (an XPath query) in the response (output data schema). -->
-        <!-- If these nodes are outside a namespace, add the prefix in the xpath. -->
+        <!-- hello EntityType @d:Map defines hello repeating node (an XPath query) in hello response (output data schema). -->
+        <!-- If these nodes are outside a namespace, add hello prefix in hello xpath. -->
         <!--
-        @Name - define your user readable name, will become an XML element in the ATOM feed, so comply with the XML element naming restrictions (no spaces or other illegal characters).
-        @Type is the EDM.SimpleType of the parameter, see http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx.
-        @d:Map uses an Xpath query to point at the location to extract the content from your services response.
-        The "." is relative to the repeating node in the EntityType @d:Map Xpath expression.
+        @Name - define your user readable name, will become an XML element in hello ATOM feed, so comply with hello XML element naming restrictions (no spaces or other illegal characters).
+        @Type is hello EDM.SimpleType of hello parameter, see http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx.
+        @d:Map uses an Xpath query toopoint at hello location tooextract hello content from your services response.
+        hello "." is relative toohello repeating node in hello EntityType @d:Map Xpath expression.
         -->
             <EntityType Name="MyEntityType" d:Map="/MyResponse/MyEntities">
         <Property Name="ID"    d:IsPrimaryKey="True" Type="Int32"    Nullable="false" d:Map="./Remaining[@Amount]"/>
@@ -254,32 +254,32 @@ ms.lasthandoff: 07/11/2017
         </Schema>
 
 > [!TIP]
-> <span data-ttu-id="23062-190">Meer voorbeelden van de webservice CSDL weergeven in het artikel [voorbeelden voor het toewijzen van een bestaande webservice voor OData via CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md)</span><span class="sxs-lookup"><span data-stu-id="23062-190">View more CSDL Web Service examples in the article [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md)</span></span>
+> <span data-ttu-id="5d997-190">Meer voorbeelden van de webservice CSDL weergeven in Hallo artikel [voorbeelden voor het toewijzen van een bestaande web service tooOData via CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md)</span><span class="sxs-lookup"><span data-stu-id="5d997-190">View more CSDL Web Service examples in hello article [Examples of mapping an existing web service tooOData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md)</span></span>
 > 
 > 
 
-### <a name="dataservice-csdl-example"></a><span data-ttu-id="23062-191">DataService CSDL-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="23062-191">DataService CSDL Example</span></span>
-<span data-ttu-id="23062-192">Maakt verbinding met een service die weergeeft een databasetabel of weergave als een eindpunt onderstaand voorbeeld ziet u dat twee API's voor base-gegevens op basis van API-CSDL (met kunt weergaven in plaats van tabellen).</span><span class="sxs-lookup"><span data-stu-id="23062-192">Connects to a service that is exposing a database table or view as an endpoint Below example shows two APIs for Data base based API CSDL (can use views rather than tables).</span></span>
+### <a name="dataservice-csdl-example"></a><span data-ttu-id="5d997-191">DataService CSDL-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="5d997-191">DataService CSDL Example</span></span>
+<span data-ttu-id="5d997-192">Maakt verbinding tooa-service die weergeeft een databasetabel of weergave zoals een eindpunt onderstaand voorbeeld twee dat API CSDL toont (met kunt weergaven in plaats van tabellen) op basis van API's voor de databank.</span><span class="sxs-lookup"><span data-stu-id="5d997-192">Connects tooa service that is exposing a database table or view as an endpoint Below example shows two APIs for Data base based API CSDL (can use views rather than tables).</span></span>
 
         <?xml version="1.0"?>
-        <!-- The namespace attribute below is used by our system to generate C#. You can change “MyCompany.MyOffer” to something that makes sense for you, but change “MyOffer” consistently throughout the document. -->
+        <!-- hello namespace attribute below is used by our system toogenerate C#. You can change “MyCompany.MyOffer” toosomething that makes sense for you, but change “MyOffer” consistently throughout hello document. -->
         <Schema Namespace="MyCompany.MyDataOffer" Alias="MyOffer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ado/2009/08/edm">
-        <!-- EntityContainer groups all the data service calls together into a single offering. Every web service call has a FunctionImport definition. -->
+        <!-- EntityContainer groups all hello data service calls together into a single offering. Every web service call has a FunctionImport definition. -->
         <EntityContainer Name="MyOfferContainer">
         <!-- EntitySet is defined for CSDL compatibility reasons, not required for ReturnType=”Raw”
-            Think of the EntitySet as a Service
-        @Name is used in the customer facing UI as name of the Service.
-        @EntityType is used to point at the type definition (returned set of table columns). -->
+            Think of hello EntitySet as a Service
+        @Name is used in hello customer facing UI as name of hello Service.
+        @EntityType is used toopoint at hello type definition (returned set of table columns). -->
         <EntitySet Name="CompanyInfoEntitySet" EntityType="MyOffer.CompanyInfo" />
         <EntitySet Name="ProductInfoEntitySet" EntityType="MyOffer.ProductInfo" />
         </EntityContainer>
-        <!-- EntityType defines result (output); the table (or view) and columns to be returned by the data service.)
-            Map is the schema.tabel or schema.view
-            dals.TableName is the table Name
-            Name is the name identifier for the EntityType and the Name of the service exposed to the client via the UI.
-            dals:IsExposed determines if the table schema is exposed (generally true).
+        <!-- EntityType defines result (output); hello table (or view) and columns toobe returned by hello data service.)
+            Map is hello schema.tabel or schema.view
+            dals.TableName is hello table Name
+            Name is hello name identifier for hello EntityType and hello Name of hello service exposed toohello client via hello UI.
+            dals:IsExposed determines if hello table schema is exposed (generally true).
             dals:IsView (optional) true if this is based on a view rather than a table
-            dals:TableSchema is the schema name of the table/view
+            dals:TableSchema is hello schema name of hello table/view
         -->
         <EntityType
         Map="[dbo].[CompanyInfo]"
@@ -289,17 +289,17 @@ ms.lasthandoff: 07/11/2017
         dals:IsView="false"
         dals:TableSchema="dbo"
         xmlns:dals="http://schemas.microsoft.com/dallas/2010/04">
-        <!-- Property defines the column properties and the output of the service.
-            dals:ColumnName is the name of the column in the table /view.
-            Type is the emd.SimpleType
+        <!-- Property defines hello column properties and hello output of hello service.
+            dals:ColumnName is hello name of hello column in hello table /view.
+            Type is hello emd.SimpleType
             Nullable determines if NULL is a valid output value
-            dals.CharMaxLenght is the maximum length of the output value
-            Name is the name of the Property and is exposed to the client facing UI
-            dals:IsReturned is the Boolean that determines if the Service exposes this value to the client.
-            IsQueryable is the Boolean that determines if the column can be used in a database query
-            (For data Services: To improve Performance make sure that columns marked ISQueryable=”true” are in an index.)
-            dals:OrdinalPosition is the numerical position x in the table or the View, where x is from 1 to the number of columns in the table.
-            dals:DatabaseDataType is the data type of the column in the database, i.e. SQL data type dals:IsPrimaryKey indicates if the column is the Primary key in the table/view.  (The columns marked ISPrimaryKey are used in the Order by clause when returning data.)
+            dals.CharMaxLenght is hello maximum length of hello output value
+            Name is hello name of hello Property and is exposed toohello client facing UI
+            dals:IsReturned is hello Boolean that determines if hello Service exposes this value toohello client.
+            IsQueryable is hello Boolean that determines if hello column can be used in a database query
+            (For data Services: tooimprove Performance make sure that columns marked ISQueryable=”true” are in an index.)
+            dals:OrdinalPosition is hello numerical position x in hello table or hello View, where x is from 1 toohello number of columns in hello table.
+            dals:DatabaseDataType is hello data type of hello column in hello database, i.e. SQL data type dals:IsPrimaryKey indicates if hello column is hello Primary key in hello table/view.  (hello columns marked ISPrimaryKey are used in hello Order by clause when returning data.)
         -->
         <Property dals:ColumnName="data" Type="String" Nullable="true" dals:CharMaxLength="-1" Name="data" dals:IsReturned="true" dals:IsQueryable="false" dals:IsPrimaryKey="false" dals:OrdinalPosition="3" dals:DatabaseDataType="nvarchar" />
         <Property dals:ColumnName="id" Type="Int32" Nullable="false" Name="id" dals:IsReturned="true" dals:IsQueryable="true" dals:IsPrimaryKey="true" dals:OrdinalPosition="1" dals:NumericPrecision="10" dals:DatabaseDataType="int" />
@@ -312,8 +312,8 @@ ms.lasthandoff: 07/11/2017
         </EntityType>
         </Schema>
 
-## <a name="see-also"></a><span data-ttu-id="23062-193">Zie ook</span><span class="sxs-lookup"><span data-stu-id="23062-193">See Also</span></span>
-* <span data-ttu-id="23062-194">Als u geïnteresseerd bent in het leren van en inzicht in de specifieke knooppunten en de bijbehorende parameters, Lees dit artikel [Service OData toewijzing gegevensknooppunten](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) voor definities en uitleg, voorbeelden en gebruik case-context.</span><span class="sxs-lookup"><span data-stu-id="23062-194">If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.</span></span>
-* <span data-ttu-id="23062-195">Als u geïnteresseerd bent in de voorbeelden controleren, Lees dit artikel [gegevens Service OData toewijzing voorbeelden](marketplace-publishing-data-service-creation-odata-mapping-examples.md) voorbeeldcode zien en begrijpen codesyntaxis en in het contextmenu.</span><span class="sxs-lookup"><span data-stu-id="23062-195">If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.</span></span>
-* <span data-ttu-id="23062-196">Lees dit artikel om terug te keren naar de voorgeschreven pad voor het publiceren van een Service van gegevens naar Azure Marketplace, [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).</span><span class="sxs-lookup"><span data-stu-id="23062-196">To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).</span></span>
+## <a name="see-also"></a><span data-ttu-id="5d997-193">Zie ook</span><span class="sxs-lookup"><span data-stu-id="5d997-193">See Also</span></span>
+* <span data-ttu-id="5d997-194">Als u geïnteresseerd in learning en de specifieke kennis Hallo-knooppunten en de bijbehorende parameters bent, Lees dit artikel [Service OData toewijzing gegevensknooppunten](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) voor definities en uitleg, voorbeelden en gebruik case-context.</span><span class="sxs-lookup"><span data-stu-id="5d997-194">If you are interested in learning and understanding hello specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.</span></span>
+* <span data-ttu-id="5d997-195">Als u geïnteresseerd bent in de voorbeelden controleren, Lees dit artikel [gegevens Service OData toewijzing voorbeelden](marketplace-publishing-data-service-creation-odata-mapping-examples.md) toosee voorbeeldcode en begrijpen codesyntaxis en in het contextmenu.</span><span class="sxs-lookup"><span data-stu-id="5d997-195">If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) toosee sample code and understand code syntax and context.</span></span>
+* <span data-ttu-id="5d997-196">tooreturn toohello pad voor het publiceren van een gegevensservice toohello Azure Marketplace Lees dit artikel voorgeschreven [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).</span><span class="sxs-lookup"><span data-stu-id="5d997-196">tooreturn toohello prescribed path for publishing a Data Service toohello Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).</span></span>
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Docker Compose Preview | Microsoft Docs
-description: Azure Service Fabric accepteert Docker Compose indeling u indeelt exsiting containers met behulp van Service Fabric te vereenvoudigen. Deze ondersteuning is momenteel in preview.
+title: Service Fabric Docker Compose Preview aaaAzure | Microsoft Docs
+description: Azure Service Fabric-indeling toomake Docker Compose accepteert deze eenvoudiger tooorchestrate exsiting containers met behulp van Service Fabric. Deze ondersteuning is momenteel in preview.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 824044fd698f0ed94c4212722bc82187905315dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a><span data-ttu-id="0342b-104">Geven volume invoegtoepassingen en stuurprogramma's voor de container logboekregistratie</span><span class="sxs-lookup"><span data-stu-id="0342b-104">Specifying volume plugins and logging drivers for your container</span></span>
+# <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a><span data-ttu-id="d8f27-104">Geven volume invoegtoepassingen en stuurprogramma's voor de container logboekregistratie</span><span class="sxs-lookup"><span data-stu-id="d8f27-104">Specifying volume plugins and logging drivers for your container</span></span>
 
-<span data-ttu-id="0342b-105">Service Fabric ondersteunt het opgeven van [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) en [Docker-logboekregistratie stuurprogramma's](https://docs.docker.com/engine/admin/logging/overview/) voor uw containerservice.</span><span class="sxs-lookup"><span data-stu-id="0342b-105">Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service.</span></span> <span data-ttu-id="0342b-106">De invoegtoepassingen zijn opgegeven in het toepassingsmanifest, zoals wordt weergegeven in het manifest van de volgende:</span><span class="sxs-lookup"><span data-stu-id="0342b-106">The plugins are specified in the application manifest as shown in the following manifest:</span></span>
+<span data-ttu-id="d8f27-105">Service Fabric ondersteunt het opgeven van [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) en [Docker-logboekregistratie stuurprogramma's](https://docs.docker.com/engine/admin/logging/overview/) voor uw containerservice.</span><span class="sxs-lookup"><span data-stu-id="d8f27-105">Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service.</span></span> <span data-ttu-id="d8f27-106">Hallo invoegtoepassingen zijn opgegeven in Hallo toepassingsmanifest zoals weergegeven in de volgende manifest Hallo:</span><span class="sxs-lookup"><span data-stu-id="d8f27-106">hello plugins are specified in hello application manifest as shown in hello following manifest:</span></span>
 
 
 ```xml
@@ -56,9 +56,9 @@ ms.lasthandoff: 08/18/2017
 </ApplicationManifest>
 ```
 
-<span data-ttu-id="0342b-107">In het voorgaande voorbeeld de `Source` tag voor de `Volume` verwijst naar de bronmap.</span><span class="sxs-lookup"><span data-stu-id="0342b-107">In the preceding example, the `Source` tag for the `Volume` refers to the source folder.</span></span> <span data-ttu-id="0342b-108">De bronmap wordt mogelijk een map in de virtuele machine die als host fungeert voor de containers of een permanente externe opslag.</span><span class="sxs-lookup"><span data-stu-id="0342b-108">The source folder could be a folder in the VM that hosts the containers or a persistent remote store.</span></span> <span data-ttu-id="0342b-109">De `Destination` label is de locatie die het `Source` is toegewezen aan in de actieve container.</span><span class="sxs-lookup"><span data-stu-id="0342b-109">The `Destination` tag is the location that the `Source` is mapped to within the running container.</span></span> 
+<span data-ttu-id="d8f27-107">Hallo in Hallo voorgaande voorbeeld, `Source` tag voor Hallo `Volume` toohello bronmap verwijst.</span><span class="sxs-lookup"><span data-stu-id="d8f27-107">In hello preceding example, hello `Source` tag for hello `Volume` refers toohello source folder.</span></span> <span data-ttu-id="d8f27-108">Hallo bronmap mogelijk een map in Hallo VM die als host fungeert voor Hallo containers of een permanente externe opslag.</span><span class="sxs-lookup"><span data-stu-id="d8f27-108">hello source folder could be a folder in hello VM that hosts hello containers or a persistent remote store.</span></span> <span data-ttu-id="d8f27-109">Hallo `Destination` tag is Hallo-locatie waar Hallo `Source` wordt toegewezen toowithin Hallo container uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="d8f27-109">hello `Destination` tag is hello location that hello `Source` is mapped toowithin hello running container.</span></span> 
 
-<span data-ttu-id="0342b-110">Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch het volume met de opgegeven parameters.</span><span class="sxs-lookup"><span data-stu-id="0342b-110">When specifying a volume plugin, Service Fabric automatically creates the volume using the parameters specified.</span></span> <span data-ttu-id="0342b-111">De `Source` label is de naam van het volume en de `Driver` tag geeft de stuurprogramma-invoegtoepassing voor volume.</span><span class="sxs-lookup"><span data-stu-id="0342b-111">The `Source` tag is the name of the volume, and the `Driver` tag specifies the volume driver plugin.</span></span> <span data-ttu-id="0342b-112">Opties kunnen worden opgegeven met behulp van de `DriverOption` tag zoals weergegeven in het volgende fragment:</span><span class="sxs-lookup"><span data-stu-id="0342b-112">Options can be specified using the `DriverOption` tag as shown in the following snippet:</span></span>
+<span data-ttu-id="d8f27-110">Wanneer u een invoegtoepassing volume opgeeft, maakt Service Fabric automatisch Hallo volume met behulp van Hallo parameters opgegeven.</span><span class="sxs-lookup"><span data-stu-id="d8f27-110">When specifying a volume plugin, Service Fabric automatically creates hello volume using hello parameters specified.</span></span> <span data-ttu-id="d8f27-111">Hallo `Source` tag heet Hallo Hallo volume en Hallo `Driver` code geeft Hallo volume stuurprogramma-invoegtoepassing.</span><span class="sxs-lookup"><span data-stu-id="d8f27-111">hello `Source` tag is hello name of hello volume, and hello `Driver` tag specifies hello volume driver plugin.</span></span> <span data-ttu-id="d8f27-112">Opties kunnen worden opgegeven met behulp van Hallo `DriverOption` zoals weergegeven in het volgende codefragment Hallo tag:</span><span class="sxs-lookup"><span data-stu-id="d8f27-112">Options can be specified using hello `DriverOption` tag as shown in hello following snippet:</span></span>
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
@@ -66,10 +66,10 @@ ms.lasthandoff: 08/18/2017
 </Volume>
 ```
 
-<span data-ttu-id="0342b-113">Als een stuurprogramma Docker-logboek is opgegeven, is het voor het implementeren van agents (of containers) voor het afhandelen van de logboeken in het cluster.</span><span class="sxs-lookup"><span data-stu-id="0342b-113">If a Docker log driver is specified, it is necessary to deploy agents (or containers) to handle the logs in the cluster.</span></span>  <span data-ttu-id="0342b-114">De `DriverOption` label kan worden gebruikt om op te geven, evenals stuurprogramma-opties in logboek.</span><span class="sxs-lookup"><span data-stu-id="0342b-114">The `DriverOption` tag can be used to specify log driver options as well.</span></span>
+<span data-ttu-id="d8f27-113">Als een stuurprogramma Docker-logboek is opgegeven, is het nodig toodeploy agents (of containers) toohandle Hallo Hallo cluster zich aanmeldt.</span><span class="sxs-lookup"><span data-stu-id="d8f27-113">If a Docker log driver is specified, it is necessary toodeploy agents (or containers) toohandle hello logs in hello cluster.</span></span>  <span data-ttu-id="d8f27-114">Hallo `DriverOption` tag gebruikte toospecify logboek stuurprogrammaopties ook kan worden.</span><span class="sxs-lookup"><span data-stu-id="d8f27-114">hello `DriverOption` tag can be used toospecify log driver options as well.</span></span>
 
-<span data-ttu-id="0342b-115">Raadpleeg de volgende artikelen voor het implementeren van containers naar een Service Fabric-cluster:</span><span class="sxs-lookup"><span data-stu-id="0342b-115">Refer to the following articles to deploy containers to a Service Fabric cluster:</span></span>
+<span data-ttu-id="d8f27-115">Raadpleeg toohello artikelen toodeploy containers tooa Service Fabric-cluster te volgen:</span><span class="sxs-lookup"><span data-stu-id="d8f27-115">Refer toohello following articles toodeploy containers tooa Service Fabric cluster:</span></span>
 
 
-[<span data-ttu-id="0342b-116">Een Service Fabric-container implementeren</span><span class="sxs-lookup"><span data-stu-id="0342b-116">Deploy a container on Service Fabric</span></span>](service-fabric-deploy-container.md)
+[<span data-ttu-id="d8f27-116">Een Service Fabric-container implementeren</span><span class="sxs-lookup"><span data-stu-id="d8f27-116">Deploy a container on Service Fabric</span></span>](service-fabric-deploy-container.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Maken van aangepaste installatiekopieën voor virtuele machine met de Azure CLI | Microsoft Docs"
-description: Zelfstudie - maken van een aangepaste VM-installatiekopie met de Azure CLI.
+title: "aangepaste VM-installatiekopieën aaaCreate Hello Azure CLI | Microsoft Docs"
+description: Zelfstudie - een aangepaste VM-installatiekopie met behulp van Azure CLI Hallo maken.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,78 +16,78 @@ ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 217a993c0c1d48939b74108ac6c5f7a1a619416c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a><span data-ttu-id="f85e0-103">Een aangepaste installatiekopie van een virtuele machine met behulp van de CLI van Azure maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-103">Create a custom image of an Azure VM using the CLI</span></span>
+# <a name="create-a-custom-image-of-an-azure-vm-using-hello-cli"></a><span data-ttu-id="fe519-103">Een aangepaste installatiekopie van een virtuele machine in Azure met behulp van Hallo CLI maken</span><span class="sxs-lookup"><span data-stu-id="fe519-103">Create a custom image of an Azure VM using hello CLI</span></span>
 
-<span data-ttu-id="f85e0-104">Aangepaste installatiekopieën zijn zoals marketplace-installatiekopieën, maar u deze zelf maken.</span><span class="sxs-lookup"><span data-stu-id="f85e0-104">Custom images are like marketplace images, but you create them yourself.</span></span> <span data-ttu-id="f85e0-105">Aangepaste installatiekopieën kunnen worden gebruikt voor de bootstrap configuraties, zoals het vooraf laden van toepassingen, toepassingsconfiguraties en andere configuraties OS.</span><span class="sxs-lookup"><span data-stu-id="f85e0-105">Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations.</span></span> <span data-ttu-id="f85e0-106">In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele machine van Azure.</span><span class="sxs-lookup"><span data-stu-id="f85e0-106">In this tutorial, you create your own custom image of an Azure virtual machine.</span></span> <span data-ttu-id="f85e0-107">Procedures voor:</span><span class="sxs-lookup"><span data-stu-id="f85e0-107">You learn how to:</span></span>
+<span data-ttu-id="fe519-104">Aangepaste installatiekopieën zijn zoals marketplace-installatiekopieën, maar u deze zelf maken.</span><span class="sxs-lookup"><span data-stu-id="fe519-104">Custom images are like marketplace images, but you create them yourself.</span></span> <span data-ttu-id="fe519-105">Aangepaste installatiekopieën kunnen worden gebruikt toobootstrap configuraties zoals vooraf laden van toepassingen, toepassingsconfiguraties en andere configuraties OS.</span><span class="sxs-lookup"><span data-stu-id="fe519-105">Custom images can be used toobootstrap configurations such as preloading applications, application configurations, and other OS configurations.</span></span> <span data-ttu-id="fe519-106">In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele machine van Azure.</span><span class="sxs-lookup"><span data-stu-id="fe519-106">In this tutorial, you create your own custom image of an Azure virtual machine.</span></span> <span data-ttu-id="fe519-107">Procedures voor:</span><span class="sxs-lookup"><span data-stu-id="fe519-107">You learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="f85e0-108">Inrichting ervan ongedaan en generalize van virtuele machines</span><span class="sxs-lookup"><span data-stu-id="f85e0-108">Deprovision and generalize VMs</span></span>
-> * <span data-ttu-id="f85e0-109">Een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-109">Create a custom image</span></span>
-> * <span data-ttu-id="f85e0-110">Een virtuele machine van een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-110">Create a VM from a custom image</span></span>
-> * <span data-ttu-id="f85e0-111">Lijst van alle installatiekopieën in uw abonnement</span><span class="sxs-lookup"><span data-stu-id="f85e0-111">List all the images in your subscription</span></span>
-> * <span data-ttu-id="f85e0-112">Een afbeelding verwijderen</span><span class="sxs-lookup"><span data-stu-id="f85e0-112">Delete an image</span></span>
+> * <span data-ttu-id="fe519-108">Inrichting ervan ongedaan en generalize van virtuele machines</span><span class="sxs-lookup"><span data-stu-id="fe519-108">Deprovision and generalize VMs</span></span>
+> * <span data-ttu-id="fe519-109">Een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-109">Create a custom image</span></span>
+> * <span data-ttu-id="fe519-110">Een virtuele machine van een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-110">Create a VM from a custom image</span></span>
+> * <span data-ttu-id="fe519-111">Lijst van alle Hallo-installatiekopieën in uw abonnement</span><span class="sxs-lookup"><span data-stu-id="fe519-111">List all hello images in your subscription</span></span>
+> * <span data-ttu-id="fe519-112">Een afbeelding verwijderen</span><span class="sxs-lookup"><span data-stu-id="fe519-112">Delete an image</span></span>
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-<span data-ttu-id="f85e0-113">Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger.</span><span class="sxs-lookup"><span data-stu-id="f85e0-113">If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="f85e0-114">Voer `az --version` uit om de versie te bekijken.</span><span class="sxs-lookup"><span data-stu-id="f85e0-114">Run `az --version` to find the version.</span></span> <span data-ttu-id="f85e0-115">Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="f85e0-115">If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
+<span data-ttu-id="fe519-113">Als u tooinstall kiest en Hallo CLI lokaal gebruiken, deze zelfstudie vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger.</span><span class="sxs-lookup"><span data-stu-id="fe519-113">If you choose tooinstall and use hello CLI locally, this tutorial requires that you are running hello Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="fe519-114">Voer `az --version` toofind Hallo versie.</span><span class="sxs-lookup"><span data-stu-id="fe519-114">Run `az --version` toofind hello version.</span></span> <span data-ttu-id="fe519-115">Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="fe519-115">If you need tooinstall or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
 
-## <a name="before-you-begin"></a><span data-ttu-id="f85e0-116">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="f85e0-116">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="fe519-116">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="fe519-116">Before you begin</span></span>
 
-<span data-ttu-id="f85e0-117">De onderstaande stappen worden in detail beschreven hoe moet worden overgenomen van een bestaande virtuele machine en schakelt u deze in een herbruikbare aangepaste installatiekopie die u gebruiken kunt om nieuwe VM-exemplaren te maken.</span><span class="sxs-lookup"><span data-stu-id="f85e0-117">The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.</span></span>
+<span data-ttu-id="fe519-117">Hallo stappen hieronder wordt beschreven hoe tootake een bestaande virtuele machine en schakel dit in een herbruikbare aangepaste installatiekopie die u hebt de nieuwe VM-instanties toocreate kunnen gebruiken.</span><span class="sxs-lookup"><span data-stu-id="fe519-117">hello steps below detail how tootake an existing VM and turn it into a re-usable custom image that you can use toocreate new VM instances.</span></span>
 
-<span data-ttu-id="f85e0-118">Als u het voorbeeld in deze zelfstudie, moet u een bestaande virtuele machine hebben.</span><span class="sxs-lookup"><span data-stu-id="f85e0-118">To complete the example in this tutorial, you must have an existing virtual machine.</span></span> <span data-ttu-id="f85e0-119">Indien nodig, dit [voorbeeldscript](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) kunt maken voor u.</span><span class="sxs-lookup"><span data-stu-id="f85e0-119">If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you.</span></span> <span data-ttu-id="f85e0-120">Wanneer het uitvoeren van de zelfstudie vervangt benoemt de resourcegroep en de virtuele machine waar nodig.</span><span class="sxs-lookup"><span data-stu-id="f85e0-120">When working through the tutorial, replace the resource group and VM names where needed.</span></span>
+<span data-ttu-id="fe519-118">toocomplete hello voorbeeld in deze zelfstudie, moet u een bestaande virtuele machine hebben.</span><span class="sxs-lookup"><span data-stu-id="fe519-118">toocomplete hello example in this tutorial, you must have an existing virtual machine.</span></span> <span data-ttu-id="fe519-119">Indien nodig, dit [voorbeeldscript](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) kunt maken voor u.</span><span class="sxs-lookup"><span data-stu-id="fe519-119">If needed, this [script sample](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) can create one for you.</span></span> <span data-ttu-id="fe519-120">Wanneer werkende Hallo-zelfstudie vervangt benoemt Hallo resourcegroep en de VM waar nodig.</span><span class="sxs-lookup"><span data-stu-id="fe519-120">When working through hello tutorial, replace hello resource group and VM names where needed.</span></span>
 
-## <a name="create-a-custom-image"></a><span data-ttu-id="f85e0-121">Een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-121">Create a custom image</span></span>
+## <a name="create-a-custom-image"></a><span data-ttu-id="fe519-121">Een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-121">Create a custom image</span></span>
 
-<span data-ttu-id="f85e0-122">Voor het maken van een installatiekopie van een virtuele machine, moet u de virtuele machine voorbereiden door opheffen van inrichting, toewijzing en vervolgens de bron-VM als gegeneraliseerd markeren.</span><span class="sxs-lookup"><span data-stu-id="f85e0-122">To create an image of a virtual machine, you need to prepare the VM by deprovisioning, deallocating, and then marking the source VM as generalized.</span></span> <span data-ttu-id="f85e0-123">Zodra de VM is voorbereid, kunt u een installatiekopie maken.</span><span class="sxs-lookup"><span data-stu-id="f85e0-123">Once the VM has been prepared, you can create an image.</span></span>
+<span data-ttu-id="fe519-122">toocreate een installatiekopie van een virtuele machine, moet u tooprepare Hallo VM opheffen van inrichting, toewijzing en wordt vervolgens markeren Hallo bron-VM als gegeneraliseerd.</span><span class="sxs-lookup"><span data-stu-id="fe519-122">toocreate an image of a virtual machine, you need tooprepare hello VM by deprovisioning, deallocating, and then marking hello source VM as generalized.</span></span> <span data-ttu-id="fe519-123">Eenmaal Hallo die VM is voorbereid, kunt u een installatiekopie.</span><span class="sxs-lookup"><span data-stu-id="fe519-123">Once hello VM has been prepared, you can create an image.</span></span>
 
-### <a name="deprovision-the-vm"></a><span data-ttu-id="f85e0-124">De virtuele machine identiteitsgegevens</span><span class="sxs-lookup"><span data-stu-id="f85e0-124">Deprovision the VM</span></span> 
+### <a name="deprovision-hello-vm"></a><span data-ttu-id="fe519-124">Identiteitsgegevens Hallo VM</span><span class="sxs-lookup"><span data-stu-id="fe519-124">Deprovision hello VM</span></span> 
 
-<span data-ttu-id="f85e0-125">Opheffen van inrichting de virtuele machine generaliseert door machine-specifieke informatie te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="f85e0-125">Deprovisioning generalizes the VM by removing machine-specific information.</span></span> <span data-ttu-id="f85e0-126">Deze generaliseren maakt het mogelijk om te veel virtuele machines van één installatiekopie implementeren.</span><span class="sxs-lookup"><span data-stu-id="f85e0-126">This generalization makes it possible to deploy many VMs from a single image.</span></span> <span data-ttu-id="f85e0-127">Tijdens het opheffen van inrichting, de naam van de host opnieuw is ingesteld op *localhost.localdomain*.</span><span class="sxs-lookup"><span data-stu-id="f85e0-127">During deprovisioning, the host name is reset to *localhost.localdomain*.</span></span> <span data-ttu-id="f85e0-128">Host-SSH-sleutels, naamserver configuraties hoofdwachtwoord en in de cache DHCP-leases worden ook verwijderd.</span><span class="sxs-lookup"><span data-stu-id="f85e0-128">SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.</span></span>
+<span data-ttu-id="fe519-125">Opheffen van inrichting Hallo VM generaliseert door machine-specifieke informatie te verwijderen.</span><span class="sxs-lookup"><span data-stu-id="fe519-125">Deprovisioning generalizes hello VM by removing machine-specific information.</span></span> <span data-ttu-id="fe519-126">Deze generaliseren maakt het mogelijk toodeploy veel virtuele machines van één installatiekopie.</span><span class="sxs-lookup"><span data-stu-id="fe519-126">This generalization makes it possible toodeploy many VMs from a single image.</span></span> <span data-ttu-id="fe519-127">Tijdens het opheffen van inrichting, Hallo hostnaam op te stellen*localhost.localdomain*.</span><span class="sxs-lookup"><span data-stu-id="fe519-127">During deprovisioning, hello host name is reset too*localhost.localdomain*.</span></span> <span data-ttu-id="fe519-128">Host-SSH-sleutels, naamserver configuraties hoofdwachtwoord en in de cache DHCP-leases worden ook verwijderd.</span><span class="sxs-lookup"><span data-stu-id="fe519-128">SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.</span></span>
 
-<span data-ttu-id="f85e0-129">Voor de inrichting ervan ongedaan maakt de virtuele machine, gebruikt u de Azure VM-agent (waagent).</span><span class="sxs-lookup"><span data-stu-id="f85e0-129">To deprovision the VM, use the Azure VM agent (waagent).</span></span> <span data-ttu-id="f85e0-130">De Azure VM-agent is geïnstalleerd op de virtuele machine en inrichting en interactie met de Azure-Infrastructuurcontroller beheert.</span><span class="sxs-lookup"><span data-stu-id="f85e0-130">The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller.</span></span> <span data-ttu-id="f85e0-131">Zie voor meer informatie de [gebruikershandleiding voor Azure Linux Agent](agent-user-guide.md).</span><span class="sxs-lookup"><span data-stu-id="f85e0-131">For more information, see the [Azure Linux Agent user guide](agent-user-guide.md).</span></span>
+<span data-ttu-id="fe519-129">toodeprovision hello virtuele machine, gebruik hello Azure VM-agent (waagent).</span><span class="sxs-lookup"><span data-stu-id="fe519-129">toodeprovision hello VM, use hello Azure VM agent (waagent).</span></span> <span data-ttu-id="fe519-130">Hello Azure VM-agent is geïnstalleerd op Hallo VM en inrichting en interactie met hello Azure-Infrastructuurcontroller beheert.</span><span class="sxs-lookup"><span data-stu-id="fe519-130">hello Azure VM agent is installed on hello VM and manages provisioning and interacting with hello Azure Fabric Controller.</span></span> <span data-ttu-id="fe519-131">Zie voor meer informatie, Hallo [gebruikershandleiding voor Azure Linux Agent](agent-user-guide.md).</span><span class="sxs-lookup"><span data-stu-id="fe519-131">For more information, see hello [Azure Linux Agent user guide](agent-user-guide.md).</span></span>
 
-<span data-ttu-id="f85e0-132">Verbinding maken met uw virtuele machine via SSH en voer de opdracht voor de inrichting ervan ongedaan maakt de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f85e0-132">Connect to your VM using SSH and run the command to deprovision the VM.</span></span> <span data-ttu-id="f85e0-133">Met de `+user` argument, de laatste ingerichte gebruiker-account en alle bijbehorende gegevens worden ook verwijderd.</span><span class="sxs-lookup"><span data-stu-id="f85e0-133">With the `+user` argument, the last provisioned user account and any associated data are also deleted.</span></span> <span data-ttu-id="f85e0-134">De voorbeeld-IP-adres vervangen door het openbare IP-adres van uw virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f85e0-134">Replace the example IP address with the public IP address of your VM.</span></span>
+<span data-ttu-id="fe519-132">Tooyour VM verbinding maken met behulp van SSH en Voer Hallo opdracht toodeprovision Hallo VM.</span><span class="sxs-lookup"><span data-stu-id="fe519-132">Connect tooyour VM using SSH and run hello command toodeprovision hello VM.</span></span> <span data-ttu-id="fe519-133">Hello `+user` argument, Hallo laatste ingerichte gebruikersaccount en alle bijbehorende gegevens worden ook verwijderd.</span><span class="sxs-lookup"><span data-stu-id="fe519-133">With hello `+user` argument, hello last provisioned user account and any associated data are also deleted.</span></span> <span data-ttu-id="fe519-134">Hallo voorbeeld IP-adres vervangen door Hallo openbare IP-adres van uw virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="fe519-134">Replace hello example IP address with hello public IP address of your VM.</span></span>
 
-<span data-ttu-id="f85e0-135">SSH naar de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f85e0-135">SSH to the VM.</span></span>
+<span data-ttu-id="fe519-135">SSH toohello VM.</span><span class="sxs-lookup"><span data-stu-id="fe519-135">SSH toohello VM.</span></span>
 ```bash
 ssh azureuser@52.174.34.95
 ```
-<span data-ttu-id="f85e0-136">Inrichting ervan ongedaan maakt de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f85e0-136">Deprovision the VM.</span></span>
+<span data-ttu-id="fe519-136">Identiteitsgegevens hello VM.</span><span class="sxs-lookup"><span data-stu-id="fe519-136">Deprovision hello VM.</span></span>
 
 ```bash
 sudo waagent -deprovision+user -force
 ```
-<span data-ttu-id="f85e0-137">De SSH-sessie te sluiten.</span><span class="sxs-lookup"><span data-stu-id="f85e0-137">Close the SSH session.</span></span>
+<span data-ttu-id="fe519-137">Hallo SSH-sessie te sluiten.</span><span class="sxs-lookup"><span data-stu-id="fe519-137">Close hello SSH session.</span></span>
 
 ```bash
 exit
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a><span data-ttu-id="f85e0-138">Toewijzing ongedaan maken en de virtuele machine niet markeren als gegeneraliseerd</span><span class="sxs-lookup"><span data-stu-id="f85e0-138">Deallocate and mark the VM as generalized</span></span>
+### <a name="deallocate-and-mark-hello-vm-as-generalized"></a><span data-ttu-id="fe519-138">Toewijzing ongedaan maken en Hallo VM zoals gegeneraliseerd markeren</span><span class="sxs-lookup"><span data-stu-id="fe519-138">Deallocate and mark hello VM as generalized</span></span>
 
-<span data-ttu-id="f85e0-139">Voor het maken van een installatiekopie, moet de VM ongedaan.</span><span class="sxs-lookup"><span data-stu-id="f85e0-139">To create an image, the VM needs to be deallocated.</span></span> <span data-ttu-id="f85e0-140">Het gebruik van de VM ongedaan [az vm ongedaan](/cli//azure/vm#deallocate).</span><span class="sxs-lookup"><span data-stu-id="f85e0-140">Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate).</span></span> 
+<span data-ttu-id="fe519-139">een installatiekopie van een toocreate, Hallo VM moet toobe toewijzing ongedaan gemaakt.</span><span class="sxs-lookup"><span data-stu-id="fe519-139">toocreate an image, hello VM needs toobe deallocated.</span></span> <span data-ttu-id="fe519-140">Toewijzing virtuele machine met behulp van Hallo [az vm ongedaan](/cli//azure/vm#deallocate).</span><span class="sxs-lookup"><span data-stu-id="fe519-140">Deallocate hello VM using [az vm deallocate](/cli//azure/vm#deallocate).</span></span> 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-<span data-ttu-id="f85e0-141">Tot slot stelt de status van de virtuele machine als gegeneraliseerd met [az vm generalize](/cli//azure/vm#generalize) zodat de Azure-platform weet de VM is gegeneraliseerd.</span><span class="sxs-lookup"><span data-stu-id="f85e0-141">Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized.</span></span> <span data-ttu-id="f85e0-142">U kunt alleen een installatiekopie van het maken van een gegeneraliseerde virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f85e0-142">You can only create an image from a generalized VM.</span></span>
+<span data-ttu-id="fe519-141">Tot slot stelt Hallo status Hallo VM zoals gegeneraliseerd met [az vm generalize](/cli//azure/vm#generalize) zodat hello Azure-platform Hallo VM is gegeneraliseerd.</span><span class="sxs-lookup"><span data-stu-id="fe519-141">Finally, set hello state of hello VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so hello Azure platform knows hello VM has been generalized.</span></span> <span data-ttu-id="fe519-142">U kunt alleen een installatiekopie van het maken van een gegeneraliseerde virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="fe519-142">You can only create an image from a generalized VM.</span></span>
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="create-the-image"></a><span data-ttu-id="f85e0-143">De installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-143">Create the image</span></span>
+### <a name="create-hello-image"></a><span data-ttu-id="fe519-143">Hallo installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-143">Create hello image</span></span>
 
-<span data-ttu-id="f85e0-144">Nu u een installatiekopie van de virtuele machine maken met behulp van kunt [az installatiekopie maken](/cli//azure/image#create).</span><span class="sxs-lookup"><span data-stu-id="f85e0-144">Now you can create an image of the VM by using [az image create](/cli//azure/image#create).</span></span> <span data-ttu-id="f85e0-145">Het volgende voorbeeld wordt een installatiekopie met de naam *myImage* van een virtuele machine met de naam *myVM*.</span><span class="sxs-lookup"><span data-stu-id="f85e0-145">The following example creates an image named *myImage* from a VM named *myVM*.</span></span>
+<span data-ttu-id="fe519-144">Nu u een installatiekopie van Hallo VM maken met behulp van kunt [az installatiekopie maken](/cli//azure/image#create).</span><span class="sxs-lookup"><span data-stu-id="fe519-144">Now you can create an image of hello VM by using [az image create](/cli//azure/image#create).</span></span> <span data-ttu-id="fe519-145">Hallo volgende voorbeeld wordt een installatiekopie met de naam *myImage* van een virtuele machine met de naam *myVM*.</span><span class="sxs-lookup"><span data-stu-id="fe519-145">hello following example creates an image named *myImage* from a VM named *myVM*.</span></span>
    
 ```azurecli-interactive 
 az image create \
@@ -96,9 +96,9 @@ az image create \
     --source myVM
 ```
  
-## <a name="create-vms-from-the-image"></a><span data-ttu-id="f85e0-146">Virtuele machines van de installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-146">Create VMs from the image</span></span>
+## <a name="create-vms-from-hello-image"></a><span data-ttu-id="fe519-146">Virtuele machines uit Hallo installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-146">Create VMs from hello image</span></span>
 
-<span data-ttu-id="f85e0-147">Nu dat u een installatiekopie hebt, kunt u een of meer nieuwe virtuele machines van de installatiekopie met behulp [az vm maken](/cli/azure/vm#create).</span><span class="sxs-lookup"><span data-stu-id="f85e0-147">Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#create).</span></span> <span data-ttu-id="f85e0-148">Het volgende voorbeeld wordt een virtuele machine met de naam *myVMfromImage* van de installatiekopie met de naam *myImage*.</span><span class="sxs-lookup"><span data-stu-id="f85e0-148">The following example creates a VM named *myVMfromImage* from the image named *myImage*.</span></span>
+<span data-ttu-id="fe519-147">Nu dat u een installatiekopie hebt, kunt u een of meer nieuwe virtuele machines kunt maken van het Hallo-installatiekopie met [az vm maken](/cli/azure/vm#create).</span><span class="sxs-lookup"><span data-stu-id="fe519-147">Now that you have an image, you can create one or more new VMs from hello image using [az vm create](/cli/azure/vm#create).</span></span> <span data-ttu-id="fe519-148">Hallo volgende voorbeeld wordt een virtuele machine met de naam *myVMfromImage* uit Hallo installatiekopie met de naam *myImage*.</span><span class="sxs-lookup"><span data-stu-id="fe519-148">hello following example creates a VM named *myVMfromImage* from hello image named *myImage*.</span></span>
 
 ```azurecli-interactive 
 az vm create \
@@ -109,18 +109,18 @@ az vm create \
     --generate-ssh-keys
 ```
 
-## <a name="image-management"></a><span data-ttu-id="f85e0-149">Beheer van installatiekopieën</span><span class="sxs-lookup"><span data-stu-id="f85e0-149">Image management</span></span> 
+## <a name="image-management"></a><span data-ttu-id="fe519-149">Beheer van installatiekopieën</span><span class="sxs-lookup"><span data-stu-id="fe519-149">Image management</span></span> 
 
-<span data-ttu-id="f85e0-150">Hier volgen enkele voorbeelden van algemene beheertaken voor de installatiekopie en hoe ze met de Azure CLI te voltooien.</span><span class="sxs-lookup"><span data-stu-id="f85e0-150">Here are some examples of common image management tasks and how to complete them using the Azure CLI.</span></span>
+<span data-ttu-id="fe519-150">Hier volgen enkele voorbeelden van algemene beheertaken voor de installatiekopie en hoe toocomplete ze met behulp van hello Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="fe519-150">Here are some examples of common image management tasks and how toocomplete them using hello Azure CLI.</span></span>
 
-<span data-ttu-id="f85e0-151">Lijst van alle installatiekopieën met de naam in een tabel.</span><span class="sxs-lookup"><span data-stu-id="f85e0-151">List all images by name in a table format.</span></span>
+<span data-ttu-id="fe519-151">Lijst van alle installatiekopieën met de naam in een tabel.</span><span class="sxs-lookup"><span data-stu-id="fe519-151">List all images by name in a table format.</span></span>
 
 ```azurecli-interactive 
 az image list \
   --resource-group myResourceGroup
 ```
 
-<span data-ttu-id="f85e0-152">Een afbeelding verwijderen.</span><span class="sxs-lookup"><span data-stu-id="f85e0-152">Delete an image.</span></span> <span data-ttu-id="f85e0-153">Dit voorbeeld wordt verwijderd van de installatiekopie met de naam *myOldImage* van de *myResourceGroup*.</span><span class="sxs-lookup"><span data-stu-id="f85e0-153">This example deletes the image named *myOldImage* from the *myResourceGroup*.</span></span>
+<span data-ttu-id="fe519-152">Een afbeelding verwijderen.</span><span class="sxs-lookup"><span data-stu-id="fe519-152">Delete an image.</span></span> <span data-ttu-id="fe519-153">In dit voorbeeld verwijderingen Hallo installatiekopie met de naam *myOldImage* van Hallo *myResourceGroup*.</span><span class="sxs-lookup"><span data-stu-id="fe519-153">This example deletes hello image named *myOldImage* from hello *myResourceGroup*.</span></span>
 
 ```azurecli-interactive 
 az image delete \
@@ -128,19 +128,19 @@ az image delete \
     --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="f85e0-154">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="f85e0-154">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="fe519-154">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="fe519-154">Next steps</span></span>
 
-<span data-ttu-id="f85e0-155">In deze zelfstudie maakt u een aangepaste installatiekopie van de virtuele machine gemaakt.</span><span class="sxs-lookup"><span data-stu-id="f85e0-155">In this tutorial, you created a custom VM image.</span></span> <span data-ttu-id="f85e0-156">U leert hoe naar:</span><span class="sxs-lookup"><span data-stu-id="f85e0-156">You learned how to:</span></span>
+<span data-ttu-id="fe519-155">In deze zelfstudie maakt u een aangepaste installatiekopie van de virtuele machine gemaakt.</span><span class="sxs-lookup"><span data-stu-id="fe519-155">In this tutorial, you created a custom VM image.</span></span> <span data-ttu-id="fe519-156">U hebt geleerd hoe u:</span><span class="sxs-lookup"><span data-stu-id="fe519-156">You learned how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="f85e0-157">Inrichting ervan ongedaan en generalize van virtuele machines</span><span class="sxs-lookup"><span data-stu-id="f85e0-157">Deprovision and generalize VMs</span></span>
-> * <span data-ttu-id="f85e0-158">Een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-158">Create a custom image</span></span>
-> * <span data-ttu-id="f85e0-159">Een virtuele machine van een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="f85e0-159">Create a VM from a custom image</span></span>
-> * <span data-ttu-id="f85e0-160">Lijst van alle installatiekopieën in uw abonnement</span><span class="sxs-lookup"><span data-stu-id="f85e0-160">List all the images in your subscription</span></span>
-> * <span data-ttu-id="f85e0-161">Een afbeelding verwijderen</span><span class="sxs-lookup"><span data-stu-id="f85e0-161">Delete an image</span></span>
+> * <span data-ttu-id="fe519-157">Inrichting ervan ongedaan en generalize van virtuele machines</span><span class="sxs-lookup"><span data-stu-id="fe519-157">Deprovision and generalize VMs</span></span>
+> * <span data-ttu-id="fe519-158">Een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-158">Create a custom image</span></span>
+> * <span data-ttu-id="fe519-159">Een virtuele machine van een aangepaste installatiekopie maken</span><span class="sxs-lookup"><span data-stu-id="fe519-159">Create a VM from a custom image</span></span>
+> * <span data-ttu-id="fe519-160">Lijst van alle Hallo-installatiekopieën in uw abonnement</span><span class="sxs-lookup"><span data-stu-id="fe519-160">List all hello images in your subscription</span></span>
+> * <span data-ttu-id="fe519-161">Een afbeelding verwijderen</span><span class="sxs-lookup"><span data-stu-id="fe519-161">Delete an image</span></span>
 
-<span data-ttu-id="f85e0-162">Ga naar de volgende zelfstudie voor meer informatie over de maximaal beschikbare virtuele machines.</span><span class="sxs-lookup"><span data-stu-id="f85e0-162">Advance to the next tutorial to learn about highly available virtual machines.</span></span>
+<span data-ttu-id="fe519-162">Ga toohello volgende zelfstudie toolearn over maximaal beschikbare virtuele machines.</span><span class="sxs-lookup"><span data-stu-id="fe519-162">Advance toohello next tutorial toolearn about highly available virtual machines.</span></span>
 
 > [!div class="nextstepaction"]
-> <span data-ttu-id="f85e0-163">[Maximaal beschikbare virtuele machines maken](tutorial-availability-sets.md).</span><span class="sxs-lookup"><span data-stu-id="f85e0-163">[Create highly available VMs](tutorial-availability-sets.md).</span></span>
+> <span data-ttu-id="fe519-163">[Maximaal beschikbare virtuele machines maken](tutorial-availability-sets.md).</span><span class="sxs-lookup"><span data-stu-id="fe519-163">[Create highly available VMs](tutorial-availability-sets.md).</span></span>
 

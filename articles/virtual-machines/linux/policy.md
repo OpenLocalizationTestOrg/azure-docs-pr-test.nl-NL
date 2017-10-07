@@ -1,6 +1,6 @@
 ---
-title: Beveiliging met beleidsregels op Linux-machines in Azure afdwingen | Microsoft Docs
-description: Het toepassen van een beleid voor een Azure Resource Manager virtuele Linux-Machine
+title: aaaEnforce beveiliging met beleidsregels op Linux-machines in Azure | Microsoft Docs
+description: Hoe tooapply een beleid tooan Linux virtuele Machine van Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 58eaab4fa03afc1e6a5e38bef691cce62a921ea9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5abd0c937578aba7e72b62c65b4eef9a9737aa2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a><span data-ttu-id="ae267-103">Beleid toepassen op Linux VM's met Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="ae267-103">Apply policies to Linux VMs with Azure Resource Manager</span></span>
-<span data-ttu-id="ae267-104">Een organisatie kan met behulp van beleid afdwingen verschillende conventies en regels in de hele onderneming.</span><span class="sxs-lookup"><span data-stu-id="ae267-104">By using policies, an organization can enforce various conventions and rules throughout the enterprise.</span></span> <span data-ttu-id="ae267-105">Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens bijdragen aan het succes van de organisatie.</span><span class="sxs-lookup"><span data-stu-id="ae267-105">Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.</span></span> <span data-ttu-id="ae267-106">In dit artikel wordt beschreven hoe u Azure Resource Manager-beleid kunt gebruiken voor het definiëren van het gewenste gedrag voor virtuele Machines die uw organisatie.</span><span class="sxs-lookup"><span data-stu-id="ae267-106">In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.</span></span>
+# <a name="apply-policies-toolinux-vms-with-azure-resource-manager"></a><span data-ttu-id="dbb86-103">Toepassen van beleid tooLinux VM's met Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="dbb86-103">Apply policies tooLinux VMs with Azure Resource Manager</span></span>
+<span data-ttu-id="dbb86-104">Met behulp van beleid, kan een organisatie verschillende conventies en regels in de onderneming Hallo afdwingen.</span><span class="sxs-lookup"><span data-stu-id="dbb86-104">By using policies, an organization can enforce various conventions and rules throughout hello enterprise.</span></span> <span data-ttu-id="dbb86-105">Afdwinging van Hallo gewenst gedrag kunt risico's te beperken tijdens toohello succes van Hallo organisatie bij te dragen.</span><span class="sxs-lookup"><span data-stu-id="dbb86-105">Enforcement of hello desired behavior can help mitigate risk while contributing toohello success of hello organization.</span></span> <span data-ttu-id="dbb86-106">In dit artikel wordt beschreven hoe u Azure Resource Manager beleid toodefine Hallo gewenst gedrag kunt gebruiken voor virtuele Machines die uw organisatie.</span><span class="sxs-lookup"><span data-stu-id="dbb86-106">In this article, we describe how you can use Azure Resource Manager policies toodefine hello desired behavior for your organization's Virtual Machines.</span></span>
 
-<span data-ttu-id="ae267-107">Zie voor een inleiding tot beleidsregels, [beleid gebruiken voor het beheren van resources en toegangsbeheer](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="ae267-107">For an introduction to policies, see [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md).</span></span>
+<span data-ttu-id="dbb86-107">Zie voor een toopolicies inleiding [beleid toomanage resources en toegang beheren](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="dbb86-107">For an introduction toopolicies, see [Use Policy toomanage resources and control access](../../azure-resource-manager/resource-manager-policy.md).</span></span>
 
-## <a name="permitted-virtual-machines"></a><span data-ttu-id="ae267-108">Toegestane virtuele Machines</span><span class="sxs-lookup"><span data-stu-id="ae267-108">Permitted Virtual Machines</span></span>
-<span data-ttu-id="ae267-109">Om ervoor te zorgen dat virtuele machines voor uw organisatie compatibel met een toepassing zijn, kunt u de toegestane besturingssystemen beperken.</span><span class="sxs-lookup"><span data-stu-id="ae267-109">To ensure that virtual machines for your organization are compatible with an application, you can restrict the permitted operating systems.</span></span> <span data-ttu-id="ae267-110">In het volgende voorbeeld voor het beleid kunt u alleen Ubuntu 14.04.2-LTS virtuele Machines worden gemaakt.</span><span class="sxs-lookup"><span data-stu-id="ae267-110">In the following policy example, you allow only Ubuntu 14.04.2-LTS Virtual Machines to be created.</span></span>
+## <a name="permitted-virtual-machines"></a><span data-ttu-id="dbb86-108">Toegestane virtuele Machines</span><span class="sxs-lookup"><span data-stu-id="dbb86-108">Permitted Virtual Machines</span></span>
+<span data-ttu-id="dbb86-109">tooensure dat virtuele machines voor uw organisatie compatibel met een toepassing zijn, kunt u besturingssystemen toegestaan Hallo beperken.</span><span class="sxs-lookup"><span data-stu-id="dbb86-109">tooensure that virtual machines for your organization are compatible with an application, you can restrict hello permitted operating systems.</span></span> <span data-ttu-id="dbb86-110">In Hallo volgende voorbeeld van een beleid, zodat u alleen Ubuntu 14.04.2-LTS virtuele Machines toobe gemaakt.</span><span class="sxs-lookup"><span data-stu-id="dbb86-110">In hello following policy example, you allow only Ubuntu 14.04.2-LTS Virtual Machines toobe created.</span></span>
 
 ```json
 {
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-<span data-ttu-id="ae267-111">Een jokerteken gebruiken voor het wijzigen van het vorige beleid zodat geen Ubuntu LTS afbeelding:</span><span class="sxs-lookup"><span data-stu-id="ae267-111">Use a wild card to modify the preceding policy to allow any Ubuntu LTS image:</span></span> 
+<span data-ttu-id="dbb86-111">Gebruik een jokerteken toomodify Hallo voorafgaand beleid tooallow geen Ubuntu LTS afbeelding:</span><span class="sxs-lookup"><span data-stu-id="dbb86-111">Use a wild card toomodify hello preceding policy tooallow any Ubuntu LTS image:</span></span> 
 
 ```json
 {
@@ -88,11 +88,11 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-<span data-ttu-id="ae267-112">Zie voor meer informatie over Beleidsvelden [beleid aliassen](../../azure-resource-manager/resource-manager-policy.md#aliases).</span><span class="sxs-lookup"><span data-stu-id="ae267-112">For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).</span></span>
+<span data-ttu-id="dbb86-112">Zie voor meer informatie over Beleidsvelden [beleid aliassen](../../azure-resource-manager/resource-manager-policy.md#aliases).</span><span class="sxs-lookup"><span data-stu-id="dbb86-112">For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).</span></span>
 
-## <a name="managed-disks"></a><span data-ttu-id="ae267-113">Managed Disks</span><span class="sxs-lookup"><span data-stu-id="ae267-113">Managed disks</span></span>
+## <a name="managed-disks"></a><span data-ttu-id="dbb86-113">Managed Disks</span><span class="sxs-lookup"><span data-stu-id="dbb86-113">Managed disks</span></span>
 
-<span data-ttu-id="ae267-114">Als u wilt het gebruik van beheerde schijven, gebruikt u het volgende beleid:</span><span class="sxs-lookup"><span data-stu-id="ae267-114">To require the use of managed disks, use the following policy:</span></span>
+<span data-ttu-id="dbb86-114">toorequire hello gebruik van beheerde schijven gebruik Hallo volgende beleid:</span><span class="sxs-lookup"><span data-stu-id="dbb86-114">toorequire hello use of managed disks, use hello following policy:</span></span>
 
 ```json
 {
@@ -138,11 +138,11 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-## <a name="images-for-virtual-machines"></a><span data-ttu-id="ae267-115">Installatiekopieën voor virtuele Machines</span><span class="sxs-lookup"><span data-stu-id="ae267-115">Images for Virtual Machines</span></span>
+## <a name="images-for-virtual-machines"></a><span data-ttu-id="dbb86-115">Installatiekopieën voor virtuele Machines</span><span class="sxs-lookup"><span data-stu-id="dbb86-115">Images for Virtual Machines</span></span>
 
-<span data-ttu-id="ae267-116">Uit veiligheidsoverwegingen kunt u vereisen dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd.</span><span class="sxs-lookup"><span data-stu-id="ae267-116">For security reasons, you can require that only approved custom images are deployed in your environment.</span></span> <span data-ttu-id="ae267-117">Kunt u ofwel de resourcegroep die de goedgekeurde installatiekopieën bevat, of de specifieke goedgekeurd installatiekopieën.</span><span class="sxs-lookup"><span data-stu-id="ae267-117">You can specify either the resource group that contains the approved images, or the specific approved images.</span></span>
+<span data-ttu-id="dbb86-116">Uit veiligheidsoverwegingen kunt u vereisen dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd.</span><span class="sxs-lookup"><span data-stu-id="dbb86-116">For security reasons, you can require that only approved custom images are deployed in your environment.</span></span> <span data-ttu-id="dbb86-117">U kunt Hallo resourcegroep waarin Hallo goedgekeurd afbeeldingen of specifieke goedgekeurde installatiekopieën Hallo opgeven.</span><span class="sxs-lookup"><span data-stu-id="dbb86-117">You can specify either hello resource group that contains hello approved images, or hello specific approved images.</span></span>
 
-<span data-ttu-id="ae267-118">Het volgende voorbeeld is vereist voor installatiekopieën van een goedgekeurde resourcegroep:</span><span class="sxs-lookup"><span data-stu-id="ae267-118">The following example requires images from an approved resource group:</span></span>
+<span data-ttu-id="dbb86-118">Hallo volgt vereist installatiekopieën van een goedgekeurde resourcegroep:</span><span class="sxs-lookup"><span data-stu-id="dbb86-118">hello following example requires images from an approved resource group:</span></span>
 
 ```json
 {
@@ -169,7 +169,7 @@ ms.lasthandoff: 08/18/2017
 } 
 ```
 
-<span data-ttu-id="ae267-119">Het volgende voorbeeld wordt de goedgekeurde installatiekopie-id's:</span><span class="sxs-lookup"><span data-stu-id="ae267-119">The following example specifies the approved image IDs:</span></span>
+<span data-ttu-id="dbb86-119">Hallo volgende voorbeeld worden goedgekeurd Hallo installatiekopie id's:</span><span class="sxs-lookup"><span data-stu-id="dbb86-119">hello following example specifies hello approved image IDs:</span></span>
 
 ```json
 {
@@ -178,9 +178,9 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-## <a name="virtual-machine-extensions"></a><span data-ttu-id="ae267-120">Uitbreidingen van de virtuele Machine</span><span class="sxs-lookup"><span data-stu-id="ae267-120">Virtual Machine extensions</span></span>
+## <a name="virtual-machine-extensions"></a><span data-ttu-id="dbb86-120">Uitbreidingen van de virtuele Machine</span><span class="sxs-lookup"><span data-stu-id="dbb86-120">Virtual Machine extensions</span></span>
 
-<span data-ttu-id="ae267-121">U kunt informatie over het gebruik van bepaalde soorten extensies verbieden.</span><span class="sxs-lookup"><span data-stu-id="ae267-121">You may want to forbid usage of certain types of extensions.</span></span> <span data-ttu-id="ae267-122">Bijvoorbeeld, een uitbreiding mogelijk niet compatibel met bepaalde afbeeldingen aangepaste virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="ae267-122">For example, an extension may not be compatible with certain custom virtual machine images.</span></span> <span data-ttu-id="ae267-123">Het volgende voorbeeld laat zien hoe een bepaalde extensie blokkeren.</span><span class="sxs-lookup"><span data-stu-id="ae267-123">The following example shows how to block a specific extension.</span></span> <span data-ttu-id="ae267-124">Uitgever en type worden gebruikt om te bepalen welke extensie te blokkeren.</span><span class="sxs-lookup"><span data-stu-id="ae267-124">It uses publisher and type to determine which extension to block.</span></span>
+<span data-ttu-id="dbb86-121">U kunt tooforbid informatie over het gebruik van bepaalde soorten uitbreidingen.</span><span class="sxs-lookup"><span data-stu-id="dbb86-121">You may want tooforbid usage of certain types of extensions.</span></span> <span data-ttu-id="dbb86-122">Bijvoorbeeld, een uitbreiding mogelijk niet compatibel met bepaalde afbeeldingen aangepaste virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="dbb86-122">For example, an extension may not be compatible with certain custom virtual machine images.</span></span> <span data-ttu-id="dbb86-123">Hallo volgende voorbeeld wordt getoond hoe tooblock een bepaalde extensie.</span><span class="sxs-lookup"><span data-stu-id="dbb86-123">hello following example shows how tooblock a specific extension.</span></span> <span data-ttu-id="dbb86-124">Gebruikt deze uitgever en type toodetermine welke tooblock extensie.</span><span class="sxs-lookup"><span data-stu-id="dbb86-124">It uses publisher and type toodetermine which extension tooblock.</span></span>
 
 ```json
 {
@@ -208,7 +208,7 @@ ms.lasthandoff: 08/18/2017
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="ae267-125">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="ae267-125">Next steps</span></span>
-* <span data-ttu-id="ae267-126">Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden), moet u de beleidsdefinitie maken en toewijzen aan een bereik.</span><span class="sxs-lookup"><span data-stu-id="ae267-126">After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope.</span></span> <span data-ttu-id="ae267-127">Het bereik mag een abonnement, resourcegroep of resource.</span><span class="sxs-lookup"><span data-stu-id="ae267-127">The scope can be a subscription, resource group, or resource.</span></span> <span data-ttu-id="ae267-128">Als u wilt toewijzen beleid via de portal, Zie [gebruik Azure-portal toewijzen en beheren van bronbeleid](../../azure-resource-manager/resource-manager-policy-portal.md).</span><span class="sxs-lookup"><span data-stu-id="ae267-128">To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).</span></span> <span data-ttu-id="ae267-129">Als u wilt toewijzen beleid via REST API, PowerShell of Azure CLI, Zie [toewijzen en beheren van beleid via script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span><span class="sxs-lookup"><span data-stu-id="ae267-129">To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span></span>
-* <span data-ttu-id="ae267-130">Zie voor een inleiding tot bronbeleid, [Resource overzicht](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="ae267-130">For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).</span></span>
-* <span data-ttu-id="ae267-131">Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="ae267-131">For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="dbb86-125">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="dbb86-125">Next steps</span></span>
+* <span data-ttu-id="dbb86-126">Na het definiëren van een beleidsregel (zoals weergegeven in de voorgaande voorbeelden Hallo), u moet toocreate hello beleidsdefinitie en wijs deze tooa bereik.</span><span class="sxs-lookup"><span data-stu-id="dbb86-126">After defining a policy rule (as shown in hello preceding examples), you need toocreate hello policy definition and assign it tooa scope.</span></span> <span data-ttu-id="dbb86-127">Hallo bereik mag een abonnement, resourcegroep of resource.</span><span class="sxs-lookup"><span data-stu-id="dbb86-127">hello scope can be a subscription, resource group, or resource.</span></span> <span data-ttu-id="dbb86-128">tooassign beleid via de portal hello, Zie [gebruik Azure portal tooassign en beheren van bronbeleid](../../azure-resource-manager/resource-manager-policy-portal.md).</span><span class="sxs-lookup"><span data-stu-id="dbb86-128">tooassign policies through hello portal, see [Use Azure portal tooassign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).</span></span> <span data-ttu-id="dbb86-129">tooassign beleid via REST API, PowerShell of Azure CLI, Zie [toewijzen en beheren van beleid via script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span><span class="sxs-lookup"><span data-stu-id="dbb86-129">tooassign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span></span>
+* <span data-ttu-id="dbb86-130">Zie voor een inleiding tooresource beleidsregels, [Resource overzicht](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="dbb86-130">For an introduction tooresource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).</span></span>
+* <span data-ttu-id="dbb86-131">Abonnementen voor instructies over hoe ondernemingen tooeffectively Resource Manager kunt beheren, Zie [Azure enterprise scaffold - prescriptieve abonnement governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="dbb86-131">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span></span>

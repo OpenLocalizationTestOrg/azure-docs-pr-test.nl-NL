@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met een Pi frambozen Azure IoT Suite met echte sensoren met behulp van Node.js | Microsoft Docs
-description: Gebruik de Microsoft Azure IoT Starter Kit voor de Raspberry Pi 3 en Azure IoT Suite. Gebruik Node.js verbinding maken met uw frambozen-Pi de oplossing voor externe controle verzenden van telemetrie van sensoren naar de cloud, en reageren op de methoden die worden aangeroepen vanuit het dashboard van oplossing.
+title: aaaConnect een frambozen Pi tooAzure IoT Suite met echte sensoren met behulp van Node.js | Microsoft Docs
+description: Gebruik Microsoft Azure IoT Starter Kit Hallo voor Hallo frambozen Pi 3 en Azure IoT Suite. Node.js tooconnect uw oplossing voor externe controle frambozen Pi toohello gebruiken, verzenden van telemetrie van sensoren toohello cloud en toomethods aangeroepen vanuit het dashboard van de oplossing Hallo reageren.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -14,123 +14,123 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 91546157cc8eabf68706391ce706038d8dc5f82d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7ffb4a7a8c04b424a1f29170f4739d89f39a2429
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a><span data-ttu-id="b00d8-104">Uw frambozen Pi 3 verbinding met de oplossing voor externe controle en verzend telemetrie vanuit een echte sensor met behulp van Node.js</span><span class="sxs-lookup"><span data-stu-id="b00d8-104">Connect your Raspberry Pi 3 to the remote monitoring solution and send telemetry from a real sensor using Node.js</span></span>
+# <a name="connect-your-raspberry-pi-3-toohello-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a><span data-ttu-id="9bef7-104">Verbinding maken met uw oplossing voor externe controle frambozen Pi 3 toohello en verzend telemetrie vanuit een echte sensor met behulp van Node.js</span><span class="sxs-lookup"><span data-stu-id="9bef7-104">Connect your Raspberry Pi 3 toohello remote monitoring solution and send telemetry from a real sensor using Node.js</span></span>
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-<span data-ttu-id="b00d8-105">Deze zelfstudie laat zien hoe de Microsoft Azure IoT Starter Kit voor frambozen Pi 3 gebruiken voor het ontwikkelen van een temperatuur en vochtigheid lezer die met de cloud communiceren kan.</span><span class="sxs-lookup"><span data-stu-id="b00d8-105">This tutorial shows you how to use the Microsoft Azure IoT Starter Kit for Raspberry Pi 3 to develop a temperature and humidity reader that can communicate with the cloud.</span></span> <span data-ttu-id="b00d8-106">De zelfstudie wordt gebruikt:</span><span class="sxs-lookup"><span data-stu-id="b00d8-106">The tutorial uses:</span></span>
+<span data-ttu-id="9bef7-105">Deze zelfstudie leert u hoe toouse hello Microsoft Azure IoT Starter Kit voor frambozen Pi 3 toodevelop temperatuur en vochtigheid lezer die kan communiceren met de Hallo cloud.</span><span class="sxs-lookup"><span data-stu-id="9bef7-105">This tutorial shows you how toouse hello Microsoft Azure IoT Starter Kit for Raspberry Pi 3 toodevelop a temperature and humidity reader that can communicate with hello cloud.</span></span> <span data-ttu-id="9bef7-106">Hallo-zelfstudie wordt gebruikt:</span><span class="sxs-lookup"><span data-stu-id="9bef7-106">hello tutorial uses:</span></span>
 
-- <span data-ttu-id="b00d8-107">Raspbian OS, de programmeertaal Node.js en Microsoft Azure IoT SDK voor Node.js voor het implementeren van een voorbeeld-apparaat.</span><span class="sxs-lookup"><span data-stu-id="b00d8-107">Raspbian OS, the Node.js programming language, and the Microsoft Azure IoT SDK for Node.js to implement a sample device.</span></span>
-- <span data-ttu-id="b00d8-108">IoT Suite remote monitoring vooraf geconfigureerde oplossing als de cloud-gebaseerde back-end.</span><span class="sxs-lookup"><span data-stu-id="b00d8-108">The IoT Suite remote monitoring preconfigured solution as the cloud-based back end.</span></span>
+- <span data-ttu-id="9bef7-107">Raspbian OS Node.js programmeertaal Hallo en hello van Microsoft Azure IoT SDK voor Node.js tooimplement een voorbeeld-apparaat.</span><span class="sxs-lookup"><span data-stu-id="9bef7-107">Raspbian OS, hello Node.js programming language, and hello Microsoft Azure IoT SDK for Node.js tooimplement a sample device.</span></span>
+- <span data-ttu-id="9bef7-108">Hallo IoT Suite remote monitoring vooraf geconfigureerde oplossing als Hallo cloud-gebaseerde back-end.</span><span class="sxs-lookup"><span data-stu-id="9bef7-108">hello IoT Suite remote monitoring preconfigured solution as hello cloud-based back end.</span></span>
 
-## <a name="overview"></a><span data-ttu-id="b00d8-109">Overzicht</span><span class="sxs-lookup"><span data-stu-id="b00d8-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="9bef7-109">Overzicht</span><span class="sxs-lookup"><span data-stu-id="9bef7-109">Overview</span></span>
 
-<span data-ttu-id="b00d8-110">In deze zelfstudie maakt uitvoeren u de volgende stappen:</span><span class="sxs-lookup"><span data-stu-id="b00d8-110">In this tutorial, you complete the following steps:</span></span>
+<span data-ttu-id="9bef7-110">In deze zelfstudie maakt uitvoeren u Hallo stappen:</span><span class="sxs-lookup"><span data-stu-id="9bef7-110">In this tutorial, you complete hello following steps:</span></span>
 
-- <span data-ttu-id="b00d8-111">Implementeer een exemplaar van de vooraf geconfigureerde oplossing voor externe controle op uw Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="b00d8-111">Deploy an instance of the remote monitoring preconfigured solution to your Azure subscription.</span></span> <span data-ttu-id="b00d8-112">Deze stap implementeert automatisch en meerdere Azure-services configureert.</span><span class="sxs-lookup"><span data-stu-id="b00d8-112">This step automatically deploys and configures multiple Azure services.</span></span>
-- <span data-ttu-id="b00d8-113">Instellen van het apparaat en de sensoren om te communiceren met uw computer en de oplossing voor externe controle.</span><span class="sxs-lookup"><span data-stu-id="b00d8-113">Set up your device and sensors to communicate with your computer and the remote monitoring solution.</span></span>
-- <span data-ttu-id="b00d8-114">Werk de voorbeeldcode van de apparaten verbinding maken met de oplossing voor externe controle en verzenden van telemetrie die u op het dashboard van de oplossing weergeven kunt.</span><span class="sxs-lookup"><span data-stu-id="b00d8-114">Update the sample device code to connect to the remote monitoring solution, and send telemetry that you can view on the solution dashboard.</span></span>
+- <span data-ttu-id="9bef7-111">Implementeer een exemplaar van Hallo externe controle vooraf geconfigureerde oplossing tooyour Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="9bef7-111">Deploy an instance of hello remote monitoring preconfigured solution tooyour Azure subscription.</span></span> <span data-ttu-id="9bef7-112">Deze stap implementeert automatisch en meerdere Azure-services configureert.</span><span class="sxs-lookup"><span data-stu-id="9bef7-112">This step automatically deploys and configures multiple Azure services.</span></span>
+- <span data-ttu-id="9bef7-113">Stel uw apparaat en sensoren toocommunicate met uw computer en het Hallo oplossing voor externe controle.</span><span class="sxs-lookup"><span data-stu-id="9bef7-113">Set up your device and sensors toocommunicate with your computer and hello remote monitoring solution.</span></span>
+- <span data-ttu-id="9bef7-114">Hallo voorbeeld apparaat code tooconnect toohello oplossing voor externe controle bijwerken en verzenden van telemetrie die u op Hallo oplossing dashboard weergeven kunt.</span><span class="sxs-lookup"><span data-stu-id="9bef7-114">Update hello sample device code tooconnect toohello remote monitoring solution, and send telemetry that you can view on hello solution dashboard.</span></span>
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> <span data-ttu-id="b00d8-115">De oplossing voor externe controle levert een set van Azure-services in uw Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="b00d8-115">The remote monitoring solution provisions a set of Azure services in your Azure subscription.</span></span> <span data-ttu-id="b00d8-116">De implementatie duidt op een echte enterprise-architectuur.</span><span class="sxs-lookup"><span data-stu-id="b00d8-116">The deployment reflects a real enterprise architecture.</span></span> <span data-ttu-id="b00d8-117">Om te voorkomen dat een Azure-verbruik onnodige kosten, verwijdert u uw exemplaar van de vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het.</span><span class="sxs-lookup"><span data-stu-id="b00d8-117">To avoid unnecessary Azure consumption charges, delete your instance of the preconfigured solution at azureiotsuite.com when you have finished with it.</span></span> <span data-ttu-id="b00d8-118">Als u de vooraf geconfigureerde oplossing meer nodig hebt, kunt u het eenvoudig opnieuw.</span><span class="sxs-lookup"><span data-stu-id="b00d8-118">If you need the preconfigured solution again, you can easily recreate it.</span></span> <span data-ttu-id="b00d8-119">Zie voor meer informatie over het verbruik verminderen terwijl de oplossing voor externe controle wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].</span><span class="sxs-lookup"><span data-stu-id="b00d8-119">For more information about reducing consumption while the remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config].</span></span>
+> <span data-ttu-id="9bef7-115">Hallo externe controle van de bepalingen van de oplossing voor een verzameling Azure-services in uw Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="9bef7-115">hello remote monitoring solution provisions a set of Azure services in your Azure subscription.</span></span> <span data-ttu-id="9bef7-116">Hallo implementatie duidt op een echte enterprise-architectuur.</span><span class="sxs-lookup"><span data-stu-id="9bef7-116">hello deployment reflects a real enterprise architecture.</span></span> <span data-ttu-id="9bef7-117">tooavoid onnodige Azure-verbruik kosten, verwijderen van uw exemplaar van Hallo vooraf geconfigureerde oplossing op azureiotsuite.com wanneer u klaar bent met het.</span><span class="sxs-lookup"><span data-stu-id="9bef7-117">tooavoid unnecessary Azure consumption charges, delete your instance of hello preconfigured solution at azureiotsuite.com when you have finished with it.</span></span> <span data-ttu-id="9bef7-118">Als u moet de vooraf geconfigureerde oplossing opnieuw hello, u kunt gemakkelijk het opnieuw maken.</span><span class="sxs-lookup"><span data-stu-id="9bef7-118">If you need hello preconfigured solution again, you can easily recreate it.</span></span> <span data-ttu-id="9bef7-119">Zie voor meer informatie over het verminderen van verbruik tijdens het Hallo voor externe controle van de oplossing wordt uitgevoerd, [configureren van Azure IoT Suite vooraf geconfigureerde oplossingen voor demonstratiedoeleinden][lnk-demo-config].</span><span class="sxs-lookup"><span data-stu-id="9bef7-119">For more information about reducing consumption while hello remote monitoring solution runs, see [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config].</span></span>
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi](../../includes/iot-suite-raspberry-pi-kit-prepare-pi.md)]
 
-## <a name="download-and-configure-the-sample"></a><span data-ttu-id="b00d8-120">Downloaden en configureren van de steekproef</span><span class="sxs-lookup"><span data-stu-id="b00d8-120">Download and configure the sample</span></span>
+## <a name="download-and-configure-hello-sample"></a><span data-ttu-id="9bef7-120">Downloaden en configureren van Hallo-voorbeeld</span><span class="sxs-lookup"><span data-stu-id="9bef7-120">Download and configure hello sample</span></span>
 
-<span data-ttu-id="b00d8-121">U kunt nu downloaden en configureren van de externe clienttoepassing bewaking op uw frambozen Pi.</span><span class="sxs-lookup"><span data-stu-id="b00d8-121">You can now download and configure the remote monitoring client application on your Raspberry Pi.</span></span>
+<span data-ttu-id="9bef7-121">U kunt nu downloaden en Hallo-bewaking externe clienttoepassing configureren op uw frambozen Pi.</span><span class="sxs-lookup"><span data-stu-id="9bef7-121">You can now download and configure hello remote monitoring client application on your Raspberry Pi.</span></span>
 
-### <a name="install-nodejs"></a><span data-ttu-id="b00d8-122">Node.js installeren</span><span class="sxs-lookup"><span data-stu-id="b00d8-122">Install Node.js</span></span>
+### <a name="install-nodejs"></a><span data-ttu-id="9bef7-122">Node.js installeren</span><span class="sxs-lookup"><span data-stu-id="9bef7-122">Install Node.js</span></span>
 
-<span data-ttu-id="b00d8-123">Installeer Node.js op uw Raspberry Pi.</span><span class="sxs-lookup"><span data-stu-id="b00d8-123">Install Node.js on your Raspberry Pi.</span></span> <span data-ttu-id="b00d8-124">De IoT-SDK voor Node.js vereist versie 0.11.5 van Node.js of hoger.</span><span class="sxs-lookup"><span data-stu-id="b00d8-124">The IoT SDK for Node.js requires version 0.11.5 of Node.js or later.</span></span> <span data-ttu-id="b00d8-125">De volgende stappen ziet u hoe Node.js v6.10.2 installeren op uw Pi frambozen:</span><span class="sxs-lookup"><span data-stu-id="b00d8-125">The following steps show you how to install Node.js v6.10.2 on your Raspberry Pi:</span></span>
+<span data-ttu-id="9bef7-123">Installeer Node.js op uw Raspberry Pi.</span><span class="sxs-lookup"><span data-stu-id="9bef7-123">Install Node.js on your Raspberry Pi.</span></span> <span data-ttu-id="9bef7-124">Hallo IoT SDK voor Node.js vereist versie 0.11.5 van Node.js of hoger.</span><span class="sxs-lookup"><span data-stu-id="9bef7-124">hello IoT SDK for Node.js requires version 0.11.5 of Node.js or later.</span></span> <span data-ttu-id="9bef7-125">Hallo volgende stappen ziet u hoe tooinstall Node.js v6.10.2 op uw Pi frambozen:</span><span class="sxs-lookup"><span data-stu-id="9bef7-125">hello following steps show you how tooinstall Node.js v6.10.2 on your Raspberry Pi:</span></span>
 
-1. <span data-ttu-id="b00d8-126">Gebruik de volgende opdracht om bij te werken uw Pi frambozen:</span><span class="sxs-lookup"><span data-stu-id="b00d8-126">Use the following command to update your Raspberry Pi:</span></span>
+1. <span data-ttu-id="9bef7-126">Hallo opdracht tooupdate na uw frambozen-Pi gebruiken:</span><span class="sxs-lookup"><span data-stu-id="9bef7-126">Use hello following command tooupdate your Raspberry Pi:</span></span>
 
     ```sh
     sudo apt-get update
     ```
 
-1. <span data-ttu-id="b00d8-127">Gebruik de volgende opdracht voor het downloaden van de Node.js-binaire bestanden naar uw Pi frambozen:</span><span class="sxs-lookup"><span data-stu-id="b00d8-127">Use the following command to download the Node.js binaries to your Raspberry Pi:</span></span>
+1. <span data-ttu-id="9bef7-127">Hallo opdracht toodownload hello Node.js binaire bestanden tooyour frambozen Pi volgende gebruiken:</span><span class="sxs-lookup"><span data-stu-id="9bef7-127">Use hello following command toodownload hello Node.js binaries tooyour Raspberry Pi:</span></span>
 
     ```sh
     wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
     ```
 
-1. <span data-ttu-id="b00d8-128">Gebruik de volgende opdracht voor het installeren van de binaire bestanden:</span><span class="sxs-lookup"><span data-stu-id="b00d8-128">Use the following command to install the binaries:</span></span>
+1. <span data-ttu-id="9bef7-128">Gebruik Hallo opdracht tooinstall Hallo binaire bestanden te volgen:</span><span class="sxs-lookup"><span data-stu-id="9bef7-128">Use hello following command tooinstall hello binaries:</span></span>
 
     ```sh
     sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
     ```
 
-1. <span data-ttu-id="b00d8-129">Gebruik de volgende opdracht om te controleren of dat u hebt de Node.js-v6.10.2 is geïnstalleerd:</span><span class="sxs-lookup"><span data-stu-id="b00d8-129">Use the following command to verify you have installed Node.js v6.10.2 successfully:</span></span>
+1. <span data-ttu-id="9bef7-129">Gebruik Hallo volgende opdracht tooverify die u hebt de Node.js-v6.10.2 is geïnstalleerd:</span><span class="sxs-lookup"><span data-stu-id="9bef7-129">Use hello following command tooverify you have installed Node.js v6.10.2 successfully:</span></span>
 
     ```sh
     node --version
     ```
 
-### <a name="clone-the-repositories"></a><span data-ttu-id="b00d8-130">De opslagplaatsen klonen</span><span class="sxs-lookup"><span data-stu-id="b00d8-130">Clone the repositories</span></span>
+### <a name="clone-hello-repositories"></a><span data-ttu-id="9bef7-130">Hallo-opslagplaatsen klonen</span><span class="sxs-lookup"><span data-stu-id="9bef7-130">Clone hello repositories</span></span>
 
-<span data-ttu-id="b00d8-131">Als u dit nog niet hebt gedaan, moet u de vereiste opslagplaatsen klonen door de volgende opdrachten uitvoeren op uw Pi:</span><span class="sxs-lookup"><span data-stu-id="b00d8-131">If you haven't already done so, clone the required repositories by running the following commands on your Pi:</span></span>
+<span data-ttu-id="9bef7-131">Als u dit nog niet hebt gedaan, vereist kloon Hallo opslagplaatsen door te voeren Hallo opdrachten op uw Pi volgen:</span><span class="sxs-lookup"><span data-stu-id="9bef7-131">If you haven't already done so, clone hello required repositories by running hello following commands on your Pi:</span></span>
 
 ```sh
 cd ~
 git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
 ```
 
-### <a name="update-the-device-connection-string"></a><span data-ttu-id="b00d8-132">De verbindingsreeks apparaat bijwerken</span><span class="sxs-lookup"><span data-stu-id="b00d8-132">Update the device connection string</span></span>
+### <a name="update-hello-device-connection-string"></a><span data-ttu-id="9bef7-132">Verbindingsreeks Hallo-apparaat bijwerken</span><span class="sxs-lookup"><span data-stu-id="9bef7-132">Update hello device connection string</span></span>
 
-<span data-ttu-id="b00d8-133">Open het voorbeeld-bronbestand in de **nano** editor met de volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="b00d8-133">Open the sample source file in the **nano** editor using the following command:</span></span>
+<span data-ttu-id="9bef7-133">Open Hallo voorbeeld-bronbestand in Hallo **nano** editor met behulp van de volgende opdracht Hallo:</span><span class="sxs-lookup"><span data-stu-id="9bef7-133">Open hello sample source file in hello **nano** editor using hello following command:</span></span>
 
 ```sh
 nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
 ```
 
-<span data-ttu-id="b00d8-134">Zoek de regel:</span><span class="sxs-lookup"><span data-stu-id="b00d8-134">Find the line:</span></span>
+<span data-ttu-id="9bef7-134">Hallo regel zoeken:</span><span class="sxs-lookup"><span data-stu-id="9bef7-134">Find hello line:</span></span>
 
 ```javascript
 var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=[Your device id];SharedAccessKey=[Your device key]';
 ```
 
-<span data-ttu-id="b00d8-135">Vervang de tijdelijke aanduiding voor waarden met het apparaat en IoT Hub informatie u gemaakt en opgeslagen aan het begin van deze zelfstudie.</span><span class="sxs-lookup"><span data-stu-id="b00d8-135">Replace the placeholder values with the device and IoT Hub information you created and saved at the start of this tutorial.</span></span> <span data-ttu-id="b00d8-136">Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af (**Ctrl X**).</span><span class="sxs-lookup"><span data-stu-id="b00d8-136">Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).</span></span>
+<span data-ttu-id="9bef7-135">Hallo tijdelijke aanduiding voor waarden vervangt door Hallo-apparaat en IoT Hub informatie u gemaakt en opgeslagen op Hallo begin van deze zelfstudie.</span><span class="sxs-lookup"><span data-stu-id="9bef7-135">Replace hello placeholder values with hello device and IoT Hub information you created and saved at hello start of this tutorial.</span></span> <span data-ttu-id="9bef7-136">Sla de wijzigingen (**Ctrl-O**, **Enter**) en sluit de editor af hello (**Ctrl X**).</span><span class="sxs-lookup"><span data-stu-id="9bef7-136">Save your changes (**Ctrl-O**, **Enter**) and exit hello editor (**Ctrl-X**).</span></span>
 
-## <a name="run-the-sample"></a><span data-ttu-id="b00d8-137">Het voorbeeld uitvoert</span><span class="sxs-lookup"><span data-stu-id="b00d8-137">Run the sample</span></span>
+## <a name="run-hello-sample"></a><span data-ttu-id="9bef7-137">Hallo-voorbeeld uitvoeren</span><span class="sxs-lookup"><span data-stu-id="9bef7-137">Run hello sample</span></span>
 
-<span data-ttu-id="b00d8-138">Voer de volgende opdrachten voor het installeren van de vereiste pakketten voor de steekproef:</span><span class="sxs-lookup"><span data-stu-id="b00d8-138">Run the following commands to install the prerequisite packages for the sample:</span></span>
+<span data-ttu-id="9bef7-138">Voer Hallo deze opdrachten tooinstall Hallo vereiste pakketten voor Hallo-voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="9bef7-138">Run hello following commands tooinstall hello prerequisite packages for hello sample:</span></span>
 
 ```sh
 cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic
 npm install
 ```
 
-<span data-ttu-id="b00d8-139">U kunt nu het voorbeeldprogramma uitvoeren op de frambozen Pi.</span><span class="sxs-lookup"><span data-stu-id="b00d8-139">You can now run the sample program on the Raspberry Pi.</span></span> <span data-ttu-id="b00d8-140">Voer de opdracht:</span><span class="sxs-lookup"><span data-stu-id="b00d8-140">Enter the command:</span></span>
+<span data-ttu-id="9bef7-139">U kunt nu Hallo voorbeeld programma uitvoeren op Hallo frambozen Pi.</span><span class="sxs-lookup"><span data-stu-id="9bef7-139">You can now run hello sample program on hello Raspberry Pi.</span></span> <span data-ttu-id="9bef7-140">Voer Hallo-opdracht:</span><span class="sxs-lookup"><span data-stu-id="9bef7-140">Enter hello command:</span></span>
 
 ```sh
 sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
 ```
 
-<span data-ttu-id="b00d8-141">De volgende voorbeelduitvoer volgt een voorbeeld van de uitvoer die u bij de opdrachtprompt op de Pi frambozen zien:</span><span class="sxs-lookup"><span data-stu-id="b00d8-141">The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:</span></span>
+<span data-ttu-id="9bef7-141">Hallo is volgende voorbeelduitvoer een voorbeeld van uitvoer van Hallo die u achter de opdrachtprompt Hallo op Hallo frambozen Pi zien:</span><span class="sxs-lookup"><span data-stu-id="9bef7-141">hello following sample output is an example of hello output you see at hello command prompt on hello Raspberry Pi:</span></span>
 
 ![De uitvoer van de app Raspberry Pi][img-raspberry-output]
 
-<span data-ttu-id="b00d8-143">Druk op **Ctrl-C** om af te sluiten van het programma op elk gewenst moment.</span><span class="sxs-lookup"><span data-stu-id="b00d8-143">Press **Ctrl-C** to exit the program at any time.</span></span>
+<span data-ttu-id="9bef7-143">Druk op **Ctrl-C** tooexit Hallo programma op elk gewenst moment.</span><span class="sxs-lookup"><span data-stu-id="9bef7-143">Press **Ctrl-C** tooexit hello program at any time.</span></span>
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry](../../includes/iot-suite-raspberry-pi-kit-view-telemetry.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="b00d8-144">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b00d8-144">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="9bef7-144">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="9bef7-144">Next steps</span></span>
 
-<span data-ttu-id="b00d8-145">Ga naar de [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.</span><span class="sxs-lookup"><span data-stu-id="b00d8-145">Visit the [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for more samples and documentation on Azure IoT.</span></span>
+<span data-ttu-id="9bef7-145">Ga naar Hallo [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) voor meer voorbeelden en documentatie over Azure IoT.</span><span class="sxs-lookup"><span data-stu-id="9bef7-145">Visit hello [Azure IoT Dev Center](https://azure.microsoft.com/develop/iot/) for more samples and documentation on Azure IoT.</span></span>
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-basic/app-output.png
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-voorbeeldscript - Get de hostnaam, poorten en sleutels voor Azure Redis-Cache | Microsoft Docs
-description: Azure CLI-voorbeeldscript - Get de hostnaam, poorten en sleutels voor een Azure Redis-Cache-exemplaar
+title: aaaAzure CLI-voorbeeldscript - Get-Hallo hostnaam, poorten en sleutels voor Azure Redis-Cache | Microsoft Docs
+description: Azure CLI voorbeeldscript - Get Hallo hostnaam, poorten en sleutels voor een Azure Redis-Cache-exemplaar
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: cd9adc784bceb0fff5e7c2bbee2be0950c51c8f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e6e794558087d6568438c439e2bf99fc46eeb8bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a><span data-ttu-id="abcfd-103">Ophalen van de hostnaam, poorten en sleutels voor Azure Redis-Cache</span><span class="sxs-lookup"><span data-stu-id="abcfd-103">Get the hostname, ports, and keys for Azure Redis Cache</span></span>
+# <a name="get-hello-hostname-ports-and-keys-for-azure-redis-cache"></a><span data-ttu-id="be4f7-103">Hallo-hostnaam, poorten en sleutels voor Azure Redis-Cache ophalen</span><span class="sxs-lookup"><span data-stu-id="be4f7-103">Get hello hostname, ports, and keys for Azure Redis Cache</span></span>
 
-<span data-ttu-id="abcfd-104">In dit scenario u informatie over het ophalen van de hostnaam, poorten en sleutels die verbinding maken met een Azure Redis-Cache-exemplaar worden gebruikt.</span><span class="sxs-lookup"><span data-stu-id="abcfd-104">In this scenario, you learn how to retrieve the hostname, ports, and keys used to connect to an Azure Redis Cache instance.</span></span>
+<span data-ttu-id="be4f7-104">In dit scenario leert u hoe tooretrieve Hallo hostnaam, poorten en sleutels tooconnect tooan Azure Redis-Cache-exemplaar gebruikt.</span><span class="sxs-lookup"><span data-stu-id="be4f7-104">In this scenario, you learn how tooretrieve hello hostname, ports, and keys used tooconnect tooan Azure Redis Cache instance.</span></span>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a><span data-ttu-id="abcfd-105">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="abcfd-105">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="be4f7-105">Voorbeeld van een script</span><span class="sxs-lookup"><span data-stu-id="be4f7-105">Sample script</span></span>
 
-<span data-ttu-id="abcfd-106">[!code-azurecli[belangrijkste](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Redis-Cache")]</span><span class="sxs-lookup"><span data-stu-id="abcfd-106">[!code-azurecli[main](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Redis Cache")]</span></span>
+[!code-azurecli[main](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Redis Cache")]
 
 
-## <a name="script-explanation"></a><span data-ttu-id="abcfd-107">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="abcfd-107">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="be4f7-106">Script uitleg</span><span class="sxs-lookup"><span data-stu-id="be4f7-106">Script explanation</span></span>
 
-<span data-ttu-id="abcfd-108">Dit script maakt gebruik van de volgende opdrachten voor het ophalen van de hostnaam, sleutels en poorten van een Azure Redis-Cache-exemplaar.</span><span class="sxs-lookup"><span data-stu-id="abcfd-108">This script uses the following commands to retrieve the hostname, keys, and ports of an Azure Redis Cache instance.</span></span> <span data-ttu-id="abcfd-109">Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.</span><span class="sxs-lookup"><span data-stu-id="abcfd-109">Each command in the table links to command specific documentation.</span></span>
+<span data-ttu-id="be4f7-107">Dit script maakt gebruik van Hallo opdrachten tooretrieve Hallo hostnaam, sleutels en poorten van een Azure Redis-Cache-exemplaar te volgen.</span><span class="sxs-lookup"><span data-stu-id="be4f7-107">This script uses hello following commands tooretrieve hello hostname, keys, and ports of an Azure Redis Cache instance.</span></span> <span data-ttu-id="be4f7-108">Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.</span><span class="sxs-lookup"><span data-stu-id="be4f7-108">Each command in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="abcfd-110">Opdracht</span><span class="sxs-lookup"><span data-stu-id="abcfd-110">Command</span></span> | <span data-ttu-id="abcfd-111">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="abcfd-111">Notes</span></span> |
+| <span data-ttu-id="be4f7-109">Opdracht</span><span class="sxs-lookup"><span data-stu-id="be4f7-109">Command</span></span> | <span data-ttu-id="be4f7-110">Opmerkingen</span><span class="sxs-lookup"><span data-stu-id="be4f7-110">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="abcfd-112">AZ redis weergeven</span><span class="sxs-lookup"><span data-stu-id="abcfd-112">az redis show</span></span>](https://docs.microsoft.com/cli/azure/redis#show) | <span data-ttu-id="abcfd-113">Ophalen van gegevens van een Azure Redis-Cache-exemplaar.</span><span class="sxs-lookup"><span data-stu-id="abcfd-113">Retrieve details of an Azure Redis Cache instance.</span></span> |
-| [<span data-ttu-id="abcfd-114">AZ redis lijst-sleutels</span><span class="sxs-lookup"><span data-stu-id="abcfd-114">az redis list-keys</span></span>](https://docs.microsoft.com/cli/azure/redis#list-keys) | <span data-ttu-id="abcfd-115">Sneltoetsen voor een Azure Redis-Cache-exemplaar worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="abcfd-115">Retrieve access keys for an Azure Redis Cache instance.</span></span> |
+| [<span data-ttu-id="be4f7-111">AZ redis weergeven</span><span class="sxs-lookup"><span data-stu-id="be4f7-111">az redis show</span></span>](https://docs.microsoft.com/cli/azure/redis#show) | <span data-ttu-id="be4f7-112">Ophalen van gegevens van een Azure Redis-Cache-exemplaar.</span><span class="sxs-lookup"><span data-stu-id="be4f7-112">Retrieve details of an Azure Redis Cache instance.</span></span> |
+| [<span data-ttu-id="be4f7-113">AZ redis lijst-sleutels</span><span class="sxs-lookup"><span data-stu-id="be4f7-113">az redis list-keys</span></span>](https://docs.microsoft.com/cli/azure/redis#list-keys) | <span data-ttu-id="be4f7-114">Sneltoetsen voor een Azure Redis-Cache-exemplaar worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="be4f7-114">Retrieve access keys for an Azure Redis Cache instance.</span></span> |
 
 
-## <a name="next-steps"></a><span data-ttu-id="abcfd-116">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="abcfd-116">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="be4f7-115">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="be4f7-115">Next steps</span></span>
 
-<span data-ttu-id="abcfd-117">Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="abcfd-117">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+<span data-ttu-id="be4f7-116">Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="be4f7-116">For more information on hello Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
 
-<span data-ttu-id="abcfd-118">Aanvullende voorbeelden van Azure Redis-Cache CLI-script kunnen worden gevonden in de [documentatie van Azure Redis-Cache](../cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="abcfd-118">Additional Azure Redis Cache CLI script samples can be found in the [Azure Redis Cache documentation](../cli-samples.md).</span></span>
+<span data-ttu-id="be4f7-117">Aanvullende voorbeelden van Azure Redis-Cache CLI script kunnen u vinden in Hallo [documentatie van Azure Redis-Cache](../cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="be4f7-117">Additional Azure Redis Cache CLI script samples can be found in hello [Azure Redis Cache documentation](../cli-samples.md).</span></span>

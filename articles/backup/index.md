@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Backup - zelfstudies, API-verwijzing | Microsoft Docs
-description: Gebruik documentatie voor Backup om te leren hoe u een back-up naar de cloud kunt maken. Zie de zelfstudies en video's voor informatie over het maken van back-ups van toepassingen, Windows-servers en virtuele Azure-machines.
+title: aaaAzure back-up-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Gebruik back-up documentatie toolearn hoe tooback up toohello cloud. Zie de zelfstudies en video's voor informatie over het maken van back-ups van toepassingen, Windows-servers en virtuele Azure-machines.
 services: backup
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3d8b07dc9903a48f6481ceda1922479cc7cd9ef6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 648c83a3ecdc4770859fbea0cc5af9ac2d1fdfd2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="backup-documentation"></a>Documentatie over Backup
 
-Meer informatie over hoe u Azure Backup in de cloud kunt gebruiken om gegevens te beschermen voor langetermijnretentie en herstel. Zelfstudies, video's en andere documentatie laten zien hoe u een back-up maakt van gegevens, toepassingen, Windows-servers en virtuele Azure-machines.
+Meer informatie over hoe toouse Azure Backup in Hallo cloudgegevens tooprotect voor lange bewaartermijn en herstel. Zelfstudies, video's en andere documentatie die u zien hoe tooback van gegevens, toepassingen, Windows-servers en virtuele machines in Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>

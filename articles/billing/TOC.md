@@ -1,6 +1,6 @@
 # Aan de slag
 ## [Onverwachte kosten voorkomen](billing-getting-started.md)
-## [Toegang tot facturering verlenen](billing-manage-access.md)
+## [Verleen toegang toobilling](billing-manage-access.md)
 ## [Aanmelden met Office 365-account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Registreren voor Office 365 met een Azure-account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Limieten en quota](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)

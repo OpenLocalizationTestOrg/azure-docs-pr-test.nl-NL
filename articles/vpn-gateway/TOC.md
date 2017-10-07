@@ -63,7 +63,7 @@
 ### [Overzicht en Azure-configuratie](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Voorbeeld: Cisco ASA-apparaat (IKEv2/geen BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## Problemen oplossen
-### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
+### [VPN-doorvoer tooa VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Door de community voorgestelde VPN- of firewallinstellingen voor apparaten](vpn-gateway-third-party-settings.md)
 ### [Probleem met het verbindingstype punt-naar-site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Site-naar-Site-verbinding wordt herhaaldelijk verbroken](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)

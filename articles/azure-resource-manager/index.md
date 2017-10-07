@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Resource Manager - zelfstudies, API-verwijzing | Microsoft Docs
-description: Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren en beheren en hoe u sjablonen kunt maken voor consistente en herhaalbare resource-implementatie.
+title: aaaAzure Resource Manager-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse toodeploy Resource Manager en oplossing resources beheren als een groep en toocreate sjablonen voor consistent en herhaalbare resources implementeren.
 services: azure-resource-manager
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: e74ec7e061c7b00acbf1cba7fdcc1864a81fff3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc920b14e84bbad1a178fc91a61a1d2642d644b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentatie over Azure Resource Manager
 
-Leer hoe u Resource Manager kunt gebruiken om oplossingsresources als groep te implementeren, bewaken en beheren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u resourcegroepen kunt instellen en sjablonen kunt maken voor consistente en herhaalbare implementatie.
+Ontdek hoe toouse Resource Manager toodeploy, bewaken en beheren oplossing resources als groep. Zelfstudies, API-referenties en andere documentatie wordt uitgelegd hoe tooset bron groepen en sjablonen maken voor consistent en herhaalbare implementatie.
 
 <ul class="panelContent cardsFTitle">
     <li>

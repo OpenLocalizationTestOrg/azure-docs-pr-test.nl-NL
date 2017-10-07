@@ -1,6 +1,6 @@
 ---
-title: U-SQL programmeerbaarheid handleiding voor Azure Data Lake | Microsoft Docs
-description: Meer informatie over de set van services in Azure Data Lake waarmee u een platform voor big data cloud-gebaseerde maken.
+title: aaaU SQL programmeerbaarheid handleiding voor Azure Data Lake | Microsoft Docs
+description: Meer informatie over Hallo set van services in Azure Data Lake waarmee u toocreate een platform voor big data cloud-gebaseerde.
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc8f126234c6106a0dc633ce85a1d9ab1e634e30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="u-sql-programmability-guide"></a><span data-ttu-id="3d0f0-103">Handleiding voor het programmeren van U-SQL</span><span class="sxs-lookup"><span data-stu-id="3d0f0-103">U-SQL programmability guide</span></span>
+# <a name="u-sql-programmability-guide"></a><span data-ttu-id="b321a-103">Handleiding voor het programmeren van U-SQL</span><span class="sxs-lookup"><span data-stu-id="b321a-103">U-SQL programmability guide</span></span>
 
-<span data-ttu-id="3d0f0-104">U-SQL is een querytaal die ontworpen voor big data-type van werkbelastingen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-104">U-SQL is a query language that's designed for big data-type of workloads.</span></span> <span data-ttu-id="3d0f0-105">Een van de unieke kenmerken van U-SQL is de combinatie van de SQL-achtige declaratieve taal met de uitbreiden en programmeren die wordt geleverd door C#.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-105">One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#.</span></span> <span data-ttu-id="3d0f0-106">In deze handleiding richten we op de uitbreiden en het programmeren van de U-SQL-taal die wordt ingeschakeld met C#.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-106">In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.</span></span>
+<span data-ttu-id="b321a-104">U-SQL is een querytaal die ontworpen voor big data-type van werkbelastingen.</span><span class="sxs-lookup"><span data-stu-id="b321a-104">U-SQL is a query language that's designed for big data-type of workloads.</span></span> <span data-ttu-id="b321a-105">Een van de unieke kenmerken Hallo van U-SQL is Hallo combinatie van Hallo SQL-achtige declaratieve taal met Hallo uitbreiden en programmeren die wordt geleverd door C#.</span><span class="sxs-lookup"><span data-stu-id="b321a-105">One of hello unique features of U-SQL is hello combination of hello SQL-like declarative language with hello extensibility and programmability that's provided by C#.</span></span> <span data-ttu-id="b321a-106">In deze handleiding richten we op Hallo uitbreiden en programmeren van Hallo U-SQL-taal die wordt ingeschakeld met C#.</span><span class="sxs-lookup"><span data-stu-id="b321a-106">In this guide, we concentrate on hello extensibility and programmability of hello U-SQL language that's enabled by C#.</span></span>
 
-## <a name="requirements"></a><span data-ttu-id="3d0f0-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="3d0f0-107">Requirements</span></span>
+## <a name="requirements"></a><span data-ttu-id="b321a-107">Vereisten</span><span class="sxs-lookup"><span data-stu-id="b321a-107">Requirements</span></span>
 
-<span data-ttu-id="3d0f0-108">Download en installeer [Azure Data Lake Tools voor Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-108">Download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).</span></span>
+<span data-ttu-id="b321a-108">Download en installeer [Azure Data Lake Tools voor Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).</span><span class="sxs-lookup"><span data-stu-id="b321a-108">Download and install [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).</span></span>
 
-## <a name="get-started-with-u-sql"></a><span data-ttu-id="3d0f0-109">Aan de slag met U-SQL</span><span class="sxs-lookup"><span data-stu-id="3d0f0-109">Get started with U-SQL</span></span>  
+## <a name="get-started-with-u-sql"></a><span data-ttu-id="b321a-109">Aan de slag met U-SQL</span><span class="sxs-lookup"><span data-stu-id="b321a-109">Get started with U-SQL</span></span>  
 
-<span data-ttu-id="3d0f0-110">Bekijk het volgende U-SQL-script:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-110">Let’s look at the following U-SQL script:</span></span>
+<span data-ttu-id="b321a-110">Bekijk Hallo volgende U-SQL-script:</span><span class="sxs-lookup"><span data-stu-id="b321a-110">Let’s look at hello following U-SQL script:</span></span>
 
 ```
 @a  = 
@@ -47,13 +47,13 @@ ms.lasthandoff: 07/11/2017
     FROM @a;    
 ```
 
-<span data-ttu-id="3d0f0-111">Hiermee definieert u een rijenset aangeroepen @a en maakt een rijenset aangeroepen @results van @a.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-111">It defines a RowSet called @a and creates a RowSet called @results from @a.</span></span>
+<span data-ttu-id="b321a-111">Hiermee definieert u een rijenset aangeroepen @a en maakt een rijenset aangeroepen @results van @a.</span><span class="sxs-lookup"><span data-stu-id="b321a-111">It defines a RowSet called @a and creates a RowSet called @results from @a.</span></span>
 
-## <a name="c-types-and-expressions-in-u-sql-script"></a><span data-ttu-id="3d0f0-112">C#-typen en expressies in de U-SQL-script</span><span class="sxs-lookup"><span data-stu-id="3d0f0-112">C# types and expressions in U-SQL script</span></span>
+## <a name="c-types-and-expressions-in-u-sql-script"></a><span data-ttu-id="b321a-112">C#-typen en expressies in de U-SQL-script</span><span class="sxs-lookup"><span data-stu-id="b321a-112">C# types and expressions in U-SQL script</span></span>
 
-<span data-ttu-id="3d0f0-113">Een U-SQL-expressie is een expressie C# in combinatie met logische U-SQL-bewerkingen zoals `AND`, `OR`, en `NOT`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-113">A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`.</span></span> <span data-ttu-id="3d0f0-114">U-SQL-expressies kunnen worden gebruikt met SELECT-, uitpakken, waarin, ONDERVINDT, GROEPEREN en DECLAREREN.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-114">U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE.</span></span>
+<span data-ttu-id="b321a-113">Een U-SQL-expressie is een expressie C# in combinatie met logische U-SQL-bewerkingen zoals `AND`, `OR`, en `NOT`.</span><span class="sxs-lookup"><span data-stu-id="b321a-113">A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`.</span></span> <span data-ttu-id="b321a-114">U-SQL-expressies kunnen worden gebruikt met SELECT-, uitpakken, waarin, ONDERVINDT, GROEPEREN en DECLAREREN.</span><span class="sxs-lookup"><span data-stu-id="b321a-114">U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE.</span></span>
 
-<span data-ttu-id="3d0f0-115">Het volgende script parseert bijvoorbeeld een tekenreeks in de component SELECT een DateTime-waarde.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-115">For example, the following script parses a string a DateTime value in the SELECT clause.</span></span>
+<span data-ttu-id="b321a-115">Bijvoorbeeld parseert Hallo na script een tekenreeks een DateTime-waarde in Hallo SELECT-component.</span><span class="sxs-lookup"><span data-stu-id="b321a-115">For example, hello following script parses a string a DateTime value in hello SELECT clause.</span></span>
 
 ```
 @results =
@@ -64,14 +64,14 @@ ms.lasthandoff: 07/11/2017
     FROM @a;    
 ```
 
-<span data-ttu-id="3d0f0-116">Het volgende script parseert een tekenreeks die een datum-/ tijdwaarde in de instructie DECLARE.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-116">The following script parses a string a DateTime value in a DECLARE statement.</span></span>
+<span data-ttu-id="b321a-116">Hallo parseert volgende script een tekenreeks in een instructie DECLARE een DateTime-waarde.</span><span class="sxs-lookup"><span data-stu-id="b321a-116">hello following script parses a string a DateTime value in a DECLARE statement.</span></span>
 
 ```
 DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
 ```
 
-### <a name="use-c-expressions-for-data-type-conversions"></a><span data-ttu-id="3d0f0-117">C#-expressies gebruiken voor de conversie van het gegevenstype</span><span class="sxs-lookup"><span data-stu-id="3d0f0-117">Use C# expressions for data type conversions</span></span>
-<span data-ttu-id="3d0f0-118">Het volgende voorbeeld laat zien hoe u een conversie van datum-/ kunt doen met behulp van C#-expressies.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-118">The following example demonstrates how you can do a datetime data conversion by using C# expressions.</span></span> <span data-ttu-id="3d0f0-119">In dit specifieke scenario wordt tekenreeksgegevens datum/tijd geconverteerd naar standard datetime-waarde met de notatie van de tijd 00:00:00 middernacht.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-119">In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.</span></span>
+### <a name="use-c-expressions-for-data-type-conversions"></a><span data-ttu-id="b321a-117">C#-expressies gebruiken voor de conversie van het gegevenstype</span><span class="sxs-lookup"><span data-stu-id="b321a-117">Use C# expressions for data type conversions</span></span>
+<span data-ttu-id="b321a-118">Hallo volgende voorbeeld laat zien hoe u een conversie van datum-/ kunt doen met behulp van C#-expressies.</span><span class="sxs-lookup"><span data-stu-id="b321a-118">hello following example demonstrates how you can do a datetime data conversion by using C# expressions.</span></span> <span data-ttu-id="b321a-119">In dit scenario is datetime tekenreeksgegevens geconverteerde toostandard datetime met de notatie van de tijd 00:00:00 middernacht.</span><span class="sxs-lookup"><span data-stu-id="b321a-119">In this particular scenario, string datetime data is converted toostandard datetime with midnight 00:00:00 time notation.</span></span>
 
 ```
 DECLARE @dt String = "2016-07-06 10:23:15";
@@ -81,17 +81,17 @@ DECLARE @dt String = "2016-07-06 10:23:15";
         Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
         dt AS olddt
     FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-### <a name="use-c-expressions-for-todays-date"></a><span data-ttu-id="3d0f0-120">C#-expressies gebruiken voor de datum van vandaag</span><span class="sxs-lookup"><span data-stu-id="3d0f0-120">Use C# expressions for today’s date</span></span>
-<span data-ttu-id="3d0f0-121">De datum van vandaag ophalen, kunnen we de volgende C#-expressie gebruiken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-121">To pull today’s date, we can use the following C# expression:</span></span>
+### <a name="use-c-expressions-for-todays-date"></a><span data-ttu-id="b321a-120">C#-expressies gebruiken voor de datum van vandaag</span><span class="sxs-lookup"><span data-stu-id="b321a-120">Use C# expressions for today’s date</span></span>
+<span data-ttu-id="b321a-121">toopull datum van vandaag, kunnen we gebruiken Hallo C#-expressie te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-121">toopull today’s date, we can use hello following C# expression:</span></span>
 
 ```
 DateTime.Now.ToString("M/d/yyyy")
 ```
 
-<span data-ttu-id="3d0f0-122">Hier volgt een voorbeeld van het gebruik van deze expressie in een script:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-122">Here's an example of how to use this expression in a script:</span></span>
+<span data-ttu-id="b321a-122">Hier volgt een voorbeeld van hoe toouse deze expressie in een script:</span><span class="sxs-lookup"><span data-stu-id="b321a-122">Here's an example of how toouse this expression in a script:</span></span>
 
 ```
 @rs1 =
@@ -109,43 +109,43 @@ DateTime.Now.ToString("M/d/yyyy")
 
 
 
-## <a name="using-net-assemblies"></a><span data-ttu-id="3d0f0-123">Met behulp van .NET-assembly 's</span><span class="sxs-lookup"><span data-stu-id="3d0f0-123">Using .NET assemblies</span></span>
-<span data-ttu-id="3d0f0-124">U-SQL-uitbreidbaarheidsmodel is sterk afhankelijk van de mogelijkheid tot het toevoegen van aangepaste code.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-124">U-SQL’s extensibility model relies heavily on the ability to add custom code.</span></span> <span data-ttu-id="3d0f0-125">Op dit moment kunt biedt U-SQL u eenvoudige manieren waarop u uw eigen Microsoft toevoegen. De code op basis van NET (met name, C#).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-125">Currently, U-SQL provides you with easy ways to add your own Microsoft .NET-based code (in particular, C#).</span></span> <span data-ttu-id="3d0f0-126">U kunt echter ook aangepaste code die geschreven in .NET-talen, zoals of traditiegetrouw F # toevoegen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-126">However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.</span></span> 
+## <a name="using-net-assemblies"></a><span data-ttu-id="b321a-123">Met behulp van .NET-assembly 's</span><span class="sxs-lookup"><span data-stu-id="b321a-123">Using .NET assemblies</span></span>
+<span data-ttu-id="b321a-124">U-SQL-uitbreidbaarheidsmodel is sterk afhankelijk van Hallo mogelijkheid tooadd aangepaste code.</span><span class="sxs-lookup"><span data-stu-id="b321a-124">U-SQL’s extensibility model relies heavily on hello ability tooadd custom code.</span></span> <span data-ttu-id="b321a-125">Op dit moment kunt biedt U-SQL u eenvoudige manieren tooadd uw eigen Microsoft. De code op basis van NET (met name, C#).</span><span class="sxs-lookup"><span data-stu-id="b321a-125">Currently, U-SQL provides you with easy ways tooadd your own Microsoft .NET-based code (in particular, C#).</span></span> <span data-ttu-id="b321a-126">U kunt echter ook aangepaste code die geschreven in .NET-talen, zoals of traditiegetrouw F # toevoegen.</span><span class="sxs-lookup"><span data-stu-id="b321a-126">However, you can also add custom code that's written in other .NET languages, such as VB.NET or F#.</span></span> 
 
-### <a name="register-a-net-assembly"></a><span data-ttu-id="3d0f0-127">Registreren van een .NET-assembly</span><span class="sxs-lookup"><span data-stu-id="3d0f0-127">Register a .NET assembly</span></span>
+### <a name="register-a-net-assembly"></a><span data-ttu-id="b321a-127">Registreren van een .NET-assembly</span><span class="sxs-lookup"><span data-stu-id="b321a-127">Register a .NET assembly</span></span>
 
-<span data-ttu-id="3d0f0-128">De instructie CREATE ASSEMBLY gebruiken om een .NET-assembly in een U-SQL-Database.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-128">Use the CREATE ASSEMBLY statement to place a .NET assembly into a U-SQL Database.</span></span> <span data-ttu-id="3d0f0-129">Zodra een assembly is opgenomen in een database, kunnen U-SQL-scripts die assembly's gebruiken met behulp van de referentie-ASSEMBLY-instructie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-129">Once an assembly is in a database, U-SQL scripts can use those assemblies by using the REFERENCE ASSEMBLY statement.</span></span> 
+<span data-ttu-id="b321a-128">Hallo CREATE ASSEMBLY instructie tooplace een .NET-assembly in een U-SQL-Database gebruiken.</span><span class="sxs-lookup"><span data-stu-id="b321a-128">Use hello CREATE ASSEMBLY statement tooplace a .NET assembly into a U-SQL Database.</span></span> <span data-ttu-id="b321a-129">Nadat een assembly een database is, kunnen U-SQL-scripts die assembly's gebruiken met behulp van Hallo referentie-ASSEMBLY-instructie.</span><span class="sxs-lookup"><span data-stu-id="b321a-129">Once an assembly is in a database, U-SQL scripts can use those assemblies by using hello REFERENCE ASSEMBLY statement.</span></span> 
 
-<span data-ttu-id="3d0f0-130">De volgende code toont het registreren van een assembly:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-130">The following code shows how to register an assembly:</span></span>
+<span data-ttu-id="b321a-130">Hallo van de volgende code wordt getoond hoe tooregister een assembly:</span><span class="sxs-lookup"><span data-stu-id="b321a-130">hello following code shows how tooregister an assembly:</span></span>
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
     FROM "/myassembly.dll";
 ```
 
-<span data-ttu-id="3d0f0-131">De volgende code laat zien hoe om te verwijzen naar een assembly:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-131">The following code shows how to reference an assembly:</span></span>
+<span data-ttu-id="b321a-131">Hallo van de volgende code wordt getoond hoe tooreference een assembly:</span><span class="sxs-lookup"><span data-stu-id="b321a-131">hello following code shows how tooreference an assembly:</span></span>
 
 ```
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-<span data-ttu-id="3d0f0-132">Raadpleeg de [assembly registration instructies](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) die worden in dit onderwerp in meer detail behandeld.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-132">Consult the [assembly registration instructions](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) that covers this topic in greater detail.</span></span>
+<span data-ttu-id="b321a-132">Raadpleeg Hallo [assembly registration instructies](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) die worden in dit onderwerp in meer detail behandeld.</span><span class="sxs-lookup"><span data-stu-id="b321a-132">Consult hello [assembly registration instructions](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) that covers this topic in greater detail.</span></span>
 
 
-### <a name="use-assembly-versioning"></a><span data-ttu-id="3d0f0-133">Assembly-versiebeheer gebruiken</span><span class="sxs-lookup"><span data-stu-id="3d0f0-133">Use assembly versioning</span></span>
-<span data-ttu-id="3d0f0-134">Op dit moment kunt U-SQL maakt gebruik van de .NET Framework versie 4.5.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-134">Currently, U-SQL uses the .NET Framework version 4.5.</span></span> <span data-ttu-id="3d0f0-135">Dus zorg ervoor dat uw eigen assembly's compatibel met deze versie van de runtime zijn.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-135">So ensure that your own assemblies are compatible with that version of the runtime.</span></span>
+### <a name="use-assembly-versioning"></a><span data-ttu-id="b321a-133">Assembly-versiebeheer gebruiken</span><span class="sxs-lookup"><span data-stu-id="b321a-133">Use assembly versioning</span></span>
+<span data-ttu-id="b321a-134">U-SQL gebruikt op dit moment Hallo .NET Framework versie 4.5.</span><span class="sxs-lookup"><span data-stu-id="b321a-134">Currently, U-SQL uses hello .NET Framework version 4.5.</span></span> <span data-ttu-id="b321a-135">Dus zorg ervoor dat uw eigen assembly's compatibel met deze versie van Hallo-runtime zijn.</span><span class="sxs-lookup"><span data-stu-id="b321a-135">So ensure that your own assemblies are compatible with that version of hello runtime.</span></span>
 
-<span data-ttu-id="3d0f0-136">Zoals eerder gezegd code van de U-SQL wordt uitgevoerd in een 64-bits (x 64)-indeling.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-136">As mentioned earlier, U-SQL runs code in a 64-bit (x64) format.</span></span> <span data-ttu-id="3d0f0-137">Zorg er dus dat uw code wordt gecompileerd voor uitvoeren onder x64.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-137">So make sure that your code is compiled to run on x64.</span></span> <span data-ttu-id="3d0f0-138">Anders krijgt u de eerder vermelde onjuiste indeling-fout.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-138">Otherwise you get the incorrect format error shown earlier.</span></span>
+<span data-ttu-id="b321a-136">Zoals eerder gezegd code van de U-SQL wordt uitgevoerd in een 64-bits (x 64)-indeling.</span><span class="sxs-lookup"><span data-stu-id="b321a-136">As mentioned earlier, U-SQL runs code in a 64-bit (x64) format.</span></span> <span data-ttu-id="b321a-137">Dus zorg ervoor dat uw code gecompileerde toorun op x64.</span><span class="sxs-lookup"><span data-stu-id="b321a-137">So make sure that your code is compiled toorun on x64.</span></span> <span data-ttu-id="b321a-138">Anders krijgt u een onjuiste indelingsfout Hallo eerder weergegeven.</span><span class="sxs-lookup"><span data-stu-id="b321a-138">Otherwise you get hello incorrect format error shown earlier.</span></span>
 
-<span data-ttu-id="3d0f0-139">Elke assembly DLL-bestand geüpload en resource-bestand, zoals een andere runtime, een systeemeigen assembly of een configuratiebestand mag maximaal 400 MB.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-139">Each uploaded assembly DLL and resource file, such as a different runtime, a native assembly, or a config file, can be at most 400 MB.</span></span> <span data-ttu-id="3d0f0-140">De totale grootte van de geïmplementeerde resources, hetzij via RESOURCE implementeren of verwijzingen naar assembly's en de aanvullende bestanden kan niet groter zijn dan 3 GB.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-140">The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their additional files, cannot exceed 3 GB.</span></span>
+<span data-ttu-id="b321a-139">Elke assembly DLL-bestand geüpload en resource-bestand, zoals een andere runtime, een systeemeigen assembly of een configuratiebestand mag maximaal 400 MB.</span><span class="sxs-lookup"><span data-stu-id="b321a-139">Each uploaded assembly DLL and resource file, such as a different runtime, a native assembly, or a config file, can be at most 400 MB.</span></span> <span data-ttu-id="b321a-140">totale grootte van de Hallo van geïmplementeerde resources, hetzij via RESOURCE implementeren of een verwijzingen tooassemblies en de bijbehorende extra bestanden niet meer dan 3 GB.</span><span class="sxs-lookup"><span data-stu-id="b321a-140">hello total size of deployed resources, either via DEPLOY RESOURCE or via references tooassemblies and their additional files, cannot exceed 3 GB.</span></span>
 
-<span data-ttu-id="3d0f0-141">Ten slotte Opmerking elke U-SQL-database mogen slechts één versie van de opgegeven assembly's.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-141">Finally, note that each U-SQL database can only contain one version of any given assembly.</span></span> <span data-ttu-id="3d0f0-142">Als u zowel versie 7 en 8-versie van de bibliotheek NewtonSoft Json.Net moet, moet u bijvoorbeeld deze registreren in twee verschillende databases.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-142">For example, if you need both version 7 and version 8 of the NewtonSoft Json.Net library, you need to register them in two different databases.</span></span> <span data-ttu-id="3d0f0-143">Elk script kan bovendien alleen verwijzen naar één versie van een bepaalde assembly DLL-bestand.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-143">Furthermore, each script can only refer to one version of a given assembly DLL.</span></span> <span data-ttu-id="3d0f0-144">In dit opzicht volgt U-SQL de C#-assembly beheer- en versiebeheer semantiek.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-144">In this respect, U-SQL follows the C# assembly management and versioning semantics.</span></span>
+<span data-ttu-id="b321a-141">Ten slotte Opmerking elke U-SQL-database mogen slechts één versie van de opgegeven assembly's.</span><span class="sxs-lookup"><span data-stu-id="b321a-141">Finally, note that each U-SQL database can only contain one version of any given assembly.</span></span> <span data-ttu-id="b321a-142">Bijvoorbeeld, als u zowel versie 7 als versie 8 Hallo NewtonSoft Json.Net-bibliotheek moet, moet u tooregister ze in twee verschillende databases.</span><span class="sxs-lookup"><span data-stu-id="b321a-142">For example, if you need both version 7 and version 8 of hello NewtonSoft Json.Net library, you need tooregister them in two different databases.</span></span> <span data-ttu-id="b321a-143">Bovendien kan elk script alleen tooone versie van een bepaalde assembly DLL verwijzen.</span><span class="sxs-lookup"><span data-stu-id="b321a-143">Furthermore, each script can only refer tooone version of a given assembly DLL.</span></span> <span data-ttu-id="b321a-144">In dit opzicht volgt U-SQL Hallo C#-assembly beheer- en versiebeheer semantiek.</span><span class="sxs-lookup"><span data-stu-id="b321a-144">In this respect, U-SQL follows hello C# assembly management and versioning semantics.</span></span>
 
 
-## <a name="use-user-defined-functions-udf"></a><span data-ttu-id="3d0f0-145">Gebruik van de gebruiker gedefinieerde functies: UDF</span><span class="sxs-lookup"><span data-stu-id="3d0f0-145">Use user-defined functions: UDF</span></span>
-<span data-ttu-id="3d0f0-146">U-SQL-gebruiker gedefinieerde functies of UDF, programmeert routines die parameters accepteren, het uitvoeren van een actie (zoals een complexe berekening) en het resultaat van deze actie als wanneer u een waarde retourneren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-146">U-SQL user-defined functions, or UDF, are programming routines that accept parameters, perform an action (such as a complex calculation), and return the result of that action as a value.</span></span> <span data-ttu-id="3d0f0-147">De retourwaarde van UDF kan alleen worden voor één scalair.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-147">The return value of UDF can only be a single scalar.</span></span> <span data-ttu-id="3d0f0-148">U-SQL-UDF kan worden aangeroepen in base U-SQL-script zoals elke andere C# scalaire functie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-148">U-SQL UDF can be called in U-SQL base script like any other C# scalar function.</span></span>
+## <a name="use-user-defined-functions-udf"></a><span data-ttu-id="b321a-145">Gebruik van de gebruiker gedefinieerde functies: UDF</span><span class="sxs-lookup"><span data-stu-id="b321a-145">Use user-defined functions: UDF</span></span>
+<span data-ttu-id="b321a-146">U-SQL-gebruiker gedefinieerde functies of UDF, programmeert routines die parameters accepteren, het uitvoeren van een actie (zoals een complexe berekening) en het Hallo resultaat van deze actie als wanneer u een waarde te retourneren.</span><span class="sxs-lookup"><span data-stu-id="b321a-146">U-SQL user-defined functions, or UDF, are programming routines that accept parameters, perform an action (such as a complex calculation), and return hello result of that action as a value.</span></span> <span data-ttu-id="b321a-147">Hallo retourneren waarde van UDF kan alleen één scalair zijn.</span><span class="sxs-lookup"><span data-stu-id="b321a-147">hello return value of UDF can only be a single scalar.</span></span> <span data-ttu-id="b321a-148">U-SQL-UDF kan worden aangeroepen in base U-SQL-script zoals elke andere C# scalaire functie.</span><span class="sxs-lookup"><span data-stu-id="b321a-148">U-SQL UDF can be called in U-SQL base script like any other C# scalar function.</span></span>
 
-<span data-ttu-id="3d0f0-149">Het is raadzaam dat u de gebruiker gedefinieerde U-SQL-functies als initialiseren **openbare** en **statische**.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-149">We recommend that you initialize U-SQL user-defined functions as **public** and **static**.</span></span>
+<span data-ttu-id="b321a-149">Het is raadzaam dat u de gebruiker gedefinieerde U-SQL-functies als initialiseren **openbare** en **statische**.</span><span class="sxs-lookup"><span data-stu-id="b321a-149">We recommend that you initialize U-SQL user-defined functions as **public** and **static**.</span></span>
 
 ```
 public static string MyFunction(string param1)
@@ -154,11 +154,11 @@ public static string MyFunction(string param1)
 }
 ```
 
-<span data-ttu-id="3d0f0-150">Eerste bekijken we het eenvoudig voorbeeld van het maken van een UDF.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-150">First let’s look at the simple example of creating a UDF.</span></span>
+<span data-ttu-id="b321a-150">Eerste bekijken we Hallo eenvoudig voorbeeld van het maken van een UDF.</span><span class="sxs-lookup"><span data-stu-id="b321a-150">First let’s look at hello simple example of creating a UDF.</span></span>
 
-<span data-ttu-id="3d0f0-151">In dit scenario use case moet om te bepalen van de fiscale periode, met inbegrip van het kwartaal en boekmaand van de eerste aanmelding voor de specifieke gebruiker.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-151">In this use-case scenario, we need to determine the fiscal period, including the fiscal quarter and fiscal month of the first sign-in for the specific user.</span></span> <span data-ttu-id="3d0f0-152">De eerste boekmaand van het jaar in ons scenario is juni.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-152">The first fiscal month of the year in our scenario is June.</span></span>
+<span data-ttu-id="b321a-151">In dit scenario use case moet toodetermine Hallo fiscale periode, met inbegrip van Hallo Boekkwartaal en boekmaand van Hallo eerste aanmelden voor een specifieke gebruiker Hallo.</span><span class="sxs-lookup"><span data-stu-id="b321a-151">In this use-case scenario, we need toodetermine hello fiscal period, including hello fiscal quarter and fiscal month of hello first sign-in for hello specific user.</span></span> <span data-ttu-id="b321a-152">Hallo is eerste boekmaand van Hallo jaar in ons scenario juni.</span><span class="sxs-lookup"><span data-stu-id="b321a-152">hello first fiscal month of hello year in our scenario is June.</span></span>
 
-<span data-ttu-id="3d0f0-153">Voor het berekenen van fiscale periode, stellen we de volgende C#-functie:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-153">To calculate fiscal period, we introduce the following C# function:</span></span>
+<span data-ttu-id="b321a-153">toocalculate fiscale periode, stellen we Hallo C#-functie te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-153">toocalculate fiscal period, we introduce hello following C# function:</span></span>
 
 ```
 public static string GetFiscalPeriod(DateTime dt)
@@ -195,11 +195,11 @@ public static string GetFiscalPeriod(DateTime dt)
 }
 ```
 
-<span data-ttu-id="3d0f0-154">Gewoon boekmaand en kwartaal berekend en retourneert een string-waarde.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-154">It simply calculates fiscal month and quarter and returns a string value.</span></span> <span data-ttu-id="3d0f0-155">Voor juni, de eerste maand van de eerste Boekkwartaal we gebruiken 'Q1:P1'.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-155">For June, the first month of the first fiscal quarter, we use "Q1:P1".</span></span> <span data-ttu-id="3d0f0-156">Voor juli moeten we gebruiken 'Q1:P2', enzovoort.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-156">For July, we use "Q1:P2", and so on.</span></span>
+<span data-ttu-id="b321a-154">Gewoon boekmaand en kwartaal berekend en retourneert een string-waarde.</span><span class="sxs-lookup"><span data-stu-id="b321a-154">It simply calculates fiscal month and quarter and returns a string value.</span></span> <span data-ttu-id="b321a-155">We gebruiken 'Q1:P1' voor juni, Hallo eerste maand van Hallo eerste kwartaal.</span><span class="sxs-lookup"><span data-stu-id="b321a-155">For June, hello first month of hello first fiscal quarter, we use "Q1:P1".</span></span> <span data-ttu-id="b321a-156">Voor juli moeten we gebruiken 'Q1:P2', enzovoort.</span><span class="sxs-lookup"><span data-stu-id="b321a-156">For July, we use "Q1:P2", and so on.</span></span>
 
-<span data-ttu-id="3d0f0-157">Dit is een reguliere C# functie die we gaan gebruiken in onze project U-SQL.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-157">This is a regular C# function that we are going to use in our U-SQL project.</span></span>
+<span data-ttu-id="b321a-157">Dit is een reguliere C#-functie we continu toouse zijn in de U-SQL-project.</span><span class="sxs-lookup"><span data-stu-id="b321a-157">This is a regular C# function that we are going toouse in our U-SQL project.</span></span>
 
-<span data-ttu-id="3d0f0-158">Dit is de weergave van de code-behind-sectie in dit scenario:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-158">Here is how the code-behind section looks in this scenario:</span></span>
+<span data-ttu-id="b321a-158">Hier ziet u hoe Hallo code-behind sectie eruitziet in dit scenario:</span><span class="sxs-lookup"><span data-stu-id="b321a-158">Here is how hello code-behind section looks in this scenario:</span></span>
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -251,13 +251,13 @@ namespace USQL_Programmability
 }
 ```
 
-<span data-ttu-id="3d0f0-159">Nu gaan we deze functie uit de base U-SQL-script aanroept.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-159">Now we are going to call this function from the base U-SQL script.</span></span> <span data-ttu-id="3d0f0-160">We hebben om dit te doen, Geef een volledig gekwalificeerde naam voor de functie, inclusief de naamruimte die in dit geval NameSpace.Class.Function(parameter) is.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-160">To do this, we have to provide a fully qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).</span></span>
+<span data-ttu-id="b321a-159">Nu gaan we toocall deze functie van Hallo base U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="b321a-159">Now we are going toocall this function from hello base U-SQL script.</span></span> <span data-ttu-id="b321a-160">toodo, hebben we tooprovide na een volledig gekwalificeerde naam voor de functie hello, inclusief Hallo-naamruimte die in dit geval NameSpace.Class.Function(parameter) is.</span><span class="sxs-lookup"><span data-stu-id="b321a-160">toodo this, we have tooprovide a fully qualified name for hello function, including hello namespace, which in this case is NameSpace.Class.Function(parameter).</span></span>
 
 ```
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
-<span data-ttu-id="3d0f0-161">Hieronder vindt u de werkelijke base U-SQL-script:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-161">Following is the actual U-SQL base script:</span></span>
+<span data-ttu-id="b321a-161">Hieronder vindt u Hallo werkelijke U-SQL base script:</span><span class="sxs-lookup"><span data-stu-id="b321a-161">Following is hello actual U-SQL base script:</span></span>
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -285,11 +285,11 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
     GROUP BY user, des;
 
 OUTPUT @rs1 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-<span data-ttu-id="3d0f0-162">Hieronder vindt u het bestand voor uitvoer van de uitvoering van het script:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-162">Following is the output file of the script execution:</span></span>
+<span data-ttu-id="b321a-162">Dit is het uitvoerbestand Hallo Hallo uitvoeren van scripts:</span><span class="sxs-lookup"><span data-stu-id="b321a-162">Following is hello output file of hello script execution:</span></span>
 
 ```
 0d8b9630-d5ca-11e5-8329-251efa3a2941,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User1",""
@@ -299,22 +299,22 @@ OUTPUT @rs1
 301f23d2-d690-11e5-9a98-4b4f60a1836f,2016-02-11T09:01:33.9720000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User3",""
 ```
 
-<span data-ttu-id="3d0f0-163">Dit voorbeeld wordt een eenvoudig gebruik van inline UDF in U-SQL.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-163">This example demonstrates a simple usage of inline UDF in U-SQL.</span></span>
+<span data-ttu-id="b321a-163">Dit voorbeeld wordt een eenvoudig gebruik van inline UDF in U-SQL.</span><span class="sxs-lookup"><span data-stu-id="b321a-163">This example demonstrates a simple usage of inline UDF in U-SQL.</span></span>
 
-### <a name="keep-state-between-udf-invocations"></a><span data-ttu-id="3d0f0-164">Status tussen UDF aanroepen houden</span><span class="sxs-lookup"><span data-stu-id="3d0f0-164">Keep state between UDF invocations</span></span>
-<span data-ttu-id="3d0f0-165">U-SQL C# programmeerbare objecten kunnen worden meer geavanceerde, met behulp van interactiviteit via het code-behind globale variabelen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-165">U-SQL C# programmability objects can be more sophisticated, utilizing interactivity through the code-behind global variables.</span></span> <span data-ttu-id="3d0f0-166">Bekijk het volgende use case bedrijfsscenario.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-166">Let’s look at the following business use-case scenario.</span></span>
+### <a name="keep-state-between-udf-invocations"></a><span data-ttu-id="b321a-164">Status tussen UDF aanroepen houden</span><span class="sxs-lookup"><span data-stu-id="b321a-164">Keep state between UDF invocations</span></span>
+<span data-ttu-id="b321a-165">U-SQL C# programmeerbare objecten kunnen worden meer geavanceerde, met behulp van interactiviteit via Hallo code-behind globale variabelen.</span><span class="sxs-lookup"><span data-stu-id="b321a-165">U-SQL C# programmability objects can be more sophisticated, utilizing interactivity through hello code-behind global variables.</span></span> <span data-ttu-id="b321a-166">Bekijk Hallo use case bedrijfsscenario te volgen.</span><span class="sxs-lookup"><span data-stu-id="b321a-166">Let’s look at hello following business use-case scenario.</span></span>
 
-<span data-ttu-id="3d0f0-167">In grote organisaties kunnen gebruikers schakelen tussen varianten van interne toepassingen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-167">In large organizations, users can switch between varieties of internal applications.</span></span> <span data-ttu-id="3d0f0-168">Voorbeelden Microsoft Dynamics CRM en Power BI.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-168">These can include Microsoft Dynamics CRM, PowerBI, and so on.</span></span> <span data-ttu-id="3d0f0-169">Klanten mogelijk wilt toepassen van een analyse telemetrie van hoe gebruikers tussen verschillende toepassingen schakelen, wat de trends in gebruik zijn, enzovoort.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-169">Customers might want to apply a telemetry analysis of how users switch between different applications, what the usage trends are, and so on.</span></span> <span data-ttu-id="3d0f0-170">Het doel voor het bedrijf is het gebruik van de toepassing te optimaliseren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-170">The goal for the business is to optimize application usage.</span></span> <span data-ttu-id="3d0f0-171">Ze ook wilt combineren verschillende toepassingen of specifieke routines voor eenmalige aanmelding.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-171">They also might want to combine different applications or specific sign-on routines.</span></span>
+<span data-ttu-id="b321a-167">In grote organisaties kunnen gebruikers schakelen tussen varianten van interne toepassingen.</span><span class="sxs-lookup"><span data-stu-id="b321a-167">In large organizations, users can switch between varieties of internal applications.</span></span> <span data-ttu-id="b321a-168">Voorbeelden Microsoft Dynamics CRM en Power BI.</span><span class="sxs-lookup"><span data-stu-id="b321a-168">These can include Microsoft Dynamics CRM, PowerBI, and so on.</span></span> <span data-ttu-id="b321a-169">Klanten kunt tooapply een analyse telemetrie van hoe gebruikers tussen verschillende toepassingen schakelen, welke gebruik Hallo trends weet, enzovoort.</span><span class="sxs-lookup"><span data-stu-id="b321a-169">Customers might want tooapply a telemetry analysis of how users switch between different applications, what hello usage trends are, and so on.</span></span> <span data-ttu-id="b321a-170">Hello dient voor bedrijven Hallo toooptimize toepassingsgebruik.</span><span class="sxs-lookup"><span data-stu-id="b321a-170">hello goal for hello business is toooptimize application usage.</span></span> <span data-ttu-id="b321a-171">Ze ook verstandig toocombine verschillende toepassingen of specifieke routines voor eenmalige aanmelding.</span><span class="sxs-lookup"><span data-stu-id="b321a-171">They also might want toocombine different applications or specific sign-on routines.</span></span>
 
-<span data-ttu-id="3d0f0-172">We hebben om dit doel te bereiken, om te bepalen van de sessie-id's en vertragingstijd tussen de laatste sessie die is opgetreden.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-172">To achieve this goal, we have to determine session IDs and lag time between the last session that occurred.</span></span>
+<span data-ttu-id="b321a-172">tooachieve deze doelstelling krijgen we hebben toodetermine sessie-id's en vertragingstijd tussen Hallo laatste sessie die is opgetreden.</span><span class="sxs-lookup"><span data-stu-id="b321a-172">tooachieve this goal, we have toodetermine session IDs and lag time between hello last session that occurred.</span></span>
 
-<span data-ttu-id="3d0f0-173">Er moet een vorige aanmelden zoeken en vervolgens deze aanmeldingspagina aan alle sessies die worden gegenereerd voor dezelfde toepassing toewijzen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-173">We need to find a previous sign-in and then assign this sign-in to all sessions that are being generated to the same application.</span></span> <span data-ttu-id="3d0f0-174">De eerste uitdaging is dat base U-SQL-script niet kan we berekeningen toepassen op kolommen met de functie LAG al berekend.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-174">The first challenge is that U-SQL base script doesn't allow us to apply calculations over already-calculated columns with LAG function.</span></span> <span data-ttu-id="3d0f0-175">De tweede uitdaging is dat we hebben zodat de specifieke sessie voor alle sessies binnen dezelfde periode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-175">The second challenge is that we have to keep the specific session for all sessions within the same time period.</span></span>
+<span data-ttu-id="b321a-173">We moet toofind een vorige aanmelden en wijs deze aanmelden tooall-sessies die worden gegenereerd toohello dezelfde toepassing.</span><span class="sxs-lookup"><span data-stu-id="b321a-173">We need toofind a previous sign-in and then assign this sign-in tooall sessions that are being generated toohello same application.</span></span> <span data-ttu-id="b321a-174">Hallo eerste uitdaging is dat base U-SQL-script niet is toegestaan ons tooapply berekeningen via al berekende kolommen met de functie LAG.</span><span class="sxs-lookup"><span data-stu-id="b321a-174">hello first challenge is that U-SQL base script doesn't allow us tooapply calculations over already-calculated columns with LAG function.</span></span> <span data-ttu-id="b321a-175">Hallo tweede uitdaging is dat we tookeep Hallo bepaalde sessie voor alle sessies binnen Hallo hebben dezelfde periode.</span><span class="sxs-lookup"><span data-stu-id="b321a-175">hello second challenge is that we have tookeep hello specific session for all sessions within hello same time period.</span></span>
 
-<span data-ttu-id="3d0f0-176">U lost dit probleem, gebruiken we een globale variabele in een code-behind-sectie: `static public string globalSession;`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-176">To solve this problem, we use a global variable inside a code-behind section: `static public string globalSession;`.</span></span>
+<span data-ttu-id="b321a-176">toosolve dit probleem, gebruiken we een globale variabele in een code-behind-sectie: `static public string globalSession;`.</span><span class="sxs-lookup"><span data-stu-id="b321a-176">toosolve this problem, we use a global variable inside a code-behind section: `static public string globalSession;`.</span></span>
 
-<span data-ttu-id="3d0f0-177">Globale variabele wordt toegepast op de hele rijenset tijdens de uitvoering van het script.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-177">This global variable is applied to the entire rowset during our script execution.</span></span>
+<span data-ttu-id="b321a-177">Deze globale variabele is toegepaste toohello volledige rijenset tijdens de uitvoering van het script.</span><span class="sxs-lookup"><span data-stu-id="b321a-177">This global variable is applied toohello entire rowset during our script execution.</span></span>
 
-<span data-ttu-id="3d0f0-178">Hier volgt de code-behind-sectie van ons U-SQL-programma:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-178">Here is the code-behind section of our U-SQL program:</span></span>
+<span data-ttu-id="b321a-178">Hier volgt Hallo code-behind sectie van ons U-SQL-programma:</span><span class="sxs-lookup"><span data-stu-id="b321a-178">Here is hello code-behind section of our U-SQL program:</span></span>
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -352,9 +352,9 @@ namespace USQLApplication21
 }
 ```
 
-<span data-ttu-id="3d0f0-179">Dit voorbeeld ziet u de globale variabele `static public string globalSession;` gebruikt in de `getStampUserSession` functie en het ophalen van opnieuw initialiseren telkens wanneer de sessie-parameter is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-179">This example shows the global variable `static public string globalSession;` used inside the `getStampUserSession` function and getting reinitialized each time the Session parameter is changed.</span></span>
+<span data-ttu-id="b321a-179">In dit voorbeeld toont de globale variabele Hallo `static public string globalSession;` gebruikt in Hallo `getStampUserSession` functie en het ophalen van opnieuw geïnitialiseerd elke keer Hallo sessie parameter wordt gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="b321a-179">This example shows hello global variable `static public string globalSession;` used inside hello `getStampUserSession` function and getting reinitialized each time hello Session parameter is changed.</span></span>
 
-<span data-ttu-id="3d0f0-180">Het basistype U-SQL-script is als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-180">The U-SQL base script is as follows:</span></span>
+<span data-ttu-id="b321a-180">Hallo base U-SQL-script is als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-180">hello U-SQL base script is as follows:</span></span>
 
 ```
 DECLARE @in string = @"\UserSession\test1.tsv";
@@ -399,14 +399,14 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     WHERE UserName != "UserName";
 
 OUTPUT @rs2
-    TO @out2
+    too@out2
     ORDER BY UserName, EventDateTime ASC
     USING Outputters.Csv();
 ```
 
-<span data-ttu-id="3d0f0-181">De functie `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` hier tijdens de tweede geheugen rijenset berekening wordt aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-181">Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` is called here during the second memory rowset calculation.</span></span> <span data-ttu-id="3d0f0-182">Dit wordt doorgegeven de `UserSessionTimestamp` kolom en retourneert de waarde pas `UserSessionTimestamp` is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-182">It passes the `UserSessionTimestamp` column and returns the value until `UserSessionTimestamp` has changed.</span></span>
+<span data-ttu-id="b321a-181">De functie `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` hier tijdens de Hallo tweede geheugen rijenset berekening wordt aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="b321a-181">Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` is called here during hello second memory rowset calculation.</span></span> <span data-ttu-id="b321a-182">Dit wordt doorgegeven Hallo `UserSessionTimestamp` kolom en retourneert de waarde pas Hallo `UserSessionTimestamp` is gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="b321a-182">It passes hello `UserSessionTimestamp` column and returns hello value until `UserSessionTimestamp` has changed.</span></span>
 
-<span data-ttu-id="3d0f0-183">Het uitvoerbestand is als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-183">The output file is as follows:</span></span>
+<span data-ttu-id="b321a-183">Hallo-uitvoerbestand is als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-183">hello output file is as follows:</span></span>
 
 ```
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
@@ -433,17 +433,17 @@ OUTPUT @rs2
 "2016-02-19T01:20:31.4800000-08:00","User4","2016-02-18T14:37:27.6560000-08:00",False,"2136f4cf-7c7d-43c1-8ae2-08f4ad6a6e08"
 ```
 
-<span data-ttu-id="3d0f0-184">In dit voorbeeld demonstreert een gecompliceerdere use case-scenario waarin we een globale variabele gebruiken in een code-behind sectie dat wordt toegepast op de hele geheugen-rijenset.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-184">This example demonstrates a more complicated use-case scenario in which we use a global variable inside a code-behind section that's applied to the entire memory rowset.</span></span>
+<span data-ttu-id="b321a-184">In dit voorbeeld demonstreert een gecompliceerdere use case-scenario waarin we een globale variabele gebruiken in een code-behind sectie die is toegepast toohello hele geheugen rijenset.</span><span class="sxs-lookup"><span data-stu-id="b321a-184">This example demonstrates a more complicated use-case scenario in which we use a global variable inside a code-behind section that's applied toohello entire memory rowset.</span></span>
 
-## <a name="use-user-defined-types-udt"></a><span data-ttu-id="3d0f0-185">Gebruik van de gebruiker gedefinieerde typen: UDT</span><span class="sxs-lookup"><span data-stu-id="3d0f0-185">Use user-defined types: UDT</span></span>
-<span data-ttu-id="3d0f0-186">Gebruiker gedefinieerde typen of UDT, is een andere programmeerbaarheidsfunctie van U-SQL.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-186">User-defined types, or UDT, is another programmability feature of U-SQL.</span></span> <span data-ttu-id="3d0f0-187">U-SQL-UDT fungeert als een reguliere C# gebruiker gedefinieerd type.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-187">U-SQL UDT acts like a regular C# user-defined type.</span></span> <span data-ttu-id="3d0f0-188">C# is een sterk getypeerde taal waarmee het gebruik van de ingebouwde en aangepaste gebruiker gedefinieerde typen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-188">C# is a strongly typed language that allows the use of built-in and custom user-defined types.</span></span>
+## <a name="use-user-defined-types-udt"></a><span data-ttu-id="b321a-185">Gebruik van de gebruiker gedefinieerde typen: UDT</span><span class="sxs-lookup"><span data-stu-id="b321a-185">Use user-defined types: UDT</span></span>
+<span data-ttu-id="b321a-186">Gebruiker gedefinieerde typen of UDT, is een andere programmeerbaarheidsfunctie van U-SQL.</span><span class="sxs-lookup"><span data-stu-id="b321a-186">User-defined types, or UDT, is another programmability feature of U-SQL.</span></span> <span data-ttu-id="b321a-187">U-SQL-UDT fungeert als een reguliere C# gebruiker gedefinieerd type.</span><span class="sxs-lookup"><span data-stu-id="b321a-187">U-SQL UDT acts like a regular C# user-defined type.</span></span> <span data-ttu-id="b321a-188">C# is een sterk getypeerde taal waarmee ingebouwde en aangepaste gebruiker gedefinieerde typen hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="b321a-188">C# is a strongly typed language that allows hello use of built-in and custom user-defined types.</span></span>
 
-<span data-ttu-id="3d0f0-189">U-SQL kan niet impliciet serialiseren of deserialiseren willekeurige UDT's wanneer de UDT wordt doorgegeven tussen hoekpunten in rijensets.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-189">U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when the UDT is passed between vertices in rowsets.</span></span> <span data-ttu-id="3d0f0-190">Dit betekent dat de gebruiker te bieden een expliciete formatter met behulp van de interface IFormatter.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-190">This means that the user has to provide an explicit formatter by using the IFormatter interface.</span></span> <span data-ttu-id="3d0f0-191">Dit biedt U-SQL met het serialiseren en deserialiseren methoden voor het UDT.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-191">This provides U-SQL with the serialize and de-serialize methods for the UDT.</span></span>
+<span data-ttu-id="b321a-189">U-SQL kan niet impliciet serialiseren of deserialiseren willekeurige UDT's wanneer Hallo UDT wordt doorgegeven tussen hoekpunten in rijensets.</span><span class="sxs-lookup"><span data-stu-id="b321a-189">U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when hello UDT is passed between vertices in rowsets.</span></span> <span data-ttu-id="b321a-190">Dit betekent dat Hallo gebruiker tooprovide een expliciete formatter met Hallo IFormatter-interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-190">This means that hello user has tooprovide an explicit formatter by using hello IFormatter interface.</span></span> <span data-ttu-id="b321a-191">Dit biedt U-SQL Hallo serialiseren en deserialiseren methoden voor het Hallo UDT.</span><span class="sxs-lookup"><span data-stu-id="b321a-191">This provides U-SQL with hello serialize and de-serialize methods for hello UDT.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="3d0f0-192">Serialiseren U-SQL ingebouwde extractie- en outputters momenteel kan niet of deserialiseren UDT gegevens naar of van bestanden met de set IFormatter zelfs.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-192">U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data to or from files even with the IFormatter set.</span></span> <span data-ttu-id="3d0f0-193">Wanneer u UDT-gegevens schrijven naar een bestand met de uitvoer-instructie of lezen met een zelfstandig uitpakken, hebt u dus doorgegeven als een tekenreeks of bytematrix.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-193">So when you're writing UDT data to a file with the OUTPUT statement, or reading it with an extractor, you have to pass it as a string or byte array.</span></span> <span data-ttu-id="3d0f0-194">Vervolgens aanroepen van de serialisatie en deserialisatie code (dat wil zeggen, de UDT ToString() methode) expliciet.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-194">Then you call the serialization and deserialization code (that is, the UDT’s ToString() method) explicitly.</span></span> <span data-ttu-id="3d0f0-195">Gebruiker gedefinieerde extractie- en outputters, aan de andere kant kunnen lezen en schrijven UDT's.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-195">User-defined extractors and outputters, on the other hand, can read and write UDTs.</span></span>
+> <span data-ttu-id="b321a-192">Serialiseren U-SQL ingebouwde extractie- en outputters momenteel kan niet of deserialiseren UDT gegevens tooor zelfs Hallo IFormatter set bestanden.</span><span class="sxs-lookup"><span data-stu-id="b321a-192">U-SQL’s built-in extractors and outputters currently cannot serialize or de-serialize UDT data tooor from files even with hello IFormatter set.</span></span> <span data-ttu-id="b321a-193">Wanneer u schrijft UDT gegevensbestand tooa Hello uitvoer-instructie of gelezen heeft met een zelfstandig uitpakken, hebt u toopass als een tekenreeks of een byte-matrix.</span><span class="sxs-lookup"><span data-stu-id="b321a-193">So when you're writing UDT data tooa file with hello OUTPUT statement, or reading it with an extractor, you have toopass it as a string or byte array.</span></span> <span data-ttu-id="b321a-194">Vervolgens aanroepen Hallo serialisatie en expliciet code (dat wil zeggen, de Hallo UDT ToString() methode) heeft het deserialiseren.</span><span class="sxs-lookup"><span data-stu-id="b321a-194">Then you call hello serialization and deserialization code (that is, hello UDT’s ToString() method) explicitly.</span></span> <span data-ttu-id="b321a-195">Gebruiker gedefinieerde extractie- en outputters op Hallo andere kunnen hand, lezen en schrijven UDT's.</span><span class="sxs-lookup"><span data-stu-id="b321a-195">User-defined extractors and outputters, on hello other hand, can read and write UDTs.</span></span>
 
-<span data-ttu-id="3d0f0-196">Als we UDT in zelfstandig uitpakken of OUTPUTTER (buiten het vorige selecteren) gebruiken als volgt te werk:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-196">If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as shown here:</span></span>
+<span data-ttu-id="b321a-196">Als we toouse UDT in zelfstandig uitpakken of OUTPUTTER (buiten het vorige selecteren), proberen zoals hier wordt weergegeven:</span><span class="sxs-lookup"><span data-stu-id="b321a-196">If we try toouse UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as shown here:</span></span>
 
 ```
 @rs1 =
@@ -452,14 +452,14 @@ OUTPUT @rs2
     FROM @rs0;
 
 OUTPUT @rs1 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-<span data-ttu-id="3d0f0-197">We hebben de volgende fout ontvangen:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-197">We receive the following error:</span></span>
+<span data-ttu-id="b321a-197">We ontvangen Hallo volgende fout:</span><span class="sxs-lookup"><span data-stu-id="b321a-197">We receive hello following error:</span></span>
 
 ```
-Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used toooutput column myfield of type
 MyNameSpace.Myfunction_Returning_UDT.
 
 Description:
@@ -468,14 +468,14 @@ Outputters.Text only supports built-in types.
 
 Resolution:
 
-Implement a custom outputter that knows how to serialize this type, or call a serialization method on the type in
-the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+Implement a custom outputter that knows how tooserialize this type, or call a serialization method on hello type in
+hello preceding SELECT. C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
 USQL-Programmability\Types.usql 52  1   USQL-Programmability
 ```
 
-<span data-ttu-id="3d0f0-198">Om te werken met UDT in outputter, hebben we voor het serialiseren van het tekenreeks met de methode ToString() of maak een aangepaste outputter.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-198">To work with UDT in outputter, we either have to serialize it to string with the ToString() method or create a custom outputter.</span></span>
+<span data-ttu-id="b321a-198">toowork met UDT in outputter we hebben tooserialize het toostring met methode ToString() hello of een aangepaste outputter maken.</span><span class="sxs-lookup"><span data-stu-id="b321a-198">toowork with UDT in outputter, we either have tooserialize it toostring with hello ToString() method or create a custom outputter.</span></span>
 
-<span data-ttu-id="3d0f0-199">UDT's worden momenteel niet gebruikt in de GROUP BY.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-199">UDTs currently cannot be used in GROUP BY.</span></span> <span data-ttu-id="3d0f0-200">Als UDT wordt gebruikt in de GROUP BY, wordt de volgende fout geretourneerd:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-200">If UDT is used in GROUP BY, the following error is thrown:</span></span>
+<span data-ttu-id="b321a-199">UDT's worden momenteel niet gebruikt in de GROUP BY.</span><span class="sxs-lookup"><span data-stu-id="b321a-199">UDTs currently cannot be used in GROUP BY.</span></span> <span data-ttu-id="b321a-200">Als UDT wordt gebruikt in de GROUP BY, wordt de volgende fout Hallo gegenereerd:</span><span class="sxs-lookup"><span data-stu-id="b321a-200">If UDT is used in GROUP BY, hello following error is thrown:</span></span>
 
 ```
 Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
@@ -487,33 +487,33 @@ GROUP BY doesn't support UDT or Complex types.
 
 Resolution:
 
-Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
+Add a SELECT statement where you can project a scalar column that you want toouse with GROUP BY.
 C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
 62  5   USQL-Programmability
 ```
 
-<span data-ttu-id="3d0f0-201">Als u wilt definiëren een UDT, hebben we naar:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-201">To define a UDT, we have to:</span></span>
+<span data-ttu-id="b321a-201">een UDT toodefine, hebben we naar:</span><span class="sxs-lookup"><span data-stu-id="b321a-201">toodefine a UDT, we have to:</span></span>
 
-* <span data-ttu-id="3d0f0-202">Voeg de volgende naamruimten:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-202">Add the following namespaces:</span></span>
+* <span data-ttu-id="b321a-202">Hallo naamruimten volgende toevoegen:</span><span class="sxs-lookup"><span data-stu-id="b321a-202">Add hello following namespaces:</span></span>
 
 ```
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
 
-* <span data-ttu-id="3d0f0-203">Voeg `Microsoft.Analytics.Interfaces`, die is vereist voor de UDT-interfaces.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-203">Add `Microsoft.Analytics.Interfaces`, which is required for the UDT interfaces.</span></span> <span data-ttu-id="3d0f0-204">Bovendien `System.IO` kunnen nodig zijn voor het definiëren van de interface IFormatter.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-204">In addition, `System.IO` might be needed to define the IFormatter interface.</span></span>
+* <span data-ttu-id="b321a-203">Voeg `Microsoft.Analytics.Interfaces`, die is vereist voor Hallo UDT-interfaces.</span><span class="sxs-lookup"><span data-stu-id="b321a-203">Add `Microsoft.Analytics.Interfaces`, which is required for hello UDT interfaces.</span></span> <span data-ttu-id="b321a-204">Bovendien `System.IO` mogelijk nodig toodefine hello IFormatter interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-204">In addition, `System.IO` might be needed toodefine hello IFormatter interface.</span></span>
 
-* <span data-ttu-id="3d0f0-205">Een type gebruikt gedefinieerd met het kenmerk SqlUserDefinedType definiëren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-205">Define a used-defined type with SqlUserDefinedType attribute.</span></span>
+* <span data-ttu-id="b321a-205">Een type gebruikt gedefinieerd met het kenmerk SqlUserDefinedType definiëren.</span><span class="sxs-lookup"><span data-stu-id="b321a-205">Define a used-defined type with SqlUserDefinedType attribute.</span></span>
 
-<span data-ttu-id="3d0f0-206">**SqlUserDefinedType** wordt gebruikt voor de definitie van een type in een assembly als een door de gebruiker gedefinieerd type (UDT) in de U-SQL.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-206">**SqlUserDefinedType** is used to mark a type definition in an assembly as a user-defined type (UDT) in U-SQL.</span></span> <span data-ttu-id="3d0f0-207">De eigenschappen van het kenmerk weerspiegelen de fysieke kenmerken van de UDT.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-207">The properties on the attribute reflect the physical characteristics of the UDT.</span></span> <span data-ttu-id="3d0f0-208">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-208">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-206">**SqlUserDefinedType** gebruikte toomark de definitie van een type in een assembly als een gebruiker gedefinieerde type (UDT) is in de U-SQL.</span><span class="sxs-lookup"><span data-stu-id="b321a-206">**SqlUserDefinedType** is used toomark a type definition in an assembly as a user-defined type (UDT) in U-SQL.</span></span> <span data-ttu-id="b321a-207">Hallo-eigenschappen op Hallo kenmerk weerspiegelen Hallo fysieke kenmerken van Hallo UDT.</span><span class="sxs-lookup"><span data-stu-id="b321a-207">hello properties on hello attribute reflect hello physical characteristics of hello UDT.</span></span> <span data-ttu-id="b321a-208">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-208">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-209">SqlUserDefinedType is een vereist kenmerk voor UDT-definitie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-209">SqlUserDefinedType is a required attribute for UDT definition.</span></span>
+<span data-ttu-id="b321a-209">SqlUserDefinedType is een vereist kenmerk voor UDT-definitie.</span><span class="sxs-lookup"><span data-stu-id="b321a-209">SqlUserDefinedType is a required attribute for UDT definition.</span></span>
 
-<span data-ttu-id="3d0f0-210">De constructor van de klasse:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-210">The constructor of the class:</span></span>  
+<span data-ttu-id="b321a-210">Hallo-constructor van Hallo klasse:</span><span class="sxs-lookup"><span data-stu-id="b321a-210">hello constructor of hello class:</span></span>  
 
-* <span data-ttu-id="3d0f0-211">SqlUserDefinedTypeAttribute (type-indeling)</span><span class="sxs-lookup"><span data-stu-id="3d0f0-211">SqlUserDefinedTypeAttribute (type formatter)</span></span>
+* <span data-ttu-id="b321a-211">SqlUserDefinedTypeAttribute (type-indeling)</span><span class="sxs-lookup"><span data-stu-id="b321a-211">SqlUserDefinedTypeAttribute (type formatter)</span></span>
 
-* <span data-ttu-id="3d0f0-212">Typ de formatter: vereiste parameter voor het definiëren van een formatter UDT--in het bijzonder het type van de `IFormatter` interface hier moet worden doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-212">Type formatter: Required parameter to define an UDT formatter--specifically, the type of the `IFormatter` interface must be passed here.</span></span>
+* <span data-ttu-id="b321a-212">Typ formatter: parameter toodefine een formatter UDT--vereist in het bijzonder Hallo type Hallo `IFormatter` interface hier moet worden doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="b321a-212">Type formatter: Required parameter toodefine an UDT formatter--specifically, hello type of hello `IFormatter` interface must be passed here.</span></span>
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -521,7 +521,7 @@ public class MyType
 { … }
 ```
 
-* <span data-ttu-id="3d0f0-213">Typische UDT vereist ook definitie van de interface IFormatter, zoals wordt weergegeven in het volgende voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-213">Typical UDT also requires definition of the IFormatter interface, as shown in the following example:</span></span>
+* <span data-ttu-id="b321a-213">Typische UDT vereist ook definitie van Hallo IFormatter interface, zoals wordt weergegeven in Hallo voorbeeld te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-213">Typical UDT also requires definition of hello IFormatter interface, as shown in hello following example:</span></span>
 
 ```
 public class MyTypeFormatter : IFormatter<MyType>
@@ -534,27 +534,27 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-<span data-ttu-id="3d0f0-214">De `IFormatter` interface serialiseert en ongedaan serialiseert een objectgrafiek met het type van de hoofdmap van \<typeparamref name = "T" >.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-214">The `IFormatter` interface serializes and de-serializes an object graph with the root type of \<typeparamref name="T">.</span></span>
+<span data-ttu-id="b321a-214">Hallo `IFormatter` interface serialiseert en ongedaan serialiseert een objectgrafiek met Hallo hoofdtype van \<typeparamref name = "T" >.</span><span class="sxs-lookup"><span data-stu-id="b321a-214">hello `IFormatter` interface serializes and de-serializes an object graph with hello root type of \<typeparamref name="T">.</span></span>
 
-<span data-ttu-id="3d0f0-215">\<typeparam name = "T" > het type voor de objectgrafiek voor het serialiseren en deserialiseren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-215">\<typeparam name="T">The root type for the object graph to serialize and de-serialize.</span></span>
+<span data-ttu-id="b321a-215">\<typeparam name = "T" > Hallo hoofdtype voor Hallo object grafiek tooserialize en te deserialiseren.</span><span class="sxs-lookup"><span data-stu-id="b321a-215">\<typeparam name="T">hello root type for hello object graph tooserialize and de-serialize.</span></span>
 
-* <span data-ttu-id="3d0f0-216">**Deserialiseren**: de gegevens op de opgegeven stroom ongedaan serialiseert en reconstitutes van de grafiek van objecten.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-216">**Deserialize**: De-serializes the data on the provided stream and reconstitutes the graph of objects.</span></span>
+* <span data-ttu-id="b321a-216">**Deserialiseren**: ongedaan serialiseert Hallo gegevens op Hallo opgegeven stroom en reconstitutes Hallo graph-objecten.</span><span class="sxs-lookup"><span data-stu-id="b321a-216">**Deserialize**: De-serializes hello data on hello provided stream and reconstitutes hello graph of objects.</span></span>
 
-* <span data-ttu-id="3d0f0-217">**Serialiseren**: serialiseert een object of de grafiek van objecten met de opgegeven hoofdmap naar de opgegeven stroom.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-217">**Serialize**: Serializes an object, or graph of objects, with the given root to the provided stream.</span></span>
+* <span data-ttu-id="b321a-217">**Serialiseren**: een object of de grafiek van objecten, serialiseert Hello opgegeven hoofdmap toohello opgegeven stroom.</span><span class="sxs-lookup"><span data-stu-id="b321a-217">**Serialize**: Serializes an object, or graph of objects, with hello given root toohello provided stream.</span></span>
 
-<span data-ttu-id="3d0f0-218">`MyType`exemplaar: exemplaar van het type.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-218">`MyType` instance: Instance of the type.</span></span>  
-<span data-ttu-id="3d0f0-219">`IColumnWriter`schrijver / `IColumnReader` lezer: de onderliggende stroom van de kolom.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-219">`IColumnWriter` writer / `IColumnReader` reader: The underlying column stream.</span></span>  
-<span data-ttu-id="3d0f0-220">`ISerializationContext`context: Enum die definieert een aantal vlaggen waarmee de context van de bron of bestemming voor de stroom tijdens serialisatie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-220">`ISerializationContext` context: Enum that defines a set of flags that specifies the source or destination context for the stream during serialization.</span></span>
+<span data-ttu-id="b321a-218">`MyType`exemplaar: exemplaar van het Hallo-type.</span><span class="sxs-lookup"><span data-stu-id="b321a-218">`MyType` instance: Instance of hello type.</span></span>  
+<span data-ttu-id="b321a-219">`IColumnWriter`schrijver / `IColumnReader` lezer: Hallo onderliggende stroom van de kolom.</span><span class="sxs-lookup"><span data-stu-id="b321a-219">`IColumnWriter` writer / `IColumnReader` reader: hello underlying column stream.</span></span>  
+<span data-ttu-id="b321a-220">`ISerializationContext`context: Enum die definieert een aantal vlaggen waarmee de Hallo bron of bestemming context voor Hallo stroom tijdens de serialisatie wordt.</span><span class="sxs-lookup"><span data-stu-id="b321a-220">`ISerializationContext` context: Enum that defines a set of flags that specifies hello source or destination context for hello stream during serialization.</span></span>
 
-* <span data-ttu-id="3d0f0-221">**Tussenliggende**: Hiermee geeft u de bron- of doelserver context is niet een persistente archief.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-221">**Intermediate**: Specifies that the source or destination context is not a persisted store.</span></span>
+* <span data-ttu-id="b321a-221">**Tussenliggende**: Hiermee geeft u op die Hallo bron of bestemming context is geen permanente opslag.</span><span class="sxs-lookup"><span data-stu-id="b321a-221">**Intermediate**: Specifies that hello source or destination context is not a persisted store.</span></span>
 
-* <span data-ttu-id="3d0f0-222">**Persistentie**: geeft aan dat de bron- of doelserver context een persistente archief is.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-222">**Persistence**: Specifies that the source or destination context is a persisted store.</span></span>
+* <span data-ttu-id="b321a-222">**Persistentie**: Hiermee geeft u op die Hallo bron of bestemming context is een persistente archief.</span><span class="sxs-lookup"><span data-stu-id="b321a-222">**Persistence**: Specifies that hello source or destination context is a persisted store.</span></span>
 
-<span data-ttu-id="3d0f0-223">Als een reguliere C#-type, een U-SQL-UDT-definitie kunt opnemen overschrijvingen voor operators zoals +/ == /! =.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-223">As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=.</span></span> <span data-ttu-id="3d0f0-224">Het kan ook betekenen dat statische methoden.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-224">It can also include static methods.</span></span> <span data-ttu-id="3d0f0-225">Bijvoorbeeld, als we gaan deze UDT gebruiken als een parameter voor een statistische functie MIN U-SQL, we hebben voor het definiëren van < operator overschrijven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-225">For example, if we are going to use this UDT as a parameter to a U-SQL MIN aggregate function, we have to define < operator override.</span></span>
+<span data-ttu-id="b321a-223">Als een reguliere C#-type, een U-SQL-UDT-definitie kunt opnemen overschrijvingen voor operators zoals +/ == /! =.</span><span class="sxs-lookup"><span data-stu-id="b321a-223">As a regular C# type, a U-SQL UDT definition can include overrides for operators such as +/==/!=.</span></span> <span data-ttu-id="b321a-224">Het kan ook betekenen dat statische methoden.</span><span class="sxs-lookup"><span data-stu-id="b321a-224">It can also include static methods.</span></span> <span data-ttu-id="b321a-225">Bijvoorbeeld, als we gaan toouse deze UDT als een parameter tooa statistische functie MIN U-SQL, we hebben toodefine < operator overschrijven.</span><span class="sxs-lookup"><span data-stu-id="b321a-225">For example, if we are going toouse this UDT as a parameter tooa U-SQL MIN aggregate function, we have toodefine < operator override.</span></span>
 
-<span data-ttu-id="3d0f0-226">Eerder in deze handleiding wordt gedemonstreerd een voorbeeld van de fiscale identificatie vanaf de opgegeven datum in de notatie Qn:Pn (Q1:P10).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-226">Earlier in this guide, we demonstrated an example for fiscal period identification from the specific date in the format Qn:Pn (Q1:P10).</span></span> <span data-ttu-id="3d0f0-227">Het volgende voorbeeld laat zien hoe een aangepast type voor fiscale periode waarden te definiëren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-227">The following example shows how to define a custom type for fiscal period values.</span></span>
+<span data-ttu-id="b321a-226">Eerder in deze handleiding wordt gedemonstreerd een voorbeeld van de fiscale periode-id van de specifieke datum Hallo Hallo indeling Qn:Pn (Q1:P10).</span><span class="sxs-lookup"><span data-stu-id="b321a-226">Earlier in this guide, we demonstrated an example for fiscal period identification from hello specific date in hello format Qn:Pn (Q1:P10).</span></span> <span data-ttu-id="b321a-227">Hallo volgende voorbeeld ziet u hoe toodefine een aangepast type voor fiscale periode waarden.</span><span class="sxs-lookup"><span data-stu-id="b321a-227">hello following example shows how toodefine a custom type for fiscal period values.</span></span>
 
-<span data-ttu-id="3d0f0-228">Hieronder volgt een voorbeeld van een code-behind sectie met aangepaste UDT en IFormatter-interface:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-228">Following is an example of a code-behind section with custom UDT and IFormatter interface:</span></span>
+<span data-ttu-id="b321a-228">Hieronder volgt een voorbeeld van een code-behind sectie met aangepaste UDT en IFormatter-interface:</span><span class="sxs-lookup"><span data-stu-id="b321a-228">Following is an example of a code-behind section with custom UDT and IFormatter interface:</span></span>
 
 ```
 [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
@@ -655,11 +655,11 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-<span data-ttu-id="3d0f0-229">Het gedefinieerde type bevat twee getallen: kwartaal en maand.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-229">The defined type includes two numbers: quarter and month.</span></span> <span data-ttu-id="3d0f0-230">Operators == /! = / > / < en statische methode ToString() Hier worden gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-230">Operators ==/!=/>/< and static method ToString() are defined here.</span></span>
+<span data-ttu-id="b321a-229">Hallo gedefinieerd type bevat twee getallen: kwartaal en maand.</span><span class="sxs-lookup"><span data-stu-id="b321a-229">hello defined type includes two numbers: quarter and month.</span></span> <span data-ttu-id="b321a-230">Operators == /! = / > / < en statische methode ToString() Hier worden gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-230">Operators ==/!=/>/< and static method ToString() are defined here.</span></span>
 
-<span data-ttu-id="3d0f0-231">Zoals eerder gezegd, UDT kan worden gebruikt in expressies voor SELECT, maar kan niet worden gebruikt in OUTPUTTER/zelfstandig uitpakken zonder aangepaste serialisatie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-231">As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization.</span></span> <span data-ttu-id="3d0f0-232">Deze moet worden geserialiseerd als tekenreeks met ToString() of gebruikt met een aangepaste OUTPUTTER/zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-232">It either has to be serialized as a string with ToString() or used with a custom OUTPUTTER/EXTRACTOR.</span></span>
+<span data-ttu-id="b321a-231">Zoals eerder gezegd, UDT kan worden gebruikt in expressies voor SELECT, maar kan niet worden gebruikt in OUTPUTTER/zelfstandig uitpakken zonder aangepaste serialisatie.</span><span class="sxs-lookup"><span data-stu-id="b321a-231">As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used in OUTPUTTER/EXTRACTOR without custom serialization.</span></span> <span data-ttu-id="b321a-232">Het bevat toobe geserialiseerd als een tekenreeks met ToString() of gebruikt met een aangepaste OUTPUTTER/zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="b321a-232">It either has toobe serialized as a string with ToString() or used with a custom OUTPUTTER/EXTRACTOR.</span></span>
 
-<span data-ttu-id="3d0f0-233">Nu gaan we gebruik van UDT bespreken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-233">Now let’s discuss usage of UDT.</span></span> <span data-ttu-id="3d0f0-234">In een sectie code-behind we onze GetFiscalPeriod functie gewijzigd in het volgende:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-234">In a code-behind section, we changed our GetFiscalPeriod function to the following:</span></span>
+<span data-ttu-id="b321a-233">Nu gaan we gebruik van UDT bespreken.</span><span class="sxs-lookup"><span data-stu-id="b321a-233">Now let’s discuss usage of UDT.</span></span> <span data-ttu-id="b321a-234">In een sectie code-behind we onze GetFiscalPeriod functie toohello volgende gewijzigd:</span><span class="sxs-lookup"><span data-stu-id="b321a-234">In a code-behind section, we changed our GetFiscalPeriod function toohello following:</span></span>
 
 ```
 public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
@@ -696,9 +696,9 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 }
 ```
 
-<span data-ttu-id="3d0f0-235">Zoals u ziet, wordt de waarde van onze FiscalPeriod type geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-235">As you can see, it returns the value of our FiscalPeriod type.</span></span>
+<span data-ttu-id="b321a-235">Zoals u ziet, wordt het Hallo-waarde van het type van onze FiscalPeriod.</span><span class="sxs-lookup"><span data-stu-id="b321a-235">As you can see, it returns hello value of our FiscalPeriod type.</span></span>
 
-<span data-ttu-id="3d0f0-236">Hier bieden we een voorbeeld van hoe u verder in base U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-236">Here we provide an example of how to use it further in U-SQL base script.</span></span> <span data-ttu-id="3d0f0-237">In dit voorbeeld laat zien dat verschillende vormen van UDT-aanroep van U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-237">This example demonstrates different forms of UDT invocation from U-SQL script.</span></span>
+<span data-ttu-id="b321a-236">Hier bieden we een voorbeeld van hoe de toouse is verder in base U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="b321a-236">Here we provide an example of how toouse it further in U-SQL base script.</span></span> <span data-ttu-id="b321a-237">In dit voorbeeld laat zien dat verschillende vormen van UDT-aanroep van U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="b321a-237">This example demonstrates different forms of UDT invocation from U-SQL script.</span></span>
 
 ```
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -733,18 +733,18 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
 
-       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
+       // This user-defined type was created in hello prior SELECT.  Passing hello UDT toothis subsequent SELECT would have failed if hello UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
     FROM @rs1;
 
 OUTPUT @rs2 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-<span data-ttu-id="3d0f0-238">Hier volgt een voorbeeld van een volledige code-behind-sectie:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-238">Here's an example of a full code-behind section:</span></span>
+<span data-ttu-id="b321a-238">Hier volgt een voorbeeld van een volledige code-behind-sectie:</span><span class="sxs-lookup"><span data-stu-id="b321a-238">Here's an example of a full code-behind section:</span></span>
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -904,10 +904,10 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a><span data-ttu-id="3d0f0-239">Gebruik van de gebruiker gedefinieerde aggregaties: UDAGG</span><span class="sxs-lookup"><span data-stu-id="3d0f0-239">Use user-defined aggregates: UDAGG</span></span>
-<span data-ttu-id="3d0f0-240">Gebruiker gedefinieerde aggregaties zijn niet out-of-the-box met U-SQL is geen aggregatie-gerelateerde functies die zijn verzonden.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-240">User-defined aggregates are any aggregation-related functions that are not shipped out-of-the-box with U-SQL.</span></span> <span data-ttu-id="3d0f0-241">In het voorbeeld is een statistische functie uitvoeren van aangepaste math berekeningen, samenvoegingen van tekenreeksen, bewerkingen met tekenreeksen, enzovoort.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-241">The example can be an aggregate to perform custom math calculations, string concatenations, manipulations with strings, and so on.</span></span>
+## <a name="use-user-defined-aggregates-udagg"></a><span data-ttu-id="b321a-239">Gebruik van de gebruiker gedefinieerde aggregaties: UDAGG</span><span class="sxs-lookup"><span data-stu-id="b321a-239">Use user-defined aggregates: UDAGG</span></span>
+<span data-ttu-id="b321a-240">Gebruiker gedefinieerde aggregaties zijn niet out-of-the-box met U-SQL is geen aggregatie-gerelateerde functies die zijn verzonden.</span><span class="sxs-lookup"><span data-stu-id="b321a-240">User-defined aggregates are any aggregation-related functions that are not shipped out-of-the-box with U-SQL.</span></span> <span data-ttu-id="b321a-241">Hallo voorbeeld kan worden een cumulatieve tooperform aangepaste math berekeningen, samenvoegingen van tekenreeksen bewerkingen met tekenreeksen, enzovoort.</span><span class="sxs-lookup"><span data-stu-id="b321a-241">hello example can be an aggregate tooperform custom math calculations, string concatenations, manipulations with strings, and so on.</span></span>
 
-<span data-ttu-id="3d0f0-242">De definitie van de gebruiker gedefinieerde cumulatieve basisklasse is als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-242">The user-defined aggregate base class definition is as follows:</span></span>
+<span data-ttu-id="b321a-242">definitie van de gebruiker gedefinieerde cumulatieve basisklasse Hallo is als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-242">hello user-defined aggregate base class definition is as follows:</span></span>
 
 ```c#
     [SqlUserDefinedAggregate]
@@ -921,12 +921,12 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
     }
 ```
 
-<span data-ttu-id="3d0f0-243">**SqlUserDefinedAggregate** geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde aggregatie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-243">**SqlUserDefinedAggregate** indicates that the type should be registered as a user-defined aggregate.</span></span> <span data-ttu-id="3d0f0-244">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-244">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-243">**SqlUserDefinedAggregate** geeft aan dat het Hallo-type moet worden geregistreerd als een gebruiker gedefinieerde aggregatie.</span><span class="sxs-lookup"><span data-stu-id="b321a-243">**SqlUserDefinedAggregate** indicates that hello type should be registered as a user-defined aggregate.</span></span> <span data-ttu-id="b321a-244">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-244">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-245">SqlUserDefinedType kenmerk **optionele** voor UDAGG definitie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-245">SqlUserDefinedType attribute is **optional** for UDAGG definition.</span></span>
+<span data-ttu-id="b321a-245">SqlUserDefinedType kenmerk **optionele** voor UDAGG definitie.</span><span class="sxs-lookup"><span data-stu-id="b321a-245">SqlUserDefinedType attribute is **optional** for UDAGG definition.</span></span>
 
 
-<span data-ttu-id="3d0f0-246">De basisklasse kunt u drie abstracte parameters doorgeven: twee als invoerparameters en één als resultaat.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-246">The base class allows you to pass three abstract parameters: two as input parameters and one as the result.</span></span> <span data-ttu-id="3d0f0-247">De gegevenstypen zijn variabel en tijdens klassenovername moeten worden gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-247">The data types are variable and should be defined during class inheritance.</span></span>
+<span data-ttu-id="b321a-246">Hallo basisklasse kunt u abstracte parameters toopass drie: twee als invoerparameters en één als Hallo resultaat.</span><span class="sxs-lookup"><span data-stu-id="b321a-246">hello base class allows you toopass three abstract parameters: two as input parameters and one as hello result.</span></span> <span data-ttu-id="b321a-247">Hallo-gegevenstypen zijn variabel en tijdens klassenovername moeten worden gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-247">hello data types are variable and should be defined during class inheritance.</span></span>
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -944,42 +944,42 @@ public class GuidAggregate : IAggregate<string, string, string>
 }
 ```
 
-* <span data-ttu-id="3d0f0-248">**Init** roept eenmaal voor elke groep tijdens berekening.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-248">**Init** invokes once for each group during computation.</span></span> <span data-ttu-id="3d0f0-249">Het biedt een initialisatieroutine voor elke groep aggregatie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-249">It provides an initialization routine for each aggregation group.</span></span>  
-* <span data-ttu-id="3d0f0-250">**Verzamelt** één keer uitgevoerd voor elke waarde.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-250">**Accumulate** is executed once for each value.</span></span> <span data-ttu-id="3d0f0-251">De belangrijkste functionaliteit biedt voor de aggregatie-algoritme.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-251">It provides the main functionality for the aggregation algorithm.</span></span> <span data-ttu-id="3d0f0-252">Het kan worden gebruikt voor statistische waarden met verschillende gegevenstypen die zijn gedefinieerd tijdens klassenovername.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-252">It can be used to aggregate values with various data types that are defined during class inheritance.</span></span> <span data-ttu-id="3d0f0-253">Deze kan twee parameters van de variabele gegevenstypen accepteren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-253">It can accept two parameters of variable data types.</span></span>
-* <span data-ttu-id="3d0f0-254">**Beëindigen** eenmaal per aggregatie groep aan het einde van de verwerking van de resultaten voor elke groep wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-254">**Terminate** is executed once per aggregation group at the end of processing to output the result for each group.</span></span>
+* <span data-ttu-id="b321a-248">**Init** roept eenmaal voor elke groep tijdens berekening.</span><span class="sxs-lookup"><span data-stu-id="b321a-248">**Init** invokes once for each group during computation.</span></span> <span data-ttu-id="b321a-249">Het biedt een initialisatieroutine voor elke groep aggregatie.</span><span class="sxs-lookup"><span data-stu-id="b321a-249">It provides an initialization routine for each aggregation group.</span></span>  
+* <span data-ttu-id="b321a-250">**Verzamelt** één keer uitgevoerd voor elke waarde.</span><span class="sxs-lookup"><span data-stu-id="b321a-250">**Accumulate** is executed once for each value.</span></span> <span data-ttu-id="b321a-251">Biedt de belangrijkste functionaliteit Hallo voor Hallo aggregatie-algoritme.</span><span class="sxs-lookup"><span data-stu-id="b321a-251">It provides hello main functionality for hello aggregation algorithm.</span></span> <span data-ttu-id="b321a-252">Het kan gebruikte tooaggregate waarden met verschillende gegevenstypen die zijn gedefinieerd tijdens klassenovername zijn.</span><span class="sxs-lookup"><span data-stu-id="b321a-252">It can be used tooaggregate values with various data types that are defined during class inheritance.</span></span> <span data-ttu-id="b321a-253">Deze kan twee parameters van de variabele gegevenstypen accepteren.</span><span class="sxs-lookup"><span data-stu-id="b321a-253">It can accept two parameters of variable data types.</span></span>
+* <span data-ttu-id="b321a-254">**Beëindigen** eenmaal per groep aan Hallo einde van het verwerken van toooutput Hallo resultaat voor elke groep aggregatie wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-254">**Terminate** is executed once per aggregation group at hello end of processing toooutput hello result for each group.</span></span>
 
-<span data-ttu-id="3d0f0-255">Om te declareren juist invoer en uitvoer gegevenstypen, gebruikt u de klassendefinitie als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-255">To declare correct input and output data types, use the class definition as follows:</span></span>
+<span data-ttu-id="b321a-255">toodeclare juiste invoer en uitvoer-gegevenstypen, gebruikt de klassendefinitie Hallo als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-255">toodeclare correct input and output data types, use hello class definition as follows:</span></span>
 
 ```
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* <span data-ttu-id="3d0f0-256">T1: De eerste parameter verzamelen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-256">T1: First parameter to accumulate</span></span>
-* <span data-ttu-id="3d0f0-257">T2: De eerste parameter verzamelen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-257">T2: First parameter to accumulate</span></span>
-* <span data-ttu-id="3d0f0-258">TResult: Retourtype van beëindigen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-258">TResult: Return type of terminate</span></span>
+* <span data-ttu-id="b321a-256">T1: De eerste parameter tooaccumulate</span><span class="sxs-lookup"><span data-stu-id="b321a-256">T1: First parameter tooaccumulate</span></span>
+* <span data-ttu-id="b321a-257">T2: De eerste parameter tooaccumulate</span><span class="sxs-lookup"><span data-stu-id="b321a-257">T2: First parameter tooaccumulate</span></span>
+* <span data-ttu-id="b321a-258">TResult: Retourtype van beëindigen</span><span class="sxs-lookup"><span data-stu-id="b321a-258">TResult: Return type of terminate</span></span>
 
-<span data-ttu-id="3d0f0-259">Bijvoorbeeld:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-259">For example:</span></span>
+<span data-ttu-id="b321a-259">Bijvoorbeeld:</span><span class="sxs-lookup"><span data-stu-id="b321a-259">For example:</span></span>
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-<span data-ttu-id="3d0f0-260">of</span><span class="sxs-lookup"><span data-stu-id="3d0f0-260">or</span></span>
+<span data-ttu-id="b321a-260">of</span><span class="sxs-lookup"><span data-stu-id="b321a-260">or</span></span>
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
 ```
 
-### <a name="use-udagg-in-u-sql"></a><span data-ttu-id="3d0f0-261">Gebruik UDAGG in U-SQL</span><span class="sxs-lookup"><span data-stu-id="3d0f0-261">Use UDAGG in U-SQL</span></span>
-<span data-ttu-id="3d0f0-262">Voor het gebruik van UDAGG eerst Definieer dit in code-behind of verwijzing van de bestaande programmeerbaarheid dll-bestand, zoals eerder besproken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-262">To use UDAGG, first define it in code-behind or reference it from the existent programmability DLL as discussed earlier.</span></span>
+### <a name="use-udagg-in-u-sql"></a><span data-ttu-id="b321a-261">Gebruik UDAGG in U-SQL</span><span class="sxs-lookup"><span data-stu-id="b321a-261">Use UDAGG in U-SQL</span></span>
+<span data-ttu-id="b321a-262">toouse UDAGG, eerst Definieer dit in code-behind of ernaar verwijzen vanuit Hallo-bestaande programmeerbaarheid DLL zoals hierboven besproken.</span><span class="sxs-lookup"><span data-stu-id="b321a-262">toouse UDAGG, first define it in code-behind or reference it from hello existent programmability DLL as discussed earlier.</span></span>
 
-<span data-ttu-id="3d0f0-263">Gebruik vervolgens de volgende syntaxis:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-263">Then use the following syntax:</span></span>
+<span data-ttu-id="b321a-263">Gebruik vervolgens Hallo de volgende syntaxis:</span><span class="sxs-lookup"><span data-stu-id="b321a-263">Then use hello following syntax:</span></span>
 
 ```
 AGG<UDAGG_functionname>(param1,param2)
 ```
 
-<span data-ttu-id="3d0f0-264">Hier volgt een voorbeeld van UDAGG:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-264">Here is an example of UDAGG:</span></span>
+<span data-ttu-id="b321a-264">Hier volgt een voorbeeld van UDAGG:</span><span class="sxs-lookup"><span data-stu-id="b321a-264">Here is an example of UDAGG:</span></span>
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1007,7 +1007,7 @@ public class GuidAggregate : IAggregate<string, string, string>
 }
 ```
 
-<span data-ttu-id="3d0f0-265">En U-SQL-script gebaseerd:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-265">And base U-SQL script:</span></span>
+<span data-ttu-id="b321a-265">En U-SQL-script gebaseerd:</span><span class="sxs-lookup"><span data-stu-id="b321a-265">And base U-SQL script:</span></span>
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1029,66 +1029,66 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
     FROM @rs0
     GROUP BY user;
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-<span data-ttu-id="3d0f0-266">In dit scenario use case samenvoegen we klasse GUID's voor specifieke gebruikers.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-266">In this use-case scenario, we concatenate class GUIDs for the specific users.</span></span>
+<span data-ttu-id="b321a-266">In dit scenario use case samenvoegen we klasse GUID's voor specifieke gebruikers Hallo.</span><span class="sxs-lookup"><span data-stu-id="b321a-266">In this use-case scenario, we concatenate class GUIDs for hello specific users.</span></span>
 
-## <a name="use-user-defined-objects-udo"></a><span data-ttu-id="3d0f0-267">Gebruik van de gebruiker gedefinieerde objecten: UDO</span><span class="sxs-lookup"><span data-stu-id="3d0f0-267">Use user-defined objects: UDO</span></span>
-<span data-ttu-id="3d0f0-268">U-SQL kunt u voor het definiëren van aangepaste programmeerbaarheid-objecten, die de gebruiker gedefinieerde objecten of UDO worden genoemd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-268">U-SQL enables you to define custom programmability objects, which are called user-defined objects or UDO.</span></span>
+## <a name="use-user-defined-objects-udo"></a><span data-ttu-id="b321a-267">Gebruik van de gebruiker gedefinieerde objecten: UDO</span><span class="sxs-lookup"><span data-stu-id="b321a-267">Use user-defined objects: UDO</span></span>
+<span data-ttu-id="b321a-268">U-SQL kunt u toodefine aangepaste programmeerbaarheid objecten, die de gebruiker gedefinieerde objecten of UDO worden genoemd.</span><span class="sxs-lookup"><span data-stu-id="b321a-268">U-SQL enables you toodefine custom programmability objects, which are called user-defined objects or UDO.</span></span>
 
-<span data-ttu-id="3d0f0-269">Hier volgt een lijst met UDO in U-SQL:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-269">The following is a list of UDO in U-SQL:</span></span>
+<span data-ttu-id="b321a-269">Hallo Hier volgt een lijst met UDO in U-SQL:</span><span class="sxs-lookup"><span data-stu-id="b321a-269">hello following is a list of UDO in U-SQL:</span></span>
 
-* <span data-ttu-id="3d0f0-270">Gebruiker gedefinieerde extractie</span><span class="sxs-lookup"><span data-stu-id="3d0f0-270">User-defined extractors</span></span>
-    * <span data-ttu-id="3d0f0-271">Uitpakken per rij</span><span class="sxs-lookup"><span data-stu-id="3d0f0-271">Extract row by row</span></span>
-    * <span data-ttu-id="3d0f0-272">Gebruikt voor het ophalen van gegevens van aangepaste structured-bestanden implementeren</span><span class="sxs-lookup"><span data-stu-id="3d0f0-272">Used to implement data extraction from custom structured files</span></span>
+* <span data-ttu-id="b321a-270">Gebruiker gedefinieerde extractie</span><span class="sxs-lookup"><span data-stu-id="b321a-270">User-defined extractors</span></span>
+    * <span data-ttu-id="b321a-271">Uitpakken per rij</span><span class="sxs-lookup"><span data-stu-id="b321a-271">Extract row by row</span></span>
+    * <span data-ttu-id="b321a-272">Tooimplement gegevens uitpakken van bestanden met aangepaste gestructureerde gebruikt</span><span class="sxs-lookup"><span data-stu-id="b321a-272">Used tooimplement data extraction from custom structured files</span></span>
 
-* <span data-ttu-id="3d0f0-273">Gebruiker gedefinieerde outputters</span><span class="sxs-lookup"><span data-stu-id="3d0f0-273">User-defined outputters</span></span>
-    * <span data-ttu-id="3d0f0-274">Uitvoer per rij</span><span class="sxs-lookup"><span data-stu-id="3d0f0-274">Output row by row</span></span>
-    * <span data-ttu-id="3d0f0-275">Gebruikt voor het aangepaste gegevenstypen van uitvoer of aangepaste bestand indelingen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-275">Used to output custom data types or custom file formats</span></span>
+* <span data-ttu-id="b321a-273">Gebruiker gedefinieerde outputters</span><span class="sxs-lookup"><span data-stu-id="b321a-273">User-defined outputters</span></span>
+    * <span data-ttu-id="b321a-274">Uitvoer per rij</span><span class="sxs-lookup"><span data-stu-id="b321a-274">Output row by row</span></span>
+    * <span data-ttu-id="b321a-275">Gebruikt de aangepaste gegevenstypen toooutput of aangepaste bestandsindelingen</span><span class="sxs-lookup"><span data-stu-id="b321a-275">Used toooutput custom data types or custom file formats</span></span>
 
-* <span data-ttu-id="3d0f0-276">Gebruiker gedefinieerde processors</span><span class="sxs-lookup"><span data-stu-id="3d0f0-276">User-defined processors</span></span>
-    * <span data-ttu-id="3d0f0-277">Één rij en produceert één rij</span><span class="sxs-lookup"><span data-stu-id="3d0f0-277">Take one row and produce one row</span></span>
-    * <span data-ttu-id="3d0f0-278">Verminder het aantal kolommen of produceren van nieuwe kolommen met waarden die zijn afgeleid van een bestaande set kolommen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-278">Used to reduce the number of columns or produce new columns with values that are derived from an existing column set</span></span>
+* <span data-ttu-id="b321a-276">Gebruiker gedefinieerde processors</span><span class="sxs-lookup"><span data-stu-id="b321a-276">User-defined processors</span></span>
+    * <span data-ttu-id="b321a-277">Één rij en produceert één rij</span><span class="sxs-lookup"><span data-stu-id="b321a-277">Take one row and produce one row</span></span>
+    * <span data-ttu-id="b321a-278">Gebruikte tooreduce Hallo aantal kolommen of produceren van nieuwe kolommen met waarden die zijn afgeleid van een bestaande set kolommen</span><span class="sxs-lookup"><span data-stu-id="b321a-278">Used tooreduce hello number of columns or produce new columns with values that are derived from an existing column set</span></span>
 
-* <span data-ttu-id="3d0f0-279">Gebruiker gedefinieerde appliers</span><span class="sxs-lookup"><span data-stu-id="3d0f0-279">User-defined appliers</span></span>
-    * <span data-ttu-id="3d0f0-280">Één rij en produceert van 0 tot en met n rijen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-280">Take one row and produce 0 to n rows</span></span>
-    * <span data-ttu-id="3d0f0-281">Gebruikt met buitenste/CROSS toepassen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-281">Used with OUTER/CROSS APPLY</span></span>
+* <span data-ttu-id="b321a-279">Gebruiker gedefinieerde appliers</span><span class="sxs-lookup"><span data-stu-id="b321a-279">User-defined appliers</span></span>
+    * <span data-ttu-id="b321a-280">Één rij en produceert 0 toon rijen</span><span class="sxs-lookup"><span data-stu-id="b321a-280">Take one row and produce 0 toon rows</span></span>
+    * <span data-ttu-id="b321a-281">Gebruikt met buitenste/CROSS toepassen</span><span class="sxs-lookup"><span data-stu-id="b321a-281">Used with OUTER/CROSS APPLY</span></span>
 
-* <span data-ttu-id="3d0f0-282">Gebruiker gedefinieerde combiners</span><span class="sxs-lookup"><span data-stu-id="3d0f0-282">User-defined combiners</span></span>
-    * <span data-ttu-id="3d0f0-283">Combineert rijensets--gebruiker gedefinieerde JOINs</span><span class="sxs-lookup"><span data-stu-id="3d0f0-283">Combines rowsets--user-defined JOINs</span></span>
+* <span data-ttu-id="b321a-282">Gebruiker gedefinieerde combiners</span><span class="sxs-lookup"><span data-stu-id="b321a-282">User-defined combiners</span></span>
+    * <span data-ttu-id="b321a-283">Combineert rijensets--gebruiker gedefinieerde JOINs</span><span class="sxs-lookup"><span data-stu-id="b321a-283">Combines rowsets--user-defined JOINs</span></span>
 
-* <span data-ttu-id="3d0f0-284">Gebruiker gedefinieerde verkleiningstoestellen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-284">User-defined reducers</span></span>
-    * <span data-ttu-id="3d0f0-285">N rijen en produceert één rij</span><span class="sxs-lookup"><span data-stu-id="3d0f0-285">Take n rows and produce one row</span></span>
-    * <span data-ttu-id="3d0f0-286">Verminder het aantal rijen waarmee</span><span class="sxs-lookup"><span data-stu-id="3d0f0-286">Used to reduce the number of rows</span></span>
+* <span data-ttu-id="b321a-284">Gebruiker gedefinieerde verkleiningstoestellen</span><span class="sxs-lookup"><span data-stu-id="b321a-284">User-defined reducers</span></span>
+    * <span data-ttu-id="b321a-285">N rijen en produceert één rij</span><span class="sxs-lookup"><span data-stu-id="b321a-285">Take n rows and produce one row</span></span>
+    * <span data-ttu-id="b321a-286">Tooreduce hello aantal rijen dat wordt gebruikt</span><span class="sxs-lookup"><span data-stu-id="b321a-286">Used tooreduce hello number of rows</span></span>
 
-<span data-ttu-id="3d0f0-287">UDO wordt normaal gesproken expliciet aangeroepen in de U-SQL-script als onderdeel van de volgende U-SQL-instructies:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-287">UDO is typically called explicitly in U-SQL script as part of the following U-SQL statements:</span></span>
+<span data-ttu-id="b321a-287">UDO wordt normaal gesproken expliciet aangeroepen in de U-SQL-script als onderdeel van Hallo U-SQL-instructies te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-287">UDO is typically called explicitly in U-SQL script as part of hello following U-SQL statements:</span></span>
 
-* <span data-ttu-id="3d0f0-288">UITPAKKEN</span><span class="sxs-lookup"><span data-stu-id="3d0f0-288">EXTRACT</span></span>
-* <span data-ttu-id="3d0f0-289">UITVOER</span><span class="sxs-lookup"><span data-stu-id="3d0f0-289">OUTPUT</span></span>
-* <span data-ttu-id="3d0f0-290">PROCES</span><span class="sxs-lookup"><span data-stu-id="3d0f0-290">PROCESS</span></span>
-* <span data-ttu-id="3d0f0-291">COMBINEREN</span><span class="sxs-lookup"><span data-stu-id="3d0f0-291">COMBINE</span></span>
-* <span data-ttu-id="3d0f0-292">VERMINDEREN</span><span class="sxs-lookup"><span data-stu-id="3d0f0-292">REDUCE</span></span>
+* <span data-ttu-id="b321a-288">UITPAKKEN</span><span class="sxs-lookup"><span data-stu-id="b321a-288">EXTRACT</span></span>
+* <span data-ttu-id="b321a-289">UITVOER</span><span class="sxs-lookup"><span data-stu-id="b321a-289">OUTPUT</span></span>
+* <span data-ttu-id="b321a-290">PROCES</span><span class="sxs-lookup"><span data-stu-id="b321a-290">PROCESS</span></span>
+* <span data-ttu-id="b321a-291">COMBINEREN</span><span class="sxs-lookup"><span data-stu-id="b321a-291">COMBINE</span></span>
+* <span data-ttu-id="b321a-292">VERMINDEREN</span><span class="sxs-lookup"><span data-stu-id="b321a-292">REDUCE</span></span>
 
 > [!NOTE]  
-> <span data-ttu-id="3d0f0-293">De UDO zijn beperkt 0,5 Gb geheugen in beslag neemt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-293">UDO’s are limited to consume 0.5Gb memory.</span></span>  <span data-ttu-id="3d0f0-294">Deze beperking geheugen geldt niet voor lokale uitvoeringen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-294">This memory limitation does not apply to local executions.</span></span>
+> <span data-ttu-id="b321a-293">De UDO zijn beperkt tooconsume 0,5 Gb geheugen.</span><span class="sxs-lookup"><span data-stu-id="b321a-293">UDO’s are limited tooconsume 0.5Gb memory.</span></span>  <span data-ttu-id="b321a-294">Deze beperking geheugen toolocal uitvoeringen niet van toepassing.</span><span class="sxs-lookup"><span data-stu-id="b321a-294">This memory limitation does not apply toolocal executions.</span></span>
 
-## <a name="use-user-defined-extractors"></a><span data-ttu-id="3d0f0-295">Gebruik van de gebruiker gedefinieerde extractie</span><span class="sxs-lookup"><span data-stu-id="3d0f0-295">Use user-defined extractors</span></span>
-<span data-ttu-id="3d0f0-296">U-SQL kunt u externe gegevens te importeren met behulp van een instructie uitpakken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-296">U-SQL allows you to import external data by using an EXTRACT statement.</span></span> <span data-ttu-id="3d0f0-297">Een instructie EXTRACT kunt ingebouwde UDO extractie gebruiken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-297">An EXTRACT statement can use built-in UDO extractors:</span></span>  
+## <a name="use-user-defined-extractors"></a><span data-ttu-id="b321a-295">Gebruik van de gebruiker gedefinieerde extractie</span><span class="sxs-lookup"><span data-stu-id="b321a-295">Use user-defined extractors</span></span>
+<span data-ttu-id="b321a-296">U-SQL kunt u tooimport externe gegevens door het gebruik van een instructie uitpakken.</span><span class="sxs-lookup"><span data-stu-id="b321a-296">U-SQL allows you tooimport external data by using an EXTRACT statement.</span></span> <span data-ttu-id="b321a-297">Een instructie EXTRACT kunt ingebouwde UDO extractie gebruiken:</span><span class="sxs-lookup"><span data-stu-id="b321a-297">An EXTRACT statement can use built-in UDO extractors:</span></span>  
 
-* <span data-ttu-id="3d0f0-298">*Extractors.Text()*: extractie van tekstbestanden met scheidingstekens van andere coderingen biedt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-298">*Extractors.Text()*: Provides extraction from delimited text files of different encodings.</span></span>
+* <span data-ttu-id="b321a-298">*Extractors.Text()*: extractie van tekstbestanden met scheidingstekens van andere coderingen biedt.</span><span class="sxs-lookup"><span data-stu-id="b321a-298">*Extractors.Text()*: Provides extraction from delimited text files of different encodings.</span></span>
 
-* <span data-ttu-id="3d0f0-299">*Extractors.Csv()*: uitpakken van het bestand met door komma's gescheiden waarden (CSV)-bestanden van andere coderingen biedt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-299">*Extractors.Csv()*: Provides extraction from comma-separated value (CSV) files of different encodings.</span></span>
+* <span data-ttu-id="b321a-299">*Extractors.Csv()*: uitpakken van het bestand met door komma's gescheiden waarden (CSV)-bestanden van andere coderingen biedt.</span><span class="sxs-lookup"><span data-stu-id="b321a-299">*Extractors.Csv()*: Provides extraction from comma-separated value (CSV) files of different encodings.</span></span>
 
-* <span data-ttu-id="3d0f0-300">*Extractors.Tsv()*: extractie van tabblad gescheiden waarden (TSV)-bestanden van andere coderingen biedt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-300">*Extractors.Tsv()*: Provides extraction from tab-separated value (TSV) files of different encodings.</span></span>
+* <span data-ttu-id="b321a-300">*Extractors.Tsv()*: extractie van tabblad gescheiden waarden (TSV)-bestanden van andere coderingen biedt.</span><span class="sxs-lookup"><span data-stu-id="b321a-300">*Extractors.Tsv()*: Provides extraction from tab-separated value (TSV) files of different encodings.</span></span>
 
-<span data-ttu-id="3d0f0-301">Kan het handig zijn voor het ontwikkelen van een aangepaste zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-301">It can be useful to develop a custom extractor.</span></span> <span data-ttu-id="3d0f0-302">Dit kan nuttig zijn bij het importeren van gegevens als we wilt uitvoeren op een van de volgende taken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-302">This can be helpful during data import if we want to do any of the following tasks:</span></span>
+<span data-ttu-id="b321a-301">Het kan zijn nuttig toodevelop een aangepaste zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="b321a-301">It can be useful toodevelop a custom extractor.</span></span> <span data-ttu-id="b321a-302">Dit kan nuttig zijn bij het importeren van gegevens als we willen toodo van Hallo taken te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-302">This can be helpful during data import if we want toodo any of hello following tasks:</span></span>
 
-* <span data-ttu-id="3d0f0-303">Invoer gegevens wijzigen door het splitsen van kolommen en afzonderlijke waarden te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-303">Modify input data by splitting columns and modifying individual values.</span></span> <span data-ttu-id="3d0f0-304">De PROCESSOR-functionaliteit is beter voor het combineren van kolommen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-304">The PROCESSOR functionality is better for combining columns.</span></span>
-* <span data-ttu-id="3d0f0-305">Niet-gestructureerde gegevens zoals webpagina's en e-mailberichten of niet semi-gestructureerde gegevens, zoals XML/JSON parseren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-305">Parse unstructured data such as Web pages and emails, or semi-unstructured data such as XML/JSON.</span></span>
-* <span data-ttu-id="3d0f0-306">Parseren van gegevens in niet-ondersteunde codering.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-306">Parse data in unsupported encoding.</span></span>
+* <span data-ttu-id="b321a-303">Invoer gegevens wijzigen door het splitsen van kolommen en afzonderlijke waarden te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="b321a-303">Modify input data by splitting columns and modifying individual values.</span></span> <span data-ttu-id="b321a-304">Hallo processorfunctionaliteit is het beter voor het combineren van kolommen.</span><span class="sxs-lookup"><span data-stu-id="b321a-304">hello PROCESSOR functionality is better for combining columns.</span></span>
+* <span data-ttu-id="b321a-305">Niet-gestructureerde gegevens zoals webpagina's en e-mailberichten of niet semi-gestructureerde gegevens, zoals XML/JSON parseren.</span><span class="sxs-lookup"><span data-stu-id="b321a-305">Parse unstructured data such as Web pages and emails, or semi-unstructured data such as XML/JSON.</span></span>
+* <span data-ttu-id="b321a-306">Parseren van gegevens in niet-ondersteunde codering.</span><span class="sxs-lookup"><span data-stu-id="b321a-306">Parse data in unsupported encoding.</span></span>
 
-<span data-ttu-id="3d0f0-307">Als u wilt een gebruiker gedefinieerde zelfstandig uitpakken of USIEF definiëren, moeten we maken een `IExtractor` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-307">To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface.</span></span> <span data-ttu-id="3d0f0-308">Alle parameters voor het zelfstandig uitpakken, zoals scheidingstekens voor kolom/rij invoer- en -codering moet worden gedefinieerd in de constructor van de klasse.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-308">All input parameters to the extractor, such as column/row delimiters, and encoding, need to be defined in the constructor of the class.</span></span> <span data-ttu-id="3d0f0-309">De `IExtractor` interface moet ook een definitie voor bevatten de `IEnumerable<IRow>` overschrijven als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-309">The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:</span></span>
+<span data-ttu-id="b321a-307">een gebruiker gedefinieerde zelfstandig uitpakken, toodefine of USIEF, moeten we toocreate een `IExtractor` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-307">toodefine a user-defined extractor, or UDE, we need toocreate an `IExtractor` interface.</span></span> <span data-ttu-id="b321a-308">Alle parameters toohello zelfstandig uitpakken, zoals gedefinieerd in de constructor van de klasse Hallo Hallo toobe kolom/rij scheidingstekens en codering, moeten worden ingevoerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-308">All input parameters toohello extractor, such as column/row delimiters, and encoding, need toobe defined in hello constructor of hello class.</span></span> <span data-ttu-id="b321a-309">Hallo `IExtractor` interface moet ook een definitie voor Hallo bevatten `IEnumerable<IRow>` overschrijven als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-309">hello `IExtractor`  interface should also contain a definition for hello `IEnumerable<IRow>` override as follows:</span></span>
 
 ```
 [SqlUserDefinedExtractor]
@@ -1102,20 +1102,20 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-<span data-ttu-id="3d0f0-310">De **SqlUserDefinedExtractor** kenmerk geeft aan dat het type moet worden geregistreerd als een door de gebruiker gedefinieerde zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-310">The **SqlUserDefinedExtractor** attribute indicates that the type should be registered as a user-defined extractor.</span></span> <span data-ttu-id="3d0f0-311">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-311">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-310">Hallo **SqlUserDefinedExtractor** kenmerk geeft aan dat Hallo type moet worden geregistreerd als een door de gebruiker gedefinieerde zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="b321a-310">hello **SqlUserDefinedExtractor** attribute indicates that hello type should be registered as a user-defined extractor.</span></span> <span data-ttu-id="b321a-311">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-311">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-312">SqlUserDefinedExtractor is een optionele kenmerk voor de definitie van USIEF.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-312">SqlUserDefinedExtractor is an optional attribute for UDE definition.</span></span> <span data-ttu-id="3d0f0-313">Het wordt gebruikt om de eigenschap AtomicFileProcessing voor het object USIEF te definiëren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-313">It used to define AtomicFileProcessing property for the UDE object.</span></span>
+<span data-ttu-id="b321a-312">SqlUserDefinedExtractor is een optionele kenmerk voor de definitie van USIEF.</span><span class="sxs-lookup"><span data-stu-id="b321a-312">SqlUserDefinedExtractor is an optional attribute for UDE definition.</span></span> <span data-ttu-id="b321a-313">Het toodefine AtomicFileProcessing eigenschap gebruikt voor Hallo USIEF object.</span><span class="sxs-lookup"><span data-stu-id="b321a-313">It used toodefine AtomicFileProcessing property for hello UDE object.</span></span>
 
-* <span data-ttu-id="3d0f0-314">BOOL AtomicFileProcessing</span><span class="sxs-lookup"><span data-stu-id="3d0f0-314">bool     AtomicFileProcessing</span></span>   
+* <span data-ttu-id="b321a-314">BOOL AtomicFileProcessing</span><span class="sxs-lookup"><span data-stu-id="b321a-314">bool     AtomicFileProcessing</span></span>   
 
-* <span data-ttu-id="3d0f0-315">**de waarde True** = geeft aan dat deze zelfstandig uitpakken atomic invoerbestanden (JSON, XML,...) is vereist</span><span class="sxs-lookup"><span data-stu-id="3d0f0-315">**true** = Indicates that this extractor requires atomic input files (JSON, XML, ...)</span></span>
-* <span data-ttu-id="3d0f0-316">**False** = geeft aan dat deze zelfstandig uitpakken geschikt is voor gesplitste / gedistribueerde bestanden (CSV, SEQ,...)</span><span class="sxs-lookup"><span data-stu-id="3d0f0-316">**false** = Indicates that this extractor can deal with split / distributed files (CSV, SEQ, ...)</span></span>
+* <span data-ttu-id="b321a-315">**de waarde True** = geeft aan dat deze zelfstandig uitpakken atomic invoerbestanden (JSON, XML,...) is vereist</span><span class="sxs-lookup"><span data-stu-id="b321a-315">**true** = Indicates that this extractor requires atomic input files (JSON, XML, ...)</span></span>
+* <span data-ttu-id="b321a-316">**False** = geeft aan dat deze zelfstandig uitpakken geschikt is voor gesplitste / gedistribueerde bestanden (CSV, SEQ,...)</span><span class="sxs-lookup"><span data-stu-id="b321a-316">**false** = Indicates that this extractor can deal with split / distributed files (CSV, SEQ, ...)</span></span>
 
-<span data-ttu-id="3d0f0-317">De belangrijkste USIEF programmeerbaarheid objecten zijn **invoer** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-317">The main UDE programmability objects are **input** and **output**.</span></span> <span data-ttu-id="3d0f0-318">Het invoerobject wordt gebruikt om te inventariseren invoergegevens als `IUnstructuredReader`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-318">The input object is used to enumerate input data as `IUnstructuredReader`.</span></span> <span data-ttu-id="3d0f0-319">De uitvoer-object wordt gebruikt om in te stellen uitvoergegevens als gevolg van de activiteit zelfstandig uitpakken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-319">The output object is used to set output data as a result of the extractor activity.</span></span>
+<span data-ttu-id="b321a-317">Hallo USIEF programmeerbaarheid hoofdobjecten zijn **invoer** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="b321a-317">hello main UDE programmability objects are **input** and **output**.</span></span> <span data-ttu-id="b321a-318">Hallo invoerobject is gebruikte tooenumerate invoergegevens als `IUnstructuredReader`.</span><span class="sxs-lookup"><span data-stu-id="b321a-318">hello input object is used tooenumerate input data as `IUnstructuredReader`.</span></span> <span data-ttu-id="b321a-319">Hallo uitvoer-object is de uitvoergegevens gebruikte tooset als gevolg van Hallo zelfstandig uitpakken activiteit.</span><span class="sxs-lookup"><span data-stu-id="b321a-319">hello output object is used tooset output data as a result of hello extractor activity.</span></span>
 
-<span data-ttu-id="3d0f0-320">De ingevoerde gegevens toegankelijk is via `System.IO.Stream` en `System.IO.StreamReader`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-320">The input data is accessed through `System.IO.Stream` and `System.IO.StreamReader`.</span></span>
+<span data-ttu-id="b321a-320">Hallo invoergegevens toegankelijk is via `System.IO.Stream` en `System.IO.StreamReader`.</span><span class="sxs-lookup"><span data-stu-id="b321a-320">hello input data is accessed through `System.IO.Stream` and `System.IO.StreamReader`.</span></span>
 
-<span data-ttu-id="3d0f0-321">Voor invoerkolommen-opsomming splitsen we eerst de invoerstroom met behulp van een rijscheidingsteken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-321">For input columns enumeration, we first split the input stream by using a row delimiter.</span></span>
+<span data-ttu-id="b321a-321">Voor invoerkolommen-opsomming splitsen we eerst Hallo invoerstroom met behulp van een rijscheidingsteken.</span><span class="sxs-lookup"><span data-stu-id="b321a-321">For input columns enumeration, we first split hello input stream by using a row delimiter.</span></span>
 
 ```
 foreach (Stream current in input.Split(my_row_delimiter))
@@ -1124,7 +1124,7 @@ foreach (Stream current in input.Split(my_row_delimiter))
 }
 ```
 
-<span data-ttu-id="3d0f0-322">Vervolgens verder rij invoer in kolom delen gesplitst.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-322">Then, further split input row into column parts.</span></span>
+<span data-ttu-id="b321a-322">Vervolgens verder rij invoer in kolom delen gesplitst.</span><span class="sxs-lookup"><span data-stu-id="b321a-322">Then, further split input row into column parts.</span></span>
 
 ```
 foreach (Stream current in input.Split(my_row_delimiter))
@@ -1136,17 +1136,17 @@ foreach (Stream current in input.Split(my_row_delimiter))
 }
 ```
 
-<span data-ttu-id="3d0f0-323">Om in te stellen uitvoergegevens, gebruiken we de `output.Set` methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-323">To set output data, we use the `output.Set` method.</span></span>
+<span data-ttu-id="b321a-323">tooset uitvoergegevens, gebruiken we Hallo `output.Set` methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-323">tooset output data, we use hello `output.Set` method.</span></span>
 
-<span data-ttu-id="3d0f0-324">Het is belangrijk te weten dat de aangepaste zelfstandig uitpakken alleen levert kolommen en waarden die zijn gedefinieerd met de uitvoer.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-324">It's important to understand that the custom extractor only outputs columns and values that are defined with the output.</span></span> <span data-ttu-id="3d0f0-325">Aanroep van methode instellen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-325">Set method call.</span></span>
+<span data-ttu-id="b321a-324">Het is belangrijk toounderstand die aangepaste zelfstandig uitpakken Hallo levert alleen kolommen en waarden die zijn gedefinieerd met de Hallo uitvoer.</span><span class="sxs-lookup"><span data-stu-id="b321a-324">It's important toounderstand that hello custom extractor only outputs columns and values that are defined with hello output.</span></span> <span data-ttu-id="b321a-325">Aanroep van methode instellen.</span><span class="sxs-lookup"><span data-stu-id="b321a-325">Set method call.</span></span>
 
 ```
 output.Set<string>(count, part);
 ```
 
-<span data-ttu-id="3d0f0-326">De uitvoer van de werkelijke zelfstandig uitpakken wordt geactiveerd door het aanroepen van `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-326">The actual extractor output is triggered by calling `yield return output.AsReadOnly();`.</span></span>
+<span data-ttu-id="b321a-326">Hallo werkelijke zelfstandig uitpakken uitvoer wordt geactiveerd door het aanroepen van `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="b321a-326">hello actual extractor output is triggered by calling `yield return output.AsReadOnly();`.</span></span>
 
-<span data-ttu-id="3d0f0-327">Dit is het zelfstandig uitpakken-voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-327">Following is the extractor example:</span></span>
+<span data-ttu-id="b321a-327">Dit is Hallo zelfstandig uitpakken voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="b321a-327">Following is hello extractor example:</span></span>
 
 ```
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
@@ -1167,13 +1167,13 @@ public class FullDescriptionExtractor : IExtractor
     public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
     {
          string line;
-         //Read the input line by line
+         //Read hello input line by line
          foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
          {
         using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
          {
              line = streamReader.ReadToEnd().Trim();
-             //Split the input by the column delimiter
+             //Split hello input by hello column delimiter
              string[] parts = line.Split(this._col_delim);
              int count = 0; // start with first column
              foreach (string part in parts)
@@ -1185,13 +1185,13 @@ public class FullDescriptionExtractor : IExtractor
              }
              else if (count == 2)
              {
-                 // for column “user”, convert to UPPER case
+                 // for column “user”, convert tooUPPER case
                  output.Set<string>(count, part.ToUpper());
 
              }
              else
              {
-                 // keep the rest of the columns as-is
+                 // keep hello rest of hello columns as-is
                  output.Set<string>(count, part);
              }
              count += 1;
@@ -1205,9 +1205,9 @@ public class FullDescriptionExtractor : IExtractor
 }
 ```
 
-<span data-ttu-id="3d0f0-328">In dit scenario use case het zelfstandig uitpakken worden opnieuw gegenereerd door de GUID voor kolom 'guid' en 'gebruiker' kolomwaarden omgezet in hoofdletters.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-328">In this use-case scenario, the extractor regenerates the GUID for “guid” column and converts the values of “user” column to upper case.</span></span> <span data-ttu-id="3d0f0-329">Aangepaste extractie kunnen gecompliceerdere resultaten opleveren door invoergegevens geparseerd en bewerkt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-329">Custom extractors can produce more complicated results by parsing input data and manipulating it.</span></span>
+<span data-ttu-id="b321a-328">In dit scenario use case Hallo zelfstandig uitpakken genereert Hallo GUID voor kolom 'guid' en zet Hallo-waarden van 'gebruiker' kolom tooupper case.</span><span class="sxs-lookup"><span data-stu-id="b321a-328">In this use-case scenario, hello extractor regenerates hello GUID for “guid” column and converts hello values of “user” column tooupper case.</span></span> <span data-ttu-id="b321a-329">Aangepaste extractie kunnen gecompliceerdere resultaten opleveren door invoergegevens geparseerd en bewerkt.</span><span class="sxs-lookup"><span data-stu-id="b321a-329">Custom extractors can produce more complicated results by parsing input data and manipulating it.</span></span>
 
-<span data-ttu-id="3d0f0-330">Hieronder vindt u base U-SQL-script dat gebruikmaakt van een aangepaste zelfstandig uitpakken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-330">Following is base U-SQL script that uses a custom extractor:</span></span>
+<span data-ttu-id="b321a-330">Hieronder vindt u base U-SQL-script dat gebruikmaakt van een aangepaste zelfstandig uitpakken:</span><span class="sxs-lookup"><span data-stu-id="b321a-330">Following is base U-SQL script that uses a custom extractor:</span></span>
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1222,25 +1222,25 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @input_file
         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
-OUTPUT @rs0 TO @output_file USING Outputters.Text();
+OUTPUT @rs0 too@output_file USING Outputters.Text();
 ```
 
-## <a name="use-user-defined-outputters"></a><span data-ttu-id="3d0f0-331">Gebruik van de gebruiker gedefinieerde outputters</span><span class="sxs-lookup"><span data-stu-id="3d0f0-331">Use user-defined outputters</span></span>
-<span data-ttu-id="3d0f0-332">Gebruiker gedefinieerde outputter is een andere U-SQL-UDO waarmee u de ingebouwde U-SQL-functionaliteit uitbreiden.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-332">User-defined outputter is another U-SQL UDO that allows you to extend built-in U-SQL functionality.</span></span> <span data-ttu-id="3d0f0-333">Net als de zelfstandig uitpakken, er zijn verschillende ingebouwde outputters.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-333">Similar to the extractor, there are several built-in outputters.</span></span>
+## <a name="use-user-defined-outputters"></a><span data-ttu-id="b321a-331">Gebruik van de gebruiker gedefinieerde outputters</span><span class="sxs-lookup"><span data-stu-id="b321a-331">Use user-defined outputters</span></span>
+<span data-ttu-id="b321a-332">Gebruiker gedefinieerde outputter is een andere U-SQL-UDO waarmee u tooextend ingebouwde U-SQL-functionaliteit.</span><span class="sxs-lookup"><span data-stu-id="b321a-332">User-defined outputter is another U-SQL UDO that allows you tooextend built-in U-SQL functionality.</span></span> <span data-ttu-id="b321a-333">Vergelijkbare toohello zelfstandig uitpakken, er zijn verschillende ingebouwde outputters.</span><span class="sxs-lookup"><span data-stu-id="b321a-333">Similar toohello extractor, there are several built-in outputters.</span></span>
 
-* <span data-ttu-id="3d0f0-334">*Outputters.Text()*: schrijft gegevens naar tekstbestanden met scheidingstekens van andere coderingen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-334">*Outputters.Text()*: Writes data to delimited text files of different encodings.</span></span>
-* <span data-ttu-id="3d0f0-335">*Outputters.Csv()*: schrijft gegevens naar een door komma's gescheiden waarden (CSV)-bestanden van andere coderingen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-335">*Outputters.Csv()*: Writes data to comma-separated value (CSV) files of different encodings.</span></span>
-* <span data-ttu-id="3d0f0-336">*Outputters.Tsv()*: schrijft gegevens naar het tabblad's gescheiden waarden (TSV)-bestanden van andere coderingen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-336">*Outputters.Tsv()*: Writes data to tab-separated value (TSV) files of different encodings.</span></span>
+* <span data-ttu-id="b321a-334">*Outputters.Text()*: schrijft gegevens toodelimited tekstbestanden van andere coderingen.</span><span class="sxs-lookup"><span data-stu-id="b321a-334">*Outputters.Text()*: Writes data toodelimited text files of different encodings.</span></span>
+* <span data-ttu-id="b321a-335">*Outputters.Csv()*: schrijft gegevens toocomma gescheiden waarden (CSV)-bestanden van andere coderingen.</span><span class="sxs-lookup"><span data-stu-id="b321a-335">*Outputters.Csv()*: Writes data toocomma-separated value (CSV) files of different encodings.</span></span>
+* <span data-ttu-id="b321a-336">*Outputters.Tsv()*: schrijft gegevens tootab gescheiden waarden (TSV)-bestanden van andere coderingen.</span><span class="sxs-lookup"><span data-stu-id="b321a-336">*Outputters.Tsv()*: Writes data tootab-separated value (TSV) files of different encodings.</span></span>
 
-<span data-ttu-id="3d0f0-337">Aangepaste outputter kunt u gegevens in een aangepaste indeling voor de gedefinieerde schrijven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-337">Custom outputter allows you to write data in a custom defined format.</span></span> <span data-ttu-id="3d0f0-338">Dit kan handig zijn voor de volgende taken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-338">This can be useful for the following tasks:</span></span>
+<span data-ttu-id="b321a-337">Aangepaste outputter kunt u toowrite gegevens in een aangepaste gedefinieerde indeling.</span><span class="sxs-lookup"><span data-stu-id="b321a-337">Custom outputter allows you toowrite data in a custom defined format.</span></span> <span data-ttu-id="b321a-338">Dit kan handig zijn voor Hallo taken te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-338">This can be useful for hello following tasks:</span></span>
 
-* <span data-ttu-id="3d0f0-339">Schrijven van gegevens naar semi-gestructureerde of ongestructureerde bestanden.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-339">Writing data to semi-structured or unstructured files.</span></span>
-* <span data-ttu-id="3d0f0-340">Coderingen schrijven van gegevens niet worden ondersteund.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-340">Writing data not supported encodings.</span></span>
-* <span data-ttu-id="3d0f0-341">Uitvoergegevens te wijzigen of toevoegen van aangepaste kenmerken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-341">Modifying output data or adding custom attributes.</span></span>
+* <span data-ttu-id="b321a-339">Schrijven van toosemi gestructureerde of ongestructureerde gegevens.</span><span class="sxs-lookup"><span data-stu-id="b321a-339">Writing data toosemi-structured or unstructured files.</span></span>
+* <span data-ttu-id="b321a-340">Coderingen schrijven van gegevens niet worden ondersteund.</span><span class="sxs-lookup"><span data-stu-id="b321a-340">Writing data not supported encodings.</span></span>
+* <span data-ttu-id="b321a-341">Uitvoergegevens te wijzigen of toevoegen van aangepaste kenmerken.</span><span class="sxs-lookup"><span data-stu-id="b321a-341">Modifying output data or adding custom attributes.</span></span>
 
-<span data-ttu-id="3d0f0-342">Als u wilt definiëren de gebruiker gedefinieerde outputter, moeten we maken de `IOutputter` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-342">To define user-defined outputter, we need to create the `IOutputter` interface.</span></span>
+<span data-ttu-id="b321a-342">toodefine door gebruiker gedefinieerde outputter, moeten we toocreate hello `IOutputter` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-342">toodefine user-defined outputter, we need toocreate hello `IOutputter` interface.</span></span>
 
-<span data-ttu-id="3d0f0-343">Hieronder volgt de base `IOutputter` implementatie van klasse:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-343">Following is the base `IOutputter` class implementation:</span></span>
+<span data-ttu-id="b321a-343">Hieronder vindt u Hallo base `IOutputter` implementatie van klasse:</span><span class="sxs-lookup"><span data-stu-id="b321a-343">Following is hello base `IOutputter` class implementation:</span></span>
 
 ```
 public abstract class IOutputter : IUserDefinedOperator
@@ -1252,7 +1252,7 @@ public abstract class IOutputter : IUserDefinedOperator
 }
 ```
 
-<span data-ttu-id="3d0f0-344">Alle ingevoerde parameters de outputter, zoals kolom/rij scheidingstekens, codering, enzovoort, moeten worden gedefinieerd in de constructor van de klasse.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-344">All input parameters to the outputter, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class.</span></span> <span data-ttu-id="3d0f0-345">De `IOutputter` interface moet ook een definitie voor bevatten `void Output` overschrijven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-345">The `IOutputter` interface should also contain a definition for `void Output` override.</span></span> <span data-ttu-id="3d0f0-346">Het kenmerk `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` kan eventueel worden ingesteld voor verwerking-atomic-bestand.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-346">The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can optionally be set for atomic file processing.</span></span> <span data-ttu-id="3d0f0-347">Zie de volgende details voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-347">For more information, see the following details.</span></span>
+<span data-ttu-id="b321a-344">Alle invoer parameters toohello outputter, zoals kolom/rij scheidingstekens, codering, enzovoort, moeten toobe gedefinieerd in de constructor Hallo van Hallo-klasse.</span><span class="sxs-lookup"><span data-stu-id="b321a-344">All input parameters toohello outputter, such as column/row delimiters, encoding, and so on, need toobe defined in hello constructor of hello class.</span></span> <span data-ttu-id="b321a-345">Hallo `IOutputter` interface moet ook een definitie voor bevatten `void Output` overschrijven.</span><span class="sxs-lookup"><span data-stu-id="b321a-345">hello `IOutputter` interface should also contain a definition for `void Output` override.</span></span> <span data-ttu-id="b321a-346">Hallo-kenmerk `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` kan eventueel worden ingesteld voor verwerking-atomic-bestand.</span><span class="sxs-lookup"><span data-stu-id="b321a-346">hello attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can optionally be set for atomic file processing.</span></span> <span data-ttu-id="b321a-347">Zie de volgende details Hallo voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="b321a-347">For more information, see hello following details.</span></span>
 
 ```
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1276,30 +1276,30 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* <span data-ttu-id="3d0f0-348">`Output`voor elke rij invoer wordt genoemd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-348">`Output` is called for each input row.</span></span> <span data-ttu-id="3d0f0-349">Deze retourneert de `IUnstructuredWriter output` rijenset.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-349">It returns the `IUnstructuredWriter output` rowset.</span></span>
-* <span data-ttu-id="3d0f0-350">De Constructor-klasse wordt gebruikt voor parameters doorgeven aan de gebruiker gedefinieerde outputter.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-350">The Constructor class is used to pass parameters to the user-defined outputter.</span></span>
-* <span data-ttu-id="3d0f0-351">`Close`wordt gebruikt om eventueel negeren als u wilt vrijgeven dure status of bepalen wanneer de laatste rij is geschreven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-351">`Close` is used to optionally override to release expensive state or determine when the last row was written.</span></span>
+* <span data-ttu-id="b321a-348">`Output`voor elke rij invoer wordt genoemd.</span><span class="sxs-lookup"><span data-stu-id="b321a-348">`Output` is called for each input row.</span></span> <span data-ttu-id="b321a-349">Deze retourneert Hallo `IUnstructuredWriter output` rijenset.</span><span class="sxs-lookup"><span data-stu-id="b321a-349">It returns hello `IUnstructuredWriter output` rowset.</span></span>
+* <span data-ttu-id="b321a-350">Hallo Constructor klasse wordt gebruikt toopass parameters toohello gebruiker gedefinieerde outputter.</span><span class="sxs-lookup"><span data-stu-id="b321a-350">hello Constructor class is used toopass parameters toohello user-defined outputter.</span></span>
+* <span data-ttu-id="b321a-351">`Close`wordt gebruikt toooptionally toorelease dure status overschrijven of bepalen wanneer de laatste rij Hallo is geschreven.</span><span class="sxs-lookup"><span data-stu-id="b321a-351">`Close` is used toooptionally override toorelease expensive state or determine when hello last row was written.</span></span>
 
-<span data-ttu-id="3d0f0-352">**SqlUserDefinedOutputter** kenmerk geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde outputter.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-352">**SqlUserDefinedOutputter** attribute indicates that the type should be registered as a user-defined outputter.</span></span> <span data-ttu-id="3d0f0-353">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-353">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-352">**SqlUserDefinedOutputter** kenmerk geeft aan dat Hallo type moet worden geregistreerd als een gebruiker gedefinieerde outputter.</span><span class="sxs-lookup"><span data-stu-id="b321a-352">**SqlUserDefinedOutputter** attribute indicates that hello type should be registered as a user-defined outputter.</span></span> <span data-ttu-id="b321a-353">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-353">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-354">SqlUserDefinedOutputter is een optionele kenmerk voor een definitie van de gebruiker gedefinieerde outputter.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-354">SqlUserDefinedOutputter is an optional attribute for a user-defined outputter definition.</span></span> <span data-ttu-id="3d0f0-355">Wordt gebruikt om de eigenschap AtomicFileProcessing te definiëren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-355">It's used to define the AtomicFileProcessing property.</span></span>
+<span data-ttu-id="b321a-354">SqlUserDefinedOutputter is een optionele kenmerk voor een definitie van de gebruiker gedefinieerde outputter.</span><span class="sxs-lookup"><span data-stu-id="b321a-354">SqlUserDefinedOutputter is an optional attribute for a user-defined outputter definition.</span></span> <span data-ttu-id="b321a-355">Deze toodefine hello AtomicFileProcessing eigenschap gebruikt.</span><span class="sxs-lookup"><span data-stu-id="b321a-355">It's used toodefine hello AtomicFileProcessing property.</span></span>
 
-* <span data-ttu-id="3d0f0-356">BOOL AtomicFileProcessing</span><span class="sxs-lookup"><span data-stu-id="3d0f0-356">bool     AtomicFileProcessing</span></span>   
+* <span data-ttu-id="b321a-356">BOOL AtomicFileProcessing</span><span class="sxs-lookup"><span data-stu-id="b321a-356">bool     AtomicFileProcessing</span></span>   
 
-* <span data-ttu-id="3d0f0-357">**de waarde True** = geeft aan dat deze outputter atomic uitvoerbestanden (JSON, XML,...) is vereist</span><span class="sxs-lookup"><span data-stu-id="3d0f0-357">**true** = Indicates that this outputter requires atomic output files (JSON, XML, ...)</span></span>
-* <span data-ttu-id="3d0f0-358">**False** = geeft aan dat deze outputter geschikt is voor gesplitste / gedistribueerde bestanden (CSV, SEQ,...)</span><span class="sxs-lookup"><span data-stu-id="3d0f0-358">**false** = Indicates that this outputter can deal with split / distributed files (CSV, SEQ, ...)</span></span>
+* <span data-ttu-id="b321a-357">**de waarde True** = geeft aan dat deze outputter atomic uitvoerbestanden (JSON, XML,...) is vereist</span><span class="sxs-lookup"><span data-stu-id="b321a-357">**true** = Indicates that this outputter requires atomic output files (JSON, XML, ...)</span></span>
+* <span data-ttu-id="b321a-358">**False** = geeft aan dat deze outputter geschikt is voor gesplitste / gedistribueerde bestanden (CSV, SEQ,...)</span><span class="sxs-lookup"><span data-stu-id="b321a-358">**false** = Indicates that this outputter can deal with split / distributed files (CSV, SEQ, ...)</span></span>
 
-<span data-ttu-id="3d0f0-359">De belangrijkste programmeerbaarheid objecten zijn **rij** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-359">The main programmability objects are **row** and **output**.</span></span> <span data-ttu-id="3d0f0-360">De **rij** object wordt gebruikt om te inventariseren uitvoergegevens als `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-360">The **row** object is used to enumerate output data as `IRow` interface.</span></span> <span data-ttu-id="3d0f0-361">**Uitvoer** uitvoergegevens instellen op de doelbestand wordt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-361">**Output** is used to set output data to the target file.</span></span>
+<span data-ttu-id="b321a-359">Hallo belangrijkste programmeerbaarheid objecten zijn **rij** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="b321a-359">hello main programmability objects are **row** and **output**.</span></span> <span data-ttu-id="b321a-360">Hallo **rij** -object is de uitvoergegevens gebruikte tooenumerate als `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-360">hello **row** object is used tooenumerate output data as `IRow` interface.</span></span> <span data-ttu-id="b321a-361">**Uitvoer** gebruikte tooset toohello doel uitvoergegevensbestand is.</span><span class="sxs-lookup"><span data-stu-id="b321a-361">**Output** is used tooset output data toohello target file.</span></span>
 
-<span data-ttu-id="3d0f0-362">De uitvoergegevens kan worden geopend via de `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-362">The output data is accessed through the `IRow` interface.</span></span> <span data-ttu-id="3d0f0-363">Uitvoergegevens is een rij tegelijk doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-363">Output data is passed a row at a time.</span></span>
+<span data-ttu-id="b321a-362">Hallo uitvoergegevens toegankelijk is via Hallo `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-362">hello output data is accessed through hello `IRow` interface.</span></span> <span data-ttu-id="b321a-363">Uitvoergegevens is een rij tegelijk doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="b321a-363">Output data is passed a row at a time.</span></span>
 
-<span data-ttu-id="3d0f0-364">De afzonderlijke waarden worden geïnventariseerd door het aanroepen van de methode Get van de interface IRow:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-364">The individual values are enumerated by calling the Get method of the IRow interface:</span></span>
+<span data-ttu-id="b321a-364">Hallo afzonderlijke waarden worden geïnventariseerd door het aanroepen van Get-methode van de interface IRow Hallo Hallo:</span><span class="sxs-lookup"><span data-stu-id="b321a-364">hello individual values are enumerated by calling hello Get method of hello IRow interface:</span></span>
 
 ```
 row.Get<string>("column_name")
 ```
 
-<span data-ttu-id="3d0f0-365">Afzonderlijke kolomnamen kunnen worden bepaald door het aanroepen van `row.Schema`:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-365">Individual column names can be determined by calling `row.Schema`:</span></span>
+<span data-ttu-id="b321a-365">Afzonderlijke kolomnamen kunnen worden bepaald door het aanroepen van `row.Schema`:</span><span class="sxs-lookup"><span data-stu-id="b321a-365">Individual column names can be determined by calling `row.Schema`:</span></span>
 
 ```
 ISchema schema = row.Schema;
@@ -1307,11 +1307,11 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-<span data-ttu-id="3d0f0-366">Deze aanpak kunt u een flexibele outputter voor elke metagegevensschema bouwen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-366">This approach enables you to build a flexible outputter for any metadata schema.</span></span>
+<span data-ttu-id="b321a-366">Deze aanpak kunt u een flexibele outputter voor elke metagegevensschema toobuild.</span><span class="sxs-lookup"><span data-stu-id="b321a-366">This approach enables you toobuild a flexible outputter for any metadata schema.</span></span>
 
-<span data-ttu-id="3d0f0-367">De uitvoergegevens worden geschreven naar het bestand met behulp van `System.IO.StreamWriter`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-367">The output data is written to file by using `System.IO.StreamWriter`.</span></span> <span data-ttu-id="3d0f0-368">De parameter van de stroom is ingesteld op `output.BaseStrea` als onderdeel van `IUnstructuredWriter output`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-368">The stream parameter is set to `output.BaseStrea` as part of `IUnstructuredWriter output`.</span></span>
+<span data-ttu-id="b321a-367">Hallo uitvoergegevens is geschreven in toofile `System.IO.StreamWriter`.</span><span class="sxs-lookup"><span data-stu-id="b321a-367">hello output data is written toofile by using `System.IO.StreamWriter`.</span></span> <span data-ttu-id="b321a-368">Hallo-stroom is parameterset te`output.BaseStrea` als onderdeel van `IUnstructuredWriter output`.</span><span class="sxs-lookup"><span data-stu-id="b321a-368">hello stream parameter is set too`output.BaseStrea` as part of `IUnstructuredWriter output`.</span></span>
 
-<span data-ttu-id="3d0f0-369">Houd er rekening mee dat het is belangrijk de gegevensbuffer naar het bestand leegmaken na elke iteratie rij.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-369">Note that it's important to flush the data buffer to the file after each row iteration.</span></span> <span data-ttu-id="3d0f0-370">Bovendien de `StreamWriter` object moet worden gebruikt met de beschikbare kenmerk ingeschakeld (standaard) en de **met** sleutelwoord:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-370">In addition, the `StreamWriter` object must be used with the Disposable attribute enabled (default) and with the **using** keyword:</span></span>
+<span data-ttu-id="b321a-369">Houd er rekening mee dat het is belangrijk tooflush Hallo buffer toohello gegevensbestand na elke iteratie rij.</span><span class="sxs-lookup"><span data-stu-id="b321a-369">Note that it's important tooflush hello data buffer toohello file after each row iteration.</span></span> <span data-ttu-id="b321a-370">Bovendien Hallo `StreamWriter` object moet worden gebruikt met Hallo beschikbare kenmerk ingeschakeld (standaard) en Hallo **met** sleutelwoord:</span><span class="sxs-lookup"><span data-stu-id="b321a-370">In addition, hello `StreamWriter` object must be used with hello Disposable attribute enabled (default) and with hello **using** keyword:</span></span>
 
 ```
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1320,10 +1320,10 @@ using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._enc
 }
 ```
 
-<span data-ttu-id="3d0f0-371">Anders expliciet worden aangeroepen methode Flush() na elke iteratie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-371">Otherwise, call Flush() method explicitly after each iteration.</span></span> <span data-ttu-id="3d0f0-372">We zien in het volgende voorbeeld.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-372">We show this in the following example.</span></span>
+<span data-ttu-id="b321a-371">Anders expliciet worden aangeroepen methode Flush() na elke iteratie.</span><span class="sxs-lookup"><span data-stu-id="b321a-371">Otherwise, call Flush() method explicitly after each iteration.</span></span> <span data-ttu-id="b321a-372">We zien in het volgende voorbeeld Hallo.</span><span class="sxs-lookup"><span data-stu-id="b321a-372">We show this in hello following example.</span></span>
 
-### <a name="set-headers-and-footers-for-user-defined-outputter"></a><span data-ttu-id="3d0f0-373">Kopteksten en voetteksten ingesteld voor de gebruiker gedefinieerde outputter</span><span class="sxs-lookup"><span data-stu-id="3d0f0-373">Set headers and footers for user-defined outputter</span></span>
-<span data-ttu-id="3d0f0-374">U stelt een koptekst met één iteratie uitvoering stroom.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-374">To set a header, use single iteration execution flow.</span></span>
+### <a name="set-headers-and-footers-for-user-defined-outputter"></a><span data-ttu-id="b321a-373">Kopteksten en voetteksten ingesteld voor de gebruiker gedefinieerde outputter</span><span class="sxs-lookup"><span data-stu-id="b321a-373">Set headers and footers for user-defined outputter</span></span>
+<span data-ttu-id="b321a-374">een koptekst tooset gebruiken één iteratie uitvoering stroom.</span><span class="sxs-lookup"><span data-stu-id="b321a-374">tooset a header, use single iteration execution flow.</span></span>
 
 ```
 public override void Output(IRow row, IUnstructuredWriter output)
@@ -1344,11 +1344,11 @@ if (isHeaderRow)
 }
 ```
 
-<span data-ttu-id="3d0f0-375">De code in de eerste `if (isHeaderRow)` blok wordt slechts één keer uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-375">The code in the first `if (isHeaderRow)` block is executed only once.</span></span>
+<span data-ttu-id="b321a-375">Hallo-code in Hallo eerst `if (isHeaderRow)` blok wordt slechts één keer uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-375">hello code in hello first `if (isHeaderRow)` block is executed only once.</span></span>
 
-<span data-ttu-id="3d0f0-376">Gebruik de verwijzing naar het exemplaar van voor de voettekst `System.IO.Stream` object (`output.BaseStream`).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-376">For the footer, use the reference to the instance of `System.IO.Stream` object (`output.BaseStream`).</span></span> <span data-ttu-id="3d0f0-377">Schrijven van de voettekst in de methode Close() van de `IOutputter` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-377">Write the footer in the Close() method of the `IOutputter` interface.</span></span>  <span data-ttu-id="3d0f0-378">(Zie het volgende voorbeeld voor meer informatie.)</span><span class="sxs-lookup"><span data-stu-id="3d0f0-378">(For more information, see the following example.)</span></span>
+<span data-ttu-id="b321a-376">Gebruik voor voettekst Hallo Hallo verwijzing toohello exemplaar van `System.IO.Stream` object (`output.BaseStream`).</span><span class="sxs-lookup"><span data-stu-id="b321a-376">For hello footer, use hello reference toohello instance of `System.IO.Stream` object (`output.BaseStream`).</span></span> <span data-ttu-id="b321a-377">Schrijf Hallo voettekst in Hallo Close() methode Hallo `IOutputter` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-377">Write hello footer in hello Close() method of hello `IOutputter` interface.</span></span>  <span data-ttu-id="b321a-378">(Zie Hallo voorbeeld te volgen voor meer informatie.)</span><span class="sxs-lookup"><span data-stu-id="b321a-378">(For more information, see hello following example.)</span></span>
 
-<span data-ttu-id="3d0f0-379">Hieronder volgt een voorbeeld van een gebruiker gedefinieerde outputter:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-379">Following is an example of a user-defined outputter:</span></span>
+<span data-ttu-id="b321a-379">Hieronder volgt een voorbeeld van een gebruiker gedefinieerde outputter:</span><span class="sxs-lookup"><span data-stu-id="b321a-379">Following is an example of a user-defined outputter:</span></span>
 
 ```
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1369,10 +1369,10 @@ public class HTMLOutputter : IOutputter
     this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
     }
 
-    // The Close method is used to write the footer to the file. It's executed only once, after all rows
+    // hello Close method is used toowrite hello footer toohello file. It's executed only once, after all rows
     public override void Close().
     {
-    //Reference to IO.Stream object - g_writer
+    //Reference tooIO.Stream object - g_writer
     StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
     streamWriter.Write("</table>");
     streamWriter.Flush();
@@ -1383,7 +1383,7 @@ public class HTMLOutputter : IOutputter
     {
     System.IO.StreamWriter streamWriter = new StreamWriter(output.BaseStream, this.encoding);
 
-    // Metadata schema initialization to enumerate column names
+    // Metadata schema initialization tooenumerate column names
     ISchema schema = row.Schema;
 
     // This is a data-independent header--HTML table definition
@@ -1419,7 +1419,7 @@ public class HTMLOutputter : IOutputter
         string val = "";
         try
         {
-        // Data type enumeration--required to match the distinct list of types from OUTPUT statement
+        // Data type enumeration--required toomatch hello distinct list of types from OUTPUT statement
         switch (col.Type.Name.ToString().ToLower())
         {
             case "string": val = row.Get<string>(col.Name).ToString(); break;
@@ -1439,13 +1439,13 @@ public class HTMLOutputter : IOutputter
     {
         isHeaderRow = false;
     }
-    // Reference to the instance of the IO.Stream object for footer generation
+    // Reference toohello instance of hello IO.Stream object for footer generation
     g_writer = output.BaseStream;
     streamWriter.Flush();
     }
 }
 
-// Define the factory classes
+// Define hello factory classes
 public static class Factory
 {
     public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
@@ -1455,7 +1455,7 @@ public static class Factory
 }
 ```
 
-<span data-ttu-id="3d0f0-380">En base U-SQL-script:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-380">And U-SQL base script:</span></span>
+<span data-ttu-id="b321a-380">En base U-SQL-script:</span><span class="sxs-lookup"><span data-stu-id="b321a-380">And U-SQL base script:</span></span>
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1471,23 +1471,23 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
          USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
 OUTPUT @rs0 
-    TO @output_file 
+    too@output_file 
     USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-<span data-ttu-id="3d0f0-381">Dit is een HTML-outputter een HTML-bestand gemaakt met gegevens in een tabel.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-381">This is an HTML outputter, which creates an HTML file with table data.</span></span>
+<span data-ttu-id="b321a-381">Dit is een HTML-outputter een HTML-bestand gemaakt met gegevens in een tabel.</span><span class="sxs-lookup"><span data-stu-id="b321a-381">This is an HTML outputter, which creates an HTML file with table data.</span></span>
 
-### <a name="call-outputter-from-u-sql-base-script"></a><span data-ttu-id="3d0f0-382">Outputter aanroepen vanuit base U-SQL-script</span><span class="sxs-lookup"><span data-stu-id="3d0f0-382">Call outputter from U-SQL base script</span></span>
-<span data-ttu-id="3d0f0-383">Als u een aangepaste outputter vanuit het basistype U-SQL-script, heeft het nieuwe exemplaar van het object outputter worden gemaakt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-383">To call a custom outputter from the base U-SQL script, the new instance of the outputter object has to be created.</span></span>
+### <a name="call-outputter-from-u-sql-base-script"></a><span data-ttu-id="b321a-382">Outputter aanroepen vanuit base U-SQL-script</span><span class="sxs-lookup"><span data-stu-id="b321a-382">Call outputter from U-SQL base script</span></span>
+<span data-ttu-id="b321a-383">een aangepaste outputter van Hallo base U-SQL-script toocall, Hallo nieuw exemplaar van Hallo outputter object heeft toobe gemaakt.</span><span class="sxs-lookup"><span data-stu-id="b321a-383">toocall a custom outputter from hello base U-SQL script, hello new instance of hello outputter object has toobe created.</span></span>
 
 ```sql
-OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
+OUTPUT @rs0 too@output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-<span data-ttu-id="3d0f0-384">Om te voorkomen maakt u een instantie van het object in base script, maken we een wrapper functie, zoals wordt weergegeven in het vorige voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-384">To avoid creating an instance of the object in base script, we can create a function wrapper, as shown in our earlier example:</span></span>
+<span data-ttu-id="b321a-384">maken van een exemplaar van Hallo tooavoid object base script maken we een wrapper functie, zoals wordt weergegeven in het vorige voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="b321a-384">tooavoid creating an instance of hello object in base script, we can create a function wrapper, as shown in our earlier example:</span></span>
 
 ```c#
-        // Define the factory classes
+        // Define hello factory classes
         public static class Factory
         {
             public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
@@ -1497,20 +1497,20 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
         }
 ```
 
-<span data-ttu-id="3d0f0-385">In dit geval wordt de oorspronkelijke aanroep ziet er als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-385">In this case, the original call looks like the following:</span></span>
+<span data-ttu-id="b321a-385">De oorspronkelijke aanroep Hallo ziet in dit geval er Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="b321a-385">In this case, hello original call looks like hello following:</span></span>
 
 ```
 OUTPUT @rs0 
-TO @output_file 
+too@output_file 
 USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
-## <a name="use-user-defined-processors"></a><span data-ttu-id="3d0f0-386">Gebruiker gedefinieerde processors gebruiken</span><span class="sxs-lookup"><span data-stu-id="3d0f0-386">Use user-defined processors</span></span>
-<span data-ttu-id="3d0f0-387">Gebruiker gedefinieerde processor- of UDP, is een type van U-SQL-UDO waarmee u voor het verwerken van de binnenkomende rijen door toe te passen programmeerbare functies.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-387">User-defined processor, or UDP, is a type of U-SQL UDO that enables you to process the incoming rows by applying programmability features.</span></span> <span data-ttu-id="3d0f0-388">UDP kunt u kolommen combineren, waarden wijzigen en nieuwe kolommen toevoegen, indien nodig.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-388">UDP enables you to combine columns, modify values, and add new columns if necessary.</span></span> <span data-ttu-id="3d0f0-389">In principe helpt het verwerken van een rijenset vereiste gegevenselementen produceren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-389">Basically, it helps to process a rowset to produce required data elements.</span></span>
+## <a name="use-user-defined-processors"></a><span data-ttu-id="b321a-386">Gebruiker gedefinieerde processors gebruiken</span><span class="sxs-lookup"><span data-stu-id="b321a-386">Use user-defined processors</span></span>
+<span data-ttu-id="b321a-387">Gebruiker gedefinieerde processor- of UDP, is een type van U-SQL-UDO waarmee u tooprocess Hallo binnenkomende rijen door toe te passen programmeerbare functies.</span><span class="sxs-lookup"><span data-stu-id="b321a-387">User-defined processor, or UDP, is a type of U-SQL UDO that enables you tooprocess hello incoming rows by applying programmability features.</span></span> <span data-ttu-id="b321a-388">UDP, kunt u toocombine kolommen, wijzigt u de waarden en nieuwe kolommen toevoegen, indien nodig.</span><span class="sxs-lookup"><span data-stu-id="b321a-388">UDP enables you toocombine columns, modify values, and add new columns if necessary.</span></span> <span data-ttu-id="b321a-389">In principe helpt het tooprocess een rijenset tooproduce vereiste elementen.</span><span class="sxs-lookup"><span data-stu-id="b321a-389">Basically, it helps tooprocess a rowset tooproduce required data elements.</span></span>
 
-<span data-ttu-id="3d0f0-390">Als u wilt definiëren een UDP, moeten we maken een `IProcessor` contact kunnen maken met de `SqlUserDefinedProcessor` kenmerk optioneel voor UDP is.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-390">To define a UDP, we need to create an `IProcessor` interface with the `SqlUserDefinedProcessor` attribute, which is optional for UDP.</span></span>
+<span data-ttu-id="b321a-390">toodefine een UDP, moeten we toocreate een `IProcessor` interface Hello `SqlUserDefinedProcessor` kenmerk optioneel voor UDP is.</span><span class="sxs-lookup"><span data-stu-id="b321a-390">toodefine a UDP, we need toocreate an `IProcessor` interface with hello `SqlUserDefinedProcessor` attribute, which is optional for UDP.</span></span>
 
-<span data-ttu-id="3d0f0-391">Deze interface mag de definitie voor de `IRow` interface rijenset overschrijven, zoals wordt weergegeven in het volgende voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-391">This interface should contain the definition for the `IRow` interface rowset override, as shown in the following example:</span></span>
+<span data-ttu-id="b321a-391">Deze interface moet een definitie van Hallo voor Hallo bevatten `IRow` interface rijenset overschrijven, zoals wordt weergegeven in Hallo voorbeeld te volgen:</span><span class="sxs-lookup"><span data-stu-id="b321a-391">This interface should contain hello definition for hello `IRow` interface rowset override, as shown in hello following example:</span></span>
 
 ```
 [SqlUserDefinedProcessor]
@@ -1523,31 +1523,31 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-<span data-ttu-id="3d0f0-392">**SqlUserDefinedProcessor** geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde processor.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-392">**SqlUserDefinedProcessor** indicates that the type should be registered as a user-defined processor.</span></span> <span data-ttu-id="3d0f0-393">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-393">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-392">**SqlUserDefinedProcessor** geeft aan dat het Hallo-type moet worden geregistreerd als een gebruiker gedefinieerde processor.</span><span class="sxs-lookup"><span data-stu-id="b321a-392">**SqlUserDefinedProcessor** indicates that hello type should be registered as a user-defined processor.</span></span> <span data-ttu-id="b321a-393">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-393">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-394">Het kenmerk SqlUserDefinedProcessor **optionele** voor UDP-definitie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-394">The SqlUserDefinedProcessor attribute is **optional** for UDP definition.</span></span>
+<span data-ttu-id="b321a-394">Hallo SqlUserDefinedProcessor kenmerk **optionele** voor UDP-definitie.</span><span class="sxs-lookup"><span data-stu-id="b321a-394">hello SqlUserDefinedProcessor attribute is **optional** for UDP definition.</span></span>
 
-<span data-ttu-id="3d0f0-395">De belangrijkste programmeerbaarheid objecten zijn **invoer** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-395">The main programmability objects are **input** and **output**.</span></span> <span data-ttu-id="3d0f0-396">Het invoerobject wordt gebruikt om kolommen invoer en uitvoer te inventariseren en in te stellen uitvoergegevens als gevolg van de processoractiviteit.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-396">The input object is used to enumerate input columns and output, and to set output data as a result of the processor activity.</span></span>
+<span data-ttu-id="b321a-395">Hallo belangrijkste programmeerbaarheid objecten zijn **invoer** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="b321a-395">hello main programmability objects are **input** and **output**.</span></span> <span data-ttu-id="b321a-396">Hallo invoerobject is gebruikte tooenumerate invoerkolommen en uitvoer en de uitvoergegevens tooset als gevolg van Hallo processoractiviteit.</span><span class="sxs-lookup"><span data-stu-id="b321a-396">hello input object is used tooenumerate input columns and output, and tooset output data as a result of hello processor activity.</span></span>
 
-<span data-ttu-id="3d0f0-397">Invoerkolommen opsomming, gebruiken we de `input.Get` methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-397">For input columns enumeration, we use the `input.Get` method.</span></span>
+<span data-ttu-id="b321a-397">Voor de opsomming invoerkolommen, gebruiken we Hallo `input.Get` methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-397">For input columns enumeration, we use hello `input.Get` method.</span></span>
 
 ```
 string column_name = input.Get<string>("column_name");
 ```
 
-<span data-ttu-id="3d0f0-398">De parameter voor `input.Get` methode is een kolom die wordt doorgegeven als onderdeel van de `PRODUCE` -component van de `PROCESS` instructie van het basistype U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-398">The parameter for `input.Get` method is a column that's passed as part of the `PRODUCE` clause of the `PROCESS` statement of the U-SQL base script.</span></span> <span data-ttu-id="3d0f0-399">We moeten het juiste gegevenstype hier gebruiken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-399">We need to use the correct data type here.</span></span>
+<span data-ttu-id="b321a-398">parameter voor Hallo `input.Get` methode is een kolom die wordt doorgegeven als onderdeel van Hallo `PRODUCE` component Hallo `PROCESS` instructie van base Hallo U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="b321a-398">hello parameter for `input.Get` method is a column that's passed as part of hello `PRODUCE` clause of hello `PROCESS` statement of hello U-SQL base script.</span></span> <span data-ttu-id="b321a-399">We moeten toouse Hallo juiste gegevenstype hier.</span><span class="sxs-lookup"><span data-stu-id="b321a-399">We need toouse hello correct data type here.</span></span>
 
-<span data-ttu-id="3d0f0-400">Gebruik voor uitvoer, de `output.Set` methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-400">For output, use the `output.Set` method.</span></span>
+<span data-ttu-id="b321a-400">Gebruik voor uitvoer Hallo `output.Set` methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-400">For output, use hello `output.Set` method.</span></span>
 
-<span data-ttu-id="3d0f0-401">Het is belangrijk te weten dat aangepaste producent levert alleen kolommen en waarden die zijn gedefinieerd met de `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-401">It's important to note that custom producer only outputs columns and values that are defined with the `output.Set` method call.</span></span>
+<span data-ttu-id="b321a-401">Het is belangrijk toonote die aangepaste producent alleen levert kolommen en waarden die zijn gedefinieerd door hello `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="b321a-401">It's important toonote that custom producer only outputs columns and values that are defined with hello `output.Set` method call.</span></span>
 
 ```
 output.Set<string>("mycolumn", mycolumn);
 ```
 
-<span data-ttu-id="3d0f0-402">De uitvoer van de werkelijke processor wordt geactiveerd door het aanroepen van `return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-402">The actual processor output is triggered by calling `return output.AsReadOnly();`.</span></span>
+<span data-ttu-id="b321a-402">Hallo werkelijke processor uitvoer wordt geactiveerd door het aanroepen van `return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="b321a-402">hello actual processor output is triggered by calling `return output.AsReadOnly();`.</span></span>
 
-<span data-ttu-id="3d0f0-403">Hier volgt een voorbeeld van een processor:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-403">Following is a processor example:</span></span>
+<span data-ttu-id="b321a-403">Hier volgt een voorbeeld van een processor:</span><span class="sxs-lookup"><span data-stu-id="b321a-403">Following is a processor example:</span></span>
 
 ```
 [SqlUserDefinedProcessor]
@@ -1567,11 +1567,11 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-<span data-ttu-id="3d0f0-404">In dit scenario use case wordt een nieuwe kolom met de naam 'full_description' door een combinatie van de bestaande kolommen--in dit geval 'gebruiker' in hoofdletters en 'des' het genereren van de processor.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-404">In this use-case scenario, the processor is generating a new column called “full_description” by combining the existing columns--in this case, “user” in upper case, and “des”.</span></span> <span data-ttu-id="3d0f0-405">Ook worden opnieuw gegenereerd door een GUID en de oorspronkelijke en nieuwe GUID-waarden worden geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-405">It also regenerates a GUID and returns the original and new GUID values.</span></span>
+<span data-ttu-id="b321a-404">In dit scenario use case Hallo processor genereert een nieuwe kolom 'full_description' door een combinatie van Hallo bestaande kolommen--in dit geval 'gebruiker' in hoofdletters en 'des' genoemd.</span><span class="sxs-lookup"><span data-stu-id="b321a-404">In this use-case scenario, hello processor is generating a new column called “full_description” by combining hello existing columns--in this case, “user” in upper case, and “des”.</span></span> <span data-ttu-id="b321a-405">Ook worden opnieuw gegenereerd door een GUID en Hallo oorspronkelijke en nieuwe GUID-waarden retourneert.</span><span class="sxs-lookup"><span data-stu-id="b321a-405">It also regenerates a GUID and returns hello original and new GUID values.</span></span>
 
-<span data-ttu-id="3d0f0-406">Als u in het vorige voorbeeld zien kunt, kunt u C#-methoden tijdens aanroepen `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-406">As you can see from the previous example, you can call C# methods during `output.Set` method call.</span></span>
+<span data-ttu-id="b321a-406">Als u in het vorige voorbeeld Hallo zien kunt, kunt u C#-methoden tijdens aanroepen `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="b321a-406">As you can see from hello previous example, you can call C# methods during `output.Set` method call.</span></span>
 
-<span data-ttu-id="3d0f0-407">Hieronder volgt een voorbeeld van base U-SQL-script dat gebruikmaakt van een aangepaste processor:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-407">Following is an example of base U-SQL script that uses a custom processor:</span></span>
+<span data-ttu-id="b321a-407">Hieronder volgt een voorbeeld van base U-SQL-script dat gebruikmaakt van een aangepaste processor:</span><span class="sxs-lookup"><span data-stu-id="b321a-407">Following is an example of base U-SQL script that uses a custom processor:</span></span>
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -1593,26 +1593,26 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
              new_guid Guid
      USING new USQL_Programmability.FullDescriptionProcessor();
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-## <a name="use-user-defined-appliers"></a><span data-ttu-id="3d0f0-408">Gebruik van de gebruiker gedefinieerde appliers</span><span class="sxs-lookup"><span data-stu-id="3d0f0-408">Use user-defined appliers</span></span>
-<span data-ttu-id="3d0f0-409">Een gebruiker gedefinieerde applier van U-SQL kunt u een aangepaste C#-functie voor elke rij die wordt geretourneerd door de buitenste tabelexpressie van een query worden aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-409">A U-SQL user-defined applier enables you to invoke a custom C# function for each row that's returned by the outer table expression of a query.</span></span> <span data-ttu-id="3d0f0-410">De juiste invoerwaarden wordt geëvalueerd voor elke rij uit de linker-invoer en de rijen die worden gemaakt voor de uiteindelijke uitvoer worden gecombineerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-410">The right input is evaluated for each row from the left input, and the rows that are produced are combined for the final output.</span></span> <span data-ttu-id="3d0f0-411">De lijst met kolommen die worden geproduceerd door de operator APPLY zijn de combinatie van de set kolommen in de linkerkant en de juiste invoerwaarden.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-411">The list of columns that are produced by the APPLY operator are the combination of the set of columns in the left and the right input.</span></span>
+## <a name="use-user-defined-appliers"></a><span data-ttu-id="b321a-408">Gebruik van de gebruiker gedefinieerde appliers</span><span class="sxs-lookup"><span data-stu-id="b321a-408">Use user-defined appliers</span></span>
+<span data-ttu-id="b321a-409">Een gebruiker gedefinieerde applier van U-SQL kunt u tooinvoke een aangepaste C#-functie voor elke rij die wordt geretourneerd door de buitenste tabelexpressie Hallo van een query.</span><span class="sxs-lookup"><span data-stu-id="b321a-409">A U-SQL user-defined applier enables you tooinvoke a custom C# function for each row that's returned by hello outer table expression of a query.</span></span> <span data-ttu-id="b321a-410">de juiste invoerwaarden Hello wordt geëvalueerd voor elke rij uit de linker invoer Hallo en Hallo rijen die worden gemaakt voor de uiteindelijke uitvoer Hallo worden gecombineerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-410">hello right input is evaluated for each row from hello left input, and hello rows that are produced are combined for hello final output.</span></span> <span data-ttu-id="b321a-411">Hallo-lijst met kolommen die worden geproduceerd door de operator APPLY Hallo zijn Hallo combinatie van Hallo set kolommen in Hallo links en Hallo rechts invoer.</span><span class="sxs-lookup"><span data-stu-id="b321a-411">hello list of columns that are produced by hello APPLY operator are hello combination of hello set of columns in hello left and hello right input.</span></span>
 
-<span data-ttu-id="3d0f0-412">Als onderdeel van de expressie USQL Selecteer wordt gebruiker gedefinieerde applier aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-412">User-defined applier is being invoked as part of the USQL SELECT expression.</span></span>
+<span data-ttu-id="b321a-412">Als onderdeel van Hallo expressie USQL Selecteer wordt gebruiker gedefinieerde applier aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="b321a-412">User-defined applier is being invoked as part of hello USQL SELECT expression.</span></span>
 
-<span data-ttu-id="3d0f0-413">De typische aanroep van de gebruiker gedefinieerde applier ziet er als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-413">The typical call to the user-defined applier looks like the following:</span></span>
+<span data-ttu-id="b321a-413">Hallo typische aanroep toohello gebruiker gedefinieerde applier lijkt erop Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="b321a-413">hello typical call toohello user-defined applier looks like hello following:</span></span>
 
 ```
 SELECT …
 FROM …
-CROSS APPLYis used to pass parameters
+CROSS APPLYis used toopass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-<span data-ttu-id="3d0f0-414">Zie voor meer informatie over het gebruik van appliers in een SELECT-expressie [U-SQL Selecteer selecteren in de CROSS APPLY en OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-414">For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).</span></span>
+<span data-ttu-id="b321a-414">Zie voor meer informatie over het gebruik van appliers in een SELECT-expressie [U-SQL Selecteer selecteren in de CROSS APPLY en OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).</span><span class="sxs-lookup"><span data-stu-id="b321a-414">For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).</span></span>
 
-<span data-ttu-id="3d0f0-415">De gebruiker gedefinieerde applier base klassendefinitie is als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-415">The user-defined applier base class definition is as follows:</span></span>
+<span data-ttu-id="b321a-415">Hallo gebruiker gedefinieerde applier basisklassendefinitie is als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-415">hello user-defined applier base class definition is as follows:</span></span>
 
 ```
 public abstract class IApplier : IUserDefinedOperator
@@ -1623,7 +1623,7 @@ public abstract IEnumerable<IRow> Apply(IRow input, IUpdatableRow output);
 }
 ```
 
-<span data-ttu-id="3d0f0-416">Als u een gebruiker gedefinieerde applier definieert, moeten we maken de `IApplier` contact kunnen maken met de [`SqlUserDefinedApplier`] kenmerk, maar dit optioneel voor een gebruiker gedefinieerde applier definitie is.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-416">To define a user-defined applier, we need to create the `IApplier` interface with the [`SqlUserDefinedApplier`] attribute, which is optional for a user-defined applier definition.</span></span>
+<span data-ttu-id="b321a-416">een door de gebruiker gedefinieerde applier toodefine, moeten we toocreate hello `IApplier` interface met Hallo [`SqlUserDefinedApplier`] kenmerk, maar dit optioneel voor een gebruiker gedefinieerde applier definitie is.</span><span class="sxs-lookup"><span data-stu-id="b321a-416">toodefine a user-defined applier, we need toocreate hello `IApplier` interface with hello [`SqlUserDefinedApplier`] attribute, which is optional for a user-defined applier definition.</span></span>
 
 ```
 [SqlUserDefinedApplier]
@@ -1641,23 +1641,23 @@ public class ParserApplier : IApplier
 }
 ```
 
-* <span data-ttu-id="3d0f0-417">Van toepassing is aangeroepen voor elke rij van de buitenste tabel.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-417">Apply is called for each row of the outer table.</span></span> <span data-ttu-id="3d0f0-418">Deze retourneert de `IUpdatableRow` uitvoer van de rijenset.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-418">It returns the `IUpdatableRow` output rowset.</span></span>
-* <span data-ttu-id="3d0f0-419">De Constructor-klasse wordt gebruikt voor parameters doorgeven aan de gebruiker gedefinieerde applier.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-419">The Constructor class is used to pass parameters to the user-defined applier.</span></span>
+* <span data-ttu-id="b321a-417">Van toepassing is aangeroepen voor elke rij van de buitenste tabel Hallo.</span><span class="sxs-lookup"><span data-stu-id="b321a-417">Apply is called for each row of hello outer table.</span></span> <span data-ttu-id="b321a-418">Deze retourneert Hallo `IUpdatableRow` uitvoer van de rijenset.</span><span class="sxs-lookup"><span data-stu-id="b321a-418">It returns hello `IUpdatableRow` output rowset.</span></span>
+* <span data-ttu-id="b321a-419">Hallo Constructor klasse is gebruikte toopass parameters toohello gebruiker gedefinieerde applier.</span><span class="sxs-lookup"><span data-stu-id="b321a-419">hello Constructor class is used toopass parameters toohello user-defined applier.</span></span>
 
-<span data-ttu-id="3d0f0-420">**SqlUserDefinedApplier** geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde applier.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-420">**SqlUserDefinedApplier** indicates that the type should be registered as a user-defined applier.</span></span> <span data-ttu-id="3d0f0-421">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-421">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-420">**SqlUserDefinedApplier** geeft aan dat het Hallo-type moet worden geregistreerd als een gebruiker gedefinieerde applier.</span><span class="sxs-lookup"><span data-stu-id="b321a-420">**SqlUserDefinedApplier** indicates that hello type should be registered as a user-defined applier.</span></span> <span data-ttu-id="b321a-421">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-421">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-422">**SqlUserDefinedApplier** is **optionele** voor een gebruiker gedefinieerde applier definitie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-422">**SqlUserDefinedApplier** is **optional** for a user-defined applier definition.</span></span>
+<span data-ttu-id="b321a-422">**SqlUserDefinedApplier** is **optionele** voor een gebruiker gedefinieerde applier definitie.</span><span class="sxs-lookup"><span data-stu-id="b321a-422">**SqlUserDefinedApplier** is **optional** for a user-defined applier definition.</span></span>
 
 
-<span data-ttu-id="3d0f0-423">De belangrijkste programmeerbare objecten zijn als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-423">The main programmability objects are as follows:</span></span>
+<span data-ttu-id="b321a-423">Hallo belangrijkste programmeerbare objecten zijn als volgt:</span><span class="sxs-lookup"><span data-stu-id="b321a-423">hello main programmability objects are as follows:</span></span>
 
 ```
 public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
-<span data-ttu-id="3d0f0-424">Invoer rijensets worden doorgegeven als `IRow` invoer.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-424">Input rowsets are passed as `IRow` input.</span></span> <span data-ttu-id="3d0f0-425">De uitvoer rijen worden gegenereerd als `IUpdatableRow` uitvoer-interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-425">The output rows are generated as `IUpdatableRow` output interface.</span></span>
+<span data-ttu-id="b321a-424">Invoer rijensets worden doorgegeven als `IRow` invoer.</span><span class="sxs-lookup"><span data-stu-id="b321a-424">Input rowsets are passed as `IRow` input.</span></span> <span data-ttu-id="b321a-425">Hallo rijen uitvoer gegenereerd als `IUpdatableRow` uitvoer-interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-425">hello output rows are generated as `IUpdatableRow` output interface.</span></span>
 
-<span data-ttu-id="3d0f0-426">Afzonderlijke kolomnamen kunnen worden bepaald door het aanroepen van de `IRow` Schema-methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-426">Individual column names can be determined by calling the `IRow` Schema method.</span></span>
+<span data-ttu-id="b321a-426">Afzonderlijke kolomnamen kunnen worden bepaald door de aanroepende Hallo `IRow` Schema-methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-426">Individual column names can be determined by calling hello `IRow` Schema method.</span></span>
 
 ```
 ISchema schema = row.Schema;
@@ -1665,35 +1665,35 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-<span data-ttu-id="3d0f0-427">De werkelijke waarden ophalen uit de binnenkomende `IRow`, gebruiken we de methode Get() van `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-427">To get the actual data values from the incoming `IRow`, we use the Get() method of `IRow` interface.</span></span>
+<span data-ttu-id="b321a-427">tooget hello werkelijke gegevenswaarden van inkomende hello `IRow`, gebruiken we Hallo Get() methode van `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-427">tooget hello actual data values from hello incoming `IRow`, we use hello Get() method of `IRow` interface.</span></span>
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-<span data-ttu-id="3d0f0-428">Of we de naam van de schema-kolom gebruiken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-428">Or we use the schema column name:</span></span>
+<span data-ttu-id="b321a-428">Of we de schemanaam kolom hello gebruiken:</span><span class="sxs-lookup"><span data-stu-id="b321a-428">Or we use hello schema column name:</span></span>
 
 ```
 row.Get<int>(row.Schema[0].Name)
 ```
 
-<span data-ttu-id="3d0f0-429">De uitvoerwaarden moeten worden ingesteld met `IUpdatableRow` uitvoer:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-429">The output values must be set with `IUpdatableRow` output:</span></span>
+<span data-ttu-id="b321a-429">Hallo uitvoerwaarden moeten worden ingesteld met `IUpdatableRow` uitvoer:</span><span class="sxs-lookup"><span data-stu-id="b321a-429">hello output values must be set with `IUpdatableRow` output:</span></span>
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-<span data-ttu-id="3d0f0-430">Het is belangrijk te begrijpen dat aangepaste appliers uitvoer alleen kolommen en waarden die zijn gedefinieerd met `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-430">It is important to understand that custom appliers only output columns and values that are defined with `output.Set` method call.</span></span>
+<span data-ttu-id="b321a-430">Het is belangrijk toounderstand aangepaste appliers alleen uitvoer kolommen en waarden die zijn gedefinieerd met `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="b321a-430">It is important toounderstand that custom appliers only output columns and values that are defined with `output.Set` method call.</span></span>
 
-<span data-ttu-id="3d0f0-431">De werkelijke uitvoer wordt geactiveerd door het aanroepen van `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-431">The actual output is triggered by calling `yield return output.AsReadOnly();`.</span></span>
+<span data-ttu-id="b321a-431">Hallo werkelijke output wordt geactiveerd door het aanroepen van `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="b321a-431">hello actual output is triggered by calling `yield return output.AsReadOnly();`.</span></span>
 
-<span data-ttu-id="3d0f0-432">De gebruiker gedefinieerde applier parameters kunnen worden doorgegeven aan de constructor.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-432">The user-defined applier parameters can be passed to the constructor.</span></span> <span data-ttu-id="3d0f0-433">Applier kunnen een variabele aantal kolommen dat moet worden gedefinieerd tijdens het aanroepen van applier in base U-SQL-Script geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-433">Applier can return a variable number of columns that need to be defined during the applier call in base U-SQL Script.</span></span>
+<span data-ttu-id="b321a-432">Hallo gebruiker gedefinieerde applier parameters kunnen toohello-constructor worden doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="b321a-432">hello user-defined applier parameters can be passed toohello constructor.</span></span> <span data-ttu-id="b321a-433">Applier kunnen een variabele aantal kolommen dat toobe gedefinieerd tijdens Hallo applier aanroep in base U-SQL-Script moet worden geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="b321a-433">Applier can return a variable number of columns that need toobe defined during hello applier call in base U-SQL Script.</span></span>
 
 ```
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
-<span data-ttu-id="3d0f0-434">Hier volgt de gebruiker gedefinieerde applier voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-434">Here is the user-defined applier example:</span></span>
+<span data-ttu-id="b321a-434">Hier volgt Hallo gebruiker gedefinieerde applier voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="b321a-434">Here is hello user-defined applier example:</span></span>
 
 ```
 [SqlUserDefinedApplier]
@@ -1751,7 +1751,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 }
 ```
 
-<span data-ttu-id="3d0f0-435">Dit is het basistype U-SQL-script voor deze door de gebruiker gedefinieerde applier:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-435">Following is the base U-SQL script for this user-defined applier:</span></span>
+<span data-ttu-id="b321a-435">Hieronder vindt u Hallo base U-SQL-script voor deze gebruiker gedefinieerde applier:</span><span class="sxs-lookup"><span data-stu-id="b321a-435">Following is hello base U-SQL script for this user-defined applier:</span></span>
 
 ```
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -1777,10 +1777,10 @@ DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
     CROSS APPLY
     new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-<span data-ttu-id="3d0f0-436">In dit scenario gebruik case fungeert gebruiker gedefinieerde applier als een door komma's gescheiden waarde parser voor de vloot auto-eigenschappen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-436">In this use case scenario, user-defined applier acts as a comma-delimited value parser for the car fleet properties.</span></span> <span data-ttu-id="3d0f0-437">De rijen invoerbestand er als volgt uit:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-437">The input file rows look like the following:</span></span>
+<span data-ttu-id="b321a-436">In dit scenario gebruik case vissersvloot applier fungeert als een door komma's gescheiden waarde parser voor Hallo auto gebruiker gedefinieerde eigenschappen.</span><span class="sxs-lookup"><span data-stu-id="b321a-436">In this use case scenario, user-defined applier acts as a comma-delimited value parser for hello car fleet properties.</span></span> <span data-ttu-id="b321a-437">Hallo invoerbestand rijen eruitzien als Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="b321a-437">hello input file rows look like hello following:</span></span>
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
@@ -1788,30 +1788,30 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
-<span data-ttu-id="3d0f0-438">Er is een typische door tabs gescheiden TSV bestand met een kolom met eigenschappen van die auto eigenschappen zoals het merk en model bevat.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-438">It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model.</span></span> <span data-ttu-id="3d0f0-439">Deze eigenschappen moeten worden geparseerd naar kolommen in de tabel.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-439">Those properties must be parsed to the table columns.</span></span> <span data-ttu-id="3d0f0-440">De applier die opgegeven kunt u het genereren van een dynamische aantal eigenschappen in de rijenset resultaat, op basis van de parameter die wordt doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-440">The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed.</span></span> <span data-ttu-id="3d0f0-441">U kunt alle eigenschappen of een specifieke set eigenschappen alleen genereren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-441">You can generate either all properties or a specific set of properties only.</span></span>
+<span data-ttu-id="b321a-438">Er is een typische door tabs gescheiden TSV bestand met een kolom met eigenschappen van die auto eigenschappen zoals het merk en model bevat.</span><span class="sxs-lookup"><span data-stu-id="b321a-438">It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model.</span></span> <span data-ttu-id="b321a-439">Deze eigenschappen moet de geparseerde toohello tabelkolommen.</span><span class="sxs-lookup"><span data-stu-id="b321a-439">Those properties must be parsed toohello table columns.</span></span> <span data-ttu-id="b321a-440">Hallo applier die opgegeven kunt u ook toogenerate een dynamische aantal eigenschappen in Hallo rijenset leiden, op basis van het Hallo-parameter die wordt doorgegeven.</span><span class="sxs-lookup"><span data-stu-id="b321a-440">hello applier that's provided also enables you toogenerate a dynamic number of properties in hello result rowset, based on hello parameter that's passed.</span></span> <span data-ttu-id="b321a-441">U kunt alle eigenschappen of een specifieke set eigenschappen alleen genereren.</span><span class="sxs-lookup"><span data-stu-id="b321a-441">You can generate either all properties or a specific set of properties only.</span></span>
 
     …USQL_Programmability.ParserApplier ("all")
     …USQL_Programmability.ParserApplier ("make")
     …USQL_Programmability.ParserApplier ("make&model")
 
-<span data-ttu-id="3d0f0-442">De gebruiker gedefinieerde applier kan worden aangeroepen als een nieuw exemplaar van applier object:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-442">The user-defined applier can be called as a new instance of applier object:</span></span>
+<span data-ttu-id="b321a-442">Hallo gebruiker gedefinieerde applier kan worden aangeroepen als een nieuw exemplaar van applier object:</span><span class="sxs-lookup"><span data-stu-id="b321a-442">hello user-defined applier can be called as a new instance of applier object:</span></span>
 
 ```
 CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
-<span data-ttu-id="3d0f0-443">Of met het aanroepen van een wrapper-fabrieksmethode:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-443">Or with the invocation of a wrapper factory method:</span></span>
+<span data-ttu-id="b321a-443">Of met Hallo aanroep van een wrapper-fabrieksmethode:</span><span class="sxs-lookup"><span data-stu-id="b321a-443">Or with hello invocation of a wrapper factory method:</span></span>
 
 ```c#
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
-## <a name="use-user-defined-combiners"></a><span data-ttu-id="3d0f0-444">Gebruik van de gebruiker gedefinieerde combiners</span><span class="sxs-lookup"><span data-stu-id="3d0f0-444">Use user-defined combiners</span></span>
-<span data-ttu-id="3d0f0-445">Gebruiker gedefinieerde combiner of UDC, kunt u rijen uit de linker- en rijensets, op basis van aangepaste regels worden gecombineerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-445">User-defined combiner, or UDC, enables you to combine rows from left and right rowsets, based on custom logic.</span></span> <span data-ttu-id="3d0f0-446">Gebruiker gedefinieerde combiner wordt met COMBINEREN expressie gebruikt.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-446">User-defined combiner is used with COMBINE expression.</span></span>
+## <a name="use-user-defined-combiners"></a><span data-ttu-id="b321a-444">Gebruik van de gebruiker gedefinieerde combiners</span><span class="sxs-lookup"><span data-stu-id="b321a-444">Use user-defined combiners</span></span>
+<span data-ttu-id="b321a-445">Gebruiker gedefinieerde combiner of UDC, kunt u toocombine rijen uit de linker- en rijensets, op basis van aangepaste logica.</span><span class="sxs-lookup"><span data-stu-id="b321a-445">User-defined combiner, or UDC, enables you toocombine rows from left and right rowsets, based on custom logic.</span></span> <span data-ttu-id="b321a-446">Gebruiker gedefinieerde combiner wordt met COMBINEREN expressie gebruikt.</span><span class="sxs-lookup"><span data-stu-id="b321a-446">User-defined combiner is used with COMBINE expression.</span></span>
 
-<span data-ttu-id="3d0f0-447">Een combiner wordt aangeroepen met de expressie COMBINEREN met de benodigde informatie over zowel de invoer rijensets, de groepering kolommen, het verwachte resultaat schema en aanvullende informatie.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-447">A combiner is being invoked with the COMBINE expression that provides the necessary information about both the input rowsets, the grouping columns, the expected result schema, and additional information.</span></span>
+<span data-ttu-id="b321a-447">Een combiner wordt aangeroepen met de Hallo COMBINEREN expressie waarmee Hallo nodige informatie over beide invoer rijensets hello, groeperen kolommen, Hallo Hallo verwacht resultaat schema en aanvullende informatie.</span><span class="sxs-lookup"><span data-stu-id="b321a-447">A combiner is being invoked with hello COMBINE expression that provides hello necessary information about both hello input rowsets, hello grouping columns, hello expected result schema, and additional information.</span></span>
 
-<span data-ttu-id="3d0f0-448">Om aan te roepen een combiner in een base U-SQL-script, maar we gebruiken de volgende syntaxis:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-448">To call a combiner in a base U-SQL script, we use the following syntax:</span></span>
+<span data-ttu-id="b321a-448">toocall een combiner in een base U-SQL-script, gebruiken we Hallo de volgende syntaxis:</span><span class="sxs-lookup"><span data-stu-id="b321a-448">toocall a combiner in a base U-SQL script, we use hello following syntax:</span></span>
 
 ```
 Combine_Expression :=
@@ -1824,11 +1824,11 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-<span data-ttu-id="3d0f0-449">Zie voor meer informatie [COMBINEREN expressie (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-449">For more information, see [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).</span></span>
+<span data-ttu-id="b321a-449">Zie voor meer informatie [COMBINEREN expressie (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).</span><span class="sxs-lookup"><span data-stu-id="b321a-449">For more information, see [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).</span></span>
 
-<span data-ttu-id="3d0f0-450">Als u een gebruiker gedefinieerde combiner definieert, moeten we maken de `ICombiner` contact kunnen maken met de [`SqlUserDefinedCombiner`] kenmerk optioneel voor een definitie van een gebruiker gedefinieerde Combiner is.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-450">To define a user-defined combiner, we need to create the `ICombiner` interface with the [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined Combiner definition.</span></span>
+<span data-ttu-id="b321a-450">een door de gebruiker gedefinieerde combiner toodefine, moeten we toocreate hello `ICombiner` interface met Hallo [`SqlUserDefinedCombiner`] kenmerk optioneel voor een definitie van een gebruiker gedefinieerde Combiner is.</span><span class="sxs-lookup"><span data-stu-id="b321a-450">toodefine a user-defined combiner, we need toocreate hello `ICombiner` interface with hello [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined Combiner definition.</span></span>
 
-<span data-ttu-id="3d0f0-451">Base `ICombiner` definitie van klasse:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-451">Base `ICombiner` class definition:</span></span>
+<span data-ttu-id="b321a-451">Base `ICombiner` definitie van klasse:</span><span class="sxs-lookup"><span data-stu-id="b321a-451">Base `ICombiner` class definition:</span></span>
 
 ```
 public abstract class ICombiner : IUserDefinedOperator
@@ -1841,7 +1841,7 @@ public abstract IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-<span data-ttu-id="3d0f0-452">De aangepaste implementatie van een `ICombiner` interface mag de definitie voor een `IEnumerable<IRow>` onderdrukking combineren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-452">The custom implementation of an `ICombiner` interface should contain the definition for an `IEnumerable<IRow>` Combine override.</span></span>
+<span data-ttu-id="b321a-452">Hallo aangepaste implementatie van een `ICombiner` interface moet bevatten Hallo definitie voor een `IEnumerable<IRow>` onderdrukking combineren.</span><span class="sxs-lookup"><span data-stu-id="b321a-452">hello custom implementation of an `ICombiner` interface should contain hello definition for an `IEnumerable<IRow>` Combine override.</span></span>
 
 ```
 [SqlUserDefinedCombiner]
@@ -1856,45 +1856,45 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-<span data-ttu-id="3d0f0-453">De **SqlUserDefinedCombiner** kenmerk geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde combiner.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-453">The **SqlUserDefinedCombiner** attribute indicates that the type should be registered as a user-defined combiner.</span></span> <span data-ttu-id="3d0f0-454">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-454">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-453">Hallo **SqlUserDefinedCombiner** kenmerk geeft aan dat Hallo type moet worden geregistreerd als een gebruiker gedefinieerde combiner.</span><span class="sxs-lookup"><span data-stu-id="b321a-453">hello **SqlUserDefinedCombiner** attribute indicates that hello type should be registered as a user-defined combiner.</span></span> <span data-ttu-id="b321a-454">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-454">This class cannot be inherited.</span></span>
 
-<span data-ttu-id="3d0f0-455">**SqlUserDefinedCombiner** wordt gebruikt voor het definiëren van de eigenschap Combiner mode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-455">**SqlUserDefinedCombiner** is used to define the Combiner mode property.</span></span> <span data-ttu-id="3d0f0-456">Het is een optioneel kenmerk voor een definitie van de gebruiker gedefinieerde combiner.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-456">It is an optional attribute for a user-defined combiner definition.</span></span>
+<span data-ttu-id="b321a-455">**SqlUserDefinedCombiner** is gebruikte toodefine hello Combiner modus eigenschap.</span><span class="sxs-lookup"><span data-stu-id="b321a-455">**SqlUserDefinedCombiner** is used toodefine hello Combiner mode property.</span></span> <span data-ttu-id="b321a-456">Het is een optioneel kenmerk voor een definitie van de gebruiker gedefinieerde combiner.</span><span class="sxs-lookup"><span data-stu-id="b321a-456">It is an optional attribute for a user-defined combiner definition.</span></span>
 
-<span data-ttu-id="3d0f0-457">CombinerMode modus</span><span class="sxs-lookup"><span data-stu-id="3d0f0-457">CombinerMode     Mode</span></span>
+<span data-ttu-id="b321a-457">CombinerMode modus</span><span class="sxs-lookup"><span data-stu-id="b321a-457">CombinerMode     Mode</span></span>
 
-<span data-ttu-id="3d0f0-458">CombinerMode enum kan duren voordat de volgende waarden:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-458">CombinerMode enum can take the following values:</span></span>
+<span data-ttu-id="b321a-458">CombinerMode enum kan duren voordat Hallo volgende waarden:</span><span class="sxs-lookup"><span data-stu-id="b321a-458">CombinerMode enum can take hello following values:</span></span>
 
-* <span data-ttu-id="3d0f0-459">Volledig (0) elke rij van de uitvoer mogelijk afhankelijk van alle invoer rijen van links en met dezelfde sleutelwaarde.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-459">Full  (0) Every output row potentially depends on all the input rows from left and right       with the same key value.</span></span>
+* <span data-ttu-id="b321a-459">Volledig (0) alle Hallo invoer rijen uit elke rij van de uitvoer mogelijk afhankelijk linker- en Hallo met dezelfde sleutelwaarde.</span><span class="sxs-lookup"><span data-stu-id="b321a-459">Full  (0) Every output row potentially depends on all hello input rows from left and right       with hello same key value.</span></span>
 
-* <span data-ttu-id="3d0f0-460">Left (1) de rij voor elke uitvoer, is afhankelijk van één rij invoer van links (en mogelijk alle rijen uit de rechts met dezelfde sleutelwaarde).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-460">Left  (1) Every output row depends on a single input row from the left (and potentially all rows       from the right with the same key value).</span></span>
+* <span data-ttu-id="b321a-460">Links (1), elke rij van de uitvoer is afhankelijk van één rij invoer van Hallo links (en mogelijk alle rijen uit Hallo Hallo met dezelfde sleutelwaarde).</span><span class="sxs-lookup"><span data-stu-id="b321a-460">Left  (1) Every output row depends on a single input row from hello left (and potentially all rows       from hello right with hello same key value).</span></span>
 
-* <span data-ttu-id="3d0f0-461">Recht (2) de rij voor elke uitvoer, is afhankelijk van één rij invoer van het recht (en mogelijk alle rijen uit de linkerkant met dezelfde sleutelwaarde).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-461">Right (2)     Every output row depends on a single input row from the right (and potentially all rows       from the left with the same key value).</span></span>
+* <span data-ttu-id="b321a-461">Rechts (2), elke rij van de uitvoer is afhankelijk van één rij invoer van de juiste hello (en mogelijk alle rijen uit Hallo links Hello dezelfde sleutelwaarde).</span><span class="sxs-lookup"><span data-stu-id="b321a-461">Right (2)     Every output row depends on a single input row from hello right (and potentially all rows       from hello left with hello same key value).</span></span>
 
-* <span data-ttu-id="3d0f0-462">Binnenste (3) de rij voor elke uitvoer, is afhankelijk van een enkele rij invoer van links en rechts met dezelfde waarde.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-462">Inner (3) Every output row depends on a single input row from left and right with the same value.</span></span>
+* <span data-ttu-id="b321a-462">Interne (3), elke rij van de uitvoer is afhankelijk van een invoer van één rij uit de linker- en rechterzijde Hello dezelfde waarde.</span><span class="sxs-lookup"><span data-stu-id="b321a-462">Inner (3) Every output row depends on a single input row from left and right with hello same value.</span></span>
 
-<span data-ttu-id="3d0f0-463">Voorbeeld: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]</span><span class="sxs-lookup"><span data-stu-id="3d0f0-463">Example:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]</span></span>
+<span data-ttu-id="b321a-463">Voorbeeld: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]</span><span class="sxs-lookup"><span data-stu-id="b321a-463">Example:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]</span></span>
 
 
-<span data-ttu-id="3d0f0-464">De belangrijkste programmeerbare objecten zijn:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-464">The main programmability objects are:</span></span>
+<span data-ttu-id="b321a-464">Hallo belangrijkste programmeerbare objecten zijn:</span><span class="sxs-lookup"><span data-stu-id="b321a-464">hello main programmability objects are:</span></span>
 
 ```c#
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```
 
-<span data-ttu-id="3d0f0-465">Invoer rijensets worden doorgegeven als **links** en **rechts** `IRowset` type interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-465">Input rowsets are passed as **left** and **right** `IRowset` type of interface.</span></span> <span data-ttu-id="3d0f0-466">Beide rijensets moet worden geïnventariseerd voor verwerking.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-466">Both rowsets must be enumerated for processing.</span></span> <span data-ttu-id="3d0f0-467">U kunt elke interface slechts een keer opsommen zodat we niet inventariseren en deze in de cache indien nodig.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-467">You can only enumerate each interface once, so we have to enumerate and cache it if necessary.</span></span>
+<span data-ttu-id="b321a-465">Invoer rijensets worden doorgegeven als **links** en **rechts** `IRowset` type interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-465">Input rowsets are passed as **left** and **right** `IRowset` type of interface.</span></span> <span data-ttu-id="b321a-466">Beide rijensets moet worden geïnventariseerd voor verwerking.</span><span class="sxs-lookup"><span data-stu-id="b321a-466">Both rowsets must be enumerated for processing.</span></span> <span data-ttu-id="b321a-467">U kunt elke interface slechts een keer opsommen zodat we tooenumerate hebben en deze in de cache indien nodig.</span><span class="sxs-lookup"><span data-stu-id="b321a-467">You can only enumerate each interface once, so we have tooenumerate and cache it if necessary.</span></span>
 
-<span data-ttu-id="3d0f0-468">Voor cachedoeleinden, maken we een lijst\<T\> type geheugenstructuur als gevolg hiervan van een LINQ uitvoering van de query, specifiek lijst <`IRow`>.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-468">For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>.</span></span> <span data-ttu-id="3d0f0-469">Het anonieme type kan worden gebruikt tijdens de opsomming ook.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-469">The anonymous data type can be used during enumeration as well.</span></span>
+<span data-ttu-id="b321a-468">Voor cachedoeleinden, maken we een lijst\<T\> type geheugenstructuur als gevolg hiervan van een LINQ uitvoering van de query, specifiek lijst <`IRow`>.</span><span class="sxs-lookup"><span data-stu-id="b321a-468">For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>.</span></span> <span data-ttu-id="b321a-469">Hallo anonieme gegevenstype kan worden gebruikt tijdens de opsomming ook.</span><span class="sxs-lookup"><span data-stu-id="b321a-469">hello anonymous data type can be used during enumeration as well.</span></span>
 
-<span data-ttu-id="3d0f0-470">Zie [Inleiding tot LINQ-query's (C#)](https://msdn.microsoft.com/library/bb397906.aspx) voor meer informatie over de LINQ-query's en [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) voor meer informatie over IEnumerable\<T\> interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-470">See [Introduction to LINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) for more information about LINQ queries, and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.</span></span>
+<span data-ttu-id="b321a-470">Zie [inleiding tooLINQ query's (C#)](https://msdn.microsoft.com/library/bb397906.aspx) voor meer informatie over de LINQ-query's en [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) voor meer informatie over IEnumerable\<T\> interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-470">See [Introduction tooLINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) for more information about LINQ queries, and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.</span></span>
 
-<span data-ttu-id="3d0f0-471">De werkelijke waarden ophalen uit de binnenkomende `IRowset`, gebruiken we de methode Get() van `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-471">To get the actual data values from the incoming `IRowset`, we use the Get() method of `IRow` interface.</span></span>
+<span data-ttu-id="b321a-471">tooget hello werkelijke gegevenswaarden van inkomende hello `IRowset`, gebruiken we Hallo Get() methode van `IRow` interface.</span><span class="sxs-lookup"><span data-stu-id="b321a-471">tooget hello actual data values from hello incoming `IRowset`, we use hello Get() method of `IRow` interface.</span></span>
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-<span data-ttu-id="3d0f0-472">Afzonderlijke kolomnamen kunnen worden bepaald door het aanroepen van de `IRow` Schema-methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-472">Individual column names can be determined by calling the `IRow` Schema method.</span></span>
+<span data-ttu-id="b321a-472">Afzonderlijke kolomnamen kunnen worden bepaald door de aanroepende Hallo `IRow` Schema-methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-472">Individual column names can be determined by calling hello `IRow` Schema method.</span></span>
 
 ```
 ISchema schema = row.Schema;
@@ -1902,13 +1902,13 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-<span data-ttu-id="3d0f0-473">Of met behulp van de naam van de schema-kolom:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-473">Or by using the schema column name:</span></span>
+<span data-ttu-id="b321a-473">Of met behulp van de schemanaam kolom Hallo:</span><span class="sxs-lookup"><span data-stu-id="b321a-473">Or by using hello schema column name:</span></span>
 
 ```
 c# row.Get<int>(row.Schema[0].Name)
 ```
 
-<span data-ttu-id="3d0f0-474">De algemene opsomming met LINQ ziet er als volgt:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-474">The general enumeration with LINQ looks like the following:</span></span>
+<span data-ttu-id="b321a-474">Hallo algemene opsomming met LINQ ziet er Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="b321a-474">hello general enumeration with LINQ looks like hello following:</span></span>
 
 ```
 var myRowset =
@@ -1919,17 +1919,17 @@ var myRowset =
                           }).ToList();
 ```
 
-<span data-ttu-id="3d0f0-475">We gaan doorlopen alle rijen na het inventariseren van beide rijensets.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-475">After enumerating both rowsets, we are going to loop through all rows.</span></span> <span data-ttu-id="3d0f0-476">We gaan zoeken naar alle rijen die voldoen aan de voorwaarde van onze combiner voor elke rij in de linker-rijenset.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-476">For each row in the left rowset, we are going to find all rows that satisfy the condition of our combiner.</span></span>
+<span data-ttu-id="b321a-475">We gaan tooloop via alle rijen na het inventariseren van beide rijensets.</span><span class="sxs-lookup"><span data-stu-id="b321a-475">After enumerating both rowsets, we are going tooloop through all rows.</span></span> <span data-ttu-id="b321a-476">Voor elke rij in het linkerdeelvenster rijenset hello gaan we toofind alle rijen die voldoen aan de voorwaarde van onze combiner Hallo.</span><span class="sxs-lookup"><span data-stu-id="b321a-476">For each row in hello left rowset, we are going toofind all rows that satisfy hello condition of our combiner.</span></span>
 
-<span data-ttu-id="3d0f0-477">De uitvoerwaarden moeten worden ingesteld met `IUpdatableRow` uitvoer.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-477">The output values must be set with `IUpdatableRow` output.</span></span>
+<span data-ttu-id="b321a-477">Hallo uitvoerwaarden moeten worden ingesteld met `IUpdatableRow` uitvoer.</span><span class="sxs-lookup"><span data-stu-id="b321a-477">hello output values must be set with `IUpdatableRow` output.</span></span>
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-<span data-ttu-id="3d0f0-478">De werkelijke uitvoer wordt geactiveerd door aanroepen naar `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-478">The actual output is triggered by calling to `yield return output.AsReadOnly();`.</span></span>
+<span data-ttu-id="b321a-478">Hallo werkelijke output wordt geactiveerd door aan te roepen te`yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="b321a-478">hello actual output is triggered by calling too`yield return output.AsReadOnly();`.</span></span>
 
-<span data-ttu-id="3d0f0-479">Hier volgt een voorbeeld van een combiner:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-479">Following is a combiner example:</span></span>
+<span data-ttu-id="b321a-479">Hier volgt een voorbeeld van een combiner:</span><span class="sxs-lookup"><span data-stu-id="b321a-479">Following is a combiner example:</span></span>
 
 ```
 [SqlUserDefinedCombiner]
@@ -1983,9 +1983,9 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-<span data-ttu-id="3d0f0-480">In dit scenario use case wordt een rapport analytics gemaakt voor de detailhandel.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-480">In this use-case scenario, we are building an analytics report for the retailer.</span></span> <span data-ttu-id="3d0f0-481">Het doel is te vinden van alle producten die meer dan 20.000 $ kosten en die via de website sneller dan via de detailhandel reguliere binnen een bepaald tijdsbestek verkopen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-481">The goal is to find all products that cost more than $20,000 and that sell through the website faster than through the regular retailer within a certain time frame.</span></span>
+<span data-ttu-id="b321a-480">In dit scenario use case wordt een rapport analytics voor Hallo detailhandel gemaakt.</span><span class="sxs-lookup"><span data-stu-id="b321a-480">In this use-case scenario, we are building an analytics report for hello retailer.</span></span> <span data-ttu-id="b321a-481">Hallo-doel is toofind alle producten die meer dan 20.000 $ en die kosten via Hallo website sneller dan via reguliere detailhandel Hallo binnen een bepaald tijdsbestek verkopen.</span><span class="sxs-lookup"><span data-stu-id="b321a-481">hello goal is toofind all products that cost more than $20,000 and that sell through hello website faster than through hello regular retailer within a certain time frame.</span></span>
 
-<span data-ttu-id="3d0f0-482">Hier is het basistype U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-482">Here is the base U-SQL script.</span></span> <span data-ttu-id="3d0f0-483">U kunt de logica tussen een OUTER-JOIN en een combiner vergelijken:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-483">You can compare the logic between a regular JOIN and a combiner:</span></span>
+<span data-ttu-id="b321a-482">Hier volgt Hallo base U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="b321a-482">Here is hello base U-SQL script.</span></span> <span data-ttu-id="b321a-483">U kunt Hallo logica tussen een OUTER-JOIN en een combiner vergelijken:</span><span class="sxs-lookup"><span data-stu-id="b321a-483">You can compare hello logic between a regular JOIN and a combiner:</span></span>
 
 ```sql
 DECLARE @LocalURI string = @"\usql-programmability\";
@@ -2076,32 +2076,32 @@ PRODUCE OrderDateKey int,
         Reseller_Sales_Amount decimal
 USING new USQL_Programmability.CombineSales();
 
-OUTPUT @rs1 TO @output_file1 USING Outputters.Tsv();
-OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
+OUTPUT @rs1 too@output_file1 USING Outputters.Tsv();
+OUTPUT @rs2 too@output_file2 USING Outputters.Tsv();
 ```
 
-<span data-ttu-id="3d0f0-484">Een door de gebruiker gedefinieerde combiner kan worden aangeroepen als een nieuw exemplaar van het applier object:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-484">A user-defined combiner can be called as a new instance of the applier object:</span></span>
+<span data-ttu-id="b321a-484">Een door de gebruiker gedefinieerde combiner kan worden aangeroepen als een nieuw exemplaar van Hallo applier object:</span><span class="sxs-lookup"><span data-stu-id="b321a-484">A user-defined combiner can be called as a new instance of hello applier object:</span></span>
 
 ```
 USING new MyNameSpace.MyCombiner();
 ```
 
 
-<span data-ttu-id="3d0f0-485">Of met het aanroepen van een wrapper-fabrieksmethode:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-485">Or with the invocation of a wrapper factory method:</span></span>
+<span data-ttu-id="b321a-485">Of met Hallo aanroep van een wrapper-fabrieksmethode:</span><span class="sxs-lookup"><span data-stu-id="b321a-485">Or with hello invocation of a wrapper factory method:</span></span>
 
 ```
 USING MyNameSpace.MyCombiner();
 ```
 
-## <a name="use-user-defined-reducers"></a><span data-ttu-id="3d0f0-486">Gebruik van de gebruiker gedefinieerde verkleiningstoestellen</span><span class="sxs-lookup"><span data-stu-id="3d0f0-486">Use user-defined reducers</span></span>
+## <a name="use-user-defined-reducers"></a><span data-ttu-id="b321a-486">Gebruik van de gebruiker gedefinieerde verkleiningstoestellen</span><span class="sxs-lookup"><span data-stu-id="b321a-486">Use user-defined reducers</span></span>
 
-<span data-ttu-id="3d0f0-487">U-SQL kunt u aangepaste rijenset verkleiningstoestellen in C# schrijven met behulp van de gebruiker gedefinieerde operator uitbreidbaarheid framework en een IReducer-interface implementeren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-487">U-SQL enables you to write custom rowset reducers in C# by using the user-defined operator extensibility framework and implementing an IReducer interface.</span></span>
+<span data-ttu-id="b321a-487">U-SQL kunt u toowrite aangepaste rijenset verkleiningstoestellen in C# met behulp van Hallo gebruiker gedefinieerde operator uitbreidbaarheid framework en een IReducer-interface implementeren.</span><span class="sxs-lookup"><span data-stu-id="b321a-487">U-SQL enables you toowrite custom rowset reducers in C# by using hello user-defined operator extensibility framework and implementing an IReducer interface.</span></span>
 
-<span data-ttu-id="3d0f0-488">Gebruiker gedefinieerde reducer of UDR, kan worden gebruikt om te verwijderen van onnodige rijen tijdens het ophalen van gegevens (importeren).</span><span class="sxs-lookup"><span data-stu-id="3d0f0-488">User-defined reducer, or UDR, can be used to eliminate unnecessary rows during data extraction (import).</span></span> <span data-ttu-id="3d0f0-489">Het kan ook worden gebruikt om te bewerken en evalueren van rijen en kolommen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-489">It also can be used to manipulate and evaluate rows and columns.</span></span> <span data-ttu-id="3d0f0-490">Op basis van programmeerbaarheid logica, kunt het ook bepalen welke rijen moeten worden geëxtraheerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-490">Based on programmability logic, it can also define which rows need to be extracted.</span></span>
+<span data-ttu-id="b321a-488">Gebruiker gedefinieerde reducer of UDR, kan gebruikte tooeliminate onnodige rijen zijn tijdens het ophalen van gegevens (importeren).</span><span class="sxs-lookup"><span data-stu-id="b321a-488">User-defined reducer, or UDR, can be used tooeliminate unnecessary rows during data extraction (import).</span></span> <span data-ttu-id="b321a-489">Het kan ook worden gebruikt toomanipulate en evalueren rijen en kolommen.</span><span class="sxs-lookup"><span data-stu-id="b321a-489">It also can be used toomanipulate and evaluate rows and columns.</span></span> <span data-ttu-id="b321a-490">Op basis van programmeerbaarheid logica, kunt deze ook bepalen welke rijen moeten toobe hebt uitgepakt.</span><span class="sxs-lookup"><span data-stu-id="b321a-490">Based on programmability logic, it can also define which rows need toobe extracted.</span></span>
 
-<span data-ttu-id="3d0f0-491">Als u wilt een UDR klasse definieert, moeten we maken een `IReducer` interface met een optionele `SqlUserDefinedReducer` kenmerk.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-491">To define a UDR class, we need to create an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.</span></span>
+<span data-ttu-id="b321a-491">een klasse UDR toodefine, moeten we toocreate een `IReducer` interface met een optionele `SqlUserDefinedReducer` kenmerk.</span><span class="sxs-lookup"><span data-stu-id="b321a-491">toodefine a UDR class, we need toocreate an `IReducer` interface with an optional `SqlUserDefinedReducer` attribute.</span></span>
 
-<span data-ttu-id="3d0f0-492">Deze klasseninterface moet een definitie voor bevatten de `IEnumerable` interface rijenset overschrijven.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-492">This class interface should contain a definition for the `IEnumerable` interface rowset override.</span></span>
+<span data-ttu-id="b321a-492">Deze klasseninterface moet een definitie voor Hallo bevatten `IEnumerable` interface rijenset overschrijven.</span><span class="sxs-lookup"><span data-stu-id="b321a-492">This class interface should contain a definition for hello `IEnumerable` interface rowset override.</span></span>
 
 ```
 [SqlUserDefinedReducer]
@@ -2116,15 +2116,15 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-<span data-ttu-id="3d0f0-493">De **SqlUserDefinedReducer** kenmerk geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde reducer.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-493">The **SqlUserDefinedReducer** attribute indicates that the type should be registered as a user-defined reducer.</span></span> <span data-ttu-id="3d0f0-494">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-494">This class cannot be inherited.</span></span>
-<span data-ttu-id="3d0f0-495">**SqlUserDefinedReducer** is een optioneel kenmerk voor een definitie van de gebruiker gedefinieerde reducer.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-495">**SqlUserDefinedReducer** is an optional attribute for a user-defined reducer definition.</span></span> <span data-ttu-id="3d0f0-496">Wordt gebruikt om de eigenschap IsRecursive te definiëren.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-496">It's used to define IsRecursive property.</span></span>
+<span data-ttu-id="b321a-493">Hallo **SqlUserDefinedReducer** kenmerk geeft aan dat Hallo type moet worden geregistreerd als een gebruiker gedefinieerde reducer.</span><span class="sxs-lookup"><span data-stu-id="b321a-493">hello **SqlUserDefinedReducer** attribute indicates that hello type should be registered as a user-defined reducer.</span></span> <span data-ttu-id="b321a-494">Deze klasse kan niet worden overgenomen.</span><span class="sxs-lookup"><span data-stu-id="b321a-494">This class cannot be inherited.</span></span>
+<span data-ttu-id="b321a-495">**SqlUserDefinedReducer** is een optioneel kenmerk voor een definitie van de gebruiker gedefinieerde reducer.</span><span class="sxs-lookup"><span data-stu-id="b321a-495">**SqlUserDefinedReducer** is an optional attribute for a user-defined reducer definition.</span></span> <span data-ttu-id="b321a-496">Deze toodefine IsRecursive eigenschap gebruikt.</span><span class="sxs-lookup"><span data-stu-id="b321a-496">It's used toodefine IsRecursive property.</span></span>
 
-* <span data-ttu-id="3d0f0-497">BOOL IsRecursive</span><span class="sxs-lookup"><span data-stu-id="3d0f0-497">bool     IsRecursive</span></span>    
-* <span data-ttu-id="3d0f0-498">**de waarde True** = geeft aan of deze Reducer idempotent</span><span class="sxs-lookup"><span data-stu-id="3d0f0-498">**true**  = Indicates whether this Reducer is idempotent</span></span>
+* <span data-ttu-id="b321a-497">BOOL IsRecursive</span><span class="sxs-lookup"><span data-stu-id="b321a-497">bool     IsRecursive</span></span>    
+* <span data-ttu-id="b321a-498">**de waarde True** = geeft aan of deze Reducer idempotent</span><span class="sxs-lookup"><span data-stu-id="b321a-498">**true**  = Indicates whether this Reducer is idempotent</span></span>
 
-<span data-ttu-id="3d0f0-499">De belangrijkste programmeerbaarheid objecten zijn **invoer** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-499">The main programmability objects are **input** and **output**.</span></span> <span data-ttu-id="3d0f0-500">Het invoerobject wordt gebruikt voor het inventariseren van invoer rijen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-500">The input object is used to enumerate input rows.</span></span> <span data-ttu-id="3d0f0-501">Uitvoer wordt gebruikt om in te stellen uitvoer rijen als gevolg van de activiteit te verminderen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-501">Output is used to set output rows as a result of reducing activity.</span></span>
+<span data-ttu-id="b321a-499">Hallo belangrijkste programmeerbaarheid objecten zijn **invoer** en **uitvoer**.</span><span class="sxs-lookup"><span data-stu-id="b321a-499">hello main programmability objects are **input** and **output**.</span></span> <span data-ttu-id="b321a-500">Hallo invoerobject is gebruikte tooenumerate invoer rijen.</span><span class="sxs-lookup"><span data-stu-id="b321a-500">hello input object is used tooenumerate input rows.</span></span> <span data-ttu-id="b321a-501">Uitvoer is gebruikte tooset uitvoer rijen als gevolg van de activiteit te verminderen.</span><span class="sxs-lookup"><span data-stu-id="b321a-501">Output is used tooset output rows as a result of reducing activity.</span></span>
 
-<span data-ttu-id="3d0f0-502">Invoer rijen opsomming, gebruiken we de `Row.Get` methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-502">For input rows enumeration, we use the `Row.Get` method.</span></span>
+<span data-ttu-id="b321a-502">Voor invoer rijen opsomming, gebruiken we Hallo `Row.Get` methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-502">For input rows enumeration, we use hello `Row.Get` method.</span></span>
 
 ```
 foreach (IRow row in input.Rows)
@@ -2133,19 +2133,19 @@ foreach (IRow row in input.Rows)
 }
 ```
 
-<span data-ttu-id="3d0f0-503">De parameter voor de `Row.Get` methode is een kolom die wordt doorgegeven als onderdeel van de `PRODUCE` klasse van de `REDUCE` instructie van het basistype U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-503">The parameter for the `Row.Get` method is a column that's passed as part of the `PRODUCE` class of the `REDUCE` statement of the U-SQL base script.</span></span> <span data-ttu-id="3d0f0-504">We moeten het juiste gegevenstype ook hier gebruiken.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-504">We need to use the correct data type here as well.</span></span>
+<span data-ttu-id="b321a-503">de parameter voor Hallo Hallo `Row.Get` methode is een kolom die wordt doorgegeven als onderdeel van Hallo `PRODUCE` klasse Hallo `REDUCE` instructie van base Hallo U-SQL-script.</span><span class="sxs-lookup"><span data-stu-id="b321a-503">hello parameter for hello `Row.Get` method is a column that's passed as part of hello `PRODUCE` class of hello `REDUCE` statement of hello U-SQL base script.</span></span> <span data-ttu-id="b321a-504">We moeten toouse Hallo juiste gegevenstype hier ook.</span><span class="sxs-lookup"><span data-stu-id="b321a-504">We need toouse hello correct data type here as well.</span></span>
 
-<span data-ttu-id="3d0f0-505">Gebruik voor uitvoer, de `output.Set` methode.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-505">For output, use the `output.Set` method.</span></span>
+<span data-ttu-id="b321a-505">Gebruik voor uitvoer Hallo `output.Set` methode.</span><span class="sxs-lookup"><span data-stu-id="b321a-505">For output, use hello `output.Set` method.</span></span>
 
-<span data-ttu-id="3d0f0-506">Het is belangrijk te begrijpen die aangepaste reducer levert alleen waarden die zijn gedefinieerd met de `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-506">It is important to understand that custom reducer only outputs values that are defined with the `output.Set` method call.</span></span>
+<span data-ttu-id="b321a-506">Het is belangrijk toounderstand die aangepaste reducer alleen uitvoer de waarden die zijn gedefinieerd met Hallo `output.Set` methodeaanroep.</span><span class="sxs-lookup"><span data-stu-id="b321a-506">It is important toounderstand that custom reducer only outputs values that are defined with hello `output.Set` method call.</span></span>
 
 ```
 output.Set<string>("mycolumn", guid);
 ```
 
-<span data-ttu-id="3d0f0-507">De uitvoer van de werkelijke reducer wordt geactiveerd door het aanroepen van `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-507">The actual reducer output is triggered by calling `yield return output.AsReadOnly();`.</span></span>
+<span data-ttu-id="b321a-507">Hallo werkelijke reducer uitvoer wordt geactiveerd door het aanroepen van `yield return output.AsReadOnly();`.</span><span class="sxs-lookup"><span data-stu-id="b321a-507">hello actual reducer output is triggered by calling `yield return output.AsReadOnly();`.</span></span>
 
-<span data-ttu-id="3d0f0-508">Hier volgt een voorbeeld van een reducer:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-508">Following is a reducer example:</span></span>
+<span data-ttu-id="b321a-508">Hier volgt een voorbeeld van een reducer:</span><span class="sxs-lookup"><span data-stu-id="b321a-508">Following is a reducer example:</span></span>
 
 ```
 [SqlUserDefinedReducer]
@@ -2181,9 +2181,9 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-<span data-ttu-id="3d0f0-509">In dit scenario use case, is de reducer rijen met een lege gebruikersnaam overgeslagen.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-509">In this use-case scenario, the reducer is skipping rows with an empty user name.</span></span> <span data-ttu-id="3d0f0-510">Voor elke rij in de rijenset elke vereiste kolom leest, vervolgens de lengte van de gebruikersnaam wordt geëvalueerd.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-510">For each row in rowset, it reads each required column, then evaluates the length of the user name.</span></span> <span data-ttu-id="3d0f0-511">Het levert de werkelijke rij alleen als de lengte van de gebruiker de naam van waarde is hoger dan 0.</span><span class="sxs-lookup"><span data-stu-id="3d0f0-511">It outputs the actual row only if user name value length is more than 0.</span></span>
+<span data-ttu-id="b321a-509">In dit scenario use case Hallo reducer is rijen met een lege gebruikersnaam wordt overgeslagen.</span><span class="sxs-lookup"><span data-stu-id="b321a-509">In this use-case scenario, hello reducer is skipping rows with an empty user name.</span></span> <span data-ttu-id="b321a-510">Voor elke rij in de rijenset elke vereiste kolom leest, vervolgens Hallo-lengte van de gebruikersnaam Hallo evalueert.</span><span class="sxs-lookup"><span data-stu-id="b321a-510">For each row in rowset, it reads each required column, then evaluates hello length of hello user name.</span></span> <span data-ttu-id="b321a-511">Het levert werkelijke rij Hallo alleen als de lengte van de gebruiker de naam van waarde is hoger dan 0.</span><span class="sxs-lookup"><span data-stu-id="b321a-511">It outputs hello actual row only if user name value length is more than 0.</span></span>
 
-<span data-ttu-id="3d0f0-512">Hieronder vindt u base U-SQL-script dat gebruikmaakt van een aangepaste reducer:</span><span class="sxs-lookup"><span data-stu-id="3d0f0-512">Following is base U-SQL script that uses a custom reducer:</span></span>
+<span data-ttu-id="b321a-512">Hieronder vindt u base U-SQL-script dat gebruikmaakt van een aangepaste reducer:</span><span class="sxs-lookup"><span data-stu-id="b321a-512">Following is base U-SQL script that uses a custom reducer:</span></span>
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";
@@ -2214,6 +2214,6 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @rs1;
 
 OUTPUT @rs2 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```

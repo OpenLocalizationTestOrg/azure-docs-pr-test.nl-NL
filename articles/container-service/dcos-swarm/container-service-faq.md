@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service - veelgestelde vragen | Microsoft Docs
-description: Antwoorden op veelgestelde vragen over Azure Container Service, die het eenvoudiger maakt om een cluster van virtuele machines voor het uitvoeren van Docker-container-apps, te maken, configureren en beheren.
+title: aaaAzure Container Service - Veelgestelde vragen | Microsoft Docs
+description: Antwoorden Veelgestelde vragen over Azure Container Service, een service die het maken van Hallo, configuratie en beheer van een cluster van virtuele machines toorun Docker-container apps vereenvoudigt.
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95bd6478540683afa45da2159579171dbf76e665
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: eee3b2db2d837aa601f33135c7424735eb842bff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [container-service-faq.md](../../../includes/container-service-faq.md)]

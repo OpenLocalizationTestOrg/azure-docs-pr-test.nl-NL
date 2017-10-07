@@ -1,6 +1,6 @@
 ---
-title: Azure-resources voor logische organisatie tag | Microsoft Docs
-description: Laat zien hoe de labels te organiseren Azure-resources voor facturerings- en beheren van toepassing.
+title: aaaTag Azure-resources voor logische organisatie | Microsoft Docs
+description: Toont hoe tooapply tags tooorganize Azure-resources voor facturerings- en beheren.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4f52c30614ad39da8a34ff6ecfb707b75400517f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e07470463d160f8cefe5c80bc91e66a96af6ca45
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a><span data-ttu-id="358ed-103">Tags gebruiken om uw Azure-resources te organiseren</span><span class="sxs-lookup"><span data-stu-id="358ed-103">Use tags to organize your Azure resources</span></span>
+# <a name="use-tags-tooorganize-your-azure-resources"></a><span data-ttu-id="16cb8-103">Gebruik tags tooorganize uw Azure-resources</span><span class="sxs-lookup"><span data-stu-id="16cb8-103">Use tags tooorganize your Azure resources</span></span>
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
-> <span data-ttu-id="358ed-104">U kunt tags toepassen alleen naar bronnen die ondersteuning bieden voor Azure Resource Manager-bewerkingen.</span><span class="sxs-lookup"><span data-stu-id="358ed-104">You can apply tags only to resources that support Azure Resource Manager operations.</span></span> <span data-ttu-id="358ed-105">Als u een virtuele machine, het virtuele netwerk of de storage-account via het klassieke implementatiemodel hebt gemaakt (bijvoorbeeld via de klassieke Azure portal), u een label niet toepassen op deze resource.</span><span class="sxs-lookup"><span data-stu-id="358ed-105">If you created a virtual machine, virtual network, or storage account through the classic deployment model (such as through the Azure classic portal), you cannot apply a tag to that resource.</span></span> <span data-ttu-id="358ed-106">Implementeren ter ondersteuning van labels, deze resources via Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="358ed-106">To support tagging, redeploy these resources through Resource Manager.</span></span> <span data-ttu-id="358ed-107">Alle andere bronnen ondersteuning voor codering.</span><span class="sxs-lookup"><span data-stu-id="358ed-107">All other resources support tagging.</span></span>
+> <span data-ttu-id="16cb8-104">U kunt alleen tooresources labels die ondersteuning bieden voor Azure Resource Manager-bewerkingen toepassen.</span><span class="sxs-lookup"><span data-stu-id="16cb8-104">You can apply tags only tooresources that support Azure Resource Manager operations.</span></span> <span data-ttu-id="16cb8-105">Als u een virtuele machine, het virtuele netwerk of de storage-account via de klassieke implementatiemodel hello (zoals als via Hallo klassieke Azure-portal) gemaakt, kunt u een label toothat resource niet toepassen.</span><span class="sxs-lookup"><span data-stu-id="16cb8-105">If you created a virtual machine, virtual network, or storage account through hello classic deployment model (such as through hello Azure classic portal), you cannot apply a tag toothat resource.</span></span> <span data-ttu-id="16cb8-106">toosupport tagging, implementeert u deze resources via Resource Manager opnieuw.</span><span class="sxs-lookup"><span data-stu-id="16cb8-106">toosupport tagging, redeploy these resources through Resource Manager.</span></span> <span data-ttu-id="16cb8-107">Alle andere bronnen ondersteuning voor codering.</span><span class="sxs-lookup"><span data-stu-id="16cb8-107">All other resources support tagging.</span></span>
 > 
 > 
 
-## <a name="policies-for-tag-consistency"></a><span data-ttu-id="358ed-108">Beleid voor consistentie van de tag</span><span class="sxs-lookup"><span data-stu-id="358ed-108">Policies for tag consistency</span></span>
+## <a name="policies-for-tag-consistency"></a><span data-ttu-id="16cb8-108">Beleid voor consistentie van de tag</span><span class="sxs-lookup"><span data-stu-id="16cb8-108">Policies for tag consistency</span></span>
 
-<span data-ttu-id="358ed-109">U kunt bronbeleid gebruiken voor het maken van standaardregels voor uw organisatie.</span><span class="sxs-lookup"><span data-stu-id="358ed-109">You can use resource policies to create standard rules for your organization.</span></span> <span data-ttu-id="358ed-110">U kunt beleidsregels die zorg ervoor dat resources worden gemarkeerd met de juiste waarden maken.</span><span class="sxs-lookup"><span data-stu-id="358ed-110">You can create policies that ensure resources are tagged with the appropriate values.</span></span> <span data-ttu-id="358ed-111">Zie voor meer informatie [bronbeleid voor tags toepassen](resource-manager-policy-tags.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-111">For more information, see [Apply resource policies for tags](resource-manager-policy-tags.md).</span></span>
+<span data-ttu-id="16cb8-109">U kunt resource toocreate standaardregels-beleid gebruiken voor uw organisatie.</span><span class="sxs-lookup"><span data-stu-id="16cb8-109">You can use resource policies toocreate standard rules for your organization.</span></span> <span data-ttu-id="16cb8-110">U kunt beleidsregels die zorg ervoor dat resources worden gemarkeerd met de juiste waarden Hallo maken.</span><span class="sxs-lookup"><span data-stu-id="16cb8-110">You can create policies that ensure resources are tagged with hello appropriate values.</span></span> <span data-ttu-id="16cb8-111">Zie voor meer informatie [bronbeleid voor tags toepassen](resource-manager-policy-tags.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-111">For more information, see [Apply resource policies for tags](resource-manager-policy-tags.md).</span></span>
 
-## <a name="powershell"></a><span data-ttu-id="358ed-112">PowerShell</span><span class="sxs-lookup"><span data-stu-id="358ed-112">PowerShell</span></span>
+## <a name="powershell"></a><span data-ttu-id="16cb8-112">PowerShell</span><span class="sxs-lookup"><span data-stu-id="16cb8-112">PowerShell</span></span>
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli"></a><span data-ttu-id="358ed-113">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="358ed-113">Azure CLI</span></span>
+## <a name="azure-cli"></a><span data-ttu-id="16cb8-113">Azure CLI</span><span class="sxs-lookup"><span data-stu-id="16cb8-113">Azure CLI</span></span>
 
-<span data-ttu-id="358ed-114">Gebruik het volgende om de bestaande tags van een *resourcegroep* te bekijken:</span><span class="sxs-lookup"><span data-stu-id="358ed-114">To see the existing tags for a *resource group*, use:</span></span>
+<span data-ttu-id="16cb8-114">toosee Hallo bestaande codes voor een *resourcegroep*, gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-114">toosee hello existing tags for a *resource group*, use:</span></span>
 
 ```azurecli
 az group show -n examplegroup --query tags
 ```
 
-<span data-ttu-id="358ed-115">Dat script retourneert de volgende indeling:</span><span class="sxs-lookup"><span data-stu-id="358ed-115">That script returns the following format:</span></span>
+<span data-ttu-id="16cb8-115">Script retourneert Hallo volgende indeling:</span><span class="sxs-lookup"><span data-stu-id="16cb8-115">That script returns hello following format:</span></span>
 
 ```json
 {
@@ -52,45 +52,45 @@ az group show -n examplegroup --query tags
 }
 ```
 
-<span data-ttu-id="358ed-116">Gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven bron-id*:</span><span class="sxs-lookup"><span data-stu-id="358ed-116">To see the existing tags for a *resource that has a specified resource ID*, use:</span></span>
+<span data-ttu-id="16cb8-116">toosee Hallo bestaande codes voor een *resource met een opgegeven bron-ID*, gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-116">toosee hello existing tags for a *resource that has a specified resource ID*, use:</span></span>
 
 ```azurecli
 az resource show --id {resource-id} --query tags
 ```
 
-<span data-ttu-id="358ed-117">Of, voor een overzicht van de bestaande codes voor een *resource met een opgegeven groep met de naam, type en resource*, gebruiken:</span><span class="sxs-lookup"><span data-stu-id="358ed-117">Or, to see the existing tags for a *resource that has a specified name, type, and resource group*, use:</span></span>
+<span data-ttu-id="16cb8-117">Of toosee Hallo bestaande codes voor een *resource met een opgegeven groep met de naam, type en resource*, gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-117">Or, toosee hello existing tags for a *resource that has a specified name, type, and resource group*, use:</span></span>
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-<span data-ttu-id="358ed-118">Als u de brongroepen die beschikken over een specifiek label, gebruikt `az group list`:</span><span class="sxs-lookup"><span data-stu-id="358ed-118">To get resource groups that have a specific tag, use `az group list`:</span></span>
+<span data-ttu-id="16cb8-118">tooget-resourcegroepen die beschikken over een specifieke tag gebruiken `az group list`:</span><span class="sxs-lookup"><span data-stu-id="16cb8-118">tooget resource groups that have a specific tag, use `az group list`:</span></span>
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-<span data-ttu-id="358ed-119">Als u alle resources die een bepaalde tag-waarde en, gebruikt `az resource list`:</span><span class="sxs-lookup"><span data-stu-id="358ed-119">To get all the resources that have a particular tag and value, use `az resource list`:</span></span>
+<span data-ttu-id="16cb8-119">alle Hallo-resources die een bepaalde tag en-waarde, gebruikt u tooget `az resource list`:</span><span class="sxs-lookup"><span data-stu-id="16cb8-119">tooget all hello resources that have a particular tag and value, use `az resource list`:</span></span>
 
 ```azurecli
 az resource list --tag Dept=Finance
 ```
 
-<span data-ttu-id="358ed-120">Wanneer u tags op een resource of resourcegroep toepast, overschrijft u de bestaande tags van die resource of resourcegroep.</span><span class="sxs-lookup"><span data-stu-id="358ed-120">Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group.</span></span> <span data-ttu-id="358ed-121">Als u een resource of resourcegroep hebt met bestaande tags, gaat u anders te werk dan wanneer dat niet het geval is.</span><span class="sxs-lookup"><span data-stu-id="358ed-121">Therefore, you must use a different approach based on whether the resource or resource group has existing tags.</span></span> 
+<span data-ttu-id="16cb8-120">Telkens wanneer u labels tooa resource of een resourcegroep hebt toegepast, kunt u bestaande labels op die resource of resourcegroep Hallo overschrijven.</span><span class="sxs-lookup"><span data-stu-id="16cb8-120">Every time you apply tags tooa resource or a resource group, you overwrite hello existing tags on that resource or resource group.</span></span> <span data-ttu-id="16cb8-121">Daarom moet u een andere benadering, op basis van of Hallo resource of resourcegroep bestaande labels heeft.</span><span class="sxs-lookup"><span data-stu-id="16cb8-121">Therefore, you must use a different approach based on whether hello resource or resource group has existing tags.</span></span> 
 
-<span data-ttu-id="358ed-122">Gebruik het volgende om tags toe te voegen aan een *resourcegroep zonder bestaande tags*:</span><span class="sxs-lookup"><span data-stu-id="358ed-122">To add tags to a *resource group without existing tags*, use:</span></span>
+<span data-ttu-id="16cb8-122">tooadd tags tooa *resourcegroep zonder bestaande tags*, gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-122">tooadd tags tooa *resource group without existing tags*, use:</span></span>
 
 ```azurecli
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-<span data-ttu-id="358ed-123">Gebruik het volgende om tags toe te voegen aan een *resource zonder bestaande tags*:</span><span class="sxs-lookup"><span data-stu-id="358ed-123">To add tags to a *resource without existing tags*, use:</span></span>
+<span data-ttu-id="16cb8-123">tooadd tags tooa *resource zonder bestaande tags*, gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-123">tooadd tags tooa *resource without existing tags*, use:</span></span>
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ``` 
 
-<span data-ttu-id="358ed-124">Om labels toevoegen aan een resource die al labels is, ophalen van de bestaande labels, die waarde opnieuw indelen en pas de labels voor bestaande en nieuwe:</span><span class="sxs-lookup"><span data-stu-id="358ed-124">To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags:</span></span> 
+<span data-ttu-id="16cb8-124">tooadd labels tooa resource die al is tags, Hallo bestaande labels ophalen, die waarde opnieuw indelen en Hallo bestaande en nieuwe tags toepassen:</span><span class="sxs-lookup"><span data-stu-id="16cb8-124">tooadd tags tooa resource that already has tags, retrieve hello existing tags, reformat that value, and reapply hello existing and new tags:</span></span> 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -98,7 +98,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-<span data-ttu-id="358ed-125">Gebruik het volgende script als u alle tags van een resourcegroep op de bijbehorende resources wilt toepassen *zonder de bestaande tags voor de resources te behouden*:</span><span class="sxs-lookup"><span data-stu-id="358ed-125">To apply all tags from a resource group to its resources, and *not retain existing tags on the resources*, use the following script:</span></span>
+<span data-ttu-id="16cb8-125">tooapply die alle labels van een resource tooits groepsbronnen en *bestaande labels op Hallo resources niet bewaren*, Hallo script volgende gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-125">tooapply all tags from a resource group tooits resources, and *not retain existing tags on hello resources*, use hello following script:</span></span>
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -114,7 +114,7 @@ do
 done
 ```
 
-<span data-ttu-id="358ed-126">Alle tags toepassen van een resourcegroep tot de bronnen en *bestaande tags voor bronnen behouden*, gebruikt u het volgende script:</span><span class="sxs-lookup"><span data-stu-id="358ed-126">To apply all tags from a resource group to its resources, and *retain existing tags on resources*, use the following script:</span></span>
+<span data-ttu-id="16cb8-126">tooapply die alle labels van een resource tooits groepsbronnen en *bestaande tags voor bronnen behouden*, Hallo script volgende gebruiken:</span><span class="sxs-lookup"><span data-stu-id="16cb8-126">tooapply all tags from a resource group tooits resources, and *retain existing tags on resources*, use hello following script:</span></span>
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -133,32 +133,32 @@ done
 ```
 
 
-## <a name="templates"></a><span data-ttu-id="358ed-127">Sjablonen</span><span class="sxs-lookup"><span data-stu-id="358ed-127">Templates</span></span>
+## <a name="templates"></a><span data-ttu-id="16cb8-127">Sjablonen</span><span class="sxs-lookup"><span data-stu-id="16cb8-127">Templates</span></span>
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
-## <a name="portal"></a><span data-ttu-id="358ed-128">Portal</span><span class="sxs-lookup"><span data-stu-id="358ed-128">Portal</span></span>
+## <a name="portal"></a><span data-ttu-id="16cb8-128">Portal</span><span class="sxs-lookup"><span data-stu-id="16cb8-128">Portal</span></span>
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 
-## <a name="rest-api"></a><span data-ttu-id="358ed-129">REST API</span><span class="sxs-lookup"><span data-stu-id="358ed-129">REST API</span></span>
-<span data-ttu-id="358ed-130">De Azure portal en PowerShell maken beide gebruik van de [REST-API van Resource Manager](https://docs.microsoft.com/rest/api/resources/) achter de schermen.</span><span class="sxs-lookup"><span data-stu-id="358ed-130">The Azure portal and PowerShell both use the [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) behind the scenes.</span></span> <span data-ttu-id="358ed-131">Als u integreren in een andere omgeving-tagging wilt, kunt u de labels krijgen met behulp van **ophalen** op de resource-ID en werk de set van labels met behulp van een **PATCH** aanroepen.</span><span class="sxs-lookup"><span data-stu-id="358ed-131">If you need to integrate tagging into another environment, you can get tags by using **GET** on the resource ID and update the set of tags by using a **PATCH** call.</span></span>
+## <a name="rest-api"></a><span data-ttu-id="16cb8-129">REST API</span><span class="sxs-lookup"><span data-stu-id="16cb8-129">REST API</span></span>
+<span data-ttu-id="16cb8-130">Hello Azure-portal en PowerShell gebruiken Hallo [REST-API van Resource Manager](https://docs.microsoft.com/rest/api/resources/) achter de schermen Hallo.</span><span class="sxs-lookup"><span data-stu-id="16cb8-130">hello Azure portal and PowerShell both use hello [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) behind hello scenes.</span></span> <span data-ttu-id="16cb8-131">Als u toointegrate labels in een andere omgeving nodig hebt, kunt u de labels krijgen met behulp van **ophalen** op Hallo resource-ID en update Hallo set van labels met behulp van een **PATCH** aanroepen.</span><span class="sxs-lookup"><span data-stu-id="16cb8-131">If you need toointegrate tagging into another environment, you can get tags by using **GET** on hello resource ID and update hello set of tags by using a **PATCH** call.</span></span>
 
-## <a name="tags-and-billing"></a><span data-ttu-id="358ed-132">Labels en facturering</span><span class="sxs-lookup"><span data-stu-id="358ed-132">Tags and billing</span></span>
-<span data-ttu-id="358ed-133">Labels kunt u uw factureringsgegevens groep.</span><span class="sxs-lookup"><span data-stu-id="358ed-133">You can use tags to group your billing data.</span></span> <span data-ttu-id="358ed-134">Bijvoorbeeld, als u meerdere virtuele machines voor verschillende organisaties uitvoert, gebruiken de codes voor een groep gebruik door kostenplaats.</span><span class="sxs-lookup"><span data-stu-id="358ed-134">For example, if you are running multiple VMs for different organizations, use the tags to group usage by cost center.</span></span> <span data-ttu-id="358ed-135">U kunt ook tags gebruiken om kosten te categoriseren door de runtimeomgeving, zoals het gebruik van facturering voor VM's worden uitgevoerd in de productieomgeving.</span><span class="sxs-lookup"><span data-stu-id="358ed-135">You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.</span></span>
-
-
-<span data-ttu-id="358ed-136">Vindt u informatie over tags via de [Azure brongebruik en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of het gebruik door komma's gescheiden waarden (CSV)-bestand.</span><span class="sxs-lookup"><span data-stu-id="358ed-136">You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file.</span></span> <span data-ttu-id="358ed-137">Downloaden van het bestand informatie over het gebruik van de [Azure accountportal](https://account.windowsazure.com/) of [EA portal](https://ea.azure.com).</span><span class="sxs-lookup"><span data-stu-id="358ed-137">You download the usage file from the [Azure account portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com).</span></span> <span data-ttu-id="358ed-138">Zie voor meer informatie over de programmatische toegang tot factureringsgegevens [inzicht in uw Microsoft Azure-brongebruik](../billing/billing-usage-rate-card-overview.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-138">For more information about programmatic access to billing information, see [Gain insights into your Microsoft Azure resource consumption](../billing/billing-usage-rate-card-overview.md).</span></span> <span data-ttu-id="358ed-139">Zie voor REST-API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).</span><span class="sxs-lookup"><span data-stu-id="358ed-139">For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).</span></span>
+## <a name="tags-and-billing"></a><span data-ttu-id="16cb8-132">Labels en facturering</span><span class="sxs-lookup"><span data-stu-id="16cb8-132">Tags and billing</span></span>
+<span data-ttu-id="16cb8-133">U kunt uw factureringsgegevens toogroup labels.</span><span class="sxs-lookup"><span data-stu-id="16cb8-133">You can use tags toogroup your billing data.</span></span> <span data-ttu-id="16cb8-134">Bijvoorbeeld, als u meerdere virtuele machines voor verschillende organisaties uitvoert, gebruik Hallo labels toogroup gebruik door kostenplaats.</span><span class="sxs-lookup"><span data-stu-id="16cb8-134">For example, if you are running multiple VMs for different organizations, use hello tags toogroup usage by cost center.</span></span> <span data-ttu-id="16cb8-135">U kunt ook labels toocategorize kosten door de runtimeomgeving, zoals facturering gebruik Hallo voor virtuele machines die worden uitgevoerd in de productieomgeving hello gebruiken.</span><span class="sxs-lookup"><span data-stu-id="16cb8-135">You can also use tags toocategorize costs by runtime environment, such as hello billing usage for VMs running in hello production environment.</span></span>
 
 
-<span data-ttu-id="358ed-140">Wanneer u het gebruik van CSV voor services die ondersteuning bieden voor tags met facturering downloadt, de labels worden weergegeven in de **labels** kolom.</span><span class="sxs-lookup"><span data-stu-id="358ed-140">When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column.</span></span> <span data-ttu-id="358ed-141">Zie voor meer informatie [inzicht in uw factuur voor Microsoft Azure](../billing/billing-understand-your-bill.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-141">For more information, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).</span></span>
+<span data-ttu-id="16cb8-136">U kunt informatie over tags via Hallo ophalen [Azure brongebruik en RateCard APIs](../billing/billing-usage-rate-card-overview.md) of Hallo-gebruik door komma's gescheiden waarden (CSV)-bestand.</span><span class="sxs-lookup"><span data-stu-id="16cb8-136">You can retrieve information about tags through hello [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) or hello usage comma-separated values (CSV) file.</span></span> <span data-ttu-id="16cb8-137">U Hallo gebruik bestand downloaden van Hallo [Azure accountportal](https://account.windowsazure.com/) of [EA portal](https://ea.azure.com).</span><span class="sxs-lookup"><span data-stu-id="16cb8-137">You download hello usage file from hello [Azure account portal](https://account.windowsazure.com/) or [EA portal](https://ea.azure.com).</span></span> <span data-ttu-id="16cb8-138">Zie voor meer informatie over toegang op programmeerniveau toobilling [inzicht in uw Microsoft Azure-brongebruik](../billing/billing-usage-rate-card-overview.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-138">For more information about programmatic access toobilling information, see [Gain insights into your Microsoft Azure resource consumption](../billing/billing-usage-rate-card-overview.md).</span></span> <span data-ttu-id="16cb8-139">Zie voor REST-API-bewerkingen, [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).</span><span class="sxs-lookup"><span data-stu-id="16cb8-139">For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).</span></span>
+
+
+<span data-ttu-id="16cb8-140">Wanneer u Hallo gebruik CSV voor services die ondersteuning bieden voor facturerings-tags downloadt, Hallo labels worden weergegeven in Hallo **labels** kolom.</span><span class="sxs-lookup"><span data-stu-id="16cb8-140">When you download hello usage CSV for services that support tags with billing, hello tags appear in hello **Tags** column.</span></span> <span data-ttu-id="16cb8-141">Zie voor meer informatie [inzicht in uw factuur voor Microsoft Azure](../billing/billing-understand-your-bill.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-141">For more information, see [Understand your bill for Microsoft Azure](../billing/billing-understand-your-bill.md).</span></span>
 
 ![Zie de labels in facturering](./media/resource-group-using-tags/billing_csv.png)
 
-## <a name="next-steps"></a><span data-ttu-id="358ed-143">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="358ed-143">Next steps</span></span>
-* <span data-ttu-id="358ed-144">U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement.</span><span class="sxs-lookup"><span data-stu-id="358ed-144">You can apply restrictions and conventions across your subscription by using customized policies.</span></span> <span data-ttu-id="358ed-145">Een beleid dat u definieert mogelijk dat alle resources voor een bepaald label een waarde hebben.</span><span class="sxs-lookup"><span data-stu-id="358ed-145">A policy that you define might require that all resources have a value for a particular tag.</span></span> <span data-ttu-id="358ed-146">Zie voor meer informatie [beleid gebruiken voor het beheren van resources en toegangsbeheer](resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-146">For more information, see [Use policies to manage resources and control access](resource-manager-policy.md).</span></span>
-* <span data-ttu-id="358ed-147">Zie voor een inleiding tot Azure PowerShell gebruiken wanneer u resources implementeert, [Azure PowerShell gebruiken met Azure Resource Manager](powershell-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-147">For an introduction to using Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).</span></span>
-* <span data-ttu-id="358ed-148">Zie voor een inleiding tot de Azure CLI gebruiken wanneer u resources implementeert, [met de Azure CLI voor Mac, Linux en Windows Azure Resource Manager](xplat-cli-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-148">For an introduction to using the Azure CLI when you're deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).</span></span>
-* <span data-ttu-id="358ed-149">Zie voor een inleiding tot de portal, [met behulp van de Azure-portal voor het beheren van uw Azure-resources](resource-group-portal.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-149">For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).</span></span>  
-* <span data-ttu-id="358ed-150">Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="358ed-150">For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="16cb8-143">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="16cb8-143">Next steps</span></span>
+* <span data-ttu-id="16cb8-144">U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement.</span><span class="sxs-lookup"><span data-stu-id="16cb8-144">You can apply restrictions and conventions across your subscription by using customized policies.</span></span> <span data-ttu-id="16cb8-145">Een beleid dat u definieert mogelijk dat alle resources voor een bepaald label een waarde hebben.</span><span class="sxs-lookup"><span data-stu-id="16cb8-145">A policy that you define might require that all resources have a value for a particular tag.</span></span> <span data-ttu-id="16cb8-146">Zie voor meer informatie [beleid toomanage resources gebruiken en toegangsbeheer](resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-146">For more information, see [Use policies toomanage resources and control access](resource-manager-policy.md).</span></span>
+* <span data-ttu-id="16cb8-147">Zie voor een inleiding toousing Azure PowerShell gebruiken wanneer u resources implementeert, [Azure PowerShell gebruiken met Azure Resource Manager](powershell-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-147">For an introduction toousing Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).</span></span>
+* <span data-ttu-id="16cb8-148">Zie voor een inleiding toousing hello Azure CLI gebruiken wanneer u resources implementeert, [Using hello Azure CLI voor Mac, Linux en Windows Azure Resource Manager](xplat-cli-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-148">For an introduction toousing hello Azure CLI when you're deploying resources, see [Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).</span></span>
+* <span data-ttu-id="16cb8-149">Zie voor een inleiding toousing Hallo-portal [Using hello Azure portal toomanage uw Azure-resources](resource-group-portal.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-149">For an introduction toousing hello portal, see [Using hello Azure portal toomanage your Azure resources](resource-group-portal.md).</span></span>  
+* <span data-ttu-id="16cb8-150">Abonnementen voor instructies over hoe ondernemingen tooeffectively Resource Manager kunt beheren, Zie [Azure enterprise scaffold - prescriptieve abonnement governance](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="16cb8-150">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>
 

@@ -1,6 +1,6 @@
 ---
-title: Koppelen van een volume van de Azure-bestanden in Azure Containerexemplaren
-description: Meer informatie over het koppelen van een Azure-bestanden volume om te blijven behouden status met exemplaren van Azure-Container
+title: een Azure-bestanden volume in Azure Containerexemplaren aaaMounting
+description: Meer informatie over hoe toomount een Azure-bestanden volume toopersist status met exemplaren van Azure-Container
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d87215e06d5e5af40bfebcad17768ee45ccabbb2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a><span data-ttu-id="5b389-103">Koppelen van een Azure-bestandsshare met exemplaren van Azure-Container</span><span class="sxs-lookup"><span data-stu-id="5b389-103">Mounting an Azure file share with Azure Container Instances</span></span>
+# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a><span data-ttu-id="09314-103">Koppelen van een Azure-bestandsshare met exemplaren van Azure-Container</span><span class="sxs-lookup"><span data-stu-id="09314-103">Mounting an Azure file share with Azure Container Instances</span></span>
 
-<span data-ttu-id="5b389-104">Standaard zijn exemplaren van Azure-Container staatloze.</span><span class="sxs-lookup"><span data-stu-id="5b389-104">By default, Azure Container Instances are stateless.</span></span> <span data-ttu-id="5b389-105">Als de container vastloopt of stopt, gaat alle van de status verloren.</span><span class="sxs-lookup"><span data-stu-id="5b389-105">If the container crashes or stops, all of its state is lost.</span></span> <span data-ttu-id="5b389-106">Om te blijven behouden status afgezien van de levensduur van de container, moet u een volume koppelen vanuit een externe winkel.</span><span class="sxs-lookup"><span data-stu-id="5b389-106">To persist state beyond the lifetime of the container, you must mount a volume from an external store.</span></span> <span data-ttu-id="5b389-107">In dit artikel laat zien hoe een Azure-bestandsshare voor gebruik met Azure Containerexemplaren te koppelen.</span><span class="sxs-lookup"><span data-stu-id="5b389-107">This article shows how to mount an Azure file share for use with Azure Container Instances.</span></span>
+<span data-ttu-id="09314-104">Standaard zijn exemplaren van Azure-Container staatloze.</span><span class="sxs-lookup"><span data-stu-id="09314-104">By default, Azure Container Instances are stateless.</span></span> <span data-ttu-id="09314-105">Als Hallo container vastloopt of stopt, gaat alle van de status verloren.</span><span class="sxs-lookup"><span data-stu-id="09314-105">If hello container crashes or stops, all of its state is lost.</span></span> <span data-ttu-id="09314-106">toopersist status buiten Hallo levensduur van Hallo-container, moet u een volume koppelen vanuit een externe winkel.</span><span class="sxs-lookup"><span data-stu-id="09314-106">toopersist state beyond hello lifetime of hello container, you must mount a volume from an external store.</span></span> <span data-ttu-id="09314-107">Dit artikel laat zien hoe toomount een Azure-bestandsshare voor gebruik met Azure Containerexemplaren.</span><span class="sxs-lookup"><span data-stu-id="09314-107">This article shows how toomount an Azure file share for use with Azure Container Instances.</span></span>
 
-## <a name="create-an-azure-file-share"></a><span data-ttu-id="5b389-108">Een Azure-bestandsshare maken</span><span class="sxs-lookup"><span data-stu-id="5b389-108">Create an Azure file share</span></span>
+## <a name="create-an-azure-file-share"></a><span data-ttu-id="09314-108">Een Azure-bestandsshare maken</span><span class="sxs-lookup"><span data-stu-id="09314-108">Create an Azure file share</span></span>
 
-<span data-ttu-id="5b389-109">Voordat u een Azure-bestandsshare met exemplaren van Azure-Container, moet u deze maken.</span><span class="sxs-lookup"><span data-stu-id="5b389-109">Before using an Azure file share with Azure Container Instances, you must create it.</span></span> <span data-ttu-id="5b389-110">Voer het volgende script voor het maken van een opslagaccount voor het hosten van de bestandsshare en de share zelf.</span><span class="sxs-lookup"><span data-stu-id="5b389-110">Run the following script to create a storage account to host the file share and the share itself.</span></span> <span data-ttu-id="5b389-111">Houd er rekening mee dat de opslagaccountnaam moet globaal uniek zijn, zodat het script voegt een willekeurige waarde toe aan de basis-tekenreeks.</span><span class="sxs-lookup"><span data-stu-id="5b389-111">Note that the storage account name must be globally unique, so the script adds a random value to the base string.</span></span>
+<span data-ttu-id="09314-109">Voordat u een Azure-bestandsshare met exemplaren van Azure-Container, moet u deze maken.</span><span class="sxs-lookup"><span data-stu-id="09314-109">Before using an Azure file share with Azure Container Instances, you must create it.</span></span> <span data-ttu-id="09314-110">Uitvoeren van script toocreate na Hallo een account toohost hello opslagbestandsshare en Hallo delen zelf.</span><span class="sxs-lookup"><span data-stu-id="09314-110">Run hello following script toocreate a storage account toohost hello file share and hello share itself.</span></span> <span data-ttu-id="09314-111">Houd er rekening mee dat Hallo opslagaccountnaam moet globaal uniek zijn, dus Hallo script een willekeurige waarde toohello base-tekenreeks voegt.</span><span class="sxs-lookup"><span data-stu-id="09314-111">Note that hello storage account name must be globally unique, so hello script adds a random value toohello base string.</span></span>
 
 ```azurecli-interactive
 # Change these four parameters
@@ -38,59 +38,59 @@ ACI_PERS_RESOURCE_GROUP=myResourceGroup
 ACI_PERS_LOCATION=eastus
 ACI_PERS_SHARE_NAME=acishare
 
-# Create the storage account with the parameters
+# Create hello storage account with hello parameters
 az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable, this is used when creating the Azure file share
+# Export hello connection string as an environment variable, this is used when creating hello Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
 
-# Create the share
+# Create hello share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
-## <a name="acquire-storage-account-access-details"></a><span data-ttu-id="5b389-112">De accountdetails toegang tot opslag verkrijgen</span><span class="sxs-lookup"><span data-stu-id="5b389-112">Acquire storage account access details</span></span>
+## <a name="acquire-storage-account-access-details"></a><span data-ttu-id="09314-112">De accountdetails toegang tot opslag verkrijgen</span><span class="sxs-lookup"><span data-stu-id="09314-112">Acquire storage account access details</span></span>
 
-<span data-ttu-id="5b389-113">Een Azure-bestandsshare als een volume in Azure Containerexemplaren koppelen, moet u drie waarden: naam van het opslagaccount, de sharenaam van de en de toegangssleutel voor opslag.</span><span class="sxs-lookup"><span data-stu-id="5b389-113">To mount an Azure file share as a volume in Azure Container Instances, you need three values: the storage account name, the share name, and the storage access key.</span></span> 
+<span data-ttu-id="09314-113">toomount een Azure-bestandsshare als een volume in Azure Containerexemplaren, moet u drie waarden: Hallo opslagaccountnaam Hallo sharenaam en Hallo-toegangssleutel voor opslag.</span><span class="sxs-lookup"><span data-stu-id="09314-113">toomount an Azure file share as a volume in Azure Container Instances, you need three values: hello storage account name, hello share name, and hello storage access key.</span></span> 
 
-<span data-ttu-id="5b389-114">Als u het bovenstaande script gebruikt, wordt de naam van het opslagaccount is gemaakt met een willekeurige waarde aan het einde.</span><span class="sxs-lookup"><span data-stu-id="5b389-114">If you used the script above, the storage account name was created with a random value at the end.</span></span> <span data-ttu-id="5b389-115">Om te vragen van de laatste tekenreeks (inclusief het willekeurig gedeelte), gebruikt u de volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="5b389-115">To query the final string (including the random portion), use the following commands:</span></span>
+<span data-ttu-id="09314-114">Als u bovenstaande Hallo-script gebruikt, is met een willekeurige waarde aan einde Hallo Hallo opslagaccountnaam gemaakt.</span><span class="sxs-lookup"><span data-stu-id="09314-114">If you used hello script above, hello storage account name was created with a random value at hello end.</span></span> <span data-ttu-id="09314-115">tooquery hello laatste tekenreeks (inclusief Hallo willekeurige gedeelte), gebruikt u Hallo volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="09314-115">tooquery hello final string (including hello random portion), use hello following commands:</span></span>
 
 ```azurecli-interactive
 STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
-<span data-ttu-id="5b389-116">Al bekend is de sharenaam (is *acishare* in het bovenstaande script), zodat alle dat u hoeft alleen nog de opslagaccountsleutel die kan worden gevonden met de volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="5b389-116">The share name is already known (it is *acishare* in the script above), so all that remains is the storage account key, which can be found using the following command:</span></span>
+<span data-ttu-id="09314-116">Hallo sharenaam al bekend is (is *acishare* in Hallo script hierboven), zodat alles wat u hoeft alleen nog Hallo opslagaccountsleutel, die kan worden gevonden met Hallo volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="09314-116">hello share name is already known (it is *acishare* in hello script above), so all that remains is hello storage account key, which can be found using hello following command:</span></span>
 
 ```azurecli-interactive
 $STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a><span data-ttu-id="5b389-117">Storage-account toegangsgegevens met Azure sleutelkluis opslaan</span><span class="sxs-lookup"><span data-stu-id="5b389-117">Store storage account access details with Azure key vault</span></span>
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a><span data-ttu-id="09314-117">Storage-account toegangsgegevens met Azure sleutelkluis opslaan</span><span class="sxs-lookup"><span data-stu-id="09314-117">Store storage account access details with Azure key vault</span></span>
 
-<span data-ttu-id="5b389-118">Toegangscodes voor opslag beveiligen toegang tot uw gegevens, zodat we het beste opslaan in een Azure sleutelkluis.</span><span class="sxs-lookup"><span data-stu-id="5b389-118">Storage account keys protect access to your data, so we recommend storing them in an Azure key vault.</span></span> 
+<span data-ttu-id="09314-118">Toegangscodes voor opslag beveiligen tooyour toegangsgegevens, zodat we het beste opslaan in een Azure sleutelkluis.</span><span class="sxs-lookup"><span data-stu-id="09314-118">Storage account keys protect access tooyour data, so we recommend storing them in an Azure key vault.</span></span> 
 
-<span data-ttu-id="5b389-119">Een sleutelkluis maken met de Azure CLI:</span><span class="sxs-lookup"><span data-stu-id="5b389-119">Create a key vault with the Azure CLI:</span></span>
+<span data-ttu-id="09314-119">Een sleutelkluis maken Hello Azure CLI:</span><span class="sxs-lookup"><span data-stu-id="09314-119">Create a key vault with hello Azure CLI:</span></span>
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
 az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
 ```
 
-<span data-ttu-id="5b389-120">De `enabled-for-template-deployment` switch kunt Azure Resource Manager pull geheimen van de sleutelkluis tijdens de implementatie.</span><span class="sxs-lookup"><span data-stu-id="5b389-120">The `enabled-for-template-deployment` switch allows Azure Resource Manager to pull secrets from your key vault at deployment time.</span></span>
+<span data-ttu-id="09314-120">Hallo `enabled-for-template-deployment` switch biedt de mogelijkheid Azure Resource Manager toopull geheimen van de sleutelkluis tijdens de implementatie.</span><span class="sxs-lookup"><span data-stu-id="09314-120">hello `enabled-for-template-deployment` switch allows Azure Resource Manager toopull secrets from your key vault at deployment time.</span></span>
 
-<span data-ttu-id="5b389-121">De opslagaccountsleutel opslaan als een nieuwe geheim in de sleutelkluis:</span><span class="sxs-lookup"><span data-stu-id="5b389-121">Store the storage account key as a new secret in the key vault:</span></span>
+<span data-ttu-id="09314-121">Hallo opslagaccountsleutel opslaan als een nieuwe geheim in de sleutelkluis Hallo:</span><span class="sxs-lookup"><span data-stu-id="09314-121">Store hello storage account key as a new secret in hello key vault:</span></span>
 
 ```azurecli-interactive
 KEYVAULT_SECRET_NAME=azurefilesstoragekey
 az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
 ```
 
-## <a name="mount-the-volume"></a><span data-ttu-id="5b389-122">Het volume koppelen</span><span class="sxs-lookup"><span data-stu-id="5b389-122">Mount the volume</span></span>
+## <a name="mount-hello-volume"></a><span data-ttu-id="09314-122">Hallo volume koppelen</span><span class="sxs-lookup"><span data-stu-id="09314-122">Mount hello volume</span></span>
 
-<span data-ttu-id="5b389-123">Koppelen van een Azure-bestandsshare als een volume in een container is een proces.</span><span class="sxs-lookup"><span data-stu-id="5b389-123">Mounting an Azure file share as a volume in a container is a two-step process.</span></span> <span data-ttu-id="5b389-124">Eerst u de details van de share als onderdeel van het definiëren van de containergroep opgeeft, vervolgens u opgeven hoe u het volume dat is gekoppeld in een of meer van de containers in de groep wilt gebruiken.</span><span class="sxs-lookup"><span data-stu-id="5b389-124">First, you provide the details of the share as part of defining the container group, then you specify how you want the volume mounted within one or more of the containers in the group.</span></span>
+<span data-ttu-id="09314-123">Koppelen van een Azure-bestandsshare als een volume in een container is een proces.</span><span class="sxs-lookup"><span data-stu-id="09314-123">Mounting an Azure file share as a volume in a container is a two-step process.</span></span> <span data-ttu-id="09314-124">Eerst bieden Hallo details van de share als onderdeel van het definiëren van de containergroep Hallo Hallo daarna u hoe u Hallo volume is gekoppeld in één of meer containers in de groep Hallo Hallo wilt opgeven.</span><span class="sxs-lookup"><span data-stu-id="09314-124">First, you provide hello details of hello share as part of defining hello container group, then you specify how you want hello volume mounted within one or more of hello containers in hello group.</span></span>
 
-<span data-ttu-id="5b389-125">Om te definiëren van de volumes die u beschikbaar wilt maken voor het koppelen, Voeg een `volumes` matrix naar de definitie van de container in de Azure Resource Manager-sjabloon en klik vervolgens in de definitie van de afzonderlijke containers verwijzing.</span><span class="sxs-lookup"><span data-stu-id="5b389-125">To define the volumes you want to make available for mounting, add a `volumes` array to the container group definition in the Azure Resource Manager template, then reference them in the definition of the individual containers.</span></span>
+<span data-ttu-id="09314-125">toodefine hello volumes toomake beschikbaar voor gewenste koppelen, Voeg een `volumes` matrix toohello container groepsdefinitie in hello Azure Resource Manager-sjabloon en klik vervolgens in Hallo definitie van de afzonderlijke containers Hallo verwijzing.</span><span class="sxs-lookup"><span data-stu-id="09314-125">toodefine hello volumes you want toomake available for mounting, add a `volumes` array toohello container group definition in hello Azure Resource Manager template, then reference them in hello definition of hello individual containers.</span></span>
 
 ```json
 {
@@ -150,7 +150,7 @@ az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME 
 }
 ```
 
-<span data-ttu-id="5b389-126">De sjabloon bevat de naam van het opslagaccount en de sleutel als parameters die in een afzonderlijke parameterbestand kunnen worden opgegeven.</span><span class="sxs-lookup"><span data-stu-id="5b389-126">The template includes the storage account name and key as parameters, which can be provided in a separate parameters file.</span></span> <span data-ttu-id="5b389-127">Om te voorzien van het parameterbestand, moet u drie waarden: naam van het opslagaccount, de bron-ID van uw Azure sleutelkluis en de geheime naam van sleutelkluis die u hebt gebruikt voor het opslaan van de opslagsleutel.</span><span class="sxs-lookup"><span data-stu-id="5b389-127">To populate the parameters file, you will need three values: the storage account name, the resource ID of your Azure key vault, and the key vault secret name that you used to store the storage key.</span></span> <span data-ttu-id="5b389-128">Als u de vorige stappen hebt gevolgd, kunt u deze waarden met het volgende script kunt krijgen:</span><span class="sxs-lookup"><span data-stu-id="5b389-128">If you have followed previous steps, you can get these values with the following script:</span></span>
+<span data-ttu-id="09314-126">Hallo-sjabloon bevat Hallo opslagaccountnaam en sleutel als parameters die in een afzonderlijke parameterbestand kunnen worden opgegeven.</span><span class="sxs-lookup"><span data-stu-id="09314-126">hello template includes hello storage account name and key as parameters, which can be provided in a separate parameters file.</span></span> <span data-ttu-id="09314-127">toopopulate hello parameterbestand, moet u drie waarden: Hallo opslagaccountnaam en geheime sleutelkluisnaam die u hebt gebruikt toostore hello opslagsleutel Hallo Hallo bron-ID van uw Azure sleutelkluis.</span><span class="sxs-lookup"><span data-stu-id="09314-127">toopopulate hello parameters file, you will need three values: hello storage account name, hello resource ID of your Azure key vault, and hello key vault secret name that you used toostore hello storage key.</span></span> <span data-ttu-id="09314-128">Als u de vorige stappen hebt gevolgd, kunt u deze waarden kunt krijgen met Hallo script volgen:</span><span class="sxs-lookup"><span data-stu-id="09314-128">If you have followed previous steps, you can get these values with hello following script:</span></span>
 
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT
@@ -158,7 +158,7 @@ echo $KEYVAULT_SECRET_NAME
 az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 ```
 
-<span data-ttu-id="5b389-129">Voeg de waarden in het parameterbestand:</span><span class="sxs-lookup"><span data-stu-id="5b389-129">Insert the values into the parameters file:</span></span>
+<span data-ttu-id="09314-129">Hallo waarden invoegen in het parameterbestand Hallo:</span><span class="sxs-lookup"><span data-stu-id="09314-129">Insert hello values into hello parameters file:</span></span>
 
 ```json
 {
@@ -180,26 +180,26 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 }
 ```
 
-## <a name="deploy-the-container-and-manage-files"></a><span data-ttu-id="5b389-130">De container implementeren en beheren van bestanden</span><span class="sxs-lookup"><span data-stu-id="5b389-130">Deploy the container and manage files</span></span>
+## <a name="deploy-hello-container-and-manage-files"></a><span data-ttu-id="09314-130">Hallo-container implementeren en beheren van bestanden</span><span class="sxs-lookup"><span data-stu-id="09314-130">Deploy hello container and manage files</span></span>
 
-<span data-ttu-id="5b389-131">Met de sjabloon is gedefinieerd, kunt u de container maken en koppelen van het volume met de Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="5b389-131">With the template defined, you can create the container and mount its volume using the Azure CLI.</span></span> <span data-ttu-id="5b389-132">Ervan uitgaande dat de naam van het sjabloonbestand *azuredeploy.json* en met de naam van het parameterbestand *azuredeploy.parameters.json*, dan is de opdrachtregel:</span><span class="sxs-lookup"><span data-stu-id="5b389-132">Assuming that the template file is named *azuredeploy.json* and that the parameters file is named *azuredeploy.parameters.json*, then the command line is:</span></span>
+<span data-ttu-id="09314-131">U kunt met het Hallo-sjabloon is gedefinieerd, Hallo container maken en koppelen van het volume met behulp van hello Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="09314-131">With hello template defined, you can create hello container and mount its volume using hello Azure CLI.</span></span> <span data-ttu-id="09314-132">Ervan uitgaande dat hello sjabloonbestand heet *azuredeploy.json* en de naam van dat bestand van de parameters Hallo *azuredeploy.parameters.json*, dan is Hallo vanaf de opdrachtregel:</span><span class="sxs-lookup"><span data-stu-id="09314-132">Assuming that hello template file is named *azuredeploy.json* and that hello parameters file is named *azuredeploy.parameters.json*, then hello command line is:</span></span>
 
 ```azurecli-interactive
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-<span data-ttu-id="5b389-133">Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de **aci-seanmckenna-hellofiles** installatiekopie naar de bestanden beheren in de Azure-bestandsshare op de koppelpad die u hebt opgegeven.</span><span class="sxs-lookup"><span data-stu-id="5b389-133">Once the container starts up, you can use the simple web app deployed via the **seanmckenna/aci-hellofiles** image, to the manage files in the Azure file share at the mount path that you specified.</span></span> <span data-ttu-id="5b389-134">Het IP-adres voor de web-app via de volgende verkrijgen:</span><span class="sxs-lookup"><span data-stu-id="5b389-134">Obtain the ip address for the web app via the following:</span></span>
+<span data-ttu-id="09314-133">Zodra het Hallo-container wordt gestart, kunt u Hallo eenvoudige web-app is geïmplementeerd via Hallo **aci-seanmckenna-hellofiles** afbeelding toohello beheren van bestanden in Azure Hallo-bestandsshare op Hallo koppelpad die u hebt opgegeven.</span><span class="sxs-lookup"><span data-stu-id="09314-133">Once hello container starts up, you can use hello simple web app deployed via hello **seanmckenna/aci-hellofiles** image, toohello manage files in hello Azure file share at hello mount path that you specified.</span></span> <span data-ttu-id="09314-134">Hallo IP-adres voor web-app via de volgende Hallo Hallo verkrijgen:</span><span class="sxs-lookup"><span data-stu-id="09314-134">Obtain hello ip address for hello web app via hello following:</span></span>
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name hellofiles -o table
 ```
 
-<span data-ttu-id="5b389-135">U kunt een hulpprogramma zoals de [Microsoft Azure Storage Explorer](http://storageexplorer.com) op te halen en het controleren van het bestand writen naar de bestandsshare.</span><span class="sxs-lookup"><span data-stu-id="5b389-135">You can use a tool like the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to retrieve and inspect the file writen to the file share.</span></span>
+<span data-ttu-id="09314-135">U kunt een hulpprogramma zoals Hallo [Microsoft Azure Storage Explorer](http://storageexplorer.com) tooretrieve en Hallo writen toohello bestand bestandsshare controleren.</span><span class="sxs-lookup"><span data-stu-id="09314-135">You can use a tool like hello [Microsoft Azure Storage Explorer](http://storageexplorer.com) tooretrieve and inspect hello file writen toohello file share.</span></span>
 
 >[!NOTE]
-> <span data-ttu-id="5b389-136">Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen, parameterbestanden en implementeren met de Azure CLI [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).</span><span class="sxs-lookup"><span data-stu-id="5b389-136">To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).</span></span>
+> <span data-ttu-id="09314-136">Zie toolearn meer over het gebruik van Azure Resource Manager-sjablonen, parameterbestanden, en implementeren met Azure CLI Hallo [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).</span><span class="sxs-lookup"><span data-stu-id="09314-136">toolearn more about using Azure Resource Manager templates, parameter files, and deploying with hello Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="5b389-137">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="5b389-137">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="09314-137">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="09314-137">Next steps</span></span>
 
-- <span data-ttu-id="5b389-138">Implementeren voor uw eerste container met de Azure-Container instanties [snel starten](container-instances-quickstart.md)</span><span class="sxs-lookup"><span data-stu-id="5b389-138">Deploy for your first container using the Azure Container Instances [quick start](container-instances-quickstart.md)</span></span>
-- <span data-ttu-id="5b389-139">Meer informatie over de [relatie tussen Azure Containerexemplaren en container orchestrators](container-instances-orchestrator-relationship.md)</span><span class="sxs-lookup"><span data-stu-id="5b389-139">Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)</span></span>
+- <span data-ttu-id="09314-138">Implementeren voor uw eerste container met hello Azure Container instanties [snel starten](container-instances-quickstart.md)</span><span class="sxs-lookup"><span data-stu-id="09314-138">Deploy for your first container using hello Azure Container Instances [quick start](container-instances-quickstart.md)</span></span>
+- <span data-ttu-id="09314-139">Meer informatie over Hallo [relatie tussen Azure Containerexemplaren en container orchestrators](container-instances-orchestrator-relationship.md)</span><span class="sxs-lookup"><span data-stu-id="09314-139">Learn about hello [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)</span></span>

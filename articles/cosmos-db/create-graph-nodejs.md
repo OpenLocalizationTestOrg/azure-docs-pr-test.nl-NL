@@ -1,6 +1,6 @@
 ---
-title: Een Azure Cosmos DB Node.js-toepassing ontwikkelen met behulp van de Graph API | Microsoft Docs
-description: Is een Node.js-codevoorbeeld dat u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Cosmos DB
+title: een Azure Cosmos DB Node.js-toepassing met behulp van Graph API aaaBuild | Microsoft Docs
+description: Geeft het voorbeeld van een Node.js-code kunt u tooconnect tooand query uitvoeren op Azure Cosmos-DB
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -15,57 +15,57 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
-ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1445755842bc4e4a84ca2b2f789aadde8467e190
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a><span data-ttu-id="8d422-103">Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API</span><span class="sxs-lookup"><span data-stu-id="8d422-103">Azure Cosmos DB: Build a Node.js application by using Graph API</span></span>
+# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a><span data-ttu-id="9b682-103">Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API</span><span class="sxs-lookup"><span data-stu-id="9b682-103">Azure Cosmos DB: Build a Node.js application by using Graph API</span></span>
 
-<span data-ttu-id="8d422-104">Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft.</span><span class="sxs-lookup"><span data-stu-id="8d422-104">Azure Cosmos DB is the globally distributed multi-model database service from Microsoft.</span></span> <span data-ttu-id="8d422-105">U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="8d422-105">You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.</span></span> 
+<span data-ttu-id="9b682-104">Azure Cosmos DB is Hallo globaal gedistribueerd met meerdere modellen database-service van Microsoft.</span><span class="sxs-lookup"><span data-stu-id="9b682-104">Azure Cosmos DB is hello globally distributed multi-model database service from Microsoft.</span></span> <span data-ttu-id="9b682-105">U kunt snel maken en query document, de sleutel/waarde en de grafiek databases, die allemaal van Hallo wereldwijde distributie en mogelijkheden van de horizontale schaal Hallo kern van Azure Cosmos DB profiteren.</span><span class="sxs-lookup"><span data-stu-id="9b682-105">You can quickly create and query document, key/value, and graph databases, all of which benefit from hello global distribution and horizontal scale capabilities at hello core of Azure Cosmos DB.</span></span> 
 
-<span data-ttu-id="8d422-106">In dit artikel ziet u hoe u met Azure Portal een Azure Cosmos DB-account voor Graph API (preview), een database en een graaf kunt maken.</span><span class="sxs-lookup"><span data-stu-id="8d422-106">This quick-start article demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph by using the Azure portal.</span></span> <span data-ttu-id="8d422-107">U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure).</span><span class="sxs-lookup"><span data-stu-id="8d422-107">You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) driver.</span></span>  
+<span data-ttu-id="9b682-106">In dit artikel snel starten laat zien hoe een Cosmos Azure DB toocreate administratief Graph API (preview), de database en de grafiek met behulp van hello Azure-portal.</span><span class="sxs-lookup"><span data-stu-id="9b682-106">This quick-start article demonstrates how toocreate an Azure Cosmos DB account for Graph API (preview), database, and graph by using hello Azure portal.</span></span> <span data-ttu-id="9b682-107">U vervolgens bouwen en uitvoeren van een console-app met behulp van Hallo open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) stuurprogramma.</span><span class="sxs-lookup"><span data-stu-id="9b682-107">You then build and run a console app by using hello open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) driver.</span></span>  
 
 > [!NOTE]
-> <span data-ttu-id="8d422-108">De npm-module `gremlin-secure` is een gewijzigde versie van de `gremlin`-module met ondersteuning voor SSL en SASL, vereist om verbinding te maken met Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="8d422-108">The npm module `gremlin-secure` is a modified version of `gremlin` module, with support for SSL and SASL required for connecting with Azure Cosmos DB.</span></span> <span data-ttu-id="8d422-109">Broncode is beschikbaar op [GitHub](https://github.com/CosmosDB/gremlin-javascript).</span><span class="sxs-lookup"><span data-stu-id="8d422-109">Source code is available on [GitHub](https://github.com/CosmosDB/gremlin-javascript).</span></span>
+> <span data-ttu-id="9b682-108">Hallo npm-module `gremlin-secure` is een gewijzigde versie van `gremlin` module met ondersteuning voor SSL en SASL vereist om verbinding te maken met Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="9b682-108">hello npm module `gremlin-secure` is a modified version of `gremlin` module, with support for SSL and SASL required for connecting with Azure Cosmos DB.</span></span> <span data-ttu-id="9b682-109">Broncode is beschikbaar op [GitHub](https://github.com/CosmosDB/gremlin-javascript).</span><span class="sxs-lookup"><span data-stu-id="9b682-109">Source code is available on [GitHub](https://github.com/CosmosDB/gremlin-javascript).</span></span>
 >
 
-## <a name="prerequisites"></a><span data-ttu-id="8d422-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="8d422-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="9b682-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="9b682-110">Prerequisites</span></span>
 
-<span data-ttu-id="8d422-111">Voordat u met dit voorbeeld aan de slag gaat, moet u aan de volgende vereisten voldoen:</span><span class="sxs-lookup"><span data-stu-id="8d422-111">Before you can run this sample, you must have the following prerequisites:</span></span>
-* <span data-ttu-id="8d422-112">[Node.js](https://nodejs.org/en/) versie v0.10.29 of hoger</span><span class="sxs-lookup"><span data-stu-id="8d422-112">[Node.js](https://nodejs.org/en/) version v0.10.29 or later</span></span>
-* [<span data-ttu-id="8d422-113">Git</span><span class="sxs-lookup"><span data-stu-id="8d422-113">Git</span></span>](http://git-scm.com/)
+<span data-ttu-id="9b682-111">Voordat u dit voorbeeld uitvoeren kunt, hebt u Hallo volgende vereisten:</span><span class="sxs-lookup"><span data-stu-id="9b682-111">Before you can run this sample, you must have hello following prerequisites:</span></span>
+* <span data-ttu-id="9b682-112">[Node.js](https://nodejs.org/en/) versie v0.10.29 of hoger</span><span class="sxs-lookup"><span data-stu-id="9b682-112">[Node.js](https://nodejs.org/en/) version v0.10.29 or later</span></span>
+* [<span data-ttu-id="9b682-113">Git</span><span class="sxs-lookup"><span data-stu-id="9b682-113">Git</span></span>](http://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a><span data-ttu-id="8d422-114">Een databaseaccount maken</span><span class="sxs-lookup"><span data-stu-id="8d422-114">Create a database account</span></span>
+## <a name="create-a-database-account"></a><span data-ttu-id="9b682-114">Een databaseaccount maken</span><span class="sxs-lookup"><span data-stu-id="9b682-114">Create a database account</span></span>
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a><span data-ttu-id="8d422-115">Een graaf toevoegen</span><span class="sxs-lookup"><span data-stu-id="8d422-115">Add a graph</span></span>
+## <a name="add-a-graph"></a><span data-ttu-id="9b682-115">Een graaf toevoegen</span><span class="sxs-lookup"><span data-stu-id="9b682-115">Add a graph</span></span>
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a name="clone-the-sample-application"></a><span data-ttu-id="8d422-116">De voorbeeldtoepassing klonen</span><span class="sxs-lookup"><span data-stu-id="8d422-116">Clone the sample application</span></span>
+## <a name="clone-hello-sample-application"></a><span data-ttu-id="9b682-116">Hallo-voorbeeldtoepassing klonen</span><span class="sxs-lookup"><span data-stu-id="9b682-116">Clone hello sample application</span></span>
 
-<span data-ttu-id="8d422-117">We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="8d422-117">Now let's clone a Graph API app from GitHub, set the connection string, and run it.</span></span> <span data-ttu-id="8d422-118">U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.</span><span class="sxs-lookup"><span data-stu-id="8d422-118">You'll see how easy it is to work with data programmatically.</span></span> 
+<span data-ttu-id="9b682-117">Nu gaan we kloon een Graph-API-app vanuit GitHub Hallo verbindingsreeks instellen en uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="9b682-117">Now let's clone a Graph API app from GitHub, set hello connection string, and run it.</span></span> <span data-ttu-id="9b682-118">U ziet hoe eenvoudig het is toowork met gegevens via een programma.</span><span class="sxs-lookup"><span data-stu-id="9b682-118">You'll see how easy it is toowork with data programmatically.</span></span> 
 
-1. <span data-ttu-id="8d422-119">Open een venster in een Git-terminal, zoals Git Bash, en ga (met de opdracht `cd`) naar een werkmap.</span><span class="sxs-lookup"><span data-stu-id="8d422-119">Open a Git terminal window, such as Git Bash, and change (via `cd` command) to a working directory.</span></span>  
+1. <span data-ttu-id="9b682-119">Open een Git-terminalvenster zoals Git Bash en wijzig (via `cd` opdracht) tooa werkmap.</span><span class="sxs-lookup"><span data-stu-id="9b682-119">Open a Git terminal window, such as Git Bash, and change (via `cd` command) tooa working directory.</span></span>  
 
-2. <span data-ttu-id="8d422-120">Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen.</span><span class="sxs-lookup"><span data-stu-id="8d422-120">Run the following command to clone the sample repository.</span></span> 
+2. <span data-ttu-id="9b682-120">Hallo na de opdracht tooclone Hallo voorbeeld opslagplaats worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="9b682-120">Run hello following command tooclone hello sample repository.</span></span> 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
     ```
 
-3. <span data-ttu-id="8d422-121">Open het oplossingenbestand in Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="8d422-121">Open the solution file in Visual Studio.</span></span> 
+3. <span data-ttu-id="9b682-121">Open het oplossingsbestand Hallo in Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="9b682-121">Open hello solution file in Visual Studio.</span></span> 
 
-## <a name="review-the-code"></a><span data-ttu-id="8d422-122">De code bekijken</span><span class="sxs-lookup"><span data-stu-id="8d422-122">Review the code</span></span>
+## <a name="review-hello-code"></a><span data-ttu-id="9b682-122">Hallo code bekijken</span><span class="sxs-lookup"><span data-stu-id="9b682-122">Review hello code</span></span>
 
-<span data-ttu-id="8d422-123">Laten we eens kijken wat er precies gebeurt in de app.</span><span class="sxs-lookup"><span data-stu-id="8d422-123">Let's make a quick review of what's happening in the app.</span></span> <span data-ttu-id="8d422-124">Open het bestand `app.js`. Hier ziet u de volgende regels code.</span><span class="sxs-lookup"><span data-stu-id="8d422-124">Open the `app.js` file, and you'll find the following lines of code.</span></span> 
+<span data-ttu-id="9b682-123">We maken een kort overzicht van wat in Hallo-app gebeurt er.</span><span class="sxs-lookup"><span data-stu-id="9b682-123">Let's make a quick review of what's happening in hello app.</span></span> <span data-ttu-id="9b682-124">Open Hallo `app.js` -bestand en u vindt Hallo volgende regels code.</span><span class="sxs-lookup"><span data-stu-id="9b682-124">Open hello `app.js` file, and you'll find hello following lines of code.</span></span> 
 
-* <span data-ttu-id="8d422-125">De Gremlin-client wordt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="8d422-125">The Gremlin client is created.</span></span>
+* <span data-ttu-id="9b682-125">Hallo Gremlin client wordt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="9b682-125">hello Gremlin client is created.</span></span>
 
     ```nodejs
     const client = Gremlin.createClient(
@@ -79,9 +79,9 @@ ms.lasthandoff: 08/03/2017
         });
     ```
 
-  <span data-ttu-id="8d422-126">De configuraties bevinden zich allemaal in `config.js`, wat in het volgende gedeelte wordt bewerkt.</span><span class="sxs-lookup"><span data-stu-id="8d422-126">The configurations are all in `config.js`, which we edit in the following section.</span></span>
+  <span data-ttu-id="9b682-126">Hallo configuraties bevinden zich allemaal in `config.js`, die we in de volgende sectie Hallo bewerken.</span><span class="sxs-lookup"><span data-stu-id="9b682-126">hello configurations are all in `config.js`, which we edit in hello following section.</span></span>
 
-* <span data-ttu-id="8d422-127">Een reeks Gremlin-stappen wordt uitgevoerd met behulp van de methode `client.execute`.</span><span class="sxs-lookup"><span data-stu-id="8d422-127">A series of Gremlin steps are executed with the `client.execute` method.</span></span>
+* <span data-ttu-id="9b682-127">Een reeks Gremlin stappen worden uitgevoerd met een Hallo `client.execute` methode.</span><span class="sxs-lookup"><span data-stu-id="9b682-127">A series of Gremlin steps are executed with hello `client.execute` method.</span></span>
 
     ```nodejs
     console.log('Running Count'); 
@@ -92,34 +92,34 @@ ms.lasthandoff: 08/03/2017
     });
     ```
 
-## <a name="update-your-connection-string"></a><span data-ttu-id="8d422-128">Uw verbindingsreeks bijwerken</span><span class="sxs-lookup"><span data-stu-id="8d422-128">Update your connection string</span></span>
+## <a name="update-your-connection-string"></a><span data-ttu-id="9b682-128">Uw verbindingsreeks bijwerken</span><span class="sxs-lookup"><span data-stu-id="9b682-128">Update your connection string</span></span>
 
-1. <span data-ttu-id="8d422-129">Open het bestand config.js.</span><span class="sxs-lookup"><span data-stu-id="8d422-129">Open the config.js file.</span></span> 
+1. <span data-ttu-id="9b682-129">Open Hallo bestand config.js file.</span><span class="sxs-lookup"><span data-stu-id="9b682-129">Open hello config.js file.</span></span> 
 
-2. <span data-ttu-id="8d422-130">Vul in config.js voor de sleutel config.endpoint de **Gremlin URI**-waarde in van de pagina **Overzicht** van de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="8d422-130">In config.js, fill in the config.endpoint key with the **Gremlin URI** value from the **Overview** page of the Azure portal.</span></span> 
+2. <span data-ttu-id="9b682-130">In het bestand config.js, vult u Hallo config.endpoint sleutel met de Hallo **Gremlin URI** waarde van Hallo **overzicht** pagina Hallo Azure-portal.</span><span class="sxs-lookup"><span data-stu-id="9b682-130">In config.js, fill in hello config.endpoint key with hello **Gremlin URI** value from hello **Overview** page of hello Azure portal.</span></span> 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-    ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-graph-nodejs/gremlin-uri.png)
+    ![Bekijken en kopiëren van een toegangssleutel in hello Azure-portal, de blade sleutels](./media/create-graph-nodejs/gremlin-uri.png)
 
-   <span data-ttu-id="8d422-132">Als de **Gremlin URI**-waarde leeg is, kunt u de waarde van de pagina **Sleutels** in de portal genereren met behulp van de **URI**-waarde, waarbij https:// wordt verwijderd en documenten in grafieken worden gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="8d422-132">If the **Gremlin URI** value is blank, you can generate the value from the **Keys** page in the portal, using the **URI** value, removing https://, and changing documents to graphs.</span></span>
+   <span data-ttu-id="9b682-132">Als hello **Gremlin URI** waarde leeg is, kunt u Hallo waarde genereren van Hallo **sleutels** pagina in Hallo-portal, met Hallo **URI** waarde, https:// te verwijderen of wijzigen documenten toographs.</span><span class="sxs-lookup"><span data-stu-id="9b682-132">If hello **Gremlin URI** value is blank, you can generate hello value from hello **Keys** page in hello portal, using hello **URI** value, removing https://, and changing documents toographs.</span></span>
 
-   <span data-ttu-id="8d422-133">Het Gremlin-eindpunt moet alleen de hostnaam zijn zonder het protocol-/poortnummer, zoals `mygraphdb.graphs.azure.com` (niet `https://mygraphdb.graphs.azure.com` of `mygraphdb.graphs.azure.com:433`).</span><span class="sxs-lookup"><span data-stu-id="8d422-133">The Gremlin endpoint must be only the host name without the protocol/port number, like `mygraphdb.graphs.azure.com` (not `https://mygraphdb.graphs.azure.com` or `mygraphdb.graphs.azure.com:433`).</span></span>
+   <span data-ttu-id="9b682-133">Hallo Gremlin eindpunt moet alleen Hallo hostnaam zonder Hallo protocol/poortnummer, zoals `mygraphdb.graphs.azure.com` (geen `https://mygraphdb.graphs.azure.com` of `mygraphdb.graphs.azure.com:433`).</span><span class="sxs-lookup"><span data-stu-id="9b682-133">hello Gremlin endpoint must be only hello host name without hello protocol/port number, like `mygraphdb.graphs.azure.com` (not `https://mygraphdb.graphs.azure.com` or `mygraphdb.graphs.azure.com:433`).</span></span>
 
-3. <span data-ttu-id="8d422-134">Vul in config.js voor de waarde config.primaryKey de waarde van de **Primaire sleutel** in van de pagina **Sleutels** van de Azure Portal.</span><span class="sxs-lookup"><span data-stu-id="8d422-134">In config.js, fill in the config.primaryKey value in with the **Primary Key** value from the **Keys** page of the Azure portal.</span></span> 
+3. <span data-ttu-id="9b682-134">In config.js, vult u Hallo config.primaryKey waarde met de Hallo **primaire sleutel** waarde van Hallo **sleutels** pagina Hallo Azure-portal.</span><span class="sxs-lookup"><span data-stu-id="9b682-134">In config.js, fill in hello config.primaryKey value in with hello **Primary Key** value from hello **Keys** page of hello Azure portal.</span></span> 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![De blade Sleutels in Azure Portal](./media/create-graph-nodejs/keys.png)
+   ![Hallo blade van Azure portal sleutels](./media/create-graph-nodejs/keys.png)
 
-4. <span data-ttu-id="8d422-136">Voer de databasenaam en de naam van de graaf (container) in voor de waarde van config.database en config.collection.</span><span class="sxs-lookup"><span data-stu-id="8d422-136">Enter the database name, and graph (container) name for the value of config.database and config.collection.</span></span> 
+4. <span data-ttu-id="9b682-136">Hallo-databasenaam en de grafieknaam van de (container) voor Hallo-waarde van config.database en config.collection invoeren.</span><span class="sxs-lookup"><span data-stu-id="9b682-136">Enter hello database name, and graph (container) name for hello value of config.database and config.collection.</span></span> 
 
-<span data-ttu-id="8d422-137">Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien:</span><span class="sxs-lookup"><span data-stu-id="8d422-137">Here is an example of what your completed config.js file should look like:</span></span>
+<span data-ttu-id="9b682-137">Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien:</span><span class="sxs-lookup"><span data-stu-id="9b682-137">Here is an example of what your completed config.js file should look like:</span></span>
 
 ```nodejs
 var config = {}
 
-// Note that this must not have HTTPS or the port number
+// Note that this must not have HTTPS or hello port number
 config.endpoint = "testgraphacct.graphs.azure.com";
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
@@ -128,38 +128,38 @@ config.collection = "Persons"
 module.exports = config;
 ```
 
-## <a name="run-the-console-app"></a><span data-ttu-id="8d422-138">De app console uitvoeren</span><span class="sxs-lookup"><span data-stu-id="8d422-138">Run the console app</span></span>
+## <a name="run-hello-console-app"></a><span data-ttu-id="9b682-138">Hallo-console-app uitvoeren</span><span class="sxs-lookup"><span data-stu-id="9b682-138">Run hello console app</span></span>
 
-1. <span data-ttu-id="8d422-139">Open een terminalvenster en ga (via de opdracht `cd`) naar de installatiemap voor het bestand package.json dat is opgenomen in het project.</span><span class="sxs-lookup"><span data-stu-id="8d422-139">Open a terminal window and change (via `cd` command) to the installation directory for the package.json file that's included in the project.</span></span>  
+1. <span data-ttu-id="9b682-139">Open een terminalvenster en wijzig (via `cd` opdracht) installatiemap toohello voor Hallo package.json-bestand dat opgenomen in het Hallo-project.</span><span class="sxs-lookup"><span data-stu-id="9b682-139">Open a terminal window and change (via `cd` command) toohello installation directory for hello package.json file that's included in hello project.</span></span>  
 
-2. <span data-ttu-id="8d422-140">Voer `npm install` uit om de vereiste npm-modules, waaronder `gremlin-secure`, te installeren.</span><span class="sxs-lookup"><span data-stu-id="8d422-140">Run `npm install` to install the required npm modules, including `gremlin-secure`.</span></span>
+2. <span data-ttu-id="9b682-140">Voer `npm install` tooinstall Hallo vereist npm-modules, waaronder `gremlin-secure`.</span><span class="sxs-lookup"><span data-stu-id="9b682-140">Run `npm install` tooinstall hello required npm modules, including `gremlin-secure`.</span></span>
 
-3. <span data-ttu-id="8d422-141">Voer `node app.js` uit op een terminal om uw knooppunttoepassing te starten.</span><span class="sxs-lookup"><span data-stu-id="8d422-141">Run `node app.js` in a terminal to start your node application.</span></span>
+3. <span data-ttu-id="9b682-141">Voer `node app.js` in een terminal toostart uw knooppunttoepassing.</span><span class="sxs-lookup"><span data-stu-id="9b682-141">Run `node app.js` in a terminal toostart your node application.</span></span>
 
-## <a name="browse-with-data-explorer"></a><span data-ttu-id="8d422-142">Bladeren met Data Explorer</span><span class="sxs-lookup"><span data-stu-id="8d422-142">Browse with Data Explorer</span></span>
+## <a name="browse-with-data-explorer"></a><span data-ttu-id="9b682-142">Bladeren met Data Explorer</span><span class="sxs-lookup"><span data-stu-id="9b682-142">Browse with Data Explorer</span></span>
 
-<span data-ttu-id="8d422-143">U kunt nu teruggaan naar Data Explorer in Azure Portal en uw nieuwe graafgegevens bekijken, aanpassen en bewerken en er query's op uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="8d422-143">You can now go back to Data Explorer in the Azure portal to view, query, modify, and work with your new graph data.</span></span>
+<span data-ttu-id="9b682-143">U kunt nu gaat u terug tooData Explorer in Azure portal tooview hello, query, wijzigen en werken met uw nieuwe grafiekgegevens.</span><span class="sxs-lookup"><span data-stu-id="9b682-143">You can now go back tooData Explorer in hello Azure portal tooview, query, modify, and work with your new graph data.</span></span>
 
-<span data-ttu-id="8d422-144">De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Grafieken**.</span><span class="sxs-lookup"><span data-stu-id="8d422-144">In Data Explorer, the new database appears in the **Graphs** pane.</span></span> <span data-ttu-id="8d422-145">Vouw de database uit, gevolgd door de verzameling en klik vervolgens op **Grafiek**.</span><span class="sxs-lookup"><span data-stu-id="8d422-145">Expand the database, followed by the collection, then click **Graph**.</span></span>
+<span data-ttu-id="9b682-144">In Data Explorer Hallo nieuwe database wordt weergegeven in Hallo **grafieken** deelvenster.</span><span class="sxs-lookup"><span data-stu-id="9b682-144">In Data Explorer, hello new database appears in hello **Graphs** pane.</span></span> <span data-ttu-id="9b682-145">Hallo-database, gevolgd door de verzameling hello, uitbreiden en klik vervolgens op **grafiek**.</span><span class="sxs-lookup"><span data-stu-id="9b682-145">Expand hello database, followed by hello collection, then click **Graph**.</span></span>
 
-<span data-ttu-id="8d422-146">De gegevens die worden gegenereerd door de voorbeeld-app worden weergegeven op het volgende deelvenster binnen het tabblad **Grafiek** wanneer u op tabblad **Filter toepassen** klikt.</span><span class="sxs-lookup"><span data-stu-id="8d422-146">The data generated by the sample app is displayed in the next pane within the **Graph** tab when you click **Apply Filter**.</span></span>
+<span data-ttu-id="9b682-146">Hallo-gegevens die zijn gegenereerd door Hallo voorbeeld-app wordt weergegeven in de Volgend deelvenster binnen Hallo Hallo **grafiek** wanneer u klikt op tabblad **Filter toepassen**.</span><span class="sxs-lookup"><span data-stu-id="9b682-146">hello data generated by hello sample app is displayed in hello next pane within hello **Graph** tab when you click **Apply Filter**.</span></span>
 
-<span data-ttu-id="8d422-147">Probeer `g.V()` voltooien met `.has('firstName', 'Thomas')` om het filter te testen.</span><span class="sxs-lookup"><span data-stu-id="8d422-147">Try completing `g.V()` with `.has('firstName', 'Thomas')` to test the filter.</span></span> <span data-ttu-id="8d422-148">Houd er rekening mee dat de waarde hoofdlettergevoelig is.</span><span class="sxs-lookup"><span data-stu-id="8d422-148">Do note that the value is case sensitive.</span></span>
+<span data-ttu-id="9b682-147">Probeer voltooien `g.V()` met `.has('firstName', 'Thomas')` tootest Hallo filter.</span><span class="sxs-lookup"><span data-stu-id="9b682-147">Try completing `g.V()` with `.has('firstName', 'Thomas')` tootest hello filter.</span></span> <span data-ttu-id="9b682-148">Houd er rekening mee dat de waarde Hallo hoofdlettergevoelig is.</span><span class="sxs-lookup"><span data-stu-id="9b682-148">Do note that hello value is case sensitive.</span></span>
 
-## <a name="review-slas-in-the-azure-portal"></a><span data-ttu-id="8d422-149">SLA’s bekijken in Azure Portal</span><span class="sxs-lookup"><span data-stu-id="8d422-149">Review SLAs in the Azure portal</span></span>
+## <a name="review-slas-in-hello-azure-portal"></a><span data-ttu-id="9b682-149">Sla's bekijken in hello Azure-portal</span><span class="sxs-lookup"><span data-stu-id="9b682-149">Review SLAs in hello Azure portal</span></span>
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-your-resources"></a><span data-ttu-id="8d422-150">Uw resources opschonen</span><span class="sxs-lookup"><span data-stu-id="8d422-150">Clean up your resources</span></span>
+## <a name="clean-up-your-resources"></a><span data-ttu-id="9b682-150">Uw resources opschonen</span><span class="sxs-lookup"><span data-stu-id="9b682-150">Clean up your resources</span></span>
 
-<span data-ttu-id="8d422-151">Als u niet van plan bent om door te gaan met het gebruik van deze app, verwijdert u alle resources die u in dit artikel hebt gemaakt als volgt:</span><span class="sxs-lookup"><span data-stu-id="8d422-151">If you do not plan to continue using this app, delete all resources that you created in this article by doing the following:</span></span> 
+<span data-ttu-id="9b682-151">Als u niet van plan gebruik van deze app toocontinue bent, verwijdert u alle resources die u hebt gemaakt in dit artikel door Hallo volgende te doen:</span><span class="sxs-lookup"><span data-stu-id="9b682-151">If you do not plan toocontinue using this app, delete all resources that you created in this article by doing hello following:</span></span> 
 
-1. <span data-ttu-id="8d422-152">Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="8d422-152">In the Azure portal, on the left navigation menu, click **Resource groups**, and then click the name of the resource that you created.</span></span> 
-2. <span data-ttu-id="8d422-153">Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen en klik vervolgens op **Verwijderen**.</span><span class="sxs-lookup"><span data-stu-id="8d422-153">On your resource group page, click **Delete**, type the name of the resource to be deleted, and then click **Delete**.</span></span>
+1. <span data-ttu-id="9b682-152">Klik in de Azure-portal op Hallo linkernavigatievenster menu Hallo op **resourcegroepen**, en klik vervolgens op Hallo-naam van Hallo resource die u hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="9b682-152">In hello Azure portal, on hello left navigation menu, click **Resource groups**, and then click hello name of hello resource that you created.</span></span> 
+2. <span data-ttu-id="9b682-153">Klik op de pagina van de groep resource **verwijderen**, typ de naam Hallo van Hallo resource toobe verwijderd en klik op **verwijderen**.</span><span class="sxs-lookup"><span data-stu-id="9b682-153">On your resource group page, click **Delete**, type hello name of hello resource toobe deleted, and then click **Delete**.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="8d422-154">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="8d422-154">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="9b682-154">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="9b682-154">Next steps</span></span>
 
-<span data-ttu-id="8d422-155">In dit artikel hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een graaf gemaakt met Data Explorer en hebt u een app uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="8d422-155">In this article, you've learned how to create an Azure Cosmos DB account, create a graph by using Data Explorer, and run an app.</span></span> <span data-ttu-id="8d422-156">U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan.</span><span class="sxs-lookup"><span data-stu-id="8d422-156">You can now build more complex queries and implement powerful graph traversal logic by using Gremlin.</span></span> 
+<span data-ttu-id="9b682-155">In dit artikel hebt u geleerd hoe toocreate een Cosmos-DB Azure-account maken van een grafiek met behulp van Data Explorer en een app uitvoert.</span><span class="sxs-lookup"><span data-stu-id="9b682-155">In this article, you've learned how toocreate an Azure Cosmos DB account, create a graph by using Data Explorer, and run an app.</span></span> <span data-ttu-id="9b682-156">U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan.</span><span class="sxs-lookup"><span data-stu-id="9b682-156">You can now build more complex queries and implement powerful graph traversal logic by using Gremlin.</span></span> 
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="8d422-157">Query’s uitvoeren met Gremlin</span><span class="sxs-lookup"><span data-stu-id="8d422-157">Query using Gremlin</span></span>](tutorial-query-graph.md)
+> [<span data-ttu-id="9b682-157">Query’s uitvoeren met Gremlin</span><span class="sxs-lookup"><span data-stu-id="9b682-157">Query using Gremlin</span></span>](tutorial-query-graph.md)

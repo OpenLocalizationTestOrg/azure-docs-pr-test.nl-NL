@@ -1,6 +1,6 @@
 ---
-title: Toewijzing van gegevensset kolommen in Azure Data Factory | Microsoft Docs
-description: Informatie over het toewijzen van kolommen in de gegevensbron aan kolommen van de bestemming.
+title: aaaMapping gegevensset kolommen in Azure Data Factory | Microsoft Docs
+description: Meer informatie over hoe toomap kolommen toodestination kolommen bron.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: a50661b377cfbbff3f1f762342cb275d5da82cea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f78d4af675bec0a70e5f6e83ec1ffb511408b5a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a><span data-ttu-id="11a01-103">Bronkolommen gegevensset toewijzen aan bestemming gegevensset kolommen</span><span class="sxs-lookup"><span data-stu-id="11a01-103">Map source dataset columns to destination dataset columns</span></span>
-<span data-ttu-id="11a01-104">Kolomtoewijzing kan worden gebruikt om op te geven hoe kolommen opgegeven in de 'structuur"van tabeltoewijzing van bron naar kolommen opgegeven in de 'structuur' van tabel sink.</span><span class="sxs-lookup"><span data-stu-id="11a01-104">Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table.</span></span> <span data-ttu-id="11a01-105">De **columnMapping** eigenschap is beschikbaar in de **typeProperties** sectie van de kopieeractiviteit.</span><span class="sxs-lookup"><span data-stu-id="11a01-105">The **columnMapping** property is available in the **typeProperties** section of the Copy activity.</span></span>
+# <a name="map-source-dataset-columns-toodestination-dataset-columns"></a><span data-ttu-id="44278-103">Dataset kolommen toodestination gegevensset bronkolommen toewijzen</span><span class="sxs-lookup"><span data-stu-id="44278-103">Map source dataset columns toodestination dataset columns</span></span>
+<span data-ttu-id="44278-104">Kolomtoewijzing kan worden gebruikt toospecify hoe Hallo 'structuur' van de bron tabel kaart toocolumns kolommen in de structuur' Hallo' van tabel sink opgegeven.</span><span class="sxs-lookup"><span data-stu-id="44278-104">Column mapping can be used toospecify how columns specified in hello “structure” of source table map toocolumns specified in hello “structure” of sink table.</span></span> <span data-ttu-id="44278-105">Hallo **columnMapping** eigenschap is beschikbaar in Hallo **typeProperties** sectie Hallo kopieeractiviteit.</span><span class="sxs-lookup"><span data-stu-id="44278-105">hello **columnMapping** property is available in hello **typeProperties** section of hello Copy activity.</span></span>
 
-<span data-ttu-id="11a01-106">Kolomtoewijzing ondersteunt de volgende scenario's:</span><span class="sxs-lookup"><span data-stu-id="11a01-106">Column mapping supports the following scenarios:</span></span>
+<span data-ttu-id="44278-106">Kolomtoewijzing ondersteunt Hallo volgen scenario's:</span><span class="sxs-lookup"><span data-stu-id="44278-106">Column mapping supports hello following scenarios:</span></span>
 
-* <span data-ttu-id="11a01-107">Alle kolommen in de structuur van de gegevensset bron worden toegewezen aan alle kolommen in de structuur van de gegevensset sink.</span><span class="sxs-lookup"><span data-stu-id="11a01-107">All columns in the source dataset structure are mapped to all columns in the sink dataset structure.</span></span>
-* <span data-ttu-id="11a01-108">Een subset van de kolommen in de structuur van de gegevensbron dataset wordt toegewezen aan alle kolommen in de structuur van de gegevensset sink.</span><span class="sxs-lookup"><span data-stu-id="11a01-108">A subset of the columns in the source dataset structure is mapped to all columns in the sink dataset structure.</span></span>
+* <span data-ttu-id="44278-107">Alle kolommen in de structuur van de gegevensset Hallo gegevensbron zijn toegewezen tooall kolommen in de gegevenssetstructuur Hallo-sink.</span><span class="sxs-lookup"><span data-stu-id="44278-107">All columns in hello source dataset structure are mapped tooall columns in hello sink dataset structure.</span></span>
+* <span data-ttu-id="44278-108">Een subset kolommen in de bron-gegevenssetstructuur Hallo Hallo is toegewezen tooall kolommen in de gegevenssetstructuur Hallo-sink.</span><span class="sxs-lookup"><span data-stu-id="44278-108">A subset of hello columns in hello source dataset structure is mapped tooall columns in hello sink dataset structure.</span></span>
 
-<span data-ttu-id="11a01-109">Hier volgen de fouten die ertoe leiden dat een uitzondering:</span><span class="sxs-lookup"><span data-stu-id="11a01-109">The following are error conditions that result in an exception:</span></span>
+<span data-ttu-id="44278-109">Hallo volgen foutcondities die ertoe leiden dat een uitzondering:</span><span class="sxs-lookup"><span data-stu-id="44278-109">hello following are error conditions that result in an exception:</span></span>
 
-* <span data-ttu-id="11a01-110">Minder kolommen of meer kolommen in de 'structuur' van tabel sink dan opgegeven in de toewijzing.</span><span class="sxs-lookup"><span data-stu-id="11a01-110">Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.</span></span>
-* <span data-ttu-id="11a01-111">Dubbele toewijzing.</span><span class="sxs-lookup"><span data-stu-id="11a01-111">Duplicate mapping.</span></span>
-* <span data-ttu-id="11a01-112">Resultaat van de SQL-query heeft niet de naam van een kolom die is opgegeven in de toewijzing.</span><span class="sxs-lookup"><span data-stu-id="11a01-112">SQL query result does not have a column name that is specified in the mapping.</span></span>
+* <span data-ttu-id="44278-110">Minder kolommen of meer kolommen Hallo 'structuur' van tabel sink dan opgegeven in het Hallo-toewijzing.</span><span class="sxs-lookup"><span data-stu-id="44278-110">Either fewer columns or more columns in hello “structure” of sink table than specified in hello mapping.</span></span>
+* <span data-ttu-id="44278-111">Dubbele toewijzing.</span><span class="sxs-lookup"><span data-stu-id="44278-111">Duplicate mapping.</span></span>
+* <span data-ttu-id="44278-112">Resultaat van de SQL-query heeft niet de naam van een kolom die is opgegeven in het Hallo-toewijzing.</span><span class="sxs-lookup"><span data-stu-id="44278-112">SQL query result does not have a column name that is specified in hello mapping.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="11a01-113">De volgende voorbeelden zijn voor Azure SQL en Azure Blob, maar zijn van toepassing op een gegevensopslag die ondersteuning biedt voor rechthoekige gegevenssets.</span><span class="sxs-lookup"><span data-stu-id="11a01-113">The following samples are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets.</span></span> <span data-ttu-id="11a01-114">Dataset en definities van de gekoppelde service in de voorbeelden om te verwijzen naar gegevens in de relevante gegevens aanpassen.</span><span class="sxs-lookup"><span data-stu-id="11a01-114">Adjust dataset and linked service definitions in examples to point to data in the relevant data source.</span></span>
+> <span data-ttu-id="44278-113">Hallo volgende voorbeelden zijn voor Azure SQL en Azure Blob maar zijn van toepassing tooany gegevensarchief die ondersteuning biedt voor rechthoekige gegevenssets.</span><span class="sxs-lookup"><span data-stu-id="44278-113">hello following samples are for Azure SQL and Azure Blob but are applicable tooany data store that supports rectangular datasets.</span></span> <span data-ttu-id="44278-114">Dataset en definities van de gekoppelde service in de voorbeelden toopoint toodata in de desbetreffende gegevensbron Hallo aanpassen.</span><span class="sxs-lookup"><span data-stu-id="44278-114">Adjust dataset and linked service definitions in examples toopoint toodata in hello relevant data source.</span></span>
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a><span data-ttu-id="11a01-115">Voorbeeld 1 – toewijzingskolommen van Azure SQL naar Azure blob</span><span class="sxs-lookup"><span data-stu-id="11a01-115">Sample 1 – column mapping from Azure SQL to Azure blob</span></span>
-<span data-ttu-id="11a01-116">In dit voorbeeld heeft een structuur van de invoertabel en deze verwijst naar een SQL-tabel in een Azure SQL database.</span><span class="sxs-lookup"><span data-stu-id="11a01-116">In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.</span></span>
+## <a name="sample-1--column-mapping-from-azure-sql-tooazure-blob"></a><span data-ttu-id="44278-115">Voorbeeld 1: kolom toewijzing van een Azure SQL tooAzure blob</span><span class="sxs-lookup"><span data-stu-id="44278-115">Sample 1 – column mapping from Azure SQL tooAzure blob</span></span>
+<span data-ttu-id="44278-116">In dit voorbeeld heeft een structuur van de invoertabel Hallo en of deze tooa SQL-tabel in een Azure SQL database verwijst.</span><span class="sxs-lookup"><span data-stu-id="44278-116">In this sample, hello input table has a structure and it points tooa SQL table in an Azure SQL database.</span></span>
 
 ```json
 {
@@ -70,7 +70,7 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="11a01-117">In dit voorbeeld wordt de uitvoertabel heeft een structuur en deze verwijst naar een blob in Azure blob storage.</span><span class="sxs-lookup"><span data-stu-id="11a01-117">In this sample, the output table has a structure and it points to a blob in an Azure blob storage.</span></span>
+<span data-ttu-id="44278-117">In dit voorbeeld Hallo uitvoertabel een structuur is en of deze tooa blob in Azure blob storage verwijst.</span><span class="sxs-lookup"><span data-stu-id="44278-117">In this sample, hello output table has a structure and it points tooa blob in an Azure blob storage.</span></span>
 
 ```json
 {
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="11a01-118">De volgende JSON definieert een kopieeractiviteit in een pijplijn.</span><span class="sxs-lookup"><span data-stu-id="11a01-118">The following JSON defines a copy activity in a pipeline.</span></span> <span data-ttu-id="11a01-119">De kolommen van bron toegewezen aan kolommen in sink (**columnMappings**) met behulp van de **conversieprogramma** eigenschap.</span><span class="sxs-lookup"><span data-stu-id="11a01-119">The columns from source mapped to columns in sink (**columnMappings**) by using the **Translator** property.</span></span>
+<span data-ttu-id="44278-118">Hallo volgende JSON definieert een kopieeractiviteit in een pijplijn.</span><span class="sxs-lookup"><span data-stu-id="44278-118">hello following JSON defines a copy activity in a pipeline.</span></span> <span data-ttu-id="44278-119">Hallo-kolommen van bron toegewezen toocolumns in sink (**columnMappings**) met behulp van Hallo **conversieprogramma** eigenschap.</span><span class="sxs-lookup"><span data-stu-id="44278-119">hello columns from source mapped toocolumns in sink (**columnMappings**) by using hello **Translator** property.</span></span>
 
 ```json
 {
@@ -133,12 +133,12 @@ ms.lasthandoff: 07/11/2017
         }
 }
 ```
-<span data-ttu-id="11a01-120">**Stroom van de toewijzing van kolom:**</span><span class="sxs-lookup"><span data-stu-id="11a01-120">**Column mapping flow:**</span></span>
+<span data-ttu-id="44278-120">**Stroom van de toewijzing van kolom:**</span><span class="sxs-lookup"><span data-stu-id="44278-120">**Column mapping flow:**</span></span>
 
 ![Kolom toewijzing stroom](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a><span data-ttu-id="11a01-122">Voorbeeld 2: toewijzingskolommen met SQL-query uit Azure SQL naar Azure blob</span><span class="sxs-lookup"><span data-stu-id="11a01-122">Sample 2 – column mapping with SQL query from Azure SQL to Azure blob</span></span>
-<span data-ttu-id="11a01-123">In dit voorbeeld wordt een SQL-query om gegevens te extraheren uit de SQL Azure in plaats van de tabelnaam en de kolomnamen van de te geven in de sectie 'structuur' gebruikt.</span><span class="sxs-lookup"><span data-stu-id="11a01-123">In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section.</span></span> 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-tooazure-blob"></a><span data-ttu-id="44278-122">Voorbeeld 2: toewijzingskolommen met SQL-query uit een Azure SQL tooAzure blob</span><span class="sxs-lookup"><span data-stu-id="44278-122">Sample 2 – column mapping with SQL query from Azure SQL tooAzure blob</span></span>
+<span data-ttu-id="44278-123">In dit voorbeeld is een SQL-query gebruikte tooextract gegevens van Azure SQL in plaats van het Hallo-tabelnaam en kolomnamen, Hallo te geven in de sectie 'structuur'.</span><span class="sxs-lookup"><span data-stu-id="44278-123">In this sample, a SQL query is used tooextract data from Azure SQL instead of simply specifying hello table name and hello column names in “structure” section.</span></span> 
 
 ```json
 {
@@ -170,13 +170,13 @@ ms.lasthandoff: 07/11/2017
         }
 }
 ```
-<span data-ttu-id="11a01-124">De queryresultaten worden in dit geval eerst toegewezen aan kolommen die is opgegeven in 'structuur' van de bron.</span><span class="sxs-lookup"><span data-stu-id="11a01-124">In this case, the query results are first mapped to columns specified in “structure” of source.</span></span> <span data-ttu-id="11a01-125">De kolommen van bron 'structuur' worden vervolgens toegewezen aan kolommen in sink 'structuur' met regels die zijn opgegeven in de columnMappings.</span><span class="sxs-lookup"><span data-stu-id="11a01-125">Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.</span></span>  <span data-ttu-id="11a01-126">Stel dat de query retourneert 5 kolommen, twee of meer kolommen dan die zijn opgegeven in de 'structuur' van de bron.</span><span class="sxs-lookup"><span data-stu-id="11a01-126">Suppose the query returns 5 columns, two more columns than those specified in the “structure” of source.</span></span>
+<span data-ttu-id="44278-124">In dit geval zijn de queryresultaten Hallo eerste toegewezen toocolumns opgegeven in 'structuur' van de bron.</span><span class="sxs-lookup"><span data-stu-id="44278-124">In this case, hello query results are first mapped toocolumns specified in “structure” of source.</span></span> <span data-ttu-id="44278-125">Kolommen van bron 'structuur' hello worden vervolgens toegewezen toocolumns in sink 'structuur' met regels die zijn opgegeven in de columnMappings.</span><span class="sxs-lookup"><span data-stu-id="44278-125">Next, hello columns from source “structure” are mapped toocolumns in sink “structure” with rules specified in columnMappings.</span></span>  <span data-ttu-id="44278-126">Stel dat Hallo query retourneert 5 kolommen, twee of meer kolommen dan die zijn opgegeven in Hallo 'structuur' van de bron.</span><span class="sxs-lookup"><span data-stu-id="44278-126">Suppose hello query returns 5 columns, two more columns than those specified in hello “structure” of source.</span></span>
 
-<span data-ttu-id="11a01-127">**Kolom toewijzing stroom**</span><span class="sxs-lookup"><span data-stu-id="11a01-127">**Column mapping flow**</span></span>
+<span data-ttu-id="44278-127">**Kolom toewijzing stroom**</span><span class="sxs-lookup"><span data-stu-id="44278-127">**Column mapping flow**</span></span>
 
 ![Kolom toewijzing stroom-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a><span data-ttu-id="11a01-129">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="11a01-129">Next steps</span></span>
-<span data-ttu-id="11a01-130">Zie het artikel voor een zelfstudie over het gebruik van de Kopieeractiviteit:</span><span class="sxs-lookup"><span data-stu-id="11a01-130">See the article for a tutorial on using Copy Activity:</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="44278-129">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="44278-129">Next steps</span></span>
+<span data-ttu-id="44278-130">Zie Hallo artikel voor een zelfstudie over het gebruik van de Kopieeractiviteit:</span><span class="sxs-lookup"><span data-stu-id="44278-130">See hello article for a tutorial on using Copy Activity:</span></span> 
 
-- [<span data-ttu-id="11a01-131">Gegevens kopiëren van Blob-opslag naar SQL-Database</span><span class="sxs-lookup"><span data-stu-id="11a01-131">Copy data from Blob Storage to SQL Database</span></span>](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [<span data-ttu-id="44278-131">Gegevens kopiëren van Blob Storage tooSQL Database</span><span class="sxs-lookup"><span data-stu-id="44278-131">Copy data from Blob Storage tooSQL Database</span></span>](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

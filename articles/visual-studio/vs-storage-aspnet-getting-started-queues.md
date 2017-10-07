@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
-description: Hoe u aan de slag met Azure queue storage in een ASP.NET-project in Visual Studio nadat u een opslagaccount met behulp van Visual Studio verbonden Services
+title: aaaGet de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
+description: Hoe tooget gestart met behulp van Azure queue storage nadat u hebt aangesloten tooa storage-account met behulp van Visual Studio verbonden Services in een ASP.NET-project in Visual Studio
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
 ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 415a437c4ce60b1e2e328f8e937c73b0d5c50e78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a><span data-ttu-id="ffda8-103">Aan de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="ffda8-103">Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)</span></span>
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a><span data-ttu-id="b994c-103">Aan de slag met Azure queue storage- en Visual Studio verbonden Services (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="b994c-103">Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)</span></span>
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a><span data-ttu-id="ffda8-104">Overzicht</span><span class="sxs-lookup"><span data-stu-id="ffda8-104">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="b994c-104">Overzicht</span><span class="sxs-lookup"><span data-stu-id="b994c-104">Overview</span></span>
 
-<span data-ttu-id="ffda8-105">Azure queue storage biedt cloud messaging tussen toepassingsonderdelen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-105">Azure queue storage provides cloud messaging between application components.</span></span> <span data-ttu-id="ffda8-106">Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald.</span><span class="sxs-lookup"><span data-stu-id="ffda8-106">In designing applications for scale, application components are often decoupled, so that they can scale independently.</span></span> <span data-ttu-id="ffda8-107">Queue Storage biedt asynchrone uitwisseling van berichten voor communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat.</span><span class="sxs-lookup"><span data-stu-id="ffda8-107">Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device.</span></span> <span data-ttu-id="ffda8-108">Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-108">Queue storage also supports managing asynchronous tasks and building process work flows.</span></span>
+<span data-ttu-id="b994c-105">Azure queue storage biedt cloud messaging tussen toepassingsonderdelen.</span><span class="sxs-lookup"><span data-stu-id="b994c-105">Azure queue storage provides cloud messaging between application components.</span></span> <span data-ttu-id="b994c-106">Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald.</span><span class="sxs-lookup"><span data-stu-id="b994c-106">In designing applications for scale, application components are often decoupled, so that they can scale independently.</span></span> <span data-ttu-id="b994c-107">Queue storage biedt asynchrone messaging voor communicatie tussen toepassingsonderdelen, of ze worden uitgevoerd in Hallo cloud, op Hallo bureaublad, op een on-premises server of op een mobiel apparaat.</span><span class="sxs-lookup"><span data-stu-id="b994c-107">Queue storage delivers asynchronous messaging for communication between application components, whether they are running in hello cloud, on hello desktop, on an on-premises server, or on a mobile device.</span></span> <span data-ttu-id="b994c-108">Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.</span><span class="sxs-lookup"><span data-stu-id="b994c-108">Queue storage also supports managing asynchronous tasks and building process work flows.</span></span>
 
-<span data-ttu-id="ffda8-109">Deze zelfstudie laat zien hoe ASP.NET code schrijven voor enkele algemene scenario's met Azure queue storage entiteiten.</span><span class="sxs-lookup"><span data-stu-id="ffda8-109">This tutorial shows how to write ASP.NET code for some common scenarios using Azure queue storage entities.</span></span> <span data-ttu-id="ffda8-110">Deze scenario's omvatten algemene taken, zoals het maken van een Azure-wachtrij en toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten.</span><span class="sxs-lookup"><span data-stu-id="ffda8-110">These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.</span></span>
+<span data-ttu-id="b994c-109">Deze zelfstudie laat zien hoe toowrite ASP.NET-code voor enkele algemene scenario's met Azure queue storage entiteiten.</span><span class="sxs-lookup"><span data-stu-id="b994c-109">This tutorial shows how toowrite ASP.NET code for some common scenarios using Azure queue storage entities.</span></span> <span data-ttu-id="b994c-110">Deze scenario's omvatten algemene taken, zoals het maken van een Azure-wachtrij en toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten.</span><span class="sxs-lookup"><span data-stu-id="b994c-110">These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.</span></span>
 
-##<a name="prerequisites"></a><span data-ttu-id="ffda8-111">Vereisten</span><span class="sxs-lookup"><span data-stu-id="ffda8-111">Prerequisites</span></span>
+##<a name="prerequisites"></a><span data-ttu-id="b994c-111">Vereisten</span><span class="sxs-lookup"><span data-stu-id="b994c-111">Prerequisites</span></span>
 
-* [<span data-ttu-id="ffda8-112">Microsoft Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ffda8-112">Microsoft Visual Studio</span></span>](https://www.visualstudio.com/downloads/)
-* [<span data-ttu-id="ffda8-113">Azure Storage-account</span><span class="sxs-lookup"><span data-stu-id="ffda8-113">Azure storage account</span></span>](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [<span data-ttu-id="b994c-112">Microsoft Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b994c-112">Microsoft Visual Studio</span></span>](https://www.visualstudio.com/downloads/)
+* [<span data-ttu-id="b994c-113">Azure Storage-account</span><span class="sxs-lookup"><span data-stu-id="b994c-113">Azure storage account</span></span>](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -40,21 +40,21 @@ ms.lasthandoff: 08/29/2017
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a><span data-ttu-id="ffda8-114">Maken van een MVC-controller</span><span class="sxs-lookup"><span data-stu-id="ffda8-114">Create an MVC controller</span></span> 
+### <a name="create-an-mvc-controller"></a><span data-ttu-id="b994c-114">Maken van een MVC-controller</span><span class="sxs-lookup"><span data-stu-id="b994c-114">Create an MVC controller</span></span> 
 
-1. <span data-ttu-id="ffda8-115">In de **Solution Explorer**, met de rechtermuisknop op **domeincontrollers**, en selecteer in het contextmenu **toevoegen -> Controller**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-115">In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.</span></span>
+1. <span data-ttu-id="b994c-115">In Hallo **Solution Explorer**, met de rechtermuisknop op **domeincontrollers**, en selecteer in het contextmenu hello, **toevoegen -> Controller**.</span><span class="sxs-lookup"><span data-stu-id="b994c-115">In hello **Solution Explorer**, right-click **Controllers**, and, from hello context menu, select **Add->Controller**.</span></span>
 
-    ![Een domeincontroller toevoegen aan een ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
+    ![Een controller tooan ASP.NET MVC-app toevoegen](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
-1. <span data-ttu-id="ffda8-117">Op de **Add Scaffold** dialoogvenster Selecteer **MVC 5 Controller - leeg**, en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-117">On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-117">Op Hallo **Add Scaffold** dialoogvenster Selecteer **MVC 5 Controller - leeg**, en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-117">On hello **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.</span></span>
 
     ![Geef een MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
-1. <span data-ttu-id="ffda8-119">Op de **Controller toevoegen** dialoogvenster, de naam van de controller *QueuesController*, en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-119">On the **Add Controller** dialog, name the controller *QueuesController*, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-119">Op Hallo **Controller toevoegen** dialoogvenster, naam Hallo controller *QueuesController*, en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-119">On hello **Add Controller** dialog, name hello controller *QueuesController*, and select **Add**.</span></span>
 
-    ![De naam van de MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+    ![Naam Hallo MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. <span data-ttu-id="ffda8-121">Voeg de volgende *met* richtlijnen voor de `QueuesController.cs` bestand:</span><span class="sxs-lookup"><span data-stu-id="ffda8-121">Add the following *using* directives to the `QueuesController.cs` file:</span></span>
+1. <span data-ttu-id="b994c-121">Voeg de volgende Hallo *met* richtlijnen toohello `QueuesController.cs` bestand:</span><span class="sxs-lookup"><span data-stu-id="b994c-121">Add hello following *using* directives toohello `QueuesController.cs` file:</span></span>
 
     ```csharp
     using Microsoft.Azure;
@@ -62,62 +62,62 @@ ms.lasthandoff: 08/29/2017
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a><span data-ttu-id="ffda8-122">Een wachtrij maken</span><span class="sxs-lookup"><span data-stu-id="ffda8-122">Create a queue</span></span>
+## <a name="create-a-queue"></a><span data-ttu-id="b994c-122">Een wachtrij maken</span><span class="sxs-lookup"><span data-stu-id="b994c-122">Create a queue</span></span>
 
-<span data-ttu-id="ffda8-123">De volgende stappen laten zien hoe een wachtrij maken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-123">The following steps illustrate how to create a queue:</span></span>
+<span data-ttu-id="b994c-123">Hallo volgende stappen laten zien hoe een wachtrij toocreate:</span><span class="sxs-lookup"><span data-stu-id="b994c-123">hello following steps illustrate how toocreate a queue:</span></span>
 
 > [!NOTE]
 > 
-> <span data-ttu-id="ffda8-124">Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ffda8-124">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="b994c-124">Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="b994c-124">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="ffda8-125">Open het `QueuesController.cs`-bestand.</span><span class="sxs-lookup"><span data-stu-id="ffda8-125">Open the `QueuesController.cs` file.</span></span> 
+1. <span data-ttu-id="b994c-125">Open Hallo `QueuesController.cs` bestand.</span><span class="sxs-lookup"><span data-stu-id="b994c-125">Open hello `QueuesController.cs` file.</span></span> 
 
-1. <span data-ttu-id="ffda8-126">Toevoegen van een methode aangeroepen **CreateQueue** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-126">Add a method called **CreateQueue** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="b994c-126">Toevoegen van een methode aangeroepen **CreateQueue** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="b994c-126">Add a method called **CreateQueue** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult CreateQueue()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
 
-1. <span data-ttu-id="ffda8-127">Binnen de **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="ffda8-127">Within the **CreateQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ffda8-128">Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="ffda8-128">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="b994c-127">Binnen Hallo **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="b994c-127">Within hello **CreateQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b994c-128">Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="b994c-128">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. <span data-ttu-id="ffda8-129">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="ffda8-129">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="b994c-129">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="b994c-129">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. <span data-ttu-id="ffda8-130">Ophalen van een **CloudQueue** -object met een verwijzing naar de naam van de gewenste wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-130">Get a **CloudQueue** object that represents a reference to the desired queue name.</span></span> <span data-ttu-id="ffda8-131">De **CloudQueueClient.GetQueueReference** methode heeft een aanvraag in voor wachtrijopslag moet fungeren niet maken.</span><span class="sxs-lookup"><span data-stu-id="ffda8-131">The **CloudQueueClient.GetQueueReference** method does not make a request against queue storage.</span></span> <span data-ttu-id="ffda8-132">De verwijzing wordt geretourneerd of de wachtrij bestaat of niet.</span><span class="sxs-lookup"><span data-stu-id="ffda8-132">The reference is returned whether or not the queue exists.</span></span> 
+1. <span data-ttu-id="b994c-130">Ophalen van een **CloudQueue** -object met de naam van een verwijzing toohello gewenste wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-130">Get a **CloudQueue** object that represents a reference toohello desired queue name.</span></span> <span data-ttu-id="b994c-131">Hallo **CloudQueueClient.GetQueueReference** methode heeft een aanvraag in voor wachtrijopslag moet fungeren niet maken.</span><span class="sxs-lookup"><span data-stu-id="b994c-131">hello **CloudQueueClient.GetQueueReference** method does not make a request against queue storage.</span></span> <span data-ttu-id="b994c-132">Hallo verwijzing wordt geretourneerd of Hallo wachtrij bestaat of niet.</span><span class="sxs-lookup"><span data-stu-id="b994c-132">hello reference is returned whether or not hello queue exists.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="ffda8-133">Roep de **CloudQueue.CreateIfNotExists** methode voor het maken van de wachtrij als deze nog niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="ffda8-133">Call the **CloudQueue.CreateIfNotExists** method to create the queue if it does not yet exist.</span></span> <span data-ttu-id="ffda8-134">De **CloudQueue.CreateIfNotExists** methode retourneert **true** als de wachtrij niet bestaat en is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="ffda8-134">The **CloudQueue.CreateIfNotExists** method returns **true** if the queue does not exist, and is successfully created.</span></span> <span data-ttu-id="ffda8-135">Anders **false** wordt geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="ffda8-135">Otherwise, **false** is returned.</span></span>    
+1. <span data-ttu-id="b994c-133">Hallo aanroepen **CloudQueue.CreateIfNotExists** methode toocreate Hallo wachtrij als deze nog niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="b994c-133">Call hello **CloudQueue.CreateIfNotExists** method toocreate hello queue if it does not yet exist.</span></span> <span data-ttu-id="b994c-134">Hallo **CloudQueue.CreateIfNotExists** methode retourneert **true** als Hallo wachtrij niet bestaat en is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="b994c-134">hello **CloudQueue.CreateIfNotExists** method returns **true** if hello queue does not exist, and is successfully created.</span></span> <span data-ttu-id="b994c-135">Anders **false** wordt geretourneerd.</span><span class="sxs-lookup"><span data-stu-id="b994c-135">Otherwise, **false** is returned.</span></span>    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
     ```
 
-1. <span data-ttu-id="ffda8-136">Update de **ViewBag** met de naam van de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-136">Update the **ViewBag** with the name of the queue.</span></span>
+1. <span data-ttu-id="b994c-136">Update Hallo **ViewBag** met de naam van de wachtrij Hallo Hallo.</span><span class="sxs-lookup"><span data-stu-id="b994c-136">Update hello **ViewBag** with hello name of hello queue.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
 
-1. <span data-ttu-id="ffda8-137">In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-137">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="b994c-137">In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="b994c-137">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="ffda8-138">Op de **weergave toevoegen** dialoogvenster Voer **CreateQueue** voor de weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-138">On the **Add View** dialog, enter **CreateQueue** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-138">Op Hallo **weergave toevoegen** dialoogvenster Voer **CreateQueue** voor Hallo weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-138">On hello **Add View** dialog, enter **CreateQueue** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="ffda8-139">Open `CreateQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:</span><span class="sxs-lookup"><span data-stu-id="ffda8-139">Open `CreateQueue.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="b994c-139">Open `CreateQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="b994c-139">Open `CreateQueue.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -129,84 +129,84 @@ ms.lasthandoff: 08/29/2017
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. <span data-ttu-id="ffda8-140">In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ffda8-140">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="b994c-140">In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="b994c-140">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="ffda8-141">Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ffda8-141">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="b994c-141">Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="b994c-141">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. <span data-ttu-id="ffda8-142">Voer de toepassing en selecteer **wachtrij maken** om vergelijkbaar met de volgende schermopname resultaten te bekijken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-142">Run the application, and select **Create queue** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="b994c-142">Voer Hallo toepassing uit en selecteer **wachtrij maken** toosee resulteert vergelijkbare toohello schermopname te volgen:</span><span class="sxs-lookup"><span data-stu-id="b994c-142">Run hello application, and select **Create queue** toosee results similar toohello following screen shot:</span></span>
   
     ![Wachtrij maken](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    <span data-ttu-id="ffda8-144">Zoals eerder vermeld de **CloudQueue.CreateIfNotExists** methode retourneert **true** alleen wanneer de wachtrij bestaat niet en is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="ffda8-144">As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created.</span></span> <span data-ttu-id="ffda8-145">Dus als u de app wordt uitgevoerd wanneer de wachtrij bestaat, de methode retourneert **false**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-145">Therefore, if you run the app when the queue exists, the method returns **false**.</span></span> <span data-ttu-id="ffda8-146">Als u wilt de app meerdere keren uitvoert, moet u de wachtrij verwijderen voordat u de app opnieuw uitvoert.</span><span class="sxs-lookup"><span data-stu-id="ffda8-146">To run the app multiple times, you must delete the queue before running the app again.</span></span> <span data-ttu-id="ffda8-147">Kan het verwijderen van de wachtrij worden uitgevoerd via de **CloudQueue.Delete** methode.</span><span class="sxs-lookup"><span data-stu-id="ffda8-147">Deleting the queue can be done via the **CloudQueue.Delete** method.</span></span> <span data-ttu-id="ffda8-148">U kunt ook verwijderen voor de wachtrij met behulp van de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span><span class="sxs-lookup"><span data-stu-id="ffda8-148">You can also delete the queue using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span></span>  
+    <span data-ttu-id="b994c-144">Zoals eerder vermeld, Hallo **CloudQueue.CreateIfNotExists** methode retourneert **true** alleen wanneer Hallo wachtrij bestaat niet en is gemaakt.</span><span class="sxs-lookup"><span data-stu-id="b994c-144">As mentioned previously, hello **CloudQueue.CreateIfNotExists** method returns **true** only when hello queue doesn't exist and is created.</span></span> <span data-ttu-id="b994c-145">Dus als u Hallo app uitvoeren wanneer de wachtrij Hallo bestaat, Hallo methode retourneert **false**.</span><span class="sxs-lookup"><span data-stu-id="b994c-145">Therefore, if you run hello app when hello queue exists, hello method returns **false**.</span></span> <span data-ttu-id="b994c-146">toorun hello app meerdere keren moet u Hallo wachtrij verwijderen voordat u Hallo app opnieuw uitvoert.</span><span class="sxs-lookup"><span data-stu-id="b994c-146">toorun hello app multiple times, you must delete hello queue before running hello app again.</span></span> <span data-ttu-id="b994c-147">Verwijderen Hallo wachtrij kan worden uitgevoerd via Hallo **CloudQueue.Delete** methode.</span><span class="sxs-lookup"><span data-stu-id="b994c-147">Deleting hello queue can be done via hello **CloudQueue.Delete** method.</span></span> <span data-ttu-id="b994c-148">U kunt ook Hallo wachtrij met Hallo verwijderen [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) of Hallo [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span><span class="sxs-lookup"><span data-stu-id="b994c-148">You can also delete hello queue using hello [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or hello [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).</span></span>  
 
-## <a name="add-a-message-to-a-queue"></a><span data-ttu-id="ffda8-149">Een bericht toevoegen aan een wachtrij</span><span class="sxs-lookup"><span data-stu-id="ffda8-149">Add a message to a queue</span></span>
+## <a name="add-a-message-tooa-queue"></a><span data-ttu-id="b994c-149">Een berichtenwachtrij tooa toevoegen</span><span class="sxs-lookup"><span data-stu-id="b994c-149">Add a message tooa queue</span></span>
 
-<span data-ttu-id="ffda8-150">Zodra u hebt [wachtrij](#create-a-queue), kunt u berichten naar die wachtrij toevoegen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-150">Once you've [created a queue](#create-a-queue), you can add messages to that queue.</span></span> <span data-ttu-id="ffda8-151">Deze sectie helpt u bij het toevoegen van een bericht naar een wachtrij *test wachtrij*.</span><span class="sxs-lookup"><span data-stu-id="ffda8-151">This section walks you through adding a message to a queue *test-queue*.</span></span> 
+<span data-ttu-id="b994c-150">Zodra u hebt [wachtrij](#create-a-queue), kunt u berichten toothat wachtrij toevoegen.</span><span class="sxs-lookup"><span data-stu-id="b994c-150">Once you've [created a queue](#create-a-queue), you can add messages toothat queue.</span></span> <span data-ttu-id="b994c-151">Deze sectie helpt u bij het toevoegen van een berichtenwachtrij tooa *test wachtrij*.</span><span class="sxs-lookup"><span data-stu-id="b994c-151">This section walks you through adding a message tooa queue *test-queue*.</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="ffda8-152">Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ffda8-152">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="b994c-152">Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="b994c-152">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="ffda8-153">Open het `QueuesController.cs`-bestand.</span><span class="sxs-lookup"><span data-stu-id="ffda8-153">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="b994c-153">Open Hallo `QueuesController.cs` bestand.</span><span class="sxs-lookup"><span data-stu-id="b994c-153">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="ffda8-154">Toevoegen van een methode aangeroepen **AddMessage** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-154">Add a method called **AddMessage** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="b994c-154">Toevoegen van een methode aangeroepen **AddMessage** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="b994c-154">Add a method called **AddMessage** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult AddMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="ffda8-155">Binnen de **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="ffda8-155">Within the **AddMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ffda8-156">Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="ffda8-156">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="b994c-155">Binnen Hallo **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="b994c-155">Within hello **AddMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b994c-156">Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="b994c-156">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="ffda8-157">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="ffda8-157">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="b994c-157">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="b994c-157">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="ffda8-158">Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-158">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="b994c-158">Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-158">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="ffda8-159">Maak de **CloudQueueMessage** -object dat het bericht dat u wilt toevoegen aan de wachtrij aangeeft.</span><span class="sxs-lookup"><span data-stu-id="ffda8-159">Create the **CloudQueueMessage** object representing the message you want to add to the queue.</span></span> <span data-ttu-id="ffda8-160">Een **CloudQueueMessage** object kan worden gemaakt vanuit een tekenreeks (in UTF-8-indeling) of een byte-matrix.</span><span class="sxs-lookup"><span data-stu-id="ffda8-160">A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.</span></span>
+1. <span data-ttu-id="b994c-159">Hallo maken **CloudQueueMessage** -object dat u wilt dat tooadd toohello wachtrij het Hallo-bericht vertegenwoordigt.</span><span class="sxs-lookup"><span data-stu-id="b994c-159">Create hello **CloudQueueMessage** object representing hello message you want tooadd toohello queue.</span></span> <span data-ttu-id="b994c-160">Een **CloudQueueMessage** object kan worden gemaakt vanuit een tekenreeks (in UTF-8-indeling) of een byte-matrix.</span><span class="sxs-lookup"><span data-stu-id="b994c-160">A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.</span></span>
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
     ```
 
-1. <span data-ttu-id="ffda8-161">Roep de **CloudQueue.AddMessage** methode de messaged toevoegen aan de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-161">Call the **CloudQueue.AddMessage** method to add the messaged to the queue.</span></span>
+1. <span data-ttu-id="b994c-161">Hallo aanroepen **CloudQueue.AddMessage** methode tooadd Hallo mailberichten toohello wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-161">Call hello **CloudQueue.AddMessage** method tooadd hello messaged toohello queue.</span></span>
 
     ```csharp
     queue.AddMessage(message);
     ```
 
-1. <span data-ttu-id="ffda8-162">Maken en een aantal **ViewBag** eigenschappen voor weergave in de weergave.</span><span class="sxs-lookup"><span data-stu-id="ffda8-162">Create and set a couple of **ViewBag** properties for display in the view.</span></span>
+1. <span data-ttu-id="b994c-162">Maken en een aantal **ViewBag** eigenschappen weergegeven in de Hallo weergeven.</span><span class="sxs-lookup"><span data-stu-id="b994c-162">Create and set a couple of **ViewBag** properties for display in hello view.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. <span data-ttu-id="ffda8-163">In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-163">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="b994c-163">In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="b994c-163">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="ffda8-164">Op de **weergave toevoegen** dialoogvenster Voer **AddMessage** voor de weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-164">On the **Add View** dialog, enter **AddMessage** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-164">Op Hallo **weergave toevoegen** dialoogvenster Voer **AddMessage** voor Hallo weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-164">On hello **Add View** dialog, enter **AddMessage** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="ffda8-165">Open `AddMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:</span><span class="sxs-lookup"><span data-stu-id="ffda8-165">Open `AddMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="b994c-165">Open `AddMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="b994c-165">Open `AddMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -215,81 +215,81 @@ ms.lasthandoff: 08/29/2017
     
     <h2>Add Message results</h2>
     
-    The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
+    hello message '@ViewBag.Message' was added toohello queue '@ViewBag.QueueName'.
     ```
 
-1. <span data-ttu-id="ffda8-166">In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ffda8-166">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="b994c-166">In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="b994c-166">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="ffda8-167">Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ffda8-167">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="b994c-167">Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="b994c-167">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. <span data-ttu-id="ffda8-168">Voer de toepassing en selecteer **toevoegen bericht** om vergelijkbaar met de volgende schermopname resultaten te bekijken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-168">Run the application, and select **Add message** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="b994c-168">Voer Hallo toepassing uit en selecteer **toevoegen bericht** toosee resulteert vergelijkbare toohello schermopname te volgen:</span><span class="sxs-lookup"><span data-stu-id="b994c-168">Run hello application, and select **Add message** toosee results similar toohello following screen shot:</span></span>
   
     ![Bericht toevoegen](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-<span data-ttu-id="ffda8-170">De twee secties - [een bericht in een wachtrij lezen zonder het te verwijderen](#read-a-message-from-a-queue-without-removing-it) en [lezen en verwijderen van een bericht van een wachtrij](#read-and-remove-a-message-from-a-queue) -te laten zien hoe u berichten in een wachtrij lezen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-170">The two sections - [Read a message from a queue without removing it](#read-a-message-from-a-queue-without-removing-it) and [Read and remove a message from a queue](#read-and-remove-a-message-from-a-queue) - illustrate how to read messages from a queue.</span></span>    
+<span data-ttu-id="b994c-170">twee secties - Hallo [een bericht in een wachtrij lezen zonder het te verwijderen](#read-a-message-from-a-queue-without-removing-it) en [lezen en verwijderen van een bericht van een wachtrij](#read-and-remove-a-message-from-a-queue) -laten zien hoe tooread berichten uit een wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-170">hello two sections - [Read a message from a queue without removing it](#read-a-message-from-a-queue-without-removing-it) and [Read and remove a message from a queue](#read-and-remove-a-message-from-a-queue) - illustrate how tooread messages from a queue.</span></span>  
 
-## <a name="read-a-message-from-a-queue-without-removing-it"></a><span data-ttu-id="ffda8-171">Een bericht in een wachtrij lezen zonder het te verwijderen</span><span class="sxs-lookup"><span data-stu-id="ffda8-171">Read a message from a queue without removing it</span></span>
+## <a name="read-a-message-from-a-queue-without-removing-it"></a><span data-ttu-id="b994c-171">Een bericht in een wachtrij lezen zonder het te verwijderen</span><span class="sxs-lookup"><span data-stu-id="b994c-171">Read a message from a queue without removing it</span></span>
 
-<span data-ttu-id="ffda8-172">Deze sectie ziet u hoe bekijken van een wachtrij bericht (het eerste bericht gelezen zonder het te verwijderen).</span><span class="sxs-lookup"><span data-stu-id="ffda8-172">This section illustrates how to peek at a queued message (read the first message without removing it).</span></span>  
+<span data-ttu-id="b994c-172">Deze sectie ziet u hoe toopeek op een bericht in de wachtrij (lezen Hallo eerste bericht zonder het te verwijderen).</span><span class="sxs-lookup"><span data-stu-id="b994c-172">This section illustrates how toopeek at a queued message (read hello first message without removing it).</span></span>  
 
 > [!NOTE]
 > 
-> <span data-ttu-id="ffda8-173">Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ffda8-173">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="b994c-173">Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="b994c-173">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="ffda8-174">Open het `QueuesController.cs`-bestand.</span><span class="sxs-lookup"><span data-stu-id="ffda8-174">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="b994c-174">Open Hallo `QueuesController.cs` bestand.</span><span class="sxs-lookup"><span data-stu-id="b994c-174">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="ffda8-175">Toevoegen van een methode aangeroepen **PeekMessage** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-175">Add a method called **PeekMessage** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="b994c-175">Toevoegen van een methode aangeroepen **PeekMessage** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="b994c-175">Add a method called **PeekMessage** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult PeekMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="ffda8-176">Binnen de **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="ffda8-176">Within the **PeekMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ffda8-177">Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="ffda8-177">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="b994c-176">Binnen Hallo **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="b994c-176">Within hello **PeekMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b994c-177">Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="b994c-177">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="ffda8-178">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="ffda8-178">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="b994c-178">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="b994c-178">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="ffda8-179">Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-179">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="b994c-179">Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-179">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="ffda8-180">Roep de **CloudQueue.PeekMessage** methode om te lezen van het eerste bericht in de wachtrij zonder het te verwijderen uit de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-180">Call the **CloudQueue.PeekMessage** method to read the first message in the queue without removing it from the queue.</span></span> 
+1. <span data-ttu-id="b994c-180">Hallo aanroepen **CloudQueue.PeekMessage** methode tooread Hallo eerste bericht in de wachtrij Hallo zonder het te verwijderen uit de wachtrij Hallo.</span><span class="sxs-lookup"><span data-stu-id="b994c-180">Call hello **CloudQueue.PeekMessage** method tooread hello first message in hello queue without removing it from hello queue.</span></span> 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. <span data-ttu-id="ffda8-181">Update de **ViewBag** met twee waarden: naam van de wachtrij en het bericht dat is gelezen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-181">Update the **ViewBag** with two values: the queue name and the message that was read.</span></span> <span data-ttu-id="ffda8-182">De **CloudQueueMessage** object beschrijft de twee eigenschappen voor het ophalen van de waarde van het object: **CloudQueueMessage.AsBytes** en **CloudQueueMessage.AsString**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-182">The **CloudQueueMessage** object exposes two properties for getting the object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**.</span></span> <span data-ttu-id="ffda8-183">**AsString** (gebruikt in dit voorbeeld) retourneert een tekenreeks, terwijl **AsBytes** retourneert een bytematrix.</span><span class="sxs-lookup"><span data-stu-id="ffda8-183">**AsString** (used in this example) returns a string, while **AsBytes** returns a byte array.</span></span>
+1. <span data-ttu-id="b994c-181">Update Hallo **ViewBag** met twee waarden: Hallo wachtrijnaam en het Hallo-bericht dat is gelezen.</span><span class="sxs-lookup"><span data-stu-id="b994c-181">Update hello **ViewBag** with two values: hello queue name and hello message that was read.</span></span> <span data-ttu-id="b994c-182">Hallo **CloudQueueMessage** object beschrijft de twee eigenschappen voor het ophalen van de waarde van het object Hallo: **CloudQueueMessage.AsBytes** en **CloudQueueMessage.AsString**.</span><span class="sxs-lookup"><span data-stu-id="b994c-182">hello **CloudQueueMessage** object exposes two properties for getting hello object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**.</span></span> <span data-ttu-id="b994c-183">**AsString** (gebruikt in dit voorbeeld) retourneert een tekenreeks, terwijl **AsBytes** retourneert een bytematrix.</span><span class="sxs-lookup"><span data-stu-id="b994c-183">**AsString** (used in this example) returns a string, while **AsBytes** returns a byte array.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. <span data-ttu-id="ffda8-184">In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-184">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="b994c-184">In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="b994c-184">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="ffda8-185">Op de **weergave toevoegen** dialoogvenster Voer **PeekMessage** voor de weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-185">On the **Add View** dialog, enter **PeekMessage** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-185">Op Hallo **weergave toevoegen** dialoogvenster Voer **PeekMessage** voor Hallo weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-185">On hello **Add View** dialog, enter **PeekMessage** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="ffda8-186">Open `PeekMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:</span><span class="sxs-lookup"><span data-stu-id="ffda8-186">Open `PeekMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="b994c-186">Open `PeekMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="b994c-186">Open `PeekMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -304,83 +304,83 @@ ms.lasthandoff: 08/29/2017
     </table>    
     ```
 
-1. <span data-ttu-id="ffda8-187">In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ffda8-187">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="b994c-187">In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="b994c-187">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="ffda8-188">Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ffda8-188">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="b994c-188">Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="b994c-188">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. <span data-ttu-id="ffda8-189">Voer de toepassing en selecteer **Peek bericht** om vergelijkbaar met de volgende schermopname resultaten te bekijken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-189">Run the application, and select **Peek message** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="b994c-189">Voer Hallo toepassing uit en selecteer **Peek bericht** toosee resulteert vergelijkbare toohello schermopname te volgen:</span><span class="sxs-lookup"><span data-stu-id="b994c-189">Run hello application, and select **Peek message** toosee results similar toohello following screen shot:</span></span>
   
     ![Bericht](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
-## <a name="read-and-remove-a-message-from-a-queue"></a><span data-ttu-id="ffda8-191">Lezen en verwijderen van een bericht van een wachtrij</span><span class="sxs-lookup"><span data-stu-id="ffda8-191">Read and remove a message from a queue</span></span>
+## <a name="read-and-remove-a-message-from-a-queue"></a><span data-ttu-id="b994c-191">Lezen en verwijderen van een bericht van een wachtrij</span><span class="sxs-lookup"><span data-stu-id="b994c-191">Read and remove a message from a queue</span></span>
 
-<span data-ttu-id="ffda8-192">Informatie over het lezen en verwijderen van een bericht van een wachtrij in deze sectie.</span><span class="sxs-lookup"><span data-stu-id="ffda8-192">In this section, you learn how to read and remove a message from a queue.</span></span>   
+<span data-ttu-id="b994c-192">In deze sectie leest u hoe tooread en verwijderen van een bericht van een wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-192">In this section, you learn how tooread and remove a message from a queue.</span></span>   
 
 > [!NOTE]
 > 
-> <span data-ttu-id="ffda8-193">Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ffda8-193">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="b994c-193">Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="b994c-193">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="ffda8-194">Open het `QueuesController.cs`-bestand.</span><span class="sxs-lookup"><span data-stu-id="ffda8-194">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="b994c-194">Open Hallo `QueuesController.cs` bestand.</span><span class="sxs-lookup"><span data-stu-id="b994c-194">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="ffda8-195">Toevoegen van een methode aangeroepen **gelezenBericht** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-195">Add a method called **ReadMessage** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="b994c-195">Toevoegen van een methode aangeroepen **gelezenBericht** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="b994c-195">Add a method called **ReadMessage** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult ReadMessage()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="ffda8-196">Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="ffda8-196">Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ffda8-197">Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="ffda8-197">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="b994c-196">Binnen Hallo **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="b994c-196">Within hello **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b994c-197">Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="b994c-197">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="ffda8-198">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="ffda8-198">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="b994c-198">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="b994c-198">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="ffda8-199">Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-199">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="b994c-199">Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-199">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="ffda8-200">Roep de **CloudQueue.GetMessage** methode het eerste bericht in de wachtrij te lezen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-200">Call the **CloudQueue.GetMessage** method to read the first message in the queue.</span></span> <span data-ttu-id="ffda8-201">De **CloudQueue.GetMessage** methode kunt u het bericht onzichtbaar gedurende 30 seconden (standaard) om te lezen van berichten, zodat er geen andere code kunt wijzigen of verwijderen van bericht tijdens de verwerking van deze code.</span><span class="sxs-lookup"><span data-stu-id="ffda8-201">The **CloudQueue.GetMessage** method makes the message invisible for 30 seconds (by default) to any other code reading messages so that no other code can modify or delete the message while your processing it.</span></span> <span data-ttu-id="ffda8-202">Als u wilt wijzigen van de hoeveelheid tijd die het bericht onzichtbaar is, wijzigt u de **visibilityTimeout** parameter worden doorgegeven aan de **CloudQueue.GetMessage** methode.</span><span class="sxs-lookup"><span data-stu-id="ffda8-202">To change the amount of time the message is invisible, modify the **visibilityTimeout** parameter being passed to the **CloudQueue.GetMessage** method.</span></span>
+1. <span data-ttu-id="b994c-200">Hallo aanroepen **CloudQueue.GetMessage** methode tooread Hallo eerste bericht in Hallo wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-200">Call hello **CloudQueue.GetMessage** method tooread hello first message in hello queue.</span></span> <span data-ttu-id="b994c-201">Hallo **CloudQueue.GetMessage** Hallo bericht onzichtbaar voor 30 seconden (standaard) tooany andere codes die berichten lezen, zodat er geen andere code kunt wijzigen of verwijderen van het Hallo-bericht tijdens de verwerking van deze methode kunt u.</span><span class="sxs-lookup"><span data-stu-id="b994c-201">hello **CloudQueue.GetMessage** method makes hello message invisible for 30 seconds (by default) tooany other code reading messages so that no other code can modify or delete hello message while your processing it.</span></span> <span data-ttu-id="b994c-202">toochange hello hoeveelheid tijd Hallo-bericht onzichtbaar is, wijzigt u Hallo **visibilityTimeout** parameter worden doorgegeven toohello **CloudQueue.GetMessage** methode.</span><span class="sxs-lookup"><span data-stu-id="b994c-202">toochange hello amount of time hello message is invisible, modify hello **visibilityTimeout** parameter being passed toohello **CloudQueue.GetMessage** method.</span></span>
 
     ```csharp
-    // This message will be invisible to other code for 30 seconds.
+    // This message will be invisible tooother code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. <span data-ttu-id="ffda8-203">Roep de **CloudQueueMessage.Delete** methode om te verwijderen van het bericht uit de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-203">Call the **CloudQueueMessage.Delete** method to delete the message from the queue.</span></span>
+1. <span data-ttu-id="b994c-203">Hallo aanroepen **CloudQueueMessage.Delete** methode toodelete Hallo-bericht uit de wachtrij Hallo.</span><span class="sxs-lookup"><span data-stu-id="b994c-203">Call hello **CloudQueueMessage.Delete** method toodelete hello message from hello queue.</span></span>
 
     ```csharp
     queue.DeleteMessage(message);
     ```
 
-1. <span data-ttu-id="ffda8-204">Update de **ViewBag** met het bericht is verwijderd en de naam van de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-204">Update the **ViewBag** with the message deleted, and the name of the queue.</span></span>
+1. <span data-ttu-id="b994c-204">Update Hallo **ViewBag** Hello bericht verwijderd en de naam van de wachtrij Hallo Hallo.</span><span class="sxs-lookup"><span data-stu-id="b994c-204">Update hello **ViewBag** with hello message deleted, and hello name of hello queue.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
  
-1. <span data-ttu-id="ffda8-205">In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-205">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="b994c-205">In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="b994c-205">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="ffda8-206">Op de **weergave toevoegen** dialoogvenster Voer **gelezenBericht** voor de weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-206">On the **Add View** dialog, enter **ReadMessage** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-206">Op Hallo **weergave toevoegen** dialoogvenster Voer **gelezenBericht** voor Hallo weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-206">On hello **Add View** dialog, enter **ReadMessage** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="ffda8-207">Open `ReadMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:</span><span class="sxs-lookup"><span data-stu-id="ffda8-207">Open `ReadMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="b994c-207">Open `ReadMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="b994c-207">Open `ReadMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -395,82 +395,82 @@ ms.lasthandoff: 08/29/2017
     </table>
     ```
 
-1. <span data-ttu-id="ffda8-208">In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ffda8-208">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="b994c-208">In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="b994c-208">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="ffda8-209">Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ffda8-209">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="b994c-209">Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="b994c-209">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. <span data-ttu-id="ffda8-210">Voer de toepassing en selecteer **Lees-/ verwijderingsbericht** om vergelijkbaar met de volgende schermopname resultaten te bekijken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-210">Run the application, and select **Read/Delete message** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="b994c-210">Voer Hallo toepassing uit en selecteer **Lees-/ verwijderingsbericht** toosee resulteert vergelijkbare toohello schermopname te volgen:</span><span class="sxs-lookup"><span data-stu-id="b994c-210">Run hello application, and select **Read/Delete message** toosee results similar toohello following screen shot:</span></span>
   
     ![Lezen en verwijderen van bericht](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
-## <a name="get-the-queue-length"></a><span data-ttu-id="ffda8-212">Lengte van de wachtrij ophalen</span><span class="sxs-lookup"><span data-stu-id="ffda8-212">Get the queue length</span></span>
+## <a name="get-hello-queue-length"></a><span data-ttu-id="b994c-212">Hallo-wachtrijlengte ophalen</span><span class="sxs-lookup"><span data-stu-id="b994c-212">Get hello queue length</span></span>
 
-<span data-ttu-id="ffda8-213">Deze sectie ziet u hoe u de lengte van de wachtrij (het aantal berichten).</span><span class="sxs-lookup"><span data-stu-id="ffda8-213">This section illustrates how to get the queue length (number of messages).</span></span> 
+<span data-ttu-id="b994c-213">Deze sectie ziet u hoe tooget Hallo wachtrijlengte (aantal berichten).</span><span class="sxs-lookup"><span data-stu-id="b994c-213">This section illustrates how tooget hello queue length (number of messages).</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="ffda8-214">Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ffda8-214">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="b994c-214">Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="b994c-214">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="ffda8-215">Open het `QueuesController.cs`-bestand.</span><span class="sxs-lookup"><span data-stu-id="ffda8-215">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="b994c-215">Open Hallo `QueuesController.cs` bestand.</span><span class="sxs-lookup"><span data-stu-id="b994c-215">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="ffda8-216">Toevoegen van een methode aangeroepen **GetQueueLength** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-216">Add a method called **GetQueueLength** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="b994c-216">Toevoegen van een methode aangeroepen **GetQueueLength** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="b994c-216">Add a method called **GetQueueLength** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult GetQueueLength()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="ffda8-217">Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="ffda8-217">Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ffda8-218">Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="ffda8-218">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="b994c-217">Binnen Hallo **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="b994c-217">Within hello **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b994c-218">Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="b994c-218">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="ffda8-219">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="ffda8-219">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="b994c-219">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="b994c-219">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="ffda8-220">Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-220">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="b994c-220">Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-220">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="ffda8-221">Roep de **CloudQueue.FetchAttributes** methode voor het ophalen van de wachtrij-kenmerken (met inbegrip van de lengte).</span><span class="sxs-lookup"><span data-stu-id="ffda8-221">Call the **CloudQueue.FetchAttributes** method to retrieve the queue's attributes (including its length).</span></span> 
+1. <span data-ttu-id="b994c-221">Hallo aanroepen **CloudQueue.FetchAttributes** methode tooretrieve Hallo van wachtrij-kenmerken (met inbegrip van de lengte).</span><span class="sxs-lookup"><span data-stu-id="b994c-221">Call hello **CloudQueue.FetchAttributes** method tooretrieve hello queue's attributes (including its length).</span></span> 
 
     ```csharp
     queue.FetchAttributes();
     ```
 
-6. <span data-ttu-id="ffda8-222">Toegang tot de **CloudQueue.ApproximateMessageCount** eigenschap ophalen van de lengte van de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-222">Access the **CloudQueue.ApproximateMessageCount** property to get the queue's length.</span></span>
+6. <span data-ttu-id="b994c-222">Toegang Hallo **CloudQueue.ApproximateMessageCount** wachtrijlengte van eigenschap tooget Hallo.</span><span class="sxs-lookup"><span data-stu-id="b994c-222">Access hello **CloudQueue.ApproximateMessageCount** property tooget hello queue's length.</span></span>
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. <span data-ttu-id="ffda8-223">Update de **ViewBag** met de naam van de wachtrij en de lengte.</span><span class="sxs-lookup"><span data-stu-id="ffda8-223">Update the **ViewBag** with the name of the queue, and its length.</span></span>
+1. <span data-ttu-id="b994c-223">Update Hallo **ViewBag** Hallo-naam van Hallo wachtrij en de lengte.</span><span class="sxs-lookup"><span data-stu-id="b994c-223">Update hello **ViewBag** with hello name of hello queue, and its length.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. <span data-ttu-id="ffda8-224">In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-224">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="b994c-224">In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="b994c-224">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="ffda8-225">Op de **weergave toevoegen** dialoogvenster Voer **GetQueueLength** voor de weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-225">On the **Add View** dialog, enter **GetQueueLength** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-225">Op Hallo **weergave toevoegen** dialoogvenster Voer **GetQueueLength** voor Hallo weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-225">On hello **Add View** dialog, enter **GetQueueLength** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="ffda8-226">Open `GetQueueLengthMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:</span><span class="sxs-lookup"><span data-stu-id="ffda8-226">Open `GetQueueLengthMessage.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="b994c-226">Open `GetQueueLengthMessage.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="b994c-226">Open `GetQueueLengthMessage.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -479,78 +479,78 @@ ms.lasthandoff: 08/29/2017
     
     <h2>Get Queue Length results</h2>
     
-    The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
+    hello queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. <span data-ttu-id="ffda8-227">In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ffda8-227">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="b994c-227">In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="b994c-227">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="ffda8-228">Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ffda8-228">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="b994c-228">Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="b994c-228">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. <span data-ttu-id="ffda8-229">Voer de toepassing en selecteer **ophalen wachtrijlengte** om vergelijkbaar met de volgende schermopname resultaten te bekijken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-229">Run the application, and select **Get queue length** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="b994c-229">Voer Hallo toepassing uit en selecteer **ophalen wachtrijlengte** toosee resulteert vergelijkbare toohello schermopname te volgen:</span><span class="sxs-lookup"><span data-stu-id="b994c-229">Run hello application, and select **Get queue length** toosee results similar toohello following screen shot:</span></span>
   
     ![Wachtrijlengte ophalen](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
 
-## <a name="delete-a-queue"></a><span data-ttu-id="ffda8-231">Een wachtrij verwijderen</span><span class="sxs-lookup"><span data-stu-id="ffda8-231">Delete a queue</span></span>
-<span data-ttu-id="ffda8-232">Deze sectie ziet u hoe een wachtrij verwijderen.</span><span class="sxs-lookup"><span data-stu-id="ffda8-232">This section illustrates how to delete a queue.</span></span> 
+## <a name="delete-a-queue"></a><span data-ttu-id="b994c-231">Een wachtrij verwijderen</span><span class="sxs-lookup"><span data-stu-id="b994c-231">Delete a queue</span></span>
+<span data-ttu-id="b994c-232">Deze sectie wordt beschreven hoe een wachtrij toodelete.</span><span class="sxs-lookup"><span data-stu-id="b994c-232">This section illustrates how toodelete a queue.</span></span> 
 
 > [!NOTE]
 > 
-> <span data-ttu-id="ffda8-233">Deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="ffda8-233">This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment).</span></span> 
+> <span data-ttu-id="b994c-233">Deze sectie wordt ervan uitgegaan dat u Hallo stappen hebt voltooid [Hallo ontwikkelomgeving instellen](#set-up-the-development-environment).</span><span class="sxs-lookup"><span data-stu-id="b994c-233">This section assumes you have completed hello steps [Set up hello development environment](#set-up-the-development-environment).</span></span> 
 
-1. <span data-ttu-id="ffda8-234">Open het `QueuesController.cs`-bestand.</span><span class="sxs-lookup"><span data-stu-id="ffda8-234">Open the `QueuesController.cs` file.</span></span>
+1. <span data-ttu-id="b994c-234">Open Hallo `QueuesController.cs` bestand.</span><span class="sxs-lookup"><span data-stu-id="b994c-234">Open hello `QueuesController.cs` file.</span></span>
 
-1. <span data-ttu-id="ffda8-235">Toevoegen van een methode aangeroepen **DeleteQueue** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-235">Add a method called **DeleteQueue** that returns an **ActionResult**.</span></span>
+1. <span data-ttu-id="b994c-235">Toevoegen van een methode aangeroepen **DeleteQueue** die retourneert een **ActionResult**.</span><span class="sxs-lookup"><span data-stu-id="b994c-235">Add a method called **DeleteQueue** that returns an **ActionResult**.</span></span>
 
     ```csharp
     public ActionResult DeleteQueue()
     {
-        // The code in this section goes here.
+        // hello code in this section goes here.
 
         return View();
     }
     ```
  
-1. <span data-ttu-id="ffda8-236">Binnen de **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="ffda8-236">Within the **DeleteQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="ffda8-237">Gebruik de volgende code de verbindingsreeks voor opslag en storage-account-gegevens ophalen uit de configuratie van Azure service: (wijziging  *&lt;storage-account-name >* op de naam van de Azure storage-account u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="ffda8-237">Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)</span></span>
+1. <span data-ttu-id="b994c-236">Binnen Hallo **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens over uw storage-account.</span><span class="sxs-lookup"><span data-stu-id="b994c-236">Within hello **DeleteQueue** method, get a **CloudStorageAccount** object that represents your storage account information.</span></span> <span data-ttu-id="b994c-237">Gebruik Hallo volgende code tooget Hallo opslag tekenreeks en storage-account verbindingsinformatie van hello Azure serviceconfiguratie: (wijziging  *&lt;storage-account-name >* toohello-naam van hello Azure-opslag account die u toegang hebt.)</span><span class="sxs-lookup"><span data-stu-id="b994c-237">Use hello following code tooget hello storage connection string and storage account information from hello Azure service configuration: (Change *&lt;storage-account-name>* toohello name of hello Azure storage account you're accessing.)</span></span>
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. <span data-ttu-id="ffda8-238">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="ffda8-238">Get a **CloudQueueClient** object represents a queue service client.</span></span>
+1. <span data-ttu-id="b994c-238">Ophalen van een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.</span><span class="sxs-lookup"><span data-stu-id="b994c-238">Get a **CloudQueueClient** object represents a queue service client.</span></span>
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. <span data-ttu-id="ffda8-239">Ophalen van een **CloudQueueContainer** -object met een verwijzing naar de wachtrij.</span><span class="sxs-lookup"><span data-stu-id="ffda8-239">Get a **CloudQueueContainer** object that represents a reference to the queue.</span></span> 
+1. <span data-ttu-id="b994c-239">Ophalen van een **CloudQueueContainer** -object met een verwijzing toohello wachtrij.</span><span class="sxs-lookup"><span data-stu-id="b994c-239">Get a **CloudQueueContainer** object that represents a reference toohello queue.</span></span> 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. <span data-ttu-id="ffda8-240">Roep de **CloudQueue.Delete** methode om te verwijderen van de wachtrij dat wordt vertegenwoordigd door de **CloudQueue** object.</span><span class="sxs-lookup"><span data-stu-id="ffda8-240">Call the **CloudQueue.Delete** method to delete the queue represented by the **CloudQueue** object.</span></span>
+1. <span data-ttu-id="b994c-240">Hallo aanroepen **CloudQueue.Delete** methode toodelete Hallo wachtrij vertegenwoordigd door Hallo **CloudQueue** object.</span><span class="sxs-lookup"><span data-stu-id="b994c-240">Call hello **CloudQueue.Delete** method toodelete hello queue represented by hello **CloudQueue** object.</span></span>
 
     ```csharp
     queue.Delete();
     ```
 
-1. <span data-ttu-id="ffda8-241">Update de **ViewBag** met de naam van de wachtrij en de lengte.</span><span class="sxs-lookup"><span data-stu-id="ffda8-241">Update the **ViewBag** with the name of the queue, and its length.</span></span>
+1. <span data-ttu-id="b994c-241">Update Hallo **ViewBag** Hallo-naam van Hallo wachtrij en de lengte.</span><span class="sxs-lookup"><span data-stu-id="b994c-241">Update hello **ViewBag** with hello name of hello queue, and its length.</span></span>
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. <span data-ttu-id="ffda8-242">In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-242">In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.</span></span>
+1. <span data-ttu-id="b994c-242">In Hallo **Solution Explorer**, vouw Hallo **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu hello, **toevoegen -> weergave**.</span><span class="sxs-lookup"><span data-stu-id="b994c-242">In hello **Solution Explorer**, expand hello **Views** folder, right-click **Queues**, and from hello context menu, select **Add->View**.</span></span>
 
-1. <span data-ttu-id="ffda8-243">Op de **weergave toevoegen** dialoogvenster Voer **DeleteQueue** voor de weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="ffda8-243">On the **Add View** dialog, enter **DeleteQueue** for the view name, and select **Add**.</span></span>
+1. <span data-ttu-id="b994c-243">Op Hallo **weergave toevoegen** dialoogvenster Voer **DeleteQueue** voor Hallo weergavenaam en selecteer **toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="b994c-243">On hello **Add View** dialog, enter **DeleteQueue** for hello view name, and select **Add**.</span></span>
 
-1. <span data-ttu-id="ffda8-244">Open `DeleteQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment:</span><span class="sxs-lookup"><span data-stu-id="ffda8-244">Open `DeleteQueue.cshtml`, and modify it so that it looks like the following code snippet:</span></span>
+1. <span data-ttu-id="b994c-244">Open `DeleteQueue.cshtml`, en dit zodanig aanpassen dat het lijkt erop dat het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="b994c-244">Open `DeleteQueue.cshtml`, and modify it so that it looks like hello following code snippet:</span></span>
 
     ```csharp
     @{
@@ -562,20 +562,20 @@ ms.lasthandoff: 08/29/2017
     @ViewBag.QueueName deleted.
     ```
 
-1. <span data-ttu-id="ffda8-245">In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="ffda8-245">In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
+1. <span data-ttu-id="b994c-245">In Hallo **Solution Explorer**, vouw Hallo **weergaven -> gedeelde** map en open `_Layout.cshtml`.</span><span class="sxs-lookup"><span data-stu-id="b994c-245">In hello **Solution Explorer**, expand hello **Views->Shared** folder, and open `_Layout.cshtml`.</span></span>
 
-1. <span data-ttu-id="ffda8-246">Nadat de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="ffda8-246">After the last **Html.ActionLink**, add the following **Html.ActionLink**:</span></span>
+1. <span data-ttu-id="b994c-246">Na het Hallo laatste **Html.ActionLink**, voeg de volgende Hallo **Html.ActionLink**:</span><span class="sxs-lookup"><span data-stu-id="b994c-246">After hello last **Html.ActionLink**, add hello following **Html.ActionLink**:</span></span>
 
     ```html
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. <span data-ttu-id="ffda8-247">Voer de toepassing en selecteer **ophalen wachtrijlengte** om vergelijkbaar met de volgende schermopname resultaten te bekijken:</span><span class="sxs-lookup"><span data-stu-id="ffda8-247">Run the application, and select **Get queue length** to see results similar to the following screen shot:</span></span>
+1. <span data-ttu-id="b994c-247">Voer Hallo toepassing uit en selecteer **ophalen wachtrijlengte** toosee resulteert vergelijkbare toohello schermopname te volgen:</span><span class="sxs-lookup"><span data-stu-id="b994c-247">Run hello application, and select **Get queue length** toosee results similar toohello following screen shot:</span></span>
   
     ![Wachtrij verwijderen](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
-## <a name="next-steps"></a><span data-ttu-id="ffda8-249">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="ffda8-249">Next steps</span></span>
-<span data-ttu-id="ffda8-250">Bekijk meer functiehandleidingen voor informatie over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.</span><span class="sxs-lookup"><span data-stu-id="ffda8-250">View more feature guides to learn about additional options for storing data in Azure.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b994c-249">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b994c-249">Next steps</span></span>
+<span data-ttu-id="b994c-250">Bekijk meer functie handleidingen toolearn over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.</span><span class="sxs-lookup"><span data-stu-id="b994c-250">View more feature guides toolearn about additional options for storing data in Azure.</span></span>
 
-  * [<span data-ttu-id="ffda8-251">Aan de slag met Azure blob storage en Visual Studio verbonden Services (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="ffda8-251">Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)</span></span>](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [<span data-ttu-id="ffda8-252">Aan de slag met Azure-tabelopslag en Visual Studio verbonden Services (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="ffda8-252">Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-tables.md)
+  * [<span data-ttu-id="b994c-251">Aan de slag met Azure blob storage en Visual Studio verbonden Services (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="b994c-251">Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)</span></span>](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [<span data-ttu-id="b994c-252">Aan de slag met Azure-tabelopslag en Visual Studio verbonden Services (ASP.NET)</span><span class="sxs-lookup"><span data-stu-id="b994c-252">Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)</span></span>](vs-storage-aspnet-getting-started-tables.md)

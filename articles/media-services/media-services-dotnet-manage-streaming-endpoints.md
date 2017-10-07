@@ -1,6 +1,6 @@
 ---
-title: Streaming-eindpunten met .NET SDK beheren. | Microsoft Docs
-description: Dit onderwerp leest hoe voor het beheren van streaming-eindpunten met de Azure-portal.
+title: aaaManage streaming-eindpunten met .NET SDK. | Microsoft Docs
+description: Dit onderwerp leest hoe toomanage streaming-eindpunten met hello Azure-portal.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30c092a8ebf4e2b2902392f4cf98f46d812ccdbc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a><span data-ttu-id="15ff9-104">Streaming-eindpunten met .NET SDK beheren</span><span class="sxs-lookup"><span data-stu-id="15ff9-104">Manage streaming endpoints with .NET SDK</span></span>
+# <a name="manage-streaming-endpoints-with-net-sdk"></a><span data-ttu-id="46c86-104">Streaming-eindpunten met .NET SDK beheren</span><span class="sxs-lookup"><span data-stu-id="46c86-104">Manage streaming endpoints with .NET SDK</span></span>
 
 >[!NOTE]
-><span data-ttu-id="15ff9-105">Leest de [overzicht](media-services-streaming-endpoints-overview.md) onderwerp.</span><span class="sxs-lookup"><span data-stu-id="15ff9-105">Make sure to review the [overview](media-services-streaming-endpoints-overview.md) topic.</span></span> <span data-ttu-id="15ff9-106">Bekijk ook [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span><span class="sxs-lookup"><span data-stu-id="15ff9-106">Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span></span>
+><span data-ttu-id="46c86-105">Zorg ervoor dat tooreview hello [overzicht](media-services-streaming-endpoints-overview.md) onderwerp.</span><span class="sxs-lookup"><span data-stu-id="46c86-105">Make sure tooreview hello [overview](media-services-streaming-endpoints-overview.md) topic.</span></span> <span data-ttu-id="46c86-106">Bekijk ook [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span><span class="sxs-lookup"><span data-stu-id="46c86-106">Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).</span></span>
 
-<span data-ttu-id="15ff9-107">De code in dit onderwerp toont hoe u de volgende taken uitvoeren met Azure Media Services .NET SDK:</span><span class="sxs-lookup"><span data-stu-id="15ff9-107">The code in this topic shows how to do the following tasks using the Azure Media Services .NET SDK:</span></span>
+<span data-ttu-id="46c86-107">Hallo-code in dit onderwerp wordt getoond hoe toodo Hallo na taken met Azure Media Services .NET SDK Hallo:</span><span class="sxs-lookup"><span data-stu-id="46c86-107">hello code in this topic shows how toodo hello following tasks using hello Azure Media Services .NET SDK:</span></span>
 
-- <span data-ttu-id="15ff9-108">Bekijk het standaard streaming-eindpunt.</span><span class="sxs-lookup"><span data-stu-id="15ff9-108">Examine the default streaming endpoint.</span></span>
-- <span data-ttu-id="15ff9-109">Nieuwe streaming-eindpunt maken/toevoegen.</span><span class="sxs-lookup"><span data-stu-id="15ff9-109">Create/add new streaming endpoint.</span></span>
+- <span data-ttu-id="46c86-108">Bekijk Hallo standaardstreaming-eindpunt.</span><span class="sxs-lookup"><span data-stu-id="46c86-108">Examine hello default streaming endpoint.</span></span>
+- <span data-ttu-id="46c86-109">Nieuwe streaming-eindpunt maken/toevoegen.</span><span class="sxs-lookup"><span data-stu-id="46c86-109">Create/add new streaming endpoint.</span></span>
 
-    <span data-ttu-id="15ff9-110">U kunt meerdere streaming-eindpunten hebben als u van plan bent een andere CDN of een CDN en directe toegang heeft.</span><span class="sxs-lookup"><span data-stu-id="15ff9-110">You might want to have multiple streaming endpoints if you plan to have different CDNs or a CDN and direct access.</span></span>
+    <span data-ttu-id="46c86-110">U kunt toohave meerdere streaming-eindpunten als u van plan toohave bent verschillende CDN of een CDN en directe toegang.</span><span class="sxs-lookup"><span data-stu-id="46c86-110">You might want toohave multiple streaming endpoints if you plan toohave different CDNs or a CDN and direct access.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="15ff9-111">U wordt alleen gefactureerd als uw Streaming-eindpunt wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="15ff9-111">You are only billed when your Streaming Endpoint is in running state.</span></span>
+    > <span data-ttu-id="46c86-111">U wordt alleen gefactureerd als uw Streaming-eindpunt wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="46c86-111">You are only billed when your Streaming Endpoint is in running state.</span></span>
     
-- <span data-ttu-id="15ff9-112">Werk het streaming-eindpunt.</span><span class="sxs-lookup"><span data-stu-id="15ff9-112">Update the streaming endpoint.</span></span>
+- <span data-ttu-id="46c86-112">Hallo streaming-eindpunt worden bijgewerkt.</span><span class="sxs-lookup"><span data-stu-id="46c86-112">Update hello streaming endpoint.</span></span>
     
-    <span data-ttu-id="15ff9-113">Zorg ervoor dat de functie Update() aanroepen.</span><span class="sxs-lookup"><span data-stu-id="15ff9-113">Make sure to call the Update() function.</span></span>
+    <span data-ttu-id="46c86-113">Zorg ervoor dat toocall Hallo Update() functie.</span><span class="sxs-lookup"><span data-stu-id="46c86-113">Make sure toocall hello Update() function.</span></span>
 
-- <span data-ttu-id="15ff9-114">Verwijder het streaming-eindpunt.</span><span class="sxs-lookup"><span data-stu-id="15ff9-114">Delete the streaming endpoint.</span></span>
+- <span data-ttu-id="46c86-114">Hallo streaming-eindpunt verwijderen.</span><span class="sxs-lookup"><span data-stu-id="46c86-114">Delete hello streaming endpoint.</span></span>
 
     >[!NOTE]
-    ><span data-ttu-id="15ff9-115">Het standaard streaming-eindpunt kan niet worden verwijderd.</span><span class="sxs-lookup"><span data-stu-id="15ff9-115">The default streaming endpoint cannot be deleted.</span></span>
+    ><span data-ttu-id="46c86-115">Hallo standaardstreaming-eindpunt kan niet worden verwijderd.</span><span class="sxs-lookup"><span data-stu-id="46c86-115">hello default streaming endpoint cannot be deleted.</span></span>
 
-<span data-ttu-id="15ff9-116">Zie voor meer informatie over het schalen van het streaming-eindpunt [dit](media-services-portal-scale-streaming-endpoints.md) onderwerp.</span><span class="sxs-lookup"><span data-stu-id="15ff9-116">For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.</span></span>
+<span data-ttu-id="46c86-116">Zie voor meer informatie over hoe tooscale streaming-eindpunt Hallo [dit](media-services-portal-scale-streaming-endpoints.md) onderwerp.</span><span class="sxs-lookup"><span data-stu-id="46c86-116">For information about how tooscale hello streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.</span></span>
 
-## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="15ff9-117">Maak en configureer een Visual Studio-project.</span><span class="sxs-lookup"><span data-stu-id="15ff9-117">Create and configure a Visual Studio project</span></span>
+## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="46c86-117">Maak en configureer een Visual Studio-project.</span><span class="sxs-lookup"><span data-stu-id="46c86-117">Create and configure a Visual Studio project</span></span>
 
-<span data-ttu-id="15ff9-118">Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="15ff9-118">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+<span data-ttu-id="46c86-118">Uw ontwikkelomgeving instellen en vullen Hallo app.config-bestand met de verbindingsinformatie, zoals beschreven in [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="46c86-118">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a><span data-ttu-id="15ff9-119">Code die wordt beheerd streaming-eindpunten toevoegen</span><span class="sxs-lookup"><span data-stu-id="15ff9-119">Add code that manages streaming endpoints</span></span>
+## <a name="add-code-that-manages-streaming-endpoints"></a><span data-ttu-id="46c86-119">Code die wordt beheerd streaming-eindpunten toevoegen</span><span class="sxs-lookup"><span data-stu-id="46c86-119">Add code that manages streaming endpoints</span></span>
     
-<span data-ttu-id="15ff9-120">Vervang de code in de Program.cs met de volgende code:</span><span class="sxs-lookup"><span data-stu-id="15ff9-120">Replace the code in the Program.cs with the following code:</span></span>
+<span data-ttu-id="46c86-120">Hallo-code in Program.cs Hallo vervangen door Hallo code te volgen:</span><span class="sxs-lookup"><span data-stu-id="46c86-120">Replace hello code in hello Program.cs with hello following code:</span></span>
 
     using System;
     using System.Configuration;
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/29/2017
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -132,11 +132,11 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-## <a name="next-steps"></a><span data-ttu-id="15ff9-121">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="15ff9-121">Next steps</span></span>
-<span data-ttu-id="15ff9-122">Media Services-leertrajecten bekijken.</span><span class="sxs-lookup"><span data-stu-id="15ff9-122">Review Media Services learning paths.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="46c86-121">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="46c86-121">Next steps</span></span>
+<span data-ttu-id="46c86-122">Media Services-leertrajecten bekijken.</span><span class="sxs-lookup"><span data-stu-id="46c86-122">Review Media Services learning paths.</span></span>
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="15ff9-123">Feedback geven</span><span class="sxs-lookup"><span data-stu-id="15ff9-123">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="46c86-123">Feedback geven</span><span class="sxs-lookup"><span data-stu-id="46c86-123">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

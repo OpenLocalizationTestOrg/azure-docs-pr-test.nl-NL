@@ -13,7 +13,7 @@
 ### [Operationele beveiliging inschakelen](azure-operational-security.md)
 ### [Geavanceerde detectie van bedreigingen](azure-threat-detection.md)
 ### [Logboekregistratie en bewaking](azure-log-audit.md)
-### [Isolatie in de openbare cloud](azure-isolation.md)
+### [Isolatie in Hallo openbare cloud](azure-isolation.md)
 ### [Technische mogelijkheden voor beveiliging](azure-security-technical-capabilities.md)
 ### [Governance in Azure](governance-in-azure.md)
 ### [Versleuteling van inactieve gegevens](azure-security-encryption-atrest.md)
@@ -48,7 +48,7 @@
 ## Beveiligingsbeheer en -controle
 ### [Beveiligingsbeheer](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Inleiding tot Azure-logboekintegratie](security-azure-log-integration-overview.md)
+### [Inleiding tooAzure logboek-integratie](security-azure-log-integration-overview.md)
 #### [Aan de slag met Azure-logboekintegratie](security-azure-log-integration-get-started.md)
 #### [Controlelogboeken van Azure Active Directory integreren](security-azure-log-integration-ad.md)
 #### [Waarschuwingen van Beveiligingscentrum integreren](security-azure-log-integration-security-center.md)
