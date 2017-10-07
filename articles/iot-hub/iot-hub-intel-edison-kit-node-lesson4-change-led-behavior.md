@@ -1,6 +1,6 @@
 ---
-title: 'Intel Edison (knooppunt) verbinden met Azure IoT - les 4: de LED knipperen | Microsoft Docs'
-description: De berichten te wijzigen van de LED van in- en uitschakelen gedrag aanpassen.
+title: 'Verbinding maken met Intel Edison (knooppunt) tooAzure IoT - les 4: Hallo LED knipperen | Microsoft Docs'
+description: Hallo-berichten toochange Hallo LED van in- en uitschakelen gedrag aanpassen.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: fa99050dad62534e2825e93f1170d2f3ecf5a3ba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: caeabe311fd1698f298c6d2b4a203ecad80ef7df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a><span data-ttu-id="320bb-104">De on- en uitgeschakeld gedrag van de LED wijzigen</span><span class="sxs-lookup"><span data-stu-id="320bb-104">Change the on and off behavior of the LED</span></span>
-## <a name="what-you-will-do"></a><span data-ttu-id="320bb-105">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="320bb-105">What you will do</span></span>
-<span data-ttu-id="320bb-106">De berichten te wijzigen van de LED van in- en uitschakelen gedrag aanpassen.</span><span class="sxs-lookup"><span data-stu-id="320bb-106">Customize the messages to change the LED’s on and off behavior.</span></span> <span data-ttu-id="320bb-107">Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="320bb-107">If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].</span></span>
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a><span data-ttu-id="cbb3d-104">Hallo in- en uitschakelen gedrag van Hallo LED wijzigen</span><span class="sxs-lookup"><span data-stu-id="cbb3d-104">Change hello on and off behavior of hello LED</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="cbb3d-105">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="cbb3d-105">What you will do</span></span>
+<span data-ttu-id="cbb3d-106">Hallo-berichten toochange Hallo LED van in- en uitschakelen gedrag aanpassen.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-106">Customize hello messages toochange hello LED’s on and off behavior.</span></span> <span data-ttu-id="cbb3d-107">Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="cbb3d-107">If you have any problems, look for solutions on hello [troubleshooting page][troubleshooting].</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="320bb-108">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="320bb-108">What you will learn</span></span>
-<span data-ttu-id="320bb-109">Aanvullende functies gebruiken om te wijzigen van de LED van in- en uitgeschakeld gedrag.</span><span class="sxs-lookup"><span data-stu-id="320bb-109">Use additional functions to change the LED’s on and off behavior.</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="cbb3d-108">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="cbb3d-108">What you will learn</span></span>
+<span data-ttu-id="cbb3d-109">Gebruik aanvullende functies toochange Hallo LED van in- en uitgeschakeld gedrag.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-109">Use additional functions toochange hello LED’s on and off behavior.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="320bb-110">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="320bb-110">What you need</span></span>
-<span data-ttu-id="320bb-111">U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison cloud naar apparaat-berichten ontvangen][receive-cloud-to-device-messages].</span><span class="sxs-lookup"><span data-stu-id="320bb-111">You must have successfully completed [Run a sample application on Intel Edison to receive cloud to device messages][receive-cloud-to-device-messages].</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="cbb3d-110">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="cbb3d-110">What you need</span></span>
+<span data-ttu-id="cbb3d-111">U moet hebt voltooid [een voorbeeldtoepassing uitvoeren op Intel Edison tooreceive cloud toodevice berichten][receive-cloud-to-device-messages].</span><span class="sxs-lookup"><span data-stu-id="cbb3d-111">You must have successfully completed [Run a sample application on Intel Edison tooreceive cloud toodevice messages][receive-cloud-to-device-messages].</span></span>
 
-## <a name="add-functions-to-appjs-and-gulpfilejs"></a><span data-ttu-id="320bb-112">Functies toevoegen aan app.js en gulpfile.js</span><span class="sxs-lookup"><span data-stu-id="320bb-112">Add functions to app.js and gulpfile.js</span></span>
-1. <span data-ttu-id="320bb-113">De voorbeeldtoepassing openen in Visual Studio code met de volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="320bb-113">Open the sample application in Visual Studio code by running the following commands:</span></span>
+## <a name="add-functions-tooappjs-and-gulpfilejs"></a><span data-ttu-id="cbb3d-112">Functies tooapp.js en gulpfile.js toevoegen</span><span class="sxs-lookup"><span data-stu-id="cbb3d-112">Add functions tooapp.js and gulpfile.js</span></span>
+1. <span data-ttu-id="cbb3d-113">Hallo-voorbeeldtoepassing openen in Visual Studio code door het uitvoeren van de volgende opdrachten Hallo:</span><span class="sxs-lookup"><span data-stu-id="cbb3d-113">Open hello sample application in Visual Studio code by running hello following commands:</span></span>
 
    ```bash
    cd Lesson4
    code .
    ```
-2. <span data-ttu-id="320bb-114">Open de `app.js` bestand en voeg vervolgens de volgende functies na de blinkLED() functie:</span><span class="sxs-lookup"><span data-stu-id="320bb-114">Open the `app.js` file, and then add the following functions after blinkLED() function:</span></span>
+2. <span data-ttu-id="cbb3d-114">Open Hallo `app.js` bestand en voeg vervolgens Hallo functies volgen na de blinkLED() functie:</span><span class="sxs-lookup"><span data-stu-id="cbb3d-114">Open hello `app.js` file, and then add hello following functions after blinkLED() function:</span></span>
 
    ```javascript
    function turnOnLED() {
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/11/2017
    ```
 
    ![bestand App.js, waarbij toegevoegde functies](media/iot-hub-intel-edison-lessons/lesson4/updated_app_node.png)
-3. <span data-ttu-id="320bb-116">De volgende condities voordat de aanvraag 'knipperen' in het blok switch-aanvraag van de `receiveMessageCallback` functie:</span><span class="sxs-lookup"><span data-stu-id="320bb-116">Add the following conditions before the 'blink' case in the switch-case block of the `receiveMessageCallback` function:</span></span>
+3. <span data-ttu-id="cbb3d-116">Hallo volgende voorwaarden voordat Hallo 'knipperen' case in Hallo switch case blok Hallo toevoegen `receiveMessageCallback` functie:</span><span class="sxs-lookup"><span data-stu-id="cbb3d-116">Add hello following conditions before hello 'blink' case in hello switch-case block of hello `receiveMessageCallback` function:</span></span>
 
    ```javascript
    case 'on':
@@ -64,8 +64,8 @@ ms.lasthandoff: 07/11/2017
      break;
    ```
 
-   <span data-ttu-id="320bb-117">Nu hebt u de voorbeeldtoepassing om te reageren op meer instructies via berichten geconfigureerd.</span><span class="sxs-lookup"><span data-stu-id="320bb-117">Now you’ve configured the sample application to respond to more instructions through messages.</span></span> <span data-ttu-id="320bb-118">De instructie 'op' Hiermee schakelt u de LED en schakelt u de instructie "off" uit de LED.</span><span class="sxs-lookup"><span data-stu-id="320bb-118">The "on" instruction turns on the LED, and the "off" instruction turns off the LED.</span></span>
-4. <span data-ttu-id="320bb-119">Open het bestand gulpfile.js en voeg vervolgens een nieuwe functie voordat de functie `sendMessage`:</span><span class="sxs-lookup"><span data-stu-id="320bb-119">Open the gulpfile.js file, and then add a new function before the function `sendMessage`:</span></span>
+   <span data-ttu-id="cbb3d-117">U hebt nu Hallo voorbeeld toepassing toorespond toomore instructies via berichten geconfigureerd.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-117">Now you’ve configured hello sample application toorespond toomore instructions through messages.</span></span> <span data-ttu-id="cbb3d-118">Hallo 'aan'-instructie Hiermee schakelt u Hallo LED en Hallo "off" instructie Hallo LED uitgeschakeld.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-118">hello "on" instruction turns on hello LED, and hello "off" instruction turns off hello LED.</span></span>
+4. <span data-ttu-id="cbb3d-119">Hallo gulpfile.js bestand openen en voeg vervolgens een nieuwe functie voordat de functie Hallo `sendMessage`:</span><span class="sxs-lookup"><span data-stu-id="cbb3d-119">Open hello gulpfile.js file, and then add a new function before hello function `sendMessage`:</span></span>
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -80,28 +80,28 @@ ms.lasthandoff: 07/11/2017
    ```
 
    ![Bestand met toegevoegde functie Gulpfile.js][gulpfile]
-5. <span data-ttu-id="320bb-121">In de `sendMessage` werken, worden vervangen door de regel `var message = buildMessage(sentMessageCount);` met de nieuwe regel wordt weergegeven in het volgende fragment:</span><span class="sxs-lookup"><span data-stu-id="320bb-121">In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line shown in the following snippet:</span></span>
+5. <span data-ttu-id="cbb3d-121">In Hallo `sendMessage` werkt, Hallo regel vervangen `var message = buildMessage(sentMessageCount);` met Hallo nieuwe regel wordt weergegeven in het volgende codefragment Hallo:</span><span class="sxs-lookup"><span data-stu-id="cbb3d-121">In hello `sendMessage` function, replace hello line `var message = buildMessage(sentMessageCount);` with hello new line shown in hello following snippet:</span></span>
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. <span data-ttu-id="320bb-122">Sla de wijzigingen op.</span><span class="sxs-lookup"><span data-stu-id="320bb-122">Save all the changes.</span></span>
+6. <span data-ttu-id="cbb3d-122">Alle Hallo wijzigingen worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-122">Save all hello changes.</span></span>
 
-### <a name="deploy-and-run-the-sample-application"></a><span data-ttu-id="320bb-123">Implementeren en uitvoeren van de voorbeeldtoepassing</span><span class="sxs-lookup"><span data-stu-id="320bb-123">Deploy and run the sample application</span></span>
-<span data-ttu-id="320bb-124">Implementeren en uitvoeren van de voorbeeldtoepassing op Edison met de volgende opdracht:</span><span class="sxs-lookup"><span data-stu-id="320bb-124">Deploy and run the sample application on Edison by running the following command:</span></span>
+### <a name="deploy-and-run-hello-sample-application"></a><span data-ttu-id="cbb3d-123">Implementeren en uitvoeren van de voorbeeldtoepassing Hallo</span><span class="sxs-lookup"><span data-stu-id="cbb3d-123">Deploy and run hello sample application</span></span>
+<span data-ttu-id="cbb3d-124">Implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Edison door het uitvoeren van de volgende opdracht Hallo:</span><span class="sxs-lookup"><span data-stu-id="cbb3d-124">Deploy and run hello sample application on Edison by running hello following command:</span></span>
 
 ```bash
 gulp deploy && gulp run
 ```
 
-<span data-ttu-id="320bb-125">U ziet de LED inschakelen voor twee seconden en klik vervolgens uitschakelen voor een andere twee seconden.</span><span class="sxs-lookup"><span data-stu-id="320bb-125">You should see the LED turn on for two seconds, and then turn off for another two seconds.</span></span> <span data-ttu-id="320bb-126">Het laatste bericht met 'stop' stopt de voorbeeldtoepassing wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="320bb-126">The last "stop" message stops the sample application from running.</span></span>
+<span data-ttu-id="cbb3d-125">U ziet Hallo LED inschakelen voor twee seconden en klik vervolgens uitschakelen voor een andere twee seconden.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-125">You should see hello LED turn on for two seconds, and then turn off for another two seconds.</span></span> <span data-ttu-id="cbb3d-126">Hallo laatste 'stop'-bericht stopt Hallo voorbeeldtoepassing wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-126">hello last "stop" message stops hello sample application from running.</span></span>
 
 ![in- of uitschakelen][on-and-off]
 
-<span data-ttu-id="320bb-128">Gefeliciteerd.</span><span class="sxs-lookup"><span data-stu-id="320bb-128">Congratulations!</span></span> <span data-ttu-id="320bb-129">U hebt de berichten die worden verzonden naar Edison uit uw IoT-hub is aangepast.</span><span class="sxs-lookup"><span data-stu-id="320bb-129">You’ve successfully customized the messages that are sent to Edison from your IoT hub.</span></span>
+<span data-ttu-id="cbb3d-128">Gefeliciteerd.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-128">Congratulations!</span></span> <span data-ttu-id="cbb3d-129">U hebt is aangepast Hallo-berichten die tooEdison uit uw IoT-hub worden verzonden.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-129">You’ve successfully customized hello messages that are sent tooEdison from your IoT hub.</span></span>
 
-### <a name="summary"></a><span data-ttu-id="320bb-130">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="320bb-130">Summary</span></span>
-<span data-ttu-id="320bb-131">Deze optionele sectie laat zien hoe berichten aan te passen zodat de voorbeeldtoepassing op een andere manier de in- en uitgeschakeld gedrag van de LED kunt beheren.</span><span class="sxs-lookup"><span data-stu-id="320bb-131">This optional section demonstrates how to customize messages so that the sample application can control the on and off behavior of the LED in a different way.</span></span>
+### <a name="summary"></a><span data-ttu-id="cbb3d-130">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="cbb3d-130">Summary</span></span>
+<span data-ttu-id="cbb3d-131">Deze optionele sectie laat zien hoe toocustomize berichten zodat de voorbeeldtoepassing Hallo Hallo in- en uitschakelen gedrag van Hallo LED op een andere manier kunt beheren.</span><span class="sxs-lookup"><span data-stu-id="cbb3d-131">This optional section demonstrates how toocustomize messages so that hello sample application can control hello on and off behavior of hello LED in a different way.</span></span>
 
 <!-- Images and links -->
 

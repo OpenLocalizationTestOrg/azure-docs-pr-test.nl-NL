@@ -1,6 +1,6 @@
 ---
-title: Web-apps beveiligen met Azure Application Gateway - PowerShell | Microsoft Docs
-description: In dit artikel biedt richtlijnen voor het configureren van web-apps (als back-endhosts) voor een bestaande of nieuwe application gateway.
+title: aaaProtect web-apps met Azure Application Gateway - PowerShell | Microsoft Docs
+description: In dit artikel biedt richtlijnen voor hoe tooconfigure web-apps als back-hosts op een bestaande of nieuwe toepassingsgateway eindigen.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,49 +13,49 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: eab15513e15ea897881edabab38f4d24d7002c04
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2e5d3ba9acc2f60499e7102961e631ee3d44eede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a><span data-ttu-id="78173-103">App Service Web Apps configureren met Application Gateway</span><span class="sxs-lookup"><span data-stu-id="78173-103">Configure App Service Web Apps with Application Gateway</span></span> 
+# <a name="configure-app-service-web-apps-with-application-gateway"></a><span data-ttu-id="a2e7b-103">App Service Web Apps configureren met Application Gateway</span><span class="sxs-lookup"><span data-stu-id="a2e7b-103">Configure App Service Web Apps with Application Gateway</span></span> 
 
-<span data-ttu-id="78173-104">Met Application Gateway kunt u een Azure Web App of andere service met meerdere tenants gebruiken als lid van een back-endpool.</span><span class="sxs-lookup"><span data-stu-id="78173-104">Application gateway allows you to have an Azure Web App or other multi-tenant service as a back-end pool member.</span></span> <span data-ttu-id="78173-105">In dit artikel leest u meer over het configureren van Azure-web-apps met Application Gateway.</span><span class="sxs-lookup"><span data-stu-id="78173-105">In this article, to you learn to configure an Azure web app with Application Gateway.</span></span> <span data-ttu-id="78173-106">In het eerste voorbeeld ziet u hoe u een bestaande toepassingsgateway configureert voor het gebruik van een web-app als lid van een back-endpool.</span><span class="sxs-lookup"><span data-stu-id="78173-106">The first example shows you how to configure an existing application gateway to use a web app as a back-end pool member.</span></span> <span data-ttu-id="78173-107">In het tweede voorbeeld ziet u hoe u een nieuwe toepassingsgateway maakt met een web-app als lid van een back-endpool.</span><span class="sxs-lookup"><span data-stu-id="78173-107">The second example shows you how to create a new application gateway with a web app as a back-end pool member.</span></span>
+<span data-ttu-id="a2e7b-104">Toepassingsgateway kunt u een Azure-Web-App toohave of andere multitenant-service als lid van de back-end-pool.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-104">Application gateway allows you toohave an Azure Web App or other multi-tenant service as a back-end pool member.</span></span> <span data-ttu-id="a2e7b-105">In dit artikel leert tooyou tooconfigure een Azure-web-app met Application Gateway.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-105">In this article, tooyou learn tooconfigure an Azure web app with Application Gateway.</span></span> <span data-ttu-id="a2e7b-106">Hallo eerste voorbeeld ziet u hoe tooconfigure een bestaande toepassing gateway toouse een web-app als een lid van de back-end-pool.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-106">hello first example shows you how tooconfigure an existing application gateway toouse a web app as a back-end pool member.</span></span> <span data-ttu-id="a2e7b-107">Hallo tweede voorbeeld ziet u hoe toocreate een nieuwe toepassingsgateway met een web-app als een lid van de back-end-pool.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-107">hello second example shows you how toocreate a new application gateway with a web app as a back-end pool member.</span></span>
 
-## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a><span data-ttu-id="78173-108">Een web-app configureren voor een bestaande toepassingsgateway</span><span class="sxs-lookup"><span data-stu-id="78173-108">Configure a web app behind an existing application gateway</span></span>
+## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a><span data-ttu-id="a2e7b-108">Een web-app configureren voor een bestaande toepassingsgateway</span><span class="sxs-lookup"><span data-stu-id="a2e7b-108">Configure a web app behind an existing application gateway</span></span>
 
-<span data-ttu-id="78173-109">In het volgende voorbeeld wordt een web-app als lid van een back-endpool toegevoegd aan een bestaande toepassingsgateway.</span><span class="sxs-lookup"><span data-stu-id="78173-109">The following example adds a web app as a back-end pool member to an existing application gateway.</span></span> <span data-ttu-id="78173-110">Zowel de switch `-PickHostNamefromBackendHttpSettings` in de configuratie van de test als `-PickHostNameFromBackendAddress` van de back-end-HTTP-instellingen moeten worden opgegeven om ervoor te zorgen dat de web-apps werken.</span><span class="sxs-lookup"><span data-stu-id="78173-110">Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back-end http settings must be provided in order for web apps to work.</span></span>
+<span data-ttu-id="a2e7b-109">Hallo volgende voorbeeld wordt een web-app als een back-end-pool lid tooan bestaande application gateway.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-109">hello following example adds a web app as a back-end pool member tooan existing application gateway.</span></span> <span data-ttu-id="a2e7b-110">Beide switch Hallo `-PickHostNamefromBackendHttpSettings`op Hallo test configuratie en `-PickHostNameFromBackendAddress` op Hallo back-end http instellingen voor web-apps toowork moeten worden opgegeven.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-110">Both hello switch `-PickHostNamefromBackendHttpSettings`on hello Probe configuration and `-PickHostNameFromBackendAddress` on hello back-end http settings must be provided in order for web apps toowork.</span></span>
 
 ```powershell
-# FQDN of the web app
+# FQDN of hello web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
 
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 
-# Define the status codes to match for the probe
+# Define hello status codes toomatch for hello probe
 $match=New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 
-# Add a new probe to the application gateway
+# Add a new probe toohello application gateway
 Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw -Protocol Http -Path / -Interval 30 -Timeout 120 -UnhealthyThreshold 3 -PickHostNameFromBackendHttpSettings -Match $match
 
-# Retrieve the newly added probe
+# Retrieve hello newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
 # Configure an existing backend http settings 
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
-# Add the web app to the backend pool
+# Add hello web app toohello backend pool
 Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
 
-# Update the application gateway
+# Update hello application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="configure-a-web-application-behind-a-new-application-gateway"></a><span data-ttu-id="78173-111">Een web-app configureren voor een nieuwe toepassingsgateway</span><span class="sxs-lookup"><span data-stu-id="78173-111">Configure a web application behind a new application gateway</span></span>
+## <a name="configure-a-web-application-behind-a-new-application-gateway"></a><span data-ttu-id="a2e7b-111">Een web-app configureren voor een nieuwe toepassingsgateway</span><span class="sxs-lookup"><span data-stu-id="a2e7b-111">Configure a web application behind a new application gateway</span></span>
 
-<span data-ttu-id="78173-112">In dit scenario wordt een web-app geïmplementeerd met de asp.net-'Aan de slag'-website en een toepassingsgateway.</span><span class="sxs-lookup"><span data-stu-id="78173-112">This scenario deploys a web app with the asp.net getting started website and an application gateway.</span></span>
+<span data-ttu-id="a2e7b-112">Dit scenario wordt een web-app geïmplementeerd met Hallo asp.net gestart website en een toepassingsgateway ophalen.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-112">This scenario deploys a web app with hello asp.net getting started website and an application gateway.</span></span>
 
 ```powershell
 # Defines a variable for a dotnet get started web app repository location
@@ -73,7 +73,7 @@ New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName 
 # Creates a web app
 $webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
-# Configure GitHub deployment from your GitHub repo and deploy once to web app.
+# Configure GitHub deployment from your GitHub repo and deploy once tooweb app.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
@@ -81,13 +81,13 @@ $PropertiesObject = @{
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $rg.ResourceGroupName -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
 
-# Creates a subnet for the application gateway
+# Creates a subnet for hello application gateway
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-# Creates a vnet for the application gateway
+# Creates a vnet for hello application gateway
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location EastUs -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-# Retrieve the subnet object for use later
+# Retrieve hello subnet object for use later
 $subnet=$vnet.Subnets[0]
 
 # Create a public IP address
@@ -96,16 +96,16 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName 
 # Create a new IP configuration
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-# Create a backend pool with the hostname of the web app
+# Create a backend pool with hello hostname of hello web app
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendIPAddresses $webapp.HostNames
 
-# Define the status codes to match for the probe
+# Define hello status codes toomatch for hello probe
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 
-# Create a probe with the PickHostNameFromBackendHttpSettings switch for web apps
+# Create a probe with hello PickHostNameFromBackendHttpSettings switch for web apps
 $probeconfig = New-AzureRmApplicationGatewayProbeConfig -name webappprobe -Protocol Http -Path / -Interval 30 -Timeout 120 -UnhealthyThreshold 3 -PickHostNameFromBackendHttpSettings -Match $match
 
-# Define the backend http settings
+# Define hello backend http settings
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120 -PickHostNameFromBackendAddress -Probe $probeconfig
 
 # Create a new front-end port
@@ -114,22 +114,22 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 # Create a new front end IP configuration
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-# Create a new listener using the front-end ip configuration and port created earlier
+# Create a new listener using hello front-end ip configuration and port created earlier
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
 
-# Define the application gateway SKU to use
+# Define hello application gateway SKU toouse
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# Create the application gateway
+# Create hello application gateway
 $appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location EastUs -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="get-application-gateway-dns-name"></a><span data-ttu-id="78173-113">DNS-naam van toepassingsgateway verkrijgen</span><span class="sxs-lookup"><span data-stu-id="78173-113">Get application gateway DNS name</span></span>
+## <a name="get-application-gateway-dns-name"></a><span data-ttu-id="a2e7b-113">DNS-naam van toepassingsgateway verkrijgen</span><span class="sxs-lookup"><span data-stu-id="a2e7b-113">Get application gateway DNS name</span></span>
 
-<span data-ttu-id="78173-114">Wanneer de gateway is gemaakt, gaat u in de volgende stap de front-end voor communicatie configureren.</span><span class="sxs-lookup"><span data-stu-id="78173-114">Once the gateway is created, the next step is to configure the front end for communication.</span></span> <span data-ttu-id="78173-115">Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk.</span><span class="sxs-lookup"><span data-stu-id="78173-115">When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly.</span></span> <span data-ttu-id="78173-116">Om ervoor te zorgen dat eindgebruikers de toepassingsgateway kunnen bereiken, kan een CNAME-record worden gebruikt die verwijst naar het openbare eindpunt van de toepassingsgateway.</span><span class="sxs-lookup"><span data-stu-id="78173-116">To ensure end users can hit the application gateway, a CNAME record can be used to point to the public endpoint of the application gateway.</span></span> <span data-ttu-id="78173-117">Voor het maken van de alias haalt u gegevens van de toepassingsgateway en de bijbehorende IP-/ DNS-naam op met het PublicIPAddress-element gekoppeld aan de toepassingsgateway.</span><span class="sxs-lookup"><span data-stu-id="78173-117">To create the alias, retrieve the details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway.</span></span> <span data-ttu-id="78173-118">Dit kunt u doen met Azure DNS of andere DNS-providers door een CNAME-record te maken dat verwijst naar het [openbare IP-adres](../dns/dns-custom-domain.md#public-ip-address).</span><span class="sxs-lookup"><span data-stu-id="78173-118">This can be done with Azure DNS or other DNS providers, by creating a CNAME record that points to the [public IP address](../dns/dns-custom-domain.md#public-ip-address).</span></span> <span data-ttu-id="78173-119">Het gebruik van A-records wordt niet aanbevolen, omdat het VIP kan veranderen wanneer de toepassingsgateway opnieuw wordt gestart.</span><span class="sxs-lookup"><span data-stu-id="78173-119">The use of A-records is not recommended since the VIP may change on restart of application gateway.</span></span>
+<span data-ttu-id="a2e7b-114">Zodra Hallo gateway is gemaakt, is de volgende stap Hallo tooconfigure Hallo front-end voor communicatie.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-114">Once hello gateway is created, hello next step is tooconfigure hello front end for communication.</span></span> <span data-ttu-id="a2e7b-115">Wanneer u een openbare IP gebruikt, heeft de toepassingsgateway een dynamisch toegewezen DNS-naam nodig. Dit is niet gebruiksvriendelijk.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-115">When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly.</span></span> <span data-ttu-id="a2e7b-116">eindgebruikers tooensure kunt Hallo toepassingsgateway bereikt, een CNAME-record kan gebruikte toopoint toohello openbaar eindpunt van de toepassingsgateway Hallo.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-116">tooensure end users can hit hello application gateway, a CNAME record can be used toopoint toohello public endpoint of hello application gateway.</span></span> <span data-ttu-id="a2e7b-117">Hallo toocreate ophalen alias, Hallo details van de toepassingsgateway Hallo en de bijbehorende IP-en DNS-naam op Hallo PublicIPAddress element gekoppelde toohello application gateway met.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-117">toocreate hello alias, retrieve hello details of hello application gateway and its associated IP/DNS name using hello PublicIPAddress element attached toohello application gateway.</span></span> <span data-ttu-id="a2e7b-118">Dit kunt u doen met Azure DNS- of andere providers DNS-door een CNAME-record maken die wijst toohello [openbaar IP-adres](../dns/dns-custom-domain.md#public-ip-address).</span><span class="sxs-lookup"><span data-stu-id="a2e7b-118">This can be done with Azure DNS or other DNS providers, by creating a CNAME record that points toohello [public IP address](../dns/dns-custom-domain.md#public-ip-address).</span></span> <span data-ttu-id="a2e7b-119">Hallo-gebruik van A-records wordt niet aanbevolen omdat Hallo VIP bij opnieuw opstarten van toepassingsgateway mag wijzigen.</span><span class="sxs-lookup"><span data-stu-id="a2e7b-119">hello use of A-records is not recommended since hello VIP may change on restart of application gateway.</span></span>
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
@@ -157,6 +157,6 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="78173-120">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="78173-120">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="a2e7b-120">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a2e7b-120">Next steps</span></span>
 
-<span data-ttu-id="78173-121">Zie [Omleiding configureren in Application Gateway met PowerShell](application-gateway-configure-redirect-powershell.md) voor meer informatie over het configureren van omleidingen.</span><span class="sxs-lookup"><span data-stu-id="78173-121">Learn how to configure redirection by visiting: [Configure redirection on Application Gateway with PowerShell](application-gateway-configure-redirect-powershell.md).</span></span>
+<span data-ttu-id="a2e7b-121">Meer informatie over hoe tooconfigure omleiding door bezoeken: [omleiding configureren op Application Gateway met PowerShell](application-gateway-configure-redirect-powershell.md).</span><span class="sxs-lookup"><span data-stu-id="a2e7b-121">Learn how tooconfigure redirection by visiting: [Configure redirection on Application Gateway with PowerShell](application-gateway-configure-redirect-powershell.md).</span></span>

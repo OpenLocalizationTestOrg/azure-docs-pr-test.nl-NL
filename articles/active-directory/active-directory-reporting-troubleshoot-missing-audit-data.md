@@ -1,6 +1,6 @@
 ---
-title: 'Probleemoplossing: Ontbrekende gegevens in activiteitenlogboeken van Azure Active Directory | Microsoft Docs'
-description: Bevat een lijst met de diverse beschikbare rapporten voor Azure Active Directory
+title: 'Voor probleemoplossing: Er ontbreken gegevens in Azure Active Directory-activiteitenlogboek Hallo | Microsoft Docs'
+description: Een lijst met Hallo diverse beschikbare rapporten voor Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,31 +15,31 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47617f8f727027de113a0f503308c8accc58859e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7bbec94ab42eb5b54a7e65e124060d057b4a1a34
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a><span data-ttu-id="ea2d5-103">Ik kan een aantal acties die ik heb uitgevoerd, niet terugvinden in de activiteitenlogboeken van Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="ea2d5-103">I can’t find some actions that I performed in the Azure Active Directory activity log</span></span>
+# <a name="i-cant-find-some-actions-that-i-performed-in-hello-azure-active-directory-activity-log"></a><span data-ttu-id="271de-103">Ik kan een aantal acties die ik uitgevoerd in Azure Active Directory-activiteitenlogboek Hallo niet vinden.</span><span class="sxs-lookup"><span data-stu-id="271de-103">I can’t find some actions that I performed in hello Azure Active Directory activity log</span></span>
 
 
-## <a name="symptoms"></a><span data-ttu-id="ea2d5-104">Symptomen</span><span class="sxs-lookup"><span data-stu-id="ea2d5-104">Symptoms</span></span>
+## <a name="symptoms"></a><span data-ttu-id="271de-104">Symptomen</span><span class="sxs-lookup"><span data-stu-id="271de-104">Symptoms</span></span>
 
-<span data-ttu-id="ea2d5-105">Ik heb enkele acties uitgevoerd in Azure Portal en had verwacht de auditlogboeken voor deze acties te zien op de blade `Activity logs > Audit Logs`, maar ik kan ze niet vinden.</span><span class="sxs-lookup"><span data-stu-id="ea2d5-105">I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs` blade, but I can’t find them.</span></span>
+<span data-ttu-id="271de-105">Ik bepaalde acties uitgevoerd in hello Azure-portal en verwacht het Hallo-auditlogboeken toosee voor deze acties in Hallo `Activity logs > Audit Logs` blade, maar kan deze niet vinden.</span><span class="sxs-lookup"><span data-stu-id="271de-105">I performed some actions in hello Azure portal and expected toosee hello audit logs for those actions in hello `Activity logs > Audit Logs` blade, but I can’t find them.</span></span>
 
  ![Rapportage](./media/active-directory-reporting-troubleshoot-missing-audit-data/01.png)
  
 
-## <a name="cause"></a><span data-ttu-id="ea2d5-107">Oorzaak</span><span class="sxs-lookup"><span data-stu-id="ea2d5-107">Cause</span></span>
+## <a name="cause"></a><span data-ttu-id="271de-107">Oorzaak</span><span class="sxs-lookup"><span data-stu-id="271de-107">Cause</span></span>
 
-<span data-ttu-id="ea2d5-108">Acties worden niet direct weergegeven in het auditlogboek voor activiteiten.</span><span class="sxs-lookup"><span data-stu-id="ea2d5-108">Actions don’t appear immediately in the Activity Audit log.</span></span> <span data-ttu-id="ea2d5-109">Vanaf het moment dat de bewerking is uitgevoerd, kan het tussen 15 minuten tot een uur duren voordat de auditlogboeken beschikbaar zijn in de portal.</span><span class="sxs-lookup"><span data-stu-id="ea2d5-109">It can take anywhere from 15 minutes to an hour to see the audit logs in the portal from the time the operation is performed.</span></span>
+<span data-ttu-id="271de-108">Acties weergegeven niet direct in Hallo activiteit controlelogboek.</span><span class="sxs-lookup"><span data-stu-id="271de-108">Actions don’t appear immediately in hello Activity Audit log.</span></span> <span data-ttu-id="271de-109">Het kan duren van 15 minuten tooan uur toosee hello auditlogboeken in Hallo-portal Hallo tijd Hallo-bewerking wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="271de-109">It can take anywhere from 15 minutes tooan hour toosee hello audit logs in hello portal from hello time hello operation is performed.</span></span>
 
-## <a name="resolution"></a><span data-ttu-id="ea2d5-110">Oplossing</span><span class="sxs-lookup"><span data-stu-id="ea2d5-110">Resolution</span></span>
+## <a name="resolution"></a><span data-ttu-id="271de-110">Oplossing</span><span class="sxs-lookup"><span data-stu-id="271de-110">Resolution</span></span>
 
-<span data-ttu-id="ea2d5-111">Wacht 15 minuten tot een uur en kijk of de acties nu wel worden vermeld in het logboek.</span><span class="sxs-lookup"><span data-stu-id="ea2d5-111">Wait for 15 minutes to an hour and see if the actions appear in the log.</span></span> <span data-ttu-id="ea2d5-112">Als u ze nog steeds niet ziet, kunt u een ondersteuningsaanvraag indien en dan zullen we ernaar kijken.</span><span class="sxs-lookup"><span data-stu-id="ea2d5-112">If you still don’t see them, please raise a support ticket with us and we will look into it.</span></span>
+<span data-ttu-id="271de-111">Wacht 15 minuten tooan uur en zien als Hallo acties worden weergegeven in Hallo logboek.</span><span class="sxs-lookup"><span data-stu-id="271de-111">Wait for 15 minutes tooan hour and see if hello actions appear in hello log.</span></span> <span data-ttu-id="271de-112">Als u ze nog steeds niet ziet, kunt u een ondersteuningsaanvraag indien en dan zullen we ernaar kijken.</span><span class="sxs-lookup"><span data-stu-id="271de-112">If you still don’t see them, please raise a support ticket with us and we will look into it.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="ea2d5-113">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="ea2d5-113">Next steps</span></span>
-<span data-ttu-id="ea2d5-114">Zie [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md) (Veelgestelde vragen over Azure Active Directory-rapportage).</span><span class="sxs-lookup"><span data-stu-id="ea2d5-114">See the [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="271de-113">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="271de-113">Next steps</span></span>
+<span data-ttu-id="271de-114">Zie Hallo [Azure Active Directory-rapportage Veelgestelde vragen over](active-directory-reporting-faq.md).</span><span class="sxs-lookup"><span data-stu-id="271de-114">See hello [Azure Active Directory reporting FAQ](active-directory-reporting-faq.md).</span></span>
 

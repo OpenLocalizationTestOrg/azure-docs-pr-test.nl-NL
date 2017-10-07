@@ -1,6 +1,6 @@
 ---
-title: Controleer de verbinding met Azure-netwerk-Watcher - Azure-portal | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u connectiviteit met de netwerk-Watcher in de Azure portal controleren
+title: aaaCheck connectiviteit met de Azure-netwerk-Watcher - Azure-portal | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toocheck connectiviteit met de netwerk-Watcher in hello Azure-portal
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,55 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: gwallace
-ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8560011906fcce46d31556fc52cbfa671e8e653a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a><span data-ttu-id="9544e-103">Controleer de verbinding met de netwerk-Watcher van Azure met Azure portal</span><span class="sxs-lookup"><span data-stu-id="9544e-103">Check connectivity with Azure Network Watcher using the Azure portal</span></span>
+# <a name="check-connectivity-with-azure-network-watcher-using-hello-azure-portal"></a><span data-ttu-id="b59dd-103">Controleer de verbinding met de netwerk-Watcher van Azure met behulp van hello Azure-portal</span><span class="sxs-lookup"><span data-stu-id="b59dd-103">Check connectivity with Azure Network Watcher using hello Azure portal</span></span>
 
 > [!div class="op_single_selector"]
-> - [<span data-ttu-id="9544e-104">Portal</span><span class="sxs-lookup"><span data-stu-id="9544e-104">Portal</span></span>](network-watcher-connectivity-portal.md)
-> - [<span data-ttu-id="9544e-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="9544e-105">PowerShell</span></span>](network-watcher-connectivity-powershell.md)
-> - [<span data-ttu-id="9544e-106">CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="9544e-106">CLI 2.0</span></span>](network-watcher-connectivity-cli.md)
-> - [<span data-ttu-id="9544e-107">Azure REST-API</span><span class="sxs-lookup"><span data-stu-id="9544e-107">Azure REST API</span></span>](network-watcher-connectivity-rest.md)
+> - [<span data-ttu-id="b59dd-104">Portal</span><span class="sxs-lookup"><span data-stu-id="b59dd-104">Portal</span></span>](network-watcher-connectivity-portal.md)
+> - [<span data-ttu-id="b59dd-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="b59dd-105">PowerShell</span></span>](network-watcher-connectivity-powershell.md)
+> - [<span data-ttu-id="b59dd-106">CLI 2.0</span><span class="sxs-lookup"><span data-stu-id="b59dd-106">CLI 2.0</span></span>](network-watcher-connectivity-cli.md)
+> - [<span data-ttu-id="b59dd-107">Azure REST-API</span><span class="sxs-lookup"><span data-stu-id="b59dd-107">Azure REST API</span></span>](network-watcher-connectivity-rest.md)
 
-<span data-ttu-id="9544e-108">Informatie over het gebruik van verbinding om te controleren als direct TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.</span><span class="sxs-lookup"><span data-stu-id="9544e-108">Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.</span></span>
+<span data-ttu-id="b59dd-108">Meer informatie over hoe toouse connectiviteit tooverify als een directe TCP-verbinding van een virtuele machine tooa opgegeven eindpunt kan worden vastgesteld.</span><span class="sxs-lookup"><span data-stu-id="b59dd-108">Learn how toouse connectivity tooverify if a direct TCP connection from a virtual machine tooa given endpoint can be established.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="9544e-109">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="9544e-109">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="b59dd-109">Voordat u begint</span><span class="sxs-lookup"><span data-stu-id="b59dd-109">Before you begin</span></span>
 
-<span data-ttu-id="9544e-110">In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:</span><span class="sxs-lookup"><span data-stu-id="9544e-110">This article assumes you have the following resources:</span></span>
+<span data-ttu-id="b59dd-110">In dit artikel wordt ervan uitgegaan dat er Hallo resources te volgen:</span><span class="sxs-lookup"><span data-stu-id="b59dd-110">This article assumes you have hello following resources:</span></span>
 
-* <span data-ttu-id="9544e-111">Een exemplaar van netwerk-Watcher in de regio die u wilt controleren, connectiviteit.</span><span class="sxs-lookup"><span data-stu-id="9544e-111">An instance of Network Watcher in the region you want to check connectivity.</span></span>
+* <span data-ttu-id="b59dd-111">Een exemplaar van netwerk-Watcher in Hallo regio die u wilt toocheck connectiviteit.</span><span class="sxs-lookup"><span data-stu-id="b59dd-111">An instance of Network Watcher in hello region you want toocheck connectivity.</span></span>
 
-* <span data-ttu-id="9544e-112">Virtuele machines connectiviteit met controleren.</span><span class="sxs-lookup"><span data-stu-id="9544e-112">Virtual machines to check connectivity with.</span></span>
+* <span data-ttu-id="b59dd-112">Virtuele machines toocheck connectiviteit met.</span><span class="sxs-lookup"><span data-stu-id="b59dd-112">Virtual machines toocheck connectivity with.</span></span>
 
-<span data-ttu-id="9544e-113">ARMclient wordt gebruikt voor het aanroepen van de REST-API met behulp van PowerShell.</span><span class="sxs-lookup"><span data-stu-id="9544e-113">ARMclient is used to call the REST API using PowerShell.</span></span> <span data-ttu-id="9544e-114">ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient).</span><span class="sxs-lookup"><span data-stu-id="9544e-114">ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient).</span></span>
+<span data-ttu-id="b59dd-113">ARMclient is gebruikte toocall Hallo REST-API met behulp van PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b59dd-113">ARMclient is used toocall hello REST API using PowerShell.</span></span> <span data-ttu-id="b59dd-114">ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient).</span><span class="sxs-lookup"><span data-stu-id="b59dd-114">ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient).</span></span>
 
-<span data-ttu-id="9544e-115">Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher.</span><span class="sxs-lookup"><span data-stu-id="9544e-115">This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.</span></span>
+<span data-ttu-id="b59dd-115">Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher.</span><span class="sxs-lookup"><span data-stu-id="b59dd-115">This scenario assumes you have already followed hello steps in [Create a Network Watcher](network-watcher-create.md) toocreate a Network Watcher.</span></span>
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> <span data-ttu-id="9544e-116">Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`.</span><span class="sxs-lookup"><span data-stu-id="9544e-116">Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`.</span></span> <span data-ttu-id="9544e-117">Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).</span><span class="sxs-lookup"><span data-stu-id="9544e-117">For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).</span></span>
+> <span data-ttu-id="b59dd-116">Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`.</span><span class="sxs-lookup"><span data-stu-id="b59dd-116">Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`.</span></span> <span data-ttu-id="b59dd-117">Ga voor het Hallo-uitbreiding installeren op een virtuele machine van Windows naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).</span><span class="sxs-lookup"><span data-stu-id="b59dd-117">For installing hello extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).</span></span>
 
-## <a name="register-the-preview-capability"></a><span data-ttu-id="9544e-118">Registreren van de preview-mogelijkheden</span><span class="sxs-lookup"><span data-stu-id="9544e-118">Register the preview capability</span></span>
+## <a name="register-hello-preview-capability"></a><span data-ttu-id="b59dd-118">Hallo preview mogelijkheid registreren</span><span class="sxs-lookup"><span data-stu-id="b59dd-118">Register hello preview capability</span></span>
 
-<span data-ttu-id="9544e-119">Controle van de verbinding is momenteel in de openbare preview, voor deze functie moet worden geregistreerd.</span><span class="sxs-lookup"><span data-stu-id="9544e-119">Connectivity check is currently in public preview, to use this feature it needs to be registered.</span></span> <span data-ttu-id="9544e-120">Voer hiervoor de volgende PowerShell-voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="9544e-120">To do this, run the following PowerShell sample:</span></span>
+<span data-ttu-id="b59dd-119">Controle van de verbinding is momenteel in openbare preview toouse deze functie toobe geregistreerd moet.</span><span class="sxs-lookup"><span data-stu-id="b59dd-119">Connectivity check is currently in public preview, toouse this feature it needs toobe registered.</span></span> <span data-ttu-id="b59dd-120">toodo deze, Voer Hallo PowerShell-voorbeeld te volgen:</span><span class="sxs-lookup"><span data-stu-id="b59dd-120">toodo this, run hello following PowerShell sample:</span></span>
 
 ```powershell
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-<span data-ttu-id="9544e-121">Om te controleren of dat de registratie is gelukt, voert u het volgende Powershell-voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="9544e-121">To verify the registration was successful, run the following Powershell sample:</span></span>
+<span data-ttu-id="b59dd-121">tooverify hello registratie is gelukt, Hallo volgende Powershell-voorbeeld uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="b59dd-121">tooverify hello registration was successful, run hello following Powershell sample:</span></span>
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
 ```
 
-<span data-ttu-id="9544e-122">Als de functie juist is geregistreerd, de uitvoer moet overeenkomen met het volgende:</span><span class="sxs-lookup"><span data-stu-id="9544e-122">If the feature was properly registered, the output should match the following:</span></span>
+<span data-ttu-id="b59dd-122">Als het Hallo-functie is juist is geregistreerd, Hallo uitvoer, moet overeenkomen met Hallo volgende:</span><span class="sxs-lookup"><span data-stu-id="b59dd-122">If hello feature was properly registered, hello output should match hello following:</span></span>
 
 ```
 FeatureName                             ProviderName      RegistrationState
@@ -69,22 +69,22 @@ FeatureName                             ProviderName      RegistrationState
 AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
 ```
 
-## <a name="log-in-with-armclient"></a><span data-ttu-id="9544e-123">Meld u aan met ARMClient</span><span class="sxs-lookup"><span data-stu-id="9544e-123">Log in with ARMClient</span></span>
+## <a name="log-in-with-armclient"></a><span data-ttu-id="b59dd-123">Meld u aan met ARMClient</span><span class="sxs-lookup"><span data-stu-id="b59dd-123">Log in with ARMClient</span></span>
 
-<span data-ttu-id="9544e-124">Aanmelden bij armclient met uw Azure-referenties.</span><span class="sxs-lookup"><span data-stu-id="9544e-124">Log in to armclient with your Azure credentials.</span></span>
+<span data-ttu-id="b59dd-124">Meld u bij tooarmclient met uw Azure-referenties.</span><span class="sxs-lookup"><span data-stu-id="b59dd-124">Log in tooarmclient with your Azure credentials.</span></span>
 
 ```PowerShell
 armclient login
 ```
 
-## <a name="retrieve-a-virtual-machine"></a><span data-ttu-id="9544e-125">Een virtuele machine ophalen</span><span class="sxs-lookup"><span data-stu-id="9544e-125">Retrieve a virtual machine</span></span>
+## <a name="retrieve-a-virtual-machine"></a><span data-ttu-id="b59dd-125">Een virtuele machine ophalen</span><span class="sxs-lookup"><span data-stu-id="b59dd-125">Retrieve a virtual machine</span></span>
 
-<span data-ttu-id="9544e-126">Voer het volgende script om te retourneren van een virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="9544e-126">Run the following script to return a virtual machine.</span></span> <span data-ttu-id="9544e-127">Deze informatie is nodig voor het uitvoeren van de verbinding.</span><span class="sxs-lookup"><span data-stu-id="9544e-127">This information is needed for running connectivity.</span></span> 
+<span data-ttu-id="b59dd-126">Hallo script tooreturn na een virtuele machine uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="b59dd-126">Run hello following script tooreturn a virtual machine.</span></span> <span data-ttu-id="b59dd-127">Deze informatie is nodig voor het uitvoeren van de verbinding.</span><span class="sxs-lookup"><span data-stu-id="b59dd-127">This information is needed for running connectivity.</span></span> 
 
-<span data-ttu-id="9544e-128">De volgende code moet waarden voor de volgende variabelen:</span><span class="sxs-lookup"><span data-stu-id="9544e-128">The following code needs values for the following variables:</span></span>
+<span data-ttu-id="b59dd-128">Hallo na code moet waarden voor Hallo variabelen te volgen:</span><span class="sxs-lookup"><span data-stu-id="b59dd-128">hello following code needs values for hello following variables:</span></span>
 
-- <span data-ttu-id="9544e-129">**subscriptionId** -de abonnements-ID te gebruiken.</span><span class="sxs-lookup"><span data-stu-id="9544e-129">**subscriptionId** - The subscription ID to use.</span></span>
-- <span data-ttu-id="9544e-130">**resourceGroupName** -de naam van een resourcegroep die virtuele machines bevatten.</span><span class="sxs-lookup"><span data-stu-id="9544e-130">**resourceGroupName** - The name of a resource group that contains virtual machines.</span></span>
+- <span data-ttu-id="b59dd-129">**subscriptionId** -Hallo toouse voor abonnement-ID.</span><span class="sxs-lookup"><span data-stu-id="b59dd-129">**subscriptionId** - hello subscription ID toouse.</span></span>
+- <span data-ttu-id="b59dd-130">**resourceGroupName** - hello naam van een resourcegroep die virtuele machines bevatten.</span><span class="sxs-lookup"><span data-stu-id="b59dd-130">**resourceGroupName** - hello name of a resource group that contains virtual machines.</span></span>
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -93,7 +93,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-<span data-ttu-id="9544e-131">De ID van de virtuele machine wordt gebruikt van de volgende uitvoer in het volgende voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="9544e-131">From the following output, the ID of the virtual machine is used in the following example:</span></span>
+<span data-ttu-id="b59dd-131">Hallo-ID van Hallo virtuele machine wordt van de volgende Hallo uitvoer, gebruikt in Hallo voorbeeld te volgen:</span><span class="sxs-lookup"><span data-stu-id="b59dd-131">From hello following output, hello ID of hello virtual machine is used in hello following example:</span></span>
 
 ```json
 ...
@@ -108,11 +108,11 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a><span data-ttu-id="9544e-132">Controleer de verbinding met een virtuele machine</span><span class="sxs-lookup"><span data-stu-id="9544e-132">Check connectivity to a virtual machine</span></span>
+## <a name="check-connectivity-tooa-virtual-machine"></a><span data-ttu-id="b59dd-132">Controleer de connectiviteit tooa virtuele machine</span><span class="sxs-lookup"><span data-stu-id="b59dd-132">Check connectivity tooa virtual machine</span></span>
 
-<span data-ttu-id="9544e-133">In dit voorbeeld controleert de verbinding met een doel-virtuele machine via poort 80.</span><span class="sxs-lookup"><span data-stu-id="9544e-133">This example checks connectivity to a destination virtual machine over port 80.</span></span>
+<span data-ttu-id="b59dd-133">In dit voorbeeld controleert connectiviteit tooa bestemde virtuele machine via poort 80.</span><span class="sxs-lookup"><span data-stu-id="b59dd-133">This example checks connectivity tooa destination virtual machine over port 80.</span></span>
 
-### <a name="example"></a><span data-ttu-id="9544e-134">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="9544e-134">Example</span></span>
+### <a name="example"></a><span data-ttu-id="b59dd-134">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="b59dd-134">Example</span></span>
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -137,11 +137,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-<span data-ttu-id="9544e-135">Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:</span><span class="sxs-lookup"><span data-stu-id="9544e-135">Since this operation is long running, the URI for the result is returned in the response header as shown in the following response:</span></span>
+<span data-ttu-id="b59dd-135">Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:</span><span class="sxs-lookup"><span data-stu-id="b59dd-135">Since this operation is long running, hello URI for hello result is returned in hello response header as shown in hello following response:</span></span>
 
-<span data-ttu-id="9544e-136">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="9544e-136">**Important Values**</span></span>
+<span data-ttu-id="b59dd-136">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="b59dd-136">**Important Values**</span></span>
 
-* <span data-ttu-id="9544e-137">**Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is</span><span class="sxs-lookup"><span data-stu-id="9544e-137">**Location** - This property contains the URI where the results are when the operation is complete</span></span>
+* <span data-ttu-id="b59dd-137">**Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid</span><span class="sxs-lookup"><span data-stu-id="b59dd-137">**Location** - This property contains hello URI where hello results are when hello operation is complete</span></span>
 
 ```
 HTTP/1.1 202 Accepted
@@ -160,9 +160,9 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a><span data-ttu-id="9544e-138">Antwoord</span><span class="sxs-lookup"><span data-stu-id="9544e-138">Response</span></span>
+### <a name="response"></a><span data-ttu-id="b59dd-138">Antwoord</span><span class="sxs-lookup"><span data-stu-id="b59dd-138">Response</span></span>
 
-<span data-ttu-id="9544e-139">Het antwoord van de volgende is van het vorige voorbeeld.</span><span class="sxs-lookup"><span data-stu-id="9544e-139">The following response is from the previous example.</span></span>  <span data-ttu-id="9544e-140">In dit antwoord de `ConnectionStatus` is **onbereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="9544e-140">In this response, the `ConnectionStatus` is **Unreachable**.</span></span> <span data-ttu-id="9544e-141">U kunt zien dat alle tests mislukte verzonden.</span><span class="sxs-lookup"><span data-stu-id="9544e-141">You can see that all the probes sent failed.</span></span> <span data-ttu-id="9544e-142">De verbinding is mislukt bij het virtuele apparaat als gevolg van een gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, is geconfigureerd voor het blokkeren van inkomend verkeer op poort 80.</span><span class="sxs-lookup"><span data-stu-id="9544e-142">The connectivity failed at the virtual appliance due to a user-configured `NetworkSecurityRule` named **UserRule_Port80**, configured to block incoming traffic on port 80.</span></span> <span data-ttu-id="9544e-143">Deze informatie kan worden gebruikt om te onderzoeken verbindingsproblemen.</span><span class="sxs-lookup"><span data-stu-id="9544e-143">This information can be used to research connection issues.</span></span>
+<span data-ttu-id="b59dd-139">Hallo na antwoord is van het vorige voorbeeld Hallo.</span><span class="sxs-lookup"><span data-stu-id="b59dd-139">hello following response is from hello previous example.</span></span>  <span data-ttu-id="b59dd-140">In dit antwoord Hallo `ConnectionStatus` is **onbereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="b59dd-140">In this response, hello `ConnectionStatus` is **Unreachable**.</span></span> <span data-ttu-id="b59dd-141">U kunt zien dat alle tests verzonden mislukte Hallo.</span><span class="sxs-lookup"><span data-stu-id="b59dd-141">You can see that all hello probes sent failed.</span></span> <span data-ttu-id="b59dd-142">Hallo-connectiviteit op Hallo virtueel apparaat is mislukt vanwege tooa gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, tooblock binnenkomend verkeer op poort 80 geconfigureerd.</span><span class="sxs-lookup"><span data-stu-id="b59dd-142">hello connectivity failed at hello virtual appliance due tooa user-configured `NetworkSecurityRule` named **UserRule_Port80**, configured tooblock incoming traffic on port 80.</span></span> <span data-ttu-id="b59dd-143">Deze informatie kan gebruikte tooresearch verbindingsproblemen zijn.</span><span class="sxs-lookup"><span data-stu-id="b59dd-143">This information can be used tooresearch connection issues.</span></span>
 
 ```json
 {
@@ -224,11 +224,11 @@ null
 }
 ```
 
-## <a name="validate-routing-issues"></a><span data-ttu-id="9544e-144">Problemen met routing valideren</span><span class="sxs-lookup"><span data-stu-id="9544e-144">Validate routing issues</span></span>
+## <a name="validate-routing-issues"></a><span data-ttu-id="b59dd-144">Problemen met routing valideren</span><span class="sxs-lookup"><span data-stu-id="b59dd-144">Validate routing issues</span></span>
 
-<span data-ttu-id="9544e-145">Het voorbeeld wordt de verbinding tussen een virtuele machine en een extern eindpunt.</span><span class="sxs-lookup"><span data-stu-id="9544e-145">The example checks connectivity between a virtual machine and a remote endpoint.</span></span>
+<span data-ttu-id="b59dd-145">Hallo voorbeeld controleert de connectiviteit tussen een virtuele machine en een extern eindpunt.</span><span class="sxs-lookup"><span data-stu-id="b59dd-145">hello example checks connectivity between a virtual machine and a remote endpoint.</span></span>
 
-### <a name="example"></a><span data-ttu-id="9544e-146">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="9544e-146">Example</span></span>
+### <a name="example"></a><span data-ttu-id="b59dd-146">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="b59dd-146">Example</span></span>
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -253,11 +253,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-<span data-ttu-id="9544e-147">Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:</span><span class="sxs-lookup"><span data-stu-id="9544e-147">Since this operation is long running, the URI for the result is returned in the response header as shown in the following response:</span></span>
+<span data-ttu-id="b59dd-147">Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:</span><span class="sxs-lookup"><span data-stu-id="b59dd-147">Since this operation is long running, hello URI for hello result is returned in hello response header as shown in hello following response:</span></span>
 
-<span data-ttu-id="9544e-148">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="9544e-148">**Important Values**</span></span>
+<span data-ttu-id="b59dd-148">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="b59dd-148">**Important Values**</span></span>
 
-* <span data-ttu-id="9544e-149">**Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is</span><span class="sxs-lookup"><span data-stu-id="9544e-149">**Location** - This property contains the URI where the results are when the operation is complete</span></span>
+* <span data-ttu-id="b59dd-149">**Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid</span><span class="sxs-lookup"><span data-stu-id="b59dd-149">**Location** - This property contains hello URI where hello results are when hello operation is complete</span></span>
 
 ```
 HTTP/1.1 202 Accepted
@@ -276,9 +276,9 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a><span data-ttu-id="9544e-150">Antwoord</span><span class="sxs-lookup"><span data-stu-id="9544e-150">Response</span></span>
+### <a name="response"></a><span data-ttu-id="b59dd-150">Antwoord</span><span class="sxs-lookup"><span data-stu-id="b59dd-150">Response</span></span>
 
-<span data-ttu-id="9544e-151">In het volgende voorbeeld wordt de `connectionStatus` wordt weergegeven als **onbereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="9544e-151">In the following example, the `connectionStatus` is shown as **Unreachable**.</span></span> <span data-ttu-id="9544e-152">In de `hops` details, kunt u zien onder `issues` dat het verkeer is geblokkeerd vanwege een `UserDefinedRoute`.</span><span class="sxs-lookup"><span data-stu-id="9544e-152">In the `hops` details, you can see under `issues` that the traffic was blocked due to a `UserDefinedRoute`.</span></span>
+<span data-ttu-id="b59dd-151">Hallo in Hallo voorbeeld te volgen, `connectionStatus` wordt weergegeven als **onbereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="b59dd-151">In hello following example, hello `connectionStatus` is shown as **Unreachable**.</span></span> <span data-ttu-id="b59dd-152">In Hallo `hops` details, kunt u zien onder `issues` dat Hallo verkeer is geblokkeerd vanwege tooa `UserDefinedRoute`.</span><span class="sxs-lookup"><span data-stu-id="b59dd-152">In hello `hops` details, you can see under `issues` that hello traffic was blocked due tooa `UserDefinedRoute`.</span></span>
 
 ```json
 {
@@ -320,11 +320,11 @@ null
 }
 ```
 
-## <a name="check-website-latency"></a><span data-ttu-id="9544e-153">Latentie van de website controleren</span><span class="sxs-lookup"><span data-stu-id="9544e-153">Check website latency</span></span>
+## <a name="check-website-latency"></a><span data-ttu-id="b59dd-153">Latentie van de website controleren</span><span class="sxs-lookup"><span data-stu-id="b59dd-153">Check website latency</span></span>
 
-<span data-ttu-id="9544e-154">Het volgende voorbeeld wordt de verbinding met een website.</span><span class="sxs-lookup"><span data-stu-id="9544e-154">The following example checks the connectivity to a website.</span></span>
+<span data-ttu-id="b59dd-154">Hallo volgende voorbeeld wordt gecontroleerd Hallo connectiviteit tooa website.</span><span class="sxs-lookup"><span data-stu-id="b59dd-154">hello following example checks hello connectivity tooa website.</span></span>
 
-### <a name="example"></a><span data-ttu-id="9544e-155">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="9544e-155">Example</span></span>
+### <a name="example"></a><span data-ttu-id="b59dd-155">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="b59dd-155">Example</span></span>
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -349,11 +349,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-<span data-ttu-id="9544e-156">Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:</span><span class="sxs-lookup"><span data-stu-id="9544e-156">Since this operation is long running, the URI for the result is returned in the response header as shown in the following response:</span></span>
+<span data-ttu-id="b59dd-156">Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:</span><span class="sxs-lookup"><span data-stu-id="b59dd-156">Since this operation is long running, hello URI for hello result is returned in hello response header as shown in hello following response:</span></span>
 
-<span data-ttu-id="9544e-157">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="9544e-157">**Important Values**</span></span>
+<span data-ttu-id="b59dd-157">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="b59dd-157">**Important Values**</span></span>
 
-* <span data-ttu-id="9544e-158">**Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is</span><span class="sxs-lookup"><span data-stu-id="9544e-158">**Location** - This property contains the URI where the results are when the operation is complete</span></span>
+* <span data-ttu-id="b59dd-158">**Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid</span><span class="sxs-lookup"><span data-stu-id="b59dd-158">**Location** - This property contains hello URI where hello results are when hello operation is complete</span></span>
 
 ```
 HTTP/1.1 202 Accepted
@@ -372,9 +372,9 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a><span data-ttu-id="9544e-159">Antwoord</span><span class="sxs-lookup"><span data-stu-id="9544e-159">Response</span></span>
+### <a name="response"></a><span data-ttu-id="b59dd-159">Antwoord</span><span class="sxs-lookup"><span data-stu-id="b59dd-159">Response</span></span>
 
-<span data-ttu-id="9544e-160">In het volgende antwoord ziet u de `connectionStatus` wordt weergegeven als **bereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="9544e-160">In the following response, you can see the `connectionStatus` shows as **Reachable**.</span></span> <span data-ttu-id="9544e-161">Als een verbinding geslaagd is, zijn latentie waarden opgegeven.</span><span class="sxs-lookup"><span data-stu-id="9544e-161">When a connection is successful, latency values are provided.</span></span>
+<span data-ttu-id="b59dd-160">In Hallo antwoord te volgen, ziet u Hallo `connectionStatus` wordt weergegeven als **bereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="b59dd-160">In hello following response, you can see hello `connectionStatus` shows as **Reachable**.</span></span> <span data-ttu-id="b59dd-161">Als een verbinding geslaagd is, zijn latentie waarden opgegeven.</span><span class="sxs-lookup"><span data-stu-id="b59dd-161">When a connection is successful, latency values are provided.</span></span>
 
 ```json
 {
@@ -407,11 +407,11 @@ null
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a><span data-ttu-id="9544e-162">Controleer de verbinding met een opslag-eindpunt</span><span class="sxs-lookup"><span data-stu-id="9544e-162">Check connectivity to a storage endpoint</span></span>
+## <a name="check-connectivity-tooa-storage-endpoint"></a><span data-ttu-id="b59dd-162">Controleer de connectiviteit tooa opslag eindpunt</span><span class="sxs-lookup"><span data-stu-id="b59dd-162">Check connectivity tooa storage endpoint</span></span>
 
-<span data-ttu-id="9544e-163">Het volgende voorbeeld wordt de verbinding van een virtuele machine met een blog van storage-account.</span><span class="sxs-lookup"><span data-stu-id="9544e-163">The following example checks the connectivity from a virtual machine to a blog storage account.</span></span>
+<span data-ttu-id="b59dd-163">Hallo volgende voorbeeld wordt gecontroleerd Hallo verbinding hebben met een virtuele machine tooa blog van storage-account.</span><span class="sxs-lookup"><span data-stu-id="b59dd-163">hello following example checks hello connectivity from a virtual machine tooa blog storage account.</span></span>
 
-### <a name="example"></a><span data-ttu-id="9544e-164">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="9544e-164">Example</span></span>
+### <a name="example"></a><span data-ttu-id="b59dd-164">Voorbeeld</span><span class="sxs-lookup"><span data-stu-id="b59dd-164">Example</span></span>
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -436,11 +436,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-<span data-ttu-id="9544e-165">Omdat deze bewerking lang actief is, de URI het resultaat wordt geretourneerd als de antwoordheader zoals weergegeven in het volgende antwoord:</span><span class="sxs-lookup"><span data-stu-id="9544e-165">Since this operation is long running, the URI for the result is returned in the response header as shown in the following response:</span></span>
+<span data-ttu-id="b59dd-165">Omdat deze bewerking lang is wordt uitgevoerd, Hallo URI voor Hallo resultaat geretourneerd als Hallo antwoordheader zoals weergegeven in het volgende antwoord Hallo:</span><span class="sxs-lookup"><span data-stu-id="b59dd-165">Since this operation is long running, hello URI for hello result is returned in hello response header as shown in hello following response:</span></span>
 
-<span data-ttu-id="9544e-166">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="9544e-166">**Important Values**</span></span>
+<span data-ttu-id="b59dd-166">**Belangrijke waarden**</span><span class="sxs-lookup"><span data-stu-id="b59dd-166">**Important Values**</span></span>
 
-* <span data-ttu-id="9544e-167">**Locatie** -deze eigenschap bevat de URI waar de resultaten zijn wanneer de bewerking voltooid is</span><span class="sxs-lookup"><span data-stu-id="9544e-167">**Location** - This property contains the URI where the results are when the operation is complete</span></span>
+* <span data-ttu-id="b59dd-167">**Locatie** -deze eigenschap bevat Hallo URI waar Hallo resultaten zijn wanneer hello bewerking is voltooid</span><span class="sxs-lookup"><span data-stu-id="b59dd-167">**Location** - This property contains hello URI where hello results are when hello operation is complete</span></span>
 
 ```
 HTTP/1.1 202 Accepted
@@ -459,9 +459,9 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a><span data-ttu-id="9544e-168">Antwoord</span><span class="sxs-lookup"><span data-stu-id="9544e-168">Response</span></span>
+### <a name="response"></a><span data-ttu-id="b59dd-168">Antwoord</span><span class="sxs-lookup"><span data-stu-id="b59dd-168">Response</span></span>
 
-<span data-ttu-id="9544e-169">Het volgende voorbeeld is de reactie van de vorige API-aanroep uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="9544e-169">The following example is the response from running the previous API call.</span></span> <span data-ttu-id="9544e-170">Als de controle geslaagd is, de `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="9544e-170">As the check is successful, the `connectionStatus` property shows as **Reachable**.</span></span>  <span data-ttu-id="9544e-171">U vindt de details met betrekking tot het aantal hops is vereist voor het bereiken van de storage-blob en latentie.</span><span class="sxs-lookup"><span data-stu-id="9544e-171">You are provided the details regarding the number of hops required to reach the storage blob and latency.</span></span>
+<span data-ttu-id="b59dd-169">Hallo is volgende voorbeeld antwoord Hallo Hallo vorige API-aanroep wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="b59dd-169">hello following example is hello response from running hello previous API call.</span></span> <span data-ttu-id="b59dd-170">Als het Hallo-controle is geslaagd, Hallo `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.</span><span class="sxs-lookup"><span data-stu-id="b59dd-170">As hello check is successful, hello `connectionStatus` property shows as **Reachable**.</span></span>  <span data-ttu-id="b59dd-171">U vindt Hallo-gegevens met betrekking tot Hallo aantal hops vereist tooreach Hallo storage-blob en latentie.</span><span class="sxs-lookup"><span data-stu-id="b59dd-171">You are provided hello details regarding hello number of hops required tooreach hello storage blob and latency.</span></span>
 
 ```json
 {
@@ -494,11 +494,11 @@ null
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="9544e-172">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="9544e-172">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b59dd-172">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b59dd-172">Next steps</span></span>
 
-<span data-ttu-id="9544e-173">Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)</span><span class="sxs-lookup"><span data-stu-id="9544e-173">Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)</span></span>
+<span data-ttu-id="b59dd-173">Meer informatie over hoe tooautomate pakket worden vastgelegd met waarschuwingen van de virtuele machine door [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)</span><span class="sxs-lookup"><span data-stu-id="b59dd-173">Learn how tooautomate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)</span></span>
 
-<span data-ttu-id="9544e-174">Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)</span><span class="sxs-lookup"><span data-stu-id="9544e-174">Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)</span></span>
+<span data-ttu-id="b59dd-174">Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)</span><span class="sxs-lookup"><span data-stu-id="b59dd-174">Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)</span></span>
 
 <!-- Image references -->
 

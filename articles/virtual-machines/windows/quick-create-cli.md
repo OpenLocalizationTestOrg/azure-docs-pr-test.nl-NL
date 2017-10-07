@@ -1,6 +1,6 @@
 ---
-title: Azure Quick Start - Een Windows VM CLI maken | Microsoft Docs
-description: Ontdek snel hoe u virtuele Windows-machines maakt met de Azure CLI.
+title: Quick Start - aaaAzure maken Windows VM CLI | Microsoft Docs
+description: Meer toocreate snel een virtuele machines van Windows Hello Azure CLI.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,45 +16,45 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fcb2f1389b3434d0d2e3145217e54ceb2326b969
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 029bdecec219b12b80b958ceeedda214f1b13149
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a><span data-ttu-id="315a9-103">Een virtuele Windows-machine maken met de Azure CLI</span><span class="sxs-lookup"><span data-stu-id="315a9-103">Create a Windows virtual machine with the Azure CLI</span></span>
+# <a name="create-a-windows-virtual-machine-with-hello-azure-cli"></a><span data-ttu-id="f152a-103">Maken van een virtuele machine van Windows Hello Azure CLI</span><span class="sxs-lookup"><span data-stu-id="f152a-103">Create a Windows virtual machine with hello Azure CLI</span></span>
 
-<span data-ttu-id="315a9-104">De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts.</span><span class="sxs-lookup"><span data-stu-id="315a9-104">The Azure CLI is used to create and manage Azure resources from the command line or in scripts.</span></span> <span data-ttu-id="315a9-105">In deze handleiding staat informatie over het gebruik van de Azure CLI om een virtuele machine te implementeren met Windows Server 2016.</span><span class="sxs-lookup"><span data-stu-id="315a9-105">This guide details using the Azure CLI to deploy a virtual machine running Windows Server 2016.</span></span> <span data-ttu-id="315a9-106">Als de implementatie is voltooid, maken we verbinding met de server en installeren we ISS.</span><span class="sxs-lookup"><span data-stu-id="315a9-106">Once deployment is complete, we connect to the server and install IIS.</span></span>
+<span data-ttu-id="f152a-104">Hello Azure CLI is gebruikte toocreate en Azure-resources te beheren vanaf de opdrachtregel hello, hetzij in scripts.</span><span class="sxs-lookup"><span data-stu-id="f152a-104">hello Azure CLI is used toocreate and manage Azure resources from hello command line or in scripts.</span></span> <span data-ttu-id="f152a-105">Deze handleiding details hello Azure CLI toodeploy met een virtuele machine met Windows Server 2016.</span><span class="sxs-lookup"><span data-stu-id="f152a-105">This guide details using hello Azure CLI toodeploy a virtual machine running Windows Server 2016.</span></span> <span data-ttu-id="f152a-106">Zodra de implementatie is voltooid, we toohello server verbinden en IIS installeren.</span><span class="sxs-lookup"><span data-stu-id="f152a-106">Once deployment is complete, we connect toohello server and install IIS.</span></span>
 
-<span data-ttu-id="315a9-107">Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.</span><span class="sxs-lookup"><span data-stu-id="315a9-107">If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.</span></span>
+<span data-ttu-id="f152a-107">Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.</span><span class="sxs-lookup"><span data-stu-id="f152a-107">If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.</span></span>
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-<span data-ttu-id="315a9-108">Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="315a9-108">If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="315a9-109">Voer `az --version` uit om de versie te bekijken.</span><span class="sxs-lookup"><span data-stu-id="315a9-109">Run `az --version` to find the version.</span></span> <span data-ttu-id="315a9-110">Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="315a9-110">If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
+<span data-ttu-id="f152a-108">Als u tooinstall kiest en Hallo CLI lokaal gebruiken, is deze snelstartgids vereist dat u de versie van de Azure CLI Hallo 2.0.4 worden uitgevoerd of hoger.</span><span class="sxs-lookup"><span data-stu-id="f152a-108">If you choose tooinstall and use hello CLI locally, this quickstart requires that you are running hello Azure CLI version 2.0.4 or later.</span></span> <span data-ttu-id="f152a-109">Voer `az --version` toofind Hallo versie.</span><span class="sxs-lookup"><span data-stu-id="f152a-109">Run `az --version` toofind hello version.</span></span> <span data-ttu-id="f152a-110">Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="f152a-110">If you need tooinstall or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
 
 
-## <a name="create-a-resource-group"></a><span data-ttu-id="315a9-111">Een resourcegroep maken</span><span class="sxs-lookup"><span data-stu-id="315a9-111">Create a resource group</span></span>
+## <a name="create-a-resource-group"></a><span data-ttu-id="f152a-111">Een resourcegroep maken</span><span class="sxs-lookup"><span data-stu-id="f152a-111">Create a resource group</span></span>
 
-<span data-ttu-id="315a9-112">Maak een resourcegroep maken met [az group create](/cli/azure/group#create).</span><span class="sxs-lookup"><span data-stu-id="315a9-112">Create a resource group with [az group create](/cli/azure/group#create).</span></span> <span data-ttu-id="315a9-113">Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.</span><span class="sxs-lookup"><span data-stu-id="315a9-113">An Azure resource group is a logical container into which Azure resources are deployed and managed.</span></span> 
+<span data-ttu-id="f152a-112">Maak een resourcegroep maken met [az group create](/cli/azure/group#create).</span><span class="sxs-lookup"><span data-stu-id="f152a-112">Create a resource group with [az group create](/cli/azure/group#create).</span></span> <span data-ttu-id="f152a-113">Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.</span><span class="sxs-lookup"><span data-stu-id="f152a-113">An Azure resource group is a logical container into which Azure resources are deployed and managed.</span></span> 
 
-<span data-ttu-id="315a9-114">In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.</span><span class="sxs-lookup"><span data-stu-id="315a9-114">The following example creates a resource group named *myResourceGroup* in the *eastus* location.</span></span>
+<span data-ttu-id="f152a-114">Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* locatie.</span><span class="sxs-lookup"><span data-stu-id="f152a-114">hello following example creates a resource group named *myResourceGroup* in hello *eastus* location.</span></span>
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a><span data-ttu-id="315a9-115">Virtuele machine maken</span><span class="sxs-lookup"><span data-stu-id="315a9-115">Create virtual machine</span></span>
+## <a name="create-virtual-machine"></a><span data-ttu-id="f152a-115">Virtuele machine maken</span><span class="sxs-lookup"><span data-stu-id="f152a-115">Create virtual machine</span></span>
 
-<span data-ttu-id="315a9-116">Maak een VM met [az vm create](/cli/azure/vm#create).</span><span class="sxs-lookup"><span data-stu-id="315a9-116">Create a VM with [az vm create](/cli/azure/vm#create).</span></span> 
+<span data-ttu-id="f152a-116">Maak een VM met [az vm create](/cli/azure/vm#create).</span><span class="sxs-lookup"><span data-stu-id="f152a-116">Create a VM with [az vm create](/cli/azure/vm#create).</span></span> 
 
-<span data-ttu-id="315a9-117">In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt.</span><span class="sxs-lookup"><span data-stu-id="315a9-117">The following example creates a VM named *myVM*.</span></span> <span data-ttu-id="315a9-118">In dit voorbeeld wordt *azureuser* voor de naam van een gebruiker met beheerdersrechten en *myPassword12* als het wachtwoord gebruikt.</span><span class="sxs-lookup"><span data-stu-id="315a9-118">This example uses *azureuser* for an administrative user name and *myPassword12* as the password.</span></span> <span data-ttu-id="315a9-119">Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving.</span><span class="sxs-lookup"><span data-stu-id="315a9-119">Update these values to something appropriate to your environment.</span></span> <span data-ttu-id="315a9-120">Deze waarden zijn nodig als u verbinding maakt met de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="315a9-120">These values are needed when creating a connection with the virtual machine.</span></span>
+<span data-ttu-id="f152a-117">Hallo volgende voorbeeld wordt een virtuele machine met de naam *myVM*.</span><span class="sxs-lookup"><span data-stu-id="f152a-117">hello following example creates a VM named *myVM*.</span></span> <span data-ttu-id="f152a-118">In dit voorbeeld wordt *azureuser* voor de naam van een gebruiker met beheerdersrechten en *myPassword12* Hallo wachtwoord.</span><span class="sxs-lookup"><span data-stu-id="f152a-118">This example uses *azureuser* for an administrative user name and *myPassword12* as hello password.</span></span> <span data-ttu-id="f152a-119">Deze waarden toosomething juiste tooyour omgeving bijwerken.</span><span class="sxs-lookup"><span data-stu-id="f152a-119">Update these values toosomething appropriate tooyour environment.</span></span> <span data-ttu-id="f152a-120">Deze waarden nodig wanneer u een verbinding met de Hallo virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f152a-120">These values are needed when creating a connection with hello virtual machine.</span></span>
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
-<span data-ttu-id="315a9-121">Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld.</span><span class="sxs-lookup"><span data-stu-id="315a9-121">When the VM has been created, the Azure CLI shows information similar to the following example.</span></span> <span data-ttu-id="315a9-122">Noteer het `publicIpAaddress`.</span><span class="sxs-lookup"><span data-stu-id="315a9-122">Take note of the `publicIpAaddress`.</span></span> <span data-ttu-id="315a9-123">Dit adres wordt gebruikt voor toegang tot de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="315a9-123">This address is used to access the VM.</span></span>
+<span data-ttu-id="f152a-121">Wanneer Hallo VM is gemaakt, ziet u hello Azure CLI informatie vergelijkbare toohello voorbeeld te volgen.</span><span class="sxs-lookup"><span data-stu-id="f152a-121">When hello VM has been created, hello Azure CLI shows information similar toohello following example.</span></span> <span data-ttu-id="f152a-122">Let op Hallo `publicIpAaddress`.</span><span class="sxs-lookup"><span data-stu-id="f152a-122">Take note of hello `publicIpAaddress`.</span></span> <span data-ttu-id="f152a-123">Dit adres is gebruikte tooaccess Hallo VM.</span><span class="sxs-lookup"><span data-stu-id="f152a-123">This address is used tooaccess hello VM.</span></span>
 
 ```azurecli-interactive 
 {
@@ -69,48 +69,48 @@ az vm create --resource-group myResourceGroup --name myVM --image win2016datacen
 }
 ```
 
-## <a name="open-port-80-for-web-traffic"></a><span data-ttu-id="315a9-124">Poort 80 openen voor webverkeer</span><span class="sxs-lookup"><span data-stu-id="315a9-124">Open port 80 for web traffic</span></span> 
+## <a name="open-port-80-for-web-traffic"></a><span data-ttu-id="f152a-124">Poort 80 openen voor webverkeer</span><span class="sxs-lookup"><span data-stu-id="f152a-124">Open port 80 for web traffic</span></span> 
 
-<span data-ttu-id="315a9-125">Standaard worden alleen RDP-verbindingen toegestaan naar virtuele Windows-machines die zijn geïmplementeerd in Azure.</span><span class="sxs-lookup"><span data-stu-id="315a9-125">By default only RDP connections are allowed in to Windows virtual machines deployed in Azure.</span></span> <span data-ttu-id="315a9-126">Als deze virtuele machine wordt gebruikt als een webserver, moet u poort 80 openen voor verkeer vanaf internet.</span><span class="sxs-lookup"><span data-stu-id="315a9-126">If this VM is going to be a webserver, you need to open port 80 from the Internet.</span></span> <span data-ttu-id="315a9-127">Gebruik de opdracht [az vm open-port](/cli/azure/vm#open-port) om de gewenste poort te openen.</span><span class="sxs-lookup"><span data-stu-id="315a9-127">Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.</span></span>  
+<span data-ttu-id="f152a-125">Standaard worden alleen de RDP-verbindingen zijn toegestaan in tooWindows virtuele machines zijn geïmplementeerd in Azure.</span><span class="sxs-lookup"><span data-stu-id="f152a-125">By default only RDP connections are allowed in tooWindows virtual machines deployed in Azure.</span></span> <span data-ttu-id="f152a-126">Als deze virtuele machine wordt toobe een webserver, moet u tooopen poort 80 van Hallo Internet.</span><span class="sxs-lookup"><span data-stu-id="f152a-126">If this VM is going toobe a webserver, you need tooopen port 80 from hello Internet.</span></span> <span data-ttu-id="f152a-127">Gebruik Hallo [az vm open poort](/cli/azure/vm#open-port) opdracht tooopen Hallo gewenst poort.</span><span class="sxs-lookup"><span data-stu-id="f152a-127">Use hello [az vm open-port](/cli/azure/vm#open-port) command tooopen hello desired port.</span></span>  
  
  ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 
-## <a name="connect-to-virtual-machine"></a><span data-ttu-id="315a9-128">Verbinding maken met de virtuele machine</span><span class="sxs-lookup"><span data-stu-id="315a9-128">Connect to virtual machine</span></span>
+## <a name="connect-toovirtual-machine"></a><span data-ttu-id="f152a-128">Verbinding maken met toovirtual machine</span><span class="sxs-lookup"><span data-stu-id="f152a-128">Connect toovirtual machine</span></span>
 
-<span data-ttu-id="315a9-129">Gebruik de volgende opdracht om een sessie met een extern bureaublad te starten voor de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="315a9-129">Use the following command to create a remote desktop session with the virtual machine.</span></span> <span data-ttu-id="315a9-130">Vervang het IP-adres door het openbare IP-adres van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="315a9-130">Replace the IP address with the public IP address of your virtual machine.</span></span> <span data-ttu-id="315a9-131">Wanneer u hierom wordt gevraagd, typt u de referenties die zijn gebruikt bij het maken van de virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="315a9-131">When prompted, enter the credentials used when creating the virtual machine.</span></span>
+<span data-ttu-id="f152a-129">Gebruik Hallo volgende opdracht toocreate een extern-bureaubladsessie met Hallo virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f152a-129">Use hello following command toocreate a remote desktop session with hello virtual machine.</span></span> <span data-ttu-id="f152a-130">Hallo IP-adres vervangen door Hallo openbaar IP-adres van uw virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f152a-130">Replace hello IP address with hello public IP address of your virtual machine.</span></span> <span data-ttu-id="f152a-131">Wanneer u wordt gevraagd, voert u Hallo-referenties gebruikt bij het maken van Hallo virtuele machine.</span><span class="sxs-lookup"><span data-stu-id="f152a-131">When prompted, enter hello credentials used when creating hello virtual machine.</span></span>
 
 ```bash 
 mstsc /v:<Public IP Address>
 ```
 
-## <a name="install-iis-using-powershell"></a><span data-ttu-id="315a9-132">IIS installeren met behulp van PowerShell</span><span class="sxs-lookup"><span data-stu-id="315a9-132">Install IIS using PowerShell</span></span>
+## <a name="install-iis-using-powershell"></a><span data-ttu-id="f152a-132">IIS installeren met behulp van PowerShell</span><span class="sxs-lookup"><span data-stu-id="f152a-132">Install IIS using PowerShell</span></span>
 
-<span data-ttu-id="315a9-133">U bent nu aangemeld bij de VM van Azure en er is nog maar één regel code van PowerShell nodig om IIS te installeren en de regel voor de lokale firewall in te schakelen om webverkeer toe te staan.</span><span class="sxs-lookup"><span data-stu-id="315a9-133">Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic.</span></span> <span data-ttu-id="315a9-134">Open een PowerShell-prompt en voer de volgende opdracht uit:</span><span class="sxs-lookup"><span data-stu-id="315a9-134">Open a PowerShell prompt and run the following command:</span></span>
+<span data-ttu-id="f152a-133">Nu dat u hebt geregistreerd in Azure VM toohello, kunt u één regel PowerShell tooinstall IIS gebruiken en Hallo lokale firewall regel tooallow-webverkeer inschakelen.</span><span class="sxs-lookup"><span data-stu-id="f152a-133">Now that you have logged in toohello Azure VM, you can use a single line of PowerShell tooinstall IIS and enable hello local firewall rule tooallow web traffic.</span></span> <span data-ttu-id="f152a-134">Open een PowerShell-prompt en Hallo volgende opdracht uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="f152a-134">Open a PowerShell prompt and run hello following command:</span></span>
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a><span data-ttu-id="315a9-135">De welkomstpagina van IIS weergeven</span><span class="sxs-lookup"><span data-stu-id="315a9-135">View the IIS welcome page</span></span>
+## <a name="view-hello-iis-welcome-page"></a><span data-ttu-id="f152a-135">Weergave Hallo IIS-welkomstpagina</span><span class="sxs-lookup"><span data-stu-id="f152a-135">View hello IIS welcome page</span></span>
 
-<span data-ttu-id="315a9-136">Nu IIS is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van IIS weer te geven.</span><span class="sxs-lookup"><span data-stu-id="315a9-136">With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page.</span></span> <span data-ttu-id="315a9-137">Zorg ervoor dat u de standaardpagina bezoekt met het openbare IP-adres dat u hierboven hebt gedocumenteerd.</span><span class="sxs-lookup"><span data-stu-id="315a9-137">Be sure to use the public IP address you documented above to visit the default page.</span></span> 
+<span data-ttu-id="f152a-136">Met IIS is geïnstalleerd en poort 80 is nu open op de virtuele machine uit Hallo Internet, kunt u een webbrowser van uw keuze tooview Hallo IIS standaardwelkomstpagina.</span><span class="sxs-lookup"><span data-stu-id="f152a-136">With IIS installed and port 80 now open on your VM from hello Internet, you can use a web browser of your choice tooview hello default IIS welcome page.</span></span> <span data-ttu-id="f152a-137">Worden ervoor toouse Hallo openbaar IP-adres die u hiervoor toovisit Hallo standaardpagina beschreven.</span><span class="sxs-lookup"><span data-stu-id="f152a-137">Be sure toouse hello public IP address you documented above toovisit hello default page.</span></span> 
 
 ![Standaardsite van IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="clean-up-resources"></a><span data-ttu-id="315a9-139">Resources opschonen</span><span class="sxs-lookup"><span data-stu-id="315a9-139">Clean up resources</span></span>
+## <a name="clean-up-resources"></a><span data-ttu-id="f152a-139">Resources opschonen</span><span class="sxs-lookup"><span data-stu-id="f152a-139">Clean up resources</span></span>
 
-<span data-ttu-id="315a9-140">U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.</span><span class="sxs-lookup"><span data-stu-id="315a9-140">When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.</span></span>
+<span data-ttu-id="f152a-140">Wanneer deze niet langer nodig is, kunt u Hallo [az groep verwijderen](/cli/azure/group#delete) opdracht tooremove Hallo-resourcegroep, VM en alle gerelateerde resources.</span><span class="sxs-lookup"><span data-stu-id="f152a-140">When no longer needed, you can use hello [az group delete](/cli/azure/group#delete) command tooremove hello resource group, VM, and all related resources.</span></span>
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="315a9-141">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="315a9-141">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f152a-141">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="f152a-141">Next steps</span></span>
 
-<span data-ttu-id="315a9-142">In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="315a9-142">In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server.</span></span> <span data-ttu-id="315a9-143">Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Windows-machines.</span><span class="sxs-lookup"><span data-stu-id="315a9-143">To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.</span></span>
+<span data-ttu-id="f152a-142">In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="f152a-142">In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server.</span></span> <span data-ttu-id="f152a-143">toolearn meer informatie over virtuele machines in Azure, blijven toohello zelfstudie voor VM's van Windows.</span><span class="sxs-lookup"><span data-stu-id="f152a-143">toolearn more about Azure virtual machines, continue toohello tutorial for Windows VMs.</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="315a9-144">Zelfstudies over virtuele Windows-machines</span><span class="sxs-lookup"><span data-stu-id="315a9-144">Azure Windows virtual machine tutorials</span></span>](./tutorial-manage-vm.md)
+> [<span data-ttu-id="f152a-144">Zelfstudies over virtuele Windows-machines</span><span class="sxs-lookup"><span data-stu-id="f152a-144">Azure Windows virtual machine tutorials</span></span>](./tutorial-manage-vm.md)

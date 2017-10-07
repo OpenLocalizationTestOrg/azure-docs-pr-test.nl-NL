@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Bynder | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Bynder.
+description: Meer informatie over hoe tooconfigure eenmalige aanmelding tussen Azure Active Directory en Bynder.
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,203 +14,203 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6786d7eb6a11405278ef7267f25279f9e39b3bde
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2a8477580d28fe422f2836f483dff286bc71c93
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bynder"></a><span data-ttu-id="22e7e-103">Zelfstudie: Azure Active Directory-integratie met Bynder</span><span class="sxs-lookup"><span data-stu-id="22e7e-103">Tutorial: Azure Active Directory integration with Bynder</span></span>
-<span data-ttu-id="22e7e-104">Er is het doel van deze zelfstudie leert u Bynder integreren met Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="22e7e-104">The objective of this tutorial is to show you how to integrate Bynder with Azure Active Directory (Azure AD).</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-bynder"></a><span data-ttu-id="92fe3-103">Zelfstudie: Azure Active Directory-integratie met Bynder</span><span class="sxs-lookup"><span data-stu-id="92fe3-103">Tutorial: Azure Active Directory integration with Bynder</span></span>
+<span data-ttu-id="92fe3-104">Hallo-doel van deze zelfstudie is tooshow u hoe toointegrate Bynder met Azure Active Directory (Azure AD).</span><span class="sxs-lookup"><span data-stu-id="92fe3-104">hello objective of this tutorial is tooshow you how toointegrate Bynder with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="22e7e-105">Bynder integreren met Azure AD biedt de volgende voordelen:</span><span class="sxs-lookup"><span data-stu-id="22e7e-105">Integrating Bynder with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="92fe3-105">Bynder integreren met Azure AD biedt Hallo volgende voordelen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-105">Integrating Bynder with Azure AD provides you with hello following benefits:</span></span>
 
-* <span data-ttu-id="22e7e-106">U kunt beheren in Azure AD die toegang tot Bynder heeft</span><span class="sxs-lookup"><span data-stu-id="22e7e-106">You can control in Azure AD who has access to Bynder</span></span>
-* <span data-ttu-id="22e7e-107">U kunt uw gebruikers automatisch ophalen aangemeld bij Bynder eenmalige aanmelding (SSO) met hun Azure AD-accounts inschakelen</span><span class="sxs-lookup"><span data-stu-id="22e7e-107">You can enable your users to automatically get signed-on to Bynder single sign-on (SSO) with their Azure AD accounts</span></span>
-* <span data-ttu-id="22e7e-108">U kunt uw accounts op één centrale locatie - en de klassieke Azure portal beheren</span><span class="sxs-lookup"><span data-stu-id="22e7e-108">You can manage your accounts in one central location - the Azure classic portal</span></span>
+* <span data-ttu-id="92fe3-106">U kunt beheren in Azure AD die tooBynder toegang heeft</span><span class="sxs-lookup"><span data-stu-id="92fe3-106">You can control in Azure AD who has access tooBynder</span></span>
+* <span data-ttu-id="92fe3-107">U kunt uw gebruikers tooautomatically get aangemelde tooBynder eenmalige aanmelding (SSO) met hun Azure AD-accounts</span><span class="sxs-lookup"><span data-stu-id="92fe3-107">You can enable your users tooautomatically get signed-on tooBynder single sign-on (SSO) with their Azure AD accounts</span></span>
+* <span data-ttu-id="92fe3-108">U kunt uw accounts op één centrale locatie - Hallo klassieke Azure-portal beheren</span><span class="sxs-lookup"><span data-stu-id="92fe3-108">You can manage your accounts in one central location - hello Azure classic portal</span></span>
 
-<span data-ttu-id="22e7e-109">Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="22e7e-109">If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="92fe3-109">Als u meer informatie over de integratie met Azure AD SaaS tooknow wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="92fe3-109">If you want tooknow more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="22e7e-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="22e7e-110">Prerequisites</span></span>
-<span data-ttu-id="22e7e-111">Voor het configureren van Azure AD-integratie met Bynder, moet u de volgende items:</span><span class="sxs-lookup"><span data-stu-id="22e7e-111">To configure Azure AD integration with Bynder, you need the following items:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="92fe3-110">Vereisten</span><span class="sxs-lookup"><span data-stu-id="92fe3-110">Prerequisites</span></span>
+<span data-ttu-id="92fe3-111">Azure AD-integratie met Bynder tooconfigure, moet u Hallo volgende items:</span><span class="sxs-lookup"><span data-stu-id="92fe3-111">tooconfigure Azure AD integration with Bynder, you need hello following items:</span></span>
 
-* <span data-ttu-id="22e7e-112">Een Azure AD-abonnement</span><span class="sxs-lookup"><span data-stu-id="22e7e-112">An Azure AD subscription</span></span>
-* <span data-ttu-id="22e7e-113">Een Bynder eenmalige aanmelding (SSO) abonnement ingeschakeld</span><span class="sxs-lookup"><span data-stu-id="22e7e-113">A Bynder single-sign on (SSO) enabled subscription</span></span>
+* <span data-ttu-id="92fe3-112">Een Azure AD-abonnement</span><span class="sxs-lookup"><span data-stu-id="92fe3-112">An Azure AD subscription</span></span>
+* <span data-ttu-id="92fe3-113">Een Bynder eenmalige aanmelding (SSO) abonnement ingeschakeld</span><span class="sxs-lookup"><span data-stu-id="92fe3-113">A Bynder single-sign on (SSO) enabled subscription</span></span>
 
 >[!NOTE]
-><span data-ttu-id="22e7e-114">Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.</span><span class="sxs-lookup"><span data-stu-id="22e7e-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span> 
+><span data-ttu-id="92fe3-114">tootest hello stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.</span><span class="sxs-lookup"><span data-stu-id="92fe3-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span> 
 > 
 
-<span data-ttu-id="22e7e-115">Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:</span><span class="sxs-lookup"><span data-stu-id="22e7e-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="92fe3-115">tootest hello stappen in deze zelfstudie, moet u deze aanbevelingen volgen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-* <span data-ttu-id="22e7e-116">U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.</span><span class="sxs-lookup"><span data-stu-id="22e7e-116">You should not use your production environment, unless this is necessary.</span></span>
-* <span data-ttu-id="22e7e-117">Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een [proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="22e7e-117">If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+* <span data-ttu-id="92fe3-116">U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.</span><span class="sxs-lookup"><span data-stu-id="92fe3-116">You should not use your production environment, unless this is necessary.</span></span>
+* <span data-ttu-id="92fe3-117">Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een [proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="92fe3-117">If you don't have an Azure AD trial environment, you can get a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="22e7e-118">Scenariobeschrijving</span><span class="sxs-lookup"><span data-stu-id="22e7e-118">Scenario description</span></span>
-<span data-ttu-id="22e7e-119">Het doel van deze zelfstudie is zodat u kunt Microsoft Azure AD SSO testen in een testomgeving.</span><span class="sxs-lookup"><span data-stu-id="22e7e-119">The objective of this tutorial is to enable you to test Microsoft Azure AD SSO in a test environment.</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="92fe3-118">Scenariobeschrijving</span><span class="sxs-lookup"><span data-stu-id="92fe3-118">Scenario description</span></span>
+<span data-ttu-id="92fe3-119">Hallo-doel van deze zelfstudie is tooenable u tootest Microsoft Azure AD SSO in een testomgeving.</span><span class="sxs-lookup"><span data-stu-id="92fe3-119">hello objective of this tutorial is tooenable you tootest Microsoft Azure AD SSO in a test environment.</span></span>
 
-<span data-ttu-id="22e7e-120">Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:</span><span class="sxs-lookup"><span data-stu-id="22e7e-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+<span data-ttu-id="92fe3-120">Hallo scenario beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="22e7e-121">Bynder uit de galerie toevoegen</span><span class="sxs-lookup"><span data-stu-id="22e7e-121">Adding Bynder from the gallery</span></span>
-2. <span data-ttu-id="22e7e-122">Configureren en testen van Microsoft Azure AD-SSO</span><span class="sxs-lookup"><span data-stu-id="22e7e-122">Configuring and testing Microsoft Azure AD SSO</span></span>
+1. <span data-ttu-id="92fe3-121">Het toevoegen van Bynder van Hallo-galerie</span><span class="sxs-lookup"><span data-stu-id="92fe3-121">Adding Bynder from hello gallery</span></span>
+2. <span data-ttu-id="92fe3-122">Configureren en testen van Microsoft Azure AD-SSO</span><span class="sxs-lookup"><span data-stu-id="92fe3-122">Configuring and testing Microsoft Azure AD SSO</span></span>
 
-## <a name="add-bynder-from-the-gallery"></a><span data-ttu-id="22e7e-123">Bynder uit de galerie toevoegen</span><span class="sxs-lookup"><span data-stu-id="22e7e-123">Add Bynder from the gallery</span></span>
-<span data-ttu-id="22e7e-124">Voor het configureren van de integratie van Bynder in Azure AD, moet u Bynder uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.</span><span class="sxs-lookup"><span data-stu-id="22e7e-124">To configure the integration of Bynder into Azure AD, you need to add Bynder from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="add-bynder-from-hello-gallery"></a><span data-ttu-id="92fe3-123">Bynder van Hallo galerie toevoegen</span><span class="sxs-lookup"><span data-stu-id="92fe3-123">Add Bynder from hello gallery</span></span>
+<span data-ttu-id="92fe3-124">tooconfigure hello integratie van Bynder in Azure AD, moet u tooadd Bynder uit Hallo galerie tooyour lijst met beheerde SaaS-apps.</span><span class="sxs-lookup"><span data-stu-id="92fe3-124">tooconfigure hello integration of Bynder into Azure AD, you need tooadd Bynder from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="22e7e-125">**Als u wilt toevoegen Bynder uit de galerie, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="22e7e-125">**To add Bynder from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="92fe3-125">**tooadd Bynder via Hallo gallery uitvoeren Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="92fe3-125">**tooadd Bynder from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="22e7e-126">In de **klassieke Azure-Portal**, klik op het navigatiedeelvenster links **Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-126">In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.</span></span> 
+1. <span data-ttu-id="92fe3-126">In Hallo **klassieke Azure-Portal**, op Hallo navigatiedeelvenster links, klikt u op **Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-126">In hello **Azure classic Portal**, on hello left navigation pane, click **Active Directory**.</span></span> 
    
     ![Active Directory][1]
-2. <span data-ttu-id="22e7e-128">Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.</span><span class="sxs-lookup"><span data-stu-id="22e7e-128">From the **Directory** list, select the directory for which you want to enable directory integration.</span></span>
-3. <span data-ttu-id="22e7e-129">De weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.</span><span class="sxs-lookup"><span data-stu-id="22e7e-129">To open the applications view, in the directory view, click **Applications** in the top menu.</span></span>
+2. <span data-ttu-id="92fe3-128">Van Hallo **Directory** lijst, selecteer Hallo map waarvoor u tooenable Active directory-integratie.</span><span class="sxs-lookup"><span data-stu-id="92fe3-128">From hello **Directory** list, select hello directory for which you want tooenable directory integration.</span></span>
+3. <span data-ttu-id="92fe3-129">tooopen hello toepassingen weergeven in de weergave van de directory hello, klikt u op **toepassingen** in het bovenste menu Hallo.</span><span class="sxs-lookup"><span data-stu-id="92fe3-129">tooopen hello applications view, in hello directory view, click **Applications** in hello top menu.</span></span>
    
     ![Toepassingen][2]
-4. <span data-ttu-id="22e7e-131">Klik op **toevoegen** aan de onderkant van de pagina.</span><span class="sxs-lookup"><span data-stu-id="22e7e-131">Click **Add** at the bottom of the page.</span></span>
+4. <span data-ttu-id="92fe3-131">Klik op **toevoegen** Hallo Hallo pagina onderaan in.</span><span class="sxs-lookup"><span data-stu-id="92fe3-131">Click **Add** at hello bottom of hello page.</span></span>
    
     ![Toepassingen][3]
-5. <span data-ttu-id="22e7e-133">Op de **wat wilt u doen** dialoogvenster, klikt u op **toevoegen van een toepassing uit de galerie**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-133">On the **What do you want to do** dialog, click **Add an application from the gallery**.</span></span>
+5. <span data-ttu-id="92fe3-133">Op Hallo **wat wilt u wilt toodo** dialoogvenster, klikt u op **toevoegen van een toepassing uit de galerie Hallo**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-133">On hello **What do you want toodo** dialog, click **Add an application from hello gallery**.</span></span>
    
     ![Toepassingen][4]
-6. <span data-ttu-id="22e7e-135">Typ in het zoekvak **Bynder**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-135">In the search box, type **Bynder**.</span></span>
+6. <span data-ttu-id="92fe3-135">Typ in het zoekvak Hallo **Bynder**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-135">In hello search box, type **Bynder**.</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_01.png)
-7. <span data-ttu-id="22e7e-137">Selecteer in het deelvenster resultaten **Bynder**, en klik vervolgens op **Complete** de toepassing toevoegen.</span><span class="sxs-lookup"><span data-stu-id="22e7e-137">In the results panel, select **Bynder**, and then click **Complete** to add the application.</span></span>
+7. <span data-ttu-id="92fe3-137">Selecteer in het deelvenster resultaten hello, **Bynder**, en klik vervolgens op **Complete** tooadd Hallo-toepassing.</span><span class="sxs-lookup"><span data-stu-id="92fe3-137">In hello results panel, select **Bynder**, and then click **Complete** tooadd hello application.</span></span>
    
-    ![De app selecteren in de galerie](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
+    ![Hallo-app in de galerie Hallo selecteren](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_001.png)
 
-## <a name="configure-and-test-microsoft-azure-ad-sso"></a><span data-ttu-id="22e7e-139">Configureren en testen van Microsoft Azure AD-SSO</span><span class="sxs-lookup"><span data-stu-id="22e7e-139">Configure and test Microsoft Azure AD SSO</span></span>
-<span data-ttu-id="22e7e-140">Het doel van deze sectie is het beschreven hoe u met het configureren en testen van Microsoft Azure AD-SSO met Bynder op basis van een testgebruiker 'Britta Simon' genoemd.</span><span class="sxs-lookup"><span data-stu-id="22e7e-140">The objective of this section is to show you how to configure and test Microsoft Azure AD SSO with Bynder based on a test user called "Britta Simon".</span></span>
+## <a name="configure-and-test-microsoft-azure-ad-sso"></a><span data-ttu-id="92fe3-139">Configureren en testen van Microsoft Azure AD-SSO</span><span class="sxs-lookup"><span data-stu-id="92fe3-139">Configure and test Microsoft Azure AD SSO</span></span>
+<span data-ttu-id="92fe3-140">Hallo-doel van deze sectie is tooshow u hoe tooconfigure en test Microsoft Azure AD-SSO met Bynder op basis van een testgebruiker 'Britta Simon' genoemd.</span><span class="sxs-lookup"><span data-stu-id="92fe3-140">hello objective of this section is tooshow you how tooconfigure and test Microsoft Azure AD SSO with Bynder based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="22e7e-141">Azure AD moet weten wat de gebruiker van het bijbehorende equivalent in Bynder aan een gebruiker in Azure AD is voor eenmalige aanmelding werkt.</span><span class="sxs-lookup"><span data-stu-id="22e7e-141">For SSO to work, Azure AD needs to know what the counterpart user in Bynder to an user in Azure AD is.</span></span> <span data-ttu-id="22e7e-142">Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Bynder tot stand worden gebracht.</span><span class="sxs-lookup"><span data-stu-id="22e7e-142">In other words, a link relationship between an Azure AD user and the related user in Bynder needs to be established.</span></span>
+<span data-ttu-id="92fe3-141">Voor eenmalige aanmelding toowork moet Azure AD tooknow welke gebruiker Hallo equivalent in Bynder tooan gebruiker in Azure AD.</span><span class="sxs-lookup"><span data-stu-id="92fe3-141">For SSO toowork, Azure AD needs tooknow what hello counterpart user in Bynder tooan user in Azure AD is.</span></span> <span data-ttu-id="92fe3-142">Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker Hallo in Bynder toobe tot stand gebracht.</span><span class="sxs-lookup"><span data-stu-id="92fe3-142">In other words, a link relationship between an Azure AD user and hello related user in Bynder needs toobe established.</span></span>
 
-<span data-ttu-id="22e7e-143">Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Bynder.</span><span class="sxs-lookup"><span data-stu-id="22e7e-143">This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Bynder.</span></span>
+<span data-ttu-id="92fe3-143">Deze relatie koppeling wordt vastgesteld door het toewijzen van de waarde van Hallo Hallo **gebruikersnaam** in Azure AD als waarde Hallo Hallo **gebruikersnaam** in Bynder.</span><span class="sxs-lookup"><span data-stu-id="92fe3-143">This link relationship is established by assigning hello value of hello **user name** in Azure AD as hello value of hello **Username** in Bynder.</span></span>
 
-<span data-ttu-id="22e7e-144">Als u wilt configureren en testen van Microsoft Azure AD-SSO met Bynder, moet u de volgende elementen voltooid:</span><span class="sxs-lookup"><span data-stu-id="22e7e-144">To configure and test Microsoft Azure AD SSO with Bynder, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="92fe3-144">tooconfigure en test Microsoft Azure AD-SSO met Bynder, moet u toocomplete Hallo bouwstenen te volgen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-144">tooconfigure and test Microsoft Azure AD SSO with Bynder, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="22e7e-145">**[Configureren van eenmalige aanmelding Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.</span><span class="sxs-lookup"><span data-stu-id="22e7e-145">**[Configuring Microsoft Azure AD single sign-on](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="22e7e-146">**[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Microsoft Azure AD eenmalige aanmelding met Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="22e7e-146">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Microsoft Azure AD Single Sign-On with Britta Simon.</span></span>
-3. <span data-ttu-id="22e7e-147">**[Maken van een testgebruiker Bynder](#creating-a-bynder-test-user)**  - Bynder die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.</span><span class="sxs-lookup"><span data-stu-id="22e7e-147">**[Creating a Bynder test user](#creating-a-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Azure AD representation of her.</span></span>
-4. <span data-ttu-id="22e7e-148">**[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Microsoft Azure AD eenmalige aanmelding inschakelen.</span><span class="sxs-lookup"><span data-stu-id="22e7e-148">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Azure AD Single Sign-On.</span></span>
-5. <span data-ttu-id="22e7e-149">**[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.</span><span class="sxs-lookup"><span data-stu-id="22e7e-149">**[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="92fe3-145">**[Configureren van eenmalige aanmelding Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**  -tooenable uw toouse gebruikers deze functie.</span><span class="sxs-lookup"><span data-stu-id="92fe3-145">**[Configuring Microsoft Azure AD single sign-on](#configuring-azure-ad-single-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="92fe3-146">**[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  -tootest Microsoft Azure AD eenmalige aanmelding met Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="92fe3-146">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Microsoft Azure AD Single Sign-On with Britta Simon.</span></span>
+3. <span data-ttu-id="92fe3-147">**[Maken van een testgebruiker Bynder](#creating-a-bynder-test-user)**  -toohave een equivalent van Britta Simon in Bynder die is gekoppeld toohello Azure AD-weergave van haar.</span><span class="sxs-lookup"><span data-stu-id="92fe3-147">**[Creating a Bynder test user](#creating-a-bynder-test-user)** - toohave a counterpart of Britta Simon in Bynder that is linked toohello Azure AD representation of her.</span></span>
+4. <span data-ttu-id="92fe3-148">**[Toewijzen hello Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse eenmalige aanmelding Microsoft Azure AD.</span><span class="sxs-lookup"><span data-stu-id="92fe3-148">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Microsoft Azure AD Single Sign-On.</span></span>
+5. <span data-ttu-id="92fe3-149">**[Testen van eenmalige aanmelding](#testing-single-sign-on)**  -tooverify Hallo of configuratie werkt.</span><span class="sxs-lookup"><span data-stu-id="92fe3-149">**[Testing single sign-on](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-microsoft-azure-ad-sso"></a><span data-ttu-id="22e7e-150">Configuratie van Microsoft Azure AD-SSO</span><span class="sxs-lookup"><span data-stu-id="22e7e-150">Configuring Microsoft Azure AD SSO</span></span>
-<span data-ttu-id="22e7e-151">In deze sectie maakt u Microsoft Azure AD eenmalige aanmelding inschakelen in de klassieke portal en eenmalige aanmelding configureren in uw toepassing Bynder.</span><span class="sxs-lookup"><span data-stu-id="22e7e-151">In this section, you enable Microsoft Azure AD SSO in the classic portal and configure SSO in your Bynder application.</span></span>
+### <a name="configuring-microsoft-azure-ad-sso"></a><span data-ttu-id="92fe3-150">Configuratie van Microsoft Azure AD-SSO</span><span class="sxs-lookup"><span data-stu-id="92fe3-150">Configuring Microsoft Azure AD SSO</span></span>
+<span data-ttu-id="92fe3-151">In deze sectie die u kunt Microsoft Azure AD eenmalige aanmelding inschakelen in de klassieke portal Hallo en eenmalige aanmelding in uw toepassing Bynder configureert.</span><span class="sxs-lookup"><span data-stu-id="92fe3-151">In this section, you enable Microsoft Azure AD SSO in hello classic portal and configure SSO in your Bynder application.</span></span>
 
-<span data-ttu-id="22e7e-152">**Als u wilt Microsoft Azure AD-SSO met Bynder configureert, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="22e7e-152">**To configure Microsoft Azure AD SSO with Bynder, perform the following steps:**</span></span>
+<span data-ttu-id="92fe3-152">**Microsoft Azure AD-SSO met Bynder, tooconfigure uitvoeren Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="92fe3-152">**tooconfigure Microsoft Azure AD SSO with Bynder, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="22e7e-153">In de klassieke portal op de **Bynder** toepassing Integratiepagina, klikt u op **eenmalige aanmelding configureren** openen de **configureren Single Sign-On** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="22e7e-153">In the classic portal, on the **Bynder** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.</span></span>
+1. <span data-ttu-id="92fe3-153">In de klassieke portal Hallo op Hallo **Bynder** toepassing Integratiepagina, klikt u op **eenmalige aanmelding configureren** tooopen hello **configureren Single Sign-On** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="92fe3-153">In hello classic portal, on hello **Bynder** application integration page, click **Configure single sign-on** tooopen hello **Configure Single Sign-On**  dialog.</span></span>
    
     ![Eenmalige aanmelding configureren][6] 
-2. <span data-ttu-id="22e7e-155">Op de **hoe wilt u dat gebruikers zich aanmelden op Bynder** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-155">On the **How would you like users to sign on to Bynder** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.</span></span>
+2. <span data-ttu-id="92fe3-155">Op Hallo **wilt u hoe gebruikers toosign op tooBynder** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-155">On hello **How would you like users toosign on tooBynder** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.</span></span>
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_03.png)
-3. <span data-ttu-id="22e7e-157">Op de **App-instellingen configureren** dialoogvenster pagina als u wilt configureren van de toepassing in **IDP geïnitieerd modus**, voer de volgende stappen uit en klik op **volgende**:</span><span class="sxs-lookup"><span data-stu-id="22e7e-157">On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:</span></span>
+3. <span data-ttu-id="92fe3-157">Op Hallo **App-instellingen configureren** dialoogvenster pagina, indien gewenst tooconfigure Hallo toepassing in **IDP geïnitieerd modus**, het uitvoeren van Hallo volgende stappen uit en klik op **volgende**:</span><span class="sxs-lookup"><span data-stu-id="92fe3-157">On hello **Configure App Settings** dialog page, If you wish tooconfigure hello application in **IDP initiated mode**, perform hello following steps and click **Next**:</span></span>
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_04.png)
-  1. <span data-ttu-id="22e7e-159">In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.getbynder.com/sso/SAML/authenticate/`</span><span class="sxs-lookup"><span data-stu-id="22e7e-159">In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.getbynder.com/sso/SAML/authenticate/`</span></span>
-  2. <span data-ttu-id="22e7e-160">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-160">Click **Next**.</span></span>
-4. <span data-ttu-id="22e7e-161">Als u wilt configureren van de toepassing in **SP geïnitieerd modus** op de **App-instellingen configureren** dialoogvenster pagina, klikt u op de **"Weergeven geavanceerde instellingen (optioneel)"** en voer vervolgens de **aanmelding op URL** en klik op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-161">If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.</span></span>
+  1. <span data-ttu-id="92fe3-159">In Hallo **antwoord-URL** textbox, typ een URL met Hallo patroon volgen:`https://<company name>.getbynder.com/sso/SAML/authenticate/`</span><span class="sxs-lookup"><span data-stu-id="92fe3-159">In hello **Reply URL** textbox, type a URL using hello following pattern: `https://<company name>.getbynder.com/sso/SAML/authenticate/`</span></span>
+  2. <span data-ttu-id="92fe3-160">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-160">Click **Next**.</span></span>
+4. <span data-ttu-id="92fe3-161">U kunt eventueel tooconfigure Hallo toepassing in **SP geïnitieerd modus** op Hallo **App-instellingen configureren** dialoogvenster pagina, klikt u op Hallo **'Geavanceerde instellingen (optioneel) weergeven'**en voer vervolgens Hallo **aanmelding op URL** en klik op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-161">If you wish tooconfigure hello application in **SP initiated mode** on hello **Configure App Settings** dialog page, then click on hello **“Show advanced settings (optional)”** and then enter hello **Sign On URL** and click **Next**.</span></span>
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_10.png)
-  1. <span data-ttu-id="22e7e-163">In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.getbynder.com/login/`</span><span class="sxs-lookup"><span data-stu-id="22e7e-163">In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.getbynder.com/login/`</span></span>
-  2. <span data-ttu-id="22e7e-164">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-164">Click **Next**.</span></span>
+  1. <span data-ttu-id="92fe3-163">In Hallo **aanmelding op URL** textbox, typ een URL met Hallo patroon volgen:`https://<company name>.getbynder.com/login/`</span><span class="sxs-lookup"><span data-stu-id="92fe3-163">In hello **Sign On URL** textbox, type a URL using hello following pattern: `https://<company name>.getbynder.com/login/`</span></span>
+  2. <span data-ttu-id="92fe3-164">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-164">Click **Next**.</span></span>
   
    >[!NOTE]
-   ><span data-ttu-id="22e7e-165">De waarde voor de aanmelding op de URL in deze zelfstudie is slechts een placeholfer.</span><span class="sxs-lookup"><span data-stu-id="22e7e-165">The value for the Sign On URL in this tutorial is just a placeholfer.</span></span> <span data-ttu-id="22e7e-166">Als u de werkelijke vlaue voor uw omgeving, contact op met Bynder.</span><span class="sxs-lookup"><span data-stu-id="22e7e-166">To get the actual vlaue for your environment, contact Bynder.</span></span>
+   ><span data-ttu-id="92fe3-165">Hallo-waarde voor Hallo aanmelding op de URL in deze zelfstudie is slechts een placeholfer.</span><span class="sxs-lookup"><span data-stu-id="92fe3-165">hello value for hello Sign On URL in this tutorial is just a placeholfer.</span></span> <span data-ttu-id="92fe3-166">tooget hello werkelijke vlaue voor uw omgeving contact op met Bynder.</span><span class="sxs-lookup"><span data-stu-id="92fe3-166">tooget hello actual vlaue for your environment, contact Bynder.</span></span>
    >
 
-5. <span data-ttu-id="22e7e-167">Op de **eenmalige aanmelding configureren op Bynder** pagina, voer de volgende stappen uit en klik op **volgende**:</span><span class="sxs-lookup"><span data-stu-id="22e7e-167">On the **Configure single sign-on at Bynder** page, perform the following steps and click **Next**:</span></span>
+5. <span data-ttu-id="92fe3-167">Op Hallo **eenmalige aanmelding configureren op Bynder** pagina, het uitvoeren van Hallo volgende stappen uit en klik op **volgende**:</span><span class="sxs-lookup"><span data-stu-id="92fe3-167">On hello **Configure single sign-on at Bynder** page, perform hello following steps and click **Next**:</span></span>
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_05.png)  
-  1. <span data-ttu-id="22e7e-169">Klik op **metagegevens downloaden**, en sla het bestand op uw computer.</span><span class="sxs-lookup"><span data-stu-id="22e7e-169">Click **Download metadata**, and then save the file on your computer.</span></span>
-  2. <span data-ttu-id="22e7e-170">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-170">Click **Next**.</span></span>
-6. <span data-ttu-id="22e7e-171">Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, contact op met het ondersteuningsteam Bynder.</span><span class="sxs-lookup"><span data-stu-id="22e7e-171">To get SSO configured for your application, contact your Bynder support team.</span></span> <span data-ttu-id="22e7e-172">Het metagegevensbestand van de gedownloade koppelen en delen met Bynder team voor het instellen van eenmalige aanmelding op hun kant.</span><span class="sxs-lookup"><span data-stu-id="22e7e-172">Attach the downloaded metadata file and share it with Bynder team to set up SSO on their side.</span></span>
-7. <span data-ttu-id="22e7e-173">In de klassieke portal, selecteert u de configuratie voor één aanmelding bevestiging en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-173">In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.</span></span>
+  1. <span data-ttu-id="92fe3-169">Klik op **metagegevens downloaden**, en sla Hallo-bestand op uw computer.</span><span class="sxs-lookup"><span data-stu-id="92fe3-169">Click **Download metadata**, and then save hello file on your computer.</span></span>
+  2. <span data-ttu-id="92fe3-170">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-170">Click **Next**.</span></span>
+6. <span data-ttu-id="92fe3-171">tooget SSO is geconfigureerd voor uw toepassing contact op met het ondersteuningsteam Bynder.</span><span class="sxs-lookup"><span data-stu-id="92fe3-171">tooget SSO configured for your application, contact your Bynder support team.</span></span> <span data-ttu-id="92fe3-172">Hallo metagegevens van het gedownloade bestand toevoegen en delen met Bynder team tooset van eenmalige aanmelding op hun kant.</span><span class="sxs-lookup"><span data-stu-id="92fe3-172">Attach hello downloaded metadata file and share it with Bynder team tooset up SSO on their side.</span></span>
+7. <span data-ttu-id="92fe3-173">In de klassieke portal hello, selecteert u Hallo configuratie voor één aanmelding bevestiging en klik vervolgens op **volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-173">In hello classic portal, select hello single sign-on configuration confirmation, and then click **Next**.</span></span>
    
     ![Azure AD voor eenmalige aanmelding][10]
-8. <span data-ttu-id="22e7e-175">Op de **eenmalige aanmelding bevestiging** pagina, klikt u op **Complete**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-175">On the **Single sign-on confirmation** page, click **Complete**.</span></span>  
+8. <span data-ttu-id="92fe3-175">Op Hallo **eenmalige aanmelding bevestiging** pagina, klikt u op **Complete**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-175">On hello **Single sign-on confirmation** page, click **Complete**.</span></span>  
    
     ![Azure AD voor eenmalige aanmelding][11]
 
-### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="22e7e-177">Een Azure AD-testgebruiker maken</span><span class="sxs-lookup"><span data-stu-id="22e7e-177">Create an Azure AD test user</span></span>
-<span data-ttu-id="22e7e-178">Het doel van deze sectie is het een testgebruiker maken in de klassieke portal Britta Simon aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="22e7e-178">The objective of this section is to create a test user in the classic portal called Britta Simon.</span></span>
+### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="92fe3-177">Een Azure AD-testgebruiker maken</span><span class="sxs-lookup"><span data-stu-id="92fe3-177">Create an Azure AD test user</span></span>
+<span data-ttu-id="92fe3-178">Hallo-doel van deze sectie is toocreate een testgebruiker in de klassieke portal Hallo Britta Simon aangeroepen.</span><span class="sxs-lookup"><span data-stu-id="92fe3-178">hello objective of this section is toocreate a test user in hello classic portal called Britta Simon.</span></span>
 
 ![Azure AD-gebruiker maken][20]
 
-<span data-ttu-id="22e7e-180">**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="22e7e-180">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="92fe3-180">**een testgebruiker in Azure AD toocreate uitvoeren Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="92fe3-180">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="22e7e-181">In de **klassieke Azure-Portal**, klik op het navigatiedeelvenster links **Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-181">In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.</span></span>
+1. <span data-ttu-id="92fe3-181">In Hallo **klassieke Azure-Portal**, op Hallo navigatiedeelvenster links, klikt u op **Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-181">In hello **Azure classic Portal**, on hello left navigation pane, click **Active Directory**.</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_09.png)
-2. <span data-ttu-id="22e7e-183">Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.</span><span class="sxs-lookup"><span data-stu-id="22e7e-183">From the **Directory** list, select the directory for which you want to enable directory integration.</span></span>
-3. <span data-ttu-id="22e7e-184">De lijst met gebruikers, in het menu bovenaan, klikt u op **gebruikers**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-184">To display the list of users, in the menu on the top, click **Users**.</span></span>
+2. <span data-ttu-id="92fe3-183">Van Hallo **Directory** lijst, selecteer Hallo map waarvoor u tooenable Active directory-integratie.</span><span class="sxs-lookup"><span data-stu-id="92fe3-183">From hello **Directory** list, select hello directory for which you want tooenable directory integration.</span></span>
+3. <span data-ttu-id="92fe3-184">Klik op toodisplay Hallo lijst van gebruikers, in het menu bovenaan Hallo Hallo **gebruikers**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-184">toodisplay hello list of users, in hello menu on hello top, click **Users**.</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_03.png)
-4. <span data-ttu-id="22e7e-186">Openen van de **gebruiker toevoegen** dialoogvenster op de werkbalk aan de onderkant, klikt u op **gebruiker toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-186">To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.</span></span>
+4. <span data-ttu-id="92fe3-186">Hallo tooopen **gebruiker toevoegen** dialoogvenster in Hallo-werkbalk op Hallo onder, klikt u op **gebruiker toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-186">tooopen hello **Add User** dialog, in hello toolbar on hello bottom, click **Add User**.</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_04.png)
-5. <span data-ttu-id="22e7e-188">Op de **Vertel ons meer over deze gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="22e7e-188">On the **Tell us about this user** dialog page, perform the following steps:</span></span>
+5. <span data-ttu-id="92fe3-188">Op Hallo **Vertel ons meer over deze gebruiker** dialoogvenster pagina, voert u Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-188">On hello **Tell us about this user** dialog page, perform hello following steps:</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_05.png)
-  1. <span data-ttu-id="22e7e-190">Selecteer de nieuwe gebruiker in uw organisatie als Type gebruiker.</span><span class="sxs-lookup"><span data-stu-id="22e7e-190">As Type Of User, select New user in your organization.</span></span>
-  2. <span data-ttu-id="22e7e-191">De gebruikersnaam **textbox**, type **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-191">In the User Name **textbox**, type **BrittaSimon**.</span></span>
-  3. <span data-ttu-id="22e7e-192">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-192">Click **Next**.</span></span>
-6. <span data-ttu-id="22e7e-193">Op de **gebruikersprofiel** dialoogvenster pagina, voert u de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="22e7e-193">On the **User Profile** dialog page, perform the following steps:</span></span>
+  1. <span data-ttu-id="92fe3-190">Selecteer de nieuwe gebruiker in uw organisatie als Type gebruiker.</span><span class="sxs-lookup"><span data-stu-id="92fe3-190">As Type Of User, select New user in your organization.</span></span>
+  2. <span data-ttu-id="92fe3-191">In Hallo gebruikersnaam **textbox**, type **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-191">In hello User Name **textbox**, type **BrittaSimon**.</span></span>
+  3. <span data-ttu-id="92fe3-192">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-192">Click **Next**.</span></span>
+6. <span data-ttu-id="92fe3-193">Op Hallo **gebruikersprofiel** dialoogvenster pagina, voert u Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-193">On hello **User Profile** dialog page, perform hello following steps:</span></span>
    
    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_06.png)
-  1. <span data-ttu-id="22e7e-195">In de **voornaam** textbox type **Britta**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-195">In the **First Name** textbox, type **Britta**.</span></span>  
-  2. <span data-ttu-id="22e7e-196">In de **achternaam** textbox type, **Simon**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-196">In the **Last Name** textbox, type, **Simon**.</span></span> 
-  3. <span data-ttu-id="22e7e-197">In de **weergavenaam** textbox type **Britta Simon**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-197">In the **Display Name** textbox, type **Britta Simon**.</span></span>
-  4. <span data-ttu-id="22e7e-198">In de **rol** selecteert **gebruiker**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-198">In the **Role** list, select **User**.</span></span>
-  5. <span data-ttu-id="22e7e-199">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-199">Click **Next**.</span></span>
-7. <span data-ttu-id="22e7e-200">Op de **tijdelijk wachtwoord** dialoogvenster pagina, klikt u op **maken**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-200">On the **Get temporary password** dialog page, click **create**.</span></span>
+  1. <span data-ttu-id="92fe3-195">In Hallo **voornaam** textbox type **Britta**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-195">In hello **First Name** textbox, type **Britta**.</span></span>  
+  2. <span data-ttu-id="92fe3-196">In Hallo **achternaam** textbox type, **Simon**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-196">In hello **Last Name** textbox, type, **Simon**.</span></span> 
+  3. <span data-ttu-id="92fe3-197">In Hallo **weergavenaam** textbox type **Britta Simon**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-197">In hello **Display Name** textbox, type **Britta Simon**.</span></span>
+  4. <span data-ttu-id="92fe3-198">In Hallo **rol** selecteert **gebruiker**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-198">In hello **Role** list, select **User**.</span></span>
+  5. <span data-ttu-id="92fe3-199">Klik op **Volgende**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-199">Click **Next**.</span></span>
+7. <span data-ttu-id="92fe3-200">Op Hallo **tijdelijk wachtwoord** dialoogvenster pagina, klikt u op **maken**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-200">On hello **Get temporary password** dialog page, click **create**.</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_07.png)
-8. <span data-ttu-id="22e7e-202">Op de **tijdelijk wachtwoord** dialoogvenster pagina, voert u de volgende stappen uit:</span><span class="sxs-lookup"><span data-stu-id="22e7e-202">On the **Get temporary password** dialog page, perform the following steps:</span></span>
+8. <span data-ttu-id="92fe3-202">Op Hallo **tijdelijk wachtwoord** dialoogvenster pagina, voert u Hallo stappen te volgen:</span><span class="sxs-lookup"><span data-stu-id="92fe3-202">On hello **Get temporary password** dialog page, perform hello following steps:</span></span>
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-bynder-tutorial/create_aaduser_08.png)
-   1. <span data-ttu-id="22e7e-204">Noteer de waarde van de **nieuw wachtwoord**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-204">Write down the value of the **New Password**.</span></span>
-   2. <span data-ttu-id="22e7e-205">Klik op **Voltooien**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-205">Click **Complete**.</span></span>   
+   1. <span data-ttu-id="92fe3-204">Schrijf Hallo-waarde van Hallo **nieuw wachtwoord**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-204">Write down hello value of hello **New Password**.</span></span>
+   2. <span data-ttu-id="92fe3-205">Klik op **Voltooien**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-205">Click **Complete**.</span></span>   
 
-### <a name="create-a-bynder-test-user"></a><span data-ttu-id="22e7e-206">Een testgebruiker Bynder maken</span><span class="sxs-lookup"><span data-stu-id="22e7e-206">Create a Bynder test user</span></span>
-<span data-ttu-id="22e7e-207">Het doel van deze sectie is het maken van een gebruiker Britta Simon in Bynder genoemd.</span><span class="sxs-lookup"><span data-stu-id="22e7e-207">The objective of this section is to create a user called Britta Simon in Bynder.</span></span> <span data-ttu-id="22e7e-208">Bynder ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld.</span><span class="sxs-lookup"><span data-stu-id="22e7e-208">Bynder supports just-in-time provisioning, which is by default enabled.</span></span>
+### <a name="create-a-bynder-test-user"></a><span data-ttu-id="92fe3-206">Een testgebruiker Bynder maken</span><span class="sxs-lookup"><span data-stu-id="92fe3-206">Create a Bynder test user</span></span>
+<span data-ttu-id="92fe3-207">Hallo-doel van deze sectie is toocreate Britta Simon aangeroepen in Bynder van een gebruiker.</span><span class="sxs-lookup"><span data-stu-id="92fe3-207">hello objective of this section is toocreate a user called Britta Simon in Bynder.</span></span> <span data-ttu-id="92fe3-208">Bynder ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld.</span><span class="sxs-lookup"><span data-stu-id="92fe3-208">Bynder supports just-in-time provisioning, which is by default enabled.</span></span>
 
-<span data-ttu-id="22e7e-209">Er is geen actie-item voor u in deze sectie.</span><span class="sxs-lookup"><span data-stu-id="22e7e-209">There is no action item for you in this section.</span></span> <span data-ttu-id="22e7e-210">Een nieuwe gebruiker wordt gemaakt tijdens een poging tot toegang tot Bynder als deze nog niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="22e7e-210">A new user will be created during an attempt to access Bynder if it doesn't exist yet.</span></span>
+<span data-ttu-id="92fe3-209">Er is geen actie-item voor u in deze sectie.</span><span class="sxs-lookup"><span data-stu-id="92fe3-209">There is no action item for you in this section.</span></span> <span data-ttu-id="92fe3-210">Een nieuwe gebruiker wordt tijdens een poging tooaccess Bynder gemaakt als deze nog niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="92fe3-210">A new user will be created during an attempt tooaccess Bynder if it doesn't exist yet.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="22e7e-211">Als u een gebruiker handmatig maken wilt, moet u contact op met het ondersteuningsteam Bynder.</span><span class="sxs-lookup"><span data-stu-id="22e7e-211">If you need to create an user manually, you need to contact the Bynder support team.</span></span> 
+><span data-ttu-id="92fe3-211">Als u handmatig een gebruiker toocreate nodig, moet u toocontact hello Bynder ondersteuningsteam.</span><span class="sxs-lookup"><span data-stu-id="92fe3-211">If you need toocreate an user manually, you need toocontact hello Bynder support team.</span></span> 
 > 
 
-### <a name="assign-the-azure-ad-test-user"></a><span data-ttu-id="22e7e-212">De Azure AD-testgebruiker toewijzen</span><span class="sxs-lookup"><span data-stu-id="22e7e-212">Assign the Azure AD test user</span></span>
-<span data-ttu-id="22e7e-213">Het doel van deze sectie is het Britta Simon Bynder haar toegang verlenen voor het gebruik van Azure eenmalige aanmelding inschakelen.</span><span class="sxs-lookup"><span data-stu-id="22e7e-213">The objective of this section is to enabling Britta Simon to use Azure SSO by granting her access to Bynder.</span></span>
+### <a name="assign-hello-azure-ad-test-user"></a><span data-ttu-id="92fe3-212">Toewijzen van de testgebruiker hello Azure AD</span><span class="sxs-lookup"><span data-stu-id="92fe3-212">Assign hello Azure AD test user</span></span>
+<span data-ttu-id="92fe3-213">Hallo-doel van deze sectie is tooenabling Britta Simon toouse Azure SSO haar tooBynder toegang verleent.</span><span class="sxs-lookup"><span data-stu-id="92fe3-213">hello objective of this section is tooenabling Britta Simon toouse Azure SSO by granting her access tooBynder.</span></span>
 
    ![Gebruiker toewijzen][200]
 
-<span data-ttu-id="22e7e-215">**Britta Simon om aan te wijzen Bynder, moet u de volgende stappen uitvoeren:**</span><span class="sxs-lookup"><span data-stu-id="22e7e-215">**To assign Britta Simon to Bynder, perform the following steps:**</span></span>
+<span data-ttu-id="92fe3-215">**tooassign Britta Simon tooBynder, Voer Hallo stappen te volgen:**</span><span class="sxs-lookup"><span data-stu-id="92fe3-215">**tooassign Britta Simon tooBynder, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="22e7e-216">In de klassieke portal, de weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.</span><span class="sxs-lookup"><span data-stu-id="22e7e-216">On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.</span></span>
+1. <span data-ttu-id="92fe3-216">Klik op Hallo klassieke portal tooopen Hallo toepassingen weergeven in de weergave van de directory hello, **toepassingen** in het bovenste menu Hallo.</span><span class="sxs-lookup"><span data-stu-id="92fe3-216">On hello classic portal, tooopen hello applications view, in hello directory view, click **Applications** in hello top menu.</span></span>
    
     ![Gebruiker toewijzen][201]
-2. <span data-ttu-id="22e7e-218">Selecteer in de lijst met toepassingen **Bynder**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-218">In the applications list, select **Bynder**.</span></span>
+2. <span data-ttu-id="92fe3-218">Selecteer in de lijst met de toepassingen van Hallo **Bynder**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-218">In hello applications list, select **Bynder**.</span></span>
    
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-bynder-tutorial/tutorial_bynder_50.png)
-3. <span data-ttu-id="22e7e-220">Klik in het menu bovenaan op **gebruikers**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-220">In the menu on the top, click **Users**.</span></span>
+3. <span data-ttu-id="92fe3-220">Klik in het menu bovenaan Hallo Hallo **gebruikers**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-220">In hello menu on hello top, click **Users**.</span></span>
    
     ![Gebruiker toewijzen][203]
-4. <span data-ttu-id="22e7e-222">Selecteer in de lijst gebruikers **Britta Simon**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-222">In the Users list, select **Britta Simon**.</span></span>
-5. <span data-ttu-id="22e7e-223">Klik in de werkbalk aan de onderkant op **toewijzen**.</span><span class="sxs-lookup"><span data-stu-id="22e7e-223">In the toolbar on the bottom, click **Assign**.</span></span>
+4. <span data-ttu-id="92fe3-222">Selecteer in de lijst gebruikers Hallo **Britta Simon**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-222">In hello Users list, select **Britta Simon**.</span></span>
+5. <span data-ttu-id="92fe3-223">Klik in de werkbalk Hallo Hallo onder, op **toewijzen**.</span><span class="sxs-lookup"><span data-stu-id="92fe3-223">In hello toolbar on hello bottom, click **Assign**.</span></span>
    
     ![Gebruiker toewijzen][205]
 
-### <a name="test-single-sign-on"></a><span data-ttu-id="22e7e-225">Test eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="22e7e-225">Test single sign-on</span></span>
-<span data-ttu-id="22e7e-226">Het doel van deze sectie is het testen van uw Microsoft Azure AD SSO-configuratie met behulp van het toegangsvenster.</span><span class="sxs-lookup"><span data-stu-id="22e7e-226">The objective of this section is to test your Microsoft Azure AD SSO configuration using the Access Panel.</span></span>
+### <a name="test-single-sign-on"></a><span data-ttu-id="92fe3-225">Test eenmalige aanmelding</span><span class="sxs-lookup"><span data-stu-id="92fe3-225">Test single sign-on</span></span>
+<span data-ttu-id="92fe3-226">Hallo-doel van deze sectie is tootest uw Microsoft Azure AD SSO-configuratie met Hallo Toegangsvenster.</span><span class="sxs-lookup"><span data-stu-id="92fe3-226">hello objective of this section is tootest your Microsoft Azure AD SSO configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="22e7e-227">Als u op de tegel Bynder in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Bynder.</span><span class="sxs-lookup"><span data-stu-id="22e7e-227">When you click the Bynder tile in the Access Panel, you should get automatically signed-on to your Bynder application.</span></span>
+<span data-ttu-id="92fe3-227">Als u op Hallo Bynder tegel in Hallo Toegangsvenster, krijgt u automatisch aangemelde tooyour Bynder toepassing.</span><span class="sxs-lookup"><span data-stu-id="92fe3-227">When you click hello Bynder tile in hello Access Panel, you should get automatically signed-on tooyour Bynder application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="22e7e-228">Aanvullende bronnen</span><span class="sxs-lookup"><span data-stu-id="22e7e-228">Additional resources</span></span>
-* [<span data-ttu-id="22e7e-229">Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="22e7e-229">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="22e7e-230">Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="22e7e-230">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a><span data-ttu-id="92fe3-228">Aanvullende bronnen</span><span class="sxs-lookup"><span data-stu-id="92fe3-228">Additional resources</span></span>
+* [<span data-ttu-id="92fe3-229">Lijst met zelfstudies over het tooIntegrate SaaS-Apps met Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="92fe3-229">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="92fe3-230">Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="92fe3-230">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

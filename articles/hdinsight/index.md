@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure HDInsight - zelfstudies, API-verwijzing | Microsoft Docs
-description: Ontdek Hadoop op HDInsight. Documentatie laat zien hoe u Hadoop, Spark, HBase, R-Server en meer kunt gebruiken om big data te verwerken en te analyseren en hieruit inzichten te verkrijgen.
+title: aaaAzure HDInsight-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Ontdek Hadoop op HDInsight. Documentatie ziet u hoe toouse Hadoop, Spark, HBase, R Server meer tooprocess analyseren en inzicht in grote gegevens krijgen.
 services: hdinsight
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6f16d77f3590bedf9338afc784110c2acff80592
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 592c31863df2e90886c9e9596b1a24edea79e990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Documentatie voor Azure HDInsight
 
-Leer hoe u Hadoop in de cloud op HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten zien hoe u clusters maakt, big data verwerkt en analyseert en oplossingen ontwikkelt met Hadoop, Spark, HBase, R-Server, Storm en andere technologieën in het Hadoop-ecosysteem.
+Informatie over de manier waarop cloudservices van toouse Hadoop in Hallo op HDInsight tooanalyze streaming of historische gegevens. Zelfstudies en andere documentatie wordt uitgelegd hoe toocreate clusters, verwerken en analyseren big data, en ontwikkelen van oplossingen met Hadoop, Spark, HBase, R-Server, Storm en andere technologieën in Hallo Hadoop-ecosysteem.
 
 <ul class="panelContent cardsFTitle">
     <li>

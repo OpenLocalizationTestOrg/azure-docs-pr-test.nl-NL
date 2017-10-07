@@ -1,6 +1,6 @@
 ---
-title: Azure eenmalige van SAML-Protocol | Microsoft Docs
-description: "Dit artikel wordt beschreven voor het één Sign-Out SAML-Protocol in Azure Active Directory"
+title: Eenmalige aanmelding uit SAML Protocol aaaAzure | Microsoft Docs
+description: "Dit artikel wordt beschreven Hallo één Sign-Out SAML-Protocol in Azure Active Directory"
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 45e4705f53d80b5fe852c484b5e64d18a8e24f09
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 889c9b3397a601c16ba6971d2b15bfee305576de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Één afmelden SAML-Protocol
-Azure Active Directory (Azure AD) ondersteunt het SAML 2.0 web browser-profiel op één afmelding plaatsvindt. Voor één afmeldingen via correcte werking moet de **LogoutURL** voor de toepassing moet expliciet worden geregistreerd bij Azure AD tijdens de toepassingsregistratie. Azure AD gebruikt de LogoutURL om gebruikers te leiden nadat ze zich afgemeld.
+Azure Active Directory (Azure AD) ondersteunt hello SAML 2.0 web browser één afmelden profiel. Voor één afmelden toowork correct Hallo **LogoutURL** voor Hallo toepassing moet expliciet worden geregistreerd bij Azure AD tijdens de toepassingsregistratie. Azure AD gebruikt Hallo LogoutURL tooredirect gebruikers nadat ze zich afgemeld.
 
-Dit diagram toont de werkstroom van de Azure AD enkel afmelden proces.
+Dit diagram toont Hallo werkstroom van hello Azure AD enkel afmelden proces.
 
 ![Eenmalige aanmelding van de werkstroom](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## LogoutRequest
-De cloud service verzendt een `LogoutRequest` bericht naar Azure AD om aan te geven dat een sessie is beëindigd. Het volgende fragment toont een voorbeeld van een `LogoutRequest` element.
+Hallo cloud service verzendt een `LogoutRequest` bericht tooAzure AD tooindicate dat een sessie is beëindigd. Hallo volgende fragment toont een voorbeeld van een `LogoutRequest` element.
 
 ```
 <samlp:LogoutRequest xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="idaa6ebe6839094fe4abc4ebd5281ec780" Version="2.0" IssueInstant="2013-03-28T07:10:49.6004822Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -39,20 +39,20 @@ De cloud service verzendt een `LogoutRequest` bericht naar Azure AD om aan te ge
 ```
 
 ### LogoutRequest
-De `LogoutRequest` element verzonden naar Azure AD vereist de volgende kenmerken:
+Hallo `LogoutRequest` element verzonden tooAzure AD vereist Hallo volgende kenmerken:
 
-* `ID`: Hiermee wordt de afmelden aanvraag geïdentificeerd. De waarde van `ID` mogen niet beginnen met een getal. De gebruikelijke manier is om toe te voegen **id** als de tekenreeksweergave van een GUID.
-* `Version`: Stel de waarde van dit element kunt **2.0**. Deze waarde is verplicht.
+* `ID`: Dit identificeert afmelden Hallo-aanvraag. waarde van Hallo `ID` mogen niet beginnen met een getal. Hallo gangbare praktijk is tooappend **id** toohello tekenreeksweergave van een GUID.
+* `Version`: Stel Hallo-waarde van dit element te**2.0**. Deze waarde is verplicht.
 * `IssueInstant`: Dit is een `DateTime` tekenreeks met een waarde coördineren Universal Time (UTC) en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar worden niet afgedwongen.
 
 ### certificaatverlener
-De `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Normaal gesproken deze is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
+Hallo `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een Hallo **ServicePrincipalNames** in de cloudservice Hallo in Azure AD. Dit is normaal gesproken toohello ingesteld **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
 ### NameID
-De waarde van de `NameID` element moet exact overeenkomen met de `NameID` van de gebruiker die wordt afgemeld.
+waarde van Hallo Hallo `NameID` element moet exact overeenkomen met de Hallo `NameID` van Hallo-gebruiker die wordt afgemeld.
 
 ## LogoutResponse
-Azure AD-verzendt een `LogoutResponse` in reactie op een `LogoutRequest` element. Het volgende fragment toont een voorbeeld van een `LogoutResponse`.
+Azure AD-verzendt een `LogoutResponse` in antwoord tooa `LogoutRequest` element. Hallo volgende fragment toont een voorbeeld van een `LogoutResponse`.
 
 ```
 <samlp:LogoutResponse ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -64,12 +64,12 @@ Azure AD-verzendt een `LogoutResponse` in reactie op een `LogoutRequest` element
 ```
 
 ### LogoutResponse
-Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `LogoutResponse` element. Stelt ook de `InResponseTo` element met de waarde van de `ID` kenmerk van de `LogoutRequest` die opgewekt door het antwoord.
+Azure AD ingesteld Hallo `ID`, `Version` en `IssueInstant` waarden in Hallo `LogoutResponse` element. Stelt ook Hallo `InResponseTo` toohello elementwaarde Hallo `ID` kenmerk Hallo `LogoutRequest` die antwoord Hallo opgewekt door.
 
 ### certificaatverlener
-Azure AD wordt deze waarde ingesteld op `https://login.microsoftonline.com/<TenantIdGUID>/` waar <TenantIdGUID> is de tenant-ID van de Azure AD-tenant.
+Azure AD stelt deze waarde te`https://login.microsoftonline.com/<TenantIdGUID>/` waar <TenantIdGUID> hello tenant-ID van hello Azure AD-tenant is.
 
-Evalueren van de waarde van de `Issuer` element, gebruik de waarde van de **App ID URI** opgegeven tijdens de toepassingsregistratie.
+tooevaluate hello waarde Hallo `Issuer` element, gebruik Hallo waarde Hallo **App ID URI** opgegeven tijdens de toepassingsregistratie.
 
 ### Status
-Azure AD gebruikt de `StatusCode` -element in de `Status` element om aan te geven voor het slagen of mislukken van afmelding plaatsvindt. Bij een poging tot het afmelden is mislukt, de `StatusCode` -element kan ook aangepaste foutberichten bevatten.
+Azure AD gebruikt Hallo `StatusCode` -element in Hallo `Status` element tooindicate Hallo slagen of mislukken van afmelding plaatsvindt. Wanneer Hallo afmelden niet lukt, hello `StatusCode` -element kan ook aangepaste foutberichten bevatten.

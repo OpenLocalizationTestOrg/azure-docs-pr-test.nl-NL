@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure ExpressRoute - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over hoe u een particuliere ExpressRoute-verbinding met Microsoft-cloudservices kunt configureren en beheren vanuit uw on-premises infrastructuur of co-locatiefaciliteit.
+title: aaaAzure ExpressRoute-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe tooconfigure en persoonlijke ExpressRoute-verbinding, tooMicrosoft cloudservices beheren vanaf uw lokale infrastructuur of plaatsing faciliteit.
 services: expressroute
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 1c9d64f415a94c35bc6e41706ce78b0da34a0131
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aad3408378b3d492ffa3c9c11a7bb5066567bb8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute-documentatie
 
-Meer informatie over hoe u met ExpressRoute een snelle particuliere verbinding met Microsoft-cloudservices kunt instellen vanuit uw on-premises infrastructuur of co-locatiefaciliteit. Zelfstudies, REST-API's en andere documentatie helpen u bij de configuratie en het beheer van een ExpressRoute-circuit.
+Meer informatie over hoe toouse ExpressRoute tooset van een snelle, particuliere verbinding tooMicrosoft cloudservices van uw lokale infrastructuur of plaatsing faciliteit. Zelfstudies, REST-API's en andere documentatie helpen u bij de configuratie en het beheer van een ExpressRoute-circuit.
 
 <ul class="panelContent cardsFTitle">
     <li>

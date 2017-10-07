@@ -1,6 +1,6 @@
 ---
-title: Node.js gebruiken om een query uit te voeren voor een Azure SQL-database | Microsoft Docs
-description: In dit onderwerp ziet u hoe u Node.js gebruikt om een programma te maken dat is verbonden met een Azure SQL-database, en hoe u een query voor deze database uitvoert met behulp van Transact-SQL-instructies.
+title: aaaUse Node.js tooquery Azure SQL Database | Microsoft Docs
+description: Dit onderwerp leest u hoe toouse Node.js toocreate een programma dat verbinding tooan Azure SQL Database en de query maakt met behulp van Transact-SQL-instructies.
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,50 +15,50 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3870130a486c218eafeb9cf792a4275de7fd6551
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-nodejs-to-query-an-azure-sql-database"></a><span data-ttu-id="dc341-103">Node.js gebruiken om een query uit te voeren voor een Azure SQL-database</span><span class="sxs-lookup"><span data-stu-id="dc341-103">Use Node.js to query an Azure SQL database</span></span>
+# <a name="use-nodejs-tooquery-an-azure-sql-database"></a><span data-ttu-id="74a33-103">Node.js tooquery een Azure SQL database gebruiken</span><span class="sxs-lookup"><span data-stu-id="74a33-103">Use Node.js tooquery an Azure SQL database</span></span>
 
-<span data-ttu-id="dc341-104">In deze beknopte zelfstudie wordt gedemonstreerd hoe u [Node.js](https://nodejs.org/en/) gebruikt om een programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor gegevens.</span><span class="sxs-lookup"><span data-stu-id="dc341-104">This quick start tutorial demonstrates how to use [Node.js](https://nodejs.org/en/) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.</span></span>
+<span data-ttu-id="74a33-104">Deze zelfstudie laat zien hoe toouse [Node.js](https://nodejs.org/en/) toocreate een programma tooconnect tooan Azure SQL database en Transact-SQL-instructies tooquery gegevens.</span><span class="sxs-lookup"><span data-stu-id="74a33-104">This quick start tutorial demonstrates how toouse [Node.js](https://nodejs.org/en/) toocreate a program tooconnect tooan Azure SQL database and use Transact-SQL statements tooquery data.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="dc341-105">Vereisten</span><span class="sxs-lookup"><span data-stu-id="dc341-105">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="74a33-105">Vereisten</span><span class="sxs-lookup"><span data-stu-id="74a33-105">Prerequisites</span></span>
 
-<span data-ttu-id="dc341-106">Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te voltooien:</span><span class="sxs-lookup"><span data-stu-id="dc341-106">To complete this quick start tutorial, make sure you have the following:</span></span>
+<span data-ttu-id="74a33-106">toocomplete dit snelle zelfstudie begint, controleert u of hebt u de volgende Hallo:</span><span class="sxs-lookup"><span data-stu-id="74a33-106">toocomplete this quick start tutorial, make sure you have hello following:</span></span>
 
-- <span data-ttu-id="dc341-107">Een Azure SQL-database.</span><span class="sxs-lookup"><span data-stu-id="dc341-107">An Azure SQL database.</span></span> <span data-ttu-id="dc341-108">In deze zelfstudie worden de resources gebruikt die u hebt gemaakt in een van deze Quick Starts:</span><span class="sxs-lookup"><span data-stu-id="dc341-108">This quick start uses the resources created in one of these quick starts:</span></span> 
+- <span data-ttu-id="74a33-107">Een Azure SQL-database.</span><span class="sxs-lookup"><span data-stu-id="74a33-107">An Azure SQL database.</span></span> <span data-ttu-id="74a33-108">Hallo-resources die zijn gemaakt in een van deze snel aan de slag maakt gebruik van deze snel starten:</span><span class="sxs-lookup"><span data-stu-id="74a33-108">This quick start uses hello resources created in one of these quick starts:</span></span> 
 
-   - [<span data-ttu-id="dc341-109">Database maken - Portal</span><span class="sxs-lookup"><span data-stu-id="dc341-109">Create DB - Portal</span></span>](sql-database-get-started-portal.md)
-   - [<span data-ttu-id="dc341-110">Database maken - CLI</span><span class="sxs-lookup"><span data-stu-id="dc341-110">Create DB - CLI</span></span>](sql-database-get-started-cli.md)
-   - [<span data-ttu-id="dc341-111">Database maken - PowerShell</span><span class="sxs-lookup"><span data-stu-id="dc341-111">Create DB - PowerShell</span></span>](sql-database-get-started-powershell.md)
+   - [<span data-ttu-id="74a33-109">Database maken - Portal</span><span class="sxs-lookup"><span data-stu-id="74a33-109">Create DB - Portal</span></span>](sql-database-get-started-portal.md)
+   - [<span data-ttu-id="74a33-110">Database maken - CLI</span><span class="sxs-lookup"><span data-stu-id="74a33-110">Create DB - CLI</span></span>](sql-database-get-started-cli.md)
+   - [<span data-ttu-id="74a33-111">Database maken - PowerShell</span><span class="sxs-lookup"><span data-stu-id="74a33-111">Create DB - PowerShell</span></span>](sql-database-get-started-powershell.md)
 
-- <span data-ttu-id="dc341-112">Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze beknopte zelfstudie.</span><span class="sxs-lookup"><span data-stu-id="dc341-112">A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.</span></span>
-- <span data-ttu-id="dc341-113">U hebt Node.js en verwante software voor uw besturingssysteem geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="dc341-113">You have installed Node.js and related software for your operating system.</span></span>
-    - <span data-ttu-id="dc341-114">**MacOS**: installeer Homebrew en Node.js, en installeer vervolgens het ODBC-stuurprogramma en SQLCMD.</span><span class="sxs-lookup"><span data-stu-id="dc341-114">**MacOS**: Install Homebrew and Node.js, and then install the ODBC driver and SQLCMD.</span></span> <span data-ttu-id="dc341-115">Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).</span><span class="sxs-lookup"><span data-stu-id="dc341-115">See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).</span></span>
-    - <span data-ttu-id="dc341-116">**Ubuntu**: installeer Node.js en installeer vervolgens het ODBC-stuurprogramma en SQLCMD.</span><span class="sxs-lookup"><span data-stu-id="dc341-116">**Ubuntu**: Install Node.js, and then install the ODBC driver and SQLCMD.</span></span> <span data-ttu-id="dc341-117">Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).</span><span class="sxs-lookup"><span data-stu-id="dc341-117">See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/) .</span></span>
-    - <span data-ttu-id="dc341-118">**Windows**: installeer Chocolatey en Node.js, en installeer vervolgens het ODBC-stuurprogramma en SQL CMD.</span><span class="sxs-lookup"><span data-stu-id="dc341-118">**Windows**: Install Chocolatey and Node.js, and then install the ODBC driver and SQL CMD.</span></span> <span data-ttu-id="dc341-119">Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).</span><span class="sxs-lookup"><span data-stu-id="dc341-119">See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).</span></span>
+- <span data-ttu-id="74a33-112">Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor openbaar IP-adres van de computer Hallo Hallo u gebruiken voor deze zelfstudie voor snel starten.</span><span class="sxs-lookup"><span data-stu-id="74a33-112">A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for hello public IP address of hello computer you use for this quick start tutorial.</span></span>
+- <span data-ttu-id="74a33-113">U hebt Node.js en verwante software voor uw besturingssysteem geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="74a33-113">You have installed Node.js and related software for your operating system.</span></span>
+    - <span data-ttu-id="74a33-114">**Mac OS**: Homebrew en Node.js installeren en installeer vervolgens Hallo ODBC-stuurprogramma en SQLCMD.</span><span class="sxs-lookup"><span data-stu-id="74a33-114">**MacOS**: Install Homebrew and Node.js, and then install hello ODBC driver and SQLCMD.</span></span> <span data-ttu-id="74a33-115">Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).</span><span class="sxs-lookup"><span data-stu-id="74a33-115">See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).</span></span>
+    - <span data-ttu-id="74a33-116">**Ubuntu**: Installeer Node.js en installeer vervolgens Hallo ODBC-stuurprogramma en SQLCMD.</span><span class="sxs-lookup"><span data-stu-id="74a33-116">**Ubuntu**: Install Node.js, and then install hello ODBC driver and SQLCMD.</span></span> <span data-ttu-id="74a33-117">Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).</span><span class="sxs-lookup"><span data-stu-id="74a33-117">See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/) .</span></span>
+    - <span data-ttu-id="74a33-118">**Windows**: Chocolatey en Node.js installeren en installeer vervolgens Hallo ODBC-stuurprogramma en SQL cmd.exe</span><span class="sxs-lookup"><span data-stu-id="74a33-118">**Windows**: Install Chocolatey and Node.js, and then install hello ODBC driver and SQL CMD.</span></span> <span data-ttu-id="74a33-119">Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).</span><span class="sxs-lookup"><span data-stu-id="74a33-119">See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).</span></span>
 
-## <a name="sql-server-connection-information"></a><span data-ttu-id="dc341-120">SQL Server-verbindingsgegevens</span><span class="sxs-lookup"><span data-stu-id="dc341-120">SQL server connection information</span></span>
+## <a name="sql-server-connection-information"></a><span data-ttu-id="74a33-120">SQL Server-verbindingsgegevens</span><span class="sxs-lookup"><span data-stu-id="74a33-120">SQL server connection information</span></span>
 
-<span data-ttu-id="dc341-121">Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database.</span><span class="sxs-lookup"><span data-stu-id="dc341-121">Get the connection information needed to connect to the Azure SQL database.</span></span> <span data-ttu-id="dc341-122">U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.</span><span class="sxs-lookup"><span data-stu-id="dc341-122">You will need the fully qualified server name, database name, and login information in the next procedures.</span></span>
+<span data-ttu-id="74a33-121">Hallo verbinding informatie die nodig is tooconnect toohello Azure SQL-database worden opgehaald.</span><span class="sxs-lookup"><span data-stu-id="74a33-121">Get hello connection information needed tooconnect toohello Azure SQL database.</span></span> <span data-ttu-id="74a33-122">U moet Hallo volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures Hallo.</span><span class="sxs-lookup"><span data-stu-id="74a33-122">You will need hello fully qualified server name, database name, and login information in hello next procedures.</span></span>
 
-1. <span data-ttu-id="dc341-123">Meld u aan bij [Azure Portal](https://portal.azure.com/).</span><span class="sxs-lookup"><span data-stu-id="dc341-123">Log in to the [Azure portal](https://portal.azure.com/).</span></span>
-2. <span data-ttu-id="dc341-124">Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**.</span><span class="sxs-lookup"><span data-stu-id="dc341-124">Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page.</span></span> 
-3. <span data-ttu-id="dc341-125">Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="dc341-125">On the **Overview** page for your database, review the fully qualified server name as shown in the following image.</span></span> <span data-ttu-id="dc341-126">U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen.</span><span class="sxs-lookup"><span data-stu-id="dc341-126">You can hover over the server name to bring up the **Click to copy** option.</span></span> 
+1. <span data-ttu-id="74a33-123">Meld u bij toohello [Azure-portal](https://portal.azure.com/).</span><span class="sxs-lookup"><span data-stu-id="74a33-123">Log in toohello [Azure portal](https://portal.azure.com/).</span></span>
+2. <span data-ttu-id="74a33-124">Selecteer **SQL-Databases** Hallo links menu en klik op de database op Hallo **SQL-databases** pagina.</span><span class="sxs-lookup"><span data-stu-id="74a33-124">Select **SQL Databases** from hello left-hand menu, and click your database on hello **SQL databases** page.</span></span> 
+3. <span data-ttu-id="74a33-125">Op Hallo **overzicht** servernaam pagina voor de database, bekijk Hallo volledig gekwalificeerd zoals weergegeven in Hallo installatiekopie te volgen.</span><span class="sxs-lookup"><span data-stu-id="74a33-125">On hello **Overview** page for your database, review hello fully qualified server name as shown in hello following image.</span></span> <span data-ttu-id="74a33-126">U kunt de muisaanwijzer op Hallo server name toobring up Hallo **klikt u op toocopy** optie.</span><span class="sxs-lookup"><span data-stu-id="74a33-126">You can hover over hello server name toobring up hello **Click toocopy** option.</span></span> 
 
    ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. <span data-ttu-id="dc341-128">Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen.</span><span class="sxs-lookup"><span data-stu-id="dc341-128">If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.</span></span>
+4. <span data-ttu-id="74a33-128">Als u Hallo aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, navigeer toohello SQL server pagina tooview Hallo beheerder databaseservernaam en, indien nodig, opnieuw ingesteld wachtwoord Hallo.</span><span class="sxs-lookup"><span data-stu-id="74a33-128">If you have forgotten hello login information for your Azure SQL Database server, navigate toohello SQL Database server page tooview hello server admin name and, if necessary, reset hello password.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="dc341-129">U moet een firewallregel hebben ingesteld voor het openbare IP-adres van de computer waarop u deze zelfstudie uitvoert.</span><span class="sxs-lookup"><span data-stu-id="dc341-129">You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial.</span></span> <span data-ttu-id="dc341-130">Als u een andere computer gebruikt of een ander openbaar IP-adres hebt, maakt u een [firewallregel op serverniveau met behulp van Azure Portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span><span class="sxs-lookup"><span data-stu-id="dc341-130">If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span></span> 
+> <span data-ttu-id="74a33-129">U moet beschikken over een firewallregel voor het openbare IP-adres Hallo van Hallo-computer waarop u deze zelfstudie uitvoert.</span><span class="sxs-lookup"><span data-stu-id="74a33-129">You must have a firewall rule in place for hello public IP address of hello computer on which you perform this tutorial.</span></span> <span data-ttu-id="74a33-130">Als u zich op een andere computer of een ander openbaar IP-adres hebben, maakt u een [serverniveau firewall-regel met Azure-portal Hallo](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span><span class="sxs-lookup"><span data-stu-id="74a33-130">If you are on a different computer or have a different public IP address, create a [server-level firewall rule using hello Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).</span></span> 
 
-## <a name="create-a-nodejs-project"></a><span data-ttu-id="dc341-131">Een Node.js-project maken</span><span class="sxs-lookup"><span data-stu-id="dc341-131">Create a Node.js project</span></span>
+## <a name="create-a-nodejs-project"></a><span data-ttu-id="74a33-131">Een Node.js-project maken</span><span class="sxs-lookup"><span data-stu-id="74a33-131">Create a Node.js project</span></span>
 
-<span data-ttu-id="dc341-132">Open een opdrachtprompt en maak een map met de naam *sqltest*.</span><span class="sxs-lookup"><span data-stu-id="dc341-132">Open a command prompt and create a folder named *sqltest*.</span></span> <span data-ttu-id="dc341-133">Navigeer naar de map die u hebt gemaakt, en voer de volgende opdracht uit:</span><span class="sxs-lookup"><span data-stu-id="dc341-133">Navigate to the folder you created and run the following command:</span></span>
+<span data-ttu-id="74a33-132">Open een opdrachtprompt en maak een map met de naam *sqltest*.</span><span class="sxs-lookup"><span data-stu-id="74a33-132">Open a command prompt and create a folder named *sqltest*.</span></span> <span data-ttu-id="74a33-133">Navigeer toohello map u gemaakt en Hallo volgende opdracht uitvoeren:</span><span class="sxs-lookup"><span data-stu-id="74a33-133">Navigate toohello folder you created and run hello following command:</span></span>
 
     
     npm init -y
@@ -66,17 +66,17 @@ ms.lasthandoff: 08/03/2017
     npm install async
     
 
-## <a name="insert-code-to-query-sql-database"></a><span data-ttu-id="dc341-134">Code invoegen om een query uit te voeren voor een SQL-database</span><span class="sxs-lookup"><span data-stu-id="dc341-134">Insert code to query SQL database</span></span>
+## <a name="insert-code-tooquery-sql-database"></a><span data-ttu-id="74a33-134">Code tooquery SQL-database invoegen</span><span class="sxs-lookup"><span data-stu-id="74a33-134">Insert code tooquery SQL database</span></span>
 
-1. <span data-ttu-id="dc341-135">Maak een nieuw bestand in uw ontwikkelomgeving of favoriete teksteditor **sqltest.js**.</span><span class="sxs-lookup"><span data-stu-id="dc341-135">In your development environment or favorite text editor, create a new file, **sqltest.js**.</span></span>
+1. <span data-ttu-id="74a33-135">Maak een nieuw bestand in uw ontwikkelomgeving of favoriete teksteditor **sqltest.js**.</span><span class="sxs-lookup"><span data-stu-id="74a33-135">In your development environment or favorite text editor, create a new file, **sqltest.js**.</span></span>
 
-2. <span data-ttu-id="dc341-136">Vervang de inhoud door de volgende code en voeg de juiste waarden toe voor de server, de database, de gebruiker en het wachtwoord.</span><span class="sxs-lookup"><span data-stu-id="dc341-136">Replace the contents with the following code and add the appropriate values for your server, database, user, and password.</span></span>
+2. <span data-ttu-id="74a33-136">Hallo inhoud vervangen door Hallo volgende code en voeg de juiste waarden Hallo voor uw server, de database, de gebruiker en het wachtwoord.</span><span class="sxs-lookup"><span data-stu-id="74a33-136">Replace hello contents with hello following code and add hello appropriate values for your server, database, user, and password.</span></span>
 
    ```js
    var Connection = require('tedious').Connection;
    var Request = require('tedious').Request;
 
-   // Create connection to database
+   // Create connection toodatabase
    var config = 
       {
         userName: 'someuser', // update me
@@ -90,7 +90,7 @@ ms.lasthandoff: 08/03/2017
       }
    var connection = new Connection(config);
 
-   // Attempt to connect and execute queries if connection goes through
+   // Attempt tooconnect and execute queries if connection goes through
    connection.on('connect', function(err) 
       {
         if (err) 
@@ -105,7 +105,7 @@ ms.lasthandoff: 08/03/2017
     );
 
    function queryDatabase()
-      { console.log('Reading rows from the Table...');
+      { console.log('Reading rows from hello Table...');
 
           // Read all rows from table
         request = new Request(
@@ -126,23 +126,23 @@ ms.lasthandoff: 08/03/2017
       }
 ```
 
-## <a name="run-the-code"></a><span data-ttu-id="dc341-137">De code uitvoeren</span><span class="sxs-lookup"><span data-stu-id="dc341-137">Run the code</span></span>
+## <a name="run-hello-code"></a><span data-ttu-id="74a33-137">Hallo code uitvoeren</span><span class="sxs-lookup"><span data-stu-id="74a33-137">Run hello code</span></span>
 
-1. <span data-ttu-id="dc341-138">Voer bij de opdrachtprompt de volgende opdrachten uit:</span><span class="sxs-lookup"><span data-stu-id="dc341-138">At the command prompt, run the following commands:</span></span>
+1. <span data-ttu-id="74a33-138">Voer bij de opdrachtprompt Hallo Hallo opdrachten na:</span><span class="sxs-lookup"><span data-stu-id="74a33-138">At hello command prompt, run hello following commands:</span></span>
 
    ```js
    node sqltest.js
    ```
 
-2. <span data-ttu-id="dc341-139">Controleer of de bovenste 20 rijen worden geretourneerd, en sluit vervolgens het toepassingsvenster.</span><span class="sxs-lookup"><span data-stu-id="dc341-139">Verify that the top 20 rows are returned and then close the application window.</span></span>
+2. <span data-ttu-id="74a33-139">Verifieer dat Hallo top 20 rijen worden geretourneerd en het venster Hallo-toepassing sluit.</span><span class="sxs-lookup"><span data-stu-id="74a33-139">Verify that hello top 20 rows are returned and then close hello application window.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="dc341-140">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="dc341-140">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="74a33-140">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="74a33-140">Next steps</span></span>
 
-- <span data-ttu-id="dc341-141">Meer informatie over het [Microsoft-stuurprogramma Node.js voor SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)</span><span class="sxs-lookup"><span data-stu-id="dc341-141">Learn about the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)</span></span>
-- <span data-ttu-id="dc341-142">Meer informatie over [verbinding maken met en een query uitvoeren voor een Azure SQL-database met behulp van .NET Core](sql-database-connect-query-dotnet-core.md) in Windows/Linux/macOS.</span><span class="sxs-lookup"><span data-stu-id="dc341-142">Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.</span></span>  
-- <span data-ttu-id="dc341-143">Meer informatie over [Aan de slag met .NET Core in Windows/Linux/macOS met behulp van de opdrachtregel](/dotnet/core/tutorials/using-with-xplat-cli).</span><span class="sxs-lookup"><span data-stu-id="dc341-143">Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).</span></span>
-- <span data-ttu-id="dc341-144">Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Uw eerste Azure SQL-database ontwerpen met behulp van .NET](sql-database-design-first-database-csharp.md).</span><span class="sxs-lookup"><span data-stu-id="dc341-144">Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).</span></span>
-- <span data-ttu-id="dc341-145">Meer informatie over [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)</span><span class="sxs-lookup"><span data-stu-id="dc341-145">Learn how to [Connect and query with SSMS](sql-database-connect-query-ssms.md)</span></span>
-- <span data-ttu-id="dc341-146">Meer informatie over [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md).</span><span class="sxs-lookup"><span data-stu-id="dc341-146">Learn how to [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).</span></span>
+- <span data-ttu-id="74a33-141">Meer informatie over Hallo [Microsoft Node.js Driver voor SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)</span><span class="sxs-lookup"><span data-stu-id="74a33-141">Learn about hello [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)</span></span>
+- <span data-ttu-id="74a33-142">Meer informatie over hoe te[en verbinding en een Azure SQL database met behulp van .NET core query](sql-database-connect-query-dotnet-core.md) op Windows/Linux/Mac OS.</span><span class="sxs-lookup"><span data-stu-id="74a33-142">Learn how too[connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.</span></span>  
+- <span data-ttu-id="74a33-143">Meer informatie over [aan de slag met .NET Core op Windows/Linux/Mac-OS, via de opdrachtregel Hallo](/dotnet/core/tutorials/using-with-xplat-cli).</span><span class="sxs-lookup"><span data-stu-id="74a33-143">Learn about [Getting started with .NET Core on Windows/Linux/macOS using hello command line](/dotnet/core/tutorials/using-with-xplat-cli).</span></span>
+- <span data-ttu-id="74a33-144">Meer informatie over hoe te[ontwerpen van uw eerste Azure SQL database met behulp van SSMS](sql-database-design-first-database.md) of [ontwerpen van uw eerste Azure SQL database met .NET](sql-database-design-first-database-csharp.md).</span><span class="sxs-lookup"><span data-stu-id="74a33-144">Learn how too[Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).</span></span>
+- <span data-ttu-id="74a33-145">Meer informatie over hoe te[Connect en query met SSMS](sql-database-connect-query-ssms.md)</span><span class="sxs-lookup"><span data-stu-id="74a33-145">Learn how too[Connect and query with SSMS](sql-database-connect-query-ssms.md)</span></span>
+- <span data-ttu-id="74a33-146">Meer informatie over hoe te[Connect en query met Visual Studio Code](sql-database-connect-query-vscode.md).</span><span class="sxs-lookup"><span data-stu-id="74a33-146">Learn how too[Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).</span></span>
 
 
