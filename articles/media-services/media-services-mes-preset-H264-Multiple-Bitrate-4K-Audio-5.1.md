@@ -1,6 +1,6 @@
 ---
-title: 264 meerdere Bitrate 4K Audio 5.1 | Microsoft Docs
-description: Het onderwerp een overzicht van de ** 264 Multiple Bitrate 4K Audio 5.1* * taak definitie.
+title: aaa264 meerdere Bitrate 4K Audio 5.1 | Microsoft Docs
+description: Hallo onderwerp een overzicht van Hallo ** 264 Multiple Bitrate 4K Audio 5.1* * taak definitie.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 10e5c41be42b73e3e1458adac9642547c182530b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ea0169a86b132002233488ba748a6583fe08d51b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-multiple-bitrate-4k-audio-51"></a><span data-ttu-id="005ae-103">Geselecteerde instelling H264 Meerdere Bitrate 4K Audio 5.1</span><span class="sxs-lookup"><span data-stu-id="005ae-103">H264 Multiple Bitrate 4K Audio 5.1</span></span>
-<span data-ttu-id="005ae-104">`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering.</span><span class="sxs-lookup"><span data-stu-id="005ae-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="005ae-105">Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen.</span><span class="sxs-lookup"><span data-stu-id="005ae-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="005ae-106">U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering.</span><span class="sxs-lookup"><span data-stu-id="005ae-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="005ae-107">U zou geeft u het aangepaste vooraf ingesteld op de encoder.</span><span class="sxs-lookup"><span data-stu-id="005ae-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="005ae-108">Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="005ae-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-multiple-bitrate-4k-audio-51"></a><span data-ttu-id="02b0e-103">Geselecteerde instelling H264 Meerdere Bitrate 4K Audio 5.1</span><span class="sxs-lookup"><span data-stu-id="02b0e-103">H264 Multiple Bitrate 4K Audio 5.1</span></span>
+<span data-ttu-id="02b0e-104">`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering.</span><span class="sxs-lookup"><span data-stu-id="02b0e-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="02b0e-105">Kunt u ofwel een `preset name` toospecify naar welke indeling u tooencode wilt dat uw mediabestand.</span><span class="sxs-lookup"><span data-stu-id="02b0e-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="02b0e-106">U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering.</span><span class="sxs-lookup"><span data-stu-id="02b0e-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="02b0e-107">U zou vervolgens Hallo aangepaste vooraf ingestelde toohello encoder doorgeven.</span><span class="sxs-lookup"><span data-stu-id="02b0e-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="02b0e-108">Voorinstelling voor Hallo lijst met alle Hallo namen die worden ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="02b0e-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="005ae-109">In dit onderwerp leest de `H264 Multiple Bitrate 4K Audio 5.1` vooraf in XML en JSON-indeling.</span><span class="sxs-lookup"><span data-stu-id="005ae-109">This topic shows the `H264 Multiple Bitrate 4K Audio 5.1` preset in XML and JSON format.</span></span>  
+ <span data-ttu-id="02b0e-109">In dit onderwerp leest Hallo `H264 Multiple Bitrate 4K Audio 5.1` vooraf in XML en JSON-indeling.</span><span class="sxs-lookup"><span data-stu-id="02b0e-109">This topic shows hello `H264 Multiple Bitrate 4K Audio 5.1` preset in XML and JSON format.</span></span>  
   
- <span data-ttu-id="005ae-110">Deze definitie wordt een set 12 GOP uitgelijnde MP4-bestanden, variërend van 20000 kbps tot 1000 kbps en AAC 5.1 audio geproduceerd.</span><span class="sxs-lookup"><span data-stu-id="005ae-110">This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps to 1000 kbps, and AAC 5.1 audio.</span></span> <span data-ttu-id="005ae-111">Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="005ae-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="005ae-112">Zie voor een uitleg van elk element in welke betekent en de geldige waarden voor elk element, het [Media Encoder Standard schema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="005ae-112">For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>  
-  
-> [!NOTE]
->  <span data-ttu-id="005ae-113">Krijgt u de gereserveerde eenheid Premium coderen van type met 4 kB.</span><span class="sxs-lookup"><span data-stu-id="005ae-113">You should get the Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="005ae-114">Zie voor meer informatie [How to Scale codering](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="005ae-114">For more information, see [How to Scale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
+ <span data-ttu-id="02b0e-110">Deze definitie wordt een set 12 GOP uitgelijnde MP4-bestanden, variërend van 20000 kbps too1000 kbps en AAC 5.1 audio geproduceerd.</span><span class="sxs-lookup"><span data-stu-id="02b0e-110">This preset produces a set of 12 GOP-aligned MP4 files, ranging from 20000 kbps too1000 kbps, and AAC 5.1 audio.</span></span> <span data-ttu-id="02b0e-111">Voor gedetailleerde informatie over het profiel bitrate, snelheid, enz. dit wordt vooraf ingestelde, onderzoekt Hallo XML- of JSON zoals hieronder gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="02b0e-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="02b0e-112">Voor uitleg van elk element in welke betekent en Hallo geldige waarden voor elk element Zie Hallo [Media Encoder Standard schema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="02b0e-112">For explanations of what each element means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>  
   
 > [!NOTE]
->  <span data-ttu-id="005ae-115">Bij het wijzigen van de `Width` en `Height` waarden in lagen en zorg ervoor dat de hoogte-breedteverhouding consistent blijft.</span><span class="sxs-lookup"><span data-stu-id="005ae-115">When modifying the `Width` and `Height` values across layers, make sure that the aspect ratio remains consistent.</span></span> <span data-ttu-id="005ae-116">Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="005ae-116">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="005ae-117">U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="005ae-117">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+>  <span data-ttu-id="02b0e-113">Krijgt u Hallo Premium gereserveerd eenheidstype met 4K worden gecodeerd.</span><span class="sxs-lookup"><span data-stu-id="02b0e-113">You should get hello Premium reserved unit type with 4K encodes.</span></span> <span data-ttu-id="02b0e-114">Zie voor meer informatie [hoe tooScale codering](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span><span class="sxs-lookup"><span data-stu-id="02b0e-114">For more information, see [How tooScale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).</span></span>  
   
- <span data-ttu-id="005ae-118">XML</span><span class="sxs-lookup"><span data-stu-id="005ae-118">XML</span></span>  
+> [!NOTE]
+>  <span data-ttu-id="02b0e-115">Bij het wijzigen van Hallo `Width` en `Height` waarden in lagen en zorg ervoor dat Hallo hoogte-breedteverhouding consistent blijven.</span><span class="sxs-lookup"><span data-stu-id="02b0e-115">When modifying hello `Width` and `Height` values across layers, make sure that hello aspect ratio remains consistent.</span></span> <span data-ttu-id="02b0e-116">Bijvoorbeeld: 1920 x 1080, 1280 x 720, 1080 x 576 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="02b0e-116">For example: 1920x1080, 1280x720, 1080x576, 640x360.</span></span> <span data-ttu-id="02b0e-117">U moet een combinatie van hoogte-breedteverhouding niet zoals gebruiken: 1280 x 720, 720 x 480, 640 x 360.</span><span class="sxs-lookup"><span data-stu-id="02b0e-117">You should not use a mixture of aspect ratios, such as: 1280x720, 720x480, 640x360.</span></span>  
+  
+ <span data-ttu-id="02b0e-118">XML</span><span class="sxs-lookup"><span data-stu-id="02b0e-118">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -240,7 +240,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="005ae-119">JSON</span><span class="sxs-lookup"><span data-stu-id="005ae-119">JSON</span></span>  
+ <span data-ttu-id="02b0e-119">JSON</span><span class="sxs-lookup"><span data-stu-id="02b0e-119">JSON</span></span>  
   
 ```  
 {  

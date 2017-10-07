@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Notification Hubs - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over hoe u met Notification Hubs pushmeldingen van een willekeurige back-end verzendt naar een willekeurig mobiel apparaat. Zelfstudies, API-verwijzingen en andere documentatie.
+title: aaaAzure documentatie bij Notification Hubs - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toosend pushmeldingen vanaf een back-end tooany mobiele apparaat met Notification Hubs. Zelfstudies, API-verwijzingen en andere documentatie.
 services: notification-hubs
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 050c70c32f50eb495cd53a6bfa5549d6ae189d89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="notification-hubs-documentation"></a>Documentatie voor Notification Hubs
 
-Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platformsysteem voor pushberichten, snel miljoenen berichten kunt verzenden. Zelfstudies, API-referenties en andere documentatie laten zien hoe u pushmeldingen instelt en verzendt van een willekeurige back-end naar een willekeurig mobiel apparaat. 
+Meer informatie over hoe toouse Notification Hubs, een meerdere platforms, schaalbare push-melding in de engine voor het snel miljoenen berichten verzenden. Zelfstudies, API-referenties en andere documentatie die laten zien u hoe tooset up en verzenden vanaf een back-end tooany mobiele apparaat pushmeldingen. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platforms
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Pushmeldingen naar Android (FCM) verzenden met Azure Notification Hubs</h3>
+                        <h3>Aan de slag push tooAndroid (FCM) met Azure Notification Hubs meldingen verzenden</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platforms
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Pushmeldingen naar Chrome-apps verzenden met Azure Notification Hubs</h3>
+                        <h3>Verzenden van pushmeldingen tooChrome-apps met Azure Notification Hubs meldingen aan de slag</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Meer informatie over hoe u met Notification Hubs, een schaalbaar multi-platforms
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Pushmeldingen naar iOS verzenden met Azure Notification Hubs</h3>
+                        <h3>Aan de slag push notifications tooiOS met Azure Notification Hubs verzenden</h3>
                     </div>
                 </div>
             </div>

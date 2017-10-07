@@ -9,8 +9,8 @@
 ## [Instellingen beheren](multi-factor-authentication-end-user-manage-settings.md)
 ## [Problemen oplossen](multi-factor-authentication-end-user-troubleshoot.md)
 ## [App-wachtwoorden instellen](multi-factor-authentication-end-user-app-passwords.md)
-## De Microsoft Authenticator-app gebruiken
-### [Aan de slag met de app](microsoft-authenticator-app-how-to.md)
+## Hallo Microsoft Authenticator-app gebruiken
+### [Aan de slag met Hallo-app](microsoft-authenticator-app-how-to.md)
 ### [Aanmelden via uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Veelgestelde vragen](microsoft-authenticator-app-faq.md)
 # Resources

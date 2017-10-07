@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.
+title: aaaConnect tooAzure SQL Data Warehouse sqlcmd | Microsoft Docs
+description: Gebruik [sqlcmd] [sqlcmd] opdrachtregelprogramma tooconnect tooand query een Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,59 +15,59 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0334df7b969da1966ba29c97f835a2dc9e383e29
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a><span data-ttu-id="22d0a-103">Verbinding maken met SQL Data Warehouse met sqlcmd</span><span class="sxs-lookup"><span data-stu-id="22d0a-103">Connect to SQL Data Warehouse with sqlcmd</span></span>
+# <a name="connect-toosql-data-warehouse-with-sqlcmd"></a><span data-ttu-id="52375-103">Verbinding maken met tooSQL Data Warehouse met sqlcmd</span><span class="sxs-lookup"><span data-stu-id="52375-103">Connect tooSQL Data Warehouse with sqlcmd</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="22d0a-104">Power BI</span><span class="sxs-lookup"><span data-stu-id="22d0a-104">Power BI</span></span>](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [<span data-ttu-id="22d0a-105">Azure Machine Learning</span><span class="sxs-lookup"><span data-stu-id="22d0a-105">Azure Machine Learning</span></span>](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [<span data-ttu-id="22d0a-106">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="22d0a-106">Visual Studio</span></span>](sql-data-warehouse-query-visual-studio.md)
-> * [<span data-ttu-id="22d0a-107">sqlcmd</span><span class="sxs-lookup"><span data-stu-id="22d0a-107">sqlcmd</span></span>](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [<span data-ttu-id="22d0a-108">SSMS</span><span class="sxs-lookup"><span data-stu-id="22d0a-108">SSMS</span></span>](sql-data-warehouse-query-ssms.md)
+> * [<span data-ttu-id="52375-104">Power BI</span><span class="sxs-lookup"><span data-stu-id="52375-104">Power BI</span></span>](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [<span data-ttu-id="52375-105">Azure Machine Learning</span><span class="sxs-lookup"><span data-stu-id="52375-105">Azure Machine Learning</span></span>](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [<span data-ttu-id="52375-106">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="52375-106">Visual Studio</span></span>](sql-data-warehouse-query-visual-studio.md)
+> * [<span data-ttu-id="52375-107">sqlcmd</span><span class="sxs-lookup"><span data-stu-id="52375-107">sqlcmd</span></span>](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [<span data-ttu-id="52375-108">SSMS</span><span class="sxs-lookup"><span data-stu-id="52375-108">SSMS</span></span>](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-<span data-ttu-id="22d0a-109">Gebruik het opdrachtregelhulpprogramma [sqlcmd][sqlcmd] om verbinding te maken met en een query uit te voeren op een Azure SQL-datawarehouse.</span><span class="sxs-lookup"><span data-stu-id="22d0a-109">Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.</span></span>  
+<span data-ttu-id="52375-109">Gebruik [sqlcmd] [ sqlcmd] opdrachtregelprogramma tooconnect tooand query uitvoeren op een Azure SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="52375-109">Use [sqlcmd][sqlcmd] command-line utility tooconnect tooand query an Azure SQL Data Warehouse.</span></span>  
 
-## <a name="1-connect"></a><span data-ttu-id="22d0a-110">1. Verbinding maken</span><span class="sxs-lookup"><span data-stu-id="22d0a-110">1. Connect</span></span>
-<span data-ttu-id="22d0a-111">U gaat als volgt aan de slag met [sqlcmd][sqlcmd]: open de opdrachtprompt en voer **sqlcmd** in, gevolgd door de verbindingstekenreeks voor uw SQL Data Warehouse-database.</span><span class="sxs-lookup"><span data-stu-id="22d0a-111">To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database.</span></span> <span data-ttu-id="22d0a-112">De verbindingstekenreeks moet de volgende parameters bevatten:</span><span class="sxs-lookup"><span data-stu-id="22d0a-112">The connection string requires the following parameters:</span></span>
+## <a name="1-connect"></a><span data-ttu-id="52375-110">1. Verbinding maken</span><span class="sxs-lookup"><span data-stu-id="52375-110">1. Connect</span></span>
+<span data-ttu-id="52375-111">tooget gestart met [sqlcmd][sqlcmd], open Hallo-opdrachtprompt en voer **sqlcmd** gevolgd door de verbindingsreeks Hallo voor uw SQL Data Warehouse-database.</span><span class="sxs-lookup"><span data-stu-id="52375-111">tooget started with [sqlcmd][sqlcmd], open hello command prompt and enter **sqlcmd** followed by hello connection string for your SQL Data Warehouse database.</span></span> <span data-ttu-id="52375-112">Hallo-verbindingsreeks vereist Hallo volgende parameters:</span><span class="sxs-lookup"><span data-stu-id="52375-112">hello connection string requires hello following parameters:</span></span>
 
-* <span data-ttu-id="22d0a-113">**Server (-S):** server in de notatie `<`servernaam`>`.database.windows.net</span><span class="sxs-lookup"><span data-stu-id="22d0a-113">**Server (-S):** Server in the form `<`Server Name`>`.database.windows.net</span></span>
-* <span data-ttu-id="22d0a-114">**Database (-d):** databasenaam.</span><span class="sxs-lookup"><span data-stu-id="22d0a-114">**Database (-d):** Database name.</span></span>
-* <span data-ttu-id="22d0a-115">**Id's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moeten zijn ingeschakeld om verbinding te kunnen maken met een exemplaar van SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="22d0a-115">**Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.</span></span>
+* <span data-ttu-id="52375-113">**Server (-S):** Server in de vorm Hallo `<`servernaam`>`. database.windows.net</span><span class="sxs-lookup"><span data-stu-id="52375-113">**Server (-S):** Server in hello form `<`Server Name`>`.database.windows.net</span></span>
+* <span data-ttu-id="52375-114">**Database (-d):** databasenaam.</span><span class="sxs-lookup"><span data-stu-id="52375-114">**Database (-d):** Database name.</span></span>
+* <span data-ttu-id="52375-115">**Id's tussen aanhalingstekens inschakelen (-I):** id's tussen aanhalingstekens moet worden ingeschakeld tooconnect tooa SQL Data Warehouse-exemplaar.</span><span class="sxs-lookup"><span data-stu-id="52375-115">**Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled tooconnect tooa SQL Data Warehouse instance.</span></span>
 
-<span data-ttu-id="22d0a-116">Als u gebruik wilt maken van SQL Server-verificatie, moet u de gebruikersnaam- en wachtwoordparameters toevoegen:</span><span class="sxs-lookup"><span data-stu-id="22d0a-116">To use SQL Server Authentication, you need to add the username/password parameters:</span></span>
+<span data-ttu-id="52375-116">toouse SQL Server-verificatie, moet u tooadd Hallo gebruikersnaam en wachtwoord parameters:</span><span class="sxs-lookup"><span data-stu-id="52375-116">toouse SQL Server Authentication, you need tooadd hello username/password parameters:</span></span>
 
-* <span data-ttu-id="22d0a-117">**Gebruiker (-U):** servergebruiker in de notatie `<`gebruiker`>`</span><span class="sxs-lookup"><span data-stu-id="22d0a-117">**User (-U):** Server user in the form `<`User`>`</span></span>
-* <span data-ttu-id="22d0a-118">**Wachtwoord (-P):** wachtwoord dat is gekoppeld aan de gebruiker.</span><span class="sxs-lookup"><span data-stu-id="22d0a-118">**Password (-P):** Password associated with the user.</span></span>
+* <span data-ttu-id="52375-117">**Gebruiker (-U):** Servergebruiker in de vorm Hallo `<`gebruiker`>`</span><span class="sxs-lookup"><span data-stu-id="52375-117">**User (-U):** Server user in hello form `<`User`>`</span></span>
+* <span data-ttu-id="52375-118">**Wachtwoord (-P):** wachtwoord Hallo gebruiker gekoppeld.</span><span class="sxs-lookup"><span data-stu-id="52375-118">**Password (-P):** Password associated with hello user.</span></span>
 
-<span data-ttu-id="22d0a-119">Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:</span><span class="sxs-lookup"><span data-stu-id="22d0a-119">For example, your connection string might look like the following:</span></span>
+<span data-ttu-id="52375-119">De verbindingsreeks kan er bijvoorbeeld Hallo volgende uitzien:</span><span class="sxs-lookup"><span data-stu-id="52375-119">For example, your connection string might look like hello following:</span></span>
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-<span data-ttu-id="22d0a-120">Als u geïntegreerde verificatie van Azure Active Directory wilt gebruiken, moet u de Azure Active Directory-parameters toevoegen:</span><span class="sxs-lookup"><span data-stu-id="22d0a-120">To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:</span></span>
+<span data-ttu-id="52375-120">Azure Active Directory Integrated authentication toouse, moet u tooadd hello Azure Active Directory-parameters:</span><span class="sxs-lookup"><span data-stu-id="52375-120">toouse Azure Active Directory Integrated authentication, you need tooadd hello Azure Active Directory parameters:</span></span>
 
-* <span data-ttu-id="22d0a-121">**Azure Active Directory Authentication (-G):** Azure Active Directory gebruiken voor verificatie</span><span class="sxs-lookup"><span data-stu-id="22d0a-121">**Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication</span></span>
+* <span data-ttu-id="52375-121">**Azure Active Directory Authentication (-G):** Azure Active Directory gebruiken voor verificatie</span><span class="sxs-lookup"><span data-stu-id="52375-121">**Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication</span></span>
 
-<span data-ttu-id="22d0a-122">Een voorbeeld: uw verbindingstekenreeks kan er als volgt uitzien:</span><span class="sxs-lookup"><span data-stu-id="22d0a-122">For example, your connection string might look like the following:</span></span>
+<span data-ttu-id="52375-122">De verbindingsreeks kan er bijvoorbeeld Hallo volgende uitzien:</span><span class="sxs-lookup"><span data-stu-id="52375-122">For example, your connection string might look like hello following:</span></span>
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> <span data-ttu-id="22d0a-123">U moet [Azure Active Directory Authentication inschakelen](sql-data-warehouse-authentication.md) om te verifiëren met Active Directory.</span><span class="sxs-lookup"><span data-stu-id="22d0a-123">You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.</span></span>
+> <span data-ttu-id="52375-123">U moet te[Azure Active Directory-verificatie inschakelen](sql-data-warehouse-authentication.md) tooauthenticate met Active Directory.</span><span class="sxs-lookup"><span data-stu-id="52375-123">You need too[enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) tooauthenticate using Active Directory.</span></span>
 > 
 > 
 
-## <a name="2-query"></a><span data-ttu-id="22d0a-124">2. Query’s uitvoeren</span><span class="sxs-lookup"><span data-stu-id="22d0a-124">2. Query</span></span>
-<span data-ttu-id="22d0a-125">Wanneer verbinding is gemaakt, kunt u elke ondersteunde Transact-SQL-instructie voor het exemplaar uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="22d0a-125">After connection, you can issue any supported Transact-SQL statements against the instance.</span></span>  <span data-ttu-id="22d0a-126">In dit voorbeeld worden query's in de interactieve modus verzonden.</span><span class="sxs-lookup"><span data-stu-id="22d0a-126">In this example, queries are submitted in interactive mode.</span></span>
+## <a name="2-query"></a><span data-ttu-id="52375-124">2. Query’s uitvoeren</span><span class="sxs-lookup"><span data-stu-id="52375-124">2. Query</span></span>
+<span data-ttu-id="52375-125">Nadat de verbinding, kunt u elke ondersteunde Transact-SQL-instructie voor Hallo exemplaar uitgeven.</span><span class="sxs-lookup"><span data-stu-id="52375-125">After connection, you can issue any supported Transact-SQL statements against hello instance.</span></span>  <span data-ttu-id="52375-126">In dit voorbeeld worden query's in de interactieve modus verzonden.</span><span class="sxs-lookup"><span data-stu-id="52375-126">In this example, queries are submitted in interactive mode.</span></span>
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-<span data-ttu-id="22d0a-127">In de volgende voorbeelden ziet u hoe u uw query's in de batchmodus uitvoert met behulp van de optie -Q of door uw SQL naar sqlcmd te sluizen.</span><span class="sxs-lookup"><span data-stu-id="22d0a-127">These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.</span></span>
+<span data-ttu-id="52375-127">Deze volgende voorbeelden laten zien hoe u uw query's in de batchmodus Hallo -Q gebruiken of uw SQL-toosqlcmd sluizen kunt uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="52375-127">These next examples show how you can run your queries in batch mode using hello -Q option or piping your SQL toosqlcmd.</span></span>
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -86,8 +86,8 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="22d0a-128">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="22d0a-128">Next steps</span></span>
-<span data-ttu-id="22d0a-129">Zie [sqlcmd-documentatie][sqlcmd] voor meer informatie over de opties die beschikbaar zijn in sqlcmd.</span><span class="sxs-lookup"><span data-stu-id="22d0a-129">See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="52375-128">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="52375-128">Next steps</span></span>
+<span data-ttu-id="52375-129">Zie [sqlcmd-documentatie] [ sqlcmd] voor meer informatie over informatie over opties voor Hallo beschikbaar in sqlcmd.</span><span class="sxs-lookup"><span data-stu-id="52375-129">See [sqlcmd documentation][sqlcmd] for more about details about hello options available in sqlcmd.</span></span>
 
 <!--Image references-->
 

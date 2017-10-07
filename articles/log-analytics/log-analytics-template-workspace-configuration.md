@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Resource Manager-sjablonen te maken en configureren van een Log Analytics-werkruimte | Microsoft Docs
-description: U kunt Azure Resource Manager-sjablonen maken en configureren van Log Analytics-werkruimten.
+title: aaaUse Azure Resource Manager-sjablonen tooCreate en configureren van een Log Analytics-werkruimte | Microsoft Docs
+description: U kunt Azure Resource Manager-sjablonen toocreate gebruiken en Log Analytics-werkruimten configureren.
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,43 +14,43 @@ ms.devlang: json
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: richrund
-ms.openlocfilehash: 505b741d14c594b22108298466c646bf723ce2d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f413e982f5eeed73f463524ff6f239f26c9127
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a><span data-ttu-id="7e9a5-103">Log Analytics beheren met Azure Resource Manager-sjablonen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-103">Manage Log Analytics using Azure Resource Manager templates</span></span>
-<span data-ttu-id="7e9a5-104">U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten.</span><span class="sxs-lookup"><span data-stu-id="7e9a5-104">You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces.</span></span> <span data-ttu-id="7e9a5-105">Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:</span><span class="sxs-lookup"><span data-stu-id="7e9a5-105">Examples of the tasks you can perform with templates include:</span></span>
+# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a><span data-ttu-id="a6903-103">Log Analytics beheren met Azure Resource Manager-sjablonen</span><span class="sxs-lookup"><span data-stu-id="a6903-103">Manage Log Analytics using Azure Resource Manager templates</span></span>
+<span data-ttu-id="a6903-104">U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) toocreate en Log Analytics-werkruimten configureren.</span><span class="sxs-lookup"><span data-stu-id="a6903-104">You can use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) toocreate and configure Log Analytics workspaces.</span></span> <span data-ttu-id="a6903-105">Voorbeelden van Hallo kunt u taken met behulp van sjablonen uitvoeren zijn:</span><span class="sxs-lookup"><span data-stu-id="a6903-105">Examples of hello tasks you can perform with templates include:</span></span>
 
-* <span data-ttu-id="7e9a5-106">Een werkruimte maken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-106">Create a workspace</span></span>
-* <span data-ttu-id="7e9a5-107">Een oplossing toevoegen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-107">Add a solution</span></span>
-* <span data-ttu-id="7e9a5-108">Opgeslagen zoekopdrachten maken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-108">Create saved searches</span></span>
-* <span data-ttu-id="7e9a5-109">Maak een computergroep</span><span class="sxs-lookup"><span data-stu-id="7e9a5-109">Create a computer group</span></span>
-* <span data-ttu-id="7e9a5-110">Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd</span><span class="sxs-lookup"><span data-stu-id="7e9a5-110">Enable collection of IIS logs from computers with the Windows agent installed</span></span>
-* <span data-ttu-id="7e9a5-111">Verzamelen van prestatiemeteritems van Linux- en Windows-computers</span><span class="sxs-lookup"><span data-stu-id="7e9a5-111">Collect performance counters from Linux and Windows computers</span></span>
-* <span data-ttu-id="7e9a5-112">Gebeurtenissen verzamelen van syslog op Linux-computers</span><span class="sxs-lookup"><span data-stu-id="7e9a5-112">Collect events from syslog on Linux computers</span></span> 
-* <span data-ttu-id="7e9a5-113">Verzamelen van gebeurtenissen van Windows-gebeurtenislogboeken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-113">Collect events from Windows event logs</span></span>
-* <span data-ttu-id="7e9a5-114">Aangepaste logboeken verzamelen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-114">Collect custom event logs</span></span>
-* <span data-ttu-id="7e9a5-115">Log analytics agent toevoegen aan een virtuele machine van Azure</span><span class="sxs-lookup"><span data-stu-id="7e9a5-115">Add the log analytics agent to an Azure virtual machine</span></span>
-* <span data-ttu-id="7e9a5-116">Log analytics om gegevens te indexeren verzameld met behulp van Azure diagnostics configureren</span><span class="sxs-lookup"><span data-stu-id="7e9a5-116">Configure log analytics to index data collected using Azure diagnostics</span></span>
+* <span data-ttu-id="a6903-106">Een werkruimte maken</span><span class="sxs-lookup"><span data-stu-id="a6903-106">Create a workspace</span></span>
+* <span data-ttu-id="a6903-107">Een oplossing toevoegen</span><span class="sxs-lookup"><span data-stu-id="a6903-107">Add a solution</span></span>
+* <span data-ttu-id="a6903-108">Opgeslagen zoekopdrachten maken</span><span class="sxs-lookup"><span data-stu-id="a6903-108">Create saved searches</span></span>
+* <span data-ttu-id="a6903-109">Maak een computergroep</span><span class="sxs-lookup"><span data-stu-id="a6903-109">Create a computer group</span></span>
+* <span data-ttu-id="a6903-110">Verzamelen van IIS-logboeken van computers met Hallo Windows-agent is geïnstalleerd</span><span class="sxs-lookup"><span data-stu-id="a6903-110">Enable collection of IIS logs from computers with hello Windows agent installed</span></span>
+* <span data-ttu-id="a6903-111">Verzamelen van prestatiemeteritems van Linux- en Windows-computers</span><span class="sxs-lookup"><span data-stu-id="a6903-111">Collect performance counters from Linux and Windows computers</span></span>
+* <span data-ttu-id="a6903-112">Gebeurtenissen verzamelen van syslog op Linux-computers</span><span class="sxs-lookup"><span data-stu-id="a6903-112">Collect events from syslog on Linux computers</span></span> 
+* <span data-ttu-id="a6903-113">Verzamelen van gebeurtenissen van Windows-gebeurtenislogboeken</span><span class="sxs-lookup"><span data-stu-id="a6903-113">Collect events from Windows event logs</span></span>
+* <span data-ttu-id="a6903-114">Aangepaste logboeken verzamelen</span><span class="sxs-lookup"><span data-stu-id="a6903-114">Collect custom event logs</span></span>
+* <span data-ttu-id="a6903-115">Hallo log analytics agent tooan Azure virtuele machine toevoegen</span><span class="sxs-lookup"><span data-stu-id="a6903-115">Add hello log analytics agent tooan Azure virtual machine</span></span>
+* <span data-ttu-id="a6903-116">Log analytics-tooindex gegevens verzameld met behulp van Azure diagnostics configureren</span><span class="sxs-lookup"><span data-stu-id="a6903-116">Configure log analytics tooindex data collected using Azure diagnostics</span></span>
 
-<span data-ttu-id="7e9a5-117">In dit artikel biedt een sjabloon steekproeven illustratie van enkele van de configuratie die u van sjablonen uitvoeren kunt.</span><span class="sxs-lookup"><span data-stu-id="7e9a5-117">This article provides a template samples that illustrate some of the configuration that you can perform from templates.</span></span>
+<span data-ttu-id="a6903-117">In dit artikel biedt een sjabloon steekproeven illustratie van enkele Hallo-configuratie die u van sjablonen uitvoeren kunt.</span><span class="sxs-lookup"><span data-stu-id="a6903-117">This article provides a template samples that illustrate some of hello configuration that you can perform from templates.</span></span>
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a><span data-ttu-id="7e9a5-118">Maak en configureer een Log Analytics-werkruimte</span><span class="sxs-lookup"><span data-stu-id="7e9a5-118">Create and configure a Log Analytics Workspace</span></span>
-<span data-ttu-id="7e9a5-119">De volgende sjabloon voorbeeld ziet u hoe:</span><span class="sxs-lookup"><span data-stu-id="7e9a5-119">The following template sample illustrates how to:</span></span>
+## <a name="create-and-configure-a-log-analytics-workspace"></a><span data-ttu-id="a6903-118">Maak en configureer een Log Analytics-werkruimte</span><span class="sxs-lookup"><span data-stu-id="a6903-118">Create and configure a Log Analytics Workspace</span></span>
+<span data-ttu-id="a6903-119">Hallo volgende sjabloon voorbeeld ziet u hoe:</span><span class="sxs-lookup"><span data-stu-id="a6903-119">hello following template sample illustrates how to:</span></span>
 
-1. <span data-ttu-id="7e9a5-120">Een werkruimte, met inbegrip van gegevensretentie instelling maken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-120">Create a workspace, including setting data retention</span></span>
-2. <span data-ttu-id="7e9a5-121">Oplossingen toevoegen aan de werkruimte</span><span class="sxs-lookup"><span data-stu-id="7e9a5-121">Add solutions to the workspace</span></span>
-3. <span data-ttu-id="7e9a5-122">Opgeslagen zoekopdrachten maken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-122">Create saved searches</span></span>
-4. <span data-ttu-id="7e9a5-123">Maak een computergroep</span><span class="sxs-lookup"><span data-stu-id="7e9a5-123">Create a computer group</span></span>
-5. <span data-ttu-id="7e9a5-124">Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd</span><span class="sxs-lookup"><span data-stu-id="7e9a5-124">Enable collection of IIS logs from computers with the Windows agent installed</span></span>
-6. <span data-ttu-id="7e9a5-125">Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)</span><span class="sxs-lookup"><span data-stu-id="7e9a5-125">Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)</span></span>
-7. <span data-ttu-id="7e9a5-126">Syslog-gebeurtenissen verzamelen van Linux-computers</span><span class="sxs-lookup"><span data-stu-id="7e9a5-126">Collect syslog events from Linux computers</span></span>
-8. <span data-ttu-id="7e9a5-127">Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers</span><span class="sxs-lookup"><span data-stu-id="7e9a5-127">Collect Error and Warning events from the Application Event Log from Windows computers</span></span>
-9. <span data-ttu-id="7e9a5-128">Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers</span><span class="sxs-lookup"><span data-stu-id="7e9a5-128">Collect Memory Available Mbytes performance counter from Windows computers</span></span>
-10. <span data-ttu-id="7e9a5-129">Een aangepaste logboekgegevens verzamelen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-129">Collect a custom log</span></span> 
-11. <span data-ttu-id="7e9a5-130">IIS-logboeken en Windows-gebeurtenislogboeken is geschreven door Azure diagnostische gegevens naar een opslagaccount verzamelen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-130">Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account</span></span>
+1. <span data-ttu-id="a6903-120">Een werkruimte, met inbegrip van gegevensretentie instelling maken</span><span class="sxs-lookup"><span data-stu-id="a6903-120">Create a workspace, including setting data retention</span></span>
+2. <span data-ttu-id="a6903-121">Oplossingen toohello werkruimte toevoegen</span><span class="sxs-lookup"><span data-stu-id="a6903-121">Add solutions toohello workspace</span></span>
+3. <span data-ttu-id="a6903-122">Opgeslagen zoekopdrachten maken</span><span class="sxs-lookup"><span data-stu-id="a6903-122">Create saved searches</span></span>
+4. <span data-ttu-id="a6903-123">Maak een computergroep</span><span class="sxs-lookup"><span data-stu-id="a6903-123">Create a computer group</span></span>
+5. <span data-ttu-id="a6903-124">Verzamelen van IIS-logboeken van computers met Hallo Windows-agent is geïnstalleerd</span><span class="sxs-lookup"><span data-stu-id="a6903-124">Enable collection of IIS logs from computers with hello Windows agent installed</span></span>
+6. <span data-ttu-id="a6903-125">Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)</span><span class="sxs-lookup"><span data-stu-id="a6903-125">Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)</span></span>
+7. <span data-ttu-id="a6903-126">Syslog-gebeurtenissen verzamelen van Linux-computers</span><span class="sxs-lookup"><span data-stu-id="a6903-126">Collect syslog events from Linux computers</span></span>
+8. <span data-ttu-id="a6903-127">Fout- en waarschuwingsberichten gebeurtenissen verzamelen van Hallo gebeurtenislogboek van toepassing op Windows-computers</span><span class="sxs-lookup"><span data-stu-id="a6903-127">Collect Error and Warning events from hello Application Event Log from Windows computers</span></span>
+9. <span data-ttu-id="a6903-128">Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers</span><span class="sxs-lookup"><span data-stu-id="a6903-128">Collect Memory Available Mbytes performance counter from Windows computers</span></span>
+10. <span data-ttu-id="a6903-129">Een aangepaste logboekgegevens verzamelen</span><span class="sxs-lookup"><span data-stu-id="a6903-129">Collect a custom log</span></span> 
+11. <span data-ttu-id="a6903-130">Verzamelen van IIS-logboeken en Windows-gebeurtenislogboeken geschreven door Azure diagnostics tooa storage-account</span><span class="sxs-lookup"><span data-stu-id="a6903-130">Collect IIS logs and Windows Event logs written by Azure diagnostics tooa storage account</span></span>
 
 ```
 {
@@ -95,13 +95,13 @@ ms.lasthandoff: 07/11/2017
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
         "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
+          "description": "Name of hello storage account with Azure diagnostics output"
         }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
         "type": "string",
         "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
+          "description": "hello resource group name containing hello storage account with Azure diagnostics output"
         }
     }
   },
@@ -426,34 +426,34 @@ ms.lasthandoff: 07/11/2017
 }
 
 ```
-### <a name="deploying-the-sample-template"></a><span data-ttu-id="7e9a5-131">De voorbeeldsjabloon implementeren</span><span class="sxs-lookup"><span data-stu-id="7e9a5-131">Deploying the sample template</span></span>
-<span data-ttu-id="7e9a5-132">De voorbeeldsjabloon implementeren:</span><span class="sxs-lookup"><span data-stu-id="7e9a5-132">To deploy the sample template:</span></span>
+### <a name="deploying-hello-sample-template"></a><span data-ttu-id="a6903-131">Hallo-voorbeeldsjabloon implementeren</span><span class="sxs-lookup"><span data-stu-id="a6903-131">Deploying hello sample template</span></span>
+<span data-ttu-id="a6903-132">toodeploy hello voorbeeldsjabloon:</span><span class="sxs-lookup"><span data-stu-id="a6903-132">toodeploy hello sample template:</span></span>
 
-1. <span data-ttu-id="7e9a5-133">De gekoppelde steekproef bijvoorbeeld in een bestand opslaan`azuredeploy.json`</span><span class="sxs-lookup"><span data-stu-id="7e9a5-133">Save the attached sample in a file, for example `azuredeploy.json`</span></span> 
-2. <span data-ttu-id="7e9a5-134">De sjabloon om de gewenste configuratie bewerken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-134">Edit the template to have the configuration you want</span></span>
-3. <span data-ttu-id="7e9a5-135">Gebruik PowerShell of de opdrachtregel om de sjabloon te implementeren</span><span class="sxs-lookup"><span data-stu-id="7e9a5-135">Use PowerShell or the command line to deploy the template</span></span>
+1. <span data-ttu-id="a6903-133">Hallo gekoppelde steekproef bijvoorbeeld in een bestand opslaan`azuredeploy.json`</span><span class="sxs-lookup"><span data-stu-id="a6903-133">Save hello attached sample in a file, for example `azuredeploy.json`</span></span> 
+2. <span data-ttu-id="a6903-134">Hallo sjabloon toohave Hallo configuratie die u wilt bewerken</span><span class="sxs-lookup"><span data-stu-id="a6903-134">Edit hello template toohave hello configuration you want</span></span>
+3. <span data-ttu-id="a6903-135">Gebruik PowerShell of Hallo opdrachtregel toodeploy Hallo-sjabloon</span><span class="sxs-lookup"><span data-stu-id="a6903-135">Use PowerShell or hello command line toodeploy hello template</span></span>
 
-#### <a name="powershell"></a><span data-ttu-id="7e9a5-136">PowerShell</span><span class="sxs-lookup"><span data-stu-id="7e9a5-136">PowerShell</span></span>
+#### <a name="powershell"></a><span data-ttu-id="a6903-136">PowerShell</span><span class="sxs-lookup"><span data-stu-id="a6903-136">PowerShell</span></span>
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
-#### <a name="command-line"></a><span data-ttu-id="7e9a5-137">Opdrachtregel</span><span class="sxs-lookup"><span data-stu-id="7e9a5-137">Command line</span></span>
+#### <a name="command-line"></a><span data-ttu-id="a6903-137">Opdrachtregel</span><span class="sxs-lookup"><span data-stu-id="a6903-137">Command line</span></span>
 ```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 
-## <a name="example-resource-manager-templates"></a><span data-ttu-id="7e9a5-138">Voorbeeld van de Resource Manager-sjablonen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-138">Example Resource Manager templates</span></span>
-<span data-ttu-id="7e9a5-139">De Azure quickstart-sjablonengalerie bevat verschillende sjablonen voor logboekanalyse, met inbegrip van:</span><span class="sxs-lookup"><span data-stu-id="7e9a5-139">The Azure quickstart template gallery includes several templates for Log Analytics, including:</span></span>
+## <a name="example-resource-manager-templates"></a><span data-ttu-id="a6903-138">Voorbeeld van de Resource Manager-sjablonen</span><span class="sxs-lookup"><span data-stu-id="a6903-138">Example Resource Manager templates</span></span>
+<span data-ttu-id="a6903-139">Azure snelstartgalerie sjabloon Hallo bevat verschillende sjablonen voor logboekanalyse, met inbegrip van:</span><span class="sxs-lookup"><span data-stu-id="a6903-139">hello Azure quickstart template gallery includes several templates for Log Analytics, including:</span></span>
 
-* [<span data-ttu-id="7e9a5-140">Een virtuele machine met Windows met de extensie Log Analytics VM implementeren</span><span class="sxs-lookup"><span data-stu-id="7e9a5-140">Deploy a virtual machine running Windows with the Log Analytics VM extension</span></span>](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [<span data-ttu-id="7e9a5-141">Een virtuele machine waarop Linux wordt uitgevoerd met de extensie Log Analytics VM implementeren</span><span class="sxs-lookup"><span data-stu-id="7e9a5-141">Deploy a virtual machine running Linux with the Log Analytics VM extension</span></span>](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [<span data-ttu-id="7e9a5-142">Azure Site Recovery met behulp van een bestaande werkruimte voor logboekanalyse bewaken</span><span class="sxs-lookup"><span data-stu-id="7e9a5-142">Monitor Azure Site Recovery using an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [<span data-ttu-id="7e9a5-143">Bewaak Web-Apps van Azure met behulp van een bestaande werkruimte voor logboekanalyse</span><span class="sxs-lookup"><span data-stu-id="7e9a5-143">Monitor Azure Web Apps using an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [<span data-ttu-id="7e9a5-144">Controleprogramma SQL Azure met behulp van een bestaande werkruimte voor logboekanalyse</span><span class="sxs-lookup"><span data-stu-id="7e9a5-144">Monitor SQL Azure using an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [<span data-ttu-id="7e9a5-145">Een Service Fabric-cluster implementeren en controleren van het aan een bestaande werkruimte voor logboekanalyse</span><span class="sxs-lookup"><span data-stu-id="7e9a5-145">Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [<span data-ttu-id="7e9a5-146">Een Service Fabric-cluster implementeren en het maken van een werkruimte voor logboekanalyse voor het bewaken van deze</span><span class="sxs-lookup"><span data-stu-id="7e9a5-146">Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it</span></span>](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [<span data-ttu-id="a6903-140">Een virtuele machine met Windows Hello Log Analytics VM-extensie implementeren</span><span class="sxs-lookup"><span data-stu-id="a6903-140">Deploy a virtual machine running Windows with hello Log Analytics VM extension</span></span>](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [<span data-ttu-id="a6903-141">Een virtuele machine met Linux Hello Log Analytics VM-extensie implementeren</span><span class="sxs-lookup"><span data-stu-id="a6903-141">Deploy a virtual machine running Linux with hello Log Analytics VM extension</span></span>](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [<span data-ttu-id="a6903-142">Azure Site Recovery met behulp van een bestaande werkruimte voor logboekanalyse bewaken</span><span class="sxs-lookup"><span data-stu-id="a6903-142">Monitor Azure Site Recovery using an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [<span data-ttu-id="a6903-143">Bewaak Web-Apps van Azure met behulp van een bestaande werkruimte voor logboekanalyse</span><span class="sxs-lookup"><span data-stu-id="a6903-143">Monitor Azure Web Apps using an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [<span data-ttu-id="a6903-144">Controleprogramma SQL Azure met behulp van een bestaande werkruimte voor logboekanalyse</span><span class="sxs-lookup"><span data-stu-id="a6903-144">Monitor SQL Azure using an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
+* [<span data-ttu-id="a6903-145">Een Service Fabric-cluster implementeren en controleren van het aan een bestaande werkruimte voor logboekanalyse</span><span class="sxs-lookup"><span data-stu-id="a6903-145">Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace</span></span>](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
+* [<span data-ttu-id="a6903-146">Een Service Fabric-cluster implementeert en een toomonitor Log Analytics-werkruimte maken het</span><span class="sxs-lookup"><span data-stu-id="a6903-146">Deploy a Service Fabric cluster and create a Log Analytics workspace toomonitor it</span></span>](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a><span data-ttu-id="7e9a5-147">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-147">Next steps</span></span>
-* [<span data-ttu-id="7e9a5-148">Agents te implementeren in Azure VM's met behulp van Resource Manager-sjablonen</span><span class="sxs-lookup"><span data-stu-id="7e9a5-148">Deploy agents into Azure VMs using Resource Manager templates</span></span>](log-analytics-azure-vm-extension.md)
+## <a name="next-steps"></a><span data-ttu-id="a6903-147">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="a6903-147">Next steps</span></span>
+* [<span data-ttu-id="a6903-148">Agents te implementeren in Azure VM's met behulp van Resource Manager-sjablonen</span><span class="sxs-lookup"><span data-stu-id="a6903-148">Deploy agents into Azure VMs using Resource Manager templates</span></span>](log-analytics-azure-vm-extension.md)
 

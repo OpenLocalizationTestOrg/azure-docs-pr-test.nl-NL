@@ -1,5 +1,5 @@
 ---
-title: Multitenant SaaS-toepassing met Azure SQL Database implementeren | Microsoft Docs
+title: aaaImplement multitenant SaaS-toepassing met Azure SQL Database | Microsoft Docs
 description: "Multitenant SaaS-toepassing met Azure SQL Database worden geïmplementeerd."
 services: sql-database
 documentationcenter: 
@@ -16,48 +16,48 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/08/2017
 ms.author: AyoOlubek
-ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b87b8f296e2c20a8f674b56375f43fdc92df76d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a><span data-ttu-id="4a56c-103">Implementeren van een multitenant SaaS-toepassing met behulp van Azure SQL Database</span><span class="sxs-lookup"><span data-stu-id="4a56c-103">Implement a multi-tenant SaaS application using Azure SQL Database</span></span>
+# <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a><span data-ttu-id="36181-103">Implementeren van een multitenant SaaS-toepassing met behulp van Azure SQL Database</span><span class="sxs-lookup"><span data-stu-id="36181-103">Implement a multi-tenant SaaS application using Azure SQL Database</span></span>
 
-<span data-ttu-id="4a56c-104">Een multitenant-toepassing is een toepassing die wordt gehost in een cloudomgeving en biedt dezelfde set van services op honderden of duizenden tenants die niet delen of elkaars gegevens zien.</span><span class="sxs-lookup"><span data-stu-id="4a56c-104">A multi-tenant application is an application hosted in a cloud environment and that provides the same set of services to hundreds or thousands of tenants who do not share or see each other’s data.</span></span> <span data-ttu-id="4a56c-105">Een voorbeeld is een SaaS-toepassing die services aan tenants in een cloud gehoste omgeving levert.</span><span class="sxs-lookup"><span data-stu-id="4a56c-105">An example is an SaaS application that provides services to tenants in a cloud-hosted environment.</span></span> <span data-ttu-id="4a56c-106">Dit model worden geïsoleerd van de gegevens voor elke tenant en optimaliseert de distributie van resources voor de kosten.</span><span class="sxs-lookup"><span data-stu-id="4a56c-106">This model isolates the data for each tenant and optimizes the distribution of resources for cost.</span></span> 
+<span data-ttu-id="36181-104">Een multitenant-toepassing is een toepassing die wordt gehost in een cloudomgeving en biedt Hallo dezelfde set services toohundreds of duizenden tenants die niet delen of elkaars gegevens zien.</span><span class="sxs-lookup"><span data-stu-id="36181-104">A multi-tenant application is an application hosted in a cloud environment and that provides hello same set of services toohundreds or thousands of tenants who do not share or see each other’s data.</span></span> <span data-ttu-id="36181-105">Een voorbeeld is een SaaS-toepassing die voorziet in tootenants in een omgeving met cloud-gebaseerde services.</span><span class="sxs-lookup"><span data-stu-id="36181-105">An example is an SaaS application that provides services tootenants in a cloud-hosted environment.</span></span> <span data-ttu-id="36181-106">Dit model isoleert Hallo-gegevens voor elke tenant en optimaliseert de Hallo distributie van resources voor de kosten.</span><span class="sxs-lookup"><span data-stu-id="36181-106">This model isolates hello data for each tenant and optimizes hello distribution of resources for cost.</span></span> 
 
-<span data-ttu-id="4a56c-107">Deze zelfstudie laat zien hoe een multitenant SaaS-toepassing met behulp van Azure SQL Database maken.</span><span class="sxs-lookup"><span data-stu-id="4a56c-107">This tutorial demonstrates how to create a multi-tenant SaaS application using Azure SQL Database.</span></span>
+<span data-ttu-id="36181-107">Deze zelfstudie laat zien hoe toocreate een multitenant SaaS-toepassing met behulp van Azure SQL Database.</span><span class="sxs-lookup"><span data-stu-id="36181-107">This tutorial demonstrates how toocreate a multi-tenant SaaS application using Azure SQL Database.</span></span>
 
-<span data-ttu-id="4a56c-108">In deze zelfstudie leert u hoe:</span><span class="sxs-lookup"><span data-stu-id="4a56c-108">In this tutorial, you will learn to:</span></span>
+<span data-ttu-id="36181-108">In deze zelfstudie leert u hoe:</span><span class="sxs-lookup"><span data-stu-id="36181-108">In this tutorial, you will learn to:</span></span>
 > [!div class="checklist"]
-> * <span data-ttu-id="4a56c-109">Een databaseomgeving instellen voor de ondersteuning van een multitenant SaaS-toepassing met behulp van het patroon Database per tenant</span><span class="sxs-lookup"><span data-stu-id="4a56c-109">Set up a database environment to support a multi-tenant SaaS application, using the Database-per-tenant pattern</span></span>
-> * <span data-ttu-id="4a56c-110">Een tenant-catalogus maken</span><span class="sxs-lookup"><span data-stu-id="4a56c-110">Create a tenant catalog</span></span>
-> * <span data-ttu-id="4a56c-111">Een tenant-database in te richten en deze te registreren in de tenant-catalogus</span><span class="sxs-lookup"><span data-stu-id="4a56c-111">Provision a tenant database and register it in the tenant catalog</span></span>
-> * <span data-ttu-id="4a56c-112">Een voorbeeld van een Java-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="4a56c-112">Set up a sample Java application</span></span> 
-> * <span data-ttu-id="4a56c-113">Toegang tot tenant databases eenvoudig een Java-consoletoepassing</span><span class="sxs-lookup"><span data-stu-id="4a56c-113">Access tenant databases simple a Java console application</span></span>
-> * <span data-ttu-id="4a56c-114">Verwijderen van een tenant</span><span class="sxs-lookup"><span data-stu-id="4a56c-114">Delete a tenant</span></span>
+> * <span data-ttu-id="36181-109">Instellen van een database omgeving toosupport een multitenant SaaS-toepassing hello Database per tenant patroon</span><span class="sxs-lookup"><span data-stu-id="36181-109">Set up a database environment toosupport a multi-tenant SaaS application, using hello Database-per-tenant pattern</span></span>
+> * <span data-ttu-id="36181-110">Een tenant-catalogus maken</span><span class="sxs-lookup"><span data-stu-id="36181-110">Create a tenant catalog</span></span>
+> * <span data-ttu-id="36181-111">Een tenant-database in te richten en deze te registreren in Hallo tenant catalogus</span><span class="sxs-lookup"><span data-stu-id="36181-111">Provision a tenant database and register it in hello tenant catalog</span></span>
+> * <span data-ttu-id="36181-112">Een voorbeeld van een Java-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="36181-112">Set up a sample Java application</span></span> 
+> * <span data-ttu-id="36181-113">Toegang tot tenant databases eenvoudig een Java-consoletoepassing</span><span class="sxs-lookup"><span data-stu-id="36181-113">Access tenant databases simple a Java console application</span></span>
+> * <span data-ttu-id="36181-114">Verwijderen van een tenant</span><span class="sxs-lookup"><span data-stu-id="36181-114">Delete a tenant</span></span>
 
-<span data-ttu-id="4a56c-115">Als u een Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/) voordat u begint.</span><span class="sxs-lookup"><span data-stu-id="4a56c-115">If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.</span></span>
+<span data-ttu-id="36181-115">Als u een Azure-abonnement geen [een gratis account maken](https://azure.microsoft.com/free/) voordat u begint.</span><span class="sxs-lookup"><span data-stu-id="36181-115">If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="4a56c-116">Vereisten</span><span class="sxs-lookup"><span data-stu-id="4a56c-116">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="36181-116">Vereisten</span><span class="sxs-lookup"><span data-stu-id="36181-116">Prerequisites</span></span>
 
-<span data-ttu-id="4a56c-117">Zorg ervoor dat u hebt voor het voltooien van deze zelfstudie:</span><span class="sxs-lookup"><span data-stu-id="4a56c-117">To complete this tutorial, make sure you have:</span></span>
+<span data-ttu-id="36181-117">toocomplete deze zelfstudie, zorg ervoor dat u hebt:</span><span class="sxs-lookup"><span data-stu-id="36181-117">toocomplete this tutorial, make sure you have:</span></span>
 
-* <span data-ttu-id="4a56c-118">De nieuwste versie van PowerShell hebt geïnstalleerd en de [nieuwste Azure PowerShell-SDK](http://azure.microsoft.com/downloads/)</span><span class="sxs-lookup"><span data-stu-id="4a56c-118">Installed the newest version of PowerShell and the [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)</span></span>
+* <span data-ttu-id="36181-118">Geïnstalleerde Hallo nieuwste versie van PowerShell en Hallo [nieuwste Azure PowerShell-SDK](http://azure.microsoft.com/downloads/)</span><span class="sxs-lookup"><span data-stu-id="36181-118">Installed hello newest version of PowerShell and hello [latest Azure PowerShell SDK](http://azure.microsoft.com/downloads/)</span></span>
 
-* <span data-ttu-id="4a56c-119">De meest recente versie van geïnstalleerd [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).</span><span class="sxs-lookup"><span data-stu-id="4a56c-119">Installed the latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).</span></span> <span data-ttu-id="4a56c-120">Installatie van SQL Server Management Studio, installeert ook de nieuwste versie van SQLPackage, een opdrachtregelprogramma dat kan worden gebruikt om een scala aan database ontwikkeling taken automatiseren.</span><span class="sxs-lookup"><span data-stu-id="4a56c-120">Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.</span></span>
+* <span data-ttu-id="36181-119">Meest recente versie van geïnstalleerde Hallo [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).</span><span class="sxs-lookup"><span data-stu-id="36181-119">Installed hello latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).</span></span> <span data-ttu-id="36181-120">Installatie van SQL Server Management Studio ook Hallo meest recente versie van SQLPackage, een opdrachtregelprogramma waarmee gebruikte tooautomate een bereik van database ontwikkeling taken kan worden geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="36181-120">Installing SQL Server Management Studio also installs hello latest version of SQLPackage, a command-line utility that can be used tooautomate a range of database development tasks.</span></span>
 
-* <span data-ttu-id="4a56c-121">Geïnstalleerd de [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) en de [meest recente JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) op deze computer geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="4a56c-121">Installed the [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.</span></span> 
+* <span data-ttu-id="36181-121">Geïnstalleerde Hallo [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) en Hallo [meest recente JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) op deze computer geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="36181-121">Installed hello [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) and hello [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.</span></span> 
 
-* <span data-ttu-id="4a56c-122">Geïnstalleerd [Apache Maven](https://maven.apache.org/download.cgi).</span><span class="sxs-lookup"><span data-stu-id="4a56c-122">Installed [Apache Maven](https://maven.apache.org/download.cgi).</span></span> <span data-ttu-id="4a56c-123">Maven zal worden gebruikt bij het beheren van afhankelijkheden, bouwen, testen en voer het voorbeeld Java-project</span><span class="sxs-lookup"><span data-stu-id="4a56c-123">Maven will be used to help manage dependencies, build, test and run the sample Java project</span></span>
+* <span data-ttu-id="36181-122">Geïnstalleerd [Apache Maven](https://maven.apache.org/download.cgi).</span><span class="sxs-lookup"><span data-stu-id="36181-122">Installed [Apache Maven](https://maven.apache.org/download.cgi).</span></span> <span data-ttu-id="36181-123">Maven gebruikt toohelp afhankelijkheden beheren, bouwen, testen en Hallo voorbeeld Java-project uitvoeren</span><span class="sxs-lookup"><span data-stu-id="36181-123">Maven will be used toohelp manage dependencies, build, test and run hello sample Java project</span></span>
 
-## <a name="set-up-data-environment"></a><span data-ttu-id="4a56c-124">Data-omgeving instellen</span><span class="sxs-lookup"><span data-stu-id="4a56c-124">Set up data environment</span></span>
+## <a name="set-up-data-environment"></a><span data-ttu-id="36181-124">Data-omgeving instellen</span><span class="sxs-lookup"><span data-stu-id="36181-124">Set up data environment</span></span>
 
-<span data-ttu-id="4a56c-125">U worden een database per tenant ingericht.</span><span class="sxs-lookup"><span data-stu-id="4a56c-125">You will be provisioning a database per tenant.</span></span> <span data-ttu-id="4a56c-126">De model-database per tenant biedt de grootste mate van isolatie tussen de tenants met weinig DevOps-kosten.</span><span class="sxs-lookup"><span data-stu-id="4a56c-126">The database-per-tenant model provides the highest degree of isolation between tenants, with little DevOps cost.</span></span> <span data-ttu-id="4a56c-127">Voor het optimaliseren van de kosten van cloudresources u omvat ook de inrichting van de tenant-databases in een elastische pool zodat u kunt de prestaties van de prijs voor een groep met databases.</span><span class="sxs-lookup"><span data-stu-id="4a56c-127">To optimize the cost of cloud resources, you will also be provisioning the tenant databases into an elastic pool which allows you to optimize the price performance for a group of databases.</span></span> <span data-ttu-id="4a56c-128">Voor meer informatie over andere database inrichting modellen [Hier ziet](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).</span><span class="sxs-lookup"><span data-stu-id="4a56c-128">To learn about other database provisioning models [see here](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).</span></span>
+<span data-ttu-id="36181-125">U worden een database per tenant ingericht.</span><span class="sxs-lookup"><span data-stu-id="36181-125">You will be provisioning a database per tenant.</span></span> <span data-ttu-id="36181-126">Hallo database per tenant model biedt Hallo grootste mate van isolatie tussen de tenants met weinig DevOps-kosten.</span><span class="sxs-lookup"><span data-stu-id="36181-126">hello database-per-tenant model provides hello highest degree of isolation between tenants, with little DevOps cost.</span></span> <span data-ttu-id="36181-127">toooptimize hello kosten van cloudresources, u omvat ook de inrichting van Hallo tenant databases in een elastische pool waarmee u toooptimize Hallo prijs prestaties voor een groep met databases.</span><span class="sxs-lookup"><span data-stu-id="36181-127">toooptimize hello cost of cloud resources, you will also be provisioning hello tenant databases into an elastic pool which allows you toooptimize hello price performance for a group of databases.</span></span> <span data-ttu-id="36181-128">toolearn over andere database inrichting modellen [Hier ziet](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).</span><span class="sxs-lookup"><span data-stu-id="36181-128">toolearn about other database provisioning models [see here](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).</span></span>
 
-<span data-ttu-id="4a56c-129">Volg deze stappen om een SQL-server en een elastische pool die als host voor alle databases in uw tenant fungeert te maken.</span><span class="sxs-lookup"><span data-stu-id="4a56c-129">Follow these steps to create a SQL server and an elastic pool that will host all your tenant databases.</span></span> 
+<span data-ttu-id="36181-129">Volg deze stappen toocreate een SQL-server en een elastische pool die als host voor alle databases in uw tenant fungeert.</span><span class="sxs-lookup"><span data-stu-id="36181-129">Follow these steps toocreate a SQL server and an elastic pool that will host all your tenant databases.</span></span> 
 
-1. <span data-ttu-id="4a56c-130">Variabelen voor het opslaan van de waarden die worden gebruikt in de rest van de zelfstudie maken.</span><span class="sxs-lookup"><span data-stu-id="4a56c-130">Create variables to store values that will be used in the rest of the tutorial.</span></span> <span data-ttu-id="4a56c-131">Zorg ervoor dat u de IP-adres variabele om op te nemen van uw IP-adres wijzigen</span><span class="sxs-lookup"><span data-stu-id="4a56c-131">Make sure to modify the IP address variable to include your IP address</span></span> 
+1. <span data-ttu-id="36181-130">Variabelen toostore waarden die worden gebruikt in de rest van de zelfstudie Hallo Hallo maken.</span><span class="sxs-lookup"><span data-stu-id="36181-130">Create variables toostore values that will be used in hello rest of hello tutorial.</span></span> <span data-ttu-id="36181-131">Zorg ervoor dat toomodify Hallo IP-adres variabele tooinclude uw IP-adres</span><span class="sxs-lookup"><span data-stu-id="36181-131">Make sure toomodify hello IP address variable tooinclude your IP address</span></span> 
    
    ```PowerShell 
    # Set an admin login and password for your database
@@ -69,15 +69,15 @@ ms.lasthandoff: 07/11/2017
    $tenant1 = "geolamice"
    $tenant2 = "ranplex"
    
-   # Store current client IP address (modify to include your IP address)
+   # Store current client IP address (modify tooinclude your IP address)
    $startIpAddress = 0.0.0.0 
    $endIpAddress = 0.0.0.0
    ```
    
-2. <span data-ttu-id="4a56c-132">Aanmelden bij Azure en een SQL server en de elastische pool maken</span><span class="sxs-lookup"><span data-stu-id="4a56c-132">Login to Azure and create a SQL server and elastic pool</span></span> 
+2. <span data-ttu-id="36181-132">Aanmelding tooAzure en een SQL server en de elastische pool maken</span><span class="sxs-lookup"><span data-stu-id="36181-132">Login tooAzure and create a SQL server and elastic pool</span></span> 
    
    ```PowerShell
-   # Login to Azure 
+   # Login tooAzure 
    Login-AzureRmAccount
    
    # Create resource group 
@@ -103,11 +103,11 @@ ms.lasthandoff: 07/11/2017
        -DatabaseDtuMax 20
    ```
    
-## <a name="create-tenant-catalog"></a><span data-ttu-id="4a56c-133">Tenant-catalogus maken</span><span class="sxs-lookup"><span data-stu-id="4a56c-133">Create tenant catalog</span></span> 
+## <a name="create-tenant-catalog"></a><span data-ttu-id="36181-133">Tenant-catalogus maken</span><span class="sxs-lookup"><span data-stu-id="36181-133">Create tenant catalog</span></span> 
 
-<span data-ttu-id="4a56c-134">In een multitenant SaaS-toepassing is het belangrijk te weten waar informatie voor een tenant wordt opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="4a56c-134">In a multi-tenant SaaS application, it’s important to know where information for a tenant is stored.</span></span> <span data-ttu-id="4a56c-135">Dit wordt meestal opgeslagen in een catalogusdatabase.</span><span class="sxs-lookup"><span data-stu-id="4a56c-135">This is commonly stored in a catalog database.</span></span> <span data-ttu-id="4a56c-136">De catalogusdatabase wordt gebruikt voor het opslaan van een toewijzing tussen een tenant en een database waarin deze tenant gegevens worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="4a56c-136">The catalog database is used to hold a mapping between a tenant and a database in which that tenant’s data is stored.</span></span>  <span data-ttu-id="4a56c-137">Het basispatroon is van toepassing als een multitenant of een één-tenant-database wordt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="4a56c-137">The basic pattern applies whether a multi-tenant or a single-tenant database is used.</span></span>
+<span data-ttu-id="36181-134">Het is belangrijk tooknow waar informatie voor een tenant wordt opgeslagen in een multitenant SaaS-toepassing.</span><span class="sxs-lookup"><span data-stu-id="36181-134">In a multi-tenant SaaS application, it’s important tooknow where information for a tenant is stored.</span></span> <span data-ttu-id="36181-135">Dit wordt meestal opgeslagen in een catalogusdatabase.</span><span class="sxs-lookup"><span data-stu-id="36181-135">This is commonly stored in a catalog database.</span></span> <span data-ttu-id="36181-136">Hallo catalogus-database is gebruikte toohold een toewijzing tussen een tenant en een database waarin deze tenant gegevens worden opgeslagen.</span><span class="sxs-lookup"><span data-stu-id="36181-136">hello catalog database is used toohold a mapping between a tenant and a database in which that tenant’s data is stored.</span></span>  <span data-ttu-id="36181-137">Hallo basispatroon is van toepassing als een multitenant of een één-tenant-database wordt gebruikt.</span><span class="sxs-lookup"><span data-stu-id="36181-137">hello basic pattern applies whether a multi-tenant or a single-tenant database is used.</span></span>
 
-<span data-ttu-id="4a56c-138">Volg deze stappen voor het maken van een catalogusdatabase voor de SaaS-voorbeeldtoepassing.</span><span class="sxs-lookup"><span data-stu-id="4a56c-138">Follow these steps to create a catalog database for the sample SaaS application.</span></span>
+<span data-ttu-id="36181-138">Volg deze stappen toocreate een catalogusdatabase voor de voorbeeldtoepassing SaaS Hallo.</span><span class="sxs-lookup"><span data-stu-id="36181-138">Follow these steps toocreate a catalog database for hello sample SaaS application.</span></span>
 
 ```PowerShell
 # Create empty database in pool
@@ -116,7 +116,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName "tenantCatalog" `
     -ElasticPoolName "myElasticPool"
 
-# Create table to track mapping between tenants and their databases
+# Create table tootrack mapping between tenants and their databases
 $commandText = "
 CREATE TABLE Tenants
 (
@@ -137,8 +137,8 @@ Invoke-SqlCmd `
     -EncryptConnection
 ```
 
-## <a name="provision-database-for-tenant1-and-register-in-tenant-catalog"></a><span data-ttu-id="4a56c-139">Database voor 'tenant1' in te richten en te registreren in de catalogus voor tenant</span><span class="sxs-lookup"><span data-stu-id="4a56c-139">Provision database for 'tenant1' and register in tenant catalog</span></span> 
-<span data-ttu-id="4a56c-140">Powershell gebruiken om een database in te richten voor een nieuwe tenant 'tenant1' en deze tenant te registreren in de catalogus.</span><span class="sxs-lookup"><span data-stu-id="4a56c-140">Use Powershell to provision a database for a new tenant 'tenant1' and register this tenant in the catalog.</span></span> 
+## <a name="provision-database-for-tenant1-and-register-in-tenant-catalog"></a><span data-ttu-id="36181-139">Database voor 'tenant1' in te richten en te registreren in de catalogus voor tenant</span><span class="sxs-lookup"><span data-stu-id="36181-139">Provision database for 'tenant1' and register in tenant catalog</span></span> 
+<span data-ttu-id="36181-140">Gebruik Powershell tooprovision een database voor een nieuwe tenant 'tenant1' en registreer deze tenant in Hallo-catalogus.</span><span class="sxs-lookup"><span data-stu-id="36181-140">Use Powershell tooprovision a database for a new tenant 'tenant1' and register this tenant in hello catalog.</span></span> 
 
 ```PowerShell
 # Create empty database in pool for 'tenant1'
@@ -147,7 +147,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant1 `
     -ElasticPoolName "myElasticPool"
 
-# Create table WhoAmI and insert tenant name into the table 
+# Create table WhoAmI and insert tenant name into hello table 
 $commandText = "
 CREATE TABLE WhoAmI (TenantName NVARCHAR(128) NOT NULL);
 INSERT INTO WhoAmI VALUES ('Tenant $tenant1');"
@@ -161,7 +161,7 @@ Invoke-SqlCmd `
     -Query $commandText `
     -EncryptConnection
 
-# Register 'tenant1' in the tenant catalog 
+# Register 'tenant1' in hello tenant catalog 
 $commandText = "
 INSERT INTO Tenants VALUES ('$tenant1', '$tenant1');"
 Invoke-SqlCmd `
@@ -174,8 +174,8 @@ Invoke-SqlCmd `
     -EncryptConnection
 ```
 
-## <a name="provision-database-for-tenant2-and-register-in-tenant-catalog"></a><span data-ttu-id="4a56c-141">Database voor 'tenant2' in te richten en te registreren in de catalogus voor tenant</span><span class="sxs-lookup"><span data-stu-id="4a56c-141">Provision database for 'tenant2' and register in tenant catalog</span></span>
-<span data-ttu-id="4a56c-142">Powershell gebruiken om een database in te richten voor een nieuwe tenant 'tenant2' en deze tenant te registreren in de catalogus.</span><span class="sxs-lookup"><span data-stu-id="4a56c-142">Use Powershell to provision a database for a new tenant 'tenant2' and register this tenant in the catalog.</span></span> 
+## <a name="provision-database-for-tenant2-and-register-in-tenant-catalog"></a><span data-ttu-id="36181-141">Database voor 'tenant2' in te richten en te registreren in de catalogus voor tenant</span><span class="sxs-lookup"><span data-stu-id="36181-141">Provision database for 'tenant2' and register in tenant catalog</span></span>
+<span data-ttu-id="36181-142">Gebruik Powershell tooprovision een database voor een nieuwe tenant 'tenant2' en registreer deze tenant in Hallo-catalogus.</span><span class="sxs-lookup"><span data-stu-id="36181-142">Use Powershell tooprovision a database for a new tenant 'tenant2' and register this tenant in hello catalog.</span></span> 
 
 ```PowerShell
 # Create empty database in pool for 'tenant2'
@@ -184,7 +184,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant2 `
     -ElasticPoolName "myElasticPool"
 
-# Create table WhoAmI and insert tenant name into the table 
+# Create table WhoAmI and insert tenant name into hello table 
 $commandText = "
 CREATE TABLE WhoAmI (TenantName NVARCHAR(128) NOT NULL);
 INSERT INTO WhoAmI VALUES ('Tenant $tenant2');"
@@ -198,7 +198,7 @@ Invoke-SqlCmd `
     -Query $commandText `
     -EncryptConnection
 
-# Register tenant 'tenant2' in the tenant catalog 
+# Register tenant 'tenant2' in hello tenant catalog 
 $commandText = "
 INSERT INTO Tenants VALUES ('$tenant2', '$tenant2');"
 Invoke-SqlCmd `
@@ -211,15 +211,15 @@ Invoke-SqlCmd `
     -EncryptConnection
 ```
 
-## <a name="set-up-sample-java-application"></a><span data-ttu-id="4a56c-143">Voorbeeld van Java-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="4a56c-143">Set up sample Java application</span></span> 
+## <a name="set-up-sample-java-application"></a><span data-ttu-id="36181-143">Voorbeeld van Java-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="36181-143">Set up sample Java application</span></span> 
 
-1. <span data-ttu-id="4a56c-144">Maak een maven-project.</span><span class="sxs-lookup"><span data-stu-id="4a56c-144">Create a maven project.</span></span> <span data-ttu-id="4a56c-145">Typ het volgende in een opdrachtpromptvenster:</span><span class="sxs-lookup"><span data-stu-id="4a56c-145">Type the following in a command prompt window:</span></span>
+1. <span data-ttu-id="36181-144">Maak een maven-project.</span><span class="sxs-lookup"><span data-stu-id="36181-144">Create a maven project.</span></span> <span data-ttu-id="36181-145">Typ Hallo volgende in een opdrachtpromptvenster:</span><span class="sxs-lookup"><span data-stu-id="36181-145">Type hello following in a command prompt window:</span></span>
    
    ```
    mvn archetype:generate -DgroupId=com.microsoft.sqlserver -DartifactId=mssql-jdbc -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
    
-2. <span data-ttu-id="4a56c-146">Voeg deze afhankelijkheid, taalniveau en bouwen optie ter ondersteuning van de manifest-bestanden in potten van het bestand pom.xml:</span><span class="sxs-lookup"><span data-stu-id="4a56c-146">Add this dependency, language level, and build option to support manifest files in jars to the pom.xml file:</span></span>
+2. <span data-ttu-id="36181-146">Voeg deze afhankelijkheid, taalniveau en bouwen optie toosupport manifestbestanden in potten toohello pom.xml-bestand:</span><span class="sxs-lookup"><span data-stu-id="36181-146">Add this dependency, language level, and build option toosupport manifest files in jars toohello pom.xml file:</span></span>
    
    ```XML
    <dependency>
@@ -251,7 +251,7 @@ Invoke-SqlCmd `
    </build>
    ```
 
-3. <span data-ttu-id="4a56c-147">Voeg de volgende in het bestand App.java:</span><span class="sxs-lookup"><span data-stu-id="4a56c-147">Add the following into the App.java file:</span></span>
+3. <span data-ttu-id="36181-147">Voeg de volgende Hallo in Hallo App.java bestand:</span><span class="sxs-lookup"><span data-stu-id="36181-147">Add hello following into hello App.java file:</span></span>
 
    ```java 
    package com.sqldbsamples;
@@ -306,7 +306,7 @@ Invoke-SqlCmd `
    
    System.out.println(" " + CMD_QUERY + " <NAME> - connect and tenant query tenant <NAME>");
    
-   System.out.println(" " + CMD_QUIT + " - quit the application\n");
+   System.out.println(" " + CMD_QUIT + " - quit hello application\n");
    
    try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
    
@@ -352,7 +352,7 @@ Invoke-SqlCmd `
    
    private static void listTenants() {
    
-   // List all tenants that currently exist in the system
+   // List all tenants that currently exist in hello system
    
    String sql = "SELECT TenantName FROM Tenants";
    
@@ -380,7 +380,7 @@ Invoke-SqlCmd `
    
    private static void queryTenant(String name) {
    
-   // Query the data that was previously inserted into the primary database from the geo replicated database
+   // Query hello data that was previously inserted into hello primary database from hello geo replicated database
    
    String url = null;
    
@@ -445,21 +445,21 @@ Invoke-SqlCmd `
    }
    ```
 
-4. <span data-ttu-id="4a56c-148">Sla het bestand op.</span><span class="sxs-lookup"><span data-stu-id="4a56c-148">Save the file.</span></span>
+4. <span data-ttu-id="36181-148">Hallo-bestand opslaan.</span><span class="sxs-lookup"><span data-stu-id="36181-148">Save hello file.</span></span>
 
-5. <span data-ttu-id="4a56c-149">Ga naar de opdrachtconsole en uitvoeren</span><span class="sxs-lookup"><span data-stu-id="4a56c-149">Go to command console and execute</span></span>
+5. <span data-ttu-id="36181-149">Ga toocommand console en uitvoeren</span><span class="sxs-lookup"><span data-stu-id="36181-149">Go toocommand console and execute</span></span>
 
    ```bash
    mvn package
    ```
 
-6. <span data-ttu-id="4a56c-150">Als u klaar bent, voer het volgende uit als de toepassing wilt uitvoeren</span><span class="sxs-lookup"><span data-stu-id="4a56c-150">When finished, execute the following to run the application</span></span> 
+6. <span data-ttu-id="36181-150">Als u klaar bent Hallo na toorun Hallo toepassing uitvoeren</span><span class="sxs-lookup"><span data-stu-id="36181-150">When finished, execute hello following toorun hello application</span></span> 
    
    ```
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
    ```
    
-<span data-ttu-id="4a56c-151">De uitvoer ziet er als volgt als deze is uitgevoerd:</span><span class="sxs-lookup"><span data-stu-id="4a56c-151">The output will look like this if it runs successfully:</span></span>
+<span data-ttu-id="36181-151">Hallo-uitvoer ziet er als volgt als deze is uitgevoerd:</span><span class="sxs-lookup"><span data-stu-id="36181-151">hello output will look like this if it runs successfully:</span></span>
 
 ```
 ############################
@@ -474,15 +474,15 @@ LIST - list tenants
 
 QUERY <NAME> - connect and tenant query tenant <NAME>
 
-QUIT - quit the application
+QUIT - quit hello application
 
-* List the tenants
+* List hello tenants
 
 * Query tenants you created
 ```
 
-## <a name="delete-first-tenant"></a><span data-ttu-id="4a56c-152">Eerste tenant verwijderen</span><span class="sxs-lookup"><span data-stu-id="4a56c-152">Delete first tenant</span></span> 
-<span data-ttu-id="4a56c-153">PowerShell gebruiken om te verwijderen van de tenant-database en de catalogus-vermelding voor de eerste tenant.</span><span class="sxs-lookup"><span data-stu-id="4a56c-153">Use PowerShell to delete the tenant database and catalog entry for the first tenant.</span></span>
+## <a name="delete-first-tenant"></a><span data-ttu-id="36181-152">Eerste tenant verwijderen</span><span class="sxs-lookup"><span data-stu-id="36181-152">Delete first tenant</span></span> 
+<span data-ttu-id="36181-153">Gebruik PowerShell toodelete hello tenant-database en de catalogus vermelding voor de eerste Hallo-tenant.</span><span class="sxs-lookup"><span data-stu-id="36181-153">Use PowerShell toodelete hello tenant database and catalog entry for hello first tenant.</span></span>
 
 ```PowerShell
 # Remove 'tenant1' from catalog 
@@ -502,24 +502,24 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant1
 ```
 
-<span data-ttu-id="4a56c-154">Verbinding met 'tenant1' te maken met de Java-toepassing.</span><span class="sxs-lookup"><span data-stu-id="4a56c-154">Try connecting to 'tenant1' using the Java application.</span></span> <span data-ttu-id="4a56c-155">U krijgt een foutmelding weergegeven dat de tenant niet bestaat.</span><span class="sxs-lookup"><span data-stu-id="4a56c-155">You will get an error stating that the tenant does not exist.</span></span>
+<span data-ttu-id="36181-154">Probeer verbinding te maken met behulp van 'tenant1' hello te Java-toepassing.</span><span class="sxs-lookup"><span data-stu-id="36181-154">Try connecting too'tenant1' using hello Java application.</span></span> <span data-ttu-id="36181-155">U krijgt een foutmelding weergegeven dat die Hallo tenant bestaat niet.</span><span class="sxs-lookup"><span data-stu-id="36181-155">You will get an error stating that hello tenant does not exist.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="4a56c-156">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="4a56c-156">Next steps</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="36181-156">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="36181-156">Next steps</span></span> 
 
-<span data-ttu-id="4a56c-157">In deze zelfstudie hebt u geleerd:</span><span class="sxs-lookup"><span data-stu-id="4a56c-157">In this tutorial, you learned to:</span></span>
+<span data-ttu-id="36181-157">In deze zelfstudie hebt u geleerd:</span><span class="sxs-lookup"><span data-stu-id="36181-157">In this tutorial, you learned to:</span></span>
 > [!div class="checklist"]
-> * <span data-ttu-id="4a56c-158">Een databaseomgeving instellen voor de ondersteuning van een multitenant SaaS-toepassing met behulp van het patroon Database per tenant</span><span class="sxs-lookup"><span data-stu-id="4a56c-158">Set up a database environment to support a multi-tenant SaaS application, using the Database-per-tenant pattern</span></span>
-> * <span data-ttu-id="4a56c-159">Een tenant-catalogus maken</span><span class="sxs-lookup"><span data-stu-id="4a56c-159">Create a tenant catalog</span></span>
-> * <span data-ttu-id="4a56c-160">Een tenant-database in te richten en deze te registreren in de tenant-catalogus</span><span class="sxs-lookup"><span data-stu-id="4a56c-160">Provision a tenant database and register it in the tenant catalog</span></span>
-> * <span data-ttu-id="4a56c-161">Een voorbeeld van een Java-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="4a56c-161">Set up a sample Java application</span></span> 
-> * <span data-ttu-id="4a56c-162">Toegang tot tenant databases eenvoudig een Java-consoletoepassing</span><span class="sxs-lookup"><span data-stu-id="4a56c-162">Access tenant databases simple a Java console application</span></span>
-> * <span data-ttu-id="4a56c-163">Verwijderen van een tenant</span><span class="sxs-lookup"><span data-stu-id="4a56c-163">Delete a tenant</span></span>
+> * <span data-ttu-id="36181-158">Instellen van een database omgeving toosupport een multitenant SaaS-toepassing hello Database per tenant patroon</span><span class="sxs-lookup"><span data-stu-id="36181-158">Set up a database environment toosupport a multi-tenant SaaS application, using hello Database-per-tenant pattern</span></span>
+> * <span data-ttu-id="36181-159">Een tenant-catalogus maken</span><span class="sxs-lookup"><span data-stu-id="36181-159">Create a tenant catalog</span></span>
+> * <span data-ttu-id="36181-160">Een tenant-database in te richten en deze te registreren in Hallo tenant catalogus</span><span class="sxs-lookup"><span data-stu-id="36181-160">Provision a tenant database and register it in hello tenant catalog</span></span>
+> * <span data-ttu-id="36181-161">Een voorbeeld van een Java-toepassing instellen</span><span class="sxs-lookup"><span data-stu-id="36181-161">Set up a sample Java application</span></span> 
+> * <span data-ttu-id="36181-162">Toegang tot tenant databases eenvoudig een Java-consoletoepassing</span><span class="sxs-lookup"><span data-stu-id="36181-162">Access tenant databases simple a Java console application</span></span>
+> * <span data-ttu-id="36181-163">Verwijderen van een tenant</span><span class="sxs-lookup"><span data-stu-id="36181-163">Delete a tenant</span></span>
 
-* <span data-ttu-id="4a56c-164">Voorbeelden van PowerShell voor algemene taken, Zie [SQL Database PowerShell-voorbeelden](https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples)</span><span class="sxs-lookup"><span data-stu-id="4a56c-164">PowerShell samples for common tasks, see [SQL Database PowerShell samples](https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples)</span></span>
+* <span data-ttu-id="36181-164">Voorbeelden van PowerShell voor algemene taken, Zie [SQL Database PowerShell-voorbeelden](https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples)</span><span class="sxs-lookup"><span data-stu-id="36181-164">PowerShell samples for common tasks, see [SQL Database PowerShell samples](https://docs.microsoft.com/azure/sql-database/sql-database-powershell-samples)</span></span>
 
-* <span data-ttu-id="4a56c-165">Ontwerppatronen voor multitenant SaaS-toepassingen Zie [ontwerppatronen](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)</span><span class="sxs-lookup"><span data-stu-id="4a56c-165">Design patterns for multi-tenant SaaS applications see [Design patterns](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)</span></span>
+* <span data-ttu-id="36181-165">Ontwerppatronen voor multitenant SaaS-toepassingen Zie [ontwerppatronen](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)</span><span class="sxs-lookup"><span data-stu-id="36181-165">Design patterns for multi-tenant SaaS applications see [Design patterns](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)</span></span>
 
-* <span data-ttu-id="4a56c-166">Java-voorbeelden van veel voorkomende taken van Azure, Zie [Java Developer Center](https://azure.microsoft.com/develop/java/)</span><span class="sxs-lookup"><span data-stu-id="4a56c-166">Java samples for common Azure tasks, see [Java Developer Center](https://azure.microsoft.com/develop/java/)</span></span>
+* <span data-ttu-id="36181-166">Java-voorbeelden van veel voorkomende taken van Azure, Zie [Java Developer Center](https://azure.microsoft.com/develop/java/)</span><span class="sxs-lookup"><span data-stu-id="36181-166">Java samples for common Azure tasks, see [Java Developer Center](https://azure.microsoft.com/develop/java/)</span></span>
 
 
 

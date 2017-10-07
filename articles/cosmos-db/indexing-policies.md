@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB indexeren beleid | Microsoft Docs
-description: Begrijpen hoe indexeren werkt in Azure Cosmos DB. Informatie over het configureren en wijzigen van het indexeringsbeleid voor automatisch indexeren en betere prestaties.
+title: aaaAzure Cosmos DB indexering beleid | Microsoft Docs
+description: Begrijpen hoe indexeren werkt in Azure Cosmos DB. Meer informatie over hoe tooconfigure en wijzig Hallo indexeringsbeleid voor automatisch indexeren en betere prestaties.
 keywords: hoe indexeren werkt, automatische indexeren, database indexeren
 services: cosmos-db
 documentationcenter: 
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4f77b352b89382aa3352136038cb0e95c7588aac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
-Standaard worden alle gegevens van Azure DB die Cosmos wordt geïndexeerd. En hoewel veel klanten graag laten Azure Cosmos DB automatisch verwerkt alle aspecten van het indexeren, Azure Cosmos DB biedt ook ondersteuning voor het opgeven van een aangepaste **beleid indexeren** voor verzamelingen tijdens het maken van. Indexing-beleid in Azure Cosmos DB zijn flexibelere en krachtigere dan secundaire indexen aangeboden op andere databaseplatforms,, omdat ze u ontwerpen en aanpassen van de vorm van de index kunnen zonder verlies van schemaflexibiliteit. Als u wilt weten hoe indexering werkt in Azure Cosmos DB, moet u begrijpen dat door het indexeringsbeleid beheer, kunt u fijnmazig balans vinden tussen opslagoverhead voor indexering-, schrijf- en doorvoer van de query- en consistentie van de query.  
+Standaard worden alle gegevens van Azure DB die Cosmos wordt geïndexeerd. En hoewel veel klanten tevreden toolet Azure Cosmos DB verwerken automatisch alle aspecten van het indexeren, Azure Cosmos DB biedt ook ondersteuning voor het opgeven van een aangepaste **beleid indexeren** voor verzamelingen tijdens het maken van. Indexing-beleid in Azure Cosmos DB zijn flexibelere en krachtigere dan secundaire indexen aangeboden op andere databaseplatforms,, omdat ze u ontwerpen en Hallo vorm van Hallo-index kunnen zonder verlies van schemaflexibiliteit aanpassen. toolearn indexeren werking in Azure Cosmos DB, moet u begrijpen dat door het indexeringsbeleid beheer, kunt u fijnmazig balans vinden tussen opslagoverhead voor indexering-, schrijf- en doorvoer van de query- en consistentie van de query.  
 
-In dit artikel we Bekijk sluiten Azure Cosmos DB indexeren van beleid, hoe u indexeringsbeleid en de bijbehorende verschillen kunt aanpassen. 
+In dit artikel we Bekijk sluiten Azure Cosmos DB beleidsregels indexeren, hoe u kunt indexeringsbeleid aanpassen en Hallo-en nadelen gekoppeld. 
 
-Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:
+Na het lezen van dit artikel, moet u kunnen tooanswer Hallo vragen te volgen:
 
-* Hoe kan ik de eigenschappen wilt opnemen of uitsluiten van het indexeren overschrijven?
-* Hoe kan ik de index voor eventuele updates configureren?
-* Hoe kan ik configureren indexering Order By of bereik query's uitvoeren?
-* Hoe kan ik wijzigingen aanbrengen aan een verzameling indexeringsbeleid?
+* Hoe kan ik Hallo eigenschappen tooinclude overschrijven of uitsluiten van het indexeren?
+* Hoe kan ik Hallo index voor eventuele updates configureren?
+* Hoe kan ik indexering tooperform Order By of bereik query's configureren?
+* Hoe maak ik wijzigingen tooa verzameling indexeringsbeleid
 * Hoe vergelijk ik opslag en prestaties van verschillende beleidsregels voor indexering
 
-## <a id="CustomizingIndexingPolicy"></a>Het indexeringsbeleid van een verzameling aanpassen
-Ontwikkelaars kunnen de verschillen tussen de opslag, schrijven/queryprestaties en consistentie van de query, aanpassen door overschrijven het standaardbeleid voor indexering op een verzameling Azure Cosmos DB en het configureren van de volgende aspecten.
+## <a id="CustomizingIndexingPolicy"></a>Hallo indexeringsbeleid van een verzameling aanpassen
+Ontwikkelaars kunnen Hallo verschillen tussen de opslag, schrijven/queryprestaties en consistentie van de query, aanpassen door Hallo standaard indexering beleid op een verzameling Azure Cosmos DB en het configureren van Hallo aspecten te volgen.
 
-* **Inclusief/exclusief paden naar/van de index en documenten**. Ontwikkelaars bepaalde documenten die moeten worden uitgesloten of opgenomen in de index op het moment van invoegen of vervangen ze aan de verzameling zelf kunnen kiezen. Ontwikkelaars kunnen ook wilt opnemen of uitsluiten van bepaalde JSON-eigenschappen ook voor kiezen paden (inclusief jokertekenpatronen) over documenten die zijn opgenomen in een index worden geïndexeerd.
-* **Configureren van verschillende typen Index**. Voor elk van de opgenomen paden opgeven ontwikkelaars ook het type van de index die ze nodig over een verzameling hebben op basis van hun gegevens en verwacht workload van query's en de numerieke/tekenreeks 'precisie' voor elk pad.
-* **Configureren van Index Update modi**. Azure Cosmos DB ondersteunt drie indexering modi die kunnen worden geconfigureerd via het indexeringsbeleid op een verzameling Azure Cosmos DB: Consistent Lazy en er is geen. 
+* **Inclusief/exclusief paden naar/van de index en documenten**. Ontwikkelaars kunnen bepaalde documenten toobe uitgesloten of opgenomen in Hallo index bij Hallo invoegen of vervangen van toohello verzameling kiezen. Ontwikkelaars kunnen ook tooinclude kiezen of bepaalde JSON-eigenschappen ook uitsluiten paden (inclusief jokertekenpatronen) toobe geïndexeerd op documenten die zijn opgenomen in een index.
+* **Configureren van verschillende typen Index**. Voor elk Hallo opgenomen paden, kunnen ontwikkelaars ook Hallo type index die ze nodig over een verzameling op basis van hun gegevens en de werkbelasting query verwacht en Hallo numerieke tekenreeks 'precisie' voor elk pad hebben opgeven.
+* **Configureren van Index Update modi**. Azure Cosmos DB ondersteunt drie indexering modi die kunnen worden geconfigureerd via Hallo-beleid op een verzameling Azure Cosmos DB indexeren: Consistent Lazy en er is geen. 
 
-Het volgende fragment van de .NET-code laat zien hoe een aangepast indexeringsbeleid ingesteld tijdens het maken van een verzameling. Hier wordt het beleid met een bereikindex voor tekenreeksen en getallen instellen op de maximale precisie. Dit beleid kunt ons Order By-query's uitvoeren op tekenreeksen.
+Hallo .NET code codefragment wordt getoond hoe na een aangepast indexeringsbeleid tijdens het maken van een verzameling Hallo tooset. We instellen hier Hallo beleid met een bereikindex voor tekenreeksen en getallen op Hallo maximumprecisie. Dit beleid kunt ons Order By-query's uitvoeren op tekenreeksen.
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -53,33 +53,33 @@ Het volgende fragment van de .NET-code laat zien hoe een aangepast indexeringsbe
 
 
 > [!NOTE]
-> De JSON-schema voor het indexeringsbeleid is gewijzigd met de release van REST-API versie 2015-06-03 ter ondersteuning van bereik indexen op tekenreeksen. .NET SDK 1.2.0 en Java, Python en Node.js SDK's 1.1.0 ondersteuning voor het nieuwe beleid schema. Oudere SDK's de REST-API-versie 2015-04-08 gebruiken en ondersteunen het oudere schema van het beleid te indexeren.
+> Hallo JSON-schema voor het indexeringsbeleid is gewijzigd met Hallo-release van REST-API-versie 2015-06-03 toosupport bereik indexen op tekenreeksen. Ondersteuning voor het nieuwe beleid schema Hallo .NET SDK 1.2.0 en Java, Python en Node.js SDK's 1.1.0. Oudere SDK's Hallo REST API-versie 2015-04-08 gebruiken en ondersteunen Hallo oudere schema van het beleid te indexeren.
 > 
 > Standaard indexeert Azure Cosmos DB numerieke eigenschappen en alle eigenschappen van een verbindingsreeks in documenten consistent met een hashindex met de bereikindex van een.  
 > 
 > 
 
-### <a name="customizing-the-indexing-policy-using-the-portal"></a>Het indexeringsbeleid dat via de portal aanpassen
+### <a name="customizing-hello-indexing-policy-using-hello-portal"></a>Hallo indexeringsbeleid met Hallo portal aanpassen
 
-U kunt het indexeringsbeleid van een verzameling met de Azure portal kunt wijzigen. Open uw Azure DB die Cosmos-account in de Azure portal, selecteer uw verzameling in het linkernavigatievenster menu klikt u op **instellingen**, en klik vervolgens op **indexeren beleid**. In de **indexeren beleid** blade gewenste indexeringsbeleid wijzigen en klik vervolgens op **OK** uw wijzigingen op te slaan. 
+U kunt indexeren beleid van een verzameling met behulp van Azure-portal Hallo Hallo wijzigen. Open uw Azure DB die Cosmos-account in hello Azure-portal, selecteer uw verzameling in hello linkernavigatievenster menu klikt u op **instellingen**, en klik vervolgens op **indexeren beleid**. In Hallo **indexeren beleid** blade gewenste indexeringsbeleid wijzigen en klik vervolgens op **OK** toosave uw wijzigingen. 
 
 ### <a id="indexing-modes"></a>Database indexing-modi
-Azure Cosmos DB ondersteunt drie indexering modi die kunnen worden geconfigureerd via het indexeringsbeleid op een verzameling Azure Cosmos DB – consistente, Lazy en geen.
+Azure Cosmos DB ondersteunt drie indexering modi die kunnen worden geconfigureerd via Hallo-beleid op een verzameling Azure Cosmos DB – indexeren consistente, Lazy en geen.
 
-**Consistente**: als beleid voor een Azure DB die Cosmos-gegevensverzameling is aangewezen als 'consistent', de query's op een bepaalde verzameling van Azure DB die Cosmos hetzelfde consistentieniveau als opgegeven voor de punt-leesbewerkingen volgen (dat wil zeggen sterk, gebonden-verouderd, sessie of uiteindelijke). De index is synchroon als onderdeel van de update van het document (dat wil zeggen invoegen, vervangen, bijwerken en verwijderen van een document in een verzameling Azure Cosmos DB) bijgewerkt.  Consistente indexeren biedt ondersteuning voor consistente query's koste mogelijke vermindering in doorvoer van schrijfbewerkingen. Deze verlaging is een functie van de unieke paden die moeten worden geïndexeerd en het consistentieniveau' '. Consistente indexering modus is ontworpen voor werkbelastingen 'snel query schrijven onmiddellijk'.
+**Consistente**: als een Azure DB die Cosmos-verzameling beleid is aangewezen als 'consistent', Hallo-query's in een bepaald Azure Cosmos DB verzameling Volg dezelfde consistentieniveau zoals gespecificeerd voor punt-leesbewerkingen hello (dat wil zeggen sterk, gebonden-verouderd, Hallo sessie of uiteindelijke). Hallo-index wordt synchroon als onderdeel van Hallo document update (dat wil zeggen invoegen, vervangen, bijwerken en verwijderen van een document in een verzameling Azure Cosmos DB) bijgewerkt.  Consistente indexeren biedt ondersteuning voor consistente query's op Hallo kosten van mogelijke vermindering in doorvoer van schrijfbewerkingen. Deze verlaging is een functie van Hallo unieke paden die toobe geïndexeerd moeten en Hallo 'consistentieniveau'. Consistente indexering modus is ontworpen voor werkbelastingen 'snel query schrijven onmiddellijk'.
 
-**Vertraagde**: zodat maximale document opname doorvoer een verzameling Azure Cosmos DB kan worden geconfigureerd met de vertraagde consistentie; betekenis query's zijn uiteindelijk consistent is. De index is asynchroon bijgewerkt wanneer een verzameling Azure Cosmos DB quiescent dat wil zeggen de doorvoercapaciteit van de verzameling is niet volledig worden gebruikt is voor gebruikersaanvragen. 'Opnemen nu query later' werkbelastingen vereisen concurrerende document opname zijn 'vertraagde' indexering modus afgestemd.
+**Vertraagde**: tooallow maximale document opname doorvoer, een verzameling Azure Cosmos DB kan worden geconfigureerd met de vertraagde consistentie; betekenis query's zijn uiteindelijk consistent is. Hallo-index wordt asynchroon bijgewerkt wanneer een verzameling Azure Cosmos DB is quiescent dat wil zeggen de doorvoercapaciteit van Hallo verzameling is niet volledig gebruikte tooserve gebruikersaanvragen. 'Opnemen nu query later' werkbelastingen vereisen concurrerende document opname zijn 'vertraagde' indexering modus afgestemd.
 
 **Geen**: een verzameling die is gemarkeerd met Indexmodus van 'None' heeft geen index die is gekoppeld. Dit wordt vaak gebruikt als Azure Cosmos DB die wordt gebruikt als een sleutel / waarde-opslag en documenten zijn alleen toegankelijk met de ID-eigenschap. 
 
 > [!NOTE]
-> Configureren van het indexeringsbeleid met 'Geen' heeft een neveneffect van het verwijderen van een bestaande index. Gebruik deze optie als de toegangspatronen zijn alleen nodig 'id' en/of 'Self link-element'.
+> Configureren Hallo indexeren beleid met 'Geen' heeft hello neveneffect van het verwijderen van een bestaande index. Gebruik deze optie als de toegangspatronen zijn alleen nodig 'id' en/of 'Self link-element'.
 > 
 > 
 
-De volgende voorbeelden tonen hoe een Azure DB die Cosmos-verzameling met de .NET SDK met consistente automatische indexeren op alle document invoegingen maken.
+Hallo volgen voorbeelden tonen hoe maken een Azure DB die Cosmos-verzameling Hallo .NET SDK met consistente automatisch indexeren op alle document invoegingen.
 
-De volgende tabel ziet de consistentie voor query's op basis van de indexing-modus (consistente en Lazy) geconfigureerd voor de verzameling en de consistentieniveau opgegeven voor de queryaanvraag. Dit geldt voor query's die gemaakt met behulp van een interface - REST-API SDK's of vanuit opgeslagen procedures en triggers. 
+Hallo volgende tabel ziet u Hallo consistentie voor query's op basis van Hallo indexing-modus (consistente en Lazy) geconfigureerd voor Hallo verzameling en Hallo consistentieniveau opgegeven voor het Hallo-aanvraag. Dit geldt tooqueries gemaakt met behulp van een interface - REST-API SDK's of vanuit opgeslagen procedures en triggers. 
 
 |Consistentie|Indexeren van modus: Consistent|Indexeren van modus: vertraagde|
 |---|---|---|
@@ -88,9 +88,9 @@ De volgende tabel ziet de consistentie voor query's op basis van de indexing-mod
 |Sessie|Sessie|Mogelijk|
 |Mogelijk|Mogelijk|Mogelijk|
 
-Azure Cosmos DB foutmelding een voor query's die zijn aangebracht op verzamelingen geen modus te indexeren. Query's kunnen nog steeds worden uitgevoerd als scans via de expliciete `x-ms-documentdb-enable-scan` -header in de REST-API of de `EnableScanInQuery` aanvragen optie met de .NET SDK. Sommige query-functies zoals ORDER BY worden niet ondersteund als scans met `EnableScanInQuery`.
+Azure Cosmos DB foutmelding een voor query's die zijn aangebracht op verzamelingen geen modus te indexeren. Query's kunnen nog steeds worden uitgevoerd als scans via Hallo expliciete `x-ms-documentdb-enable-scan` header in Hallo REST-API of Hallo `EnableScanInQuery` aanvraag met behulp van optie Hallo .NET SDK. Sommige query-functies zoals ORDER BY worden niet ondersteund als scans met `EnableScanInQuery`.
 
-De volgende tabel ziet u de consistentie voor query's op basis van de indexing-modus (consistente, Lazy en geen) als EnableScanInQuery is opgegeven.
+Hallo volgende tabel ziet u Hallo consistentie voor query's op basis van Hallo indexering modus (consistente, Lazy en geen) als EnableScanInQuery is opgegeven.
 
 |Consistentie|Indexeren van modus: Consistent|Indexeren van modus: vertraagde|Indexeren van modus: geen|
 |---|---|---|---|
@@ -99,7 +99,7 @@ De volgende tabel ziet u de consistentie voor query's op basis van de indexing-m
 |Sessie|Sessie|Mogelijk|Sessie|
 |Mogelijk|Mogelijk|Mogelijk|Mogelijk|
 
-De volgende code voorbeeld tonen hoe een Azure DB die Cosmos-verzameling met de .NET SDK met consistente indexeren op alle document invoegingen maken.
+Hallo volgen voorbeelden laten zien hoe maken een Azure DB die Cosmos-verzameling Hallo .NET SDK met consistente indexeren op alle document invoegingen.
 
      // Default collection creates a hash index for all string fields and a range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
@@ -112,29 +112,29 @@ De volgende code voorbeeld tonen hoe een Azure DB die Cosmos-verzameling met de 
 
 
 ### <a name="index-paths"></a>Index paden
-Azure Cosmos DB modellen JSON-documenten en de index als structuren en kunt u af te stemmen op beleidsregels voor paden binnen de structuur. Binnen documenten, kunt u kiezen welke paden moeten worden opgenomen of uitgesloten van het indexeren. Dit kunt verbeterde schrijfprestaties en lagere opslagkosten voor index voor scenario's bieden de querypatronen vooraf bepaald.
+Azure Cosmos-DB modellen JSON-documenten en Hallo index als structuren en kunt u tootune toopolicies voor paden binnen Hallo-structuur. Binnen documenten, kunt u kiezen welke paden moeten worden opgenomen of uitgesloten van het indexeren. Dit kunt verbeterde schrijfprestaties en lagere opslagkosten voor index voor scenario's bieden Hallo querypatronen vooraf bepaald.
 
-Index paden beginnen met de hoofdmap (/) en meestal eindigen met het? jokertekens-operator, die aangeeft dat er meerdere mogelijke waarden voor het voorvoegsel zijn. Bijvoorbeeld, selecteer bedienen * van Families F waar F.familyName = 'Andersen', moet u een pad van de index voor /familyName/ opnemen? in de verzameling index beleid.
+Index paden beginnen met Hallo hoofdmap (/) en meestal eindigen op Hallo? jokertekens-operator, die aangeeft dat er meerdere mogelijke waarden voor Hallo voorvoegsel zijn. Bijvoorbeeld, selecteer tooserve * van Families F waar F.familyName = 'Andersen', moet u een pad van de index voor /familyName/ opnemen? in het beleid van de index van een verzameling Hallo.
 
-Index paden kunt ook de * jokerteken operator het gedrag voor recursief onder het voorvoegsel paden opgeven. Bijvoorbeeld: / nettolading / * kan worden gebruikt voor het uitsluiten van alles onder de eigenschap nettolading te indexeren.
+Index paden kunt Hallo * jokerteken operator toospecify Hallo gedrag voor paden recursief onder Hallo voorvoegsel. Bijvoorbeeld: / nettolading / * kan worden gebruikt tooexclude alles onder Hallo nettolading eigenschap van het indexeren.
 
-Hier volgen de algemene patronen voor index paden opgeven:
+Hier volgen algemene patronen Hallo voor index paden opgeven:
 
 | Pad                | Beschrijving/gebruiksvoorbeeld                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| /                   | Het standaardpad voor de verzameling. Recursieve en toegepast op het hele Documentstructuur.                                                                                                                                                                                                                                   |
-| / prop /?             | Index-pad voor het uitvoeren van query's als volgt (met hash- of -bereik van het type respectievelijk):<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop > 5<br><br>Selecteer in de c verzameling ORDER BY c.prop                                                                       |
-| / prop / *             | Pad van de index voor alle paden die onder het opgegeven label. Werkt met de volgende query 's<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop.subprop > 5<br><br>Selecteer uit verzameling c WHERE c.prop.subprop.nextprop = '' waarde ''<br><br>Selecteer in de c verzameling ORDER BY c.prop         |
-| Eigenschappen / [] /?         | Het pad van de index moeten dienst herhaling en JOIN-query's op matrices met scalaire waarden zoals ["a", "b", "c"]:<br><br>Selecteer label van de tag IN collection.props waar tag = '' waarde ''<br><br>Selecteer tag uit verzameling c JOIN-tag IN c.props waar tag > 5                                                                         |
-| /props/ [] /subprop/? | Pad van de index moet fungeren herhaling en JOIN-query's op matrices van objecten, zoals [{subprop: "a"}, {subprop: "b"}]:<br><br>Selecteer label van de tag IN collection.props waar tag.subprop '' waarde '' =<br><br>Selecteer labelen van verzameling c JOIN-tag IN c.props waar tag.subprop '' waarde '' =                                  |
-| / prop/subprop /?     | Index-pad voor het uitvoeren van query's (met hash- of -bereik van het type respectievelijk):<br><br>Selecteer uit verzameling c WHERE c.prop.subprop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop.subprop > 5                                                                                                                    |
+| /                   | Het standaardpad voor de verzameling. Recursieve en past de documentstructuur toowhole.                                                                                                                                                                                                                                   |
+| / prop /?             | Index pad vereist tooserve query's de volgende hello (met hash- of -bereik van het type respectievelijk):<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop > 5<br><br>Selecteer in de c verzameling ORDER BY c.prop                                                                       |
+| / prop / *             | Pad van de index voor alle paden die onder het opgegeven label Hallo. Werkt met query's volgen Hallo<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop.subprop > 5<br><br>Selecteer uit verzameling c WHERE c.prop.subprop.nextprop = '' waarde ''<br><br>Selecteer in de c verzameling ORDER BY c.prop         |
+| Eigenschappen / [] /?         | Index pad vereist tooserve iteratie en JOIN-query's op matrices met scalaire waarden zoals ["a", "b", "c"]:<br><br>Selecteer label van de tag IN collection.props waar tag = '' waarde ''<br><br>Selecteer tag uit verzameling c JOIN-tag IN c.props waar tag > 5                                                                         |
+| /props/ [] /subprop/? | Index pad vereist tooserve herhaling en JOIN-query's op matrices van objecten, zoals [{subprop: "a"}, {subprop: "b"}]:<br><br>Selecteer label van de tag IN collection.props waar tag.subprop '' waarde '' =<br><br>Selecteer labelen van verzameling c JOIN-tag IN c.props waar tag.subprop '' waarde '' =                                  |
+| / prop/subprop /?     | Index pad vereist tooserve query's (met hash- of -bereik van het type respectievelijk):<br><br>Selecteer uit verzameling c WHERE c.prop.subprop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
-> Tijdens het instellen van aangepaste index paden u zijn vereist om op te geven van de standaardregel voor indexering voor de hele documentstructuur aangeduid met de speciale pad ' / * '. 
+> Tijdens het instellen van aangepaste index paden, bent u vereiste toospecify Hallo indexering standaardregel voor Hallo hele documentstructuur aangegeven met Hallo speciale pad ' / * '. 
 > 
 > 
 
-Het volgende voorbeeld wordt geconfigureerd voor een specifiek pad met bereik indexeren en de precisiewaarde van een aangepaste van 20 bytes:
+Hallo volgende voorbeeld wordt een specifiek pad met bereik indexeren en de precisiewaarde van een aangepaste van 20 bytes:
 
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
@@ -159,19 +159,19 @@ Het volgende voorbeeld wordt geconfigureerd voor een specifiek pad met bereik in
 
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Gegevenstypen van de index, typen en Precision-systemen
-Nu dat we kijken hoe paden opgeven, bekijken we de opties die we gebruiken kunnen voor het configureren van het indexeringsbeleid voor een pad hebt genomen. U kunt een of meer indexering definities voor elke pad opgeven:
+Nu dat we kijken hoe hebt genomen toospecify paden, bekijken we op Hallo-opties gebruiken we Hallo tooconfigure indexeringsbeleid voor een pad. U kunt een of meer indexering definities voor elke pad opgeven:
 
 * Gegevenstype: **tekenreeks**, **getal**, **punt**, **veelhoek**, of **LineString** (kan slechts één vermelding per gegevenstype per pad bevatten)
 * Indexeren van type: **Hash** (gelijkheid query's), **bereik** (gelijkheid, bereik of Order By-query's) of **Spatial** (ruimtelijke query's) 
-* Precisie: Voor hash-index dit varieert van 1 tot en met 8 voor zowel tekenreeksen en getallen met standaard als 3. Voor bereikindex deze waarde 1 (maximale precisie) en verschillen tussen de 1-100 (maximale precisie) voor de tekenreeks of numerieke waarden.
+* Precisie: Voor hash-index dit verschilt van 1 too8 voor zowel tekenreeksen en getallen met standaard als 3. Voor bereikindex deze waarde 1 (maximale precisie) en verschillen tussen de 1-100 (maximale precisie) voor de tekenreeks of numerieke waarden.
 
 #### <a name="index-kind"></a>Index-type
 Azure Cosmos DB ondersteunt Hash en bereik index soorten voor elk pad (die kunnen worden geconfigureerd voor tekenreeksen, cijfers of beide).
 
-* **Hash** biedt ondersteuning voor efficiënte gelijkheid en JOIN-query's. Voor de meeste gevallen nodig hash-indexen niet een hogere precisie dan de standaardwaarde van 3 bytes. Gegevenstype is tekenreeks of het getal.
+* **Hash** biedt ondersteuning voor efficiënte gelijkheid en JOIN-query's. Voor de meeste gevallen nodig hash-indexen niet een hogere precisie dan de standaardwaarde Hallo van 3 bytes. Gegevenstype is tekenreeks of het getal.
 * **Bereik** ondersteunt gelijkheid efficiënt query's, bereik query's (met behulp van >, <>, =, < =,! =), en Order By-query's. Order By-query's standaard moeten echter ook maximumindex precision (-1). Gegevenstype is tekenreeks of het getal.
 
-Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad dat kan worden opgegeven voor de gegevenstypen punt, Polygon of LineString. De waarde in het opgegeven pad moet een geldige GeoJSON-fragment zoals `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+Azure Cosmos DB ondersteunt ook Hallo ruimtelijke index soort voor elk pad dat kan worden opgegeven voor Hallo punt, Polygon of LineString gegevenstypen. Hallo-waarde op Hallo opgegeven pad moet een geldige GeoJSON-fragment zoals `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 * **Ruimtelijke** ondersteunt efficiënt ruimtelijke (binnen en afstand) query's. Gegevenstype mag punt, Polygon of LineString.
 
@@ -180,43 +180,43 @@ Azure Cosmos DB ondersteunt ook het type van de ruimtelijke index voor elk pad d
 > 
 > 
 
-Hier worden de soorten ondersteunde index en voorbeelden van query's die ze kunnen worden gebruikt om aan te leveren:
+Hier volgen Hallo ondersteund index soorten en voorbeelden van query's dat ze gebruikte tooserve kunnen worden:
 
 | Index-type | Beschrijving/gebruiksvoorbeeld                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hash       | Hash-via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Hash via Eigenschappen / [] /? (of / of eigenschappen /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer labelen van verzameling c JOIN-tag IN c.props waar tag = 5                                                                                                                       |
-| bereik      | Bereik via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop > 5<br><br>Selecteer in de c verzameling ORDER BY c.prop                                                                                                                                                                                                              |
-| Ruimtelijk     | Bereik via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c<br><br>WAAR ST_DISTANCE (c.prop, {'type': 'Point', 'coördinaten': [0,0, 10.0]}) < 40<br><br>Selecteer uit verzameling c waar ST_WITHIN(c.prop, {"type": "Polygon",...})--met indexeren op punten ingeschakeld<br><br>Selecteer uit verzameling c waar ST_WITHIN({"type": "Point",...}, c.prop)--met indexeren op veelhoek ingeschakeld              |
+| Hash       | Hash-via/prop /? (of /) kan worden gebruikt tooserve Hallo de volgende query's efficiënt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Hash via Eigenschappen / [] /? (of / of eigenschappen /) kan worden gebruikt tooserve Hallo de volgende query's efficiënt:<br><br>Selecteer labelen van verzameling c JOIN-tag IN c.props waar tag = 5                                                                                                                       |
+| bereik      | Bereik via/prop /? (of /) kan worden gebruikt tooserve Hallo de volgende query's efficiënt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop > 5<br><br>Selecteer in de c verzameling ORDER BY c.prop                                                                                                                                                                                                              |
+| Ruimtelijk     | Bereik via/prop /? (of /) kan worden gebruikt tooserve Hallo de volgende query's efficiënt:<br><br>Selecteer uit verzameling c<br><br>WAAR ST_DISTANCE (c.prop, {'type': 'Point', 'coördinaten': [0,0, 10.0]}) < 40<br><br>Selecteer uit verzameling c waar ST_WITHIN(c.prop, {"type": "Polygon",...})--met indexeren op punten ingeschakeld<br><br>Selecteer uit verzameling c waar ST_WITHIN({"type": "Point",...}, c.prop)--met indexeren op veelhoek ingeschakeld              |
 
-Standaard wordt een fout geretourneerd voor query's met bereik operators zoals > = als er geen bereikindex (van eventuele precisie is) om aan te geven dat een scan mogelijk nodig voor het uitvoeren van de query. Bereik query's kunnen worden uitgevoerd zonder een bereikindex met behulp van de header x-ms-documentdb-enable-scan in de REST-API of de EnableScanInQuery aanvraagoptie met de .NET SDK. Als er geen andere filters in de query die Cosmos Azure DB die wordt de index kunt gebruiken om te filteren op basis van dan geen fout wordt geretourneerd.
+Standaard wordt een fout geretourneerd voor query's met bereik operators zoals > = als er geen bereikindex (van eventuele precisie is) in de volgorde toosignal een scan mogelijk nodig tooserve Hallo query. Bereik query's kunnen worden uitgevoerd zonder een bereikindex met behulp van Hallo x-ms-documentdb-enable-scan koptekst in Hallo REST-API of Hallo EnableScanInQuery aanvraagoptie Hallo .NET SDK gebruiken. Als er geen andere filters in Hallo-query's met Azure Cosmos DB Hallo index toofilter tegen kunt gebruiken, wordt er geen fout worden geretourneerd.
 
-Er gelden dezelfde regels voor ruimtelijke query's. Standaard wordt een fout geretourneerd voor ruimtelijke query's als er geen ruimtelijke index is en er zijn geen filters die kunnen worden weergegeven in de index. Ze kunnen worden uitgevoerd als een scan met behulp van de x-ms-documentdb-enable-scan/EnableScanInQuery.
+Hallo dezelfde regels voor ruimtelijke query's gelden. Standaard wordt een fout geretourneerd voor ruimtelijke query's als er geen ruimtelijke index is en er zijn geen filters die worden aangeboden via Hallo index. Ze kunnen worden uitgevoerd als een scan met behulp van de x-ms-documentdb-enable-scan/EnableScanInQuery.
 
 #### <a name="index-precision"></a>Index precisie
-Index precisie kunt u een afweging tussen index opslagoverhead en prestaties van query's. Voor getallen, wordt u aangeraden de standaardconfiguratie van de precisie van-1 ('maximum'). Aangezien getallen 8 bytes in JSON, is dit gelijk aan een configuratie van 8 bytes. Verzamelen van een lagere waarde voor de precisie, zoals 1-7, betekent dat binnen een bepaalde adresbereiken waarden aan de dezelfde indexvermelding toewijzen. U wordt daarom verlaagd index opslagruimte, maar queryuitvoering wellicht meer documenten worden verwerkt en als gevolg daarvan dat wil zeggen, verbruikt meer doorvoer aanvraageenheden.
+Index precisie kunt u een afweging tussen index opslagoverhead en prestaties van query's. Voor getallen, wordt u aangeraden Hallo standaardconfiguratie precisie van-1 ('maximum'). Aangezien getallen 8 bytes in JSON, wordt dit is de configuratie van de equivalente tooa van 8 bytes. Verzamelen van een lagere waarde voor de precisie, zoals 1-7, index betekent dat de waarden binnen enkele kaart bereiken toohello dezelfde vermelding. U wordt daarom verlaagd index opslagruimte, maar queryuitvoering zou kunnen hebben tooprocess meer documenten en als gevolg daarvan dat wil zeggen, verbruikt meer doorvoer aanvraageenheden.
 
-Index precisie configuratie heeft praktischer toepassing met de tekenreeks bereiken. Aangezien tekenreeksen elke willekeurige lengte zijn kunnen, kunt de keuze van de index precisie invloed op de prestaties van query's string-bereik en invloed van de hoeveelheid opslagruimte index vereist. Tekenreeks bereik indexen kunnen worden geconfigureerd met 1-100 of -1 ('maximum'). Als u uitvoeren van de Order By-query's op basis van eigenschappen van een verbindingsreeks wilt, moet u een precisie van -1 voor de bijbehorende paden opgeven.
+Index precisie configuratie heeft praktischer toepassing met de tekenreeks bereiken. Omdat tekenreeksen kunnen elke willekeurige lengte, kan Hallo keuze van Hallo index precisie invloed hebben op prestaties Hallo van tekenreeks bereik query's en gevolgen Hallo hoeveelheid index opslagruimte vereist. Tekenreeks bereik indexen kunnen worden geconfigureerd met 1-100 of -1 ('maximum'). Als u tooperform Order By-query's op basis van eigenschappen van een verbindingsreeks dat wilt, moet u een precisie van -1 voor de bijbehorende paden Hallo opgeven.
 
-Ruimtelijke indexen worden altijd de precisie van de index standaard gebruiken voor alle typen (punten multipoint en Veelhoek) en kunnen niet worden overschreven. 
+Ruimtelijke indexen worden altijd Hallo standaard index precisie te gebruiken voor alle typen (punten multipoint en Veelhoek) en kunnen niet worden overschreven. 
 
-Het volgende voorbeeld ziet hoe u verhoogt de precisie voor bereik indexen in een verzameling met de .NET SDK. 
+Hallo volgende voorbeeld ziet u hoe tooincrease Hallo precisie voor bereik worden geïndexeerd in een verzameling met Hallo .NET SDK. 
 
 **Een verzameling met een aangepaste index precisie maken**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
 
-    // Override the default policy for Strings to range indexing and "max" (-1) precision
+    // Override hello default policy for Strings toorange indexing and "max" (-1) precision
     rangeDefault.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [!NOTE]
-> Azure Cosmos DB, wordt er een fout geretourneerd als een query Order By gebruikt, maar geen bereikindex op basis van het pad van de query met de maximale precisie heeft. 
+> Azure Cosmos DB, wordt er een fout geretourneerd als een query maakt gebruik van Order By, maar geen een bereikindex tegen Hallo opgevraagde pad met Hallo maximumprecisie heeft. 
 > 
 > 
 
-Paden kunnen op dezelfde manier volledig uitgesloten van het indexeren. Het volgende voorbeeld ziet een hele sectie van de documenten (ook uitsluiten een substructuur) vanuit indexering met de ' * ' jokerteken.
+Paden kunnen op dezelfde manier volledig uitgesloten van het indexeren. Hallo volgende voorbeeld ziet u hoe tooexclude een hele sectie Hallo documenten (ook een substructuur) niet kan indexeren met behulp van Hallo ' * ' jokerteken.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -227,54 +227,54 @@ Paden kunnen op dezelfde manier volledig uitgesloten van het indexeren. Het volg
 
 
 ## <a name="opting-in-and-opting-out-of-indexing"></a>Inschrijving en buiten het indexeren uitschakelen
-U kunt kiezen of u wilt dat de verzameling automatisch alle documenten te indexeren. Standaard worden alle documenten automatisch worden geïndexeerd, maar u kunt kiezen uit te schakelen. Wanneer het indexeren is uitgeschakeld, documenten toegankelijk zijn alleen via hun Self link-elementen of door query's met-id.
+U kunt kiezen of u wilt dat de verzamelingsindex tooautomatically Hallo alle documenten. Standaard worden alle documenten automatisch geïndexeerd, maar u kunt tooturn uit. Wanneer het indexeren is uitgeschakeld, documenten toegankelijk zijn alleen via hun Self link-elementen of door query's met-id.
 
-Met automatische indexeren uitgeschakeld, kunt u nog steeds selectief alleen bepaalde documenten toevoegen aan de index. U kunt daarentegen laat automatische indexering op en selectief wilt uitsluiten van alleen specifieke documenten. Indexeren aan/uit-configuraties zijn nuttig wanneer u hebt alleen een subset van documenten die moeten worden opgevraagd.
+Met automatische indexeren uitgeschakeld, kunt u alleen bepaalde documenten toohello index nog steeds selectief toevoegen. Als u daarentegen, kunt u automatische indexering op laat en selectief alleen bepaalde documenten kiezen tooexclude. Indexeren aan/uit-configuraties zijn nuttig wanneer u slechts een subset van documenten die toobe opgevraagd nodig hebt.
 
-Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
+Bijvoorbeeld: sample Hallo volgende toont hoe tooinclude een document met expliciet Hallo [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) en Hallo [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
 
-    // If you want to override the default collection behavior to either
+    // If you want toooverride hello default collection behavior tooeither
     // exclude (or include) a Document from indexing,
-    // use the RequestOptions.IndexingDirective property.
+    // use hello RequestOptions.IndexingDirective property.
     client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## <a name="modifying-the-indexing-policy-of-a-collection"></a>Wijzigen van het indexeringsbeleid van een verzameling
-Azure Cosmos-database kunt u wijzigingen aanbrengen in het indexeringsbeleid van een verzameling op elk gewenst moment. Een wijziging in het beleid op een verzameling Azure Cosmos DB indexeren kan leiden tot een wijziging in de vorm van de index, waaronder die de paden kunnen worden geïndexeerd, de precisie, evenals het model van de consistentie van de index zelf. Effectief vereist een wijziging in indexeringsbeleid, dus een transformatie van de oude index in een nieuwe. 
+## <a name="modifying-hello-indexing-policy-of-a-collection"></a>Hallo indexeringsbeleid van een verzameling wijzigen
+Azure Cosmos DB, kunt u toomake wijzigingen toohello indexeringsbeleid van een verzameling op Hallo snel. Een wijziging in het beleid op een verzameling Azure Cosmos DB indexeren kan tooa wijziging in de vorm Hallo van Hallo index inclusief Hallo paden kunnen worden geïndexeerd, de precisie, evenals Hallo consistent model van Hallo index zelf leiden. Effectief vereist een wijziging in indexeringsbeleid, dus een transformatie van Hallo oude index in een nieuwe. 
 
 **Online-Index transformaties**
 
 ![Hoe indexeren werkt – Azure Cosmos DB online index transformaties](./media/indexing-policies/index-transformations.png)
 
-Index transformaties zijn aangebracht online, wat betekent dat de basis van de oude beleid geïndexeerde documenten efficiënt worden getransformeerd per het nieuwe beleid **zonder de beschikbaarheid schrijven of de ingerichte doorvoer** van de verzameling. De consistentie van lees- en schrijfbewerkingen die zijn gemaakt met behulp van de REST-API SDK's of vanuit de opgeslagen procedures en triggers niet beïnvloed tijdens index transformatie. Dit betekent dat er is geen verslechtering van de prestaties of om uw apps uit te schakelen wanneer u een indexeringsbeleid wijzigen.
+Index transformaties online, wat betekent dat Hallo documenten geïndexeerd per Hallo oude beleid efficiënt worden getransformeerd per Hallo nieuw beleid zijn aangebracht **zonder Hallo schrijven beschikbaarheid of ingerichte doorvoer Hallo** van Hallo-verzameling. consistentie van lezen Hallo en schrijfbewerkingen die zijn gemaakt met behulp van Hallo REST-API SDK's of uit binnen de opgeslagen procedures en triggers wordt niet negatief beïnvloed tijdens index transformatie. Dit betekent dat er geen verslechtering of uitvaltijd tooyour apps wanneer u een indexeringsbeleid wijzigen.
 
-Tijdens de tijd die index transformatie uitgevoerd is, zijn query's echter uiteindelijk consistent, ongeacht de indexering modus-configuratie (consistente of Lazy). Dit ook van toepassing op query's uit alle interfaces – REST-API SDK's, en vanuit opgeslagen procedures en triggers. Net als met Lazy indexeren, is index-transformatie asynchroon op de achtergrond uitgevoerd op de replica's met behulp van de beschikbare vrije bronnen voor een bepaalde replica. 
+Tijdens het Hallo-tijd die index transformatie uitgevoerd is, zijn query's echter uiteindelijk consistent ongeacht Hallo indexeren modus configuratie (consistente of Lazy). Dit ook van toepassing is tooqueries van alle interfaces – REST-API SDK's, en vanuit opgeslagen procedures en triggers. Net als met Lazy indexeren, is index-transformatie uitgevoerd asynchroon op Hallo achtergrond op Hallo replica's met Hallo spare bronnen beschikbaar voor een bepaalde replica. 
 
-Index transformaties worden ook gemaakt **in situ** (in plaats), dat wil zeggen Azure Cosmos DB niet twee kopieën van de index en de oude index uit door de nieuwe wisselen. Dit betekent dat er geen extra schijfruimte vereist of in uw verzamelingen gebruikt tijdens het uitvoeren van de index transformaties.
+Index transformaties worden ook gemaakt **in situ** (in plaats), dat wil zeggen Azure Cosmos DB bewaart geen twee exemplaren van het Hallo-index en wisselen Hallo oude index uit Hello nieuwe. Dit betekent dat er geen extra schijfruimte vereist of in uw verzamelingen gebruikt tijdens het uitvoeren van de index transformaties.
 
-Wanneer u indexeringsbeleid wijzigt, hoe de wijzigingen worden toegepast om te verplaatsen uit de oude index naar de nieuwe een zijn hoofdzakelijk afhankelijk van de indexering modus configuraties meer dus dan de andere waarden, zoals opgenomen/uitgesloten paden, index-typen en Precision-systemen. Als uw oude en nieuwe beleidsregels consistent indexeren, voert Azure Cosmos DB een transformatie online-index. U kunt een andere indexering beleidswijziging met consistente indexing-modus niet toepassen, terwijl de transformatie uitgevoerd wordt.
+Wanneer u indexeringsbeleid wijzigt, hoe Hallo wijzigingen zijn toegepast toomove van Hallo oude index toohello nieuwe een zijn hoofdzakelijk afhankelijk van Hallo configuraties meer indexeren zodat dan Hallo andere waarden, zoals paden opgenomen/uitgesloten, index-typen en Precision-systemen. Als uw oude en nieuwe beleidsregels consistent indexeren, voert Azure Cosmos DB een transformatie online-index. U kunt een andere indexering beleidswijziging met consistente indexing-modus niet toepassen terwijl Hallo transformatie uitgevoerd wordt.
 
-U kunt echter verplaatsen naar Lazy of None indexering modus tijdens een transformatie uitgevoerd wordt. 
+U kunt echter verplaatsen tooLazy of None indexering modus tijdens een transformatie uitgevoerd wordt. 
 
-* Wanneer u naar Lazy verplaatst, wordt de beleidswijziging index effectieve onmiddellijk en Azure Cosmos DB begint asynchroon opnieuw maken van de index. 
-* Wanneer u op geen verplaatst, is wordt de index weggehaald effectieve onmiddellijk. Op None verplaatsen is handig als u wilt annuleren van een onderhanden transformatie en begin met een ander beleid voor indexering. 
+* Wanneer u tooLazy verplaatst, Hallo index beleid wordt gewijzigd effectieve onmiddellijk en Azure Cosmos DB begint asynchroon Hallo index opnieuw te maken. 
+* Wanneer u tooNone verplaatst, wordt Hallo index weggehaald effectieve onmiddellijk. Het verplaatsen van tooNone is handig als u een onderhanden toocancel wilt transformatie en begin met een ander beleid voor indexering. 
 
-Als u de .NET SDK, kunt u ere van een indexering beleidswijziging met behulp van de nieuwe **ReplaceDocumentCollectionAsync** methode en bijhouden van de voortgang percentage van de index transformatie met behulp van de **IndexTransformationProgress** antwoord-eigenschap van een **ReadDocumentCollectionAsync** aanroepen. Andere SDK en de REST-API ondersteuning voor equivalente eigenschappen en methoden voor het maken van wijzigingen in het indexeren.
+Als u Hallo .NET SDK, kunt u ere van een indexering beleidswijziging met Hallo nieuwe **ReplaceDocumentCollectionAsync** methode en bijhouden Hallo percentage voortgang van Hallo index transformatie Hallo met  **IndexTransformationProgress** antwoord-eigenschap van een **ReadDocumentCollectionAsync** aanroepen. Andere SDK's en de REST-API Hallo ondersteuning voor equivalente eigenschappen en methoden voor het maken van wijzigingen in het indexeren.
 
-Hier volgt een codefragment die laat zien hoe het indexeringsbeleid een verzameling van consistente indexering modus naar Lazy wijzigen.
+Hier volgt een codefragment die laat zien hoe een verzameling toomodify beleid van consistente indexering modus tooLazy het indexeren.
 
-**Indexeringsbeleid van consistente naar vertraagde wijzigen**
+**Beleid indexeren van consistente tooLazy wijzigen**
 
-    // Switch to lazy indexing.
-    Console.WriteLine("Changing from Default to Lazy IndexingMode.");
+    // Switch toolazy indexing.
+    Console.WriteLine("Changing from Default tooLazy IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
 
-U kunt de voortgang van een index transformatie controleren door het aanroepen van ReadDocumentCollectionAsync, bijvoorbeeld zoals hieronder wordt weergegeven.
+U kunt Hallo voortgang van een index transformatie door aanroepen ReadDocumentCollectionAsync, bijvoorbeeld kunt controleren, zoals hieronder wordt weergegeven.
 
 **Voortgang van de Index transformatie volgen**
 
@@ -291,49 +291,49 @@ U kunt de voortgang van een index transformatie controleren door het aanroepen v
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
 
-U kunt de index voor een verzameling verwijderen door te verplaatsen naar de geen modus te indexeren. Dit wordt mogelijk een handig hulpmiddel operationele als u wilt een transformatie in voortgang annuleren en een nieuwe onmiddellijk starten.
+U kunt Hallo index voor een verzameling verwijderen door verplaatsen toohello geen modus te indexeren. Dit wordt mogelijk een handig hulpmiddel operationele als u toocancel een transformatie wordt uitgevoerd wilt en een nieuwe onmiddellijk starten.
 
-**Verwijderen van de index voor een verzameling**
+**Verwijderen van de index Hallo voor een verzameling**
 
-    // Switch to lazy indexing.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    // Switch toolazy indexing.
+    Console.WriteLine("Dropping index by changing tootoohello None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-Wanneer zou u indexering beleidswijzigingen aanbrengen in uw Azure DB die Cosmos-verzamelingen Hier volgen de meest voorkomende gebruiksvoorbeelden:
+Wanneer maakt u indexering beleidswijzigingen tooyour Azure Cosmos DB verzamelingen? Hallo hieronder vindt u de meest voorkomende gebruiksvoorbeelden Hallo:
 
-* Consistente resultaten tijdens normale werking, maar vallen terug naar de vertraagde indexeren tijdens bulkimport gegevens leveren
-* Bijvoorbeeld Start met nieuwe functies op uw huidige Azure DB die Cosmos-verzamelingen indexeren georuimtelijke uitvoeren van query's die het type van de ruimtelijke index vereisen of Order By, zoals / bereik-query's waarvoor de tekenreeks bereik index type string
-* Hand selecteert u de eigenschappen die moeten worden geïndexeerd en wijzig ze na verloop van tijd
-* Indexering precisie voor queryprestaties verbeteren of te verkleinen opslag verbruikt afstemmen
+* Consistente resultaten dienen tijdens normale werking, maar terugvallen toolazy tijdens bulkimport gegevens te indexeren
+* Start met het gebruik van nieuwe indexering functies op uw huidige Azure Cosmos DB verzamelingen, bijvoorbeeld zoals georuimtelijke uitvoeren van query's die nodig Hallo ruimtelijke index soort of Order By / bereik-query's waarvoor Hallo tekenreeks bereik index type string
+* Selecteer Hallo eigenschappen toobe geïndexeerd hand en wijzig ze na verloop van tijd
+* Indexering precisie tooimprove query-prestaties afstemmen of opslagruimte is verbruikt verminderen
 
 > [!NOTE]
-> Als u wilt wijzigen met behulp van ReplaceDocumentCollectionAsync indexeringsbeleid, moet u versie > = 1.3.0 van de .NET SDK
+> toomodify indexeren beleid via ReplaceDocumentCollectionAsync, moet u versie > = 1.3.0 Hallo .NET SDK
 > 
-> Voor de transformatie van de index te voltooien, moet u ervoor zorgen dat er voldoende vrije ruimte beschikbaar voor de verzameling is. Als de verzameling de opslaglimiet bereikt, wordt de index transformatie worden onderbroken. Transformatie van de index wordt automatisch voortgezet zodra opslagruimte beschikbaar is, bijvoorbeeld als u bepaalde documenten verwijdert.
+> Index transformatie toocomplete is, moet u ervoor zorgen dat er voldoende vrije ruimte beschikbaar op Hallo-verzameling is. Als Hallo verzameling de opslaglimiet bereikt, wordt Hallo index transformatie worden onderbroken. Transformatie van de index wordt automatisch voortgezet zodra opslagruimte beschikbaar is, bijvoorbeeld als u bepaalde documenten verwijdert.
 > 
 > 
 
 ## <a name="performance-tuning"></a>Prestaties afstemmen
-De DocumentDB APIs bieden informatie over de maatstaven voor prestaties zoals de index opslag gebruikt en de kosten van doorvoer (aanvraageenheden) voor elke bewerking. Deze informatie kan worden gebruikt om te vergelijken van verschillende beleidsregels voor indexering en voor prestaties afstemmen.
+Hallo DocumentDB APIs bevatten informatie over de maatstaven voor prestaties, zoals Hallo index opslag gebruikt en Hallo doorvoer (aanvraageenheden) kosten voor elke bewerking. Deze informatie mag gebruikte toocompare verschillende beleidsregels voor indexering en voor prestaties afstemmen.
 
-Controleer de opslaglimiet en informatie over het gebruik van een verzameling, uitvoeren van een HEAD- of GET-aanvraag op de verzamelingsbron en controleren van de x-ms-aanvraag-quota en -headers van de x-ms-aanvraag-gebruik. In de .NET SDK, de [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) en [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) eigenschappen in [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) deze bijbehorende waarden bevatten.
+toocheck hello opslaglimiet en het gebruik van een verzameling, uitvoeren van een HEAD- of GET-aanvraag op Hallo verzamelingsbron en inspecteren Hallo x-ms-aanvraag-quota en Hallo x-ms-aanvraag-gebruik headers. Hallo in Hallo .NET SDK, [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) en [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) eigenschappen in [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) deze bijbehorende waarden bevatten .
 
-     // Measure the document size usage (which includes the index size) against   
+     // Measure hello document size usage (which includes hello index size) against   
      // different policies.
      ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));  
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Voor het meten van de overhead van het indexeren op elke schrijfbewerking (maken, bijwerken of verwijderen) inspecteren van de header x-ms-aanvraag-kosten (of een vergelijkbare [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) eigenschap in [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) in de .NET SDK) voor het meten van het aantal aanvraageenheden verbruikt door deze bewerkingen.
+toomeasure hello overhead van het indexeren op elke schrijfbewerking (maken, bijwerken of verwijderen) inspecteren Hallo x-ms-aanvraag-kosten header (of gelijkwaardige Hallo [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) eigenschap in [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) in .NET SDK Hallo) toomeasure Hallo aantal aanvraageenheden verbruikt door deze bewerkingen.
 
-     // Measure the performance (request units) of writes.     
+     // Measure hello performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
      Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
 
-     // Measure the performance (request units) of queries.    
+     // Measure hello performance (request units) of queries.    
      IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"), queryString).AsDocumentQuery();
 
      double totalRequestCharge = 0;
@@ -346,20 +346,20 @@ Voor het meten van de overhead van het indexeren op elke schrijfbewerking (maken
 
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
-## <a name="changes-to-the-indexing-policy-specification"></a>Wijzigingen in de beleidsspecificatie voor indexering
-Een wijziging in het schema voor het indexeringsbeleid is op 7 juli 2015 met de REST API-versie 2015-06-03 geïntroduceerd. De bijbehorende klassen in de SDK-versies hebben nieuwe implementaties van overeen met het schema. 
+## <a name="changes-toohello-indexing-policy-specification"></a>Wijzigingen toohello indexeren beleidsspecificatie van het
+Een wijziging in het schema voor het indexeringsbeleid Hallo is op 7 juli 2015 met de REST API-versie 2015-06-03 geïntroduceerd. Hallo bijbehorende klassen in de SDK-versies Hallo nieuwe implementaties toomatch Hallo schema's zijn. 
 
-De volgende wijzigingen zijn geïmplementeerd in de JSON-specificatie:
+Hallo volgende wijzigingen zijn geïmplementeerd in Hallo JSON-specificatie:
 
 * Indexeren van beleid ondersteunt bereik indexen voor tekenreeksen
 * Elk pad kan meerdere definities voor index, één voor elk gegevenstype hebben
 * Indexeren van precisie ondersteunt 1-8 voor cijfers, 1-100 naar tekenreeksen en -1 (maximumprecisie)
-* Paden segmenten vereisen een dubbele aanhalingstekens als escapeteken voor elk pad niet. U kunt bijvoorbeeld een pad voor de titel/toevoegen? in plaats van / 'title' /?
-* Het hoofdpad 'alle paden' die kan worden weergegeven als / * (naast /)
+* Paden segmenten vereisen een dubbele aanhalingstekens tooescape niet elk pad. U kunt bijvoorbeeld een pad voor de titel/toevoegen? in plaats van / 'title' /?
+* hoofdpad Hallo 'alle paden' die kan worden weergegeven als / * (bovendien te /)
 
-Als u code die voorziet in verzamelingen met een aangepast indexeringsbeleid geschreven met versie 1.1.0 van de .NET SDK of ouder hebt, moet u uw toepassingscode voor het afhandelen van deze wijzigingen kunnen worden verplaatst naar SDK-versie 1.2.0 wijzigen. Als u geen code die u indexeringsbeleid configureert of van plan bent om met behulp van een oudere versie van de SDK, zijn geen wijzigingen vereist.
+Als u de code die voorziet in verzamelingen met een aangepast indexeringsbeleid geschreven met versie 1.1.0 van hebt Hallo .NET SDK of ouder, moet u toochange uw toepassing code toohandle deze wijzigingen in de volgorde toomove tooSDK versie 1.2.0. Als u geen code die u indexeringsbeleid configureert of toocontinue met behulp van een oudere versie van de SDK van plan bent, zijn geen wijzigingen vereist.
 
-Voor een praktische vergelijking volgt hier een voorbeeld van aangepast indexeringsbeleid geschreven met behulp van de REST-API-versie 2015-06-03, evenals de vorige versie 2015-04-08.
+Voor een praktische vergelijking is hier een voorbeeld aangepast indexeringsbeleid geschreven met behulp van Hallo REST API-versie 2015-06-03, evenals Hallo vorige versie 2015-04-08.
 
 **Vorige Indexeringsbeleid JSON**
 
@@ -409,7 +409,7 @@ Voor een praktische vergelijking volgt hier een voorbeeld van aangepast indexeri
     }
 
 ## <a name="next-steps"></a>Volgende stappen
-Volg de onderstaande koppelingen voor index beleid management voorbeelden en voor meer informatie over Azure Cosmos DB querytaal.
+Volg onderstaande Hallo koppelingen voor meer informatie over Azure Cosmos DB querytaal index beleid management voorbeelden en toolearn.
 
 1. [DocumentDB-API .NET indexbeheer-codevoorbeelden](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [DocumentDB API REST-verzameling bewerkingen](https://msdn.microsoft.com/library/azure/dn782195.aspx)

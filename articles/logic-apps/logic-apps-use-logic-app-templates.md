@@ -1,0 +1,72 @@
+---
+title: aaaCreate werkstromen van sjablonen - Azure Logic Apps | Microsoft Docs
+description: Aan de slag - werkstromen snel maken met behulp van Azure Logic App sjablonen tooconnect apps en gegevens te integreren.
+author: kevinlam1
+manager: anneta
+editor: 
+services: logic-apps
+documentationcenter: 
+ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: LADocs; klam
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 0127523662a12076772b52968f1e2f9cbad72a1b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="configure-a-workflow-using-a-pre-built-template-or-pattern-tooget-started-quickly"></a><span data-ttu-id="1eabc-103">Configureren van een werkstroom met behulp van een vooraf gemaakte sjabloon of het patroon tooget snel aan de slag</span><span class="sxs-lookup"><span data-stu-id="1eabc-103">Configure a workflow using a pre-built template or pattern tooget started quickly</span></span>
+
+## <a name="what-are-logic-app-templates"></a><span data-ttu-id="1eabc-104">Wat zijn logic app sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-104">What are logic app templates</span></span>
+<span data-ttu-id="1eabc-105">Een logische app-sjabloon is een vooraf gemaakte logische-app waarmee u kunt tooquickly aan de slag maken van uw eigen werkstroom.</span><span class="sxs-lookup"><span data-stu-id="1eabc-105">A logic app template is a pre-built logic app that you can use tooquickly get started creating your own workflow.</span></span> 
+
+<span data-ttu-id="1eabc-106">Deze sjablonen zijn een goede manier toodiscover verschillende patronen die kunnen worden gemaakt met behulp van logische apps.</span><span class="sxs-lookup"><span data-stu-id="1eabc-106">These templates are a good way toodiscover various patterns that can be built using logic apps.</span></span> <span data-ttu-id="1eabc-107">U kunt deze sjablonen als gebruiken-is of wijzig deze toofit uw scenario.</span><span class="sxs-lookup"><span data-stu-id="1eabc-107">You can either use these templates as-is or modify them toofit your scenario.</span></span>
+
+## <a name="overview-of-available-templates"></a><span data-ttu-id="1eabc-108">Overzicht van de beschikbare sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-108">Overview of available templates</span></span>
+<span data-ttu-id="1eabc-109">Er zijn veel beschikbare sjablonen die momenteel zijn gepubliceerd in Hallo logic app-platform.</span><span class="sxs-lookup"><span data-stu-id="1eabc-109">There are many available templates currently published in hello logic app platform.</span></span> <span data-ttu-id="1eabc-110">Sommige voorbeeld categorieën, evenals de Hallo type connectors gebruikt, worden hieronder vermeld.</span><span class="sxs-lookup"><span data-stu-id="1eabc-110">Some example categories, as well as hello type of connectors used in them, are listed below.</span></span>
+
+### <a name="enterprise-cloud-templates"></a><span data-ttu-id="1eabc-111">Enterprise cloud-sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-111">Enterprise cloud templates</span></span>
+<span data-ttu-id="1eabc-112">Sjablonen die zijn geïntegreerd Dynamics CRM, Salesforce vak, Azure-Blob en andere connectors voor de behoeften van uw onderneming cloud.</span><span class="sxs-lookup"><span data-stu-id="1eabc-112">Templates that integrate Dynamics CRM, Salesforce, Box, Azure Blob, and other connectors for your enterprise cloud needs.</span></span> <span data-ttu-id="1eabc-113">Enkele voorbeelden van wat u met deze doen kunt sjablonen ordenen van uw potentiële klanten en back-ups van uw zakelijke gegevens bevatten.</span><span class="sxs-lookup"><span data-stu-id="1eabc-113">Some examples of what can be done with these templates include organizing your leads and backing up your corporate file data.</span></span>
+
+### <a name="enterprise-integration-pack-templates"></a><span data-ttu-id="1eabc-114">Enterprise integration pack-sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-114">Enterprise integration pack templates</span></span>
+<span data-ttu-id="1eabc-115">Configuraties van VETER (valideren, uitpakken, transformeren, aanvullen, routeren) pijplijnen, ontvangen een X12 EDI via AS2-document, evenals het tooXML, transformeren als als X12 en AS2 bericht verwerkingstijd.</span><span class="sxs-lookup"><span data-stu-id="1eabc-115">Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it tooXML, as well as X12 and AS2 message handling.</span></span>
+
+### <a name="protocol-pattern-templates"></a><span data-ttu-id="1eabc-116">Patroon-protocol-sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-116">Protocol pattern templates</span></span>
+<span data-ttu-id="1eabc-117">Deze sjablonen bestaan van logische apps die protocol patronen, zoals aanvragen en antwoorden via HTTP, evenals integraties via de FTP- en SFTP bevatten.</span><span class="sxs-lookup"><span data-stu-id="1eabc-117">These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP.</span></span> <span data-ttu-id="1eabc-118">Gebruik deze die zijn of als basis voor het maken van complexere protocol patronen.</span><span class="sxs-lookup"><span data-stu-id="1eabc-118">Use these as they exist, or as a basis for creating more complex protocol patterns.</span></span>  
+
+### <a name="personal-productivity-templates"></a><span data-ttu-id="1eabc-119">Hun eigen sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-119">Personal productivity templates</span></span>
+<span data-ttu-id="1eabc-120">Patronen toohelp persoonlijke productiviteit verbeteren sjablonen bevatten die dagelijks herinneringen instellen, belangrijke werkitems omzetten in takenlijsten en langdurige taken omlaag tooa één gebruiker goedkeuringsstap automatiseren.</span><span class="sxs-lookup"><span data-stu-id="1eabc-120">Patterns toohelp improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down tooa single user approval step.</span></span>
+
+### <a name="consumer-cloud-templates"></a><span data-ttu-id="1eabc-121">Consumer cloud sjablonen</span><span class="sxs-lookup"><span data-stu-id="1eabc-121">Consumer cloud templates</span></span>
+<span data-ttu-id="1eabc-122">Eenvoudige sjablonen die zijn geïntegreerd met services voor sociale media zoals Twitter, vertraging en e-mailadres uiteindelijk geschikt ter versterking van sociale media initiatieven marketing.</span><span class="sxs-lookup"><span data-stu-id="1eabc-122">Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives.</span></span> <span data-ttu-id="1eabc-123">Hieronder vallen ook sjablonen zoals bewolkt kopiëren waarmee productiviteit verhogen door op te slaan tijd besteed op oudsher terugkerende taken.</span><span class="sxs-lookup"><span data-stu-id="1eabc-123">These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks.</span></span> 
+
+## <a name="how-toocreate-a-logic-app-using-a-template"></a><span data-ttu-id="1eabc-124">Hoe toocreate een logische app met een sjabloon</span><span class="sxs-lookup"><span data-stu-id="1eabc-124">How toocreate a logic app using a template</span></span>
+<span data-ttu-id="1eabc-125">tooget gestart met een logische app-sjabloon, gaat u in Hallo logic app-ontwerper.</span><span class="sxs-lookup"><span data-stu-id="1eabc-125">tooget started using a logic app template, go into hello logic app designer.</span></span> <span data-ttu-id="1eabc-126">Als u door het openen van een bestaande logische app Hallo designer invoert, wordt automatisch Hallo logische app geladen in de ontwerpfunctie weergave.</span><span class="sxs-lookup"><span data-stu-id="1eabc-126">If you're entering hello designer by opening an existing logic app, hello logic app automatically loads in your designer view.</span></span> <span data-ttu-id="1eabc-127">Als u een nieuwe logische app maakt, ziet u echter welkomstscherm hieronder.</span><span class="sxs-lookup"><span data-stu-id="1eabc-127">However, if you're creating a new logic app, you see hello screen below.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template7.png)  
+
+<span data-ttu-id="1eabc-128">In dit scherm kunt u toostart met een lege logische app of een vooraf gemaakte sjabloon kiezen.</span><span class="sxs-lookup"><span data-stu-id="1eabc-128">From this screen, you can either choose toostart with a blank logic app or a pre-built template.</span></span> <span data-ttu-id="1eabc-129">Als u een van de sjablonen Hallo selecteert, vindt u aanvullende informatie.</span><span class="sxs-lookup"><span data-stu-id="1eabc-129">If you select one of hello templates, you are provided with additional information.</span></span> <span data-ttu-id="1eabc-130">In dit voorbeeld gebruiken we Hallo *wanneer een nieuw bestand is gemaakt in Dropbox, kopieert u deze tooOneDrive* sjabloon.</span><span class="sxs-lookup"><span data-stu-id="1eabc-130">In this example, we use hello *When a new file is created in Dropbox, copy it tooOneDrive* template.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template2.png)  
+
+<span data-ttu-id="1eabc-131">Als u toouse Hallo sjabloon kiest, selecteert u alleen Hallo *deze sjabloon gebruiken* knop.</span><span class="sxs-lookup"><span data-stu-id="1eabc-131">If you choose toouse hello template, just select hello *use this template* button.</span></span> <span data-ttu-id="1eabc-132">Wordt u gevraagd toosign in tooyour-accounts op basis van welke connectors Hallo-sjabloon gebruikt.</span><span class="sxs-lookup"><span data-stu-id="1eabc-132">You'll be asked toosign in tooyour accounts based on which connectors hello template utilizes.</span></span> <span data-ttu-id="1eabc-133">Of, als u eerder een verbinding met deze connectors hebt ingesteld, kunt u doorgaan zoals hieronder wordt weergegeven.</span><span class="sxs-lookup"><span data-stu-id="1eabc-133">Or, if you've previously established a connection with these connectors, you can select continue as seen below.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template3.png)  
+
+<span data-ttu-id="1eabc-134">Na het Hallo-verbinding tot stand brengen en het selecteren van *gaan*, Hallo logische app in de designer-weergave wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="1eabc-134">After establishing hello connection and selecting *continue*, hello logic app opens in designer view.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template4.png)  
+
+<span data-ttu-id="1eabc-135">Hallo bovenstaande voorbeeld zoals Hallo geval met veel sjablonen kunnen aantal Hallo verplichte eigenschapsvelden worden ingevuld binnen Hallo connectors; Sommige mogelijk nog steeds vereisen echter een waarde te kunnen tooproperly Hallo logic app implementeren.</span><span class="sxs-lookup"><span data-stu-id="1eabc-135">In hello example above, as is hello case with many templates, some of hello mandatory property fields may be filled out within hello connectors; however, some might still require a value before being able tooproperly deploy hello logic app.</span></span> <span data-ttu-id="1eabc-136">Als u toodeploy probeert zonder in te voeren sommige Hallo ontbrekende velden, hebt u een melding met een foutbericht weergegeven.</span><span class="sxs-lookup"><span data-stu-id="1eabc-136">If you try toodeploy without entering some of hello missing fields, you'll be notified with an error message.</span></span>
+
+<span data-ttu-id="1eabc-137">Als u wenst dat tooreturn toohello sjabloon viewer, selecteert u Hallo *sjablonen* knop in de bovenste navigatiebalk Hallo.</span><span class="sxs-lookup"><span data-stu-id="1eabc-137">If you wish tooreturn toohello template viewer, select hello *Templates* button in hello top navigation bar.</span></span> <span data-ttu-id="1eabc-138">Door het overschakelen back toohello sjabloon viewer, verliest u eventuele niet-opgeslagen uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="1eabc-138">By switching back toohello template viewer, you lose any unsaved progress.</span></span> <span data-ttu-id="1eabc-139">Eerdere tooswitching weer in de sjabloon viewer ziet u een melding van deze waarschuwing.</span><span class="sxs-lookup"><span data-stu-id="1eabc-139">Prior tooswitching back into template viewer, you'll see a warning message notifying you of this.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template5.png)  
+
+## <a name="how-toodeploy-a-logic-app-created-from-a-template"></a><span data-ttu-id="1eabc-140">Hoe toodeploy een logische app gemaakt op basis van een sjabloon</span><span class="sxs-lookup"><span data-stu-id="1eabc-140">How toodeploy a logic app created from a template</span></span>
+<span data-ttu-id="1eabc-141">Zodra u hebt uw sjabloon geladen en de gewenste wijzigingen hebt aangebracht, selecteert u Hallo knop opslaan in de linkerbovenhoek Hallo.</span><span class="sxs-lookup"><span data-stu-id="1eabc-141">Once you have loaded your template and made any desired changes, select hello save button in hello upper left corner.</span></span> <span data-ttu-id="1eabc-142">Dit wordt opgeslagen en uw logische app publiceert.</span><span class="sxs-lookup"><span data-stu-id="1eabc-142">This saves and publishes your logic app.</span></span>  
+ ![](../../includes/media/app-service-logic-templates/template6.png)  
+
+<span data-ttu-id="1eabc-143">Als u wilt meer informatie over hoe tooadd meer naar een bestaande sjabloon voor logische app stappen, zoals of breng wijzigingen aan in het algemeen, leest u meer bij [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).</span><span class="sxs-lookup"><span data-stu-id="1eabc-143">If you would like more information on how tooadd more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).</span></span>
+

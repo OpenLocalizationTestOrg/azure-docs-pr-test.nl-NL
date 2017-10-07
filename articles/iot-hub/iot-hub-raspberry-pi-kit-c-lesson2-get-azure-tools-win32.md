@@ -1,6 +1,6 @@
 ---
-title: 'Connect Raspberry PI (C) naar Azure IoT - les 2: Azure-hulpprogramma''s (Windows) | Microsoft Docs'
-description: Python en de Azure-opdrachtregelinterface (Azure CLI) installeren op Windows 7 en hoger.
+title: 'Connect Raspberry PI (C) tooAzure IoT - les 2: Azure-hulpprogramma''s (Windows) | Microsoft Docs'
+description: Python en hello Azure-opdrachtregelinterface (Azure CLI) installeren op Windows 7 en hoger.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,60 +17,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: aa96000cb676c088a90f2b3d45c159913185a2e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1819d61fafbee6ac42a1bea5c16437cd8bf43af9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-azure-tools-windows-7-and-later"></a><span data-ttu-id="09f5f-104">Ophalen van de Azure-hulpprogramma's (Windows 7 en hoger)</span><span class="sxs-lookup"><span data-stu-id="09f5f-104">Get Azure tools (Windows 7 and later)</span></span>
+# <a name="get-azure-tools-windows-7-and-later"></a><span data-ttu-id="b0312-104">Ophalen van de Azure-hulpprogramma's (Windows 7 en hoger)</span><span class="sxs-lookup"><span data-stu-id="b0312-104">Get Azure tools (Windows 7 and later)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="09f5f-105">Windows 7 en hoger</span><span class="sxs-lookup"><span data-stu-id="09f5f-105">Windows 7 and later</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-> * [<span data-ttu-id="09f5f-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="09f5f-106">Ubuntu 16.04</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
-> * [<span data-ttu-id="09f5f-107">Mac OS 10.10</span><span class="sxs-lookup"><span data-stu-id="09f5f-107">macOS 10.10</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+> * [<span data-ttu-id="b0312-105">Windows 7 en hoger</span><span class="sxs-lookup"><span data-stu-id="b0312-105">Windows 7 and later</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+> * [<span data-ttu-id="b0312-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="b0312-106">Ubuntu 16.04</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+> * [<span data-ttu-id="b0312-107">Mac OS 10.10</span><span class="sxs-lookup"><span data-stu-id="b0312-107">macOS 10.10</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
 
-## <a name="what-you-will-do"></a><span data-ttu-id="09f5f-108">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="09f5f-108">What you will do</span></span>
-<span data-ttu-id="09f5f-109">Python en de Azure-opdrachtregelinterface (Azure CLI) installeren.</span><span class="sxs-lookup"><span data-stu-id="09f5f-109">Install Python and the Azure command-line interface (Azure CLI).</span></span> <span data-ttu-id="09f5f-110">Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="09f5f-110">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="b0312-108">Wat u doet</span><span class="sxs-lookup"><span data-stu-id="b0312-108">What you will do</span></span>
+<span data-ttu-id="b0312-109">Installeer Python en hello Azure-opdrachtregelinterface (Azure CLI).</span><span class="sxs-lookup"><span data-stu-id="b0312-109">Install Python and hello Azure command-line interface (Azure CLI).</span></span> <span data-ttu-id="b0312-110">Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="b0312-110">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="09f5f-111">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="09f5f-111">What you will learn</span></span>
-<span data-ttu-id="09f5f-112">In dit artikel leert u het:</span><span class="sxs-lookup"><span data-stu-id="09f5f-112">In this article, you will learn:</span></span>
-* <span data-ttu-id="09f5f-113">Klik hier voor meer informatie over het installeren van Python.</span><span class="sxs-lookup"><span data-stu-id="09f5f-113">How to install Python.</span></span>
-* <span data-ttu-id="09f5f-114">Klik hier voor meer informatie over het installeren van de Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="09f5f-114">How to install the Azure CLI.</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="b0312-111">Wat u leert</span><span class="sxs-lookup"><span data-stu-id="b0312-111">What you will learn</span></span>
+<span data-ttu-id="b0312-112">In dit artikel leert u het:</span><span class="sxs-lookup"><span data-stu-id="b0312-112">In this article, you will learn:</span></span>
+* <span data-ttu-id="b0312-113">Hoe tooinstall Python.</span><span class="sxs-lookup"><span data-stu-id="b0312-113">How tooinstall Python.</span></span>
+* <span data-ttu-id="b0312-114">Hoe tooinstall hello Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="b0312-114">How tooinstall hello Azure CLI.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="09f5f-115">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="09f5f-115">What you need</span></span>
-* <span data-ttu-id="09f5f-116">Een Windows-computer met een internetverbinding.</span><span class="sxs-lookup"><span data-stu-id="09f5f-116">A Windows computer with an Internet connection.</span></span>
-* <span data-ttu-id="09f5f-117">Een actief Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="09f5f-117">An active Azure subscription.</span></span> <span data-ttu-id="09f5f-118">Als u geen Azure-account hebt, maakt u een [gratis proefaccount voor Azure](http://azure.microsoft.com/pricing/free-trial/) over een paar minuten.</span><span class="sxs-lookup"><span data-stu-id="09f5f-118">If you don't have an Azure account, create a [free Azure trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="b0312-115">Wat u nodig hebt</span><span class="sxs-lookup"><span data-stu-id="b0312-115">What you need</span></span>
+* <span data-ttu-id="b0312-116">Een Windows-computer met een internetverbinding.</span><span class="sxs-lookup"><span data-stu-id="b0312-116">A Windows computer with an Internet connection.</span></span>
+* <span data-ttu-id="b0312-117">Een actief Azure-abonnement.</span><span class="sxs-lookup"><span data-stu-id="b0312-117">An active Azure subscription.</span></span> <span data-ttu-id="b0312-118">Als u geen Azure-account hebt, maakt u een [gratis proefaccount voor Azure](http://azure.microsoft.com/pricing/free-trial/) over een paar minuten.</span><span class="sxs-lookup"><span data-stu-id="b0312-118">If you don't have an Azure account, create a [free Azure trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.</span></span>
 
-## <a name="install-python"></a><span data-ttu-id="09f5f-119">Installeren van Python</span><span class="sxs-lookup"><span data-stu-id="09f5f-119">Install Python</span></span>
-<span data-ttu-id="09f5f-120">[Installeren van Python](https://www.python.org/downloads/) op uw Windows-computer.</span><span class="sxs-lookup"><span data-stu-id="09f5f-120">[Install Python](https://www.python.org/downloads/) on your Windows computer.</span></span> <span data-ttu-id="09f5f-121">U kunt Python 2.7 3.4 of 3.5 installeren.</span><span class="sxs-lookup"><span data-stu-id="09f5f-121">You can install Python 2.7, 3.4 or 3.5.</span></span> <span data-ttu-id="09f5f-122">Deze zelfstudie is gebaseerd op Python 2.7.</span><span class="sxs-lookup"><span data-stu-id="09f5f-122">This tutorial is based on Python 2.7.</span></span> <span data-ttu-id="09f5f-123">Als u Python al hebt geïnstalleerd, gaat u naar de volgende sectie en Azure CLI installeren.</span><span class="sxs-lookup"><span data-stu-id="09f5f-123">If you've already installed Python, go to the next section and install the Azure CLI.</span></span>
+## <a name="install-python"></a><span data-ttu-id="b0312-119">Installeren van Python</span><span class="sxs-lookup"><span data-stu-id="b0312-119">Install Python</span></span>
+<span data-ttu-id="b0312-120">[Installeren van Python](https://www.python.org/downloads/) op uw Windows-computer.</span><span class="sxs-lookup"><span data-stu-id="b0312-120">[Install Python](https://www.python.org/downloads/) on your Windows computer.</span></span> <span data-ttu-id="b0312-121">U kunt Python 2.7 3.4 of 3.5 installeren.</span><span class="sxs-lookup"><span data-stu-id="b0312-121">You can install Python 2.7, 3.4 or 3.5.</span></span> <span data-ttu-id="b0312-122">Deze zelfstudie is gebaseerd op Python 2.7.</span><span class="sxs-lookup"><span data-stu-id="b0312-122">This tutorial is based on Python 2.7.</span></span> <span data-ttu-id="b0312-123">Als u Python al hebt geïnstalleerd, gaat u de volgende sectie toohello en hello Azure CLI installeren.</span><span class="sxs-lookup"><span data-stu-id="b0312-123">If you've already installed Python, go toohello next section and install hello Azure CLI.</span></span>
 
-<span data-ttu-id="09f5f-124">Ook moet u het pad van de mappen waar python.exe en pip.exe zijn geïnstalleerd op het systeem toevoegen `PATH` omgevingsvariabele.</span><span class="sxs-lookup"><span data-stu-id="09f5f-124">You also need to add the path of the folders where python.exe and pip.exe are installed to the system `PATH` environment variable.</span></span> <span data-ttu-id="09f5f-125">Python.exe worden standaard geïnstalleerd `C:\Python27` en pip.exe is geïnstalleerd in `C:\Python27\Scripts`.</span><span class="sxs-lookup"><span data-stu-id="09f5f-125">By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.</span></span>
+<span data-ttu-id="b0312-124">U moet ook tooadd Hallo pad Hallo mappen waar systeem geïnstalleerde toohello python.exe en pip.exe zijn `PATH` omgevingsvariabele.</span><span class="sxs-lookup"><span data-stu-id="b0312-124">You also need tooadd hello path of hello folders where python.exe and pip.exe are installed toohello system `PATH` environment variable.</span></span> <span data-ttu-id="b0312-125">Python.exe worden standaard geïnstalleerd `C:\Python27` en pip.exe is geïnstalleerd in `C:\Python27\Scripts`.</span><span class="sxs-lookup"><span data-stu-id="b0312-125">By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.</span></span>
 
-## <a name="install-the-azure-cli"></a><span data-ttu-id="09f5f-126">Azure-CLI installeren</span><span class="sxs-lookup"><span data-stu-id="09f5f-126">Install the Azure CLI</span></span>
-<span data-ttu-id="09f5f-127">De Azure CLI biedt een meerdere platforms opdrachtregelprogramma ervaring voor Azure.</span><span class="sxs-lookup"><span data-stu-id="09f5f-127">The Azure CLI provides a multiplatform command-line experience for Azure.</span></span> <span data-ttu-id="09f5f-128">U werkt rechtstreeks vanaf de opdrachtregel inrichten en beheren van resources.</span><span class="sxs-lookup"><span data-stu-id="09f5f-128">You work directly from your command line to provision and manage resources.</span></span>
+## <a name="install-hello-azure-cli"></a><span data-ttu-id="b0312-126">Hello Azure CLI installeren</span><span class="sxs-lookup"><span data-stu-id="b0312-126">Install hello Azure CLI</span></span>
+<span data-ttu-id="b0312-127">Hello Azure CLI biedt een meerdere platforms opdrachtregelprogramma ervaring voor Azure.</span><span class="sxs-lookup"><span data-stu-id="b0312-127">hello Azure CLI provides a multiplatform command-line experience for Azure.</span></span> <span data-ttu-id="b0312-128">U werkt rechtstreeks vanuit uw tooprovision vanaf de opdrachtregel en beheren van resources.</span><span class="sxs-lookup"><span data-stu-id="b0312-128">You work directly from your command line tooprovision and manage resources.</span></span>
 
-<span data-ttu-id="09f5f-129">Volg deze stappen voor het installeren van de Azure CLI:</span><span class="sxs-lookup"><span data-stu-id="09f5f-129">To install the Azure CLI, follow these steps:</span></span>
+<span data-ttu-id="b0312-129">tooinstall hello Azure CLI, als volgt te werk:</span><span class="sxs-lookup"><span data-stu-id="b0312-129">tooinstall hello Azure CLI, follow these steps:</span></span>
 
-1. <span data-ttu-id="09f5f-130">Open een opdrachtpromptvenster als administrator.</span><span class="sxs-lookup"><span data-stu-id="09f5f-130">Open a Command Prompt window as an administrator.</span></span>
-2. <span data-ttu-id="09f5f-131">Voer de volgende opdrachten uit:</span><span class="sxs-lookup"><span data-stu-id="09f5f-131">Run the following commands:</span></span>
+1. <span data-ttu-id="b0312-130">Open een opdrachtpromptvenster als administrator.</span><span class="sxs-lookup"><span data-stu-id="b0312-130">Open a Command Prompt window as an administrator.</span></span>
+2. <span data-ttu-id="b0312-131">Voer Hallo volgende opdrachten:</span><span class="sxs-lookup"><span data-stu-id="b0312-131">Run hello following commands:</span></span>
 
    ```bash
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
-3. <span data-ttu-id="09f5f-132">De installatie controleren door de volgende opdracht uit te voeren:</span><span class="sxs-lookup"><span data-stu-id="09f5f-132">Verify the installation by running the following command:</span></span>
+3. <span data-ttu-id="b0312-132">Hallo installatie controleren door het uitvoeren van de volgende opdracht Hallo:</span><span class="sxs-lookup"><span data-stu-id="b0312-132">Verify hello installation by running hello following command:</span></span>
 
    ```bash
    az iot -h
    ```
 
-<span data-ttu-id="09f5f-133">U ziet de volgende uitvoer als de installatie geslaagd is.</span><span class="sxs-lookup"><span data-stu-id="09f5f-133">You see the following output if the installation is successful.</span></span>
+<span data-ttu-id="b0312-133">Ziet u de volgende Hallo uitvoer als Hallo-installatie geslaagd is.</span><span class="sxs-lookup"><span data-stu-id="b0312-133">You see hello following output if hello installation is successful.</span></span>
 
 ![Uitvoer die slagen aangeeft](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_win.png)
 
-## <a name="summary"></a><span data-ttu-id="09f5f-135">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="09f5f-135">Summary</span></span>
-<span data-ttu-id="09f5f-136">U kunt de Azure CLI hebt geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="09f5f-136">You've installed the Azure CLI.</span></span> <span data-ttu-id="09f5f-137">Uw volgende taak voor het maken van uw Azure IoT hub- en apparaatidentiteiten met behulp van de Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="09f5f-137">Your next task to create your Azure IoT hub and device identity by using the Azure CLI.</span></span>
+## <a name="summary"></a><span data-ttu-id="b0312-135">Samenvatting</span><span class="sxs-lookup"><span data-stu-id="b0312-135">Summary</span></span>
+<span data-ttu-id="b0312-136">U kunt hello Azure CLI hebt geïnstalleerd.</span><span class="sxs-lookup"><span data-stu-id="b0312-136">You've installed hello Azure CLI.</span></span> <span data-ttu-id="b0312-137">Uw volgende taak toocreate uw Azure IoT hub- en apparaatidentiteiten met behulp van hello Azure CLI.</span><span class="sxs-lookup"><span data-stu-id="b0312-137">Your next task toocreate your Azure IoT hub and device identity by using hello Azure CLI.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="09f5f-138">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="09f5f-138">Next steps</span></span>
-[<span data-ttu-id="09f5f-139">Het maken van uw IoT-hub en frambozen Pi 3 registreren</span><span class="sxs-lookup"><span data-stu-id="09f5f-139">Create your IoT hub and register Raspberry Pi 3</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+## <a name="next-steps"></a><span data-ttu-id="b0312-138">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b0312-138">Next steps</span></span>
+[<span data-ttu-id="b0312-139">Het maken van uw IoT-hub en frambozen Pi 3 registreren</span><span class="sxs-lookup"><span data-stu-id="b0312-139">Create your IoT hub and register Raspberry Pi 3</span></span>](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
 

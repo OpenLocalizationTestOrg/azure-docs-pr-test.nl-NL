@@ -1,6 +1,6 @@
 ---
-title: Azure Service-eindpunten
-description: Beschrijft de instellingen van Azure Service-eindpunt in de Azure-werkset voor Eclipse.
+title: aaaAzure Service-eindpunten
+description: Beschrijft hello Azure Service-eindpunt instellingen in hello Azure Toolkit voor Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,57 +14,57 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 6059c292c2687f1bf3d9be04c03aaaaf6adde945
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 357aa56409a894719077f2c8f302575c8ebb6883
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-service-endpoints"></a><span data-ttu-id="2b440-103">Azure Service-eindpunten</span><span class="sxs-lookup"><span data-stu-id="2b440-103">Azure Service Endpoints</span></span>
-<span data-ttu-id="2b440-104">Azure service-eindpunten die bepalen dat of uw toepassing is geïmplementeerd en beheerd door de globale Azure-platform, door Azure worden beheerd door 21Vianet in China, of een persoonlijk die door Azure-platform.</span><span class="sxs-lookup"><span data-stu-id="2b440-104">Azure service endpoints determine whether your application is deployed to and managed by the global Azure platform, Azure operated by 21Vianet in China, or a private Azure platform.</span></span> <span data-ttu-id="2b440-105">De **Service-eindpunten** dialoogvenster kunt u opgeven welke service-eindpunten die u wilt gebruiken.</span><span class="sxs-lookup"><span data-stu-id="2b440-105">The **Service Endpoints** dialog allows you to specify which service endpoints you want to use.</span></span> <span data-ttu-id="2b440-106">Openen van de **Service-eindpunten** dialoogvenster in Eclipse, klikt u op **venster**, klikt u op **voorkeuren**, vouw **Azure**, en klik vervolgens op  **Service-eindpunten**.</span><span class="sxs-lookup"><span data-stu-id="2b440-106">To open the **Service Endpoints** dialog, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Service Endpoints**.</span></span> <span data-ttu-id="2b440-107">Instellen van de **Active ingesteld** veld bepaalt welke Azure-service-eindpunten wordt gebruikt voor de Azure-projecten in uw huidige werkruimte.</span><span class="sxs-lookup"><span data-stu-id="2b440-107">Setting the **Active Set** field determines which Azure service endpoints will be used for the Azure projects in your current workspace.</span></span>
+# <a name="azure-service-endpoints"></a><span data-ttu-id="60bd0-103">Azure Service-eindpunten</span><span class="sxs-lookup"><span data-stu-id="60bd0-103">Azure Service Endpoints</span></span>
+<span data-ttu-id="60bd0-104">Azure service-eindpunten die bepalen dat of uw toepassing geïmplementeerd tooand beheerd door Hallo globale Azure-platform wordt, door Azure worden beheerd door 21Vianet in China, of een persoonlijk die door Azure-platform.</span><span class="sxs-lookup"><span data-stu-id="60bd0-104">Azure service endpoints determine whether your application is deployed tooand managed by hello global Azure platform, Azure operated by 21Vianet in China, or a private Azure platform.</span></span> <span data-ttu-id="60bd0-105">Hallo **Service-eindpunten** dialoogvenster kunt u toospecify die service-eindpunten die u wilt dat toouse.</span><span class="sxs-lookup"><span data-stu-id="60bd0-105">hello **Service Endpoints** dialog allows you toospecify which service endpoints you want toouse.</span></span> <span data-ttu-id="60bd0-106">Hallo tooopen **Service-eindpunten** dialoogvenster in Eclipse, klikt u op **venster**, klikt u op **voorkeuren**, vouw **Azure**, en klik vervolgens op **Service-eindpunten**.</span><span class="sxs-lookup"><span data-stu-id="60bd0-106">tooopen hello **Service Endpoints** dialog, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Service Endpoints**.</span></span> <span data-ttu-id="60bd0-107">Instelling Hallo **Active ingesteld** veld bepaalt welke Azure-service eindpunten wordt gebruikt voor hello Azure projecten in uw huidige werkruimte.</span><span class="sxs-lookup"><span data-stu-id="60bd0-107">Setting hello **Active Set** field determines which Azure service endpoints will be used for hello Azure projects in your current workspace.</span></span>
 
-<span data-ttu-id="2b440-108">Het volgende bevat de **Service-eindpunten** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="2b440-108">The following shows the **Service Endpoints** dialog.</span></span>
+<span data-ttu-id="60bd0-108">Hallo hieronder vindt u Hallo **Service-eindpunten** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="60bd0-108">hello following shows hello **Service Endpoints** dialog.</span></span>
 
 ![][ic719493]
 
-## <a name="to-set-the-service-endpoints"></a><span data-ttu-id="2b440-109">Instellen van de service-eindpunten</span><span class="sxs-lookup"><span data-stu-id="2b440-109">To set the service endpoints</span></span>
-<span data-ttu-id="2b440-110">In de **Service-eindpunten** dialoogvenster, voer een van de volgende acties:</span><span class="sxs-lookup"><span data-stu-id="2b440-110">In the **Service Endpoints** dialog, take one of the following actions:</span></span>
+## <a name="tooset-hello-service-endpoints"></a><span data-ttu-id="60bd0-109">tooset hello service-eindpunten</span><span class="sxs-lookup"><span data-stu-id="60bd0-109">tooset hello service endpoints</span></span>
+<span data-ttu-id="60bd0-110">In Hallo **Service-eindpunten** dialoogvenster, nemen Hallo van de volgende activiteiten:</span><span class="sxs-lookup"><span data-stu-id="60bd0-110">In hello **Service Endpoints** dialog, take one of hello following actions:</span></span>
 
-* <span data-ttu-id="2b440-111">Als u gebruiken van de globale Azure-platform wilt, van de **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.com** en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="2b440-111">If you want to use the global Azure platform, from the **Active Set** dropdown list, select **windowsazure.com** and click **OK**.</span></span>
+* <span data-ttu-id="60bd0-111">Als u wilt dat toouse Hallo globale Azure-platform, van Hallo **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.com** en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="60bd0-111">If you want toouse hello global Azure platform, from hello **Active Set** dropdown list, select **windowsazure.com** and click **OK**.</span></span>
 
-* <span data-ttu-id="2b440-112">Als u gebruiken van Azure die worden beheerd door 21Vianet in China wilt, uit de **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.cn (China)** en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="2b440-112">If you want to use Azure operated by 21Vianet in China, from the **Active Set** dropdown list, select **windowsazure.cn (China)** and click **OK**.</span></span>
+* <span data-ttu-id="60bd0-112">Als u wilt dat Azure beheerd door 21Vianet in China, van Hallo toouse **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.cn (China)** en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="60bd0-112">If you want toouse Azure operated by 21Vianet in China, from hello **Active Set** dropdown list, select **windowsazure.cn (China)** and click **OK**.</span></span>
 
-* <span data-ttu-id="2b440-113">Als u gebruiken een persoonlijke Azure-platform wilt:</span><span class="sxs-lookup"><span data-stu-id="2b440-113">If you want to use a private Azure platform:</span></span>
+* <span data-ttu-id="60bd0-113">Als u wilt dat toouse persoonlijke Azure-platform:</span><span class="sxs-lookup"><span data-stu-id="60bd0-113">If you want toouse a private Azure platform:</span></span>
 
-  1. <span data-ttu-id="2b440-114">Klik op **Bewerken**.</span><span class="sxs-lookup"><span data-stu-id="2b440-114">Click **Edit**.</span></span>
+  1. <span data-ttu-id="60bd0-114">Klik op **Bewerken**.</span><span class="sxs-lookup"><span data-stu-id="60bd0-114">Click **Edit**.</span></span>
 
-  2. <span data-ttu-id="2b440-115">Een dialoogvenster wordt geopend, waarin wordt gemeld dat de **Service-eindpunten** dialoogvenster wordt gesloten en de voorkeur sets-bestand wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="2b440-115">A dialog box opens, informing you that the **Service Endpoints** dialog will be closed, and the preference sets file will be opened.</span></span> <span data-ttu-id="2b440-116">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="2b440-116">Click **OK**.</span></span>
+  2. <span data-ttu-id="60bd0-115">Een dialoogvenster wordt geopend, waarin wordt gemeld dat Hallo **Service-eindpunten** dialoogvenster wordt gesloten en Hallo voorkeur sets bestand wordt geopend.</span><span class="sxs-lookup"><span data-stu-id="60bd0-115">A dialog box opens, informing you that hello **Service Endpoints** dialog will be closed, and hello preference sets file will be opened.</span></span> <span data-ttu-id="60bd0-116">Klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="60bd0-116">Click **OK**.</span></span>
 
-  3. <span data-ttu-id="2b440-117">Maak een nieuwe in het bestand preferencesets.xml `preferenceset` element.</span><span class="sxs-lookup"><span data-stu-id="2b440-117">In the preferencesets.xml file, create a new `preferenceset` element.</span></span> <span data-ttu-id="2b440-118">Voor deze nieuwe element maken `name`, `blob`, `management`, `portalURL` en `publishsettings` kenmerken en waarden toevoegen voor hen die overeenkomen met uw persoonlijke Azure-platform.</span><span class="sxs-lookup"><span data-stu-id="2b440-118">For this new element, create `name`, `blob`, `management`, `portalURL` and `publishsettings` attributes, and add values for them that correspond to your private Azure platform.</span></span> <span data-ttu-id="2b440-119">U kunt de waarden voor de bestaande `preferenceset` elementen als sjabloon.</span><span class="sxs-lookup"><span data-stu-id="2b440-119">You can use the values provided for the existing `preferenceset` elements as templates.</span></span> <span data-ttu-id="2b440-120">**Opmerking**: de waarde voor de `blob` kenmerk moet de tekst 'blob' in de URL bevatten.</span><span class="sxs-lookup"><span data-stu-id="2b440-120">**Note**: The value used for the `blob` attribute must contain the text "blob" in the URL.</span></span>
+  3. <span data-ttu-id="60bd0-117">Hallo preferencesets.xml bestand, maak een nieuwe `preferenceset` element.</span><span class="sxs-lookup"><span data-stu-id="60bd0-117">In hello preferencesets.xml file, create a new `preferenceset` element.</span></span> <span data-ttu-id="60bd0-118">Voor deze nieuwe element maken `name`, `blob`, `management`, `portalURL` en `publishsettings` kenmerken en waarden toevoegen voor hen die overeenkomen met tooyour persoonlijke Azure-platform.</span><span class="sxs-lookup"><span data-stu-id="60bd0-118">For this new element, create `name`, `blob`, `management`, `portalURL` and `publishsettings` attributes, and add values for them that correspond tooyour private Azure platform.</span></span> <span data-ttu-id="60bd0-119">U kunt Hallo waarden opgegeven voor bestaande hello gebruiken `preferenceset` elementen als sjabloon.</span><span class="sxs-lookup"><span data-stu-id="60bd0-119">You can use hello values provided for hello existing `preferenceset` elements as templates.</span></span> <span data-ttu-id="60bd0-120">**Opmerking**: waarde gebruikt voor Hallo Hallo `blob` kenmerk Hallo tekst 'blob' hello URL moet bevatten.</span><span class="sxs-lookup"><span data-stu-id="60bd0-120">**Note**: hello value used for hello `blob` attribute must contain hello text "blob" in hello URL.</span></span>
 
-  4. <span data-ttu-id="2b440-121">Opslaan en sluiten preferencesets.xml.</span><span class="sxs-lookup"><span data-stu-id="2b440-121">Save and close preferencesets.xml.</span></span>
+  4. <span data-ttu-id="60bd0-121">Opslaan en sluiten preferencesets.xml.</span><span class="sxs-lookup"><span data-stu-id="60bd0-121">Save and close preferencesets.xml.</span></span>
 
-  5. <span data-ttu-id="2b440-122">Open de **Service-eindpunten** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="2b440-122">Reopen the **Service Endpoints** dialog.</span></span>
+  5. <span data-ttu-id="60bd0-122">Open Hallo **Service-eindpunten** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="60bd0-122">Reopen hello **Service Endpoints** dialog.</span></span>
 
-  6. <span data-ttu-id="2b440-123">Van de **Active ingesteld** vervolgkeuzelijst, selecteer de actieve instellen die u gemaakt en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="2b440-123">From the **Active Set** dropdown list, select the active set that you created and click **OK**.</span></span>
+  6. <span data-ttu-id="60bd0-123">Van Hallo **Active ingesteld** vervolgkeuzelijst, selecteer Hallo active instellen die u gemaakt en klik op **OK**.</span><span class="sxs-lookup"><span data-stu-id="60bd0-123">From hello **Active Set** dropdown list, select hello active set that you created and click **OK**.</span></span>
 
-  7. <span data-ttu-id="2b440-124">Als u uw persoonlijke Azure-platform hebt gemaakt `preferenceset` element, kunt u de waarden die zijn toegewezen door te klikken op de **bewerken** knop in de **Services-eindpunt** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="2b440-124">Once you've created your private Azure platform `preferenceset` element, you can change the values assigned to it by clicking the **Edit** button in the **Services Endpoint** dialog.</span></span> <span data-ttu-id="2b440-125">U kunt ook meerdere persoonlijke Azure-platform maken `preferenceset` elementen, als u wenst.</span><span class="sxs-lookup"><span data-stu-id="2b440-125">You can also create multiple private Azure platform `preferenceset` elements, if you desire.</span></span>
+  7. <span data-ttu-id="60bd0-124">Als u uw persoonlijke Azure-platform hebt gemaakt `preferenceset` element, kunt u Hallo waarden toegewezen tooit wijzigen door te klikken op Hallo **bewerken** knop in Hallo **Services-eindpunt** dialoogvenster.</span><span class="sxs-lookup"><span data-stu-id="60bd0-124">Once you've created your private Azure platform `preferenceset` element, you can change hello values assigned tooit by clicking hello **Edit** button in hello **Services Endpoint** dialog.</span></span> <span data-ttu-id="60bd0-125">U kunt ook meerdere persoonlijke Azure-platform maken `preferenceset` elementen, als u wenst.</span><span class="sxs-lookup"><span data-stu-id="60bd0-125">You can also create multiple private Azure platform `preferenceset` elements, if you desire.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="2b440-126">Zie ook</span><span class="sxs-lookup"><span data-stu-id="2b440-126">See Also</span></span>
-<span data-ttu-id="2b440-127">[Azure Toolkit voor Eclipse][Azure Toolkit for Eclipse]</span><span class="sxs-lookup"><span data-stu-id="2b440-127">[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]</span></span>
+## <a name="see-also"></a><span data-ttu-id="60bd0-126">Zie ook</span><span class="sxs-lookup"><span data-stu-id="60bd0-126">See Also</span></span>
+<span data-ttu-id="60bd0-127">[Azure Toolkit voor Eclipse][Azure Toolkit for Eclipse]</span><span class="sxs-lookup"><span data-stu-id="60bd0-127">[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]</span></span>
 
-<span data-ttu-id="2b440-128">[De installatie van de Azure Toolkit voor Eclipse][Installing the Azure Toolkit for Eclipse]</span><span class="sxs-lookup"><span data-stu-id="2b440-128">[Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse]</span></span> 
+<span data-ttu-id="60bd0-128">[Hello Azure Toolkit voor Eclipse installeren][Installing hello Azure Toolkit for Eclipse]</span><span class="sxs-lookup"><span data-stu-id="60bd0-128">[Installing hello Azure Toolkit for Eclipse][Installing hello Azure Toolkit for Eclipse]</span></span> 
 
-<span data-ttu-id="2b440-129">[Maken van een Hallo wereld-toepassing voor Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]</span><span class="sxs-lookup"><span data-stu-id="2b440-129">[Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]</span></span>
+<span data-ttu-id="60bd0-129">[Maken van een Hallo wereld-toepassing voor Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]</span><span class="sxs-lookup"><span data-stu-id="60bd0-129">[Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]</span></span>
 
-<span data-ttu-id="2b440-130">Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Developer Center][Azure Java Developer Center].</span><span class="sxs-lookup"><span data-stu-id="2b440-130">For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].</span></span>
+<span data-ttu-id="60bd0-130">Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center][Azure Java Developer Center].</span><span class="sxs-lookup"><span data-stu-id="60bd0-130">For more information about using Azure with Java, see hello [Azure Java Developer Center][Azure Java Developer Center].</span></span>
 
 <!-- URL List -->
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

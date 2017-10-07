@@ -1,6 +1,6 @@
 ---
-title: Lees NSG stroom-Logboeken | Microsoft Docs
-description: In dit artikel ziet u hoe NSG stroom logboeken parseren
+title: aaaRead NSG stromen Logboeken | Microsoft Docs
+description: Dit artikel laat zien hoe tooparse NSG stroom registreert
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,69 +13,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 9bb48157b2b8e483e063058f761c3a8f531927f9
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b4f0f64639c7b2a6b4db50e54d15056bfd809e48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="read-nsg-flow-logs"></a><span data-ttu-id="71715-103">NSG lezen stroom Logboeken</span><span class="sxs-lookup"><span data-stu-id="71715-103">Read NSG flow logs</span></span>
+# <a name="read-nsg-flow-logs"></a><span data-ttu-id="40077-103">NSG lezen stroom Logboeken</span><span class="sxs-lookup"><span data-stu-id="40077-103">Read NSG flow logs</span></span>
 
-<span data-ttu-id="71715-104">Informatie over het NSG stroom logboeken vermeldingen met PowerShell lezen.</span><span class="sxs-lookup"><span data-stu-id="71715-104">Learn how to read NSG flow logs entries with PowerShell.</span></span>
+<span data-ttu-id="40077-104">Meer informatie over hoe tooread NSG stroom vermeldingen registreert met PowerShell.</span><span class="sxs-lookup"><span data-stu-id="40077-104">Learn how tooread NSG flow logs entries with PowerShell.</span></span>
 
-<span data-ttu-id="71715-105">NSG stroom logboeken worden opgeslagen in een opslagaccount in [blok-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span><span class="sxs-lookup"><span data-stu-id="71715-105">NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span></span> <span data-ttu-id="71715-106">Blok-blobs bestaan uit kleinere blokken.</span><span class="sxs-lookup"><span data-stu-id="71715-106">Block blobs are made up of smaller blocks.</span></span> <span data-ttu-id="71715-107">Elk logboek is een afzonderlijke blok-blob die elk uur wordt gegenereerd.</span><span class="sxs-lookup"><span data-stu-id="71715-107">Each log is a separate block blob that is generated every hour.</span></span> <span data-ttu-id="71715-108">Nieuwe logboeken worden gegenereerd om het uur, de logboeken worden bijgewerkt met nieuwe vermeldingen om de paar minuten met de meest recente gegevens.</span><span class="sxs-lookup"><span data-stu-id="71715-108">New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data.</span></span> <span data-ttu-id="71715-109">In dit artikel leert u hoe u onderdelen van de logboeken van de stroom lezen.</span><span class="sxs-lookup"><span data-stu-id="71715-109">In this article you learn how to read portions of the flow logs.</span></span>
+<span data-ttu-id="40077-105">NSG stroom logboeken worden opgeslagen in een opslagaccount in [blok-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span><span class="sxs-lookup"><span data-stu-id="40077-105">NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs).</span></span> <span data-ttu-id="40077-106">Blok-blobs bestaan uit kleinere blokken.</span><span class="sxs-lookup"><span data-stu-id="40077-106">Block blobs are made up of smaller blocks.</span></span> <span data-ttu-id="40077-107">Elk logboek is een afzonderlijke blok-blob die elk uur wordt gegenereerd.</span><span class="sxs-lookup"><span data-stu-id="40077-107">Each log is a separate block blob that is generated every hour.</span></span> <span data-ttu-id="40077-108">Nieuwe logboeken worden elk uur gegenereerd, Hallo logboeken worden bijgewerkt met nieuwe vermeldingen om de paar minuten met de meest recente gegevens Hallo.</span><span class="sxs-lookup"><span data-stu-id="40077-108">New logs are generated every hour, hello logs are updated with new entries every few minutes with hello latest data.</span></span> <span data-ttu-id="40077-109">In dit artikel leert u hoe tooread gedeelten van Hallo logboeken stromen.</span><span class="sxs-lookup"><span data-stu-id="40077-109">In this article you learn how tooread portions of hello flow logs.</span></span>
 
-## <a name="scenario"></a><span data-ttu-id="71715-110">Scenario</span><span class="sxs-lookup"><span data-stu-id="71715-110">Scenario</span></span>
+## <a name="scenario"></a><span data-ttu-id="40077-110">Scenario</span><span class="sxs-lookup"><span data-stu-id="40077-110">Scenario</span></span>
 
-<span data-ttu-id="71715-111">In het volgende scenario hebt u een voorbeeld van de stroom logboek die is opgeslagen in een opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="71715-111">In the following scenario, you have an example flow log that is stored in a storage account.</span></span> <span data-ttu-id="71715-112">we stapsgewijs hoe u de meest recente gebeurtenissen in het NSG stroom logboeken selectief kunt lezen.</span><span class="sxs-lookup"><span data-stu-id="71715-112">we step through how you can selectively read the latest events in NSG flow logs.</span></span> <span data-ttu-id="71715-113">In dit artikel gebruiken we PowerShell, maar de concepten beschreven in het artikel zijn niet beperkt tot de programmeertaal en van toepassing zijn op alle talen die worden ondersteund door de Azure Storage-API 's</span><span class="sxs-lookup"><span data-stu-id="71715-113">In this article we will use PowerShell, however, the concepts discussed in the article are not limited to the programming language and are applicable to all languages supported by the Azure Storage APIs</span></span>
+<span data-ttu-id="40077-111">In de Hallo scenario te volgen, hebt u een voorbeeld van de stroom logboek die is opgeslagen in een opslagaccount.</span><span class="sxs-lookup"><span data-stu-id="40077-111">In hello following scenario, you have an example flow log that is stored in a storage account.</span></span> <span data-ttu-id="40077-112">we stapsgewijs hoe kunt u selectief Hallo meest recente gebeurtenissen in Logboeken van NSG-stroom lezen.</span><span class="sxs-lookup"><span data-stu-id="40077-112">we step through how you can selectively read hello latest events in NSG flow logs.</span></span> <span data-ttu-id="40077-113">In dit artikel gebruiken we PowerShell, Hallo concepten beschreven in artikel Hallo zijn echter niet beperkt toohello programmeertaal en toepasselijke tooall talen wordt ondersteund door hello Azure Storage-API 's</span><span class="sxs-lookup"><span data-stu-id="40077-113">In this article we will use PowerShell, however, hello concepts discussed in hello article are not limited toohello programming language and are applicable tooall languages supported by hello Azure Storage APIs</span></span>
 
-## <a name="setup"></a><span data-ttu-id="71715-114">Instellen</span><span class="sxs-lookup"><span data-stu-id="71715-114">Setup</span></span>
+## <a name="setup"></a><span data-ttu-id="40077-114">Instellen</span><span class="sxs-lookup"><span data-stu-id="40077-114">Setup</span></span>
 
-<span data-ttu-id="71715-115">Voordat u begint, kunt u Network Security groep stromen-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben.</span><span class="sxs-lookup"><span data-stu-id="71715-115">Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account.</span></span> <span data-ttu-id="71715-116">Voor instructies over het inschakelen van netwerkbeveiliging stromen Logboeken, raadpleegt u het volgende artikel: [Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).</span><span class="sxs-lookup"><span data-stu-id="71715-116">For instructions on enabling Network Security flow logs, refer to the following article: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).</span></span>
+<span data-ttu-id="40077-115">Voordat u begint, kunt u Network Security groep stromen-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben.</span><span class="sxs-lookup"><span data-stu-id="40077-115">Before you begin, you must have Network Security Group Flow Logging enabled on one or many Network Security Groups in your account.</span></span> <span data-ttu-id="40077-116">Voor instructies over het inschakelen van netwerkbeveiliging stromen Logboeken, raadpleeg dan toohello volgende artikel: [inleiding tooflow logboekregistratie voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).</span><span class="sxs-lookup"><span data-stu-id="40077-116">For instructions on enabling Network Security flow logs, refer toohello following article: [Introduction tooflow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).</span></span>
 
-## <a name="retrieve-the-block-list"></a><span data-ttu-id="71715-117">De lijst met geblokkeerde ophalen</span><span class="sxs-lookup"><span data-stu-id="71715-117">Retrieve the block list</span></span>
+## <a name="retrieve-hello-block-list"></a><span data-ttu-id="40077-117">Lijst met geblokkeerde websites Hallo ophalen</span><span class="sxs-lookup"><span data-stu-id="40077-117">Retrieve hello block list</span></span>
 
-<span data-ttu-id="71715-118">De volgende PowerShell stelt u de variabelen die nodig zijn de NSG stroom logboek blob opvragen en weergeven van de blokken binnen de [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob.</span><span class="sxs-lookup"><span data-stu-id="71715-118">The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob.</span></span> <span data-ttu-id="71715-119">Het script bevat geldige waarden voor uw omgeving bijwerken.</span><span class="sxs-lookup"><span data-stu-id="71715-119">Update the script to contain valid values for your environment.</span></span>
+<span data-ttu-id="40077-118">Hallo PowerShell Hallo variabelen ingesteld na nodig tooquery hello NSG stroom Meld blob en lijst Hallo-blokken binnen Hallo [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob.</span><span class="sxs-lookup"><span data-stu-id="40077-118">hello following PowerShell sets up hello variables needed tooquery hello NSG flow log blob and list hello blocks within hello [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob.</span></span> <span data-ttu-id="40077-119">Hallo script toocontain geldige waarden voor uw omgeving bijwerken.</span><span class="sxs-lookup"><span data-stu-id="40077-119">Update hello script toocontain valid values for your environment.</span></span>
 
 ```powershell
-# The SubscriptionID to use
+# hello SubscriptionID toouse
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 
-# Resource group that contains the Network Security Group
+# Resource group that contains hello Network Security Group
 $resourceGroupName = "<resourceGroupName>"
 
-# The name of the Network Security Group
+# hello name of hello Network Security Group
 $nsgName = "NSGName"
 
-# The storage account name that contains the NSG logs
+# hello storage account name that contains hello NSG logs
 $storageAccountName = "<storageAccountName>" 
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
+# hello date and time for hello log toobe queried, logs are stored in hour intervals.
 [datetime]$logtime = "06/16/2017 20:00"
 
-# Retrieve the primary storage account key to access the NSG logs
+# Retrieve hello primary storage account key tooaccess hello NSG logs
 $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 
-# Setup a new storage context to be used to query the logs
+# Setup a new storage context toobe used tooquery hello logs
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Container name used by NSG flow logs
 $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# Name of the blob that contains the NSG flow log
+# Name of hello blob that contains hello NSG flow log
 $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/PT1H.json"
 
-# Gets the storage blog
+# Gets hello storage blog
 $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+# Gets hello block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from hello storage blob
 $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Stores the block list in a variable from the block blob.
+# Stores hello block list in a variable from hello block blob.
 $blockList = $CloudBlockBlob.DownloadBlockList()
 ```
 
-<span data-ttu-id="71715-120">De `$blockList` variabele retourneert een lijst van de blokken in de blob.</span><span class="sxs-lookup"><span data-stu-id="71715-120">The `$blockList` variable returns a list of the blocks in the blob.</span></span> <span data-ttu-id="71715-121">Elk blok-blob bevat ten minste twee blokken.</span><span class="sxs-lookup"><span data-stu-id="71715-121">Each block blob contains at least two blocks.</span></span>  <span data-ttu-id="71715-122">Het eerste vereiste blok heeft een lengte van `21` bytes, dit blok bevat de haakjes openen van het json-logboek.</span><span class="sxs-lookup"><span data-stu-id="71715-122">The first block has a length of `21` bytes, this block contains the opening brackets of the json log.</span></span> <span data-ttu-id="71715-123">Het andere blok is de haakjes en heeft een lengte van `9` bytes.</span><span class="sxs-lookup"><span data-stu-id="71715-123">The other block is the closing brackets and has a length of `9` bytes.</span></span>  <span data-ttu-id="71715-124">Zoals u het volgende voorbeeld-logboek ziet bevat zeven vermeldingen, elk een afzonderlijke vermelding wordt.</span><span class="sxs-lookup"><span data-stu-id="71715-124">As you can see the following example log has seven entries in it, each being an individual entry.</span></span> <span data-ttu-id="71715-125">Alle nieuwe vermeldingen in het logboek worden toegevoegd aan het einde aan vóór het laatste blok.</span><span class="sxs-lookup"><span data-stu-id="71715-125">All new entries in the log are added to the end right before the final block.</span></span>
+<span data-ttu-id="40077-120">Hallo `$blockList` variabele retourneert een lijst van Hallo blokken in Hallo blob.</span><span class="sxs-lookup"><span data-stu-id="40077-120">hello `$blockList` variable returns a list of hello blocks in hello blob.</span></span> <span data-ttu-id="40077-121">Elk blok-blob bevat ten minste twee blokken.</span><span class="sxs-lookup"><span data-stu-id="40077-121">Each block blob contains at least two blocks.</span></span>  <span data-ttu-id="40077-122">Hallo eerste vereiste blok heeft een lengte van `21` bytes, dit blok bevat Hallo vierkante haken van Hallo json logboek openen.</span><span class="sxs-lookup"><span data-stu-id="40077-122">hello first block has a length of `21` bytes, this block contains hello opening brackets of hello json log.</span></span> <span data-ttu-id="40077-123">Hallo andere blok Hallo vierkant haakje sluiten en heeft een lengte van `9` bytes.</span><span class="sxs-lookup"><span data-stu-id="40077-123">hello other block is hello closing brackets and has a length of `9` bytes.</span></span>  <span data-ttu-id="40077-124">Zoals u ziet bevat Hallo na voorbeeld logboek zeven vermeldingen, elk een afzonderlijke vermelding wordt.</span><span class="sxs-lookup"><span data-stu-id="40077-124">As you can see hello following example log has seven entries in it, each being an individual entry.</span></span> <span data-ttu-id="40077-125">Alle nieuwe vermeldingen in logboek Hallo toohello end aan vóór het laatste blok Hallo toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="40077-125">All new entries in hello log are added toohello end right before hello final block.</span></span>
 
 ```
 Name                                         Length Committed
@@ -91,45 +91,45 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      9      True
 ```
 
-## <a name="read-the-block-blob"></a><span data-ttu-id="71715-126">Lezen van het blok-blob</span><span class="sxs-lookup"><span data-stu-id="71715-126">Read the block blob</span></span>
+## <a name="read-hello-block-blob"></a><span data-ttu-id="40077-126">Lees Hallo blok-blob</span><span class="sxs-lookup"><span data-stu-id="40077-126">Read hello block blob</span></span>
 
-<span data-ttu-id="71715-127">Vervolgens moet lezen de `$blocklist` variabele gegevens ophalen.</span><span class="sxs-lookup"><span data-stu-id="71715-127">Next we need to read the `$blocklist` variable to retrieve the data.</span></span> <span data-ttu-id="71715-128">In dit voorbeeld die wordt de blocklist doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel.</span><span class="sxs-lookup"><span data-stu-id="71715-128">In this example we iterate through the blocklist, read the bytes from each block and story them in an array.</span></span> <span data-ttu-id="71715-129">We gebruiken de [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.</span><span class="sxs-lookup"><span data-stu-id="71715-129">We use the [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.</span></span>
+<span data-ttu-id="40077-127">Vervolgens moet tooread hello `$blocklist` variabele tooretrieve Hallo gegevens.</span><span class="sxs-lookup"><span data-stu-id="40077-127">Next we need tooread hello `$blocklist` variable tooretrieve hello data.</span></span> <span data-ttu-id="40077-128">In dit voorbeeld die we Hallo blocklist doorlopen Hallo bytes lezen van elk blok en ze in een matrix van artikel.</span><span class="sxs-lookup"><span data-stu-id="40077-128">In this example we iterate through hello blocklist, read hello bytes from each block and story them in an array.</span></span> <span data-ttu-id="40077-129">We gebruiken Hallo [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode tooretrieve Hallo gegevens.</span><span class="sxs-lookup"><span data-stu-id="40077-129">We use hello [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method tooretrieve hello data.</span></span>
 
 ```powershell
-# Set the size of the byte array to the largest block
+# Set hello size of hello byte array toohello largest block
 $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Create an array to store values in
+# Create an array toostore values in
 $valuearray = @()
 
-# Define the starting index to track the current block being read
+# Define hello starting index tootrack hello current block being read
 $index = 0
 
-# Loop through each block in the block list
+# Loop through each block in hello block list
 for($i=0; $i -lt $blocklist.count; $i++)
 {
 
-# Create a byte array object to story the bytes from the block
+# Create a byte array object toostory hello bytes from hello block
 $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+# Download hello data into hello ByteArray, starting with hello current index, for hello number of bytes in hello current block. Index is increased by 3 when reading tooremove preceding comma.
 $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
+# Increment hello index by adding hello current block length toohello previous index
 $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+# Retrieve hello string from hello byte array
 
 $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
+# Add hello log entry toohello value array
 $valuearray += $value
 }
 ```
 
-<span data-ttu-id="71715-130">Nu de `$valuearray` matrix de tekenreekswaarde bevat van elk blok.</span><span class="sxs-lookup"><span data-stu-id="71715-130">Now the `$valuearray` array contains the string value of each block.</span></span> <span data-ttu-id="71715-131">Om te controleren of de vermelding, krijgen de tweede tot de laatste waarde van de matrix door te voeren `$valuearray[$valuearray.Length-2]`.</span><span class="sxs-lookup"><span data-stu-id="71715-131">To verify the entry, get the second to the last value from the array by running `$valuearray[$valuearray.Length-2]`.</span></span> <span data-ttu-id="71715-132">We wil niet de laatste waarde wordt alleen het haakje sluiten.</span><span class="sxs-lookup"><span data-stu-id="71715-132">We do not want the last value is just the closing bracket.</span></span>
+<span data-ttu-id="40077-130">Nu Hallo `$valuearray` matrix Hallo tekenreekswaarde bevat van elk blok.</span><span class="sxs-lookup"><span data-stu-id="40077-130">Now hello `$valuearray` array contains hello string value of each block.</span></span> <span data-ttu-id="40077-131">tooverify Hallo-item, get Hallo tweede toohello laatste waarde van een matrix door te voeren Hallo `$valuearray[$valuearray.Length-2]`.</span><span class="sxs-lookup"><span data-stu-id="40077-131">tooverify hello entry, get hello second toohello last value from hello array by running `$valuearray[$valuearray.Length-2]`.</span></span> <span data-ttu-id="40077-132">We wil niet de laatste waarde Hallo is zojuist Hallo vierkant haakje sluiten.</span><span class="sxs-lookup"><span data-stu-id="40077-132">We do not want hello last value is just hello closing bracket.</span></span>
 
-<span data-ttu-id="71715-133">De resultaten van deze waarde worden weergegeven in het volgende voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="71715-133">The results of this value are shown in the following example:</span></span>
+<span data-ttu-id="40077-133">Hallo-resultaten van deze waarde worden weergegeven in Hallo voorbeeld te volgen:</span><span class="sxs-lookup"><span data-stu-id="40077-133">hello results of this value are shown in hello following example:</span></span>
 
 ```json
         {
@@ -151,11 +151,11 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-<span data-ttu-id="71715-134">Dit scenario is een voorbeeld van hoe vermeldingen in Logboeken van NSG-stroom lezen zonder het hele logboek parseren.</span><span class="sxs-lookup"><span data-stu-id="71715-134">This scenario is an example of how to read entries in NSG flow logs without having to parse the entire log.</span></span> <span data-ttu-id="71715-135">U kunt nieuwe vermeldingen in het logboek kunt lezen, omdat ze zijn geschreven met behulp van de blok-ID of het bijhouden van de lengte van blokken die zijn opgeslagen in het blok-blob.</span><span class="sxs-lookup"><span data-stu-id="71715-135">You can read new entries in the log as they are written by using the block ID or by tracking the length of blocks stored in the block blob.</span></span> <span data-ttu-id="71715-136">Hiermee kunt u alleen de nieuwe vermeldingen lezen.</span><span class="sxs-lookup"><span data-stu-id="71715-136">This allows you to read only the new entries.</span></span>
+<span data-ttu-id="40077-134">Dit scenario is een voorbeeld van hoe tooread vermeldingen in het NSG logboeken zonder tooparse Hallo hele logboek stromen.</span><span class="sxs-lookup"><span data-stu-id="40077-134">This scenario is an example of how tooread entries in NSG flow logs without having tooparse hello entire log.</span></span> <span data-ttu-id="40077-135">Als ze zijn geschreven met behulp van Hallo blok-ID of lengte van blokken die zijn opgeslagen in het blok-blob Hallo Hallo bijhouden, kunt u nieuwe vermeldingen in logboek Hallo lezen.</span><span class="sxs-lookup"><span data-stu-id="40077-135">You can read new entries in hello log as they are written by using hello block ID or by tracking hello length of blocks stored in hello block blob.</span></span> <span data-ttu-id="40077-136">Hiermee kunt u tooread alleen Hallo nieuwe vermeldingen.</span><span class="sxs-lookup"><span data-stu-id="40077-136">This allows you tooread only hello new entries.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="71715-137">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="71715-137">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="40077-137">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="40077-137">Next steps</span></span>
 
-<span data-ttu-id="71715-138">Ga naar [visualiseren met open-source hulpprogramma's van Azure-netwerk-Watcher NSG stroom logboeken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) voor meer informatie over andere manieren om NSG stroom logboeken weer te geven.</span><span class="sxs-lookup"><span data-stu-id="71715-138">Visit [visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) to learn more about other ways to view NSG flow logs.</span></span>
+<span data-ttu-id="40077-138">Ga naar [visualiseren met open-source hulpprogramma's van Azure-netwerk-Watcher NSG stroom logboeken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) toolearn meer informatie over andere manieren tooview NSG stromen Logboeken.</span><span class="sxs-lookup"><span data-stu-id="40077-138">Visit [visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) toolearn more about other ways tooview NSG flow logs.</span></span>
 
-<span data-ttu-id="71715-139">Voor meer informatie over de storage-blobs gaat u naar: [bindingen van Azure Functions Blob-opslag](../azure-functions/functions-bindings-storage-blob.md)</span><span class="sxs-lookup"><span data-stu-id="71715-139">To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)</span></span>
+<span data-ttu-id="40077-139">meer informatie over de storage-blobs bezoeken toolearn: [bindingen van Azure Functions Blob-opslag](../azure-functions/functions-bindings-storage-blob.md)</span><span class="sxs-lookup"><span data-stu-id="40077-139">toolearn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)</span></span>

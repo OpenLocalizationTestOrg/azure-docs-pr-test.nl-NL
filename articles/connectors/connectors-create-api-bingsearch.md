@@ -1,6 +1,6 @@
 ---
-title: De Bing-zoekopdracht connector logic apps toevoegen | Microsoft Docs
-description: Overzicht van de connector Bing-zoekopdracht met parameters van de REST-API
+title: aaaAdd hello Bing zoeken-connector logic apps | Microsoft Docs
+description: Overzicht van Hallo Bing zoeken-connector met de parameters van de REST-API
 services: 
 suite: 
 documentationcenter: 
@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 839b7d85367d1fdc63b91dcfe3166e177f10eaf1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-bing-search-connector"></a><span data-ttu-id="373fd-103">Aan de slag met de Bing zoeken-connector</span><span class="sxs-lookup"><span data-stu-id="373fd-103">Get started with the Bing Search connector</span></span>
-<span data-ttu-id="373fd-104">Verbinding maken met Bing-zoekopdracht om te zoeken, nieuws en video's zoeken.</span><span class="sxs-lookup"><span data-stu-id="373fd-104">Connect to Bing Search to search news, search videos, and more.</span></span> <span data-ttu-id="373fd-105">U kunt met Bing-zoekopdracht:</span><span class="sxs-lookup"><span data-stu-id="373fd-105">With Bing Search, you can:</span></span> 
+# <a name="get-started-with-hello-bing-search-connector"></a><span data-ttu-id="76780-103">Aan de slag met Hallo Bing zoeken-connector</span><span class="sxs-lookup"><span data-stu-id="76780-103">Get started with hello Bing Search connector</span></span>
+<span data-ttu-id="76780-104">Verbinding maken met tooBing Search toosearch nieuws en video's zoeken.</span><span class="sxs-lookup"><span data-stu-id="76780-104">Connect tooBing Search toosearch news, search videos, and more.</span></span> <span data-ttu-id="76780-105">U kunt met Bing-zoekopdracht:</span><span class="sxs-lookup"><span data-stu-id="76780-105">With Bing Search, you can:</span></span> 
 
-* <span data-ttu-id="373fd-106">Bouw uw zakelijke flow op basis van de gegevens die u van uw zoekopdracht krijgt.</span><span class="sxs-lookup"><span data-stu-id="373fd-106">Build your business flow based on the data you get from your search.</span></span> 
-* <span data-ttu-id="373fd-107">Acties gebruiken om te zoeken, afbeeldingen, zoek het nieuws en meer.</span><span class="sxs-lookup"><span data-stu-id="373fd-107">Use actions to search images, search the news, and more.</span></span> <span data-ttu-id="373fd-108">Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties.</span><span class="sxs-lookup"><span data-stu-id="373fd-108">These actions get a response, and then make the output available for other actions.</span></span> <span data-ttu-id="373fd-109">U kunt bijvoorbeeld zoeken naar een video en gebruik vervolgens Twitter boeken die video naar Twitter-feeds.</span><span class="sxs-lookup"><span data-stu-id="373fd-109">For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.</span></span>
+* <span data-ttu-id="76780-106">Bouw uw zakelijke flow op basis van Hallo gegevens die u van uw zoekopdracht.</span><span class="sxs-lookup"><span data-stu-id="76780-106">Build your business flow based on hello data you get from your search.</span></span> 
+* <span data-ttu-id="76780-107">Gebruik acties toosearch afbeeldingen, zoeken Hallo nieuws en meer.</span><span class="sxs-lookup"><span data-stu-id="76780-107">Use actions toosearch images, search hello news, and more.</span></span> <span data-ttu-id="76780-108">Deze acties reageert en breng Hallo uitvoer beschikbaar voor andere acties.</span><span class="sxs-lookup"><span data-stu-id="76780-108">These actions get a response, and then make hello output available for other actions.</span></span> <span data-ttu-id="76780-109">U kunt bijvoorbeeld zoeken naar een video en gebruik vervolgens Twitter toopost die video tooa die Twitter-feed.</span><span class="sxs-lookup"><span data-stu-id="76780-109">For example, you can search for a video, and then use Twitter toopost that video tooa Twitter feed.</span></span>
 
-<span data-ttu-id="373fd-110">U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).</span><span class="sxs-lookup"><span data-stu-id="373fd-110">You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).</span></span>
+<span data-ttu-id="76780-110">U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/logic-apps-create-a-logic-app.md).</span><span class="sxs-lookup"><span data-stu-id="76780-110">You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).</span></span>
 
-## <a name="connector-specific-details"></a><span data-ttu-id="373fd-111">Connector-specifieke details</span><span class="sxs-lookup"><span data-stu-id="373fd-111">Connector-specific details</span></span>
+## <a name="connector-specific-details"></a><span data-ttu-id="76780-111">Connector-specifieke details</span><span class="sxs-lookup"><span data-stu-id="76780-111">Connector-specific details</span></span>
 
-<span data-ttu-id="373fd-112">Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/bingsearch/).</span><span class="sxs-lookup"><span data-stu-id="373fd-112">View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/bingsearch/).</span></span>
+<span data-ttu-id="76780-112">Alle triggers en acties die zijn gedefinieerd in swagger Hallo bekijken en ook bekijken in Hallo beperkingen [connector details](/connectors/bingsearch/).</span><span class="sxs-lookup"><span data-stu-id="76780-112">View any triggers and actions defined in hello swagger, and also see any limits in hello [connector details](/connectors/bingsearch/).</span></span>
 
-## <a name="more-connectors"></a><span data-ttu-id="373fd-113">Meer connectors</span><span class="sxs-lookup"><span data-stu-id="373fd-113">More connectors</span></span>
-<span data-ttu-id="373fd-114">Ga terug naar de [API's lijst](apis-list.md).</span><span class="sxs-lookup"><span data-stu-id="373fd-114">Go back to the [APIs list](apis-list.md).</span></span>
+## <a name="more-connectors"></a><span data-ttu-id="76780-113">Meer connectors</span><span class="sxs-lookup"><span data-stu-id="76780-113">More connectors</span></span>
+<span data-ttu-id="76780-114">Ga terug toohello [API's lijst](apis-list.md).</span><span class="sxs-lookup"><span data-stu-id="76780-114">Go back toohello [APIs list](apis-list.md).</span></span>
 

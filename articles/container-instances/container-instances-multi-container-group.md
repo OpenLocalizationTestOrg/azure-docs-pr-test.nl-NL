@@ -1,5 +1,5 @@
 ---
-title: Azure Containerexemplaren - meerdere containergroep | Azure Docs
+title: aaaAzure Containerexemplaren - meerdere containergroep | Azure Docs
 description: Azure Containerexemplaren - groep met meerdere container
 services: container-instances
 documentationcenter: 
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 976f578cd2a9bf7f05ab97f24662139bb72062ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-container-group"></a><span data-ttu-id="f229c-103">Een containergroep implementeren</span><span class="sxs-lookup"><span data-stu-id="f229c-103">Deploy a container group</span></span>
+# <a name="deploy-a-container-group"></a><span data-ttu-id="3cb8f-103">Een containergroep implementeren</span><span class="sxs-lookup"><span data-stu-id="3cb8f-103">Deploy a container group</span></span>
 
-<span data-ttu-id="f229c-104">Azure Containerexemplaren ondersteuning van de implementatie van meerdere containers naar één host met behulp van een *containergroep*.</span><span class="sxs-lookup"><span data-stu-id="f229c-104">Azure Container Instances support the deployment of multiple containers onto a single host using a *container group*.</span></span> <span data-ttu-id="f229c-105">Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.</span><span class="sxs-lookup"><span data-stu-id="f229c-105">This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.</span></span> 
+<span data-ttu-id="3cb8f-104">Azure Containerexemplaren ondersteuning Hallo-implementatie van meerdere containers naar één host met behulp van een *containergroep*.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-104">Azure Container Instances support hello deployment of multiple containers onto a single host using a *container group*.</span></span> <span data-ttu-id="3cb8f-105">Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-105">This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.</span></span> 
 
-<span data-ttu-id="f229c-106">Dit document helpt bij het uitvoeren van een eenvoudige meerdere container ter-configuratie met een Azure Resource Manager-sjabloon.</span><span class="sxs-lookup"><span data-stu-id="f229c-106">This document walks through running a simple multi-container sidecar configuration using an Azure Resource Manager template.</span></span>
+<span data-ttu-id="3cb8f-106">Dit document helpt bij het uitvoeren van een eenvoudige meerdere container ter-configuratie met een Azure Resource Manager-sjabloon.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-106">This document walks through running a simple multi-container sidecar configuration using an Azure Resource Manager template.</span></span>
 
-## <a name="configure-the-template"></a><span data-ttu-id="f229c-107">De sjabloon configureren</span><span class="sxs-lookup"><span data-stu-id="f229c-107">Configure the template</span></span>
+## <a name="configure-hello-template"></a><span data-ttu-id="3cb8f-107">Hallo-sjabloon configureren</span><span class="sxs-lookup"><span data-stu-id="3cb8f-107">Configure hello template</span></span>
 
-<span data-ttu-id="f229c-108">Maak een bestand met de naam `azuredeploy.json` en kopieer de volgende json naar deze.</span><span class="sxs-lookup"><span data-stu-id="f229c-108">Create a file named `azuredeploy.json` and copy the following json into it.</span></span> 
+<span data-ttu-id="3cb8f-108">Maak een bestand met de naam `azuredeploy.json` en kopiëren Hallo json in het volgende.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-108">Create a file named `azuredeploy.json` and copy hello following json into it.</span></span> 
 
-<span data-ttu-id="f229c-109">In dit voorbeeld wordt is een containergroep met twee containers en een openbare IP-adres gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="f229c-109">In this sample, a container group with two containers and a public IP address is defined.</span></span> <span data-ttu-id="f229c-110">De eerste container van de groep wordt een internettoepassing gerichte uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="f229c-110">The first container of the group runs an internet facing application.</span></span> <span data-ttu-id="f229c-111">De tweede container, de ter maakt een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk.</span><span class="sxs-lookup"><span data-stu-id="f229c-111">The second container, the sidecar, makes an HTTP request to the main web application via the group's local network.</span></span> 
+<span data-ttu-id="3cb8f-109">In dit voorbeeld wordt is een containergroep met twee containers en een openbare IP-adres gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-109">In this sample, a container group with two containers and a public IP address is defined.</span></span> <span data-ttu-id="3cb8f-110">Hallo eerste container van Hallo groep wordt een internettoepassing gerichte uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-110">hello first container of hello group runs an internet facing application.</span></span> <span data-ttu-id="3cb8f-111">Hallo tweede container Hallo ter, kunt u een HTTP-aanvraag toohello hoofdweb toepassing via Hallo van de groep lokale netwerk.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-111">hello second container, hello sidecar, makes an HTTP request toohello main web application via hello group's local network.</span></span> 
 
-<span data-ttu-id="f229c-112">In dit voorbeeld ter kan worden uitgebreid activeren van een waarschuwing als er een HTTP-antwoordcode dan 200 OK ontvangen.</span><span class="sxs-lookup"><span data-stu-id="f229c-112">This sidecar example could be expanded to trigger an alert if it received an HTTP response code other than 200 OK.</span></span> 
+<span data-ttu-id="3cb8f-112">In dit voorbeeld ter mogelijk uitgebreide tootrigger een waarschuwing als er een HTTP-antwoordcode dan 200 OK ontvangen.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-112">This sidecar example could be expanded tootrigger an alert if it received an HTTP response code other than 200 OK.</span></span> 
 
 ```json
 {
@@ -109,7 +109,7 @@ ms.lasthandoff: 08/18/2017
   }
 ```
 
-<span data-ttu-id="f229c-113">Voor het gebruik van een installatiekopie van privé-container register, moet u een object toevoegen aan het json-document met de volgende indeling.</span><span class="sxs-lookup"><span data-stu-id="f229c-113">To use a private container image registry, add an object to the json document with the following format.</span></span>
+<span data-ttu-id="3cb8f-113">een object toohello json-document toouse een register van de installatiekopie van privé-container toevoegen met de volgende indeling Hallo.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-113">toouse a private container image registry, add an object toohello json document with hello following format.</span></span>
 
 ```json
 "imageRegistryCredentials": [
@@ -121,31 +121,31 @@ ms.lasthandoff: 08/18/2017
 ]
 ```
 
-## <a name="deploy-the-template"></a><span data-ttu-id="f229c-114">De sjabloon implementeren</span><span class="sxs-lookup"><span data-stu-id="f229c-114">Deploy the template</span></span>
+## <a name="deploy-hello-template"></a><span data-ttu-id="3cb8f-114">Hallo-sjabloon implementeren</span><span class="sxs-lookup"><span data-stu-id="3cb8f-114">Deploy hello template</span></span>
 
-<span data-ttu-id="f229c-115">Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create).</span><span class="sxs-lookup"><span data-stu-id="f229c-115">Create a resource group with the [az group create](/cli/azure/group#create) command.</span></span>
+<span data-ttu-id="3cb8f-115">Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-115">Create a resource group with hello [az group create](/cli/azure/group#create) command.</span></span>
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-<span data-ttu-id="f229c-116">Implementeren van de sjabloon met de [az implementatie maken](/cli/azure/group/deployment#create) opdracht.</span><span class="sxs-lookup"><span data-stu-id="f229c-116">Deploy the template with the [az group deployment create](/cli/azure/group/deployment#create) command.</span></span>
+<span data-ttu-id="3cb8f-116">Hallo sjabloon Hello implementeren [az implementatie maken](/cli/azure/group/deployment#create) opdracht.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-116">Deploy hello template with hello [az group deployment create](/cli/azure/group/deployment#create) command.</span></span>
 
 ```azurecli-interactive
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-<span data-ttu-id="f229c-117">Binnen enkele seconden ontvangt u een eerste reactie van Azure.</span><span class="sxs-lookup"><span data-stu-id="f229c-117">Within a few seconds, you will receive an initial response from Azure.</span></span> 
+<span data-ttu-id="3cb8f-117">Binnen enkele seconden ontvangt u een eerste reactie van Azure.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-117">Within a few seconds, you will receive an initial response from Azure.</span></span> 
 
-## <a name="view-deployment-state"></a><span data-ttu-id="f229c-118">Implementatiestatus weergeven</span><span class="sxs-lookup"><span data-stu-id="f229c-118">View deployment state</span></span>
+## <a name="view-deployment-state"></a><span data-ttu-id="3cb8f-118">Implementatiestatus weergeven</span><span class="sxs-lookup"><span data-stu-id="3cb8f-118">View deployment state</span></span>
 
-<span data-ttu-id="f229c-119">U kunt de status van de implementatie weergeven, met de `az container show` opdracht.</span><span class="sxs-lookup"><span data-stu-id="f229c-119">To view the state of the deployment, use the `az container show` command.</span></span> <span data-ttu-id="f229c-120">Hiermee wordt de ingerichte openbaar IP-adres gedurende welke de toepassing toegankelijk zijn.</span><span class="sxs-lookup"><span data-stu-id="f229c-120">This returns the provisioned public IP address over which the application can be accessed.</span></span>
+<span data-ttu-id="3cb8f-119">status van de tooview Hallo van Hallo-implementatie, gebruik Hallo `az container show` opdracht.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-119">tooview hello state of hello deployment, use hello `az container show` command.</span></span> <span data-ttu-id="3cb8f-120">Hiermee wordt ingericht Hallo openbaar IP-adres via welke Hallo toepassing toegankelijk zijn.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-120">This returns hello provisioned public IP address over which hello application can be accessed.</span></span>
 
 ```azurecli-interactive
 az container show --name myContainerGroup --resource-group myResourceGroup -o table
 ```
 
-<span data-ttu-id="f229c-121">Uitvoer:</span><span class="sxs-lookup"><span data-stu-id="f229c-121">Output:</span></span>
+<span data-ttu-id="3cb8f-121">Uitvoer:</span><span class="sxs-lookup"><span data-stu-id="3cb8f-121">Output:</span></span>
 
 ```azurecli
 Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
@@ -153,15 +153,15 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a><span data-ttu-id="f229c-122">Logboeken bekijken</span><span class="sxs-lookup"><span data-stu-id="f229c-122">View logs</span></span>   
+## <a name="view-logs"></a><span data-ttu-id="3cb8f-122">Logboeken bekijken</span><span class="sxs-lookup"><span data-stu-id="3cb8f-122">View logs</span></span>   
 
-<span data-ttu-id="f229c-123">Weergave van de logboekuitvoer van een container met de `az container logs` opdracht.</span><span class="sxs-lookup"><span data-stu-id="f229c-123">View the log output of a container using the `az container logs` command.</span></span> <span data-ttu-id="f229c-124">De `--container-name` argument Hiermee geeft u de container waarin voor het ophalen van Logboeken.</span><span class="sxs-lookup"><span data-stu-id="f229c-124">The `--container-name` argument specifies the container from which to pull logs.</span></span> <span data-ttu-id="f229c-125">In dit voorbeeld wordt is de eerste container opgegeven.</span><span class="sxs-lookup"><span data-stu-id="f229c-125">In this example, the first container is specified.</span></span> 
+<span data-ttu-id="3cb8f-123">Hallo logboekuitvoer van een container met Hallo weergeven `az container logs` opdracht.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-123">View hello log output of a container using hello `az container logs` command.</span></span> <span data-ttu-id="3cb8f-124">Hallo `--container-name` geeft Hallo-container uit welke logboeken toopull argument.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-124">hello `--container-name` argument specifies hello container from which toopull logs.</span></span> <span data-ttu-id="3cb8f-125">In dit voorbeeld wordt is de eerste container Hallo opgegeven.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-125">In this example, hello first container is specified.</span></span> 
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
 ```
 
-<span data-ttu-id="f229c-126">Uitvoer:</span><span class="sxs-lookup"><span data-stu-id="f229c-126">Output:</span></span>
+<span data-ttu-id="3cb8f-126">Uitvoer:</span><span class="sxs-lookup"><span data-stu-id="3cb8f-126">Output:</span></span>
 
 ```bash
 istening on port 80
@@ -171,13 +171,13 @@ istening on port 80
 ::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-<span data-ttu-id="f229c-127">Overzicht van de logboeken voor de container side auto dezelfde opdracht geven de tweede containernaam worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="f229c-127">To see the logs for the side-car container, run the same command specifying the second container name.</span></span>
+<span data-ttu-id="3cb8f-127">Hallo toosee logboeken voor Hallo side auto-container, Hallo uitgevoerd dezelfde opdracht geven Hallo tweede containernaam.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-127">toosee hello logs for hello side-car container, run hello same command specifying hello second container name.</span></span>
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
 ```
 
-<span data-ttu-id="f229c-128">Uitvoer:</span><span class="sxs-lookup"><span data-stu-id="f229c-128">Output:</span></span>
+<span data-ttu-id="3cb8f-128">Uitvoer:</span><span class="sxs-lookup"><span data-stu-id="3cb8f-128">Output:</span></span>
 
 ```bash
 Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
@@ -193,11 +193,11 @@ Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
 Date: Mon, 17 Jul 2017 18:27:36 GMT
 ```
 
-<span data-ttu-id="f229c-129">Zoals u ziet, is de ter periodiek een HTTP-aanvraag die naar de belangrijkste webtoepassing via een van de groep lokale netwerk om ervoor te zorgen dat deze wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="f229c-129">As you can see, the sidecar is periodically making an HTTP request to the main web application via the group's local network to ensure that it is running.</span></span>
+<span data-ttu-id="3cb8f-129">Zoals u ziet, brengen Hallo ter periodiek een HTTP-aanvraag toohello hoofdweb toepassing via Hallo van de groep lokale netwerk tooensure dat deze wordt uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-129">As you can see, hello sidecar is periodically making an HTTP request toohello main web application via hello group's local network tooensure that it is running.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="f229c-130">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="f229c-130">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3cb8f-130">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="3cb8f-130">Next steps</span></span>
 
-<span data-ttu-id="f229c-131">Dit document besproken de stappen die nodig zijn voor het implementeren van een exemplaar van de container voor meerdere Azure-container.</span><span class="sxs-lookup"><span data-stu-id="f229c-131">This document covered the steps needed for deploying a multi-container Azure container instance.</span></span> <span data-ttu-id="f229c-132">Zie de zelfstudie exemplaren van Azure-Container voor een complete Containerexemplaren Azure-ervaring.</span><span class="sxs-lookup"><span data-stu-id="f229c-132">For an end to end Azure Container Instances experience, see the Azure Container Instances tutorial.</span></span>
+<span data-ttu-id="3cb8f-131">Dit document besproken Hallo-stappen die nodig zijn voor het implementeren van een meerdere container exemplaar van Azure-container.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-131">This document covered hello steps needed for deploying a multi-container Azure container instance.</span></span> <span data-ttu-id="3cb8f-132">Zie voor een end-tooend die containerexemplaren Azure-ervaring, hello Azure Containerexemplaren zelfstudie.</span><span class="sxs-lookup"><span data-stu-id="3cb8f-132">For an end tooend Azure Container Instances experience, see hello Azure Container Instances tutorial.</span></span>
 
 > [!div class="nextstepaction"]
-> <span data-ttu-id="f229c-133">[Azure Containerexemplaren zelfstudie]:./container-instances-tutorial-prepare-app.md</span><span class="sxs-lookup"><span data-stu-id="f229c-133">[Azure Container Instances tutorial]: ./container-instances-tutorial-prepare-app.md</span></span>
+> <span data-ttu-id="3cb8f-133">[Azure Containerexemplaren zelfstudie]:./container-instances-tutorial-prepare-app.md</span><span class="sxs-lookup"><span data-stu-id="3cb8f-133">[Azure Container Instances tutorial]: ./container-instances-tutorial-prepare-app.md</span></span>

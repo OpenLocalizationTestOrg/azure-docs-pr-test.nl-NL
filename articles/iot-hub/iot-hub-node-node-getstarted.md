@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub (Node) | Microsoft Docs
-description: Informatie over het verzenden van apparaat-naar-cloud-berichten naar Azure IoT Hub met behulp van IoT SDK's voor Node.js. U maakt gesimuleerde apparaat- en service-apps om uw apparaat te registreren, berichten te verzenden en berichten uit IoT Hub te lezen.
+title: aaaGet de slag met Azure IoT Hub (knooppunt) | Microsoft Docs
+description: Meer informatie over hoe toosend apparaat-naar-cloud-berichten tooAzure IoT Hub met IoT SDK's voor Node.js. Gesimuleerde apparaat en service-apps tooregister uw apparaat maken en berichten uit iothub berichten verzenden.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,64 +15,64 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b27a34c0f1f127628912ad68a002e15cc838b4d0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d0747895365f2359a9c38ea1e85a5881d6efec0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a><span data-ttu-id="b3106-104">Uw gesimuleerde apparaat verbinding laten maken met uw IoT Hub met Node</span><span class="sxs-lookup"><span data-stu-id="b3106-104">Connect your simulated device to your IoT hub using Node</span></span>
+# <a name="connect-your-simulated-device-tooyour-iot-hub-using-node"></a><span data-ttu-id="74c45-104">Verbinding maken met uw gesimuleerde apparaat tooyour iothub met behulp van knooppunt</span><span class="sxs-lookup"><span data-stu-id="74c45-104">Connect your simulated device tooyour IoT hub using Node</span></span>
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-<span data-ttu-id="b3106-105">Nadat u deze zelfstudie volledig hebt doorlopen, beschikt u over drie Node.js-consoletoepassingen:</span><span class="sxs-lookup"><span data-stu-id="b3106-105">At the end of this tutorial, you have three Node.js console apps:</span></span>
+<span data-ttu-id="74c45-105">Aan het einde van de Hallo van deze zelfstudie hebt u drie Node.js console apps:</span><span class="sxs-lookup"><span data-stu-id="74c45-105">At hello end of this tutorial, you have three Node.js console apps:</span></span>
 
-* <span data-ttu-id="b3106-106">**CreateDeviceIdentity.js**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat-app verbonden kan worden.</span><span class="sxs-lookup"><span data-stu-id="b3106-106">**CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device app.</span></span>
-* <span data-ttu-id="b3106-107">**ReadDeviceToCloudMessages.js**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat-app.</span><span class="sxs-lookup"><span data-stu-id="b3106-107">**ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device app.</span></span>
-* <span data-ttu-id="b3106-108">**SimulatedDevice.js**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt en verzendt iedere seconde een telemetriebericht via het MQTT-protocol.</span><span class="sxs-lookup"><span data-stu-id="b3106-108">**SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the MQTT protocol.</span></span>
+* <span data-ttu-id="74c45-106">**CreateDeviceIdentity.js**, die een apparaat-id maakt en gekoppelde beveiliging sleutel tooconnect app op uw gesimuleerde apparaat.</span><span class="sxs-lookup"><span data-stu-id="74c45-106">**CreateDeviceIdentity.js**, which creates a device identity and associated security key tooconnect your simulated device app.</span></span>
+* <span data-ttu-id="74c45-107">**ReadDeviceToCloudMessages.js**, wordt verzonden door uw gesimuleerde apparaattoepassing Hallo-telemetrie.</span><span class="sxs-lookup"><span data-stu-id="74c45-107">**ReadDeviceToCloudMessages.js**, which displays hello telemetry sent by your simulated device app.</span></span>
+* <span data-ttu-id="74c45-108">**SimulatedDevice.js**, die tooyour IoT-hub aan Hallo apparaat-id eerder hebt gemaakt, en verzendt een elke tweede met behulp van protocollen MQTT protocol Hallo telemetrie-bericht.</span><span class="sxs-lookup"><span data-stu-id="74c45-108">**SimulatedDevice.js**, which connects tooyour IoT hub with hello device identity created earlier, and sends a telemetry message every second using hello MQTT protocol.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b3106-109">Het artikel [Azure IoT-SDK's][lnk-hub-sdks] bevat informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="b3106-109">The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.</span></span>
+> <span data-ttu-id="74c45-109">Hallo artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over hello Azure IoT SDK's waarmee u toobuild beide toorun toepassingen op apparaten en de back-end van uw oplossing kunt.</span><span class="sxs-lookup"><span data-stu-id="74c45-109">hello article [Azure IoT SDKs][lnk-hub-sdks] provides information about hello Azure IoT SDKs that you can use toobuild both applications toorun on devices and your solution back end.</span></span>
 > 
 > 
 
-<span data-ttu-id="b3106-110">Voor het voltooien van deze zelfstudie hebt u het volgende nodig:</span><span class="sxs-lookup"><span data-stu-id="b3106-110">To complete this tutorial, you need the following:</span></span>
+<span data-ttu-id="74c45-110">toocomplete in deze zelfstudie, moet u hello te volgen:</span><span class="sxs-lookup"><span data-stu-id="74c45-110">toocomplete this tutorial, you need hello following:</span></span>
 
-* <span data-ttu-id="b3106-111">Node.js versie 0.10.x of hoger.</span><span class="sxs-lookup"><span data-stu-id="b3106-111">Node.js version 0.10.x or later.</span></span>
-* <span data-ttu-id="b3106-112">Een actief Azure-account.</span><span class="sxs-lookup"><span data-stu-id="b3106-112">An active Azure account.</span></span> <span data-ttu-id="b3106-113">(Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)</span><span class="sxs-lookup"><span data-stu-id="b3106-113">(If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)</span></span>
+* <span data-ttu-id="74c45-111">Node.js versie 0.10.x of hoger.</span><span class="sxs-lookup"><span data-stu-id="74c45-111">Node.js version 0.10.x or later.</span></span>
+* <span data-ttu-id="74c45-112">Een actief Azure-account.</span><span class="sxs-lookup"><span data-stu-id="74c45-112">An active Azure account.</span></span> <span data-ttu-id="74c45-113">(Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)</span><span class="sxs-lookup"><span data-stu-id="74c45-113">(If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)</span></span>
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-<span data-ttu-id="b3106-114">U hebt nu uw IoT-hub gemaakt.</span><span class="sxs-lookup"><span data-stu-id="b3106-114">You have now created your IoT hub.</span></span> <span data-ttu-id="b3106-115">U hebt de IoT Hub-hostnaam en -verbindingsreeks die u nodig hebt voor de rest van deze zelfstudie.</span><span class="sxs-lookup"><span data-stu-id="b3106-115">You have the IoT Hub host name and the IoT Hub connection string that you need to complete the rest of this tutorial.</span></span>
+<span data-ttu-id="74c45-114">U hebt nu uw IoT-hub gemaakt.</span><span class="sxs-lookup"><span data-stu-id="74c45-114">You have now created your IoT hub.</span></span> <span data-ttu-id="74c45-115">U hebt Hallo IoT Hub-hostnaam en Hallo IoT Hub-verbindingsreeks moet u toocomplete Hallo rest van deze handleiding.</span><span class="sxs-lookup"><span data-stu-id="74c45-115">You have hello IoT Hub host name and hello IoT Hub connection string that you need toocomplete hello rest of this tutorial.</span></span>
 
-## <a name="create-a-device-identity"></a><span data-ttu-id="b3106-116">Een apparaat-id maken</span><span class="sxs-lookup"><span data-stu-id="b3106-116">Create a device identity</span></span>
-<span data-ttu-id="b3106-117">In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id maakt in het identiteitenregister van uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-117">In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub.</span></span> <span data-ttu-id="b3106-118">Een apparaat kan alleen verbinding maken met de IoT Hub als het vermeld staat in het id-register.</span><span class="sxs-lookup"><span data-stu-id="b3106-118">A device can only connect to IoT hub if it has an entry in the identity registry.</span></span> <span data-ttu-id="b3106-119">Zie het gedeelte **Id-register** in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="b3106-119">For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity].</span></span> <span data-ttu-id="b3106-120">Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-120">When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.</span></span>
+## <a name="create-a-device-identity"></a><span data-ttu-id="74c45-116">Een apparaat-id maken</span><span class="sxs-lookup"><span data-stu-id="74c45-116">Create a device identity</span></span>
+<span data-ttu-id="74c45-117">In deze sectie maakt maken u een Node.js-consoletoepassing die een apparaat-id in Hallo identiteitenregister van uw IoT-hub maakt.</span><span class="sxs-lookup"><span data-stu-id="74c45-117">In this section, you create a Node.js console app that creates a device identity in hello identity registry in your IoT hub.</span></span> <span data-ttu-id="74c45-118">Een apparaat kan alleen verbinding maken met tooIoT hub als er een vermelding in het identiteitenregister Hallo.</span><span class="sxs-lookup"><span data-stu-id="74c45-118">A device can only connect tooIoT hub if it has an entry in hello identity registry.</span></span> <span data-ttu-id="74c45-119">Zie voor meer informatie, Hallo **Identiteitsregister** sectie Hallo [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity].</span><span class="sxs-lookup"><span data-stu-id="74c45-119">For more information, see hello **Identity Registry** section of hello [IoT Hub developer guide][lnk-devguide-identity].</span></span> <span data-ttu-id="74c45-120">Wanneer u deze consoletoepassing uitvoert, wordt een unieke apparaat-ID gegenereerd en sleutel waarmee het apparaat tooidentify zelf kunt wanneer het apparaat-naar-cloud verzendt berichten tooIoT Hub.</span><span class="sxs-lookup"><span data-stu-id="74c45-120">When you run this console app, it generates a unique device ID and key that your device can use tooidentify itself when it sends device-to-cloud messages tooIoT Hub.</span></span>
 
-1. <span data-ttu-id="b3106-121">Maak een nieuwe lege map met de naam **createdeviceidentity**.</span><span class="sxs-lookup"><span data-stu-id="b3106-121">Create a new empty folder called **createdeviceidentity**.</span></span> <span data-ttu-id="b3106-122">In de map **createdeviceidentity** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht te geven.</span><span class="sxs-lookup"><span data-stu-id="b3106-122">In the **createdeviceidentity** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="b3106-123">Accepteer alle standaardwaarden:</span><span class="sxs-lookup"><span data-stu-id="b3106-123">Accept all the defaults:</span></span>
+1. <span data-ttu-id="74c45-121">Maak een nieuwe lege map met de naam **createdeviceidentity**.</span><span class="sxs-lookup"><span data-stu-id="74c45-121">Create a new empty folder called **createdeviceidentity**.</span></span> <span data-ttu-id="74c45-122">In Hallo **createdeviceidentity** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken.</span><span class="sxs-lookup"><span data-stu-id="74c45-122">In hello **createdeviceidentity** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="74c45-123">Accepteer alle Hallo standaardwaarden:</span><span class="sxs-lookup"><span data-stu-id="74c45-123">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="b3106-124">In het opdrachtprompt in de map **createdeviceidentity** voert u de volgende opdracht uit om het **azure-iothub** Service SDK-pakket te installeren:</span><span class="sxs-lookup"><span data-stu-id="b3106-124">At your command prompt in the **createdeviceidentity** folder, run the following command to install the **azure-iothub** Service SDK package:</span></span>
+2. <span data-ttu-id="74c45-124">Bij de opdrachtprompt in Hallo **createdeviceidentity** map na de opdracht tooinstall Hallo Hallo **azure-iothub** Service SDK-pakket:</span><span class="sxs-lookup"><span data-stu-id="74c45-124">At your command prompt in hello **createdeviceidentity** folder, run hello following command tooinstall hello **azure-iothub** Service SDK package:</span></span>
    
     ```
     npm install azure-iothub --save
     ```
-3. <span data-ttu-id="b3106-125">Maak met een tekstverwerker een **CreateDeviceIdentity.js**-bestand in de map **createdeviceidentity**.</span><span class="sxs-lookup"><span data-stu-id="b3106-125">Using a text editor, create a **CreateDeviceIdentity.js** file in the **createdeviceidentity** folder.</span></span>
-4. <span data-ttu-id="b3106-126">Voeg de volgende `require` instructie toe aan het begin van het bestand **CreateDeviceIdentity.js**-bestand:</span><span class="sxs-lookup"><span data-stu-id="b3106-126">Add the following `require` statement at the start of the **CreateDeviceIdentity.js** file:</span></span>
+3. <span data-ttu-id="74c45-125">Maak met een teksteditor, een **CreateDeviceIdentity.js** bestand in Hallo **createdeviceidentity** map.</span><span class="sxs-lookup"><span data-stu-id="74c45-125">Using a text editor, create a **CreateDeviceIdentity.js** file in hello **createdeviceidentity** folder.</span></span>
+4. <span data-ttu-id="74c45-126">Voeg de volgende Hallo `require` instructie aan begin Hallo Hallo **CreateDeviceIdentity.js** bestand:</span><span class="sxs-lookup"><span data-stu-id="74c45-126">Add hello following `require` statement at hello start of hello **CreateDeviceIdentity.js** file:</span></span>
    
     ```
     'use strict';
    
     var iothub = require('azure-iothub');
     ```
-5. <span data-ttu-id="b3106-127">Voeg de volgende code toe aan het bestand **CreateDeviceIdentity.js** en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks voor de hub die u in de vorige sectie hebt gemaakt:</span><span class="sxs-lookup"><span data-stu-id="b3106-127">Add the following code to the **CreateDeviceIdentity.js** file and replace the placeholder value with the IoT Hub connection string for the hub you created in the previous section:</span></span> 
+5. <span data-ttu-id="74c45-127">Hallo na code toohello toevoegen **CreateDeviceIdentity.js** -bestand en vervang Hallo tijdelijke aanduidingswaarde met IoT Hub-verbindingsreeks voor Hallo-hub die u hebt gemaakt in de vorige sectie Hallo Hallo:</span><span class="sxs-lookup"><span data-stu-id="74c45-127">Add hello following code toohello **CreateDeviceIdentity.js** file and replace hello placeholder value with hello IoT Hub connection string for hello hub you created in hello previous section:</span></span> 
    
     ```
     var connectionString = '{iothub connection string}';
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. <span data-ttu-id="b3106-128">Voeg de volgende code toe om een apparaatdefinitie te maken in het id-register van uw IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-128">Add the following code to create a device definition in the identity registry in your IoT hub.</span></span> <span data-ttu-id="b3106-129">Met deze code wordt een apparaat gemaakt als de apparaat-id nog niet voorkomt in het id-register. Anders wordt de sleutel van het bestaande apparaat geretourneerd:</span><span class="sxs-lookup"><span data-stu-id="b3106-129">This code creates a device if the device ID does not exist in the identity registry, otherwise it returns the key of the existing device:</span></span>
+6. <span data-ttu-id="74c45-128">Voeg Hallo code toocreate een definitie van het apparaat in Hallo identiteitenregister van uw IoT-hub te volgen.</span><span class="sxs-lookup"><span data-stu-id="74c45-128">Add hello following code toocreate a device definition in hello identity registry in your IoT hub.</span></span> <span data-ttu-id="74c45-129">Deze code maakt een apparaat als Hallo apparaat-ID bestaat niet in het identiteitenregister hello, anders wordt het Hallo-sleutel van de bestaande apparaat Hallo:</span><span class="sxs-lookup"><span data-stu-id="74c45-129">This code creates a device if hello device ID does not exist in hello identity registry, otherwise it returns hello key of hello existing device:</span></span>
    
     ```
     var device = {
@@ -96,52 +96,52 @@ ms.lasthandoff: 08/29/2017
     ```
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-7. <span data-ttu-id="b3106-130">Sla het bestand **CreateDeviceIdentity.js** op en sluit het.</span><span class="sxs-lookup"><span data-stu-id="b3106-130">Save and close **CreateDeviceIdentity.js** file.</span></span>
-8. <span data-ttu-id="b3106-131">Als u de toepassing **createdeviceidentity** wilt uitvoeren, geeft u de volgende opdracht op in het opdrachtprompt in de map createdeviceidentity:</span><span class="sxs-lookup"><span data-stu-id="b3106-131">To run the **createdeviceidentity** application, execute the following command at the command prompt in the createdeviceidentity folder:</span></span>
+7. <span data-ttu-id="74c45-130">Sla het bestand **CreateDeviceIdentity.js** op en sluit het.</span><span class="sxs-lookup"><span data-stu-id="74c45-130">Save and close **CreateDeviceIdentity.js** file.</span></span>
+8. <span data-ttu-id="74c45-131">Hallo toorun **createdeviceidentity** -toepassing uitvoeren van de volgende opdracht achter de opdrachtprompt Hallo in de map createdeviceidentity Hallo Hallo:</span><span class="sxs-lookup"><span data-stu-id="74c45-131">toorun hello **createdeviceidentity** application, execute hello following command at hello command prompt in hello createdeviceidentity folder:</span></span>
    
     ```
     node CreateDeviceIdentity.js 
     ```
-9. <span data-ttu-id="b3106-132">Noteer de **apparaat-id** en de **apparaatsleutel**.</span><span class="sxs-lookup"><span data-stu-id="b3106-132">Make a note of the **Device ID** and **Device key**.</span></span> <span data-ttu-id="b3106-133">U hebt deze waarden later nodig wanneer u een toepassing maakt die verbinding maakt met IoT Hub als apparaat.</span><span class="sxs-lookup"><span data-stu-id="b3106-133">You need these values later when you create an application that connects to IoT Hub as a device.</span></span>
+9. <span data-ttu-id="74c45-132">Maak een notitie van Hallo **apparaat-ID** en **apparaatsleutel**.</span><span class="sxs-lookup"><span data-stu-id="74c45-132">Make a note of hello **Device ID** and **Device key**.</span></span> <span data-ttu-id="74c45-133">U moet deze waarden later bij het maken van een toepassing die tooIoT Hub als apparaat verbinding maakt.</span><span class="sxs-lookup"><span data-stu-id="74c45-133">You need these values later when you create an application that connects tooIoT Hub as a device.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b3106-134">In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen.</span><span class="sxs-lookup"><span data-stu-id="b3106-134">The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub.</span></span> <span data-ttu-id="b3106-135">De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen.</span><span class="sxs-lookup"><span data-stu-id="b3106-135">It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device.</span></span> <span data-ttu-id="b3106-136">Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken.</span><span class="sxs-lookup"><span data-stu-id="b3106-136">If your application needs to store other device-specific metadata, it should use an application-specific store.</span></span> <span data-ttu-id="b3106-137">Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="b3106-137">For more information, see the [IoT Hub developer guide][lnk-devguide-identity].</span></span>
+> <span data-ttu-id="74c45-134">Hallo id-register IoT Hub bewaart alleen apparaat-id's tooenable veilige toegang toohello IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="74c45-134">hello IoT Hub identity registry only stores device identities tooenable secure access toohello IoT hub.</span></span> <span data-ttu-id="74c45-135">Apparaat-id's en sleutels toouse worden opgeslagen als beveiligingsreferenties en waarmee u toodisable toegang tot een afzonderlijk apparaat kunt vlag voor ingeschakeld/uitgeschakeld.</span><span class="sxs-lookup"><span data-stu-id="74c45-135">It stores device IDs and keys toouse as security credentials and an enabled/disabled flag that you can use toodisable access for an individual device.</span></span> <span data-ttu-id="74c45-136">Als uw toepassing toostore andere apparaatspecifieke metagegevens moet, moet deze een toepassingsspecifieke opslagmethode gebruiken.</span><span class="sxs-lookup"><span data-stu-id="74c45-136">If your application needs toostore other device-specific metadata, it should use an application-specific store.</span></span> <span data-ttu-id="74c45-137">Zie voor meer informatie, Hallo [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity].</span><span class="sxs-lookup"><span data-stu-id="74c45-137">For more information, see hello [IoT Hub developer guide][lnk-devguide-identity].</span></span>
 > 
 > 
 
 <a id="D2C_node"></a>
-## <a name="receive-device-to-cloud-messages"></a><span data-ttu-id="b3106-138">Apparaat-naar-cloud-berichten ontvangen</span><span class="sxs-lookup"><span data-stu-id="b3106-138">Receive device-to-cloud messages</span></span>
-<span data-ttu-id="b3106-139">In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub leest.</span><span class="sxs-lookup"><span data-stu-id="b3106-139">In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub.</span></span> <span data-ttu-id="b3106-140">Een IoT-hub toont een [Event Hub][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen.</span><span class="sxs-lookup"><span data-stu-id="b3106-140">An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages.</span></span> <span data-ttu-id="b3106-141">Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden.</span><span class="sxs-lookup"><span data-stu-id="b3106-141">To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment.</span></span> <span data-ttu-id="b3106-142">In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken.</span><span class="sxs-lookup"><span data-stu-id="b3106-142">The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale.</span></span> <span data-ttu-id="b3106-143">In de handleiding [Aan de slag met Event Hubs][lnk-eventhubs-tutorial] leest u meer over het verwerken van berichten van Event Hubs. Deze handleiding is van toepassing op de Event Hub-compatibele eindpunten van IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-143">The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.</span></span>
+## <a name="receive-device-to-cloud-messages"></a><span data-ttu-id="74c45-138">Apparaat-naar-cloud-berichten ontvangen</span><span class="sxs-lookup"><span data-stu-id="74c45-138">Receive device-to-cloud messages</span></span>
+<span data-ttu-id="74c45-139">In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub leest.</span><span class="sxs-lookup"><span data-stu-id="74c45-139">In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub.</span></span> <span data-ttu-id="74c45-140">Een iothub toont een [Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt tooenable u tooread apparaat-naar-cloud-berichten.</span><span class="sxs-lookup"><span data-stu-id="74c45-140">An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint tooenable you tooread device-to-cloud messages.</span></span> <span data-ttu-id="74c45-141">tookeep dingen eenvoudige, deze zelfstudie maakt u een basislezer die niet geschikt voor een implementatie met hoge doorvoer.</span><span class="sxs-lookup"><span data-stu-id="74c45-141">tookeep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment.</span></span> <span data-ttu-id="74c45-142">Hallo [apparaat-naar-cloud-berichten verwerken] [ lnk-process-d2c-tutorial] zelfstudie laat zien hoe tooprocess apparaat-naar-cloud-berichten op grote schaal.</span><span class="sxs-lookup"><span data-stu-id="74c45-142">hello [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how tooprocess device-to-cloud messages at scale.</span></span> <span data-ttu-id="74c45-143">Hallo [aan de slag met Event Hubs] [ lnk-eventhubs-tutorial] zelfstudie bevat meer informatie over hoe tooprocess van berichten van Event Hubs en toepasselijke toohello IoT Hub Event Hub-compatibele eindpunten is.</span><span class="sxs-lookup"><span data-stu-id="74c45-143">hello [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how tooprocess messages from Event Hubs and is applicable toohello IoT Hub Event Hub-compatible endpoints.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b3106-144">Het met Event Hub compatibele eindpunt voor het lezen van apparaat-naar-cloud-berichten maakt altijd gebruik van het AMQP-protocol.</span><span class="sxs-lookup"><span data-stu-id="b3106-144">The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQP protocol.</span></span>
+> <span data-ttu-id="74c45-144">Hallo Event Hub-compatibele eindpunt voor het lezen van apparaat-naar-cloudberichten altijd gebruikt Hallo AMQP-protocol.</span><span class="sxs-lookup"><span data-stu-id="74c45-144">hello Event Hub-compatible endpoint for reading device-to-cloud messages always uses hello AMQP protocol.</span></span>
 > 
 > 
 
-1. <span data-ttu-id="b3106-145">Maak een lege map met de naam **readdevicetocloudmessages**.</span><span class="sxs-lookup"><span data-stu-id="b3106-145">Create an empty folder called **readdevicetocloudmessages**.</span></span> <span data-ttu-id="b3106-146">In de map **readdevicetocloudmessages** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven.</span><span class="sxs-lookup"><span data-stu-id="b3106-146">In the **readdevicetocloudmessages** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="b3106-147">Accepteer alle standaardwaarden:</span><span class="sxs-lookup"><span data-stu-id="b3106-147">Accept all the defaults:</span></span>
+1. <span data-ttu-id="74c45-145">Maak een lege map met de naam **readdevicetocloudmessages**.</span><span class="sxs-lookup"><span data-stu-id="74c45-145">Create an empty folder called **readdevicetocloudmessages**.</span></span> <span data-ttu-id="74c45-146">In Hallo **readdevicetocloudmessages** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken.</span><span class="sxs-lookup"><span data-stu-id="74c45-146">In hello **readdevicetocloudmessages** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="74c45-147">Accepteer alle Hallo standaardwaarden:</span><span class="sxs-lookup"><span data-stu-id="74c45-147">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="b3106-148">Voer in het opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om het pakket **azure-event-hubs** te installeren:</span><span class="sxs-lookup"><span data-stu-id="b3106-148">At your command prompt in the **readdevicetocloudmessages** folder, run the following command to install the **azure-event-hubs** package:</span></span>
+2. <span data-ttu-id="74c45-148">Bij de opdrachtprompt in Hallo **readdevicetocloudmessages** map na de opdracht tooinstall Hallo Hallo **azure-event-hubs** pakket:</span><span class="sxs-lookup"><span data-stu-id="74c45-148">At your command prompt in hello **readdevicetocloudmessages** folder, run hello following command tooinstall hello **azure-event-hubs** package:</span></span>
    
     ```
     npm install azure-event-hubs --save
     ```
-3. <span data-ttu-id="b3106-149">Maak met een tekstverwerker een bestand **ReadDeviceToCloudMessages.js** in de map **readdevicetocloudmessages**.</span><span class="sxs-lookup"><span data-stu-id="b3106-149">Using a text editor, create a **ReadDeviceToCloudMessages.js** file in the **readdevicetocloudmessages** folder.</span></span>
-4. <span data-ttu-id="b3106-150">Voeg de volgende `require` instructies toe aan het begin van het bestand **ReadDeviceToCloudMessages.js**:</span><span class="sxs-lookup"><span data-stu-id="b3106-150">Add the following `require` statements at the start of the **ReadDeviceToCloudMessages.js** file:</span></span>
+3. <span data-ttu-id="74c45-149">Maak met een teksteditor, een **ReadDeviceToCloudMessages.js** bestand in Hallo **readdevicetocloudmessages** map.</span><span class="sxs-lookup"><span data-stu-id="74c45-149">Using a text editor, create a **ReadDeviceToCloudMessages.js** file in hello **readdevicetocloudmessages** folder.</span></span>
+4. <span data-ttu-id="74c45-150">Voeg de volgende Hallo `require` instructies aan Hallo start Hallo **ReadDeviceToCloudMessages.js** bestand:</span><span class="sxs-lookup"><span data-stu-id="74c45-150">Add hello following `require` statements at hello start of hello **ReadDeviceToCloudMessages.js** file:</span></span>
    
     ```
     'use strict';
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. <span data-ttu-id="b3106-151">Voeg de volgende variabeledeclaratie toe en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks van uw hub:</span><span class="sxs-lookup"><span data-stu-id="b3106-151">Add the following variable declaration and replace the placeholder value with the IoT Hub connection string for your hub:</span></span>
+5. <span data-ttu-id="74c45-151">Hallo na variabelendeclaratie toevoegen en vervang Hallo tijdelijke aanduidingswaarde met Hallo IoT Hub-verbindingsreeks voor uw hub:</span><span class="sxs-lookup"><span data-stu-id="74c45-151">Add hello following variable declaration and replace hello placeholder value with hello IoT Hub connection string for your hub:</span></span>
    
     ```
     var connectionString = '{iothub connection string}';
     ```
-6. <span data-ttu-id="b3106-152">Voeg de volgende twee functies toe die de uitvoer naar de console afdrukken:</span><span class="sxs-lookup"><span data-stu-id="b3106-152">Add the following two functions that print output to the console:</span></span>
+6. <span data-ttu-id="74c45-152">Na twee functies die uitvoer toohello console afdrukken Hallo toevoegen:</span><span class="sxs-lookup"><span data-stu-id="74c45-152">Add hello following two functions that print output toohello console:</span></span>
    
     ```
     var printError = function (err) {
@@ -154,7 +154,7 @@ ms.lasthandoff: 08/29/2017
       console.log('');
     };
     ```
-7. <span data-ttu-id="b3106-153">Voeg de volgende code toe om de **EventHubClient** te maken, open de verbinding met uw IoT-Hub en maak voor elke partitie een ontvanger.</span><span class="sxs-lookup"><span data-stu-id="b3106-153">Add the following code to create the **EventHubClient**, open the connection to your IoT Hub, and create a receiver for each partition.</span></span> <span data-ttu-id="b3106-154">Deze toepassing gebruikt een filter bij het maken van een ontvanger, zodat de ontvanger alleen berichten leest die naar IoT Hub worden verzonden wanneer de ontvanger is geactiveerd.</span><span class="sxs-lookup"><span data-stu-id="b3106-154">This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running.</span></span> <span data-ttu-id="b3106-155">Dit filter is handig in een testomgeving, omdat u zo alleen de huidige reeks berichten ziet.</span><span class="sxs-lookup"><span data-stu-id="b3106-155">This filter is useful in a test environment so you see just the current set of messages.</span></span> <span data-ttu-id="b3106-156">In een productieomgeving moet de code ervoor zorgen dat alle berichten worden verwerkt.</span><span class="sxs-lookup"><span data-stu-id="b3106-156">In a production environment, your code should make sure that it processes all the messages.</span></span> <span data-ttu-id="b3106-157">Zie voor meer informatie de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial]:</span><span class="sxs-lookup"><span data-stu-id="b3106-157">For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial:</span></span>
+7. <span data-ttu-id="74c45-153">Toevoegen van de volgende code toocreate Hallo Hallo **EventHubClient**Hallo verbinding tooyour IoT Hub en opent een ontvanger voor elke partitie maken.</span><span class="sxs-lookup"><span data-stu-id="74c45-153">Add hello following code toocreate hello **EventHubClient**, open hello connection tooyour IoT Hub, and create a receiver for each partition.</span></span> <span data-ttu-id="74c45-154">Deze toepassing gebruikt een filter bij het maken van een ontvanger zodat hello ontvanger alleen berichten tooIoT Hub leest nadat Hallo ontvanger is geactiveerd.</span><span class="sxs-lookup"><span data-stu-id="74c45-154">This application uses a filter when it creates a receiver so that hello receiver only reads messages sent tooIoT Hub after hello receiver starts running.</span></span> <span data-ttu-id="74c45-155">Dit filter is handig in een testomgeving zodat u alleen Hallo huidige reeks berichten zien.</span><span class="sxs-lookup"><span data-stu-id="74c45-155">This filter is useful in a test environment so you see just hello current set of messages.</span></span> <span data-ttu-id="74c45-156">In een productieomgeving moet uw code ervoor zorgen dat alle Hallo-berichten worden verwerkt.</span><span class="sxs-lookup"><span data-stu-id="74c45-156">In a production environment, your code should make sure that it processes all hello messages.</span></span> <span data-ttu-id="74c45-157">Zie voor meer informatie, Hallo [hoe tooprocess IoT Hub apparaat-naar-cloud-berichten] [ lnk-process-d2c-tutorial] zelfstudie:</span><span class="sxs-lookup"><span data-stu-id="74c45-157">For more information, see hello [How tooprocess IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial:</span></span>
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -171,23 +171,23 @@ ms.lasthandoff: 08/29/2017
         })
         .catch(printError);
     ```
-8. <span data-ttu-id="b3106-158">Sla het bestand **ReadDeviceToCloudMessages.js** op en sluit het.</span><span class="sxs-lookup"><span data-stu-id="b3106-158">Save and close the **ReadDeviceToCloudMessages.js** file.</span></span>
+8. <span data-ttu-id="74c45-158">Opslaan en sluiten Hallo **ReadDeviceToCloudMessages.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="74c45-158">Save and close hello **ReadDeviceToCloudMessages.js** file.</span></span>
 
-## <a name="create-a-simulated-device-app"></a><span data-ttu-id="b3106-159">Een gesimuleerde apparaattoepassing maken</span><span class="sxs-lookup"><span data-stu-id="b3106-159">Create a simulated device app</span></span>
-<span data-ttu-id="b3106-160">In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT-hub verzendt.</span><span class="sxs-lookup"><span data-stu-id="b3106-160">In this section, you create a Node.js console app that simulates a device that sends device-to-cloud messages to an IoT hub.</span></span>
+## <a name="create-a-simulated-device-app"></a><span data-ttu-id="74c45-159">Een gesimuleerde apparaattoepassing maken</span><span class="sxs-lookup"><span data-stu-id="74c45-159">Create a simulated device app</span></span>
+<span data-ttu-id="74c45-160">In deze sectie maakt u een Node.js-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloudberichten tooan iothub verzendt.</span><span class="sxs-lookup"><span data-stu-id="74c45-160">In this section, you create a Node.js console app that simulates a device that sends device-to-cloud messages tooan IoT hub.</span></span>
 
-1. <span data-ttu-id="b3106-161">Maak een lege map met de naam **simulateddevice**.</span><span class="sxs-lookup"><span data-stu-id="b3106-161">Create an empty folder called **simulateddevice**.</span></span> <span data-ttu-id="b3106-162">In de map **simulateddevice** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven.</span><span class="sxs-lookup"><span data-stu-id="b3106-162">In the **simulateddevice** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="b3106-163">Accepteer alle standaardwaarden:</span><span class="sxs-lookup"><span data-stu-id="b3106-163">Accept all the defaults:</span></span>
+1. <span data-ttu-id="74c45-161">Maak een lege map met de naam **simulateddevice**.</span><span class="sxs-lookup"><span data-stu-id="74c45-161">Create an empty folder called **simulateddevice**.</span></span> <span data-ttu-id="74c45-162">In Hallo **simulateddevice** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken.</span><span class="sxs-lookup"><span data-stu-id="74c45-162">In hello **simulateddevice** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="74c45-163">Accepteer alle Hallo standaardwaarden:</span><span class="sxs-lookup"><span data-stu-id="74c45-163">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="b3106-164">In de opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp** Device SDK-pakket en het **azure-iot-device-mqtt**-pakket te installeren:</span><span class="sxs-lookup"><span data-stu-id="b3106-164">At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:</span></span>
+2. <span data-ttu-id="74c45-164">Bij de opdrachtprompt in Hallo **simulateddevice** map na de opdracht tooinstall Hallo Hallo **azure-iot-device** apparaat-SDK-pakket en **azure-iot-device-mqtt**pakket:</span><span class="sxs-lookup"><span data-stu-id="74c45-164">At your command prompt in hello **simulateddevice** folder, run hello following command tooinstall hello **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:</span></span>
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. <span data-ttu-id="b3106-165">Maak met een tekstverwerker een bestand **SimulatedDevice.js** in de map **simulateddevice**.</span><span class="sxs-lookup"><span data-stu-id="b3106-165">Using a text editor, create a **SimulatedDevice.js** file in the **simulateddevice** folder.</span></span>
-4. <span data-ttu-id="b3106-166">Voeg de volgende `require` instructies toe aan het begin van het bestand **SimulatedDevice.js**:</span><span class="sxs-lookup"><span data-stu-id="b3106-166">Add the following `require` statements at the start of the **SimulatedDevice.js** file:</span></span>
+3. <span data-ttu-id="74c45-165">Maak met een teksteditor, een **SimulatedDevice.js** bestand in Hallo **simulateddevice** map.</span><span class="sxs-lookup"><span data-stu-id="74c45-165">Using a text editor, create a **SimulatedDevice.js** file in hello **simulateddevice** folder.</span></span>
+4. <span data-ttu-id="74c45-166">Voeg de volgende Hallo `require` instructies aan Hallo start Hallo **SimulatedDevice.js** bestand:</span><span class="sxs-lookup"><span data-stu-id="74c45-166">Add hello following `require` statements at hello start of hello **SimulatedDevice.js** file:</span></span>
    
     ```
     'use strict';
@@ -195,14 +195,14 @@ ms.lasthandoff: 08/29/2017
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. <span data-ttu-id="b3106-167">Voeg een **connectionString**-variabele toe en gebruik deze om een **client**exemplaar te maken.</span><span class="sxs-lookup"><span data-stu-id="b3106-167">Add a **connectionString** variable and use it to create a **Client** instance.</span></span> <span data-ttu-id="b3106-168">Vervang **{youriothostname}** door de naam van de IoT-hub die u hebt gemaakt in de sectie *Een IoT-hub maken*.</span><span class="sxs-lookup"><span data-stu-id="b3106-168">Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section.</span></span> <span data-ttu-id="b3106-169">Vervang **{yourdevicekey}** door de sleutelwaarde die u hebt gegenereerd in de sectie *Een apparaat-id maken*:</span><span class="sxs-lookup"><span data-stu-id="b3106-169">Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:</span></span>
+5. <span data-ttu-id="74c45-167">Voeg een **connectionString** variabele en gebruik deze toocreate een **Client** exemplaar.</span><span class="sxs-lookup"><span data-stu-id="74c45-167">Add a **connectionString** variable and use it toocreate a **Client** instance.</span></span> <span data-ttu-id="74c45-168">Vervang **{youriothostname}** met de naam van de Hallo van Hallo IoT-hub die u hebt gemaakt Hallo *een IoT Hub maken* sectie.</span><span class="sxs-lookup"><span data-stu-id="74c45-168">Replace **{youriothostname}** with hello name of hello IoT hub you created hello *Create an IoT Hub* section.</span></span> <span data-ttu-id="74c45-169">Vervang **{yourdevicekey}** met Hallo apparaat sleutelwaarde u hebt gegenereerd in Hallo *maken van een apparaat-id* sectie:</span><span class="sxs-lookup"><span data-stu-id="74c45-169">Replace **{yourdevicekey}** with hello device key value you generated in hello *Create a device identity* section:</span></span>
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
    
     var client = clientFromConnectionString(connectionString);
     ```
-6. <span data-ttu-id="b3106-170">Voeg de volgende functie toe om uitvoer van de toepassing weer te geven:</span><span class="sxs-lookup"><span data-stu-id="b3106-170">Add the following function to display output from the application:</span></span>
+6. <span data-ttu-id="74c45-170">Hallo functie toodisplay uitvoer van de toepassing hello volgende toevoegen:</span><span class="sxs-lookup"><span data-stu-id="74c45-170">Add hello following function toodisplay output from hello application:</span></span>
    
     ```
     function printResultFor(op) {
@@ -212,7 +212,7 @@ ms.lasthandoff: 08/29/2017
       };
     }
     ```
-7. <span data-ttu-id="b3106-171">Maak een callback en verzend iedere seconde met de functie **setInterval** een bericht naar uw IoT-hub:</span><span class="sxs-lookup"><span data-stu-id="b3106-171">Create a callback and use the **setInterval** function to send a message to your IoT hub every second:</span></span>
+7. <span data-ttu-id="74c45-171">Maak een callback en gebruik Hallo **setInterval** toosend een bericht tooyour IoT-hub elke seconde werken:</span><span class="sxs-lookup"><span data-stu-id="74c45-171">Create a callback and use hello **setInterval** function toosend a message tooyour IoT hub every second:</span></span>
    
     ```
     var connectCallback = function (err) {
@@ -221,7 +221,7 @@ ms.lasthandoff: 08/29/2017
       } else {
         console.log('Client connected');
    
-        // Create a message and send it to the IoT Hub every second
+        // Create a message and send it toohello IoT Hub every second
         setInterval(function(){
             var temperature = 20 + (Math.random() * 15);
             var humidity = 60 + (Math.random() * 20);            
@@ -234,49 +234,49 @@ ms.lasthandoff: 08/29/2017
       }
     };
     ```
-8. <span data-ttu-id="b3106-172">Maak verbinding met uw IoT Hub en begin met het verzenden van berichten:</span><span class="sxs-lookup"><span data-stu-id="b3106-172">Open the connection to your IoT Hub and start sending messages:</span></span>
+8. <span data-ttu-id="74c45-172">Open Hallo verbinding tooyour IoT Hub en beginnen met het verzenden van berichten:</span><span class="sxs-lookup"><span data-stu-id="74c45-172">Open hello connection tooyour IoT Hub and start sending messages:</span></span>
    
     ```
     client.open(connectCallback);
     ```
-9. <span data-ttu-id="b3106-173">Sla het bestand **SimulatedDevice.js** op en sluit het.</span><span class="sxs-lookup"><span data-stu-id="b3106-173">Save and close the **SimulatedDevice.js** file.</span></span>
+9. <span data-ttu-id="74c45-173">Opslaan en sluiten Hallo **SimulatedDevice.js** bestand.</span><span class="sxs-lookup"><span data-stu-id="74c45-173">Save and close hello **SimulatedDevice.js** file.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b3106-174">Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd.</span><span class="sxs-lookup"><span data-stu-id="b3106-174">To keep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="b3106-175">Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).</span><span class="sxs-lookup"><span data-stu-id="b3106-175">In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
+> <span data-ttu-id="74c45-174">tookeep dingen eenvoudige, deze zelfstudie wordt niet geïmplementeerd voor een beleid voor opnieuw proberen.</span><span class="sxs-lookup"><span data-stu-id="74c45-174">tookeep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="74c45-175">In productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].</span><span class="sxs-lookup"><span data-stu-id="74c45-175">In production code, you should implement retry policies (such as an exponential backoff), as suggested in hello MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
 > 
 > 
 
-## <a name="run-the-apps"></a><span data-ttu-id="b3106-176">De apps uitvoeren</span><span class="sxs-lookup"><span data-stu-id="b3106-176">Run the apps</span></span>
-<span data-ttu-id="b3106-177">U kunt nu de apps uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="b3106-177">You are now ready to run the apps.</span></span>
+## <a name="run-hello-apps"></a><span data-ttu-id="74c45-176">Hallo-apps uitvoeren</span><span class="sxs-lookup"><span data-stu-id="74c45-176">Run hello apps</span></span>
+<span data-ttu-id="74c45-177">U bent nu klaar toorun Hallo apps.</span><span class="sxs-lookup"><span data-stu-id="74c45-177">You are now ready toorun hello apps.</span></span>
 
-1. <span data-ttu-id="b3106-178">Voer in het opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om uw IoT Hub te bewaken:</span><span class="sxs-lookup"><span data-stu-id="b3106-178">At a command prompt in the **readdevicetocloudmessages** folder, run the following command to begin monitoring your IoT hub:</span></span>
+1. <span data-ttu-id="74c45-178">Bij een opdrachtprompt in Hallo **readdevicetocloudmessages** map Hallo opdracht toobegin bewaking van uw IoT-hub te volgen:</span><span class="sxs-lookup"><span data-stu-id="74c45-178">At a command prompt in hello **readdevicetocloudmessages** folder, run hello following command toobegin monitoring your IoT hub:</span></span>
    
     ```
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![De Node.js-app voor IoT Hub-services voor het bewaken van apparaat-naar-cloud-berichten][7]
-2. <span data-ttu-id="b3106-180">Voer in het opdrachtprompt in de map **simulateddevice** de volgende opdracht uit om telemetriegegevens naar uw IoT Hub te verzenden:</span><span class="sxs-lookup"><span data-stu-id="b3106-180">At a command prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:</span></span>
+    ![Node.js IoT Hub service app toomonitor apparaat-naar-cloud-berichten][7]
+2. <span data-ttu-id="74c45-180">Bij een opdrachtprompt in Hallo **simulateddevice** map Hallo opdracht toobegin verzenden van telemetrie gegevens tooyour IoT-hub te volgen:</span><span class="sxs-lookup"><span data-stu-id="74c45-180">At a command prompt in hello **simulateddevice** folder, run hello following command toobegin sending telemetry data tooyour IoT hub:</span></span>
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![De Node.js-app voor IoT Hub-apparaten voor het bewaken van apparaat-naar-cloud-berichten][8]
-3. <span data-ttu-id="b3106-182">De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:</span><span class="sxs-lookup"><span data-stu-id="b3106-182">The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the IoT hub:</span></span>
+    ![Node.js IoT Hub apparaat-app toosend apparaat-naar-cloud-berichten][8]
+3. <span data-ttu-id="74c45-182">Hallo **gebruik** -tegel in Hallo [Azure-portal] [ lnk-portal] toont Hallo aantal verzonden berichten toohello IoT-hub:</span><span class="sxs-lookup"><span data-stu-id="74c45-182">hello **Usage** tile in hello [Azure portal][lnk-portal] shows hello number of messages sent toohello IoT hub:</span></span>
    
-    ![De tegel Gebruik in Azure Portal met het aantal berichten dat is verzonden naar IoT Hub][43]
+    ![Azure portal gebruik tegel met aantal verzonden berichten tooIoT Hub][43]
 
-## <a name="next-steps"></a><span data-ttu-id="b3106-184">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="b3106-184">Next steps</span></span>
-<span data-ttu-id="b3106-185">In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-185">In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry.</span></span> <span data-ttu-id="b3106-186">U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-186">You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub.</span></span> <span data-ttu-id="b3106-187">Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub.</span><span class="sxs-lookup"><span data-stu-id="b3106-187">You also created an app that displays the messages received by the IoT hub.</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="74c45-184">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="74c45-184">Next steps</span></span>
+<span data-ttu-id="74c45-185">In deze zelfstudie maakt u een nieuwe iothub geconfigureerd in hello Azure-portal en vervolgens een apparaat-id in de id-register Hallo iothub hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="74c45-185">In this tutorial, you configured a new IoT hub in hello Azure portal, and then created a device identity in hello IoT hub's identity registry.</span></span> <span data-ttu-id="74c45-186">U hebt deze apparaat-id tooenable Hallo gesimuleerd apparaat app toosend apparaat-naar-cloudberichten toohello iothub gebruikt.</span><span class="sxs-lookup"><span data-stu-id="74c45-186">You used this device identity tooenable hello simulated device app toosend device-to-cloud messages toohello IoT hub.</span></span> <span data-ttu-id="74c45-187">Hebt u ook een app die wordt weergegeven Hallo-berichten dat is ontvangen door de Hallo iothub hebt gemaakt.</span><span class="sxs-lookup"><span data-stu-id="74c45-187">You also created an app that displays hello messages received by hello IoT hub.</span></span> 
 
-<span data-ttu-id="b3106-188">Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:</span><span class="sxs-lookup"><span data-stu-id="b3106-188">To continue getting started with IoT Hub and to explore other IoT scenarios, see:</span></span>
+<span data-ttu-id="74c45-188">toocontinue aan de slag met IoT Hub en tooexplore raadpleegt u andere IoT-scenario's:</span><span class="sxs-lookup"><span data-stu-id="74c45-188">toocontinue getting started with IoT Hub and tooexplore other IoT scenarios, see:</span></span>
 
-* <span data-ttu-id="b3106-189">[Verbinding maken met uw apparaat][lnk-connect-device]</span><span class="sxs-lookup"><span data-stu-id="b3106-189">[Connecting your device][lnk-connect-device]</span></span>
-* <span data-ttu-id="b3106-190">[Aan de slag met apparaatbeheer][lnk-device-management]</span><span class="sxs-lookup"><span data-stu-id="b3106-190">[Getting started with device management][lnk-device-management]</span></span>
-* <span data-ttu-id="b3106-191">[Aan de slag met Azure IoT Edge][lnk-iot-edge]</span><span class="sxs-lookup"><span data-stu-id="b3106-191">[Getting started with Azure IoT Edge][lnk-iot-edge]</span></span>
+* <span data-ttu-id="74c45-189">[Verbinding maken met uw apparaat][lnk-connect-device]</span><span class="sxs-lookup"><span data-stu-id="74c45-189">[Connecting your device][lnk-connect-device]</span></span>
+* <span data-ttu-id="74c45-190">[Aan de slag met apparaatbeheer][lnk-device-management]</span><span class="sxs-lookup"><span data-stu-id="74c45-190">[Getting started with device management][lnk-device-management]</span></span>
+* <span data-ttu-id="74c45-191">[Aan de slag met Azure IoT Edge][lnk-iot-edge]</span><span class="sxs-lookup"><span data-stu-id="74c45-191">[Getting started with Azure IoT Edge][lnk-iot-edge]</span></span>
 
-<span data-ttu-id="b3106-192">Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.</span><span class="sxs-lookup"><span data-stu-id="b3106-192">To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.</span></span>
+<span data-ttu-id="74c45-192">toolearn hoe tooextend uw IoT-oplossing en proces apparaat-naar-cloud-berichten op grote schaal, zien Hallo [apparaat-naar-cloud-berichten verwerken] [ lnk-process-d2c-tutorial] zelfstudie.</span><span class="sxs-lookup"><span data-stu-id="74c45-192">toolearn how tooextend your IoT solution and process device-to-cloud messages at scale, see hello [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.</span></span>
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 

@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Data Factory - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over hoe u Data Factory gebruikt voor het instellen van pijplijnen naar en van on-premises en cloudresources om gegevens voor analyse te verplaatsen en verwerken.
+title: aaaAzure Data Factory-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse Data Factory tooset automatische back-upgegevens pijplijnen tooand on-premises en in de cloud bronnen in de volgorde toomove en -proces gegevens voor analyse.
 services: data-factory
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bf280db3ab7f9a4b3742dafcdbb0fb7c79cc963c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b785093780a5eb5c23924a9c3c3f5d8675f0f96
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory-documentation"></a>Documentatie voor Azure Data Factory
 
-Meer informatie over hoe u Data Factory, een integratieservice voor cloudgegevens, gebruikt om de services voor gegevensopslag, -verplaatsing en -verwerking te combineren in geautomatiseerde gegevenspijplijnen. Zelfstudies en andere documentatie laten zien hoe u gegevenspijplijnen instelt en beheert, en gegevens voor analyse verplaatst en transformeert.
+Meer informatie over hoe toouse Data Factory, een cloudservice gegevens integratie toocompose gegevensopslag, verkeer en verwerking in geautomatiseerde gegevenspijplijnen services. Zelfstudies en andere documentatie die laten zien hoe u tooset en gegevenspijplijnen, evenals verplaatsen en transformatie van gegevens voor analyse te beheren.
 
 <ul class="panelContent cardsFTitle">
    <li>

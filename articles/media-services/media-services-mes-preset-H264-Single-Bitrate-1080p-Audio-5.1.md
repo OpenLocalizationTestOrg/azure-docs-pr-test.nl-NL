@@ -1,6 +1,6 @@
 ---
-title: Geselecteerde instelling H264 Single-Bitrate 1080p Audio 5.1 | Microsoft Docs
-description: Het onderwerp een overzicht van de ** standaardinstelling H264 Single-Bitrate 1080p Audio 5.1* * taak definitie.
+title: aaaH264 Single-Bitrate 1080p Audio 5.1 | Microsoft Docs
+description: Hallo onderwerp een overzicht van Hallo ** standaardinstelling H264 Single-Bitrate 1080p Audio 5.1* * taak definitie.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.openlocfilehash: 07440d18afa83c571f1568a2e43fb6bca5e8b452
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8ee5f34f4fd84c615ca8c5e7554e9ec832f54a25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-single-bitrate-1080p-audio-51"></a><span data-ttu-id="9644a-103">Geselecteerde instelling H264 Single-Bitrate 1080p Audio 5.1</span><span class="sxs-lookup"><span data-stu-id="9644a-103">H264 Single Bitrate 1080p Audio 5.1</span></span>
-<span data-ttu-id="9644a-104">`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering.</span><span class="sxs-lookup"><span data-stu-id="9644a-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="9644a-105">Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen.</span><span class="sxs-lookup"><span data-stu-id="9644a-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="9644a-106">U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering.</span><span class="sxs-lookup"><span data-stu-id="9644a-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="9644a-107">U zou geeft u het aangepaste vooraf ingesteld op de encoder.</span><span class="sxs-lookup"><span data-stu-id="9644a-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="9644a-108">Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="9644a-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-single-bitrate-1080p-audio-51"></a><span data-ttu-id="cd966-103">Geselecteerde instelling H264 Single-Bitrate 1080p Audio 5.1</span><span class="sxs-lookup"><span data-stu-id="cd966-103">H264 Single Bitrate 1080p Audio 5.1</span></span>
+<span data-ttu-id="cd966-104">`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering.</span><span class="sxs-lookup"><span data-stu-id="cd966-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="cd966-105">Kunt u ofwel een `preset name` toospecify naar welke indeling u tooencode wilt dat uw mediabestand.</span><span class="sxs-lookup"><span data-stu-id="cd966-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="cd966-106">U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering.</span><span class="sxs-lookup"><span data-stu-id="cd966-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="cd966-107">U zou vervolgens Hallo aangepaste vooraf ingestelde toohello encoder doorgeven.</span><span class="sxs-lookup"><span data-stu-id="cd966-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="cd966-108">Voorinstelling voor Hallo lijst met alle Hallo namen die worden ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="cd966-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="9644a-109">In dit onderwerp leest de `H264 Single Bitrate 1080p Audio 5.1` vooraf in XML en JSON-indeling...</span><span class="sxs-lookup"><span data-stu-id="9644a-109">This topic shows the `H264 Single Bitrate 1080p Audio 5.1` preset in XML and JSON format..</span></span>  
+ <span data-ttu-id="cd966-109">In dit onderwerp leest Hallo `H264 Single Bitrate 1080p Audio 5.1` vooraf in XML en JSON-indeling...</span><span class="sxs-lookup"><span data-stu-id="cd966-109">This topic shows hello `H264 Single Bitrate 1080p Audio 5.1` preset in XML and JSON format..</span></span>  
   
- <span data-ttu-id="9644a-110">Deze definitie produceert één MP4-bestand met een bitrate van 6750 kbps en AAC 5.1 audio.</span><span class="sxs-lookup"><span data-stu-id="9644a-110">This preset produces a single MP4 file with a bitrate of 6750 kbps, and AAC 5.1 audio.</span></span> <span data-ttu-id="9644a-111">Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="9644a-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="9644a-112">Zie voor een uitleg van elk element in welke betekent en de geldige waarden voor elk element, het [Media Encoder Standard schema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="9644a-112">For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>  
+ <span data-ttu-id="cd966-110">Deze definitie produceert één MP4-bestand met een bitrate van 6750 kbps en AAC 5.1 audio.</span><span class="sxs-lookup"><span data-stu-id="cd966-110">This preset produces a single MP4 file with a bitrate of 6750 kbps, and AAC 5.1 audio.</span></span> <span data-ttu-id="cd966-111">Voor gedetailleerde informatie over het profiel bitrate, snelheid, enz. dit wordt vooraf ingestelde, onderzoekt Hallo XML- of JSON zoals hieronder gedefinieerd.</span><span class="sxs-lookup"><span data-stu-id="cd966-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="cd966-112">Voor uitleg van elk element in welke betekent en Hallo geldige waarden voor elk element Zie Hallo [Media Encoder Standard schema](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="cd966-112">For explanations of what each element means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md).</span></span>  
   
- <span data-ttu-id="9644a-113">XML</span><span class="sxs-lookup"><span data-stu-id="9644a-113">XML</span></span>  
+ <span data-ttu-id="cd966-113">XML</span><span class="sxs-lookup"><span data-stu-id="cd966-113">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -70,7 +70,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="9644a-114">JSON</span><span class="sxs-lookup"><span data-stu-id="9644a-114">JSON</span></span>  
+ <span data-ttu-id="cd966-114">JSON</span><span class="sxs-lookup"><span data-stu-id="cd966-114">JSON</span></span>  
   
 ```  
 {  

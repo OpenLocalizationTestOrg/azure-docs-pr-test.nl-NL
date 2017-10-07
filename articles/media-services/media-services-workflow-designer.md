@@ -1,6 +1,6 @@
 ---
-title: Geavanceerde codering werkstromen maken met Workflow Designer | Microsoft Docs
-description: Meer informatie over het maken van geavanceerde codering werkstromen met Workflow Designer.
+title: aaaCreate geavanceerde codering werkstromen met Workflow Designer | Microsoft Docs
+description: Meer informatie over hoe toocreate codering werkstromen met Workflow Designer geavanceerde.
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: ef277710713d342eb9aaaf119e2985e8c1d82d0c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3744cde54c78bec7c7b586962ec1a8fe9529c1d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a><span data-ttu-id="2102e-103">Geavanceerde coderingswerkstromen maken met Workflow Designer</span><span class="sxs-lookup"><span data-stu-id="2102e-103">Create Advanced Encoding Workflows with Workflow Designer</span></span>
-## <a name="overview"></a><span data-ttu-id="2102e-104">Overzicht</span><span class="sxs-lookup"><span data-stu-id="2102e-104">Overview</span></span>
-<span data-ttu-id="2102e-105">De **Workflow Designer** is een Windows-bureaublad hulpprogramma dat wordt gebruikt voor het ontwerpen en bouwen van aangepaste werkstromen voor codering met **Media Encoder Premium werkstroom**.</span><span class="sxs-lookup"><span data-stu-id="2102e-105">The **Workflow Designer** is a Windows desktop tool that is used to design and build custom workflows for encoding with **Media Encoder Premium Workflow**.</span></span>
-<span data-ttu-id="2102e-106">Met behulp van de kracht van de workflow designer hulpprogramma kunt u ontwerpen en maken van complexe werkstromen die worden uitgevoerd in **Media Encoder Premium**.</span><span class="sxs-lookup"><span data-stu-id="2102e-106">By using the power of the workflow designer tool, you can design and create complex workflows that will run in **Media Encoder Premium**.</span></span>  
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a><span data-ttu-id="eea72-103">Geavanceerde coderingswerkstromen maken met Workflow Designer</span><span class="sxs-lookup"><span data-stu-id="eea72-103">Create Advanced Encoding Workflows with Workflow Designer</span></span>
+## <a name="overview"></a><span data-ttu-id="eea72-104">Overzicht</span><span class="sxs-lookup"><span data-stu-id="eea72-104">Overview</span></span>
+<span data-ttu-id="eea72-105">Hallo **Workflow Designer** is een Windows-bureaublad hulpprogramma dat wordt gebruikt, toodesign en build aangepaste werkstromen voor codering met **Media Encoder Premium werkstroom**.</span><span class="sxs-lookup"><span data-stu-id="eea72-105">hello **Workflow Designer** is a Windows desktop tool that is used toodesign and build custom workflows for encoding with **Media Encoder Premium Workflow**.</span></span>
+<span data-ttu-id="eea72-106">Hallo power van Hallo workflow designer hulpprogramma gebruikt, kunt u ontwerpen en maken van complexe werkstromen die worden uitgevoerd in **Media Encoder Premium**.</span><span class="sxs-lookup"><span data-stu-id="eea72-106">By using hello power of hello workflow designer tool, you can design and create complex workflows that will run in **Media Encoder Premium**.</span></span>  
 
-<span data-ttu-id="2102e-107">Werkstromen kunnen klant besluit logica opnemen en vertakking op basis van eigenschappen van het bestand van de invoerbron.</span><span class="sxs-lookup"><span data-stu-id="2102e-107">Workflows can include customer decision logic and branching based on the input source file's properties.</span></span> <span data-ttu-id="2102e-108">U kunt werkstromen maken met overschrijfbare eigenschappen en dynamische waarden dat zelfs de meest complexe codering taken gemakkelijker herhalen en aanpassen in de cloud.</span><span class="sxs-lookup"><span data-stu-id="2102e-108">You can create workflows with overridable properties and dynamic values to make even the most complex encoding tasks easy to repeat and customize in the cloud.</span></span>
+<span data-ttu-id="eea72-107">Werkstromen kunnen klant besluit logica opnemen en vertakking op basis van eigenschappen Hallo invoerbron bestand.</span><span class="sxs-lookup"><span data-stu-id="eea72-107">Workflows can include customer decision logic and branching based on hello input source file's properties.</span></span> <span data-ttu-id="eea72-108">U kunt werkstromen maken met overschrijfbare eigenschappen en dynamische waarden toomake zelfs Hallo meest complexe codering taken eenvoudig toorepeat en aanpassen in de cloud Hallo.</span><span class="sxs-lookup"><span data-stu-id="eea72-108">You can create workflows with overridable properties and dynamic values toomake even hello most complex encoding tasks easy toorepeat and customize in hello cloud.</span></span>
 
-<span data-ttu-id="2102e-109">Voorbeeld van de werkstromen die u kunt maken, zijn onder andere:</span><span class="sxs-lookup"><span data-stu-id="2102e-109">Example workflows that you can create include:</span></span>
+<span data-ttu-id="eea72-109">Voorbeeld van de werkstromen die u kunt maken, zijn onder andere:</span><span class="sxs-lookup"><span data-stu-id="eea72-109">Example workflows that you can create include:</span></span>
 
-* <span data-ttu-id="2102e-110">Besluit op basis van werkstromen die de bron van de inhoud voor de omzetting van controleert en alleen de gewenste uitvoer nummers coderen.</span><span class="sxs-lookup"><span data-stu-id="2102e-110">Decision based workflows that inspect the source content for resolution and encode only the desired output tracks.</span></span>  <span data-ttu-id="2102e-111">Dit is helfpul doordat de verspilde nummers die door de bron-inhoud per ongeluk upscaling zou worden gegenereerd.</span><span class="sxs-lookup"><span data-stu-id="2102e-111">This is helfpul by eliminating the wasted tracks that would be generated by upscaling the source content inadvertantly.</span></span>
-* <span data-ttu-id="2102e-112">Meerdere invoerbestanden kunnen worden gebruikt ter ondersteuning van bijschriften, overlays en hechten samen inhoud.</span><span class="sxs-lookup"><span data-stu-id="2102e-112">Multiple input files can be used to support captions, overlays and stitching together content.</span></span> 
+* <span data-ttu-id="eea72-110">Besluit op basis van werkstromen die Hallo broninhoud voor naamomzetting controleert en alleen Hallo gewenst uitvoer houdt coderen.</span><span class="sxs-lookup"><span data-stu-id="eea72-110">Decision based workflows that inspect hello source content for resolution and encode only hello desired output tracks.</span></span>  <span data-ttu-id="eea72-111">Dit is helfpul doordat Hallo verspild nummers die moeten worden gegenereerd door de inhoud per ongeluk Hallo bron upscaling.</span><span class="sxs-lookup"><span data-stu-id="eea72-111">This is helfpul by eliminating hello wasted tracks that would be generated by upscaling hello source content inadvertantly.</span></span>
+* <span data-ttu-id="eea72-112">Meerdere invoerbestanden kunnen worden gebruikt toosupport bijschriften, overlays en hechten samen inhoud.</span><span class="sxs-lookup"><span data-stu-id="eea72-112">Multiple input files can be used toosupport captions, overlays and stitching together content.</span></span> 
 
-<span data-ttu-id="2102e-113">Dit hulpprogramma kan ook worden gebruikt te wijzigen van onze [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows).</span><span class="sxs-lookup"><span data-stu-id="2102e-113">This tool can also be used to modify any of our [published workflows](media-services-workflow-designer.md#existing_workflows).</span></span> 
+<span data-ttu-id="eea72-113">Dit hulpprogramma kan ook worden gebruikt toomodify een van onze [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows).</span><span class="sxs-lookup"><span data-stu-id="eea72-113">This tool can also be used toomodify any of our [published workflows](media-services-workflow-designer.md#existing_workflows).</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="2102e-114">Als u uw exemplaar van het hulpprogramma Workflow Designer, neem contact op met mepd@microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="2102e-114">To get your copy of the Workflow Designer tool, please contact mepd@microsoft.com.</span></span>
+> <span data-ttu-id="eea72-114">tooget uw exemplaar van Hallo Workflow Designer hulpprogramma, neem contact op met mepd@microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="eea72-114">tooget your copy of hello Workflow Designer tool, please contact mepd@microsoft.com.</span></span>
 > 
 > 
 
-<span data-ttu-id="2102e-115">Zodra een werkstroombestand is gemaakt, kunnen worden geüpload als een actief en vervolgens worden gebruikt voor het coderen van media-bestanden.</span><span class="sxs-lookup"><span data-stu-id="2102e-115">Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files.</span></span> <span data-ttu-id="2102e-116">Voor informatie over het coderen met **Media Encoder Premium werkstroom** met **.NET**, Zie [geavanceerde codering met Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).</span><span class="sxs-lookup"><span data-stu-id="2102e-116">For information on how to encode with **Media Encoder Premium Workflow** using **.NET**, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).</span></span>
+<span data-ttu-id="eea72-115">Zodra een werkstroombestand is gemaakt, kunnen worden geüpload als een actief en vervolgens worden gebruikt voor het coderen van media-bestanden.</span><span class="sxs-lookup"><span data-stu-id="eea72-115">Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files.</span></span> <span data-ttu-id="eea72-116">Voor meer informatie over tooencode met **Media Encoder Premium werkstroom** met **.NET**, Zie [geavanceerde codering met Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).</span><span class="sxs-lookup"><span data-stu-id="eea72-116">For information on how tooencode with **Media Encoder Premium Workflow** using **.NET**, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).</span></span>
 
-## <span data-ttu-id="2102e-117"><a id="existing_workflows"></a>Bestaande werkstromen wijzigen</span><span class="sxs-lookup"><span data-stu-id="2102e-117"><a id="existing_workflows"></a>Modify existing workflows</span></span>
-<span data-ttu-id="2102e-118">De standaardwaarde [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows) met behulp van de ontwerpfunctie hulpprogramma kan worden gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="2102e-118">The default [published workflows](media-services-workflow-designer.md#existing_workflows) can be modified using the designer tool.</span></span> <span data-ttu-id="2102e-119">U kunt de standaardwaarde krijgen Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows).</span><span class="sxs-lookup"><span data-stu-id="2102e-119">You can get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows).</span></span> <span data-ttu-id="2102e-120">De map bevat ook de beschrijving van deze bestanden.</span><span class="sxs-lookup"><span data-stu-id="2102e-120">The folder also contains the description of these files.</span></span>
+## <span data-ttu-id="eea72-117"><a id="existing_workflows"></a>Bestaande werkstromen wijzigen</span><span class="sxs-lookup"><span data-stu-id="eea72-117"><a id="existing_workflows"></a>Modify existing workflows</span></span>
+<span data-ttu-id="eea72-118">Standaard Hallo [gepubliceerd werkstromen](media-services-workflow-designer.md#existing_workflows) met Hallo designer hulpprogramma kan worden gewijzigd.</span><span class="sxs-lookup"><span data-stu-id="eea72-118">hello default [published workflows](media-services-workflow-designer.md#existing_workflows) can be modified using hello designer tool.</span></span> <span data-ttu-id="eea72-119">U krijgt standaard Hallo Werkstroombestanden [hier](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows).</span><span class="sxs-lookup"><span data-stu-id="eea72-119">You can get hello default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows).</span></span> <span data-ttu-id="eea72-120">Hallo-map bevat ook Hallo beschrijving van deze bestanden.</span><span class="sxs-lookup"><span data-stu-id="eea72-120">hello folder also contains hello description of these files.</span></span>
 
-<span data-ttu-id="2102e-121">De volgende video's laten zien hoe de ontwerpfunctie gebruiken.</span><span class="sxs-lookup"><span data-stu-id="2102e-121">The following videos demonstrate how to use the designer.</span></span>
+<span data-ttu-id="eea72-121">Hallo volgende video's laten zien hoe toouse Hallo designer.</span><span class="sxs-lookup"><span data-stu-id="eea72-121">hello following videos demonstrate how toouse hello designer.</span></span>
 
-### <a name="day-1--getting-started"></a><span data-ttu-id="2102e-122">Dag 1 – aan de slag</span><span class="sxs-lookup"><span data-stu-id="2102e-122">Day 1 – Getting Started</span></span>
-<span data-ttu-id="2102e-123">Heeft betrekking op dag 1 video:</span><span class="sxs-lookup"><span data-stu-id="2102e-123">Day 1 video covers:</span></span>
+### <a name="day-1--getting-started"></a><span data-ttu-id="eea72-122">Dag 1 – aan de slag</span><span class="sxs-lookup"><span data-stu-id="eea72-122">Day 1 – Getting Started</span></span>
+<span data-ttu-id="eea72-123">Heeft betrekking op dag 1 video:</span><span class="sxs-lookup"><span data-stu-id="eea72-123">Day 1 video covers:</span></span>
 
-* <span data-ttu-id="2102e-124">Overzicht van de ontwerpfunctie</span><span class="sxs-lookup"><span data-stu-id="2102e-124">Designer Overview</span></span>
-* <span data-ttu-id="2102e-125">Basic werkstromen – "Hallo wereld"</span><span class="sxs-lookup"><span data-stu-id="2102e-125">Basic Workflows – "Hello World"</span></span>
-* <span data-ttu-id="2102e-126">Maken van meerdere uitvoer MP4-bestanden voor gebruik met Azure Media Services-streaming</span><span class="sxs-lookup"><span data-stu-id="2102e-126">Creating multiple output MP4 files for use with Azure Media Services streaming</span></span>
+* <span data-ttu-id="eea72-124">Overzicht van de ontwerpfunctie</span><span class="sxs-lookup"><span data-stu-id="eea72-124">Designer Overview</span></span>
+* <span data-ttu-id="eea72-125">Basic werkstromen – "Hallo wereld"</span><span class="sxs-lookup"><span data-stu-id="eea72-125">Basic Workflows – "Hello World"</span></span>
+* <span data-ttu-id="eea72-126">Maken van meerdere uitvoer MP4-bestanden voor gebruik met Azure Media Services-streaming</span><span class="sxs-lookup"><span data-stu-id="eea72-126">Creating multiple output MP4 files for use with Azure Media Services streaming</span></span>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
-### <a name="day-2"></a><span data-ttu-id="2102e-127">Dag 2</span><span class="sxs-lookup"><span data-stu-id="2102e-127">Day 2</span></span>
-<span data-ttu-id="2102e-128">Heeft betrekking op dag 2 video:</span><span class="sxs-lookup"><span data-stu-id="2102e-128">Day 2 video covers:</span></span>
+### <a name="day-2"></a><span data-ttu-id="eea72-127">Dag 2</span><span class="sxs-lookup"><span data-stu-id="eea72-127">Day 2</span></span>
+<span data-ttu-id="eea72-128">Heeft betrekking op dag 2 video:</span><span class="sxs-lookup"><span data-stu-id="eea72-128">Day 2 video covers:</span></span>
 
-* <span data-ttu-id="2102e-129">Verschillende scenario's voor het bestand van bron: audio verwerken</span><span class="sxs-lookup"><span data-stu-id="2102e-129">Varying Source file scenarios – handling audio</span></span>
-* <span data-ttu-id="2102e-130">Werkstromen met geavanceerde logica</span><span class="sxs-lookup"><span data-stu-id="2102e-130">Workflows with advanced Logic</span></span>
-* <span data-ttu-id="2102e-131">Fasen van de grafiek</span><span class="sxs-lookup"><span data-stu-id="2102e-131">Graph stages</span></span>
+* <span data-ttu-id="eea72-129">Verschillende scenario's voor het bestand van bron: audio verwerken</span><span class="sxs-lookup"><span data-stu-id="eea72-129">Varying Source file scenarios – handling audio</span></span>
+* <span data-ttu-id="eea72-130">Werkstromen met geavanceerde logica</span><span class="sxs-lookup"><span data-stu-id="eea72-130">Workflows with advanced Logic</span></span>
+* <span data-ttu-id="eea72-131">Fasen van de grafiek</span><span class="sxs-lookup"><span data-stu-id="eea72-131">Graph stages</span></span>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
-### <a name="day-3"></a><span data-ttu-id="2102e-132">Dag 3</span><span class="sxs-lookup"><span data-stu-id="2102e-132">Day 3</span></span>
-<span data-ttu-id="2102e-133">Heeft betrekking op dag 3 video:</span><span class="sxs-lookup"><span data-stu-id="2102e-133">Day 3 video covers:</span></span>
+### <a name="day-3"></a><span data-ttu-id="eea72-132">Dag 3</span><span class="sxs-lookup"><span data-stu-id="eea72-132">Day 3</span></span>
+<span data-ttu-id="eea72-133">Heeft betrekking op dag 3 video:</span><span class="sxs-lookup"><span data-stu-id="eea72-133">Day 3 video covers:</span></span>
 
-* <span data-ttu-id="2102e-134">In werkstromen/blauwdrukken Scripting</span><span class="sxs-lookup"><span data-stu-id="2102e-134">Scripting inside of Workflows/Blueprints</span></span>
-* <span data-ttu-id="2102e-135">Beperkingen op met de huidige Encoder</span><span class="sxs-lookup"><span data-stu-id="2102e-135">Restrictions with the current Encoder</span></span>
-* <span data-ttu-id="2102e-136">MET Q & A</span><span class="sxs-lookup"><span data-stu-id="2102e-136">Q&A</span></span>
+* <span data-ttu-id="eea72-134">In werkstromen/blauwdrukken Scripting</span><span class="sxs-lookup"><span data-stu-id="eea72-134">Scripting inside of Workflows/Blueprints</span></span>
+* <span data-ttu-id="eea72-135">Beperkingen met Hallo huidige codering</span><span class="sxs-lookup"><span data-stu-id="eea72-135">Restrictions with hello current Encoder</span></span>
+* <span data-ttu-id="eea72-136">MET Q & A</span><span class="sxs-lookup"><span data-stu-id="eea72-136">Q&A</span></span>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
-## <a name="next-step"></a><span data-ttu-id="2102e-137">Volgende stap</span><span class="sxs-lookup"><span data-stu-id="2102e-137">Next step</span></span>
-<span data-ttu-id="2102e-138">Media Services-leertrajecten bekijken.</span><span class="sxs-lookup"><span data-stu-id="2102e-138">Review Media Services learning paths.</span></span>
+## <a name="next-step"></a><span data-ttu-id="eea72-137">Volgende stap</span><span class="sxs-lookup"><span data-stu-id="eea72-137">Next step</span></span>
+<span data-ttu-id="eea72-138">Media Services-leertrajecten bekijken.</span><span class="sxs-lookup"><span data-stu-id="eea72-138">Review Media Services learning paths.</span></span>
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="2102e-139">Feedback geven</span><span class="sxs-lookup"><span data-stu-id="2102e-139">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="eea72-139">Feedback geven</span><span class="sxs-lookup"><span data-stu-id="eea72-139">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<span data-ttu-id="2102e-140">Als u moet ondersteunen of vragen hebt over het maken van aangepaste werkstromen in de Workflow designer hulpprogramma, stuurt u een e-mail naar mepd@microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="2102e-140">If you need support or have questions about creating custom workflows in the Workflow designer tool, please send email to mepd@microsoft.com.</span></span>
+<span data-ttu-id="eea72-140">Als u moet ondersteunen of vragen hebt over het maken van aangepaste werkstromen in Hallo Workflow designer hulpprogramma, stuur e-mail toomepd@microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="eea72-140">If you need support or have questions about creating custom workflows in hello Workflow designer tool, please send email toomepd@microsoft.com.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="2102e-141">Zie ook</span><span class="sxs-lookup"><span data-stu-id="2102e-141">See Also</span></span>
-[<span data-ttu-id="2102e-142">Azure Premium Encoder Workflow Designer Training video 's</span><span class="sxs-lookup"><span data-stu-id="2102e-142">Azure Premium Encoder Workflow Designer Training Videos</span></span>](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+## <a name="see-also"></a><span data-ttu-id="eea72-141">Zie ook</span><span class="sxs-lookup"><span data-stu-id="eea72-141">See Also</span></span>
+[<span data-ttu-id="eea72-142">Azure Premium Encoder Workflow Designer Training video 's</span><span class="sxs-lookup"><span data-stu-id="eea72-142">Azure Premium Encoder Workflow Designer Training Videos</span></span>](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

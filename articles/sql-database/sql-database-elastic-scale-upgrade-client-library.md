@@ -1,0 +1,81 @@
+---
+title: aaaUpgrade toohello nieuwste elastische database-clientbibliotheek | Microsoft Docs
+description: Apps en -bibliotheek via Nuget upgraden
+services: sql-database
+documentationcenter: 
+manager: jhubbard
+author: ddove
+ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
+ms.service: sql-database
+ms.custom: scale out apps
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/06/2017
+ms.author: ddove
+ms.openlocfilehash: cc2c9179be4c53ca59cd24d832127cf277c6e695
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="upgrade-an-app-toouse-hello-latest-elastic-database-client-library"></a><span data-ttu-id="06e79-103">Upgrade van een app toouse Hallo nieuwste elastische database-clientbibliotheek</span><span class="sxs-lookup"><span data-stu-id="06e79-103">Upgrade an app toouse hello latest elastic database client library</span></span>
+<span data-ttu-id="06e79-104">Nieuwe versies van Hallo [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md) zijn beschikbaar via NuGetand hello NuGetPackage Manager interface in Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="06e79-104">New versions of hello [Elastic Database client library](sql-database-elastic-database-client-library.md) are  available through NuGetand hello NuGetPackage Manager interface in Visual Studio.</span></span> <span data-ttu-id="06e79-105">Upgrades bevatten oplossingen voor problemen en ondersteuning voor nieuwe mogelijkheden van de clientbibliotheek Hallo.</span><span class="sxs-lookup"><span data-stu-id="06e79-105">Upgrades contain bug fixes and support for new capabilities of hello client library.</span></span>
+
+<span data-ttu-id="06e79-106">**Voor de nieuwste versie Hallo:** te gaan[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).</span><span class="sxs-lookup"><span data-stu-id="06e79-106">**For hello latest version:** Go too[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).</span></span>
+
+<span data-ttu-id="06e79-107">Opnieuw maken van uw toepassing met de nieuwe bibliotheek hello, evenals wijzigen van uw bestaande Shard kaart Manager metagegevens die zijn opgeslagen in uw Azure SQL-Databases toosupport nieuwe functies.</span><span class="sxs-lookup"><span data-stu-id="06e79-107">Rebuild your application with hello new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL Databases toosupport new features.</span></span>
+
+<span data-ttu-id="06e79-108">Deze stappen uitvoert in volgorde zorgt ervoor dat oude versies van de clientbibliotheek Hallo niet langer aanwezig zijn in uw omgeving zijn wanneer metagegevensobjecten zijn bijgewerkt, wat betekent dat de van de oude versie metagegevensobjecten won't worden gemaakt na de upgrade.</span><span class="sxs-lookup"><span data-stu-id="06e79-108">Performing these steps in order ensures that old versions of hello client library are no longer present in your environment when metadata objects are updated, which means that old-version metadata objects won’t be created after upgrade.</span></span>   
+
+## <a name="upgrade-steps"></a><span data-ttu-id="06e79-109">Upgradestappen</span><span class="sxs-lookup"><span data-stu-id="06e79-109">Upgrade steps</span></span>
+<span data-ttu-id="06e79-110">**1. Werk uw toepassingen.**</span><span class="sxs-lookup"><span data-stu-id="06e79-110">**1. Upgrade your applications.**</span></span> <span data-ttu-id="06e79-111">In Visual Studio, downloaden en verwijzing Hallo nieuwste clientbibliotheek van de versie in alle ontwikkelingsprojecten die gebruikmaken van de bibliotheek Hallo; vervolgens opnieuw maken en implementeren.</span><span class="sxs-lookup"><span data-stu-id="06e79-111">In Visual Studio, download and reference hello latest client library version into all of your development projects that use hello library; then rebuild and deploy.</span></span> 
+
+* <span data-ttu-id="06e79-112">Selecteer in Visual Studio-oplossing **extra** --> **NuGet Package Manager** -->  **NuGet-pakketten beheren voor oplossing**.</span><span class="sxs-lookup"><span data-stu-id="06e79-112">In your Visual Studio solution, select **Tools** --> **NuGet Package Manager** -->  **Manage NuGet Packages for Solution**.</span></span> 
+* <span data-ttu-id="06e79-113">(Visual Studio 2013) Selecteer in het linkerdeelvenster Hallo **Updates**, en selecteer vervolgens Hallo **Update** knop op Hallo pakket **Azure SQL Database-clientbibliotheek met elastische Scale** dat wordt weergegeven in Hallo venster.</span><span class="sxs-lookup"><span data-stu-id="06e79-113">(Visual Studio 2013) In hello left panel, select **Updates**, and then select hello **Update** button on hello package **Azure SQL Database Elastic Scale Client Library** that appears in hello window.</span></span>
+* <span data-ttu-id="06e79-114">(Visual Studio 2015) Hallo filtervak te ingesteld**Upgrade beschikbaar**.</span><span class="sxs-lookup"><span data-stu-id="06e79-114">(Visual Studio 2015) Set hello Filter box too**Upgrade available**.</span></span> <span data-ttu-id="06e79-115">Hallo pakket tooupdate selecteren en op Hallo **Update** knop.</span><span class="sxs-lookup"><span data-stu-id="06e79-115">Select hello package tooupdate, and click hello **Update** button.</span></span>
+* <span data-ttu-id="06e79-116">(Visual Studio 2017) Selecteer boven Hallo van dialoogvenster Hallo, **Updates**.</span><span class="sxs-lookup"><span data-stu-id="06e79-116">(Visual Studio 2017) At hello top of hello dialog, select **Updates**.</span></span> <span data-ttu-id="06e79-117">Hallo pakket tooupdate selecteren en op Hallo **Update** knop.</span><span class="sxs-lookup"><span data-stu-id="06e79-117">Select hello package tooupdate, and click hello **Update** button.</span></span>
+* <span data-ttu-id="06e79-118">Bouwen en implementeren.</span><span class="sxs-lookup"><span data-stu-id="06e79-118">Build and Deploy.</span></span> 
+
+<span data-ttu-id="06e79-119">**2. Werk uw scripts.**</span><span class="sxs-lookup"><span data-stu-id="06e79-119">**2. Upgrade your scripts.**</span></span> <span data-ttu-id="06e79-120">Als u **PowerShell** toomanage shards, scripts [Hallo nieuwe bibliotheekversie downloaden](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) en kopieer dit naar Hallo directory waarin u scripts uitvoeren.</span><span class="sxs-lookup"><span data-stu-id="06e79-120">If you are using **PowerShell** scripts toomanage shards, [download hello new library version](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) and copy it into hello directory from which you execute scripts.</span></span> 
+
+<span data-ttu-id="06e79-121">**3. Upgrade uw service gesplitste samenvoegen.**</span><span class="sxs-lookup"><span data-stu-id="06e79-121">**3. Upgrade your split-merge service.**</span></span> <span data-ttu-id="06e79-122">Als u Hallo elastische database gesplitste merge tool tooreorganize gedeelde gegevens, [downloaden en implementeren van de meest recente versie van Hallo hulpprogramma Hallo](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/).</span><span class="sxs-lookup"><span data-stu-id="06e79-122">If you use hello elastic database split-merge tool tooreorganize sharded data, [download and deploy hello latest version of hello tool](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/).</span></span> <span data-ttu-id="06e79-123">Gedetailleerde stappen voor Hallo Service vindt u de upgrade [hier](sql-database-elastic-scale-overview-split-and-merge.md).</span><span class="sxs-lookup"><span data-stu-id="06e79-123">Detailed upgrade steps for hello Service can be found [here](sql-database-elastic-scale-overview-split-and-merge.md).</span></span> 
+
+<span data-ttu-id="06e79-124">**4. Upgrade van uw databases Shard kaart Manager**.</span><span class="sxs-lookup"><span data-stu-id="06e79-124">**4. Upgrade your Shard Map Manager databases**.</span></span> <span data-ttu-id="06e79-125">Hallo metagegevens van de Shard-kaarten ondersteunende in Azure SQL Database bijwerken.</span><span class="sxs-lookup"><span data-stu-id="06e79-125">Upgrade hello metadata supporting your Shard Maps in Azure SQL Database.</span></span>  <span data-ttu-id="06e79-126">Er zijn twee manieren waarop u kunt dit doen met PowerShell of C#.</span><span class="sxs-lookup"><span data-stu-id="06e79-126">There are two ways you can accomplish this, using PowerShell or C#.</span></span> <span data-ttu-id="06e79-127">Beide opties worden hieronder weergegeven.</span><span class="sxs-lookup"><span data-stu-id="06e79-127">Both options are shown below.</span></span>
+
+<span data-ttu-id="06e79-128">***Optie 1: Upgrade metagegevens met behulp van PowerShell***</span><span class="sxs-lookup"><span data-stu-id="06e79-128">***Option 1: Upgrade metadata using PowerShell***</span></span>
+
+1. <span data-ttu-id="06e79-129">Download Hallo nieuwste-opdrachtregelprogramma voor NuGet van [hier](http://nuget.org/nuget.exe) en tooa map op te slaan.</span><span class="sxs-lookup"><span data-stu-id="06e79-129">Download hello latest command-line utility for NuGet from [here](http://nuget.org/nuget.exe) and save tooa folder.</span></span> 
+2. <span data-ttu-id="06e79-130">Open een opdrachtprompt, gaat u toohello dezelfde map en probleem Hallo-opdracht:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`</span><span class="sxs-lookup"><span data-stu-id="06e79-130">Open a Command Prompt, navigate toohello same folder, and issue hello command: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`</span></span>
+3. <span data-ttu-id="06e79-131">Navigeer toohello submap die Hallo nieuwe client DLL versie die u hebt zojuist hebt gedownload, bijvoorbeeld:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`</span><span class="sxs-lookup"><span data-stu-id="06e79-131">Navigate toohello subfolder containing hello new client DLL version you have just downloaded, for example: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`</span></span>
+4. <span data-ttu-id="06e79-132">Hallo-elastische database-upgrade scriptlet client downloaden van Hallo [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9), en sla dit in Hallo dezelfde map met Hallo dll-bestand.</span><span class="sxs-lookup"><span data-stu-id="06e79-132">Download hello elastic database client upgrade scriptlet from hello [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9), and save it into hello same folder containing hello DLL.</span></span>
+5. <span data-ttu-id="06e79-133">'PowerShell.\upgrade.ps1' uitvoeren vanaf de opdrachtprompt Hallo en volg de aanwijzingen Hallo van die map.</span><span class="sxs-lookup"><span data-stu-id="06e79-133">From that folder, run “PowerShell .\upgrade.ps1” from hello command prompt and follow hello prompts.</span></span>
+
+<span data-ttu-id="06e79-134">***Optie 2: Upgrade metagegevens met C#***</span><span class="sxs-lookup"><span data-stu-id="06e79-134">***Option 2: Upgrade metadata using C#***</span></span>
+
+<span data-ttu-id="06e79-135">U kunt ook een Visual Studio-toepassing maken die uw ShardMapManager wordt geopend, doorloopt over alle shards en Hallo metagegevens upgradeprocedure uitvoert door het aanroepen van methoden Hallo [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) en [ UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) zoals in dit voorbeeld:</span><span class="sxs-lookup"><span data-stu-id="06e79-135">Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs hello metadata upgrade by calling hello methods [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) and [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) as in this example:</span></span> 
+
+    ShardMapManager smm =
+       ShardMapManagerFactory.GetSqlShardMapManager
+       (connStr, ShardMapManagerLoadPolicy.Lazy); 
+    smm.UpgradeGlobalStore(); 
+
+    foreach (ShardLocation loc in
+     smm.GetDistinctShardLocations()) 
+    {   
+       smm.UpgradeLocalStore(loc); 
+    } 
+
+<span data-ttu-id="06e79-136">Deze technieken voor upgrades van de metagegevens kunnen meerdere malen worden toegepast zonder schade.</span><span class="sxs-lookup"><span data-stu-id="06e79-136">These techniques for metadata upgrades can be applied multiple times without harm.</span></span> <span data-ttu-id="06e79-137">Bijvoorbeeld, als een oudere clientversie per ongeluk een shard maakt nadat u al hebt bijgewerkt, kunt u uitvoeren upgrade opnieuw over alle shards tooensure die Hallo meest recente metagegevensversie in uw infrastructuur aanwezig is.</span><span class="sxs-lookup"><span data-stu-id="06e79-137">For example, if an older client version inadvertently creates a shard after you have already updated, you can run upgrade again across all shards tooensure that hello latest metadata version is present throughout your infrastructure.</span></span> 
+
+<span data-ttu-id="06e79-138">**Opmerking:** nieuwe versies van de clientbibliotheek Hallo gepubliceerd tot datum blijven toowork met eerdere versies van metagegevens van de Manager van Shard-toewijzing Hallo op Azure SQL DB en vice versa.</span><span class="sxs-lookup"><span data-stu-id="06e79-138">**Note:**  New versions of hello client library published to-date continue toowork with prior versions of hello Shard Map Manager metadata on Azure SQL DB, and vice-versa.</span></span>   <span data-ttu-id="06e79-139">Tootake profiteren van een aantal nieuwe functies in de nieuwste client hello, metagegevens Hallo moet echter toobe bijgewerkt.</span><span class="sxs-lookup"><span data-stu-id="06e79-139">However tootake advantage of some of hello new features in hello latest client, metadata needs toobe upgraded.</span></span>   <span data-ttu-id="06e79-140">Houd er rekening mee dat upgrades van de metagegevens niet van invloed op alle gebruikersgegevens of toepassingsspecifieke gegevens, alleen objecten door Hallo Shard kaart Manager gemaakt en gebruikt.</span><span class="sxs-lookup"><span data-stu-id="06e79-140">Note that metadata upgrades will not affect any user-data or application-specific data, only objects created and used by hello Shard Map Manager.</span></span>  <span data-ttu-id="06e79-141">En toepassingen blijven toooperate via Hallo updatevolgorde die hierboven worden beschreven.</span><span class="sxs-lookup"><span data-stu-id="06e79-141">And applications continue toooperate through hello upgrade sequence described above.</span></span> 
+
+## <a name="elastic-database-client-version-history"></a><span data-ttu-id="06e79-142">Versiegeschiedenis van client elastische database</span><span class="sxs-lookup"><span data-stu-id="06e79-142">Elastic database client version history</span></span>
+<span data-ttu-id="06e79-143">Ga te voor versiegeschiedenis,[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)</span><span class="sxs-lookup"><span data-stu-id="06e79-143">For version history, go too[Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)</span></span>
+
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+<!--Image references-->
+[1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
+

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory gebaseerde verificatie op iOS | Microsoft Docs
-description: Meer informatie over de ondersteunde scenario's en de vereisten voor het configureren op certificaten gebaseerde verificatie in oplossingen met iOS-apparaten
+title: aaaAzure certificaat gebaseerde verificatie van Active Directory voor iOS | Microsoft Docs
+description: Meer informatie over Hallo ondersteund scenario's en het Hallo-vereisten voor het configureren van verificatie op basis van certificaten in oplossingen met iOS-apparaten
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -14,79 +14,79 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c781f3f054fad5c5092fed5058c932fd4e97cf35
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4486ff5239c2897b3bc187053f31d74807430301
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-certificate-based-authentication-on-ios"></a><span data-ttu-id="f5ded-103">Azure Active Directory gebaseerde verificatie op iOS</span><span class="sxs-lookup"><span data-stu-id="f5ded-103">Azure Active Directory certificate-based authentication on iOS</span></span>
+# <a name="azure-active-directory-certificate-based-authentication-on-ios"></a><span data-ttu-id="dc0e6-103">Azure Active Directory gebaseerde verificatie op iOS</span><span class="sxs-lookup"><span data-stu-id="dc0e6-103">Azure Active Directory certificate-based authentication on iOS</span></span>
 
-<span data-ttu-id="f5ded-104">Certificaat gebaseerde verificatie (CBA) kunt u moeten worden geverifieerd door Azure Active Directory met een clientcertificaat op een Windows-, Android of iOS-apparaat verbinding te maken met uw Exchange online-account in:</span><span class="sxs-lookup"><span data-stu-id="f5ded-104">Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to:</span></span> 
+<span data-ttu-id="dc0e6-104">Certificaat gebaseerde verificatie (CBA) kunt u toobe geverifieerd door Azure Active Directory met een clientcertificaat op een Windows-, Android of iOS-apparaat verbinding te maken met uw Exchange online-account in:</span><span class="sxs-lookup"><span data-stu-id="dc0e6-104">Certificate-based authentication (CBA) enables you toobe authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to:</span></span> 
 
-* <span data-ttu-id="f5ded-105">Mobiele Office-toepassingen zoals Microsoft Outlook en Microsoft Word</span><span class="sxs-lookup"><span data-stu-id="f5ded-105">Office mobile applications such as Microsoft Outlook and Microsoft Word</span></span>   
-* <span data-ttu-id="f5ded-106">Exchange ActiveSync (EAS)-clients</span><span class="sxs-lookup"><span data-stu-id="f5ded-106">Exchange ActiveSync (EAS) clients</span></span> 
+* <span data-ttu-id="dc0e6-105">Mobiele Office-toepassingen zoals Microsoft Outlook en Microsoft Word</span><span class="sxs-lookup"><span data-stu-id="dc0e6-105">Office mobile applications such as Microsoft Outlook and Microsoft Word</span></span>   
+* <span data-ttu-id="dc0e6-106">Exchange ActiveSync (EAS)-clients</span><span class="sxs-lookup"><span data-stu-id="dc0e6-106">Exchange ActiveSync (EAS) clients</span></span> 
 
-<span data-ttu-id="f5ded-107">Configuratie van deze functie wordt voorkomen moet een combinatie van gebruikersnaam en wachtwoord invoeren in bepaalde e-mail en Microsoft Office-toepassingen op uw mobiele apparaat.</span><span class="sxs-lookup"><span data-stu-id="f5ded-107">Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.</span></span> 
+<span data-ttu-id="dc0e6-107">Configuratie van deze functie wordt voorkomen dat Hallo nodig tooenter een gebruikersnaam en wachtwoord combinatie in bepaalde e-mail en Microsoft Office-toepassingen op uw mobiele apparaat.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-107">Configuring this feature eliminates hello need tooenter a username and password combination into certain mail and Microsoft Office applications on your mobile device.</span></span> 
 
-<span data-ttu-id="f5ded-108">Dit onderwerp vindt u de vereisten en de ondersteunde scenario's voor het configureren van CBA op een apparaat iOS(Android) voor gebruikers van tenants in Office 365 Enterprise, Business, Education, US Government, China en Duitsland plant.</span><span class="sxs-lookup"><span data-stu-id="f5ded-108">This topic provides you with the requirements and the supported scenarios for configuring CBA on an iOS(Android) device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.</span></span>
+<span data-ttu-id="dc0e6-108">Dit onderwerp vindt u Hallo vereisten en Hallo ondersteund scenario's voor het configureren van CBA op een apparaat iOS(Android) voor gebruikers van tenants in Office 365 Enterprise, Business, Education, US Government, China en Duitsland plant.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-108">This topic provides you with hello requirements and hello supported scenarios for configuring CBA on an iOS(Android) device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.</span></span>
 
-<span data-ttu-id="f5ded-109">Deze functie is beschikbaar in preview in Office 365 US Government verdediging en Federal plannen.</span><span class="sxs-lookup"><span data-stu-id="f5ded-109">This feature is available in preview in Office 365 US Government Defense and Federal plans.</span></span>
-
-
+<span data-ttu-id="dc0e6-109">Deze functie is beschikbaar in preview in Office 365 US Government verdediging en Federal plannen.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-109">This feature is available in preview in Office 365 US Government Defense and Federal plans.</span></span>
 
 
-## <a name="office-mobile-applications-support"></a><span data-ttu-id="f5ded-110">Ondersteuning voor mobiele Office-toepassingen</span><span class="sxs-lookup"><span data-stu-id="f5ded-110">Office mobile applications support</span></span>
 
-| <span data-ttu-id="f5ded-111">Apps</span><span class="sxs-lookup"><span data-stu-id="f5ded-111">Apps</span></span> | <span data-ttu-id="f5ded-112">Ondersteuning</span><span class="sxs-lookup"><span data-stu-id="f5ded-112">Support</span></span> |
+
+## <a name="office-mobile-applications-support"></a><span data-ttu-id="dc0e6-110">Ondersteuning voor mobiele Office-toepassingen</span><span class="sxs-lookup"><span data-stu-id="dc0e6-110">Office mobile applications support</span></span>
+
+| <span data-ttu-id="dc0e6-111">Apps</span><span class="sxs-lookup"><span data-stu-id="dc0e6-111">Apps</span></span> | <span data-ttu-id="dc0e6-112">Ondersteuning</span><span class="sxs-lookup"><span data-stu-id="dc0e6-112">Support</span></span> |
 | --- | --- |
-| <span data-ttu-id="f5ded-113">Azure Information Protection-app</span><span class="sxs-lookup"><span data-stu-id="f5ded-113">Azure Information Protection app</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-115">Microsoft Teams</span><span class="sxs-lookup"><span data-stu-id="f5ded-115">Microsoft Teams</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-117">OneNote</span><span class="sxs-lookup"><span data-stu-id="f5ded-117">OneNote</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-119">OneDrive</span><span class="sxs-lookup"><span data-stu-id="f5ded-119">OneDrive</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-121">Outlook</span><span class="sxs-lookup"><span data-stu-id="f5ded-121">Outlook</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-123">Mobiele apps van Power BI</span><span class="sxs-lookup"><span data-stu-id="f5ded-123">Power BI mobile apps</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-125">Skype voor bedrijven</span><span class="sxs-lookup"><span data-stu-id="f5ded-125">Skype for Business</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-127">Word / Excel / PowerPoint</span><span class="sxs-lookup"><span data-stu-id="f5ded-127">Word / Excel / PowerPoint</span></span> |![Selecteren][1] |
-| <span data-ttu-id="f5ded-129">Yammer</span><span class="sxs-lookup"><span data-stu-id="f5ded-129">Yammer</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-113">Azure Information Protection-app</span><span class="sxs-lookup"><span data-stu-id="dc0e6-113">Azure Information Protection app</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-115">Microsoft Teams</span><span class="sxs-lookup"><span data-stu-id="dc0e6-115">Microsoft Teams</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-117">OneNote</span><span class="sxs-lookup"><span data-stu-id="dc0e6-117">OneNote</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-119">OneDrive</span><span class="sxs-lookup"><span data-stu-id="dc0e6-119">OneDrive</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-121">Outlook</span><span class="sxs-lookup"><span data-stu-id="dc0e6-121">Outlook</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-123">Mobiele apps van Power BI</span><span class="sxs-lookup"><span data-stu-id="dc0e6-123">Power BI mobile apps</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-125">Skype voor bedrijven</span><span class="sxs-lookup"><span data-stu-id="dc0e6-125">Skype for Business</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-127">Word / Excel / PowerPoint</span><span class="sxs-lookup"><span data-stu-id="dc0e6-127">Word / Excel / PowerPoint</span></span> |![Selecteren][1] |
+| <span data-ttu-id="dc0e6-129">Yammer</span><span class="sxs-lookup"><span data-stu-id="dc0e6-129">Yammer</span></span> |![Selecteren][1] |
 
 
-## <a name="requirements"></a><span data-ttu-id="f5ded-131">Vereisten</span><span class="sxs-lookup"><span data-stu-id="f5ded-131">Requirements</span></span> 
+## <a name="requirements"></a><span data-ttu-id="dc0e6-131">Vereisten</span><span class="sxs-lookup"><span data-stu-id="dc0e6-131">Requirements</span></span> 
 
-<span data-ttu-id="f5ded-132">De versie van het besturingssysteem van het apparaat moet iOS 9 en hoger</span><span class="sxs-lookup"><span data-stu-id="f5ded-132">The device OS version must be iOS 9 and above</span></span> 
+<span data-ttu-id="dc0e6-132">Hallo versie van besturingssysteem van het apparaat moet iOS 9 en hoger</span><span class="sxs-lookup"><span data-stu-id="dc0e6-132">hello device OS version must be iOS 9 and above</span></span> 
 
-<span data-ttu-id="f5ded-133">Een federation-server moet worden geconfigureerd.</span><span class="sxs-lookup"><span data-stu-id="f5ded-133">A federation server must be configured.</span></span>  
+<span data-ttu-id="dc0e6-133">Een federation-server moet worden geconfigureerd.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-133">A federation server must be configured.</span></span>  
 
-<span data-ttu-id="f5ded-134">Microsoft Authenticator is vereist voor de Office-toepassingen op iOS.</span><span class="sxs-lookup"><span data-stu-id="f5ded-134">Microsoft Authenticator is required for Office applications on iOS.</span></span>  
+<span data-ttu-id="dc0e6-134">Microsoft Authenticator is vereist voor de Office-toepassingen op iOS.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-134">Microsoft Authenticator is required for Office applications on iOS.</span></span>  
 
-<span data-ttu-id="f5ded-135">Voor Azure Active Directory voor het intrekken van een clientcertificaat, moet het AD FS-token hebben de volgende claims:</span><span class="sxs-lookup"><span data-stu-id="f5ded-135">For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:</span></span>  
+<span data-ttu-id="dc0e6-135">Voor Azure Active Directory toorevoke een clientcertificaat bevatten Hallo AD FS-token Hallo claims te volgen:</span><span class="sxs-lookup"><span data-stu-id="dc0e6-135">For Azure Active Directory toorevoke a client certificate, hello ADFS token must have hello following claims:</span></span>  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  <span data-ttu-id="f5ded-136">(Het serienummer van het clientcertificaat)</span><span class="sxs-lookup"><span data-stu-id="f5ded-136">(The serial number of the client certificate)</span></span> 
+  <span data-ttu-id="dc0e6-136">(serienummer van het clientcertificaat Hallo Hallo)</span><span class="sxs-lookup"><span data-stu-id="dc0e6-136">(hello serial number of hello client certificate)</span></span> 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  <span data-ttu-id="f5ded-137">(De tekenreeks voor de verlener van het clientcertificaat)</span><span class="sxs-lookup"><span data-stu-id="f5ded-137">(The string for the issuer of the client certificate)</span></span> 
+  <span data-ttu-id="dc0e6-137">(Hallo tekenreeks voor de verlener van het clientcertificaat Hallo Hallo)</span><span class="sxs-lookup"><span data-stu-id="dc0e6-137">(hello string for hello issuer of hello client certificate)</span></span> 
 
-<span data-ttu-id="f5ded-138">Azure Active Directory toegevoegd deze claims naar het vernieuwingstoken als ze beschikbaar in de AD FS-token (of andere SAML-token zijn).</span><span class="sxs-lookup"><span data-stu-id="f5ded-138">Azure Active Directory adds these claims to the refresh token if they are available in the ADFS token (or any other SAML token).</span></span> <span data-ttu-id="f5ded-139">Wanneer het vernieuwingstoken dat worden gevalideerd moet, wordt deze informatie wordt gebruikt om te controleren van de intrekking.</span><span class="sxs-lookup"><span data-stu-id="f5ded-139">When the refresh token needs to be validated, this information is used to check the revocation.</span></span> 
+<span data-ttu-id="dc0e6-138">Azure Active Directory toegevoegd deze claimtoken voor het vernieuwen van toohello als ze beschikbaar in AD FS-token van het hello (of andere SAML-token zijn).</span><span class="sxs-lookup"><span data-stu-id="dc0e6-138">Azure Active Directory adds these claims toohello refresh token if they are available in hello ADFS token (or any other SAML token).</span></span> <span data-ttu-id="dc0e6-139">Wanneer het vernieuwingstoken Hallo toobe gevalideerd moet, is deze informatie gebruikte toocheck Hallo intrekken.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-139">When hello refresh token needs toobe validated, this information is used toocheck hello revocation.</span></span> 
 
-<span data-ttu-id="f5ded-140">Als een best practice moet u de AD FS-foutpagina's bijwerken met de volgende opties:</span><span class="sxs-lookup"><span data-stu-id="f5ded-140">As a best practice, you should update the ADFS error pages with the following:</span></span>
+<span data-ttu-id="dc0e6-140">Als een best practice moet u Hallo ADFS foutpagina's bijwerken met de volgende Hallo:</span><span class="sxs-lookup"><span data-stu-id="dc0e6-140">As a best practice, you should update hello ADFS error pages with hello following:</span></span>
 
-* <span data-ttu-id="f5ded-141">De vereiste voor het installeren van de Microsoft-Authenticator op iOS</span><span class="sxs-lookup"><span data-stu-id="f5ded-141">The requirement for installing the Microsoft Authenticator on iOS</span></span>
-* <span data-ttu-id="f5ded-142">Instructies voor het ophalen van het certificaat van een gebruiker.</span><span class="sxs-lookup"><span data-stu-id="f5ded-142">Instructions on how to get a user certificate.</span></span> 
+* <span data-ttu-id="dc0e6-141">Hallo vereiste voor het installeren van Microsoft Authenticator Hallo op iOS</span><span class="sxs-lookup"><span data-stu-id="dc0e6-141">hello requirement for installing hello Microsoft Authenticator on iOS</span></span>
+* <span data-ttu-id="dc0e6-142">Instructies voor het tooget een gebruikerscertificaat.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-142">Instructions on how tooget a user certificate.</span></span> 
 
-<span data-ttu-id="f5ded-143">Zie voor meer informatie [aanpassen van de AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).</span><span class="sxs-lookup"><span data-stu-id="f5ded-143">For more details, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).</span></span>
+<span data-ttu-id="dc0e6-143">Zie voor meer informatie [Hallo Sign in AD FS's aanpassen](https://technet.microsoft.com/library/dn280950.aspx).</span><span class="sxs-lookup"><span data-stu-id="dc0e6-143">For more details, see [Customizing hello AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).</span></span>
 
-<span data-ttu-id="f5ded-144">Sommige Office-apps (met moderne verificatie is ingeschakeld) verzenden '*prompt = aanmelding*' naar Azure AD in de aanvraag.</span><span class="sxs-lookup"><span data-stu-id="f5ded-144">Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ to Azure AD in their request.</span></span> <span data-ttu-id="f5ded-145">Standaard Azure AD zet dit in de aanvraag voor ADFS naar '*wauth = usernamepassworduri*' (AD FS wilt U/P auth vragen) en '*wfresh = 0*' (vraagt ADFS te negeren van SSO-status en een nieuwe verificatie).</span><span class="sxs-lookup"><span data-stu-id="f5ded-145">By default, Azure AD translates this in the request to ADFS to ‘*wauth=usernamepassworduri*’ (asks ADFS to do U/P auth) and ‘*wfresh=0*’ (asks ADFS to ignore SSO state and do a fresh authentication).</span></span> <span data-ttu-id="f5ded-146">Als u verificatie inschakelen op basis van certificaten voor deze apps wilt, moet u het standaardgedrag voor Azure AD te wijzigen.</span><span class="sxs-lookup"><span data-stu-id="f5ded-146">If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior.</span></span> <span data-ttu-id="f5ded-147">Stelt u de '*PromptLoginBehavior*'in de instellingen van het federatieve domein naar'*uitgeschakelde*'.</span><span class="sxs-lookup"><span data-stu-id="f5ded-147">Just set the ‘*PromptLoginBehavior*’ in your federated domain settings to ‘*Disabled*‘.</span></span> <span data-ttu-id="f5ded-148">U kunt de [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet deze taak uit te voeren:</span><span class="sxs-lookup"><span data-stu-id="f5ded-148">You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task:</span></span>
+<span data-ttu-id="dc0e6-144">Sommige Office-apps (met moderne verificatie is ingeschakeld) verzenden '*prompt = aanmelding*' tooAzure AD in de aanvraag.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-144">Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ tooAzure AD in their request.</span></span> <span data-ttu-id="dc0e6-145">Standaard Azure AD zet dit in Hallo aanvraag tooADFS te '*wauth = usernamepassworduri*' (vraagt ADFS toodo U/P auth) en '*wfresh = 0*' (vraagt ADFS tooignore SSO-status en voer een nieuwe verificatie) .</span><span class="sxs-lookup"><span data-stu-id="dc0e6-145">By default, Azure AD translates this in hello request tooADFS too‘*wauth=usernamepassworduri*’ (asks ADFS toodo U/P auth) and ‘*wfresh=0*’ (asks ADFS tooignore SSO state and do a fresh authentication).</span></span> <span data-ttu-id="dc0e6-146">Als u wilt dat tooenable op certificaten gebaseerde verificatie voor deze apps, moet u toomodify Hallo standaardgedrag Azure AD.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-146">If you want tooenable certificate-based authentication for these apps, you need toomodify hello default Azure AD behavior.</span></span> <span data-ttu-id="dc0e6-147">NET set Hallo '*PromptLoginBehavior*' in de federatieve domeininstellingen te '*uitgeschakelde*'.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-147">Just set hello ‘*PromptLoginBehavior*’ in your federated domain settings too‘*Disabled*‘.</span></span> <span data-ttu-id="dc0e6-148">U kunt Hallo [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet tooperform deze taak:</span><span class="sxs-lookup"><span data-stu-id="dc0e6-148">You can use hello [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet tooperform this task:</span></span>
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
   
 
-## <a name="exchange-activesync-clients-support"></a><span data-ttu-id="f5ded-149">Ondersteuning voor Exchange ActiveSync-clients</span><span class="sxs-lookup"><span data-stu-id="f5ded-149">Exchange ActiveSync clients support</span></span>
-<span data-ttu-id="f5ded-150">In iOS 9 of hoger, wordt de systeemeigen iOS-e-mailclient ondersteund.</span><span class="sxs-lookup"><span data-stu-id="f5ded-150">On iOS 9 or later, the native iOS mail client is supported.</span></span> <span data-ttu-id="f5ded-151">Voor alle andere Exchange ActiveSync-toepassingen om te bepalen of deze functie wordt ondersteund, contact op met de ontwikkelaar van uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="f5ded-151">For all other Exchange ActiveSync applications, to determine if this feature is supported, contact your application developer.</span></span>  
+## <a name="exchange-activesync-clients-support"></a><span data-ttu-id="dc0e6-149">Ondersteuning voor Exchange ActiveSync-clients</span><span class="sxs-lookup"><span data-stu-id="dc0e6-149">Exchange ActiveSync clients support</span></span>
+<span data-ttu-id="dc0e6-150">In iOS 9 of hoger, wordt Hallo systeemeigen iOS-e-mailclient ondersteund.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-150">On iOS 9 or later, hello native iOS mail client is supported.</span></span> <span data-ttu-id="dc0e6-151">Voor alle andere toepassingen Exchange ActiveSync toodetermine als deze functie wordt ondersteund, contact op met de ontwikkelaar van uw toepassing.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-151">For all other Exchange ActiveSync applications, toodetermine if this feature is supported, contact your application developer.</span></span>  
 
 
-## <a name="next-steps"></a><span data-ttu-id="f5ded-152">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="f5ded-152">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="dc0e6-152">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="dc0e6-152">Next steps</span></span>
 
-<span data-ttu-id="f5ded-153">Als u verificatie configureren op basis van certificaten in uw omgeving wilt, Zie [aan de slag met verificatie op basis van certificaten op Android](active-directory-certificate-based-authentication-get-started.md) voor instructies.</span><span class="sxs-lookup"><span data-stu-id="f5ded-153">If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.</span></span>
+<span data-ttu-id="dc0e6-153">Als u tooconfigure certificaat gebaseerde verificatie in uw omgeving wilt, Zie [aan de slag met verificatie op basis van certificaten op Android](active-directory-certificate-based-authentication-get-started.md) voor instructies.</span><span class="sxs-lookup"><span data-stu-id="dc0e6-153">If you want tooconfigure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](active-directory-certificate-based-authentication-get-started.md) for instructions.</span></span>
 
 
 <!--Image references-->

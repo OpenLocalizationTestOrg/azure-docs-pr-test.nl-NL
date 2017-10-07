@@ -1,139 +1,121 @@
 ---
-title: 'Azure Analysis Services-zelfstudie - Les 5: Berekende kolommen maken | Microsoft Docs'
-description: In deze les wordt beschreven hoe u berekende kolommen maakt in de zelfstudie over Azure Analysis Services.
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 06/01/2017
-ms.author: owend
-ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+<span data-ttu-id="88cbe-101">titel: aaa "Azure Analysis Services-zelfstudie les 5: maken van berekende kolommen | Microsoft Docs' Beschrijving: hierin wordt beschreven hoe toocreate berekende kolommen in de zelfstudie hello Azure Analysis Services-project.</span><span class="sxs-lookup"><span data-stu-id="88cbe-101">title: aaa"Azure Analysis Services tutorial lesson 5: Create calculated columns | Microsoft Docs" description: Describes how toocreate calculated columns in hello Azure Analysis Services tutorial project.</span></span> <span data-ttu-id="88cbe-102">Services: analysis services-documentationcenter: '' auteur: minewiskan manager: erikre-editor: '' tags: ''</span><span class="sxs-lookup"><span data-stu-id="88cbe-102">services: analysis-services documentationcenter: '' author: minewiskan manager: erikre editor: '' tags: ''</span></span>
+
+<span data-ttu-id="88cbe-103">MS.AssetID: ms.service: ms.devlang analysis services: N.V.T. ms.topic:-slag-artikel ms.tgt_pltfrm: N.V.T. ms.workload: n.v.t. ms.date: 01-06/2017 ms.author: owend</span><span class="sxs-lookup"><span data-stu-id="88cbe-103">ms.assetid: ms.service: analysis-services ms.devlang: NA ms.topic: get-started-article ms.tgt_pltfrm: NA ms.workload: na ms.date: 06/01/2017 ms.author: owend</span></span>
 ---
-# <a name="lesson-5-create-calculated-columns"></a><span data-ttu-id="4b326-103">Les 5: Berekende kolommen maken</span><span class="sxs-lookup"><span data-stu-id="4b326-103">Lesson 5: Create calculated columns</span></span>
+# <a name="lesson-5-create-calculated-columns"></a><span data-ttu-id="88cbe-104">Les 5: Berekende kolommen maken</span><span class="sxs-lookup"><span data-stu-id="88cbe-104">Lesson 5: Create calculated columns</span></span>
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-<span data-ttu-id="4b326-104">In deze les maakt u gegevens in het model door berekende kolommen toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="4b326-104">In this lesson, you create data in your model by adding calculated columns.</span></span> <span data-ttu-id="4b326-105">U kunt berekende kolommen maken (als aangepaste kolommen) wanneer u Get Data uitvoert, met behulp van Query-editor of in de ontwerpfunctie voor modellen. De laatste methode gaan we verderop toepassen.</span><span class="sxs-lookup"><span data-stu-id="4b326-105">You can create calculated columns (as custom columns) when using Get Data, by using the Query Editor, or later in the model designer like you do here.</span></span> <span data-ttu-id="4b326-106">Zie [Berekende kolommen](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="4b326-106">To learn more, see [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).</span></span>
+<span data-ttu-id="88cbe-105">In deze les maakt u gegevens in het model door berekende kolommen toe te voegen.</span><span class="sxs-lookup"><span data-stu-id="88cbe-105">In this lesson, you create data in your model by adding calculated columns.</span></span> <span data-ttu-id="88cbe-106">U kunt berekende kolommen (als aangepaste kolommen) maken wanneer u gegevens ophalen, met behulp van Hallo Query-Editor of later in de ontwerpfunctie model-achtige Hallo u hier doen.</span><span class="sxs-lookup"><span data-stu-id="88cbe-106">You can create calculated columns (as custom columns) when using Get Data, by using hello Query Editor, or later in hello model designer like you do here.</span></span> <span data-ttu-id="88cbe-107">toolearn meer, Zie [berekende kolommen](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).</span><span class="sxs-lookup"><span data-stu-id="88cbe-107">toolearn more, see [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).</span></span>
   
-<span data-ttu-id="4b326-107">U gaat vijf nieuwe berekende kolommen maken in drie verschillende tabellen.</span><span class="sxs-lookup"><span data-stu-id="4b326-107">You create five new calculated columns in three different tables.</span></span> <span data-ttu-id="4b326-108">De stappen verschillen enigszins per taak, om aan te tonen dat er meerdere manieren zijn om kolommen te maken, ze een andere naam te geven en ze op diverse locaties in een tabel weer te geven.</span><span class="sxs-lookup"><span data-stu-id="4b326-108">The steps are slightly different for each task showing there are several ways to create columns, rename them, and place them in various locations in a table.</span></span>  
+<span data-ttu-id="88cbe-108">U gaat vijf nieuwe berekende kolommen maken in drie verschillende tabellen.</span><span class="sxs-lookup"><span data-stu-id="88cbe-108">You create five new calculated columns in three different tables.</span></span> <span data-ttu-id="88cbe-109">Hallo stappen zijn enigszins verschillen voor elke taak waarin er zijn verschillende manieren toocreate kolommen, wijzigen en plaats deze in verschillende locaties in een tabel.</span><span class="sxs-lookup"><span data-stu-id="88cbe-109">hello steps are slightly different for each task showing there are several ways toocreate columns, rename them, and place them in various locations in a table.</span></span>  
 
-<span data-ttu-id="4b326-109">Dit is trouwens ook de les waarin we voor het eerst DAX (Data Analysis Expressions) gaan gebruiken.</span><span class="sxs-lookup"><span data-stu-id="4b326-109">This lesson is also where you first use Data Analysis Expressions (DAX).</span></span> <span data-ttu-id="4b326-110">DAX is een speciale taal voor het maken van in hoge mate aanpasbare formule-expressies voor tabellaire modellen.</span><span class="sxs-lookup"><span data-stu-id="4b326-110">DAX is a special language for creating highly customizable formula expressions for tabular models.</span></span> <span data-ttu-id="4b326-111">In deze zelfstudie gebruikt u DAX voor het maken van berekende kolommen, metingen en rolfilters.</span><span class="sxs-lookup"><span data-stu-id="4b326-111">In this tutorial, you use DAX to create calculated columns, measures, and role filters.</span></span> <span data-ttu-id="4b326-112">Zie [DAX in tabellaire modellen](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular) voor meer informatie.</span><span class="sxs-lookup"><span data-stu-id="4b326-112">To learn more, see [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular).</span></span> 
+<span data-ttu-id="88cbe-110">Dit is trouwens ook de les waarin we voor het eerst DAX (Data Analysis Expressions) gaan gebruiken.</span><span class="sxs-lookup"><span data-stu-id="88cbe-110">This lesson is also where you first use Data Analysis Expressions (DAX).</span></span> <span data-ttu-id="88cbe-111">DAX is een speciale taal voor het maken van in hoge mate aanpasbare formule-expressies voor tabellaire modellen.</span><span class="sxs-lookup"><span data-stu-id="88cbe-111">DAX is a special language for creating highly customizable formula expressions for tabular models.</span></span> <span data-ttu-id="88cbe-112">In deze zelfstudie gebruikt u DAX toocreate berekende kolommen, metingen en filters die rol.</span><span class="sxs-lookup"><span data-stu-id="88cbe-112">In this tutorial, you use DAX toocreate calculated columns, measures, and role filters.</span></span> <span data-ttu-id="88cbe-113">toolearn meer, Zie [DAX in modellen in tabelvorm](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular).</span><span class="sxs-lookup"><span data-stu-id="88cbe-113">toolearn more, see [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular).</span></span> 
   
-<span data-ttu-id="4b326-113">Geschatte tijd voor het voltooien van deze les: **15 minuten**</span><span class="sxs-lookup"><span data-stu-id="4b326-113">Estimated time to complete this lesson: **15 minutes**</span></span>  
+<span data-ttu-id="88cbe-114">Geschatte tijd toocomplete deze les: **15 minuten**</span><span class="sxs-lookup"><span data-stu-id="88cbe-114">Estimated time toocomplete this lesson: **15 minutes**</span></span>  
   
-## <a name="prerequisites"></a><span data-ttu-id="4b326-114">Vereisten</span><span class="sxs-lookup"><span data-stu-id="4b326-114">Prerequisites</span></span>  
-<span data-ttu-id="4b326-115">Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="4b326-115">This topic is part of a tabular modeling tutorial, which should be completed in order.</span></span> <span data-ttu-id="4b326-116">Voordat u de taken in deze les gaat uitvoeren, moet u de vorige les hebben voltooid: [Les 4: Relaties maken](../tutorials/aas-lesson-4-create-relationships.md).</span><span class="sxs-lookup"><span data-stu-id="4b326-116">Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 4: Create relationships](../tutorials/aas-lesson-4-create-relationships.md).</span></span> 
+## <a name="prerequisites"></a><span data-ttu-id="88cbe-115">Vereisten</span><span class="sxs-lookup"><span data-stu-id="88cbe-115">Prerequisites</span></span>  
+<span data-ttu-id="88cbe-116">Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabellair model. De lessen van de zelfstudie moeten op volgorde worden uitgevoerd.</span><span class="sxs-lookup"><span data-stu-id="88cbe-116">This topic is part of a tabular modeling tutorial, which should be completed in order.</span></span> <span data-ttu-id="88cbe-117">Voordat u Hallo taken uitvoert in deze les, u moet voltooid Hallo vorige les: [les 4: relaties](../tutorials/aas-lesson-4-create-relationships.md).</span><span class="sxs-lookup"><span data-stu-id="88cbe-117">Before performing hello tasks in this lesson, you should have completed hello previous lesson: [Lesson 4: Create relationships](../tutorials/aas-lesson-4-create-relationships.md).</span></span> 
   
-## <a name="create-calculated-columns"></a><span data-ttu-id="4b326-117">Berekende kolommen maken</span><span class="sxs-lookup"><span data-stu-id="4b326-117">Create calculated columns</span></span>  
+## <a name="create-calculated-columns"></a><span data-ttu-id="88cbe-118">Berekende kolommen maken</span><span class="sxs-lookup"><span data-stu-id="88cbe-118">Create calculated columns</span></span>  
   
-#### <a name="create-a-monthcalendar-calculated-column-in-the-dimdate-table"></a><span data-ttu-id="4b326-118">Een berekende kolom MonthCalendar maken in de tabel DimDate:</span><span class="sxs-lookup"><span data-stu-id="4b326-118">Create a MonthCalendar calculated column in the DimDate table</span></span>  
+#### <a name="create-a-monthcalendar-calculated-column-in-hello-dimdate-table"></a><span data-ttu-id="88cbe-119">Een berekende kolom van de MonthCalendar in Hallo DimDate tabel maken</span><span class="sxs-lookup"><span data-stu-id="88cbe-119">Create a MonthCalendar calculated column in hello DimDate table</span></span>  
   
-1.  <span data-ttu-id="4b326-119">Klik op het menu **Model** > **Model View** > **Data View**.</span><span class="sxs-lookup"><span data-stu-id="4b326-119">Click the **Model** menu > **Model View** > **Data View**.</span></span>  
+1.  <span data-ttu-id="88cbe-120">Klik op Hallo **Model** menu > **modelweergave** > **gegevensweergave**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-120">Click hello **Model** menu > **Model View** > **Data View**.</span></span>  
   
-    <span data-ttu-id="4b326-120">Berekende kolommen kunnen alleen worden gemaakt met behulp van de ontwerpfunctie voor modellen in de gegevensweergave.</span><span class="sxs-lookup"><span data-stu-id="4b326-120">Calculated columns can only be created by using the model designer in Data View.</span></span>  
+    <span data-ttu-id="88cbe-121">Berekende kolommen kunnen alleen worden gemaakt met behulp van Hallo model designer in de gegevensweergave.</span><span class="sxs-lookup"><span data-stu-id="88cbe-121">Calculated columns can only be created by using hello model designer in Data View.</span></span>  
   
-2.  <span data-ttu-id="4b326-121">Klik in de ontwerpfunctie voor modellen op de tabel (het tabblad) **DimDate**.</span><span class="sxs-lookup"><span data-stu-id="4b326-121">In the model designer, click the **DimDate** table (tab).</span></span>  
+2.  <span data-ttu-id="88cbe-122">Klik op Hallo in Hallo model designer **DimDate** tabel (tabblad).</span><span class="sxs-lookup"><span data-stu-id="88cbe-122">In hello model designer, click hello **DimDate** table (tab).</span></span>  
   
-3.  <span data-ttu-id="4b326-122">Klik met de rechtermuisknop op de kolomkop **CalendarQuarter** en klik vervolgens op **Insert Column**.</span><span class="sxs-lookup"><span data-stu-id="4b326-122">Right-click the **CalendarQuarter** column header, and then click **Insert Column**.</span></span>  
+3.  <span data-ttu-id="88cbe-123">Klik met de rechtermuisknop Hallo **CalendarQuarter** kolomkop en klik vervolgens op **kolom invoegen**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-123">Right-click hello **CalendarQuarter** column header, and then click **Insert Column**.</span></span>  
   
-    <span data-ttu-id="4b326-123">Er wordt links van de kolom **Calendar Quarter** een nieuwe kolom ingevoegd met de naam **Calculated Column 1**.</span><span class="sxs-lookup"><span data-stu-id="4b326-123">A new column named **Calculated Column 1** is inserted to the left of the **Calendar Quarter** column.</span></span>  
+    <span data-ttu-id="88cbe-124">Een nieuwe kolom die met de naam **berekende kolom 1** ingevoegde toohello links Hallo **kalenderkwartaal** kolom.</span><span class="sxs-lookup"><span data-stu-id="88cbe-124">A new column named **Calculated Column 1** is inserted toohello left of hello **Calendar Quarter** column.</span></span>  
   
-4.  <span data-ttu-id="4b326-124">Typ op de formulebalk boven de tabel de volgende DAX-formule. De functie Automatisch aanvullen zorgt ervoor dat u makkelijk de volledig gekwalificeerde namen van kolommen en tabellen kunt invullen en toont bovendien de functies die beschikbaar zijn.</span><span class="sxs-lookup"><span data-stu-id="4b326-124">In the formula bar above the table, type the following DAX formula: AutoComplete helps you type the fully qualified names of columns and tables, and lists the functions that are available.</span></span>  
+4.  <span data-ttu-id="88cbe-125">Typ in de formulebalk Hallo boven Hallo tabel Hallo volgende DAX-formule: automatisch aanvullen helpt u typt Hallo FQDN-namen van kolommen en tabellen en lijsten Hallo functies die beschikbaar zijn.</span><span class="sxs-lookup"><span data-stu-id="88cbe-125">In hello formula bar above hello table, type hello following DAX formula: AutoComplete helps you type hello fully qualified names of columns and tables, and lists hello functions that are available.</span></span>  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
     ``` 
   
-    <span data-ttu-id="4b326-125">Vervolgens worden er voor alle rijen in de berekende kolom waarden ingevuld.</span><span class="sxs-lookup"><span data-stu-id="4b326-125">Values are then populated for all the rows in the calculated column.</span></span> <span data-ttu-id="4b326-126">Als u omlaag door de tabel schuift, ziet u dat rijen verschillende waarden kunnen hebben voor deze kolom, op basis van de gegevens in elke rij.</span><span class="sxs-lookup"><span data-stu-id="4b326-126">If you scroll down through the table, you see rows can have different values for this column, based on the data in each row.</span></span>    
+    <span data-ttu-id="88cbe-126">Waarden worden vervolgens voor alle Hallo rijen in de berekende kolom Hallo ingevuld.</span><span class="sxs-lookup"><span data-stu-id="88cbe-126">Values are then populated for all hello rows in hello calculated column.</span></span> <span data-ttu-id="88cbe-127">Als u omlaag Hallo tabel schuift, ziet u rijen kunnen verschillende waarden voor deze kolom op basis van gegevens in elke rij Hallo hebben.</span><span class="sxs-lookup"><span data-stu-id="88cbe-127">If you scroll down through hello table, you see rows can have different values for this column, based on hello data in each row.</span></span>    
   
-5.  <span data-ttu-id="4b326-127">Wijzig de naam van deze kolom in **MonthCalendar**.</span><span class="sxs-lookup"><span data-stu-id="4b326-127">Rename this column to **MonthCalendar**.</span></span> 
+5.  <span data-ttu-id="88cbe-128">Wijzig de naam van deze kolom te**MonthCalendar**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-128">Rename this column too**MonthCalendar**.</span></span> 
 
     ![aas-lesson5-newcolumn](../tutorials/media/aas-lesson5-newcolumn.png) 
   
-<span data-ttu-id="4b326-129">De berekende kolom MonthCalendar bevat een sorteerbare naam voor de maanden.</span><span class="sxs-lookup"><span data-stu-id="4b326-129">The MonthCalendar calculated column provides a sortable name for Month.</span></span>  
+<span data-ttu-id="88cbe-130">Hallo MonthCalendar berekende kolom bevat een sorteerbare naam voor de maand.</span><span class="sxs-lookup"><span data-stu-id="88cbe-130">hello MonthCalendar calculated column provides a sortable name for Month.</span></span>  
   
-#### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a><span data-ttu-id="4b326-130">Een berekende kolom DayOfWeek maken in de tabel DimDate:</span><span class="sxs-lookup"><span data-stu-id="4b326-130">Create a DayOfWeek calculated column in the DimDate table</span></span>  
+#### <a name="create-a-dayofweek-calculated-column-in-hello-dimdate-table"></a><span data-ttu-id="88cbe-131">Maken van een berekende kolom DayOfWeek in Hallo DimDate tabel</span><span class="sxs-lookup"><span data-stu-id="88cbe-131">Create a DayOfWeek calculated column in hello DimDate table</span></span>  
   
-1.  <span data-ttu-id="4b326-131">Zorg dat de tabel **DimDate** nog actief is en klik vervolgens op het menu **Column** en **Add Column**.</span><span class="sxs-lookup"><span data-stu-id="4b326-131">With the **DimDate** table still active, click the **Column** menu, and then click **Add Column**.</span></span>  
+1.  <span data-ttu-id="88cbe-132">Hello **DimDate** tabel steeds actief is, klikt u op Hallo **kolom** menu en klik vervolgens op **kolom toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-132">With hello **DimDate** table still active, click hello **Column** menu, and then click **Add Column**.</span></span>  
   
-2.  <span data-ttu-id="4b326-132">Typ op de formulebalk de volgende formule:</span><span class="sxs-lookup"><span data-stu-id="4b326-132">In the formula bar, type the following formula:</span></span>  
+2.  <span data-ttu-id="88cbe-133">Typ in de formulebalk hello, Hallo volgende formule:</span><span class="sxs-lookup"><span data-stu-id="88cbe-133">In hello formula bar, type hello following formula:</span></span>  
     
     ```
     =RIGHT(" " & FORMAT([DayNumberOfWeek],"#0"), 2) & " - " & [EnglishDayNameOfWeek]  
     ```
     
-    <span data-ttu-id="4b326-133">Druk op Enter als de formule klaar is.</span><span class="sxs-lookup"><span data-stu-id="4b326-133">When you've finished building the formula, press ENTER.</span></span> <span data-ttu-id="4b326-134">De nieuwe kolom wordt aan de rechterkant van de tabel toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="4b326-134">The new column is added to the far right of the table.</span></span>  
+    <span data-ttu-id="88cbe-134">Wanneer u klaar bent met het bouwen van Hallo formule, druk op ENTER.</span><span class="sxs-lookup"><span data-stu-id="88cbe-134">When you've finished building hello formula, press ENTER.</span></span> <span data-ttu-id="88cbe-135">de nieuwe kolom Hallo is toohello helemaal rechts op Hallo tabel toegevoegd.</span><span class="sxs-lookup"><span data-stu-id="88cbe-135">hello new column is added toohello far right of hello table.</span></span>  
   
-3.  <span data-ttu-id="4b326-135">Wijzig de naam van de kolom in **DayOfWeek**.</span><span class="sxs-lookup"><span data-stu-id="4b326-135">Rename the column to **DayOfWeek**.</span></span>  
+3.  <span data-ttu-id="88cbe-136">Wijzig de naam van de kolom hello te**DayOfWeek**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-136">Rename hello column too**DayOfWeek**.</span></span>  
   
-4.  <span data-ttu-id="4b326-136">Klik op de kolomkop en sleep de kolom tussen de kolom **EnglishDayNameOfWeek** en de kolom **DayNumberOfMonth**.</span><span class="sxs-lookup"><span data-stu-id="4b326-136">Click the column heading, and then drag the column between the **EnglishDayNameOfWeek** column and the **DayNumberOfMonth** column.</span></span>  
+4.  <span data-ttu-id="88cbe-137">Klik op de kolomkop Hallo en sleep Hallo kolom tussen Hallo **EnglishDayNameOfWeek** kolom en Hallo **DayNumberOfMonth** kolom.</span><span class="sxs-lookup"><span data-stu-id="88cbe-137">Click hello column heading, and then drag hello column between hello **EnglishDayNameOfWeek** column and hello **DayNumberOfMonth** column.</span></span>  
   
     > [!TIP]  
-    > <span data-ttu-id="4b326-137">U kunt makkelijker navigeren door kolommen in de tabel te verplaatsen.</span><span class="sxs-lookup"><span data-stu-id="4b326-137">Moving columns in your table makes it easier to navigate.</span></span>  
+    > <span data-ttu-id="88cbe-138">Kolommen verplaatsen in de tabel, maakt het eenvoudiger toonavigate.</span><span class="sxs-lookup"><span data-stu-id="88cbe-138">Moving columns in your table makes it easier toonavigate.</span></span>  
   
-<span data-ttu-id="4b326-138">De berekende kolom DayOfWeek bevat een sorteerbare naam voor de dagen van de week.</span><span class="sxs-lookup"><span data-stu-id="4b326-138">The DayOfWeek calculated column provides a sortable name for the day of week.</span></span>  
+<span data-ttu-id="88cbe-139">Hallo DayOfWeek berekende kolom bevat een sorteerbare naam voor de dag van week Hallo.</span><span class="sxs-lookup"><span data-stu-id="88cbe-139">hello DayOfWeek calculated column provides a sortable name for hello day of week.</span></span>  
   
-#### <a name="create-a-productsubcategoryname-calculated-column-in-the-dimproduct-table"></a><span data-ttu-id="4b326-139">Een berekende kolom ProductSubcategoryName maken in de tabel DimProduct:</span><span class="sxs-lookup"><span data-stu-id="4b326-139">Create a ProductSubcategoryName calculated column in the DimProduct table</span></span>  
+#### <a name="create-a-productsubcategoryname-calculated-column-in-hello-dimproduct-table"></a><span data-ttu-id="88cbe-140">Maken van een berekende kolom ProductSubcategoryName in Hallo DimProduct tabel</span><span class="sxs-lookup"><span data-stu-id="88cbe-140">Create a ProductSubcategoryName calculated column in hello DimProduct table</span></span>  
   
   
-1.  <span data-ttu-id="4b326-140">Schuif in de tabel **DimProduct** helemaal naar de rechterkant van de tabel.</span><span class="sxs-lookup"><span data-stu-id="4b326-140">In the **DimProduct** table, scroll to the far right of the table.</span></span> <span data-ttu-id="4b326-141">U ziet dat de meest rechtse kolom de naam **Add Column** (cursief) heeft. Klik op de kolomkop van deze kolom.</span><span class="sxs-lookup"><span data-stu-id="4b326-141">Notice the right-most column is named **Add Column** (italicized), click the column heading.</span></span>  
+1.  <span data-ttu-id="88cbe-141">In Hallo **DimProduct** tabel, toohello uiterst rechts in de tabel Hallo schuiven.</span><span class="sxs-lookup"><span data-stu-id="88cbe-141">In hello **DimProduct** table, scroll toohello far right of hello table.</span></span> <span data-ttu-id="88cbe-142">Kennisgeving Hallo meest rechtse kolom heet **kolom toevoegen** (cursief) op Hallo kolomkop te klikken.</span><span class="sxs-lookup"><span data-stu-id="88cbe-142">Notice hello right-most column is named **Add Column** (italicized), click hello column heading.</span></span>  
   
-2.  <span data-ttu-id="4b326-142">Typ op de formulebalk de volgende formule:</span><span class="sxs-lookup"><span data-stu-id="4b326-142">In the formula bar, type the following formula:</span></span>  
+2.  <span data-ttu-id="88cbe-143">Typ in de formulebalk hello, Hallo volgende formule:</span><span class="sxs-lookup"><span data-stu-id="88cbe-143">In hello formula bar, type hello following formula:</span></span>  
     
     ```
     =RELATED('DimProductSubcategory'[EnglishProductSubcategoryName])  
     ```
   
-3.  <span data-ttu-id="4b326-143">Wijzig de naam van de kolom in **ProductSubcategoryName**.</span><span class="sxs-lookup"><span data-stu-id="4b326-143">Rename the column to **ProductSubcategoryName**.</span></span>  
+3.  <span data-ttu-id="88cbe-144">Wijzig de naam van de kolom hello te**ProductSubcategoryName**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-144">Rename hello column too**ProductSubcategoryName**.</span></span>  
   
-<span data-ttu-id="4b326-144">De berekende kolom ProductSubcategoryName wordt gebruikt voor het maken van een hiërarchie in de tabel DimProduct, die gegevens bevat uit de kolom EnglishProductSubcategoryName in de tabel DimProductSubcategory.</span><span class="sxs-lookup"><span data-stu-id="4b326-144">The ProductSubcategoryName calculated column is used to create a hierarchy in the DimProduct table, which includes data from the EnglishProductSubcategoryName column in the DimProductSubcategory table.</span></span> <span data-ttu-id="4b326-145">Hiërarchieën kunnen niet meer dan één tabel omvatten.</span><span class="sxs-lookup"><span data-stu-id="4b326-145">Hierarchies cannot span more than one table.</span></span> <span data-ttu-id="4b326-146">U gaat later hiërarchieën maken in les 9.</span><span class="sxs-lookup"><span data-stu-id="4b326-146">You create hierarchies later in Lesson 9.</span></span>  
+<span data-ttu-id="88cbe-145">Hallo ProductSubcategoryName berekende kolom is gebruikte toocreate een hiërarchie in de tabel DimProduct hello, waaronder gegevens van de kolom met Hallo EnglishProductSubcategoryName in Hallo DimProductSubcategory tabel.</span><span class="sxs-lookup"><span data-stu-id="88cbe-145">hello ProductSubcategoryName calculated column is used toocreate a hierarchy in hello DimProduct table, which includes data from hello EnglishProductSubcategoryName column in hello DimProductSubcategory table.</span></span> <span data-ttu-id="88cbe-146">Hiërarchieën kunnen niet meer dan één tabel omvatten.</span><span class="sxs-lookup"><span data-stu-id="88cbe-146">Hierarchies cannot span more than one table.</span></span> <span data-ttu-id="88cbe-147">U gaat later hiërarchieën maken in les 9.</span><span class="sxs-lookup"><span data-stu-id="88cbe-147">You create hierarchies later in Lesson 9.</span></span>  
   
-#### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a><span data-ttu-id="4b326-147">Een berekende kolom ProductCategoryName maken in de tabel DimProduct:</span><span class="sxs-lookup"><span data-stu-id="4b326-147">Create a ProductCategoryName calculated column in the DimProduct table</span></span>  
+#### <a name="create-a-productcategoryname-calculated-column-in-hello-dimproduct-table"></a><span data-ttu-id="88cbe-148">Maken van een berekende kolom ProductCategoryName in Hallo DimProduct tabel</span><span class="sxs-lookup"><span data-stu-id="88cbe-148">Create a ProductCategoryName calculated column in hello DimProduct table</span></span>  
   
-1.  <span data-ttu-id="4b326-148">Zorg dat de tabel **DimProduct** nog actief is en klik vervolgens op het menu **Column** en **Add Column**.</span><span class="sxs-lookup"><span data-stu-id="4b326-148">With the **DimProduct** table still active, click the **Column** menu, and then click **Add Column**.</span></span>  
+1.  <span data-ttu-id="88cbe-149">Hello **DimProduct** tabel steeds actief is, klikt u op Hallo **kolom** menu en klik vervolgens op **kolom toevoegen**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-149">With hello **DimProduct** table still active, click hello **Column** menu, and then click **Add Column**.</span></span>  
   
-2.  <span data-ttu-id="4b326-149">Typ op de formulebalk de volgende formule:</span><span class="sxs-lookup"><span data-stu-id="4b326-149">In the formula bar, type the following formula:</span></span>  
+2.  <span data-ttu-id="88cbe-150">Typ in de formulebalk hello, Hallo volgende formule:</span><span class="sxs-lookup"><span data-stu-id="88cbe-150">In hello formula bar, type hello following formula:</span></span>  
   
     ```
     =RELATED('DimProductCategory'[EnglishProductCategoryName]) 
     ```
     
-3.  <span data-ttu-id="4b326-150">Wijzig de naam van de kolom in **ProductCategoryName**.</span><span class="sxs-lookup"><span data-stu-id="4b326-150">Rename the column to **ProductCategoryName**.</span></span>  
+3.  <span data-ttu-id="88cbe-151">Wijzig de naam van de kolom hello te**ProductCategoryName**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-151">Rename hello column too**ProductCategoryName**.</span></span>  
   
-<span data-ttu-id="4b326-151">De berekende kolom ProductCategoryName wordt gebruikt voor het maken van een hiërarchie in de tabel DimProduct, die gegevens bevat uit de kolom EnglishProductCategoryName in de tabel DimProductCategory.</span><span class="sxs-lookup"><span data-stu-id="4b326-151">The ProductCategoryName calculated column is used to create a hierarchy in the DimProduct table, which includes data from the EnglishProductCategoryName column in the DimProductCategory table.</span></span> <span data-ttu-id="4b326-152">Hiërarchieën kunnen niet meer dan één tabel omvatten.</span><span class="sxs-lookup"><span data-stu-id="4b326-152">Hierarchies cannot span more than one table.</span></span>  
+<span data-ttu-id="88cbe-152">Hallo ProductCategoryName berekende kolom is gebruikte toocreate een hiërarchie in de tabel DimProduct hello, waaronder gegevens van de kolom met Hallo EnglishProductCategoryName in Hallo DimProductCategory tabel.</span><span class="sxs-lookup"><span data-stu-id="88cbe-152">hello ProductCategoryName calculated column is used toocreate a hierarchy in hello DimProduct table, which includes data from hello EnglishProductCategoryName column in hello DimProductCategory table.</span></span> <span data-ttu-id="88cbe-153">Hiërarchieën kunnen niet meer dan één tabel omvatten.</span><span class="sxs-lookup"><span data-stu-id="88cbe-153">Hierarchies cannot span more than one table.</span></span>  
   
-#### <a name="create-a-margin-calculated-column-in-the-factinternetsales-table"></a><span data-ttu-id="4b326-153">Een berekende kolom Margin maken in de tabel FactInternetSales:</span><span class="sxs-lookup"><span data-stu-id="4b326-153">Create a Margin calculated column in the FactInternetSales table</span></span>  
+#### <a name="create-a-margin-calculated-column-in-hello-factinternetsales-table"></a><span data-ttu-id="88cbe-154">Maken van een berekende kolom marge in Hallo heeft tabel</span><span class="sxs-lookup"><span data-stu-id="88cbe-154">Create a Margin calculated column in hello FactInternetSales table</span></span>  
   
-1.  <span data-ttu-id="4b326-154">Selecteer in de ontwerpfunctie voor modellen de tabel **FactInternetSales**.</span><span class="sxs-lookup"><span data-stu-id="4b326-154">In the model designer, select the **FactInternetSales** table.</span></span>  
+1.  <span data-ttu-id="88cbe-155">Selecteer Hallo in Hallo model designer **heeft** tabel.</span><span class="sxs-lookup"><span data-stu-id="88cbe-155">In hello model designer, select hello **FactInternetSales** table.</span></span>  
   
-2.  <span data-ttu-id="4b326-155">Maak een nieuwe berekende kolom tussen de kolommen **SalesAmount** en **TaxAmt**.</span><span class="sxs-lookup"><span data-stu-id="4b326-155">Create a new calculated column between the **SalesAmount** column and the **TaxAmt** column.</span></span>  
+2.  <span data-ttu-id="88cbe-156">Maak een nieuwe berekende kolom tussen Hallo **SalesAmount** kolom en Hallo **TaxAmt** kolom.</span><span class="sxs-lookup"><span data-stu-id="88cbe-156">Create a new calculated column between hello **SalesAmount** column and hello **TaxAmt** column.</span></span>  
   
-3.  <span data-ttu-id="4b326-156">Typ op de formulebalk de volgende formule:</span><span class="sxs-lookup"><span data-stu-id="4b326-156">In the formula bar, type the following formula:</span></span>  
+3.  <span data-ttu-id="88cbe-157">Typ in de formulebalk hello, Hallo volgende formule:</span><span class="sxs-lookup"><span data-stu-id="88cbe-157">In hello formula bar, type hello following formula:</span></span>  
   
     ```
     =[SalesAmount]-[TotalProductCost]
     ``` 
 
-4.  <span data-ttu-id="4b326-157">Wijzig de naam van de kolom in **Margin**.</span><span class="sxs-lookup"><span data-stu-id="4b326-157">Rename the column to **Margin**.</span></span>  
+4.  <span data-ttu-id="88cbe-158">Wijzig de naam van de kolom hello te**marge**.</span><span class="sxs-lookup"><span data-stu-id="88cbe-158">Rename hello column too**Margin**.</span></span>  
  
       ![aas-lesson5-newmargin](../tutorials/media/aas-lesson5-newmargin.png)
       
-    <span data-ttu-id="4b326-159">De berekende kolom Margin wordt gebruikt voor het analyseren van winstmarge voor elke verkoop.</span><span class="sxs-lookup"><span data-stu-id="4b326-159">The Margin calculated column is used to analyze profit margins for each sale.</span></span>  
+    <span data-ttu-id="88cbe-160">Hallo marge berekende kolom is gebruikte tooanalyze winstmarge voor elke verkoop.</span><span class="sxs-lookup"><span data-stu-id="88cbe-160">hello Margin calculated column is used tooanalyze profit margins for each sale.</span></span>  
   
-## <a name="whats-next"></a><span data-ttu-id="4b326-160">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="4b326-160">What's next?</span></span>
-<span data-ttu-id="4b326-161">[Les 6: Metingen maken](../tutorials/aas-lesson-6-create-measures.md).</span><span class="sxs-lookup"><span data-stu-id="4b326-161">[Lesson 6: Create measures](../tutorials/aas-lesson-6-create-measures.md).</span></span>
+## <a name="whats-next"></a><span data-ttu-id="88cbe-161">Volgende stappen</span><span class="sxs-lookup"><span data-stu-id="88cbe-161">What's next?</span></span>
+<span data-ttu-id="88cbe-162">[Les 6: Metingen maken](../tutorials/aas-lesson-6-create-measures.md).</span><span class="sxs-lookup"><span data-stu-id="88cbe-162">[Lesson 6: Create measures](../tutorials/aas-lesson-6-create-measures.md).</span></span>
   
   
   

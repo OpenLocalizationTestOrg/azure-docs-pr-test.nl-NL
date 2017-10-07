@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Automation - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over het gebruik van Automation voor het automatiseren van processen en configuratiebeheer om tijd te besparen en de betrouwbaarheid van veelvoorkomende beheertaken te verbeteren.
+title: aaaAzure Automation-documentatie - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Ontdek hoe toouse Automation tooautomate processen en Configuratiebeheer in volgorde toosave tijd en verhoogt de betrouwbaarheid van regelmatige beheertaken.
 services: automation
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 00c4fe633a7ef76b20d2a9d1c704bb09da6b19a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eda979bac2434d9b4a91a4e661f5b46a6540a1d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automation-documentation"></a>Documentatie over Automation
 
-Meer informatie over het gebruik van Automation om tijd te besparen en de betrouwbaarheid van veelvoorkomende administratieve taken in een cloudomgeving te verbeteren. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u processen automatiseert met behulp van runbooks of configuratiebeheer automatiseert met behulp van Desired State Configuration.
+Meer informatie over hoe toouse Automation toosave tijd en toename Hallo betrouwbaarheid van regelmatige beheertaken uitvoeren in een cloudomgeving. Zelfstudies, API-referenties en andere documentatie kunt laten u zien hoe tooautomate verwerkt met behulp van runbooks of Configuratiebeheer automatiseren met behulp van Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>
