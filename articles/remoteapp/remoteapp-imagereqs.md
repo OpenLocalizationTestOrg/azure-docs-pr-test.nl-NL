@@ -1,6 +1,6 @@
 ---
-title: Azure RemoteApp image-vereisten | Microsoft Docs
-description: "Meer informatie over de vereisten voor het maken van installatiekopieën moet worden gebruikt met Azure RemoteApp"
+title: vereisten voor RemoteApp-installatiekopie aaaAzure | Microsoft Docs
+description: "Meer informatie over het Hallo-vereisten voor het maken van installatiekopieën toobe gebruikt met Azure RemoteApp"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,40 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 75b0f8d6b25a80f11002b683152cfb294cbb68bd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e35203eb93a866d4e0bd591d42b34746c7ffa4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="requirements-for-azure-remoteapp-images"></a>Vereisten voor Azure RemoteApp-installatiekopieën
 > [!IMPORTANT]
-> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees de [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
+> Azure RemoteApp wordt op 31 augustus 2017 buiten gebruik gesteld. Lees Hallo [aankondiging](https://go.microsoft.com/fwlink/?linkid=821148) voor meer informatie.
 > 
 > 
 
-Azure RemoteApp maakt gebruik van een Windows Server 2012 R2-afbeelding voor het hosten van alle programma's die u wilt delen met uw gebruikers. Voor het maken van een aangepaste installatiekopie die u kunt beginnen met een bestaande installatiekopie of [Maak een nieuwe](remoteapp-create-custom-image.md).
+Azure RemoteApp gebruikt een installatiekopie van Windows Server 2012 R2 toohost alle Hallo-programma's die u wilt de tooshare met uw gebruikers. een aangepaste installatiekopie toocreate, u kunt beginnen met een bestaande installatiekopie of [Maak een nieuwe](remoteapp-create-custom-image.md).
 
 > [!TIP]
-> Wist u dat uw Azure RemoteApp-abonnement hebt dat u toegang tot een Windows Server 2012 R2-installatiekopie in de galerie van Azure VM die u gebruiken kunt om uw eigen sjablooninstallatiekopie te maken? [Het uitchecken](remoteapp-image-on-azurevm.md).  
+> Wist u dat uw Azure RemoteApp-abonnement biedt die u toegang tot Windows Server 2012 R2-afbeelding tooa in de virtuele machine van Azure-galerie waarmee u toocreate uw eigen sjablooninstallatiekopie kunt Hallo? [Het uitchecken](remoteapp-image-on-azurevm.md).  
 > 
 > 
 
-De vereisten voor de installatiekopie die kan worden geüpload voor gebruik met Azure RemoteApp zijn:
+Hallo-vereisten voor het Hallo-installatiekopie die kan worden geüpload voor gebruik met Azure RemoteApp zijn:
 
-* Aangepaste toepassingen opslaan niet gegevens lokaal op de installatiekopie. Deze installatiekopieën staatloze zijn en mag alleen toepassingen bevatten.
-* De afbeelding bevat geen gegevens die verloren kunnen gaan.
-* Grootte van de afbeelding moet een veelvoud van MB. Als u probeert te uploaden van een installatiekopie die is geen exacte veelvoud, mislukt het uploaden.
-* Grootte van de installatiekopie moet 127 GB of kleiner.
+* Aangepaste toepassingen opslaan niet gegevens lokaal op Hallo-installatiekopie. Deze installatiekopieën staatloze zijn en mag alleen toepassingen bevatten.
+* Hallo-afbeelding bevat geen gegevens die verbroken worden kunnen.
+* Afbeeldingsgrootte Hallo moet een veelvoud van MB. Als u een installatiekopie die is geen exacte veelvoud tooupload probeert, mislukt de Hallo uploaden.
+* Hallo afbeeldingsformaat moet 127 GB of kleiner.
 * Dit moet een VHD-bestand (VHDX-bestanden worden momenteel niet ondersteund).
-* De VHD moet geen virtuele machines van generatie 2.
-* De VHD kan een vaste grootte of dynamisch uitbreidbare zijn. Een dynamisch uitbreidbare VHD wordt aanbevolen omdat kost het minder tijd om te uploaden naar Azure dan een vaste grootte VHD-bestand.
-* De schijf moet worden geïnitialiseerd met behulp van de Record MBR (Master Boot) stijl partitioneren. De partitiestijl GUID partition table (GPT) wordt niet ondersteund.
-* De VHD moet één installatie van Windows Server 2012 R2 bevatten. Meerdere volumes, maar slechts één met een installatie van Windows kan bevatten.
-* De functie Remote Desktop Session Host (RDSH) en de functie Bureaubladervaring moeten worden geïnstalleerd.
-* De extern bureaublad Connection Broker-rol moet *niet* worden geïnstalleerd.
-* Het Encrypting File System (EFS) moet worden uitgeschakeld.
-* De afbeelding moet met de parameters SYSPREPed **/oobe / generalize/shutdown** (niet gebruik de **/mode:vm** parameter).
+* Hallo VHD mag geen virtuele machines van generatie 2.
+* Hallo VHD kan een vaste grootte of dynamisch uitbreidbare zijn. Een dynamisch uitbreidbare VHD wordt aanbevolen omdat duurt het minder tijd tooupload tooAzure dan een vaste grootte VHD-bestand.
+* Hallo-schijf moet worden geïnitialiseerd met Hallo Master Boot Record (MBR) partitionering stijl. Hallo partitiestijl van GUID partition table (GPT) wordt niet ondersteund.
+* Hallo VHD moet één installatie van Windows Server 2012 R2 bevatten. Meerdere volumes, maar slechts één met een installatie van Windows kan bevatten.
+* Hallo Remote Desktop Session Host (RDSH)-functie en de functie Bureaubladervaring Hallo moeten worden geïnstalleerd.
+* Hallo Remote Desktop Connection Broker-rol moet *niet* worden geïnstalleerd.
+* Hallo Encrypting File System (EFS) moet worden uitgeschakeld.
+* Hallo-installatiekopie moet SYSPREPed met Hallo parameters **/oobe / generalize/shutdown** (gebruikt Hallo **/mode:vm** parameter).
 * Uploaden van uw VHD van een keten van de momentopname wordt niet ondersteund.
 
 Zie [maken van een installatiekopie van een Azure RemoteApp](remoteapp-imageoptions.md) voor meer informatie over het maken van installatiekopieën voor Azure RemoteApp.

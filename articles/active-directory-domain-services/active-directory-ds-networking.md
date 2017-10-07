@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 804d4ea7d1b3b07b6d224855c7adb90bdfe24022
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Overwegingen voor Azure AD Domain Services netwerken
-## <a name="how-to-select-an-azure-virtual-network"></a>Het selecteren van een virtuele Azure-netwerk
-De volgende richtlijnen kunnen u een virtueel netwerk gebruiken met Azure AD Domain Services selecteren.
+## <a name="how-tooselect-an-azure-virtual-network"></a>Hoe tooselect virtueel netwerk van Azure
+Hallo kunnen volgende richtlijnen u een virtueel netwerk toouse met Azure AD Domain Services selecteren.
 
 ### <a name="type-of-azure-virtual-network"></a>Type virtuele Azure-netwerk
 * U kunt Azure AD Domain Services in een klassiek virtueel netwerk van Azure inschakelen.
 * Azure AD Domain Services **kan niet worden ingeschakeld in virtuele netwerken die zijn gemaakt met Azure Resource Manager**.
-* U kunt een Resource Manager gebaseerde virtueel netwerk verbinding maken met een klassiek virtueel netwerk waarin Azure AD Domain Services is ingeschakeld. Daarna kunt u Azure AD Domain Services in het Resource Manager gebaseerde virtuele netwerk. Zie voor meer informatie de [netwerkverbinding](active-directory-ds-networking.md#network-connectivity) sectie.
-* **Regionale virtuele netwerken**: als u van plan bent een bestaand virtueel netwerk gebruiken, moet u zorgen dat het een regionaal virtueel netwerk.
+* U kunt verbinding maken met een virtueel netwerk op basis van een Resource Manager tooa klassiek virtueel netwerk waarin Azure AD Domain Services is ingeschakeld. Daarna kunt u Azure AD Domain Services in Hallo Resource Manager gebaseerde virtuele netwerk. Zie voor meer informatie, Hallo [netwerkverbinding](active-directory-ds-networking.md#network-connectivity) sectie.
+* **Regionale virtuele netwerken**: als u een bestaand virtueel netwerk toouse plant, moet u zorgen dat het een regionaal virtueel netwerk.
 
-  * Virtuele netwerken die gebruikmaken van de verouderde mechanisme met affiniteitsgroepen, kunnen niet worden gebruikt met Azure AD Domain Services.
-  * Gebruik van Azure AD Domain Services, [verouderde virtuele netwerken migreren naar regionale virtuele netwerken](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+  * Virtuele netwerken die gebruikmaken van Hallo verouderde affiniteitsgroepen mechanisme kunnen niet worden gebruikt met Azure AD Domain Services.
+  * Azure AD Domain Services toouse [verouderde virtuele netwerken tooregional virtuele netwerken migreren](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
-### <a name="azure-region-for-the-virtual-network"></a>Azure-regio voor het virtuele netwerk
-* Uw Azure AD Domain Services beheerd domein wordt geïmplementeerd in dezelfde Azure-regio als het virtuele netwerk dat u wilt de service in te schakelen.
+### <a name="azure-region-for-hello-virtual-network"></a>Azure-regio voor het virtuele netwerk Hallo
+* Uw Azure AD Domain Services beheerd domein wordt geïmplementeerd in dezelfde Azure-regio als Hallo virtuele netwerk die u kiest tooenable Hallo-service in Hallo.
 * Selecteer een virtueel netwerk in een Azure-regio wordt ondersteund door Azure AD Domain Services.
-* Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure AD Domain Services beschikbaar is.
+* Zie Hallo [Azure-services per regio](https://azure.microsoft.com/regions/#services/) pagina tooknow hello Azure-regio's waar Azure AD Domain Services beschikbaar is.
 
-### <a name="requirements-for-the-virtual-network"></a>Vereisten voor het virtuele netwerk
-* **Nabijheid tot de werkbelasting van uw Azure**: Selecteer het virtuele netwerk dat momenteel fungeert als host/host fungeert voor virtuele machines die toegang nodig tot Azure AD Domain Services.
-* **DNS-servers aangepaste/bring your own**: Zorg ervoor dat er geen aangepaste DNS-servers geconfigureerd voor het virtuele netwerk.
-* **Bestaande domeinen met dezelfde domeinnaam**: Zorg ervoor dat u geen een bestaand domein met dezelfde domeinnaam beschikbaar is op dit virtuele netwerk hebt. Het domein met de naam contoso.com is bijvoorbeeld al beschikbaar op het geselecteerde virtuele netwerk. Later kunt proberen u om in te schakelen van een beheerd domein van Azure AD Domain Services met dezelfde domeinnaam (dat wil zeggen 'contoso.com') op dit virtuele netwerk. U kunt een fout optreedt tijdens het inschakelen van Azure AD Domain Services. Deze fout komt door naamconflicten voor de domeinnaam op dit virtuele netwerk. In dit geval moet u een andere naam gebruiken om het beheerde domein van Azure AD Domain Services in te stellen. U kunt ook de inrichting van het bestaande domein ongedaan maken en doorgaan met het inschakelen van Azure AD Domain Services.
+### <a name="requirements-for-hello-virtual-network"></a>Vereisten voor het virtuele netwerk Hallo
+* **Nabijheid tooyour Azure werkbelastingen**: Selecteer Hallo virtueel netwerk dat momenteel fungeert als host/host fungeert voor virtuele machines die toegang moeten hebben tot tooAzure AD Domain Services.
+* **DNS-servers aangepaste/bring your own**: Zorg ervoor dat er geen aangepaste DNS-servers geconfigureerd voor het virtuele netwerk Hallo.
+* **Bestaande domeinen met dezelfde domeinnaam Hallo**: Zorg ervoor dat u geen een bestaand domein met Hallo hebt dezelfde domeinnaam beschikbaar is op dit virtuele netwerk. Bijvoorbeeld, wordt ervan uitgegaan hebben van een domein genaamd 'contoso.com' al beschikbaar op Hallo van de geselecteerde virtuele netwerk. Later kunt u een beheerd domein van Azure AD Domain Services met Hallo tooenable probeert dezelfde domeinnaam (dat wil zeggen 'contoso.com') op dit virtuele netwerk. Er optreedt een fout bij een poging tooenable Azure AD Domain Services. Deze fout is vanwege conflicten tooname voor Hallo-domeinnaam op dit virtuele netwerk. In dit geval moet u een andere naam tooset van uw Azure AD Domain Services beheerd domein. U kunt ook ongedaan inrichten Hallo bestaand domein en vervolgens doorgaan tooenable Azure AD Domain Services.
 
 > [!WARNING]
-> U kunt Domain Services niet verplaatsen naar een ander virtueel netwerk nadat u de service hebt ingeschakeld.
+> U kunt Domain Services tooa ander virtueel netwerk niet verplaatsen wanneer u Hallo service hebt ingeschakeld.
 >
 >
 
 ## <a name="network-security-groups-and-subnet-design"></a>Netwerkbeveiligingsgroepen en subnet ontwerp
-Een [Netwerkbeveiligingsgroep (NSG)](../virtual-network/virtual-networks-nsg.md) bevat een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien het verkeer naar een afzonderlijke virtuele machine kan worden beperkt door een NSG rechtstreeks aan die VM koppelen verdere.
+Een [Netwerkbeveiligingsgroep (NSG)](../virtual-network/virtual-networks-nsg.md) bevat een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren netwerkverkeer tooyour VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Wanneer een NSG gekoppeld aan een subnet is, toepassing hello ACL-regels tooall Hallo VM-exemplaren in dat subnet. Bovendien verkeer tooan afzonderlijke VM kan worden beperkt door een NSG koppelen verdere rechtstreeks toothat VM.
 
 ![Aanbevolen subnet ontwerp](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
 ### <a name="best-practices-for-choosing-a-subnet"></a>Aanbevolen procedures voor het kiezen van een subnet
-* Azure AD Domain Services te implementeren een **scheiden toegewezen subnet** binnen uw virtuele Azure-netwerk.
-* Nsg's zijn niet van toepassing met het toegewezen subnet voor uw beheerde domein. Als het nsg's moet u op het toegewezen subnet toepassen, moet u **niet de vereiste poorten voor service blokkeren en beheren van uw domein**.
-* Niet te beperken het aantal IP-adressen beschikbaar zijn binnen de toegewezen subnet voor uw beheerde domein. Deze beperking wordt voorkomen dat de service twee domeincontrollers beschikbaar maken voor uw beheerde domein.
-* **Schakel Azure AD Domain Services in het gatewaysubnet geen** van het virtuele netwerk.
+* Azure AD Domain Services tooa implementeren **scheiden toegewezen subnet** binnen uw virtuele Azure-netwerk.
+* Nsg's toohello toegewezen subnet voor uw beheerde domein zijn niet van toepassing. Als u nsg's toohello toegewezen subnet toepassen moet, moet u **niet blokkeren Hallo poorten vereist tooservice en beheren van uw domein**.
+* Niet overmatig beperken Hallo aantal IP-adressen beschikbaar binnen Hallo toegewezen subnet voor uw beheerde domein. Deze beperking wordt voorkomen dat Hallo service twee domeincontrollers beschikbaar maken voor uw beheerde domein.
+* **Schakel geen Azure AD Domain Services in het gatewaysubnet hello** van het virtuele netwerk.
 
 > [!WARNING]
-> Als u koppelt een NSG aan een subnet waarin Azure AD Domain Services is ingeschakeld, u de mogelijkheid van Microsoft-service en beheren van het domein kan verstoren. Bovendien wordt de synchronisatie tussen uw Azure AD-tenant en uw beheerde domein onderbroken. **De SLA niet van toepassing op implementaties waarbij een NSG is toegepast, die blokkeert Azure AD Domain Services uit bijwerken en het beheren van uw domein.**
+> Als u koppelt een NSG aan een subnet waarin Azure AD Domain Services is ingeschakeld, u kunt Microsoft mogelijkheid tooservice verstoren en Hallo domein beheren. Bovendien wordt de synchronisatie tussen uw Azure AD-tenant en uw beheerde domein onderbroken. **Hallo SLA toodeployments waarbij een NSG is toegepast, die blokkeert Azure AD Domain Services uit bijwerken en het beheren van uw domein is niet van toepassing.**
 >
 >
 
 ### <a name="ports-required-for-azure-ad-domain-services"></a>Poorten die nodig zijn voor Azure AD Domain Services
-De volgende poorten zijn vereist voor de service Azure AD Domain Services en onderhouden van uw beheerde domein. Zorg ervoor dat deze poorten worden niet geblokkeerd voor het subnet waarin u uw beheerde domein hebt ingeschakeld.
+Hallo volgende poorten zijn vereist voor Azure AD Domain Services tooservice en onderhouden van uw beheerde domein. Zorg ervoor dat deze poorten worden niet geblokkeerd voor Hallo subnet waarin u uw beheerde domein hebt ingeschakeld.
 
 | Poortnummer | Doel |
 | --- | --- |
 | 443 |Synchronisatie met uw Azure AD-tenant |
 | 3389 |Beheer van uw domein |
 | 5986 |Beheer van uw domein |
-| 636 |Beveiligde LDAP (LDAPS) toegang tot uw beheerde domein |
+| 636 |Beveiligde LDAP (LDAPS) toegang tooyour beheerd domein |
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Voorbeeld NSG voor virtuele netwerken met Azure AD Domain Services
-De volgende tabel ziet u een voorbeeld van een NSG die u voor een virtueel netwerk met een beheerd domein van Azure AD Domain Services configureren kunt. Deze regel kunnen binnenkomend verkeer van de hierboven opgegeven poorten om te controleren of uw beheerde domein blijft een patch uitgevoerd, bijgewerkt en kan worden bewaakt door Microsoft. De 'DenyAll' standaardregel geldt voor alle binnenkomend verkeer van het internet.
+Hallo volgende tabel ziet u een voorbeeld van een NSG die u voor een virtueel netwerk met een beheerd domein van Azure AD Domain Services configureren kunt. Deze regel kunnen binnenkomend verkeer van Hallo hierboven opgegeven poorten tooensure uw beheerde domein blijft een patch uitgevoerd, bijgewerkt en kunnen worden bewaakt door Microsoft. Hallo 'DenyAll' standaardregel geldt tooall andere binnenkomend verkeer van Hallo internet.
 
-Het NSG ziet ook hoe vergrendelen beveiligde LDAP toegang via internet. Deze regel overslaan als u beveiligde LDAP toegang niet hebt ingeschakeld voor uw beheerde domein via internet. Het NSG bevat een reeks regels waarmee binnenkomende LDAPS toegang via TCP-poort 636 alleen uit een opgegeven set van IP-adressen. De regel NSG LDAPS om toegang te verlenen via het internet vanaf de opgegeven IP-adressen heeft een hogere prioriteit dan de DenyAll NSG-regel.
+Bovendien Hallo NSG ook ziet u hoe toolock omlaag beveiligde LDAP toegang via internet Hallo. Deze regel overslaan als u beveiligde LDAP toegang tooyour beheerd domein niet hebt ingeschakeld via Hallo internet. Hallo NSG bevat een reeks regels waarmee binnenkomende LDAPS toegang via TCP-poort 636 alleen uit een opgegeven set van IP-adressen. Hallo NSG regel tooallow LDAPS toegang via Hallo internet vanaf de opgegeven IP-adressen heeft een hogere prioriteit dan Hallo DenyAll NSG-regel.
 
-![Voorbeeld NSG LDAPS om toegang te beveiligen via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Voorbeeld NSG toosecure LDAPS toegang via internet Hallo](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Meer informatie** - [maken van een Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -88,25 +88,25 @@ Het NSG ziet ook hoe vergrendelen beveiligde LDAP toegang via internet. Deze reg
 Een beheerd domein van Azure AD Domain Services kan alleen binnen een enkele klassiek virtueel netwerk in Azure worden ingeschakeld. Virtuele netwerken die zijn gemaakt met Azure Resource Manager worden niet ondersteund.
 
 ### <a name="scenarios-for-connecting-azure-networks"></a>Scenario's voor het verbinden van netwerken in Azure
-Verbinding maken met virtuele Azure-netwerken voor het gebruik van het beheerde domein in een van de volgende implementatiescenario's:
+Verbinding maken met virtuele netwerken van Azure toouse Hallo beheerd domein in een van de volgende implementatiescenario's Hallo:
 
-#### <a name="use-the-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Het beheerde domein in meer dan één Azure klassiek virtueel netwerk gebruiken
-U kunt andere Azure klassieke virtuele netwerken kunt verbinden met de Azure klassiek virtueel netwerk waarin u Azure AD Domain Services hebt ingeschakeld. Deze VPN-verbinding kunt u het beheerde domein met uw werkbelastingen die zijn geïmplementeerd in een andere virtuele netwerken gebruiken.
+#### <a name="use-hello-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Gebruik Hallo beheerd domein in meer dan één Azure klassiek virtueel netwerk
+U kunt verbinding maken voor andere Azure klassieke virtuele netwerken toohello Azure klassiek virtueel netwerk waarin u Azure AD Domain Services hebt ingeschakeld. Deze VPN-verbinding, kunt u toouse Hallo beheerde domein met uw werkbelastingen die zijn geïmplementeerd in een andere virtuele netwerken.
 
 ![Klassieke virtuele netwerkverbindingen](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
-#### <a name="use-the-managed-domain-in-a-resource-manager-based-virtual-network"></a>Het beheerde domein in een virtueel netwerk met Resource Manager gebaseerde gebruiken
-U kunt een Resource Manager gebaseerde virtueel netwerk verbinding maken met de Azure klassiek virtueel netwerk waarin u Azure AD Domain Services hebt ingeschakeld. Deze verbinding kunt u het beheerde domein met uw werkbelastingen die zijn geïmplementeerd in de Resource Manager gebaseerde virtueel netwerk gebruiken.
+#### <a name="use-hello-managed-domain-in-a-resource-manager-based-virtual-network"></a>Hallo beheerde domein in een virtueel netwerk met Resource Manager gebaseerde gebruiken
+U kunt verbinding maken met een virtueel netwerk op basis van een Resource Manager toohello Azure klassiek virtueel netwerk waarin u Azure AD Domain Services hebt ingeschakeld. Deze verbinding, kunt u toouse Hallo beheerde domein met uw werkbelastingen die zijn geïmplementeerd in Hallo Resource Manager gebaseerde virtueel netwerk.
 
-![Resource Manager klassiek virtueel netwerk verbinding](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
+![Resource Manager tooclassic virtuele netwerkverbindingen](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Opties voor een netwerkverbinding
-* **VNet-naar-VNet-verbindingen met behulp van site-naar-site VPN-verbindingen**: een virtueel netwerk verbinden met een ander virtueel netwerk (VNet-naar-VNet) is vergelijkbaar met een virtueel netwerk verbinden met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden.
+* **VNet-naar-VNet-verbindingen met behulp van site-naar-site VPN-verbindingen**: verbinding maken met een virtueel netwerk tooanother virtueel netwerk (VNet-naar-VNet) is vergelijkbaar tooconnecting een virtueel netwerk tooan on-premises-locatie. Beide connectiviteitstypen wordt een VPN-gateway tooprovide een beveiligde tunnel met IPsec/IKE.
 
     ![Verbinding met het virtuele netwerk met behulp van VPN-Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
     [Meer informatie - verbinding maken met virtuele netwerken met behulp van VPN-gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* **VNet-naar-VNet-verbindingen met virtuele netwerk peering**: peering virtueel netwerk is een mechanisme dat verbinding twee virtuele netwerken in dezelfde regio via het Azure-backbone-netwerk maakt. Als de twee virtuele netwerken gekoppeld zijn, worden deze als één netwerk weergegeven voor alle verbindingsdoeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
+* **VNet-naar-VNet-verbindingen met virtuele netwerk peering**: peering virtueel netwerk is een mechanisme dat verbinding twee virtuele netwerken in Hallo maakt dezelfde regio via hello Azure-backbone-netwerk. Als peer is ingesteld, wordt Hallo twee virtuele netwerken weergegeven als een voor alle connectiviteit doeleinden. Ze worden nog steeds beheerd als afzonderlijke resources, maar virtuele machines in deze virtuele netwerken kunnen met elkaar communiceren via privé-IP-adressen.
 
     ![Verbinding met het virtuele netwerk met behulp van peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
@@ -116,6 +116,6 @@ U kunt een Resource Manager gebaseerde virtueel netwerk verbinding maken met de 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Virtueel netwerk van Azure-peering](../virtual-network/virtual-network-peering-overview.md)
-* [Een VNet-naar-VNet-verbinding voor het klassieke implementatiemodel configureren](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
+* [Een VNet-naar-VNet-verbinding voor het klassieke implementatiemodel Hallo configureren](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Beveiligingsgroepen voor Azure-netwerk](../virtual-network/virtual-networks-nsg.md)
 * [Een Netwerkbeveiligingsgroep maken](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

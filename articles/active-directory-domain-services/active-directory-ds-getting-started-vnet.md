@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: een virtueel netwerk maken of selecteren | Microsoft Docs'
-description: Azure Active Directory Domain Services inschakelen met behulp van de klassieke Azure-portal
+description: Azure Active Directory Domain Services met behulp van de klassieke Azure-portal Hallo inschakelen
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/28/2017
 ms.author: maheshu
-ms.openlocfilehash: 457519b00b65b0157effe2d4aba033a1c99852e8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 212c741b20e846742d94f70342c4263ce8984153
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-or-select-a-virtual-network-for-azure-active-directory-domain-services"></a>Een virtueel netwerk voor Azure Active Directory Domain Services maken of selecteren
 ## <a name="before-you-begin"></a>Voordat u begint
-Raadpleeg [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md) (Overwegingen voor netwerken voor Azure AD Domain Services).
+Raadpleeg te[netwerken overwegingen voor Azure Active Directory Domain Services](active-directory-ds-networking.md).
 
 ## <a name="task-2-create-an-azure-virtual-network"></a>Taak 2: een virtueel netwerk van Azure maken
-De volgende configuratietaak bestaat uit het maken van een virtueel Azure-netwerk met daarbinnen een subnet. U schakelt Azure Active Directory Domain Services in dit subnet binnen uw virtuele netwerk in. Als u een bestaand virtueel netwerk hebt dat u wilt gebruiken, kunt u deze stap overslaan.
+de volgende configuratietaak Hallo toocreate is een Azure-netwerk en een subnet binnen het. U schakelt Azure Active Directory Domain Services in dit subnet binnen uw virtuele netwerk in. Als u een bestaand virtueel netwerk dat u liever toouse hebt, kunt u deze stap overslaan.
 
 > [!NOTE]
-> Controleer of het virtuele netwerk van Azure dat u maakt of wilt gebruiken met Azure Active Directory Domain Services, deel uitmaakt van een Azure-regio die wordt ondersteund door Azure Active Directory Domain Services. Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure Active Directory Domain Services beschikbaar is.
+> Zorg ervoor dat Hallo virtuele Azure-netwerk u maakt of kies toouse met Azure Active Directory Domain Services behoort tooan Azure-regio die wordt ondersteund door Azure Active Directory Domain Services. tooascertain Hallo Azure-regio's waarin Azure Active Directory Domain Services beschikbaar is, Zie [Azure-services per regio](https://azure.microsoft.com/regions/#services/).
 >
->Noteer de naam van het virtuele netwerk, zodat u het juiste virtuele netwerk selecteert wanneer u Azure Active Directory Domain Services inschakelt in een volgende configuratiestap.
+>Noteer de naam Hallo van Hallo virtueel netwerk tooensure dat u de juiste virtuele netwerk Hallo selecteert wanneer u Azure Active Directory Domain Services in een volgende configuratiestap inschakelen.
 
 
-Volg deze configuratie-instructies als u een virtueel Azure-netwerk wilt maken waarin Azure Active Directory Domain Services moet zijn ingeschakeld:
+toocreate een Azure-netwerk waarin u wilt dat tooenable Azure Active Directory Domain Services, volgt u deze configuratie-instructies:
 
-1. Ga naar de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer **Netwerken** in het linkerdeelvenster.
+1. Ga toohello [klassieke Azure-portal](https://manage.windowsazure.com).
+2. Selecteer in het linkerdeelvenster Hallo **netwerken**.
 
     ![Knooppunt Netwerken](./media/active-directory-domain-services-getting-started/networks-node.png)  
-    Het venster **Virtuele netwerken** wordt geopend.
-3. Klik op **Nieuw** in het taakvenster onder in het venster.
+    Hallo **virtuele netwerken** venster wordt geopend.
+3. Klik in het taakvenster Hallo HALLO hallo venster onderaan in op **nieuw**.
 
     ![Venster Virtuele netwerken](./media/active-directory-domain-services-getting-started/virtual-networks.png)
 4. Klik op **Netwerkservices** en selecteer **Virtueel netwerk**.
 
     ![Virtueel netwerk - Snel maken](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
-5. Klik op **Snel maken** om een virtueel netwerk te maken.
+5. toocreate een virtueel netwerk, klikt u op **snelle invoer**.
 
-6. Geef een **Naam** op voor het virtuele netwerk en stel desgewenst het volgende in:
-    * U kunt ervoor kiezen om **Adresruimte** of **Maximum aantal VM’s** op te geven voor dit netwerk.
-    * U kunt de instelling van **DNS-server** voorlopig op **Geen** laten staan. U kunt de instelling bijwerken nadat u Azure Active Directory Domain Services hebt ingeschakeld.
-7. Selecteer een ondersteunde Azure-regio selecteert in de vervolgkeuzelijst **Locatie**.  
-    Zie de pagina [Azure-services per regio](https://azure.microsoft.com/regions/#services/) om te bekijken in welke Azure-regio's Azure Active Directory Domain Services beschikbaar is.
-8. Klik op **Een virtueel netwerk maken** om het virtuele netwerk te maken.
+6. Geef een **naam** voor uw virtuele netwerk en overweeg Hallo volgende manier:
+    * U kunt tooconfigure **adresruimte** of **Maximum aantal VM's** voor dit netwerk.
+    * U kunt laten Hallo **DNS-server** instellen als de **geen** nu. Nadat u Azure Active Directory Domain Services hebt ingeschakeld, kunt u de instelling Hallo bijwerken.
+7. In Hallo **locatie** vervolgkeuzelijst, selecteert u een ondersteunde Azure-regio.  
+    tooascertain Hallo Azure-regio's waarin Azure Active Directory Domain Services beschikbaar is, Zie [Azure-services per regio](https://azure.microsoft.com/regions/#services/).
+8. toocreate uw virtuele netwerk, klikt u op **een virtueel netwerk maken**.
 
     ![Een virtueel netwerk voor Azure Active Directory Domain Services maken](./media/active-directory-domain-services-getting-started/create-vnet.png)
-9. Nadat u het virtuele netwerk hebt gemaakt, selecteert u dit virtuele netwerk en klikt u op het tabblad **Configureren**.
+9. Nadat u een virtueel netwerk hebt gemaakt, selecteert u de naam van het virtuele netwerk Hallo Hallo en klik vervolgens op Hallo **configureren** tabblad.
 
     ![Een subnet maken](./media/active-directory-domain-services-getting-started/create-vnet-properties.png)
-10. Klik onder **Virtual Network-adresruimten** op **Subnet toevoegen** en geef een subnet op met de naam **AaddsSubnet**.
+10. Onder **adresruimten voor virtueel netwerk**, klikt u op **subnet toevoegen**, en geef vervolgens een subnet met de naam van de Hallo **AaddsSubnet**.
 
     ![Een subnet voor Azure Active Directory Domain Services maken](./media/active-directory-domain-services-getting-started/create-vnet-add-subnet.png)
 
-11. Klik op **Opslaan** om het subnet te maken.
+11. toocreate Hallo subnet, klikt u op **opslaan**.
 
 
 ## <a name="next-step"></a>Volgende stap

@@ -1,12 +1,12 @@
 ---
-title: 'Connect Arduino (C) naar Azure IoT - les 3: voorbeeld uitvoeren | Microsoft Docs'
-description: Implementeren en uitvoeren van een voorbeeldtoepassing met Adafruit Doezelaar M0 Wi-Fi dat berichten verzendt naar uw IoT-hub en de LED knippert.
+title: 'Connect Arduino (C) tooAzure IoT - les 3: voorbeeld uitvoeren | Microsoft Docs'
+description: Implementeren en uitvoeren van een steekproef toepassing tooAdafruit Doezelaar M0 Wi-Fi dat berichten tooyour iothub verzendt en Hallo LED knippert.
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: IOT-cloudservice, arduino verzenden van gegevens naar de cloud
+keywords: IOT-cloudservice, arduino verzenden gegevens toocloud
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 92cce319-2b17-4c9b-889d-deac959e3e7c
@@ -17,64 +17,64 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 0c17fe74dbd78abca955f7789a1674ed6333367f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ddca015a3655f8a1a9de2a00e718ec0d28a5affb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Voer een voorbeeldtoepassing om apparaat-naar-cloud-berichten te verzenden
+# <a name="run-a-sample-application-toosend-device-to-cloud-messages"></a>Uitvoeren van een toepassing voorbeeld toosend apparaat-naar-cloud-berichten
 ## <a name="what-you-will-do"></a>Wat u doet
-In dit artikel wordt beschreven hoe u implementeren en uitvoeren van een voorbeeld van toepassing op het mededelingenbord Adafruit Doezelaar M0 Wi-Fi Arduino dat berichten naar uw IoT-hub verzendt.
+Dit artikel wordt beschreven hoe toodeploy en een voorbeeld van een toepassing wordt uitgevoerd op uw Adafruit Doezelaar M0 Wi-Fi Arduino board verzendt berichten tooyour iothub.
 
-Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].
+Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>Wat u leert
-U leert hoe u met het hulpprogramma gulp implementeren en uitvoeren van de voorbeeldtoepassing Arduino op het mededelingenbord Arduino.
+U leert hoe toouse hello gulp hulpprogramma toodeploy en Hallo Arduino voorbeeldtoepassing uitvoeren op het mededelingenbord Arduino.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-* Voordat u deze taak moet is voltooid [maken van een Azure-functie-app en een opslagaccount om te verwerken en opslaan van IoT hub berichten][process-and-store-iot-hub-messages].
+* Voordat u deze taak moet is voltooid [maken van een Azure-functie-app en een storage account tooprocess en store iothub berichten][process-and-store-iot-hub-messages].
 
 ## <a name="get-your-iot-hub-and-device-connection-strings"></a>Ophalen van uw IoT-hub en apparaat-verbindingsreeksen
-De verbindingsreeks van het apparaat wordt gebruikt voor het mededelingenbord Arduino verbinding met uw IoT-hub. De verbindingsreeks van de IoT-hub wordt gebruikt voor het verbinden van uw IoT-hub met de identiteit van het apparaat dat het mededelingenbord Arduino in de IoT-hub vertegenwoordigt.
+apparaat-verbindingsreeks Hallo gebruikte tooconnect is uw Arduino mededelingenbord tooyour IoT-hub. Hallo IoT hub-verbindingsreeks is gebruikte tooconnect uw IoT hub toohello apparaat-id die uw Arduino vertegenwoordigt board in Hallo IoT-hub.
 
-* Een overzicht van uw IoT-hubs in de resourcegroep met de volgende Azure CLI-opdracht:
+* Een overzicht van uw IoT-hubs in uw resourcegroep door het uitvoeren van hello Azure CLI-opdracht te volgen:
 
 ```bash
 az iot hub list -g iot-sample --query [].name
 ```
 
-Gebruik `iot-sample` als de waarde van `{resource group name}` als u de waarde niet wijzigen.
+Gebruik `iot-sample` als Hallo-waarde van `{resource group name}` als u Hallo-waarde niet wijzigt.
 
-* De IoT hub-verbindingsreeks ophalen met de volgende opdracht in de Azure CLI:
+* Hallo IoT hub-verbindingsreeks ophalen door het uitvoeren van hello Azure CLI-opdracht te volgen:
 
 ```bash
 az iot hub show-connection-string --name {my hub name}
 ```
 
-`{my hub name}`is de naam die u hebt opgegeven wanneer u uw IoT-hub gemaakt en het mededelingenbord Arduino geregistreerd.
+`{my hub name}`Hallo-naam die u hebt opgegeven wanneer u uw IoT-hub gemaakt en het mededelingenbord Arduino geregistreerd is.
 
-* De apparaat-verbindingsreeks ophalen met de volgende opdracht:
+* Hallo apparaat-verbindingsreeks ophalen door het uitvoeren van de volgende opdracht Hallo:
 
 ```bash
 az iot device show-connection-string --hub-name {my hub name} --device-id mym0wifi
 ```
 
-Gebruik `mym0wifi` als de waarde van `{device id}` als u de waarde niet wijzigen.
-## <a name="configure-the-device-connection"></a>De apparaatverbinding configureren
-Volg deze stappen voor het configureren van de apparaatverbinding:
+Gebruik `mym0wifi` als Hallo-waarde van `{device id}` als u Hallo-waarde niet wijzigt.
+## <a name="configure-hello-device-connection"></a>Hallo apparaatverbinding configureren
+tooconfigure Hallo apparaatverbinding, als volgt te werk:
 
-1. De seriële poort van het apparaat met de apparaat-detectie cli verkrijgen:
+1. Seriële poort Hallo Hallo-apparaat met Hallo apparaat detectie cli verkrijgen:
 
    ```bash
    devdisco list --usb
    ```
 
-   U moet een uitvoer die vergelijkbaar is met het volgende weergegeven en de usb COM-poort voor het mededelingenbord Arduino vinden:
+   U moet een uitvoer die vergelijkbaar toohello volgende wordt weergegeven en Hallo usb COM-poort voor het mededelingenbord Arduino vinden:
 
    ![Detectie van netwerkapparaten][device-discovery]
 
-2. Open het bestand `config.json` in de map les en voeg de waarde van de COM-poortnummer gevonden:
+2. Open Hallo bestand `config.json` in les map Hallo en toe te voegen waarde Hallo Hallo COM-poortnummer gevonden:
 
    ```json
    {
@@ -85,16 +85,16 @@ Volg deze stappen voor het configureren van de apparaatverbinding:
    ![Config.JSON][config-json]
 
    > [!NOTE]
-   > Voor de COM-poort op Windows-platform, heeft de indeling van `COM1, COM2, ...`. Op Mac OS of Ubuntu en deze begint met `/dev/`.
+   > Voor Hallo COM-poort op Windows-platform, heeft het Hallo-indeling van `COM1, COM2, ...`. Op Mac OS of Ubuntu en deze begint met `/dev/`.
 
-3. Het configuratiebestand initialiseren met de volgende opdrachten:
+3. Hallo-configuratiebestand door het uitvoeren van de volgende opdrachten Hallo initialiseren:
 
    ```bash
    npm install
    gulp init
    gulp install-tools
    ```
-4. Open het configuratiebestand van het apparaat `config-arduino.json` in Visual Studio Code met de volgende opdracht:
+4. Open Hallo apparaat configuratiebestand `config-arduino.json` in Visual Studio Code door te voeren Hallo volgende opdracht:
 
    ```bash
    # For Windows command prompt
@@ -106,22 +106,22 @@ Volg deze stappen voor het configureren van de apparaatverbinding:
 
    ![config arduino.json][config-arduino-json]
 
-5. Controleer de volgende vervangingen in de `config-arduino.json` bestand:
+5. Zorg Hallo vervangingen in Hallo na `config-arduino.json` bestand:
 
-   * Vervang **[Wi-Fi-SSID]** met uw Wi-Fi-SSID die is verbonden met Internet.
-   * Vervang **[Wi-Fi-wachtwoord]** met het Wi-Fi-wachtwoord. Verwijder de tekenreeks als uw Wi-Fi geen wachtwoord vereist.
-   * Vervang **[apparaat-verbindingsreeks IoT]** met de `device connection string` u hebt verkregen.
-   * Vervang **[IoT hub verbindingsreeks]** met de `iot hub connection string` u hebt verkregen.
+   * Vervang **[Wi-Fi-SSID]** met uw Wi-Fi-SSID die toohello Internet verbonden.
+   * Vervang **[Wi-Fi-wachtwoord]** met het Wi-Fi-wachtwoord. Hallo tekenreeks verwijderen als uw Wi-Fi geen wachtwoord vereist.
+   * Vervang **[apparaat-verbindingsreeks IoT]** Hello `device connection string` u hebt verkregen.
+   * Vervang **[IoT hub verbindingsreeks]** Hello `iot hub connection string` u hebt verkregen.
 
    > [!NOTE]
    > U hoeft niet `azure_storage_connection_string` in dit artikel. Houd deze zo is.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing
-Implementeren en uitvoeren van de voorbeeldtoepassing op het mededelingenbord Arduino met de volgende opdracht:
+## <a name="deploy-and-run-hello-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing Hallo
+Implementeren en uitvoeren van de voorbeeldtoepassing Hallo op het mededelingenbord Arduino door het uitvoeren van de volgende opdracht Hallo:
 
 ```bash
 gulp run
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
@@ -129,15 +129,15 @@ gulp run --listen
 ```
 
 > [!NOTE]
-> De standaard gulp taak wordt uitgevoerd `install-tools` en `run` taken sequentieel worden verwerkt. Wanneer u [de knipperen app hebt geïmplementeerd][deployed-the-blink-app], u deze taken afzonderlijk uitgevoerd.
+> Hallo standaard gulp taak wordt uitgevoerd `install-tools` en `run` taken sequentieel worden verwerkt. Wanneer u [Hallo knipperen app geïmplementeerd][deployed-the-blink-app], u deze taken afzonderlijk uitgevoerd.
 
-## <a name="verify-that-the-sample-application-works"></a>Controleer of de voorbeeldtoepassing werkt
-U ziet de GPIO #0 ingebouwde LED knippert die per twee seconden. Telkens wanneer de LED knippert, wordt de voorbeeldtoepassing verzendt een bericht naar uw IoT-hub en verifieert dat wordt het bericht is verzonden naar uw IoT-hub. Bovendien wordt elk bericht ontvangen door de IoT-hub in het consolevenster. De voorbeeldtoepassing wordt automatisch beëindigd na 20 berichten verzenden.
+## <a name="verify-that-hello-sample-application-works"></a>Controleer of de voorbeeldtoepassing Hallo werkt
+U ziet Hallo GPIO #0 ingebouwde LED knippert elke twee seconden. Telkens wanneer Hallo LED knippert, wordt de voorbeeldtoepassing Hallo verzendt een bericht tooyour IoT-hub en verifieert dat het Hallo-bericht is verzonden tooyour IoT-hub. Bovendien wordt elk bericht ontvangen door de IoT-hub Hallo afgedrukt in het consolevenster Hallo. Hallo-voorbeeldtoepassing wordt automatisch beëindigd na 20 berichten verzenden.
 
 ![Voorbeeld van een toepassing met verzonden en ontvangen van berichten][sample-application-with-sent-and-received-messages]
 
 ## <a name="summary"></a>Samenvatting
-U hebt geïmplementeerd en de nieuwe knipperen voorbeeldtoepassing uitvoeren op het mededelingenbord Arduino apparaat-naar-cloud-berichten verzenden naar uw IoT-hub. U nu bewaken uw berichten zoals ze zijn geschreven naar het opslagaccount.
+U hebt geïmplementeerd en nieuwe knipperen Hallo-voorbeeldtoepassing uitvoeren op uw Arduino mededelingenbord toosend apparaat-naar-cloudberichten tooyour iothub. U nu bewaken uw berichten zoals ze zijn toohello storage-account geschreven.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Alleen berichten permanent in Azure Storage][read-messages-persisted-in-azure-storage]

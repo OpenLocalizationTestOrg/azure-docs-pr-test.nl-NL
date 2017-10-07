@@ -1,6 +1,6 @@
 ---
-title: Aanpassen van de aanmeldingspagina in Azure Active Directory | Microsoft Docs
-description: Informatie over het toevoegen van een huisstijl naar de Azure-aanmeldingspagina
+title: aaaCustomize pagina bent aangemeld in hello Azure Active Directory | Microsoft Docs
+description: Meer informatie over hoe een bedrijf huisstijl toohello Azure aanmelden pagina tooadd
 services: active-directory
 documentationcenter: 
 author: jeffgilb
@@ -15,101 +15,101 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: bddf2542eecce8bdeccda6053203bf2c2ba0ffb2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7a7ccdeef0764f6cf9e9e224acd4350983031fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snelstartgids: Huisstijl naar de aanmeldingspagina in Azure AD toevoegen
-Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory (Azure AD) biedt deze mogelijkheid. u kunt pas het uiterlijk van de aanmeldingspagina met uw bedrijfslogo en kleurenschema toepassen. De aanmeldingspagina is de pagina die wordt weergegeven wanneer u zich aanmeldt bij Office 365 of andere toepassingen op Internet die van Azure AD als id-provider gebruikmaken. U communiceert met deze pagina uw referenties in te voeren.
+# <a name="quickstart-add-company-branding-tooyour-sign-in-page-in-azure-ad"></a>Snelstartgids: Huisstijl tooyour-aanmeldingspagina in Azure AD toevoegen
+tooavoid verwarring, willen veel bedrijven tooapply een consistent uiterlijk voor alle Hallo websites en services die ze beheren. Azure Active Directory (Azure AD) biedt deze mogelijkheid doordat u toocustomize Hallo vormgeving van Hallo aanmeldingspagina met uw bedrijfslogo en kleurenschema toepassen. Hallo-aanmeldingspagina is Hallo-pagina waarop wordt weergegeven wanneer u zich aanmeldt tooOffice 365 of andere toepassingen op Internet die van Azure AD als id-provider gebruikmaken. U communiceren met deze pagina tooenter uw referenties.
 
 > [!NOTE]
-> * Huisstijl is alleen beschikbaar als u een upgrade uitgevoerd naar de Premium of Basic-editie van Azure AD of een Office 365-licentie hebt. Controleer voor meer informatie als een functie wordt ondersteund door het licentietype van uw, de [prijspagina informatie voor Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+> * Huisstijl is alleen beschikbaar als u een upgrade hebt uitgevoerd toohello Premium of Basic-editie van Azure AD of een Office 365-licentie hebt. Als een functie wordt ondersteund door uw licentietype controleren Hallo toolearn [prijspagina informatie voor Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 > 
-> * De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem voor meer informatie contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> * Edities Azure Active Directory Premium en Basic zijn beschikbaar voor klanten in China Hallo wereldwijde exemplaar van Azure Active Directory. Edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in Microsoft Azure-service Hallo beheerd door 21Vianet in China. Voor meer informatie contact met ons opnemen Hallo [Azure Active Directory-Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-## <a name="customizing-the-sign-in-page"></a>De aanmeldingspagina aanpassen
+## <a name="customizing-hello-sign-in-page"></a>Hallo-aanmeldingspagina aanpassen
 
-<!--You can customize the following elements on the sign-in page: <attach image>-->
+<!--You can customize hello following elements on hello sign-in page: <attach image>-->
 
-Bedrijf huisstijl aanpassingen op de aanmeldingspagina van Azure AD worden weergegeven wanneer gebruikers toegang krijgen een tenantspecifieke URL zoals tot [ *https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+Bedrijf huisstijl aanpassingen op de aanmeldingspagina hello Azure AD worden weergegeven wanneer gebruikers toegang krijgen een tenantspecifieke URL zoals tot [ *https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
 
-Wanneer gebruikers een generieke URL, zoals www.office.com bezoekt, is de aanmeldingspagina bevat geen aanpassingen voor huisstijl omdat het systeem niet weet welke gebruiker. Nadat gebruikers hun gebruikersnaam invoeren of selecteren van een gebruikerstegel weergegeven huisstijl.
+Wanneer gebruikers een generieke URL, zoals www.office.com bezoekt, is de aanmeldingspagina Hallo bevat geen aanpassingen voor huisstijl omdat Hallo systeem niet weet die Hallo gebruiker is. Nadat gebruikers hun gebruikersnaam invoeren of selecteren van een gebruikerstegel weergegeven huisstijl.
 
 > [!NOTE]
-> * Uw domeinnaam moet worden weergegeven als 'Actief' de **domeinen** gedeelte van de Azure portal waarin u de huisstijl hebt geconfigureerd. Zie voor meer informatie [toevoegen van een aangepaste domeinnaam](add-custom-domain.md).
-> * De huisstijl van de aanmeldingspagina wordt niet meegenomen naar de aanmeldingspagina van persoonlijke Microsoft-accounts. Als uw werknemers of business-gasten zich met een persoonlijk Microsoft-account aanmeldt, komt hun aanmeldingspagina niet overeen met de huisstijl van uw organisatie.
+> * Uw domeinnaam moet worden weergegeven als 'Actief' in hello **domeinen** gedeelte van hello Azure portal waarin u de huisstijl hebt geconfigureerd. Zie voor meer informatie [toevoegen van een aangepaste domeinnaam](add-custom-domain.md).
+> * Aanmeldingspagina huisstijl niet meegenomen toohello aanmeldingspagina voor persoonlijke Microsoft-accounts. Als uw werknemers of business-gasten zich met een persoonlijk Microsoft-account aanmeldt, komt hun aanmeldingspagina niet overeen met Hallo huisstijl van uw organisatie.
 
 
 ### <a name="banner-logo"></a>Bannerlogo 
 
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Het logo in banner wordt weergegeven op de aanmeldingspagina en de toegang deelvenster pagina's.<br>Dit betekent op de pagina aanmelden nadat de organisatie van de gebruiker is vastgesteld, gewoonlijk nadat de gebruikersnaam wordt ingevoerd.  | Transparante JPG of PNG<br>Maximale hoogte: 36 px<br>Maximale breedte: 245 px | Logo van uw organisatie hier gebruiken.<br>Gebruik een transparante afbeelding. Niet, wordt ervan uitgegaan dat de achtergrond wit zijn.<br>Opvulling om de logo in de afbeelding niet toevoegen of eruit ziet uw logo niet goed klein.
+Hallo logo in banner wordt weergegeven op de aanmeldingspagina Hallo en Hallo Access Configuratiescherm-pagina's.<br>Dit betekent op Hallo aanmelden pagina nadat de organisatie van de gebruiker Hallo is vastgesteld, gewoonlijk nadat Hallo gebruikersnaam wordt ingevoerd.  | Transparante JPG of PNG<br>Maximale hoogte: 36 px<br>Maximale breedte: 245 px | Logo van uw organisatie hier gebruiken.<br>Gebruik een transparante afbeelding. Niet, wordt ervan uitgegaan dat de Hallo achtergrond wit worden.<br>Voeg geen opvulling om de logo in de installatiekopie van het Hallo of uw logo ziet er niet goed klein.
 
 ### <a name="username-hint"></a>Gebruikersnaam hint   
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Hiermee wordt de instructietekst in het veld username aangepast. | Unicodetekst, maximaal 64 tekens<br>Alleen tekst zonder opmaak | U wordt aangeraden dat u geen dit instelt als u verwacht dat gastgebruikers buiten uw organisatie aan te melden bij uw app.
+Dit past Hallo hint tekst in de gebruikersnaamvelden Hallo. | Unicode-tekst van too64 tekens<br>Alleen tekst zonder opmaak | U wordt aangeraden dat u geen dit instelt als u verwacht gastgebruikers buiten uw organisatie toosign in tooyour-app dat.
             
 ### <a name="sign-in-page-text"></a>Tekst van aanmeldingspagina   
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Dit wordt weergegeven onder aan het formulier aanmelden en kan worden gebruikt om aanvullende informatie zoals het telefoonnummer op dat naar de helpdesk of een juridische mededeling te communiceren. | Unicodetekst, maximaal 256 tekens<br>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags)   
+Dit mag wordt Hallo Hallo aanmelden formulier onder aan en gebruikte toocommunicate aanvullende informatie zoals Hallo phone nummer tooyour helpdesk of een juridische mededeling. | Unicode-tekst van too256 tekens<br>Alleen tekst zonder opmaak (geen koppelingen of HTML-tags) 
 
 ### <a name="sign-in-page-image"></a>Afbeelding van de aanmeldingspagina  
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Dit wordt weergegeven op de achtergrond van de aanmeldingspagina wordt, wordt verankerd aan het midden van de zichtbare ruimte schalen en bijsnijden zodat deze het browservenster.    <br>Scherm zoals mobiele telefoons erg smal, is deze afbeelding niet weergegeven.<br>Een zwarte masker met 0,55 dekking worden toegepast op deze afbeelding door onze code wanneer de pagina wordt geladen. | JPG of PNG<br>Afbeelding van dimensies: 1920 x 1080 px<br>De bestandsgrootte: &gt; 300 KB | <br>Installatiekopieën gebruiken wanneer er een sterk onderwerp focus niet. Het formulier voor ondoorzichtige aanmeldingspagina wordt weergegeven boven het midden van deze installatiekopie en voldoende is voor een deel van de afbeelding, afhankelijk van de grootte van het browservenster.<br>Houd de bestandsgrootte zo klein mogelijk zodat snel laadtijden. 
+Dit wordt weergegeven op de achtergrond Hallo van Hallo aanmeldingspagina, verankerde toohello center Hallo bekeken ruimte, en wordt schalen en bijsnijden toofill Hallo-browservenster.  <br>Scherm zoals mobiele telefoons erg smal, is deze afbeelding niet weergegeven.<br>Een zwarte masker met 0,55 dekking worden toegepast op deze afbeelding door onze code wanneer Hallo pagina wordt geladen. | JPG of PNG<br>Afbeelding van dimensies: 1920 x 1080 px<br>De bestandsgrootte: &gt; 300 KB | <br>Installatiekopieën gebruiken wanneer er een sterk onderwerp focus niet. ondoorzichtige Hallo aanmelden formulier wordt weergegeven boven Hallo midden van deze installatiekopie en kan een deel van de afbeelding hello, afhankelijk van de grootte van het browservenster Hallo Hallo dekken.<br>Hallo-bestandsgrootte zo klein mogelijk tooensure snelle laadtijden houden. 
 
 ### <a name="background-color"></a>Achtergrondkleur
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Deze kleur wordt gebruikt in plaats van de achtergrondafbeelding op lage bandbreedte. | RGB-kleur in de hexadecimale notatie (voorbeeld: #FFFFFF | Het is raadzaam om met behulp van de primaire kleur van het logo in banner of de kleur van uw organisatie.
+Deze kleur wordt gebruikt in plaats van de achtergrondafbeelding Hallo op lage bandbreedte. |   RGB-kleur in de hexadecimale notatie (voorbeeld: #FFFFFF | Het is raadzaam om met Hallo primaire kleur van het logo in banner Hallo of de kleur van uw organisatie.
 
-### <a name="show-option-to-remain-signed-in"></a>Optie aangemeld blijven weergeven
+### <a name="show-option-tooremain-signed-in"></a>Optie tooremain aangemeld weergeven
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Azure AD aanmelden geeft de gebruiker de optie voor het aangemelde blijven wanneer ze sluiten en opnieuw hun browser openen. Gebruik dit om te verbergen die optie.<br>Stel dit in op 'Nee' als deze optie van uw gebruikers te verbergen. | &nbsp; | Dit heeft geen invloed op de levensduur van de sessie.<br>Sommige functies van Office 2010 en SharePoint Online, is afhankelijk van gebruikers kunnen kiezen om te blijven aangemeld. Als u deze moet worden verborgen instelt, uw gebruikers zien mogelijk aanvullende en onverwachte wordt u gevraagd om aan te melden.
+Azure AD aanmelden biedt Hallo gebruiker Hallo optie tooremain is aangemeld wanneer ze sluiten en opnieuw hun browser openen. Gebruik deze toohide die optie.<br>Stel deze optie te 'Nee' toohide deze optie van uw gebruikers. | &nbsp; | Dit heeft geen invloed op de levensduur van de sessie.<br>Sommige functies van Office 2010 en SharePoint Online, is afhankelijk van gebruikers kunnen toochoose tooremain aangemeld. Als u deze toobe verborgen instelt, kunnen aanvullende en onverwachte prompts toosign in uw gebruikers te zien.
 
 > [!NOTE]
-> Alle elementen zijn optioneel. Bijvoorbeeld, als u een logo in banner opgeven dat er geen achtergrondafbeelding, wordt de aanmeldingspagina weergegeven uw logo en afbeelding voor de doelsite (bijvoorbeeld Office 365).
+> Alle elementen zijn optioneel. Als u een logo in banner met geen achtergrondafbeelding opgeeft, wordt de aanmeldingspagina Hallo uw logo en Hallo achtergrondafbeelding voor Hallo doelsite (bijvoorbeeld Office 365) weergegeven.
 
-## <a name="add-company-branding-to-your-directory"></a>Huisstijl aan uw directory toevoegen
+## <a name="add-company-branding-tooyour-directory"></a>Huisstijl tooyour directory toevoegen
 
-1. Aanmelden bij [de Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Aanmelden te[hello Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **meer services**, voer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
    ![Gebruikersbeheer openen](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
-3. Op de **gebruikers en groepen** blade Selecteer **bedrijf huisstijl**.
-4. Op de **gebruikers en groepen - bedrijf huisstijl** blade, selecteer de **bewerken** opdracht.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **bedrijf huisstijl**.
+4. Op Hallo **gebruikers en groepen - bedrijf huisstijl** blade, selecteer Hallo **bewerken** opdracht.
 
     ![Aangepaste huisstijl bewerken](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
-5. Wijzig de elementen die u wilt aanpassen. Alle elementen zijn optioneel.
+5. Hallo-elementen die u wilt dat toocustomize wijzigen. Alle elementen zijn optioneel.
 6. Klik op **Opslaan**.
 
-Dit kan een uur duren voor alle wijzigingen naar de pagina aanmeldingspagina met huisstijl weergegeven.
+Het kan tooan uur duren voor u de wijzigingen toohello aanmelden pagina huisstijl tooappear.
 
-## <a name="add-language-specific-company-branding-to-your-directory"></a>De huisstijl specifieke taal zijn gebonden aan uw directory toevoegen
+## <a name="add-language-specific-company-branding-tooyour-directory"></a>Taalspecifieke huisstijl-tooyour directory toevoegen
 
-1. Meld u aan bij het [beheercentrum van Azure AD](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de directory.
-2. Selecteer **gebruikers en groepen** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Meld u aan toohello [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **gebruikers en groepen** in het tekstvak Hallo en selecteer vervolgens **Enter**.
 
    ![Gebruikersbeheer openen](./media/active-directory-branding-localize-azure-portal/user-management.png)
-3. Op de **gebruikers en groepen** blade Selecteer **bedrijf huisstijl**.
-4. Op de **gebruikers en groepen - bedrijf huisstijl** blade, selecteer de **taal toevoegen** opdracht.
+3. Op Hallo **gebruikers en groepen** blade Selecteer **bedrijf huisstijl**.
+4. Op Hallo **gebruikers en groepen - bedrijf huisstijl** blade, selecteer Hallo **taal toevoegen** opdracht.
 
     ![De huisstijl elementen taalspecifieke toevoegen](./media/active-directory-branding-localize-azure-portal/add-language.png)
-5. Wijzig de elementen die u wilt aanpassen. Alle elementen zijn optioneel.
+5. Hallo-elementen die u wilt dat toocustomize wijzigen. Alle elementen zijn optioneel.
 6. Klik op **Opslaan**.
 
-Dit kan een uur duren voor alle wijzigingen naar de pagina aanmeldingspagina met huisstijl weergegeven.
+Het kan tooan uur duren voor u de wijzigingen toohello aanmelden pagina huisstijl tooappear.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u geleerd hoe huisstijl aan uw Azure AD-directory toevoegen. 
+In deze snelstartgids hebt u geleerd hoe tooadd bedrijf huisstijl tooyour Azure AD-directory. 
 
-U kunt de volgende koppeling voor het configureren van uw huisstijl op Azure AD via de Azure portal gebruiken.
+U kunt Hallo koppeling tooconfigure na uw huisstijl op Azure AD van hello Azure-portal gebruiken.
 
 > [!div class="nextstepaction"]
 > [Een bedrijfshuisstijl toevoegen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 

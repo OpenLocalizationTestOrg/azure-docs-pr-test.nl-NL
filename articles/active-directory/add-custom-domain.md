@@ -1,6 +1,6 @@
 ---
-title: Een aangepast domein toevoegen aan Azure AD | Microsoft Docs
-description: Legt uit hoe u een aangepast domein toevoegen in Azure Active Directory.
+title: een aangepast domein tooAzure AD aaaAdd | Microsoft Docs
+description: Legt uit hoe tooadd een aangepast domein in Azure Active Directory.
 services: active-directory
 author: jeffgilb
 manager: femila
@@ -14,73 +14,73 @@ ms.date: 08/10/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 4848130601ffa18ed1565e79cb0f0db3274e950f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 878cecad364ec47f1c6755d742aaccbce627dc5e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Snelstartgids: Een aangepaste domeinnaam toevoegen aan Azure Active Directory
+# <a name="quickstart-add-a-custom-domain-name-tooazure-active-directory"></a>Snelstartgids: Een aangepast domein naam tooAzure Active Directory toevoegen
 
-Elke Azure AD-directory wordt geleverd met een initiële domeinnaam in de vorm van *domainname*. onmicrosoft.com. De initiële domeinnaam kan niet worden gewijzigd of verwijderd, maar u kunt uw zakelijke domeinnaam toevoegen aan Azure AD ook. Uw organisatie heeft bijvoorbeeld waarschijnlijk andere domeinnamen gebruikt voor bedrijven en gebruikers die zich aanmeldt met uw zakelijke domeinnaam. Het toevoegen van aangepaste domeinnamen naar Azure AD, kunt u gebruikersnamen toewijzen in de directory die bekend aan uw gebruikers, zoals zijn 'alice@contoso.com.' in plaats van ' Els @*<domain name>*. onmicrosoft.com'. Het proces is eenvoudig:
+Elke Azure AD-directory wordt geleverd met een initiële domeinnaam in de vorm van Hallo *domainname*. onmicrosoft.com. Hallo initiële domeinnaam kan niet worden gewijzigd of verwijderd, maar u kunt uw bedrijfsdomein naam tooAzure AD ook toevoegen. Uw organisatie heeft bijvoorbeeld waarschijnlijk andere domein namen gebruikt toodo bedrijfs- en gebruikers die zich aanmeldt met uw zakelijke domeinnaam. Toevoegen van aangepast domein namen tooAzure AD kunt u tooassign gebruikersnamen in Hallo directory die bekend tooyour gebruikers, zoals 'alice@contoso.com.' in plaats van ' Els @*<domain name>*. onmicrosoft.com'. Hallo-proces is eenvoudig:
 
-1. Voeg de aangepaste domeinnaam toe aan uw directory.
-2. Voeg een DNS-vermelding voor de domeinnaam toe aan de domeinnaamregistrar.
-3. Verifieer de aangepaste domeinnaam in Azure AD.
+1. Hallo aangepast domein naam tooyour map toevoegen
+2. Een DNS-vermelding voor de domeinnaam Hallo op Hallo domeinnaamregistrar toevoegen
+3. Controleer of de aangepaste domeinnaam Hallo in Azure AD
 
 ## <a name="add-your-custom-domain"></a>Uw aangepaste domein toevoegen
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **meer services**, voer **Azure Active Directory** in het tekstvak Hallo en selecteer vervolgens **Enter**.
    
    ![Gebruikersbeheer openen](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Op de ***mapnaam*** blade Selecteer **domeinnamen**.
-4. Op de  ***mapnaam* -domeinnamen** blade, selecteer de **toevoegen** opdracht.
+3. Op Hallo ***mapnaam*** blade Selecteer **domeinnamen**.
+4. Op Hallo  ***mapnaam* -domeinnamen** blade, selecteer Hallo **toevoegen** opdracht.
    
-   ![De opdracht Add selecteren](./media/active-directory-domains-add-azure-portal/add-command.png)
-5. Op de **domeinnaam** blade, voer de naam van uw aangepaste domein in het vak, bijvoorbeeld 'contoso.com' en selecteer vervolgens **domein toevoegen**. Vergeet niet de extensie .com, .net of een andere extensie van het hoogste niveau toe te voegen.
-6. Op de ***domeinnaam*** blade (met uw aangepaste domeinnaam in de titel), de DNS-vermeldingsgegevens gebruiken om te verifiëren dat uw organisatie eigenaar is van de aangepaste domeinnaam ophalen.
+   ![Hallo Add-opdracht selecteren](./media/active-directory-domains-add-azure-portal/add-command.png)
+5. Op Hallo **domeinnaam** blade Hallo-naam van uw aangepaste domein in Hallo vak opgeven, bijvoorbeeld 'contoso.com' en selecteer vervolgens **domein toevoegen**. Ervoor tooinclude Hallo .com, .net of een andere extensie op het hoogste niveau zijn.
+6. Op Hallo ***domeinnaam*** blade (met uw aangepaste domeinnaam in Hallo titel), DNS-vermelding informatie toouse tooverify dat uw organisatie eigenaar is van de aangepaste domeinnaam Hallo Hallo ophalen.
    
    ![DNS-vermelding informatie ophalen](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
 
 > [!TIP]
-> Als u van plan bent om te federeren van uw lokale Windows Server AD met Azure AD, moet u selecteert de **ik van plan bent dit domein te configureren voor eenmalige aanmelding met mijn lokale Active Directory** selectievakje wanneer u het Azure AD Connect-hulpprogramma om te worden uitgevoerd Synchroniseer uw mappen. U moet ook registreren van de dezelfde domeinnaam die u selecteert voor het federeren met uw on-premises directory in de **Azure AD Domain** stap in de wizard. [In deze instructies](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation) ziet u hoe die stap van de wizard eruitziet. Als u het hulpprogramma Azure AD Connect niet hebt, kunt u het [hier](http://go.microsoft.com/fwlink/?LinkId=615771) downloaden.
+> Als u van plan toofederate uw lokale Windows Server AD met Azure AD bent, moet u tooselect hello **ik rekening houden tooconfigure dit domein voor eenmalige aanmelding met mijn lokale Active Directory** selectievakje wanneer u hello Azure AD Connect-hulpprogramma uitvoert toosynchronize uw adreslijsten. U moet ook tooregister dezelfde domeinnaam die u selecteert voor het federeren met uw on-premises directory in Hallo Hallo **Azure AD Domain** stap in de wizard Hallo. U kunt zien welke stap in het Hallo-wizard lijkt [in deze instructies](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Als u geen hello Azure AD Connect-hulpprogramma hebt, kunt u [hier downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-Nu u een domeinnaam hebt toegevoegd, moet met Azure AD worden gecontroleerd of uw organisatie de eigenaar is van de domeinnaam. Voordat deze verificatie met Azure AD kan worden uitgevoerd, moet u een DNS-vermelding toevoegen in het DNS-zonebestand voor de domeinnaam. Deze taak wordt voor de domeinnaam uitgevoerd op de website voor domeinnaamregistrar.
+Nu dat u Hallo domeinnaam hebt toegevoegd, moet uw organisatie eigenaar is van de domeinnaam Hallo Azure AD controleren. Azure AD om deze verificatie te kan uitvoeren, moet u een DNS-vermelding toevoegen in Hallo DNS-zonebestand voor Hallo domeinnaam. Deze taak wordt uitgevoerd op Hallo-website voor domeinnaamregistrar voor Hallo domeinnaam.
 
-## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>De DNS-vermelding op de domeinnaamregistrar voor het domein toevoegen
-De volgende stap voor het gebruik van de aangepaste domeinnaam met Azure AD bestaat uit het bijwerken van het DNS-zonebestand voor het domein. Azure AD kunt vervolgens controleren of uw organisatie eigenaar is van de aangepaste domeinnaam.
+## <a name="add-hello-dns-entry-at-hello-domain-name-registrar-for-hello-domain"></a>Hallo DNS-vermelding op Hallo domeinnaamregistrar voor Hallo domein toevoegen
+Hallo volgende stap toouse uw aangepaste domeinnaam met Azure AD is tooupdate Hallo DNS-zonebestand voor Hallo-domein. Azure AD kunt vervolgens controleren of uw organisatie eigenaar is van de aangepaste domeinnaam Hallo.
 
-1. Meld u aan bij de domeinnaamregistrar voor het domein. Als u geen toegang hebt om de DNS-vermelding bij te werken, vraagt u de persoon die of het team dat wel over deze toegang beschikt om stap 2 uit te voeren en u te laten weten wanneer deze is voltooid.
-2. Werk het DNS-zonebestand voor het domein bij, door de DNS-vermelding toe te voegen die u van Azure AD hebt ontvangen. Met deze DNS-vermelding kan Azure AD controleren of u eigenaar bent van het domein. De DNS-vermelding leidt niet tot veranderingen in het gedrag van bijvoorbeeld mailroutering of webhosting.
+1. Meld u aan toohello domeinnaamregistrar voor Hallo-domein. Als u geen toegang tot tooupdate Hallo DNS-vermelding, vraagt u Hallo persoon of het team dat deze toegang toocomplete stap 2 is en toolet die u weet wanneer deze is voltooid.
+2. Update Hallo DNS-zonebestand voor Hallo domein door toe te voegen Hallo DNS-vermelding opgegeven tooyou door Azure AD. Deze DNS-vermelding kan Azure AD tooverify u eigenaar bent van Hallo-domein. Hallo DNS-vermelding is niet gewijzigd gedrag van bijvoorbeeld mailroutering of webhosting.
 
-Voor hulp bij het toevoegen van de DMS-vermelding leest u de [Instructies voor het toevoegen van een DNS-vermelding bij populaire DNS-registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Lees voor meer informatie over deze toe te voegen DNS-vermelding voor hello, [instructies voor het toevoegen van een DNS-vermelding bij populaire DNS-registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
-## <a name="verify-the-domain-name-with-azure-ad"></a>De domeinnaam verifiëren met Azure AD
-Nadat u de DNS-vermelding hebt toegevoegd, kunt u de domeinnaam bij Azure AD verifiëren.
+## <a name="verify-hello-domain-name-with-azure-ad"></a>Controleer of de domeinnaam Hallo met Azure AD
+Nadat u Hallo DNS-vermelding hebt toegevoegd, bent u klaar tooverify Hallo domeinnaam met Azure AD.
 
-De naam van een domein kan worden gecontroleerd nadat de DNS-records zijn doorgegeven. Deze doorgifte duurt vaak slechts enkele seconden, maar het kan ook wel eens een uur of langer duren. Als de verificatie de eerste keer niet werkt, probeer het dan later nog eens.
+De naam van een domein kan worden gecontroleerd nadat de Hallo DNS-records zijn doorgegeven. Deze doorgifte duurt vaak slechts enkele seconden, maar het kan ook wel eens een uur of langer duren. Als verificatie niet Hallo eerst werkt, probeer het later opnieuw.
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **Bladeren**Gebruikersbeheer invoeren in het tekstvak en selecteer vervolgens **Enter**.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **Bladeren**Gebruikersbeheer invoeren in het tekstvak Hallo en selecteer vervolgens **Enter**.
    
    ![Gebruikersbeheer openen](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Op de **Gebruikersbeheer - domeinnamen** blade, selecteer de niet-geverifieerde domeinnaam die u wilt controleren.
-4. Op de ***domeinnaam*** blade (dat wil zeggen, de blade die wordt geopend met de naam van het nieuwe domein in de titel), selecteer **controleren** om de verificatie te voltooien.
+3. Op Hallo **Gebruikersbeheer - domeinnamen** blade, selecteer Hallo niet-geverifieerde domeinnaam die u tooverify wilt.
+4. Op Hallo ***domeinnaam*** blade (dat wil zeggen, Hallo blade die wordt geopend met de naam van het nieuwe domein in Hallo titel), selecteer **controleren** toocomplete Hallo verificatie.
 
 > [!TIP]
-> U kunt maximaal 900 aangepaste domeinnamen toevoegen, maar slechts één [ingesteld als de primaire domeinnaam voor uw Azure AD-directory](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory) gebruikt standaard bij het maken van nieuwe accounts.
+> U kunt toevoegen, too900 aangepaste domeinnamen, maar slechts één [instellen als primaire Hallo-domeinnaam voor uw Azure AD-directory](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory) gebruikt standaard bij het maken van nieuwe accounts.
 
-Nu kunt u cloud-gebaseerde gebruikersaccounts of update eerder gesynchroniseerd lokale gebruikersaccountgegevens met behulp van uw aangepaste domeinnaam. U kunt ook wijzigen eerder gesynchroniseerde gebruikersaccount domein achtervoegsel informatie met [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) of de [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+Nu kunt u cloud-gebaseerde gebruikersaccounts of update eerder gesynchroniseerd lokale gebruikersaccountgegevens met behulp van uw aangepaste domeinnaam. U kunt ook wijzigen eerder gesynchroniseerde gebruikersaccount domein achtervoegsel informatie met [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) of Hallo [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Als u een aangepaste domeinnaam niet kan controleren, voert u de volgende probleemoplossingsstappen uit:
+Als u een aangepaste domeinnaam niet kan controleren, probeert u Hallo stappen te volgen:
 
-1. **Wacht een uur**. DNS-records moeten zijn doorgegeven voordat Azure AD het domein kan verifiëren. Dit kan een uur of langer duren.
-2. **Controleer of de DNS-record is opgegeven en of deze juist is**. Voer deze stap uit op de website van de domeinnaamregistrar voor het domein. Azure AD kan de domeinnaam niet verifiëren als de DNS-vermelding niet aanwezig is in het DNS-zonebestand of als deze niet exact overeenkomt met de DNS-vermelding die u van Azure AD hebt gekregen. Als u geen toegang hebt tot de site van de domeinnaamregistrar om de DNS-records voor het domein bij te werken, deel de DNS-vermelding dan met de persoon die of het team dat in uw organisatie deze toegang heeft en vraag om de DNS-vermelding toe te voegen.
-3. **Verwijder de domeinnaam uit andere mappen in Azure AD**. Een domeinnaam kan maar in één map worden geverifieerd. Als een domeinnaam eerder is geverifieerd in een andere map, moet de domeinnaam daar eerst uit worden verwijderd voordat deze kan worden geverifieerd in een nieuwe map. Zie [Aangepaste domeinnamen beheren](active-directory-domains-manage-azure-portal.md) voor meer informatie over het verwijderen van domeinnamen.    
+1. **Wacht een uur**. DNS-records moeten toopropagate voordat u Azure AD domain Hallo kunt controleren. Dit kan een uur of langer duren.
+2. **Zorg ervoor dat Hallo DNS-record is ingevoerd en of deze juist is**. Deze stap op Hallo-website voor domeinnaamregistrar voor domein Hallo Hallo hebt voltooid. Azure AD kan Hallo domeinnaam niet controleren als Hallo DNS-vermelding niet is aanwezig zijn op Hallo DNS-zonebestand, of als het is niet exact overeen met de Hallo DNS-vermelding die Azure AD u opgegeven. Als u geen toegang tot tooupdate DNS-records voor Hallo domein op Hallo domeinnaamregistrar, Hallo DNS-vermelding delen met Hallo persoon die of het team van uw organisatie die deze toegang heeft en vraagt u ze tooadd Hallo DNS-vermelding.
+3. **Hallo-domeinnaam verwijderen uit een andere map in Azure AD**. Een domeinnaam kan maar in één map worden geverifieerd. Als een domeinnaam eerder is geverifieerd in een andere map, moet de domeinnaam daar eerst uit worden verwijderd voordat deze kan worden geverifieerd in een nieuwe map. toolearn over het verwijderen van domeinnamen gelezen [aangepaste domeinnamen beheren](active-directory-domains-manage-azure-portal.md).    
 
 ## <a name="add-more-custom-domain-names"></a>Meer aangepaste domeinnamen toevoegen
-Als uw organisatie gebruikmaakt van meer dan een aangepaste domeinnaam, zoals 'contoso.com' en 'contosobank.com', kunt u maximaal 900 meer door de stappen in dit artikel te herhalen voor elk kunt toevoegen.
+Als uw organisatie gebruikmaakt van meer dan een aangepaste domeinnaam, zoals 'contoso.com' en 'contosobank.com', kunt u meer up too900 toevoegen door de stappen in dit artikel Hallo herhalen voor elk.
 
 ### <a name="learn-more"></a>Meer informatie
 [Conceptueel overzicht van aangepaste domeinnamen in Azure AD](active-directory-add-domain-concepts.md)
@@ -89,9 +89,9 @@ Als uw organisatie gebruikmaakt van meer dan een aangepaste domeinnaam, zoals 'c
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u geleerd hoe u een aangepast domein toevoegen aan Azure AD. 
+In deze snelstartgids hebt u geleerd hoe tooadd een aangepast domein tooAzure AD. 
 
-De volgende koppeling kunt u een nieuw aangepast domein toevoegen in Azure AD via de Azure-portal.
+U kunt Hallo volgende koppeling tooadd een nieuw aangepast domein in Azure AD uit hello Azure-portal gebruiken.
 
 > [!div class="nextstepaction"]
 > [Een aangepast domein toevoegen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/QuickStart) 

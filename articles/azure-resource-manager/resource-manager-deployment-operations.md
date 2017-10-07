@@ -1,6 +1,6 @@
 ---
-title: Implementatiebewerkingen met Azure Resource Manager | Microsoft Docs
-description: Hierin wordt beschreven hoe u Azure Resource Manager deployment bewerkingen met de portal, PowerShell, Azure CLI en REST-API.
+title: aaaDeployment bewerkingen met Azure Resource Manager | Microsoft Docs
+description: Hierin wordt beschreven hoe tooview Azure Resource Manager deployment bewerkingen met Hallo-portal, PowerShell, Azure CLI en REST-API.
 services: azure-resource-manager,virtual-machines
 documentationcenter: 
 tags: top-support-issue
@@ -15,65 +15,65 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ba4823ca73caca83dfc07c99d736344ef8b7b54d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Bewerkingen van de implementatie weergeven met Azure Resource Manager
 
 
-U kunt de bewerkingen voor een implementatie via de Azure portal bekijken. Hebt u mogelijk de meest geïnteresseerd in de bewerkingen weer te geven wanneer u een fout opgetreden tijdens de implementatie ontvangen hebt zodat dit artikel is gericht op het weergeven van bewerkingen die zijn mislukt. De portal biedt een interface waarmee u eenvoudig zoeken van de fouten en mogelijke oplossingen te bepalen.
+Hallo-bewerkingen voor een implementatie via hello Azure-portal, kunt u weergeven. Hebt u mogelijk interessant Hallo bewerkingen weer te geven wanneer u een fout opgetreden tijdens de implementatie ontvangen hebt zodat dit artikel is gericht op het weergeven van bewerkingen die zijn mislukt. Hallo-portal biedt een interface waarmee u tooeasily zoeken Hallo fouten en mogelijke oplossingen te bepalen.
 
 [!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## <a name="portal"></a>Portal
-Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
+toosee implementatiebewerkingen hello, gebruik Hallo stappen te volgen:
 
-1. U ziet de status van de laatste implementatie voor de resourcegroep die zijn betrokken bij de implementatie. U kunt deze status voor meer informatie.
+1. U ziet Hallo-status van de laatste implementatie Hallo voor de Hallo resourcegroep voor het Hallo-implementatie. Meer informatie kunt u deze status tooget selecteren.
    
     ![Implementatiestatus](./media/resource-manager-deployment-operations/deployment-status.png)
-2. Ziet u de recente implementatiegeschiedenis van de. Selecteer de implementatie die is mislukt.
+2. U ziet Hallo recente geschiedenis van implementatie. Selecteer Hallo-implementatie die niet zijn geslaagd.
    
     ![Implementatiestatus](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Selecteer de koppeling voor een beschrijving van waarom de implementatie is mislukt. De DNS-record is niet uniek in de onderstaande afbeelding.  
+3. Selecteer Hallo koppeling toosee een beschrijving van waarom Hallo implementatie is mislukt. In onderstaande Hallo afbeelding is Hallo DNS-record niet uniek.  
    
     ![mislukte implementatie weergeven](./media/resource-manager-deployment-operations/view-error.png)
    
-    Dit foutbericht moeten voldoende voor u om te beginnen met het oplossen van problemen. Als u meer informatie nodig over welke taken zijn voltooid, kunt u de bewerkingen weergeven zoals weergegeven in de volgende stappen uit.
-4. U ziet de implementatiebewerkingen in de **implementatie** blade. Selecteer een bewerking voor meer informatie.
+    Dit foutbericht moeten voldoende zijn voor u toobegin het oplossen van problemen. Echter, als u meer informatie over welke taken zijn voltooid, vindt u Hallo bewerkingen zoals weergegeven in de volgende stappen uit Hallo.
+4. U kunt alle Hallo implementatiebewerkingen weergeven in Hallo **implementatie** blade. Selecteer een bewerking toosee meer informatie.
    
     ![bewerkingen weergeven](./media/resource-manager-deployment-operations/view-operations.png)
    
-    In dit geval zien u dat de storage-account, het virtuele netwerk en de beschikbaarheidsset zijn gemaakt. Het openbare IP-adres is mislukt en andere resources zijn niet is uitgevoerd.
-5. U kunt gebeurtenissen voor de implementatie weergeven door **gebeurtenissen**.
+    In dit geval zien u dat Hallo storage-account, het virtuele netwerk en beschikbaarheidsset zijn gemaakt. Hallo openbaar IP-adres is mislukt en andere resources zijn niet is uitgevoerd.
+5. U kunt gebeurtenissen voor Hallo implementatie bekijken door te selecteren **gebeurtenissen**.
    
     ![gebeurtenissen weergeven](./media/resource-manager-deployment-operations/view-events.png)
-6. U selecteert een voor meer informatie en Zie de gebeurtenissen voor de implementatie. U ziet te de correlatie-id's. Deze waarde kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+6. U alle Hallo gebeurtenissen voor Hallo implementatie zien en selecteert u een voor meer informatie. U ziet te Hallo correlatie-id's. Deze waarde kan nuttig zijn bij het werken met de technische ondersteuning tootroubleshoot een implementatie.
    
     ![Zie gebeurtenissen](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. Als u de algehele status van een implementatie, gebruikt de **Get-AzureRmResourceGroupDeployment** opdracht. 
+1. tooget Hallo algehele status van een implementatie, gebruik Hallo **Get-AzureRmResourceGroupDeployment** opdracht. 
 
   ```powershell
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
-   Of u kunt de resultaten filteren voor alleen deze implementaties die zijn mislukt.
+   Of u kunt filteren Hallo resultaten voor alleen deze implementaties die zijn mislukt.
 
   ```powershell
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces. Om te ontdekken wat is een fout opgetreden bij een implementatie, moet u doorgaans om details over de implementatiebewerkingen te bekijken. U ziet de status van de bewerkingen met **Get-AzureRmResourceGroupDeploymentOperation**.
+2. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces Hallo. toodiscover wat gegaan met een implementatie, moet u meestal toosee details over Hallo implementatiebewerkingen. U kunt zien Hallo-status van het Hallo-bewerkingen met **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
-    Dit retourneert meerdere bewerkingen met elkaar in de volgende indeling:
+    Dat meerdere bewerkingen met elkaar Hallo na indeling geretourneerd:
 
   ```powershell
   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
@@ -85,13 +85,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. Als u meer informatie over mislukte bewerkingen, halen de eigenschappen voor bewerkingen met **mislukt** status.
+3. tooget voor meer informatie over mislukte bewerkingen Hallo-eigenschappen voor bewerkingen met ophalen **mislukt** status.
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
-    Dit retourneert alle mislukte bewerkingen met elkaar in de volgende indeling:
+    Dit retourneert dat alle mislukte bewerkingen die met elkaar in de volgende indeling Hallo Hallo:
 
   ```powershell
   provisioningOperation : Create
@@ -107,8 +107,8 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
   ```
 
-    Noteer de serviceRequestId en de trackingId voor de bewerking. De serviceRequestId kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie. U gebruikt de trackingId in de volgende stap om zich te richten op een bepaalde bewerking.
-4. Als u het statusbericht dat van een bepaalde bewerking is mislukt, gebruikt u de volgende opdracht:
+    Houd er rekening mee Hallo serviceRequestId en Hallo trackingId voor Hallo-bewerking. Hallo serviceRequestId kan nuttig zijn bij het werken met de technische ondersteuning tootroubleshoot een implementatie. Hallo trackingId gebruikt u in de volgende stap toofocus Hallo op een bepaalde bewerking.
+4. Hallo statusbericht tooget van een bepaalde mislukte bewerking gebruik Hallo volgende opdracht:
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -121,9 +121,9 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Elke implementatiebewerking in Azure bevat-aanvraag en antwoord-inhoud. Inhoud van de aanvraag is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld: Maak een VM besturingssysteemschijf en andere bronnen). De antwoordinhoud is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter worden om op te geven dat de aanvraag en/of antwoord in het logboek behouden blijven. 
+4. Elke implementatiebewerking in Azure bevat-aanvraag en antwoord-inhoud. Hallo aanvraaginhoud is wat u verzonden tooAzure tijdens de implementatie (bijvoorbeeld: Maak een VM besturingssysteemschijf en andere bronnen). Hallo antwoordinhoud is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter worden toospecify die Hallo aanvraag en/of antwoord in logboek Hallo worden bewaard. 
 
-  U die informatie ophalen van het logboek, en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
+  U die gegevens ophalen uit Hallo-logboek en sla het lokaal via Hallo volgende PowerShell-opdrachten:
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
@@ -133,13 +133,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
 ## <a name="azure-cli"></a>Azure CLI
 
-1. Ophalen van de algehele status van een implementatie met de **azure-groep implementatie weergeven** opdracht.
+1. Ophalen van algemene status van een implementatie met Hallo Hallo **azure-groep implementatie weergeven** opdracht.
 
   ```azurecli
   azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
   ```
   
-  Een van de geretourneerde waarden is de **correlationId**. Deze waarde wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+  Een van de waarden geretourneerd Hallo Hallo is **correlationId**. Deze waarde wordt gebruikt tootrack gerelateerde gebeurtenissen en kan handig zijn wanneer werken met de technische ondersteuning tootroubleshoot een implementatie.
 
   ```azurecli
   "properties": {
@@ -147,7 +147,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
     "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
   ```
 
-2. Als de bewerkingen voor een implementatie wilt weergeven, gebruikt u het:
+2. toosee hello bewerkingen voor een implementatie gebruiken:
 
   ```azurecli
   azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
@@ -155,13 +155,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
 ## <a name="rest"></a>REST
 
-1. Informatie ophalen over een implementatie met de [informatie ophalen over de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) bewerking.
+1. Informatie ophalen over een implementatie met Hallo [informatie ophalen over de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) bewerking.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
   ```
 
-    In het antwoord, houd er rekening mee met name de **provisioningState**, **correlationId**, en **fout** elementen. De **correlationId** wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+    Hallo reactie, houd er rekening mee in het bijzonder Hallo **provisioningState**, **correlationId**, en **fout** elementen. Hallo **correlationId** wordt gebruikt tootrack gerelateerde gebeurtenissen en kan handig zijn wanneer werken met de technische ondersteuning tootroubleshoot een implementatie.
 
   ```json
   { 
@@ -178,13 +178,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   }
   ```
 
-2. Informatie ophalen over de implementatiebewerkingen met de [lijst van alle implementatiebewerkingen voor sjabloon](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) bewerking. 
+2. Informatie ophalen over implementatiebewerkingen Hello [lijst van alle implementatiebewerkingen voor sjabloon](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List) bewerking. 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
   ```
    
-    Het antwoord bevat de aanvraag en/of antwoord informatie op basis van wat u hebt opgegeven in de **debugSetting** eigenschap tijdens de implementatie.
+    Hallo-antwoord bevat de aanvraag en/of antwoord informatie op basis van wat u hebt opgegeven in Hallo **debugSetting** eigenschap tijdens de implementatie.
 
   ```json
   {
@@ -213,7 +213,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het oplossen van fouten voor bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources in Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Zie voor meer informatie over het gebruik van de activiteitenlogboeken van de voor het bewaken van andere soorten acties, [activiteitenlogboeken voor het beheren van Azure-resources bekijken](resource-group-audit.md).
-* Zie voor het valideren van uw implementatie voordat deze wordt uitgevoerd, [een resourcegroep implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie voor meer informatie over het oplossen van fouten voor bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources tooAzure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* toolearn over het gebruik van de activiteit Hallo registreert toomonitor andere soorten acties, Zie [activiteit weergeven logboeken toomanage Azure resources](resource-group-audit.md).
+* toovalidate uw implementatie alvorens uit te voeren, Zie [een resourcegroep implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

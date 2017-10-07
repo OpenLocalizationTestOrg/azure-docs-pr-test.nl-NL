@@ -1,6 +1,6 @@
 ---
-title: 'Connect Intel Edison (C) naar Azure IoT - les 4: berichten ontvangen | Microsoft Docs'
-description: Een voorbeeld van een toepassing wordt uitgevoerd op Edison en bewaakt binnenkomende berichten van uw IoT-hub. Een nieuwe gulp taak verzendt berichten naar Edison uit uw iothub de LED knipperen.
+title: 'Connect Intel Edison (C) tooAzure IoT - les 4: berichten ontvangen | Microsoft Docs'
+description: Een voorbeeld van een toepassing wordt uitgevoerd op Edison en bewaakt binnenkomende berichten van uw IoT-hub. Een nieuwe gulp taak verzendt berichten tooEdison van uw IoT hub tooblink Hallo LED.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,78 +17,78 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: b7de7a8b53cdb1d7c2560225fce9166e555e5123
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f0424506ff755e0b9514684787b37584d406d320
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Voer een voorbeeldtoepassing cloud-naar-apparaat-berichten ontvangen
-In dit artikel hebt implementeren u een voorbeeld van toepassing op Intel Edison. De voorbeeldtoepassing controleert binnenkomende berichten van uw IoT-hub. U kunt ook een taak gulp uitvoeren op uw computer om berichten te verzenden naar Edison uit uw IoT-hub. Wanneer de voorbeeldtoepassing de berichten ontvangt, wordt de LED knippert. Als u problemen hebt, moet u uitkijken voor oplossingen op de [probleemoplossing pagina][troubleshooting].
+# <a name="run-a-sample-application-tooreceive-cloud-to-device-messages"></a>Uitvoeren van een toepassing voorbeeld tooreceive cloud-naar-apparaat-berichten
+In dit artikel hebt implementeren u een voorbeeld van toepassing op Intel Edison. Hallo-voorbeeldtoepassing controleert binnenkomende berichten van uw IoT-hub. U ook uitvoeren een gulp taak op uw computer toosend berichten tooEdison uit uw IoT-hub. Wanneer de voorbeeldtoepassing Hallo Hallo-berichten ontvangt, knippert het Hallo LED. Als u problemen hebt, zoekt u naar oplossingen op Hallo [probleemoplossing pagina][troubleshooting].
 
 ## <a name="what-you-will-do"></a>Wat u doet
-* Verbinding maken met de voorbeeldtoepassing met uw iothub.
-* Implementeren en uitvoeren van de voorbeeldtoepassing.
-* Berichten verzenden van uw IoT-hub naar Edison de LED knipperen.
+* Sluit Hallo voorbeeld toepassing tooyour iothub.
+* Implementeren en uitvoeren van de voorbeeldtoepassing Hallo.
+* Berichten verzenden van uw IoT hub tooEdison tooblink Hallo LED.
 
 ## <a name="what-you-will-learn"></a>Wat u leert
 In dit artikel leert u het:
-* Het bewaken van inkomende berichten van uw IoT-hub.
-* Het verzenden van cloud naar apparaat-berichten uit uw IoT-hub aan Edison.
+* Hoe toomonitor binnenkomende berichten uit uw IoT-hub.
+* Hoe toosend cloud-naar-apparaat-berichten uit uw IoT hub tooEdison.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
-* Intel Edison ingesteld voor gebruik. Zie voor meer informatie over het instellen van Edison, [configureren van uw apparaat][configure-your-device].
-* Een IoT-hub die wordt gemaakt in uw Azure-abonnement. Zie voor meer informatie over het maken van uw IoT-hub, [maken van uw Azure-IoT-Hub][create-your-azure-iot-hub].
+* Intel Edison ingesteld voor gebruik. hoe tooset up Edison, Zie toolearn [configureren van uw apparaat][configure-your-device].
+* Een IoT-hub die wordt gemaakt in uw Azure-abonnement. toolearn hoe toocreate uw IoT-hub Zie [maken van uw Azure-IoT-Hub][create-your-azure-iot-hub].
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Verbinding maken met de voorbeeldtoepassing met uw iothub
-1. Zorg ervoor dat u in de map opslagplaats `iot-hub-c-edison-getting-started`. De voorbeeldtoepassing openen in Visual Studio Code met de volgende opdrachten:
+## <a name="connect-hello-sample-application-tooyour-iot-hub"></a>Verbinding maken met de Hallo voorbeeld toepassing tooyour IoT-hub
+1. Zorg ervoor dat u in Hallo opslagplaats map `iot-hub-c-edison-getting-started`. Hallo-voorbeeldtoepassing openen in Visual Studio Code door het uitvoeren van de volgende opdrachten Hallo:
 
    ```bash
    cd Lesson4
    code .
    ```
 
-   Het bestand in de `app` submap is het belangrijkste bronbestand met de code voor het bewaken van binnenkomende berichten uit iothub. De `blinkLED` functie de LED knippert.
+   Hallo-bestand in Hallo `app` submap is Hallo sleutel bronbestand die Hallo code toomonitor binnenkomende berichten uit IoT-hub Hallo bevat. Hallo `blinkLED` functie Hallo LED knippert.
 
-   ![Structuur van de opslagplaats in de voorbeeldtoepassing][repo-structure]
-2. Het configuratiebestand initialiseren met de volgende opdrachten:
+   ![Structuur van de opslagplaats in Hallo-voorbeeldtoepassing][repo-structure]
+2. Hallo-configuratiebestand door het uitvoeren van de volgende opdrachten Hallo initialiseren:
 
    ```bash
    npm install
    gulp init
    ```
 
-   Als u de stappen in voltooid [een Azure-functie-app en storage-account maken] [ create-an-azure-function-app-and-storage-account] op deze computer, alle configuraties worden overgenomen, zodat u kunt de stap overslaan voor de taak van het implementeren en uitvoeren van de voorbeeldtoepassing. Als u de stappen in voltooid [een Azure-functie-app en storage-account maken] [ create-an-azure-function-app-and-storage-account] op een andere computer, moet u Vervang de tijdelijke aanduidingen in de `config-edison.json` bestand. De `config-edison.json` bestand bevindt zich in de submap van de basismap.
+   Als u de stappen in Hallo voltooid [een Azure-functie-app en storage-account maken] [ create-an-azure-function-app-and-storage-account] op deze computer, alle Hallo-configuraties worden overgenomen, zodat u kunt Hallo stap toohello taak voor het implementeren van overslaan en Hallo-voorbeeldtoepassing wordt uitgevoerd. Als u de stappen in Hallo voltooid [een Azure-functie-app en storage-account maken] [ create-an-azure-function-app-and-storage-account] op een andere computer, moet u tooreplace Hallo tijdelijke aanduidingen in Hallo `config-edison.json` bestand. Hallo `config-edison.json` bestand bevindt zich in de submap Hallo van de basismap.
 
-   ![Inhoud van het bestand config edison.json](media/iot-hub-intel-edison-lessons/lesson4/config-edison.png)
+   ![Inhoud van Hallo config edison.json bestand](media/iot-hub-intel-edison-lessons/lesson4/config-edison.png)
 
-   * Vervang **[apparaat-hostnaam of IP-adres]** met het apparaat IP-adres dat u naar beneden gemarkeerd wanneer u uw apparaat geconfigureerd.
-   * Vervang **[apparaat-verbindingsreeks IoT]** met de verbindingsreeks voor apparaten die u door het uitvoeren van de `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` opdracht.
-   * Vervang **[IoT hub verbindingsreeks]** met de verbindingsreeks voor IoT-hub die u door het uitvoeren van de `az iot hub show-connection-string --name {my hub name}` opdracht.
+   * Vervang **[apparaat-hostnaam of IP-adres]** met Hallo apparaat IP-adres u omlaag gemarkeerd wanneer u uw apparaat geconfigureerd.
+   * Vervang **[apparaat-verbindingsreeks IoT]** met Hallo apparaat verbindingsreeks die u door het uitvoeren van Hallo `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` opdracht.
+   * Vervang **[IoT hub verbindingsreeks]** Hello verbindingsreeks van het IoT-hub die u door het uitvoeren van Hallo `az iot hub show-connection-string --name {my hub name}` opdracht.
 
    > [!NOTE]
    > Voer **gulp install-hulpprogramma's** en, als u dit nog niet hebt gedaan in les 1.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing
-Implementeren en uitvoeren van de voorbeeldtoepassing op Edison met de volgende opdrachten:
+## <a name="deploy-and-run-hello-sample-application"></a>Implementeren en uitvoeren van de voorbeeldtoepassing Hallo
+Implementeren en uitvoeren van de voorbeeldtoepassing Hallo op Edison door het uitvoeren van de volgende opdrachten Hallo:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-De opdracht gulp implementeert de voorbeeldtoepassing voor Edison. Vervolgens wordt de toepassing uitgevoerd op Edison en een afzonderlijke taak op de hostcomputer Edison 20 knipperen berichten verzenden van uw IoT-hub.
+Hallo gulp opdracht implementeert Hallo voorbeeld toepassing tooEdison. Vervolgens waarop de toepassing hello Edison en een afzonderlijke taak op de host computer toosend 20 knipperen berichten tooEdison uit uw IoT-hub.
 
-Na de voorbeeldtoepassing wordt uitgevoerd, start het luisteren naar berichten van uw IoT-hub. Ondertussen verzendt de taak gulp aantal 'knipperen' e-mailberichten van uw IoT-hub naar Edison. Voor elk bericht knipperen die Edison ontvangt, de voorbeeldtoepassing roept de `blinkLED` functie de LED knipperen.
+Na het Hallo-voorbeeldtoepassing wordt uitgevoerd, start het luisteren toomessages uit uw IoT-hub. Ondertussen verzendt Hallo gulp taak aantal 'knipperen' e-mailberichten van uw IoT hub tooEdison. Voor elk bericht knipperen die Edison ontvangt, roept de voorbeeldtoepassing Hallo Hallo `blinkLED` functie tooblink Hallo LED.
 
-U ziet de LED knipperen elke twee seconden als de taak gulp 20 berichten uit uw IoT-hub naar Edison verzendt. Het laatste bestand is een 'stop'-bericht dat Hiermee stopt u de toepassing wordt uitgevoerd.
+U ziet Hallo LED knipperen elke twee seconden als Hallo taak verzendt 20 berichten van uw IoT hub tooEdison gulp. Hallo laatste is een een 'stop'-bericht dat wordt gestopt Hallo-toepassing wordt uitgevoerd.
 
 ![Voorbeeld van een toepassing met de opdracht gulp en berichten knipperen][gulp-command-and-blink-messages]
 
 ## <a name="summary"></a>Samenvatting
-U hebt berichten verzonden van uw IoT-hub naar Edison de LED knipperen. De volgende taak is optioneel: de aan- en uitgeschakeld gedrag van de LED wijzigen.
+U hebt berichten uit uw IoT hub tooEdison tooblink Hallo LED verzonden. de volgende taak Hallo is optioneel: Hallo in- en uitschakelen gedrag van Hallo LED wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[De on- en uitgeschakeld gedrag van de LED wijzigen][change-the-on-and-off-behavior-of-the-led]
+[Hallo in- en uitschakelen gedrag van Hallo LED wijzigen][change-the-on-and-off-behavior-of-the-led]
 
 <!-- Images and links -->
 

@@ -1,6 +1,6 @@
 ---
-title: Migratie van de platforms Security Center FAQ | Microsoft Docs
-description: Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van Azure Security Center-platform.
+title: migratie van de platforms aaaSecurity Center Veelgestelde vragen | Microsoft Docs
+description: Deze Veelgestelde vragen over de antwoorden op vragen over hello Azure Beveiligingscentrum platform migratie.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,141 +14,141 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: terrylan
-ms.openlocfilehash: 2ffbaca614d667db565197f3c13b1658fffc2a7c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fcb14ae83167ef79a60371e4fcb625cf99bee6c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-platform migratie Veelgestelde vragen
-In eerdere juni 2017 begonnen Azure Security Center met behulp van Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie](security-center-platform-migration.md). Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van het platform.
+In eerdere juni 2017 begon Azure Security Center met behulp van toocollect en store-gegevens van Microsoft Monitoring Agent Hallo. toolearn meer, Zie [Azure Security Center-Platform migratie](security-center-platform-migration.md). Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van Hallo-platform.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Verzamelen van gegevens, agents en werkruimten
 
 ### <a name="how-is-data-collected"></a>Hoe worden gegevens verzameld
-Microsoft Monitoring Agent Security Center gebruikt voor het verzamelen van beveiligingsgegevens van uw virtuele machines. De beveiligingsgegevens bevat informatie over beveiligingsconfiguraties, die worden gebruikt voor kwetsbaarheden identificeren, en beveiligingsgebeurtenissen die worden gebruikt voor het detecteren van bedreigingen. Gegevens die worden verzameld door de agent wordt opgeslagen in een bestaande werkruimte voor logboekanalyse is verbonden met de virtuele machine of een nieuwe werkruimte gemaakt door Security Center. Wanneer Security Center een nieuwe werkruimte maakt, wordt de geolocatie van de virtuele machine in aanmerking genomen.
+Security Center gebruikt Hallo Microsoft Monitoring Agent toocollect beveiligingsgegevens van uw virtuele machines. Hallo beveiligingsgegevens bevat informatie over beveiligingsconfiguraties die gebruikte tooidentify beveiligingsproblemen, en beveiligingsgebeurtenissen, de gebruikte toodetect bedreigingen. Gegevens die worden verzameld door Hallo-agent wordt opgeslagen in een bestaande toohello Log Analytics-werkruimte verbonden VM of een nieuwe werkruimte gemaakt door Security Center. Wanneer Security Center een nieuwe werkruimte maakt, Hallo geolocatie Hallo VM is in aanmerking genomen.
 
 > [!NOTE]
-> Microsoft Monitoring Agent is dezelfde agent die wordt gebruikt door de Operations Management Suite (OMS), Log Analytics-service en System Center Operations Manager (SCOM).
+> Hallo Microsoft Monitoring Agent is Hallo dezelfde agent die wordt gebruikt door Hallo Operations Management Suite (OMS), Log Analytics-service en System Center Operations Manager (SCOM).
 >
 >
 
-Wanneer gegevensverzameling is ingeschakeld voor het eerst of uw abonnementen die worden gemigreerd, Security Center gecontroleerd of de Microsoft Monitoring Agent al is geïnstalleerd als een Azure-extensie op elk van uw virtuele machines. Als Microsoft Monitoring Agent niet is geïnstalleerd, wordt Security Center:
+Wanneer gegevensverzameling is ingeschakeld voor Hallo eerst of uw abonnementen die worden gemigreerd, controleert Security Center toosee als Hallo Microsoft Monitoring Agent is al geïnstalleerd als een Azure-extensie op elk van uw virtuele machines. Als Hallo Microsoft Monitoring Agent niet is geïnstalleerd, is Security Center wordt uitgevoerd:
 
-- Installeer de Microsoft Monitoring agent op de virtuele machine
-   - Als een werkruimte gemaakt door Security Center al in de dezelfde geolocatie als de virtuele machine bestaat, is de agent verbonden met deze werkruimte
-   - Als een werkruimte niet bestaat, Security Center maakt een nieuwe resourcegroep standaard werkruimte in die geolocatie en koppel de agent aan deze werkruimte. De naamconventie voor de groep werkruimte en de resource zijn:
+- Hallo Microsoft Monitoring agent installeren op Hallo VM
+   - Als een werkruimte gemaakt door Security Center al in dezelfde geolocatie bestaat als virtuele machine, Hallo HALLO hallo is agent verbonden toothis werkruimte
+   - Als een werkruimte niet bestaat, Security Center maakt een nieuwe resourcegroep standaard werkruimte in die geolocatie en verbinding maken met de Hallo agent toothat werkruimte. Hallo naamgevingsconventie voor Hallo werkruimte en resource-groep zijn:
 
        Werkruimte: DefaultWorkspace-[abonnement-ID]-[geo]
 
        Resourcegroep: DefaultResouceGroup-[geo]
-- installeren van een oplossing voor het Beveiligingscentrum in de werkruimte
+- installeren van een oplossing Security Center op Hallo-werkruimte
 
-De locatie van de werkruimte is gebaseerd op de locatie van de virtuele machine. Zie voor meer informatie, [gegevensbeveiliging](security-center-data-security.md).
-
-> [!NOTE]
-> Security Center verzameld beveiligingsgegevens van uw virtuele machines met behulp van de Azure Monitoring Agent vóór de migratie van platform, en gegevens zijn opgeslagen in uw opslagaccount. Na de migratie platform Security Center maakt gebruik van de Microsoft Monitoring Agent en de werkruimte voor het verzamelen en opslaan van de dezelfde gegevens. Het opslagaccount kan worden verwijderd na de migratie.
->
->
-
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Ben ik gefactureerd voor logboekanalyse of OMS op de werkruimten die zijn gemaakt door Security Center?
-Nee. Werkruimten die zijn gemaakt door Security Center terwijl geconfigureerd voor OMS per knooppunt financieel medewerkers, komen niet OMS worden kosten in rekening. Security Center facturering is altijd op basis van het beveiligingsbeleid van uw Security Center en de oplossingen die zijn geïnstalleerd op een werkruimte:
-
-- **Gratis laag** – Security Center installeert de oplossing 'SecurityCenterFree' op de standaardwerkruimte. U wordt niet gefactureerd voor de laag gratis.
-- **Standard-laag** – Security Center installeert de oplossingen 'SecurityCenterFree' en 'Security' op de standaardwerkruimte.
-
-Zie voor meer informatie over prijzen [Security Center prijzen](https://azure.microsoft.com/pricing/details/security-center/). Wijzigingen in de gegevensopslag van de beveiliging en naar rato facturering vanaf juni 2017 heeft betrekking op de pagina met prijzen.
+locatie van de werkruimte Hallo Hallo is gebaseerd op locatie Hallo Hallo VM. toolearn meer, Zie [gegevensbeveiliging](security-center-data-security.md).
 
 > [!NOTE]
-> De prijscategorie van de werkruimten die zijn gemaakt door Security Center OMS heeft geen invloed op de facturering Security Center.
+> Migratie van eerdere tooplatform Security Center verzameld beveiligingsgegevens van uw virtuele machines met behulp van hello Azure Monitoring Agent en gegevens zijn opgeslagen in uw opslagaccount. Security Center gebruikt Hallo Microsoft Monitoring Agent en werkruimte toocollect en store Hallo dezelfde gegevens na de migratie van Hallo-platform. Hallo storage-account kan worden verwijderd na de migratie Hallo.
 >
 >
 
-### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan ik de Standaardwerkruimten die zijn gemaakt door Security Center verwijderen?
-**Verwijderen van de standaardwerkruimte wordt niet aanbevolen.** De Standaardwerkruimten Security Center gebruikt voor het opslaan van beveiligingsgegevens van uw virtuele machines.  Als u een werkruimte verwijdert, Security Center kan niet voor het verzamelen van deze gegevens en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar
+### <a name="am-i-billed-for-log-analytics-or-oms-on-hello-workspaces-created-by-security-center"></a>Ben ik gefactureerd voor logboekanalyse of OMS op Hallo werkruimten die zijn gemaakt door Security Center?
+Nee. Werkruimten die zijn gemaakt door Security Center terwijl geconfigureerd voor OMS per knooppunt financieel medewerkers, komen niet OMS worden kosten in rekening. Security Center facturering is altijd gebaseerd op uw Security Center-beleid en Hallo beveiligingsoplossingen geïnstalleerd op een werkruimte:
 
-Als u wilt herstellen, verwijder Microsoft Monitoring Agent op de virtuele machines verbonden met de verwijderde werkruimte. Security Center de agent opnieuw installeren en nieuwe Standaardwerkruimten maken.
+- **Gratis laag** – Security Center Hallo 'SecurityCenterFree' oplossing op Hallo standaardwerkruimte geïnstalleerd. U wordt niet gefactureerd voor Hallo gratis laag.
+- **Standard-laag** : Security Center installeert Hallo 'SecurityCenterFree' en 'Security' oplossingen op Hallo standaardwerkruimte.
 
-### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Wat gebeurt er als dat Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op de virtuele machine?
-Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center slaat beveiligingsgegevens van de virtuele machine in de werkruimte al verbonden.
+Zie voor meer informatie over prijzen [Security Center prijzen](https://azure.microsoft.com/pricing/details/security-center/). Hallo prijzen pagina adressen verandert toosecurity gegevensopslag en naar rato facturering vanaf juni 2017.
 
-### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Wat gebeurt er als ik een Microsoft Monitoring Agent geïnstalleerd op de computer, maar niet als een uitbreiding hebt gehad?
-Als u Microsoft Monitoring Agent is geïnstalleerd rechtstreeks op de VM (niet als een Azure-extensie), de Security Center Microsoft Monitoring Agent wordt niet geïnstalleerd en beveiligingsbewaking worden beperkt.
+> [!NOTE]
+> Hallo OMS-prijscategorie van de werkruimten die zijn gemaakt door Security Center heeft geen invloed op de facturering Security Center.
+>
+>
 
-### <a name="what-is-the-impact-of-removing-these-extensions"></a>Wat zijn de gevolgen van het verwijderen van deze uitbreidingen?
-Als u de extensie van Microsoft Monitoring verwijdert, kan geen Security Center voor het verzamelen van beveiligingsgegevens van de virtuele machine en een aantal aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Security Center bepaalt binnen 24 uur, dat de virtuele machine de extensie ontbreekt is. vervolgens wordt de extensie.
+### <a name="can-i-delete-hello-default-workspaces-created-by-security-center"></a>Kan ik Hallo Standaardwerkruimten gemaakt door Security Center verwijderen?
+**Hallo standaardwerkruimte verwijderen wordt niet aanbevolen.** Security Center gebruikt Hallo standaard werkruimten toostore beveiligingsgegevens van uw virtuele machines.  Als u een werkruimte Security Center verwijdert toocollect niet kan deze gegevens en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar
 
-### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Hoe voorkom ik het automatische agent-installatie en werkruimte maken
-U kunt verzamelen van gegevens uitschakelen voor uw abonnementen in het beveiligingsbeleid, maar dit wordt niet aanbevolen. Het uitschakelen van verzameling gegevenslimieten Security Center aanbevelingen en waarschuwingen. Verzamelen van gegevens is vereist voor abonnementen op de Standard-prijscategorie. Verzamelen van gegevens uitschakelen:
+toorecover, verwijder Hallo Microsoft Monitoring Agent op Hallo virtuele machines verbonden toohello verwijderd werkruimte. Security Center Hallo-agent opnieuw installeren en nieuwe Standaardwerkruimten maken.
 
-1. Als uw abonnement is geconfigureerd voor de prijscategorie Standard, opent u het beveiligingsbeleid voor dat abonnement en selecteer de **vrije** laag.
+### <a name="what-if-hello-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-hello-vm"></a>Wat gebeurt er als dat Hallo Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op Hallo VM?
+Security Center wordt de bestaande verbindingen toouser werkruimten niet overschreven. Security Center winkels beveiligingsgegevens van virtuele machine in de werkruimte Hallo Hallo al verbonden.
+
+### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-hello-machine-but-not-as-an-extension"></a>Wat gebeurt er als ik een Microsoft Monitoring Agent geïnstalleerd op machine Hallo maar niet als een uitbreiding hebt gehad?
+Als Hallo Microsoft Monitoring Agent is geïnstalleerd, rechtstreeks op Hallo VM (niet als een Azure-extensie), Security Center kan niet worden geïnstalleerd Hallo Microsoft Monitoring Agent en beveiligingsbewaking worden beperkt.
+
+### <a name="what-is-hello-impact-of-removing-these-extensions"></a>Wat is Hallo gevolgen van het verwijderen van deze uitbreidingen?
+Als u een extensie voor Microsoft Monitoring Hallo verwijdert, Security Center is niet kunnen toocollect beveiligingsgegevens van Hallo VM en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Binnen 24 uur bepaalt Security Center dat Hallo VM Hallo-extensie ontbreekt en worden opnieuw geïnstalleerd Hallo extensie.
+
+### <a name="how-do-i-stop-hello-automatic-agent-installation-and-workspace-creation"></a>Hoe voorkom ik Hallo automatische-agentinstallatie en -werkruimte maken
+U kunt verzamelen van gegevens uitschakelen voor uw abonnementen in het beveiligingsbeleid hello, maar dit wordt niet aanbevolen. Het uitschakelen van verzameling gegevenslimieten Security Center aanbevelingen en waarschuwingen. Verzamelen van gegevens is vereist voor abonnementen op Hallo standaardcategorie prijzen. toodisable gegevens verzamelen:
+
+1. Als uw abonnement is geconfigureerd voor de standaardcategorie hello, open Hallo beveiligingsbeleid voor dat abonnement en selecteer Hallo **vrije** laag.
 
    ![Prijscategorie][1]
 
-2. Gegevensverzameling vervolgens uitschakelen door het selecteren van **uit** op de **beveiligingsbeleid – gegevensverzameling** blade.
+2. Gegevensverzameling vervolgens uitschakelen door het selecteren van **uit** op Hallo **beveiligingsbeleid – gegevensverzameling** blade.
 
    ![Gegevensverzameling][2]
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Hoe verwijder ik OMS-serverextensies geïnstalleerd door Security Center?
-U kunt Microsoft Monitoring Agent handmatig verwijderen. Dit wordt niet aanbevolen omdat deze wordt beperkt door Security Center aanbevelingen en waarschuwingen.
+U kunt Microsoft Monitoring Agent Hallo handmatig verwijderen. Dit wordt niet aanbevolen omdat deze wordt beperkt door Security Center aanbevelingen en waarschuwingen.
 
 > [!NOTE]
-> Als gegevensverzameling is ingeschakeld, wordt Security Center de agent opnieuw nadat u deze verwijderen.  U moet uitschakelen van gegevensverzameling voordat de agent handmatig te verwijderen. Zie [hoe stopt het automatische agent-installatie en werkruimte maken?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) voor instructies over het verzamelen van gegevens uitschakelen.
+> Als gegevensverzameling is ingeschakeld, wordt Security Center Hallo-agent opnieuw nadat u deze verwijderen.  U moet de gegevensverzameling toodisable voordat het Hallo-agent handmatig te verwijderen. Zie [hoe stoppen Hallo automatische agent-installatie- en werkruimte maken?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) voor instructies over het verzamelen van gegevens uitschakelen.
 >
 >
 
-De agent handmatig verwijderen:
+toomanually Hallo-agent verwijderen:
 
-1.  Open in de portal **logboekanalyse**.
-2.  Selecteer op de blade Log Analytics een werkruimte:
-3.  Selecteer elke VM die u niet wilt bewaken en selecteer **Disconnect**.
+1.  Open in de portal Hallo **logboekanalyse**.
+2.  Selecteer een werkruimte op Hallo logboekanalyse blade:
+3.  Selecteer elke VM die u niet wilt dat toomonitor en selecteer **Disconnect**.
 
-   ![De agent verwijderen][3]
+   ![Hallo-agent verwijderen][3]
 
 > [!NOTE]
-> Als een Linux-VM is al een niet-extensie OMS-agent, evenals de agent verwijderen van de extensie verwijdert en de klant heeft opnieuw te installeren.
+> Als een Linux-VM is al een niet-extensie OMS-agent, ook Hallo-agent verwijderen van extensie Hallo verwijdert en Hallo klant heeft tooreinstall deze.
 >
 >
 
 ## <a name="existing-oms-customers"></a>Bestaande OMS-klanten
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Wordt de bestaande verbindingen tussen virtuele machines en werkruimten overschreven door Security Center?
-Als een virtuele machine al Microsoft Monitoring Agent geïnstalleerd als een Azure-extensie, wordt de bestaande verbinding in de werkruimte niet overschreven door Security Center. Security Center gebruikt in plaats daarvan de bestaande werkruimte.
+Als een virtuele machine al Hallo Microsoft Monitoring Agent is geïnstalleerd als een Azure-extensie, wordt in Security Center Hallo bestaande werkruimte verbinding niet overschrijven. Security Center gebruikt in plaats daarvan bestaande Hallo-werkruimte.
 
-Een oplossing Security Center is geïnstalleerd op de werkruimte als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines. Wanneer u een oplossing toevoegt, wordt het automatisch naar alle Windows- en Linux-agents verbonden met uw werkruimte voor logboekanalyse standaard geïmplementeerd. [Oplossing Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), namelijk een OMS-functie kunt u een bereik van toepassing op uw oplossingen.
+Een oplossing Security Center is geïnstalleerd op Hallo werkruimte als dat niet al aanwezig, en Hallo oplossing toegepaste alleen toohello relevante virtuele machines. Wanneer u een oplossing toevoegt, wordt deze automatisch geïmplementeerd door standaard tooall Windows en Linux-agents verbonden tooyour werkruimte voor logboekanalyse. [Oplossing Targeting](../operations-management-suite/operations-management-suite-solution-targeting.md), namelijk een OMS-functie kunt u een scope tooapply tooyour oplossingen.
 
-Als u Microsoft Monitoring Agent rechtstreeks op de VM (niet als een Azure-extensie) is geïnstalleerd, wordt Microsoft Monitoring Agent wordt niet geïnstalleerd door Security Center en beveiligingsbewaking is beperkt.
+Als Hallo Microsoft Monitoring Agent is geïnstalleerd, rechtstreeks op Hallo VM (niet als een Azure-extensie), Security Center kan niet worden geïnstalleerd Hallo Microsoft Monitoring Agent en beveiligingsbewaking is beperkt.
 
-### <a name="what-should-i-do-if-i-suspect-that-the-data-platform-migration-broke-the-connection-between-one-of-my-vms-and-my-workspace"></a>Wat moet ik doen als ik vermoedt dat de gegevensmigratie platform de verbinding tussen een van mijn VM's en mijn werkruimte heeft?
-Dit vindt niet plaats. Als deze, klikt u vervolgens voordoet [maken van een aanvraag voor de ondersteuning van Azure](../azure-supportability/how-to-create-azure-support-request.md) en bevatten de volgende details:
+### <a name="what-should-i-do-if-i-suspect-that-hello-data-platform-migration-broke-hello-connection-between-one-of-my-vms-and-my-workspace"></a>Wat moet ik doen als ik vermoedt dat Hallo platform gegevensmigratie heeft overschreden Hallo verbinding tussen een van mijn VM's en mijn werkruimte?
+Dit vindt niet plaats. Als deze, klikt u vervolgens voordoet [maken van een aanvraag voor de ondersteuning van Azure](../azure-supportability/how-to-create-azure-support-request.md) en opnemen Hallo volgende details:
 
-- De Azure-resource-ID van de betrokken virtuele machine
-- De Azure-resource-ID van de werkruimte op de extensie geconfigureerd voordat de verbinding verbroken is
-- De agent en de versie die eerder is geïnstalleerd
+- Hello Azure-resource-ID van Hallo beïnvloed VM
+- Hello Azure-resource-ID van Hallo werkruimte op Hallo-uitbreiding geconfigureerd voordat het Hallo-verbinding is verbroken
+- Hallo-agent en de versie die eerder is geïnstalleerd
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Security Center wordt geïnstalleerd oplossingen op mijn bestaande OMS-werkruimten? Wat zijn de gevolgen voor de facturering?
-Als Beveiligingscentrum identificeert dat een virtuele machine al is verbonden met een werkruimte die u hebt gemaakt, kunt Security Center-oplossingen voor deze werkruimte volgens uw prijscategorie. De oplossingen worden alleen toegepast op de relevante Azure VM's [oplossing targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), zodat de facturering hetzelfde is gebleven.
+### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-hello-billing-implications"></a>Security Center wordt geïnstalleerd oplossingen op mijn bestaande OMS-werkruimten? Wat zijn Hallo facturering gevolgen?
+Wanneer Beveiligingscentrum identificeert een virtuele machine is al verbonden tooa werkruimte die u hebt gemaakt, Security Center kunt-oplossingen voor deze werkruimte op basis van tooyour prijscategorie. Hallo oplossingen toegepaste alleen toohello relevante virtuele machines in Azure, worden [oplossing targeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), dus facturering blijft Hallo Hallo dezelfde.
 
-- **Gratis laag** – Security Center installeert de oplossing 'SecurityCenterFree' in de werkruimte. U wordt niet gefactureerd voor de laag gratis.
-- **Standard-laag** – Security Center installeert de oplossingen 'SecurityCenterFree' en 'Security' in de werkruimte.
+- **Gratis laag** – Security Center Hallo 'SecurityCenterFree' oplossing installeert op Hallo-werkruimte. U wordt niet gefactureerd voor Hallo gratis laag.
+- **Standard-laag** : Security Center installeert Hallo 'SecurityCenterFree' en 'Security' oplossingen op Hallo werkruimte.
 
    ![Oplossingen op standaardwerkruimte][4]
 
 > [!NOTE]
-> De oplossing 'Security' in logboekanalyse is de beveiliging en Audit oplossing in OMS.
+> Hallo 'Security' oplossing in Log Analytics wordt Hallo beveiliging & Audit-oplossing in OMS.
 >
 >
 
-### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Ik heb al werkruimten in de omgeving, kan ik ermee voor het verzamelen van beveiligingsgegevens?
-Als een virtuele machine al Microsoft Monitoring Agent geïnstalleerd als een Azure-extensie, wordt in Security Center maakt gebruik van de bestaande verbonden werkruimte. Een oplossing Security Center is geïnstalleerd op de werkruimte als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines via [oplossing doelen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-toocollect-security-data"></a>Ik heb al werkruimten in de omgeving, kan ik ermee toocollect beveiligingsgegevens?
+Als een virtuele machine al Hallo Microsoft Monitoring Agent is geïnstalleerd als een Azure-extensie, Beveiligingscentrum Hallo bestaande verbonden werkruimte gebruikt. Een oplossing Security Center is geïnstalleerd op Hallo werkruimte als dat niet al aanwezig, en Hallo oplossing toegepaste alleen toohello relevante virtuele machines via [oplossing doelen](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
 
-Security Center wordt Microsoft Monitoring Agent geïnstalleerd op virtuele machines, wordt de standaard workspace(s) gemaakt door Security Center gebruikt. Klanten wordt binnenkort configureren welke workspace(s) worden gebruikt.
+Wanneer het Beveiligingscentrum Hallo Microsoft Monitoring Agent is geïnstalleerd op virtuele machines, gebruikt het Hallo standaard workspace(s) gemaakt door Security Center. Klanten moeten snel kunnen tooconfigure welke workspace(s) worden gebruikt.
 
-### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Ik heb al beveiligingsoplossing op mijn werkruimten. Wat zijn de gevolgen voor de facturering?
-De beveiliging en Audit-oplossing wordt gebruikt om Security Center Standard-laag functies inschakelen voor Azure Virtual machines. Als de beveiliging en Audit-oplossing is al geïnstalleerd op een werkruimte, maakt de bestaande oplossing voor het gebruik van Security Center. Er is geen wijziging in de facturering.
+### <a name="i-already-have-security-solution-on-my-workspaces-what-are-hello-billing-implications"></a>Ik heb al beveiligingsoplossing op mijn werkruimten. Wat zijn Hallo facturering gevolgen?
+Hallo beveiliging & Audit-oplossing is gebruikte tooenable Security Center Standard-laag functies voor virtuele Azure-machines. Als Hallo beveiliging & Audit-oplossing is al geïnstalleerd op een werkruimte, Beveiligingscentrum Hallo bestaande oplossing gebruikt. Er is geen wijziging in de facturering.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de migratie Security Center-platform.
+toolearn meer informatie over Hallo Security Center-platform migratie, Zie
 
 - [Migratie van Azure Security Center-Platform](security-center-platform-migration.md)
 - [Handleiding voor probleemoplossing voor Azure Security Center](security-center-troubleshooting-guide.md)

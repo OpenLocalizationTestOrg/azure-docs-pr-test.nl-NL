@@ -1,6 +1,6 @@
 ---
-title: Met de Azure Import/Export-service REST-API | Microsoft Docs
-description: Meer informatie over waar u informatie over het gebruik van de Azure Import/Export-service REST API, met inbegrip van de procedures voor-en naslagmateriaal vinden.
+title: aaaUsing hello Azure Import/Export-service REST-API | Microsoft Docs
+description: Meer informatie over waar toofind resources voor het gebruik van hello Azure Import/Export REST API, met inbegrip van beide referentiemateriaal hoe tooand service.
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: e4f5ca289f4bd87574e448d37a1154b222f221f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a01c170b1bc9c2b2ce9086d39de78a39fafb2c8b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-azure-importexport-service-rest-api"></a>De REST-API van de Azure-service Import/Export gebruiken
+# <a name="using-hello-azure-importexport-service-rest-api"></a>Met behulp van hello Azure Import/Export-service REST-API
 
-De Microsoft Azure Import/Export-service wordt een REST-API voor programmatisch beheer van importeren/exporteren-taken. U kunt de REST-API gebruiken om uit te voeren op alle bewerkingen voor importeren/exporteren die u met uitvoeren kunt de [Azure-portal](https://portal.azure.com/). Bovendien kunt u de REST-API bepaalde gedetailleerde bewerkingen uitvoeren, zoals het percentage voltooid van een taak uitvoeren van query's die momenteel niet beschikbaar in de klassieke portal zijn.
+Hallo Microsoft Azure Import/Export-service wordt een REST-API tooenable programmatisch beheer van importeren/exporteren-taken. U kunt Hallo REST-API tooperform alle Hallo voor importeren/exporteren bewerkingen die u met Hallo uitvoeren kunt [Azure-portal](https://portal.azure.com/). Bovendien kunt u Hallo REST-API tooperform bepaalde gedetailleerde bewerkingen, zoals het uitvoeren van query's Hallo percentage voltooiing van een taak die momenteel niet beschikbaar in de klassieke portal Hallo zijn.
 
-Zie [via de Microsoft Azure Import/Export-service gegevens overdragen naar Blob Storage](storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt getoond hoe u de klassieke portal maken en beheren van importeren en exporteren van taken.
+Zie [Hallo Microsoft Azure Import/Export-service tooTransfer gegevens tooBlob opslag met](storage-import-export-service.md) voor een overzicht van Hallo Import/Export-service en een zelfstudie wordt gedemonstreerd hoe toouse Hallo klassieke portal toocreate en importeren beheren en exporteren van taken.
 
 ## <a name="service-endpoints"></a>Service-eindpunten
 
-De Azure Import/Export-service is een resourceprovider voor Azure Resource Manager en biedt een set van REST-API's op de volgende HTTPS-eindpunt voor het beheren van taken voor importeren/exporteren:
+Hello Azure Import/Export-service is een resourceprovider voor Azure Resource Manager en biedt een set REST-API's op Hallo HTTPS-eindpunt voor het beheren van importeren/exporteren taken te volgen:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
@@ -36,7 +36,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ## <a name="versioning"></a>Versiebeheer voor onderdelen
 
-Aanvragen voor de Import/Export-service moeten opgeven de `api-version` parameter en stel de waarde op `2016-11-01`.
+Aanvragen toohello Import/Export-service moet opgeven Hallo `api-version` parameter en stel de waarde te`2016-11-01`.
 
 ## <a name="importexport-service-operations"></a>Servicebewerkingen voor importeren/exporteren
 

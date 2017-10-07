@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Een Azure Active Directory B2C-tenant maken | Microsoft Docs'
-description: In dit artikel wordt beschreven hoe u een Azure Active Directory B2C-tenant kunt maken
+description: In dit artikel hoe toocreate een Azure Active Directory B2C-tenant
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,50 +14,50 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/07/2017
 ms.author: swkrish
-ms.openlocfilehash: 1a7eb94e3c74aa0dc187a6d203ba0cf885b97c4d
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: e8b257d66c1f66ffb84f5d3d21b30b42eddcbac9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-active-directory-b2c-tenant-in-the-azure-portal"></a>Een Azure Active Directory B2C-tenant maken in de Azure portal
+# <a name="create-an-azure-active-directory-b2c-tenant-in-hello-azure-portal"></a>Een Azure Active Directory B2C-tenant maken in hello Azure-portal
 
 Door Sipi bewerkt.
 
-Deze snelstartgids kunt u een Microsoft Azure Active Directory (Azure AD) B2C-tenant maken in een paar minuten. Wanneer u klaar bent, hebt u een B2C-tenant te gebruiken voor het registreren van de B2C-toepassingen.
+Deze snelstartgids kunt u een Microsoft Azure Active Directory (Azure AD) B2C-tenant maken in een paar minuten. Wanneer u klaar bent, hebt u een B2C-tenant toouse voor het registreren van de B2C-toepassingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-##  <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+##  <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Meld u aan bij [Azure Portal](https://portal.azure.com/).
+Meld u bij toohello [Azure-portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Een Azure AD B2C-tenant maken
 
-B2C-functies kunnen niet worden ingeschakeld in uw bestaande tenants. U moet een Azure AD B2C-tenant maken.
+B2C-functies kunnen niet worden ingeschakeld in uw bestaande tenants. U moet toocreate een Azure AD B2C-tenant.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Gefeliciteerd, u hebt een Azure Active Directory B2C-tenant gemaakt. Bent u een globale beheerder van de tenant. U kunt naar believen hoofdbeheerders toevoegen. Als u wilt overschakelen naar de nieuwe tenant, klikt u op de *beheren van uw nieuwe koppeling van de tenant*.
+Gefeliciteerd, u hebt een Azure Active Directory B2C-tenant gemaakt. Bent u een globale beheerder van Hallo-tenant. U kunt naar believen hoofdbeheerders toevoegen. tooswitch tooyour nieuwe tenant, klikt u op Hallo *beheren van uw nieuwe koppeling van de tenant*.
 
 ![Uw nieuwe koppeling van de tenant beheren](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 
 > [!IMPORTANT]
-> Als u van plan bent te gebruiken van een B2C-tenant voor een productie-app, lees het artikel op [productie-scale versus B2C preview tenants](active-directory-b2c-reference-tenant-type.md). Er zijn bekende problemen wanneer u een bestaande B2C-tenant verwijderen en opnieuw met dezelfde domeinnaam maken. U moet een B2C-tenant maken met een andere domeinnaam.
+> Als u van plan bent toouse een B2C-tenant voor een productie-app, leest u Hallo-artikel op [productie-scale versus B2C preview tenants](active-directory-b2c-reference-tenant-type.md). Er zijn bekende problemen bij het verwijderen van een bestaande B2C-tenant en opnieuw maken met de Hallo dezelfde domeinnaam. U moet toocreate een B2C-tenant met een andere domeinnaam.
 >
 >
 
-## <a name="link-your-tenant-to-your-subscription"></a>Uw tenant te koppelen aan uw abonnement
+## <a name="link-your-tenant-tooyour-subscription"></a>Uw tenant tooyour abonnement koppelen
 
-U moet uw Azure AD B2C-tenant koppelen aan uw Azure-abonnement alle B2C-functies inschakelen en betaalt voor gebruikskosten. Voor meer informatie lezen [in dit artikel](active-directory-b2c-how-to-enable-billing.md). Als u niet uw Azure AD B2C-tenant koppeling naar uw Azure-abonnement, bepaalde functionaliteit is geblokkeerd en ziet u een waarschuwing ('geen abonnement is gekoppeld aan deze B2C-tenant of de abonnement-behoeften uw aandacht.') in de B2C-instellingen. Het is belangrijk dat u deze stap uitvoeren voordat u uw apps naar de productie verzendt.
+U moet toolink uw Azure AD B2C tenant tooyour Azure-abonnement tooenable alle B2C-functies en hiervoor te betalen voor gebruikskosten. toolearn meer lezen [in dit artikel](active-directory-b2c-how-to-enable-billing.md). Als u uw Azure AD B2C-tenant tooyour Azure-abonnement niet koppelt, bepaalde functionaliteit is geblokkeerd en ziet u een waarschuwing ('geen abonnement gekoppelde toothis B2C-tenant of Hallo abonnement vereist uw aandacht.') in Hallo B2C-instellingen. Het is belangrijk dat u deze stap uitvoeren voordat u uw apps naar de productie verzendt.
 
-## <a name="easy-access-to-settings"></a>Eenvoudig toegang krijgen tot instellingen
+## <a name="easy-access-toosettings"></a>Eenvoudige toegang toosettings
 
 [!INCLUDE [active-directory-b2c-find-service-settings](../../includes/active-directory-b2c-find-service-settings.md)]
 
-U kunt de blade ook openen door te voeren `Azure AD B2C` in **zoeken bronnen** aan de bovenkant van de portal. Selecteer in de lijst met resultaten **Azure AD B2C** voor toegang tot de blade B2C-instellingen.
+U kunt Hallo blade ook openen door te voeren `Azure AD B2C` in **zoeken bronnen** Hallo boven aan het Hallo-portal. Selecteer in de lijst met resultaten Hallo **Azure AD B2C** tooaccess Hallo blade B2C-instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

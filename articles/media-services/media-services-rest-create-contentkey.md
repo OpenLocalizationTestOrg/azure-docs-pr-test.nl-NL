@@ -1,6 +1,6 @@
 ---
-title: Inhoud sleutels maken met REST | Microsoft Docs
-description: Informatie over het maken van de inhoud van de sleutels die beveiligde toegang tot bedrijfsmiddelen bieden.
+title: inhoud sleutels met REST aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate inhoud sleutels die veilige bieden toegang tot tooAssets.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cb3b74bdb72c43ab5b375c0376b6704f4a93bb8b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Inhoud sleutels met REST maken
 > [!div class="op_single_selector"]
@@ -27,26 +27,26 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Media Services kunt u nieuwe maken en versleutelde activa leveren. Een **ContentKey** biedt veilige toegang tot uw **Asset**s. 
+Media Services kunt u nieuwe toocreate en versleutelde activa leveren. Een **ContentKey** biedt veilige toegang tooyour **Asset**s. 
 
-Wanneer u een nieuwe asset maken (bijvoorbeeld voordat u [bestanden uploaden](media-services-rest-upload-files.md)), kunt u de volgende versleutelingsopties: **StorageEncrypted**, **CommonEncryptionProtected**, of **EnvelopeEncryptionProtected**. 
+Wanneer u een nieuwe asset maken (bijvoorbeeld voordat u [bestanden uploaden](media-services-rest-upload-files.md)), kunt u Hallo versleutelingsopties te volgen: **StorageEncrypted**, **CommonEncryptionProtected**, of **EnvelopeEncryptionProtected**. 
 
-Als u activa aan uw clients leveren, kunt u [configureren voor bedrijfsmiddelen die dynamisch worden versleuteld](media-services-rest-configure-asset-delivery-policy.md) met een van de volgende twee versleutelingen: **DynamicEnvelopeEncryption** of **DynamicCommonEncryption**.
+Als u activa tooyour clients leveren, kunt u [configureren voor de activa toobe dynamisch worden versleuteld](media-services-rest-configure-asset-delivery-policy.md) met een Hallo na twee versleutelingen: **DynamicEnvelopeEncryption** of  **DynamicCommonEncryption**.
 
-Versleutelde activa hebben moeten worden gekoppeld aan **ContentKey**s. In dit artikel wordt beschreven hoe een inhoudssleutel maken.
+Versleutelde activa hebben die zijn gekoppeld aan toobe **ContentKey**s. Dit artikel wordt beschreven hoe toocreate een inhoudssleutel.
 
-Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u wilt koppelen aan de activa die u wilt worden versleuteld. 
+Hallo vindt hieronder u algemene stappen voor het genereren van inhoud sleutels die u wilt koppelen aan de activa die u toobe versleuteld wilt. 
 
 1. Willekeurig genereren een 16 bytes AES-sleutel (voor algemene en envelop versleuteling) of een 32-byte-AES-sleutel (voor versleuteling van opslag). 
    
-    Dit is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan dat actief moet dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
-2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt om uw inhoud sleutel te versleutelen.
-3. Codeer uw inhoud sleutel met de openbare sleutel van het X.509-certificaat. 
+    Dit is de inhoudssleutel Hallo voor uw asset, wat betekent alle bestanden die zijn gekoppeld dat met dat actief wordt moet toouse Hallo dezelfde inhoudssleutel tijdens het ontsleutelen. 
+2. Hallo aanroepen [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden tooget Hallo juist X.509-certificaat dat moet worden gebruikt tooencrypt de inhoudssleutel.
+3. Codeer uw inhoud sleutel met de openbare sleutel Hallo Hallo X.509-certificaat. 
    
-   Media Services .NET SDK gebruikmaakt van RSA met OAEP bij het uitvoeren van de codering.  U ziet een voorbeeld in de [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Een controlesomwaarde (op basis van het algoritme PlayReady AES-sleutel controlesom) berekend met behulp van de sleutel-id en een inhoudssleutel maken. Zie voor meer informatie de sectie 'PlayReady AES controlesom sleutelalgoritme' van het Object van de Header PlayReady document zich [hier](http://www.microsoft.com/playready/documents/).
+   Media Services .NET SDK gebruikmaakt van RSA met OAEP bij het uitvoeren van Hallo-versleuteling.  U ziet een voorbeeld in Hallo [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Een controlesomwaarde (gebaseerd op Hallo PlayReady AES-sleutels controlesom algoritme) berekend met behulp van Hallo sleutel-id en een inhoudssleutel maken. Zie voor meer informatie 'PlayReady AES controlesom sleutelalgoritme' sectie Hallo PlayReady-Header Object document Hallo zich [hier](http://www.microsoft.com/playready/documents/).
    
-   Hier volgt een voorbeeld van een .NET waarmee de controlesom met de GUID-deel van de sleutel-id en de wissen inhoudssleutel wordt berekend.
+   Hallo Hier volgt een voorbeeld van een .NET die wordt berekend met Hallo GUID deel van sleutel-id van Hallo Hallo-controlesom en Hallo inhoudssleutel wissen.
 
          public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -65,24 +65,24 @@ Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u 
             Array.Copy(array, array2, 8);
             return Convert.ToBase64String(array2);
          }
-5. Maak de inhoudssleutel met de **EncryptedContentKey** (geconverteerd naar base64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
-6. Koppel de **ContentKey** entiteit met uw **Asset** entiteit via de $links-bewerking.
+5. Hallo inhoudssleutel maken met Hallo **EncryptedContentKey** (geconverteerd toobase64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
+6. Koppelen Hallo **ContentKey** entiteit met uw **Asset** entiteit via Hallo $links bewerking.
 
-Houd er rekening mee dat in dit onderwerp wordt het AES-sleutel genereren, het versleutelen van de sleutel en het berekenen van de controlesom niet weergegeven. 
+Houd er rekening mee dat in dit onderwerp niet weergegeven wordt hoe toogenerate AES-sleutel Hallo sleutel te versleutelen en Hallo controlesom berekenen. 
 
 >[!NOTE]
 
 >Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
+## <a name="connect-toomedia-services"></a>Verbinding maken met tooMedia Services
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Voor informatie over hoe tooconnect toohello AMS API, Zie [toegang hello Azure Media Services-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI.
+>Nadat de verbinding tot stand toohttps://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen toohello ervoor nieuwe URI.
 
-## <a name="retrieve-the-protectionkeyid"></a>De ProtectionKeyId ophalen
-Het volgende voorbeeld laat zien hoe de ProtectionKeyId, de vingerafdruk van een certificaat voor het certificaat dat moet u bij het versleutelen van uw inhoudssleutel ophalen. Voer deze stap uit om ervoor te zorgen dat u al het juiste certificaat op uw computer.
+## <a name="retrieve-hello-protectionkeyid"></a>Hallo ProtectionKeyId ophalen
+Hallo volgende voorbeeld ziet u hoe tooretrieve Hallo ProtectionKeyId, een certificaatvingerafdruk voor Hallo certificaat, moet u bij het versleutelen van uw inhoudssleutel. Voer deze stap toomake zeker dat u al Hallo geschikt certificaat op uw computer hebt.
 
 Aanvraag:
 
@@ -113,8 +113,8 @@ Antwoord:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-## <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>De ProtectionKey voor de ProtectionKeyId ophalen
-Het volgende voorbeeld laat zien hoe voor het ophalen van het X.509-certificaat met behulp van de ProtectionKeyId dat u in de vorige stap hebt ontvangen.
+## <a name="retrieve-hello-protectionkey-for-hello-protectionkeyid"></a>Hallo ProtectionKey voor Hallo ProtectionKeyId ophalen
+Hallo volgende voorbeeld ziet u hoe tooretrieve Hallo x.509-certificaat met behulp van Hallo ProtectionKeyId u hebt ontvangen in de vorige stap Hallo.
 
 Aanvraag:
 
@@ -149,17 +149,17 @@ Antwoord:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-## <a name="create-the-contentkey"></a>De ContentKey maken
-Nadat u hebt opgehaald van het X.509-certificaat en de openbare sleutel voor het versleutelen van uw inhoud sleutel gebruikt, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
+## <a name="create-hello-contentkey"></a>Hallo ContentKey maken
+Nadat u hebt opgehaald Hallo X.509-certificaat en de openbare sleutel tooencrypt uw inhoud sleutel gebruikt, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
 
-Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van het type. Kies een van de volgende waarden.
+Hallo-waarden moet in te stellen wanneer inhoud sleutel is van het type Hallo Hallo maken. Kies een van de volgende waarden Hallo.
 
     public enum ContentKeyType
     {
         /// <summary>
         /// Specifies a content key for common encryption.
         /// </summary>
-        /// <remarks>This is the default value.</remarks>
+        /// <remarks>This is hello default value.</remarks>
         CommonEncryption = 0,
 
         /// <summary>
@@ -179,7 +179,7 @@ Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van h
     }
 
 
-Het volgende voorbeeld ziet u het maken van een **ContentKey** met een **ContentKeyType** ingesteld voor de versleuteling van opslag ('1') en de **ProtectionKeyType** ingesteld op '0' om aan te geven dat de sleutel beveiliging Id de vingerafdruk van het X.509-certificaat.  
+Hallo volgende voorbeeld wordt getoond hoe toocreate een **ContentKey** met een **ContentKeyType** instellen voor versleuteling van opslag ('1') en Hallo **ProtectionKeyType** instellen te "0" tooindicate die Hallo beveiliging sleutel-Id is de vingerafdruk van Hallo x.509-certificaat.  
 
 Aanvraag
 
@@ -229,8 +229,8 @@ Antwoord:
     "ProtectionKeyType":0,
     "Checksum":"calculated checksum"}
 
-## <a name="associate-the-contentkey-with-an-asset"></a>De ContentKey koppelen aan een Asset
-Na het maken van de ContentKey koppelen aan uw Asset met behulp van de bewerking $links, zoals wordt weergegeven in het volgende voorbeeld:
+## <a name="associate-hello-contentkey-with-an-asset"></a>Hallo ContentKey koppelen aan een Asset
+Na het maken van Hallo ContentKey koppelen aan uw Asset Hallo $links bewerking te gebruiken, zoals wordt weergegeven in Hallo voorbeeld te volgen:
 
 Aanvraag:
 

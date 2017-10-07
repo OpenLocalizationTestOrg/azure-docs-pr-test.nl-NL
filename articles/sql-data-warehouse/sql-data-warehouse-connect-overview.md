@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met Azure SQL Data Warehouse | Microsoft Docs
-description: Zoeken naar de servernaam en verbindingsreeks voor uw Azure SQL Data Warehouse
+title: aaaConnect tooAzure SQL Data Warehouse | Microsoft Docs
+description: Hoe toofind Hallo-servernaam en verbinding met de tekenreeks van uw tooAzure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,30 +15,30 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f15e098026afb7c5efbbbfaf62b681e8cd7936bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Verbinding maken met Azure SQL Data Warehouse
-In dit artikel wordt beschreven hoe u voor de eerste keer verbinding kunt maken met SQL Data Warehouse.
+# <a name="connect-tooazure-sql-data-warehouse"></a>Verbinding maken met SQL Data Warehouse tooAzure
+In dit artikel helpt u bij verbonden tooSQL Data Warehouse voor Hallo eerst ophalen.
 
 ## <a name="find-your-server-name"></a>Uw servernaam vinden
-De eerste stap bij het maken van verbinding met SQL Data Warehouse is weten hoe u de naam van uw server kunt vinden.  De naam van de server in het volgende voorbeeld is bijvoorbeeld sample.database.windows.net. Ga als volgt te werk om de volledig gekwalificeerde servernaam te vinden:
+Hallo eerste stap tooconnecting tooSQL Data Warehouse is weten hoe toofind naam van uw server.  Hallo-servernaam in het volgende voorbeeld Hallo is bijvoorbeeld sample.database.windows.net. toofind hello volledig gekwalificeerde servernaam:
 
-1. Ga naar [Azure Portal][Azure portal].
+1. Ga toohello [Azure-portal][Azure portal].
 2. Klik op **SQL-databases** 
-3. Klik op de database waarmee u verbinding wilt maken.
-4. Zoek de volledige servernaam.
+3. Klik op de gewenste tooconnect op Hallo-database.
+4. Zoek de volledige servernaam Hallo.
    
     ![Volledige servernaam][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Ondersteunde stuurprogramma's en verbindingsreeksen
-Azure SQL Data Warehouse biedt ondersteuning voor [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] en [JDBC][JDBC]. Klik op een van de bovenstaande stuurprogramma's om de meest recente versie en documentatie te vinden. Voor het automatisch genereren van de verbindingsreeks voor het stuurprogramma dat u gebruikt vanuit de Azure-portal, kunt u klikken op de optie **Databaseverbindingsreeksen tonen** uit het voorgaande voorbeeld.  Hier volgen ook enkele voorbeelden van hoe een verbindingsreeks er voor elk stuurprogramma uitziet.
+Azure SQL Data Warehouse biedt ondersteuning voor [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] en [JDBC][JDBC]. Klik op een van de Hallo voorafgaand aan de meest recente versie van stuurprogramma's toofind hello en documentatie. tooautomatically Hallo-verbindingsreeks voor Hallo-stuurprogramma dat u gebruikt genereren van hello Azure portal, kunt u klikken op Hallo **databaseverbindingsreeksen tonen** van Hallo voorgaande voorbeeld.  Hier volgen ook enkele voorbeelden van hoe een verbindingsreeks er voor elk stuurprogramma uitziet.
 
 > [!NOTE]
-> Overweeg de verbindingstime-out in te stellen op 300 seconden. De verbinding blijft dan in stand tijdens korte perioden van niet-beschikbaarheid.
+> U kunt instellen Hallo verbinding time-out too300 seconden tooallow uw verbinding toosurvive korte perioden niet beschikbaar zijn.
 > 
 > 
 
@@ -54,7 +54,7 @@ Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows
 
 ### <a name="php-connection-string-example"></a>Voorbeeld van PHP-verbindingsreeks
 ```PHP
-Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
+Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting tooSQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### <a name="jdbc-connection-string-example"></a>Voorbeeld van JDBC-verbindingsreeks
@@ -73,11 +73,11 @@ SQL Data Warehouse standaardiseert enkele instellingen tijdens het maken van de 
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Query’s uitvoeren met Visual Studio][Query with Visual Studio] als u verbinding wilt maken en een query wilt uitvoeren met Visual Studio. Zie [Verificatie met Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] voor meer informatie over verificatieopties.
+tooconnect en de query met Visual Studio, Zie [Query met Visual Studio][Query with Visual Studio]. toolearn meer informatie over opties voor verificatie, Zie [verificatie tooAzure SQL Data Warehouse][Authentication tooAzure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Authentication tooAzure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

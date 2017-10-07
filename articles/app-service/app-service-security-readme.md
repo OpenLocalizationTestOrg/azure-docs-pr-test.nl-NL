@@ -1,6 +1,6 @@
 ---
-title: Beveiliging van Azure App Service
-description: Informatie over het beveiligen van Web, mobiel, API en Logic apps in Azure App Service.
+title: aaaAzure beveiliging van App Service
+description: Meer informatie over hoe toosecure Web, mobiel, API en Logic apps in Azure App Service.
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2015
 ms.author: naziml
-ms.openlocfilehash: 7d26d52ad04bd4158a1450ae0f49fc7c1f8a04e8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a0bff7d9665abadd70c1cfd07dca265ea057596
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-security"></a>Beveiliging van Azure App Service
-Azure App Services voldoet aan de sleutel industrienormen voor beveiliging en betrouwbaarheid voor onze klanten een veilig platform. We hebben verschillende functies van eenvoudig te gebruiken om te helpen beveiligen, zowel binnenkomend als uitgaand verkeer voor uw app. We helpen ook klanten beveiligde hun toepassingscode door extern opgegeven functionaliteit om het scannen van uw webtoepassing op beveiligingsproblemen.
+Azure App Services voldoet aan Hallo sleutel industrienormen voor beveiliging en betrouwbaarheid tooprovide onze klanten een veilig platform. We hebben enkele functies eenvoudig te gebruiken toohelp beveiliging van binnenkomend en uitgaand verkeer voor uw app. We helpen ook klanten beveiligde hun toepassingscode door extern opgegeven functionaliteit tooscan uw webtoepassing op beveiligingsproblemen.
 
 [!INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Azure App Service gebruikt dezelfde antimalwareoplossing uit die worden gebruikt door Azure Cloud Services en virtuele Machines. Voor meer informatie over deze verwijzen naar onze [Antimalware documentatie](../security/azure-security-antimalware.md). 
+Maakt gebruik van Azure App Service Hallo dezelfde antimalwareoplossing uit die worden gebruikt door Azure Cloud Services en virtuele Machines. toolearn meer informatie over dit verwijzen tooour [Antimalware documentatie](../security/azure-security-antimalware.md). 
 

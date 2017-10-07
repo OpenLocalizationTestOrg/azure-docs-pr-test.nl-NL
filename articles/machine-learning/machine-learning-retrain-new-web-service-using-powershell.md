@@ -1,6 +1,6 @@
 ---
-title: Een nieuwe Azure Machine Learning-webservice met PowerShell Retrain | Microsoft Docs
-description: Informatie over het programmatisch opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning met Machine Learning Management PowerShell-cmdlets.
+title: aaaRetrain een nieuwe Azure Machine Learning-webservice met PowerShell | Microsoft Docs
+description: Meer informatie over hoe tooprogrammatically een model en update Hallo web service toouse Hallo zojuist getraind model in Azure Machine Learning met Machine Learning Management PowerShell-cmdlets voor Hallo opnieuw trainen.
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 804dd59e62f38ee1878045d93211ee18e0d5bfce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5b77fa82cfe17f0b4e90007ef81c506ab712475b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Een nieuwe Resource Manager gebaseerde webservice met Machine Learning Management PowerShell-cmdlets opnieuw trainen
-Wanneer u een nieuwe webservice opnieuw trainen, kunt u de voorspellende webservicedefinitie om te verwijzen naar het nieuwe getrainde model bijwerken.  
+# <a name="retrain-a-new-resource-manager-based-web-service-using-hello-machine-learning-management-powershell-cmdlets"></a>Een nieuwe Resource Manager gebaseerde webservice met Machine Learning Management PowerShell-cmdlets voor Hallo opnieuw trainen
+Wanneer u een nieuwe webservice opnieuw trainen, werkt u Hallo voorspellende web service definitie tooreference Hallo nieuwe getrainde model.  
 
 ## <a name="prerequisites"></a>Vereisten
 U moet instellen van een trainingsexperiment en een Voorspellend experiment zoals weergegeven in [Retrain Machine Learning-modellen programmatisch](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> De Voorspellend experiment moet worden geïmplementeerd als een Azure Resource Manager (nieuw) op basis van machine learning-webservice. Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeren. Zie voor meer informatie [beheren van een webservice via de portal voor Azure Machine Learning-webservices](machine-learning-manage-new-webservice.md). 
+> Hallo Voorspellend experiment moet worden geïmplementeerd als een Azure Resource Manager (nieuw) op basis van machine learning-webservice. toodeploy een nieuwe webservice die u moet voldoende machtigingen hebben in Hallo abonnement toowhich u Hallo-webservice implementeren. Zie voor meer informatie [hello Azure Machine Learning-webservices portal met een webservice beheren](machine-learning-manage-new-webservice.md). 
 
 Zie voor meer informatie over webservices implementeren [Azure Machine Learning-webservice implementeren](machine-learning-publish-a-machine-learning-web-service.md).
 
-Dit proces vereist dat u de Cmdlets van Azure Machine Learning hebt geïnstalleerd. Zie voor informatie over het installeren van de Machine Learning-cmdlets de [Azure Machine Learning-Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) -verwijzingen op MSDN.
+Dit proces vereist dat u hello Azure Machine Learning-Cmdlets zijn geïnstalleerd. Zie voor informatie over het installeren van de Machine Learning-cmdlets Hallo Hallo [Azure Machine Learning-Cmdlets](https://msdn.microsoft.com/library/azure/mt767952.aspx) -verwijzingen op MSDN.
 
-De volgende informatie uit de uitvoer van de retraining gekopieerd:
+Gekopieerde Hallo volgende informatie uit Hallo retraining uitvoer:
 
 * BaseLocation
 * RelativeLocation
 
-De stappen zijn:
+Hallo stappen zijn:
 
-1. Aanmelden bij uw Azure Resource Manager-account.
-2. Definitie van de webservice ophalen
-3. Exporteren van de webservicedefinitie als JSON
-4. De verwijzing naar de blob ilearner in de JSON bijwerken.
-5. De JSON importeren in de definitie van een Web-Service
-6. De webservice bijwerken met definitie van een nieuwe Web-Service
+1. Meld u aan tooyour Azure Resource Manager-account.
+2. Hallo webservicedefinitie ophalen
+3. Hallo webservicedefinitie exporteren als JSON
+4. Hallo referentie toohello ilearner-blob in Hallo JSON bijwerken.
+5. Hallo JSON importeren in de definitie van een Web-Service
+6. Hallo webservice bijwerken met definitie van een nieuwe Web-Service
 
-## <a name="sign-in-to-your-azure-resource-manager-account"></a>Aanmelden bij uw account voor Azure Resource Manager
-U moet zich eerst aanmelden bij uw Azure-account uit binnen de PowerShell-omgeving met de [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+## <a name="sign-in-tooyour-azure-resource-manager-account"></a>Meld u aan tooyour Azure Resource Manager-account
+U moet eerst tooyour Azure-account uit binnen Hallo PowerShell-omgeving met Hallo aanmelden [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
 
-## <a name="get-the-web-service-definition"></a>Definitie van de webservice ophalen
-De Web-Service vervolgens ophalen door het aanroepen van de [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. Definitie van de webservice is een interne representatie van het getrainde model van de webservice en kan niet rechtstreeks worden gewijzigd. Zorg ervoor dat u voor uw Voorspellend experiment en niet uw trainingsexperiment definitie van de webservice ophaalt.
+## <a name="get-hello-web-service-definition"></a>Hallo webservicedefinitie ophalen
+Vervolgens ophalen Hallo Web Service door de aanroepende Hallo [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. Hallo webservicedefinitie is een interne representatie van het getrainde model van de webservice Hallo Hallo en kan niet rechtstreeks worden gewijzigd. Zorg ervoor dat u voor uw Voorspellend experiment en niet uw trainingsexperiment Hallo webservicedefinitie ophaalt.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-Om te bepalen van de naam van de resourcegroep van een bestaande webservice, voert u de cmdlet Get-AzureRmMlWebService zonder parameters om weer te geven van de webservices in uw abonnement. Ga naar de webservice en zoek vervolgens naar de web service-ID. De naam van de resourcegroep is het vierde element in de ID, direct na de *resourceGroups* element. In het volgende voorbeeld is de naam van de resourcegroep standaard-MachineLearning-SouthCentralUS.
+toodetermine hello Resourcegroepnaam van een bestaande webservice Hallo Get AzureRmMlWebService cmdlet zonder parameters toodisplay Hallo webservices uitvoeren in uw abonnement. Zoek Hallo webservice en zoek vervolgens naar de web service-ID. Hallo-naam van de resourcegroep Hallo Hallo vierde element in het Hallo-ID is direct na Hallo *resourceGroups* element. Hallo Resourcegroepnaam is in Hallo voorbeeld te volgen, standaard-MachineLearning-SouthCentralUS.
 
     Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
     Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
@@ -64,18 +64,18 @@ Om te bepalen van de naam van de resourcegroep van een bestaande webservice, voe
     Type : Microsoft.MachineLearning/webServices
     Tags : {}
 
-U kunt ook om te bepalen van de naam van de resourcegroep van een bestaande webservice, meld u aan bij de portal voor Microsoft Azure Machine Learning-webservices. Selecteer de webservice. Naam van de resourcegroep is het vijfde element van de URL van de webservice direct na de *resourceGroups* element. In het volgende voorbeeld is de naam van de resourcegroep standaard-MachineLearning-SouthCentralUS.
+U kunt ook toodetermine hello Resourcegroepnaam van een bestaande webservice aanmelden toohello Microsoft Azure Machine Learning Web Services-portal. Hallo-webservice selecteren. naam resourcegroep Hallo Hallo vijfde element van het Hallo-URL van webservice hello, wordt direct na Hallo *resourceGroups* element. Hallo Resourcegroepnaam is in Hallo voorbeeld te volgen, standaard-MachineLearning-SouthCentralUS.
 
     https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
-## <a name="export-the-web-service-definition-as-json"></a>Exporteren van de webservicedefinitie als JSON
-Wijzig de definitie van het getrainde model gebruiken de zojuist getraind Model, moet u de [Export AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet exporteren naar bestand met een JSON-indeling.
+## <a name="export-hello-web-service-definition-as-json"></a>Hallo webservicedefinitie exporteren als JSON
+toomodify hello definitie toohello getraind model toouse Hallo zojuist getrainde Model, moet u eerst hello gebruiken [Export AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet tooexport het bestand tooa JSON-indeling.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>De verwijzing naar de blob ilearner in de JSON bijwerken.
-Zoek in de activa [getraind model], werkt de *uri* waarde in de *locationInfo* knooppunt met de URI van de ilearner-blob. De URI wordt gegenereerd door combineren de *BaseLocation* en de *RelativeLocation* uit de uitvoer van de retraining aanroep BES. Hiermee wordt het pad om te verwijzen naar het nieuwe getrainde model bijgewerkt.
+## <a name="update-hello-reference-toohello-ilearner-blob-in-hello-json"></a>Hallo referentie toohello ilearner-blob in Hallo JSON bijwerken.
+Zoek in Hallo activa, Hallo [getraind model] update Hallo *uri* waarde in Hallo *locationInfo* knooppunt met Hallo URI van Hallo ilearner-blob. Hallo URI gegenereerd door een combinatie van Hallo *BaseLocation* en Hallo *RelativeLocation* van uitvoer Hallo Hallo BES retraining-aanroep. Hiermee werkt Hallo pad tooreference Hallo nieuwe getrainde model.
 
      "asset3": {
         "name": "Retrain Samp.le [trained model]",
@@ -90,20 +90,20 @@ Zoek in de activa [getraind model], werkt de *uri* waarde in de *locationInfo* k
         }
       },
 
-## <a name="import-the-json-into-a-web-service-definition"></a>De JSON importeren in de definitie van een Web-Service
-Moet u de [importeren AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet om te converteren van het gewijzigde JSON-bestand naar de definitie van een Web-Service die u gebruiken kunt voor het bijwerken van definitie van de webservice.
+## <a name="import-hello-json-into-a-web-service-definition"></a>Hallo JSON importeren in de definitie van een Web-Service
+Moet u Hallo [importeren AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet tooconvert Hallo JSON-bestand weer in de definitie van een Web-Service waarmee u tooupdate hello webservicedefinitie kunt is gewijzigd.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
-## <a name="update-the-web-service-with-new-web-service-definition"></a>De webservice bijwerken met definitie van een nieuwe Web-Service
-Gebruik tot slot [Update AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet bij te werken van definitie van de webservice.
+## <a name="update-hello-web-service-with-new-web-service-definition"></a>Hallo webservice bijwerken met definitie van een nieuwe Web-Service
+Gebruik tot slot [Update AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet tooupdate hello webservicedefinitie.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 
 ## <a name="summary"></a>Samenvatting
-De Machine Learning PowerShell-cmdlets kunt u het getrainde model van een Voorspellend webservice inschakelen van scenario's zoals bijwerken:
+Hallo Machine Learning PowerShell-cmdlets voor beheer kunt u Hallo getraind model van een Voorspellend webservice inschakelen van scenario's zoals bijwerken:
 
 * Periodieke model retraining met nieuwe gegevens.
-* Distributie van een model voor klanten met het doel van zodat ze opnieuw trainen van het model met hun eigen gegevens.
+* Distributie van een model toocustomers met Hallo doel van zodat ze opnieuw trainen Hallo-model met hun eigen gegevens.
 

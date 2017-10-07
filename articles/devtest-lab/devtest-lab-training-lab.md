@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs gebruiken voor training | Microsoft Docs
-description: Informatie over het gebruik van Azure DevTest Labs voor training scenario's.
+title: aaaUse Azure DevTest Labs voor training | Microsoft Docs
+description: Meer informatie over hoe Azure DevTest Labs toouse voor training scenario's.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: steved0x
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
-ms.openlocfilehash: a85999b7963e9a07d3f91ec47f298f91439c0808
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a5f44a282d8f6a58849c730ff89237ccff39ca8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Azure DevTest Labs gebruiken voor training
-Azure DevTest Labs kan worden gebruikt voor het implementeren van veel van belangrijke scenario's naast ontwikkelen en testen. Een van de scenario's is voor het instellen van een testomgeving voor training. Azure DevTest Labs kunt u voor het maken van een testomgeving waarin u aangepaste sjablonen die elke leerling gebruiken kunt voor het maken van identieke en geïsoleerde omgevingen voor training kunt opgeven. U kunt beleid om ervoor te zorgen dat training omgevingen beschikbaar voor elke leerling zijn alleen wanneer ze deze nodig en voldoende resources - zoals virtuele machines - vereist voor de training bevatten toepassen. Ten slotte kunt u de testomgeving eenvoudig delen met stagiairs die ze in één klik kunnen openen.
+Azure DevTest Labs gebruikte tooimplement in toevoeging toodev en testen van veel belangrijke scenario's kan worden. Een van de scenario's is tooset van een testomgeving voor training. Kunt u in Azure DevTest Labs toocreate een testomgeving waarin u aangepaste sjablonen kunt opgeven dat elke leerling toocreate identiek en geïsoleerde omgeving voor training gebruiken kunt. U kunt beleidsregels tooensure dat training omgevingen beschikbaar tooeach leerling alleen zijn wanneer ze deze nodig en voldoende resources - zoals virtuele machines - vereist voor Hallo training bevatten toepassen. Ten slotte kunt u eenvoudig hello lab delen met stagiairs die ze in één klik kunnen openen.
 
 ![DevTest Labs gebruiken voor training](./media/devtest-lab-training-lab/devtest-lab-training.png)
 
-Azure DevTest Labs voldoet aan de volgende vereisten die nodig zijn voor het trainen in een virtuele omgeving: 
+Azure DevTest Labs voldoet aan Hallo volgens de vereisten die vereist tooconduct training in een virtuele omgeving zijn: 
 
 * Stagiairs zien virtuele machines die zijn gemaakt door andere stagiairs niet
 * Elke machine training moet identiek zijn
 * Stagiairs kunnen hun omgeving training snel inrichten
-* Kosten beheren door ervoor te zorgen dat stagiairs kunnen niet worden gebruikt voor het ophalen van meer virtuele machines dan ze nodig hebben om de trainings- en ook virtuele machines afsluiten wanneer ze niet gebruiken
-* De testomgeving training eenvoudig delen met elke leerling
-* De testomgeving training opnieuw gebruiken
+* Kosten beheren door ervoor te zorgen dat stagiairs kunnen niet worden gebruikt voor het ophalen van meer virtuele machines dan ze nodig hebben om Hallo trainings- en ook virtuele machines afsluiten wanneer ze niet gebruiken
+* Hallo training lab eenvoudig delen met elke leerling
+* Hallo training lab opnieuw gebruiken
 
-In dit artikel leert u verschillende functies van Azure DevTest Labs die kunnen worden gebruikt om te voldoen aan de vereisten van de eerder beschreven training en de gedetailleerde stappen die u volgen kunt om een testomgeving voor training instellen.  
+In dit artikel hebt u meer informatie over diverse Azure DevTest Labs-functies die kunnen worden gebruikt toomeet Hallo eerder is beschreven training vereisten en gedetailleerde stappen dat u tooset van een testomgeving voor training kan volgen.  
 
 ## <a name="implementing-training-with-azure-devtest-labs"></a>Training met Azure DevTest Labs implementeren
-1. **De testomgeving maken** 
+1. **Hallo lab maken** 
    
-    Labs vormen het beginpunt in Azure DevTest Labs. Wanneer u een testomgeving maakt, kunt u taken uitvoeren zoals als gebruikers (stagiairs) toevoegen aan het lab, beleid instellen voor beheerkosten, het definiëren van de VM-installatiekopieën die u kunnen snel maken en meer.   
+    Labs zijn Hallo beginpunt in Azure DevTest Labs. Wanneer u een testomgeving maakt, kunt u die zoals zoals het toevoegen van gebruikers (stagiairs) toohello lab, set beleidsregels toocontrol kosten Definieer VM-installatiekopieën die snel kunnen maken, en andere taken kunt uitvoeren.   
    
-    Meer leren door te klikken op de koppelingen in de volgende tabel:
+    Meer informatie door te klikken op koppelingen in de volgende tabel Hallo Hallo:
    
    | Taak | Wat u leert |
    | --- | --- |
-   | [Een lab maken in Azure DevTest Labs](devtest-lab-create-lab.md) |Informatie over het maken van een testomgeving in Azure DevTest Labs in de Azure portal. |
+   | [Een lab maken in Azure DevTest Labs](devtest-lab-create-lab.md) |Meer informatie over hoe toocreate een lab in Azure DevTest Labs in hello Azure-portal. |
 2. **Training virtuele machines in minuten met behulp van vooraf gedefinieerde marketplace-installatiekopieën en aangepaste installatiekopieën maken** 
    
-    U kunt vooraf gedefinieerde installatiekopieën van een groot aantal afbeeldingen kiezen in Azure Marketplace en beschikbaar maken voor de deelnemers in de testomgeving. Als de kant-en-afbeeldingen niet aan uw vereisten voldoet, kunt u een aangepaste installatiekopie maken door het maken van een testomgeving VM die gebruikmaakt van een installatiekopie van een vooraf gedefinieerde uit Azure Marketplace, installatie van de software die u nodig hebt om de training en opslaan van de virtuele machine als aangepaste installatiekopie in de testomgeving. 
+    U kunt vooraf gedefinieerde installatiekopieën van een groot aantal afbeeldingen kiezen in hello Azure Marketplace en beschikbaar maken voor Hallo stagiairs in Hallo-testomgeving. Als Hallo kant-en-afbeeldingen niet aan uw vereisten voldoet, kunt u een aangepaste installatiekopie maken door het maken van een testomgeving met de installatiekopie van een vooraf gedefinieerde uit Azure Marketplace, alle Hallo software installeren die u nodig hebt voor Hallo training en Hallo VM op te slaan als aangepaste installatiekopie in de testomgeving Hallo VM. 
    
-    Meer leren door te klikken op de koppelingen in de volgende tabel:
+    Meer informatie door te klikken op koppelingen in de volgende tabel Hallo Hallo:
    
    | Taak | Wat u leert |
    | --- | --- |
-   | [Azure Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md) |Meer informatie over hoe u kunt de Azure Marketplace-installatiekopieën geaccepteerde; het beschikbaar maken voor de selectie van alleen de installatiekopieën die u wilt voor de training. |
-   | [Een aangepaste installatiekopie maken](devtest-lab-create-template.md) |Een aangepaste installatiekopie maken door de software die u nodig hebt voor de training zodat stagiairs kunnen snel een virtuele machine maken met de aangepaste installatiekopie vooraf te installeren. |
+   | [Azure Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md) |Meer informatie over hoe u kunt de Azure Marketplace-installatiekopieën geaccepteerde; beschikbaar voor selectie alleen Hallo afbeeldingen maken die u wilt voor Hallo training. |
+   | [Een aangepaste installatiekopie maken](devtest-lab-create-template.md) |Maak een aangepaste installatiekopie vooraf Hallo door software te installeren u voor Hallo training moet zodat stagiairs kunnen snel een virtuele machine maken met de aangepaste installatiekopie Hallo. |
 3. **Herbruikbare sjablonen maken voor training machines** 
    
-    Een formule in Azure DevTest Labs is een lijst van de eigenschap standaardwaarden gebruikt voor het maken van een virtuele machine. U kunt een formule in de testomgeving door het verzamelen van een installatiekopie van een VM-grootte (een combinatie van CPU en RAM) en een virtueel netwerk maken. Elke leerling kan de formule zien in de testomgeving en deze gebruiken voor het maken van een virtuele machine. 
+    Een formule in Azure DevTest Labs is dat een lijst met standaardwaarden voor de eigenschap toocreate een virtuele machine gebruikt. U kunt een formule in Hallo lab maken door het verzamelen van een installatiekopie van een VM-grootte (een combinatie van CPU en RAM) en een virtueel netwerk. Elke leerling kan zien Hallo formule in Hallo lab en toocreate een virtuele machine worden gebruikt. 
    
-    Meer leren door te klikken op de koppelingen in de volgende tabel:
+    Meer informatie door te klikken op koppelingen in de volgende tabel Hallo Hallo:
    
    | Taak | Wat u leert |
    | --- | --- |
-   | [DevTest Labs formules voor het maken van virtuele machines beheren](devtest-lab-manage-formulas.md) |Meer informatie over hoe u een formule kunt maken met een installatiekopie van een VM-grootte (combinatie van CPU en RAM) en een virtueel netwerk ophalen. |
+   | [DevTest Labs formules toocreate VM's beheren](devtest-lab-manage-formulas.md) |Meer informatie over hoe u een formule kunt maken met een installatiekopie van een VM-grootte (combinatie van CPU en RAM) en een virtueel netwerk ophalen. |
 4. **Beheer van kosten**
    
-    Azure DevTest Labs kunt u een beleid ingesteld in een testomgeving om het maximum aantal VM's die kunnen worden gemaakt door in de testomgeving toetsen opgeven. 
+    Azure DevTest Labs kunt u tooset een beleid Hallo lab toospecify Hallo maximum aantal VM's die kunnen worden gemaakt door de toetsen in Hallo-testomgeving. 
    
-    Als u bent bezig met Meerdaags training en wilt stoppen van de virtuele machines op een bepaald tijdstip van de dag en vervolgens automatisch opnieuw opgestart ze de volgende dag, kunt u eenvoudig bereiken die door in te stellen automatisch afsluiten en automatisch starten van beleid in de testomgeving. 
+    Als u bent bezig met Meerdaags training en toostop wilt dat alle Hallo-virtuele machines op een bepaald tijdstip Hallo en vervolgens automatisch opnieuw opgestart ze Hallo na dag, kunt u eenvoudig bereiken die door de instelling automatisch afsluiten en -beleid in Hallo lab automatisch starten. 
    
-    Ten slotte is het zo dat als training voltooid is u de virtuele machines in één keer kunt verwijderen door het uitvoeren van een enkel PowerShell-script. 
+    Ten slotte is het zo dat als training voltooid is u alle Hallo VM's in één keer kunt verwijderen door het uitvoeren van een enkel PowerShell-script. 
    
-    Meer leren door te klikken op de koppelingen in de volgende tabel:
-   
-   | Taak | Wat u leert |
-   | --- | --- |
-   | [Beleid voor lab maken](devtest-lab-set-lab-policy.md) |Kosten beheren door het instellen van beleidsregels in een testomgeving. |
-   | [Verwijder alle lab virtuele machines met een PowerShell-script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Verwijder alle labs in één bewerking wanneer de training voltooid is. |
-5. **De testomgeving met elke leerling delen**
-   
-    Labs zijn rechtstreeks toegankelijk via een koppeling die u met uw stagiairs deelt. Uw stagiairs hoeft te hebben van een Azure-account, zolang ze beschikken over een [Microsoft-account](devtest-lab-faq.md#what-is-a-microsoft-account). Stagiairs zichtbaar niet voor virtuele machines die zijn gemaakt door andere stagiairs.  
-   
-    Meer leren door te klikken op de koppelingen in de volgende tabel:
+    Meer informatie door te klikken op koppelingen in de volgende tabel Hallo Hallo:
    
    | Taak | Wat u leert |
    | --- | --- |
-   | [Toetsen toevoegen aan een lab in Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Gebruik de Azure-portal stagiairs toevoegen aan uw testomgeving training. |
-   | [Stagiairs toevoegen aan de testomgeving met een PowerShell-script](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |PowerShell gebruiken voor het automatiseren van toe te voegen stagiairs aan uw lab training. |
-   | [Een koppeling naar het lab](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Meer informatie over hoe een lab rechtstreeks toegankelijk zijn via een hyperlink. |
-6. **De testomgeving opnieuw gebruiken** 
+   | [Beleid voor lab maken](devtest-lab-set-lab-policy.md) |Kosten door het instellen van beleidsregels in Hallo lab te controleren. |
+   | [Verwijder alle Hallo lab virtuele machines met een PowerShell-script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Verwijder alle Hallo labs in één bewerking als Hallo training voltooid is. |
+5. **Hallo lab delen met elke leerling**
    
-    U kunt maken van de testomgeving, met inbegrip van aangepaste instellingen door Resource Manager-sjabloon maken en deze opnieuw maken van identieke labs automatiseren. 
+    Labs zijn rechtstreeks toegankelijk via een koppeling die u met uw stagiairs deelt. Uw stagiairs niet zelfs toohave Azure-account hebt, zolang ze beschikken over een [Microsoft-account](devtest-lab-faq.md#what-is-a-microsoft-account). Stagiairs zichtbaar niet voor virtuele machines die zijn gemaakt door andere stagiairs.  
    
-    Meer leren door te klikken op de koppelingen in de volgende tabel:
+    Meer informatie door te klikken op koppelingen in de volgende tabel Hallo Hallo:
+   
+   | Taak | Wat u leert |
+   | --- | --- |
+   | [Een leerling tooa lab toevoegen in Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Gebruik hello Azure portal tooadd stagiairs tooyour training lab. |
+   | [Stagiairs toohello testomgeving met een PowerShell-script toevoegen](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Gebruik PowerShell tooautomate stagiairs tooyour training lab toe te voegen. |
+   | [Een koppeling toohello lab ophalen](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Meer informatie over hoe een lab rechtstreeks toegankelijk zijn via een hyperlink. |
+6. **Hallo lab opnieuw gebruiken** 
+   
+    U kunt maken van de testomgeving, met inbegrip van aangepaste instellingen door te maken van een Resource Manager-sjabloon en het toocreate identiek labs opnieuw kunt automatiseren. 
+   
+    Meer informatie door te klikken op koppelingen in de volgende tabel Hallo Hallo:
    
    | Taak | Wat u leert |
    | --- | --- |

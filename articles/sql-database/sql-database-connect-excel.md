@@ -1,8 +1,8 @@
 ---
-title: Excel verbinden met de SQL Database | Microsoft Docs
-description: Leer hoe u Microsoft Excel verbindt met Azure SQL Database in de cloud. Gegevens importeren in Excel voor rapportage en gegevens verkenning.
+title: aaaConnect Excel tooSQL Database | Microsoft Docs
+description: Meer informatie over hoe tooconnect Microsoft Excel tooAzure SQL-database in de cloud Hallo. Gegevens importeren in Excel voor rapportage en gegevens verkenning.
 services: sql-database
-keywords: excel verbinden met sql, gegevens importeren in excel
+keywords: verbinding maken met excel toosql, gegevens tooexcel importeren
 documentationcenter: 
 author: joseidz
 manager: jhubbard
@@ -16,67 +16,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-ms.openlocfilehash: 97344d7c0be38b3092a3224074d486b5bb984176
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0048849432023145bd1009d45b6d9b64a9c7ac3c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Excel verbinden met een Azure SQL database en een rapport maken
+# <a name="connect-excel-tooan-azure-sql-database-and-create-a-report"></a>Verbinding maken met Excel tooan Azure SQL database en een rapport maken
 
-Excel verbinden met een SQL-database in de cloud en gegevens importeren en tabellen en grafieken op basis van waarden in de database maken. In deze zelfstudie stelt u de verbinding tussen Excel en een databasetabel in, slaat u het bestand met de gegevens en de verbindingsinformatie voor Excel op en maakt u vervolgens een draaigrafiek uit de databasewaarden.
+Verbinding maken met Excel tooa SQL database in de cloud Hallo en gegevens importeren en tabellen en grafieken op basis van waarden in Hallo-database maken. In deze zelfstudie u Hallo verbinding tussen Excel en een databasetabel stelt Hallo-bestand met gegevens en Hallo verbindingsinformatie voor Excel opslaan, en maak vervolgens een draaigrafiek uit Hallo databasewaarden.
 
-Voordat u begint hebt u een SQL Database in Azure nodig. Als u deze niet hebt, raadpleegt u [Uw eerste SQL Database maken](sql-database-get-started-portal.md) om een database met voorbeeldgegevens binnen enkele minuten in te stellen. In dit artikel, zult u voorbeeldgegevens importeren in Excel van dat artikel, maar u kunt dezelfde stappen volgen met uw eigen gegevens.
+Voordat u begint hebt u een SQL Database in Azure nodig. Als u niet hebt, raadpleegt u [uw eerste SQL-database maken](sql-database-get-started-portal.md) tooget een database met voorbeeldgegevens binnen enkele minuten duren. In dit artikel, zult u voorbeeldgegevens importeren in Excel van dat artikel, maar u kunt dezelfde stappen volgen met uw eigen gegevens.
 
 U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016](https://products.office.com/).
 
-## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Excel verbinden met een SQL Database en een odc-bestand maken
-1. Open Excel om het programme te verbinden met SQL Database, en maak een nieuwe werkmap of open een bestaande Excel-werkmap.
-2. Klik in de menubalk bovenaan de pagina  op**Gegevens**, klik op **Van andere bronnen**, en klik vervolgens op **Van SQL Server**.
+## <a name="connect-excel-tooa-sql-database-and-create-an-odc-file"></a>Verbinding maken met Excel tooa SQL database en een odc-bestand maken
+1. tooconnect Excel tooSQL database open Excel en maak een nieuwe werkmap of open een bestaande Excel-werkmap.
+2. Klik in de menubalk Hallo bovenaan Hallo Hallo pagina **gegevens**, klikt u op **van andere bronnen**, en klik vervolgens op **van SQL Server**.
    
-   ![Selecteer gegevensbron: Excel verbinden met SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
+   ![Selecteer gegevensbron: verbinding maken met Excel tooSQL database.](./media/sql-database-connect-excel/excel_data_source.png)
    
-   De wizard Gegevensverbinding wordt geopend.
-3. In het dialoogvenster **Verbinding maken met databaseserver** typt u de **servernaam** van de SQL Database die u wilt verbinden in het formulier <*servername*>**. database.windows.net**. Bijvoorbeeld: **adworkserver.database.windows.net**.
-4. Klik onder **aanmeldingsreferenties** op **Gebruik de volgende gebruikersnaam en wachtwoord**, typ de **gebruikersnaam** en het **wachtwoord** dat u hebt ingesteld voor de SQL Databaseserver en klik vervolgens op **Volgende**.
+   Hallo Wizard Gegevensverbinding wordt geopend.
+3. In Hallo **tooDatabase Server verbinding** in het dialoogvenster type Hallo SQL-Database **servernaam** tooconnect tooin Hallo formulier <*servername* > **. database.windows.net**. Bijvoorbeeld: **adworkserver.database.windows.net**.
+4. Onder **aanmeldingsreferenties**, klikt u op **gebruik Hallo volgende gebruikersnaam en wachtwoord**, type Hallo **gebruikersnaam** en **wachtwoord** u is ingesteld voor Hallo SQL Database-server wanneer u het hebt gemaakt en klik vervolgens op **volgende**.
    
-   ![Typ de servernaam en aanmeldingsreferenties in](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Typ de servernaam en aanmeldingsreferenties in Hallo server](./media/sql-database-connect-excel/connect-to-server.png)
    
    > [!TIP]
-   > Afhankelijk van uw netwerkomgeving kunt u mogelijk geen verbinding maken of kan de verbinding verbroken worden als de server van de SQL Database geen verkeer van het IP-adres van de client toestaat. Ga naar de [Azure-portal](https://portal.azure.com/), klik op SQL-servers, klik op uw server, klik op firewall onder instellingen en voeg uw client-IP-adres toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md) voor meer informatie.
+   > Afhankelijk van uw netwerkomgeving u mogelijk niet kunnen tooconnect of Hallo verbinding mogelijk wordt verbroken als verkeer van de IP-adres van uw client Hallo SQL Database-server niet is toegestaan. Ga toohello [Azure-portal](https://portal.azure.com/)op SQL-servers, klikt u op uw server, klikt u op firewall onder instellingen en voeg uw client-IP-adres. Zie [hoe tooconfigure firewall-instellingen](sql-database-configure-firewall-settings.md) voor meer informatie.
    > 
    > 
-5. In het dialoogvenster **Database en tabel selecteren**, selecteert u de database waarmee u wilt werken uit de lijst en klik vervolgens op de tabellen of weergaven waarmee u wilt werken (we hebben **vGetAllCategories** gekozen), en klik vervolgens op **Volgende**.
+5. In Hallo **Database en tabel selecteren** dialoogvenster, selecteer Hallo database u wilt toowork met uit Hallo lijst en klik vervolgens op Hallo tabellen of weergaven die u toowork met wilt (We hebben gekozen **vGetAllCategories**), en vervolgens Klik op **volgende**.
    
     ![Selecteer een database en tabel.](./media/sql-database-connect-excel/select-database-and-table.png)
    
-    Het dialoogvenster **Bestand opslaan en voltooien** wordt geopend. Hier geeft u informatie over het Office database connection (*.odc) bestand dat Excel gebruikt. U kunt de standaardinstellingen laten staan of uw selecties aanpassen.
-6. U kunt de standaardinstellingen laten staan, maar let in het bijzonder op de **bestandsnaam**. Een **beschrijving**, een **beschrijvende naam** en **zoekwoorden** helpen u en andere gebruikers te onthouden wat u koppelt en de koppeling te vinden. Klik op **Altijd proberen dit bestand te gebruiken om gegevens te vernieuwen** als u wilt dat verbindingsgegevens worden opgeslagen in het odc-bestand, zodat deze bijgewerkt kan worden wanneer u verbinding maakt en klik vervolgens op **Voltooien**.
+    Hallo **bestand opslaan en voltooien** in het dialoogvenster wordt geopend, waarin u informatie over Hallo Office database connection (*.odc) bestand dat Excel gebruikt opgeven. U kunt Hallo standaardinstellingen laten staan of uw selecties aanpassen.
+6. U kunt laten Hallo standaardinstellingen, maar Opmerking Hallo **bestandsnaam** in het bijzonder. Een **beschrijving**, een **beschrijvende naam**, en **zoekwoorden** helpen u en andere gebruikers te onthouden wat u verbinding maakt tooand Hallo verbinding vinden. Klik op **altijd proberen toouse deze bestandsgegevens toorefresh** als u wilt dat verbindingsgegevens worden opgeslagen in Hallo ODC-bestand, zodat deze bijgewerkt kan wanneer u verbinding maken met tooit en klik vervolgens op **voltooien**.
    
     ![Opslaan van een odc-bestand](./media/sql-database-connect-excel/save-odc-file.png)
    
-    Het dialoogvenster **Importeren van gegevens** wordt weergegeven.
+    Hallo **gegevens importeren** dialoogvenster wordt weergegeven.
 
-## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importeer de gegevens in Excel en maak een draaigrafiek.
-Nu de verbinding tot stand is gebracht en het bestand met gegevens en de koppelingsinformatie is gemaakt, leest u om de gegevens te importeren.
+## <a name="import-hello-data-into-excel-and-create-a-pivot-chart"></a>Hallo-gegevens importeren in Excel en maak een draaigrafiek.
+Nu dat u hebt ingesteld Hallo verbinding en gemaakte Hallo-bestand met gegevens en de verbindingsinformatie, leest u tooimport Hallo gegevens.
 
-1. In het dialoogvenster **Gegevens importeren** , klikt u op de optie die u wilt gebruiken om uw gegevens weer te geven in het werkblad en klik vervolgens op **OK**. We hebben **draaigrafiek** gekozen. U kunt ook kiezen voor **Nieuw werkblad** of **Deze gegevens toevoegen aan een gegevensmodel**. Zie voor meer informatie over gegevensmodellen [Een gegevensmodel maken in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Klik op **eigenschappen** om informatie over het odc-bestand dat u in de vorige stap hebt gemaakt te bekijken en om opties te kiezen voor het vernieuwen van de gegevens.
+1. In Hallo **gegevens importeren** dialoogvenster, klikt u op Hallo gewenste optie voor uw gegevens weer in Hallo werkblad en klik vervolgens op **OK**. We hebben **draaigrafiek** gekozen. U kunt ook toocreate een **nieuw werkblad** of te**toevoegen van deze gegevens tooa gegevensmodel**. Zie voor meer informatie over gegevensmodellen [Een gegevensmodel maken in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Klik op **eigenschappen** tooexplore meer informatie over Hallo ODC-bestand u hebt gemaakt in Hallo vorige stap en toochoose opties voor het vernieuwen van Hallo-gegevens.
    
-    ![De indeling kiezen voor gegevens in Excel](./media/sql-database-connect-excel/import-data.png)
+    ![Hallo-indeling voor gegevens kiezen in Excel](./media/sql-database-connect-excel/import-data.png)
    
-    Het werkblad heeft nu een lege draaitabel en grafiek.
-2. Onder **PivotTable-velden**, selecteert u alle selectievakjes voor de velden die u wilt weergeven.
+    Hallo werkblad heeft nu een lege draaitabel en grafiek.
+2. Onder **PivotTable-Fields**, schakel alle selectievakjes voor Hallo Hallo velden die u wilt tooview.
    
     ![Databaserapport configureren.](./media/sql-database-connect-excel/power-pivot-results.png)
 
 > [!TIP]
-> Als u andere Excel-werkmappen en -werkbladen wilt verbinden met de database, klikt u op **Gegevens**, **Verbindingen** en **Toevoegen** en kiest u de koppeling die u hebt gemaakt in de lijst en klik vervolgens op **Openen**.
+> Als u wilt dat tooconnect andere Excel-werkmappen en werkbladen toohello-database, klikt u op **gegevens**, klikt u op **verbindingen**, klikt u op **toevoegen**, kies Hallo-verbinding die u hebt gemaakt in de lijst Hallo en klik vervolgens op **Open**.
 > ![Een verbinding openen vanuit een andere werkmap](./media/sql-database-connect-excel/open-from-another-workbook.png)
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Leer hoe u [SQL Database koppelt met SQL Server Management Studio](sql-database-connect-query-ssms.md) voor geavanceerd uitvoeren van query's en analyses.
-* Meer informatie over de voordelen van [elastische groepen](sql-database-elastic-pool.md).
-* Leer hoe u [ een webtoepassing maakt die verbinding maakt met SQL Database op de back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+* Meer informatie over hoe te[tooSQL Database met SQL Server Management Studio verbinding](sql-database-connect-query-ssms.md) voor geavanceerde query's en analyse.
+* Meer informatie over de voordelen van Hallo [elastische pools](sql-database-elastic-pool.md).
+* Meer informatie over hoe te[maken van een webtoepassing die verbinding tooSQL Database op Hallo back-end maakt](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 

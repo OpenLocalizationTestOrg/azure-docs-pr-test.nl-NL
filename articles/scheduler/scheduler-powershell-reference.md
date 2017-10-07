@@ -1,5 +1,5 @@
 ---
-title: Scheduler-referentiemateriaal voor PowerShell-Cmdlets
+title: aaaScheduler referentiemateriaal voor PowerShell-Cmdlets
 description: Scheduler-referentiemateriaal voor PowerShell-Cmdlets
 services: scheduler
 documentationcenter: .NET
@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2b23bcd3e4493ffba1dbf21fbb87818be7c01e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Scheduler-referentiemateriaal voor PowerShell-Cmdlets
-De volgende tabel worden beschreven en koppelingen naar de pagina met naslaginformatie van elk van de belangrijkste cmdlets in Azure Scheduler.
+Hallo volgende tabel worden beschreven en koppelingen toohello-verwijzingspagina van elk van de belangrijkste Hallo-cmdlets in Azure Scheduler.
 
-Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) om Azure PowerShell te installeren en te koppelen aan uw Azure-abonnement. 
+tooinstall Azure PowerShell en deze koppelen aan uw Azure-abonnement, Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview). 
 
 Voor meer informatie over [Azure Resource Manager-cmdlets](/powershell/azure/overview), Zie [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md).
 
@@ -47,7 +47,7 @@ Voor meer informatie over [Azure Resource Manager-cmdlets](/powershell/azure/ove
 | [Set-AzureRmSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azurermschedulerservicebustopicjob) |Hiermee wijzigt u een service bus-onderwerp taak. |
 | [Set-AzureRmSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azurermschedulerstoragequeuejob) |Hiermee wijzigt u een taak van de wachtrij opslag. |
 
-Voor meer gedetailleerde informatie kunt u een van de volgende cmdlets uitvoeren: 
+Voor meer gedetailleerde informatie kunt u een van de volgende cmdlets Hallo uitvoeren: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -64,7 +64,7 @@ Get-Help <cmdlet name> -Full
 
  [Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie](scheduler-concepts-terms.md)
 
- [Aan de slag met behulp van Scheduler in Azure Portal](scheduler-get-started-portal.md)
+ [Aan de slag met behulp van Scheduler in hello Azure-portal](scheduler-get-started-portal.md)
 
  [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
 

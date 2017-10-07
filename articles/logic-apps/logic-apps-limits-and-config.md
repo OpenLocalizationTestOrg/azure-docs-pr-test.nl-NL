@@ -1,6 +1,6 @@
 ---
-title: Logic App en -configuratie | Microsoft Docs
-description: Overzicht van de grenzen van de service en de configuratiewaarden beschikbaar voor Logic Apps.
+title: aaaLogic App en -configuratie | Microsoft Docs
+description: Overzicht van Hallo Servicelimieten en configuratiewaarden beschikbaar voor Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: da23bd9fe71a0c41bc236b55bc9f56e123a9d77a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 739509afe5c9a7b7e946ba3571951264127e5297
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logic-app-limits-and-configuration"></a>Limieten en configuratie van logische apps
 
-Hieronder vindt u informatie over de huidige limieten en de configuratie-informatie voor Azure Logic Apps.
+Hieronder vindt u informatie over de huidige limieten Hallo en configuratie-informatie voor Azure Logic Apps.
 
 ## <a name="limits"></a>Limieten
 
@@ -47,22 +47,22 @@ Hieronder vindt u limieten voor één HTTP-aanvraag en/of de connector aanroep.
 
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
-|Nieuwe pogingen|10| De standaardwaarde is 4. Kunt configureren met de [parameter van het beleid opnieuw](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Maximale tijd tussen elke poging|1 uur|Kunt configureren met de [parameter van het beleid opnieuw](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
-|Tijd tussen elke poging min|5 per seconde|Kunt configureren met de [parameter van het beleid opnieuw](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Nieuwe pogingen|10| De standaardwaarde is 4. Kunt configureren met Hallo [parameter van het beleid opnieuw](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Maximale tijd tussen elke poging|1 uur|Kunt configureren met Hallo [parameter van het beleid opnieuw](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
+|Tijd tussen elke poging min|5 per seconde|Kunt configureren met Hallo [parameter van het beleid opnieuw](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)|
 
 ### <a name="run-duration-and-retention"></a>Voer duur en retentie
 
-Hier volgen de limieten voor een enkele logische-app uitvoeren.
+Hieronder vindt u Hallo limieten voor een enkele logische-app uitvoeren.
 
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
 |Duur uitvoering|90 dagen||
-|Bewaren van opslag|90 dagen|De begintijd voor uitvoeren vanaf|
+|Bewaren van opslag|90 dagen|Hallo begintijd uitvoering vanaf|
 |Terugkeerpatroon min|1 per seconde|| 15 seconden voor logic apps met App Service-Plan
 |Maximale terugkeerpatroon|500 dagen||
 
-Als u van plan bent maximaal uitvoeren duration of bewaren opslaglimieten in normale verwerking stroom, [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.
+Als u verwacht tooexceed duration of opslag bewaren limieten worden uitgevoerd in de normale verwerking flow dat, [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.
 
 
 ### <a name="looping-and-debatching-limits"></a>Lussen en limieten debatching
@@ -71,10 +71,10 @@ Hieronder vindt u limieten voor een enkele logische-app uitvoeren.
 
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
-|ForEach-items|100,000|U kunt de [query actie](../connectors/connectors-native-query.md) voor het filteren van grotere matrices indien nodig|
+|ForEach-items|100,000|Kunt u Hallo [query actie](../connectors/connectors-native-query.md) toofilter groter matrices indien nodig|
 |Pas iteraties|5,000||
 |SplitOn items|100,000||
-|ForEach parallelle uitvoering|50| De standaardwaarde is 20. U kunt instellen op een sequentiële foreach door toe te voegen `"operationOptions": "Sequential"` naar de `foreach` actie of een specifiek niveau van het gebruik van parallelle uitvoering`runtimeConfiguration`|
+|ForEach parallelle uitvoering|50| De standaardwaarde is 20. U kunt tooa sequentiële foreach instellen door toe te voegen `"operationOptions": "Sequential"` toohello `foreach` actie of een specifiek niveau van het gebruik van parallelle uitvoering`runtimeConfiguration`|
 
 
 ### <a name="throughput-limits"></a>Doorvoerlimieten
@@ -84,12 +84,12 @@ Hieronder vindt u limieten voor een enkele logic app-exemplaar.
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
 |Acties uitvoeringen per 5 minuten |100,000|Werkbelasting kunt voor meerdere apps naar behoefte distribueren|
-|Acties gelijktijdige uitgaande oproepen |~2,500|Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig|
-|Runtime-eindpunt gelijktijdige binnenkomende oproepen |~1,000|Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig|
+|Acties gelijktijdige uitgaande oproepen |~2,500|Verminder het aantal gelijktijdige aanvragen of te verkleinen Hallo duur indien nodig|
+|Runtime-eindpunt gelijktijdige binnenkomende oproepen |~1,000|Verminder het aantal gelijktijdige aanvragen of te verkleinen Hallo duur indien nodig|
 |Runtime-eindpunt lezen aanroepen per 5 minuten |60,000|Werkbelasting kunt voor meerdere apps naar behoefte distribueren|
 |Runtime-eindpunt aanroepen aanroepen per 5 minuten |45,000|Werkbelasting kunt voor meerdere apps naar behoefte distribueren|
 
-Als u verwacht dat deze limiet in normale verwerking overschrijdt of willen uitvoeren load tests die overschrijdt deze limiet voor een periode, misschien [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.
+Als u deze limiet in normale verwerking of desgewenst toorun load testen die overschrijdt deze limiet voor een periode, misschien tooexceed verwacht [contact met ons opnemen](mailto://logicappsemail@microsoft.com) zodat we bij uw behoeften helpen kan.
 
 ### <a name="definition-limits"></a>Definitie-limieten
 
@@ -97,8 +97,8 @@ Hieronder vindt u limieten voor een definitie van één logische app.
 
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
-|Acties per werkstroom|500|U kunt geneste werkstromen om uit te breiden deze limiet naar behoefte toevoegen|
-|Diepte van het nesten actie toegestaan|8|U kunt geneste werkstromen om uit te breiden deze limiet naar behoefte toevoegen|
+|Acties per werkstroom|500|U kunt geneste werkstromen tooextend toevoegen deze limiet indien nodig|
+|Diepte van het nesten actie toegestaan|8|U kunt geneste werkstromen tooextend toevoegen deze limiet indien nodig|
 |Werkstromen per regio per abonnement|1000||
 |Triggers per werkstroom|10||
 |Switch bereik gevallen limiet|25||
@@ -112,26 +112,26 @@ Hieronder vindt u limieten voor een definitie van één logische app.
 
 ### <a name="integration-account-limits"></a>Limieten van integratie
 
-Hieronder vindt u limieten voor artefacten toegevoegd aan de integratie van Account
+Hieronder vindt u limieten voor artefacten toointegration Account toegevoegd
 
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
-|Schema|8 MB|U kunt [blob-URI](logic-apps-enterprise-integration-schemas.md) voor het uploaden van bestanden groter dan 2 MB |
+|Schema|8 MB|U kunt [blob-URI](logic-apps-enterprise-integration-schemas.md) tooupload bestanden die groter zijn dan 2 MB |
 |Kaart (XSLT-bestand)|2 MB| |
 |Runtime-eindpunt lezen aanroepen per 5 minuten |60,000|Werkbelasting kunt verdelen over meerdere accounts zo nodig|
 |Runtime-eindpunt aanroepen aanroepen per 5 minuten |45,000|Werkbelasting kunt verdelen over meerdere accounts zo nodig|
 |Runtime-eindpunt bijhouden aanroepen per 5 minuten |45,000|Werkbelasting kunt verdelen over meerdere accounts zo nodig|
-|Runtime-eindpunt voor het blokkeren van gelijktijdige aanroepen |~1,000|Verminder het aantal gelijktijdige aanvragen of verkorten indien nodig|
+|Runtime-eindpunt voor het blokkeren van gelijktijdige aanroepen |~1,000|Verminder het aantal gelijktijdige aanvragen of te verkleinen Hallo duur indien nodig|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Berichtgrootte B2B-protocollen (AS2, X12, EDIFACT)
 
-Hieronder vindt u de limieten voor B2B-protocollen
+Hieronder vindt u Hallo limieten voor B2B-protocollen
 
 |Naam|Limiet|Opmerkingen|
 |----|----|----|
-|AS2|50 MB|Van toepassing op decoderen en coderen|
-|X12|50 MB|Van toepassing op decoderen en coderen|
-|EDIFACT|50 MB|Van toepassing op decoderen en coderen|
+|AS2|50 MB|Van toepassing toodecode en coderen|
+|X12|50 MB|Van toepassing toodecode en coderen|
+|EDIFACT|50 MB|Van toepassing toodecode en coderen|
 
 ## <a name="configuration"></a>Configuratie
 
@@ -139,7 +139,7 @@ Hieronder vindt u de limieten voor B2B-protocollen
 
 #### <a name="logic-app-service"></a>Logic App Service
 
-Aanroepen vanuit een logische app rechtstreeks (dat wil zeggen, via [HTTP](../connectors/connectors-native-http.md) of [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) of andere HTTP-aanvragen die afkomstig zijn van het IP-adres dat is opgegeven in de volgende lijst:
+Aanroepen vanuit een logische app rechtstreeks (dat wil zeggen, via [HTTP](../connectors/connectors-native-http.md) of [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) of andere HTTP-aanvragen die afkomstig zijn van IP-adres is opgegeven in de lijst volgende Hallo Hallo:
 
 |Logic App regio|Uitgaande IP|
 |-----|----|
@@ -168,7 +168,7 @@ Aanroepen vanuit een logische app rechtstreeks (dat wil zeggen, via [HTTP](../co
 
 #### <a name="connectors"></a>Connectors
 
-Aanroepen vanuit een [connector](../connectors/apis-list.md) afkomstig zijn van het IP-adres dat is opgegeven in de volgende lijst:
+Aanroepen vanuit een [connector](../connectors/apis-list.md) afkomstig zijn van IP-adres is opgegeven in de lijst volgende Hallo Hallo:
 
 |Logic App regio|Uitgaande IP|
 |-----|----|
@@ -198,7 +198,7 @@ Aanroepen vanuit een [connector](../connectors/apis-list.md) afkomstig zijn van 
 
 ## <a name="next-steps"></a>Volgende stappen  
 
-- Om te beginnen met Logic Apps, volgt u de [een logische App maken](../logic-apps/logic-apps-create-a-logic-app.md) zelfstudie.  
+- tooget gestart met Logic Apps, volgt u Hallo [een logische App maken](../logic-apps/logic-apps-create-a-logic-app.md) zelfstudie.  
 - [Algemene voorbeelden en scenario's weergeven](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Met Logic Apps kunt u bedrijfsprocessen automatiseren](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [Meer informatie over hoe u Logic Apps kunt integreren in uw systemen](http://channel9.msdn.com/Events/Build/2016/P462)
+- [Meer informatie over hoe tooIntegrate uw systemen met Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

@@ -1,6 +1,6 @@
 ---
-title: Configureer de parameters van de service in Azure-Database voor PostgreSQL | Microsoft Docs
-description: In dit artikel wordt beschreven hoe de parameters van de service in Azure-Database configureren voor PostgreSQL via de opdrachtregel van Azure CLI.
+title: parameters voor de aaaConfigure Hallo-service in Azure-Database voor PostgreSQL | Microsoft Docs
+description: Dit artikel wordt beschreven hoe tooconfigure Hallo serviceparameters in Azure-Database voor het gebruik van PostgreSQL hello Azure CLI-opdrachtregel.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,46 +10,46 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.openlocfilehash: c8a3b5a0225c2cede180d8d57681f2e1a6c6cc3a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 84a11de24ba87fc0eb6744aaa4b53f65a183903d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Server-configuratieparameters met Azure CLI aanpassen
-U kunt weergeven, weergeven en bijwerken configuratieparameters voor een Azure-PostgreSQL-server met de opdrachtregelinterface (Azure CLI). Alleen een subset van engine-configuraties zijn echter beschikbaar worden gesteld op serverniveau en kan worden gewijzigd. 
+U kunt weergeven, weergeven en bijwerken configuratieparameters voor een Azure PostgreSQL-server met behulp van Hallo opdrachtregelinterface (Azure CLI). Alleen een subset van engine-configuraties zijn echter beschikbaar worden gesteld op serverniveau en kan worden gewijzigd. 
 
 ## <a name="prerequisites"></a>Vereisten
-Stap in deze handleiding instructies, wilt u het volgende nodig:
+toostep via deze procedure-tooguide die u nodig:
 - Een server en database [PostgreSQL een Azure-Database gemaakt](quickstart-create-server-database-azure-cli.md)
-- Installeer [Azure CLI 2.0](/cli/azure/install-azure-cli) command line hulpprogramma of de Azure-Cloud-Shell gebruiken in de browser.
+- Installeer [Azure CLI 2.0](/cli/azure/install-azure-cli) opdrachtregel hulpprogramma of gebruik hello Azure Cloud Shell in Hallo browser.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>Lijst met server configuratieparameters voor Azure-Database voor PostgreSQL-server
-Uitvoeren als u alle bewerkbaar parameters in een server en hun waarden weergeven, de [az postgres serverlijst configuration](/cli/azure/postgres/server/configuration#list) opdracht.
+toolist alle bewerkbaar parameters in een server en hun waarden uitvoeren Hallo [az postgres serverlijst configuration](/cli/azure/postgres/server/configuration#list) opdracht.
 
-U kunt de configuratieparameters van de server voor de server weergeven **mypgserver 20170401.postgres.database.azure.com** onder de resourcegroep **myresourcegroup**.
+Je kunt aanbieden Hallo server configuratieparameters voor Hallo-server **mypgserver 20170401.postgres.database.azure.com** onder de resourcegroep **myresourcegroup**.
 ```azurecli-interactive
 az postgres server configuration list --resource-group myresourcegroup --server mypgserver-20170401
 ```
 ## <a name="show-server-configuration-parameter-details"></a>Serverconfiguratie parameterdetails weergeven
-Uitvoeren als details wilt weergeven over een specifieke configuratie-parameter voor een server, de [az postgres server configuratie weergeven](/cli/azure/postgres/server/configuration#show) opdracht.
+tooshow details over een specifieke configuratie-parameter voor een server is, voert Hallo [az postgres server configuratie weergeven](/cli/azure/postgres/server/configuration#show) opdracht.
 
-In dit voorbeeld worden details weergegeven van de **logboek\_min\_berichten** configuratieparameter server voor server **mypgserver 20170401.postgres.database.azure.com** onder resourcegroep **myresourcegroup.**
+In dit voorbeeld worden details weergegeven van Hallo **logboek\_min\_berichten** configuratieparameter server voor server **mypgserver 20170401.postgres.database.azure.com** onder resourcegroep **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>Parameterwaarde voor server-configuratie wijzigen
-U kunt ook de waarde van een bepaalde server configuratieparameter wijzigen en Hiermee werkt u de onderliggende configuratiewaarde voor de PostgreSQL-engine van de server. Bijwerken van het gebruik van de configuratie van de [az postgres server configuratieset](/cli/azure/postgres/server/configuration#set) opdracht. 
+U kunt ook Hallo-waarde van een bepaalde server configuratieparameter wijzigen en dit Hallo onderliggende configuratiewaarde voor Hallo PostgreSQL server engine-updates. tooupdate hello configuratie gebruik Hallo [az postgres server configuratieset](/cli/azure/postgres/server/configuration#set) opdracht. 
 
-Bijwerken van de **logboek\_min\_berichten** server configuratieparameter van server **mypgserver 20170401.postgres.database.azure.com** onder de resourcegroep **myresourcegroup.**
+Hallo tooupdate **logboek\_min\_berichten** server configuratieparameter van server **mypgserver 20170401.postgres.database.azure.com** onder de resourcegroep **myresourcegroup.**
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401 --value INFO
 ```
-Als u wilt opnieuw instellen van de waarde van een configuratieparameter, kies u gewoon de optionele weglaten `--value` parameter en de service, de standaardwaarde van toepassing. In bovenstaande voorbeeld eruit deze als:
+Als u tooreset Hallo-waarde van een configuratieparameter, kiest u tooleave uit optionele Hallo `--value` parameter en Hallo service toepassing hello standaardwaarde. In bovenstaande voorbeeld eruit deze als:
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
-Hierdoor wordt opnieuw ingesteld de **logboek\_min\_berichten** configuratie op de standaardwaarde **waarschuwing**. Zie voor meer informatie over de serverconfiguratie en de toegestane waarden PostgreSQL-documentatie op [serverconfiguratie](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
+Hierdoor wordt opnieuw ingesteld Hallo **logboek\_min\_berichten** configuratie toohello standaardwaarde **waarschuwing**. Zie voor meer informatie over de serverconfiguratie en de toegestane waarden PostgreSQL-documentatie op [serverconfiguratie](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 
 ## <a name="next-steps"></a>Volgende stappen
-- Als u wilt configureren en toegang tot de server-Logboeken, Zie [Server-logboeken in Azure-Database voor PostgreSQL](concepts-server-logs.md)
+- tooconfigure en -server-Logboeken, Zie [Server-logboeken in Azure-Database voor PostgreSQL](concepts-server-logs.md)

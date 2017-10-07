@@ -1,5 +1,5 @@
 ---
-title: SQL-query's voor Azure Cosmos DB DocumentDB API | Microsoft Docs
+title: aaaSQL query's voor Azure Cosmos DB DocumentDB-API | Microsoft Docs
 description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-querytaal in Azure Cosmos DB.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: 9b2b5668ef0552485a86f63a120b57c4623bfe35
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f4db95b87f5796c4e4299aaf016435cb6301bbfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>SQL-query's voor Azure Cosmos DB DocumentDB API
-Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery's die gebruikmaken van SQL (Structured Query Language) als een JSON-querytaal. Cosmos DB is volledig zonder schema. Doordat het gebied van de JSON-gegevensmodel rechtstreeks in de database-engine biedt deze automatische indexering van JSON-documenten zonder expliciet schema of het maken van secundaire indexen. 
+Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery's die gebruikmaken van SQL (Structured Query Language) als een JSON-querytaal. Cosmos DB is volledig zonder schema. Doordat de streven toohello JSON-gegevensmodel rechtstreeks in de database-engine hello biedt deze automatische indexering van JSON-documenten zonder expliciet schema of het maken van secundaire indexen. 
 
-Tijdens het ontwerpen van de query language voor Cosmos DB, zijn twee drie doelen voor ogen:
+Tijdens het Hallo-querytaal ontwerpen voor Cosmos DB, zijn twee drie doelen voor ogen:
 
-* We wilden in plaats van een nieuwe JSON-querytaal vruchtbare, ter ondersteuning van SQL. SQL is een van de bekend en meest populaire querytalen. Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-documenten.
-* We wilden van JavaScript-programmeermodel gebruikt als basis voor de querytaal als een JSON-document-database kan worden uitgevoerd van JavaScript rechtstreeks in de database-engine. De API DocumentDB SQL verankerd ligt in de JavaScript-typesysteem, evaluatie van expressies en functieaanroep. Deze beurt biedt een natuurlijke programmeermodel voor projecties relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroep van de gebruiker gedefinieerde functies (UDF's) geschreven volledig in JavaScript, onder andere functies. 
+* In plaats van een nieuwe JSON-querytaal vruchtbare, maar we wilden toosupport SQL. SQL is een van de talen voor Hallo bekend en meest populaire query. Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-documenten.
+* Als een JSON-document-database kan worden uitgevoerd van JavaScript rechtstreeks in de database-engine Hallo wilden we van toouse JavaScript-programmeermodel Hallo basis voor onze querytaal. Hallo DocumentDB API SQL verankerd ligt in de JavaScript-typesysteem, evaluatie van expressies en functieaanroep. Deze beurt biedt een natuurlijke programmeermodel voor projecties relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroep van de gebruiker gedefinieerde functies (UDF's) geschreven volledig in JavaScript, onder andere functies. 
 
-We zijn ervan overtuigd dat deze mogelijkheden essentieel zijn voor het reduceren van de wrijving tussen de toepassing en de database en essentieel voor de productiviteit van ontwikkelaars zijn.
+We zijn ervan overtuigd dat deze mogelijkheden belangrijke tooreducing Hallo wrijving tussen Hallo-toepassing en Hallo-database zijn en essentieel voor de productiviteit van ontwikkelaars zijn.
 
-We raden aan de slag door het bekijken van de volgende video, Aravind Ramachandran waar de Cosmos-DB querymogelijkheden toont, en in via onze [Queryspeelplaats](http://www.documentdb.com/sql/demo), waarbij u kunt Cosmos-database uitproberen en SQL-query's op onze gegevensset uitvoeren.
+We raden aan de slag door bekijkt hello volgende video Aravind Ramachandran toont waar opvragen mogelijkheden Cosmos-database, en in via onze [Queryspeelplaats](http://www.documentdb.com/sql/demo), waarbij u kunt Cosmos-database uitproberen en SQL-query's op uitvoeren onze gegevensset.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
 > 
 > 
 
-Keer vervolgens terug naar dit artikel, waar u begint met een SQL-query-zelfstudie die u bij enkele eenvoudige JSON-documenten en de SQL-opdrachten helpt.
+Keer vervolgens terug toothis artikel, waar u begint met een SQL-query-zelfstudie die u bij enkele eenvoudige JSON-documenten en de SQL-opdrachten helpt.
 
 ## <a id="GettingStarted"></a>Aan de slag met SQL-opdrachten in een Cosmos-DB
-Als u Cosmos DB SQL op het werk, laten we beginnen met een paar eenvoudige JSON-documenten en enkele eenvoudige query's op deze doorlopen. U kunt deze twee JSON-documenten over twee families. Met Cosmos-DB hoeft we niet expliciet een schema's of secundaire indexen maken. Moet u de JSON-documenten aan een verzameling Cosmos DB invoegen en vervolgens een query. Hier hebben we een eenvoudige JSON-document voor de Andersen family, de bovenliggende items, onderliggende elementen (en hun huisdieren), adres en registratie-informatie. Het document heeft tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen. 
+toosee Cosmos DB SQL op werken, laten we beginnen met een paar eenvoudige JSON-documenten en enkele eenvoudige query's op deze doorlopen. U kunt deze twee JSON-documenten over twee families. Met Cosmos DB hoeven we geen toocreate geen schema's of secundaire indexen expliciet. Er hoeft alleen maar tooinsert Hallo JSON-documenten tooa Cosmos DB verzameling en vervolgens een query. Hier hebben we een eenvoudige JSON Documenteer voor Hallo Andersen family, Hallo ouders, onderliggende elementen (en hun huisdieren), adres en registratie-informatie. Hallo document heeft tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen. 
 
 **Document**  
 
@@ -99,7 +99,7 @@ Hier volgt een tweede document een subtiele verschil – `givenName` en `familyN
 }
 ```
 
-Nu gaan we enkele query's op deze gegevens om een idee van de belangrijkste aspecten van DocumentDB API SQL te proberen. De volgende query retourneert bijvoorbeeld de documenten waarbij het veld id overeenkomt met `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document:
+Nu gaan we proberen enkele query's op basis van deze gegevens toounderstand aantal Hallo aspecten van DocumentDB API SQL sleutel. Bijvoorbeeld, Hallo volgende query retourneert Hallo documenten waarbij veld Hallo-id overeenkomt met `AndersenFamily`. Omdat het een `SELECT *`, Hallo-uitvoer van Hallo query Hallo voltooid JSON-document is:
 
 **Query**
 
@@ -128,7 +128,7 @@ Nu gaan we enkele query's op deze gegevens om een idee van de belangrijkste aspe
     }]
 
 
-Bekijk nu het geval waar moeten we opnieuw indelen van de JSON-uitvoer in een andere vorm. Deze query projecteert een nieuwe JSON-object met twee geselecteerde velden naam en plaats, wanneer het adres stad dezelfde naam als de status heeft. In dit geval 'NY, NY' komt overeen met.
+Bekijk nu Hallo geval waar we tooreformat Hallo JSON-uitvoer in een andere vorm moeten. Deze query projecten een nieuwe JSON object met twee geselecteerde velden naam en plaats, wanneer Hallo plaats Hallo dezelfde naam heeft als Hallo status. In dit geval 'NY, NY' komt overeen met.
 
 **Query**    
 
@@ -146,7 +146,7 @@ Bekijk nu het geval waar moeten we opnieuw indelen van de JSON-uitvoer in een an
     }]
 
 
-De volgende query retourneert de opgegeven namen van onderliggende items in de familie-id die overeenkomt met `WakefieldFamily` geordend op de plaats waar je woont.
+de volgende query Hallo retourneert alle Hallo opgegeven namen van kinderen in Hallo familie-id die overeenkomt met `WakefieldFamily` Hallo plaats waar je woont geordend.
 
 **Query**
 
@@ -164,30 +164,30 @@ De volgende query retourneert de opgegeven namen van onderliggende items in de f
     ]
 
 
-Wij willen graag aandacht te vestigen op enkele opmerkelijk aspecten van de Cosmos-DB-querytaal via de voorbeelden die we tot nu toe hebt gezien:  
+Willen we graag toodraw aandacht tooa enkele opmerkelijk aspecten van Hallo Cosmos DB querytaal via Hallo voorbeelden die we tot nu toe hebt gezien:  
 
-* Aangezien DocumentDB API SQL op JSON-waarden werkt, behandelt structuur in de vorm van entiteiten in plaats van rijen en kolommen. De taal kunt u knooppunten van de structuur op elke willekeurige diepte zoals Raadpleeg daarom `Node1.Node2.Node3…..Nodem`, vergelijkbaar met relationele SQL verwijst naar de twee onderdeelverwijzing van `<table>.<column>`.   
-* De structured query language werkt met schema minder gegevens. Daarom moet het typesysteem dynamisch worden gebonden. Verschillende typen op verschillende documenten kan resulteert in dezelfde expressie. Het resultaat van een query is een geldige JSON-waarde, maar van een vast schema kan niet worden gegarandeerd.  
-* Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat de systeem- en expressies zijn beperkt tot alleen met JSON-typen zijn getroffen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
-* Een Cosmos-DB-verzameling is een container zonder schema van JSON-documenten. De relaties in gegevensentiteiten binnen en tussen documenten in een verzameling worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect waard wijzen op in het licht de intra-document wordt besproken verderop in dit artikel.
+* Aangezien DocumentDB API SQL op JSON-waarden werkt, behandelt structuur in de vorm van entiteiten in plaats van rijen en kolommen. Daarom Hallo taal kunt u toonodes van Hallo structuur op elke willekeurige diepte zoals verwijzen `Node1.Node2.Node3…..Nodem`, vergelijkbare toorelational SQL verwijzende toohello Twee onderdeelverwijzing van `<table>.<column>`.   
+* Hallo structured query language werkt met schema minder gegevens. Daarom dynamisch Hallo type system behoeften toobe gebonden. Hallo kan dezelfde expressie resulteert in verschillende typen op verschillende documenten. Hallo-resultaat van een query is een geldige JSON-waarde, maar toobe van een vast schema kan niet worden gegarandeerd.  
+* Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat Hallo typesysteem en expressies zijn beperkt toodeal alleen met JSON-typen. Raadpleeg toohello [JSON-specificatie](http://www.json.org/) voor meer informatie.  
+* Een Cosmos-DB-verzameling is een container zonder schema van JSON-documenten. Hallo-relaties in gegevensentiteiten binnen en tussen documenten in een verzameling worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect waard wijzen op in het licht Hallo intra-document joins verderop in dit artikel wordt besproken.
 
 ## <a id="Indexing"></a>Cosmos DB indexeren
-Voordat we in de DocumentDB API SQL-syntaxis ophalen, is het waard het ontwerp van de indexering in Cosmos-database. 
+Voordat we Hallo DocumentDB API SQL-syntaxis krijgen, is het waard Hallo ontwerp in Cosmos DB te indexeren. 
 
-Het doel van de indexen van de database is voor het uitvoeren van query's in hun diverse vormen en vormen met minimale brongebruik (zoals CPU en input/output) en tegelijkertijd goede doorvoer en lage latentie. Vaak is de keuze van de juiste index voor query's in een database vereist veel planning en experimenteren. Deze aanpak vormt een uitdaging voor schema-minder databases waarin de gegevens voldoen niet aan een strikte schema en snel ontwikkeld. 
+Hallo-doel van de indexen van de database is tooserve query's in hun diverse vormen en vormen met minimale brongebruik (zoals CPU en input/output) terwijl er goed doorvoer en lage latentie. Vaak vereist Hallo keuze van de juiste index Hallo voor query's in een database veel planning en experimenteren. Deze aanpak vormt een uitdaging voor schema-minder databases waar de Hallo gegevens voldoen niet tooa strikte schema en snel ontwikkeld. 
 
-Wanneer we de Cosmos-DB indexering subsysteem ontworpen, instellen wij daarom de volgende doelen:
+Wanneer we Hallo Cosmos DB indexering subsysteem ontworpen, instellen wij daarom Hallo doelstellingen te volgen:
 
-* Documenten te indexeren zonder schema: het subsysteem voor indexering geen vereist een schema-informatie of veronderstellingen over schema van de documenten. 
-* Ondersteuning voor efficiënte, geavanceerde hiërarchische en relationele query's: de index ondersteunt de Cosmos-DB-querytaal efficiënt, inclusief ondersteuning voor hiërarchische en relationele projecties.
-* Ondersteuning voor consistente query's in face of een volgehouden volume van schrijfbewerkingen: voor schrijven met hoge doorvoer werkbelastingen met consistente query's, de index incrementeel efficiënt en online met betrekking tot een continue volume van schrijfbewerkingen wordt bijgewerkt. De consistente index-update is van cruciaal belang om te dienen als de query's op het consistentieniveau van de waarin de gebruiker het documentservice hebt geconfigureerd.
-* Ondersteuning voor multitenancy: gegeven het model op basis van een reservering voor de resource governance tussen tenants, index-updates worden uitgevoerd binnen het budget van systeembronnen (CPU, geheugen en input/output-bewerkingen per seconde) die per replica worden toegewezen. 
-* Opslagruimte: voor de kosteneffectiviteit, de schijfopslag op overhead van de index is gebonden en voorspelbaar. Dit is cruciaal omdat Cosmos DB kan de ontwikkelaar maken op basis van kosten-en nadelen tussen index overhead ten opzichte van de prestaties van query's.  
+* Documenten te indexeren zonder schema: Hallo indexeren subsysteem geen vereist een schema-informatie of veronderstellingen over schema van Hallo documenten. 
+* Ondersteuning voor efficiënte, geavanceerde hiërarchische en relationele query's: Hallo index ondersteunt Hallo Cosmos-DB-querytaal efficiënt, inclusief ondersteuning voor hiërarchische en relationele projecties.
+* Ondersteuning voor consistente query's in face of een volgehouden volume van schrijfbewerkingen: voor schrijven met hoge doorvoer werkbelastingen met consistente query's, Hallo index incrementeel efficiënt en online in Hallo face van een duurzame volume van schrijfbewerkingen wordt bijgewerkt. Hallo consistent index-update is cruciaal tooserve Hallo query's op Hallo consistentieniveau in welke service Hallo gebruiker geconfigureerd Hallo-document.
+* Ondersteuning voor multitenancy: gegeven Hallo reservering gebaseerde model voor de resource governance tussen tenants, index-updates worden uitgevoerd binnen het budget Hallo van systeemresources (CPU, geheugen en input/output-bewerkingen per seconde) die per replica worden toegewezen. 
+* Opslagruimte: voor de kosteneffectiviteit, Hallo op schijf opslag overhead van Hallo index is gebonden en voorspelbaar. Dit is cruciaal omdat Cosmos DB Hallo developer toomake op basis van kosten wisselwerking tussen de overhead van de index in de relatie toohello queryprestaties kunt.  
 
-Raadpleeg de [Azure Cosmos DB voorbeelden](https://github.com/Azure/azure-documentdb-net) op MSDN voor voorbeelden waarin wordt getoond hoe het indexeringsbeleid voor een verzameling configureren. Laten we nu krijgen tot de details van de Azure Cosmos DB SQL-syntaxis.
+Raadpleeg toohello [Azure Cosmos DB voorbeelden](https://github.com/Azure/azure-documentdb-net) op MSDN voor voorbeelden die laat zien hoe tooconfigure Hallo indexeringsbeleid voor een verzameling. Laten we nu krijgen Hallo details van hello Azure Cosmos DB SQL-syntaxis.
 
 ## <a id="Basics"></a>Basisprincipes van een Azure Cosmos DB SQL-query
-Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron voor het ophalen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de aangevraagde JSON-waarden in de select-lijst.
+Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet Hallo-bron in de component FROM Hallo is geïnventariseerd. Hallo filter vervolgens in de WHERE-component wordt toegepast op Hallo bron tooretrieve Hallo een subset van JSON-documenten. Ten slotte Hallo SELECT-component wordt gebruikt tooproject Hallo aangevraagd JSON-waarden in Hallo lijst selecteren.
 
     SELECT <select_list> 
     [FROM <from_specification>] 
@@ -196,16 +196,16 @@ Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-compo
 
 
 ## <a id="FromClause"></a>FROM-component
-De `FROM <from_specification>` component is optioneel tenzij de bron is gefilterd of geprojecteerd verderop in de query. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De volledige verzameling is vaak de bron, maar een kunt in plaats daarvan een subset van de verzameling opgeven. 
+Hallo `FROM <from_specification>` component is optioneel tenzij Hallo-bron is gefilterd of later in de query Hallo geprojecteerd. Hallo-doel van deze component is toospecify Hallo-gegevensbron bij welke Hallo query moet functioneren. Meestal de volledige verzameling Hallo Hallo-bron is, maar een kunt in plaats daarvan een subset van Hallo verzameling opgeven. 
 
-Een query, zoals `SELECT * FROM Families` geeft aan dat de volledige verzameling worden Families de bron via die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt voor de verzameling in plaats van met de naam van de verzameling. De volgende lijst bevat de regels die per query worden afgedwongen:
+Een query, zoals `SELECT * FROM Families` geeft aan dat het volledige verzameling worden Families Hallo Hallo bron via welke tooenumerate. Een speciale ROOT-id kan gebruikte toorepresent Hallo verzameling in plaats van met de naam van de verzameling Hallo zijn. Hallo bevat volgende lijst Hallo-regels die per query worden afgedwongen:
 
-* De verzameling mag alias hebben, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is het equivalent van `Families`. `AS`is een optioneel trefwoord tot de alias van de id.
-* Eenmaal alias hebben, de oorspronkelijke bron kan niet worden gebonden. Bijvoorbeeld: `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat de id 'Families' kan niet meer worden omgezet.
-* Alle eigenschappen die moeten worden verwezen moet volledig gekwalificeerd zijn. Dit wordt afgedwongen in het ontbreken van de toepassing van de strikte schema om te voorkomen dat geen bindingen niet eenduidig. Daarom `SELECT id FROM Families f` syntaxis is ongeldig omdat de eigenschap `id` niet is gebonden.
+* Hallo-verzameling kan worden alias hebben, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is Hallo equivalent van `Families`. `AS`is een optioneel trefwoord tooalias Hallo-id.
+* Eenmaal alias Hallo oorspronkelijke bron kan niet worden gebonden. Bijvoorbeeld: `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat het Hallo-id 'Families' kan niet meer worden omgezet.
+* Alle eigenschappen die toobe waarnaar wordt verwezen moeten moet volledig gekwalificeerd zijn. In de Hallo afwezigheid van de toepassing van de strikte schema, is dit afgedwongen tooavoid geen niet-eenduidige bindingen. Daarom `SELECT id FROM Families f` syntaxis is ongeldig omdat de eigenschap Hallo `id` niet is gebonden.
 
 ### <a name="subdocuments"></a>Subdocumenten
-De bron kan ook worden teruggebracht naar een kleinere subset. Voor het exemplaar voor het inventariseren van alleen een substructuur in elk document kan de subroot dan de bron, zoals weergegeven in het volgende voorbeeld:
+Hallo-bron kan ook worden verlaagd tooa kleinere subset. Bijvoorbeeld tooenumerating alleen een substructuur in elk document, Hallo subroot kan vervolgens worden Hallo bron, zoals wordt weergegeven in het volgende voorbeeld Hallo:
 
 **Query**
 
@@ -243,7 +243,7 @@ De bron kan ook worden teruggebracht naar een kleinere subset. Voor het exemplaa
       ]
     ]
 
-Het bovenstaande voorbeeld wordt een matrix als bron gebruikt, een object kan ook worden gebruikt als bron is wat wordt weergegeven in het volgende voorbeeld: een geldige JSON-waarde (geen niet-gedefinieerd) die kan worden gevonden in de bron wordt beschouwd als voor opname in het resultaat van de query. Als sommige families beschikt niet over een `address.state` waarde, in de resultaten worden uitgesloten.
+Hallo hierboven voorbeeld gebruikt een matrix als Hallo bron, een object kan ook worden gebruikt als bron hello, dit is wat wordt weergegeven in het volgende voorbeeld Hallo: een geldige JSON-waarde (geen niet-gedefinieerd) die kan worden gevonden in bron hello wordt beschouwd als voor insluiting in Hallo resultaat van Hallo-query. Als sommige families beschikt niet over een `address.state` waarde, in het queryresultaat Hallo worden uitgesloten.
 
 **Query**
 
@@ -259,9 +259,9 @@ Het bovenstaande voorbeeld wordt een matrix als bron gebruikt, een object kan oo
 
 
 ## <a id="WhereClause"></a>WHERE-component
-De WHERE-component (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarden die de JSON-documenten die zijn opgegeven door de bron moet voldoen om te worden opgenomen als onderdeel van het resultaat. De opgegeven voorwaarden op "true" worden beschouwd voor het resultaat moet worden geëvalueerd door elk JSON-document. De WHERE-component wordt gebruikt door de laag index om te bepalen van de absolute kleinste subset van de brondocumenten die deel van het resultaat uitmaken kunnen. 
+WHERE-component Hallo (**`WHERE <filter_condition>`**) is optioneel. Deze geeft Hallo voorwaarde(n) dat Hallo JSON-documenten geleverd door het Hallo-bron moeten voldoen aan volgorde toobe opgenomen als onderdeel van Hallo resultaat. Elk JSON-document moet worden geëvalueerd Hallo opgegeven voorwaarden te 'true' toobe in aanmerking voor Hallo resultaat. Hallo waar component wordt gebruikt door Hallo index laag in volgorde toodetermine Hallo absolute kleinste subset van brondocumenten die deel van Hallo resultaat uitmaken kunnen. 
 
-De volgende query aanvragen documenten met een eigenschap name waarvan de waarde `AndersenFamily`. Elk document dat u beschikt niet over een eigenschap name of waar de waarde komt niet overeen met `AndersenFamily` is uitgesloten. 
+Hallo volgende query haalt u documenten met een eigenschap name waarvan de waarde `AndersenFamily`. Elk document dat u beschikt niet over een eigenschap name of waar Hallo waarde komt niet overeen met `AndersenFamily` is uitgesloten. 
 
 **Query**
 
@@ -280,9 +280,9 @@ De volgende query aanvragen documenten met een eigenschap name waarvan de waarde
     }]
 
 
-Het vorige voorbeeld blijkt een eenvoudige gelijkheid-query. DocumentDB-API SQL ondersteunt ook een groot aantal scalaire expressies. De meest gebruikte zijn binaire bestanden en unaire expressies. Eigenschap verwijzingen van de bron JSON-object zijn ook geldig expressies. 
+Hallo vorige voorbeeld blijkt een eenvoudige gelijkheid-query. DocumentDB-API SQL ondersteunt ook een groot aantal scalaire expressies. Hallo meest gebruikte binaire bestanden en unaire expressies zijn. Eigenschap verwijzingen uit Hallo bron JSON-object zijn ook geldig expressies. 
 
-De volgende binaire operators worden momenteel ondersteund en kunnen worden gebruikt in query's, zoals wordt weergegeven in de volgende voorbeelden:  
+binaire operators na Hallo worden momenteel ondersteund en kan worden gebruikt in query's, zoals wordt weergegeven in Hallo volgen voorbeelden:  
 
 <table>
 <tr>
@@ -323,7 +323,7 @@ We gaan verdiepen in enkele query's met behulp van de binaire operators.
     WHERE c.grade >= 5     -- matching grades == 5
 
 
-De unaire operators +,-, ~ worden ook ondersteund, en niet kan worden gebruikt in query's, zoals wordt weergegeven in het volgende voorbeeld:
+unaire operators Hallo +,-, ~ worden ook ondersteund, en niet kan worden gebruikt in query's, zoals wordt weergegeven in het volgende voorbeeld Hallo:
 
     SELECT *
     FROM Families.children[0] c
@@ -335,10 +335,10 @@ De unaire operators +,-, ~ worden ook ondersteund, en niet kan worden gebruikt i
 
 
 
-Naast de binaire bestanden en unaire operators, zijn ook verwijzingen van de eigenschap toegestaan. Bijvoorbeeld: `SELECT * FROM Families f WHERE f.isRegistered` retourneert het JSON-document met de eigenschap `isRegistered` waarvoor de eigenschap waarde gelijk is aan de JSON `true` waarde. Alle overige waarden (false, null, niet-gedefinieerde, `<number>`, `<string>`, `<object>`, `<array>`, enzovoort) leidt tot het brondocument wordt uitgesloten van het resultaat. 
+Bovendien toobinary en unaire operators, eigenschap verwijzingen zijn ook toegestaan. Bijvoorbeeld: `SELECT * FROM Families f WHERE f.isRegistered` retourneert Hallo JSON-document met de eigenschap Hallo `isRegistered` waarbij de waarde van eigenschap Hallo gelijk toohello JSON is `true` waarde. Andere waarden (false, null, niet-gedefinieerde, `<number>`, `<string>`, `<object>`, `<array>`, enzovoort) toohello brondocument wordt uitgesloten van Hallo resultaat leidt. 
 
 ### <a name="equality-and-comparison-operators"></a>Gelijkheid en het vergelijkingstype operators
-De volgende tabel ziet het resultaat van de gelijkheid vergelijkingen in DocumentDB API SQL tussen twee typen die JSON.
+Hallo volgende tabel toont Hallo resultaat van de gelijkheid vergelijkingen in DocumentDB API SQL tussen twee typen die JSON.
 
 <table style = "width:300px">
    <tbody>
@@ -510,33 +510,33 @@ Niet-gedefinieerd </td>
    </tbody>
 </table>
 
-Voor andere vergelijkingsoperators zoals >, > =,! =, < en < =, de volgende regels toepassen:   
+Voor andere vergelijkingsoperators zoals >, > =,! =, < en < =, hello volgende regels zijn van toepassing:   
 
 * Vergelijking van verschillende typen resulteert in Undefined.
 * Vergelijking tussen de twee objecten of twee matrices resulteert in een Undefined.   
 
-Als het resultaat van de scalaire expressie die in het filter is niet gedefinieerd, het bijbehorende document zou niet opgenomen in het resultaat, aangezien Undefined niet logisch neer op 'true'.
+Als Hallo resultaat van de scalaire expressie Hallo in Hallo-filter is niet is gedefinieerd, Hallo bijbehorende document zou niet opgenomen in Hallo resultaat, aangezien Undefined logisch te 'true' niet vergelijken.
 
 ### <a name="between-keyword"></a>TUSSEN sleutelwoord
-U kunt ook het sleutelwoord BETWEEN op query's op bereiken met waarden zoals in de ANSI SQL express gebruiken. TUSSEN kan worden gebruikt met tekenreeksen of getallen.
+U kunt ook Hallo BETWEEN sleutelwoord tooexpress query's op bereiken met waarden zoals in de ANSI SQL. TUSSEN kan worden gebruikt met tekenreeksen of getallen.
 
-Deze query retourneert bijvoorbeeld alle familie documenten waarmee het eerste onderliggende klasse tussen de 1-5 (zowel liggen is). 
+Deze query retourneert bijvoorbeeld alle familie documenten in welke Hallo is het eerste onderliggende hoogwaardige tussen 1-5 (zowel liggen). 
 
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
 
-In tegenstelling tot in de ANSI-SQL kun je de BETWEEN-component in de component FROM zoals in het volgende voorbeeld.
+In tegenstelling tot in de ANSI-SQL, kunt u ook gebruiken Hallo BETWEEN component in hello FROM-component zoals in het volgende voorbeeld Hallo.
 
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 
-Houd er rekening mee voor snellere tijden in uitvoering, voor het maken van een indexeringsbeleid die gebruikmaakt van een type bereik index op basis van een numerieke eigenschappen/paden die in de component BETWEEN zijn gefilterd. 
+Voor snellere tijden in uitvoering, houd er rekening mee toocreate een indexeringsbeleid die gebruikmaakt van een type bereik index op basis van een numerieke eigenschappen/paden die zijn gefilterd in Hallo BETWEEN-component. 
 
-Het belangrijkste verschil tussen het gebruik van BETWEEN in DocumentDB-API en ANSI SQL is dat u kunt snelle bereik een query uitgevoerd naar eigenschappen van gemengde gegevenstypen: bijvoorbeeld wellicht 'hoogwaardige' is geen getal (5) in een aantal documenten en tekenreeksen in andere gevallen ('grade4'). In dergelijke gevallen, wordt zoals in JavaScript, een vergelijking tussen twee verschillende typen resulteert in een 'niet-gedefinieerde' en het document overgeslagen.
+Hallo belangrijkste verschil tussen het gebruik van BETWEEN in DocumentDB-API en ANSI SQL is dat u kunt snelle bereik een query uitgevoerd naar eigenschappen van gemengde gegevenstypen: bijvoorbeeld wellicht 'hoogwaardige' is geen getal (5) in een aantal documenten en tekenreeksen in andere gevallen ('grade4'). In dergelijke gevallen, wordt zoals in JavaScript, een vergelijking tussen de twee verschillende typen resulteert in een 'niet-gedefinieerde' en het Hallo-document overgeslagen.
 
 ### <a name="logical-and-or-and-not-operators"></a>Logische (AND, OR en NOT) operators
-Logische operators bewerken Boole-waarden. De logische waarheid tabellen voor deze operators worden weergegeven in de volgende tabellen.
+Logische operators bewerken Boole-waarden. Hallo logische waarheid tabellen voor deze operators worden weergegeven in Hallo tabellen te volgen.
 
 | OF | True | False | Niet-gedefinieerd |
 | --- | --- | --- | --- |
@@ -557,40 +557,40 @@ Logische operators bewerken Boole-waarden. De logische waarheid tabellen voor de
 | Niet-gedefinieerd |Niet-gedefinieerd |
 
 ### <a name="in-keyword"></a>TREFWOORD
-Het sleutelwoord kan worden gebruikt om te controleren of een opgegeven waarde komt overeen met elke waarde in een lijst. Deze query retourneert bijvoorbeeld alle familie documenten waar de id van 'WakefieldFamily' of 'AndersenFamily' is. 
+Hallo sleutelwoord kan gebruikte toocheck zijn of een opgegeven waarde komt overeen met elke waarde in een lijst. Bijvoorbeeld, retourneert deze query alle familie documenten waar Hallo-id van 'WakefieldFamily' of 'AndersenFamily'. 
 
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 
-In dit voorbeeld retourneert alle documenten waarin de status is een van de opgegeven waarden.
+In dit voorbeeld retourneert alle documenten waar Hallo status is Hallo opgegeven waarden.
 
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
 ### <a name="ternary--and-coalesce--operators"></a>Ternair (?) en operators Coalesce (?)
-De operators Ternair en Coalesce kunnen worden gebruikt voor het bouwen van voorwaardelijke expressies, vergelijkbaar met populaire programmeertalen, zoals C# en JavaScript. 
+Hallo Ternair en Coalesce operators kunnen worden gebruikt toobuild voorwaardelijke expressies, vergelijkbare toopopular programmeertalen zoals C# en JavaScript. 
 
-De operator Ternair (?) is heel handig bij het maken van nieuwe JSON-eigenschappen op elk gewenst moment. Bijvoorbeeld, kunt nu u query's voor het classificeren van het niveau van de klasse in een menselijke leesbare vorm zoals beginnende/tussenliggende/Geavanceerd zoals hieronder wordt weergegeven.
+Hallo Ternair (?) operator is erg handig als maken nieuwe JSON-eigenschappen op Hallo vliegen. Bijvoorbeeld, kunt nu u query's tooclassify Hallo klasse niveaus in een menselijke leesbare vorm zoals beginnende/tussenliggende/Geavanceerd zoals hieronder wordt weergegeven.
 
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
 
-U kunt ook het aanroepen van de operator zoals in de onderstaande query nesten.
+U kunt ook Hallo aanroepen toohello operator zoals in de onderstaande Hallo query nesten.
 
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-Als met andere operators query als de eigenschappen waarnaar wordt verwezen in de conditionele expressie ontbreken in elk document of als de typen worden vergeleken verschillen, vervolgens die documenten worden niet opgenomen in de queryresultaten.
+Als met andere operators query zijn als hello waarnaar wordt verwezen eigenschappen in Hallo voorwaardelijke expressies ontbreken in elk document of als het Hallo-typen worden vergeleken zijn verschillend zijn, klikt u vervolgens die documenten uitgesloten in Hallo queryresultaten.
 
-De operator Coalesce (?) kan worden gebruikt voor het efficiënt controleren op de aanwezigheid van een eigenschap (ook is gedefinieerd) in een document. Dit is handig wanneer een query op semi-gestructureerde of gegevens van gemengde typen. Bijvoorbeeld, retourneert deze query 'Achternaam' indien aanwezig, of de 'Achternaam' als dit niet aanwezig.
+Hallo Coalesce (?) operator kan worden tooefficiently selectievakje (ook gebruikt voor de aanwezigheid van een eigenschap Hallo is gedefinieerd) in een document. Dit is handig wanneer een query op semi-gestructureerde of gegevens van gemengde typen. Bijvoorbeeld, retourneert deze query Hallo 'lastName' indien aanwezig, of Hallo 'Achternaam' als dit niet aanwezig.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
 ### <a id="EscapingReservedKeywords"></a>Tussen aanhalingstekens eigenschapsaccessor
-U kunt ook toegang tot eigenschappen met behulp van de operator tussen aanhalingstekens eigenschap `[]`. Bijvoorbeeld: `SELECT c.grade` en `SELECT c["grade"]` equivalent zijn. Deze syntaxis is handig wanneer u een eigenschap die spaties, speciale tekens bevat, of er gebeurt moet met dezelfde naam als een SQL-sleutelwoord of een gereserveerd woord escape.
+U kunt ook toegang tot eigenschappen met Hallo tussen aanhalingstekens eigenschap operator `[]`. Bijvoorbeeld: `SELECT c.grade` en `SELECT c["grade"]` equivalent zijn. Deze syntaxis is nuttig wanneer u een eigenschap die spaties, speciale tekens bevat of gebeurt tooshare Hallo dezelfde naam als een SQL-sleutelwoord of een gereserveerd woord tooescape nodig.
 
     SELECT f["lastName"]
     FROM Families f
@@ -598,9 +598,9 @@ U kunt ook toegang tot eigenschappen met behulp van de operator tussen aanhaling
 
 
 ## <a id="SelectClause"></a>SELECT-component
-De component SELECT (**`SELECT <select_list>`**) is verplicht en Hiermee geeft u de waarden die worden opgehaald uit de query, net zoals in ANSI SQL. De subset die boven op de brondocumenten zijn gefilterd op de Projectiefase, waarbij de opgegeven JSON-waarden worden opgehaald en een nieuwe JSON-object is samengesteld, voor elke doorgegeven op deze invoer worden doorgegeven. 
+Hallo SELECT-component (**`SELECT <select_list>`**) is verplicht en Hiermee geeft u de waarden die worden opgehaald uit Hallo query, net zoals in de ANSI SQL. Hallo subset die boven op Hallo brondocumenten zijn gefilterd worden doorgegeven naar Hallo Projectiefase, waarbij Hallo opgegeven JSON-waarden worden opgehaald en een nieuwe JSON-object voor elke doorgegeven op deze invoer is samengesteld. 
 
-Het volgende voorbeeld toont een typische SELECT-query. 
+Hallo volgende voorbeeld toont een typische SELECT-query. 
 
 **Query**
 
@@ -620,7 +620,7 @@ Het volgende voorbeeld toont een typische SELECT-query.
 
 
 ### <a name="nested-properties"></a>Geneste eigenschappen
-In het volgende voorbeeld we twee geneste eigenschappen projecteert `f.address.state` en `f.address.city`.
+In de Hallo voorbeeld te volgen, we twee geneste eigenschappen projecteert `f.address.state` en `f.address.city`.
 
 **Query**
 
@@ -636,7 +636,7 @@ In het volgende voorbeeld we twee geneste eigenschappen projecteert `f.address.s
     }]
 
 
-Projectie biedt ook ondersteuning voor JSON-expressies, zoals wordt weergegeven in het volgende voorbeeld:
+Projectie biedt ook ondersteuning voor JSON-expressies, zoals wordt weergegeven in Hallo voorbeeld te volgen:
 
 **Query**
 
@@ -655,7 +655,7 @@ Projectie biedt ook ondersteuning voor JSON-expressies, zoals wordt weergegeven 
     }]
 
 
-Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en omdat er geen sleutel is opgegeven, gebruiken we de impliciete argument variabele namen die beginnen met `$1`. Deze query retourneert bijvoorbeeld twee impliciete argumentvariabelen, met het label `$1` en `$2`.
+Bekijk Hallo-rol van `$1` hier. Hallo `SELECT` component moet een JSON-object toocreate en omdat er geen sleutel is opgegeven, gebruiken we de impliciete argument variabele namen die beginnen met `$1`. Deze query retourneert bijvoorbeeld twee impliciete argumentvariabelen, met het label `$1` en `$2`.
 
 **Query**
 
@@ -678,9 +678,9 @@ Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en
 
 
 ### <a name="aliasing"></a>Aliasing
-Nu gaan we het bovenstaande voorbeeld expliciete aliasing waarden uitbreiden. Het sleutelwoord gebruikt voor aliasing is. Dit is optioneel, zoals wordt weergegeven tijdens het projecteren van de tweede waarde als `NameInfo`. 
+Nu gaan we uitbreiden Hallo voorbeeld hierboven expliciete aliasing van waarden. Hallo-sleutelwoord gebruikt voor aliasing is. Dit is optioneel, zoals wordt weergegeven tijdens het projecteren Hallo tweede waarde als `NameInfo`. 
 
-Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing om de naam van een of beide van de eigenschappen, zodat ze ondubbelzinnig zijn gemaakt in het verwachte resultaat te worden gebruikt.
+Als een query over twee eigenschappen met Hallo dezelfde naam aliasing moet gebruikte toorename een of beide eigenschappen Hallo zodat ze ondubbelzinnig zijn gemaakt in Hallo geprojecteerd resultaat.
 
 **Query**
 
@@ -704,7 +704,7 @@ Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing om de na
 
 
 ### <a name="scalar-expressions"></a>Scalaire expressies
-Naast de verwijzingen van de eigenschap ondersteunt de component SELECT ook scalaire expressies zoals constanten, aritmetische expressies, logische expressies, enzovoort. Hier is bijvoorbeeld een eenvoudige 'Hallo wereld'-query.
+Bovendien tooproperty verwijst naar, Hallo SELECT-component biedt ook ondersteuning voor scalaire expressies zoals constanten, aritmetische expressies, logische expressies, enzovoort. Hier is bijvoorbeeld een eenvoudige 'Hallo wereld'-query.
 
 **Query**
 
@@ -730,7 +730,7 @@ Hier volgt een voorbeeld van een complexere die gebruikmaakt van een scalaire ex
     }]
 
 
-In het volgende voorbeeld is het resultaat van de scalaire expressie die een Booleaanse waarde.
+In Hallo voorbeeld te volgen, is Hallo resultaat van de scalaire expressie Hallo het een Booleaanse waarde.
 
 **Query**
 
@@ -750,7 +750,7 @@ In het volgende voorbeeld is het resultaat van de scalaire expressie die een Boo
 
 
 ### <a name="object-and-array-creation"></a>Maken van het object en array
-Een andere belangrijke functie van DocumentDB API SQL is array-object maken. In het vorige voorbeeld, houd er rekening mee dat er een nieuwe JSON-object gemaakt. Op deze manier kan een ook matrices samenstellen zoals weergegeven in de volgende voorbeelden:
+Een andere belangrijke functie van DocumentDB API SQL is array-object maken. In het vorige voorbeeld hello, houd er rekening mee dat er een nieuwe JSON-object gemaakt. Op deze manier kunt een ook matrices maken zoals in Hallo volgen voorbeelden:
 
 **Query**
 
@@ -775,7 +775,7 @@ Een andere belangrijke functie van DocumentDB API SQL is array-object maken. In 
     ]
 
 ### <a id="ValueKeyword"></a>WAARDE sleutelwoord
-De **waarde** sleutelwoord biedt een manier om JSON-waarde te retourneren. De onderstaande query retourneert bijvoorbeeld scalaire `"Hello World"` in plaats van `{$1: "Hello World"}`.
+Hallo **waarde** sleutelwoord biedt een manier tooreturn JSON-waarde. Bijvoorbeeld Hallo query retourneert Hallo scalaire hieronder `"Hello World"` in plaats van `{$1: "Hello World"}`.
 
 **Query**
 
@@ -788,7 +788,7 @@ De **waarde** sleutelwoord biedt een manier om JSON-waarde te retourneren. De on
     ]
 
 
-De volgende query retourneert de waarde van de JSON zonder de `"address"` label in de resultaten.
+Hallo volgende query retourneert Hallo JSON-waarde zonder Hallo `"address"` label in Hallo resultaten.
 
 **Query**
 
@@ -810,7 +810,7 @@ De volgende query retourneert de waarde van de JSON zonder de `"address"` label 
       }
     ]
 
-Het volgende voorbeeld breidt deze optie als u wilt laten zien hoe u JSON primitieve waarden (het knooppuntniveau van de JSON-structuur) retourneren. 
+Hallo volgende voorbeeld breidt deze tooshow hoe tooreturn JSON primitieve waarden (knooppuntniveau van JSON-structuur Hallo Hallo). 
 
 **Query**
 
@@ -826,7 +826,7 @@ Het volgende voorbeeld breidt deze optie als u wilt laten zien hoe u JSON primit
 
 
 ### <a name="-operator"></a>* Operator
-De speciale operator (*) wordt ondersteund voor het document als project-is. Wanneer gebruikt, moet dit het enige verwachte veld. Terwijl een query zoals `SELECT * FROM Families f` geldig is, `SELECT VALUE * FROM Families f ` en `SELECT *, f.id FROM Families f ` zijn niet geldig.
+Hallo speciale operator (*) is ondersteunde tooproject Hallo-document als-is. Wanneer gebruikt, moet dit Hallo geprojecteerd alleen veld. Terwijl een query zoals `SELECT * FROM Families f` geldig is, `SELECT VALUE * FROM Families f ` en `SELECT *, f.id FROM Families f ` zijn niet geldig.
 
 **Query**
 
@@ -855,7 +855,7 @@ De speciale operator (*) wordt ondersteund voor het document als project-is. Wan
     }]
 
 ### <a id="TopKeyword"></a>Operator TOP
-Het sleutelwoord TOP kan worden gebruikt om te beperken het aantal waarden van een query. Als eerste wordt gebruikt in combinatie met de component ORDER BY, is de resultatenset beperkt tot de eerste N aantal geordende waarden; anders wordt het eerste N aantal resultaten in een niet-gedefinieerde volgorde. Als een best practice in een instructie SELECT gebruik altijd een component ORDER BY met de TOP-component. Dit is de enige manier om voorspelbare aangeven welke rijen zijn beïnvloed door boven. 
+Hallo bovenste sleutelwoord kan worden gebruikt toolimit Hallo aantal waarden dat door een query. Als eerste wordt gebruikt in combinatie met Hallo ORDER BY-component, is Hallo resultatenset beperkt toohello eerste N aantal geordende waarden; Anders retourneert het Hallo eerste N aantal resultaten in een niet-gedefinieerde volgorde. Als een best practice in een instructie SELECT gebruik altijd een component ORDER BY met Hallo TOP-component. Dit is de enige manier Hallo toopredictably aangeven welke rijen zijn beïnvloed door boven. 
 
 **Query**
 
@@ -885,7 +885,7 @@ Het sleutelwoord TOP kan worden gebruikt om te beperken het aantal waarden van e
 TOP kan worden gebruikt met een constante waarde (zoals hierboven) of met de waarde van een variabele query's met parameters. Zie geparameteriseerde query's hieronder voor meer informatie.
 
 ### <a id="Aggregates"></a>Statistische functies
-U kunt ook uitvoeren aggregaties in de `SELECT` component. Statistische functies uitvoeren van een berekening op een set waarden en één waarde retourneren. Bijvoorbeeld retourneert de volgende query de telling van familie documenten binnen de verzameling.
+U kunt ook aggregaties uitvoeren in Hallo `SELECT` component. Statistische functies uitvoeren van een berekening op een set waarden en één waarde retourneren. Bijvoorbeeld: hello volgende query retourneert Hallo telling van familie documenten binnen Hallo-verzameling.
 
 **Query**
 
@@ -898,7 +898,7 @@ U kunt ook uitvoeren aggregaties in de `SELECT` component. Statistische functies
         "$1": 2
     }]
 
-U kunt ook de scalaire waarde van de statistische functie retourneren met behulp van de `VALUE` sleutelwoord. De volgende query retourneert bijvoorbeeld het aantal waarden als een enkel getal:
+U kunt de scalaire waarde Hallo Hallo cumulatieve ook met behulp van Hallo retourneren `VALUE` sleutelwoord. Bijvoorbeeld retourneert hello volgende query het aantal waarden Hallo als een enkel getal:
 
 **Query**
 
@@ -909,7 +909,7 @@ U kunt ook de scalaire waarde van de statistische functie retourneren met behulp
 
     [ 2 ]
 
-U kunt ook statistische functies uitvoeren in combinatie met filters. De volgende query retourneert bijvoorbeeld het aantal documenten met het adres in de staat Washington.
+U kunt ook statistische functies uitvoeren in combinatie met filters. Bijvoorbeeld retourneert hello volgende query het aantal documenten met Hallo adres Hallo in Hallo staat Washington.
 
 **Query**
 
@@ -921,28 +921,28 @@ U kunt ook statistische functies uitvoeren in combinatie met filters. De volgend
 
     [ 1 ]
 
-De volgende tabel bevat de lijst met ondersteunde statistische functies in DocumentDB-API. `SUM`en `AVG` via numerieke waarden worden uitgevoerd terwijl `COUNT`, `MIN`, en `MAX` via getallen, tekenreeksen, Booleaanse waarden en null-waarden kunnen worden uitgevoerd. 
+Hallo volgende tabel toont Hallo lijst met ondersteunde statistische functies in DocumentDB-API. `SUM`en `AVG` via numerieke waarden worden uitgevoerd terwijl `COUNT`, `MIN`, en `MAX` via getallen, tekenreeksen, Booleaanse waarden en null-waarden kunnen worden uitgevoerd. 
 
 | Gebruik | Beschrijving |
 |-------|-------------|
-| AANTAL | Retourneert het aantal items in de expressie. |
-| SOM   | Retourneert de som van alle waarden in de expressie. |
-| MIN   | Retourneert de minimale waarde in de expressie. |
-| MAXIMUM AANTAL   | Retourneert de maximumwaarde in de expressie. |
-| GEM.   | Retourneert het gemiddelde van de waarden in de expressie. |
+| AANTAL | Retourneert Hallo het aantal items in de expressie Hallo. |
+| SOM   | Retourneert Hallo som van alle Hallo-waarden in Hallo-expressie. |
+| MIN   | Retourneert Hallo minimumwaarde in het Hallo-expressie. |
+| MAXIMUM AANTAL   | Retourneert Hallo maximumwaarde in het Hallo-expressie. |
+| GEM.   | Retourneert Hallo gemiddelde van waarden in de expressie Hallo Hallo. |
 
-Statistische functies kunnen ook worden uitgevoerd via de resultaten van een matrix herhaling. Zie voor meer informatie [herhaling van de matrix in query's](#Iteration).
+Statistische functies kunnen ook worden uitgevoerd via Hallo resultaten van een matrix herhaling. Zie voor meer informatie [herhaling van de matrix in query's](#Iteration).
 
 > [!NOTE]
-> Wanneer u de Azure portal Queryverkenner, houd er rekening mee dat aggregatie van query's kunnen het resultaat gedeeltelijk geaggregeerde via een querypagina. De SDK's produceert één cumulatieve waarde op alle pagina's. 
+> Wanneer met behulp van Azure portal Queryverkenner hello, houd er rekening mee dat aggregatie van query's kunnen worden geretourneerd Hallo gedeeltelijk cumulatieve resultaten gedurende een querypagina. Hallo SDK's produceert één cumulatieve waarde op alle pagina's. 
 > 
-> Als u wilt uitvoeren met code aggregatie-query's, moet u de .NET SDK 1.12.0, .NET Core SDK 1.1.0 of Java SDK 1.9.5 of hoger.    
+> In volgorde tooperform aggregatie van query's met code, moet u .NET SDK 1.12.0, .NET Core SDK 1.1.0 of Java SDK 1.9.5 of hoger.    
 >
 
 ## <a id="OrderByClause"></a>ORDER BY-component
-Zoals in de ANSI-SQL, u een optionele component Order By tijdens het opvragen opnemen kunt. De component kan bevatten een optioneel argument ASC/DESC de volgorde waarin de resultaten moeten worden opgehaald.
+Zoals in de ANSI-SQL, u een optionele component Order By tijdens het opvragen opnemen kunt. Hallo-component kan bestaan uit een optionele ASC/DESC argument toospecify Hallo volgorde waarin de resultaten moeten worden opgehaald.
 
-Hier is bijvoorbeeld een query waarmee families in volgorde van de residente plaatsnaam opgehaald.
+Hier is bijvoorbeeld een query waarmee families in volgorde van de naam van Hallo residente stad opgehaald.
 
 **Query**
 
@@ -963,7 +963,7 @@ Hier is bijvoorbeeld een query waarmee families in volgorde van de residente pla
       }
     ]
 
-En een query waarmee opgehaald families in volgorde van de aanmaakdatum, die wordt opgeslagen als een getal dat de epoche tijd, Internet Explorer, verstreken tijd sinds 1 januari 1970 in seconden voor hier.
+En hier is een query waarmee families in volgorde van de aanmaakdatum, dat is opgeslagen, zoals een Hallo epoche tijd, Internet Explorer, verstreken tijd sinds 1 januari 1970 in seconden worden opgehaald.
 
 **Query**
 
@@ -987,7 +987,7 @@ En een query waarmee opgehaald families in volgorde van de aanmaakdatum, die wor
 ## <a id="Advanced"></a>Concepten van geavanceerde database en SQL-query 's
 
 ### <a id="Iteration"></a>Herhaling
-Een nieuwe constructie is toegevoegd de **IN** -sleutelwoord in DocumentDB API SQL ter ondersteuning van iteratie van JSON-matrices. De FROM-bron biedt ondersteuning voor herhaling. Laten we beginnen met het volgende voorbeeld:
+Een nieuwe constructie is toegevoegd via Hallo **IN** -sleutelwoord in DocumentDB API SQL tooprovide ondersteuning voor iteratie van JSON-matrices. Hallo FROM bron biedt ondersteuning voor herhaling. U begint met het volgende voorbeeld Hallo:
 
 **Query**
 
@@ -1021,7 +1021,7 @@ Een nieuwe constructie is toegevoegd de **IN** -sleutelwoord in DocumentDB API S
       ]
     ]
 
-Nu we bekijken een andere query die herhaling via onderliggende elementen in de verzameling uitvoert. Noteer het verschil in de uitvoermatrix. In dit voorbeeld wordt gesplitst `children` en worden de resultaten samengevoegd in één array.  
+Nu we bekijken een andere query die herhaling via onderliggende elementen in de verzameling Hallo uitvoert. Houd er rekening mee Hallo verschil in Hallo uitvoermatrix. In dit voorbeeld wordt gesplitst `children` en worden samengevoegd Hallo resultaten in een matrix.  
 
 **Query**
 
@@ -1051,7 +1051,7 @@ Nu we bekijken een andere query die herhaling via onderliggende elementen in de 
       }
     ]
 
-Dit kan verder worden gebruikt om te filteren op elke afzonderlijke vermelding van de matrix, zoals wordt weergegeven in het volgende voorbeeld:
+Dit kan verder gebruikte toofilter op elke afzonderlijke vermelding van de matrix Hallo zoals weergegeven in het volgende voorbeeld Hallo zijn:
 
 **Query**
 
@@ -1065,7 +1065,7 @@ Dit kan verder worden gebruikt om te filteren op elke afzonderlijke vermelding v
       "givenName": "Lisa"
     }]
 
-U kunt ook aggregatie uitvoeren via het resultaat van de matrix herhaling. Bijvoorbeeld telt de volgende query het aantal onderliggende items onder alle families.
+U kunt ook aggregatie uitvoeren via Hallo resultaat van de matrix herhaling. Bijvoorbeeld: hello volgende query telt Hallo aantal onderliggende items onder alle families.
 
 **Query**
 
@@ -1081,11 +1081,11 @@ U kunt ook aggregatie uitvoeren via het resultaat van de matrix herhaling. Bijvo
     ]
 
 ### <a id="Joins"></a>Joins
-In een relationele database is de noodzaak om toe te voegen tussen de tabellen belangrijk. Het is het gevolg van logische ontwerpen genormaliseerde schema's. In tegenstelling tot dit omgaat DocumentDB API met het gedenormaliseerd gegevensmodel zonder schema documenten. Dit is het logische equivalent van een 'self-join'.
+In een relationele database Hallo nodig toojoin tussen tabellen, het is belangrijk. De Hallo logische corollary toodesigning genormaliseerd schema's. Strijdig toothis, DocumentDB API omgaat met de Hallo gedenormaliseerd gegevensmodel zonder schema documenten. Dit is Hallo logische equivalent van een 'self-join'.
 
-De syntaxis die ondersteuning biedt voor de taal is < from_source1 > JOIN < from_source2 > JOIN... JOIN < from_sourceN >. Over het algemeen dit retourneert een reeks **N**- tuples (tuple met **N** waarden). Elke tuple heeft geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets waarden. Dit is met andere woorden, een volledige vectorproduct van de sets die deel uitmaken van de join.
+Hallo-syntaxis die ondersteuning biedt voor Hallo taal is < from_source1 > JOIN < from_source2 > JOIN... JOIN < from_sourceN >. Over het algemeen dit retourneert een reeks **N**- tuples (tuple met **N** waarden). Elke tuple heeft geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets waarden. Dit is met andere woorden, een volledige vectorproduct van Hallo sets die deel uitmaken van Hallo join.
 
-De volgende voorbeelden ziet de werking van de JOIN-component. In het volgende voorbeeld wordt het resultaat is leeg omdat het vectorproduct van elk document van de bron en een lege set is leeg.
+Hallo volgende voorbeelden ziet u de werking van Hallo JOIN-component. Hallo-resultaat is in Hallo voorbeeld te volgen, leeg omdat hello vectorproduct van elk document van de bron- en een lege set leeg is.
 
 **Query**
 
@@ -1099,7 +1099,7 @@ De volgende voorbeelden ziet de werking van de JOIN-component. In het volgende v
     }]
 
 
-In het volgende voorbeeld wordt de join is tussen de hoofdmap van het document en de `children` subroot. Het is een vectorproduct tussen twee JSON-objecten. Het feit dat onderliggende elementen is een matrix is niet effectief in de JOIN omdat we werkt met een enkele basis die de onderliggende matrix is. Het resultaat bevat daarom slechts twee resultaten, omdat het vectorproduct van elk document met de matrix exact slechts één document geeft.
+In Hallo voorbeeld te volgen, is het Hallo-join tussen Hallo webroot en Hallo `children` subroot. Het is een vectorproduct tussen twee JSON-objecten. Hallo fact dat onderliggende elementen is een matrix is niet effectief in Hallo JOIN Aangezien we werkt met een één hoofdelement die Hallo onderliggende matrix. Hallo resultaat bevat daarom slechts twee resultaten omdat hello vectorproduct van elk document met Hallo matrix exact slechts één document levert.
 
 **Query**
 
@@ -1119,7 +1119,7 @@ In het volgende voorbeeld wordt de join is tussen de hoofdmap van het document e
     ]
 
 
-Het volgende voorbeeld ziet u een meer conventionele join:
+Hallo volgende voorbeeld ziet u een meer conventionele join:
 
 **Query**
 
@@ -1143,15 +1143,15 @@ Het volgende voorbeeld ziet u een meer conventionele join:
 
 
 
-Het eerste dat te weten is dat de `from_source` van de **JOIN** component is een iterator. Ja, de stroom in dit geval is als volgt:  
+Hallo eerst te beginnen toonote is die Hallo `from_source` Hallo **JOIN** component is een iterator. Dus Hallo stroom is in dit geval als volgt:  
 
-* Vouw van elk onderliggend element **c** in de matrix.
-* Toepassen van een vectorproduct met de hoofdmap van het document **f** met elk onderliggend element **c** dat is samengevoegd in de eerste stap.
-* Ten slotte het hoofdobject project **f** naameigenschap alleen. 
+* Vouw van elk onderliggend element **c** in Hallo matrix.
+* Toepassen van een vectorproduct met Hallo hoofdmap van document Hallo **f** met elk onderliggend element **c** dat is samengevoegd in de eerste stap Hallo.
+* Ten slotte project Hallo hoofdobject **f** naameigenschap alleen. 
 
-Het eerste document (`AndersenFamily`) bevat slechts één onderliggend element, zodat de resultatenset bevat slechts één object hoort bij dit document. Het tweede document (`WakefieldFamily`) twee onderliggende items bevat. Het vectorproduct produceert dus een afzonderlijke object voor elke onderliggende, waardoor wat resulteert in twee objecten, één voor elke onderliggende overeenkomt met dit document. De basis-velden in beide deze documenten zijn hetzelfde, net zoals u in een vectorproduct verwacht.
+eerste Hallo-document (`AndersenFamily`) bevat slechts één onderliggend element zodat Hallo resultatenset alleen een bijbehorende enkel object toothis document bevat. tweede Hallo-document (`WakefieldFamily`) twee onderliggende items bevat. Dus produceert hello vectorproduct een afzonderlijk object voor elke onderliggende, waardoor wat resulteert in twee objecten, één voor elke onderliggende bijbehorende toothis document. Hallo-hoofdmap velden in beide deze documenten zijn Hallo dezelfde zijn, net zoals u in een vectorproduct verwacht.
 
-Het echte hulpprogramma van de JOIN is van het vectorproduct in een shape die anders moeilijk te project naar formulier tuples. Bovendien ziet u in het onderstaande voorbeeld kon u filteren op de combinatie van een tuple dat kiest, kunnen de gebruiker heeft ervoor gekozen een voorwaarde voldaan door de tuples algemene.
+Hallo echt hulpprogramma Hallo JOIN tooform tuples uit Hallo-vectorproduct in een shape die anders is moeilijk tooproject. Bovendien zoals we in de onderstaande Hallo-voorbeeld zien, kon u filteren op Hallo combinatie van een tuple waarmee Hallo gebruiker heeft ervoor gekozen een voorwaarde voldaan door Hallo tuples algemene.
 
 **Query**
 
@@ -1186,7 +1186,7 @@ Het echte hulpprogramma van de JOIN is van het vectorproduct in een shape die an
 
 
 
-In dit voorbeeld is een natuurlijke extensie van het vorige voorbeeld en voert een dubbele koppeling. Het vectorproduct kan dus worden weergegeven als de volgende pseudo code:
+In dit voorbeeld is een natuurlijke extensie van het voorgaande voorbeeld Hallo en voert een dubbele koppeling. Dus kan hello vectorproduct worden weergegeven als Hallo pseudo code te volgen:
 
     for-each(Family f in Families)
     {    
@@ -1202,9 +1202,9 @@ In dit voorbeeld is een natuurlijke extensie van het vorige voorbeeld en voert e
         }
     }
 
-`AndersenFamily`heeft één onderliggende die één huisdier heeft. Dus het vectorproduct resulteert in een rij is (1\*1\*1) van deze reeks. WakefieldFamily echter twee onderliggende items heeft, maar slechts één onderliggende 'Jesse' huisdieren heeft. Jesse heeft echter twee huisdieren. Daarom het vectorproduct 1 levert\*1\*2 = 2 rijen uit deze reeks.
+`AndersenFamily`heeft één onderliggende die één huisdier heeft. Dus hello vectorproduct resulteert in een rij is (1\*1\*1) van deze reeks. WakefieldFamily echter twee onderliggende items heeft, maar slechts één onderliggende 'Jesse' huisdieren heeft. Jesse heeft echter twee huisdieren. Daarom hello vectorproduct levert 1\*1\*2 = 2 rijen uit deze reeks.
 
-In het volgende voorbeeld, er is een extra filter op `pet`. Dit omvat niet alle tuples waar de pet-naam geen is 'Schaduwkopie'. U ziet dat we kunnen bouwen tuples uit matrices, filter op een van de elementen van de tuple en een combinatie van de elementen project. 
+In het volgende voorbeeld hello, er is een extra filter op `pet`. Dit omvat niet alle Hallo tuples indien Hallo bijnaam niet 'Schaduwkopie' is. U ziet dat we kunnen toobuild tuples uit matrices, filter op Hallo-elementen van het Hallo-tuple zijn en een combinatie van elementen Hallo project. 
 
 **Query**
 
@@ -1230,17 +1230,17 @@ In het volgende voorbeeld, er is een extra filter op `pet`. Dit omvat niet alle 
 
 
 ## <a id="JavaScriptIntegration"></a>Integratie van JavaScript
-Azure Cosmos DB biedt een programmeermodel voor het uitvoeren op basis van JavaScript-toepassingslogica rechtstreeks op de verzamelingen in termen van opgeslagen procedures en triggers. Hiermee kunt u beide:
+Azure Cosmos DB biedt een programmeermodel voor het uitvoeren op basis van JavaScript-toepassingslogica rechtstreeks op Hallo van verzamelingen in termen van opgeslagen procedures en triggers. Hiermee kunt u beide:
 
-* Mogelijkheid tot high-performance transactionele CRUD-bewerkingen en een query uitgevoerd naar documenten in een verzameling doordat de diepe integratie van JavaScript-runtime rechtstreeks in de database-engine. 
-* Een natuurlijke modellering van Controlestroom, variabele scopes en -toewijzing en integratie van primitieven met databasetransacties afhandeling van uitzonderingen. Raadpleeg de JavaScript-serverzijde programmeerbaarheid-documentatie voor meer informatie over Azure DB die Cosmos-ondersteuning voor integratie van JavaScript.
+* Mogelijkheid toodo high-performance transactionele CRUD-bewerkingen en een query uitgevoerd naar documenten in een verzameling grond Hallo diepe integratie van JavaScript-runtime rechtstreeks in de database-engine Hallo. 
+* Een natuurlijke modellering van Controlestroom, variabele scopes en -toewijzing en integratie van primitieven met databasetransacties afhandeling van uitzonderingen. Raadpleeg toohello JavaScript-serverzijde programmeerbaarheid documentatie voor meer informatie over Azure DB die Cosmos-ondersteuning voor integratie van JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Gebruiker gedefinieerde functies (UDF's)
-Samen met de typen die al is gedefinieerd in dit artikel biedt DocumentDB API SQL ondersteuning voor gebruiker gedefinieerde functies (UDF). In het bijzonder wordt scalaire UDF's waar de ontwikkelaars kunnen doorgeven in nul of meerdere argumenten en terug één argument resultaat geretourneerd ondersteund. Elk van deze argumenten wordt voor geldige JSON-waarden worden gecontroleerd.  
+Samen met de Hallo-typen is al gedefinieerd in dit artikel, biedt DocumentDB API SQL ondersteuning voor gebruiker gedefinieerde functies (UDF). In het bijzonder wordt scalaire UDF's waar Hallo ontwikkelaars kunnen doorgeven in nul of meerdere argumenten en terug één argument resultaat geretourneerd ondersteund. Elk van deze argumenten wordt voor geldige JSON-waarden worden gecontroleerd.  
 
-De DocumentDB API SQL-syntaxis wordt uitgebreid ter ondersteuning van aangepaste toepassingslogica gebruik van deze door de gebruiker gedefinieerde functies. UDF's kunnen worden geregistreerd met DocumentDB-API en vervolgens naar worden verwezen als onderdeel van een SQL-query. De UDF's zijn in feite exquisitely ontworpen om te worden aangeroepen door query's. Als gevolg van deze keuze hebt UDF's geen toegang tot het contextobject met de andere JavaScript typen (opgeslagen procedures en triggers). Omdat de query's worden uitgevoerd als alleen-lezen, kunnen ze worden uitgevoerd op de primaire of op secundaire replica's. Daarom zijn UDF's ontworpen om uit te voeren op secundaire replica's in tegenstelling tot andere typen JavaScript.
+Hallo DocumentDB API SQL-syntaxis wordt uitgebreid aangepaste toepassingslogica toosupport gebruik van deze door de gebruiker gedefinieerde functies. UDF's kunnen worden geregistreerd met DocumentDB-API en vervolgens naar worden verwezen als onderdeel van een SQL-query. Hallo UDF's exquisitely zijn ontworpen in feite toobe aangeroepen door query's. Als een keuze corollary toothis UDF's hebben geen toegang toohello context-object dat andere JavaScript Hallo typen (opgeslagen procedures en triggers) hebben. Omdat de query's worden uitgevoerd als alleen-lezen, kunnen ze worden uitgevoerd op de primaire of op secundaire replica's. Daarom zijn UDF's ontworpen toorun op secundaire replica's in tegenstelling tot andere typen JavaScript.
 
-Hieronder volgt een voorbeeld van hoe een UDF kan worden geregistreerd bij de database Cosmos DB specifiek onder een documentverzameling.
+Hieronder volgt een voorbeeld van hoe een UDF op Hallo Cosmos DB database onder een documentverzameling specifiek kan worden geregistreerd.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1254,12 +1254,12 @@ Hieronder volgt een voorbeeld van hoe een UDF kan worden geregistreerd bij de da
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
 
-Het voorgaande voorbeeld maakt een UDF met de naam `REGEX_MATCH`. Deze twee waarden voor JSON-tekenreeks accepteert `input` en `pattern` en controleert of het eerste overeenkomt met het patroon die zijn opgegeven in de tweede van JavaScript string.match() functie te gebruiken.
+Hallo voorgaande voorbeeld maakt u een UDF met de naam `REGEX_MATCH`. Deze twee waarden voor JSON-tekenreeks accepteert `input` en `pattern` en controleert of Hallo eerste komt overeen met patroon Hallo opgegeven in het tweede Hallo van JavaScript string.match() functie te gebruiken.
 
-We kunnen deze UDF nu gebruiken in een query in een projectie. UDF's moeten worden gekwalificeerd met de hoofdlettergevoelige voorvoegsel "udf." Wanneer aangeroepen vanuit query's. 
+We kunnen deze UDF nu gebruiken in een query in een projectie. UDF's moeten worden gekwalificeerd met Hallo hoofdlettergevoelig voorvoegsel "udf." Wanneer aangeroepen vanuit query's. 
 
 > [!NOTE]
-> Voorafgaand aan 3-17-2015 ondersteund Cosmos DB UDF aanroepen zonder de 'udf." voorvoegsel zoals REGEX_MATCH() selecteren. Dit patroon van aanroepen is afgeschaft.  
+> Eerdere too3-17-2015, Cosmos DB ondersteund UDF aanroepen zonder Hallo 'udf." voorvoegsel zoals REGEX_MATCH() selecteren. Dit patroon van aanroepen is afgeschaft.  
 > 
 > 
 
@@ -1279,7 +1279,7 @@ We kunnen deze UDF nu gebruiken in een query in een projectie. UDF's moeten word
       }
     ]
 
-De UDF kan ook worden gebruikt in een filter, zoals wordt weergegeven in het onderstaande voorbeeld ook gekwalificeerd met de 'udf." voorvoegsel:
+Hallo UDF kan ook worden gebruikt in een filter, zoals weergegeven in Hallo voorbeeld hieronder, ook worden gekwalificeerd met Hallo 'udf." voorvoegsel:
 
 **Query**
 
@@ -1297,7 +1297,7 @@ De UDF kan ook worden gebruikt in een filter, zoals wordt weergegeven in het ond
 
 In principe UDF's geldig scalaire expressies zijn en kunnen worden gebruikt in projecties en filters. 
 
-Als op de kracht van UDF's wilt uitbreiden, bekijken we een ander voorbeeld met voorwaardelijke logica:
+tooexpand op Hallo kracht van UDF's, we kijken naar een ander voorbeeld met voorwaardelijke logica:
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
@@ -1320,7 +1320,7 @@ Als op de kracht van UDF's wilt uitbreiden, bekijken we een ander voorbeeld met 
                 seaLevelUdf);
 
 
-Hieronder volgt een voorbeeld waarin de UDF oefeningen.
+Hieronder volgt een voorbeeld dat oefeningen Hallo UDF.
 
 **Query**
 
@@ -1341,21 +1341,21 @@ Hieronder volgt een voorbeeld waarin de UDF oefeningen.
     ]
 
 
-Als de voorgaande voorbeelden presenteren, UDF's de kracht van JavaScript-taal geïntegreerd met de API DocumentDB SQL biedt een uitgebreide programmeerbare interface hiervoor complexe procedurele, heeft voorwaardelijke logica met behulp van de ingebouwde mogelijkheden voor JavaScript-runtime.
+Als de voorgaande voorbeelden toepassingen hello, integreren UDF's in Hallo power van JavaScript-taal Hallo DocumentDB API SQL tooprovide een uitgebreide programmeerbare interface toodo complexe procedurele, heeft voorwaardelijke logica met Hallo hulp van de ingebouwde JavaScript-runtime mogelijkheden.
 
-DocumentDB-API SQL biedt de argumenten voor de UDF's voor elk document in de bron in het huidige stadium (WHERE-component of SELECT-component) van de verwerking van de UDF. Het resultaat is opgenomen in de algehele pijplijn naadloos. Als de eigenschappen waarnaar wordt verwezen door de UDF parameters zijn niet beschikbaar in de JSON-waarde, de parameter wordt beschouwd als niet-gedefinieerde en daarom de UDF-aanroep voor het volledig is overgeslagen. Op dezelfde manier als het resultaat van de UDF gedefinieerd is, het niet opgenomen in het resultaat. 
+DocumentDB API SQL biedt Hallo argumenten toohello UDF's voor elk document in Hallo-bron in Hallo huidige fase (WHERE-component of SELECT-component) verwerking Hallo UDF. Hallo resultaat opgenomen in algemene pijplijn naadloos Hallo. Als Hallo eigenschappen waarnaar wordt verwezen tooby Hallo UDF-parameters niet beschikbaar in JSON-waarde Hallo hello parameter wordt beschouwd zijn als niet-gedefinieerde en daarom Hallo UDF-aanroep volledig overgeslagen. Op dezelfde manier als resultaat Hallo Hallo UDF gedefinieerd is, het niet opgenomen in Hallo resultaat. 
 
-Kortom zijn UDF's geweldige tools complexe bedrijfslogica doen als onderdeel van de query.
+Kortom zijn UDF's geweldige tools toodo complexe bedrijfslogica als onderdeel van Hallo-query.
 
 ### <a name="operator-evaluation"></a>Evaluatie van operator
-Cosmos DB, tekent werkt hetzelfde als met JavaScript-operators en de evaluatie-semantiek ingevolge is een JSON-database. Terwijl Cosmos DB probeert te behouden JavaScript-semantiek in termen van JSON-ondersteuning, wordt de evaluatie van de bewerking in sommige gevallen afwijkt.
+Cosmos DB, tekent uit hoofde van een JSON-database wordt Hallo werkt hetzelfde als met JavaScript-operators en de semantiek voor evaluatie. Terwijl Cosmos DB toopreserve JavaScript-semantiek in termen van JSON-ondersteuning probeert, afwijkt Hallo bewerking evaluatie in sommige gevallen.
 
-In DocumentDB API SQL, zijn in tegenstelling tot in traditionele SQL de typen van waarden vaak niet bekend totdat de waarden uit de database zijn opgehaald. Om efficiënt query's worden uitgevoerd, wordt in de meeste van de operators strikt type vereisten hebben. 
+In DocumentDB API SQL, zijn in tegenstelling tot in traditionele SQL Hallo typen waarden vaak niet bekend totdat Hallo waarden uit de database zijn opgehaald. Query's uitvoeren in de volgorde tooefficiently, de meeste van Hallo operators strikt type vereisten hebben. 
 
-DocumentDB-API SQL biedt geen impliciete conversies, in tegenstelling tot JavaScript uitvoeren. Een query voor het exemplaar, zoals `SELECT * FROM Person p WHERE p.Age = 21` overeenkomt met de documenten met een eigenschap Age waarvan de waarde 21 is. Een ander document waarvan de eigenschap leeftijd overeenkomt met de tekenreeks '21' of andere mogelijk oneindige variaties, zoals '021', '21,0', '0021', '00021', enzovoort worden niet overeen. Zo wordt daarentegen JavaScript waar de tekenreekswaarden impliciet omgezet naar het getallen worden (op basis van de operator ex: ==). Deze keuze is van cruciaal belang voor efficiënte index zoeken in DocumentDB API SQL. 
+DocumentDB-API SQL biedt geen impliciete conversies, in tegenstelling tot JavaScript uitvoeren. Een query voor het exemplaar, zoals `SELECT * FROM Person p WHERE p.Age = 21` overeenkomt met de documenten met een eigenschap Age waarvan de waarde 21 is. Een ander document waarvan de eigenschap leeftijd overeenkomt met de tekenreeks '21' of andere mogelijk oneindige variaties, zoals '021', '21,0', '0021', '00021', enzovoort worden niet overeen. Dit is daarentegen toohello JavaScript waar Hallo tekenreekswaarden impliciet omgezet toonumbers worden (op basis van de operator ex: ==). Deze keuze is van cruciaal belang voor efficiënte index zoeken in DocumentDB API SQL. 
 
 ## <a name="parameterized-sql-queries"></a>SQL-query's met parameters
-Cosmos DB ondersteunt query's met parameters worden uitgedrukt met de vertrouwde @ notatie. Geparameteriseerde SQL biedt robuuste verwerken en de aanhalingstekens van gebruikersinvoer, onbedoeld blootstelling van gegevens via SQL-injectie voorkomen. 
+Cosmos DB ondersteunt query's met parameters worden uitgedrukt Hello bekend zijn @ notatie. Geparameteriseerde SQL biedt robuuste verwerken en de aanhalingstekens van gebruikersinvoer, onbedoeld blootstelling van gegevens via SQL-injectie voorkomen. 
 
 U kunt bijvoorbeeld een query schrijven waarmee achternaam en status van adres als parameters neemt en vervolgens uitgevoerd voor verschillende waarden van de laatste naam en adres staat op basis van de invoer van gebruiker.
 
@@ -1363,7 +1363,7 @@ U kunt bijvoorbeeld een query schrijven waarmee achternaam en status van adres a
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Deze aanvraag kan vervolgens worden verzonden aan de Cosmos-database als een JSON-query met parameters zoals hieronder wordt weergegeven.
+Deze aanvraag kan vervolgens worden verzonden tooCosmos DB een JSON-query met parameters zoals hieronder wordt weergegeven.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1373,7 +1373,7 @@ Deze aanvraag kan vervolgens worden verzonden aan de Cosmos-database als een JSO
         ] 
     }
 
-Het argument voor TOP kan worden ingesteld met query's met parameters, zoals hieronder wordt weergegeven.
+Hallo argument tooTOP kan worden ingesteld met query's met parameters, zoals hieronder wordt weergegeven.
 
     {      
         "query": "SELECT TOP @n * FROM Families",     
@@ -1395,39 +1395,39 @@ Cosmos DB ondersteunt ook een aantal ingebouwde functies voor algemene bewerking
 | Matrixfuncties         | ARRAY_CONCAT, ARRAY_CONTAINS ARRAY_LENGTH en ARRAY_SLICE                                                                                         |
 | Ruimtelijke functies       | ST_DISTANCE, ST_WITHIN ST_INTERSECTS, ST_ISVALID en ST_ISVALIDDETAILED                                                                           | 
 
-Als u een gebruiker gedefinieerde functie (UDF) waarvoor een ingebouwde functie nu beschikbaar is momenteel gebruikt, moet u de bijbehorende ingebouwde functie als is het verstandig om sneller worden uitgevoerd en efficiënter. 
+Als u momenteel een gebruiker gedefinieerde functie (UDF) waarvoor een ingebouwde functie nu beschikbaar is, moet u de bijbehorende ingebouwde functie Hallo zoals sneller toorun toobe en meer gaat efficiënt. 
 
 ### <a name="mathematical-functions"></a>Wiskundige functies
-De rekenkundige functies elke uitvoeren van een berekening op basis van de invoerwaarden die zijn opgegeven als argumenten en een numerieke waarde retourneren. Hier volgt een lijst met ondersteunde ingebouwde, rekenkundige functies.
+Hallo wiskundige functies elke uitvoeren van een berekening op basis van de invoerwaarden die zijn opgegeven als argumenten en een numerieke waarde retourneren. Hier volgt een lijst met ondersteunde ingebouwde, rekenkundige functies.
 
 
 | Gebruik | Beschrijving |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [[ABS (num_expr)](#bk_abs) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
-| [MAXIMUM (num_expr)](#bk_ceiling) | Retourneert de kleinste waarde van geheel getal groter dan of gelijk zijn aan de opgegeven numerieke expressie. |
-| [FLOOR (num_expr)](#bk_floor) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
-| [EXP (num_expr)](#bk_exp) | Retourneert de exponent van de opgegeven numerieke expressie. |
-| [LOGBOEK (num_expr [, base])](#bk_log) | Retourneert de natuurlijke logaritme van de opgegeven numerieke expressie, of de logaritme met behulp van het opgegeven grondtal |
-| [LOG10 (num_expr)](#bk_log10) | Retourneert de logaritmische waarde grondtal 10 van de opgegeven numerieke expressie. |
-| [ROUND (num_expr)](#bk_round) | Retourneert een numerieke waarde, op het dichtstbijzijnde gehele getal afgerond. |
-| [GEHEEL (num_expr)](#bk_trunc) | Retourneert een numerieke waarde, afgekapt tot het dichtstbijzijnde gehele getal. |
-| [SQRT (num_expr)](#bk_sqrt) | Retourneert de vierkantswortel van de opgegeven numerieke expressie. |
-| [Vierkante (num_expr)](#bk_square) | Retourneert het kwadraat van de opgegeven numerieke expressie. |
-| [VOEDING (num_expr, num_expr)](#bk_power) | Retourneert de kracht van de opgegeven numerieke expressie voor de opgegeven waarde. |
-| [ONDERTEKENEN (num_expr)](#bk_sign) | Retourneert de waarde teken (-1, 0, 1) van de opgegeven numerieke expressie. |
-| [BOOGCOS (num_expr)](#bk_acos) | Retourneert de hoek in radialen, waarvan de cosinus de opgegeven numerieke expressie is. ook wel de boogcosinus genoemd. |
-| [ASIN (num_expr)](#bk_asin) | Retourneert de hoek in radialen, waarvan de sinus de opgegeven numerieke expressie is. Dit wordt ook boogsinus genoemd. |
-| [BOOGTAN (num_expr)](#bk_atan) | Retourneert de hoek in radialen, waarvan de tangens de opgegeven numerieke expressie is. Dit wordt ook arctangens genoemd. |
-| [ATN2 (num_expr)](#bk_atn2) | Als resultaat geeft de hoek in radialen tussen de positieve x-as en de ray vanuit de oorsprong naar het punt (y, x), waarbij x en y zijn de waarden van de twee opgegeven float-expressies. |
-| [CO (num_expr)](#bk_cos) | Retourneert de trigonometrische cosinus van de opgegeven hoek in radialen in de opgegeven expressie. |
-| [COT (num_expr)](#bk_cot) | Retourneert de trigonometrische cotangens van de opgegeven hoek in radialen in het opgegeven numerieke expressie. |
-| [GRADEN (num_expr)](#bk_degrees) | Retourneert de overeenkomstige hoek in graden voor een hoek aangeduid in radialen. |
-| [PI)](#bk_pi) | Retourneert de constante waarde van PI. |
+| [[ABS (num_expr)](#bk_abs) | Retourneert Hallo absolute (positieve) waarde Hallo opgegeven numerieke expressie. |
+| [MAXIMUM (num_expr)](#bk_ceiling) | Retourneert Hallo kleinste geheel getal groter dan of gelijk zijn aan om Hallo opgegeven numerieke expressie. |
+| [FLOOR (num_expr)](#bk_floor) | Retourneert de grootste integer Hallo kleiner dan of gelijk toohello numerieke expressie opgegeven. |
+| [EXP (num_expr)](#bk_exp) | Retourneert Hallo exponent Hallo opgegeven numerieke expressie. |
+| [LOGBOEK (num_expr [, base])](#bk_log) | Retourneert Hallo natuurlijke logaritme van Hallo numerieke expressie, of Hallo logaritme Hallo met base opgegeven |
+| [LOG10 (num_expr)](#bk_log10) | Retourneert Hallo grondtal 10 logaritmische waarde Hallo opgegeven numerieke expressie. |
+| [ROUND (num_expr)](#bk_round) | Retourneert een numerieke waarde afgeronde toohello dichtstbijzijnde integer-waarde. |
+| [GEHEEL (num_expr)](#bk_trunc) | Retourneert een numerieke waarde ingekorte toohello dichtstbijzijnde integer-waarde. |
+| [SQRT (num_expr)](#bk_sqrt) | Retourneert de vierkantswortel van Hallo Hallo opgegeven numerieke expressie. |
+| [Vierkante (num_expr)](#bk_square) | Retourneert Hallo vierkante Hallo opgegeven numerieke expressie. |
+| [VOEDING (num_expr, num_expr)](#bk_power) | Retourneert Hallo power Hallo opgegeven numerieke expressie toohello waarde opgeven. |
+| [ONDERTEKENEN (num_expr)](#bk_sign) | Retourneert Hallo aanmelding waarde (-1, 0, 1) Hallo opgegeven numerieke expressie. |
+| [BOOGCOS (num_expr)](#bk_acos) | Retourneert Hallo hoek in radialen, waarvan de cosinus is Hallo opgegeven numerieke expressie. ook wel de boogcosinus genoemd. |
+| [ASIN (num_expr)](#bk_asin) | Retourneert Hallo hoek in radialen, waarvan de sinus Hallo is opgegeven numerieke expressie. Dit wordt ook boogsinus genoemd. |
+| [BOOGTAN (num_expr)](#bk_atan) | Retourneert Hallo hoek in radialen, waarvan de tangens Hallo is opgegeven numerieke expressie. Dit wordt ook arctangens genoemd. |
+| [ATN2 (num_expr)](#bk_atn2) | Retourneert Hallo hoek in radialen tussen Hallo positief x-as en Hallo ray van Hallo oorsprong toohello punt (y, x), waarbij x en y zijn Hallo waarden Hallo twee opgegeven float-expressies. |
+| [CO (num_expr)](#bk_cos) | Retourneert Hallo trigonometrische cosinus van Hallo hoek aangeduid in radialen, in Hallo opgegeven expressie. |
+| [COT (num_expr)](#bk_cot) | Retourneert Hallo trigonometrische cotangens van Hallo hoek aangeduid in radialen, opgegeven in Hallo numerieke expressie. |
+| [GRADEN (num_expr)](#bk_degrees) | Retourneert Hallo bijbehorende hoek in graden voor een hoek aangeduid in radialen. |
+| [PI)](#bk_pi) | Retourneert Hallo constante waarde van PI. |
 | [RADIALEN (num_expr)](#bk_radians) | Retourneert radialen wanneer een numerieke expressie, in graden wordt ingevoerd. |
-| [SIN (num_expr)](#bk_sin) | Retourneert de trigonometrische sinus van de opgegeven hoek in radialen in de opgegeven expressie. |
-| [TAN (num_expr)](#bk_tan) | Retourneert de tangens van de invoer expressie in de opgegeven expressie. |
+| [SIN (num_expr)](#bk_sin) | Retourneert Hallo trigonometrische sinus van Hallo hoek aangeduid in radialen, in Hallo opgegeven expressie. |
+| [TAN (num_expr)](#bk_tan) | Retourneert Hallo tangens van invoerexpressie Hallo in Hallo opgegeven expressie. |
 
-U kunt nu bijvoorbeeld query's als volgt uitvoeren:
+U kunt nu bijvoorbeeld query's zoals Hallo volgende uitvoeren:
 
 **Query**
 
@@ -1437,10 +1437,10 @@ U kunt nu bijvoorbeeld query's als volgt uitvoeren:
 
     [4]
 
-Het belangrijkste verschil tussen Cosmos-database functies ten opzichte van ANSI SQL is dat ze zijn ontworpen om te werken goed met schemagegevens zonder schema en een gemengde. Als u hebt een document waarbij de eigenschap Size ontbreekt of heeft een niet-numerieke waarde, zoals 'Onbekend' vervolgens het document is overgeslagen, klikt u in plaats van een fout geretourneerd.
+Hallo belangrijkste verschil tussen Cosmos-database functies vergeleken tooANSI SQL is dat ze ontworpen toowork goed met schemagegevens zonder schema en een gemengde zijn. Als u hebt een document waarbij de eigenschap Size Hallo ontbreekt of heeft een niet-numerieke waarde als 'Onbekend' vervolgens Hallo document is overgeslagen, klikt u in plaats van een fout geretourneerd.
 
 ### <a name="type-checking-functions"></a>Controle van de functies van het type
-Het type controleren of functies kunnen u om te controleren van het type van een expressie in SQL-query's. Type controleren of functies kunnen worden gebruikt om te bepalen het type van de eigenschappen in een-documenten wanneer deze variabele of een onbekend. Hier volgt een lijst met ondersteunde ingebouwde typecontrole functies.
+Hallo type controleren of functies kunnen u toocheck Hallo-type van een expressie in SQL-query's. Type controle functies kunnen worden gebruikt toodetermine Hallo type eigenschappen in een documenten op Hallo snel wanneer het variabele of onbekende. Hier volgt een lijst met ondersteunde ingebouwde typecontrole functies.
 
 <table>
 <tr>
@@ -1449,40 +1449,40 @@ Het type controleren of functies kunnen u om te controleren van het type van een
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een matrix is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo-waarde een matrix is.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een Booleaanse waarde is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo-waarde een Booleaanse waarde is.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde null is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo waarde null is.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een getal is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo waarde een getal is.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een JSON-object is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo-waarde een JSON-object is.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo-waarde een tekenreeks is.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of de eigenschap een waarde is toegewezen.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo eigenschap een waarde is toegewezen.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of het type van de waarde een tekenreeks, getal, Booleaanse waarde of null zijn is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo type Hallo-waarde een tekenreeks, getal, Booleaanse waarde of null zijn is.</td>
 </tr>
 
 </table>
 
-U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
+U kunt nu een query's de volgende Hallo uitvoeren met behulp van deze functies:
 
 **Query**
 
@@ -1493,28 +1493,28 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
     [true]
 
 ### <a name="string-functions"></a>Tekenreeks-functies
-De volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren. Hier volgt een lijst met ingebouwde tekenreeks-functies:
+Hallo volgende scalaire functies een bewerking uitvoeren op een tekenreekswaarde van de invoer en een tekenreeks, numerieke of Booleaanse waarde retourneren. Hier volgt een lijst met ingebouwde tekenreeks-functies:
 
 | Gebruik | Beschrijving |
 | --- | --- |
-| [LENGTE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retourneert het aantal tekens van de opgegeven tekenreeksexpressie |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden. |
+| [LENGTE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retourneert Hallo aantal tekens Hallo opgegeven tekenreeksexpressie |
+| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retourneert een tekenreeks die Hallo resultaat is van het samenvoegen van twee of meer tekenreekswaarden. |
 | [De SUBTEKENREEKS (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Retourneert deel van een tekenreeksexpressie. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retourneert een Boolean die aangeeft of de eerste tekenreeksexpressie eindigt op de tweede |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Retourneert een Boolean die aangeeft of de eerste tekenreeksexpressie eindigt op de tweede |
-| [BEVAT (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Retourneert een Boolean die aangeeft of de eerste expressie tekenreeks de tweede bevat. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Retourneert de beginpositie van het eerste exemplaar van de tweede tekenreeksexpressie binnen de eerste expressie in de opgegeven tekenreeks is of -1 als de tekenreeks is niet gevonden. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Retourneert het linkergedeelte van een tekenreeks zijn met het opgegeven aantal tekens. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Retourneert de juiste deel van een tekenreeks zijn met het opgegeven aantal tekens. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo tweede eindigt |
+| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo tweede eindigt |
+| [BEVAT (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Retourneert een Booleaanse waarde die aangeeft of de eerste tekenreeksexpressie Hallo Hallo op de tweede bevat. |
+| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Retourneert Hallo beginpositie van de eerste instantie Hallo van tweede tekenreeksexpressie Hallo binnen Hallo eerste opgegeven tekenreeksexpressie of -1 als het Hallo-tekenreeks is niet gevonden. |
+| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Retourneert het linkergedeelte van een tekenreeks Hallo Hello opgegeven aantal tekens. |
+| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Hallo rechts deel uit van een tekenreeks retourneert Hello opgegeven aantal tekens. |
 | [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Retourneert een tekenreeksexpressie na het verwijderen van toonaangevende lege waarden. |
 | [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Retourneert een tekenreeksexpressie na het afkappen van alle volgspaties. |
-| [KLEINE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retourneert een tekenreeksexpressie na hoofdletter gegevens converteren naar kleine letters. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retourneert een tekenreeksexpressie na kleine letter gegevens converteren naar hoofdletters. |
+| [KLEINE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retourneert een tekenreeksexpressie na hoofdletter gegevens toolowercase converteren. |
+| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retourneert een tekenreeksexpressie na kleine letter gegevens toouppercase converteren. |
 | [Vervang (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Vervangt alle instanties van een opgegeven string-waarde met de waarde van een andere tekenreeks. |
 | [REPLICEREN (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Herhaalt een string-waarde van een opgegeven aantal keren. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retourneert de omgekeerde volgorde van een string-waarde. |
+| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retourneert de omgekeerde volgorde Hallo van een string-waarde. |
 
-U kunt nu een query's als volgt uitvoeren met behulp van deze functies. U kunt bijvoorbeeld de familienaam in hoofdletters als volgt:
+U kunt nu een query's de volgende Hallo uitvoeren met behulp van deze functies. Bijvoorbeeld, kunt u terugkeren Hallo familienaam in hoofdletters als volgt:
 
 **Query**
 
@@ -1547,7 +1547,7 @@ Of samenvoegen van strings zoals in dit voorbeeld:
     }]
 
 
-Tekenreeks-functies kunnen ook worden gebruikt in de component WHERE om resultaten te filteren, zoals in het volgende voorbeeld:
+Tekenreeksfuncties kunnen ook worden gebruikt in Hallo waar component toofilter resultaten, zoals in het volgende voorbeeld Hallo:
 
 **Query**
 
@@ -1563,16 +1563,16 @@ Tekenreeks-functies kunnen ook worden gebruikt in de component WHERE om resultat
     }]
 
 ### <a name="array-functions"></a>Matrixfuncties
-De volgende scalaire functies een bewerking uitvoeren op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of een matrix van waarde. Hier volgt een lijst met ingebouwde matrixfuncties:
+Hallo scalaire functies na een bewerking uitvoeren op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of een matrix van waarde. Hier volgt een lijst met ingebouwde matrixfuncties:
 
 | Gebruik | Beschrijving |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Retourneert het aantal elementen van de opgegeven matrix-expressie. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Retourneert een matrix die het resultaat van het samenvoegen van twee of meer matrixwaarden. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Retourneert een Booleaanse waarde die aangeeft of de matrix bevat met de opgegeven waarde. Kunnen opgeven als overeenkomst met de volledige of gedeeltelijke. |
+| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Retourneert Hallo aantal elementen Hallo matrixexpressie opgegeven. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Retourneert een matrix die Hallo resultaat is van het samenvoegen van twee of meer matrixwaarden. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Retourneert een Booleaanse waarde die aangeeft of de matrix Hallo Hallo bevat een waarde opgegeven. Kunt opgeven als Hallo treffer volledig of gedeeltelijk is. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Retourneert deel van een matrixexpressie. |
 
-Matrixfuncties kunnen worden gebruikt voor het bewerken van matrices in JSON. Hier is bijvoorbeeld een query die alle documenten retourneert waarbij een van de ouders 'Robin Wakefield' is. 
+Matrixfuncties kunnen worden gebruikt toomanipulate matrices in JSON. Hier is bijvoorbeeld een query die alle documenten retourneert waarbij een van de ouders Hallo 'Robin Wakefield' is. 
 
 **Query**
 
@@ -1586,7 +1586,7 @@ Matrixfuncties kunnen worden gebruikt voor het bewerken van matrices in JSON. Hi
       "id": "WakefieldFamily"
     }]
 
-U kunt opgeven dat een gedeeltelijke fragment voor overeenkomende elementen binnen de matrix. De volgende query vindt alle bovenliggende items met de `givenName` van `Robin`.
+U kunt een gedeeltelijke fragment voor overeenkomende elementen binnen de matrix Hallo opgeven. Hallo volgende query vindt u alle bovenliggende items Hello `givenName` van `Robin`.
 
 **Query**
 
@@ -1601,7 +1601,7 @@ U kunt opgeven dat een gedeeltelijke fragment voor overeenkomende elementen binn
     }]
 
 
-Hier volgt een voorbeeld waarin ARRAY_LENGTH wordt gebruikt voor het aantal onderliggende items per serie.
+Hier volgt een voorbeeld met ARRAY_LENGTH tooget Hallo aantal onderliggende items per serie.
 
 **Query**
 
@@ -1620,7 +1620,7 @@ Hier volgt een voorbeeld waarin ARRAY_LENGTH wordt gebruikt voor het aantal onde
     }]
 
 ### <a name="spatial-functions"></a>Ruimtelijke functies
-De volgende ingebouwde functies voor Open georuimtelijke Consortium (OGC) biedt ondersteuning voor cosmos DB georuimtelijke query's. 
+Hallo volgende ingebouwde functies voor query's in georuimtelijke Open georuimtelijke Consortium (OGC) biedt ondersteuning voor cosmos DB. 
 
 <table>
 <tr>
@@ -1629,27 +1629,27 @@ De volgende ingebouwde functies voor Open georuimtelijke Consortium (OGC) biedt 
 </tr>
 <tr>
   <td>ST_DISTANCE (point_expr, point_expr)</td>
-  <td>Retourneert de afstand tussen de twee GeoJSON punt, Polygon of LineString expressies.</td>
+  <td>Retourneert Hallo afstand tussen twee Hallo GeoJSON punt, Polygon of LineString expressies.</td>
 </tr>
 <tr>
   <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Retourneert een Booleaanse expressie die aangeeft of het eerste GeoJSON-object (punt, Polygon of LineString) binnen het tweede GeoJSON-object (punt, Polygon of LineString).</td>
+  <td>Retourneert een Booleaanse expressie die aangeeft of Hallo eerste GeoJSON-object (punt, Polygon of LineString) binnen Hallo tweede GeoJSON-object (punt, Polygon of LineString).</td>
 </tr>
 <tr>
   <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Retourneert een Booleaanse expressie waarmee wordt aangegeven of de twee opgegeven GeoJSON objecten (punt, Polygon of LineString) intersect.</td>
+  <td>Retourneert een Booleaanse expressie die aangeeft of Hallo twee opgegeven GeoJSON-objecten (punt, Polygon of LineString) intersect.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Retourneert een Booleaanse waarde die aangeeft of de opgegeven expressie voor GeoJSON punt, Polygon of LineString ongeldig is.</td>
+  <td>Retourneert een Booleaanse waarde die aangeeft of Hallo opgegeven GeoJSON punt, Polygon of LineString expressie is ongeldig.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Retourneert een JSON-waarde met een Booleaanse waarde als de opgegeven expressie voor GeoJSON punt, Polygon of LineString is geldig, en als ongeldig, ook de reden als een string-waarde.</td>
+  <td>Retourneert een JSON-waarde met een Boolean-waarde als Hallo GeoJSON punt, Polygon of LineString expressie opgegeven geldig is en als ongeldig, bovendien Hallo reden als een string-waarde.</td>
 </tr>
 </table>
 
-Ruimtelijke functies kunnen worden gebruikt om uit te voeren nabijheid query's op ruimtelijke gegevens. Hier is bijvoorbeeld een query die alle familie documenten die binnen 30 km van de opgegeven locatie met de ingebouwde functie ST_DISTANCE retourneert. 
+Ruimtelijke functies kunnen worden gebruikt tooperform nabijheid query's op ruimtelijke gegevens. Hier is bijvoorbeeld een query waarmee alle familie documenten dat binnen 30 km Hallo opgegeven locatie Hallo ST_DISTANCE ingebouwde functie gebruikt geretourneerd. 
 
 **Query**
 
@@ -1663,17 +1663,17 @@ Ruimtelijke functies kunnen worden gebruikt om uit te voeren nabijheid query's o
       "id": "WakefieldFamily"
     }]
 
-Zie voor meer informatie over ondersteuning voor Cosmos DB georuimtelijke [werken met gegevens in Azure Cosmos DB georuimtelijke](geospatial.md). Die loopt van ruimtelijke functies en de SQL-syntaxis voor Cosmos-DB. Nu eens kijken hoe LINQ-query werkt en hoe deze samenwerkt met de syntaxis we hebt gezien tot nu toe.
+Zie voor meer informatie over ondersteuning voor Cosmos DB georuimtelijke [werken met gegevens in Azure Cosmos DB georuimtelijke](geospatial.md). Die loopt van ruimtelijke functies en Hallo SQL-syntaxis voor Cosmos-DB. Nu eens kijken hoe LINQ-query werkt en hoe deze samenwerkt met de syntaxis van de Hallo we hebt gezien tot nu toe.
 
-## <a id="Linq"></a>LINQ to SQL voor DocumentDB-API
-LINQ is een .NET-programmeermodel waarin berekeningen query's voor stromen van objecten. Cosmos DB biedt een client-side '-bibliotheek voor LINQ-interface doordat een conversie tussen JSON en .NET-objecten en een toewijzing van een subset van LINQ-query's aan Cosmos-DB-query's. 
+## <a id="Linq"></a>LINQ tooDocumentDB API SQL
+LINQ is een .NET-programmeermodel waarin berekeningen query's voor stromen van objecten. Cosmos DB biedt een toointerface clientzijde bibliotheek met LINQ doordat een conversie tussen JSON en .NET-objecten en een toewijzing voor een subset van LINQ query's tooCosmos DB-query's. 
 
-De volgende afbeelding toont de architectuur van LINQ-query's met behulp van de Cosmos-DB ondersteunen.  Met behulp van de Cosmos-DB-client kunnen ontwikkelaars maken een **IQueryable** object waarmee een query rechtstreeks op de Cosmos-DB-provider opvragen, die vervolgens de LINQ-query in een Cosmos-DB-query zet. De query wordt vervolgens doorgegeven aan de Cosmos-databaseserver voor het ophalen van een set resultaten in JSON-indeling. De geretourneerde resultaten worden in een stream met .NET-objecten aan de clientzijde gedeserialiseerd.
+Hallo in de volgende afbeelding toont de architectuur Hallo LINQ-query's met behulp van de Cosmos-DB ondersteunen.  Met behulp van Hallo Cosmos DB client kunnen ontwikkelaars maken een **IQueryable** object dat rechtstreeks query's hello Cosmos-DB-provider opvragen, die vervolgens Hallo LINQ-query in een Cosmos-DB-query zet. Hallo query toohello Cosmos DB server tooretrieve een set resultaten vervolgens doorgegeven in JSON-indeling. Hallo geretourneerd resultaten in een stream met .NET-objecten aan de clientzijde Hallo gedeserialiseerd worden.
 
 ![Architectuur van de LINQ-query's met DocumentDB-API - SQL-syntaxis, JSON-querytaal concepten van de database en SQL-query's ondersteunen][1]
 
 ### <a name="net-and-json-mapping"></a>.NET- en JSON-toewijzing
-De toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk veld gegevens lid is toegewezen aan een JSON-object, waarbij de veldnaam is toegewezen aan het gedeelte 'sleutel' van het object en het onderdeel '' waarde '' recursief toegewezen aan de waarde van het object. Bekijk het volgende voorbeeld: de familie-object gemaakt is toegewezen aan het JSON-document, zoals hieronder wordt weergegeven. En omgekeerd, het JSON-document is toegewezen aan een .NET-object.
+Hallo-toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk veld gegevens lid is toegewezen tooa JSON-object, waarbij Hallo veldnaam is toohello 'sleutel' onderdeel zijn van Hallo-object toegewezen en Hallo '' waarde '' onderdeel recursief toegewezen toohello waardedeel uitmaakt van Hallo-object. Overweeg het volgende voorbeeld Hallo: Hallo familie-object gemaakt is toegewezen toohello JSON-document, zoals hieronder wordt weergegeven. En vice versa Hallo JSON-document is toegewezen back tooa .NET-object.
 
 **C#-klasse**
 
@@ -1754,19 +1754,19 @@ De toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk veld g
 
 
 
-### <a name="linq-to-sql-translation"></a>LINQ SQL vertaling
-De Cosmos-DB-provider opvragen voert een best effort toewijzing van een LINQ-query naar een Cosmos DB SQL-query. In de volgende beschrijving gaan we ervan uit dat de lezer heeft een elementaire kennis van LINQ.
+### <a name="linq-toosql-translation"></a>De vertaling van LINQ tooSQL
+Hallo Cosmos-DB-provider opvragen voert een best effort toewijzing van een LINQ-query naar een Cosmos DB SQL-query. Hallo beschrijving te volgen, veronderstellen we Hallo lezer heeft een elementaire kennis van LINQ.
 
-Voor het typesysteem ondersteunen we eerst alle JSON primitieve typen – numerieke typen, Booleaanse waarde, tekenreeks en null. Alleen deze JSON-typen worden ondersteund. De volgende scalaire expressies worden ondersteund.
+Eerst ondersteunen Hallo-typesysteem, wij alle JSON primitieve typen – numerieke typen, Booleaanse waarde, tekenreeks en null. Alleen deze JSON-typen worden ondersteund. Hallo volgende scalaire expressies worden ondersteund.
 
-* Constante waarden – hierbij constante waarden van de primitieve gegevenstypen op het moment dat de query wordt geëvalueerd.
-* Eigenschappenmatrix/indexexpressies – deze expressies verwijzen naar de eigenschap van een object of een element van de matrix.
+* Constante waarden – hierbij constante waarden van de primitieve gegevenstypen Hallo gelijktijdig Hallo Hallo query wordt geëvalueerd.
+* Eigenschappenmatrix/indexexpressies – deze expressies Raadpleeg toohello-eigenschap van een object of een element van de matrix.
   
      familie. ID;    Family.children[0].familyName;    Family.children[0].Grade;    Family.children[n].Grade; n is een int-variabele
-* Aritmetische expressies - deze algemene aritmetische expressies op numerieke en Booleaanse waarden bevatten. Raadpleeg de SQL-specificatie voor de volledige lijst.
+* Aritmetische expressies - deze algemene aritmetische expressies op numerieke en Booleaanse waarden bevatten. Raadpleeg voor de volledige lijst hello, toohello SQL-specificatie.
   
      2 * family.children[0].grade;    x + y;
-* Vergelijking van tekenreeksexpressie - hierbij een string-waarde naar een constante string-waarde te vergelijken.  
+* Vergelijking van tekenreeksexpressie - hierbij een string-waarde toosome constante string-waarde te vergelijken.  
   
      mother.familyName == 'Smith';    child.givenName == s; s is een string-variabele
 * Object/matrix maken van expressie - deze expressies return een object van het waardetype van de samengestelde of anoniem type of een matrix van dergelijke objecten. Deze waarden kunnen worden genest.
@@ -1775,27 +1775,27 @@ Voor het typesysteem ondersteunen we eerst alle JSON primitieve typen – numeri
      nieuwe int [] {3, child.grade, 5};
 
 ### <a id="SupportedLinqOperators"></a>Lijst met ondersteunde LINQ-operators
-Hier volgt een lijst met ondersteunde LINQ-operators in de LINQ-provider die deel uitmaakt van de DocumentDB .NET SDK.
+Hier volgt een lijst met ondersteunde LINQ-operators in Hallo LINQ-provider is opgenomen in Hallo DocumentDB .NET SDK.
 
-* **Selecteer**: projecties vertalen naar de SQL SELECT-objectconstructie inclusief
-* **Waar**: Filters vertalen naar SQL WHERE en ondersteuning voor de conversie van & &, || en! aan de SQL-operators
-* **SelectMany**: kunt ongedaan maken van matrices voor de SQL-JOIN-component. Kan worden gebruikt voor expressies kunt u filteren op matrixelementen keten/nest
-* **OrderBy en OrderByDescending**: vertaalt in ORDER BY oplopend/aflopend
+* **Selecteer**: projecties toohello Selecteer objectconstructie inclusief SQL vertalen
+* **Waar**: Filters toohello waar SQL vertalen en ondersteuning voor de conversie van & &, || en! toohello SQL-operators
+* **SelectMany**: kunt ongedaan maken van matrices toohello SQL JOIN-component. Gebruikte toochain/nest expressies toofilter op matrixelementen kan zijn
+* **OrderBy en OrderByDescending**: zet tooORDER BY oplopend/aflopend
 * **Aantal**, **som**, **Min**, **Max**, en **gemiddelde** operators voor aggregatie en de async-equivalenten **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, en **AverageAsync**.
-* **CompareTo**: wordt omgezet in bereik vergelijkingen. Meestal gebruikt voor tekenreeksen omdat ze nog niet vergeleken in .NET
-* **Nemen**: kan het aan de BOVENKANT SQL voor het beperken van de resultaten van een query
-* **Rekenkundige functies**: de vertaling van ondersteunt. De NET Abs, BOOGCOS, Asin, BOOGTAN, maximum, CO, Exp, Floor, logboek, Log10, Pow, Round, aanmelding, Sin, Sqrt, Tan, Truncate aan de gelijkwaardige ingebouwde functies van SQL.
-* **Functies String**: de vertaling van ondersteunt. NET van Concat, bevat EndsWith, IndexOf, Count, ToLower, TrimStart, vervangen, Reverse, TrimEnd, StartsWith, subtekenreeks, ToUpper aan de gelijkwaardige ingebouwde functies van SQL.
-* **Matrix van functies**: de vertaling van ondersteunt. NET van Concat, bevat en aantal voor de equivalente ingebouwde SQL-functies.
-* **Extensiefuncties georuimtelijke**: vertaling van stub-methoden afstand binnen IsValid en IsValidDetailed naar de equivalente ingebouwde SQL-functies ondersteunt.
-* **Gebruiker gedefinieerde functie extensiefunctie**: ondersteunt de vertaling van de stubmethode UserDefinedFunctionProvider.Invoke naar de bijbehorende door de gebruiker gedefinieerde functie.
-* **Diverse**: biedt ondersteuning voor omzetting van de coalesce en voorwaardelijke operators. Bevat tekenreeks bevat, ARRAY_CONTAINS of de SQL-IN, afhankelijk van de context kunnen worden omgezet.
+* **CompareTo**: zet toorange vergelijkingen. Meestal gebruikt voor tekenreeksen omdat ze nog niet vergeleken in .NET
+* **Nemen**: zet toohello SQL TOP voor het beperken van de resultaten van een query
+* **Rekenkundige functies**: de vertaling van ondersteunt. De NET Abs, BOOGCOS, Asin, BOOGTAN, maximum, CO, Exp, Floor, logboek, Log10, Pow, Round, aanmelding, Sin, Sqrt, Tan, toohello gelijkwaardige SQL ingebouwde functies worden afgekapt.
+* **Functies String**: de vertaling van ondersteunt. NET van Concat, bevat EndsWith, IndexOf, Count, ToLower, TrimStart, vervangen, Reverse, TrimEnd, StartsWith, subtekenreeks ToUpper toohello gelijkwaardige SQL ingebouwde functies.
+* **Matrix van functies**: de vertaling van ondersteunt. NET van Concat bevat en aantal toohello gelijkwaardige SQL ingebouwde functies.
+* **Extensiefuncties georuimtelijke**: ondersteunt de vertaling van stub-methoden afstand binnen IsValid, en IsValidDetailed toohello gelijkwaardige SQL ingebouwde functies.
+* **Gebruiker gedefinieerde functie extensiefunctie**: ondersteunt de vertaling van Hallo stub-methode UserDefinedFunctionProvider.Invoke toohello overeenkomende gebruiker gedefinieerde functie.
+* **Diverse**: ondersteunt de vertaling van Hallo coalesce en voorwaardelijke operators. Kan vertalen bevat tooString bevat, ARRAY_CONTAINS of Hallo SQL IN, afhankelijk van de context.
 
 ### <a name="sql-query-operators"></a>SQL-query-operators
-Hier volgen enkele voorbeelden die aangeven hoe sommige van de standaard LINQ-query's worden omgezet naar beneden Cosmos-DB-query's.
+Hier volgen enkele voorbeelden die aangeven hoe sommige Hallo standaard de LINQ-query-operators omlaag tooCosmos DB-query's worden omgezet.
 
 #### <a name="select-operator"></a>Operator selecteren
-De syntaxis is `input.Select(x => f(x))`, waarbij `f` is een scalaire expressie.
+Hallo-syntaxis is `input.Select(x => f(x))`, waarbij `f` is een scalaire expressie.
 
 **LINQ lambda-expressie**
 
@@ -1838,7 +1838,7 @@ De syntaxis is `input.Select(x => f(x))`, waarbij `f` is een scalaire expressie.
 
 
 #### <a name="selectmany-operator"></a>SelectMany operator
-De syntaxis is `input.SelectMany(x => f(x))`, waarbij `f` is een scalaire expressie die als resultaat een verzamelingstype geeft.
+Hallo-syntaxis is `input.SelectMany(x => f(x))`, waarbij `f` is een scalaire expressie die als resultaat een verzamelingstype geeft.
 
 **LINQ lambda-expressie**
 
@@ -1852,7 +1852,7 @@ De syntaxis is `input.SelectMany(x => f(x))`, waarbij `f` is een scalaire expres
 
 
 #### <a name="where-operator"></a>Waar operator
-De syntaxis is `input.Where(x => f(x))`, waarbij `f` is een scalaire expressie die een Booleaanse waarde retourneert.
+Hallo-syntaxis is `input.Where(x => f(x))`, waarbij `f` is een scalaire expressie die een Booleaanse waarde retourneert.
 
 **LINQ lambda-expressie**
 
@@ -1881,10 +1881,10 @@ De syntaxis is `input.Where(x => f(x))`, waarbij `f` is een scalaire expressie d
 
 
 ### <a name="composite-sql-queries"></a>Samengestelde SQL-query 's
-De bovenstaande operators kunnen worden samengesteld om krachtige query's. Aangezien Cosmos DB geneste verzamelingen ondersteunt, kan de samenstelling worden samengevoegd of genest.
+Hallo hierboven operators samengesteld tooform krachtige query's kan worden. Aangezien Cosmos DB geneste verzamelingen ondersteunt, kan Hallo samenstelling worden samengevoegd of genest.
 
 #### <a name="concatenation"></a>Samenvoeging
-De syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde query kunt beginnen met een optionele `SelectMany` query gevolgd door meerdere `Select` of `Where` operators.
+Hallo-syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde query kunt beginnen met een optionele `SelectMany` query gevolgd door meerdere `Select` of `Where` operators.
 
 **LINQ lambda-expressie**
 
@@ -1939,9 +1939,9 @@ De syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde 
 
 
 #### <a name="nesting"></a>Nesten
-De syntaxis is `input.SelectMany(x=>x.Q())` waarbij Q is een `Select`, `SelectMany`, of `Where` operator.
+Hallo-syntaxis is `input.SelectMany(x=>x.Q())` waarbij Q is een `Select`, `SelectMany`, of `Where` operator.
 
-In een geneste query, wordt de interne query toegepast op elk element van de buitenste verzameling. Een belangrijk onderdeel is dat de interne query naar de velden van de elementen in de buitenste verzameling zoals verwijzen kunt zelf-joins.
+Hallo binnenste query is in een geneste query, toegepaste tooeach-element van de buitenste verzameling Hallo. Een belangrijke functie is dat die Hallo binnenste query kunt verwijzen toohello velden van het Hallo-elementen in de buitenste verzameling Hallo zoals zelf-joins.
 
 **LINQ lambda-expressie**
 
@@ -1983,16 +1983,16 @@ In een geneste query, wordt de interne query toegepast op elk element van de bui
 
 
 ## <a id="ExecutingSqlQueries"></a>SQL-query's uitvoeren
-Cosmos DB Ontsluit resources via een REST-API die kan worden aangeroepen via elke taal waarmee HTTP/HTTPS-aanvragen. Daarnaast biedt Cosmos DB programmeringsbibliotheken voor verschillende veelgebruikte talen zoals .NET, Node.js, JavaScript en Python. De REST-API en de verschillende bibliotheken ondersteuning voor het uitvoeren van query's via SQL. De .NET SDK biedt ondersteuning voor LINQ-query naast SQL.
+Cosmos DB Ontsluit resources via een REST-API die kan worden aangeroepen via elke taal waarmee HTTP/HTTPS-aanvragen. Daarnaast biedt Cosmos DB programmeringsbibliotheken voor verschillende veelgebruikte talen zoals .NET, Node.js, JavaScript en Python. Hallo REST-API en Hallo ondersteuning voor verschillende bibliotheken alle opvragen via SQL. Hallo .NET SDK biedt ondersteuning voor LINQ bovendien tooSQL opvragen.
 
-De volgende voorbeelden laten zien hoe u een query maken en te verzenden op basis van een Cosmos-DB-databaseaccount.
+Hallo volgen voorbeelden kunt u zien hoe een query toocreate en te verzenden op basis van een Cosmos-DB-databaseaccount.
 
 ### <a id="RestAPI"></a>REST-API
-Cosmos DB biedt een open RESTful-programmeermodel via HTTP. Database-accounts kunnen worden ingericht met behulp van een Azure-abonnement. Het model van de resource Cosmos DB bestaat uit een set resources onder de databaseaccount van een, die elk opgevraagd met een logische en stabiele-URI is. Een set resources wordt aangeduid als een feed in dit document. Een databaseaccount bestaat uit een reeks databases, die elk meerdere verzamelingen met elk van welke beurt documenten, UDF's en andere brontypen bevatten.
+Cosmos DB biedt een open RESTful-programmeermodel via HTTP. Database-accounts kunnen worden ingericht met behulp van een Azure-abonnement. Hallo Cosmos DB resourcemodel bestaat uit een set resources onder de databaseaccount van een, die elk opgevraagd met een logische en stabiele-URI is. Een set resources is waarnaar wordt verwezen tooas een feed in dit document. Een databaseaccount bestaat uit een reeks databases, die elk meerdere verzamelingen met elk van welke beurt documenten, UDF's en andere brontypen bevatten.
 
-Het model basic interactie met deze resources is via de HTTP-woorden GET, PUT, POST en DELETE met hun standaard interpretatie. De POST-bewerking wordt gebruikt voor het maken van een nieuwe resource, voor het uitvoeren van een opgeslagen procedure of voor het uitgeven van een Cosmos-DB-query. Query's zijn altijd alleen-lezen bewerkingen met geen bijwerkingen.
+Hallo basic interactie model met deze resources is via Hallo HTTP-woorden GET, PUT, POST en DELETE met hun standaard interpretatie. Hallo POST term wordt gebruikt voor het maken van een nieuwe resource, voor het uitvoeren van een opgeslagen procedure of voor het uitgeven van een Cosmos-DB-query. Query's zijn altijd alleen-lezen bewerkingen met geen bijwerkingen.
 
-De volgende voorbeelden ziet een POST voor een DocumentDB-API-query ten opzichte van een verzameling met de twee voorbeelddocumenten dat we tot nu toe hebt bekeken. De query heeft een eenvoudige filter op de naameigenschap JSON. Let op het gebruik van de `x-ms-documentdb-isquery` en Content-Type: `application/query+json` headers om aan te geven dat de bewerking een query wordt.
+Hallo volgende voorbeelden ziet u een POST voor een DocumentDB-API-query ten opzichte van een verzameling met Hallo twee voorbeelddocumenten dat we tot nu toe hebt bekeken. Hallo-query heeft een eenvoudige filter op Hallo JSON name-eigenschap. Houd er rekening mee Hallo gebruik van Hallo `x-ms-documentdb-isquery` en Content-Type: `application/query+json` toodenote headers die Hallo bewerking is een query.
 
 **Aanvraag**
 
@@ -2060,7 +2060,7 @@ De volgende voorbeelden ziet een POST voor een DocumentDB-API-query ten opzichte
     }
 
 
-Het tweede voorbeeld ziet u een complexere query die meerdere resultaten uit de join retourneert.
+Hallo tweede voorbeeld ziet u een complexere query die meerdere resultaten uit Hallo join retourneert.
 
 **Aanvraag**
 
@@ -2114,16 +2114,16 @@ Het tweede voorbeeld ziet u een complexere query die meerdere resultaten uit de 
     }
 
 
-Als de queryresultaten niet binnen één pagina met resultaten passen, wordt de REST-API een vervolgtoken via retourneert de `x-ms-continuation-token` antwoordheader. Clients kunnen resultaten pagineren door de header in de volgende resultaten. Het aantal resultaten per pagina kan ook worden beheerd via de `x-ms-max-item-count` nummer header. Als de opgegeven query een statistische functie zoals heeft `COUNT`, en vervolgens de querypagina een gedeeltelijk cumulatieve waarde kan worden geretourneerd gedurende de pagina met resultaten. De clients moeten een aggregatie tweede niveau uitvoeren via deze resultaten met het uiteindelijke resultaat, bijvoorbeeld, som is opgegeven via de tellingen geretourneerd in de afzonderlijke pagina's om de totale telling te retourneren.
+Als de queryresultaten niet binnen één pagina van de resultaten passen en vervolgens Hallo REST-API een vervolgtoken via Hallo retourneert `x-ms-continuation-token` antwoordheader. Clients kunnen resultaten pagineren door Hallo-header in de volgende resultaten. het aantal resultaten per pagina Hallo kan ook worden beheerd via Hallo `x-ms-max-item-count` nummer header. Als de opgegeven query Hallo een statistische functie zoals heeft `COUNT`, en vervolgens Hallo querypagina een gedeeltelijk cumulatieve waarde kan worden geretourneerd gedurende Hallo pagina met resultaten. Hallo-clients moeten een aggregatie tweede niveau uitvoeren via deze resultaten tooproduce Hallo laatste resultaten, bijvoorbeeld, som is opgegeven via Hallo aantallen geretourneerd in Hallo afzonderlijke pagina's tooreturn Hallo totale aantal.
 
-Gebruik het beleid voor de consistentie van gegevens voor query's beheren de `x-ms-consistency-level` header bijvoorbeeld alle aanvragen voor REST-API. Voor sessieconsistentie, is het vereist ook de meest recente echo `x-ms-session-token` Cookie-kop in de queryaanvraag. De aangevraagde verzameling indexeringsbeleid kan ook invloed hebben op de consistentie van de queryresultaten. Met de standaard beleidsinstellingen indexeren, voor verzamelingen de index is altijd de meest recente inhoud van het document en queryresultaten overeenkomen met de consistentiecontrole gekozen voor de gegevens. Als het indexeringsbeleid is versoepeld naar Lazy, kunnen query's verlopen resultaten geretourneerd. Zie voor meer informatie [Azure Cosmos DB Consistentieniveaus][consistency-levels].
+beleid voor toomanage Hallo gegevens consistentie voor query's, gebruik Hallo `x-ms-consistency-level` header bijvoorbeeld alle aanvragen voor REST-API. Voor sessieconsistentie, is het vereist tooalso echo hallo nieuwste `x-ms-session-token` Cookie-kop in Hallo-aanvraag. Hallo indexeringsbeleid aangevraagde verzameling kan ook van invloed zijn op Hallo consistentie van de queryresultaten. Met standaard Hallo indexeren beleidsinstellingen voor verzamelingen Hallo index is altijd met inhoud van het document Hallo en query resultaten overeenkomen met de Hallo consistentie gekozen voor de gegevens. Als Hallo indexeren beleid beperkte tooLazy is, kunnen query's verlopen resultaten geretourneerd. Zie voor meer informatie [Azure Cosmos DB Consistentieniveaus][consistency-levels].
 
-Als de opgegeven query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid voor de verzameling, retourneert de server Azure Cosmos DB 400 'onjuiste aanvraag'. Dit wordt geretourneerd voor bereik query's op paden die zijn geconfigureerd voor lookups op hash (gelijkheid) en voor paden expliciet is uitgesloten van het indexeren. De `x-ms-documentdb-query-enable-scan` header kan worden opgegeven waarmee de query voor een scan uitvoeren als een index niet beschikbaar is.
+Als indexeringsbeleid op Hallo verzameling Hallo geconfigureerd Hallo opgegeven query niet ondersteunen kan, retourneert hello Azure Cosmos DB server 400 'onjuiste aanvraag'. Dit wordt geretourneerd voor bereik query's op paden die zijn geconfigureerd voor lookups op hash (gelijkheid) en voor paden expliciet is uitgesloten van het indexeren. Hallo `x-ms-documentdb-query-enable-scan` header opgegeven tooallow Hallo query tooperform een scan kan zijn wanneer een index niet beschikbaar is.
 
-U kunt gedetailleerde metrische gegevens over de uitvoering van de query opvragen door in te stellen `x-ms-documentdb-populatequerymetrics` koptekst tot `True`. Zie voor meer informatie [SQL query metrische gegevens voor Azure Cosmos DB DocumentDB API](documentdb-sql-query-metrics.md).
+U kunt gedetailleerde metrische gegevens over de uitvoering van de query opvragen door in te stellen `x-ms-documentdb-populatequerymetrics` header te`True`. Zie voor meer informatie [SQL query metrische gegevens voor Azure Cosmos DB DocumentDB API](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
-De .NET SDK biedt ondersteuning voor LINQ- en SQL uitvoeren van query's. Het volgende voorbeeld ziet hoe u de eenvoudige filterquery geïntroduceerd eerder in dit document uitvoert.
+Hallo .NET SDK biedt ondersteuning voor LINQ- en SQL uitvoeren van query's. Hallo volgende voorbeeld ziet u hoe tooperform Hallo eenvoudige filterquery geïntroduceerd eerder in dit document.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
         "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
@@ -2183,7 +2183,7 @@ Dit voorbeeld vergelijkt twee eigenschappen op gelijkheid binnen elk document en
     }
 
 
-Het volgende voorbeeld toont joins, die zijn uitgedrukt via LINQ SelectMany.
+Hallo volgende voorbeeld ziet u joins, die zijn uitgedrukt via LINQ SelectMany.
 
     foreach (var pet in client.CreateDocumentQuery(collectionLink,
           @"SELECT p
@@ -2207,16 +2207,16 @@ Het volgende voorbeeld toont joins, die zijn uitgedrukt via LINQ SelectMany.
 
 
 
-De .NET-client worden automatisch alle pagina's van de resultaten van de query in de foreach-blokken zoals hierboven doorlopen. De query-opties die zijn geïntroduceerd in de REST-API-sectie zijn ook beschikbaar in de .NET SDK met de `FeedOptions` en `FeedResponse` klassen in de methode CreateDocumentQuery. Het aantal pagina's kan worden beheerd met behulp van de `MaxItemCount` instelling. 
+Hallo .NET-client worden automatisch alle Hallo-pagina's van queryresultaten in Hallo foreach blokken zoals hierboven doorlopen. Hallo-query die is geïntroduceerd in Hallo REST-API-sectie opties zijn ook beschikbaar in .NET SDK met de Hallo Hallo `FeedOptions` en `FeedResponse` klassen in Hallo CreateDocumentQuery methode. Hallo aantal pagina's kan worden beheerd met behulp van Hallo `MaxItemCount` instelling. 
 
-U kunt ook expliciet paginering bepalen door het maken van `IDocumentQueryable` met behulp van de `IQueryable` object, klikt u vervolgens op het lezen van de` ResponseContinuationToken` waarden en deze weer toe als `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery`kan worden ingesteld voor het inschakelen van scans als de query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid. Voor gepartitioneerde verzamelingen kunt u `PartitionKey` aan de query uitvoeren voor één partitie (Hoewel Cosmos DB dit automatisch uit de querytekst ophalen kunt), en `EnableCrossPartitionQuery` query's uitvoeren die mogelijk moet worden uitgevoerd tegen meerdere partities. 
+U kunt ook expliciet paginering bepalen door het maken van `IDocumentQueryable` met Hallo `IQueryable` object, klikt u vervolgens op het lezen van de` ResponseContinuationToken` waarden en deze weer toe als `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery`is set tooenable scans als Hallo query kan niet worden ondersteund door het indexeringsbeleid Hallo geconfigureerd. Voor gepartitioneerde verzamelingen kunt u `PartitionKey` toorun Hallo-query op één partitie (Hoewel Cosmos DB dit automatisch uit de querytekst Hallo ophalen kunt), en `EnableCrossPartitionQuery` toorun-query's die toobe mogelijk moet uitvoeren op meerdere partities. 
 
-Raadpleeg [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net) voor meer voorbeelden met query's. 
+Raadpleeg te[Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net) voor meer voorbeelden met query's. 
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript-serverzijde-API
-Cosmos DB biedt een programmeermodel voor het uitvoeren op basis van JavaScript-toepassingslogica rechtstreeks op de verzamelingen met opgeslagen procedures en triggers. De JavaScript-logica geregistreerd op het niveau van een verzameling kan databasebewerkingen uitvoeren op de bewerkingen op de documenten van de opgegeven verzameling vervolgens uitgeven. Deze bewerkingen zijn verpakt in een ambient ACID-transactions.
+Cosmos DB biedt een programmeermodel voor het uitvoeren op basis van JavaScript-toepassingslogica rechtstreeks op Hallo verzamelingen met opgeslagen procedures en triggers. Hallo JavaScript-logica geregistreerd op het niveau van een verzameling kan databasebewerkingen uitvoeren op Hallo-bewerkingen op Hallo documenten Hallo gegeven verzameling vervolgens uitgeven. Deze bewerkingen zijn verpakt in een ambient ACID-transactions.
 
-Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScript API gebruiken om te maken van query's van binnen opgeslagen procedures en triggers.
+Hallo volgende voorbeeld laat zien hoe toouse hello queryDocuments in Hallo JavaScript-server API toomake van query's binnen opgeslagen procedures en triggers.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -2237,10 +2237,10 @@ Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScrip
                         if (err) throw new Error(err.message);
     context.getResponse().setBody(matchingDocuments.length);
 
-                        // Replace the author name for all documents that satisfied the query.
+                        // Replace hello author name for all documents that satisfied hello query.
                         for (var i = 0; i < matchingDocuments.length; i++) {
                             matchingDocuments[i].author = "George R. R. Martin";
-                            // we don't need to execute a callback because they are in parallel
+                            // we don't need tooexecute a callback because they are in parallel
                             collectionManager.replaceDocument(matchingDocuments[i]._self,
                                 matchingDocuments[i]);
                         }
@@ -2249,7 +2249,7 @@ Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScrip
     }
 
 ## <a id="References"></a>Verwijzingen
-1. [Inleiding tot Azure Cosmos DB][introduction]
+1. [Inleiding tooAzure Cosmos-DB][introduction]
 2. [Azure SQL voor Cosmos-DB-specificatie](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET-voorbeelden](https://github.com/Azure/azure-documentdb-net)
 4. [Azure Cosmos DB Consistentieniveaus][consistency-levels]
@@ -2261,7 +2261,7 @@ Het volgende voorbeeld laat zien hoe de queryDocuments op de server in JavaScrip
 10. Queryverwerking in parallelle relationele databasesystemen, IEEE Computer samenleving Press, 1994
 11. Lu, Ooi, Tan queryverwerking in parallelle relationele databasesystemen, IEEE Computer samenleving Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: een niet zodat vreemde taal voor gegevensverwerking, SIGMOD 2008.
-13. G. Graefe. Het framework trapsgewijs voor queryoptimalisatie. IEEE-gegevens eng Bull., 18, lid 3: 1995.
+13. G. Graefe. Hallo trapsgewijs framework voor queryoptimalisatie. IEEE-gegevens eng Bull., 18, lid 3: 1995.
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md

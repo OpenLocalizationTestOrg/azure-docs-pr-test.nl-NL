@@ -1,6 +1,6 @@
 ---
-title: Deactiveren en verwijderen van een Microsoft Azure StorSimple virtuele matrix | Microsoft Docs
-description: Beschrijving van het StorSimple-apparaat verwijderen uit de service met deze eerst te deactiveren en vervolgens te verwijderen.
+title: aaaDeactivate en verwijderen van een Microsoft Azure StorSimple virtuele matrix | Microsoft Docs
+description: Hierin wordt beschreven hoe tooremove StorSimple-apparaat uit de service door het eerst deactiveren en vervolgens te verwijderen.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 8dea36f92b034f8c6cdb6875634848d37f4c6606
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b1f3ddb5822d19965739777e238af19b507df984
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Deactiveren en verwijderen van een virtueel StorSimple-matrix
 
 ## <a name="overview"></a>Overzicht
 
-Wanneer u een virtueel StorSimple-matrix deactiveert, verbreekt u de verbinding tussen het apparaat en de bijbehorende Apparaatbeheer StorSimple-service. Deze zelfstudie wordt uitgelegd hoe:
+Wanneer u een virtueel StorSimple-matrix deactiveert, verbreekt Hallo verbinding tussen Hallo-apparaat en Hallo bijbehorende Apparaatbeheer StorSimple-service. Deze zelfstudie wordt uitgelegd hoe:
 
 * Een apparaat deactiveren 
 * Een gedeactiveerde apparaat verwijderen
 
-De informatie in dit artikel is alleen van toepassing op virtuele StorSimple-matrices. Voor informatie over 8000-serie, gaat u naar het [deactiveren of verwijderen van een apparaat](storsimple-deactivate-and-delete-device.md).
+Hallo-informatie in dit artikel is van toepassing alleen tooStorSimple virtuele matrices. Ga voor informatie over 8000-serie, toohow te[deactiveren of verwijderen van een apparaat](storsimple-deactivate-and-delete-device.md).
 
-## <a name="when-to-deactivate"></a>Wanneer voor het deactiveren?
+## <a name="when-toodeactivate"></a>Wanneer toodeactivate?
 
-Deactivering is een permanente bewerking en kan niet ongedaan worden gemaakt. U kunt een gedeactiveerde apparaat kan niet opnieuw registreren met de service Manager voor StorSimple-apparaat. Mogelijk moet u deactiveren en verwijderen van een virtueel StorSimple-matrix in de volgende scenario's:
+Deactivering is een permanente bewerking en kan niet ongedaan worden gemaakt. U kunt een gedeactiveerde apparaat niet opnieuw registreren met Hallo StorSimple-apparaat Manager-service. U kunt toodeactivate moet en verwijderen van een virtueel StorSimple-matrix in Hallo volgen scenario's:
 
-* **De geplande failover** : het apparaat online is en u van plan bent uw apparaat failover. Als u van plan bent om te werken naar een grotere apparaat, kunt u wellicht een failover van uw apparaat. Nadat de Gegevenseigendom wordt overgedragen en de failover voltooid is, wordt het bronapparaat automatisch verwijderd.
-* **Niet-geplande failover** : het apparaat offline is en u moet het apparaat een failover. Dit scenario kan optreden tijdens een noodgeval wanneer er een storing in het datacenter en het primaire apparaat niet beschikbaar is. U van plan bent het apparaat een tweede apparaat failover. Nadat de Gegevenseigendom wordt overgedragen en de failover voltooid is, wordt het bronapparaat automatisch verwijderd.
-* **Buiten gebruik stellen** : U wilt dat het apparaat buiten gebruik stellen. Hiervoor moet u eerst het apparaat te deactiveren en vervolgens te verwijderen. Wanneer u een apparaat deactiveert, u niet langer toegang tot alle gegevens die lokaal wordt opgeslagen. U kunt alleen toegang tot en het herstellen van de gegevens die zijn opgeslagen in de cloud. Als u van plan bent de gegevens van het apparaat om na te behouden deactivering, moet u een cloudmomentopname van al uw gegevens nemen voordat u een apparaat deactiveren. Deze cloudmomentopname met de kunt u alle gegevens in een later stadium te herstellen.
+* **De geplande failover** : het apparaat online is en u toofail van plan bent op uw apparaat. Als u van plan bent tooupgrade tooa groter apparaat, moet u mogelijk toofail via uw apparaat. Nadat Hallo Gegevenseigendom wordt overgedragen en Hallo failover voltooid is, wordt het bronvolume Hallo automatisch verwijderd.
+* **Niet-geplande failover** : het apparaat offline is en u toofail dan Hallo-apparaat nodig. Dit scenario optreden tijdens een noodgeval wanneer er een storing in Hallo datacenter en het primaire apparaat niet beschikbaar is. U van plan bent toofail via Hallo apparaat tooa secundair apparaat. Nadat Hallo Gegevenseigendom wordt overgedragen en Hallo failover voltooid is, wordt het bronvolume Hallo automatisch verwijderd.
+* **Buiten gebruik stellen** : U wilt dat toodecommission Hallo apparaat. Hiervoor moet u toofirst Hallo-apparaat deactiveren en vervolgens te verwijderen. Wanneer u een apparaat deactiveert, u niet langer toegang tot alle gegevens die lokaal wordt opgeslagen. U kunt alleen toegang herstellen Hallo gegevens en opgeslagen in de cloud Hallo. Als u tookeep Hallo apparaatgegevens na deactivering plant, moet u een cloudmomentopname van al uw gegevens nemen voordat u een apparaat deactiveren. Deze cloudmomentopname met de kunt u toorecover alle gegevens in een later stadium Hallo.
 
 ## <a name="deactivate-a-device"></a>Een apparaat deactiveren
 
-U kunt uw apparaat, moet u de volgende stappen uitvoeren.
+toodeactivate uw apparaat Hallo volgende stappen uit te voeren.
 
-#### <a name="to-deactivate-the-device"></a>Het apparaat deactiveren
+#### <a name="toodeactivate-hello-device"></a>toodeactivate hello apparaat
 
-1. In uw service, gaat u naar **Management > apparaten**. In de **apparaten** blade, klikt u op en selecteer het apparaat dat u wilt deactiveren.
+1. Ga te in uw service**Management > apparaten**. In Hallo **apparaten** blade, klikt u op en selecteer Hallo-apparaat dat u wenst dat toodeactivate.
    
-    ![Selecteer het apparaat te deactiveren](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
-2. In uw **apparaat dashboard** blade, klikt u op **... Meer** en selecteer in de lijst **deactiveren**.
+    ![Selecteer welk apparaat toodeactivate](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete7.png)
+2. In uw **apparaat dashboard** blade, klikt u op **... Meer** en selecteer in de lijst Hallo **deactiveren**.
    
     ![Klikt u op deactiveren](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete8.png)
-3. In de **deactiveren** blade, typ de naam van het apparaat en klik vervolgens op **deactiveren**. 
+3. In Hallo **deactiveren** blade, type Hallo apparaatnaam en klik vervolgens op **deactiveren**. 
    
     ![Bevestig deactiveren](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete1.png)
    
-    Het proces deactiveren wordt gestart en duurt een paar minuten.
+    Hallo deactiveren proces gestart en duurt een paar minuten toocomplete.
    
     ![Deactiveren wordt uitgevoerd](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete2.png)
-4. Na de deactivering, de lijst met apparaten wordt vernieuwd.
+4. Na de deactivering, Hallo lijst met apparaten wordt vernieuwd.
    
     ![Volledige deactiveren](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete3.png)
    
     Nu kunt u dit apparaat verwijderen.
 
-## <a name="delete-the-device"></a>Het apparaat verwijderen
+## <a name="delete-hello-device"></a>Hallo-apparaat verwijderen
 
-Een apparaat moet eerst worden gedeactiveerd om het te verwijderen. Als u een apparaat verwijdert, wordt deze verwijderd uit de lijst met apparaten die zijn verbonden met de service. De service kan niet langer dan de verwijderde apparaatinschrijvingsbeheerder beheren. De gegevens die zijn gekoppeld aan het apparaat blijft echter in de cloud. Deze gegevens worden vervolgens kosten toenemen.
+Een apparaat heeft de eerste gedeactiveerde toodelete toobe deze. Als u een apparaat verwijdert, wordt deze verwijderd uit Hallo lijst met apparaten verbonden toohello service. Hallo-service kunt niet meer dan Hallo verwijderd apparaat beheren. Hallo-gegevens die zijn gekoppeld met Hallo apparaat blijft echter in Hallo cloud. Deze gegevens worden vervolgens kosten toenemen.
 
-Als u wilt verwijderen van het apparaat, moet u de volgende stappen uitvoeren.
+toodelete hello apparaat Hallo volgende stappen uit te voeren.
 
-#### <a name="to-delete-the-device"></a>Het apparaat verwijderen
+#### <a name="toodelete-hello-device"></a>toodelete hello apparaat
 
-1. In uw StorSimple-Apparaatbeheer gaat u naar **Management > apparaten**. In de **apparaten** blade, selecteer een gedeactiveerde apparaat dat u wilt verwijderen.
-2. In de **apparaat dashboard** blade, klikt u op **... Meer** en klik vervolgens op **verwijderen**.
+1. Gaat u in uw StorSimple-Apparaatbeheer te**Management > apparaten**. In Hallo **apparaten** blade een gedeactiveerde apparaat dat u wenst dat toodelete selecteert.
+2. In Hallo **apparaat dashboard** blade, klikt u op **... Meer** en klik vervolgens op **verwijderen**.
    
-   ![Selecteer het apparaat verwijderen](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
-3. In de **verwijderen** blade, typ de naam van uw apparaat om te bevestigen en klik vervolgens op **verwijderen**. Als u het apparaat verwijdert, verwijdert niet de cloudgegevens die zijn gekoppeld aan het apparaat. 
+   ![Selecteer welk apparaat toodelete](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
+3. In Hallo **verwijderen** blade, type Hallo-naam van uw apparaat tooconfirm Hallo verwijderen en klik vervolgens op **verwijderen**. Verwijderen Hallo-apparaat verwijdert geen Hallo cloudgegevens die zijn gekoppeld aan het Hallo-apparaat. 
    
    ![De verwijdering bevestigen](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete5.png) 
-4. De verwijdering wordt gestart en duurt een paar minuten.
+4. Hallo verwijdering wordt gestart en duurt een paar minuten toocomplete.
    
    ![Bezig met verwijderen](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete6.png)
    
-    Nadat het apparaat wordt verwijderd, kunt u de bijgewerkte lijst met apparaten weergeven.
+    Nadat het Hallo-apparaat wordt verwijderd, kunt u Hallo bijgewerkt lijst met apparaten weergeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ga voor meer informatie over de failover naar [Failover en herstel na noodgevallen van uw virtuele StorSimple-matrix](storsimple-virtual-array-failover-dr.md).
+* Voor meer informatie over toofail over te gaan[Failover en herstel na noodgevallen van uw virtuele StorSimple-matrix](storsimple-virtual-array-failover-dr.md).
 
-* Voor meer informatie over het gebruik van de service Manager voor StorSimple-apparaat, gaat u naar [de Apparaatbeheer StorSimple-service gebruiken voor het beheren van uw virtuele StorSimple-matrix](storsimple-virtual-array-manager-service-administration.md). 
+* toolearn informatie over hoe toouse Hallo Apparaatbeheer StorSimple-service, gaan te[gebruik Hallo StorSimple Apparaatbeheer service tooadminister uw virtuele StorSimple-matrix](storsimple-virtual-array-manager-service-administration.md). 
 

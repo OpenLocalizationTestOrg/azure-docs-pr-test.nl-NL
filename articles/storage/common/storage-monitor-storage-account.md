@@ -1,6 +1,6 @@
 ---
-title: Een Azure Storage-account controleren | Microsoft Docs
-description: Informatie over het bewaken van een opslagaccount in Azure met behulp van de Azure-portal.
+title: aaaHow toomonitor een Azure Storage-account | Microsoft Docs
+description: Meer informatie over hoe een opslagaccount in Azure met behulp van toomonitor hello Azure-portal.
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,145 +14,145 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: marsma
-ms.openlocfilehash: e8fbc4ecdffe62806019f494e1412cfedbccf71f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9a939e0b5db687c1b7b7857399321f681df2056a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-a-storage-account-in-the-azure-portal"></a>Een opslagaccount in de Azure portal controleren
+# <a name="monitor-a-storage-account-in-hello-azure-portal"></a>Een opslagaccount in hello Azure-portal bewaken
 
-[Azure Storage Analytics](../storage-analytics.md) voorziet in maatstaven voor alle storage-services en logboeken voor blobs, wachtrijen en tabellen. U kunt de [Azure-portal](https://portal.azure.com) configureren welke metrische gegevens en de logboeken worden geregistreerd voor uw account en grafieken die visuele weergaven van de metrische gegevens bieden configureren.
+[Azure Storage Analytics](../storage-analytics.md) voorziet in maatstaven voor alle storage-services en logboeken voor blobs, wachtrijen en tabellen. U kunt Hallo [Azure-portal](https://portal.azure.com) tooconfigure welke metrische gegevens en de logboeken worden geregistreerd voor uw account en grafieken die visuele weergaven van de metrische gegevens bieden configureren.
 
 > [!NOTE]
-> Er worden kosten in verband met het onderzoeken van controlegegevens in de Azure portal. Zie voor meer informatie [Storage Analytics en facturering](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Er worden kosten in verband met het onderzoeken van bewakingsgegevens in hello Azure-portal. Zie voor meer informatie [Storage Analytics en facturering](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure File storage momenteel ondersteunt Opslaganalyse metrische gegevens, maar logboekregistratie nog niet ondersteunt.
 >
-> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) momenteel beschikt niet over de metrische gegevens of mogelijkheden voor logboekregistratie.
+> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) op dit moment geen Hallo metrische gegevens of mogelijkheden voor logboekregistratie.
 > 
-> Zie voor een gedetailleerde uitleg over het gebruik van Storage Analytics en andere hulpprogramma's om te bepalen, onderzoeken en oplossen van problemen met Azure Storage met [Monitor, vaststellen en oplossen van Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
+> Voor een gedetailleerde richtlijnen voor het gebruik van Storage Analytics en andere hulpprogramma's voor tooidentify, diagnose, en problemen met Azure Storage, Zie [Monitor, vaststellen en oplossen van Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Bewaking configureren voor een opslagaccount
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer **opslagaccounts**, klikt u vervolgens de opslagaccountnaam om de account-dashboard te openen.
-1. Selecteer **Diagnostics** in de **bewaking** sectie van de blade menu.
+1. In Hallo [Azure-portal](https://portal.azure.com), selecteer **opslagaccounts**, en vervolgens Hallo storage account name tooopen Hallo account dashboard.
+1. Selecteer **Diagnostics** in Hallo **bewaking** sectie van Hallo menu blade.
 
     ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
 
-1. Selecteer de **type** van metrische gegevens voor elke **service** u wilt bewaken, en de **bewaarbeleid** voor de gegevens. U kunt ook uitschakelen door in te stellen bewaking **Status** naar **uit**.
+1. Selecteer Hallo **type** van metrische gegevens voor elke **service** u wenst dat toomonitor en Hallo **bewaarbeleid** voor Hallo-gegevens. U kunt ook uitschakelen door in te stellen bewaking **Status** te**uit**.
 
     ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-01.png)
 
    Er zijn twee soorten metrische gegevens die kunt u inschakelen voor elke service, die beide zijn standaard ingeschakeld voor nieuwe storage-accounts:
 
-   * **Cumulatieve**: metrische gegevens zoals inkomend en uitgaand, beschikbaarheid, latentie en geslaagd percentages verzamelt. Deze metrische gegevens worden voor de blob, queue, table en Bestandsservices samengevoegd.
-   * **Per API**: naast de cumulatieve metrische gegevens, verzamelt u dezelfde set van metrische gegevens voor elke opslagbewerking in de API van Azure Storage-service.
+   * **Cumulatieve**: metrische gegevens zoals inkomend en uitgaand, beschikbaarheid, latentie en geslaagd percentages verzamelt. Deze metrische gegevens zijn samengevoegd voor Hallo blob, queue, table en Bestandsservices.
+   * **Per API**: In toevoeging toohello cumulatieve metrische gegevens, verzamelt dezelfde set van metrische gegevens voor elke opslagbewerking in Azure Storage-service API Hallo Hallo.
 
-   Om in te stellen het bewaarbeleid voor gegevens, gaan de **bewaartermijn (dagen)** schuifregelaar of Voer het aantal dagen aan gegevens te behouden tussen 1 en 365. De standaardwaarde voor nieuwe opslagaccounts is zeven dagen. Als u niet een bewaarbeleid instellen wilt, voert u nul. Als er geen bewaarbeleid, is het tot u de bewakingsgegevens verwijderen.
+   tooset hello bewaarbeleid voor gegevens, verplaatsen Hallo **bewaartermijn (dagen)** schuifregelaar of Hallo aantal dagen aan gegevens tooretain, van 1 too365 invoeren. Hallo standaardwaarde voor nieuwe storage-accounts is zeven dagen. Als u niet dat een bewaarbeleid tooset wilt, voer dan nul. Als er geen bewaarbeleid, is tooyou toodelete Hallo bewakingsgegevens.
 
    > [!WARNING]
-   > U in rekening worden gebracht wanneer u metrische gegevens voor het handmatig verwijderen. Verouderde analytische gegevens (gegevens die ouder zijn dan het bewaarbeleid) is verwijderd door het systeem zonder kosten. Het is raadzaam om een bewaarbeleid voor afhankelijk van hoe lang u wilt behouden storage analytics-gegevens voor uw account instellen. Zie [welke kosten komen er gemaakt bij het inschakelen van metrische gegevens storage?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) voor meer informatie.
+   > U in rekening worden gebracht wanneer u metrische gegevens voor het handmatig verwijderen. Verouderde analytische gegevens (gegevens die ouder zijn dan het bewaarbeleid) is verwijderd door Hallo systeem zonder kosten. Het is raadzaam om een bewaarbeleid op basis van hoe lang u tooretain storage analytics-gegevens voor uw account wilt instellen. Zie [welke kosten komen er gemaakt bij het inschakelen van metrische gegevens storage?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) voor meer informatie.
    >
 
-1. Wanneer u klaar bent met de configuratie van de bewaking, selecteert u **opslaan**.
+1. Wanneer u klaar bent met de controleconfiguratie hello, selecteert u **opslaan**.
 
-Een standaardset metrische gegevens wordt weergegeven in de grafieken op de blade opslagaccount, evenals de blades afzonderlijke service (blob, queue, table en -bestand). Nadat u metrische gegevens voor een service hebt ingeschakeld, kan deze gegevens worden weergegeven in de grafieken een uur duren. U kunt selecteren **bewerken** op een metrische grafiek voor [configureren welke metrische gegevens](#how-to-customize-metrics-charts) worden weergegeven in de grafiek.
+Een standaardset metrische gegevens wordt weergegeven in de grafieken op de blade opslagaccount hello, evenals Hallo afzonderlijke service blades (blob, queue, table en -bestand). Nadat u metrische gegevens voor een service hebt ingeschakeld, kan het tooappear gegevens in de grafieken tooan uur duren. U kunt selecteren **bewerken** op een metriek grafiek te[configureren welke metrische gegevens](#how-to-customize-metrics-charts) in Hallo diagram worden weergegeven.
 
-U kunt metrische gegevens verzamelen en logboekregistratie uitschakelen door in te stellen **Status** naar **uit**.
+U kunt metrische gegevens verzamelen en logboekregistratie uitschakelen door in te stellen **Status** te**uit**.
 
 > [!NOTE]
-> Azure Storage maakt gebruik van [tabel opslag](../common/storage-introduction.md#table-storage) voor het opslaan van de metrische gegevens voor uw opslagaccount en slaat de metrische gegevens in de tabellen in uw account. Zie voor meer informatie. [Hoe metrische gegevens worden opgeslagen](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage maakt gebruik van [tabel opslag](../common/storage-introduction.md#table-storage) toostore Hallo metrische gegevens voor uw opslagaccount en winkels Hallo metrische gegevens in de tabellen in uw account. Zie voor meer informatie. [Hoe metrische gegevens worden opgeslagen](../common/storage-analytics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Metrische gegevens grafieken aanpassen
 
-Gebruik de volgende procedure om te kiezen welke opslag metrische gegevens om weer te geven in een grafiek metrische gegevens. 
+Gebruik hello te volgen procedure toochoose welke opslag metrische gegevens tooview in een grafiek metrische gegevens. 
 
-1. Start een metrische grafiek opslag in de Azure-portal weergegeven. U kunt grafieken vinden op de **blade opslagaccount** en in de **metrische gegevens** blade voor een afzonderlijke service (blob, queue, table, bestand).
+1. Start een metrische grafiek opslag in hello Azure-portal weergegeven. U vindt grafieken op Hallo **blade opslagaccount** en in Hallo **metrische gegevens** blade voor een afzonderlijke service (blob, queue, table, bestand).
 
-   In dit voorbeeld werken we met het volgende diagram dat wordt weergegeven op de **blade opslagaccount**:
+   In dit voorbeeld werken we met de volgende grafiek die wordt weergegeven op Hallo Hallo **blade opslagaccount**:
 
    ![Grafiekselectie in Azure-portal](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
-1. Klik vervolgens op een willekeurige plaats in de grafiek openen de **metriek** blade. Selecteer **grafiek bewerken** openen de **grafiek bewerken** blade.
+1. Klik vervolgens op een willekeurige plaats in Hallo grafiek tooopen hello **metriek** blade. Selecteer **grafiek bewerken** tooopen hello **grafiek bewerken** blade.
 
    ![Knop grafiek op de blade grafiek bewerken](./media/storage-monitor-storage-account/stg-customize-chart-01.png)
 
-1. Op de **grafiek bewerken** blade, selecteer de **tijdsbereik** van de metrische gegevens om weer te geven in de grafiek en de **service** (blob, queue, tabel, bestand) waarvan metrische gegevens die u wilt weergeven. Er is hier voor gekozen om de afgelopen week metrische gegevens voor de blob-service weer te geven:
+1. Op Hallo **grafiek bewerken** blade, selecteer Hallo **tijdsbereik** van Hallo metrische gegevens toodisplay in Hallo grafiek en Hallo **service** (blob, queue, tabel, bestand) waarvan metrische gegevens die u wilt toodisplay. Hier geselecteerde we toodisplay Hallo voorbij week van metrische gegevens voor Hallo blob-service:
 
-   ![Bereik en service tijdzone in de blade grafiek bewerken](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
+   ![Bereik en de service Tijdselectie Hallo grafiek bewerken blade](./media/storage-monitor-storage-account/stg-customize-chart-02.png)
 
-1. Selecteer de afzonderlijke **metrische gegevens** moest u zoals weergegeven in de grafiek, klikt u op **OK**. Bijvoorbeeld, hier we hebt gekozen om weer te geven de *ContainerCount* en *ObjectCount* metrische gegevens:
+1. Selecteer Hallo afzonderlijke **metrische gegevens** u was zoals weergegeven in de grafiek Hallo, klikt u op **OK**. Bijvoorbeeld, hier we hebt gekozen toodisplay hello *ContainerCount* en *ObjectCount* metrische gegevens:
 
    ![Afzonderlijke metrische selectie in de blade grafiek bewerken](./media/storage-monitor-storage-account/stg-customize-chart-03.png)
 
-De grafiekinstellingen van uw hebben geen invloed op de verzameling, aggregatie of opslag van gegevens in het opslagaccount, alleen de weergave van metrische gegevens van bewaking.
+De grafiekinstellingen niet invloed hebben op Hallo verzameling, aggregatie of opslag van gegevens in het opslagaccount Hallo bewaking, alleen Hallo weergave van metrische gegevens van.
 
 ### <a name="metrics-availability-in-charts"></a>Beschikbaarheid van de metrische gegevens in grafieken
 
-De lijst met beschikbare metrische gegevens wijzigingen op basis van welke service die u hebt gekozen in de vervolgkeuzelijst en het eenheidstype van de grafiek die u wilt bewerken. Bijvoorbeeld, kunt u percentage metrische gegevens zoals *PercentNetworkError* en *PercentThrottlingError* alleen als u een diagram waarin eenheden percentage bewerkt:
+Hallo-lijst met wijzigingen van de beschikbare metrische gegevens op basis van welke service die u hebt gekozen in de vervolgkeuzelijst Hallo en eenheidstype Hallo van Hallo grafiek die u wilt bewerken. Bijvoorbeeld, kunt u percentage metrische gegevens zoals *PercentNetworkError* en *PercentThrottlingError* alleen als u een diagram waarin eenheden percentage bewerkt:
 
-![Aanvraag voor fout percentage grafiek in de Azure-portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
+![Aanvraag voor fout percentage grafiek in hello Azure-portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
 ### <a name="metrics-resolution"></a>Omzetting van de metrische gegevens
 
-De metrische gegevens die u hebt geselecteerd in de Diagnostics bepaalt de resolutie van de metrische gegevens die beschikbaar voor uw account zijn:
+Hallo metrische gegevens die u hebt geselecteerd in de Diagnostics bepaalt Hallo resolutie van Hallo metrische gegevens die beschikbaar voor uw account zijn:
 
-* **Cumulatieve** voorziet in maatstaven zoals inkomend en uitgaand, beschikbaarheid, latentie en geslaagd percentages voor bewaking. Deze metrische gegevens worden van de blob, table, bestand en wachtrijservices samengevoegd.
-* **Per API** biedt betere oplossing met metrische gegevens beschikbaar voor afzonderlijke opslagbewerkingen, naast de serviceniveau-statistische functies.
+* **Cumulatieve** voorziet in maatstaven zoals inkomend en uitgaand, beschikbaarheid, latentie en geslaagd percentages voor bewaking. Deze metrische gegevens worden samengevoegd uit Hallo blob, table-bestand en wachtrijservices.
+* **Per API** fijner oplossing biedt voor de toohello serviceniveau-statistische functies met metrische gegevens beschikbaar voor afzonderlijke opslagbewerkingen, naast.
 
 ## <a name="configure-metrics-alerts"></a>Metrische gegevens waarschuwingen configureren
 
-U kunt waarschuwingen om u te waarschuwen wanneer drempels hebt bereikt voor metrische gegevens van storage resource maken.
+U kunt waarschuwingen toonotify maken wanneer drempels voor metrische gegevens van storage resource is bereikt.
 
-1. Openen de **waarschuwingsregels blade**, schuif omlaag naar de **bewaking** sectie van de **Menu blade** en selecteer **waarschuwing regels**.
-1. Selecteer **waarschuwing toevoegen** openen de **een waarschuwingsregel toevoegen** blade
-1. Selecteer een **Resource** (blob, bestand, in de wachtrij, tabel) in de vervolgkeuzelijst en voer een **naam** en **beschrijving** voor uw nieuwe waarschuwingsregel.
-1. Selecteer de **metriek** voor die u wilt een waarschuwing, wordt een waarschuwing toevoegen **voorwaarde**, en een **drempelwaarde**. De eenheid drempelwaarde Typ wijzigingen, afhankelijk van de metrische gegevens die u hebt gekozen. 'Aantal' is bijvoorbeeld het eenheidstype voor *ContainerCount*, terwijl de eenheid voor de *PercentNetworkError* meetwaarde is een percentage.
-1. Selecteer de **periode**. Metrische gegevens die bereikt of overschrijdt de drempelwaarde binnen een periode geeft een waarschuwing.
-1. (Optioneel) Configureer **e** en **Webhook** meldingen. Zie voor meer informatie over webhooks [een webhook configureren op een Azure metrische waarschuwing](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Als u geen e-mailadres of webhook meldingen configureert, wordt alleen in de Azure portal waarschuwingen weergegeven.
+1. Hallo tooopen **waarschuwingsregels blade**, schuif omlaag toohello **bewaking** sectie Hallo **Menu blade** en selecteer **waarschuwing regels**.
+1. Selecteer **waarschuwing toevoegen** tooopen hello **een waarschuwingsregel toevoegen** blade
+1. Selecteer een **Resource** (blob, bestand, in de wachtrij, tabel) van Hallo vervolgkeuzelijst en voer een **naam** en **beschrijving** voor uw nieuwe waarschuwingsregel.
+1. Selecteer Hallo **metriek** waarvoor u tooadd een waarschuwing een waarschuwing wilt **voorwaarde**, en een **drempelwaarde**. Hallo drempelwaarde eenheid wijzigingen van het type, afhankelijk van Hallo metrische gegevens die u hebt gekozen. Bijvoorbeeld, 'aantal' hello eenheidstype voor is *ContainerCount*, tijdens het Hallo-eenheid voor Hallo *PercentNetworkError* meetwaarde is een percentage.
+1. Selecteer Hallo **periode**. Metrische gegevens die bereikt of overschrijdt Hallo drempelwaarde binnen Hallo periode trigger een waarschuwing.
+1. (Optioneel) Configureer **e** en **Webhook** meldingen. Zie voor meer informatie over webhooks [een webhook configureren op een Azure metrische waarschuwing](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Als u e-mailadres of webhook meldingen niet configureert, wordt alleen in hello Azure-portal waarschuwingen weergegeven.
 
-![Blade 'Een waarschuwingsregel toevoegen' in de Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
+![Blade 'Een waarschuwingsregel toevoegen' in hello Azure-portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
-## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Metrische gegevens grafieken toevoegen aan het portaldashboard
+## <a name="add-metrics-charts-toohello-portal-dashboard"></a>Metrische gegevens grafieken toohello portaldashboard toevoegen
 
-U kunt grafieken van Azure Storage metrische gegevens voor een van uw storage-accounts toevoegen aan uw portal-dashboard.
+U kunt grafieken van Azure Storage metrische gegevens toevoegen voor een van uw storage-accounts tooyour-portaldashboard.
 
-1. Selecteer Klik **bewerken dashboard** tijdens het bekijken van het dashboard in de [Azure-portal](https://portal.azure.com).
-1. In de **tegel galerie**, selecteer **zoeken door tegels** > **Type**.
+1. Selecteer Klik **bewerken dashboard** tijdens het bekijken van het dashboard in Hallo [Azure-portal](https://portal.azure.com).
+1. In Hallo **tegel galerie**, selecteer **zoeken door tegels** > **Type**.
 1. Selecteer **Type** > **opslagaccounts**.
-1. In **Resources**, selecteer het opslagaccount waarvan metrische gegevens die u wilt toevoegen aan het dashboard.
+1. In **Resources**, selecteert u het opslagaccount Hallo waarvan metrische gegevens die u wenst dat tooadd toohello dashboard.
 1. Selecteer **categorieën** > **bewaking**.
-1. Slepen en neerzetten van de grafiek tegel op uw dashboard voor de metrische gegevens die u wilt weergegeven. Herhaal van alle metrische gegevens die u wilt weergegeven op het dashboard. De grafiek 'Blobs - totale aanvragen' is gemarkeerd als voorbeeld in de volgende afbeelding, maar alle grafieken zijn beschikbaar voor plaatsing op uw dashboard.
+1. Diagram van slepen en neerzetten Hallo tegel op uw dashboard voor Hallo metriek gewenst weergegeven. Herhaal van alle metrische gegevens die u wilt weergegeven op het Hallo-dashboard. In Hallo installatiekopie te volgen, Hallo 'BLOB's - totale aanvragen' grafiek is gemarkeerd als voorbeeld, maar alle Hallo grafieken zijn beschikbaar voor plaatsing op uw dashboard.
 
    ![Tegel galerie in Azure-portal](./media/storage-monitor-storage-account/stg-customize-dashboard-01.png)
-1. Selecteer **gedaan aanpassen** boven aan het dashboard wanneer u grafieken toe te voegen bent klaar.
+1. Selecteer **gedaan aanpassen** aan de bovenkant Hallo van Hallo dashboard wanneer u grafieken toe te voegen bent klaar.
 
-Zodra u grafieken hebt toegevoegd aan uw dashboard, kunt u verder deze aanpassen zoals beschreven in [grafieken van de metrische gegevens aanpassen](#how-to-customize-metrics-charts).
+Zodra u grafieken tooyour dashboard hebt toegevoegd, kunt u verder deze aanpassen zoals beschreven in [grafieken van de metrische gegevens aanpassen](#how-to-customize-metrics-charts).
 
 ## <a name="configure-logging"></a>Logboekregistratie configureren
 
-U kunt opgeven dat Azure Storage Sla de logboeken van de diagnostische gegevens voor lezen, schrijven en aanvragen voor de blob, table en queue-services verwijderen. Het bewaarbeleid voor gegevens u geldt ook voor deze logboeken.
+U kunt opgeven dat Azure Storage toosave diagnostische logboeken voor lezen, schrijven en verwijderen van aanvragen voor Hallo blob, table en queue-services. Hallo bewaarbeleid voor gegevens u geldt ook toothese Logboeken.
 
 > [!NOTE]
 > Azure File storage momenteel ondersteunt Opslaganalyse metrische gegevens, maar logboekregistratie nog niet ondersteunt.
 >
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer **opslagaccounts**, klikt u vervolgens de naam van het storage-account openen van de blade opslagaccount.
-1. Selecteer **Diagnostics** in de **bewaking** sectie van de blade menu.
+1. In Hallo [Azure-portal](https://portal.azure.com), selecteer **opslagaccounts**, en vervolgens de naam Hallo van Hallo storage account tooopen Hallo blade opslagaccount.
+1. Selecteer **Diagnostics** in Hallo **bewaking** sectie van Hallo menu blade.
 
-    ![Diagnostische gegevens menu-item onder controle in de Azure portal.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
+    ![Diagnostische gegevens menu-item onder controle in hello Azure-portal.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
     
-1. Zorg ervoor dat **Status** is ingesteld op **op**, en selecteer de **services** voor die u wilt inschakelen van logboekregistratie.
+1. Zorg ervoor dat **Status** te is ingesteld,**op**, en selecteer Hallo **services** waarvoor u tooenable logboekregistratie wilt.
 
-    ![Logboekregistratie in de Azure portal configureren.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
+    ![Logboekregistratie in hello Azure-portal configureren.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
 1. Klik op **Opslaan**.
 
-De logboeken met diagnostische gegevens worden opgeslagen in een blob-container met de naam $logs in uw opslagaccount. U kunt de logboekgegevens met een Opslagverkenner zoals weergeven de [Microsoft Opslagverkenner](http://storageexplorer.com), of programmatisch met behulp van de storage-clientbibliotheek of PowerShell.
+Hallo diagnostische logboeken worden opgeslagen in een blob-container met de naam $logs in uw opslagaccount. U kunt weergeven Hallo logboekgegevens met een Opslagverkenner zoals Hallo [Microsoft Opslagverkenner](http://storageexplorer.com), of programmatisch met behulp van de storage-clientbibliotheek Hallo of PowerShell.
 
-Zie voor meer informatie over het openen van de container $logs [opslag vastleggen inschakelen en toegang tot logboekgegevens](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Zie voor meer informatie over het openen van de container Hallo $logs [opslag vastleggen inschakelen en toegang tot logboekgegevens](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
 ## <a name="next-steps"></a>Volgende stappen
 

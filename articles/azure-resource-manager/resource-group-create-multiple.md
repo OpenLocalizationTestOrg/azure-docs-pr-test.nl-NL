@@ -1,6 +1,6 @@
 ---
-title: Meerdere exemplaren van Azure-resources implementeren | Microsoft Docs
-description: Kopieerbewerking en matrices in een Azure Resource Manager-sjabloon gebruiken om te herhalen meerdere keren bij het implementeren van resources.
+title: aaaDeploy meerdere exemplaren van Azure-resources | Microsoft Docs
+description: Kopieerbewerking en matrices in een Azure Resource Manager-sjabloon tooiterate meerdere keren gebruiken bij het implementeren van resources.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3bd42f694053317c30b639c33dc4efae41a9a9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementeren van meerdere exemplaren van een resource of eigenschap in Azure Resource Manager-sjablonen
-Dit onderwerp leest u hoe u in uw Azure Resource Manager-sjabloon voor het maken van meerdere exemplaren van een resource of meerdere exemplaren van een eigenschap van een resource.
+Dit onderwerp leest u hoe tooiterate in uw Azure Resource Manager-sjabloon toocreate meerdere exemplaren van een resource of meerdere exemplaren van een eigenschap van een resource.
 
-Als u Voeg logica toe aan de sjabloon waarmee u wilt kunt opgeven of een resource wordt geïmplementeerd, Zie [voorwaardelijk implementeren resource](#conditionally-deploy-resource).
+Als u moet tooadd logica tooyour sjabloon waarmee u toospecify of een resource wordt geïmplementeerd, Zie [voorwaardelijk implementeren resource](#conditionally-deploy-resource).
 
 ## <a name="resource-iteration"></a>Resource herhaling
-Voor het maken van meerdere exemplaren van een brontype toevoegen een `copy` element aan het brontype. In het element kopiëren, moet u het aantal iteraties en een naam op voor deze lus opgeven. De waarde van count moet een positief geheel getal zijn en mag niet meer dan 800. Resource Manager maakt de resources parallel. De volgorde waarin ze zijn gemaakt kan daarom niet worden gegarandeerd. Zie voor informatie over het maken van resources herhaald in de reeks [seriële kopiëren](#serial-copy). 
+toocreate meerdere exemplaren van een brontype toevoegen een `copy` element toohello brontype. Hallo aantal iteraties en een naam voor deze lus opgeven in Hallo kopie-element. Hallo count-waarde moet een positief geheel getal zijn en mag niet meer dan 800. Resource Manager maakt Hallo resources parallel. Hallo volgorde waarin ze zijn gemaakt kan daarom niet worden gegarandeerd. herhaald toocreate resources in de juiste volgorde, Zie [seriële kopiëren](#serial-copy). 
 
-De bron voor het maken van meerdere keren wordt gebruikt in de volgende indeling:
+Hallo resource toocreate wordt meerdere keren Hallo volgende indeling:
 
 ```json
 {
@@ -55,7 +55,7 @@ De bron voor het maken van meerdere keren wordt gebruikt in de volgende indeling
 }
 ```
 
-U ziet dat de naam van elke resource bevat de `copyIndex()` functie de huidige herhaling in de lus retourneert. `copyIndex()`is gebaseerd op nul. Hiertoe het volgende voorbeeld:
+U ziet dat Hallo naam van elke resource bevat Hallo `copyIndex()` functie de huidige herhaling Hallo in Hallo lus retourneert. `copyIndex()`is gebaseerd op nul. In dat geval Hallo voorbeeld te volgen:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -67,7 +67,7 @@ Deze namen maakt:
 * storage1
 * storage2.
 
-Als u wilt verschuiven waarde voor de index, kunt u een waarde in de functie copyIndex() doorgeven. Het aantal iteraties om uit te voeren nog steeds is opgegeven in het element kopiëren, maar de waarde van copyIndex wordt gecompenseerd door de opgegeven waarde. Hiertoe het volgende voorbeeld:
+toooffset hello indexwaarde, kunt u een waarde in de functie copyIndex() Hallo doorgeven. Hallo aantal iteraties tooperform is nog steeds opgegeven in Hallo kopie element, maar Hallo-waarde van copyIndex wordt gecompenseerd door Hallo opgegeven waarde. In dat geval Hallo voorbeeld te volgen:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -79,7 +79,7 @@ Deze namen maakt:
 * storage2
 * storage3
 
-De kopieerbewerking is handig bij het werken met matrices omdat u elk element in de matrix kunt doorlopen. Gebruik de `length` functie op de matrix te geven van het aantal iteraties, en `copyIndex` voor het ophalen van de huidige index in de matrix. Hiertoe het volgende voorbeeld:
+Hallo kopieerbewerking is handig bij het werken met matrices omdat u elk element in de matrix Hallo kunt doorlopen. Gebruik Hallo `length` functie op Hallo matrix toospecify Hallo aantal voor iteraties, en `copyIndex` tooretrieve Hallo huidige index in Hallo matrix. In dat geval Hallo voorbeeld te volgen:
 
 ```json
 "parameters": { 
@@ -112,9 +112,9 @@ Deze namen maakt:
 
 ## <a name="serial-copy"></a>Seriële kopiëren
 
-Wanneer u het element kopiëren gebruikt voor het maken van meerdere exemplaren van een resourcetype Resource Manager worden standaard implementeert de instanties parallel. Daarom is het raadzaam om op te geven dat de resources in volgorde worden geïmplementeerd. Bijvoorbeeld bij het bijwerken van een productieomgeving, u kunt dus spreiden van de updates alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
+Wanneer u Hallo kopie element toocreate implementeert meerdere exemplaren van een resourcetype Resource Manager worden standaard de instanties parallel. U kunt echter toospecify die Hallo resources worden geïmplementeerd in de reeks. Bijvoorbeeld bij het bijwerken van een productieomgeving kunt u toostagger Hallo bijgewerkt zodat alleen bepaalde op elk gewenst moment worden bijgewerkt.
 
-Resource Manager biedt de eigenschappen voor het kopiëren-element waarmee u kunt meerdere exemplaren opeenvolgend te implementeren. Stel in het element kopiëren `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Seriële modus maakt Resource Manager met een afhankelijkheid voor eerdere exemplaren in de lus, zodat dit niet één batch gestart totdat de vorige batch is voltooid.
+Resource Manager biedt de eigenschappen op Hallo kopie-element waarmee u tooserially implementeren meerdere exemplaren. Instellen in element kopiëren Hallo `mode` te**seriële** en `batchSize` toohello aantal exemplaren toodeploy tegelijk. Seriële modus maakt Resource Manager met een afhankelijkheid voor eerdere exemplaren in de lus hello, zodat dit niet één batch gestart totdat de vorige batch Hallo is voltooid.
 
 ```json
 "copy": {
@@ -125,9 +125,9 @@ Resource Manager biedt de eigenschappen voor het kopiëren-element waarmee u kun
 },
 ```
 
-De eigenschap mode accepteert ook **parallelle**, dit is de standaardwaarde.
+Hallo eigenschap mode accepteert ook **parallelle**, namelijk Hallo-standaardwaarde.
 
-Als u wilt testen seriële kopiëren zonder dat er feitelijke webbronnen, moet u de volgende sjabloon die wordt geïmplementeerd leeg geneste sjablonen gebruikt:
+tootest seriële kopiëren zonder dat er feitelijke webbronnen gebruik Hallo-sjabloon die wordt geïmplementeerd leeg geneste sjablonen te volgen:
 
 ```json
 {
@@ -170,11 +170,11 @@ Als u wilt testen seriële kopiëren zonder dat er feitelijke webbronnen, moet u
 }
 ```
 
-U ziet dat de geneste implementaties in volgorde worden verwerkt in de geschiedenis van de implementatie.
+In Hallo implementatiegeschiedenis, merk op dat geneste implementaties Hallo verwerkt in de reeks.
 
 ![seriële implementatie](./media/resource-group-create-multiple/serial-copy.png)
 
-Voor een meer realistische scenario is implementeert het volgende voorbeeld twee instanties op een tijdstip van een Linux-VM uit een geneste sjabloon:
+Voor een meer realistische scenario implementeert Hallo voorbeeld van de volgende twee instanties op een tijdstip van een Linux-VM uit een geneste sjabloon:
 
 ```json
 {
@@ -184,19 +184,19 @@ Voor een meer realistische scenario is implementeert het volgende voorbeeld twee
         "adminUsername": {
             "type": "string",
             "metadata": {
-                "description": "User name for the Virtual Machine."
+                "description": "User name for hello Virtual Machine."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "Password for the Virtual Machine."
+                "description": "Password for hello Virtual Machine."
             }
         },
         "dnsLabelPrefix": {
             "type": "string",
             "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+                "description": "Unique DNS Name for hello Public IP used tooaccess hello Virtual Machine."
             }
         },
         "ubuntuOSVersion": {
@@ -209,7 +209,7 @@ Voor een meer realistische scenario is implementeert het volgende voorbeeld twee
                 "16.04.0-LTS"
             ],
             "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+                "description": "hello Ubuntu version for hello VM. This will pick a fully patched image of this given Ubuntu version."
             }
         }
     },
@@ -258,13 +258,13 @@ Voor een meer realistische scenario is implementeert het volgende voorbeeld twee
 
 ## <a name="property-iteration"></a>Eigenschap herhaling
 
-Voor het maken van meerdere waarden voor een eigenschap van een resource, Voeg een `copy` matrix in het element eigenschappen. Deze matrix bevat objecten en elk object heeft de volgende eigenschappen:
+toocreate meerdere waarden voor een eigenschap van een resource toevoegen een `copy` matrix in Hallo eigenschappen element. Deze matrix bevat objecten en elk object heeft Hallo volgende eigenschappen:
 
-* naam - de naam van de eigenschap voor het maken van meerdere waarden voor
-* aantal - het aantal waarden maken
-* invoer - object dat de waarden toewijzen aan de eigenschap bevat  
+* naam - Hallo van Hallo eigenschap toocreate meerdere waarden voor
+* het aantal waarden toocreate Hallo - tellen
+* invoer - object dat Hallo waarden tooassign toohello-eigenschap bevat  
 
-Het volgende voorbeeld laat zien hoe om toe te passen `copy` voor de eigenschap dataDisks op een virtuele machine:
+Hallo volgende voorbeeld wordt getoond hoe tooapply `copy` toohello dataDisks-eigenschap op een virtuele machine:
 
 ```json
 {
@@ -285,9 +285,9 @@ Het volgende voorbeeld laat zien hoe om toe te passen `copy` voor de eigenschap 
       ...
 ```
 
-Merk op dat wanneer u `copyIndex` binnen de herhaling van een eigenschap, moet u de naam van de herhaling opgeven. U hebt niet de naam gebruikt in combinatie met herhaling van de resource op te geven.
+Merk op dat wanneer u `copyIndex` binnen een iteratie eigenschap u Hallo-naam van Hallo herhaling moet opgeven. U hoeft geen tooprovide Hallo naam gebruikt in combinatie met resource herhaling.
 
-Resource Manager breidt de `copy` matrix tijdens de implementatie. De naam van de matrix, wordt de naam van de eigenschap. De invoerwaarden, worden de objecteigenschappen. De geïmplementeerde sjabloon als volgt uit:
+Resource Manager worden uitgevouwen Hallo `copy` matrix tijdens de implementatie. Hallo-naam van de matrix hello wordt Hallo-naam van Hallo-eigenschap. Hallo invoerwaarden worden Hallo objecteigenschappen. Hallo geïmplementeerd sjabloon als volgt uit:
 
 ```json
 {
@@ -316,7 +316,7 @@ Resource Manager breidt de `copy` matrix tijdens de implementatie. De naam van d
       ...
 ```
 
-U kunt resource en de eigenschap iteratie samen gebruiken. Verwijzing naar de herhaling van de eigenschap met de naam.
+U kunt resource en de eigenschap iteratie samen gebruiken. Verwijzing Hallo herhaling eigenschap met de naam.
 
 ```json
 {
@@ -350,7 +350,7 @@ U kunt resource en de eigenschap iteratie samen gebruiken. Verwijzing naar de he
 }
 ```
 
-U kunt alleen één exemplaar element opnemen in de eigenschappen voor elke resource. Als u een lus herhaling voor meer dan één eigenschap, meerdere objecten definiëren die in de matrix kopiëren. Elk object wordt afzonderlijk herhaald. Om bijvoorbeeld te maken van meerdere exemplaren van zowel de `frontendIPConfigurations` eigenschap en de `loadBalancingRules` eigenschap op een load balancer beide objecten definiëren die in een element met één exemplaar: 
+U kunt alleen één exemplaar element opnemen in Hallo-eigenschappen voor elke resource. meerdere objecten toospecify een lus herhaling voor meer dan één eigenschap definiëren in Hallo kopie matrix. Elk object wordt afzonderlijk herhaald. Bijvoorbeeld: toocreate meerdere exemplaren van beide Hallo `frontendIPConfigurations` eigenschap en Hallo `loadBalancingRules` eigenschap op een load balancer beide objecten definiëren die in een element met één exemplaar: 
 
 ```json
 {
@@ -398,7 +398,7 @@ U kunt alleen één exemplaar element opnemen in de eigenschappen voor elke reso
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Afhankelijk zijn van bronnen in een lus
-U opgeven dat een resource na een andere resource wordt geïmplementeerd met behulp van de `dependsOn` element. Geef de naam van de lus kopie in het element dependsOn voor het implementeren van een resource die afhankelijk zijn van de verzameling van resources in een lus. Het volgende voorbeeld laat zien hoe drie storage-accounts te implementeren voordat u de virtuele Machine implementeert. De definitie van de volledige virtuele Machine niet wordt weergegeven. U ziet dat het element kopiëren naam ingesteld op `storagecopy` en het element dependsOn voor de virtuele Machines ook is ingesteld op `storagecopy`.
+U opgeven dat een resource na een andere resource wordt geïmplementeerd met behulp van Hallo `dependsOn` element. een resource die afhankelijk zijn van de verzameling van resources in een lus Hallo toodeploy Hallo naam opgeven van Hallo kopie lus in Hallo dependsOn element. Hallo volgende voorbeeld ziet u hoe toodeploy drie storage-accounts voordat u implementeert Hallo voor virtuele Machine. Hallo volledige virtuele Machine definitie wordt niet weergegeven. U ziet dat Hallo kopie-element heeft naam ingesteld te`storagecopy` en ook Hallo dependsOn element voor Hallo virtuele Machines is ingesteld op een te`storagecopy`.
 
 ```json
 {
@@ -434,7 +434,7 @@ U opgeven dat een resource na een andere resource wordt geïmplementeerd met beh
 ```
 
 ## <a name="create-multiple-instances-of-a-child-resource"></a>Meerdere exemplaren van een onderliggende resource maken
-U kunt een lus kopie niet gebruiken voor een onderliggende resource. Voor het maken van meerdere exemplaren van een resource die u normaal gesproken als genest in een andere resource definiëren, moet u in plaats daarvan die resource maken als een resource op het hoogste niveau. U definieert de relatie met de bovenliggende resource via de eigenschappen van het type en de naam.
+U kunt een lus kopie niet gebruiken voor een onderliggende resource. toocreate meerdere exemplaren van een resource die u doorgaans als definiëren in een andere resource genest, moet u in plaats daarvan maken die resource als een resource op het hoogste niveau. U definiëren Hallo relatie met de Hallo bovenliggende resource via Hallo type en de naam eigenschappen.
 
 Stel bijvoorbeeld dat u doorgaans een gegevensset definiëren als een onderliggende bron binnen een gegevensfactory.
 
@@ -456,11 +456,11 @@ Stel bijvoorbeeld dat u doorgaans een gegevensset definiëren als een onderligge
 }]
 ```
 
-Voor het maken van meerdere exemplaren van gegevenssets, verplaatst u het buiten de gegevensfactory. De gegevensset moet zich op hetzelfde niveau als de gegevensfactory, maar nog steeds een onderliggende resource van de gegevensfactory. U behouden de relatie tussen de gegevensset en data factory via de eigenschappen van het type en de naam. Aangezien het type kan niet meer worden afgeleid van de positie in de sjabloon, moet u de volledig gekwalificeerde type in de indeling opgeven: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+toocreate meerdere exemplaren van gegevenssets, verplaatst u het buiten Hallo data factory. Hallo gegevensset moet zich op hetzelfde niveau als Hallo gegevensfactory hello, maar nog steeds een onderliggende resource van Hallo-gegevensfactory. U behouden Hallo relatie tussen de gegevensset en data factory via de eigenschappen voor het type en de naam van Hallo. Aangezien het type kan niet meer worden afgeleid van de positie in de sjabloon hello, moet u Hallo volledig gekwalificeerd type Hallo indeling opgeven: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-Geef een naam voor de gegevensset met de naam van de bovenliggende resource voor het opzetten van een bovenliggende/onderliggende relatie met een exemplaar van de gegevensfactory. Gebruik de indeling: `{parent-resource-name}/{child-resource-name}`.  
+tooestablish een bovenliggende/onderliggende relatie met een exemplaar van de gegevensfactory hello, Geef een naam voor de gegevensset Hallo met Hallo bovenliggende resourcenaam. Gebruik de indeling Hallo: `{parent-resource-name}/{child-resource-name}`.  
 
-Het volgende voorbeeld ziet u de implementatie:
+Hallo toont volgende voorbeeld Hallo implementatie:
 
 ```json
 "resources": [
@@ -485,7 +485,7 @@ Het volgende voorbeeld ziet u de implementatie:
 
 ## <a name="conditionally-deploy-resource"></a>Voorwaardelijk resource implementeren
 
-Als u wilt opgeven of een resource wordt geïmplementeerd, gebruiken de `condition` element. De waarde voor dit element wordt omgezet in true of false. Wanneer de waarde true is, wordt de bron wordt geïmplementeerd. Wanneer de waarde false is, wordt de resource wordt niet geïmplementeerd. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruiken:
+toospecify of een resource wordt geïmplementeerd, gebruiken Hallo `condition` element. Hallo-waarde voor dit element wordt omgezet tootrue of ONWAAR. Wanneer het Hallo-waarde true is, wordt Hallo resource geïmplementeerd. Wanneer het Hallo-waarde is ingesteld op false, worden Hallo resource wordt niet geïmplementeerd. Bijvoorbeeld: toospecify of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruiken:
 
 ```json
 {
@@ -504,9 +504,9 @@ Als u wilt opgeven of een resource wordt geïmplementeerd, gebruiken de `conditi
 
 Zie voor een voorbeeld van het gebruik van een nieuwe of bestaande resourcegroep [nieuwe of bestaande voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
 
-Zie voor een voorbeeld van het gebruik van een wachtwoord of SSH-sleutel voor het implementeren van virtuele machine [gebruikersnaam of SSH voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+Zie voor een voorbeeld van het gebruik van een wachtwoord of SSH-sleutel toodeploy virtuele machine [gebruikersnaam of SSH voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Als u wilt voor meer informatie over de secties van een sjabloon, Zie [Azure Resource Manager-sjablonen ontwerpen](resource-group-authoring-templates.md).
-* Zie voor meer informatie over het implementeren van uw sjabloon, [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Als u toolearn Hallo secties van een sjabloon wilt, Zie [Azure Resource Manager-sjablonen ontwerpen](resource-group-authoring-templates.md).
+* toolearn hoe toodeploy uw sjabloon Zie [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

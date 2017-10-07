@@ -1,5 +1,5 @@
 ---
-title: Azure Containerexemplaren - meerdere containergroep | Azure Docs
+title: aaaAzure Containerexemplaren - meerdere containergroep | Azure Docs
 description: Azure Containerexemplaren - groep met meerdere container
 services: container-instances
 documentationcenter: 
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 976f578cd2a9bf7f05ab97f24662139bb72062ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-a-container-group"></a>Een containergroep implementeren
 
-Azure Containerexemplaren ondersteuning van de implementatie van meerdere containers naar één host met behulp van een *containergroep*. Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft. 
+Azure Containerexemplaren ondersteuning Hallo-implementatie van meerdere containers naar één host met behulp van een *containergroep*. Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft. 
 
 Dit document helpt bij het uitvoeren van een eenvoudige meerdere container ter-configuratie met een Azure Resource Manager-sjabloon.
 
-## <a name="configure-the-template"></a>De sjabloon configureren
+## <a name="configure-hello-template"></a>Hallo-sjabloon configureren
 
-Maak een bestand met de naam `azuredeploy.json` en kopieer de volgende json naar deze. 
+Maak een bestand met de naam `azuredeploy.json` en kopiëren Hallo json in het volgende. 
 
-In dit voorbeeld wordt is een containergroep met twee containers en een openbare IP-adres gedefinieerd. De eerste container van de groep wordt een internettoepassing gerichte uitgevoerd. De tweede container, de ter maakt een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk. 
+In dit voorbeeld wordt is een containergroep met twee containers en een openbare IP-adres gedefinieerd. Hallo eerste container van Hallo groep wordt een internettoepassing gerichte uitgevoerd. Hallo tweede container Hallo ter, kunt u een HTTP-aanvraag toohello hoofdweb toepassing via Hallo van de groep lokale netwerk. 
 
-In dit voorbeeld ter kan worden uitgebreid activeren van een waarschuwing als er een HTTP-antwoordcode dan 200 OK ontvangen. 
+In dit voorbeeld ter mogelijk uitgebreide tootrigger een waarschuwing als er een HTTP-antwoordcode dan 200 OK ontvangen. 
 
 ```json
 {
@@ -109,7 +109,7 @@ In dit voorbeeld ter kan worden uitgebreid activeren van een waarschuwing als er
   }
 ```
 
-Voor het gebruik van een installatiekopie van privé-container register, moet u een object toevoegen aan het json-document met de volgende indeling.
+een object toohello json-document toouse een register van de installatiekopie van privé-container toevoegen met de volgende indeling Hallo.
 
 ```json
 "imageRegistryCredentials": [
@@ -121,15 +121,15 @@ Voor het gebruik van een installatiekopie van privé-container register, moet u 
 ]
 ```
 
-## <a name="deploy-the-template"></a>De sjabloon implementeren
+## <a name="deploy-hello-template"></a>Hallo-sjabloon implementeren
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create).
+Een resourcegroep maken met de Hallo [az groep maken](/cli/azure/group#create) opdracht.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Implementeren van de sjabloon met de [az implementatie maken](/cli/azure/group/deployment#create) opdracht.
+Hallo sjabloon Hello implementeren [az implementatie maken](/cli/azure/group/deployment#create) opdracht.
 
 ```azurecli-interactive
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
@@ -139,7 +139,7 @@ Binnen enkele seconden ontvangt u een eerste reactie van Azure.
 
 ## <a name="view-deployment-state"></a>Implementatiestatus weergeven
 
-U kunt de status van de implementatie weergeven, met de `az container show` opdracht. Hiermee wordt de ingerichte openbaar IP-adres gedurende welke de toepassing toegankelijk zijn.
+status van de tooview Hallo van Hallo-implementatie, gebruik Hallo `az container show` opdracht. Hiermee wordt ingericht Hallo openbaar IP-adres via welke Hallo toepassing toegankelijk zijn.
 
 ```azurecli-interactive
 az container show --name myContainerGroup --resource-group myResourceGroup -o table
@@ -155,7 +155,7 @@ myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-s
 
 ## <a name="view-logs"></a>Logboeken bekijken   
 
-Weergave van de logboekuitvoer van een container met de `az container logs` opdracht. De `--container-name` argument Hiermee geeft u de container waarin voor het ophalen van Logboeken. In dit voorbeeld wordt is de eerste container opgegeven. 
+Hallo logboekuitvoer van een container met Hallo weergeven `az container logs` opdracht. Hallo `--container-name` geeft Hallo-container uit welke logboeken toopull argument. In dit voorbeeld wordt is de eerste container Hallo opgegeven. 
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
@@ -171,7 +171,7 @@ istening on port 80
 ::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Overzicht van de logboeken voor de container side auto dezelfde opdracht geven de tweede containernaam worden uitgevoerd.
+Hallo toosee logboeken voor Hallo side auto-container, Hallo uitgevoerd dezelfde opdracht geven Hallo tweede containernaam.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
@@ -193,11 +193,11 @@ Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
 Date: Mon, 17 Jul 2017 18:27:36 GMT
 ```
 
-Zoals u ziet, is de ter periodiek een HTTP-aanvraag die naar de belangrijkste webtoepassing via een van de groep lokale netwerk om ervoor te zorgen dat deze wordt uitgevoerd.
+Zoals u ziet, brengen Hallo ter periodiek een HTTP-aanvraag toohello hoofdweb toepassing via Hallo van de groep lokale netwerk tooensure dat deze wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Dit document besproken de stappen die nodig zijn voor het implementeren van een exemplaar van de container voor meerdere Azure-container. Zie de zelfstudie exemplaren van Azure-Container voor een complete Containerexemplaren Azure-ervaring.
+Dit document besproken Hallo-stappen die nodig zijn voor het implementeren van een meerdere container exemplaar van Azure-container. Zie voor een end-tooend die containerexemplaren Azure-ervaring, hello Azure Containerexemplaren zelfstudie.
 
 > [!div class="nextstepaction"]
 > [Azure Containerexemplaren zelfstudie]:./container-instances-tutorial-prepare-app.md

@@ -1,6 +1,6 @@
 ---
-title: Back-up maken van uw app in Azure
-description: Informatie over het maken van back-ups van uw apps in Azure App Service.
+title: aaaBack van uw app in Azure
+description: Meer informatie over hoe toocreate back-ups van uw apps in Azure App Service.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 77e983afaaba8e944ab1f337e1c28ced83b63205
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e41d93d322bbc48b45b28eeaa817928d83c2b9d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
-De Back up en herstel-functie in [Azure App Service](../app-service/app-service-value-prop-what-is.md) kunt u eenvoudig back-ups van app handmatig of volgens een planning aan te maken. U kunt de app naar een momentopname van een eerdere status herstellen door het overschrijven van de bestaande app of het herstellen naar een andere app. 
+Hallo Back-up en herstellen van de functie in [Azure App Service](../app-service/app-service-value-prop-what-is.md) kunt u eenvoudig back-ups van app handmatig of volgens een planning aan te maken. U kunt Hallo app tooa momentopname van een eerdere status door overschrijven Hallo bestaande app of terugzetten tooanother app herstellen. 
 
 Zie voor informatie over het herstellen van een app van back-up, [herstellen van een app in Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Wat wordt een back-up
-App Service kunt back-up van de volgende informatie naar een Azure-opslagaccount en container die u hebt geconfigureerd dat uw app te gebruiken. 
+App Service kunt back-up Hallo volgende informatie tooan Azure-opslagaccount en container dat u uw app toouse hebt geconfigureerd. 
 
 * App-configuratie
 * Bestandsinhoud
-* Database verbonden met uw app
+* Database verbonden tooyour app
 
-De volgende databaseoplossingen worden met de functie back-ups ondersteund: 
+Hallo database-oplossingen te volgen worden met de functie back-ups ondersteund: 
    - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
    - [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
    - [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
@@ -49,116 +49,116 @@ De volgende databaseoplossingen worden met de functie back-ups ondersteund:
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Vereisten en beperkingen
-* De Back up en herstel onderdeel vereist het App Service-abonnement in de **standaard** laag of **Premium** laag. Zie voor meer informatie over het schalen van uw App Service-abonnement te gebruiken van een hogere laag [een app in Azure opschalen](web-sites-scale.md).  
+* Hallo Back-up en terugzetten functie vereist Hallo App Service plan toobe in Hallo **standaard** laag of **Premium** laag. Zie voor meer informatie over het schalen van uw App Service plan toouse een hogere laag [een app in Azure opschalen](web-sites-scale.md).  
   **Premium** laag kan een groter aantal dagelijks back-ups dan **standaard** laag.
-* U moet een Azure-opslagaccount en container in hetzelfde abonnement als de app die u wilt back-up. Zie voor meer informatie over Azure storage-accounts, het [koppelingen](#moreaboutstorage) aan het einde van dit artikel.
-* Back-ups mag maximaal 10 GB-app en database-inhoud. Als de back-upgrootte deze limiet overschrijdt, krijgt u een fout opgetreden.
+* U moet een Azure-opslagaccount en container in Hallo hetzelfde abonnement als Hallo-app die u toobackup wilt. Zie voor meer informatie over Azure storage-accounts Hallo [koppelingen](#moreaboutstorage) aan Hallo einde van dit artikel.
+* Back-ups kunnen van de app en database inhoud too10 GB zijn. Als het Hallo-back-upgrootte overschrijdt deze limiet, krijgt u een fout opgetreden.
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Een handmatige back-up maken
-1. In de [Azure Portal](https://portal.azure.com), gaat u naar de blade van uw app, selecteer **back-ups**. De **back-ups** blade wordt weergegeven.
+1. In Hallo [Azure Portal](https://portal.azure.com), navigeer blade tooyour-app, selecteer **back-ups**. Hallo **back-ups** blade wordt weergegeven.
    
     ![Back-ups pagina][ChooseBackupsPage]
    
    > [!NOTE]
-   > Als u de onderstaande bericht ziet, klikt u op om uw App Service-abonnement upgraden voordat u kunt doorgaan met de back-ups.
+   > Als u het Hallo-bericht hieronder ziet, klikt u erop tooupgrade uw App Service-abonnement voordat u verder kunt gaan met back-ups.
    > Zie [een app in Azure opschalen](web-sites-scale.md) voor meer informatie.  
    > ![Opslagaccount kiezen](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. In de **back-up** blade, klikt u op **configureren**
+2. In Hallo **back-up** blade, klikt u op **configureren**
 ![klikt u op configureren](./media/web-sites-backup/ClickConfigure1.png)
-3. In de **back-upconfiguratie** blade, klikt u op **opslag: niet geconfigureerd** voor het configureren van een opslagaccount.
+3. In Hallo **back-upconfiguratie** blade, klikt u op **opslag: niet geconfigureerd** tooconfigure een opslagaccount.
    
     ![Opslagaccount kiezen][ChooseStorageAccount]
-4. Kies uw back-upbestemming door te selecteren een **Opslagaccount** en **Container**. Het opslagaccount moet behoren tot hetzelfde abonnement als de app die u back wilt-up. Als u wenst, kunt u een nieuw opslagaccount of een nieuwe container maken in de respectievelijke blades. Wanneer u bent klaar, klikt u op **Selecteer**.
+4. Kies uw back-upbestemming door te selecteren een **Opslagaccount** en **Container**. Hallo storage-account moet behoren toohello hetzelfde abonnement als u wilt dat tooback up Hallo-app. Als u wenst, kunt u een nieuw opslagaccount of een nieuwe container in Hallo respectievelijke blades. Wanneer u bent klaar, klikt u op **Selecteer**.
    
     ![Opslagaccount kiezen](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. In de **back-upconfiguratie** blade die nog steeds open blijft, kunt u configureren **Backup Database**, selecteert u de databases die u wilt opnemen in de back-ups (SQL-database of MySQL) en klik vervolgens op **OK**.  
+5. In Hallo **back-upconfiguratie** blade die nog steeds open blijft, kunt u configureren **Backup Database**, selecteer vervolgens Hallo databases u wilt dat tooinclude in Hallo back-ups (SQL-database of MySQL) en klik vervolgens op **OK**.  
    
     ![Opslagaccount kiezen](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Voor een database worden weergegeven in deze lijst, de verbindingsreeks moet aanwezig zijn in de **verbindingsreeksen** sectie van de **toepassingsinstellingen** blade voor uw app.
+   > Voor een database tooappear in deze lijst, de verbindingsreeks moet aanwezig zijn in Hallo **verbindingsreeksen** sectie Hallo **toepassingsinstellingen** blade voor uw app.
    > 
    > 
-6. In de **back-upconfiguratie** blade, klikt u op **opslaan**.    
-7. In de **back-ups** blade, klikt u op **back-up**.
+6. In Hallo **back-upconfiguratie** blade, klikt u op **opslaan**.    
+7. In Hallo **back-ups** blade, klikt u op **back-up**.
    
     ![Knop BackUpNow][BackUpNow]
    
-    U ziet een bericht uitgevoerd tijdens de back-upproces.
+    U ziet een bericht uitgevoerd tijdens de back-upproces Hallo.
 
-Zodra het opslagaccount en container is geconfigureerd kunt u een handmatige back-up op elk gewenst moment kunt starten.  
+Zodra het Hallo-opslagaccount en container is geconfigureerd kunt u een handmatige back-up op elk gewenst moment kunt starten.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Automatische back-ups configureren
-1. In de **back-upconfiguratie** blade ingesteld **geplande back-up** naar **op**. 
+1. In Hallo **back-upconfiguratie** blade ingesteld **geplande back-up** te**op**. 
    
     ![Opslagaccount kiezen](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Back-upschema opties wordt weergegeven, stel **geplande back-** naar **op**, configureer de gewenste back-upschema en klikt u op **OK**.
+2. Back-upschema opties wordt weergegeven, stel **geplande back-** te**op**, configureer de gewenste Hallo back-upschema en klikt u op **OK**.
    
     ![Automatische back-ups inschakelen][SetAutomatedBackupOn]
 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Gedeeltelijke back-ups configureren
-Soms wilt u geen back-up van alle bestanden op uw app. Enkele voorbeelden:
+Soms wilt u niet toobackup alles in uw app. Enkele voorbeelden:
 
 * U [wekelijkse back-ups instellen](web-sites-backup.md#configure-automated-backups) van uw app met statische inhoud, die nooit wordt gewijzigd, zoals oude blogberichten of installatiekopieën.
-* Uw app heeft meer dan 10 GB aan inhoud (dat wil zeggen de maximale hoeveelheid die kunt u de back-up op een tijdstip).
-* U wilt niet dat back-up van de logboekbestanden.
+* Uw app heeft meer dan 10 GB aan inhoud (dat wil zeggen Hallo max bedrag die kunt u de back-up op een tijdstip).
+* U wilt niet dat toobackup Hallo-logboekbestanden.
 
-Gedeeltelijke back-ups kunt u kiezen exact bestanden die u wilt back-up.
+Gedeeltelijke back-ups kunt u kiezen exact bestanden die u wilt dat toobackup.
 
 ### <a name="exclude-files-from-your-backup"></a>Bestanden uitsluiten van uw back-up
-Stel dat u hebt een app met logboekbestanden en statische afbeeldingen die zijn back-up eenmaal en gaat niet wijzigen. In dergelijke gevallen kunt u de mappen en bestanden uitsluiten van wordt opgeslagen in uw toekomstige back-ups. Als u wilt uitsluiten van bestanden en mappen van uw back-ups, maakt een `_backup.filter` bestand de `D:\home\site\wwwroot` map van uw app. Geef de lijst van bestanden en mappen die u wilt uitsluiten in dit bestand. 
+Stel dat u hebt een app met logboekbestanden en statische afbeeldingen die zijn back-up eenmaal en toochange niet gaat. In dergelijke gevallen kunt u de mappen en bestanden uitsluiten van wordt opgeslagen in uw toekomstige back-ups. tooexclude bestanden en mappen van uw back-ups maken van een `_backup.filter` bestand in Hallo `D:\home\site\wwwroot` map van uw app. Hallo-lijst van bestanden en mappen die u wilt dat tooexclude in dit bestand opgeven. 
 
-Een eenvoudige manier om toegang tot uw bestanden is het gebruik van Kudu. Klik op **geavanceerde hulpprogramma's -> Ga** instellen voor uw web-app voor toegang tot Kudu.
+Een eenvoudige manier tooaccess uw bestanden toouse Kudu is. Klik op **geavanceerde hulpprogramma's -> Ga** instellen voor uw web-app tooaccess Kudu.
 
 ![Kudu met portal][kudu-portal]
 
-Identificeer de mappen die u wilt uitsluiten van uw back-ups.  Bijvoorbeeld, wilt u filteren van de geselecteerde map en bestanden.
+Hallo-mappen die u tooexclude vanuit uw back-ups wilt identificeren.  U wilt bijvoorbeeld toofilter Hallo gemarkeerde map en bestanden.
 
 ![Map installatiekopieën][ImagesFolder]
 
-Maken van een bestand met de naam `_backup.filter` en de bovenstaande lijst plaatsen in het bestand, maar Verwijder `D:\home`. Lijst van een directory of bestand per regel. De inhoud van het bestand moet dus:
+Maken van een bestand met de naam `_backup.filter` en Hallo bovenstaande lijst plaatsen in Hallo-bestand, maar Verwijder `D:\home`. Lijst van een directory of bestand per regel. Dus moet Hallo inhoud van het Hallo-bestand:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
     \site\wwwroot\Images\2013
 ```
 
-Uploaden `_backup.filter` van het bestand in de `D:\home\site\wwwroot\` map van uw site met [ftp](web-sites-deploy.md#ftp) of een andere methode. Als u wenst, kunt u het bestand rechtstreeks met Kudu `DebugConsole` en voeg de inhoud bevat.
+Uploaden `_backup.filter` bestand toohello `D:\home\site\wwwroot\` map van uw site met [ftp](web-sites-deploy.md#ftp) of een andere methode. Als u wenst, kunt u Hallo-bestand rechtstreeks met Kudu `DebugConsole` en voeg de er Hallo-inhoud.
 
-Back-ups uitvoeren dezelfde manier als u normaal doet, [handmatig](#create-a-manual-backup) of [automatisch](#configure-automated-backups). Nu, worden bestanden en mappen die zijn opgegeven in `_backup.filter` is uitgesloten van de toekomstige back-ups gepland of handmatig is gestart. 
+Voer back-ups Hallo dezelfde manier zou u dat gewend bent, [handmatig](#create-a-manual-backup) of [automatisch](#configure-automated-backups). Nu, worden bestanden en mappen die zijn opgegeven in `_backup.filter` is uitgesloten van Hallo toekomstige back-ups gepland of handmatig is gestart. 
 
 > [!NOTE]
-> U herstelt gedeeltelijke back-ups van uw site dezelfde manier als u doet [een regelmatige back-up terugzetten](web-sites-restore.md). Het herstelproces komt goede.
+> Herstellen van gedeeltelijke back-ups van uw site Hallo dezelfde manier als [een regelmatige back-up terugzetten](web-sites-restore.md). het herstelproces Hallo wat u Hallo.
 > 
-> Wanneer een volledige back-up wordt hersteld, wordt alle inhoud op de site vervangen door de gewenste bevindt zich in de back-up. Als een bestand op de site, maar niet in de back-up is, wordt deze verwijderd. Maar wanneer een gedeeltelijke back-up wordt hersteld, inhoud die zich in een van de zwarte lijst mappen of een zwarte lijst bestand is ongewijzigd.
+> Wanneer een volledige back-up wordt hersteld, wordt alle inhoud op Hallo site vervangen met de Hallo back-up. Als een bestand op Hallo-site, maar niet in de back-up hello wordt deze verwijderd. Maar wanneer een gedeeltelijke back-up wordt hersteld, inhoud die zich in een van de mappen gebeurd hello of een zwarte lijst bestand, is ongewijzigd.
 > 
 
 
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Hoe de back-ups worden opgeslagen
-Nadat u een of meer back-ups voor uw app gemaakt hebt, de back-ups worden weergegeven op de **Containers** blade van uw opslagaccount en uw app. In het opslagaccount wordt elke back-up bestaat uit een`.zip` -bestand met de back-upgegevens en een `.xml` -bestand met een manifest van de `.zip` bestand inhoud. U kunt uitpakken en deze bestanden bladeren als u toegang krijgen tot uw back-ups wilt zonder het daadwerkelijk uitvoeren van een toepassing herstellen.
+Nadat u een of meer back-ups voor uw app gemaakt hebt, Hallo back-ups zijn zichtbaar op Hallo **Containers** blade van uw opslagaccount en uw app. In Hallo storage-account, wordt elke back-up bestaat uit een`.zip` -bestand met back-upgegevens Hallo en een `.xml` -bestand met een manifest Hallo `.zip` bestand inhoud. U kunt uitpakken en deze bestanden bladeren als u wilt dat tooaccess uw back-ups zonder het daadwerkelijk uitvoeren van een toepassing herstellen.
 
-De databaseback-up voor de app wordt opgeslagen in de hoofdmap van the.zip-bestand. Voor een SQL-database is een Bacpac-bestand (zonder extensie) en kunnen worden geïmporteerd. Zie het maken van een SQL-database op basis van de export Bacpac- [een Bacpac-bestand voor het maken van een nieuwe gebruiker-Database importeren](http://technet.microsoft.com/library/hh710052.aspx).
+Hallo databaseback-up voor Hallo app wordt opgeslagen in de hoofdmap Hallo van the.zip-bestand. Voor een SQL-database is een Bacpac-bestand (zonder extensie) en kunnen worden geïmporteerd. toocreate een SQL-database op basis van Hallo Bacpac-uitvoer, Zie [een tooCreate Bacpac-bestand een nieuwe gebruiker-Database importeren](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
-> Wijzigen van de bestanden in uw **websitebackups** container kan leiden tot de back-up worden ongeldig en worden daarom niet-terug te zetten.
+> Wijzigen van Hallo-bestanden in uw **websitebackups** container kan leiden tot de back-toobecome Hallo ongeldig en worden daarom niet-terug te zetten.
 > 
 > 
 
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor informatie over het herstellen van een app van een back-up, [herstellen van een app in Azure](web-sites-restore.md). U kunt ook back-up en herstellen met behulp van REST-API-App Service-apps (Zie [gebruik REST back-up en herstellen van App Service-apps](websites-csm-backup.md)).
+Zie voor informatie over het herstellen van een app van een back-up, [herstellen van een app in Azure](web-sites-restore.md). U kunt ook back-up en herstellen met behulp van REST-API-App Service-apps (Zie [gebruik REST toobackup en terugzetten van App Service-apps](websites-csm-backup.md)).
 
 
 <!-- IMAGES -->

@@ -1,8 +1,8 @@
 ---
-title: Azure PowerShell gebruiken voor diagnostische gegevens op een virtuele machine van Windows inschakelen | Microsoft Docs
+title: aaaUse Azure PowerShell tooenable diagnostische gegevens op een virtuele machine van Windows | Microsoft Docs
 services: virtual-machines-windows
 documentationcenter: 
-description: Informatie over het gebruik van PowerShell voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows
+description: Meer informatie over hoe toouse tooenable diagnostische Azure-gegevens in een virtuele machine met Windows PowerShell
 author: sbtron
 manager: timlt
 editor: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: d0be4a712657edfc516c5f32e66519f5d9486728
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e945f0de154b5ba600f845f0d577b48e2254573b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell gebruiken voor het inschakelen van Azure Diagnostics in een virtuele machine met Windows
+# <a name="use-powershell-tooenable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Gebruik PowerShell tooenable Azure Diagnostics in een virtuele machine met Windows
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure Diagnostics is de functie binnen Azure waarmee het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken voor het verzamelen van diagnostische gegevens, zoals toepassingslogboeken of prestatiemeteritems van een Azure virtuele machine (VM) waarop Windows wordt uitgevoerd. In dit artikel wordt beschreven hoe u Windows PowerShell gebruikt voor het inschakelen van de extensie voor diagnostische gegevens voor een virtuele machine. Zie [installeren en configureren van Azure PowerShell](/powershell/azure/overview) voor de vereisten die nodig zijn voor dit artikel.
+Azure Diagnostics is de functie Hallo binnen Azure waarmee Hallo verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt Hallo diagnostics extensie toocollect diagnostische gegevens, zoals toepassingslogboeken of prestatiemeteritems van een Azure virtuele machine (VM) waarop Windows wordt uitgevoerd. Dit artikel wordt beschreven hoe Windows PowerShell-tooenable toouse extensie voor diagnostische gegevens Hallo voor een virtuele machine. Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) voor Hallo vereisten die nodig zijn voor dit artikel.
 
-## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>De extensie voor diagnostische gegevens inschakelen als u het implementatiemodel van Resource Manager gebruiken
-Bij het maken van een virtuele Windows-machine via het Azure Resource Manager-implementatiemodel door de configuratie voor de uitbreiding aan de Resource Manager-sjabloon toe te voegen, kunt u de extensie voor diagnostische gegevens inschakelen. Zie [virtuele Windows-machine maken met controle en diagnostische gegevens met behulp van de Azure Resource Manager-sjabloon](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="enable-hello-diagnostics-extension-if-you-use-hello-resource-manager-deployment-model"></a>Hallo-extensie voor diagnostische gegevens inschakelen als u Hallo Resource Manager-implementatiemodel
+U kunt Hallo-extensie voor diagnostische gegevens inschakelen bij het maken van een Windows-VM via hello Azure Resource Manager-implementatiemodel door Hallo extensie configuratie toohello Resource Manager-sjabloon toe te voegen. Zie [virtuele Windows-machine maken met controle en diagnostische gegevens met behulp van Azure Resource Manager-sjabloon Hallo](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Als u wilt dat de extensie voor diagnostische gegevens op een bestaande virtuele machine die is gemaakt via het implementatiemodel van Resource Manager, kunt u de [Set AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) PowerShell-cmdlet, zoals hieronder wordt weergegeven.
+tooenable hello extensie voor diagnostische gegevens op een bestaande virtuele machine die is gemaakt via Hallo Resource Manager-implementatiemodel, kunt u Hallo [Set AzureRMVMDiagnosticsExtension](/powershell/module/azurerm.compute/set-azurermvmdiagnosticsextension) PowerShell-cmdlet, zoals hieronder wordt weergegeven.
 
     $vm_resourcegroup = "myvmresourcegroup"
     $vm_name = "myvm"
@@ -37,58 +37,58 @@ Als u wilt dat de extensie voor diagnostische gegevens op een bestaande virtuele
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path
 
 
-*$diagnosticsconfig_path* is het pad naar het bestand met de configuratie van de diagnostische gegevens in XML, zoals beschreven in de [voorbeeld](#sample-diagnostics-configuration) hieronder.  
+*$diagnosticsconfig_path* is Hallo pad toohello-bestand met de configuratie van diagnostische Hallo in XML, zoals beschreven in Hallo [voorbeeld](#sample-diagnostics-configuration) hieronder.  
 
-Als het configuratiebestand van de diagnostische gegevens wordt een **StorageAccount** element met de naam van een opslagaccount, wordt de *Set AzureRMVMDiagnosticsExtension* script stelt automatisch de diagnostics-extensie voor diagnostische gegevens verzenden naar dit opslagaccount. Dit werkt, moet het opslagaccount zich in hetzelfde abonnement als de virtuele machine.
+Als Hallo diagnostische gegevens van het configuratiebestand wordt een **StorageAccount** element met de naam van een account, klikt u vervolgens Hallo *Set AzureRMVMDiagnosticsExtension* script wordt automatisch ingesteld Hallo extensie toosend diagnostische gegevens toothat opslagaccount voor diagnostische gegevens. Voor deze toowork Hallo storage-account moet toobe in hetzelfde abonnement Hallo zoals Hallo VM.
 
-Als er geen **StorageAccount** is opgegeven in de configuratie van diagnostische gegevens, moet u doorgeeft in de *StorageAccountName* parameter aan de cmdlet. Als de *StorageAccountName* parameter wordt opgegeven, wordt de cmdlet gebruik altijd het opslagaccount dat is opgegeven in de parameter en niet de naam die is opgegeven in het configuratiebestand van de diagnostische gegevens.
+Als er geen **StorageAccount** is opgegeven in de configuratie van de diagnostische hello, moet u toopass in Hallo *StorageAccountName* parameter toohello cmdlet. Als hello *StorageAccountName* parameter wordt opgegeven, wordt Hallo cmdlet wordt altijd Hallo-opslagaccount die is opgegeven in de parameter hello gebruiken en niet Hallo die is opgegeven in het configuratiebestand voor Hallo diagnostische gegevens.
 
-Als het opslagaccount voor diagnostische gegevens zich in een ander abonnement van de virtuele machine, moet u expliciet de *StorageAccountName* en *StorageAccountKey* parameters aan de cmdlet. De *StorageAccountKey* parameter is niet nodig als het opslagaccount voor diagnostische gegevens in hetzelfde abonnement behoren, aangezien de cmdlet kan automatisch een query en de waarde van de sleutel bij het inschakelen van de extensie voor diagnostische gegevens. Evenwel opgeven als het opslagaccount voor diagnostische gegevens in een ander abonnement en vervolgens de cmdlet mogelijk niet de sleutel automatisch ophalen en u expliciet moet de sleutel via de *StorageAccountKey* parameter.  
+Als Hallo diagnostics storage-account in een ander abonnement van Hallo virtuele machine, is moet u tooexplicitly in Hallo doorgeeft *StorageAccountName* en *StorageAccountKey* parameters toohello cmdlet. Hallo *StorageAccountKey* parameter is niet nodig bij Hallo diagnostics storage-account bevindt zich in hetzelfde abonnement Hallo als Hallo cmdlet kunt automatisch een query Hallo sleutelwaarde ingesteld bij het Hallo-extensie voor diagnostische gegevens inschakelen. Als hello opslagaccount voor diagnostische gegevens is echter in een ander abonnement en vervolgens Hallo cmdlet mogelijk kunnen tooget Hallo sleutel niet automatisch worden en moet u tooexplicitly Hallo sleutel via Hallo opgeven *StorageAccountKey* parameter.  
 
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
-Wanneer de extensie voor diagnostische gegevens op een virtuele machine is ingeschakeld, kunt u de huidige instellingen met behulp van de [Get-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) cmdlet.
+Zodra Hallo-extensie voor diagnostische gegevens op een virtuele machine is ingeschakeld, kunt u de huidige instellingen Hallo verkrijgen door middel van Hallo [Get-AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/get-azurermvmdiagnosticsextension) cmdlet.
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-De cmdlet retourneert *PublicSettings*, die de configuratie van diagnostische gegevens bevat. Er zijn twee soorten configuratie wordt ondersteund, WadCfg en xmlCfg. WadCfg configuratie uit JSON en xmlCfg XML-configuratie in een Base64-gecodeerde indeling. Als u wilt lezen van het XML-bestand, moet u dit decoderen.
+Hallo cmdlet retourneert *PublicSettings*, die de configuratie van diagnostische Hallo bevat. Er zijn twee soorten configuratie wordt ondersteund, WadCfg en xmlCfg. WadCfg configuratie uit JSON en xmlCfg XML-configuratie in een Base64-gecodeerde indeling. tooread Hallo XML, moet u toodecode deze.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
 
-De [verwijderen AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) cmdlet kan de extensie voor diagnostische gegevens verwijderen uit de virtuele machine worden gebruikt.  
+Hallo [verwijderen AzureRMVmDiagnosticsExtension](/powershell/module/azurerm.compute/remove-azurermvmdiagnosticsextension) cmdlet gebruikte tooremove Hallo-extensie voor diagnostische gegevens van Hallo VM kan worden.  
 
-## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>De extensie voor diagnostische gegevens inschakelen als u het klassieke implementatiemodel
-U kunt de [Set AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet om in te schakelen van een extensie voor diagnostische gegevens op een virtuele machine die u via het klassieke implementatiemodel. Het volgende voorbeeld laat zien hoe een nieuwe virtuele machine via het klassieke implementatiemodel maken met de extensie voor diagnostische gegevens ingeschakeld.
+## <a name="enable-hello-diagnostics-extension-if-you-use-hello-classic-deployment-model"></a>Hallo-extensie voor diagnostische gegevens inschakelen als u het klassieke implementatiemodel hello gebruiken
+U kunt Hallo [Set AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet tooenable een extensie voor diagnostische gegevens op een virtuele machine die u via de klassieke implementatiemodel Hallo. Hallo volgende voorbeeld ziet u hoe toocreate een nieuwe virtuele machine via de klassieke implementatiemodel Hallo met Hallo-extensie voor diagnostische gegevens ingeschakeld.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
     $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
 
-Als u wilt dat de extensie voor diagnostische gegevens op een bestaande virtuele machine die is gemaakt via het klassieke implementatiemodel, voor het eerst gebruiken de [Get-AzureVM](/powershell/module/azure/get-azurevm) cmdlet ophalen van de VM-configuratie. Werk vervolgens het VM-configuratie zodanig dat de extensie voor diagnostische gegevens met behulp van de [Set AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet. Ten slotte de bijgewerkte configuratie van toepassing op de virtuele machine met behulp van [Update-AzureVM](/powershell/module/azure/update-azurevm).
+tooenable Hallo-extensie voor diagnostische gegevens op een bestaande virtuele machine die is gemaakt via Hallo klassieke implementatiemodel, eerste gebruik Hallo [Get-AzureVM](/powershell/module/azure/get-azurevm) cmdlet tooget Hallo VM-configuratie. Hallo VM-configuratie tooinclude Hallo diagnostics extensie vervolgens bijwerken met behulp van Hallo [Set AzureVMDiagnosticsExtension](/powershell/module/azure/set-azurevmdiagnosticsextension) cmdlet. Ten slotte Hallo bijgewerkt configuratie toohello VM toepassen met behulp van [Update-AzureVM](/powershell/module/azure/update-azurevm).
 
     $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
     Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>In de configuratie van diagnostische gegevens
-De volgende XML-code kan worden gebruikt voor de openbare configuratie van diagnostische gegevens met de bovenstaande scripts. De voorbeeldconfiguratie van dit wordt verschillende prestatiemeteritems overbrengen naar het opslagaccount voor diagnostische gegevens, samen met fouten van de toepassings-, beveiligings- en systeemkanalen in de Windows-gebeurtenislogboeken en fouten van de infrastructuur diagnostische logboeken.
+Hallo die volgende XML-code kan worden gebruikt voor de openbare configuratie van Hallo diagnostische Hello hierboven scripts. De voorbeeldconfiguratie van dit wordt verschillende prestaties tellers toohello opslagaccount voor diagnostische gegevens, samen met fouten van toepassing hello, beveiliging en systeemkanalen in Hallo Windows-gebeurtenislogboeken en eventuele fouten overbrengen van Hallo diagnostische gegevens de logboeken van de infrastructuur.
 
-De configuratie moet worden bijgewerkt met het volgende:
+Hallo-configuratie heeft toobe bijgewerkte tooinclude Hallo volgende nodig:
 
-* De *resourceID* kenmerk van de **metrische gegevens** element moet worden bijgewerkt met de bron-ID voor de virtuele machine.
+* Hallo *resourceID* kenmerk Hallo **metrische gegevens** element moet toobe bijgewerkt met de Hallo resource-ID voor Hallo VM.
   
-  * De resource-ID kan worden samengesteld met behulp van het volgende patroon volgen: "/ subscriptions / {*abonnements-ID voor het abonnement met de virtuele machine*} /resourceGroups/ {*resourcegroup-naam voor de virtuele machine*} / providers/Microsoft.Compute/virtualMachines/ {*naam van de VM*} '.
-  * Bijvoorbeeld, als het abonnement-ID voor het abonnement waarop de virtuele machine wordt uitgevoerd is **11111111-1111-1111-1111-111111111111**, de naam van de resourcegroep voor de resourcegroep is **MyResourceGroup**, en de naam van de VM is **MyWindowsVM**, moet u de waarde voor *resourceID* zou zijn:
+  * Hallo resource-ID kan worden samengesteld met behulp van Hallo patroon volgen: "/ subscriptions / {*abonnements-ID voor Hallo abonnement Hello VM*} /resourceGroups/ {*Hallo resourcegroup-naam voor Hallo VM*} / providers/Microsoft.Compute/virtualMachines/ {*Hallo VM-naam*} '.
+  * Bijvoorbeeld, als hello abonnements-ID voor Hallo abonnement waarbij hello VM wordt uitgevoerd, is **11111111-1111-1111-1111-111111111111**, Hallo Resourcegroepnaam voor de resourcegroep hello wordt **MyResourceGroup**, en hello VM-naam is **MyWindowsVM**, vervolgens Hallo waarde voor *resourceID* zou zijn:
     
       ```
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * Voor meer informatie over de metrische gegevens worden gegenereerd op basis van de configuratie van de prestaties tellers en metrische gegevens, Zie [Azure Diagnostics metrische gegevens tabel in de opslag](extensions-diagnostics-template.md#wadmetrics-tables-in-storage).
-* De **StorageAccount** element moet worden bijgewerkt met de naam van het opslagaccount voor diagnostische gegevens.
+  * Zie voor meer informatie over de wijze waarop metrische gegevens gegenereerd op basis van Hallo prestatiemeteritems en configuratie van de metrische gegevens [Azure Diagnostics metrische gegevens tabel in de opslag](extensions-diagnostics-template.md#wadmetrics-tables-in-storage).
+* Hallo **StorageAccount** element moet toobe bijgewerkt met de naam van het opslagaccount voor diagnostische gegevens Hallo Hallo.
   
     ```
     <?xml version="1.0" encoding="utf-8"?>
@@ -179,7 +179,7 @@ De configuratie moet worden bijgewerkt met het volgende:
             <annotation displayName="Disk free space (MB)" locale="en-us"/>
           </PerformanceCounterConfiguration>
         </PerformanceCounters>
-        <Metrics resourceId="(Update with resource ID for the VM)" >
+        <Metrics resourceId="(Update with resource ID for hello VM)" >
             <MetricAggregation scheduledTransferPeriod="PT1H"/>
             <MetricAggregation scheduledTransferPeriod="PT1M"/>
         </Metrics>
@@ -195,6 +195,6 @@ De configuratie moet worden bijgewerkt met het volgende:
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het gebruik van de mogelijkheid Azure Diagnostics- en andere technieken voor het oplossen van problemen [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
-* [Diagnostische gegevens configuraties schema](https://msdn.microsoft.com/library/azure/mt634524.aspx) worden de verschillende XML-configuraties opties voor de extensie voor diagnostische gegevens.
+* Zie voor meer informatie over het gebruik van hello Azure Diagnostics functionaliteit en andere technieken tootroubleshoot problemen [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* [Diagnostische gegevens configuraties schema](https://msdn.microsoft.com/library/azure/mt634524.aspx) Hallo verschillende configuraties van de XML-opties voor Hallo-extensie voor diagnostische gegevens wordt uitgelegd.
 

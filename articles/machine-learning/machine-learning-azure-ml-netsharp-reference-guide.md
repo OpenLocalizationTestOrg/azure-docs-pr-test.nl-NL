@@ -1,6 +1,6 @@
 ---
-title: 'Handleiding voor de per saldo # Neural Networks specificatietaal | Microsoft Docs'
-description: 'De syntaxis voor de per saldo # neural networks specificatietaal, samen met enkele voorbeelden van een aangepaste neurale netwerk wordt getraind model maken in Microsoft Azure ML met Net #'
+title: 'aaaGuide toohello Net Neural Networks specificatietaal # | Microsoft Docs'
+description: 'De syntaxis voor het Hallo Net # neural networks specificatietaal, samen met enkele voorbeelden van hoe toocreate aangepaste neurale netwerk wordt een model in Microsoft Azure ML met Net #'
 services: machine-learning
 documentationcenter: 
 author: jeannt
@@ -14,112 +14,112 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.openlocfilehash: 965c60ffde55041cc3864d06d81f5590c7ea1c11
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3493247ecc39ca3a1382510ad520d7017159ff62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Handleiding voor de taal Net #-neural network-specificatie voor Azure Machine Learning
+# <a name="guide-toonet-neural-network-specification-language-for-azure-machine-learning"></a>Handleiding tooNet neural network-specificatietaal # voor Azure Machine Learning
 ## <a name="overview"></a>Overzicht
-NET # is een taal die is ontwikkeld door Microsoft die wordt gebruikt voor het definiëren van neural network-architecturen. U kunt Net # in neural network-modules in Microsoft Azure Machine Learning.
+NET # is een taal die is ontwikkeld door Microsoft dat gebruikte toodefine neural network-architecturen. U kunt Net # in neural network-modules in Microsoft Azure Machine Learning.
 
-<!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
+<!-- This function doesn't currentlyappear in hello MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
 
-, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+, or in hello `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
 
 -->
 
-In dit artikel leert u basisconcepten die nodig zijn voor het ontwikkelen van een aangepaste neurale netwerk: 
+In dit artikel leert u basisconcepten toodevelop neurale netwerk wordt een aangepaste nodig: 
 
-* Neural netwerkvereisten en het definiëren van de primaire onderdelen
-* De syntaxis en trefwoorden van de taal Net #-specificatie
+* Vereisten voor neurale netwerk wordt en hoe toodefine Hallo primaire onderdelen
+* Hallo-syntaxis en trefwoorden Hallo Net #-specificatietaal
 * Voorbeelden van aangepaste neural netwerken die zijn gemaakt met Net # 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="neural-network-basics"></a>Basisprincipes van neurale netwerk
-Een structuur neurale netwerk bestaat uit ***knooppunten*** die zijn ingedeeld in ***lagen***, en de gewogen ***verbindingen*** (of ***randen***) tussen de knooppunten. De verbindingen zijn gericht en elke verbinding heeft een ***bron*** knooppunt en een ***bestemming*** knooppunt.  
+Een structuur neurale netwerk bestaat uit ***knooppunten*** die zijn ingedeeld in ***lagen***, en de gewogen ***verbindingen*** (of ***randen***) tussen Hallo-knooppunten. Hallo-verbindingen zijn gericht en elke verbinding heeft een ***bron*** knooppunt en een ***bestemming*** knooppunt.  
 
-Elke ***trainable laag*** (een verborgen of een laag uitvoer) heeft een of meer ***verbinding bundels***. Een bundel verbinding bestaat uit een bronlaag en een specificatie voor de verbindingen van die bronlaag. De verbindingen in een bepaalde bundel delen dezelfde ***bronlaag*** en dezelfde ***bestemming laag***. In Net #, wordt beschouwd als een bundel verbinding als onderdeel van de bundel bestemming laag.  
+Elke ***trainable laag*** (een verborgen of een laag uitvoer) heeft een of meer ***verbinding bundels***. Een bundel verbinding bestaat uit een bronlaag en een specificatie van Hallo verbindingen van die bronlaag. Alle Hallo-verbindingen in een share opgegeven bundel Hallo dezelfde ***bronlaag*** en dezelfde Hallo ***bestemming laag***. In Net #, wordt beschouwd als een bundel verbinding als behoren toohello bundel bestemming laag.  
 
-NET # ondersteunt verschillende soorten verbinding pakketten, kunt u de invoer manier aanpassen zijn toegewezen aan verborgen lagen en toegewezen aan de uitvoer.   
+NET # ondersteunt verschillende soorten verbinding bundels, waarmee u Hallo manier invoer toegewezen toohidden lagen is aanpassen en toegewezen toohello levert.   
 
-De standaard- of standard-bundel is een **volledige bundel**, in die op elk knooppunt in de bronlaag is verbonden met elk knooppunt in de doellaag.  
+Hallo standaard of standaard bundel is een **volledige bundel**, in welke op elk knooppunt in Hallo bronlaag verbonden tooevery knooppunt in Hallo bestemming laag is.  
 
-Daarnaast ondersteunt Net # de volgende vier typen bundels geavanceerde verbinding:  
+Daarnaast ondersteunt Net # Hallo vier soorten geavanceerde verbinding bundels te volgen:  
 
-* **Gefilterd bundels**. De gebruiker kan een predikaat definiëren met behulp van de locaties van het bronknooppunt laag en het doelknooppunt voor de laag. Knooppunten zijn verbonden wanneer het predikaat waar is.
-* **Convolutional bundels**. De gebruiker kunt kleine groepen van knooppunten definiëren in de bronlaag. Elk knooppunt in de doellaag is verbonden met één groep van knooppunten in de bronlaag.
-* **Groeperen van bundels** en **antwoord normalisatie bundels**. Dit zijn vergelijkbaar met convolutional bundels in dat de gebruiker gedefinieerd kleine groepen van knooppunten in de bronlaag. Het verschil is dat het gewicht van de randen in deze pakketten niet trainable zijn. In plaats daarvan wordt een vooraf gedefinieerde functie toegepast op de waarden van het knooppunt bron om te bepalen van de waarde van de doel-knooppunt.  
+* **Gefilterd bundels**. Hallo-gebruiker kan een predikaat definiëren met behulp van Hallo locaties van de laag bronknooppunt Hallo en Hallo laag doelknooppunt. Knooppunten zijn verbonden wanneer Hallo predicaat True is.
+* **Convolutional bundels**. Hallo-gebruiker kunt kleine groepen van knooppunten in Hallo bronlaag definiëren. Elk knooppunt in Hallo bestemming laag is verbonden tooone netwerkomgeving van knooppunten in Hallo bronlaag.
+* **Groeperen van bundels** en **antwoord normalisatie bundels**. Dit zijn vergelijkbaar tooconvolutional bundels in die Hallo gebruiker kleine groepen van knooppunten in Hallo bronlaag definieert. Hallo verschil is dat er geen Hallo gewichten van Hallo randen in deze bundels trainable. In plaats daarvan een vooraf gedefinieerde functie wordt toegepast toohello bronknooppunt toodetermine Hallo bestemming knooppuntwaarde waarden.  
 
-Net # definiëren met de structuur van een neural netwerk, maakt het mogelijk voor het definiëren van complexe structuren zoals diep neural networks of convoluties van willekeurige dimensies, waarvan bekend is dat het leren op gegevens, zoals afbeelding, audio of video verbeteren.  
+Met Net # maakt toodefine Hallo structuur van een neural netwerk het mogelijk toodefine complexe structuren zoals diep neural networks of convoluties van willekeurige dimensies, waarvan bekend is tooimprove leren op gegevens, zoals afbeelding, audio of video.  
 
 ## <a name="supported-customizations"></a>Ondersteunde aanpassingen
-De architectuur van neural network-modellen die u in Azure Machine Learning maakt kan grote schaal worden aangepast via Net #. U kunt:  
+Hallo-architectuur van neural network-modellen die u in Azure Machine Learning maakt kan grote schaal worden aangepast via Net #. U kunt:  
 
-* Verborgen lagen maken en beheren van het aantal knooppunten in elke laag.
-* Opgeven hoe lagen moeten met elkaar worden verbonden.
+* Verborgen lagen en besturingselement Hallo aantal knooppunten in elke laag maken.
+* Geef op hoe lagen toobe verbonden tooeach, andere zijn.
 * Speciale connectiviteit structuren, zoals convoluties en gewicht delen bundels definiëren.
 * Geef de activering van andere functies.  
 
-Zie voor meer informatie van de syntaxis van de specificatie [structuur specificatie](#Structure-specifications).  
+Zie voor meer informatie van Hallo specificatie syntaxis [structuur specificatie](#Structure-specifications).  
 
-Zie voor voorbeelden van het definiëren van neural networks voor een aantal veelvoorkomende machine learning-taken uit Simplex () naar complexe [voorbeelden](#Examples-of-Net#-usage).  
+Zie voor voorbeelden van het definiëren van neural networks voor een aantal veelvoorkomende machine learning-taken uit simplex toocomplex [voorbeelden](#Examples-of-Net#-usage).  
 
 ## <a name="general-requirements"></a>Algemene vereisten
 * Moet er precies één uitvoer laag, ten minste één invoer-laag en nul of meer verborgen lagen. 
 * Elke laag heeft een vast aantal knooppunten, conceptueel gerangschikt in een rechthoekige matrix met willekeurige dimensies. 
-* Invoer lagen geen bijbehorende getraind parameters hebben en het punt waar de gegevens van het netwerk krijgt vertegenwoordigen. 
-* Trainable lagen (de lagen verborgen en uitvoer) gekoppelde hebben getraind parameters, gewicht en vooroordelen genoemd. 
-* De bron- en doelserver knooppunten moeten zich in verschillende lagen. 
-* Verbindingen moet acyclische; Er kan niet met andere woorden, een keten van toonaangevende terug naar het eerste bronknooppunt verbindingen.
-* De uitvoer-laag kan niet een bronlaag van een bundel verbinding.  
+* Invoer lagen geen bijbehorende getraind parameters hebben en vertegenwoordigen Hallo punt waarbij exemplaargegevens Hallo netwerk invoert. 
+* Trainable lagen (Hallo verborgen- en lagen) gekoppelde hebben getraind parameters, gewicht en vooroordelen genoemd. 
+* Hallo-bron- en doelserver knooppunten moeten zich in verschillende lagen. 
+* Verbindingen moet acyclische; Er kan niet met andere woorden, een keten van de initiële bronknooppunt back toohello voorloop-verbindingen.
+* Hallo uitvoer laag kan niet een bronlaag van een bundel verbinding.  
 
 ## <a name="structure-specifications"></a>Structuur specificaties
-Een structure-specificatie van het neurale netwerk bestaat uit drie delen: de **constantendeclaratie**, wordt de **laag-declaratie**, wordt de **verbinding declaratie**. Er is ook een optionele **delen declaratie** sectie. De secties kunnen in elke volgorde worden opgegeven.  
+Een structure-specificatie van het neurale netwerk bestaat uit drie secties: Hallo **constantendeclaratie**, Hallo **laag-declaratie**, Hallo **verbinding declaratie**. Er is ook een optionele **delen declaratie** sectie. Hallo secties kunnen in elke volgorde worden opgegeven.  
 
 ## <a name="constant-declaration"></a>Constantendeclaratie
-Een constantendeclaratie is optioneel. Het biedt een manier voor het definiëren van waarden elders in de definitie van het neurale netwerk wordt gebruikt. De declaratie-instructie bestaat uit een id die wordt gevolgd door een gelijkteken en een waardenexpressie.   
+Een constantendeclaratie is optioneel. Het biedt een manier toodefine waarden elders in de definitie van Hallo neurale netwerk wordt gebruikt. Hallo-declaratie-instructie bestaat uit een id die wordt gevolgd door een gelijkteken en een waardenexpressie.   
 
-De volgende instructie definieert u bijvoorbeeld een constante **x**:  
+Hallo-instructie definieert u bijvoorbeeld een constante **x**:  
 
     Const X = 28;  
 
-Als u twee of meer constanten tegelijkertijd definieert, moet u de id-namen en waarden tussen vierkante haakjes en gescheiden door puntkomma's. Bijvoorbeeld:  
+toodefine twee of meer constanten tegelijk, moet u Hallo-id-namen en waarden tussen accolades en gescheiden door puntkomma's. Bijvoorbeeld:  
 
     Const { X = 28; Y = 4; }  
 
-De rechterkant van de toewijzingsexpressie voor elke kan een geheel getal, een reëel getal, een Booleaanse waarde (True of False) of een rekenkundige expressie zijn. Bijvoorbeeld:  
+Hallo rechterkant van de toewijzingsexpressie voor elke kan een geheel getal, een reëel getal, een Booleaanse waarde (True of False) of een rekenkundige expressie zijn. Bijvoorbeeld:  
 
     Const { X = 17 * 2; Y = true; }  
 
 ## <a name="layer-declaration"></a>Laag-declaratie
-De declaratie laag is vereist. Het definieert de grootte en de bron van de laag, met inbegrip van de verbinding bundels en kenmerken. De declaratie-instructie begint met de naam van de laag (invoer, verborgen of uitvoer), gevolgd door de afmetingen van de laag (een tuple van positieve gehele getallen). Bijvoorbeeld:  
+Hallo laag declaratie is vereist. Het definieert Hallo-grootte en de bron van Hallo-laag, met inbegrip van de verbinding bundels en kenmerken. Hallo declaratie-instructie begint met de naam Hallo van Hallo-laag (invoer, verborgen of uitvoer), gevolgd door Hallo dimensies van Hallo-laag (een tuple van positieve gehele getallen). Bijvoorbeeld:  
 
     input Data auto;
     hidden Hidden[5,20] from Data all;
     output Result[2] from Hidden all;  
 
-* Het product van de dimensies is het aantal knooppunten in de laag. In dit voorbeeld zijn er twee dimensies [5,20], wat betekent dat er 100 knooppunten zijn in de laag.
-* De lagen kunnen worden gedeclareerd in willekeurige volgorde, met één uitzondering: de volgorde waarin ze zijn gedeclareerd als meer dan één invoer laag is gedefinieerd, moet overeenkomen met de volgorde van de functies in de invoergegevens.  
+* Hallo product Hallo dimensies is het aantal knooppunten in de laag Hallo Hallo. In dit voorbeeld zijn er twee dimensies [5,20], wat betekent dat er 100 knooppunten in Hallo laag zijn.
+* Hallo lagen kunnen worden gedeclareerd in willekeurige volgorde, met één uitzondering: Hallo volgorde waarin ze zijn gedeclareerd als meer dan één invoer laag is gedefinieerd, moet overeenkomen met Hallo volgorde van de functies in Hallo invoergegevens.  
 
-Als u wilt opgeven dat het aantal knooppunten in een laag automatisch worden vastgesteld, gebruikt u de **automatisch** sleutelwoord. De **automatisch** sleutelwoord heeft verschillende effecten, afhankelijk van de laag:  
+toospecify dat het aantal knooppunten in een laag Hallo automatisch, gebruik Hallo bepaald **automatisch** sleutelwoord. Hallo **automatisch** sleutelwoord heeft verschillende effecten, afhankelijk van het Hallo-laag:  
 
-* In een declaratie invoer laag is het aantal knooppunten in het aantal functies in de invoergegevens.
-* In de declaratie van een verborgen laag, het aantal knooppunten is het aantal dat is opgegeven door de waarde van parameter voor **aantal knooppunten dat verborgen**. 
-* Het aantal knooppunten is in de declaratie van een uitvoer-laag 2 voor tweeklasse classificatie, 1 voor regressie en gelijk is aan het aantal uitvoerknooppunten voor multiklassen classificatie.   
+* Hallo aantal knooppunten is in een declaratie invoer laag Hallo aantal functies in Hallo invoergegevens.
+* In een declaratie verborgen laag Hallo van knooppunten Hallo getal is die is opgegeven door de parameterwaarde Hallo voor **aantal knooppunten dat verborgen**. 
+* Hallo aantal knooppunten is in de declaratie van een uitvoer-laag 2 voor tweeklasse classificatie, 1 voor regressie en gelijk toohello aantal uitvoerknooppunten voor multiklassen classificatie.   
 
-De volgende netwerkdefinitie kan bijvoorbeeld de grootte van alle lagen automatisch bepaald:  
+Hallo kan volgende netwerkdefinitie bijvoorbeeld Hallo grootte van alle lagen toobe automatisch bepaald:  
 
     input Data auto;
     hidden Hidden auto from Data all;
     output Result auto from Hidden all;  
 
 
-De declaratie van een laag voor een trainable laag (de lagen verborgen of uitvoer) kunt u eventueel de uitvoer functie (ook wel een functie voor activering genoemd), die een standaardwaarde opnemen **sigmoid** voor classificatie-modellen en  **lineaire** voor regressie-modellen. (Zelfs als u de standaard gebruikt, u kunt expliciet aangeven van de functie activeren, indien gewenst voor de duidelijkheid.)
+De declaratie van een laag voor een laag trainable (Hallo verborgen of uitvoergegevens lagen) kunt u eventueel Hallo uitvoer functie (ook wel een functie voor activering genoemd), die een te standaardwaarde opnemen**sigmoid** voor classificatie modellen en **lineaire** voor regressie-modellen. (Zelfs als u Hallo standaard gebruikt, u kunt expliciet aangeven Hallo activering functie, indien gewenst voor de duidelijkheid.)
 
-De volgende uitvoer-functies worden ondersteund:  
+Hallo worden volgende uitvoer functies ondersteund:  
 
 * sigmoid
 * Lineair
@@ -132,69 +132,69 @@ De volgende uitvoer-functies worden ondersteund:
 * TANH 
 * brlinear  
 
-De volgende declaratie gebruikt bijvoorbeeld de **softmax** functie:  
+Hallo declaratie volgende wordt bijvoorbeeld Hallo **softmax** functie:  
 
     output Result [100] softmax from Hidden all;  
 
 ## <a name="connection-declaration"></a>Verbinding declaratie
-Direct na het definiëren van de trainable laag, moet u de verbindingen tussen de lagen die u hebt gedefinieerd declareren. De declaratie van de bundel verbinding begint met het sleutelwoord **van**, gevolgd door de naam van de bundel bronlaag en de aard van de bundel verbinding te maken.   
+Direct na het definiëren van Hallo trainable laag, moet u de verbindingen tussen Hallo lagen die u hebt gedefinieerd declareren. Hallo verbinding bundel declaratie begint met de Hallo sleutelwoord **van**, gevolgd door de naam van Hallo-bundel bron laag en Hallo soort verbinding bundel toocreate Hallo.   
 
 Op dit moment worden verbinding bundels vijf typen ondersteund:  
 
-* **Volledige** bundels, aangegeven door het sleutelwoord **alle**
-* **Gefilterd** bundels, aangegeven door het sleutelwoord **waar**, gevolgd door een predikaat expressie
-* **Convolutional** bundels, aangegeven door het sleutelwoord **convolve**, gevolgd door de kenmerken convolutiefilter
-* **Groeperen van** bundels, aangegeven door de trefwoorden **maximum aantal toepassingen** of **betekent dat de groep van toepassingen**
-* **Antwoord normalisatie** bundels, aangegeven door het sleutelwoord **antwoord norm**      
+* **Volledige** bundels, aangegeven door Hallo sleutelwoord **alle**
+* **Gefilterd** bundels, aangegeven door Hallo sleutelwoord **waar**, gevolgd door een predikaat expressie
+* **Convolutional** bundels, aangegeven door Hallo sleutelwoord **convolve**, gevolgd door Hallo convolutiefilter kenmerken
+* **Groeperen van** bundels, aangegeven door Hallo trefwoorden **maximum aantal toepassingen** of **betekent dat de groep van toepassingen**
+* **Antwoord normalisatie** bundels, aangegeven door Hallo sleutelwoord **antwoord norm**      
 
 ## <a name="full-bundles"></a>Volledige bundels
-Een volledige verbinding bundel bevat een verbinding van elk knooppunt in de bronlaag voor elk knooppunt in de doellaag. Dit is het type standaard netwerkverbinding.  
+Een volledige verbinding bundel bevat een verbinding van elk knooppunt in Hallo laag tooeach bronknooppunt in Hallo bestemming laag. Dit is type netwerkverbinding Hallo standaard.  
 
 ## <a name="filtered-bundles"></a>Gefilterde bundels
-Een gefilterde verbinding bundel specificatie bevat een veel-predicaat, syntaxis, uitgedrukt als een C# lambda-expressie. Het volgende voorbeeld definieert twee gefilterde bundels:  
+Een gefilterde verbinding bundel specificatie bevat een veel-predicaat, syntaxis, uitgedrukt als een C# lambda-expressie. Hallo definieert volgende voorbeeld twee gefilterde bundels:  
 
     input Pixels [10, 20];
     hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
     hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
-* In het predikaat voor *ByRow*, **s** is een parameter die een index in de rechthoekige matrix van knooppunten van de invoer laag vertegenwoordigt *Pixels*, en **d** is een parameter die een index in de matrix van knooppunten in de verborgen laag vertegenwoordigt *ByRow*. Het type van beide **s** en **d** is een tuple van gehele getallen van twee lengte. Conceptueel gezien **s** bereiken via alle paren van gehele getallen met *0 < = s [0] < 10* en *0 < = s[1] < 20*, en **d**  bereiken via alle paren van gehele getallen, met *0 < = [0] d < 10* en *0 < = d[1] < 12*. 
-* Aan de rechterkant van de predikaatexpressie die is is er een voorwaarde. In dit voorbeeld wordt voor elke waarde van **s** en **d** zodanig dat de voorwaarde waar is, er is een rand van het bronknooppunt laag naar het doelknooppunt voor de laag. Dus deze filterexpressie geeft aan dat de bundel een verbinding van het knooppunt dat is gedefinieerd bevat door **s** naar het knooppunt dat is gedefinieerd door **d** in alle gevallen waarbij s [0] gelijk aan [0] d is.  
+* In het Hallo-predicaat voor *ByRow*, **s** is een parameter die een index in Hallo rechthoekige matrix van knooppunten van de invoer laag hello, vertegenwoordigt *Pixels*, en **d**  is een parameter die een index in de matrix Hallo van knooppunten in de verborgen laag hello, vertegenwoordigt *ByRow*. type van beide Hallo **s** en **d** is een tuple van gehele getallen van twee lengte. Conceptueel gezien **s** bereiken via alle paren van gehele getallen met *0 < = s [0] < 10* en *0 < = s[1] < 20*, en **d**  bereiken via alle paren van gehele getallen, met *0 < = [0] d < 10* en *0 < = d[1] < 12*. 
+* Aan de rechterkant Hallo van predicaatexpressie hello is er een voorwaarde. In dit voorbeeld wordt voor elke waarde van **s** en **d** zodat Hallo voorwaarde waar is, er is een rand van Hallo laag knooppunt toohello bestemming laag bronknooppunt. Dus deze filterexpressie aangeeft die bundel Hallo bevat een verbinding van het Hallo-knooppunt gedefinieerd door **s** toohello knooppunt gedefinieerd door **d** in alle gevallen waarbij s [0] gelijk tood [0] is.  
 
-U kunt eventueel opgeven dat een set van gewicht voor een gefilterde bundel. De waarde voor de **gewichten** kenmerk moet een tuple met drijvende puntwaarden met een lengte die overeenkomt met het aantal verbindingen dat is gedefinieerd door de bundel. Standaard worden gewichten willekeurig gegenereerd.  
+U kunt eventueel opgeven dat een set van gewicht voor een gefilterde bundel. waarde voor Hallo Hallo **gewichten** kenmerk moet een tuple met drijvende puntwaarden met een lengte die overeenkomt met het aantal verbindingen dat is gedefinieerd door Hallo bundel Hallo. Standaard worden gewichten willekeurig gegenereerd.  
 
-Gewichtswaarden zijn gegroepeerd op de index van de doel-knooppunt. Is als het eerste bestemmingsknooppunt is verbonden met K bron knooppunten, de eerste *K* elementen van de **gewichten** tuple zijn het gewicht voor het eerste doelknooppunt in volgorde van de gegevensbron-index. Hetzelfde geldt voor de resterende knooppunten van de bestemming.  
+Gewichtswaarden zijn gegroepeerd op Hallo bestemming knooppuntindex. Dat wil zeggen, als de eerste doelknooppunt Hallo is verbonden knooppunten van de bron, duurde eerst Hallo *K* elementen Hallo **gewichten** tuple Hallo gewichten voor Hallo eerste doelknooppunt, in volgorde van de index gegevensbron zijn. Hallo geldt ook voor Hallo resterende knooppunten van de bestemming.  
 
-Het is mogelijk gewichten rechtstreeks als constante waarden opgeven. Bijvoorbeeld, als u het gewicht eerder hebt geleerd, kunt u ze als constanten gebruik de volgende syntaxis:
+Het is mogelijk toospecify gewichten rechtstreeks als constante waarden. Bijvoorbeeld, als u Hallo gewichten eerder hebt geleerd, kunt u ze als constanten gebruik de volgende syntaxis:
 
     const Weights_1 = [0.0188045055, 0.130500451, ...]
 
 
 ## <a name="convolutional-bundles"></a>Convolutional bundels
-Wanneer de trainingsgegevens een homogene structuur heeft, worden convolutional verbindingen worden vaak gebruikt voor meer informatie over geavanceerde functies van de gegevens. Gegevens bijvoorbeeld: in afbeelding audio- of videobestanden, ruimtelijke of tijdelijke dimensionaliteit kunnen zijn redelijk uniform.  
+Wanneer de trainingsgegevens Hallo een homogene structuur heeft, zijn convolutional verbindingen veelgebruikte toolearn op hoog niveau functies van Hallo-gegevens. Gegevens bijvoorbeeld: in afbeelding audio- of videobestanden, ruimtelijke of tijdelijke dimensionaliteit kunnen zijn redelijk uniform.  
 
-Convolutional bundels alvast rechthoekige **kernels** die via de dimensies worden geschoven. In wezen elke kernel definieert een reeks gewichten toegepast in de lokale groepen genoemd **kerneltoepassingen**. Elke toepassing kernel komt overeen met een knooppunt in de bronlaag, waarnaar wordt verwezen als de **centrale knooppunt**. Het gewicht van een kernel worden gedeeld door veel verbindingen. In een convolutional bundel elke kernel is rechthoekig en alle kerneltoepassingen zijn dezelfde grootte hebben.  
+Convolutional bundels alvast rechthoekige **kernels** die via Hallo dimensies worden geschoven. In wezen elke kernel definieert een reeks gewichten toegepast in de lokale groepen, waarnaar wordt verwezen tooas **kerneltoepassingen**. Elke toepassing kernel overeenkomt met tooa-knooppunt in Hallo bronlaag, die bedoeld tooas hello is **centrale knooppunt**. Hallo-gewicht van een kernel worden gedeeld door veel verbindingen. In een convolutional bundel elke kernel rechthoekige en alle kerneltoepassingen Hallo dezelfde grootte.  
 
-Convolutional bundels ondersteunen de volgende kenmerken:
+Convolutional bundels ondersteunen Hallo volgende kenmerken:
 
-**InputShape** definieert de dimensionaliteit van de bronlaag voor de doeleinden van deze convolutional bundel. De waarde moet een tuple van positieve gehele getallen zijn. Het aantal knooppunten in de bronlaag moet gelijk zijn aan het product van de gehele getallen, maar anders hoeft niet overeenkomen met de dimensionaliteit is gedeclareerd voor de bronlaag. De lengte van deze tuple wordt de **ariteit** waarde voor de convolutional bundel. (Meestal ariteit verwijst naar het aantal argumenten of operanden die kan worden uitgevoerd door een functie.)  
+**InputShape** Hallo dimensionaliteit van Hallo bronlaag voor de toepassing hello van deze convolutional bundel definieert. Hallo-waarde moet een tuple van positieve gehele getallen zijn. Hallo product van gehele getallen Hallo moet gelijk zijn aan het aantal knooppunten in Hallo bronlaag Hallo maar anders hoeft niet toomatch Hallo dimensionaliteit gedeclareerd voor Hallo bronlaag. Hallo-lengte van deze tuple wordt Hallo **ariteit** waarde voor Hallo convolutional bundel. (De ariteit verwijst doorgaans toohello aantal argumenten of operanden die kan worden uitgevoerd door een functie.)  
 
-Gebruik de kenmerken definiëren van de vorm en de locaties van de kernels **KernelShape**, **Stride**, **opvulling**, **LowerPad**, en  **UpperPad**:   
+toodefine hello vorm en de locaties van Hallo-kernels Hallo kenmerken gebruiken **KernelShape**, **Stride**, **opvulling**, **LowerPad**, en **UpperPad**:   
 
-* **KernelShape**: (vereist) definieert de dimensionaliteit van elke kernel voor de convolutional bundel. De waarde moet een tuple van positieve gehele getallen met een lengte die gelijk is aan de ariteit van de bundel. Elk onderdeel van deze tuple mag niet langer zijn dan het overeenkomstige onderdeel van **InputShape**. 
-* **Stride**: (optioneel) definieert de verschuivende stap grootte van de convolutiefilter (één stapgrootte voor elke dimensie), die de afstand tussen de centrale knooppunten. De waarde moet een tuple van positieve gehele getallen met een lengte die de ariteit van de bundel. Elk onderdeel van deze tuple mag niet langer zijn dan het overeenkomstige onderdeel van **KernelShape**. De standaardwaarde is een tuple met alle onderdelen die gelijk zijn aan één. 
-* **Delen**: (optioneel) definieert het gewicht voor elke dimensie van de convolutiefilter delen. De waarde kan niet één Booleaanse waarde of een tuple van Booleaanse waarden met een lengte die de ariteit van de bundel. Een enkele Booleaanse waarde is uitgebreid om te worden van een tuple van de juiste lengte met alle onderdelen die gelijk is aan de opgegeven waarde. De standaardwaarde is een tuple die uit alle waar waarden bestaat. 
-* **MapCount**: (optioneel) definieert het aantal van de functie voor de convolutional bundel wordt toegewezen. De waarde kan niet een enkel positief geheel getal of een tuple van positieve gehele getallen met een lengte die de ariteit van de bundel. Een enkele geheelgetalwaarde is uitgebreid om te worden van een tuple van de juiste lengte van de eerste onderdelen die gelijk is aan de opgegeven waarde en de resterende onderdelen gelijk is aan één. De standaardwaarde is een. Het totale aantal functie maps is het product van de onderdelen van de tuple. Waarbij van dit totale aantal voor de onderdelen bepaalt hoe de waarden van de kaart functie worden gegroepeerd in de doel-knooppunten. 
-* **Gewicht**: (optioneel) definieert het eerste gewicht voor de bundel. De waarde moet een tuple met drijvende puntwaarden met een lengte van het aantal keren kernels het nummer van de gewichten per kernel, zoals verderop in dit artikel is gedefinieerd. De standaardgewichten worden willekeurig gegenereerd.  
+* **KernelShape**: (vereist) definieert Hallo dimensionaliteit van elke kernel voor Hallo convolutional bundel. Hallo-waarde moet een tuple van positieve gehele getallen met een lengte die gelijk is aan Hallo ariteit van Hallo-bundel. Elk onderdeel van deze tuple mag niet langer zijn dan het overeenkomstige onderdeel Hallo van **InputShape**. 
+* **Stride**: (optioneel) definieert Hallo Verschuivend stap grootten van Hallo convolutiefilter (één stapgrootte voor elke dimensie), die is Hallo afstand tussen Hallo centrale knooppunten. Hallo-waarde moet een tuple van positieve gehele getallen met een lengte die Hallo ariteit van Hallo-bundel. Elk onderdeel van deze tuple mag niet langer zijn dan het overeenkomstige onderdeel Hallo van **KernelShape**. Hallo-standaardwaarde is een tuple met alle onderdelen gelijk tooone. 
+* **Delen**: (optioneel) definieert Hallo gewicht voor elke dimensie van Hallo convolutiefilter delen. Hallo-waarden zijn één Booleaanse waarde of een tuple van Booleaanse waarden met een lengte die Hallo ariteit van Hallo-bundel. Een enkele Booleaanse waarde is een tuple van de juiste lengte Hallo met alle onderdelen van uitgebreide toobe gelijk toohello opgegeven waarde. Hallo-standaardwaarde is een tuple die uit alle waar waarden bestaat. 
+* **MapCount**: (optioneel) definieert Hallo aantal functie voor Hallo convolutional bundel wordt toegewezen. Hallo-waarde is een enkel positief geheel getal of een tuple van positieve gehele getallen met een lengte die Hallo ariteit van Hallo-bundel. Een enkele geheelgetalwaarde wordt uitgebreid toobe een tuple van de juiste lengte Hallo met Hallo eerste onderdelen gelijk toohello opgegeven waarde en alle overige onderdelen gelijk tooone Hallo. Hallo-standaardwaarde is een. Totaal aantal functie maps Hallo is Hallo product van Hallo onderdelen van Hallo tuple. Hallo waarbij van dit totale aantal voor Hallo onderdelen bepaalt hoe Hallo functie kaart waarden worden gegroepeerd in Hallo bestemming knooppunten. 
+* **Gewicht**: (optioneel) definieert Hallo initiële gewichten voor Hallo bundel. Hallo-waarde moet een tuple met drijvende puntwaarden met een lengte die Hallo aantal kernels keer Hallo aantal gewichten per kernel, zoals verderop in dit artikel is gedefinieerd. Hallo standaardgewichten worden willekeurig gegenereerd.  
 
-Er zijn twee sets van eigenschappen die regelen opvulling, de eigenschappen wordt sluiten elkaar wederzijds uit:
+Er zijn twee sets van eigenschappen die regelen opvulling, Hallo eigenschappen wordt sluiten elkaar wederzijds uit:
 
-* **Opvulling**: (optioneel) bepaalt of de invoer moet zijn opgevuld met behulp van een **opvulling standaardschema**. De waarde kan één Booleaanse waarde, of het kan ook een tuple van Booleaanse waarden met een lengte die de ariteit van de bundel. Een enkele Booleaanse waarde is uitgebreid om te worden van een tuple van de juiste lengte met alle onderdelen die gelijk is aan de opgegeven waarde. Als de waarde voor een dimensie True is, worden de bron logisch opgevuld in die dimensie met de cellen met nul ter ondersteuning van aanvullende kerneltoepassingen, zodat de centrale knooppunten van het eerste en laatste kernels in die dimensie zijn de eerste en laatste knooppunten dat in dimensie in de bronlaag. Dus het aantal 'dummy' knooppunten in elke dimensie wordt automatisch bepaald, past precies *(InputShape [d] - 1) / Stride [d] + 1* kernels in de bronlaag gevuld. Als de waarde voor een dimensie False is, worden de kernels gedefinieerd, zodat het aantal knooppunten voor elke zijde die worden weggelaten hetzelfde (maximaal een verschil van 1 wordt). De standaardwaarde van dit kenmerk is een tuple met alle onderdelen die gelijk is aan False.
-* **UpperPad** en **LowerPad**: (optioneel) Geef meer controle over de hoeveelheid opvulling te gebruiken. **Belangrijk:** deze kenmerken kunnen worden gedefinieerd als en alleen als de **opvulling** eigenschap hierboven is ***niet*** gedefinieerd. De waarden moet geheel getalwaarde tuples met een lengte die de ariteit van de bundel. Als deze kenmerken worden opgegeven, wordt 'dummy' knooppunten worden toegevoegd aan de boven- en ondergrenzen ends van iedere dimensie van de invoer laag. Het aantal knooppunten die zijn toegevoegd aan de boven- en ondergrenzen ends in elke dimensie wordt bepaald door **LowerPad**[i] en **UpperPad**[i] respectievelijk. Om ervoor te zorgen dat kernels alleen naar 'echte' knooppunten en niet 'dummy' knooppunten overeenkomen, moeten de volgende voorwaarden worden voldaan:
+* **Opvulling**: (optioneel) bepaalt of Hallo invoer moet zijn opgevuld met behulp van een **opvulling standaardschema**. Hallo-waarde kan één Booleaanse waarde, of het kan ook een tuple van Booleaanse waarden met een lengte die Hallo ariteit van Hallo-bundel. Een enkele Booleaanse waarde is een tuple van de juiste lengte Hallo met alle onderdelen van uitgebreide toobe gelijk toohello opgegeven waarde. Als de waarde voor een dimensie Hallo True is, worden Hallo bron logisch opgevuld in die dimensie met cellen nul met toosupport extra kerneltoepassingen dat Hallo centrale knooppunten van de eerste en laatste kernels Hallo in die dimensie Hallo eerste en laatste knooppunten worden in die dimensie in Hallo bronlaag. Hallo aantal 'dummy' knooppunten in elke dimensie is dus automatisch bepaald, toofit exact *(InputShape [d] - 1) / Stride [d] + 1* kernels in Hallo opgevuld bronlaag. Als de waarde voor een dimensie Hallo False is, Hallo Hallo kernels zijn gedefinieerd, zodat het aantal knooppunten voor elke zijde die worden weggelaten Hallo is dezelfde (omhoog tooa verschil van 1). de standaardwaarde Hallo van dit kenmerk is een tuple met alle onderdelen gelijk tooFalse.
+* **UpperPad** en **LowerPad**: (optioneel) Geef meer controle over de hoeveelheid opvulling toouse Hallo. **Belangrijk:** deze kenmerken kunnen worden gedefinieerd als en alleen als hello **opvulling** eigenschap hierboven is ***niet*** gedefinieerd. Hallo-waarden moet geheel getalwaarde tuples met een lengte die Hallo ariteit van Hallo-bundel. Deze kenmerken worden opgegeven, 'dummy' knooppunten toohello lagere worden toegevoegd als bovenste ends van iedere dimensie van Hallo invoer laag. Hallo aantal knooppunten toegevoegd toohello lagere en bovenste eindigt in elke dimensie wordt bepaald door **LowerPad**[i] en **UpperPad**[i] respectievelijk. tooensure dat kernels overeenkomen alleen te 'echte' knooppunten en knooppunten niet te 'dummy' hello volgende voorwaarden is voldaan:
   * Elk onderdeel van **LowerPad** moet strikt kleiner zijn dan KernelShape [d] / 2. 
   * Elk onderdeel van **UpperPad** mag niet langer zijn dan KernelShape [d] / 2. 
-  * De standaardwaarde van deze kenmerken is een tuple met alle onderdelen die gelijk zijn aan 0. 
+  * Hallo-standaardwaarde van deze kenmerken is een tuple met alle onderdelen gelijk too0. 
 
-De instelling **opvulling** = true kunt zoveel opvulling te houden van het 'midden' van de kernel binnen de 'werkelijke' invoer nodig is. Hiermee wijzigt u de math iets voor het berekenen van de uitvoergrootte van de. In het algemeen de uitvoergrootte van de *D* wordt berekend als *D = (I - K) / S + 1*, waarbij *ik* is de ingevoerde grootte *K* is de grootte kernel *S*  is de stride en  */*  deling van geheel getal (afronden op nul) is. Als u UpperPad instellen = [1, 1], de grootte van de invoer *ik* is in feite 29, en dus *D = (29-5) / 2 + 1 = 13*. Echter, wanneer **opvulling** = true, wordt in wezen *ik* opgehaald tegenaan door *K - 1*; daarom *D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14*. Door op te geven waarden voor **UpperPad** en **LowerPad** dat u veel meer controle over de opvulling dan als u zojuist hebt ingesteld **opvulling** = true.
+Hallo-instelling **opvulling** = true kan zo veel opvulling omdat tookeep Hallo "center" van de kernel Hallo binnen Hallo 'echte' invoer nodig. Hiermee wijzigt u Hallo math iets voor computergebruik Hallo uitvoergrootte. In het algemeen Hallo grootte uitvoer *D* wordt berekend als *D = (I - K) / S + 1*, waarbij *ik* invoergrootte hello, is *K* is Hallo kernel omvang *S* Hallo-stride is en  */*  deling van geheel getal (afronden op nul) is. Als u UpperPad instellen = [1, 1], Hallo invoer grootte *ik* is in feite 29, en dus *D = (29-5) / 2 + 1 = 13*. Echter, wanneer **opvulling** = true, wordt in wezen *ik* opgehaald tegenaan door *K - 1*; daarom *D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14*. Door op te geven waarden voor **UpperPad** en **LowerPad** dat u veel meer controle over Hallo opvulling dan als u zojuist hebt ingesteld **opvulling** = true.
 
 Zie voor meer informatie over convolutional netwerken en hun toepassingen in deze artikelen:  
 
@@ -203,11 +203,11 @@ Zie voor meer informatie over convolutional netwerken en hun toepassingen in dez
 * [http://People.csail.MIT.edu/jvb/Papers/cnn_tutorial.PDF](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ## <a name="pooling-bundles"></a>Bundels groeperen
-Een **groeperen bundel** van toepassing is vergelijkbaar met convolutional connectiviteit geometrie maar vooraf gedefinieerde waarden van de bron-functies worden afgeleid van de waarde van de doel-knooppunt wordt gebruikt. Groepering bundels hebben daarom geen trainable status (gewichten of vooroordelen). Groepering bundels ondersteuning voor alle convolutional kenmerken behalve **delen**, **MapCount**, en **gewichten**.  
+A **groeperen bundel** geldt geometrie vergelijkbare tooconvolutional connectiviteit, maar het vooraf gedefinieerde functies toosource waarden tooderive Hallo bestemming knooppunt knooppuntwaarde gebruikt. Groepering bundels hebben daarom geen trainable status (gewichten of vooroordelen). Groeperen bundels ondersteuning alle convolutional kenmerken behalve Hallo **delen**, **MapCount**, en **gewichten**.  
 
-Normaal gesproken overlappen de kernels samengevat door aangrenzende groepering eenheden niet. Als Stride [d] gelijk aan KernelShape [d] in elke dimensie is, is de laag verkregen de traditionele lokale groepering laag, die meestal in convolutional neural netwerken gebruikt wordt. Elke doelknooppunt berekent het maximum of het gemiddelde van de activiteiten van de kernel in de bronlaag.  
+Normaal gesproken overlappen Hallo kernels samengevat door aangrenzende groepering eenheden niet. Als Stride [d] gelijk tooKernelShape [d] in elke dimensie is, is Hallo laag verkregen Hallo traditionele lokale groepering laag, die meestal in convolutional neural netwerken gebruikt wordt. Elke doelknooppunt berekent Hallo maximale of Hallo gemiddelde van Hallo activiteiten van de kernel in Hallo bronlaag.  
 
-Het volgende voorbeeld wordt een groepering bundel: 
+Hallo volgende voorbeeld ziet u een groepering bundel: 
 
     hidden P1 [5, 12, 12]
       from C1 max pool {
@@ -216,10 +216,10 @@ Het volgende voorbeeld wordt een groepering bundel:
         Stride      = [ 1,  2,  2];
       }  
 
-* De ariteit van de bundel is 3 (de lengte van de tuples **InputShape**, **KernelShape**, en **Stride**). 
-* Het aantal knooppunten in de bronlaag is *5 * 24 * 24 = 2880*. 
+* Hallo ariteit van Hallo-bundel is 3 (lengte van Hallo tuples Hallo **InputShape**, **KernelShape**, en **Stride**). 
+* het aantal knooppunten in Hallo bronlaag Hallo is *5 * 24 * 24 = 2880*. 
 * Dit is een traditionele lokale groepering laag omdat **KernelShape** en **Stride** gelijk zijn. 
-* Het aantal knooppunten in de doellaag is *5 * 12 * 12 = 1440*.  
+* het aantal knooppunten in Hallo bestemming laag Hallo is *5 * 12 * 12 = 1440*.  
 
 Zie voor meer informatie over groepering lagen deze artikelen:  
 
@@ -228,26 +228,26 @@ Zie voor meer informatie over groepering lagen deze artikelen:
 * [http://CS.Nyu.edu/~koray/publis/jarrett-iccv-09.PDF](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>Antwoord normalisatie bundels
-**Antwoord normalisatie** is een lokale normalisatie-schema dat is geïntroduceerd door Geoffrey Hinton, et al., in het artikel [ImageNet Classiﬁcation met Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). Antwoord normalisatie wordt gebruikt om u te helpen generaliseren van neural netten. Wanneer een neuron wordt uitgevoerd op een zeer hoge Activeringsniveau, wordt in een lokale antwoord normalisatie-laag het Activeringsniveau van de omringende neurons onderdrukt. Dit wordt gedaan met drie parameters (***α***, ***β***, en ***k***) en een convolutional structuur (of groep vorm). Elke neuron in de doellaag ***y*** komt overeen met een neuron ***x*** in de bronlaag. Het Activeringsniveau van ***y*** wordt bepaald door de volgende formule, waarbij ***f*** is het Activeringsniveau van een neuron en ***Nx*** is de kernel (of de set met de neurons in de groep van ***x***), zoals gedefinieerd door de volgende convolutional structuur:  
+**Antwoord normalisatie** is een lokale normalisatie-schema dat is geïntroduceerd door Geoffrey Hinton, et al. in Hallo artikel [ImageNet Classiﬁcation met Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). Antwoord normalisatie is gebruikte tooaid generaliseren van neural netten. Wanneer een neuron wordt uitgevoerd op een zeer hoge Activeringsniveau, onderdrukt een lokale antwoord normalisatie-laag Hallo Activeringsniveau Hallo omringende neurons. Dit wordt gedaan met drie parameters (***α***, ***β***, en ***k***) en een convolutional structuur (of groep vorm). Elke neuron in Hallo bestemming laag ***y*** overeenkomt met tooa neuron ***x*** in Hallo bronlaag. Activeringsniveau van Hallo ***y*** wordt bepaald door de volgende formule, Hallo waar ***f*** Hallo activering niveau van een neuron en ***Nx*** kernel hello (of Hallo set met Hallo neurons in de groep Hallo van ***x***), zoals gedefinieerd door Hallo convolutional structuur te volgen:  
 
 ![][1]  
 
-Antwoord normalisatie bundels ondersteuning voor alle convolutional kenmerken behalve **delen**, **MapCount**, en **gewichten**.  
+Antwoord normalisatie bundels ondersteuning voor alle Hallo convolutional kenmerken behalve **delen**, **MapCount**, en **gewichten**.  
 
-* Als de kernel neurons in dezelfde toewijzing als bevat ***x***, het schema van normalisatie wordt aangeduid als **dezelfde normalisatie toewijzen**. Voor het definiëren van dezelfde kaart normalisatie wordt de eerste coördinaat in **InputShape** moet de waarde 1 hebben.
-* Als de kernel neurons in dezelfde ruimtelijke positie als bevat ***x***, maar de neurons zijn in andere toewijzingen, de normalisatie-schema heet **meerdere toegewezen normalisatie**. Dit type antwoord normalisatie implementeert een vorm van laterale maar die is geïnspireerd op het type gevonden in de echte neurons concurrentie voor big activering niveaus onder neuron uitvoer berekend op verschillende maps maken. Om te definiëren tussen maps normalisatie, moet de eerste coördinaat een geheel getal groter dan één en niet groter zijn dan het aantal maps en de rest van de coördinaten moet de waarde 1 hebben.  
+* Als de kernel Hallo neurons in Hallo bevat dezelfde toewijzen als ***x***, Hallo normalisatie-schema is waarnaar wordt verwezen tooas **dezelfde normalisatie toewijzen**. toodefine dezelfde toewijzen normalisatie wordt de eerste coördinaat Hallo in **InputShape** moet Hallo waarde 1 hebben.
+* Als Hallo kernel neurons in Hallo bevat dezelfde ruimtelijke positie als ***x***, maar Hallo neurons zijn in andere toewijzingen, Hallo normalisatie schema heet **meerdere toegewezen normalisatie**. Dit type antwoord normalisatie implementeert een vorm van laterale maar die is geïnspireerd op Hallo type gevonden in de echte neurons concurrentie voor big activering niveaus onder neuron uitvoer berekend op verschillende maps maken. toodefine over normalisatie wordt toegewezen, Hallo eerste coördinaat moet een geheel getal groter dan één en niet groter zijn dan het aantal maps Hallo en rest Hallo Hallo coördinaten moet Hallo waarde 1 hebben.  
 
-Omdat een vooraf gedefinieerde functie antwoord normalisatie bundels op bron knooppuntwaarden om te bepalen van de waarde van de doel-knooppunt toepassen, hebben ze geen trainable status (gewichten of vooroordelen).   
+Omdat het antwoord normalisatie bundels een vooraf gedefinieerde functie toosource knooppunt waarden toodetermine Hallo bestemming knooppuntwaarde toegepast, hebben ze geen trainable status (gewichten of vooroordelen).   
 
-**Waarschuwing**: de knooppunten in de doellaag komen overeen met neurons die de centrale knooppunten van de kernels. Bijvoorbeeld, als KernelShape [d] oneven en wordt vervolgens *KernelShape [d] / 2* komt overeen met het centrale kernel-knooppunt. Als *KernelShape [d]* een even getal is, is het centrale knooppunt *KernelShape [d] / 2-1*. Daarom als **opvulling**[d] is False, de eerste en de laatste *KernelShape [d] / 2* knooppunten hebben geen overeenkomstige knooppunten in de doellaag. Om te voorkomen dat deze situatie, definiëren **opvulling** als [true, true,..., true].  
+**Waarschuwing**: Hallo knooppunten in Hallo bestemming laag tooneurons die Hallo centrale knooppunten van Hallo kernels overeenkomen. Bijvoorbeeld, als KernelShape [d] oneven en wordt vervolgens *KernelShape [d] / 2* overeenkomt met toohello centrale kernel-knooppunt. Als *KernelShape [d]* een even getal is, Hallo centrale knooppunt loopt *KernelShape [d] / 2-1*. Daarom als **opvulling**[d] is ingesteld op False, Hallo het eerste en laatste Hallo *KernelShape [d] / 2* knooppunten hebben geen overeenkomstige knooppunten in Hallo bestemming laag. tooavoid deze situatie definiëren **opvulling** als [true, true,..., true].  
 
-Naast de vier kenmerken die eerder zijn beschreven, ondersteuning antwoord normalisatie bundels ook voor de volgende kenmerken:  
+Bovendien toohello vier kenmerken die eerder zijn beschreven, antwoord normalisatie bundels ook ondersteuning Hallo volgende kenmerken:  
 
-* **Alpha**: (vereist) geeft een drijvende-kommawaarde die overeenkomt met ***α*** in de vorige formule. 
-* **Beta**: (vereist) geeft een drijvende-kommawaarde die overeenkomt met ***β*** in de vorige formule. 
-* **Offset**: (optioneel) geeft een drijvende-kommawaarde die overeenkomt met ***k*** in de vorige formule. Wordt standaard op 1.  
+* **Alpha**: (vereist) geeft een drijvende-kommawaarde die overeenkomt met te***α*** in de vorige formule Hallo. 
+* **Beta**: (vereist) geeft een drijvende-kommawaarde die overeenkomt met te***β*** in de vorige formule Hallo. 
+* **Offset**: (optioneel) geeft een drijvende-kommawaarde die overeenkomt met te***k*** in de vorige formule Hallo. De standaardwaarde too1.  
 
-Het volgende voorbeeld wordt een antwoord normalisatie-bundel met behulp van deze kenmerken gedefinieerd:  
+Hallo definieert volgende voorbeeld een antwoord normalisatie-bundel met behulp van deze kenmerken:  
 
     hidden RN1 [5, 10, 10]
       from P1 response norm {
@@ -257,12 +257,12 @@ Het volgende voorbeeld wordt een antwoord normalisatie-bundel met behulp van dez
         Beta = 0.75;
       }  
 
-* De bronlaag bevat vijf maps, elk met aof dimensie van 12 x 12 Samentelling in 1440 knooppunten. 
-* De waarde van **KernelShape** geeft aan dat dit een dezelfde normalisatie kaartLaag, waarbij de groep een rechthoek 3 x 3 is. 
-* De standaardwaarde van **opvulling** is ingesteld op False, de laag bestemming heeft dus alleen 10 knooppunten in elke dimensie. Toevoegen zodat één knooppunt in de doellaag die overeenkomt met elk knooppunt in de bronlaag opvulling = [true, true, true]; en wijzig de grootte van RN1 [5, 12, 12].  
+* Hallo bronlaag bevat vijf maps, elk met aof dimensie van 12 x 12 Samentelling in 1440 knooppunten. 
+* waarde van Hallo **KernelShape** geeft aan dat dit een dezelfde normalisatie kaartLaag, waarbij Hallo groep een rechthoek 3 x 3 is. 
+* Hallo standaardwaarde van **opvulling** is ingesteld op False, Hallo bestemming laag heeft dus alleen 10 knooppunten in elke dimensie. een knooppunt in Hallo bestemming laag die overeenkomt met tooevery-knooppunt in Hallo bronlaag toevoegen opvulling tooinclude = [true, true, true]; en Hallo grootte van RN1 te wijzigen [5, 12, 12].  
 
 ## <a name="share-declaration"></a>Share-declaratie
-NET # ondersteunt eventueel meerdere pakketten met gedeelde gewichten definiëren. Het gewicht van elke twee bundels kunnen worden gedeeld als hun structuren hetzelfde zijn. De volgende syntaxis definieert bundels met gedeelde gewichten:  
+NET # ondersteunt eventueel meerdere pakketten met gedeelde gewichten definiëren. Hallo-gewicht van elke twee bundels kunnen worden gedeeld als hun structuren zijn dezelfde Hallo. de volgende syntaxis Hallo definieert bundels met gedeelde gewichten:  
 
     share-declaration:
         share    {    layer-list    }
@@ -290,7 +290,7 @@ NET # ondersteunt eventueel meerdere pakketten met gedeelde gewichten definiëre
     layer-name:
         identifier  
 
-De volgende share-declaratie geeft bijvoorbeeld de namen van de lagen die aangeeft dat de gewichten en vooroordelen worden gedeeld op:  
+Hallo geeft volgende share-declaratie bijvoorbeeld Hallo laagnamen, die aangeeft dat de gewichten en vooroordelen worden gedeeld:  
 
     Const {
       InputSize = 37;
@@ -310,9 +310,9 @@ De volgende share-declaratie geeft bijvoorbeeld de namen van de lagen die aangee
     }
     share { H1, H2 } // share both weights and biases  
 
-* De invoer functies worden gepartitioneerd in twee gelijke grootte invoer lagen. 
-* Verborgen lagen berekent hoger niveau functies op de twee lagen van de invoer. 
-* De share-declaratie geeft aan dat *H1* en *H2* op dezelfde manier uit hun respectieve invoer moet worden berekend.  
+* Hallo invoer functies worden gepartitioneerd in twee gelijke grootte invoer lagen. 
+* Hallo verborgen lagen berekent hoger niveau functies op Hallo van de twee ingevoerde lagen. 
+* Hallo-share-declaratie geeft aan dat *H1* en *H2* moet worden berekend in Hallo dezelfde manier uit hun respectieve invoer.  
 
 U kunt ook kan dit worden opgegeven met twee afzonderlijke share-declaraties als volgt:  
 
@@ -322,59 +322,59 @@ U kunt ook kan dit worden opgegeven met twee afzonderlijke share-declaraties als
 
     share { 1 => H1, 1 => H2 } // share biases  
 
-U kunt de korte vorm alleen als de lagen één bundel bevatten. In het algemeen is delen mogelijk alleen wanneer de structuur van de relevante identiek zijn is, zodat ze dezelfde grootte hebben, dezelfde convolutional geometrie, enzovoort.  
+U kunt Hallo verkorte vorm alleen als Hallo lagen één bundel bevatten. In het algemeen is delen mogelijk alleen als de relevante Hallo-structuur identiek zijn, zodat ze Hallo dezelfde grootte, dezelfde convolutional geometrie, enzovoort.  
 
 ## <a name="examples-of-net-usage"></a>Voorbeelden van Net # gebruik
-Deze sectie vindt enkele voorbeelden van hoe u Net # kunt verborgen lagen toevoegen, het definiëren van de manier waarop verborgen lagen met andere lagen communiceren en convolutional netwerken maken.   
+Deze sectie vindt u enkele voorbeelden van hoe kunt u Net # tooadd verborgen lagen, Hallo manier verborgen lagen communiceren met andere lagen en bouwen van netwerken convolutional definiëren.   
 
 ### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Een eenvoudig aangepaste neurale netwerk definiëren: 'Hallo wereld'-voorbeeld
-Dit eenvoudige voorbeeld laat zien hoe een neural network-model met één verborgen laag maken.  
+Dit eenvoudige voorbeeld laat zien hoe toocreate een neural network model met één laag verborgen.  
 
     input Data auto;
     hidden H [200] from Data all;
     output Out [10] sigmoid from H all;  
 
-Het voorbeeld wordt een aantal basisopdrachten als volgt:  
+Hallo-voorbeeld wordt door sommige basisopdrachten als volgt:  
 
-* De eerste regel definieert de invoer-laag (met de naam *gegevens*). Wanneer u gebruikt de **automatisch** sleutelwoord, het neurale netwerk omvat alle kolommen van de functie automatisch in de invoer voorbeelden. 
-* De tweede regel maakt de verborgen laag. De naam van de *H* is toegewezen aan de verborgen laag waarvoor 200 knooppunten. Deze laag volledig wordt verbonden met de invoer laag.
-* De derde regel definieert de uitvoer-laag (met de naam *O*), die 10 uitvoerknooppunten bevat. Als het neurale netwerk wordt gebruikt voor classificatie, is er één knooppunt van de uitvoer per klasse. Het sleutelwoord **sigmoid** geeft aan dat de uitvoer-functie wordt toegepast op de uitvoer-laag.   
+* Hallo eerste regel definieert Hallo invoer laag (met de naam *gegevens*). Wanneer u Hallo gebruikt **automatisch** trefwoord Hallo neurale netwerk omvat alle kolommen van de functie automatisch in Hallo invoer voorbeelden. 
+* de tweede regel Hallo maakt Hallo verborgen laag. de naam van de Hallo *H* toohello verborgen laag, die 200 knooppunten heeft is toegewezen. Deze laag is volledig verbonden toohello invoer laag.
+* de derde regel Hallo definieert Hallo uitvoer laag (met de naam *O*), die 10 uitvoerknooppunten bevat. Als Hallo neurale netwerk wordt gebruikt voor classificatie, is er één knooppunt van de uitvoer per klasse. Hallo sleutelwoord **sigmoid** geeft aan dat het Hallo uitvoer functie toegepaste toohello uitvoer laag.   
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Meerdere verborgen lagen definiëren: computer vision-voorbeeld
-Het volgende voorbeeld laat zien hoe een enigszins complexere neurale netwerk, met meerdere lagen voor aangepaste verborgen definiëren.  
+Hallo volgende voorbeeld laat zien hoe toodefine iets meer complexe neurale netwerk, met meerdere lagen voor aangepaste verborgen.  
 
-    // Define the input layers 
+    // Define hello input layers 
     input Pixels [10, 20];
     input MetaData [7];
 
-    // Define the first two hidden layers, using data only from the Pixels input
+    // Define hello first two hidden layers, using data only from hello Pixels input
     hidden ByRow [10, 12] from Pixels where (s,d) => s[0] == d[0];
     hidden ByCol [5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
-    // Define the third hidden layer, which uses as source the hidden layers ByRow and ByCol
+    // Define hello third hidden layer, which uses as source hello hidden layers ByRow and ByCol
     hidden Gather [100] 
     {
       from ByRow all;
       from ByCol all;
     }
 
-    // Define the output layer and its sources
+    // Define hello output layer and its sources
     output Result [10]  
     {
       from Gather all;
       from MetaData all;
     }  
 
-In dit voorbeeld ziet u enkele functies van de taal van de specificatie neural netwerken:  
+In dit voorbeeld ziet u diverse functies van Hallo neural networks specificatietaal:  
 
-* De structuur heeft twee invoer lagen, *Pixels* en *metagegevens*.
-* De *Pixels* laag is een bronlaag voor twee verbinding-bundels met lagen van de bestemming, *ByRow* en *ByCol*.
-* De lagen *verzamelen* en *resultaat* bestemming lagen in meerdere pakketten van de verbinding zijn.
-* De laag uitvoer *resultaat*, is een doellaag in twee verbinding bundels; één met de tweede niveau als een laag bestemming verborgen (verzamelen) en de andere met de invoer-laag (MetaData) als een laag bestemming.
-* Het verborgen lagen *ByRow* en *ByCol*, gefilterde verbinding opgeven met behulp van predikaat expressies. Preciezer, het knooppunt in *ByRow* op [x, y] is verbonden met de knooppunten in *Pixels* dat zijn de eerste index coördineren gelijk zijn aan het knooppunt van de eerste coördinaat, x. Op deze manier het knooppunt in *ByCol op [x, y] is verbonden met de knooppunten in _Pixels* dat hebben de tweede index coördineren binnen één van het knooppunt van de tweede coördinaat, y.  
+* Hallo-structuur heeft twee invoer lagen, *Pixels* en *metagegevens*.
+* Hallo *Pixels* laag is een bronlaag voor twee verbinding-bundels met lagen van de bestemming, *ByRow* en *ByCol*.
+* Hallo lagen *verzamelen* en *resultaat* bestemming lagen in meerdere pakketten van de verbinding zijn.
+* Hallo uitvoer laag *resultaat*, is een doellaag in twee verbinding bundels; één Hello tweede niveau verborgen (verzamelen) als een doellaag en andere met invoer Hallo-laag (metagegevens) als een laag bestemming Hallo.
+* verborgen lagen Hallo *ByRow* en *ByCol*, gefilterde verbinding opgeven met behulp van predikaat expressies. Preciezer, Hallo knooppunt in *ByRow* op [x, y] is verbonden toohello knooppunten in *Pixels* waarvoor de eerste coördinaat, x Hallo eerste index coördinaat gelijk toohello van het knooppunt. Op deze manier Hallo knooppunt in *ByCol op [x, y] is verbonden toohello knooppunten in _Pixels* waarvoor Hallo tweede index coördinaat binnen één van de tweede coördinaat van het knooppunt hello, y.  
 
 ### <a name="define-a-convolutional-network-for-multiclass-classification-digit-recognition-example"></a>Definieer een convolutional netwerk voor multiklassen classificatie: cijfer erkenning voorbeeld
-De definitie van de volgende netwerk is ontworpen voor het herkennen van cijfers en sommige geavanceerde technieken voor het aanpassen van een neural netwerk worden geïllustreerd.  
+Hallo definitie van de volgende netwerk Hallo is ontworpen toorecognize getallen en sommige geavanceerde technieken voor het aanpassen van een neural netwerk worden geïllustreerd.  
 
     input Image [29, 29];
     hidden Conv1 [5, 13, 13] from Image convolve 
@@ -397,21 +397,21 @@ De definitie van de volgende netwerk is ontworpen voor het herkennen van cijfers
     output Digit [10] from Hid3 all;  
 
 
-* De structuur heeft één invoer laag *installatiekopie*.
-* Het sleutelwoord **convolve** geeft aan dat de lagen naam *Conv1* en *Conv2* convolutional lagen. Elk van deze laag declaraties wordt gevolgd door een lijst van de kenmerken convolutiefilter.
-* De net is een derde verborgen laag *Hid3*, die volledig is verbonden met de tweede verborgen laag *Conv2*.
-* De laag uitvoer *cijfer*, is alleen verbonden met de derde verborgen laag *Hid3*. Het sleutelwoord **alle** geeft aan dat de uitvoer-laag volledig is verbonden met *Hid3*.
-* De ariteit van de convolutiefilter is drie (de lengte van de tuples **InputShape**, **KernelShape**, **Stride**, en **delen**). 
-* Het aantal van de gewichten per kernel *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape** \[ 2] = 1 + 1 * 5 * 5 = 26. Of 26 * 50 = 1300*.
-* U kunt de knooppunten in de verborgen laag als volgt berekenen:
+* Hallo-structuur heeft één invoer laag *installatiekopie*.
+* Hallo sleutelwoord **convolve** geeft aan dat de Hallo lagen naam *Conv1* en *Conv2* convolutional lagen. Elk van deze laag declaraties wordt gevolgd door een lijst met Hallo convolutiefilter kenmerken.
+* Hallo net is een derde verborgen laag *Hid3*, toohello tweede verborgen laag, die volledig is verbonden *Conv2*.
+* Hallo uitvoer laag *cijfer*, is verbonden alleen toohello derde verborgen laag, *Hid3*. Hallo sleutelwoord **alle** die laag Hallo-uitvoer is volledig te verbonden*Hid3*.
+* Hallo ariteit van Hallo convolutiefilter is drie (lengte van Hallo tuples Hallo **InputShape**, **KernelShape**, **Stride**, en **delen**). 
+* Hallo aantal gewichten per kernel is *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape** \[2] = 1 + 1 * 5 * 5 = 26. Of 26 * 50 = 1300*.
+* U kunt als volgt Hallo knooppunten in de verborgen laag berekenen:
   * **NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
   * **NodeCount**\[1] = (13-5) / 2 + 1 = 5. 
   * **NodeCount**\[2] (13-5) = / 2 + 1 = 5. 
-* Het totale aantal knooppunten kan worden berekend met behulp van de gedeclareerde dimensionaliteit van de laag [50, 5, 5], als volgt:  ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
-* Omdat **delen**[d] False is alleen voor *d == 0*, is het aantal kernels  ***MapCount** * **NodeCount** \[0] = 10 * 5 = 50*. 
+* Hallo totale aantal knooppunten kan worden berekend met behulp van Hallo gedeclareerd dimensionaliteit Hallo layer, [50, 5, 5], als volgt:  ***MapCount** * **NodeCount** \[ 0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
+* Omdat **delen**[d] False is alleen voor *d == 0*, is het aantal kernels Hallo  ***MapCount** * **NodeCount** \[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Bevestigingen
-De taal Net # voor het aanpassen van de architectuur van neural networks is ontwikkeld aan Microsoft door Shon Katzenberger (Architect, Machine Learning) en Alexey Kamenev (Software Engineer, Microsoft Research). Het wordt intern gebruikt voor machine learning-projecten en toepassingen, variërend van detectie van de afbeelding tot tekstanalyse. Zie voor meer informatie [Neural netten in Azure ML - Inleiding tot Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+Hallo Net # taal voor het aanpassen van Hallo-architectuur van neural networks is bij Microsoft ontwikkeld door Shon Katzenberger (Architect, Machine Learning) en Alexey Kamenev (Software Engineer, Microsoft Research). Het wordt intern gebruikt voor machine learning-projecten en toepassingen, variërend van afbeelding detectie tootext analytics. Zie voor meer informatie [Neural netten in Azure ML - inleiding tooNet #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
 

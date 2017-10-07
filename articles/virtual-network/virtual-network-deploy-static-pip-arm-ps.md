@@ -1,6 +1,6 @@
 ---
-title: Een virtuele machine maken met statische openbare IP-adres - Azure PowerShell | Microsoft Docs
-description: Informatie over het maken van een virtuele machine met een statische openbare IP-adres met behulp van PowerShell.
+title: een virtuele machine met een statisch openbaar IP-adres - Azure PowerShell aaaCreate | Microsoft Docs
+description: Meer informatie over hoe toocreate een virtuele machine met een statische openbare IP-adres met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d2b88319cb114b8616f60dbee41e8fdc6d8b1b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van PowerShell
 
@@ -34,16 +34,16 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel wordt behandeld met het implementatiemodel van Resource Manager, die Microsoft voor de meeste nieuwe implementaties in plaats van het klassieke implementatiemodel aanbeveelt.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel bevat informatie over Hallo Resource Manager-implementatiemodel, die Microsoft voor de meeste nieuwe implementaties in plaats van het klassieke implementatiemodel hello aanbeveelt gebruiken.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="step-1---start-your-script"></a>Stap 1: uw script starten
-U kunt de volledige PowerShell-script gebruikt downloaden [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Volg onderstaande stappen voor het wijzigen van het script te laten werken in uw omgeving.
+U kunt downloaden Hallo volledige PowerShell-script gebruikt [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Hallo stappen hieronder toochange Hallo script toowork in uw omgeving.
 
-Wijzig de waarden van de variabelen op basis van de waarden die u wilt gebruiken voor uw implementatie. De volgende waarden worden toegewezen aan het scenario in dit artikel gebruikt:
+Hallo waarden wijzigen van Hallo variabelen hieronder op basis van waarden Hallo gewenste toouse voor uw implementatie. Hallo waarden kaart toohello scenario gebruikt in dit artikel te volgen:
 
 ```powershell
 # Set variables resource group
@@ -74,8 +74,8 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>Stap 2: de benodigde resources voor uw virtuele machine maken
-Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare IP-adres en NIC moet worden gebruikt door de virtuele machine.
+## <a name="step-2---create-hello-necessary-resources-for-your-vm"></a>Stap 2: Hallo benodigde resources voor uw virtuele machine maken
+Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare IP- en NIC die wordt gebruikt door VM Hallo toobe.
 
 1. Maak een nieuwe resourcegroep.
 
@@ -83,7 +83,7 @@ Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare I
     New-AzureRmResourceGroup -Name $rgName -Location $location
     ```
 
-2. Het VNet en een subnet maken.
+2. Maak Hallo VNet en het subnetmasker.
 
     ```powershell
     $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName `
@@ -95,14 +95,14 @@ Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare I
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-3. Het openbare IP-resource maken. 
+3. Hallo openbare IP-resource maken. 
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
         -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
     ```
 
-4. De netwerkinterface (NIC) maken voor de virtuele machine in het bovenstaande gemaakt met het openbare IP-subnet. Let op de eerste cmdlet bij het ophalen van het VNet van Azure, dit is nodig omdat een `Set-AzureRmVirtualNetwork` om te wijzigen van het bestaande VNet is uitgevoerd.
+4. Hallo-netwerkinterface (NIC) maken voor Hallo VM in Hallo subnet met Hallo openbare IP-adres hierboven wordt gemaakt. Let op Hallo van eerste cmdlet Hallo VNet ophalen uit Azure, dit is nodig omdat een `Set-AzureRmVirtualNetwork` is uitgevoerd toochange Hallo bestaande VNet.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
@@ -112,26 +112,26 @@ Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet, openbare I
         -PublicIpAddress $pip
     ```
 
-5. Een opslagaccount voor het hosten van de VM-OS-schijf maken.
+5. Maak een storage account toohost Hallo VM OS-station.
 
     ```powershell
     $stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
     -ResourceGroupName $rgName -Type Standard_LRS -Location $location
     ```
 
-## <a name="step-3---create-the-vm"></a>Stap 3: de virtuele machine maken
+## <a name="step-3---create-hello-vm"></a>Stap 3: Hallo VM maken
 Nu dat alle benodigde resources gemaakt zijn, kunt u een nieuwe virtuele machine kunt maken.
 
-1. Het configuratieobject voor de virtuele machine maken.
+1. Hallo configuration-object voor Hallo VM maken.
 
     ```powershell
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
     ```
 
-2. Referenties voor het lokale beheerdersaccount van de virtuele machine niet ophalen.
+2. Referenties voor Hallo VM lokale administrator-account niet ophalen.
 
     ```powershell
-    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
+    $cred = Get-Credential -Message "Type hello name and password for hello local administrator account."
     ```
 
 3. Maak een VM-configuratie-object.
@@ -141,39 +141,39 @@ Nu dat alle benodigde resources gemaakt zijn, kunt u een nieuwe virtuele machine
         -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
     ```
 
-4. Installatiekopie van besturingssysteem instellen voor de virtuele machine.
+4. Hallo besturingssysteeminstallatiekopie maken voor Hallo VM wordt ingesteld.
 
     ```powershell
     $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher `
         -Offer $offer -Skus $sku -Version $version
     ```
 
-5. Configureer de OS-schijf.
+5. Configureer Hallo OS-schijf.
 
     ```powershell
     $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
     $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
     ```
 
-6. De NIC toevoegen aan de virtuele machine.
+6. Hallo NIC toohello VM toevoegen.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
     ```
 
-7. De virtuele machine maken.
+7. Hallo VM maken.
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
     ```
 
-8. Sla het scriptbestand.
+8. Hallo scriptbestand opslaan.
 
-## <a name="step-4---run-the-script"></a>Stap 4: Voer het script
-Nadat u wijzigingen nodig en kennis van het script weergeven hierboven, voert u het script. 
+## <a name="step-4---run-hello-script"></a>Stap 4: Hallo-script uitvoeren
+Nadat de benodigde wijzigingen en kennis Hallo script weergeven hierboven, Hallo-script uitvoeren. 
 
-1. Voer het bovenstaande script van een PowerShell-console of de PowerShell ISE.
-2. De volgende uitvoer moet worden weergegeven na een paar minuten:
+1. Uitvoeren van een PowerShell-console of PowerShell ISE, Hallo script hierboven.
+2. Hallo na uitvoer moet worden weergegeven na een paar minuten:
    
         ResourceGroupName : IaaSStory
         Location          : westus

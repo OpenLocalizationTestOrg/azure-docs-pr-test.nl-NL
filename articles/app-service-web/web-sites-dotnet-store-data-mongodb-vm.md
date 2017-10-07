@@ -1,6 +1,6 @@
 ---
-title: Een web-app in Azure maken die verbinding maakt met MongoDB op een virtuele machine
-description: Een zelfstudie leert u hoe u een ASP.NET-app in Azure App Service implementeren met Git verbonden met MongoDB op een virtuele Machine van Azure.
+title: aaaCreate een web-app in Azure die verbinding maakt tooMongoDB uitgevoerd op een virtuele machine
+description: Een zelfstudie over hoe toouse Git toodeploy een ASP.NET-app tooAzure App Service met elkaar verbonden tooMongoDB op een virtuele Machine van Azure.
 tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
@@ -15,26 +15,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: cephalin
-ms.openlocfilehash: a3f289ed9c764d0859573de4f834e042d0f103c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1f5f42c28c3c294d92c9ebf1499374931d47c010
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a>Een web-app in Azure maken die verbinding maakt met MongoDB op een virtuele machine
-Met Git, kunt u een ASP.NET-toepassing naar Azure App Service Web Apps implementeren. In deze zelfstudie maakt u een eenvoudige ASP.NET-MVC-front-taak lijst toepassing die is verbonden met een MongoDB-database op een virtuele machine in Azure.  [MongoDB] [ MongoDB] is een populaire open-source NoSQL-database voor hoge prestaties. Nadat u hebt uitgevoerd en de ASP.NET-toepassing op uw ontwikkelcomputer testen, gaat u de toepassing naar App Service Web Apps met Git uploaden.
+# <a name="create-a-web-app-in-azure-that-connects-toomongodb-running-on-a-virtual-machine"></a>Een web-app maken in Azure die verbinding maakt tooMongoDB uitgevoerd op een virtuele machine
+Met Git, kunt u een ASP.NET-toepassing tooAzure App Service Web Apps implementeren. In deze zelfstudie maakt u een eenvoudige ASP.NET-MVC-front-taak lijst toepassing die verbinding maakt tooa MongoDB-database op een virtuele machine in Azure.  [MongoDB] [ MongoDB] is een populaire open-source NoSQL-database voor hoge prestaties. Na het uitgevoerd en ASP.NET-toepassing hello op uw ontwikkelcomputer testen, gaat uploaden Hallo toepassing tooApp Service Web Apps met Git.
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> Als u wilt dat tooget de slag met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u verder te[App Service uitproberen](https://azure.microsoft.com/try/app-service/), waar u direct een tijdelijke en eenvoudige web-app kunt maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
 > 
 > 
 
 ## <a name="background-knowledge"></a>Achtergrondkennis
-Kennis van de volgende is handig voor deze zelfstudie, hoewel niet vereist:
+Kennis van de volgende Hallo is handig voor deze zelfstudie, hoewel niet vereist:
 
-* De C# stuurprogramma voor MongoDB. Zie voor meer informatie over het C# toepassingen ontwikkelt voor MongoDB, de MongoDB [CSharp taal Center][MongoC#LangCenter]. 
-* ASP .NET web application framework. U kunt meer informatie over op de [ASP.net-website][ASP.NET].
-* ASP .NET MVC web application framework. U kunt meer informatie over op de [ASP.NET MVC-website][MVCWebSite].
+* Hallo C#-stuurprogramma voor MongoDB. Zie voor meer informatie over het ontwikkelen van C#-toepassingen op basis van MongoDB hello MongoDB [CSharp taal Center][MongoC#LangCenter]. 
+* Hallo ASP .NET web application framework. U kunt meer informatie over op het Hallo [ASP.net-website][ASP.NET].
+* Hallo ASP .NET MVC web application framework. U kunt meer informatie over op het Hallo [ASP.NET MVC-website][MVCWebSite].
 * Azure. U kunt aan de slag lezen op [Azure][WindowsAzure].
 
 ## <a name="prerequisites"></a>Vereisten
@@ -47,58 +47,58 @@ Kennis van de volgende is handig voor deze zelfstudie, hoewel niet vereist:
 <a id="virtualmachine"></a> 
 
 ## <a name="create-a-virtual-machine-and-install-mongodb"></a>Een virtuele machine maken en installeer MongoDB
-Deze zelfstudie wordt ervan uitgegaan dat u een virtuele machine hebt gemaakt in Azure. Na het maken van de virtuele machine moet u MongoDB installeren op de virtuele machine:
+Deze zelfstudie wordt ervan uitgegaan dat u een virtuele machine hebt gemaakt in Azure. Na het maken van Hallo virtuele machine moet u tooinstall MongoDB op Hallo virtuele machine:
 
-* Zie voor het maken van een virtuele Windows-computer en installeer MongoDB, [MongoDB installeren op een virtuele machine Windows Server worden uitgevoerd in Azure][InstallMongoOnWindowsVM].
+* toocreate een virtuele Windows-computer en installeer MongoDB, Zie [MongoDB installeren op een virtuele machine Windows Server worden uitgevoerd in Azure][InstallMongoOnWindowsVM].
 
-Nadat u hebt gemaakt van de virtuele machine in Azure en MongoDB geïnstalleerd, zorg er dan voor dat de DNS-naam van de virtuele machine ('testlinuxvm.cloudapp.net', bijvoorbeeld) en de externe poort onthouden voor MongoDB die u hebt opgegeven in het eindpunt.  U moet deze informatie later in de zelfstudie.
+Nadat u hebt gemaakt Hallo virtuele machine in Azure en MongoDB geïnstalleerd, worden ervoor tooremember Hallo DNS-naam van Hallo virtuele machine ('testlinuxvm.cloudapp.net', bijvoorbeeld) en de externe poort Hallo voor MongoDB die u hebt opgegeven in het Hallo-eindpunt.  U moet deze informatie later in de zelfstudie Hallo.
 
 <a id="createapp"></a>
 
-## <a name="create-the-application"></a>De toepassing maken
-In deze sectie maakt een ASP.NET-toepassing 'Mijn takenlijst' aangeroepen met behulp van Visual Studio en uitvoeren van een aanvankelijke implementatie naar Azure App Service Web Apps. U wordt de toepassing lokaal uitvoeren, maar wordt verbinding met uw virtuele machine in Azure en er gebruik van het MongoDB-exemplaar dat u hebt gemaakt.
+## <a name="create-hello-application"></a>Hallo-toepassing maken
+In deze sectie maakt een ASP.NET-toepassing 'Mijn takenlijst' aangeroepen met behulp van Visual Studio en uitvoeren van een aanvankelijke implementatie tooAzure App Service Web Apps. U Hallo toepassing lokaal wordt uitgevoerd, maar wordt verbinding tooyour virtuele machine in Azure maken en er gebruik van Hallo MongoDB-exemplaar dat u hebt gemaakt.
 
 1. Klik in Visual Studio **nieuw Project**.
    
     ![Pagina Nieuw Project starten][StartPageNewProject]
-2. In de **nieuw Project** venster in het linkerdeelvenster, selecteer **Visual C#**, en selecteer vervolgens **Web**. Selecteer in het middelste deelvenster **ASP.NET-webtoepassing**. Aan de onderkant uw project een naam 'MyTaskListApp' en klik vervolgens op **OK**.
+2. In Hallo **nieuw Project** venster in Hallo linkerdeelvenster Selecteer **Visual C#**, en selecteer vervolgens **Web**. Selecteer in het middelste deelvenster Hallo **ASP.NET-webtoepassing**. Naam van uw project 'MyTaskListApp' hello onderin, en klik vervolgens op **OK**.
    
     ![Het dialoogvenster Nieuw project][NewProjectMyTaskListApp]
-3. In de **nieuw ASP.NET-Project** dialoogvenster, **MVC**, en klik vervolgens op **OK**.
+3. In Hallo **nieuw ASP.NET-Project** dialoogvenster, **MVC**, en klik vervolgens op **OK**.
    
     ![MVC-sjabloon selecteren][VS2013SelectMVCTemplate]
-4. Als u nog niet hebt aangemeld bij Microsoft Azure, wordt u gevraagd aan te melden. Volg de aanwijzingen om aan te melden bij Azure.
-5. Wanneer u bent aangemeld, kunt u beginnen met het configureren van uw App Service-web-app. Geef de **Web-App-naam**, **App Service-abonnement**, **resourcegroep**, en **regio**, klikt u vervolgens op **maken**.
+4. Als u nog niet hebt aangemeld bij Microsoft Azure, kunt u zich na vragen aan gebruiker toosign in. Ga als volgt Hallo prompts toosign in Azure.
+5. Wanneer u bent aangemeld, kunt u beginnen met het configureren van uw App Service-web-app. Geef Hallo **Web-App-naam**, **App Service-abonnement**, **resourcegroep**, en **regio**, klikt u vervolgens op **maken**.
    
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
-6. Nadat het maken van het project is voltooid, wacht u totdat de web-app in Azure App Service worden gemaakt, zoals aangegeven in de **Azure App Service-activiteit** venster. Klik vervolgens op **MyTaskListApp publiceren naar deze Web-App nu**.
+6. Nadat het Hallo-project maken is voltooid, wachten totdat Hallo web app toobe gemaakt in Azure App Service, zoals aangegeven in Hallo **Azure App Service-activiteit** venster. Klik vervolgens op **MyTaskListApp publiceren toothis Web-App nu**.
 7. Klik op **Publish**.
    
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSPublishWeb.png)
    
-    Als de standaard-ASP.NET-toepassing is gepubliceerd naar Azure App Service Web Apps, wordt deze gestart in de browser.
+    Zodra de standaard-ASP.NET-toepassing gepubliceerd tooAzure App Service Web Apps is, wordt deze in de browser Hallo gestart.
 
-## <a name="install-the-mongodb-c-driver"></a>Installeer het stuurprogramma MongoDB C#
-MongoDB biedt client-side '-ondersteuning voor C#-toepassingen via een stuurprogramma, moet u installeren op de lokale computer. De C#-stuurprogramma is beschikbaar via NuGet.
+## <a name="install-hello-mongodb-c-driver"></a>Hallo MongoDB C#-stuurprogramma installeren
+MongoDB biedt client-side '-ondersteuning voor C#-toepassingen via een stuurprogramma, u moet tooinstall op de lokale computer. Hallo C#-stuurprogramma is beschikbaar via NuGet.
 
-Het MongoDB-C#-stuurprogramma installeren:
+tooinstall hello MongoDB C#-stuurprogramma:
 
-1. In **Solution Explorer**, met de rechtermuisknop op de **MyTaskListApp** project en selecteer **NuGetPackages beheren**.
+1. In **Solution Explorer**, klik met de rechtermuisknop Hallo **MyTaskListApp** project en selecteer **NuGetPackages beheren**.
    
     ![NuGet-pakketten beheren][VS2013ManageNuGetPackages]
-2. In de **NuGet-pakketten beheren** venster in het linkerdeelvenster klikt u op **Online**. In de **Online zoeken** vak aan de rechterkant, typt u 'mongodb.driver'.  Klik op **installeren** het stuurprogramma te installeren.
+2. In Hallo **NuGet-pakketten beheren** venster in het linkerdeelvenster hello, klikt u op **Online**. In Hallo **Online zoeken** vak op de juiste hello, typt u 'mongodb.driver'.  Klik op **installeren** tooinstall Hallo stuurprogramma.
    
     ![Zoeken naar MongoDB C# stuurprogramma][SearchforMongoDBCSharpDriver]
-3. Klik op **ik ga akkoord** de 10gen, Inc. licentievoorwaarden te accepteren.
-4. Klik op **sluiten** nadat het stuurprogramma is geïnstalleerd.
+3. Klik op **ik ga akkoord** tooaccept hello 10gen, Inc. licentievoorwaarden.
+4. Klik op **sluiten** nadat het Hallo-stuurprogramma is geïnstalleerd.
     ![MongoDB C# stuurprogramma geïnstalleerd][MongoDBCsharpDriverInstalled]
 
-Het MongoDB-C#-stuurprogramma is nu geïnstalleerd.  Verwijzingen naar de **MongoDB.Bson**, **MongoDB.Driver**, en **MongoDB.Driver.Core** bibliotheken zijn toegevoegd aan het project.
+Hallo MongoDB C#-stuurprogramma is nu geïnstalleerd.  Verwijzingen toohello **MongoDB.Bson**, **MongoDB.Driver**, en **MongoDB.Driver.Core** bibliotheken toohello project zijn toegevoegd.
 
 ![MongoDB C# stuurprogramma verwijzingen][MongoDBCSharpDriverReferences]
 
 ## <a name="add-a-model"></a>Een model toevoegen
-In **Solution Explorer**, met de rechtermuisknop op de *modellen* map en **toevoegen** een nieuwe **klasse** en noem deze *TaskModel.cs*.  In *TaskModel.cs*, vervangt de bestaande code door de volgende code:
+In **Solution Explorer**, klik met de rechtermuisknop Hallo *modellen* map en **toevoegen** een nieuwe **klasse** en noem deze *TaskModel.cs* .  In *TaskModel.cs*, Hallo bestaande code te vervangen door Hallo code te volgen:
 
     using System;
     using System.Collections.Generic;
@@ -130,8 +130,8 @@ In **Solution Explorer**, met de rechtermuisknop op de *modellen* map en **toevo
         }
     }
 
-## <a name="add-the-data-access-layer"></a>De data access-laag toevoegen
-In **Solution Explorer**, met de rechtermuisknop op de *MyTaskListApp* project en **toevoegen** een **nieuwe map** met de naam *DAL*.  Met de rechtermuisknop op de *DAL* map en **toevoegen** een nieuwe **klasse**. Noem het klassebestand *Dal.cs*.  In *Dal.cs*, vervangt de bestaande code door de volgende code:
+## <a name="add-hello-data-access-layer"></a>Hallo gegevenstoegangslaag toevoegen
+In **Solution Explorer**, klik met de rechtermuisknop Hallo *MyTaskListApp* project en **toevoegen** een **nieuwe map** met de naam *DAL*.  Klik met de rechtermuisknop Hallo *DAL* map en **toevoegen** een nieuwe **klasse**. Bestand met de klasse Hallo *Dal.cs*.  In *Dal.cs*, Hallo bestaande code te vervangen door Hallo code te volgen:
 
     using System;
     using System.Collections.Generic;
@@ -150,13 +150,13 @@ In **Solution Explorer**, met de rechtermuisknop op de *MyTaskListApp* project e
             private MongoServer mongoServer = null;
             private bool disposed = false;
 
-            // To do: update the connection string with the DNS name
+            // toodo: update hello connection string with hello DNS name
             // or IP address of your server. 
             //For example, "mongodb://testlinux.cloudapp.net"
             private string connectionString = "mongodb://mongodbsrv20151211.cloudapp.net";
 
             // This sample uses a database named "Tasks" and a 
-            //collection named "TasksList".  The database and collection 
+            //collection named "TasksList".  hello database and collection 
             //will be automatically created if they don't already exist.
             private string dbName = "Tasks";
             private string collectionName = "TasksList";
@@ -166,7 +166,7 @@ In **Solution Explorer**, met de rechtermuisknop op de *MyTaskListApp* project e
             {
             }
 
-            // Gets all Task items from the MongoDB server.        
+            // Gets all Task items from hello MongoDB server.        
             public List<MyTask> GetAllTasks()
             {
                 try
@@ -180,7 +180,7 @@ In **Solution Explorer**, met de rechtermuisknop op de *MyTaskListApp* project e
                 }
             }
 
-            // Creates a Task and inserts it into the collection in MongoDB.
+            // Creates a Task and inserts it into hello collection in MongoDB.
             public void CreateTask(MyTask task)
             {
                 var collection = GetTasksCollectionForEdit();
@@ -239,7 +239,7 @@ In **Solution Explorer**, met de rechtermuisknop op de *MyTaskListApp* project e
     }
 
 ## <a name="add-a-controller"></a>Een controller toevoegen
-Open de *Controllers\HomeController.cs* bestanden per **Solution Explorer** en vervang de bestaande code door het volgende:
+Open Hallo *Controllers\HomeController.cs* bestanden per **Solution Explorer** en vervang de bestaande code Hallo door Hallo volgende:
 
     using System;
     using System.Collections.Generic;
@@ -319,12 +319,12 @@ Open de *Controllers\HomeController.cs* bestanden per **Solution Explorer** en v
         }
     }
 
-## <a name="set-up-the-styles"></a>De stijlen instellen
-De titel boven aan de pagina wilt wijzigen, opent u de *Views\Shared\\_Layout.cshtml* bestanden per **Solution Explorer** en vervang 'Application name' in de navigatiebalk header door 'mijn takenlijst Application' zodat deze er als volgt uit:
+## <a name="set-up-hello-styles"></a>Hallo stijlen instellen
+toochange hello titel bovenaan Hallo Hallo pagina, open Hallo *Views\Shared\\_Layout.cshtml* bestanden per **Solution Explorer** en 'Application name' in de navigatiebalk-header Hallo vervangen door "Mijn taak Een overzicht van toepassing"zodat het lijkt erop dat dit:
 
      @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Om het menu takenlijst instelt, opent u de *\Views\Home\Index.cshtml* -bestand en de bestaande code te vervangen door de volgende code:
+Open in de volgorde tooset Hallo takenlijst menu, Hallo *\Views\Home\Index.cshtml* bestands- en Hallo bestaande code te vervangen door Hallo code te volgen:
 
     @model IEnumerable<MyTaskListApp.Models.MyTask>
 
@@ -361,7 +361,7 @@ Om het menu takenlijst instelt, opent u de *\Views\Home\Index.cshtml* -bestand e
     <div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Als u wilt toevoegen de mogelijkheid om een nieuwe taak te maken, met de rechtermuisknop op de *Views\Home\\*  map en **toevoegen** een **weergave**.  Naam van de weergave *maken*. Vervang de code door het volgende:
+tooadd hello mogelijkheid toocreate een nieuwe taak met de rechtermuisknop op Hallo *Views\Home\\*  map en **toevoegen** een **weergave**.  Hallo weergave naam *maken*. Hallo code vervangen door de volgende Hallo:
 
     @model MyTaskListApp.Models.MyTask
 
@@ -408,42 +408,42 @@ Als u wilt toevoegen de mogelijkheid om een nieuwe taak te maken, met de rechter
 
 ![Solution Explorer][SolutionExplorerMyTaskListApp]
 
-## <a name="set-the-mongodb-connection-string"></a>De MongoDB-verbindingsreeks instellen
-In **Solution Explorer**, open de *DAL/Dal.cs* bestand. De volgende coderegel vinden:
+## <a name="set-hello-mongodb-connection-string"></a>Hallo MongoDB-verbindingsreeks instellen
+In **Solution Explorer**Open Hallo *DAL/Dal.cs* bestand. Hallo volgende coderegel zoeken:
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-Vervang `<vm-dns-name>` met de DNS-naam van de virtuele machine met MongoDB die u hebt gemaakt in de [maken van een virtuele machine en installeer MongoDB] [ Create a virtual machine and install MongoDB] stap van deze zelfstudie.  De DNS-naam van uw virtuele machine vindt u bij de Azure-Portal, selecteer **virtuele Machines**, en zoek **DNS-naam**.
+Vervang `<vm-dns-name>` met Hallo DNS-naam van Hallo virtuele machine MongoDB die u hebt gemaakt in Hallo [maken van een virtuele machine en installeer MongoDB] [ Create a virtual machine and install MongoDB] stap van deze zelfstudie.  toofind hello DNS-naam van uw virtuele machine, gaat u Azure Portal, selecteer toohello **virtuele Machines**, en zoek **DNS-naam**.
 
-Als de DNS-naam van de virtuele machine 'testlinuxvm.cloudapp.net' en MongoDB op de standaardpoort 27017 luistert, kan de verbinding tekenreeks coderegel, ziet er als:
+Als MongoDB luistert op Hallo standaardpoort 27017 Hallo DNS-naam van Hallo virtuele machine is 'testlinuxvm.cloudapp.net' eruit hello connection string-coderegel:
 
     private string connectionString = "mongodb://testlinuxvm.cloudapp.net";
 
-Als het eindpunt van de virtuele machine Hiermee geeft u een andere externe poort voor MongoDB, kunt u de poort in de verbindingsreeks door:
+Als het eindpunt van de virtuele machine Hallo Hiermee geeft u een andere externe poort voor MongoDB, kunt u door Hallo poort in de verbindingsreeks Hallo:
 
      private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
 Zie voor meer informatie over verbindingsreeksen MongoDB [verbindingen][MongoConnectionStrings].
 
-## <a name="test-the-local-deployment"></a>De lokale implementatie testen
-Als u wilt uw toepassing uitvoeren op uw ontwikkelcomputer, **foutopsporing starten** van de **fouten opsporen in** menu of hits **F5**. IIS Express wordt gestart en een browser wordt geopend en de startpagina van de toepassing wordt gestart.  U kunt een nieuwe taak die wordt toegevoegd aan de MongoDB-database op de virtuele machine in Azure kunt toevoegen.
+## <a name="test-hello-local-deployment"></a>Hallo lokale implementatie testen
+selecteert u uw toepassing op uw ontwikkelcomputer toorun **foutopsporing starten** van Hallo **fouten opsporen in** menu of hits **F5**. IIS Express wordt gestart en een browser wordt geopend en de startpagina van de toepassing hello wordt gestart.  Een nieuwe taak toohello MongoDB-database op de virtuele machine in Azure wordt toegevoegd, kunt u toevoegen.
 
 ![Mijn taak lijst-toepassing][TaskListAppBlank]
 
-## <a name="publish-to-azure-app-service-web-apps"></a>Publiceren naar Azure App Service WebApps
-In deze sectie kunt u uw wijzigingen wilt publiceren naar Azure App Service Web Apps.
+## <a name="publish-tooazure-app-service-web-apps"></a>TooAzure App Service Web Apps publiceren
+In deze sectie kunt u uw wijzigingen tooAzure App Service Web Apps wilt publiceren.
 
 1. Klik in Solution Explorer met de rechtermuisknop op **MyTaskListApp** opnieuw en klik op **publiceren**.
 2. Klik op **Publish**.
    
-    U ziet nu uw web-app uitgevoerd in Azure App Service en toegang tot de MongoDB-database in Azure Virtual Machines.
+    U ziet nu uw web-app uitgevoerd in Azure App Service en toegang tot Hallo MongoDB-database in Azure Virtual Machines.
 
 ## <a name="summary"></a>Samenvatting
-U hebt nu uw ASP.NET-toepassing naar Azure App Service Web Apps is geïmplementeerd. De web-app weergeven:
+U hebt nu uw ASP.NET-toepassing tooAzure App Service Web Apps is geïmplementeerd. tooview hello web-app:
 
-1. Meld u aan bij de Azure-Portal.
+1. Meld u aan bij hello Azure-Portal.
 2. Klik op **Web-apps**. 
-3. Selecteer uw web-app in de **Web-Apps** lijst.
+3. Selecteer uw web-app in Hallo **Web-Apps** lijst.
 
 Zie voor meer informatie over het C# toepassingen ontwikkelt voor MongoDB [CSharp taal Center][MongoC#LangCenter]. 
 
@@ -483,6 +483,6 @@ Zie voor meer informatie over het C# toepassingen ontwikkelt voor MongoDB [CShar
 
 <!-- TOC BOOKMARKS -->
 [Create a virtual machine and install MongoDB]: #virtualmachine
-[Create and run the My Task List ASP.NET application on your development computer]: #createapp
+[Create and run hello My Task List ASP.NET application on your development computer]: #createapp
 [Create an Azure web site]: #createwebsite
-[Deploy the ASP.NET application to the web site using Git]: #deployapp
+[Deploy hello ASP.NET application toohello web site using Git]: #deployapp

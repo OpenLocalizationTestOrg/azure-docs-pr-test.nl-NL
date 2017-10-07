@@ -1,6 +1,6 @@
 ---
-title: On-premises gegevensgateway installeren | Microsoft Docs
-description: Informatie over het installeren en configureren van een On-premises data gateway.
+title: aaaInstall On-premises gegevensgateway | Microsoft Docs
+description: Meer informatie over hoe tooinstall en configureer een On-premises data gateway.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: owend
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e2878bf765c82910d452ae2cdd9264a343ec1990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een lokale gegevensgateway
-Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
+Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in Hallo dezelfde regio verbinding tooon-premises gegevensbronnen. toolearn meer informatie over het Hallo-gateway, Zie [On-premises gegevensgateway](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Vereisten
 **Minimale vereisten:**
@@ -38,21 +38,21 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
 
 **Belangrijke overwegingen:**
 
-* Tijdens de installatie bij het registreren van uw gateway met Azure, is de standaardregio voor uw abonnement geselecteerd. U kunt een andere regio. Als u servers in meer dan één regio hebt, moet u een gateway voor elke regio. 
-* De gateway kan niet worden geïnstalleerd op een domeincontroller.
+* Tijdens de installatie bij het registreren van uw gateway met Azure, is Hallo standaard regio voor uw abonnement geselecteerd. U kunt een andere regio. Als u servers in meer dan één regio hebt, moet u een gateway voor elke regio. 
+* Hallo-gateway kan niet worden geïnstalleerd op een domeincontroller.
 * Slechts één gateway kan worden geïnstalleerd op een enkele computer.
-* De gateway installeren op een computer waarop blijft op en gaat niet naar de slaapstand.
-* Installeer de gateway niet op een computer draadloos verbonden met uw netwerk. Prestaties kan afnemen.
+* Hallo-gateway installeren op een computer die op blijft en toosleep niet verder.
+* Installeer geen Hallo-gateway op een computer tooyour draadloos verbonden netwerk. Prestaties kan afnemen.
 
 
 ## <a name="download"></a>Downloaden
- [De gateway downloaden](https://aka.ms/azureasgateway)
+ [Hallo gateway downloaden](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Installeren
 
 1. Voer de installatie.
 
-2. Selecteer een locatie en klik vervolgens op de voorwaarden accepteren **installeren**.
+2. Selecteer een locatie en klik vervolgens op Hallo voorwaarden accepteren **installeren**.
 
    ![Installeren van de locatie en de licentievoorwaarden](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
@@ -60,27 +60,27 @@ Een lokale gegevensgateway is vereist wanneer een of meer Azure Analysis Service
 
    ![Kies het type gateway](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
 
-4. Geef een account aan te melden bij Azure. De account moet zich in uw tenant Azure Active Directory. Dit account wordt gebruikt voor de gatewaybeheerder. 
+4. Geef een account toosign in tooAzure. Hallo-account moet zich in uw tenant Azure Active Directory. Dit account wordt gebruikt voor het Hallo-gatewaybeheerder. 
 
-   ![Geef een account aan te melden bij Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Geef een account toosign in tooAzure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > Als u zich met een domeinaccount aanmeldt, worden deze toegewezen aan uw organisatieaccount in Azure AD. Account van uw organisatie worden gebruikt als de beheerder van de gateway.
+   > Als u zich met een domeinaccount aanmeldt, moeten worden toegewezen tooyour organisatieaccount in Azure AD. Account van uw organisatie wordt gebruikt als Hallo Hallo gatewaybeheerder.
 
 ## <a name="register"></a>Registreren
-Om een gateway-resource maken in Azure, moet u het lokale exemplaar dat u hebt geïnstalleerd met de Gateway-Cloudservice registreren. 
+In de volgorde toocreate een bron van de gateway in Azure, moet u Hallo lokaal exemplaar die u geïnstalleerd met Hallo Gateway Cloud Service registreren. 
 
 1.  Selecteer **registreren van een nieuwe gateway op deze computer**.
 
     ![Registreren](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Typ een naam en herstel de sleutel voor uw gateway. De gateway gebruikt standaard standaardwaarde regio van uw abonnement. Als u een andere regio selecteren moet, selecteert u **wijziging regio**.
+2. Typ een naam en herstel de sleutel voor uw gateway. Hallo-gateway gebruikt standaard standaardwaarde regio van uw abonnement. Als u een andere regio tooselect nodig hebt, selecteert u **wijziging regio**.
 
    ![Registreren](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Een Azure-gateway-resource maken
-Nadat u hebt geïnstalleerd en uw gateway is geregistreerd, moet u een gateway-resource maken in uw Azure-abonnement. Aanmelden bij Azure met dezelfde account die u hebt gebruikt bij het registreren van de gateway.
+Nadat u hebt geïnstalleerd en uw gateway is geregistreerd, moet u een gateway-resource toocreate in uw Azure-abonnement. Meld u aan tooAzure Hello dezelfde account die u hebt gebruikt bij het registreren van Hallo-gateway.
 
 1. Klik in de Azure-portal op **een nieuwe service maken** > **Enterprise Integration** > **On-premises gegevensgateway** > **maken**.
 
@@ -90,33 +90,33 @@ Nadat u hebt geïnstalleerd en uw gateway is geregistreerd, moet u een gateway-r
 
     * **Naam**: Voer een naam voor uw gateway-resource. 
 
-    * **Abonnement**: Selecteer de Azure-abonnement wilt koppelen aan uw gateway-resource. 
-    Dit abonnement moet uw servers bevinden zich in hetzelfde abonnement.
+    * **Abonnement**: Selecteer Hallo tooassociate Azure-abonnement met uw gateway-resource. 
+    Dit abonnement moet hetzelfde abonnement uw servers bevinden zich in Hallo.
    
-      Het standaardabonnement is gebaseerd op het Azure-account dat u gebruikt voor aanmelden.
+      Hallo standaardabonnement is gebaseerd op Hallo Azure-account waarmee u toosign in.
 
     * **Resourcegroep**: maak een resourcegroep of selecteer een bestaande resourcegroep.
 
-    * **Locatie**: Selecteer de regio die u uw gateway in geregistreerd.
+    * **Locatie**: Selecteer Hallo regio geregistreerd van uw gateway in.
 
-    * **De naam van de installatie**: als uw gateway-installatie niet is geselecteerd, selecteert u de gateway is geregistreerd. 
+    * **De naam van de installatie**: als uw gateway-installatie niet is geselecteerd, selecteer Hallo gateway is geregistreerd. 
 
     Wanneer u bent klaar, klikt u op **maken**.
 
-## <a name="connect-servers"></a>Verbinding maken met servers van de gateway-resource
+## <a name="connect-servers"></a>Verbinding maken met servers toohello gateway resource
 
 1. Klik in het overzicht Azure Analysis Services-server op **On-Premises Data Gateway**.
 
-   ![Server-gateway verbinding maken](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+   ![Verbinding maken met server toogateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. In **een On-Premises Data Gateway om verbinding te kiezen**, selecteer uw gateway-resource en klik vervolgens op **verbinding maken met geselecteerde gatewayapparaat**.
+2. In **kiezen van een On-Premises Data Gateway tooconnect**, selecteer uw gateway-resource en klik vervolgens op **verbinding maken met geselecteerde gatewayapparaat**.
 
-   ![Verbinding maken met server gateway-resource](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+   ![Verbinding maken met server toogateway-bron](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > Als uw gateway niet wordt weergegeven in de lijst, wordt de server is waarschijnlijk dat niet bij dezelfde regio bevinden als de regio u hebt opgegeven bij het registreren van de gateway. 
+    > Als uw gateway niet wordt weergegeven in de lijst hello, uw server is waarschijnlijk niet in dezelfde regio bevinden als het Hallo-regio die u hebt opgegeven bij het registreren van de gateway Hallo Hallo. 
 
-Dat is alles. Als u wilt openen van poorten of problemen oplost, moet u uitchecken [On-premises gegevensgateway](analysis-services-gateway.md).
+Dat is alles. Als tooopen poorten of u problemen oplost, moet u ervoor toocheck uit [On-premises gegevensgateway](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Analyseservices beheren](analysis-services-manage.md)   

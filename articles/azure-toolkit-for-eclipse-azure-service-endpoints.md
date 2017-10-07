@@ -1,6 +1,6 @@
 ---
-title: Azure Service-eindpunten
-description: Beschrijft de instellingen van Azure Service-eindpunt in de Azure-werkset voor Eclipse.
+title: aaaAzure Service-eindpunten
+description: Beschrijft hello Azure Service-eindpunt instellingen in hello Azure Toolkit voor Eclipse.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,57 +14,57 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 6059c292c2687f1bf3d9be04c03aaaaf6adde945
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 357aa56409a894719077f2c8f302575c8ebb6883
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-service-endpoints"></a>Azure Service-eindpunten
-Azure service-eindpunten die bepalen dat of uw toepassing is geïmplementeerd en beheerd door de globale Azure-platform, door Azure worden beheerd door 21Vianet in China, of een persoonlijk die door Azure-platform. De **Service-eindpunten** dialoogvenster kunt u opgeven welke service-eindpunten die u wilt gebruiken. Openen van de **Service-eindpunten** dialoogvenster in Eclipse, klikt u op **venster**, klikt u op **voorkeuren**, vouw **Azure**, en klik vervolgens op  **Service-eindpunten**. Instellen van de **Active ingesteld** veld bepaalt welke Azure-service-eindpunten wordt gebruikt voor de Azure-projecten in uw huidige werkruimte.
+Azure service-eindpunten die bepalen dat of uw toepassing geïmplementeerd tooand beheerd door Hallo globale Azure-platform wordt, door Azure worden beheerd door 21Vianet in China, of een persoonlijk die door Azure-platform. Hallo **Service-eindpunten** dialoogvenster kunt u toospecify die service-eindpunten die u wilt dat toouse. Hallo tooopen **Service-eindpunten** dialoogvenster in Eclipse, klikt u op **venster**, klikt u op **voorkeuren**, vouw **Azure**, en klik vervolgens op **Service-eindpunten**. Instelling Hallo **Active ingesteld** veld bepaalt welke Azure-service eindpunten wordt gebruikt voor hello Azure projecten in uw huidige werkruimte.
 
-Het volgende bevat de **Service-eindpunten** dialoogvenster.
+Hallo hieronder vindt u Hallo **Service-eindpunten** dialoogvenster.
 
 ![][ic719493]
 
-## <a name="to-set-the-service-endpoints"></a>Instellen van de service-eindpunten
-In de **Service-eindpunten** dialoogvenster, voer een van de volgende acties:
+## <a name="tooset-hello-service-endpoints"></a>tooset hello service-eindpunten
+In Hallo **Service-eindpunten** dialoogvenster, nemen Hallo van de volgende activiteiten:
 
-* Als u gebruiken van de globale Azure-platform wilt, van de **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.com** en klik op **OK**.
+* Als u wilt dat toouse Hallo globale Azure-platform, van Hallo **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.com** en klik op **OK**.
 
-* Als u gebruiken van Azure die worden beheerd door 21Vianet in China wilt, uit de **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.cn (China)** en klik op **OK**.
+* Als u wilt dat Azure beheerd door 21Vianet in China, van Hallo toouse **Active ingesteld** vervolgkeuzelijst, selecteer **windowsazure.cn (China)** en klik op **OK**.
 
-* Als u gebruiken een persoonlijke Azure-platform wilt:
+* Als u wilt dat toouse persoonlijke Azure-platform:
 
   1. Klik op **Bewerken**.
 
-  2. Een dialoogvenster wordt geopend, waarin wordt gemeld dat de **Service-eindpunten** dialoogvenster wordt gesloten en de voorkeur sets-bestand wordt geopend. Klik op **OK**.
+  2. Een dialoogvenster wordt geopend, waarin wordt gemeld dat Hallo **Service-eindpunten** dialoogvenster wordt gesloten en Hallo voorkeur sets bestand wordt geopend. Klik op **OK**.
 
-  3. Maak een nieuwe in het bestand preferencesets.xml `preferenceset` element. Voor deze nieuwe element maken `name`, `blob`, `management`, `portalURL` en `publishsettings` kenmerken en waarden toevoegen voor hen die overeenkomen met uw persoonlijke Azure-platform. U kunt de waarden voor de bestaande `preferenceset` elementen als sjabloon. **Opmerking**: de waarde voor de `blob` kenmerk moet de tekst 'blob' in de URL bevatten.
+  3. Hallo preferencesets.xml bestand, maak een nieuwe `preferenceset` element. Voor deze nieuwe element maken `name`, `blob`, `management`, `portalURL` en `publishsettings` kenmerken en waarden toevoegen voor hen die overeenkomen met tooyour persoonlijke Azure-platform. U kunt Hallo waarden opgegeven voor bestaande hello gebruiken `preferenceset` elementen als sjabloon. **Opmerking**: waarde gebruikt voor Hallo Hallo `blob` kenmerk Hallo tekst 'blob' hello URL moet bevatten.
 
   4. Opslaan en sluiten preferencesets.xml.
 
-  5. Open de **Service-eindpunten** dialoogvenster.
+  5. Open Hallo **Service-eindpunten** dialoogvenster.
 
-  6. Van de **Active ingesteld** vervolgkeuzelijst, selecteer de actieve instellen die u gemaakt en klik op **OK**.
+  6. Van Hallo **Active ingesteld** vervolgkeuzelijst, selecteer Hallo active instellen die u gemaakt en klik op **OK**.
 
-  7. Als u uw persoonlijke Azure-platform hebt gemaakt `preferenceset` element, kunt u de waarden die zijn toegewezen door te klikken op de **bewerken** knop in de **Services-eindpunt** dialoogvenster. U kunt ook meerdere persoonlijke Azure-platform maken `preferenceset` elementen, als u wenst.
+  7. Als u uw persoonlijke Azure-platform hebt gemaakt `preferenceset` element, kunt u Hallo waarden toegewezen tooit wijzigen door te klikken op Hallo **bewerken** knop in Hallo **Services-eindpunt** dialoogvenster. U kunt ook meerdere persoonlijke Azure-platform maken `preferenceset` elementen, als u wenst.
 
 ## <a name="see-also"></a>Zie ook
 [Azure Toolkit voor Eclipse][Azure Toolkit for Eclipse]
 
-[De installatie van de Azure Toolkit voor Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Hello Azure Toolkit voor Eclipse installeren][Installing hello Azure Toolkit for Eclipse] 
 
 [Maken van een Hallo wereld-toepassing voor Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-Zie voor meer informatie over het gebruik van Azure met Java de [Azure Java Developer Center][Azure Java Developer Center].
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center][Azure Java Developer Center].
 
 <!-- URL List -->
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus gekoppeld naamruimten | Microsoft Docs
+title: Service Bus aaaAzure gekoppeld naamruimten | Microsoft Docs
 description: Implementatiegegevens gekoppelde naamruimte en de kosten
 services: service-bus-messaging
 documentationcenter: na
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: sethm
-ms.openlocfilehash: a200ea7937b9f5296c743928a9408897adfba428
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c44b2b95d2228e1ad8075b52634d88a1593d3b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Implementatiegegevens naamruimte gekoppeld en de gevolgen kosten
-De [PairNamespaceAsync] [ PairNamespaceAsync] methode, met behulp van een [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] exemplaar, zichtbaar taken worden uitgevoerd op uw naam. Omdat er worden kosten overwegingen wanneer u de functie gebruikt, is het handig om te begrijpen die taken zodat u het gedrag verwachten wanneer dit gebeurt. De API stelt de volgende automatische gedrag namens jou:
+Hallo [PairNamespaceAsync] [ PairNamespaceAsync] methode, met behulp van een [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] exemplaar, zichtbaar taken worden uitgevoerd namens jou. Omdat er worden kosten overwegingen wanneer u Hallo functie gebruikt, is het nuttig toounderstand die taken zodat u verwachten Hallo gedrag wanneer dit gebeurt. Hallo API stelt Hallo automatische gedrag namens jou te volgen:
 
 * Het maken van achterstand wachtrijen.
-* Het maken van een [MessageSender] [ MessageSender] -object dat wordt gesproken naar wachtrijen en onderwerpen.
-* Wanneer een Berichtentiteit niet beschikbaar is, ping verzendt berichten naar de entiteit in een poging om te detecteren die entiteit weer beschikbaar is.
-* Optioneel wordt gemaakt van een reeks 'bericht pompen' verplaatsen van berichten uit de wachtrij achterstand in de primaire wachtrijen.
-* Coördineert/afgesloten sluiten van de primaire en secundaire [MessagingFactory] [ MessagingFactory] exemplaren.
+* Het maken van een [MessageSender] [ MessageSender] -object dat wordt gesproken tooqueues of onderwerpen.
+* Wanneer een Berichtentiteit niet beschikbaar is, verzendt ping-berichten toohello entiteit in een poging toodetect wanneer die entiteit weer beschikbaar.
+* Eventueel maakt van een reeks 'bericht pompen' dat verplaatsen van berichten van Hallo achterstand wachtrijen toohello primaire wachtrijen.
+* Coördineert sluiten/afgesloten Hallo primaire en secundaire [MessagingFactory] [ MessagingFactory] exemplaren.
 
-Op een hoog niveau de functie werkt als volgt: wanneer de primaire entiteit in orde is, er geen gedragswijzigingen doorgevoerd. Wanneer de [FailoverInterval] [ FailoverInterval] duur is verstreken, en de primaire entiteit ziet niet geslaagde verzendt na een tijdelijke [MessagingException] [ MessagingException] of een [TimeoutException][TimeoutException], gebeurt het volgende:
+Op een hoog niveau Hallo functie werkt als volgt: wanneer de primaire entiteit Hallo goed is, er geen gedragswijzigingen doorgevoerd. Wanneer Hallo [FailoverInterval] [ FailoverInterval] duur is verstreken, en de primaire entiteit Hallo ziet geen geslaagde verzendt na een tijdelijke [MessagingException] [ MessagingException] of een [TimeoutException][TimeoutException], Hallo gedrag na deze gebeurtenis treedt op:
 
-1. Verzenden naar de primaire entiteit zijn uitgeschakeld en het systeem pingt de primaire entiteit totdat pings kunnen worden bezorgd.
+1. Verzenden operations toohello primaire entiteit zijn uitgeschakeld en Hallo system pings Hallo primaire entiteit totdat pings kunnen worden bezorgd.
 2. Een wachtrij willekeurige achterstand is geselecteerd.
-3. [BrokeredMessage] [ BrokeredMessage] objecten worden doorgestuurd naar de wachtrij gekozen achterstand.
-4. Als een verzendbewerking naar de wachtrij gekozen achterstand mislukt, die wachtrij opgehaald uit de draaihoek en een nieuwe wachtrij is geselecteerd. Alle afzenders op de [MessagingFactory] [ MessagingFactory] exemplaar meer van de fout.
+3. [BrokeredMessage] [ BrokeredMessage] objecten zijn gerouteerde toohello achterstand wachtrij gekozen.
+4. Als een verzenden bewerking toohello gekozen achterstand wachtrij is mislukt, die wachtrij opgehaald uit Hallo draaien en een nieuwe wachtrij is geselecteerd. Alle afzenders op Hallo [MessagingFactory] [ MessagingFactory] exemplaar van de fout Hallo meer.
 
-De volgende afbeeldingen weer de reeks. De afzender verzendt eerst berichten.
+Hallo cijfers na weer Hallo volgorde. Eerst verzendt Hallo afzender berichten.
 
 ![Gekoppelde naamruimten][0]
 
-Bij een fout te verzenden naar de primaire wachtrij van de afzender begint het verzenden van berichten naar een willekeurig gekozen achterstand wachtrij. Tegelijk, wordt er een ping-taak gestart.
+Bij fout toosend toohello primaire wachtrij begint Hallo afzender verzenden van berichten tooa willekeurig gekozen achterstand wachtrij. Tegelijk, wordt er een ping-taak gestart.
 
 ![Gekoppelde naamruimten][1]
 
-De berichten die op dit moment worden nog steeds in de secundaire wachtrij en niet naar de primaire wachtrij zijn geleverd. Zodra de primaire wachtrij weer in orde is, moet ten minste één proces de syphon worden uitgevoerd. De syphon biedt de berichten van de verschillende achterstand wachtrijen op de juiste bestemming entiteiten (wachtrijen en onderwerpen).
+Op dit moment Hallo-berichten zijn nog steeds in de secundaire wachtrij Hallo en niet de primaire wachtrij toohello zijn geleverd. Zodra Hallo primaire wachtrij weer in orde is, moet ten minste één proces Hallo syphon worden uitgevoerd. Hallo syphon biedt Hallo-berichten van alle Hallo verschillende achterstand wachtrijen toohello juiste bestemming entiteiten (wachtrijen en onderwerpen).
 
 ![Gekoppelde naamruimten][2]
 
-De rest van dit onderwerp wordt de specifieke details over de werking van deze onderdelen beschreven.
+Hallo rest van dit onderwerp wordt beschreven Hallo specifieke details over de werking van deze onderdelen.
 
 ## <a name="creation-of-backlog-queues"></a>Maken van wachtrijen achterstand
-De [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] -object doorgegeven aan de [PairNamespaceAsync] [ PairNamespaceAsync] methode geeft het aantal achterstand wachtrijen die u wilt gebruiken. Elke wachtrij achterstand wordt vervolgens gemaakt met de volgende eigenschappen expliciet ingesteld (alle andere waarden zijn ingesteld op de [QueueDescription] [ QueueDescription] standaardwaarden):
+Hallo [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] object dat wordt doorgegeven toohello [PairNamespaceAsync] [ PairNamespaceAsync] methode geeft aan Hallo achterstand aantal wachtrijen dat u wilt dat toouse. Elke wachtrij achterstand wordt vervolgens gemaakt met de Hallo volgende eigenschappen expliciet ingesteld (alle andere waarden zijn ingesteld toohello [QueueDescription] [ QueueDescription] standaardwaarden):
 
 | Pad | [primaire namespace] / x-servicebus-overdracht / [index] waarbij [index] is een waarde in [0, BacklogQueueCount) |
 | --- | --- |
@@ -63,15 +63,15 @@ De [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOpt
 | EnableDeadLetteringOnMessageExpiration |De waarde True |
 | EnableBatchedOperations |De waarde True |
 
-Bijvoorbeeld de eerste achterstand wachtrij gemaakt voor naamruimte **contoso** heet `contoso/x-servicebus-transfer/0`.
+Bijvoorbeeld Hallo eerste achterstand wachtrij gemaakt voor naamruimte **contoso** heet `contoso/x-servicebus-transfer/0`.
 
-Bij het maken van de wachtrijen, de code eerst gecontroleerd of deze wachtrij bestaat. De wachtrij wordt gemaakt als de wachtrij niet bestaat. De code niet opschonen 'extra' achterstand wachtrijen. In het bijzonder als de toepassing met de primaire naamruimte **contoso** aanvragen vijf achterstand wachtrijen, maar een achterstand wachtrij met het pad `contoso/x-servicebus-transfer/7` bestaat, die extra achterstand wachtrij nog steeds aanwezig is, maar wordt niet gebruikt. Het systeem kan expliciet extra achterstand wachtrijen bestaan die niet worden gebruikt. Als de eigenaar van de naamruimte bent u verantwoordelijk voor het opschonen van ongebruikte/ongewenste achterstand wachtrijen. De reden voor deze beslissing is dat Service Bus kan niet weet welke doelen voor alle wachtrijen in uw naamruimte bestaat. Bovendien, als een wachtrij met de gegeven naam bestaat, maar niet aan de veronderstelde voldoet [QueueDescription][QueueDescription], en vervolgens uw redenen zijn uw eigen voor het standaardgedrag wijzigen. Er zijn geen garanties worden gemaakt om de wijzigingen in de wachtrijen achterstand door uw code. Zorg ervoor dat uw wijzigingen grondig te testen.
+Bij het maken van wachtrijen Hallo Hallo code toosee eerst gecontroleerd als deze wachtrij bestaat. Hallo-wachtrij wordt gemaakt als Hallo wachtrij niet bestaat. Hallo-code niet opschonen 'extra' achterstand wachtrijen. Specifiek moet als hello toepassing met primaire naamruimte Hallo **contoso** aanvragen vijf achterstand wachtrijen, maar een achterstand wachtrij met Hallo pad `contoso/x-servicebus-transfer/7` bestaat, die extra achterstand wachtrij nog steeds aanwezig is, maar wordt niet gebruikt. Hallo-systeem kunt expliciet extra achterstand wachtrijen tooexist die niet worden gebruikt. Als de eigenaar van de naamruimte hello bent u verantwoordelijk voor het opschonen van ongebruikte/ongewenste achterstand wachtrijen. Hallo-reden voor deze beslissing is dat Service Bus kan niet weet welke doelen voor alle Hallo wachtrijen in uw naamruimte bestaat. Bovendien, als een wachtrij met de Hallo gegeven naam bestaat, maar voldoet niet aan de Hallo uitgegaan [QueueDescription][QueueDescription], en vervolgens uw redenen uw eigen voor veranderende Hallo standaardgedrag zijn. Er zijn geen garanties worden gemaakt voor wijzigingen toohello achterstand wachtrijen door uw code. Zorg ervoor dat tootest uw wijzigingen grondig.
 
 ## <a name="custom-messagesender"></a>Aangepaste MessageSender
-Wanneer u verzendt, gaat u alle berichten via een interne [MessageSender] [ MessageSender] -object dat normaal gedraagt zich als alles werkt en wordt omgeleid naar de achterstand in de wachtrij geplaatst wanneer dingen 'verbreekt." Bij ontvangst van een tijdelijke fout, wordt een timer gestart. Na een [TimeSpan] [ TimeSpan] periode die bestaan uit de [FailoverInterval] [ FailoverInterval] eigenschapswaarde waarover geen geslaagde berichten worden verzonden, de failover is ingeschakeld. Op dit punt wordt plaats het volgende voor elke entiteit:
+Wanneer u verzendt, gaat u alle berichten via een interne [MessageSender] [ MessageSender] -object dat normaal gedraagt zich als alles werkt en toohello achterstand wachtrijen wordt omgeleid wanneer dingen 'verbreekt." Bij ontvangst van een tijdelijke fout, wordt een timer gestart. Na een [TimeSpan] [ TimeSpan] periode die bestaan uit Hallo [FailoverInterval] [ FailoverInterval] eigenschapswaarde waarover geen geslaagde berichten worden verzonden , Hallo failover is ingeschakeld. Op dit moment plaats hello volgende voor elke entiteit:
 
-* Een ping-taak wordt uitgevoerd elke [PingPrimaryInterval] [ PingPrimaryInterval] om te controleren of de entiteit beschikbaar is. Wanneer deze taak is voltooid, wordt alle clientcode die gebruikmaakt van de entiteit onmiddellijk gestart nieuwe berichten verzenden naar de primaire naamruimte.
-* Toekomstige aanvragen verzenden die dezelfde entiteit van een andere afzenders leidt ertoe dat de [BrokeredMessage] [ BrokeredMessage] worden gewijzigd om ze te zitten in de wachtrij achterstand worden verzonden. De wijziging wordt verwijderd van sommige eigenschappen van de [BrokeredMessage] [ BrokeredMessage] object en slaat ze op elders. De volgende eigenschappen zijn uitgeschakeld en wordt toegevoegd onder een nieuwe alias, zodat de Service Bus en de SDK om berichten te verwerken op uniforme wijze:
+* Een ping-taak wordt uitgevoerd elke [PingPrimaryInterval] [ PingPrimaryInterval] toocheck als Hallo entiteit beschikbaar is. Wanneer deze taak is voltooid, wordt alle clientcode die gebruikmaakt van Hallo entiteit onmiddellijk gestart nieuwe berichten toohello primaire naamruimte verzenden.
+* Toekomstige aanvragen toosend toothat dezelfde entiteit van een andere afzenders leidt ertoe dat Hallo [BrokeredMessage] [ BrokeredMessage] toosit in Hallo achterstand wachtrij toobe verstuurd worden gewijzigd. Hallo wijziging enkele eigenschappen verwijdert uit Hallo [BrokeredMessage] [ BrokeredMessage] object en slaat ze op elders. Hallo zijn volgende eigenschappen uitgeschakeld en onder een nieuwe alias, zodat Service Bus en Hallo SDK tooprocess berichten gelijkmatig toegevoegd:
 
 | Oude naam van eigenschap | Nieuwe naam van eigenschap |
 | --- | --- |
@@ -79,23 +79,23 @@ Wanneer u verzendt, gaat u alle berichten via een interne [MessageSender] [ Mess
 | TimeToLive |x-ms-timetolive |
 | ScheduledEnqueueTimeUtc |x-ms-pad |
 
-Het oorspronkelijke doelpad wordt ook opgeslagen in het bericht als een eigenschap met de naam x-ms-path. Dit ontwerp kunt berichten voor veel entiteiten worden gecombineerd in een wachtrij één achterstand. De eigenschappen worden weer met de syphon omgezet.
+oorspronkelijke doelpad Hello wordt ook opgeslagen in het Hallo-bericht als een eigenschap met de naam x-ms-path. Dit ontwerp kunt berichten voor veel toocoexist voor entiteiten in een wachtrij één achterstand. Hallo-eigenschappen worden vertaald door Hallo syphon terug.
 
-De aangepaste [MessageSender] [ MessageSender] object problemen kan optreden wanneer berichten benadering de limiet van 256 KB en failover is ingeschakeld. De aangepaste [MessageSender] [ MessageSender] object berichten voor alle wachtrijen en onderwerpen samen in de wachtrijen achterstand worden opgeslagen. Dit object combineert berichten van veel primaire samen in de wachtrijen achterstand. Voor het afhandelen van taakverdeling tussen veel clients die elkaar niet kent de SDK willekeurig kiest een achterstand wachtrij voor elk [QueueClient] [ QueueClient] of [TopicClient] [ TopicClient] u in code maken.
+Hallo aangepaste [MessageSender] [ MessageSender] object problemen kan optreden wanneer berichten benadering Hallo 256 KB limiet en failover is ingeschakeld. Hallo aangepaste [MessageSender] [ MessageSender] object berichten voor alle wachtrijen en onderwerpen samen in Hallo achterstand wachtrijen worden opgeslagen. Dit object combineert berichten van veel primaire samen binnen Hallo achterstand wachtrijen. toohandle taakverdeling tussen veel clients die niet weet elk andere, Hallo SDK willekeurig wat neemt over van een achterstand wachtrij voor elk [QueueClient] [ QueueClient] of [TopicClient] [ TopicClient] u in code maken.
 
 ## <a name="pings"></a>Pings
-Een ping-bericht is een lege [BrokeredMessage] [ BrokeredMessage] met de [ContentType] [ ContentType] eigenschap is ingesteld op application/vnd.ms-servicebus-ping en een [TimeToLive] [ TimeToLive] waarde van 1 seconde. Deze ping is een speciaal kenmerk in de Service Bus: de server biedt een ping nooit wanneer elk aanroepend aanvraagt een [BrokeredMessage][BrokeredMessage]. U moet dus nooit de informatie over het ontvangen en deze berichten genegeerd. Elke entiteit (unieke wachtrij of onderwerp) per [MessagingFactory] [ MessagingFactory] exemplaar per client zal worden gepingd wanneer deze worden beschouwd als niet beschikbaar is. Standaard is dit gebeurt eenmaal per minuut. Ping-berichten worden beschouwd als gewone Service Bus-berichten en kunnen leiden tot de kosten van bandbreedte en berichten. Als de clients detecteren dat het systeem beschikbaar is, stopt de berichten.
+Een ping-bericht is een lege [BrokeredMessage] [ BrokeredMessage] met de [ContentType] [ ContentType] eigenschap ingesteld tooapplication/vnd.ms-servicebus-ping en een [TimeToLive] [ TimeToLive] waarde van 1 seconde. Deze ping is een speciaal kenmerk in de Service Bus: Hallo-server biedt nooit een ping wanneer elk aanroepend aanvraagt een [BrokeredMessage][BrokeredMessage]. Dus u nooit hebt toolearn hoe tooreceive en deze berichten te negeren. Elke entiteit (unieke wachtrij of onderwerp) per [MessagingFactory] [ MessagingFactory] exemplaar per client zal worden gepingd wanneer deze worden beschouwd als toobe niet beschikbaar. Standaard is dit gebeurt eenmaal per minuut. Ping-berichten worden beschouwd als gewone Service Bus-berichten toobe en kunnen leiden tot kosten van bandbreedte en berichten. Zodra het Hallo-clients detecteren dat Hallo system beschikbaar is, stopt Hallo-berichten.
 
-## <a name="the-syphon"></a>De syphon
-Ten minste één uitvoerbaar programma in de toepassing moet actief zijn de syphon. De syphon voert een long poll ontvangen die 15 minuten duurt. Wanneer alle entiteiten beschikbaar zijn en hebt u 10 achterstand wachtrijen, roept de toepassing die als host fungeert voor de syphon de ontvangstbewerking 40 keer per uur, 960 keer per dag en 28800 keer in 30 dagen. Wanneer de syphon actief berichten van de achterstand naar de primaire wachtrij verplaatst is, krijgt elk bericht met de volgende kosten (standaard kosten voor de grootte van het bericht en de bandbreedte van toepassing in alle fasen):
+## <a name="hello-syphon"></a>Hallo syphon
+Ten minste één uitvoerbaar programma in de toepassing hello moet actief zijn Hallo syphon. Hallo syphon voert een long poll ontvangen die 15 minuten duurt. Wanneer alle entiteiten beschikbaar zijn en hebt u 10 achterstand wachtrijen, Hallo toepassing die als host fungeert voor Hallo syphon aanroepen Hallo ontvangstbewerking 40 keer per uur, 960 keer per dag en 28800 keer in 30 dagen. Bij het Hallo syphon is actief met het verplaatsen van berichten uit Hallo achterstand toohello primaire wachtrij, krijgt elk bericht Hallo kosten (standaard kosten voor de grootte van het bericht en de bandbreedte van toepassing in alle fasen) te volgen:
 
-1. Verzenden naar de achterstand.
-2. Ontvangen van de achterstand.
-3. Verzenden naar de primaire.
-4. Ontvangen van de primaire.
+1. Achterstand toohello verzenden.
+2. Ontvangen van Hallo achterstand.
+3. Toohello primaire verzenden.
+4. Ontvangen van de primaire Hallo.
 
 ## <a name="closefault-behavior"></a>Sluit/fout gedrag
-In een toepassing die als host fungeert voor de syphon, nadat de primaire of secundaire [MessagingFactory] [ MessagingFactory] bedrijfsstoringen of wordt afgesloten zonder de partner die ook wordt een fout opgetreden/gesloten en de syphon deze toestand is detecteert, de syphon fungeert. Als de andere [MessagingFactory] [ MessagingFactory] is niet afgesloten binnen 5 seconden, wordt de syphon nog steeds openen fault- [MessagingFactory][MessagingFactory].
+In een toepassing die als host fungeert voor Hallo syphon, eenmaal Hallo primaire of secundaire [MessagingFactory] [ MessagingFactory] bedrijfsstoringen of wordt afgesloten zonder de partner die ook wordt een fout opgetreden/gesloten en Hallo syphon deze status wordt gedetecteerd , Hallo syphon fungeert. Als andere Hallo [MessagingFactory] [ MessagingFactory] is niet afgesloten binnen 5 seconden Hallo syphon Hallo nog steeds openen wordt fault [MessagingFactory] [ MessagingFactory] .
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [asynchrone messaging-patronen en hoge beschikbaarheid] [ Asynchronous messaging patterns and high availability] voor een gedetailleerde bespreking van de asynchrone Service Bus-berichtenservice. 

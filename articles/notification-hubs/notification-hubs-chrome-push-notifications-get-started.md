@@ -1,6 +1,6 @@
 ---
-title: Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs | Microsoft Docs
-description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verzendt naar een Chrome-app.
+title: aaaSend push notifications tooChrome apps met Azure Notification Hubs | Microsoft Docs
+description: Meer informatie over hoe toouse Azure Notification Hubs toosend push-meldingen tooa Chrome-App.
 services: notification-hubs
 keywords: mobiele pushmeldingen,pushmeldingen,pushmelding,pushmeldingen chroom
 documentationcenter: 
@@ -15,79 +15,79 @@ ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 600b1b7e5f3987c9a0acc33b7049f7118442b931
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7dec8ab02622563bc3730a2e96820da8932d22f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Pushmeldingen verzenden naar Chrome-apps met Azure Notification Hubs
+# <a name="send-push-notifications-toochrome-apps-with-azure-notification-hubs"></a>Verzenden push notifications tooChrome apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-In dit onderwerp wordt beschreven hoe u met Azure Notification Hubs pushmeldingen naar een Chrome-app kunt verzenden in de context van de Google Chrome-browser. In deze zelfstudie maken we een Chrome-app die pushmeldingen ontvangt via [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). 
+Dit onderwerp leest u hoe toouse Azure Notification Hubs toosend push-meldingen tooa Chrome-App wordt weergegeven in de context Hallo Hallo Google Chrome-browser. In deze zelfstudie maken we een Chrome-app die pushmeldingen ontvangt via [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/). 
 
 > [!NOTE]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F) voor meer informatie.
+> toocomplete deze zelfstudie maakt u een actief Azure-account moet hebben. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F) voor meer informatie.
 > 
 > 
 
-De zelfstudie leidt u door deze eenvoudige stappen om pushmeldingen in te schakelen:
+Hallo-zelfstudie leert u deze basisstappen tooenable pushmeldingen verzenden:
 
 * [Google Cloud Messaging inschakelen](#register)
 * [Uw Notification Hub configureren](#configure-hub)
-* [Uw Chrome-app verbinden met de Notification Hub](#connect-app)
-* [Een pushmelding naar uw Chrome-app verzenden](#send)
+* [Verbinding maken met uw Chrome-App toohello notification hub](#connect-app)
+* [Een push notification tooyour Chrome-App verzenden](#send)
 * [Extra functionaliteit en mogelijkheden](#next-steps)
 
 > [!NOTE]
-> Pushmeldingen in een Chrome-app zijn geen algemene meldingen in de browser. Ze zijn specifiek voor het uitbreidbaarheidsmodel van de browser (Zie [Overzicht van Chrome-apps] voor meer informatie). Chrome-apps kunnen niet alleen op de pc worden gebruikt, maar ook op mobiele apparaten (Android en iOS) via Apache Cordova. Zie [Chrome-apps op mobiele apparaten] voor meer informatie.
+> Chrome app pushmeldingen zijn niet algemeen in de browser meldingen: ze zijn het uitbreidbaarheidsmodel van specifieke toohello browser (Zie [overzicht van Chrome-Apps] voor meer informatie). Bovendien toohello bureaublad browser Chrome-apps uitvoeren op mobiele apparaten (Android en iOS) via Apache Cordova. Zie [Chrome-Apps op mobiele apparaten] toolearn meer.
 > 
 > 
 
-Het configureren van GCM en Azure Notification Hubs werkt op dezelfde manier als de configuratie voor Android, aangezien [Google Cloud Messaging voor Chrome] niet meer bestaat. Hetzelfde GCM ondersteunt nu Android-apparaten en Chrome-exemplaren.
+Identieke tooconfiguring voor Android, aangezien configureren van GCM en Azure Notification Hubs is [Google Cloud Messaging voor Chrome] is afgeschaft en Hallo hetzelfde GCM ondersteunt nu Android-apparaten en Chrome-exemplaren.
 
 ## <a id="register"></a>Google Cloud Messaging inschakelen
-1. Navigeer naar de [Google Cloud Console]-website, log in op uw Google-account en klik op vervolgens op de knop **Create Project** (Project maken). Geef een geschikte **Project Name** op en klik vervolgens op de knop **Create**.
+1. Navigeer toohello [Google Cloud Console] website, meld u aan met de referenties van uw Google-account en klik vervolgens op Hallo **Project maken** knop. Geef een geschikte **projectnaam**, en klik vervolgens op Hallo **maken** knop.
    
        ![Google Cloud Console - Create Project][1]
-2. Noteer het **Project Number** op de pagina **Projects** van het project dat u zojuist hebt gemaakt. U gebruikt deze als de **GCM afzender-id** in de Chrome-app om uzelf te registreren bij GCM.
+2. Maak een notitie van Hallo **projectnummer** op Hallo **projecten** pagina voor het Hallo-project dat u zojuist hebt gemaakt. U gebruikt deze als Hallo **GCM afzender-ID** in Hallo Chrome-App tooregister bij GCM.
    
        ![Google Cloud Console - Project Number][2]
-3. Klik in het linkerdeelvenster op **API's & auth** en schuif omlaag. Klik op de wisselknop om **Google Cloud Messaging for Android** in te schakelen. U hoeft **Google Cloud Messaging for Chrome** niet in te schakelen.
+3. Klik in het linkerdeelvenster Hallo **API's & auth**, en schuif omlaag en klikt u op Hallo wisselknop tooenable **Google Cloud Messaging for Android**. U hebt geen tooenable **Google Cloud Messaging voor Chrome**.
    
        ![Google Cloud Console - Server Key][3]
-4. Klik in het linkerdeelvenster op **Credentials** > **Create New Key** > **Server Key** > **Create**.
+4. Klik in het linkerdeelvenster Hallo **referenties** > **Create New Key** > **serversleutel** > **maken**.
    
        ![Google Cloud Console - Credentials][4]
-5. Noteer de waarde van de **API-sleutel** van de server. U configureert deze in de volgende stap in uw Notification Hub, zodat u puhmeldingen naar GCM kunt verzenden.
+5. Maak een notitie van Hallo server **API-sleutel**. U configureert deze in uw notification hub vervolgens tooenable het toosend push notifications tooGCM.
    
        ![Google Cloud Console - API Key][5]
 
 ## <a id="configure-hub"></a>Uw Notification Hub configureren
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6.   Selecteer in de blade **Instellingen** **Notification Services** en vervolgens **Google (GCM)**. Voer de API-sleutel in en sla uw invoer op.
+&emsp;&emsp;6.   In Hallo **instellingen** blade Selecteer **Notification Services** en vervolgens **Google (GCM)**. Voer Hallo API-sleutel en opslaan.
 
 &emsp;&emsp;![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
-## <a id="connect-app"></a>Uw Chrome-app verbinden met de Notification Hub
-De Notification Hub is nu geconfigureerd voor GCM en u hebt de verbindingsreeksen om uw app te registreren voor het ontvangen en verzenden van pushmeldingen. LK
+## <a id="connect-app"></a>Verbinding maken met uw Chrome-App toohello notification hub
+Uw notification hub is nu geconfigureerd toowork bij GCM en u Hallo verbinding tekenreeksen tooregister uw app tooboth ontvangen en verzenden van pushmeldingen hebt. LK
 
 ### <a name="create-a-new-chrome-app"></a>Een nieuwe Chrome-app maken
-Het onderstaande voorbeeld is gebaseerd op het [Chrome App GCM-voorbeeld] waarin op de aanbevolen manier een Chrome-app wordt gemaakt. We zullen de stappen bespreken die specifiek betrekking hebben op Azure Notification Hubs. 
+Hallo onderstaand voorbeeld is gebaseerd op Hallo [Chrome App GCM-voorbeeld] en maakt gebruik van Hallo aanbevolen toocreate manier een Chrome-App. We wordt Hallo stappen specifiek gerelateerde tooAzure Notification Hubs gemarkeerd. 
 
 > [!NOTE]
-> We raden u aan de bron voor deze Chrome-app te downloaden vanaf [Chrome App Notification Hub Sample].
+> Het is raadzaam Hallo bron te downloaden voor deze Chrome-App van [Chrome App Notification Hub Sample].
 > 
 > 
 
-De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkingsprogramma hiervoor gebruiken. Hieronder ziet u hoe deze Chrome-app eruit komt te zien.
+Hallo Chrome-App wordt gemaakt via JavaScript en u kunt een van uw favoriete tekstverwerkingsprogramma gebruiken voor het maken van deze. Hieronder ziet u hoe deze Chrome-app eruit komt te zien.
 
 ![Google Chrome-app][15]
 
-1. Maak een map en geef deze de naam `ChromePushApp`. De naam is natuurlijk willekeurig. Als u een andere naam gebruikt, moet u het pad in de vereiste codesegmenten vervangen.
-2. Download [crypto-js library] in de map die u in de tweede stap hebt gemaakt. Deze bibliotheekmap bevat twee submappen: `components` en `rollups`.
-3. Maak een `manifest.json`-bestand. Alle Chrome-apps worden ondersteund door een manifestbestand met de metagegevens van de app en alle machtigingen die worden verleend aan de app wanneer de gebruiker de app installeert.
+1. Maak een map en geef deze de naam `ChromePushApp`. Hallo-naam is natuurlijk willekeurig - als u een andere naam gebruikt, controleert u of dat u Hallo pad in Hallo vereiste codesegmenten vervangen.
+2. Hallo downloaden [crypto-js library] in Hallo-map die u hebt gemaakt in de tweede stap Hallo. Deze bibliotheekmap bevat twee submappen: `components` en `rollups`.
+3. Maak een `manifest.json`-bestand. Alle Chrome-Apps worden ondersteund door een manifestbestand met Hallo app metagegevens en de meeste alle machtigingen die zijn verleend toohello app wanneer Hallo gebruiker deze installeert.
    
         {
           "name": "NH-GCM Notifications",
@@ -103,11 +103,11 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           "icons": { "128": "gcm_128.png" }
         }
    
-    Let op het `permissions`-element, dat aangeeft dat deze Chrome-app pushmeldingen van GCM kan ontvangen. Ook moet hierin de Azure Notification Hubs URI worden opgegeven waarin de Chrome-app een REST-aanroep doet voor de registratie.
-    Onze voorbeeldapp gebruikt ook een pictogrambestand `gcm_128.png`, dat zich bevindt op de bronlocatie die opnieuw wordt gebruikt van het originele GCM-voorbeeld. U kunt het vervangen door een andere afbeelding die voldoet aan de [vereisten voor een pictogram](https://developer.chrome.com/apps/manifest/icons).
-4. Maak een bestand met de naam `background.js` met de volgende code:
+    Kennisgeving Hallo `permissions` element, dat aangeeft dat deze Chrome-App kunnen tooreceive pushmeldingen van GCM zal zijn. Het moet ook hello Azure Notification Hubs URI waar Hallo Chrome-App een REST-aanroep tooregister maakt opgeven.
+    Onze voorbeeldapp gebruikt ook een pictogrambestand `gcm_128.png`, dat zich bevindt op Hallo-bron die opnieuw wordt gebruikt van Hallo originele GCM-voorbeeld. U kunt het vervangen door voor de installatiekopie die past bij de Hallo [pictogram criteria](https://developer.chrome.com/apps/manifest/icons).
+4. Maken van een bestand met de naam `background.js` Hello code te volgen:
    
-        // Returns a new notification ID used in the notification.
+        // Returns a new notification ID used in hello notification.
         function getNotificationId() {
           var id = Math.floor(Math.random() * 9007199254740992) + 1;
           return id.toString();
@@ -117,7 +117,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           // A message is an object with a data property that
           // consists of key-value pairs.
    
-          // Concatenate all key-value pairs to form a display string.
+          // Concatenate all key-value pairs tooform a display string.
           var messageString = "";
           for (var key in message.data) {
             if (messageString != "")
@@ -126,7 +126,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           }
           console.log("Message received: " + messageString);
    
-          // Pop up a notification to show the GCM message.
+          // Pop up a notification tooshow hello GCM message.
           chrome.notifications.create(getNotificationId(), {
             title: 'GCM Message',
             iconUrl: 'gcm_128.png',
@@ -155,15 +155,15 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
         // Set up a listener for GCM message event.
         chrome.gcm.onMessage.addListener(messageReceived);
    
-        // Set up listeners to trigger the first-time registration.
+        // Set up listeners tootrigger hello first-time registration.
         chrome.runtime.onInstalled.addListener(firstTimeRegistration);
         chrome.runtime.onStartup.addListener(firstTimeRegistration);
    
-    Dit is het bestand dat wordt weergegeven in de html van de Chrome-app (**register.html**). Hierin wordt ook de handler **messageReceived** voor binnenkomende pushberichten gedefinieerd.
-5. Maak een bestand met de naam `register.html`. Hiermee definieert u de gebruikersinterface van de Chrome-app. 
+    Dit is Hallo-bestand dat Hallo Chrome-App venster HTML verschijnt (**register.html**) en definieert ook Hallo handler **messageReceived** toohandle Hallo binnenkomende pushberichten.
+5. Maken van een bestand met de naam `register.html` -Hiermee definieert u Hallo UI Hallo Chrome-App. 
    
    > [!NOTE]
-   > In dit voorbeeld werken we met **CryptoJS v3.1.2**. Als u een andere versie van de bibliotheek hebt gedownload, moet u de versie in het `src`-pad vervangen door de juiste versie.
+   > In dit voorbeeld werken we met **CryptoJS v3.1.2**. Als u een andere versie van het Hallo-bibliotheek hebt gedownload, controleert u of u vervangen door de juiste versie in Hallo Hallo `src` pad.
    > 
    > 
    
@@ -199,7 +199,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
         </body>
    
         </html>
-6. Maak een bestand met de naam `register.js` met de volgende code. Dit bestand definieert het script achter `register.html`. Chrome-apps ondersteunen geen inline-uitvoeringen. U moet dus een afzonderlijke back-up van het script maken voor uw gebruikersinterface.
+6. Maken van een bestand met de naam `register.js` met Hallo-code hieronder. Dit bestand bevat Hallo script achter `register.html`. Chrome-Apps staan geen inline-uitvoeringen, zodat u beschikt over toocreate een afzonderlijke back-up-script voor de gebruikersinterface.
    
         var registrationId = "";
         var hubName        = "", connectionString = "";
@@ -224,7 +224,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           var senderId = document.getElementById("senderId").value.trim();
           chrome.gcm.register([senderId], registerCallback);
    
-          // Prevent register button from being clicked again before the registration finishes.
+          // Prevent register button from being clicked again before hello registration finishes.
           document.getElementById("registerWithGCM").disabled = true;
         }
    
@@ -233,7 +233,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           document.getElementById("registerWithGCM").disabled = false;
    
           if (chrome.runtime.lastError) {
-            // When the registration fails, handle the error and retry the
+            // When hello registration fails, handle hello error and retry the
             // registration later.
             updateLog("Registration failed: " + chrome.runtime.lastError.message);
             return;
@@ -242,7 +242,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           updateLog("Registration with GCM succeeded.");
           document.getElementById("registerWithNH").disabled = false;
    
-          // Mark that the first-time registration is done.
+          // Mark that hello first-time registration is done.
           chrome.storage.local.set({registered: true});
         }
    
@@ -310,7 +310,7 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
               "</content>" +
           "</entry>";
    
-          // Update the payload with the registration ID obtained earlier.
+          // Update hello payload with hello registration ID obtained earlier.
           registrationPayload = registrationPayload.replace("{GCMRegistrationId}", registrationId);
    
           var url = originalUri + "/registrations/?api-version=2014-09";
@@ -346,38 +346,38 @@ De Chrome-app wordt gemaakt via JavaScript en u kunt uw favoriete tekstverwerkin
           }
         }
    
-    Het bovenstaande script heeft de volgende belangrijke parameters:
+    Hallo bovenstaande script heeft Hallo belangrijke parameters te volgen:
    
-   * **Window.onload** definieert wat er gebeurt als op de twee knoppen in de gebruikersinterface wordt gedrukt. Met de ene knop wordt de registratie bij GCM uitgevoerd en de andere maakt gebruik van de registratie-id die na de registratie bij GCM van Azure Notification Hubs wordt geretourneerd.
-   * **updateLog** is de functie waarmee we eenvoudige logboekmogelijkheden kunnen afhandelen.
-   * **registerWithGCM** is de eerste handler voor de knop, waardoor `chrome.gcm.register` GCM wordt aangeroepen om het huidige exemplaar van de Chrome-app te registreren.
-   * **registerCallback** is de callbackfunctie die wordt aangeroepen wanneer de aanroep van de GCM-registratie wordt geretourneerd.
-   * **registerWithNH** is de tweede handler voor de knop, waardoor wordt geregistreerd bij Notification Hubs. Deze ontvangt `hubName` en `connectionString` (door de gebruiker opgegeven) en stelt de REST-API-aanroep samen voor registratie bij Notification Hubs.
-   * **splitConnectionString** en **generateSaSToken** zijn hulpprogramma's voor het uitvoeren van de implementatie van JavaScript van een SaS-token, dat in alle REST-API-aanroepen moet worden gebruikt. Zie [Algemene begrippen](http://msdn.microsoft.com/library/dn495627.aspx) voor meer informatie.
-   * **sendNHRegistrationRequest** is de functie die een HTTP REST-aanroep naar Azure Notification Hubs maakt.
-   * **registrationPayload** definieert de XML-nettolading van de registratie. Zie [REST-API maken voor de registratie van NH] voor meer informatie. We werken de registratie-id hierin bij met de informatie die we van GCM ontvangen.
-   * **client** is een exemplaar van **XMLHttpRequest** die we gebruiken voor het maken van de HTTP POST-aanvraag. Let op: de `Authorization`-header wordt bijgewerkt met `sasToken`. Als deze aanroep is voltooid, wordt dit exemplaar van de Chrome-app geregistreerd bij Azure Notification Hubs.
+   * **Window.OnLoad** Hallo knop gebeurtenissen Hallo twee knoppen op Hallo UI definieert. Een registreert bij GCM en Hallo andere maakt gebruik van Hallo registratie-ID die na de registratie bij GCM tooregister met Azure Notification Hubs wordt geretourneerd.
+   * **updateLog** Hallo-functie waarmee we eenvoudige logboekmogelijkheden van toohandle is.
+   * **registerWithGCM** Hallo eerste knop handler, waardoor Hallo `chrome.gcm.register` aanroep tooGCM tooregister Hallo huidige Chrome-App-exemplaar.
+   * **registerCallback** Hallo callback-functie die wordt aangeroepen wanneer Hallo GCM-registratie aanroep retourneert is.
+   * **registerWithNH** Hallo tweede knop handler, waardoor wordt geregistreerd bij Notification Hubs. Het ophalen van `hubName` en `connectionString` (welke Hallo-gebruiker is opgegeven) en knutselen Hallo Notification Hubs registratie REST API-aanroep.
+   * **splitConnectionString** en **generateSaSToken** zijn hulpprogramma Hallo JavaScript-uitvoering van een SaS-token maken proces, dat moet worden gebruikt in alle REST-API-aanroepen. Zie [Algemene begrippen](http://msdn.microsoft.com/library/dn495627.aspx) voor meer informatie.
+   * **sendNHRegistrationRequest** is Hallo-functie die een HTTP REST aanroepen tooAzure Notification Hubs.
+   * **registrationPayload** definieert Hallo registratie van de XML-nettolading. Zie [REST-API maken voor de registratie van NH] voor meer informatie. We bijwerken Hallo registratie-ID in het met we van GCM ontvangen.
+   * **client** is een exemplaar van **XMLHttpRequest** gebruiken we toomake Hallo HTTP POST-aanvraag. Opmerking werken wij Hallo `Authorization` header met `sasToken`. Als deze aanroep is voltooid, wordt dit exemplaar van de Chrome-app geregistreerd bij Azure Notification Hubs.
 
-De algehele mappenstructuur voor dit project moet er als volgt uitzien: ![Google Chrome-app - mappenstructuur][21]
+Hallo algemene mapstructuur voor de voor dit project moet eruitzien als dit: ![Google Chrome-App - mapstructuur][21]
 
 ### <a name="set-up-and-test-your-chrome-app"></a>Uw Chrome-app instellen en testen
 1. Open uw Chrome-browser. Open **Chrome-extensies** en schakel **Modus voor ontwikkelaars** in.
    
        ![Google Chrome - Enable Developer Mode][16]
-2. Klik op **Uitgepakte extensie laden** en navigeer naar de map waarin u de bestanden hebt gemaakt. U kunt eventueel ook het **hulpprogramma Chrome Apps& Extensions Developer** gebruiken. Dit hulpprogramma is zelf een Chrome-app (geïnstalleerd via de Chrome Web Store) en biedt geavanceerde mogelijkheden voor foutopsporing tijdens de ontwikkeling van uw Chrome-app.
+2. Klik op **uitgepakte extensie laden** en navigeer toohello map waar u Hallo bestanden hebt gemaakt. U kunt eventueel ook Hallo **Chrome Apps & Extensions Developer hulpprogramma**. Dit hulpprogramma is een Chrome-App zelf (geïnstalleerd via Hallo Chrome Web Store) en biedt geavanceerde mogelijkheden voor foutopsporing voor de ontwikkeling van uw Chrome-App.
    
        ![Google Chrome - Load Unpacked Extension][17]
-3. Als de Chrome-app foutloos is gemaakt, wordt uw app weergegeven.
+3. Als Hallo Chrome-App wordt gemaakt zonder fouten, ziet u uw App weergegeven.
    
        ![Google Chrome - Chrome App Display][18]
-4. Voer het **projectnummer** in dat u eerder hebt ontvangen van de **Google Cloud Console** als de afzender-id en klik op **Registreren bij GCM**. Het volgende bericht wordt weergegeven: **Registratie bij GCM is voltooid.**
+4. Voer Hallo **projectnummer** dat u eerder hebt ontvangen van Hallo **Google Cloud Console** als Hallo afzender-ID en klik op **registreren bij GCM**. U moet het Hallo-bericht ziet **registratie bij GCM is voltooid.**
    
        ![Google Chrome - Chrome App Customization][19]
-5. Voer de **Naam van de Notification Hub** en de **DefaultListenSharedAccessSignature** in die u eerder hebt ontvangen van de portal en klik op **Registreren bij Azure Notification Hub**. Als het goed is, wordt het volgende bericht weergegeven: **Registratie van Notification Hub gelukt!**, evenals de details van het registratie-antwoord dat de registratie-id van Azure Notification Hubs bevat.
+5. Voer uw **Notification Hub-naam** en Hallo **DefaultListenSharedAccessSignature** die u hebt verkregen in eerder Hallo-portal en klik op **registreren bij Azure Notification Hub**. U moet het Hallo-bericht ziet **registratie van Notification Hub gelukt!** en details op Hallo van Hallo registratie-antwoord dat hello Azure Notification Hubs registratie bevat-id.
    
        ![Google Chrome - Specify Notification Hub Details][20]  
 
-## <a name="send"></a>Een melding naar uw Chrome-app verzenden
+## <a name="send"></a>Een melding tooyour Chrome-App verzenden
 Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassing. 
 
 > [!NOTE]
@@ -385,17 +385,17 @@ Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassin
 > 
 > 
 
-1. Klik in Visual Studio in het menu **File** (Bestand) op **New** (Nieuw) en vervolgens **Project**. Klik onder **Visual C#** op **Windows** en **Console Application** en klik vervolgens op **OK**.  Hiermee maakt u een nieuw consoletoepassingsproject.
-2. Klik in het menu **Tools** op **Library Package Manager** en **Package Manager Console**. Hiermee wordt Package Manager Console weergegeven.
-3. Voer de volgende opdracht uit in het consolevenster:
+1. In Visual Studio van Hallo **bestand** selecteert u **nieuw** en vervolgens **Project**. Klik onder **Visual C#** op **Windows** en **Console Application** en klik vervolgens op **OK**.  Hiermee maakt u een nieuw consoletoepassingsproject.
+2. Van Hallo **extra** menu, klikt u op **Library Package Manager** en vervolgens **Package Manager Console**. Hallo Package Manager-Console worden weergegeven.
+3. Uitvoeren in het consolevenster hello, Hallo volgende opdracht:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-       This adds a reference to the Azure Service Bus SDK with the <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
-4. Open `Program.cs` en voeg de volgende `using` instructie toe:
+       This adds a reference toohello Azure Service Bus SDK with hello <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
+4. Open `Program.cs` en voeg de volgende Hallo `using` instructie:
    
         using Microsoft.Azure.NotificationHubs;
-5. Voeg in de klasse `Program` de volgende methode toe:
+5. In Hallo `Program` klasse, Hallo volgende methode toe te voegen:
    
         private static async void SendNotificationAsync()
         {
@@ -404,35 +404,35 @@ Voor testdoeleinden sturen we Chrome-pushmeldingen met een .NET-consoletoepassin
             await hub.SendGcmNativeNotificationAsync(message);
         }
    
-       Make sure to replace the `<hub name>` placeholder with the name of the notification hub that appears in the [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace the connection string placeholder with the connection string called `DefaultFullSharedAccessSignature` that you obtained in the notification hub configuration section.
+       Make sure tooreplace hello `<hub name>` placeholder with hello name of hello notification hub that appears in hello [portal](https://portal.azure.com) in your Notification Hub blade. Also, replace hello connection string placeholder with hello connection string called `DefaultFullSharedAccessSignature` that you obtained in hello notification hub configuration section.
    
    > [!NOTE]
-   > Zorg ervoor dat u de verbindingsreeks met het toegangsrecht **Full** (Volledig) gebruikt, dus niet **Listen** (Luisteren). Met de verbindingsreeks met het toegangsrecht **Listen** kunnen geen pushmeldingen worden verzonden.
+   > Zorg ervoor dat u de verbindingsreeks Hallo met **volledige** toegang niet **luisteren** toegang. Hallo **luisteren** verbindingsreeks toegang verleent geen machtigingen toosend pushmeldingen.
    > 
    > 
-6. Voeg de volgende aanroepen toe aan de methode `Main`:
+6. Hallo volgende roept Hallo toevoegen `Main` methode:
    
          SendNotificationAsync();
          Console.ReadLine();
-7. Zorg ervoor dat Chrome wordt uitgevoerd en start de consoletoepassing.
-8. De volgende meldingspop-up wordt op uw bureaublad weergegeven.
+7. Zorg ervoor dat Chrome wordt uitgevoerd en Voer Hallo-consoletoepassing.
+8. U ziet de volgende Hallo melding op uw bureaublad.
    
        ![Google Chrome - Notification][13]
-9. U kunt ook al uw meldingen zien in het venster Chrome-meldingen in de taakbalk (in Windows) als Chrome wordt uitgevoerd.
+9. U ziet ook al uw meldingen via Hallo Chrome-meldingen venster in Hallo taakbalk (in Windows) als Chrome wordt uitgevoerd.
    
        ![Google Chrome - Notifications List][14]
 
 > [!NOTE]
-> Hiervoor hoeft u de Chrome-app niet te starten of te openen in de browser (de Chrome-browser zelf moet wel worden uitgevoerd). U kunt ook een geconsolideerde weergave van al uw meldingen bekijken in het venster Chrome-berichten.
+> U hoeft niet toohave Hallo Chrome-App uitgevoerd of openen in browser hello (Hoewel Hallo Chrome-browser zelf moet worden uitgevoerd). U kunt ook een geconsolideerde weergave van al uw meldingen ophalen in het venster van Hallo Chrome-meldingen.
 > 
 > 
 
 ## <a name="next-steps"> </a>Volgende stappen
 Zie [Overzicht van Notification Hubs] voor meer informatie.
 
-Zie de zelfstudie [Azure Notification Hubs Gebruikers waarschuwen] om specifieke gebruikers te bereiken. 
+tootarget specifieke gebruikers, Raadpleeg toohello [Azure Notification Hubs gebruikers waarschuwen] zelfstudie. 
 
-Zie [Azure Notification Hubs voor belangrijk nieuws] als u gebruikers wilt indelen op belangengroep.
+Als u uw gebruikers op belangengroepen toosegment wilt, voert u Hallo [Azure Notification Hubs voor belangrijk nieuws] zelfstudie.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-chrome-get-started/GoogleConsoleCreateProject.PNG
@@ -462,13 +462,13 @@ Zie [Azure Notification Hubs voor belangrijk nieuws] als u gebruikers wilt indel
 [Google Cloud Console]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Overzicht van Notification Hubs]: notification-hubs-push-notification-overview.md
-[Overzicht van Chrome-apps]: https://developer.chrome.com/apps/about_apps
+[overzicht van Chrome-Apps]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM-voorbeeld]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
-[Chrome-apps op mobiele apparaten]: https://developer.chrome.com/apps/chrome_apps_on_mobile
+[Chrome-Apps op mobiele apparaten]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [REST-API maken voor de registratie van NH]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [crypto-js library]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging voor Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Gebruikers waarschuwen]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs gebruikers waarschuwen]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Azure Notification Hubs voor belangrijk nieuws]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

@@ -1,6 +1,6 @@
 ---
-title: U-SQL-assembly's voor Azure Data Lake Analytics-taken te ontwikkelen | Microsoft Docs
-description: 'Informatie over het ontwikkelen van assembly''s worden gebruikt en hergebruikt in Data Lake Analytics-taken. '
+title: aaaDevelop U-SQL-assembly's voor Azure Data Lake Analytics-taken | Microsoft Docs
+description: 'Ontdek hoe toodevelop assembly''s toobe gebruikt en hergebruikt in Data Lake Analytics-taken. '
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
-ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86dd17b25e0967306ed36bb5b7f3178d9409d53d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Ontwikkelen van U-SQL-assembly's voor Azure Data Lake Analytics-taken
-Informatie over het code-behind omzetten in assembly's die moeten worden gebruikt en hergebruikt in Data Lake Analytics-taken. 
+Meer informatie over hoe tooturn code-behind in assembly's toobe gebruikt en opnieuw gebruikt in Data Lake Analytics-taken. 
 
-U-SQL kunt eenvoudig uw eigen aangepaste code toevoegen in .net-talen, zoals C#, of traditiegetrouw F #. U kunt zelfs uw eigen runtime ter ondersteuning van andere talen implementeren.
+U-SQL maakt het eenvoudig tooadd uw eigen aangepaste code in .net-talen, zoals C#, of traditiegetrouw F #. U kunt uw eigen toosupport runtime zelfs andere talen implementeren.
 
-De eenvoudigste manier om het gebruik van aangepaste code is met het Data Lake Tools voor Visual Studio code-behind mogelijkheden. Zie voor meer informatie [zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Er zijn enkele nadelen van het gebruik van code-behind:
+Hallo gemakkelijkste manier toouse aangepaste code is toouse Hallo Data Lake Tools voor Visual Studio code-behind mogelijkheden. Zie voor meer informatie [zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Er zijn enkele nadelen van het gebruik van code-behind:
 
-- De broncode wordt voor de verzending van elk script geüpload.
+- Hallo broncode opgehaald voor de verzending van elk script geüpload.
 - code-behind kan niet worden gedeeld met andere taken.
 
-Om deze nadelen op te lossen, kunt u code-behind omzetten in assembly's en registreer de assembly's naar de Data Lake Analytics-catalogus.
+tooaddress deze nadelen code-behind in assembly's inschakelen en registreren Hallo-assembly's toohello Data Lake Analytics-catalogus.
 
 ## <a name="prerequisites"></a>Vereisten
 * Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 update 4 of Visual Studio 2012 met Visual C++ geïnstalleerd
-* Microsoft Azure SDK voor .NET versie 2.5 of hoger.  Installeren met behulp van de webplatforminstallatieprogramma of Visual Studio Installer
+* Microsoft Azure SDK voor .NET versie 2.5 of hoger.  Installeren met behulp van de webplatforminstallatieprogramma voor Windows hello of Visual Studio Installer
 * Een Data Lake Analytics-account.  Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md).
-* Ga via de [aan de slag met Azure Data Lake Analytics U-SQL-Studio](data-lake-analytics-u-sql-get-started.md) zelfstudie.
-* Verbinding maken met Azure.
-* Uploaden van de brongegevens, Zie [aan de slag met Azure Data Lake Analytics U-SQL-Studio](data-lake-analytics-u-sql-get-started.md). 
+* Ga via Hallo [aan de slag met Azure Data Lake Analytics U-SQL-Studio](data-lake-analytics-u-sql-get-started.md) zelfstudie.
+* Verbinding maken met tooAzure.
+* Hallo brongegevens uploaden, Zie [aan de slag met Azure Data Lake Analytics U-SQL-Studio](data-lake-analytics-u-sql-get-started.md). 
 
 ## <a name="develop-assemblies-for-u-sql"></a>Assembly's voor de U-SQL ontwikkelen
 
-**Maken en verzenden van een U-SQL-taak**
+**toocreate en het verzenden van een U-SQL-taak**
 
-1. Klik in het menu **File** op **New** en klik vervolgens op **Project**.
-2. Vouw **geïnstalleerde**, **sjablonen**, **Azure Data Lake**, **U-SQL(ADLA)**, selecteer de **Class Library (voor U-SQL-toepassing)** sjabloon en klik vervolgens op **OK**.
-3. Schrijf uw code in Class1.cs.  Hier volgt een voorbeeld van code.
+1. Van Hallo **bestand** menu, klikt u op **nieuw**, en klik vervolgens op **Project**.
+2. Vouw **geïnstalleerde**, **sjablonen**, **Azure Data Lake**, **U-SQL(ADLA)**, selecteer Hallo **Class Library (voor U-SQL Toepassing)** sjabloon en klik vervolgens op **OK**.
+3. Schrijf uw code in Class1.cs.  Hallo Hieronder volgt een voorbeeld van code.
 
         using Microsoft.Analytics.Interfaces;
 
@@ -62,20 +62,20 @@ Om deze nadelen op te lossen, kunt u code-behind omzetten in assembly's en regis
                 }
             }
         }
-4. Klik op de **bouwen** menu en klik vervolgens op **Build Solution** voor het maken van het DLL-bestand.
+4. Klik op Hallo **bouwen** menu en klik vervolgens op **Build Solution** toocreate Hallo dll-bestand.
 
 ## <a name="register-assemblies"></a>Assembly's registreren
 
 Zie [gebruik Data Lake Analytics(U-SQL) catalogus](data-lake-analytics-use-u-sql-catalog.md).
 
 
-## <a name="use-the-assemblies"></a>De assembly's gebruiken
+## <a name="use-hello-assemblies"></a>Hallo-assembly's gebruiken
 
-Zie [gebruik Azure Data Lake Tools voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+Zie [gebruiken hello Azure Data Lake Tools voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 ## <a name="see-also"></a>Zie ook
 * [Aan de slag met Data Lake Analytics met PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Aan de slag met Data Lake Analytics met Azure portal](data-lake-analytics-get-started-portal.md)
+* [Aan de slag met Data Lake Analytics met hello Azure-portal](data-lake-analytics-get-started-portal.md)
 * [Data Lake Tools voor Visual Studio gebruiken voor het ontwikkelen van U-SQL-toepassingen](data-lake-analytics-data-lake-tools-get-started.md)
 * [Gebruik Data Lake Analytics(U-SQL) catalogus](data-lake-analytics-use-u-sql-catalog.md)
-* [De Azure Data Lake-tools gebruiken voor Visual Studio-code](data-lake-analytics-data-lake-tools-for-vscode.md)
+* [Hello Azure Data Lake Tools voor Visual Studio Code gebruiken](data-lake-analytics-data-lake-tools-for-vscode.md)

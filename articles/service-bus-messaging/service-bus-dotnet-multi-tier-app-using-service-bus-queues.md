@@ -1,6 +1,6 @@
 ---
-title: .NET-toepassing met meerdere lagen die Azure Service Bus gebruikt | Microsoft Docs
-description: Een .NET-zelfstudie waarmee u in Azure een app met meerdere lagen kunt ontwikkelen die Service Bus-wachtrijen gebruikt voor communicatie tussen lagen.
+title: aaa.NET toepassing met meerdere lagen Azure Service Bus | Microsoft Docs
+description: Een .NET-zelfstudie waarmee u een app in Azure die gebruikmaakt van Service Bus-wachtrijen toocommunicate tussen lagen met meerdere lagen ontwikkelen.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,100 +14,100 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 485910ff1d3b8b0a709ee14ede32e57cf873829a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-toepassing met meerdere lagen die Azure Service Bus-wachtrijen gebruikt
 ## <a name="introduction"></a>Inleiding
-Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en de gratis Azure SDK voor .NET. In deze zelfstudie doorloopt u de stappen voor het maken van een toepassing die meerdere Azure-resources in uw lokale omgeving gebruikt.
+Ontwikkelen voor Microsoft Azure is eenvoudig met Visual Studio en Hallo gratis Azure SDK voor .NET. Deze zelfstudie wordt u begeleid Hallo stappen toocreate een toepassing die gebruikmaakt van meerdere Azure-resources in uw lokale omgeving.
 
-U leert het volgende:
+U leert Hallo volgende:
 
-* De computer met een enkele download en installatie instellen voor het ontwikkelen voor Azure.
-* Visual Studio gebruiken om te ontwikkelen voor Azure.
-* Een toepassing met meerdere lagen maken in Azure met de web- en werkrollen.
-* Communiceren tussen lagen met Service Bus-wachtrijen.
+* Hoe tooenable uw computer voor het ontwikkelen van Azure met één downloaden en installeren.
+* Hoe toouse Visual Studio toodevelop voor Azure.
+* Hoe een toepassing met meerdere lagen in Azure met behulp van web-en werkrollen toocreate.
+* Hoe toocommunicate tussen lagen met Service Bus-wachtrijen.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In deze zelfstudie zult u de toepassing met meerdere lagen ontwikkelen en uitvoeren in een cloudservice van Azure. De front-end is een ASP.NET MVC-webrol en de back-end is een werkrol die gebruikmaakt van een Service Bus-wachtrij. U kunt dezelfde toepassing met meerdere lagen maken met de front-end als een webproject dat wordt geïmplementeerd op een Azure-website in plaats van een cloudservice. U kunt ook de zelfstudie [.NET on-premises/hybride cloud-toepassing](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) gebruiken.
+In deze zelfstudie hebt u bouwen en uitvoeren van toepassing met meerdere lagen Hallo in een Azure-cloudservice. Hallo-front-end is een ASP.NET MVC-Webrol en Hallo back-end een werkrol die gebruikmaakt van een Service Bus-wachtrij is. U kunt maken Hallo dezelfde toepassing met meerdere lagen Hallo front-end als een webproject dat geïmplementeerde tooan Azure-website in plaats van een cloudservice. U kunt ook proberen Hallo [.NET on-premises/hybride cloud-toepassing](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) zelfstudie.
 
-In de volgende schermafbeelding wordt de voltooide toepassing weergegeven.
+Hallo volgende schermafbeelding ziet u de toepassing hello voltooid.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Scenario-overzicht: communicatie tussen rollen
-Als u een order wilt indienen voor verwerking, moet het front-end UI-onderdeel, dat wordt uitgevoerd in de webrol, communiceren met de logica van de middelste laag, die wordt uitgevoerd in de werkrol. In dit voorbeeld wordt Service Bus Messaging gebruikt voor communicatie tussen de lagen.
+een order voor het verwerken van Hallo front-end UI-onderdeel, uitgevoerd in de Webrol hello, toosubmit moet communiceren met de Hallo middelste laag logica uitgevoerd in de werkrol Hallo. In dit voorbeeld wordt Service Bus-berichtenservice voor communicatie tussen lagen Hallo Hallo.
 
-Met behulp van Service Bus Messaging tussen de weblaag en de middelste laag worden de twee onderdelen losgekoppeld. In tegenstelling tot Direct Messaging (dat wil zeggen, TCP of HTTP) hoeft de weblaag niet rechtstreeks verbinding te maken met de middelste laag. In plaats daarvan worden werkeenheden, als berichten, naar Service Bus gepusht. Daar worden ze veilig bewaard totdat de middelste laag gereed is om ze te ontvangen en te verwerken.
+Met Service Bus, uitwisseling van berichten tussen Hallo web en de middelste laag worden de twee onderdelen losgekoppeld. Daarentegen toodirect messaging (dat wil zeggen, TCP of HTTP), Hallo weblaag toohello middelste laag niet rechtstreeks; verbinding in plaats daarvan stuurt het werkeenheden, als berichten, naar Service Bus die betrouwbaar behoudt deze totdat de middelste laag Hallo tooconsume gereed is en deze te verwerken.
 
-Service Bus biedt twee entiteiten ter ondersteuning van Brokered Messaging: wachtrijen en onderwerpen. Met wachtrijen wordt elk bericht dat naar de wachtrij wordt verzonden, verbruikt door een enkele ontvanger. Onderwerpen ondersteunen het patroon voor publiceren/abonneren waarin elk gepubliceerde bericht beschikbaar wordt gesteld aan een abonnement dat bij het onderwerp is geregistreerd. Elk abonnement onderhoudt logisch gezien zijn eigen wachtrij met berichten. Abonnementen kunnen ook worden geconfigureerd met filterregels die de set berichten die wordt doorgegeven aan de abonnementenwachtrij beperken tot berichten die overeenkomen met het filter. In het volgende voorbeeld wordt gebruikgemaakt van Service Bus-wachtrijen.
+Service Bus biedt twee entiteiten toosupport brokered messaging: wachtrijen en onderwerpen. Met wachtrijen wordt verzonden elk bericht toohello wachtrij wordt gebruikt door een enkele ontvanger. Onderwerpen ondersteunen Hallo publiceren/abonneren patroon waarin elk gepubliceerde bericht beschikbaar tooa abonnement geregistreerd bij Hallo onderwerp is gemaakt. Elk abonnement onderhoudt logisch gezien zijn eigen wachtrij met berichten. Abonnementen kunnen ook worden geconfigureerd met filterregels die Hallo set berichten doorgegeven aan Hallo abonnement wachtrij toothose die overeenkomen met Hallo filter beperken. Hallo wordt volgende voorbeeld Service Bus-wachtrijen.
 
 ![][1]
 
 Dit communicatiemechanisme heeft verschillende voordelen ten opzichte van Direct Messaging:
 
-* **Tijdelijke ontkoppeling.** Met het asynchrone berichtenpatroon hoeven producenten en consumenten niet op hetzelfde moment online te zijn. Service Bus slaat de berichten veilig op totdat de verbruikende partij gereed is om de berichten te ontvangen. Hierdoor kunnen de onderdelen van de gedistribueerde toepassing worden losgekoppeld - hetzij vrijwillig, bijvoorbeeld voor onderhoud, hetzij vanwege het vastlopen van een onderdeel - zonder dat dit van invloed is op het systeem als geheel. Bovendien hoeft de betreffende toepassing mogelijk alleen online te komen op bepaalde tijdstippen gedurende de dag.
-* **Herverdeling van taken.** In veel toepassingen varieert de systeembelasting gedurende de tijd, terwijl de benodigde verwerkingstijd voor elke werkeenheid doorgaans constant blijft. Door een wachtrij tussen producenten en consumenten van berichten te plaatsen, hoeft de verbruikende toepassing (de werkrol) alleen te worden ingericht voor het opvangen van een gemiddelde belasting in plaats van een piekbelasting. De lengte van de wachtrij neemt toe of af, al naargelang het binnenkomende verkeer. Dit betekent een rechtstreekse besparing op de kosten voor de benodigde infrastructuur om de toepassingsbelasting te verwerken.
-* **Taakverdeling.** Naarmate het verkeer toeneemt, kunnen meer werkprocessen worden toegevoegd om uit de wachtrij te lezen. Elk bericht worden door slechts één van de werkprocessen verwerkt. Bovendien biedt deze pull-gebaseerde taakverdeling optimaal gebruik van de werkmachines, zelfs als de verwerkingskracht van de werkmachines verschilt en ze op eigen maximale snelheid berichten ophalen. Dit patroon wordt vaak aangeduid als het *concurrerend consumenten*-patroon.
+* **Tijdelijke ontkoppeling.** Met de Hallo asynchrone berichtenpatroon producenten en consumenten hoeven niet te worden online op Hallo hetzelfde moment. Service Bus slaat berichten veilig op totdat Hallo verbruikende partij gereed is om ze te ontvangen. Hierdoor Hallo onderdelen van Hallo gedistribueerde toepassing toobe losgekoppeld-hetzij vrijwillig, bijvoorbeeld voor onderhoud, hetzij vanwege het vastlopen van tooa onderdeel zonder enige impact op het systeem als geheel. Bovendien hoeft Hallo verbruikt toepassing alleen online toocome bepaalde tijdstippen gedurende Hallo dag.
+* **Herverdeling van taken.** In veel toepassingen varieert de systeembelasting gedurende een periode, terwijl Hallo benodigde verwerkingstijd voor elke werkeenheid doorgaans constant blijft. Tussen bericht producenten en consumenten met een wachtrij betekent dat Hallo verbruikt toobe behoeften alleen van toepassing (Hallo worker) ingericht tooaccommodate gemiddelde belasting in plaats van piekbelasting. Hallo diepte van Hallo wachtrij neemt toe of af als de inkomende belasting Hallo varieert. Dit bespaart rechtstreeks geld in termen van Hallo hoeveelheid infrastructuur vereist tooservice Hallo toepassing werklast.
+* **Taakverdeling.** Naarmate het verkeer toeneemt, kan meer werkprocessen kunnen tooread uit de wachtrij Hallo worden toegevoegd. Elk bericht wordt verwerkt door slechts één van de werkprocessen Hallo. Bovendien deze pull-gebaseerde taakverdeling optimaal gebruik van de werkmachines Hallo zelfs als kan de werkmachines verschilt verwerkingskracht, zoals ze op eigen maximale snelheid berichten ophalen. Dit patroon wordt vaak aangeduid als Hallo *concurrerend consumenten* patroon.
   
   ![][2]
 
-In de volgende gedeelten wordt de code besproken waarmee deze architectuur wordt geïmplementeerd.
+Hallo volgende secties worden besproken Hallo-code waarmee deze architectuur.
 
-## <a name="set-up-the-development-environment"></a>De ontwikkelomgeving instellen
-Voordat u Azure-toepassingen kunt ontwikkelen, moet u de hulpprogramma's ophalen en uw ontwikkelomgeving instellen.
+## <a name="set-up-hello-development-environment"></a>Hallo-ontwikkelomgeving instellen
+Voordat u kunt Azure-toepassingen te ontwikkelen, Hallo-hulpprogramma's ophalen en instellen van uw ontwikkelomgeving.
 
-1. Installeer de Azure-SDK voor .NET via de [pagina met downloads](https://azure.microsoft.com/downloads/) voor SDK.
-2. Klik in de kolom **.NET** op de versie van [Visual Studio](http://www.visualstudio.com) die u gebruikt. In de stappen in deze zelfstudie wordt Visual Studio 2015 gebruikt, maar ze werken ook met Visual Studio 2017.
-3. Klik op **Uitvoeren** wanneer u wordt gevraagd of u het installatieprogramma wilt uitvoeren of opslaan.
-4. Klik in het **webplatforminstallatieprogramma** op **Installeren** om door te gaan met de installatie.
-5. Nadat de installatie is voltooid, hebt u alles wat u nodig hebt om te starten met het ontwikkelen van de app. De SDK bevat hulpprogramma's waarmee u eenvoudig Azure-toepassingen kunt ontwikkelen in Visual Studio.
+1. Installeer hello Azure SDK voor .NET via Hallo SDK [pagina downloads](https://azure.microsoft.com/downloads/).
+2. In Hallo **.NET** kolom, klikt u op Hallo-versie van [Visual Studio](http://www.visualstudio.com) u gebruikt. Hallo stappen in deze zelfstudie Gebruik Visual Studio 2015, maar ze werken ook met Visual Studio 2017.
+3. Wanneer u daarom wordt gevraagd toorun of Hallo installatieprogramma opslaat, klikt u op **uitvoeren**.
+4. In Hallo **Web Platform Installer**, klikt u op **installeren** te gaan met Hallo-installatie.
+5. Zodra Hallo-installatie voltooid is, hebt u alles wat u nodig toostart toodevelop Hallo app. Hallo SDK bevat hulpprogramma's waarmee u eenvoudig Azure toepassingen ontwikkelen in Visual Studio.
 
 ## <a name="create-a-namespace"></a>Een naamruimte maken
-De volgende stap is het maken van een servicenaamruimte en ophalen van een SAS-sleutel (Shared Access Signature). Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Er wordt automatisch een SAS-sleutel gegenereerd wanneer er een naamruimte wordt gemaakt. De combinatie van naamruimte en SAS-sleutel biedt Service Bus de benodigde referenties voor het verifiëren van toegang tot een toepassing.
+de volgende stap Hallo toocreate is een Servicenaamruimte en ophalen van een Shared Access Signature (SAS)-sleutel. Een naamruimte biedt een toepassingsbegrenzing voor elke toepassing die toegankelijk is via Service Bus. Een SAS-sleutel wordt gegenereerd door Hallo systeem wanneer een naamruimte is gemaakt. Hallo combinatie van naamruimte en SAS-sleutel biedt Hallo referenties voor Service Bus tooauthenticate toegang tooan toepassing.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>Een webrol maken
-In dit gedeelte maakt u de front-end van uw toepassing. U maakt eerst de pagina's die door uw toepassing worden weergegeven.
-Vervolgens voegt u code toe waarmee items worden verzonden naar een Service Bus-wachtrij en waarmee statusinformatie over de wachtrij wordt weergegeven.
+In deze sectie bouwt u Hallo-front-end van uw toepassing. U maakt eerst Hallo-pagina's die uw toepassing worden weergegeven.
+Voeg daarna code items tooa Service Bus-wachtrij verzendt en geeft statusinformatie weer over Hallo wachtrij.
 
-### <a name="create-the-project"></a>Het project maken
-1. Visual Studio starten met administratorbevoegdheden: klik met de rechtermuisknop op het programmapictogram **Visual Studio** en klik vervolgens op **Als administrator uitvoeren**. Voor de Azure-rekenemulator, die verderop in dit artikel wordt besproken, is vereist dat Visual Studio wordt gestart met administratorbevoegdheden.
+### <a name="create-hello-project"></a>Hallo-project maken
+1. Visual Studio met administratorbevoegdheden starten: klik met de rechtermuisknop Hallo **Visual Studio** programmapictogram en klik vervolgens op **als administrator uitvoeren**. Hello Azure-rekenemulator, die verderop in dit artikel wordt besproken vereist dat Visual Studio met administratorbevoegdheden worden gestart.
    
-   Klik in het menu **Bestand** van Visual Studio op **Nieuw** en klik vervolgens op **Project**.
-2. Klik vanuit **Geïnstalleerde sjablonen** onder **Visual C#** op **Cloud** en klik vervolgens op **Azure Cloud Service**. Geef het project de naam **MultiTierApp**. Klik vervolgens op **OK**.
+   In Visual Studio op Hallo **bestand** menu, klikt u op **nieuw**, en klik vervolgens op **Project**.
+2. Klik vanuit **Geïnstalleerde sjablonen** onder **Visual C#** op **Cloud** en klik vervolgens op **Azure Cloud Service**. Naam Hallo project **MultiTierApp**. Klik vervolgens op **OK**.
    
    ![][9]
 3. Dubbelklik vanuit **.NET Framework 4.5**-rollen op **ASP.NET-webrol**.
    
    ![][10]
-4. Beweeg de muisaanwijzer over **WebRole1** onder **Azure Cloud Service-oplossing**, klik op het potloodpictogram en wijzig de naam van de webrol in **FrontendWebRole**. Klik vervolgens op **OK**. (Zorg ervoor dat u 'Frontend' invoert met een kleine letter 'e', dus niet 'FrontEnd'.)
+4. Beweeg de muisaanwijzer over **WebRole1** onder **Azure Cloud Service-oplossing**, klik op het potloodpictogram Hallo en wijzig de naam van de Webrol hello te**FrontendWebRole**. Klik vervolgens op **OK**. (Zorg ervoor dat u 'Frontend' invoert met een kleine letter 'e', dus niet 'FrontEnd'.)
    
    ![][11]
-5. Klik in het dialoogvenster **Nieuw ASP.NET-project** in de lijst **Een sjabloon selecteren** op **MVC**.
+5. Van Hallo **nieuw ASP.NET-Project** dialoogvenster in Hallo **Selecteer een sjabloon** lijst, klikt u op **MVC**.
    
    ![][12]
-6. Klik nog steeds vanuit het dialoogvenster **Nieuw ASP.NET-project** op de knop **Verificatie wijzigen**. Klik in het dialoogvenster **Verificatie wijzigen** op **Geen verificatie** en vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
+6. Nog steeds in Hallo **nieuw ASP.NET-Project** dialoogvenster vak, klikt u op Hallo **verificatie wijzigen** knop. In Hallo **verificatie wijzigen** in het dialoogvenster, klikt u op **geen verificatie**, en klik vervolgens op **OK**. In deze zelfstudie implementeert u een app waarvoor geen gebruikersaanmelding nodig is.
    
     ![][16]
-7. Ga terug naar het dialoogvenster **Nieuw ASP.NET-project** en klik op **OK** om het project te maken.
-8. Klik in **Solution Explorer** in het project **FrontendWebRole** met de rechtermuisknop op **Verwijzingen** en klik vervolgens op **NuGet-pakketten beheren**.
-9. Klik op het tabblad **Bladeren** en zoek vervolgens naar `Microsoft Azure Service Bus`. Selecteer het **WindowsAzure.ServiceBus**-pakket, klik op **Installeren** en accepteer de gebruiksvoorwaarden.
+7. Terug in Hallo **nieuw ASP.NET-Project** in het dialoogvenster, klikt u op **OK** toocreate Hallo project.
+8. In **Solution Explorer**, in Hallo **FrontendWebRole** project, met de rechtermuisknop op **verwijzingen**, klikt u vervolgens op **NuGet-pakketten beheren**.
+9. Klik op Hallo **Bladeren** tabblad en zoek naar `Microsoft Azure Service Bus`. Selecteer Hallo **WindowsAzure.ServiceBus** van het pakket, klikt u op **installeren**, en accepteer de gebruiksvoorwaarden Hallo.
    
    ![][13]
    
-   Na de installatie wordt verwezen naar de vereiste clientassembly's en zijn enkele nieuwe codebestanden toegevoegd.
-10. Klik in **Solution Explorer** met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **OnlineOrder.cs**. Klik vervolgens op **Toevoegen**.
+   Houd er rekening mee dat Hallo vereiste clientassembly nu wordt verwezen en enkele nieuwe codebestanden toegevoegd.
+10. Klik in **Solution Explorer** met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. In Hallo **naam** vak, Hallo typenaam **OnlineOrder.cs**. Klik vervolgens op **Toevoegen**.
 
-### <a name="write-the-code-for-your-web-role"></a>De code voor de webrol schrijven
-In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden weergegeven.
+### <a name="write-hello-code-for-your-web-role"></a>Hallo-code voor de Webrol schrijven
+In deze sectie maakt u Hallo verschillende pagina's die uw toepassing worden weergegeven.
 
-1. In het bestand OnlineOrder.cs in Visual Studio vervangt u de bestaande naamruimtedefinitie door de volgende code:
+1. Vervang de bestaande naamruimtedefinitie Hello na de code in Hallo OnlineOrder.cs bestand in Visual Studio:
    
    ```csharp
    namespace FrontendWebRole.Models
@@ -119,14 +119,14 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
        }
    }
    ```
-2. Dubbelklik in **Solution Explorer** op **Controllers\HomeController.cs**. Voeg de volgende **using**-instructies aan het begin van het bestand toe om de naamruimten op te nemen voor het model dat u zojuist hebt gemaakt, maar ook voor Service Bus.
+2. Dubbelklik in **Solution Explorer** op **Controllers\HomeController.cs**. Voeg de volgende Hallo **met** instructies Hallo Hallo bovenaan in het bestand tooinclude Hallo naamruimten voor het model dat u zojuist hebt gemaakt, maar ook voor Service Bus.
    
    ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
-3. In het bestand HomeController.cs in Visual Studio vervangt u bovendien de bestaande naamruimtedefinitie door de volgende code. Deze code bevat methoden voor het afhandelen van de verzending van items naar de wachtrij.
+3. Ook in Hallo HomeController.cs bestand in Visual Studio vervangt u de bestaande naamruimtedefinitie Hello code te volgen. Deze code bevat methoden voor het indienen van items toohello wachtrij Hallo afhandelen.
    
    ```csharp
    namespace FrontendWebRole.Controllers
@@ -135,7 +135,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
        {
            public ActionResult Index()
            {
-               // Simply redirect to Submit, since Submit will serve as the
+               // Simply redirect tooSubmit, since Submit will serve as the
                // front page of this application.
                return RedirectToAction("Submit");
            }
@@ -146,7 +146,7 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
            }
    
            // GET: /Home/Submit.
-           // Controller method for a view you will create for the submission
+           // Controller method for a view you will create for hello submission
            // form.
            public ActionResult Submit()
            {
@@ -156,17 +156,17 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
            }
    
            // POST: /Home/Submit.
-           // Controller method for handling submissions from the submission
+           // Controller method for handling submissions from hello submission
            // form.
            [HttpPost]
-           // Attribute to help prevent cross-site scripting attacks and
+           // Attribute toohelp prevent cross-site scripting attacks and
            // cross-site request forgery.  
            [ValidateAntiForgeryToken]
            public ActionResult Submit(OnlineOrder order)
            {
                if (ModelState.IsValid)
                {
-                   // Will put code for submitting to queue here.
+                   // Will put code for submitting tooqueue here.
    
                    return RedirectToAction("Submit");
                }
@@ -178,34 +178,34 @@ In dit gedeelte maakt u de verschillende pagina's die door uw toepassing worden 
        }
    }
    ```
-4. Klik in het menu **Bouwen** op **Oplossing opbouwen** om de juistheid van uw werk tot nu toe te controleren.
-5. Maak nu de weergave voor de methode voor `Submit()` die u eerder hebt gemaakt. Klik met de rechtermuisknop in de methode voor `Submit()` (de overbelasting van `Submit()` waarvoor geen parameters zijn vereist) en kies vervolgens **Weergave toevoegen**.
+4. Van Hallo **bouwen** menu, klikt u op **Build Solution** tootest Hallo juistheid van uw werk tot nu toe.
+5. Maak nu de weergave Hallo voor Hallo `Submit()` methode die u eerder hebt gemaakt. Met de rechtermuisknop op Hallo `Submit()` methode (Hallo overbelasting van de `Submit()` die geen parameters zijn vereist), en kies vervolgens **weergave toevoegen**.
    
    ![][14]
-6. Een dialoogvenster voor het maken van de weergave wordt weergegeven. Kies **Maken** in de lijst **Sjabloon**. Klik in de lijst **Modelklasse** op de klasse **OnlineOrder**.
+6. Er verschijnt een dialoogvenster voor het maken van Hallo weergeven. In Hallo **sjabloon** Kies **maken**. In Hallo **Modelklasse** lijst, klikt u op Hallo **OnlineOrder** klasse.
    
    ![][15]
 7. Klik op **Add**.
-8. Wijzig nu de weergegeven naam van uw toepassing. Dubbelklik in **Solution Explorer** op het bestand **Views\Shared\\_Layout.cshtml** om dit te openen in de Visual Studio-editor.
+8. Wijzig nu de naam van uw toepassing hello weergegeven. In **Solution Explorer**, dubbelklikt u op de **Views\Shared\\_Layout.cshtml** tooopen bestand in Visual Studio-editor Hallo.
 9. Vervang alle instanties van **Mijn ASP.NET-toepassing** door **Producten van LITWARE**.
-10. Verwijder de koppelingen **Start**, **Info** en **Contact**. Verwijder de gemarkeerde code:
+10. Hallo verwijderen **Start**, **over**, en **Contact** koppelingen. Verwijder Hallo gemarkeerde code:
     
     ![][28]
-11. Wijzig tot slot de verzendpagina om enige informatie over de wachtrij op te nemen. Dubbelklik in **Solution Explorer** op het bestand **Views\Home\Submit.cshtml** om dit te openen in de Visual Studio-editor. Voeg de volgende regel toe na `<h2>Submit</h2>`. Op dit moment is `ViewBag.MessageCount` leeg. U vult dit later in.
+11. Ten slotte wijzigen Hallo verzending pagina tooinclude enige informatie over Hallo wachtrij. In **Solution Explorer**, dubbelklikt u op de **Views\Home\Submit.cshtml** tooopen bestand in Visual Studio-editor Hallo. Hallo volgt regel na toevoegen `<h2>Submit</h2>`. Op dit moment Hallo `ViewBag.MessageCount` is leeg. U vult dit later in.
     
     ```html
-    <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+    <p>Current number of orders in queue waiting toobe processed: @ViewBag.MessageCount</p>
     ```
-12. U hebt nu de gebruikersinterface geïmplementeerd. Druk op **F5** om uw toepassing uit te voeren en te controleren of deze voldoet aan uw verwachting.
+12. U hebt nu de gebruikersinterface geïmplementeerd. U kunt ook op **F5** toorun uw toepassing en Bevestig dat het lijkt erop zoals verwacht.
     
     ![][17]
 
-### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>De code schrijven voor het indienen van items aan een Service Bus-wachtrij
-Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een klasse die de verbindingsgegevens van de Service Bus-wachtrij bevat. Vervolgens initialiseert u de verbinding vanuit Global.aspx.cs. Tot slot werkt u de verzendcode bij die u eerder hebt gemaakt in HomeController.cs, zodat items daadwerkelijk naar een Service Bus-wachtrij worden verzonden.
+### <a name="write-hello-code-for-submitting-items-tooa-service-bus-queue"></a>Hallo-code voor het indienen van items tooa Service Bus-wachtrij schrijven
+Voeg nu code voor het indienen van items tooa wachtrij. U maakt eerst een klasse die de verbindingsgegevens van de Service Bus-wachtrij bevat. Vervolgens initialiseert u de verbinding vanuit Global.aspx.cs. Tot slot werkt Hallo verzendcode die u eerder in HomeController.cs tooactually indienen items tooa Service Bus-wachtrij gemaakt.
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op **FrontendWebRole** (klik met de rechtermuisknop op het project, niet op de rol). Klik op **Toevoegen** en klik vervolgens op **Klasse**.
-2. Geef de klasse de naam **QueueConnector.cs**. Klik op **Toevoegen** om de klasse te maken.
-3. Voeg nu code toe waarin de verbindingsgegevens zijn opgenomen en waarmee de verbinding met een Service Bus-wachtrij wordt geïnitialiseerd. Vervang de volledige inhoud van QueueConnector.cs door de volgende code en voer waarden in voor `your Service Bus namespace` (de naam van uw naamruimte) en `yourKey`. Dit is de **primaire sleutel** die u eerder van Azure Portal hebt gekregen.
+1. In **Solution Explorer**, met de rechtermuisknop op **FrontendWebRole** (Klik met de rechtermuisknop Hallo project, niet Hallo rol). Klik op **Toevoegen** en klik vervolgens op **Klasse**.
+2. Naam Hallo klasse **QueueConnector.cs**. Klik op **toevoegen** toocreate Hallo-klasse.
+3. Voeg nu code die de verbindingsgegevens Hallo ingekapseld en Hallo verbinding tooa Service Bus-wachtrij wordt geïnitialiseerd. Vervang Hallo volledige inhoud van QueueConnector.cs door Hallo volgende code en voer waarden in voor `your Service Bus namespace` (uw naamruimtenaam) en `yourKey`, namelijk Hallo **primaire sleutel** u eerder hebt verkregen via hello Azure Portal.
    
    ```csharp
    using System;
@@ -223,15 +223,15 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
            // on every request.
            public static QueueClient OrdersQueueClient;
    
-           // Obtain these values from the portal.
+           // Obtain these values from hello portal.
            public const string Namespace = "your Service Bus namespace";
    
-           // The name of your queue.
+           // hello name of your queue.
            public const string QueueName = "OrdersQueue";
    
            public static NamespaceManager CreateNamespaceManager()
            {
-               // Create the namespace manager which gives you access to
+               // Create hello namespace manager which gives you access to
                // management operations.
                var uri = ServiceBusEnvironment.CreateServiceUri(
                    "sb", Namespace, String.Empty);
@@ -242,21 +242,21 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
    
            public static void Initialize()
            {
-               // Using Http to be friendly with outbound firewalls.
+               // Using Http toobe friendly with outbound firewalls.
                ServiceBusEnvironment.SystemConnectivity.Mode =
                    ConnectivityMode.Http;
    
-               // Create the namespace manager which gives you access to
+               // Create hello namespace manager which gives you access to
                // management operations.
                var namespaceManager = CreateNamespaceManager();
    
-               // Create the queue if it does not exist already.
+               // Create hello queue if it does not exist already.
                if (!namespaceManager.QueueExists(QueueName))
                {
                    namespaceManager.CreateQueue(QueueName);
                }
    
-               // Get a client to the queue.
+               // Get a client toohello queue.
                var messagingFactory = MessagingFactory.Create(
                    namespaceManager.Address,
                    namespaceManager.Settings.TokenProvider);
@@ -267,39 +267,39 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
    }
    ```
 4. Controleer nu of uw methode voor **Initialiseren** wordt aangeroepen. Dubbelklik in **Solution Explorer** op **Global.asax\Global.asax.cs**.
-5. Voeg de volgende coderegel toe aan het einde van de methode **Application_Start**.
+5. Toevoegen van de volgende regel code achter Hallo HALLO hallo **Application_Start** methode.
    
    ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
-6. Werk tot slot de webcode die u eerder hebt gemaakt, bij om items naar de wachtrij te verzenden. Dubbelklik in **Solution Explorer** op **Controllers\HomeController.cs**.
-7. Werk de methode `Submit()` (de overbelasting waarvoor geen parameters zijn vereist) als volgt bij om het aantal berichten voor de wachtrij te verkrijgen.
+6. Werk tot slot de Webcode die u eerder hebt gemaakt, als u items toohello wachtrij Hallo. Dubbelklik in **Solution Explorer** op **Controllers\HomeController.cs**.
+7. Update Hallo `Submit()` methode (Hallo overbelasting waarvoor geen parameters zijn vereist) als volgt het Hallo-bericht tooget tellen voor Hallo wachtrij.
    
    ```csharp
    public ActionResult Submit()
    {
-       // Get a NamespaceManager which allows you to perform management and
+       // Get a NamespaceManager which allows you tooperform management and
        // diagnostic operations on your Service Bus queues.
        var namespaceManager = QueueConnector.CreateNamespaceManager();
    
-       // Get the queue, and obtain the message count.
+       // Get hello queue, and obtain hello message count.
        var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
        ViewBag.MessageCount = queue.MessageCount;
    
        return View();
    }
    ```
-8. Werk de methode `Submit(OnlineOrder order)` (de overbelasting waarvoor één parameter moet worden gebruikt) als volgt bij om ordergegevens naar de wachtrij te verzenden.
+8. Update Hallo `Submit(OnlineOrder order)` methode (Hallo overbelasting waarvoor één parameter) als volgt toosubmit informatie toohello wachtrij rangschikken.
    
    ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
        {
-           // Create a message from the order.
+           // Create a message from hello order.
            var message = new BrokeredMessage(order);
    
-           // Submit the order.
+           // Submit hello order.
            QueueConnector.OrdersQueueClient.Send(message);
            return RedirectToAction("Submit");
        }
@@ -309,63 +309,63 @@ Voeg nu code toe voor het indienen van items aan een wachtrij. U maakt eerst een
        }
    }
    ```
-9. U kunt nu de toepassing opnieuw uitvoeren. Het aantal berichten neemt toe elke keer wanneer u een order verzendt.
+9. U kunt nu de toepassing hello opnieuw uitvoeren. Telkens wanneer die u een order verzendt aantal Hallo-berichten neemt toe.
    
    ![][18]
 
-## <a name="create-the-worker-role"></a>De werkrol maken
-U maakt nu de werkrol die de orderverzendingen verwerkt. In dit voorbeeld wordt de Visual Studio-projectsjabloon **Werkrol met Service Bus-wachtrij** gebruikt. U hebt al de vereiste referenties ontvangen van de portal.
+## <a name="create-hello-worker-role"></a>Hallo-werkrol maken
+U maakt nu de werkrol Hallo waarmee Hallo volgorde van voorbeelden worden verwerkt. In dit voorbeeld wordt Hallo **Werkrol met Service Bus-wachtrij** Visual Studio-projectsjabloon. U hebt al Hallo vereist referenties verkregen via Hallo-portal.
 
-1. Zorg ervoor dat u Visual Studio aan uw Azure-account hebt gekoppeld.
-2. Klik in Visual Studio in **Solution Explorer** met de rechtermuisknop op de map **Rollen** onder het **MultiTierApp**-project.
-3. Klik op **Toevoegen** en klik vervolgens op **Nieuw werkrolproject**. Het dialoogvenster **Nieuw rolproject toevoegen** wordt weergegeven.
+1. Zorg ervoor dat u Visual Studio tooyour Azure-account hebt gekoppeld.
+2. In Visual Studio in **Solution Explorer** met de rechtermuisknop op de **rollen** map onder Hallo **MultiTierApp** project.
+3. Klik op **Toevoegen** en klik vervolgens op **Nieuw werkrolproject**. Hallo **nieuw Rolproject toevoegen** dialoogvenster wordt weergegeven.
    
    ![][26]
-4. Klik in het dialoogvenster **Nieuw rolproject toevoegen** op **Werkrol met Service Bus-wachtrij**.
+4. In Hallo **nieuw Rolproject toevoegen** in het dialoogvenster, klikt u op **Werkrol met Service Bus-wachtrij**.
    
    ![][23]
-5. Voer in het vak **Naam** de naam **OrderProcessingRole** voor het project in. Klik vervolgens op **Toevoegen**.
-6. Kopieer de verbindingsreeks die u hebt verkregen in stap 9 van het gedeelte 'Een Service Bus-naamruimte maken' naar het klembord.
-7. Klik in **Solution Explorer** met de rechtermuisknop op de **OrderProcessingRole** die u in stap 5 hebt gemaakt (klik met de rechtermuisknop op **OrderProcessingRole** onder **Rollen** en niet onder de klasse). Klik vervolgens op **Eigenschappen**.
-8. Klik op het tabblad **Instellingen** van het dialoogvenster **Eigenschappen** in het vak **Waarde** voor **Microsoft.ServiceBus.ConnectionString**. Plak vervolgens de eindpuntwaarde die u in stap 6 hebt gekopieerd.
+5. In Hallo **naam** vak, naam Hallo project **OrderProcessingRole**. Klik vervolgens op **Toevoegen**.
+6. Hallo-verbindingsreeks die u hebt verkregen in stap 9 van Hallo 'Een Servicebus-naamruimte maken' sectie toohello Klembord kopiëren.
+7. In **Solution Explorer**, klik met de rechtermuisknop Hallo **OrderProcessingRole** u in stap 5 hebt gemaakt (Zorg ervoor dat u met de rechtermuisknop op **OrderProcessingRole** onder **Rollen**, en niet Hallo klasse). Klik vervolgens op **Eigenschappen**.
+8. Op Hallo **instellingen** tabblad Hallo **eigenschappen** in het dialoogvenster, klikt u in Hallo **waarde** vak voor **Microsoft.ServiceBus.ConnectionString**, en plak vervolgens Hallo-eindpuntwaarde die u in stap 6 hebt gekopieerd.
    
    ![][25]
-9. Maak een klasse **OnlineOrder** die de orders vertegenwoordigt tijdens het verwerken van de wachtrij. U kunt een klasse die u al hebt gemaakt opnieuw gebruiken. Klik in **Solution Explorer** met de rechtermuisknop op de klasse **OrderProcessingRole** (klik met de rechtermuisknop op het klassepictogram en niet op de rol). Klik op **Toevoegen** en vervolgens op **Bestaand item**.
-10. Blader naar de submap voor **FrontendWebRole\Models** en dubbelklik vervolgens op **OnlineOrder.cs** om het bestand toe te voegen aan dit project.
-11. Wijzig in **WorkerRole.cs** de waarde van de variabele **QueueName** van `"ProcessingQueue"` in `"OrdersQueue"`, zoals weergegeven in de volgende code.
+9. Maak een **OnlineOrder** toorepresent Hallo orders klasse tijdens het verwerken van Hallo wachtrij. U kunt een klasse die u al hebt gemaakt opnieuw gebruiken. In **Solution Explorer**, klik met de rechtermuisknop Hallo **OrderProcessingRole** klasse (Klik met de rechtermuisknop Hallo klassepictogram, niet Hallo rol). Klik op **Toevoegen** en vervolgens op **Bestaand item**.
+10. Blader toohello submap voor **FrontendWebRole\Models**, en dubbelklik vervolgens op **OnlineOrder.cs** tooadd het toothis project.
+11. In **WorkerRole.cs**, wijzig de waarde Hallo Hallo **wachtrijnaam** variabele van `"ProcessingQueue"` te`"OrdersQueue"` zoals weergegeven in de volgende code Hallo.
     
     ```csharp
-    // The name of your queue.
+    // hello name of your queue.
     const string QueueName = "OrdersQueue";
     ```
-12. Voeg de volgende instructie toe aan het begin van het bestand WorkerRole.cs.
+12. Voeg de volgende Hallo gebruiksinstructie Hallo boven aan het Hallo-WorkerRole.cs-bestand.
     
     ```csharp
     using FrontendWebRole.Models;
     ```
-13. In de functie `Run()` binnen de aanroep `OnMessage()` vervangt u de inhoud van de `try`-component door de volgende code.
+13. In Hallo `Run()` functie binnen Hallo `OnMessage()` aanroepen, vervang de inhoud Hallo Hallo `try` component Hello code te volgen.
     
     ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-    // View the message as an OnlineOrder.
+    // View hello message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
     Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
     receivedMessage.Complete();
     ```
-14. U hebt de toepassing nu voltooid. U kunt de volledige toepassing testen door met de rechtermuisknop te klikken op het MultiTierApp-project in Solution Explorer, **Instellen als opstartproject** te selecteren en vervolgens op F5 te drukken. Houd er rekening mee dat het aantal berichten niet toeneemt, omdat de werkrol items uit de wachtrij verwerkt en als voltooid markeert. U ziet de trace-uitvoer van uw werkrol door de gebruikersinterface van de Azure-rekenemulator weer te geven. Klik hiervoor met de rechtermuisknop op het emulatorpictogram in het systeemvak van de taakbalk en selecteer **Gebruikersinterface van de rekenemulator weergeven**.
+14. U kunt de toepassing hello hebt voltooid. U kunt de volledige toepassing hello testen door met de rechtermuisknop op Hallo MultiTierApp-project in Solution Explorer selecteren **instellen als opstartproject**, en klik vervolgens op F5 te drukken. Houd er rekening mee dat het aantal berichten niet toeneemt, omdat het Hallo-werkrol items uit de wachtrij hello, verwerkt en als voltooid markeert. U ziet Hallo trace-uitvoer van uw werkrol door hello Azure Compute-Emulator gebruikersinterface weer te geven. U kunt dit doen met de rechtermuisknop op Hallo emulatorpictogram in systeemvak Hallo van de taakbalk en selecteer **weergeven Compute-Emulator UI**.
     
     ![][19]
     
     ![][20]
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende resources voor meer informatie over Service Bus:  
+toolearn meer informatie over Service Bus Zie Hallo resources te volgen:  
 
 * [Documentatie voor Azure Service Bus][sbdocs]  
 * [Service Bus-servicepagina][sbacom]  
-* [Service Bus-wachtrijen gebruiken][sbacomqhowto]  
+* [Hoe tooUse Service Bus-wachtrijen][sbacomqhowto]  
 
-Zie voor meer informatie over scenario's voor meerdere lagen:  
+toolearn meer informatie over scenario's met meerdere lagen, Zie:  
 
 * [.NET-toepassing met meerdere lagen met Table Storage, Queue Storage en Blob Storage][mutitierstorage]  
 

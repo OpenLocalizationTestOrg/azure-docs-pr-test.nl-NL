@@ -14,26 +14,26 @@
 ### Installeren of upgraden
 #### [Azure Backup Server-workloads voorbereiden in Azure Portal](backup-azure-microsoft-azure-backup.md)
 #### [Azure Backup Server-workloads voorbereiden in klassieke portal](backup-azure-microsoft-azure-backup-classic.md)
-#### [Opslag toevoegen aan Azure Backup Server](backup-mabs-add-storage.md)
-#### [Azure Backup Server upgraden naar v.2](backup-mabs-upgrade-to-v2.md)
+#### [Opslag tooAzure back-upserver toevoegen](backup-mabs-add-storage.md)
+#### [Azure Backup-Server toov.2 upgraden](backup-mabs-upgrade-to-v2.md)
 #### [Installatie zonder toezicht van Azure Backup Server](backup-mabs-unattended-install.md)
 ### Workloads beveiligen
-#### [Azure Backup Server gebruiken om back-ups te maken van een VMware-server](backup-azure-backup-server-vmware.md)
-#### [Azure Backup Server gebruiken om back-ups te maken van Exchange](backup-azure-exchange-mabs.md)
-#### [Azure Backup Server gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint-mabs.md)
-#### [Azure Backup Server gebruiken om back-ups te maken van SQL](backup-azure-sql-mabs.md)
+#### [Azure Backup-Server tooback van een VMware-server gebruiken](backup-azure-backup-server-vmware.md)
+#### [Azure Backup-Server tooback up Exchange gebruiken](backup-azure-exchange-mabs.md)
+#### [Azure Backup-Server tooback van een SharePoint-farm gebruiken](backup-azure-backup-sharepoint-mabs.md)
+#### [Tooback up SQL Azure Backup-Server gebruiken](backup-azure-sql-mabs.md)
 #### [Systeemstatus beveiligen en bare metal recovery](backup-mabs-system-state-and-bmr.md)
 ### [Gegevens herstellen vanaf Azure Backup Server](backup-azure-alternate-dpm-server.md)
 
 ## Azure-VM's
-### De virtuele machine voorbereiden
+### Hallo VM voorbereiden
 #### [Virtuele machines geïmplementeerd met Resource Manager voorbereiden](backup-azure-arm-vms-prepare.md)
 #### [Toepassingsconsistente back-ups van virtuele Linux-machines](backup-azure-linux-app-consistent.md)
 #### [Virtuele Azure-machines voorbereiden](backup-azure-vms-prepare.md)
 ### Uw omgeving plannen
 #### [VM-back-upinfrastructuur plannen](backup-azure-vms-introduction.md)
 ### Back-ups maken van virtuele machines
-#### [Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
+#### [Maak een back-up van virtuele machines in Azure tooa Recovery Services-kluis](backup-azure-arm-vms.md)
 #### [Back-ups maken van versleutelde virtuele machines](backup-azure-vms-encryption.md)
 #### [Back-ups maken van virtuele Azure-machines](backup-azure-vms.md)
 ### Virtuele machines beheren en controleren
@@ -55,10 +55,10 @@
 ## Data Protection Manager
 ### [DPM-workloads voorbereiden in Azure Portal](backup-azure-dpm-introduction.md)
 ### [DPM-workloads voorbereiden in klassieke portal](backup-azure-dpm-introduction-classic.md)
-### [System Center DPM gebruiken om back-ups te maken van Exchange Server](backup-azure-backup-exchange-server.md)
-### [Gegevens herstellen naar een andere DPM-server](backup-azure-alternate-dpm-server.md)
-### [DPM gebruiken om back-ups van SQL Server-workloads te maken](backup-azure-backup-sql.md)
-### [DPM gebruiken om back-ups te maken van een SharePoint-farm](backup-azure-backup-sharepoint.md)
+### [System Center DPM tooback Exchange-Server gebruiken](backup-azure-backup-exchange-server.md)
+### [Gegevens tooan alternatieve DPM-server herstellen](backup-azure-alternate-dpm-server.md)
+### [DPM tooback van de werkbelasting van de SQL Server gebruiken](backup-azure-backup-sql.md)
+### [DPM tooback van een SharePoint-farm gebruiken](backup-azure-backup-sharepoint.md)
 
 ## PowerShell gebruiken
 ### [Virtuele Azure-machines in Azure Portal](backup-azure-vms-automation.md)
@@ -77,23 +77,23 @@
 ## Windows Server
 ### [Back-ups maken van Windows Server-bestanden en -mappen](backup-configure-vault.md)
 ### [Back-ups maken van Windows Server-systeemstatus](backup-azure-system-state.md)
-### [Bestanden herstellen van Azure naar Windows Server](backup-azure-restore-windows-server.md)
+### [Bestanden terugzetten vanuit Azure tooWindows Server](backup-azure-restore-windows-server.md)
 ### [Windows Server-systeemstatus herstellen](backup-azure-restore-system-state.md)
 ### [Recovery Services-kluizen beheren en controleren](backup-azure-manage-windows-server.md)
-### Back-ups maken en terugzetten met behulp van de klassieke portal
-#### [Windows Server met het klassieke implementatiemodel](backup-configure-vault-classic.md)
-#### [Back-upkluizen beheren met het klassieke implementatiemodel](backup-azure-manage-windows-server-classic.md)
-#### [Bestanden herstellen op een Windows Server met het klassieke implementatiemodel](backup-azure-restore-windows-server-classic.md)
+### Back-up en herstellen met behulp van de klassieke portal Hallo
+#### [Windows Server met het klassieke implementatiemodel Hallo](backup-configure-vault-classic.md)
+#### [Backup-kluizen met het klassieke implementatiemodel Hallo beheren](backup-azure-manage-windows-server-classic.md)
+#### [Herstellen van bestanden tooa Windows Server met het klassieke implementatiemodel Hallo](backup-azure-restore-windows-server-classic.md)
 
 ## Recovery Services-kluis
 ### [Overzicht van Recovery Services-kluizen](backup-azure-recovery-services-vault-overview.md)
-### [Een Backup-kluis upgraden naar een Recovery Services-kluis](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Upgraden van een back-up kluis tooRecovery Services-kluis](backup-azure-upgrade-backup-to-recovery-services.md)
 ### [Een Recovery Services-kluis verwijderen](backup-azure-delete-vault.md)
 
 ## Problemen oplossen
 ### [Problemen met back-ups van virtuele Azure-machines in Azure Portal](backup-azure-vms-troubleshoot.md)
 ### [Problemen met back-ups van virtuele Azure-machines in klassieke portal](backup-azure-vms-troubleshoot-classic.md)
-### [Back-up maken van virtuele Azure-machine mislukt: kan niet communiceren met de VM-agent voor de status van de momentopname - time-out opgetreden tijdens uitvoeren van subtaak voor momentopname van VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
+### [Azure VM-back-up mislukt: kan niet communiceren met de Hallo VM-agent voor de status van de momentopname - momentopname VM sub-taak is een time-out](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Langzame back-ups van bestanden en mappen in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 ### [Problemen oplossen met Azure Backup Server](backup-azure-mabs-troubleshoot.md)
 

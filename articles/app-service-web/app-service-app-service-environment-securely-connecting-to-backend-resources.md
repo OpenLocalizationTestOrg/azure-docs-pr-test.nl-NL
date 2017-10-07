@@ -1,6 +1,6 @@
 ---
-title: Veilig verbinding te maken met back-Endresources van een App-serviceomgeving
-description: Meer informatie over veilige manier verbinding maken met back-endresources van een App Service-omgeving.
+title: aaaSecurely verbinding maakt met tooBackEnd bronnen van een App-serviceomgeving
+description: Meer informatie over hoe toosecurely toobackend resources verbinden van een App Service-omgeving.
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -14,83 +14,83 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 0b6d3a47dc429c469b37c2c74f546cfeca580358
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6311d3fc301512ea3c4ed8f14f268f75755aa415
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Veilig verbinding te maken met back-Endresources van een App-serviceomgeving
+# <a name="securely-connecting-toobackend-resources-from-an-app-service-environment"></a>Veilig verbinding maakt met tooBackend bronnen van een App-serviceomgeving
 ## <a name="overview"></a>Overzicht
-Nadat een App Service-omgeving wordt altijd gemaakt **beide** een virtueel netwerk van Azure Resource Manager, **of** een klassieke implementatiemodel [virtueel netwerk] [ virtualnetwork], uitgaande verbindingen van een App Service-omgeving naar andere bronnen van de back-end kunnen stromen uitsluitend via het virtuele netwerk.  Met een recente wijziging in juni 2016, kan ASEs ook worden geïmplementeerd in virtuele netwerken die gebruikmaken van openbare-adresbereiken of RFC1918 adresruimten (dat wil zeggen particuliere adressen).  
+Nadat een App Service-omgeving wordt altijd gemaakt **beide** een virtueel netwerk van Azure Resource Manager, **of** een klassieke implementatiemodel [virtueel netwerk] [ virtualnetwork], uitgaande verbindingen vanaf een back-endresources van App Service-omgeving tooother kunnen stromen uitsluitend via Hallo virtueel netwerk.  Met een recente wijziging in juni 2016, worden ASEs ook geïmplementeerd in virtuele netwerken die gebruikmaken van openbare-adresbereiken of RFC1918 adresruimten (dat wil zeggen particuliere adressen).  
 
-Bijvoorbeeld, kan er een SQL-Server uitgevoerd op een cluster van virtuele machines met poort 1433 vergrendeld.  Het eindpunt mogelijk ACLd alleen toegang toestaan via andere bronnen in hetzelfde virtuele netwerk.  
+Bijvoorbeeld, kan er een SQL-Server uitgevoerd op een cluster van virtuele machines met poort 1433 vergrendeld.  Hallo-eindpunt is mogelijk ACLd tooonly toegang toestaan via andere bronnen op Hallo van hetzelfde virtuele netwerk.  
 
-Als een ander voorbeeld gevoelige eindpunten on-premises kan worden uitgevoerd en naar Azure worden verbonden via een [Site-naar-Site] [ SiteToSite] of [Azure ExpressRoute] [ ExpressRoute] verbindingen.  Als gevolg hiervan zich worden alleen de resources in virtuele netwerken die zijn verbonden met de Site-naar-Site of een ExpressRoute-tunnels voor toegang tot lokale eindpunten.
+Als een ander voorbeeld gevoelige eindpunten kunnen on-premises uitgevoerd en worden verbonden tooAzure via een [Site-naar-Site] [ SiteToSite] of [Azure ExpressRoute] [ ExpressRoute] verbindingen.  Als gevolg hiervan alleen bronnen in virtuele netwerken verbonden toohello Site-naar-Site of ExpressRoute-tunnels kunnen tooaccess lokale eindpunten zijn.
 
-Voor elk van deze scenario's, apps die worden uitgevoerd op een App Service-omgeving kan worden veilig verbinding kunnen maken met de verschillende servers en -bronnen.  Uitgaand verkeer van apps die worden uitgevoerd in een App Service-omgeving naar persoonlijke eindpunten in hetzelfde virtuele netwerk (of verbonden met hetzelfde virtuele netwerk), wordt alleen overdracht via het virtuele netwerk.  Uitgaand verkeer naar persoonlijke eindpunten worden niet overgebracht via het openbare Internet.
+Voor elk van deze scenario's, apps die worden uitgevoerd op een App Service-omgeving wordt kunnen toosecurely verbinding moeten maken toohello verschillende servers en bronnen.  Uitgaand verkeer van apps die worden uitgevoerd in een App Service-omgeving tooprivate-eindpunten in Hallo hetzelfde virtuele netwerk (of toohello verbonden hetzelfde virtuele netwerk), wordt alleen stroom via Hallo virtueel netwerk.  Uitgaand verkeer tooprivate eindpunten niet worden overgebracht via openbaar Internet Hallo.
 
-Een voorbehoud geldt voor uitgaand verkeer van een App Service-omgeving naar eindpunten binnen een virtueel netwerk.  App Service-omgevingen niet bereiken eindpunten van virtuele machines zich in de **dezelfde** subnet als de App Service-omgeving.  Dit mag normaal gesproken geen probleem, zolang het App Service-omgevingen zijn geïmplementeerd in een subnet is gereserveerd voor exclusief gebruik door alleen de App Service-omgeving.
+Een voorbehoud geldt toooutbound verkeer van een App Service-omgeving tooendpoints binnen een virtueel netwerk.  App Service-omgevingen kan de eindpunten van virtuele machines zich in Hallo niet bereiken **dezelfde** subnet als het Hallo-App Service-omgeving.  Dit mag normaal gesproken geen probleem, zolang het App Service-omgevingen zijn geïmplementeerd in een subnet is gereserveerd voor exclusief gebruik door alleen Hallo App Service-omgeving.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Uitgaande verbinding en DNS-vereisten
-Voor een App Service-omgeving te laten functioneren, vereist deze uitgaande toegang tot verschillende eindpunten. Een volledige lijst met de externe eindpunten die worden gebruikt door een as-omgeving is in de sectie 'Netwerkverbinding vereist' van de [netwerkconfiguratie voor ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artikel.
+Voor een App Service-omgeving toofunction juist hiervoor uitgaande toegang toovarious eindpunten. Een volledige lijst met externe Hallo-eindpunten die worden gebruikt door een as-omgeving zich in de sectie 'Netwerkverbinding vereist' Hallo Hallo [netwerkconfiguratie voor ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artikel.
 
-App Service-omgevingen moeten een geldige DNS-infrastructuur is geconfigureerd voor het virtuele netwerk.  Als voor een bepaalde reden worden de DNS-configuratie is gewijzigd nadat een App-serviceomgeving is gemaakt, kunnen ontwikkelaars een App Service-omgeving naar de nieuwe DNS-configuratie worden opgepikt afdwingen.  Activering van rolling omgeving opgestart met het pictogram 'Opnieuw starten' boven aan de blade voor het beheer van App Service-omgeving in de portal zal de omgeving voor de nieuwe DNS-configuratie worden opgepikt.
+App Service-omgevingen moeten een geldige DNS-infrastructuur is geconfigureerd voor het virtuele netwerk Hallo.  Als voor een Hallo reden worden DNS-configuratie is gewijzigd nadat een App-serviceomgeving is gemaakt, kunnen ontwikkelaars een App Service-omgeving toopick Hallo nieuwe DNS-configuratie van afdwingen.  Activering rolling omgeving opgestart met behulp van Hallo 'Opnieuw starten' pictogram Hallo boven aan Hallo App Service-omgeving wordt beheerblade in Hallo-portal Hallo omgeving toopick Hallo nieuwe DNS-configuratie van.
 
-Het is ook raadzaam dat alle aangepaste DNS-servers op het vnet ingesteld worden voordat u een App-serviceomgeving tevoren.  Als een virtueel netwerk DNS-configuratie wordt gewijzigd terwijl een App Service-omgeving wordt gemaakt, wordt die leiden tot het mislukken van de App Service-omgeving maken van het proces.  In een vergelijkbare vein als een aangepaste DNS-server op het andere einde van een VPN-gateway bestaat en de DNS-server onbereikbaar is of niet beschikbaar is, is mislukt het proces voor het maken van App Service-omgeving ook.
+Het is ook aanbevolen of aangepaste DNS-servers op Hallo vnet ingesteld voor tijd voorafgaande toocreating een App Service-omgeving worden.  Als een virtueel netwerk DNS-configuratie wordt gewijzigd terwijl een App Service-omgeving wordt gemaakt, wordt die leiden tot Hallo App Service-omgeving maken proces mislukken.  Als een aangepaste DNS-server op Hallo bestaat is andere einde van een VPN-gateway en Hallo DNS-server in een vergelijkbare vein niet bereikbaar is of niet beschikbaar is, Hallo App Service-omgeving maakproces ook mislukken.
 
-## <a name="connecting-to-a-sql-server"></a>Verbinding maken met een SQL-Server
+## <a name="connecting-tooa-sql-server"></a>Verbinding maken met SQL Server tooa
 Een algemene configuratie van SQL Server heeft een eindpunt luisteren op poort 1433:
 
 ![SQL Server-eindpunt][SqlServerEndpoint]
 
-Er zijn twee methoden voor het beperken van verkeer naar dit eindpunt:
+Er zijn twee benaderingen voor het beperken van verkeer toothis eindpunt:
 
 * [Network Access Control Lists] [ NetworkAccessControlLists] (netwerk-ACL's)
 * [Netwerkbeveiligingsgroepen][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Beperken van toegang tot aan een ACL-netwerk
-Poort 1433 kan worden beveiligd met behulp van een ACL (toegangsbeheerlijst) netwerk.  In het voorbeeld hieronder whitelists client adressen die afkomstig zijn van binnen een virtueel netwerk en toegang tot alle andere clients worden geblokkeerd.
+Poort 1433 kan worden beveiligd met behulp van een ACL (toegangsbeheerlijst) netwerk.  Hallo-voorbeeld hieronder whitelists client adressen die afkomstig zijn van binnen een virtueel netwerk en toegang blokkeert op tooall andere clients.
 
 ![Voorbeeld van een besturingselement toegang netwerk][NetworkAccessControlListExample]
 
-Alle toepassingen die in App Service-omgeving in hetzelfde virtuele netwerk als de SQL-Server verbinding kunnen maken met de SQL Server-exemplaar op met de **VNet interne** IP-adres voor de virtuele machine van SQL Server.  
+Alle toepassingen die in App Service-omgeving in hetzelfde virtuele netwerk Hallo als Hallo SQL Server kunnen tooconnect toohello SQL Server-exemplaar met behulp van Hallo **VNet interne** IP-adres voor de virtuele machine van Hallo SQL Server.  
 
-De verbindingsreeks voorbeeld verwijst naar de SQL-Server de privé IP-adres.
+Hallo voorbeeld verbindingsreeks hieronder verwijzingen Hallo SQL Server met behulp van de privé IP-adres.
 
     Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
 
-Hoewel de virtuele machine een openbaar eindpunt ook heeft, wordt verbindingspogingen met het openbare IP-adres wordt geweigerd vanwege de ACL van het netwerk. 
+Hoewel Hallo virtuele machine een openbaar eindpunt ook heeft, wordt verbindingspogingen met Hallo openbaar IP-adres geweigerd vanwege Hallo netwerk ACL. 
 
 ## <a name="restricting-access-with-a-network-security-group"></a>Beperken van toegang met een Netwerkbeveiligingsgroep
-Er is een alternatieve methode voor het beveiligen van toegang met een netwerkbeveiligingsgroep.  Netwerkbeveiligingsgroepen kunnen worden toegepast op afzonderlijke virtuele machines, of op een subnet met virtuele machines.
+Er is een alternatieve methode voor het beveiligen van toegang met een netwerkbeveiligingsgroep.  Netwerkbeveiligingsgroepen mag toegepaste tooindividual virtuele machines of tooa subnet met virtuele machines.
 
-Een netwerkbeveiligingsgroep moet eerst worden gemaakt:
+Een netwerkbeveiligingsgroep moet eerst toobe gemaakt:
 
     New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
 
-Toegang beperken tot alleen VNet interne verkeer is zeer eenvoudig met een netwerkbeveiligingsgroep.  De standaardregels in een netwerkbeveiligingsgroep alleen toestaan toegang van andere netwerkclients in hetzelfde virtuele netwerk.
+Beperken van toegang tooonly interne VNet-verkeer is zeer eenvoudig met een netwerkbeveiligingsgroep.  Hallo-standaardregels in een netwerkbeveiligingsgroep alleen toegang vanaf andere netwerkclients in Hallo toestaan hetzelfde virtuele netwerk.
 
-Als gevolg hiervan vergrendelen toegang tot SQL Server is net zo eenvoudig als het toepassen van een netwerkbeveiligingsgroep met de standaardregels op beide virtuele machines met SQL Server of het subnet met de virtuele machines.
+Als gevolg hiervan vergrendelen toegang tooSQL-Server is net zo eenvoudig als het toepassen van een netwerkbeveiligingsgroep met de standaard regels tooeither Hallo virtuele machines met SQL Server of Hallo subnet met Hallo virtuele machines.
 
-Het onderstaande voorbeeld geldt een netwerkbeveiligingsgroep voor het subnet met:
+Hallo onderstaand voorbeeld van een security group toohello met netwerksubnet toepassing:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
 
-Het eindresultaat is een set beveiligingsregels voor verbindingen die externe toegang, terwijl u VNet interne toegang blokkeren:
+Hallo eindresultaat is een set beveiligingsregels voor verbindingen die externe toegang, terwijl u VNet interne toegang blokkeren:
 
 ![Standaard-Netwerkbeveiligingsregels][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>Aan de slag
-Alle artikelen en hoe-aan de voor App Service-omgevingen zijn beschikbaar in de [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
+Alle artikelen en hoe-aan de voor App Service-omgevingen beschikbaar in Hallo zijn [Leesmij-bestand voor Toepassingsserviceomgevingen](../app-service/app-service-app-service-environments-readme.md).
 
-Om aan de slag met App Service-omgevingen, Zie [Inleiding tot de App Service-omgeving][IntroToAppServiceEnvironment]
+tooget de slag met App Service-omgevingen, Zie [inleiding tooApp Service-omgeving][IntroToAppServiceEnvironment]
 
-Zie voor meer informatie om binnenkomend verkeer naar uw App Service-omgeving beheren [binnenkomend verkeer naar een App-serviceomgeving beheren][ControlInboundASE]
+Zie voor meer informatie over beheren binnenkomend verkeer tooyour App Service-omgeving [binnenkomend verkeer tooan App Service-omgeving beheren][ControlInboundASE]
 
-Zie voor meer informatie over het Azure App Service-platform [Azure App Service][AzureAppService].
+Zie voor meer informatie over hello Azure App Service-platform, [Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

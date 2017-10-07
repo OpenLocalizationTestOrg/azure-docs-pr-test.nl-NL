@@ -1,6 +1,6 @@
 ---
-title: Controleer de verbinding met Azure-netwerk-Watcher - Azure CLI 2.0 | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u van connectiviteit controleren met behulp van Azure CLI 2.0 netwerk-Watcher
+title: connectiviteit met Azure-netwerk-Watcher - Azure CLI 2.0 aaaCheck | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toouse connectiviteit controleren met behulp van Azure CLI 2.0 netwerk-Watcher
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
-ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e94e0fad03fd36ebf4e1fdf9e3cfee934b289deb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Controleer de verbinding met Azure met Azure CLI 2.0 netwerk-Watcher
 
@@ -26,24 +26,24 @@ ms.lasthandoff: 08/18/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST-API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van verbinding om te controleren als direct TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
+Meer informatie over hoe toouse connectiviteit tooverify als een directe TCP-verbinding van een virtuele machine tooa opgegeven eindpunt kan worden vastgesteld.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel wordt ervan uitgegaan dat u hebt de volgende bronnen:
+In dit artikel wordt ervan uitgegaan dat er Hallo resources te volgen:
 
-* Een exemplaar van netwerk-Watcher in de regio die u wilt controleren, connectiviteit.
+* Een exemplaar van netwerk-Watcher in Hallo regio die u wilt toocheck connectiviteit.
 
-* Virtuele machines connectiviteit met controleren.
+* Virtuele machines toocheck connectiviteit met.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Controle van de verbinding zijn nodig voor de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Ga voor het Hallo-uitbreiding installeren op een virtuele machine van Windows naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="register-the-preview-capability"></a>Registreren van de preview-mogelijkheden 
+## <a name="register-hello-preview-capability"></a>Hallo preview mogelijkheid registreren 
 
-Controle van de verbinding is momenteel in de openbare preview, voor deze functie moet worden geregistreerd. U doet dit door de volgende CLI-voorbeeld uitvoeren
+Controle van de verbinding is momenteel in openbare preview toouse deze functie toobe geregistreerd moet. toodo deze, Voer Hallo CLI voorbeeld te volgen
 
 ```azurecli 
 az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
@@ -51,13 +51,13 @@ az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConn
 az provider register --namespace Microsoft.Network 
 ``` 
 
-Om te controleren of dat de registratie is gelukt, voer de volgende CLI-opdracht:
+tooverify hello registratie is gelukt, Hallo na CLI-opdracht uitvoeren:
 
 ```azurecli
 az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
 ```
 
-Als de functie juist is geregistreerd, de uitvoer moet overeenkomen met het volgende: 
+Als het Hallo-functie is juist is geregistreerd, Hallo uitvoer, moet overeenkomen met Hallo volgende: 
 
 ```json
 {
@@ -70,9 +70,9 @@ Als de functie juist is geregistreerd, de uitvoer moet overeenkomen met het volg
 }
 ``` 
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
+## <a name="check-connectivity-tooa-virtual-machine"></a>Controleer de connectiviteit tooa virtuele machine
 
-In dit voorbeeld controleert de verbinding met een doel-virtuele machine via poort 80.
+In dit voorbeeld controleert connectiviteit tooa bestemde virtuele machine via poort 80.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -82,7 +82,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Antwoord
 
-Het antwoord van de volgende is van het vorige voorbeeld.  In dit antwoord de `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests mislukte verzonden. De verbinding is mislukt bij het virtuele apparaat als gevolg van een gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, is geconfigureerd voor het blokkeren van inkomend verkeer op poort 80. Deze informatie kan worden gebruikt om te onderzoeken verbindingsproblemen.
+Hallo na antwoord is van het vorige voorbeeld Hallo.  In dit antwoord Hallo `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests verzonden mislukte Hallo. Hallo-connectiviteit op Hallo virtueel apparaat is mislukt vanwege tooa gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, tooblock binnenkomend verkeer op poort 80 geconfigureerd. Deze informatie kan gebruikte tooresearch verbindingsproblemen zijn.
 
 ```json
 {
@@ -153,7 +153,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>Problemen met routing valideren
 
-Het voorbeeld wordt de verbinding tussen een virtuele machine en een extern eindpunt.
+Hallo voorbeeld controleert de connectiviteit tussen een virtuele machine en een extern eindpunt.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -163,7 +163,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Antwoord
 
-In het volgende voorbeeld wordt de `connectionStatus` wordt weergegeven als **onbereikbaar**. In de `hops` details, kunt u zien onder `issues` dat het verkeer is geblokkeerd vanwege een `UserDefinedRoute`.
+Hallo in Hallo voorbeeld te volgen, `connectionStatus` wordt weergegeven als **onbereikbaar**. In Hallo `hops` details, kunt u zien onder `issues` dat Hallo verkeer is geblokkeerd vanwege tooa `UserDefinedRoute`.
 
 ```json
 {
@@ -211,7 +211,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 ## <a name="check-website-latency"></a>Latentie van de website controleren
 
-Het volgende voorbeeld wordt de verbinding met een website.
+Hallo volgende voorbeeld wordt gecontroleerd Hallo connectiviteit tooa website.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -221,7 +221,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Antwoord
 
-In het volgende antwoord ziet u de `connectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
+In Hallo antwoord te volgen, ziet u Hallo `connectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
 
 ```json
 {
@@ -255,9 +255,9 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Controleer de verbinding met een opslag-eindpunt
+## <a name="check-connectivity-tooa-storage-endpoint"></a>Controleer de connectiviteit tooa opslag eindpunt
 
-Het volgende voorbeeld wordt de verbinding van een virtuele machine met een blog van storage-account.
+Hallo volgende voorbeeld wordt gecontroleerd Hallo verbinding hebben met een virtuele machine tooa blog van storage-account.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -267,7 +267,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Antwoord
 
-De volgende json is de voorbeeld-reactie van de vorige cmdlet wordt uitgevoerd. Als de controle geslaagd is, de `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt de details met betrekking tot het aantal hops is vereist voor het bereiken van de storage-blob en latentie.
+Hallo is volgende json Hallo voorbeeld reactie van de vorige Hallo-cmdlet uit te voeren. Als het Hallo-controle is geslaagd, Hallo `connectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt Hallo-gegevens met betrekking tot Hallo aantal hops vereist tooreach Hallo storage-blob en latentie.
 
 ```json
 {
@@ -302,6 +302,6 @@ De volgende json is de voorbeeld-reactie van de vorige cmdlet wordt uitgevoerd. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over hoe tooautomate pakket worden vastgelegd met waarschuwingen van de virtuele machine door [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
 
 Als bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via vinden [controleren IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Bewaking en Responding to Security Alerts in de beveiliging van Operations Management Suite en Audit oplossing | Microsoft Docs
-description: Dit document helpt u de threat intelligence optie die beschikbaar zijn in de OMS-beveiliging en controle gebruiken om te controleren en reageren op beveiligingswaarschuwingen.
+title: aaaMonitoring en reageert tooSecurity waarschuwingen in de beveiliging van Operations Management Suite en Audit oplossing | Microsoft Docs
+description: Dit document helpt u toouse Hallo threat intelligence optie beschikbaar in de OMS-beveiligings- en Audit toomonitor en toosecurity waarschuwingen reageren.
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3d92b6809b7bd934c889afc119e5e34ff2b85f1b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Controleren en reageren op beveiligingswaarschuwingen in de beveiliging van Operations Management Suite en Audit-oplossing
-Dit document helpt u met de threat intelligence optie die beschikbaar zijn in de OMS-beveiliging en controle kunt bewaken en hierop reageren op beveiligingswaarschuwingen.
+# <a name="monitoring-and-responding-toosecurity-alerts-in-operations-management-suite-security-and-audit-solution"></a>Bewaking en waarschuwingen in de beveiliging van Operations Management Suite en Audit oplossing toosecurity reageert
+Dit document helpt u Hallo threat intelligence optie beschikbaar in de OMS-beveiligings- en Audit toomonitor gebruiken en waarschuwingen toosecurity reageren.
 
 ## <a name="what-is-oms"></a>Wat is OMS?
-Microsoft Operations Management Suite (OMS) is van Microsoft-cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur. Lees het artikel [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx) voor meer informatie over OMS.
+Microsoft Operations Management Suite (OMS) is van Microsoft-cloud-gebaseerde IT-beheeroplossing waarmee u beheren kunt en beveiligen van uw on-premises en cloud-infrastructuur. Lees voor meer informatie over OMS Hallo-artikel [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="threat-intelligence"></a>Informatie over bedreigingen
-In een bedrijfsomgeving waar gebruikers ruime toegang hebben tot het netwerk en een verscheidenheid aan apparaten gebruiken voor verbinding met zakelijke gegevens, is het noodzakelijk actief uw resources bewaken en snel reageren op beveiligingsincidenten. Dit is bijzonder belangrijk vanuit het perspectief van de levenscyclus van beveiliging, omdat sommige cybersecurity bedreigingen kunnen niet verhogen waarschuwingen of verdachte activiteiten die kunnen worden geïdentificeerd door technische traditionele beveiligingsmechanismen. 
+In een bedrijfsomgeving waar gebruikers ruime toegang toohello netwerk hebt en een verscheidenheid aan apparaten tooconnect toocorporate gegevens gebruiken, is het noodzakelijk actief uw resources bewaken en snel reageren toosecurity incidenten. Dit is name belangrijk vanuit Hallo beveiliging lifecycle perspectief omdat sommige cybersecurity bedreigingen kunnen niet verhogen waarschuwingen of verdachte activiteiten die kunnen worden geïdentificeerd door technische traditionele beveiligingsmechanismen. 
 
-Met behulp van de **dreigingen** optie beschikbaar in de OMS-beveiliging en controle, IT-beheerders kunnen identificeren bedreigingen van de omgeving, bijvoorbeeld, identificeren als een bepaalde computer deel uitmaakt van een [ botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Computers kunnen knooppunten worden in een botnet wanneer aanvallers malware installeren waarmee de computer wordt verbonden met de bedieningscentrale. Mogelijke bedreigingen die afkomstig zijn van ondergrondse communicatiekanalen, zoals kan ook worden aangegeven [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
+Met behulp van Hallo **dreigingen** optie beschikbaar in de OMS-beveiliging en controle, IT-beheerders kunnen identificeren bedreigingen van Hallo-omgeving, bijvoorbeeld, identificeren als een bepaalde computer deel uitmaakt van een [ botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Computers kunnen knooppunten in een botnet worden wanneer aanvallers vastlegt kwaadaardige software die heimelijk deze computer toohello opdracht en controle verbindt moet worden geïnstalleerd. Mogelijke bedreigingen die afkomstig zijn van ondergrondse communicatiekanalen, zoals kan ook worden aangegeven [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
 
-Om deze dreigingen bouwen, gebruik OMS beveiligings- en Audit gegevens die afkomstig zijn uit meerdere bronnen binnen Microsoft. OMS beveiligings- en Audit zal gebruikmaken van deze gegevens om te identificeren mogelijke bedreigingen van uw omgeving.
+In volgorde toobuild gebruiken deze dreigingen OMS beveiligings- en Audit gegevens die afkomstig zijn uit meerdere bronnen binnen Microsoft. OMS beveiligings- en Audit zal gebruikmaken van deze gegevens tooidentify van mogelijke bedreigingen van uw omgeving.
 
-Het deelvenster Bedreigingsinformatie bestaat uit drie belangrijke onderdelen:
+Hallo dreigingen deelvenster bestaat door drie belangrijke opties:
 
 * Servers met uitgaand schadelijk verkeer
 * Typen gedetecteerde bedreigingen
@@ -45,59 +45,59 @@ Het deelvenster Bedreigingsinformatie bestaat uit drie belangrijke onderdelen:
 > 
 > 
 
-### <a name="responding-to-security-alerts"></a>Reageren op beveiligingswaarschuwingen
-Een van de stappen van een [beveiliging respons op incidenten](https://technet.microsoft.com/library/cc512623.aspx) proces is het identificeren van de ernst van de inbreuk-systemen. In deze fase moet u de volgende taken uitvoeren:
+### <a name="responding-toosecurity-alerts"></a>Reageert toosecurity waarschuwingen
+Een van de stappen Hallo van een [beveiliging respons op incidenten](https://technet.microsoft.com/library/cc512623.aspx) proces tooidentify Hallo ernst van systemen dat Hallo inbreuk is. In deze fase moet u Hallo volgende taken uitvoeren:
 
-* Bepaal de aard van de aanval
-* Bepaal de oorsprong van de aanval
-* Bepaal de bedoeling van de aanval. Was de aanval specifiek gericht op uw organisatie om specifieke gegevens te verkrijgen, of was het een willekeurige aanval?
-* Identificeren welke systemen zijn gecompromitteerd
-* Identificeren van de bestanden die zijn geopend en de gevoeligheid van die bestanden bepalen
+* Hallo aard van de aanval Hallo bepalen
+* Hallo aanvallen met zich mee van oorsprong bepalen
+* Hallo bedoeling van Hallo aanval bepalen. Hallo-aanval die specifiek zijn gericht op een specifieke gegevens van de organisatie-tooacquire is of is willekeurige?
+* Hallo systemen identificeren waarvoor is geknoeid
+* Hallo-bestanden die zijn geopend en bepalen Hallo gevoeligheid van die bestanden identificeren
 
-U kunt gebruikmaken van **dreigingen** informatie in OMS beveiligings- en Audit-oplossing om te helpen bij deze taken. Volg de onderstaande toegang krijgt tot deze stappen **dreigingen** opties:
+U kunt gebruikmaken van **dreigingen** informatie in de OMS-beveiligings- en Audit oplossing toohelp met deze taken. Voert u stappen hieronder tooaccess hello **dreigingen** opties:
 
-1. Klik in het hoofddashboard van **Microsoft Operations Management Suite** op de tegel **Beveiliging en controle**.
+1. In Hallo **Microsoft Operations Management Suite** hoofddashboard Klik **beveiligings- en Audit** tegel.
    
     ![Beveiliging en controle](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig1.png)
-2. In de **beveiligings- en Audit** dashboard ziet u de **dreigingen** opties in de rechterkant zoals hieronder wordt weergegeven:
+2. In Hallo **beveiligings- en Audit** dashboard ziet u Hallo **dreigingen** opties in Hallo rechts, zoals hieronder wordt weergegeven:
    
     ![Threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig2-ga.png)
 
-Deze drie tegels krijgt u een overzicht van de huidige bedreigingen. In de **Server met uitgaand schadelijk verkeer** kun je om te bepalen of er is een computer die u wilt controleren (binnen of buiten uw netwerk) is dat het schadelijk verkeer verzenden naar Internet. 
+Deze drie tegels krijgt u een overzicht van de huidige bedreigingen Hallo. In Hallo **Server met uitgaand schadelijk verkeer** kunt u zich kunt tooidentify als er een computer die u controleren is wilt (binnen of buiten uw netwerk) die verzenden schadelijk verkeer toohello Internet. 
 
-De **gedetecteerd threat typen** tegel geeft een samenvatting weer van bedreigingen die huidige 'in het wild zijn", als u op deze tegel klikt ziet u meer informatie over deze bedreigingen zoals u hierna ziet:
+Hallo **gedetecteerd threat typen** tegel geeft een samenvatting weer van bedreigingen voor actueel 'in Hallo wilde"Hallo, als u op deze tegel klikt ziet u meer informatie over deze bedreigingen zoals u hierna ziet:
 
 ![Gedetecteerde bedreigingstypen](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig3.png)
 
-U kunt meer informatie over elke bedreiging uitpakken door erop te klikken. Het volgende voorbeeld ziet meer informatie over Botnet:
+U kunt meer informatie over elke bedreiging uitpakken door erop te klikken. Hallo in het volgende voorbeeld ziet u meer informatie over Botnet:
 
 ![meer informatie over een bedreiging](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig4.png)
 
-Zoals beschreven in het begin van deze sectie, kan deze informatie nuttig zijn bij een aanvraag voor respons op incidenten. Het kan ook worden belangrijke tijdens een forensisch onderzoek, waarin u wilt de bron van de aanval, welk systeem is geknoeid en de tijdlijn vinden. In dit rapport dat u een aantal belangrijke details van de aanval zoals eenvoudig kunt herkennen: de bron van de aanval, het lokale IP-adres waarmee is geknoeid en de status van de huidige sessie van de verbinding. 
+Zoals beschreven in het begin van deze sectie hello, kan deze informatie nuttig zijn bij een aanvraag voor respons op incidenten. Het kan ook worden belangrijke tijdens een forensisch onderzoek hier moet u toofind Hallo bron Hallo aanval, welk systeem is geknoeid en Hallo tijdlijn. In dit rapport dat u enkele belangrijke details over Hallo-aanval zoals eenvoudig kunt herkennen: Hallo bron van de aanval hello, Hallo lokale IP waarmee is geknoeid en status van de huidige sessie van verbinding Hallo Hallo. 
 
-De **threat intelligence kaart** helpt u bij de huidige locaties wereldwijd waarvoor schadelijk verkeer te identificeren. Er zijn oranje (inkomend) en rood (uitgaand) pijlen in deze kaart die de richting van verkeer, identificeren als u in een van deze pijlen klikt, wordt het het soort dreiging en de richting van verkeer zoals hieronder weergegeven:
+Hallo **threat intelligence kaart** helpt u tooidentify Hallo huidige locaties hele Hallo wereld waarvoor schadelijk verkeer. Er zijn oranje (inkomend) en rood (uitgaand) pijlen in deze kaart die Hallo verkeer richting, identificeren als u in een van deze pijlen klikt, wordt het weergegeven Hallo type dreiging en Hallo verkeer richting zoals hieronder wordt weergegeven:
 
 ![kaart met gegevens van bedreigingen](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
 > [!NOTE]
-> U kunt een demonstratie zien over het gebruik van deze mogelijkheid tijdens een respons op incidenten volgen de presentatie [datacenter beveiligingsrisico's verhelpen met begeleide onderzoek met Operations Management Suite](https://myignite.microsoft.com/videos/5000) geleverd bij Microsoft Ignite.
+> Ziet u een demonstratie over het toouse deze mogelijkheid tijdens een respons op incidenten proces door bekijkt hello presentatie [datacenter beveiligingsrisico's verhelpen met begeleide onderzoek met Operations Management Suite](https://myignite.microsoft.com/videos/5000) geleverd bij Microsoft Ignite.
 > 
 
-### <a name="responding-to-distinct-malicious-ip-accessed"></a>Reageren op unieke schadelijke IP geopend
+### <a name="responding-toodistinct-malicious-ip-accessed"></a>Reageert toodistinct schadelijke IP geopend
 In sommige scenario's ziet u mogelijk een potentieel schadelijke IP-adres dat is geopend vanaf een bewaakte computer:
 
 ![kaart met gegevens van bedreigingen](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
 
-Deze waarschuwing en anderen binnen dezelfde categorie worden gegenereerd via OMS-beveiliging door gebruik te maken van [bedreigingsinformatie van Microsoft](https://youtu.be/O4WtxgUrDc8). Deze informatie over bedreigingen wordt verzameld door Microsoft, maar ook gekocht van toonaangevende leveranciers van dit type informatie. De informatie wordt regelmatig bijgewerkt en aangepast als er nieuwe bedreigingen zijn ontdekt. Vanwege de aard van de informatie, moet deze worden gecombineerd met andere bronnen van beveiligingsgegevens tijdens het [onderzoeken](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) van een beveiligingswaarschuwing. 
+Deze waarschuwing en anderen binnen dezelfde categorie Hallo, via de OMS-beveiliging worden gegenereerd door gebruik te [Microsoft dreigingen](https://youtu.be/O4WtxgUrDc8). Hallo dreigingen gegevens is verzameld door Microsoft evenals van toonaangevende leveranciers van threat intelligence aangeschaft. Deze gegevens vaak wordt bijgewerkt en aangepast bedreigingen toofast verplaatsen. Vanwege de aard van tooits, moet deze worden gecombineerd met andere bronnen van beveiligingsgegevens tijdens [onderzoeken](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) een beveiligingswaarschuwing. 
 
 ## <a name="customize-alerts-received-via-e-mail"></a>Meldingen ontvangen per e-mail aanpassen
 
-U kunt aanpassen welke gebruikers in uw organisatie wordt gewaarschuwd wanneer er beveiligingswaarschuwingen worden geactiveerd door OMS-beveiliging. Deze optie is beschikbaar onder overzicht / instellingen op het dashboard OMS:
+U kunt aanpassen welke gebruikers in uw organisatie wordt gewaarschuwd wanneer er beveiligingswaarschuwingen worden geactiveerd door OMS-beveiliging. Deze optie is beschikbaar onder overzicht / instellingen bij Hallo OMS dashboard:
 
 ![E-mail](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u geleerd hoe u de **dreigingen** optie in OMS beveiligings- en Audit-oplossing om te reageren op beveiligingswaarschuwingen. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
+In dit document, u leert hoe toouse hello **dreigingen** optie in OMS beveiligings- en Audit oplossing toorespond toosecurity waarschuwingen. toolearn meer informatie over OMS-beveiliging, Zie Hallo artikelen te volgen:
 
 * [Overzicht van Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Aan de slag met beveiliging van Operations Management Suite en Audit-oplossing](oms-security-getting-started.md)

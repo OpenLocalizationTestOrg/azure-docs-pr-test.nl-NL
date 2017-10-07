@@ -1,6 +1,6 @@
 ---
-title: Gegevens verplaatsen van een lokale SQL Server naar SQL Azure met Azure Data Factory | Microsoft Docs
-description: Stel een ADF-pijplijn die stelt het bericht op twee activiteiten van de gegevens migreren die gegevens samen dagelijks tussen databases on-premises en in de cloud verplaatsen.
+title: aaaMove gegevens uit een lokale SQL Server tooSQL Azure met Azure Data Factory | Microsoft Docs
+description: Een ADF-pijplijn die twee activiteiten van de gegevens migreren die gegevens samen dagelijks tussen databases on-premises en in de cloud Hallo verplaatsen stelt het bericht instellen.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: 39fe26d3388be8b558f05063a8965889c013a41e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7f7e78c7a84a259539221d3235b76bb5a3cf9866
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een lokale SQL server naar SQL Azure met Azure Data Factory
-Dit onderwerp wordt beschreven hoe gegevens uit een lokale SQL Server-Database verplaatsen naar een Azure SQL Database via Azure Blob Storage met Azure Data Factory (ADF).
+# <a name="move-data-from-an-on-premises-sql-server-toosql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een lokale SQL server tooSQL Azure met Azure Data Factory
+Dit onderwerp leest hoe toomove gegevens uit een lokale SQL Server-Database tooa SQL Azure Database via Azure Blob Storage met behulp van Azure Data Factory (ADF) Hallo.
 
-Zie voor een tabel die een overzicht van de verschillende opties voor het verplaatsen van gegevens naar een Azure SQL Database, [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
+Zie voor een tabel die een overzicht van de verschillende opties voor verplaatsen gegevens tooan Azure SQL Database, [verplaatsen van gegevens tooan Azure SQL Database voor Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-## <a name="intro"></a>Inleiding: Wat is er ADF en wanneer moet deze worden gebruikt om gegevens te migreren?
-Azure Data Factory is een volledig beheerde gegevens cloud-gebaseerde integration-service die is ingedeeld en automatiseert de verplaatsing en transformatie van gegevens. Het belangrijkste concept in het model ADF is pijplijn. Een pijplijn is een logische groepering van activiteiten, die elk de acties die worden uitgevoerd op de gegevens in de gegevenssets definieert. Gekoppelde services worden gebruikt voor het definiëren van de informatie die nodig zijn voor Data Factory verbinding maken met de gegevensbronnen.
+## <a name="intro"></a>Inleiding: Wat is er ADF en wanneer moet het gebruikte toomigrate gegevens?
+Azure Data Factory is een volledig beheerde gegevens cloud-gebaseerde integration-service die is ingedeeld en automatiseert Hallo verplaatsing en transformatie van gegevens. Hallo sleutel concept in Hallo ADF model is pijplijn. Een pijplijn is een logische groepering van activiteiten, die elk Hallo acties tooperform op Hallo gegevens in de gegevenssets definieert. Gekoppelde services zijn gebruikte toodefine Hallo informatie die nodig is voor de gegevensbronnen voor Data Factory tooconnect toohello.
 
-Met ADF, bestaande services voor gegevensverwerking samengesteld kunnen zijn, in gegevenspijplijnen die maximaal beschikbaar en wordt beheerd in de cloud. Deze gegevenspijplijnen voor opnemen, voorbereiden, transformeren, analyseren en publiceren van gegevens kunnen worden gepland en ADF beheert en stuurt de complexe gegevens en de verwerking van afhankelijkheden. Oplossingen kunnen snel worden gemaakt en geïmplementeerd in de cloud, verbinding maken met een toenemend aantal lokale en cloud-gegevensbronnen.
+Met ADF, bestaande services voor gegevensverwerking in gegevenspijplijnen die maximaal beschikbaar en wordt beheerd in de cloud Hallo samengesteld. Deze gegevenspijplijnen kunnen worden geplande tooingest, voorbereiden, transformeren, analyseren en gegevens publiceren en ADF beheert en stuurt Hallo complexe gegevens en afhankelijkheden voor verwerking. Oplossingen worden snel gebouwd en geïmplementeerde in Hallo cloud, verbinding maken met een toenemend aantal lokale en cloud-gegevensbronnen.
 
 Overweeg het gebruik van ADF:
 
-* Wanneer de gegevens moeten voortdurend worden gemigreerd in een hybride scenario die toegang heeft tot zowel on-premises en cloudresources
-* Wanneer de gegevens is transactionele of moet worden gewijzigd of dat er zakelijke logica toegevoegd wanneer wordt gemigreerd.
+* Wanneer gegevens die behoeften toobe voortdurend gemigreerd in een hybride scenario die toegang heeft tot zowel on-premises en cloudresources
+* Wanneer gegevens Hallo is transactionele of behoeften toobe gewijzigd of bedrijfslogica toegevoegd tooit wanneer wordt gemigreerd.
 
-ADF kunt u de planning en bewaking van taken met behulp van eenvoudige JSON-scripts die de verplaatsing van gegevens op periodieke basis beheren. ADF heeft ook andere mogelijkheden, zoals ondersteuning voor complexe bewerkingen. Zie de documentatie op voor meer informatie over ADF [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
+ADF kunt Hallo planning en bewaking van taken met behulp van eenvoudige JSON-scripts die Hallo verplaatsing van gegevens op periodieke basis beheren. ADF heeft ook andere mogelijkheden, zoals ondersteuning voor complexe bewerkingen. Zie voor meer informatie over ADF Hallo-documentatie op [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
-## <a name="scenario"></a>Het Scenario
-We instellen een ADF-pijplijn die de activiteiten van de migratie twee gegevens stelt het bericht. Samen wordt gegevens dagelijks verplaatsen tussen een lokale SQL-database en een Azure SQL Database in de cloud. Er zijn twee activiteiten:
+## <a name="scenario"></a>Hallo Scenario
+We instellen een ADF-pijplijn die de activiteiten van de migratie twee gegevens stelt het bericht. Samen wordt gegevens dagelijks verplaatsen tussen een lokale SQL-database en een Azure SQL Database in de cloud Hallo. Hallo twee activiteiten zijn:
 
-* gegevens kopiëren van een on-premises SQL Server database naar een Azure Blob Storage-account
-* gegevens kopiëren van de Azure Blob Storage-account naar een Azure SQL Database.
+* gegevens kopiëren van een lokale SQL Server-database tooan Azure Blob Storage-account
+* gegevens kopiëren van hello Azure Blob Storage-account tooan Azure SQL Database.
 
 > [!NOTE]
-> De stappen die hier zijn aangepast uit de meer gedetailleerde zelfstudie geleverd door de ADF-team weergegeven: [gegevens verplaatsen tussen lokale bronnen en cloud met Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) verwijzingen naar de relevante secties in dat onderwerp zijn opgegeven indien van toepassing.
+> stappen die hier zijn aangepast van Hallo meer zelfstudie geleverd door Hallo ADF-team gedetailleerde weergegeven Hallo: [gegevens verplaatsen tussen lokale bronnen en cloud met Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) toohello relevante secties van dit onderwerp verwijst naar Als het nodig zijn worden opgegeven.
 >
 >
 
@@ -52,35 +52,35 @@ We instellen een ADF-pijplijn die de activiteiten van de migratie twee gegevens 
 Deze zelfstudie wordt ervan uitgegaan dat u hebt:
 
 * Een **Azure-abonnement**. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
-* Een **Azure storage-account**. U kunt een Azure storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen account Azure-opslagaccount hebt. Nadat u het opslagaccount hebt gemaakt, moet u de accountsleutel ophalen die wordt gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Toegang tot een **Azure SQL Database**. Als u een Azure SQL Database, de tpoic moet instellen [aan de slag met Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) bevat informatie over het inrichten van een nieuw exemplaar van een Azure SQL Database.
-* Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+* Een **Azure storage-account**. U kunt een Azure storage-account gebruiken voor het opslaan van Hallo gegevens in deze zelfstudie. Als u geen Azure storage-account hebt, raadpleegt u Hallo [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) artikel. Nadat u Hallo storage-account hebt gemaakt, moet u tooobtain Hallo account sleutel tooaccess Hallo opslagruimte hebt gebruikt. Zie [beheren van uw toegangssleutels voor opslag](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Toegang tooan **Azure SQL Database**. Als u een Azure SQL Database, moet Hallo tpoic [aan de slag met Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) bevat informatie over het tooprovision een nieuw exemplaar van een Azure SQL Database.
+* Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
-> Deze procedure gebruikt u de [Azure-portal](https://portal.azure.com/).
+> Met deze procedure gebruikt Hallo [Azure-portal](https://portal.azure.com/).
 >
 >
 
-## <a name="upload-data"></a>De gegevens uploaden naar uw lokale SQL Server
-We gebruiken de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/) ter illustratie van het migratieproces. De gegevensset NYC Taxi beschikbaar is, zoals beschreven in deze post, op Azure-blobopslag [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). De gegevens heeft twee bestanden: het bestand trip_data.csv reis details bevat, en het bestand trip_far.csv details van het tarief dat voor elke reis betaald bevat. Een beschrijving van deze bestanden en voorbeelden vindt u in [NYC Taxi reizen gegevensset beschrijving](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+## <a name="upload-data"></a>Het uploaden van Hallo gegevens tooyour lokale SQL Server
+We gebruiken Hallo [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/) toodemonstrate Hallo-migratieproces. Hallo NYC Taxi gegevensset beschikbaar is, zoals beschreven in deze post, op Azure-blobopslag [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). Hallo gegevens heeft twee bestanden, Hallo trip_data.csv bestand, dat reis details bevat, en Hallo trip_far.csv bestand, met details over Hallo tarief voor elke reis betaald. Een beschrijving van deze bestanden en voorbeelden vindt u in [NYC Taxi reizen gegevensset beschrijving](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
-U kunt aanpassen van de procedure die hier worden opgegeven voor een set van uw eigen gegevens of de stappen zoals beschreven met behulp van de NYC Taxi gegevensset. Als u wilt de gegevensset NYC Taxi uploaden naar uw lokale SQL Server-database, volgt u de procedure beschreven in [gegevens voor bulksgewijs importeren in SQL Server-Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een virtuele Machine van Azure, maar de procedure voor het uploaden naar de lokale SQL Server is hetzelfde.
+Hallo-procedure die hier tooa set van uw eigen gegevens aanpassen of Hallo stappen zoals beschreven met behulp van Hallo NYC Taxi gegevensset. tooupload hello NYC Taxi gegevensset in uw lokale SQL Server-database, volgt u Hallo procedure beschreven in [gegevens voor bulksgewijs importeren in SQL Server-Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een virtuele Machine van Azure, maar de procedure voor het uploaden van de lokale SQL Server is toohello Hallo Hallo dezelfde.
 
 ## <a name="create-adf"></a>Een Azure-Gegevensfactory maken
-De instructies voor het maken van een nieuwe Azure Data Factory en een resourcegroep in de [Azure-portal](https://portal.azure.com/) vindt u [maken van een Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Naam van het nieuwe exemplaar van de ADF *adfdsp* en de naam van de resourcegroep gemaakt *adfdsprg*.
+instructies voor het maken van een nieuwe Azure Data Factory en een resourcegroep in Hallo Hallo [Azure-portal](https://portal.azure.com/) vindt u [maken van een Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Naam Hallo nieuw ADF exemplaar *adfdsp* en naam Hallo-resourcegroep gemaakt *adfdsprg*.
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>Installeren en configureren van de Data Management Gateway
-Zodat uw pijplijnen in een Azure data factory werkt met een lokale SQL Server die u wilt toevoegen als een gekoppelde Service aan de gegevensfactory. Voor het maken van een gekoppelde Service voor een lokale SQL Server, moet u het volgende doen:
+## <a name="install-and-configure-up-hello-data-management-gateway"></a>Installeren en configureren van Hallo Data Management Gateway
+tooenable uw pijplijnen in een Azure data factory-toowork met een lokale SQL Server, moet u tooadd als een gekoppelde Service toohello data factory. toocreate een gekoppelde Service voor een lokale SQL Server, moet u:
 
-* Download en installeer Microsoft Data Management Gateway op de lokale computer.
-* Configureer de gekoppelde service voor de lokale gegevensbron om de gateway te gebruiken.
+* Download en installeer Microsoft Data Management Gateway op Hallo lokale computer.
+* Hallo gekoppelde service voor Hallo lokale bron toouse Hallo gegevensgateway configureren.
 
-Data Management Gateway serialiseert en deserializes van de bron- en sink-gegevens op de computer waarop deze wordt gehost.
+Hallo Data Management Gateway serialiseert en deserializes Hallo bron- en sink-gegevens op Hallo-computer waarop deze wordt gehost.
 
 Zie voor installatie-instructies en informatie over Data Management Gateway [gegevens verplaatsen tussen lokale bronnen en cloud met Data Management Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)
 
-## <a name="adflinkedservices"></a>Gekoppelde services verbinding maken met de gegevensbronnen maken
-Een gekoppelde service definieert de informatie die nodig zijn voor Azure Data Factory verbinding maken met een bron van gegevens. Stapsgewijze procedures voor het maken van de gekoppelde services is beschikbaar in [gekoppelde services maken](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+## <a name="adflinkedservices"></a>Gekoppelde services tooconnect toohello gegevens resources maken
+Een gekoppelde service definieert Hallo-informatie die nodig is voor Azure Data Factory tooconnect tooa Gegevensresource. Hallo Stapsgewijze instructies voor het maken van de gekoppelde services is beschikbaar in [gekoppelde services maken](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
 Er zijn drie bronnen in dit scenario waarvoor de gekoppelde services vereist zijn.
 
@@ -89,36 +89,36 @@ Er zijn drie bronnen in dit scenario waarvoor de gekoppelde services vereist zij
 3. [Gekoppelde service voor Azure SQL database](#adf-linked-service-azure-sql)
 
 ### <a name="adf-linked-service-onprem-sql"></a>Gekoppelde service voor on-premises SQL Server-database
-De gekoppelde service voor de lokale SQL Server maken:
+toocreate hello gekoppelde service voor Hallo lokale SQL Server:
 
-* Klik op de **gegevensarchief** in de ADF-startpagina op de klassieke Azure-Portal
-* Selecteer **SQL** en voer de *gebruikersnaam* en *wachtwoord* referenties voor de lokale SQL Server. U moet de servernaam als invoeren een **volledig gekwalificeerde servernaam backslash exemplaarnaam (servernaam\exemplaarnaam)**. Naam van de gekoppelde service *adfonpremsql*.
+* Klik op Hallo **gegevensarchief** in Hallo ADF-startpagina op de klassieke Azure-Portal
+* Selecteer **SQL** en Voer Hallo *gebruikersnaam* en *wachtwoord* voor Hallo on-premises SQL Server-referenties. U moet tooenter Hallo servername als een **volledig gekwalificeerde servernaam backslash exemplaarnaam (servernaam\exemplaarnaam)**. Naam Hallo gekoppelde service *adfonpremsql*.
 
 ### <a name="adf-linked-service-blob-store"></a>Gekoppelde service voor Blob
-De gekoppelde service voor het Azure Blob Storage-account maken:
+toocreate Hallo gekoppelde service voor hello Azure Blob Storage-account:
 
-* Klik op de **gegevensarchief** in de ADF-startpagina op de klassieke Azure-Portal
+* Klik op Hallo **gegevensarchief** in Hallo ADF-startpagina op de klassieke Azure-Portal
 * Selecteer **Azure Storage-Account**
-* Voer de naam Azure Blob Storage-account sleutel en de container. Naam van de gekoppelde Service *adfds*.
+* Geef hello Azure Blob Storage-account sleutel en container. Naam Hallo gekoppelde Service *adfds*.
 
 ### <a name="adf-linked-service-azure-sql"></a>Gekoppelde service voor Azure SQL database
-De gekoppelde service voor de Azure SQL Database maken:
+toocreate Hallo gekoppelde service voor hello Azure SQL Database:
 
-* Klik op de **gegevensarchief** in de ADF-startpagina op de klassieke Azure-Portal
-* Selecteer **Azure SQL** en voer de *gebruikersnaam* en *wachtwoord* referenties voor de Azure SQL Database. De *gebruikersnaam* moet worden opgegeven als  *user@servername* .   
+* Klik op Hallo **gegevensarchief** in Hallo ADF-startpagina op de klassieke Azure-Portal
+* Selecteer **Azure SQL** en Voer Hallo *gebruikersnaam* en *wachtwoord* referenties voor hello Azure SQL Database. Hallo *gebruikersnaam* moet worden opgegeven als  *user@servername* .   
 
-## <a name="adf-tables"></a>Definieer en tabellen om op te geven over toegang tot de gegevenssets maken
-Maak tabellen die de structuur, de locatie en de beschikbaarheid van de gegevenssets met de volgende procedures op basis van scripts opgeven. JSON-bestanden worden gebruikt voor het definiëren van de tabellen. Zie voor meer informatie over de structuur van deze bestanden [gegevenssets](../data-factory/data-factory-create-datasets.md).
+## <a name="adf-tables"></a>Definieer en maken van tabellen toospecify hoe tooaccess Hallo gegevenssets
+Maak tabellen die Hallo structuur, de locatie en de beschikbaarheid van Hallo gegevenssets Hello volgen van procedures op basis van een script opgeeft. JSON-bestanden zijn gebruikte toodefine Hallo tabellen. Zie voor meer informatie over de structuur Hallo van deze bestanden [gegevenssets](../data-factory/data-factory-create-datasets.md).
 
 > [!NOTE]
-> U dient te worden uitgevoerd de `Add-AzureAccount` cmdlet voordat u de [nieuw AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet om te bevestigen dat het juiste Azure-abonnement is ingeschakeld voor uitvoering van de opdracht. Zie voor documentatie van deze cmdlet [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
+> Hallo moet worden uitgevoerd `Add-AzureAccount` cmdlet alvorens uit te voeren Hallo [nieuw AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet tooconfirm die Hallo rechts Azure-abonnement is geselecteerd voor Hallo opdrachten uit te voeren. Zie voor documentatie van deze cmdlet [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
-De definities JSON-indeling in de tabellen gebruiken de volgende namen:
+Hallo JSON gebaseerde definities in Hallo tabellen gebruiken Hallo namen te volgen:
 
-* de **tabelnaam** in de lokale SQL server is *nyctaxi_data*
-* de **containernaam** in Azure Blob Storage-account is *containername*  
+* Hallo **tabelnaam** in Hallo is het lokale SQL server *nyctaxi_data*
+* Hallo **containernaam** in hello Azure Blob Storage-account is *containername*  
 
 Drie tabeldefinities nodig zijn voor deze ADF-pijplijn:
 
@@ -127,12 +127,12 @@ Drie tabeldefinities nodig zijn voor deze ADF-pijplijn:
 3. [SQL Azure-tabel](#adf-table-azure-sql)
 
 > [!NOTE]
-> Deze procedures Azure PowerShell gebruiken om te definiëren en te maken van de ADF-activiteiten. Maar deze taken kunnen ook worden bereikt met de Azure-portal. Zie voor meer informatie [gegevenssets maken](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
+> Deze procedures gebruikt u Azure PowerShell toodefine en Hallo ADF activiteiten maken. Maar deze taken kunnen ook worden gerealiseerd met hello Azure-portal. Zie voor meer informatie [gegevenssets maken](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
 >
 >
 
 ### <a name="adf-table-onprem-sql"></a>On-premises SQL-tabel
-De definitie van de tabel voor de lokale SQL Server is opgegeven in het volgende JSON-bestand:
+de tabeldefinitie Hallo voor Hallo lokale SQL Server is opgegeven in de volgende JSON-bestand Hallo:
 
         {
             "name": "OnPremSQLTable",
@@ -159,15 +159,15 @@ De definitie van de tabel voor de lokale SQL Server is opgegeven in het volgende
             }
         }
 
-De kolomnamen zijn hier niet opgenomen. U kunt subplan selecteren op de kolomnamen door ze hier (Raadpleeg voor meer informatie de [ADF documentatie](../data-factory/data-factory-data-movement-activities.md) onderwerp.
+Hallo kolomnamen zijn niet opgenomen in hier. U kunt subplan selecteren op Hallo kolomnamen door ze hier (voor meer informatie Hallo verplicht [ADF documentatie](../data-factory/data-factory-data-movement-activities.md) onderwerp.
 
-Naam van de JSON-definitie van de tabel in een bestand kopiëren *onpremtabledef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\onpremtabledef.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
+Hallo JSON-definitie van Hallo tabel kopiëren naar een bestand met de naam *onpremtabledef.json* bestand en sla het tooa bekende locatie (hier uitgegaan toobe *C:\temp\onpremtabledef.json*). Hallo-tabel maken in ADF Hello Azure PowerShell-cmdlet te volgen:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
 ### <a name="adf-table-blob-store"></a>Blobtabel
-De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende (Hiermee worden de opgenomen gegevens van on-premises naar Azure blob):
+Definitie voor de tabel voor Hallo Hallo uitvoer blob bevindt zich in Hallo volgende (toegewezen Hallo ingenomen gegevens van de lokale tooAzure blob):
 
         {
             "name": "OutputBlobTable",
@@ -192,12 +192,12 @@ De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende
             }
         }
 
-Naam van de JSON-definitie van de tabel in een bestand kopiëren *bloboutputtabledef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\bloboutputtabledef.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
+Hallo JSON-definitie van Hallo tabel kopiëren naar een bestand met de naam *bloboutputtabledef.json* bestand en sla het tooa bekende locatie (hier uitgegaan toobe *C:\temp\bloboutputtabledef.json*). Hallo-tabel maken in ADF Hello Azure PowerShell-cmdlet te volgen:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
 ### <a name="adf-table-azure-sq"></a>SQL Azure-tabel
-Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (de gegevens die afkomstig zijn van de blob dit schema toegewezen):
+Definitie voor de tabel Hallo voor Hallo die SQL Azure-uitvoer heeft Hallo volgende (dit schema toegewezen Hallo-gegevens die afkomstig zijn van een blob Hallo):
 
     {
         "name": "OutputSQLAzureTable",
@@ -222,34 +222,34 @@ Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (de gegevens
         }
     }
 
-Naam van de JSON-definitie van de tabel in een bestand kopiëren *AzureSqlTable.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\AzureSqlTable.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
+Hallo JSON-definitie van Hallo tabel kopiëren naar een bestand met de naam *AzureSqlTable.json* bestand en sla het tooa bekende locatie (hier uitgegaan toobe *C:\temp\AzureSqlTable.json*). Hallo-tabel maken in ADF Hello Azure PowerShell-cmdlet te volgen:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
 
-## <a name="adf-pipeline"></a>Definiëren en de pijplijn maken
-Geef de activiteiten die behoren tot de pijplijn en de pijplijn maken met de volgende procedures op basis van scripts. Een JSON-bestand wordt gebruikt voor het definiëren van de pipeline-eigenschappen.
+## <a name="adf-pipeline"></a>Definieer en Hallo pijplijn maken
+Hallo-activiteiten die toohello behoren pipeline en Hallo pijplijn maken met de Hallo volgen van procedures op basis van scripts opgeven. Een JSON-bestand is gebruikte toodefine Hallo pipeline-eigenschappen.
 
-* Het script wordt ervan uitgegaan dat de **pijplijn naam** is *AMLDSProcessPipeline*.
-* Houd er ook rekening mee dat we de periodiciteit van de pijplijn worden dagelijks uitgevoerd en de uitvoeringstijd van de standaard gebruiken voor de taak (12: 00 a.m. UTC) ingesteld.
+* Hallo script wordt ervan uitgegaan dat Hallo **pijplijn naam** is *AMLDSProcessPipeline*.
+* Vergeet niet dat we Hallo periodiciteit van Hallo pijplijn toobe uitgevoerd op dagelijks basis en gebruik Hallo standaard uitvoeringstijd voor Hallo taak (12: 00 a.m. UTC) ingesteld.
 
 > [!NOTE]
-> Azure PowerShell de volgende procedures gebruiken om te definiëren en te maken van de ADF-pijplijn. Maar deze taak kan ook worden bereikt met de Azure-portal. Zie voor meer informatie [maken pijplijn](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
+> Hallo volgende procedures gebruikt u Azure PowerShell toodefine en Hallo ADF pijplijn maken. Maar deze taak kan ook worden bereikt met de Azure-portal. Zie voor meer informatie [maken pijplijn](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
 >
 >
 
-Met behulp van de tabeldefinities eerder hebt opgegeven, wordt de definitie van de pijplijn voor de ADF als volgt opgegeven:
+Hallo tabeldefinities opgegeven voorheen Hallo pijplijn definitie voor Hallo die ADF is opgegeven, als volgt:
 
         {
             "name": "AMLDSProcessPipeline",
             "properties":
             {
-                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL tooAzure blob",
                  "activities":
                 [
                     {
                         "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premises SQL server to blob",     
+                        "description": "Copy data from on-premises SQL server tooblob",     
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OnPremSQLTable"} ],
                         "outputs": [ {"name": "OutputBlobTable"} ],
@@ -278,7 +278,7 @@ Met behulp van de tabeldefinities eerder hebt opgegeven, wordt de definitie van 
 
                     {
                         "name": "CopyFromBlobtoSQLAzure",
-                        "description": "Push data to Sql Azure",        
+                        "description": "Push data tooSql Azure",        
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OutputBlobTable"} ],
                         "outputs": [ {"name": "OutputSQLAzureTable"} ],
@@ -307,21 +307,21 @@ Met behulp van de tabeldefinities eerder hebt opgegeven, wordt de definitie van 
             }
         }
 
-Kopieer deze JSON-definitie van de pijplijn in een bestand genaamd *pipelinedef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\pipelinedef.json*). De pijplijn in ADF maken met de volgende Azure PowerShell-cmdlet:
+Kopieer deze JSON-definitie van de pijplijn Hallo naar een bestand met de naam *pipelinedef.json* bestand en sla het tooa bekende locatie (hier uitgegaan toobe *C:\temp\pipelinedef.json*). Hallo pijplijn in ADF maken met de Hallo Azure PowerShell-cmdlet te volgen:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Controleer of u kunt de pijplijn in de ADF in de klassieke Azure-Portal weergegeven als de volgende (wanneer u klikt op het diagram)
+Controleer of u kunt Hallo pijplijn op Hallo ADF in Hallo klassieke Azure-Portal weergegeven als volgt (wanneer u klikt op Hallo diagram)
 
 ![ADF-pipeline](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
-## <a name="adf-pipeline-start"></a>Start de pijplijn
-De pijplijn kan nu worden uitgevoerd met de volgende opdracht:
+## <a name="adf-pipeline-start"></a>Hallo pijplijn starten
+Hallo-pijplijn kan nu worden uitgevoerd met behulp van de volgende opdracht Hallo:
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
-De *startdate* en *enddate* parameterwaarden moeten worden vervangen door de werkelijke datums tussen wie u wilt dat de pijplijn om uit te voeren.
+Hallo *startdate* en *enddate* parameterwaarden toobe vervangen door de werkelijke Hallo-datums tussen wie u wilt dat Hallo pijplijn toorun nodig.
 
-Zodra de pijplijn wordt uitgevoerd, moet u mogelijk zijn om de gegevens weergegeven in de container die is geselecteerd voor de blob, één bestand per dag te bekijken.
+Zodra het Hallo-pijplijn wordt uitgevoerd, moet u kunnen toosee Hallo gegevens weergegeven in het Hallo-container die zijn geselecteerd voor Hallo blob, één bestand per dag.
 
-Houd er rekening mee dat we hebben de functionaliteit van ADF pipe gegevens stapsgewijs niet gebruikt. Zie voor meer informatie over hoe u deze en andere mogelijkheden van ADF de [ADF documentatie](https://azure.microsoft.com/services/data-factory/).
+Houd er rekening mee dat we geen Hallo functionaliteit van ADF toopipe gegevens stapsgewijs hebt gebruikt. Voor meer informatie over hoe toodo deze en andere mogelijkheden van ADF, zien Hallo [ADF documentatie](https://azure.microsoft.com/services/data-factory/).

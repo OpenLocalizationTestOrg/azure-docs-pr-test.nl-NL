@@ -1,6 +1,6 @@
 ---
-title: Endpoint Protection installeren in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** installeren Endpoint Protection **.
+title: aaaInstall Endpoint Protection in Azure Security Center | Microsoft Docs
+description: Dit document leest u hoe tooimplement hello Azure Security Center aanbeveling ** installeren Endpoint Protection **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: efb86a0ae362c30a6772c391a499154b7ae2a697
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fea891810e042e4d4f6e55094c0cd4de013ba68a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-endpoint-protection-in-azure-security-center"></a>Endpoint Protection installeren in Azure Security Center
-Azure Security Center raadt endpoint protection op uw virtuele Azure-machines (VM's) te installeren als endpoint protection nog niet is ingeschakeld. Deze aanbeveling is alleen van toepassing op Windows-VM's.
+Azure Security Center raadt endpoint protection op uw virtuele Azure-machines (VM's) te installeren als endpoint protection nog niet is ingeschakeld. Deze aanbeveling is van toepassing tooWindows virtuele machines alleen.
 
 > [!NOTE]
 > Deze voorbeeldimplementatie maakt gebruik van Microsoft Antimalware. Zie [Partner-integratie in Azure Security Center](security-center-partner-integration.md#partners-that-integrate-with-security-center) voor een lijst met partners die is geïntegreerd met Security Center.  
 >
 >
 
-## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
+## <a name="implement-hello-recommendation"></a>Hallo aanbeveling implementeren
 
 > [!NOTE]
-> In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit document is niet een stapsgewijze handleiding.
+> Dit document bevat Hallo service met behulp van een voorbeeldimplementatie.  Dit document is niet een stapsgewijze handleiding.
 >
 >
 
-1. In de **aanbevelingen** blade Selecteer **Endpoint Protection installeren**.
+1. In Hallo **aanbevelingen** blade Selecteer **Endpoint Protection installeren**.
    ![Selecteer de Endpoint Protection installeren][1]
-2. De **Endpoint Protection installeren** blade wordt geopend met een lijst van virtuele machines zonder endpoint protection. Selecteer in de lijst van de virtuele machines die u wilt installeren van endpoint protection op en klik op **installeren op virtuele machines**.
-   ![Selecteer de virtuele machines voor het installeren van Endpoint Protection op][2]
-3. De **Selecteer Endpoint Protection** er wordt een blade geopend zodat u kunt selecteren van de endpoint protection-oplossing die u wilt gebruiken. In dit voorbeeld gaan we selecteren **Microsoft Antimalware**.
+2. Hallo **Endpoint Protection installeren** blade wordt geopend met een lijst van virtuele machines zonder endpoint protection. Selecteer een van de Hallo lijst Hallo virtuele machines die u wilt tooinstall endpoint protection op en klik op **installeren op virtuele machines**.
+   ![Selecteer VMs tooinstall Endpoint Protection op][2]
+3. Hallo **Selecteer Endpoint Protection** wordt een blade geopend tooallow u tooselect Hallo oplossing voor eindpuntbeveiliging gewenste toouse. In dit voorbeeld gaan we selecteren **Microsoft Antimalware**.
    ![Selecteer de Endpoint Protection][3]
-4. Meer informatie over de oplossing voor eindpuntbeveiliging wordt weergegeven. Selecteer **Maken**.
+4. Meer informatie over de oplossing voor eindpuntbeveiliging hello wordt weergegeven. Selecteer **Maken**.
    ![Maken van anti-malwareoplossing][4]
-5. Voer de vereiste configuratie-instellingen op de **Add Extension** blade en selecteer vervolgens **OK**. Zie voor meer informatie over de configuratie-instellingen, [standaard en aangepaste Antimalware configuratie](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
+5. Voer Hallo vereiste configuratie-instellingen op Hallo **Add Extension** blade en selecteer vervolgens **OK**. toolearn meer informatie over het Hallo-configuratie-instellingen, Zie [standaard en aangepaste Antimalware configuratie](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
-[Microsoft Antimalware](../security/azure-security-antimalware.md) is nu actief zijn op de geselecteerde virtuele machines.
+[Microsoft Antimalware](../security/azure-security-antimalware.md) is nu actief op Hallo VMs geselecteerd.
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel hebt u geleerd hoe u implementeert de aanbeveling Security Center "Endpoint Protection installeren." Zie voor meer informatie over het inschakelen van Microsoft Antimalware in Azure, het volgende document:
+In dit artikel hebt u geleerd hoe tooimplement Hallo Security Center aanbeveling "Endpoint Protection installeren." toolearn meer informatie over het inschakelen van Microsoft Antimalware in Azure, Zie Hallo document te volgen:
 
-* [Microsoft Antimalware voor Cloudservices en virtuele Machines](../security/azure-security-antimalware.md) --informatie over het implementeren van Microsoft Antimalware.
+* [Microsoft Antimalware voor Cloudservices en virtuele Machines](../security/azure-security-antimalware.md) --meer informatie over hoe Microsoft Antimalware toodeploy.
 
-Zie de volgende documenten voor meer informatie over Security Center:
+toolearn meer informatie over Security Center, Zie Hallo documenten te volgen:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md) --informatie over het configureren van beveiligingsbeleid.
+* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md) --meer informatie over hoe tooconfigure beveiligingsbeleid.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen u uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) (Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
-* [Azure Security Center FAQ](security-center-faq.md) (Veelgestelde vragen over Azure Security Center): raadpleeg veelgestelde vragen over het gebruik van de service.
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --meer informatie over hoe toomonitor Hallo status van uw Azure-resources.
+* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md) --meer informatie over hoe toomanage en gereageerd had toosecurity waarschuwingen.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) --meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md) --Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
 * [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) --Lees blogberichten over Azure-beveiliging en naleving.
 
 <!--Image references-->

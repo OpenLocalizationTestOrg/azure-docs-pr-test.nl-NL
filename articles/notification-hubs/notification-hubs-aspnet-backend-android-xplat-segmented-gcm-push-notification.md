@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs voor belangrijk nieuws zelfstudie - Android
-description: Informatie over het gebruik van Azure Service Bus Notification Hubs voor belangrijk nieuws meldingen verzenden naar Android-apparaten.
+title: aaaNotification Hubs op te splitsen nieuws zelfstudie - Android
+description: Meer informatie over hoe toouse Azure Service Bus Notification Hubs toosend nieuws meldingen tooAndroid apparaten op te splitsen.
 services: notification-hubs
 documentationcenter: android
 author: ysxu
@@ -14,27 +14,27 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e6eb41bec95c67d7dc059f560194966d04400494
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs gebruiken om belangrijk nieuws te verzenden
+# <a name="use-notification-hubs-toosend-breaking-news"></a>Gebruik Notification Hubs toosend belangrijk nieuws
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit onderwerp leest u het gebruik van Azure Notification Hubs voor belangrijk nieuws meldingen naar een Android-app-broadcast. Als u klaar gaat u kunnen registreren voor nieuwscategorieën die u geïnteresseerd bent in op te splitsen en pushmeldingen voor deze categorieën ontvangen. Dit scenario is een algemene patroon voor veel apps waarbij moeten meldingen worden verzonden naar groepen gebruikers die interesse in deze, zoals RSS-lezer, apps voor muziek ventilatoren, enzovoort eerder is gedeclareerd.
+Dit onderwerp leest u hoe toouse Azure Notification Hubs toobroadcast belangrijk nieuws meldingen tooan Android-app. Als u klaar gaat u kunnen tooregister voor nieuwscategorieën die u geïnteresseerd bent in op te splitsen en pushmeldingen voor deze categorieën ontvangen. Dit scenario is een algemene patroon voor veel apps waar meldingen hebt verzonden toobe toogroups van gebruikers die interesse in deze, zoals RSS-lezer, apps voor muziek ventilatoren, enzovoort eerder is gedeclareerd.
 
-Broadcast-scenario's zijn ingeschakeld door een of meer *labels* bij het maken van een registratie in de notification hub. Wanneer u meldingen worden verzonden naar een label, ontvangen alle apparaten die zijn geregistreerd voor het label de melding. Omdat tags gewoon tekenreeksen zijn, hoeven niet vooraf zijn ingericht. Raadpleeg voor meer informatie over tags [Notification Hubs-Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
+Broadcast-scenario's zijn ingeschakeld door een of meer *labels* bij het maken van een registratie in Hallo notification hub. Wanneer meldingen worden verzonden tooa label, ontvangen alle apparaten die zijn geregistreerd voor de tag Hallo Hallo-bericht. Omdat tags gewoon tekenreeksen zijn, hebben geen toobe vooraf is ingericht. Raadpleeg te voor meer informatie over tags[Notification Hubs-Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp is gebaseerd op de app die u hebt gemaakt in [aan de slag met Notification Hubs][get-started]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [aan de slag met Notification Hubs][get-started].
+In dit onderwerp is gebaseerd op Hallo-app die u hebt gemaakt in [aan de slag met Notification Hubs][get-started]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [aan de slag met Notification Hubs][get-started].
 
-## <a name="add-category-selection-to-the-app"></a>Categorieselectie toevoegen aan de app.
-De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijkste activiteit waarmee de gebruiker kan de categorieën selecteren om te registreren. De categorieën die door een gebruiker is geselecteerd worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt de apparaatregistratie van een in uw notification hub met de geselecteerde categorieën gemaakt als labels.
+## <a name="add-category-selection-toohello-app"></a>Categorie selectie toohello app toevoegen
+de eerste stap Hallo is tooadd Hallo UI-elementen tooyour bestaande belangrijkste activiteit waarmee Hallo gebruiker tooselect categorieën tooregister. Hallo categorieën geselecteerd door een gebruiker zijn op Hallo apparaat opgeslagen. Wanneer Hallo-app wordt gestart, wordt de apparaatregistratie van een in uw notification hub met Hallo geselecteerd categorieën gemaakt als labels.
 
-1. Open het bestand res/layout/activity_main.xml en vervang de inhoud met de volgende opties:
+1. Open het bestand res/layout/activity_main.xml en vervang Hallo inhoud met de volgende Hallo:
    
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -83,7 +83,7 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijk
                     android:onClick="subscribe"
                     android:text="@string/button_subscribe" />
         </LinearLayout>
-2. Open uw bestand res/values/strings.xml en voeg de volgende regels:
+2. Open uw bestand res/values/strings.xml en Hallo volgende regels toevoegen:
    
         <string name="button_subscribe">Subscribe</string>
         <string name="label_world">World</string>
@@ -96,7 +96,7 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijk
     De grafische indeling main_activity.xml ziet er nu als volgt:
    
     ![][A1]
-3. Maak nu een klasse **meldingen** in hetzelfde pakket als uw **MainActivity** klasse.
+3. Maak nu een klasse **meldingen** in Hallo dezelfde pakket als uw **MainActivity** klasse.
    
         import java.util.HashSet;
         import java.util.Set;
@@ -150,7 +150,7 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijk
                             hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
                                 categories.toArray(new String[categories.size()]));
                         } catch (Exception e) {
-                            Log.e("MainActivity", "Failed to register - " + e.getMessage());
+                            Log.e("MainActivity", "Failed tooregister - " + e.getMessage());
                             return e;
                         }
                         return null;
@@ -167,13 +167,13 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijk
    
         }
    
-    Deze klasse maakt gebruik van de lokale opslag voor het opslaan van de categorieën van nieuws die dit apparaat heeft ontvangen. Het bevat ook methoden om te registreren voor deze categorieën.
+    Hallo lokale opslag toostore Hallo categorieën van nieuws dat dit apparaat tooreceive heeft maakt gebruik van deze klasse. Het bevat ook methoden tooregister voor deze categorieën.
 4. In uw **MainActivity** klasse verwijdert u uw persoonlijke velden voor **NotificationHub** en **GoogleCloudMessaging**, en voeg een veld voor **meldingen**:
    
         // private GoogleCloudMessaging gcm;
         // private NotificationHub hub;
         private Notifications notifications;
-5. Klik in de **onCreate** methode, verwijdert u de initialisatie van de **hub** veld en de **registerWithNotificationHubs** methode. Voeg de volgende regels met initialiseren van een exemplaar van de **meldingen** klasse. 
+5. Klik op Hallo **onCreate** methode verwijderen Hallo initialisatie van Hallo **hub** veld en Hallo **registerWithNotificationHubs** methode. Voeg vervolgens de volgende regels die een exemplaar van Hallo initialiseren Hallo **meldingen** klasse. 
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -188,12 +188,12 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijk
             notifications.subscribeToCategories(notifications.retrieveCategories());
         }
 
-    `HubName`en `HubListenConnectionString` al moet zijn ingesteld met de `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen door de naam van uw notification hub en de verbindingsreeks voor *DefaultListenSharedAccessSignature* die u eerder hebt verkregen.
+    `HubName`en `HubListenConnectionString` al moet zijn ingesteld door hello `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen door uw notification hub naam en het Hallo verbindingsreeks voor *DefaultListenSharedAccessSignature* die u hebt verkregen oudere versies.
 
-    > [AZURE.NOTE] Omdat de referenties die worden gedistribueerd met een client-app niet over het algemeen veilig, moet u de sleutel voor listen toegang alleen distribueren met uw clientapp. Luisteren toegang kunnen uw app registreren voor meldingen, maar bestaande registraties kan niet worden gewijzigd en kunnen niet worden meldingen verzonden. De volledige toegang tot de sleutel wordt gebruikt in een beveiligde back-endservice voor het verzenden van meldingen en bestaande registraties wijzigen.
+    > [AZURE.NOTE] Omdat de referenties die worden gedistribueerd met een client-app niet over het algemeen veilig, moet u alleen Hallo-sleutel voor listen toegang distribueren met uw clientapp. Luisteren toegang kunnen die uw app tooregister voor meldingen, maar bestaande registraties kan niet worden gewijzigd en kunnen niet worden meldingen verzonden. Hallo volledige toegang tot de sleutel wordt gebruikt in een beveiligde back endservice voor het verzenden van meldingen en bestaande registraties wijzigen.
 
 
-1. Vervolgens voegt u de volgende import en `subscribe` methode voor het afhandelen van de knop aanmelden klikt u op de gebeurtenis:
+1. Vervolgens voegt u Hallo na importeert en `subscribe` methode toohandle Hallo abonneren knop klikt u op de gebeurtenis:
    
         import android.widget.CheckBox;
         import java.util.HashSet;
@@ -224,24 +224,24 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijk
             notifications.storeCategoriesAndSubscribe(categories);
         }
    
-    Deze methode maakt u een lijst met categorieën en gebruikt de **meldingen** klasse voor het opslaan van de lijst in de lokale opslag en registreren van de bijbehorende tags voor uw notification hub. Wanneer categorieën worden gewijzigd, wordt de registratie opnieuw gemaakt met de nieuwe categorieën.
+    Deze methode maakt u een lijst met categorieën en maakt gebruik van Hallo **meldingen** toostore Hallo lijst in de lokale opslag Hallo klasse en bijbehorende labels Hallo registreren voor uw notification hub. Wanneer categorieën worden gewijzigd, wordt met de nieuwe categorieën Hallo Hallo registratie nagemaakt.
 
-Uw app is nu in staat een aantal categorieën opslaan in lokale opslag op het apparaat en registreren bij de notification hub wanneer de gebruiker de selectie van categorieën wijzigt.
+Uw app is nu kunnen toostore een aantal categorieën in lokale opslag op Hallo-apparaat en registreren bij Hallo notification hub wanneer gebruikerswijzigingen Hallo Hallo selectie van categorieën.
 
 ## <a name="register-for-notifications"></a>Registreren voor meldingen
-Deze stappen registreren bij de notification hub bij het opstarten met behulp van de categorieën die zijn opgeslagen in de lokale opslag.
+Deze stappen registreren bij Hallo notification hub bij het opstarten met behulp van Hallo categorieën die zijn opgeslagen in de lokale opslag.
 
 > [!NOTE]
-> Omdat de registratie-id toegewezen door Google Cloud Messaging (GCM) op elk gewenst moment wijzigen kunt, kunt u moet registreren voor meldingen vaak ter voorkoming van fouten van de melding. In dit voorbeeld registreert voor melding van elke keer dat de app wordt gestart. Voor apps die vaak worden uitgevoerd, kunt meer dan één keer per dag, u waarschijnlijk overslaan registratie om bandbreedte te besparen als minder dan een dag is verstreken sinds de vorige registratie.
+> Omdat Hallo registrationId toegewezen door Google Cloud Messaging (GCM) op elk gewenst moment wijzigen kunt, moet u registreren voor meldingen vaak tooavoid melding fouten. In dit voorbeeld registreert voor melding telkens wanneer die Hallo-app wordt gestart. Voor apps die vaak worden uitgevoerd, kunt meer dan één keer per dag, u waarschijnlijk overslaan registratie toopreserve bandbreedte als minder dan een dag is verstreken sinds de vorige registratie Hallo.
 > 
 > 
 
-1. Voeg de volgende code toe aan het einde van de **onCreate** methode in de **MainActivity** klasse:
+1. Toevoegen van de volgende code achter Hallo HALLO hallo **onCreate** methode in Hallo **MainActivity** klasse:
    
         notifications.subscribeToCategories(notifications.retrieveCategories());
    
-    Dit zorgt ervoor dat telkens wanneer de app wordt gestart de categorieën van lokale opslag haalt en een registratie voor deze categorieën vraagt. 
-2. Werk vervolgens de `onStart()` methode van de `MainActivity` klasse als volgt:
+    Dit zorgt ervoor dat telkens wanneer Hallo-app wordt gestart het Hallo-categorieën opgehaald uit de lokale opslag en een registratie voor deze categorieën vraagt. 
+2. Werk vervolgens Hallo `onStart()` methode Hallo `MainActivity` klasse als volgt:
    
     @Overridevoid onStart() {beveiligd
    
@@ -264,41 +264,41 @@ Deze stappen registreren bij de notification hub bij het opstarten met behulp va
         sports.setChecked(categories.contains("sports"));
     }
    
-    Hiermee vernieuwt u de belangrijkste activiteit op basis van de status van de eerder opgeslagen categorieën.
+    Hiermee wordt Hallo belangrijkste activiteit op basis van status van de eerder opgeslagen categorieën Hallo bijgewerkt.
 
-De app is nu voltooid en een set categorieën kunt opslaan in de lokale opslag gebruikt om u te registreren bij de notification hub wanneer de gebruiker de selectie van categorieën wijzigt van apparaat. Vervolgens definiëren we een back-end die categorie meldingen naar deze app kunt verzenden.
+Hallo-app is nu voltooid en kan een set van categorieën worden opgeslagen in Hallo apparaat gebruikt voor lokale opslag tooregister bij Hallo notification hub wanneer gebruikerswijzigingen Hallo Hallo selectie van categorieën. Vervolgens definiëren we een back-end die categorie meldingen toothis app kunt verzenden.
 
 ## <a name="sending-tagged-notifications"></a>Verzenden van meldingen met tags
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Voer de app en meldingen genereren
-1. In Android Studio bouwen van de app en start deze op een apparaat of emulator.
+## <a name="run-hello-app-and-generate-notifications"></a>Hallo-app uitvoeren en meldingen genereren
+1. In Android Studio Hallo app bouwen en start deze op een apparaat of emulator.
    
-    Opmerking dat de UI-app biedt een reeks Schakelknoppen waarmee u kunt kiezen uit de categorieën om u te abonneren op.
+    Opmerking die Hallo app die gebruikersinterface een set biedt-of kunt u Hallo categorieën toosubscribe te kiezen.
 2. Een of meer categorieën Schakelknoppen inschakelen en klik vervolgens op **abonneren**.
    
-    De app de geselecteerde categorieën converteert naar labels en een nieuwe apparaatregistratie voor de geselecteerde codes aanvragen van de notification hub. De geregistreerde categorieën worden geretourneerd en weergegeven in een pop-upmelding.
-3. Een nieuwe melding verzenden door het uitvoeren van de .NET-consoletoepassing.  U kunt ook met tags Sjabloonmeldingen met behulp van het foutopsporingstabblad van uw notification hub in verzenden de [klassieke Azure-Portal].
+    Hallo-app geselecteerd Hallo categorieën converteert naar labels en vraagt een nieuwe apparaatregistratie voor Hallo geselecteerd tags van Hallo notification hub. Hallo worden geregistreerde categorieën geretourneerd en weergegeven in een pop-upmelding.
+3. Een nieuwe melding verzenden door te voeren Hallo .NET-consoletoepassing.  U kunt ook met tags Sjabloonmeldingen Hallo foutopsporingstabblad van uw notification hub met in Hallo verzenden [klassieke Azure-Portal].
    
-    Meldingen voor de geselecteerde categorieën weergegeven als pop-upmeldingen.
+    Meldingen voor Hallo geselecteerd categorieën weergegeven als pop-upmeldingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe belangrijk nieuws per categorie-broadcast. Houd rekening met het voltooien van een van de volgende zelfstudies die andere geavanceerde scenario's voor Notification Hubs markeren:
+In deze zelfstudie hebt u geleerd hoe toobroadcast belangrijk nieuws per categorie. Houd rekening met een van de volgende zelfstudies waarin andere geavanceerde scenario's voor Notification Hubs Markeer Hallo voltooien:
 
-* [Notification Hubs gebruiken voor het uitzenden van gelokaliseerde belangrijk nieuws]
+* [Gebruik Notification Hubs toobroadcast gelokaliseerd belangrijk nieuws]
   
-    Informatie over het uitbreiden van de app belangrijk nieuws zodat gelokaliseerde verzenden van meldingen.
+    Meer informatie over hoe tooexpand Hallo nieuws app tooenable verzenden op te splitsen meldingen gelokaliseerd.
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
-[Notification Hubs gebruiken voor het uitzenden van gelokaliseerde belangrijk nieuws]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Gebruik Notification Hubs toobroadcast gelokaliseerd belangrijk nieuws]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-toofor Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

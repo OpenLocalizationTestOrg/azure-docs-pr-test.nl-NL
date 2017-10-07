@@ -1,5 +1,5 @@
 ---
-title: Een functie-App maken en implementeren van de functiecode van Visual Studio Team Services | Microsoft Docs
+title: aaaCreate een functie-App en functiecode van Visual Studio Team Services implementeren | Microsoft Docs
 description: Een functie-App maken en implementeren van de functiecode van Visual Studio Team Services
 services: functions
 keywords: 
@@ -9,15 +9,15 @@ ms.date: 04/28/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 2ef177b55ad7ffd351156821f429e6ff8fbeccc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 774bee73025cc9ac46f8b2a6c10edbfa3c2d353b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-app-service"></a>Maak een App Service
 
-In dit scenario wordt u informatie over het maken van een functie-app met de [verbruik plan](../functions-scale.md#consumption-plan) met de bijbehorende resources en continu implementeert uw functiecode uit de opslagplaats van een Visual Studio Team Services (VSTS). In dit voorbeeld hebt u het volgende nodig:
+In dit scenario wordt beschreven hoe een functie-app met toocreate Hallo [verbruik plan](../functions-scale.md#consumption-plan) met de bijbehorende resources en continu implementeert uw functiecode uit de opslagplaats van een Visual Studio Team Services (VSTS). In dit voorbeeld hebt u het volgende nodig:
 
 * Een opslagplaats VSTS met functies code, die u hebt beheerdersbevoegdheden nodig voor.
 * Een [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) voor uw GitHub-account.
@@ -26,19 +26,19 @@ In dit scenario wordt u informatie over het maken van een functie-app met de [ve
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
 Dit voorbeeld maakt u een Azure-functie-app en functiecode van Visual Studio Team Services implementeert.
 
-[!code-azurecli-interactive[belangrijkste](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure-Service")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten voor het maken van een resourcegroep, web-app, documentdb en alle gerelateerde resources. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten toocreate een resourcegroep, web-app, documentdb en alle gerelateerde resources te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -49,6 +49,6 @@ Dit script maakt gebruik van de volgende opdrachten voor het maken van een resou
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Aanvullende voorbeelden van Azure Functions CLI-script kunnen worden gevonden in de [documentatie van Azure Functions](../functions-cli-samples.md).
+Aanvullende voorbeelden van Azure Functions CLI script kunnen u vinden in Hallo [documentatie van Azure Functions](../functions-cli-samples.md).

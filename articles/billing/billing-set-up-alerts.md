@@ -1,5 +1,5 @@
 ---
-title: Facturerings- of waarschuwingen voor Azure-abonnementen instellen | Microsoft Docs
+title: aaaSet van facturerings- of waarschuwingen voor Azure-abonnementen | Microsoft Docs
 description: Hierin wordt beschreven hoe u kunt waarschuwingen instellen op uw Azure-factuur zodat u kunt facturering verrassingen vermijden.
 keywords: tegoed waarschuwing facturering waarschuwing
 services: 
@@ -17,46 +17,46 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a1b579fdde831fdc3afa0a2aee4c24890216ed1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 711b9c72c59874792b0e229cdc5ec0fa517c24c1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Facturerings- of waarschuwingen instellen voor uw Microsoft Azure-abonnementen
-Als u de accountbeheerder voor een Azure-abonnement bent, kunt u de Azure Billing waarschuwingsservice voor het maken van aangepaste factureringsmeldingen die u helpen controleren en beheren van facturerings activiteit voor uw Azure-accounts.
+Als u Hallo beheerder van het Account voor een Azure-abonnement bent, kunt u hello Azure Billing waarschuwingsservice toocreate aangepast facturering waarschuwingen die helpen u te bewaken en beheren van activiteit facturering voor uw Azure-accounts.
 
-Deze service is in de preview, dus moet u eerst op de pagina met Preview-functies inschakelen.
+Deze service is in de preview, dus u tooenable het Hallo Voorbeeldfuncties pagina eerst moet.
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>De drempelwaarde en e-ontvangers van de waarschuwing instellen
-1. Ga naar [de Preview-functies pagina](https://account.windowsazure.com/PreviewFeatures) en schakel **waarschuwingsservice facturering**.
+## <a name="set-hello-alert-threshold-and-email-recipients"></a>Hallo drempelwaarde en e-mail ontvangers instellen
+1. Ga naar [Hallo Voorbeeldfuncties pagina](https://account.windowsazure.com/PreviewFeatures) en schakel **waarschuwingsservice facturering**.
 
-1. Nadat u het e-mailbevestiging die de facturering-service is ingeschakeld voor uw abonnement ontvangt, gaat u naar [de pagina abonnementen](https://account.windowsazure.com/Subscriptions) in de accountportal. Klik op het abonnement dat u wilt bewaken, en klik vervolgens op **waarschuwingen**.
+1. Nadat u Hallo e-mailbevestiging die facturering Hallo-service is ingeschakeld voor uw abonnement ontvangt, gaat u naar [Hallo abonnementen pagina](https://account.windowsazure.com/Subscriptions) in Hallo-accountportal. Klik op Hallo abonnement u wilt toomonitor en klik vervolgens op **waarschuwingen**.
 
-    ![Schermafbeelding van de weergave abonnementen van Azure-accountcentrum, met waarschuwingen die zijn gemarkeerd][Image1]
+    ![Schermafbeelding van de weergave van de abonnementen Hallo van Azure-accountcentrum, met waarschuwingen die zijn gemarkeerd][Image1]
 
-2. Klik vervolgens op **waarschuwing toevoegen** zelf een maken. U kunt een totaal van vijf factureringsmeldingen per abonnement, met een andere drempelwaarde en maximaal twee e-mailontvangers voor elke waarschuwing instellen.
+2. Klik vervolgens op **waarschuwing toevoegen** toocreate zelf een. U kunt een totaal van vijf factureringsmeldingen per abonnement, met een andere drempelwaarde en omhoog in de e-mailontvangers tootwo voor elke waarschuwing instellen.
 
-    ![Schermafbeelding van de weergave van waarschuwingen, waarin u de waarschuwing kunt toevoegen][Image2]
+    ![Schermopname van Hallo waarschuwingen weergeven, waarin u de waarschuwing kunt toevoegen][Image2]
 
-3. Wanneer u een waarschuwing toevoegt, u een unieke naam geven, kies een bestedingslimiet drempelwaarde, en kies de e-mailadressen waarop waarschuwingen worden verzonden. Wanneer de drempel instelt, kunt u ofwel een **totale facturering** of een **financieel tegoed** van de **waarschuwing voor** lijst. Voor een totaal facturering, wordt een waarschuwing verzonden wanneer abonnement uitgaven de drempelwaarde overschrijdt. Voor een financieel tegoed is een waarschuwing verzonden wanneer monetaire krediet minder wordt dan de limiet. Monetaire krediet doorgaans de toepassing aan abonnementen, gratis proefversie en Visual Studio.
+3. Wanneer u een waarschuwing toevoegt, u een unieke naam geven, kies een bestedingslimiet drempelwaarde en kies Hallo e-mailadressen waarop waarschuwingen worden verzonden. Bij het instellen van Hallo drempelwaarde, kunt u ofwel een **totale facturering** of een **financieel tegoed** van Hallo **waarschuwing voor** lijst. Voor een totaal facturering, wordt een waarschuwing verzonden wanneer Hallo abonnement uitgaven overschrijdt. Voor een financieel tegoed is een waarschuwing verzonden wanneer monetaire krediet Hallo limiet beneden. Monetaire krediet doorgaans tooFree proefversie en Visual Studio-abonnementen van toepassing.
 
-    ![Schermafbeelding van de weergave van waarschuwing toevoegen, waar u de geadresseerden kunt configureren][Image3]
+    ![Schermopname van Hallo waarschuwing toevoeging weergave, waar u de geadresseerden kunt configureren][Image3]
 
-Azure biedt ondersteuning voor elk e-mailadres, maar niet verifiëren dat de e-mailadres werken, dus Controleer voor typfouten.
+Azure biedt ondersteuning voor elk e-mailadres, maar niet controleren of de e-mailadres Hallo werkt, dus Controleer op typefouten.
 
 ## <a name="check-on-your-alerts"></a>Controleer op waarschuwingen
-Na het instellen van waarschuwingen, wordt het Account Center vermeldt ze en toont hoe veel meer kunt u instellen. Voor elke waarschuwing ziet u de datum en tijdstip van verzending, of een waarschuwing voor totale facturering of financieel tegoed is en de limiet die u instelt. De datum en tijd-indeling is coördineren 24-uurs-Universal Time (UTC) en de datum is jjjj-mm-dd-indeling. Klik op het plusteken voor een waarschuwing in de lijst om het te bewerken, of klik op de Prullenbak om het te verwijderen.
+Na het instellen van waarschuwingen, bevat deze hello Accountcentrum- en ziet u hoe veel meer kunt u instellen. Voor elke waarschuwing ziet u Hallo datum en tijdstip van verzending, of het om een waarschuwing voor totale facturering of financieel tegoed en Hallo limiet die u instelt. Hallo datum- en tijdnotatie is coördineren 24-uurs-Universal Time (UTC) en Hallo datum is jjjj-mm-dd-indeling. Klik op Hallo plus ondertekenen voor een waarschuwing in Hallo lijst tooedit of Hallo-Prullenbak toodelete deze.
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Waarschuwingen voor facturering voor klanten met Enterprise Agreement (EA)
-EA klanten kunnen waarschuwingen krijgen voor elke afdeling onder een inschrijving door de instelling uitgaven quota's. Zie [afdeling uitgaven quota](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in de portal EA aan de slag.
+EA klanten kunnen waarschuwingen krijgen voor elke afdeling onder een inschrijving door de instelling uitgaven quota's. Zie [afdeling uitgaven quota](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in Hallo EA portal tooget gestart.
 
 ## <a name="learn-more-about-azure-cost-management"></a>Meer informatie over het kostenbeheer van Azure
-- Geschatte kosten met behulp van de [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/), [totale kosten van eigendom Rekenmachine](https://aka.ms/azure-tco-calculator), en wanneer u een service toevoegen.
+- Hallo met kosten schatten [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/), [totale kosten van eigendom Rekenmachine](https://aka.ms/azure-tco-calculator), en wanneer u een service toevoegen.
 - [Controleer de informatie over het gebruik en kosten regelmatig in Azure-portal](billing-getting-started.md#costs).
 - Schakel [Azure Advisor kosten aanbevelingen](../advisor/advisor-cost-recommendations.md).
 
-Zie voor meer informatie, [Azure kosten management richtlijnen](billing-getting-started.md).
+toolearn meer, Zie [Azure kosten management richtlijnen](billing-getting-started.md).
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png

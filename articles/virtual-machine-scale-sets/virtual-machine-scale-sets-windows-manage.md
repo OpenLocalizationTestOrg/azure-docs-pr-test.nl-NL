@@ -1,5 +1,5 @@
 ---
-title: Beheren van virtuele machines in een virtuele-Machineschaalset | Microsoft Docs
+title: virtuele machines in een virtuele-Machineschaalset aaaManage | Microsoft Docs
 description: Virtuele machines in een virtuele-machineschaalset ingesteld met Azure PowerShell beheren.
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-ms.openlocfilehash: d09a020b903e5f43afe03b86c675bcc1eb536cbc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7d848729c0fc708bd596b61feb528cf4bf4bafd4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Beheren van virtuele machines in een virtuele-machineschaalset
-De taken in dit artikel gebruiken voor het beheren van virtuele machines in uw virtuele-machineschaalset.
+Hallo-taken in dit artikel toomanage virtuele machines in uw virtuele-machineschaalset gebruiken.
 
-De meeste taken die betrekking hebben op het beheren van een virtuele machine in een schaalset vereisen dat u weet dat de exemplaar-ID van de computer die u wilt beheren. U kunt [Azure Resource Explorer](https://resources.azure.com) de exemplaar-ID van een virtuele machine in een schaalset vinden. U kunt ook Resource Explorer gebruiken om te controleren of de status van de taken die u hebt voltooid.
+De meeste Hallo-taken die betrekking hebben op het beheren van een virtuele machine in een schaalset vereisen dat u Hallo exemplaar-ID van Hallo machine weet die u toomanage wilt. U kunt [Azure Resource Explorer](https://resources.azure.com) toofind Hallo exemplaar-ID van een virtuele machine in een schaalset. U wordt ook Resource Explorer tooverify Hallo status van Hallo-taken die u hebt voltooid.
 
-Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor informatie over het installeren van de nieuwste versie van Azure PowerShell, het selecteren van het abonnement en het aanmelden bij uw account.
+Zie [hoe tooinstall en configureren van Azure PowerShell](/powershell/azure/overview) voor meer informatie over Hallo meest recente versie van Azure PowerShell installeren, uw abonnement te selecteren en tooyour account aanmelden.
 
 ## <a name="display-information-about-a-scale-set"></a>Informatie weergeven over een schaalset
-U kunt algemene informatie over een schaalset, die ook wordt aangeduid als de instantieweergave ophalen. Of u krijgt meer specifieke informatie, zoals informatie over de resources in de schaalset.
+U kunt algemene informatie over een schaalset, dat ook waarnaar wordt verwezen tooas hello instantieweergave ophalen. Of u meer gedetailleerde informatie, zoals informatie over resources in de schaalset Hallo Hallo krijgt.
 
-Vervang de waarden tussen aanhalingstekens met de naam of de resourcegroep en schaal ingesteld en voer vervolgens de opdracht:
+Vervang de waarden met Hallo-naam of de resourcegroep en schaal ingesteld en voer vervolgens de opdracht Hallo aanhalingstekens Hallo:
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
@@ -91,7 +91,7 @@ Deze retourneert ongeveer het volgende:
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
 
-De aanhalingstekens waarden vervangt door de naam van de resource-groep en scale set. Vervang  *#*  met exemplaar-id van de virtuele machine die u wilt u informatie wilt over en vervolgens uit te voeren:
+Hallo waarden met de naam van uw resource groep en scale set Hallo aanhalingstekens vervangen. Vervang  *#*  met Hallo exemplaar-id van Hallo virtuele machine tooget meer informatie wilt over te klikken en vervolgens uit te voeren:
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -145,11 +145,11 @@ Het resultaat dat lijkt op het volgende voorbeeld:
       ProvisioningState           : Succeeded
 
 ## <a name="start-a-virtual-machine-in-a-scale-set"></a>Een virtuele machine te starten in een schaalset
-De aanhalingstekens waarden vervangt door de naam van de resource-groep en scale set. Vervang  *#*  met de id van de virtuele machine die u wilt starten en vervolgens uit te voeren:
+Hallo waarden met de naam van uw resource groep en scale set Hallo aanhalingstekens vervangen. Vervang  *#*  met Hallo-id van Hallo virtuele machine wilt toostart te klikken en vervolgens uit te voeren:
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-In Resource Explorer, ziet u de status van het exemplaar **met**:
+In Resource Explorer, ziet u dat Hallo status van Hallo-exemplaar is **met**:
 
     "statuses": [
       {
@@ -165,14 +165,14 @@ In Resource Explorer, ziet u de status van het exemplaar **met**:
       }
     ]
 
-U kunt alle virtuele machines in de schaal instelt met behulp van de parameter - InstanceId niet starten.
+U kunt alle Hallo virtuele machines in Hallo scale ingesteld met behulp van Hallo - exemplaar-id-parameter niet starten.
 
 ## <a name="stop-a-virtual-machine-in-a-scale-set"></a>Een virtuele machine in een scale-verzameling stoppen
-De aanhalingstekens waarden vervangt door de naam van de resource-groep en scale set. Vervang  *#*  met de id van de virtuele machine die u wilt stoppen en vervolgens uit te voeren:
+Hallo waarden met de naam van uw resource groep en scale set Hallo aanhalingstekens vervangen. Vervang  *#*  met Hallo-id van Hallo virtuele machine wilt toostop te klikken en vervolgens uit te voeren:
 
     Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-In Resource Explorer, ziet u de status van het exemplaar **ongedaan**:
+In Resource Explorer, ziet u dat Hallo status van Hallo-exemplaar is **ongedaan**:
 
     "statuses": [
       {
@@ -188,28 +188,28 @@ In Resource Explorer, ziet u de status van het exemplaar **ongedaan**:
       }
     ]
 
-Als u wilt stoppen van een virtuele machine en deze niet ongedaan gemaakt, gebruikt u de parameter - StayProvisioned. U kunt de virtuele machines in de set met behulp van de exemplaar-id - parameter niet stoppen.
+een virtuele machine toostop niet ongedaan wordt gemaakt, gebruik Hallo StayProvisioned - parameter. U kunt alle Hallo virtuele machines in Hallo ingesteld met behulp van Hallo - exemplaar-id-parameter niet stoppen.
 
 ## <a name="restart-a-virtual-machine-in-a-scale-set"></a>Opnieuw opstarten van een virtuele machine in een schaalset
-De aanhalingstekens waarden vervangt door de naam van de resourcegroep en de schaal is ingesteld. Vervang  *#*  met de id van de virtuele machine die u wilt starten en vervolgens uit te voeren:
+Hallo waarden met de naam van de groep en Hallo scale ResourceSet Hallo aanhalingstekens vervangen. Vervang  *#*  met Hallo-id van Hallo virtuele machine wilt toorestart te klikken en vervolgens uit te voeren:
 
     Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-U kunt alle virtuele machines in de set met behulp van de parameter - InstanceId niet opnieuw.
+U kunt alle Hallo virtuele machines opnieuw opstarten in Hallo ingesteld met behulp van Hallo - exemplaar-id-parameter niet.
 
 ## <a name="remove-a-virtual-machine-from-a-scale-set"></a>Een virtuele machine verwijderen uit een schaalset
-De aanhalingstekens waarden vervangt door de naam van de resourcegroep en de schaal is ingesteld. Vervang  *#*  met de id van de virtuele machine die u wilt verwijderen en vervolgens uit te voeren:  
+Hallo waarden met de naam van de groep en Hallo scale ResourceSet Hallo aanhalingstekens vervangen. Vervang  *#*  met Hallo-id van Hallo virtuele machine wilt tooremove te klikken en vervolgens uit te voeren:  
 
     Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
-U kunt de virtuele-machineschaalset in één keer verwijderen met behulp van de exemplaar-id - parameter niet.
+U kunt Hallo virtuele-machineschaalset in één keer verwijderen door het Hallo - exemplaar-id-parameter niet gebruikt.
 
-## <a name="change-the-capacity-of-a-scale-set"></a>De capaciteit van een schaalset wijzigen
-U kunt toevoegen of verwijderen van virtuele machines met het wijzigen van de capaciteit van de set. Haal de schaalaanpassingsset die u wilt wijzigen, de capaciteit aan wat u wilt dat het instellen en werk vervolgens de schaal instelt met de nieuwe capaciteit. In deze opdrachten kunt u de tussen aanhalingstekens waarden vervangt door de naam van de resourcegroep en de schaal is ingesteld.
+## <a name="change-hello-capacity-of-a-scale-set"></a>Hallo-capaciteit van een schaalset wijzigen
+U kunt toevoegen of verwijderen van virtuele machines met het Hallo-capaciteit van Hallo set wijzigen. Hallo-schaalset gewenste toochange, set Hallo capaciteit toowhat u wilt dat deze toobe, en werk vervolgens Hallo scale set met nieuwe capaciteit Hallo ophalen. Vervang in deze opdrachten Hallo waarden met de naam van de groep en Hallo scale ResourceSet Hallo aanhalingstekens.
 
     $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
     $vmss.sku.capacity = 5
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
-Als u virtuele machines van de schaalaanpassingsset verwijdert, worden de virtuele machines met de hoogste id eerst verwijderd.
+Als u virtuele machines uit Hallo scale set verwijdert, worden eerst Hallo virtuele machines met de hoogste Hallo-id's verwijderd.
 

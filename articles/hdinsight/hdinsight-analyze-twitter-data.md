@@ -1,6 +1,6 @@
 ---
-title: Twitter gegevens analyseren met Hadoop in HDInsight - Azure | Microsoft Docs
-description: Informatie over het gebruik van Hive om gegevens met Hadoop in HDInsight vinden van de frequentie van de informatie over het gebruik van een bepaald woord Twitter te analyseren.
+title: aaaAnalyze Twitter-gegevens met Hadoop in HDInsight - Azure | Microsoft Docs
+description: Meer informatie over hoe toouse Hive tooanalyze Twitter-gegevens op Hadoop in HDInsight toofind Hallo frequentie van de informatie over het gebruik van een bepaald woord.
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -15,71 +15,71 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 711d364c36c3aba699326f4a76d42891ba3219fb
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 40c0a1afbc1fff10c070d22a99cd9d32d42f230a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter-gegevens met Hive in HDInsight analyseren
-Sociale websites zijn een van de belangrijke drijvende kracht voor big data acceptatie. Openbare API's die worden geleverd door sites zoals Twitter zijn nuttig gegevensbron voor het analyseren en kennis van populaire trends.
-In deze zelfstudie wordt u tweets verkrijgen door middel van een streaming-API Twitter en gebruik vervolgens Apache Hive in Azure HDInsight om een lijst met Twitter-gebruikers die de meeste tweets die deel uitmaakt van een bepaald woord verzonden.
+Sociale websites zijn een belangrijke drijvende dwingt Hallo voor big data. Openbare API's die worden geleverd door sites zoals Twitter zijn nuttig gegevensbron voor het analyseren en kennis van populaire trends.
+In deze zelfstudie wordt u tweets verkrijgen door middel van een streaming-API Twitter en vervolgens met Apache Hive op Azure HDInsight tooget een lijst met Twitter-gebruikers die Hallo meeste tweets die deel uitmaakt van een bepaald woord verzonden.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight op basis van Windows-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor specifieke stappen voor een cluster op basis van Linux, [analyseren Twitter-gegevens met Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
+> Hallo moet stappen in dit document een HDInsight op basis van Windows-cluster. Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen specifieke tooa op basis van Linux-cluster, [analyseren Twitter-gegevens met Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaan:
+Voordat u deze zelfstudie begint, moet u de volgende Hallo hebben:
 
 * **Een werkstation** met Azure PowerShell installeren en configureren.
 
-    Voor het uitvoeren van Windows PowerShell-scripts, moet u Azure PowerShell als administrator uitvoeren en het uitvoeringsbeleid instellen op *RemoteSigned*. Zie [Run Windows PowerShell-scripts][powershell-script].
+    tooexecute Windows PowerShell-scripts, die u moet Azure PowerShell als administrator uitvoeren en stel een uitvoeringsbeleid voor hello te*RemoteSigned*. Zie [Run Windows PowerShell-scripts][powershell-script].
 
-    Voordat u Windows PowerShell-scripts uitvoert, zorg ervoor dat u bent verbonden met uw Azure-abonnement met behulp van de volgende cmdlet:
+    Voordat u Windows PowerShell-scripts uitvoert, zorg ervoor dat u verbonden tooyour Azure-abonnement met behulp van de volgende cmdlet Hallo:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-    Als u meerdere Azure-abonnementen hebt, gebruikt u de volgende cmdlet instellen van het huidige abonnement:
+    Als u meerdere Azure-abonnementen hebt, gebruikt u Hallo cmdlet tooset Hallo huidige abonnement te volgen:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
     ```
 
     > [!IMPORTANT]
-    > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en per 1 januari 2017 verdwenen. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
+    > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en per 1 januari 2017 verdwenen. Hallo stappen in dit document gebruiken Hallo nieuwe HDInsight-cmdlets die met Azure Resource Manager werken.
     >
-    > Volg de stappen in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Azure PowerShell installeren en configureren) als u de nieuwste versie van Azure PowerShell wilt installeren. Als u scripts hebt die moeten worden gewijzigd om ze te kunnen gebruiken met de nieuwe cmdlets die werken met Azure Resource Manager, raadpleegt u [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migreren naar op Azure Resource Manager gebaseerde hulpprogramma’s voor HDInsight-clusters) voor meer informatie.
+    > Volg de stappen Hallo in [installeren en configureren van Azure PowerShell](/powershell/azureps-cmdlets-docs) tooinstall Hallo meest recente versie van Azure PowerShell. Als u scripts hebt die moeten toobe toouse Hallo nieuwe cmdlets die met Azure Resource Manager werken gewijzigd, Zie [migreren tooAzure ontwikkeling Resource Manager gebaseerde hulpprogramma's voor HDInsight-clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) voor meer informatie.
 
-* **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster [aan de slag met HDInsight] [ hdinsight-get-started] of [HDInsight-clusters inrichten][hdinsight-provision]. Naam van het cluster moet u later in de zelfstudie.
+* **Een Azure HDInsight-cluster**. Zie voor instructies over het inrichten van het cluster [aan de slag met HDInsight] [ hdinsight-get-started] of [HDInsight-clusters inrichten][hdinsight-provision]. Hallo clusternaam moet u later in de zelfstudie Hallo.
 
-De volgende tabel bevat de bestanden in deze zelfstudie gebruikt:
+Hallo bevat volgende tabel Hallo-bestanden in deze zelfstudie gebruikt:
 
 | Bestanden | Beschrijving |
 | --- | --- |
-| /tutorials/Twitter/Data/tweets.txt |De brongegevens voor de Hive-taak. |
-| /tutorials/Twitter/output |De uitvoermap voor het Hive-taak. Het Hive-taak uitvoer standaardbestandsnaam is **000000_0**. |
-| tutorials/Twitter/Twitter.hql |Het scriptbestand HiveQL. |
-| /tutorials/Twitter/JobStatus |De status van de Hadoop-taak. |
+| /tutorials/Twitter/Data/tweets.txt |Hallo brongegevens voor Hallo Hive-taak. |
+| /tutorials/Twitter/output |Hallo uitvoermap voor Hallo Hive-taak. Hallo Hive-taak uitvoer standaardbestandsnaam is **000000_0**. |
+| tutorials/Twitter/Twitter.hql |Hallo HiveQL-scriptbestand. |
+| /tutorials/Twitter/JobStatus |Hallo taakstatus Hadoop. |
 
 ## <a name="get-twitter-feed"></a>Get Twitter-feeds
-In deze zelfstudie gebruikt u de [Twitter streaming-API's][twitter-streaming-api]. De specifieke Twitter streaming-API die u wilt gebruiken is [statussen-/ filter][twitter-statuses-filter].
+In deze zelfstudie gebruikt u Hallo [Twitter streaming-API's][twitter-streaming-api]. Hallo specifieke Twitter streaming-API die u wilt gebruiken is [statussen-/ filter][twitter-statuses-filter].
 
 > [!NOTE]
-> Een bestand met 10.000 tweets en het Hive-scriptbestand (behandeld in de volgende sectie) zijn geüpload in een openbare Blob-container. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
+> Een bestand met 10.000 tweets en Hive-scriptbestand hello (behandeld in de volgende sectie Hallo) zijn geüpload in een openbare Blob-container. Als u toouse Hallo geüpload bestanden wilt, kunt u deze sectie overslaan.
 
-[Tweets gegevens](https://dev.twitter.com/docs/platform-objects/tweets) wordt opgeslagen in de notatie JSON (JavaScript Object)-indeling die een complexe geneste structuur bevat. In plaats van een groot aantal regels code schrijven met behulp van een conventionele programmeertaal, kunt u deze geneste structuur in een Hive-tabel transformeren zodat deze kan worden doorzocht door een Structured Query Language (SQL)-taal genaamd HiveQL, zoals.
+[Tweets gegevens](https://dev.twitter.com/docs/platform-objects/tweets) wordt opgeslagen in Hallo JSON JavaScript Object Notation ()-indeling die een complexe geneste structuur bevat. In plaats van een groot aantal regels code schrijven met behulp van een conventionele programmeertaal, kunt u deze geneste structuur in een Hive-tabel transformeren zodat deze kan worden doorzocht door een Structured Query Language (SQL)-taal genaamd HiveQL, zoals.
 
-Twitter maakt gebruik van OAuth voor geautoriseerde toegang tot de API. OAuth is een authenticatieprotocol dat Hiermee gebruikers toepassingen kunnen te handelen namens hen zonder het delen van hun wachtwoord goedkeuren. Meer informatie kunt vinden op [oauth.net](http://oauth.net/) of in de uitstekende [basisinformatie over OAuth](http://hueniverse.com/oauth/) van Hueniverse.
+Twitter OAuth tooprovide geautoriseerde toegang tooits API gebruikt. OAuth is een authenticatieprotocol waarmee gebruikers tooapprove toepassingen tooact namens hen zonder het delen van hun wachtwoord. Meer informatie kunt vinden op [oauth.net](http://oauth.net/) of in Hallo uitstekende [inleiding handleiding tooOAuth](http://hueniverse.com/oauth/) van Hueniverse.
 
-De eerste stap bij het gebruik van OAuth is een nieuwe toepassing maken op de site Developer Twitter.
+Hallo eerste stap toouse OAuth is toocreate een nieuwe toepassing op Hallo Developer Twitter-site.
 
-**Een Twitter-toepassing maken**
+**toocreate Twitter-toepassing**
 
-1. Aanmelden bij [https://apps.twitter.com/](https://apps.twitter.com/). Klik op de **nu aanmelden** koppelen als u een Twitter-account niet hebt.
+1. Aanmelden te[https://apps.twitter.com/](https://apps.twitter.com/). Klik op Hallo **nu aanmelden** koppelen als u een Twitter-account niet hebt.
 2. Klik op **nieuwe App maken**.
-3. Voer **naam**, **beschrijving**, **Website**. U kunt maken van een URL op voor de **Website** veld. De volgende tabel ziet u enkele voorbeeldwaarden te gebruiken:
+3. Voer **naam**, **beschrijving**, **Website**. U kunt een URL voor Hallo gezamenlijk **Website** veld. Hallo volgende tabel ziet u enkele waarden voorbeeld toouse:
 
    | Veld | Waarde |
    | --- | --- |
@@ -87,46 +87,46 @@ De eerste stap bij het gebruik van OAuth is een nieuwe toepassing maken op de si
    |  Beschrijving |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. Controleer **Ja, ik ga akkoord**, en klik vervolgens op **uw Twitter-toepassing maken**.
-5. Klik op de **machtigingen** tabblad. Standaard de machtiging is **alleen-lezen**. Dit is voldoende voor deze zelfstudie.
-6. Klik op de **sleutels en toegangstokens** tabblad.
+5. Klik op Hallo **machtigingen** tabblad Hallo standaardmachtiging **alleen-lezen**. Dit is voldoende voor deze zelfstudie.
+6. Klik op Hallo **sleutels en toegangstokens** tabblad.
 7. Klik op **maken van mijn toegangstoken**.
-8. Klik op **Test OAuth** in de rechterbovenhoek van de pagina.
-9. Noteer **consumentsleutel**, **consumentgeheim**, **toegangstoken**, en **Access token geheim**. Verderop in de zelfstudie moet u de waarden.
+8. Klik op **Test OAuth** in Hallo rechterbovenhoek van Hallo pagina.
+9. Noteer **consumentsleutel**, **consumentgeheim**, **toegangstoken**, en **Access token geheim**. Hallo-waarden moet u later in de zelfstudie Hallo.
 
-In deze zelfstudie gebruikt u Windows PowerShell om de webservice aanroepen. Zie voor een voorbeeld .NET C# [realtime Twitter-gevoel met HBase in HDInsight analyseren][hdinsight-hbase-twitter-sentiment]. Het populaire hulpprogramma web service aanroepen is [ *Curl*][curl]. CURL kan worden gedownload vanaf [hier][curl-download].
+In deze zelfstudie gebruikt u Windows PowerShell toomake Hallo webserviceaanroep. Zie voor een voorbeeld .NET C# [realtime Twitter-gevoel met HBase in HDInsight analyseren][hdinsight-hbase-twitter-sentiment]. Hallo andere webserviceaanroepen toomake populaire hulpprogramma is [ *Curl*][curl]. CURL kan worden gedownload vanaf [hier][curl-download].
 
 > [!NOTE]
-> Als u de curl-opdracht in Windows gebruikt, kunt u dubbele aanhalingstekens in plaats van enkele aanhalingstekens voor de optiewaarden.
+> Als u Hallo curl-opdracht in Windows gebruikt, kunt u dubbele aanhalingstekens in plaats van enkele aanhalingstekens voor Hallo optiewaarden.
 
-**Tweets ophalen**
+**tooget tweets**
 
-1. Open Windows PowerShell Integrated Scripting Environment (ISE). (Typ op het Windows 8 startscherm **PowerShell_ISE** en klik vervolgens op **Windows PowerShell ISE**. Zie [Start Windows PowerShell in Windows 8 en Windows][powershell-start].)
-2. Het volgende script kopiëren naar het deelvenster script:
+1. Open Windows PowerShell Integrated Scripting Environment (ISE) Hallo. (Typ op Hallo Windows 8 startscherm **PowerShell_ISE** en klik vervolgens op **Windows PowerShell ISE**. Zie [Start Windows PowerShell in Windows 8 en Windows][powershell-start].)
+2. Hallo script volgen in het scriptvenster Hallo kopiëren:
 
     ```powershell
     #region - variables and constants
-    $clusterName = "<HDInsightClusterName>" # Enter the HDInsight cluster name
+    $clusterName = "<HDInsightClusterName>" # Enter hello HDInsight cluster name
 
-    # Enter the OAuth information for your Twitter application
+    # Enter hello OAuth information for your Twitter application
     $oauth_consumer_key = "<TwitterAppConsumerKey>";
     $oauth_consumer_secret = "<TwitterAppConsumerSecret>";
     $oauth_token = "<TwitterAppAccessToken>";
     $oauth_token_secret = "<TwitterAppAccessTokenSecret>";
 
-    $destBlobName = "tutorials/twitter/data/tweets.txt" # This script saves the tweets into this blob.
+    $destBlobName = "tutorials/twitter/data/tweets.txt" # This script saves hello tweets into this blob.
 
-    $trackString = "Azure, Cloud, HDInsight" # This script gets the tweets containing these keywords.
+    $trackString = "Azure, Cloud, HDInsight" # This script gets hello tweets containing these keywords.
     $track = [System.Uri]::EscapeDataString($trackString);
-    $lineMax = 10000  # The script will get this number of tweets. It is about 3 minutes every 100 lines.
+    $lineMax = 10000  # hello script will get this number of tweets. It is about 3 minutes every 100 lines.
     #endregion
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     Login-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
-    Write-Host "Get the default storage account name and Blob container name using the cluster name ..." -ForegroundColor Green
+    Write-Host "Get hello default storage account name and Blob container name using hello cluster name ..." -ForegroundColor Green
     $myCluster = Get-AzureRmHDInsightCluster -Name $clusterName
     $resourceGroupName = $myCluster.ResourceGroup
     $storageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
@@ -134,7 +134,7 @@ In deze zelfstudie gebruikt u Windows PowerShell om de webservice aanroepen. Zie
     Write-Host "`tThe storage account name is $storageAccountName." -ForegroundColor Yellow
     Write-Host "`tThe blob container name is $containerName." -ForegroundColor Yellow
 
-    Write-Host "Define the Azure storage connection string ..." -ForegroundColor Green
+    Write-Host "Define hello Azure storage connection string ..." -ForegroundColor Green
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
     Write-Host "`tThe connection string is $storageConnectionString." -ForegroundColor Yellow
@@ -217,8 +217,8 @@ In deze zelfstudie gebruikt u Windows PowerShell om de webservice aanroepen. Zie
     }
     #endregion
 
-    #region - Write tweets to Blob storage
-    Write-Host "Write to the destination blob ..." -ForegroundColor Green
+    #region - Write tweets tooBlob storage
+    Write-Host "Write toohello destination blob ..." -ForegroundColor Green
     $writeStream.Flush()
     $memStream.Seek(0, "Begin")
     $destBlob.UploadFromStream($memStream)
@@ -229,44 +229,44 @@ In deze zelfstudie gebruikt u Windows PowerShell om de webservice aanroepen. Zie
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. Stel de eerste vijf tot acht variabelen in het script:
+3. Hallo eerste vijf tooeight variabelen instellen in Hallo script:
 
     Variabele|Beschrijving
     ---|---
-    $clusterName|Dit is de naam van het HDInsight-cluster waar u de toepassing uitvoeren.
-    $oauth_consumer_key|Dit is de toepassing Twitter **consumentsleutel** u opgeschreven eerder wanneer u de Twitter-toepassing gemaakt.
-    $oauth_consumer_secret|Dit is de toepassing Twitter **consumentgeheim** u eerder hebt genoteerd.
-    $oauth_token|Dit is de toepassing Twitter **toegangstoken** u eerder hebt genoteerd.
-    $oauth_token_secret|Dit is de toepassing Twitter **access token geheim** u eerder hebt genoteerd.
-    $destBlobName|Dit is de uitvoer-blob-naam. De standaardwaarde is **tutorials/twitter/data/tweets.txt**. Als u de standaardwaarde wijzigt, moet u de Windows PowerShell-scripts worden dienovereenkomstig bijgewerkt.
-    $trackString|De webservice wordt tweets die betrekking hebben op deze trefwoorden geretourneerd. De standaardwaarde is **Azure, Cloud, HDInsight**. Als u de standaardwaarde wijzigt, wordt u de Windows PowerShell-scripts dienovereenkomstig bijgewerkt.
-    $lineMax|De waarde bepaalt hoeveel tweets het script wordt gelezen. Het duurt ongeveer drie minuten 100 tweets lezen. U kunt een groter aantal instellen, maar duurt het meer tijd om te downloaden.
+    $clusterName|Dit is de naam Hallo van Hallo HDInsight-cluster waar u toorun Hallo-toepassing.
+    $oauth_consumer_key|Dit is de Twitter-toepassing hello **consumentsleutel** u opgeschreven eerder tijdens het maken van Hallo Twitter-toepassing.
+    $oauth_consumer_secret|Dit is de Twitter-toepassing hello **consumentgeheim** u eerder hebt genoteerd.
+    $oauth_token|Dit is de Twitter-toepassing hello **toegangstoken** u eerder hebt genoteerd.
+    $oauth_token_secret|Dit is de Twitter-toepassing hello **access token geheim** u eerder hebt genoteerd.
+    $destBlobName|Dit is Hallo uitvoer-blob-naam. de standaardwaarde Hallo is **tutorials/twitter/data/tweets.txt**. Als u de standaardwaarde Hallo wijzigt, moet u Windows PowerShell-scripts voor tooupdate Hallo dienovereenkomstig.
+    $trackString|Hallo-webservice wordt tweets gerelateerde toothese trefwoorden geretourneerd. de standaardwaarde Hallo is **Azure, Cloud, HDInsight**. Als u de standaardwaarde Hallo wijzigt, wordt u Windows PowerShell-scripts Hallo dienovereenkomstig bijgewerkt.
+    $lineMax|Hallo-waarde bepaalt hoeveel tweets Hallo-script leest. Het duurt ongeveer drie minuten tooread 100 tweets. U kunt een groter aantal instellen, maar duurt het meer tijd toodownload.
 
-1. Druk op **F5** om het script uit te voeren. Als u problemen als tijdelijke oplossing ondervindt alle regels selecteren en druk vervolgens op **F8**.
-2. U ziet 'Voltooi!' aan het einde van de uitvoer. Eventuele foutberichten wordt rood weergegeven.
+1. Druk op **F5** toorun Hallo script. Als u problemen als tijdelijke oplossing ondervindt alle Hallo regels selecteren en druk vervolgens op **F8**.
+2. U ziet 'Voltooi!' aan het einde van de Hallo van Hallo uitvoer. Eventuele foutberichten wordt rood weergegeven.
 
-U kunt het uitvoerbestand controleren als de validatieprocedure **/tutorials/twitter/data/tweets.txt**, op de Azure Blob-opslag met behulp van een Azure storage explorer of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [gebruik Blob storage met HDInsight][hdinsight-storage-powershell].
+Als een validatieprocedure, kunt u controleren Hallo uitvoerbestand **/tutorials/twitter/data/tweets.txt**, op de Azure Blob-opslag met behulp van een Azure storage explorer of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [gebruik Blob storage met HDInsight][hdinsight-storage-powershell].
 
 ## <a name="create-hiveql-script"></a>HiveQL-script maken
-Met Azure PowerShell, kunt u meerdere HiveQL-instructies een tegelijk uitvoeren of de instructie van HiveQL in een scriptbestand van het pakket. In deze zelfstudie maakt u een HiveQL-script. Het scriptbestand moet worden geüpload naar Azure Blob-opslag. In de volgende sectie stelt uitvoeren u het scriptbestand met behulp van Azure PowerShell.
+Met Azure PowerShell, kunt u meerdere HiveQL-instructies één uitvoeren op een tijd of pakket Hallo instructie van HiveQL in een scriptbestand. In deze zelfstudie maakt u een HiveQL-script. Hallo-scriptbestand moet tooAzure geüploade Blob-opslag. In de volgende sectie hello uitvoeren u Hallo-scriptbestand met behulp van Azure PowerShell.
 
 > [!NOTE]
-> Het Hive-scriptbestand en een bestand met 10.000 tweets zijn geüpload in een openbare Blob-container. Als u wilt de geüploade bestanden gebruiken, kunt u deze sectie overslaan.
+> Hallo Hive-scriptbestand en een bestand met 10.000 tweets zijn geüpload in een openbare Blob-container. Als u toouse Hallo geüpload bestanden wilt, kunt u deze sectie overslaan.
 
-Het HiveQL-script wordt het volgende doen:
+Hallo HiveQL-script voert Hallo volgende uit:
 
-1. **Verwijderen van de tabel tweets_raw** als de tabel al bestaat.
-2. **De tweets_raw Hive-tabel maken**. Deze tijdelijke gestructureerde Hive-tabel bevat de gegevens voor verdere uitpakken, transformeren en laden (ETL) verwerking. Zie voor informatie over partities, [Hive-zelfstudie][apache-hive-tutorial].
-3. **Gegevens laden** van de bronmap, /tutorials/twitter/data. De gegevensset grote tweets in geneste JSON-indeling heeft nu is omgezet in de structuur van een tijdelijke Hive-tabel.
-4. **Verwijderen van de tabel tweets** als de tabel al bestaat.
-5. **Maken van de tabel tweets**. Voordat u kunt een query op basis van de gegevensset tweets met Hive, moet u een ander ETL-proces worden uitgevoerd. Dit proces ETL definieert een meer gedetailleerde tabelschema voor de gegevens die u hebt opgeslagen in de tabel 'twitter_raw'.
-6. **Overschrijven tabel invoegen**. Dit complexe Hive-script wordt een reeks lang MapReduce-taken starten door het Hadoop-cluster. Dit kan ongeveer 10 minuten duren, afhankelijk van uw gegevensset en de grootte van het cluster.
-7. **INSERT map overschrijven**. Een query uitvoert en de uitvoer van de gegevensset naar een bestand. Deze query retourneert een lijst met Twitter gebruikers afzender meeste tweets of het woord 'Azure'.
+1. **Hallo tweets_raw tabel** geval Hallo tabel al bestaat.
+2. **Hallo tweets_raw Hive-tabel maken**. Deze tijdelijke gestructureerde Hive-tabel bevat Hallo-gegevens voor verdere uitpakken, transformeren en laden (ETL) verwerking. Zie voor informatie over partities, [Hive-zelfstudie][apache-hive-tutorial].
+3. **Gegevens laden** van bronmap hello, /tutorials/twitter/data. Hallo grote tweets gegevensset in geneste JSON-indeling heeft nu is omgezet in de structuur van een tijdelijke Hive-tabel.
+4. **Verwijder Hallo tweets tabel** geval Hallo tabel al bestaat.
+5. **Hallo tweets tabel maken**. Voordat u kunt een query op Hallo tweets gegevensset met Hive, moet u toorun een ander ETL-proces. Dit proces ETL definieert een meer gedetailleerde tabelschema voor Hallo-gegevens die u hebt opgeslagen in Hallo 'twitter_raw' tabel.
+6. **Overschrijven tabel invoegen**. Dit complexe Hive-script wordt een reeks lang MapReduce-taken starten door Hallo Hadoop-cluster. Dit kan ongeveer 10 minuten duren, afhankelijk van uw gegevensset en het Hallo-grootte van het cluster.
+7. **INSERT map overschrijven**. Voer een query- en uitvoer Hallo gegevensset tooa bestand. Deze query retourneert een lijst met Twitter-gebruikers die de meeste tweets of Hallo woord 'Azure' verzonden.
 
-**Een Hive-script maken en uploaden naar Azure**
+**een component toocreate script en upload het tooAzure**
 
 1. Open Windows PowerShell ISE.
-2. Het volgende script kopiëren naar het deelvenster script:
+2. Hallo script volgen in het scriptvenster Hallo kopiëren:
 
     ```powershell
     #region - variables and constants
@@ -389,8 +389,8 @@ Het HiveQL-script wordt het volgende doen:
     "@
     #endregion
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
 
     Try{
         Get-AzureRmSubscription
@@ -403,8 +403,8 @@ Het HiveQL-script wordt het volgende doen:
 
     #endregion
 
-    #region - Create a block blob object for writing the Hive script file
-    Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
+    #region - Create a block blob object for writing hello Hive script file
+    Write-Host "Get hello default storage account name and container name based on hello cluster name ..." -ForegroundColor Green
     $myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
     $resourceGroupName = $myCluster.ResourceGroup
     $defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
@@ -412,11 +412,11 @@ Het HiveQL-script wordt het volgende doen:
     Write-Host "`tThe storage account name is $defaultStorageAccountName." -ForegroundColor Yellow
     Write-Host "`tThe blob container name is $defaultBlobContainerName." -ForegroundColor Yellow
 
-    Write-Host "Define the connection string ..." -ForegroundColor Green
+    Write-Host "Define hello connection string ..." -ForegroundColor Green
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 
-    Write-Host "Create block blob objects referencing the hql script file" -ForegroundColor Green
+    Write-Host "Create block blob objects referencing hello hql script file" -ForegroundColor Green
     $storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
     $storageClient = $storageAccount.CreateCloudBlobClient();
     $storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
@@ -428,8 +428,8 @@ Het HiveQL-script wordt het volgende doen:
     $writeStream.Writeline($hqlStatements)
     #endregion
 
-    #region - Write the Hive script file to Blob storage
-    Write-Host "Write to the destination blob ... " -ForegroundColor Green
+    #region - Write hello Hive script file tooBlob storage
+    Write-Host "Write toohello destination blob ... " -ForegroundColor Green
     $writeStream.Flush()
     $memStream.Seek(0, "Begin")
     $hqlScriptBlob.UploadFromStream($memStream)
@@ -438,28 +438,28 @@ Het HiveQL-script wordt het volgende doen:
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. Stel de eerste twee variabelen in het script:
+3. De eerste twee variabelen Hallo in Hallo script ingesteld:
 
    | Variabele | Beschrijving |
    | --- | --- |
-   |  $clusterName |Voer de naam van het HDInsight-cluster waar u de toepassing uitvoeren. |
+   |  $clusterName |Voer naam Hallo HDInsight-cluster waar u toorun Hallo-toepassing. |
    |  $subscriptionID |Voer uw Azure-abonnement-ID. |
-   |  $sourceDataPath |De Azure Blob storage locatie waar u het Hive-query's de gegevens van leest. U hoeft niet te wijzigen van deze variabele. |
-   |  $outputPath |De Azure Blob storage locatie waar de Hive-query wordt de resultaten. U hoeft niet te wijzigen van deze variabele. |
-   |  $hqlScriptFile |De locatie en de bestandsnaam van het scriptbestand HiveQL. U hoeft niet te wijzigen van deze variabele. |
-4. Druk op **F5** om het script uit te voeren. Als u problemen als tijdelijke oplossing ondervindt alle regels selecteren en druk vervolgens op **F8**.
-5. U ziet 'Voltooi!' aan het einde van de uitvoer. Eventuele foutberichten wordt rood weergegeven.
+   |  $sourceDataPath |Hello Azure Blob storage locatie waar Hallo Hive-query's Hallo gegevens leest. U hoeft niet toochange deze variabele. |
+   |  $outputPath |Hello Azure Blob-opslaglocatie waarin Hallo Hive-query's Hallo resultaten wordt de uitvoer. U hoeft niet toochange deze variabele. |
+   |  $hqlScriptFile |Hallo locatie en naam Hallo van Hallo HiveQL-scriptbestand. U hoeft niet toochange deze variabele. |
+4. Druk op **F5** toorun Hallo script. Als u problemen als tijdelijke oplossing ondervindt alle Hallo regels selecteren en druk vervolgens op **F8**.
+5. U ziet 'Voltooi!' aan het einde van de Hallo van Hallo uitvoer. Eventuele foutberichten wordt rood weergegeven.
 
-U kunt het uitvoerbestand controleren als de validatieprocedure **/tutorials/twitter/twitter.hql**, op de Azure Blob-opslag met behulp van een Azure storage explorer of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [gebruik Blob storage met HDInsight][hdinsight-storage-powershell].
+Als een validatieprocedure, kunt u controleren Hallo uitvoerbestand **/tutorials/twitter/twitter.hql**, op de Azure Blob-opslag met behulp van een Azure storage explorer of Azure PowerShell. Zie voor een Windows PowerShell-voorbeeldscript voor het weergeven van bestanden, [gebruik Blob storage met HDInsight][hdinsight-storage-powershell].
 
 ## <a name="process-twitter-data-by-using-hive"></a>Twitter-gegevens verwerken met behulp van Hive
-U hebt al het werk voorbereiding. U kunt nu het Hive-script aanroepen en de resultaten controleren.
+U hebt al Hallo voorbereiding van het werk. U kunt nu aanroepen Hallo Hive-script en Hallo resultaten controleren.
 
 ### <a name="submit-a-hive-job"></a>Verzenden van een Hive-taak
-Gebruik de volgende Windows PowerShell-script de Hive-script uit te voeren. U moet de eerste variabele ingesteld.
+Hallo volgende Windows PowerShell-script toorun Hallo Hive-script gebruiken. U moet eerst tooset Hallo-variabele.
 
 > [!NOTE]
-> Instellen als u de tweets en het HiveQL-script dat u hebt geüpload in de laatste twee secties, $hqlScriptFile op ' / tutorials/twitter/twitter.hql '. Ingesteld voor het gebruik van de waarden die voor u zijn geüpload naar een openbare blob $hqlScriptFile op 'wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql'.
+> toouse hello tweets en HiveQL-script die u hebt geüpload in de laatste twee secties hello, set $hqlScriptFile too"/tutorials/twitter/twitter.hql Hallo". toouse hello waarden die zijn geüpload tooa openbare blob voor u, stelt u $hqlScriptFile te'wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql'.
 
 ```powershell
 #region variables and constants
@@ -467,7 +467,7 @@ $clusterName = "<Existing Azure HDInsight Cluster Name>"
 $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
-#use one of the following
+#use one of hello following
 $hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
@@ -484,31 +484,31 @@ $defaultBlobContainerName = $myCluster.DefaultStorageContainer
 #region - Invoke Hive
 Write-Host "Invoke Hive ... " -ForegroundColor Green
 
-# Create the HDInsight cluster
+# Create hello HDInsight cluster
 $pw = ConvertTo-SecureString -String $httpUserPassword -AsPlainText -Force
 $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
 Use-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName -HttpCredential $httpCredential
 $response = Invoke-AzureRmHDInsightHiveJob -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -file $hqlScriptFile -StatusFolder $statusFolder #-OutVariable $outVariable
 
-Write-Host "Display the standard error log ... " -ForegroundColor Green
+Write-Host "Display hello standard error log ... " -ForegroundColor Green
 $jobID = ($response | Select-String job_ | Select-Object -First 1) -replace ‘\s*$’ -replace ‘.*\s’
 Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultContainer $defaultBlobContainerName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -HttpCredential $httpCredential
 #endregion
 ```
 
-### <a name="check-the-results"></a>De resultaten controleren
-De volgende Windows PowerShell-script gebruiken om te controleren van de uitvoer van de Hive-taak. U moet de eerste twee variabelen worden ingesteld.
+### <a name="check-hello-results"></a>Hallo resultaten controleren
+Hallo volgende Windows PowerShell-script toocheck hello taakuitvoer Hive gebruiken. U moet eerst twee tooset Hallo-variabelen.
 
 ```powershell
 #region variables and constants
 $clusterName = "<Existing Azure HDInsight Cluster Name>"
 
-$blob = "tutorials/twitter/output/000000_0" # The name of the blob to be downloaded.
+$blob = "tutorials/twitter/output/000000_0" # hello name of hello blob toobe downloaded.
 #endregion
 
 #region - Create an Azure storage context object
-Write-Host "Get the default storage account name and container name based on the cluster name ..." -ForegroundColor Green
+Write-Host "Get hello default storage account name and container name based on hello cluster name ..." -ForegroundColor Green
 $myCluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 $resourceGroupName = $myCluster.ResourceGroup
 $defaultStorageAccountName = $myCluster.DefaultStorageAccount.Replace(".blob.core.windows.net", "")
@@ -523,11 +523,11 @@ $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAcc
 #endregion
 
 #region - Download blob and display blob
-Write-Host "Download the blob ..." -ForegroundColor Green
+Write-Host "Download hello blob ..." -ForegroundColor Green
 cd $HOME
 Get-AzureStorageBlobContent -Container $defaultBlobContainerName -Blob $blob -Context $storageContext -Force
 
-Write-Host "Display the output ..." -ForegroundColor Green
+Write-Host "Display hello output ..." -ForegroundColor Green
 Write-Host "==================================" -ForegroundColor Green
 cat "./$blob"
 Write-Host "==================================" -ForegroundColor Green
@@ -535,18 +535,18 @@ Write-Host "==================================" -ForegroundColor Green
 ```
 
 > [!NOTE]
-> De Hive-tabel gebruikt \001 als het veldscheidingsteken. Het scheidingsteken is niet zichtbaar in de uitvoer.
+> Hallo Hive-tabel gebruikt \001 Hallo veldscheidingsteken. Hallo scheidingsteken is niet zichtbaar in Hallo uitvoer.
 
-Nadat de resultaten van de analyse in Azure Blob-opslag zijn geplaatst, kunt u de gegevens exporteren naar een Azure SQL database/SQL-server, de gegevens exporteren naar Excel via Power Query of verbinding maken met uw toepassing uit om de gegevens met behulp van het Hive ODBC-stuurprogramma. Zie voor meer informatie [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop], [vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data], [Excel verbinding naar HDInsight met Power Query][hdinsight-power-query], en [Excel verbinding naar HDInsight met het stuurprogramma Microsoft Hive ODBC][hdinsight-hive-odbc].
+Nadat de analyseresultaten Hallo in Azure Blob-opslag zijn geplaatst, kunt u Hallo gegevens tooan Azure SQL database/SQL-server exporteren, Hallo gegevens tooExcel exporteren via Power Query of uw toepassingsgegevens toohello verbinding via Hallo Hive ODBC-stuurprogramma. Zie voor meer informatie [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop], [vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data], [ Verbinding maken met Excel tooHDInsight met Power Query][hdinsight-power-query], en [tooHDInsight Excel verbinding maken met het stuurprogramma Microsoft Hive ODBC Hallo][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebben we gezien hoe u een niet-gestructureerde JSON-gegevensset transformeren naar een gestructureerde Hive-tabel om te zoeken, verkennen en analyseren van gegevens van Twitter met behulp van HDInsight op Azure. Voor meer informatie zie:
+In deze zelfstudie hebben we gezien hoe tootransform een ongestructureerde gegevensset JSON in een gestructureerde Hive-tabel te tooquery verkennen en analyseren van gegevens van Twitter met behulp van HDInsight op Azure. toolearn meer, Zie:
 
 * [Aan de slag met HDInsight][hdinsight-get-started]
 * [Realtime Twitter-gevoel met HBase in HDInsight analyseren][hdinsight-hbase-twitter-sentiment]
 * [Vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-delay-data]
-* [Excel verbinden met HDInsight met Power Query][hdinsight-power-query]
-* [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc]
+* [Verbinding maken met Excel tooHDInsight met Power Query][hdinsight-power-query]
+* [Verbinding maken met Excel tooHDInsight Hello Microsoft Hive ODBC-stuurprogramma][hdinsight-hive-odbc]
 * [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se

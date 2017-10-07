@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD B2C: Een web-API beveiligen met behulp van Node.js | Microsoft Docs'
-description: Een Node.js web-API ontwikkelen die tokens accepteert van een B2C-tenant
+description: Hoe toobuild een Node.js web-API accepteert die tokens van een B2C-tenant
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
@@ -14,96 +14,96 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.openlocfilehash: 6480be75c314ede1b786e959a79c0385dd2edea8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 47f5bae025a9ba2f486e36acef36aa37cfb43543
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Een web-API ontwikkelen met behulp van Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Met Azure Active Directory (Azure AD) B2C kunt u een web-API beveiligen met OAuth 2.0-toegangstokens. Met deze tokens kunnen client-apps die gebruikmaken van Azure AD B2C, worden geverifieerd bij de API. In dit artikel wordt uitgelegd hoe u een takenlijst-API maakt, waarmee gebruikers taken kunnen toevoegen en vermelden. De web-API is beveiligd met Azure AD B2C en biedt geverifieerde gebruikers alleen de mogelijkheid om hun takenlijst te beheren.
+Met Azure Active Directory (Azure AD) B2C kunt u een web-API beveiligen met OAuth 2.0-toegangstokens. Deze tokens kunnen client-apps die gebruikmaken van Azure AD B2C tooauthenticate toohello API. Dit artikel laat zien hoe een API 'takenlijst' toocreate waarmee gebruikers tooadd en de lijst met taken. Hallo-web-API is beveiligd met Azure AD B2C en alleen hun takenlijst kan toomanage geverifieerde gebruikers.
 
 > [!NOTE]
-> Dit voorbeeld is bedoeld voor gebruik met de [iOS B2C-voorbeeldtoepassing](active-directory-b2c-devquickstarts-ios.md). Voer eerst deze procedure uit en volg daarna dat voorbeeld.
+> Dit voorbeeld is geschreven met het toobe verbonden tooby met onze [iOS B2C-voorbeeldtoepassing](active-directory-b2c-devquickstarts-ios.md). Hallo huidige procedure eerst doen en volg daarna dat voorbeeld.
 >
 >
 
-**Passport** is verificatiemiddleware voor Node.js. Passport is flexibel en modulair, en kan onopvallend worden geïnstalleerd in een Express- of Restify-webtoepassing. Een uitgebreide set strategieën ondersteunt verificatie met een gebruikersnaam en wachtwoord, Facebook, Twitter en meer. We hebben een strategie ontwikkeld voor Azure Active Directory (Azure AD). U installeert deze module en voegt vervolgens de `passport-azure-ad`-invoegtoepassing van Azure AD toe.
+**Passport** is verificatiemiddleware voor Node.js. Passport is flexibel en modulair, en kan onopvallend worden geïnstalleerd in een Express- of Restify-webtoepassing. Een uitgebreide set strategieën ondersteunt verificatie met een gebruikersnaam en wachtwoord, Facebook, Twitter en meer. We hebben een strategie ontwikkeld voor Azure Active Directory (Azure AD). U installeert deze module en voegt vervolgens hello Azure AD `passport-azure-ad` invoegtoepassing.
 
-Hiervoor doet u het volgende:
+toodo dit voorbeeld moet u:
 
 1. U registreert een toepassing met Azure AD.
-2. U stelt de toepassing in voor het gebruik van de Passport-invoegtoepassing van `azure-ad-passport`.
-3. U configureert een client om de web-API 'takenlijst' aan te roepen.
+2. Instellen van uw toepassing toouse Passport van `azure-ad-passport` invoegtoepassing.
+3. Configureer een client toepassing toocall Hallo 'takenlijst'-web-API.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Een Azure AD B2C-directory maken
 Voordat u Azure AD B2C kunt gebruiken, moet u een directory, of tenant, maken.  Een directory is een container voor alle gebruikers, apps, groepen en meer.  Als u nog geen directory hebt, [maakt u een B2C-directory](active-directory-b2c-get-started.md) voordat u verdergaat.
 
 ## <a name="create-an-application"></a>Een app maken
-Vervolgens moet u in de B2C-directory een app maken die Azure AD de informatie geeft die nodig is om veilig te communiceren met uw app. In dit geval worden zowel de client-app als de web-API vertegenwoordigd door één **toepassings-id** omdat ze samen één logische app vormen. Volg [deze instructies](active-directory-b2c-app-registration.md) om een app te maken. Zorg ervoor dat:
+Vervolgens moet u toocreate een app in uw B2C-directory die Azure AD bepaalde informatie geeft dat het toosecurely moet communiceren met uw app. In dit geval zowel Hallo client-app en web-API worden aangegeven met één **toepassings-ID**, omdat ze samen één logische app vormen. toocreate een app, volg [deze instructies](active-directory-b2c-app-registration.md). Zorg ervoor dat:
 
-* U een **web-app of web-API** in de toepassing opneemt.
-* U `http://localhost/TodoListService` invoert als **antwoord-URL**. Dit is de standaard-URL voor dit codevoorbeeld.
-* U een **toepassingsgeheim** maakt voor uw toepassing en dit kopieert. U hebt deze gegevens later nodig. Deze waarde moet [een escape-teken voor XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) bevatten voordat u deze kunt gebruiken.
-* U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze gegevens later nodig.
+* Omvatten een **web-app of web api** in Hallo-toepassing
+* U `http://localhost/TodoListService` invoert als **antwoord-URL**. Het is Hallo-standaard-URL voor dit codevoorbeeld.
+* U een **toepassingsgeheim** maakt voor uw toepassing en dit kopieert. U hebt deze gegevens later nodig. Opmerking dat deze waarde toobe moet [XML escape-teken](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) voordat u deze kunt gebruiken.
+* Kopiëren Hallo **toepassings-ID** is toegewezen tooyour app. U hebt deze gegevens later nodig.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Het beleid maken
-In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat twee identiteitservaringen: registreren en aanmelden. U moet één beleidsregel maken voor elk type, zoals wordt beschreven in het [naslagartikel voor beleid](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Wanneer u uw drie beleidsregels maakt:
+In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat twee identiteitservaringen: registreren en aanmelden. U moet één beleid toocreate van elk type, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Wanneer u uw drie beleidsregels maakt:
 
-* Kiest u **Weergavenaam** en andere registratiekenmerken in het registratiebeleid.
-* Kiest u **Weergavenaam**- en **Object-id**-toepassingsclaims voor elk beleid.  U kunt ook andere claims kiezen.
-* Noteert u de **naam** van elk beleid nadat u dit hebt gemaakt. Deze moet het voorvoegsel `b2c_1_` bevatten.  U hebt deze beleidsnamen later nodig.
+* Kies Hallo **weergavenaam** en andere registratiekenmerken in het registratiebeleid.
+* Kies Hallo **weergavenaam** en **Object-ID** toepassingsclaims voor elk beleid.  U kunt ook andere claims kiezen.
+* Noteer Hallo **naam** van elk beleid nadat u dit hebt gemaakt. Het voorvoegsel Hallo heeft `b2c_1_`.  U hebt deze beleidsnamen later nodig.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Nadat u de drie beleidsregels hebt gemaakt, kunt u uw app maken.
+Wanneer u uw drie beleidsregels hebt gemaakt, bent u klaar toobuild uw app.
 
-Voor meer informatie over de werking van beleid in Azure AD B2C, leest u eerst de [zelfstudie Aan de slag met .NET-web-app](active-directory-b2c-devquickstarts-web-dotnet.md).
+toolearn over de werking van beleid in Azure AD B2C, beginnen met Hallo [zelfstudie .NET web app aan de slag](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## <a name="download-the-code"></a>De code downloaden
-De code voor deze zelfstudie [wordt bewaard in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). Als u het voorbeeld wilt maken terwijl u aan het werk bent, kunt u [een basisproject downloaden als zip-bestand](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). U kunt het basisproject ook klonen:
+## <a name="download-hello-code"></a>Hallo code downloaden
+code voor deze zelfstudie Hallo [wordt bewaard in GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). toobuild hello voorbeeld als u gaat, kunt u [een basisproject downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). U kunt Hallo basisproject ook klonen:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS.git
 ```
 
-De voltooide app is ook [beschikbaar als zip-bestand](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) of in de `complete`-vertakking van dezelfde opslagplaats.
+Hallo voltooid app is ook [beschikbaar als ZIP-bestand](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) of op Hallo `complete` vertakking van Hallo dezelfde opslagplaats.
 
 ## <a name="download-nodejs-for-your-platform"></a>Node.js voor uw platform downloaden
-U moet een werkende installatie van Node.js hebben om dit voorbeeld te kunnen gebruiken.
+toosuccessfully dit voorbeeld gebruiken, moet u een werkende implementatie van Node.js.
 
 Installeer Node.js vanuit [nodejs.org](http://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>MongoDB installeren voor uw platform
-U moet een werkende installatie van MongoDB hebben om dit voorbeeld te kunnen gebruiken. U gebruikt MongoDB om uw REST-API permanent te maken in alle serverexemplaren.
+toosuccessfully dit voorbeeld gebruiken, moet u een werkende implementatie van MongoDB. We gebruiken uw REST-API persistent MongoDB toomake in alle serverexemplaren.
 
 Installeer MongoDB vanuit [mongodb.org](http://www.mongodb.org).
 
 > [!NOTE]
-> In deze procedure wordt ervan uitgegaan dat u gebruikmaakt van de standaardinstallatie- en -servereindpunten voor MongoDB. Op het moment waarop dit artikel is geschreven, zijn dat `mongodb://localhost`.
+> Deze procedure wordt ervan uitgegaan dat u Hallo standaard en -servereindpunten voor MongoDB, namelijk op moment van schrijven van dit Hallo `mongodb://localhost`.
 >
 >
 
-## <a name="install-the-restify-modules-in-your-web-api"></a>De Restify-modules installeren in uw web-API
-U gebruikt Restify om de REST-API te ontwikkelen. Restify is een minimaal en flexibel Node.js-toepassingsframework dat is afgeleid van Express. Het bevat een set krachtige functies voor het ontwikkelen van REST-API's op Connect.
+## <a name="install-hello-restify-modules-in-your-web-api"></a>Hallo Restify-modules installeren in uw web-API
+We gebruiken uw REST API Restify toobuild. Restify is een minimaal en flexibel Node.js-toepassingsframework dat is afgeleid van Express. Het bevat een set krachtige functies voor het ontwikkelen van REST-API's op Connect.
 
 ### <a name="install-restify"></a>Restify installeren
-Wijzig de directory vanaf de opdrachtregel in `azuread`. Als de directory `azuread` niet bestaat, maakt u deze.
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`. Als hello `azuread` directory niet bestaat, maakt deze.
 
 `cd azuread` of `mkdir azuread;`
 
-Voer de volgende opdracht in:
+Voer Hallo volgende opdracht:
 
 `npm install restify`
 
 Met deze opdracht wordt Restify geïnstalleerd.
 
 #### <a name="did-you-get-an-error"></a>Krijgt u een foutmelding?
-Wanneer u `npm` in sommige besturingssystemen gebruikt, wordt het foutbericht `Error: EPERM, chmod '/usr/local/bin/..'` weergegeven, plus het verzoek om het account uit te voeren als beheerder. In dat geval gebruikt u de opdracht `sudo` om `npm` uit te voeren op een hoger niveau van bevoegdheden.
+In sommige besturingssystemen wanneer u `npm`, foutbericht Hallo `Error: EPERM, chmod '/usr/local/bin/..'` en een aanvraag die u Hallo account uitvoeren als beheerder. Als dit probleem optreedt, gebruikt u Hallo `sudo` opdracht toorun `npm` op een hoger niveau van bevoegdheden.
 
 #### <a name="did-you-get-a-dtrace-error"></a>Wordt er een DTrace-fout weergegeven?
 Mogelijk wordt er iets in de trant van het volgende weergegeven wanneer u Restify installeert:
@@ -127,7 +127,7 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 
 Restify biedt een krachtig mechanisme om REST-aanroepen te traceren met behulp van DTrace. Veel besturingssystemen beschikken echter niet over DTrace. U kunt deze fouten negeren.
 
-De uitvoer van de opdracht ziet er ongeveer als volgt uit:
+Hallo-uitvoer van Hallo-opdracht moet worden weergegeven soortgelijke toothis tekst:
 
     restify@2.6.1 node_modules/restify
     ├── assert-plus@0.1.4
@@ -151,33 +151,33 @@ De uitvoer van de opdracht ziet er ongeveer als volgt uit:
     └── bunyan@0.22.0 (mv@0.0.5)
 
 ## <a name="install-passport-in-your-web-api"></a>Passport installeren in uw web-API
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd.
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd.
 
-Installeer Passport met de volgende opdracht:
+Met behulp van de volgende opdracht Hallo Passport installeren:
 
 `npm install passport`
 
-De uitvoer van de opdracht ziet er ongeveer als volgt uit:
+Hallo-uitvoer van de opdracht Hallo moet soortgelijke toothis tekst:
 
     passport@0.1.17 node_modules\passport
     ├── pause@0.0.1
     └── pkginfo@0.2.3
 
-## <a name="add-passport-azuread-to-your-web-api"></a>Passport-azuread toevoegen aan uw web-API
-Voeg vervolgens de OAuth-strategie toe met behulp van `passport-azuread`. Dit is een reeks strategieën die Azure AD verbinden met Passport. Gebruik deze strategie voor bearer-tokens in het REST-API-voorbeeld.
+## <a name="add-passport-azuread-tooyour-web-api"></a>Passport-azuread tooyour web API toevoegen
+Voeg vervolgens Hallo OAuth-strategie toe met behulp van `passport-azuread`, een reeks strategieën die Azure AD met Passport verbinden. Gebruik deze strategie voor bearer-tokens in Hallo REST-API-voorbeeld.
 
 > [!NOTE]
-> Hoewel OAuth2 een kader biedt waarin elk onbekend type token kan worden uitgegeven, worden alleen bepaalde typen tokens wijdverbreid gebruikt. De tokens voor het beveiligen van eindpunten zijn bearer-tokens. Dit is het type token dat het meest wordt uitgegeven in OAuth2. In veel implementaties wordt ervan uitgegaan dat bearer-tokens het enige type token zijn dat wordt uitgegeven.
+> Hoewel OAuth2 een kader biedt waarin elk onbekend type token kan worden uitgegeven, worden alleen bepaalde typen tokens wijdverbreid gebruikt. Hallo-tokens voor het beveiligen van eindpunten zijn bearer-tokens. Deze typen tokens zijn Hallo meest wordt uitgegeven in OAuth2. Veel implementaties wordt ervan uitgegaan dat bearer-tokens Hallo enige type token dat is uitgegeven zijn.
 >
 >
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd.
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd.
 
-Voer de volgende opdracht in om de Passport-module `passport-azure-ad` te installeren:
+Hallo Passport installeren `passport-azure-ad` module met behulp van de volgende opdracht Hallo:
 
 `npm install passport-azure-ad`
 
-De uitvoer van de opdracht ziet er ongeveer als volgt uit:
+Hallo-uitvoer van de opdracht Hallo moet soortgelijke toothis tekst:
 
 ``
 passport-azure-ad@1.0.0 node_modules/passport-azure-ad
@@ -194,19 +194,19 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 ``
 
-## <a name="add-mongodb-modules-to-your-web-api"></a>MongoDB-modules toevoegen aan uw web-API
+## <a name="add-mongodb-modules-tooyour-web-api"></a>MongoDB-modules tooyour web API toevoegen
 In dit voorbeeld wordt MongoDB gebruikt als gegevensarchief. Installeer daarvoor Mongoose, een veel gebruikte invoegtoepassing voor het beheren van modellen en schema’s.
 
 * `npm install mongoose`
 
 ## <a name="install-additional-modules"></a>Aanvullende modules installeren
-Vervolgens installeert u de overige vereiste modules.
+Vervolgens installeert Hallo resterende vereiste modules.
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-Installeer de modules in uw `node_modules`-directory:
+Hallo-modules in installeren uw `node_modules` directory:
 
 * `npm install assert-plus`
 * `npm install ejs`
@@ -215,13 +215,13 @@ Installeer de modules in uw `node_modules`-directory:
 * `npm install bunyan`
 
 ## <a name="create-a-serverjs-file-with-your-dependencies"></a>Een bestand server.js met de afhankelijkheden maken
-Het bestand `server.js` verstrekt het merendeel van de functionaliteit voor uw web-API-server.
+Hallo `server.js` bestand Hallo meerderheid van Hallo functionaliteit biedt voor uw Web-API-server.
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-Maak een bestand `server.js` in een teksteditor. Voeg de volgende informatie toe:
+Maak een bestand `server.js` in een teksteditor. Voeg Hallo volgende informatie:
 
 ```Javascript
 'use strict';
@@ -240,27 +240,27 @@ var passport = require('passport');
 var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
-Sla het bestand op. U hebt dit bestand later nodig.
+Hallo-bestand opslaan. U terug tooit later.
 
-## <a name="create-a-configjs-file-to-store-your-azure-ad-settings"></a>Een bestand config.js maken om de Azure AD-instellingen op te slaan
-Dit codebestand geeft de configuratieparameters van de Azure AD Portal door aan het bestand `Passport.js`. U hebt deze configuratiewaarden gemaakt toen u de web-API aan de portal toevoegde in het eerste deel van de procedure. Wanneer u de code hebt gekopieerd, wordt uitgelegd wat u in de waarden van deze parameters moet zetten.
+## <a name="create-a-configjs-file-toostore-your-azure-ad-settings"></a>Maken van een bestand config.js toostore uw Azure AD-instellingen
+Dit codebestand geeft de configuratieparameters Hallo van uw Azure AD-Portal toohello `Passport.js` bestand. U hebt deze configuratiewaarden gemaakt toen u in het eerste deel van de procedure Hallo HALLO hallo-API toohello webportal hebt toegevoegd. We uitleggen welke tooput Hallo waarden van deze parameters wanneer u Hallo code hebt gekopieerd.
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-Maak een bestand `config.js` in een teksteditor. Voeg de volgende informatie toe:
+Maak een bestand `config.js` in een teksteditor. Voeg Hallo volgende informatie:
 
 ```Javascript
-// Don't commit this file to your public repos. This config is for first-run
+// Don't commit this file tooyour public repos. This config is for first-run
 exports.creds = {
-clientID: <your client ID for this Web API you created in the portal>
+clientID: <your client ID for this Web API you created in hello portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
-identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
+audience: '<your audience URI>', // hello Client ID of hello application that is calling your API, usually a web API or native client
+identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add hello B2C tenant name in hello <tenant name> area
 tenantName:'<tenant name>',
-policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
-passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
+policyName:'b2c_1_<sign in policy name>' // This is hello policy you'll want toovalidate against in B2C. Usually this is your Sign-in policy (as users sign in toothis API)
+passReqToCallback: false // This is a node.js construct that lets you pass hello req all hello way back tooany upstream caller. We turn this off as there is no upstream caller.
 };
 
 ```
@@ -268,40 +268,40 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>Vereiste waarden
-`clientID` : de client-id van uw web-API-toepassing.
+`clientID`: Hallo van client-ID van uw Web-API-toepassing.
 
-`IdentityMetadata` : dit is de locatie waar `passport-azure-ad` de configuratiegegevens voor de id-provider zoekt. Er wordt ook gezocht naar de sleutels om de JSON-webtokens te valideren.
+`IdentityMetadata`: Dit is de locatie `passport-azure-ad` zoekt naar de configuratiegegevens voor Hallo id-provider. Het lijkt erop ook voor Hallo sleutels toovalidate Hallo JSON webtokens.
 
-`audience`: de uniform resource identifier (URI) van de portal die de aanroepende toepassing identificeert.
+`audience`: Hallo uniform resource identifier (URI) van Hallo portal die de aanroepende toepassing te identificeren.
 
 `tenantName`: de tenantnaam, bijvoorbeeld **contoso.onmicrosoft.com**.
 
-`policyName`: het beleid waarmee u de tokens wilt valideren die bij de server binnenkomen. Dit beleid moet hetzelfde zijn als het beleid dat u op de clienttoepassing gebruikt om u aan te melden.
+`policyName`: Hallo toovalidate Hallo tokens binnenkort in tooyour server het gewenste beleid. Dit beleid moet Hallo hetzelfde beleid die u voor de clienttoepassing Hallo voor aanmelden gebruikt.
 
 > [!NOTE]
-> Gebruik nu hetzelfde beleid in de client- en serverconfiguratie. Als u al een procedure hebt doorlopen waarin u deze beleidsregels hebt gemaakt, hoeft u dit niet opnieuw te doen. Omdat u de procedure hebt voltooid, hoeft u op de site geen nieuw beleid voor clientprocedures te maken.
+> Op dit moment Hallo gebruik dezelfde beleidsregels voor zowel client als server setup. Als u al een procedure hebt voltooid en deze beleidsregels hebt gemaakt, u geen toodo dus opnieuw hoeft. Omdat u Hallo procedure hebt voltooid, moet u mag niet tooset nieuw beleid voor clientprocedures op Hallo-site.
 >
 >
 
-## <a name="add-configuration-to-your-serverjs-file"></a>Configuratie toevoegen aan het bestand server.js
-Als u de waarden wilt lezen van het `config.js`-bestand dat u hebt gemaakt, voegt u het `.config`-bestand als een vereiste resource toe in uw toepassing en stelt u de globale variabelen in op de variabelen in het `config.js`-document.
+## <a name="add-configuration-tooyour-serverjs-file"></a>Configuratiebestand tooyour server.js toevoegen
+tooread hello waarden uit Hallo `config.js` bestand dat u hebt gemaakt, het toevoegen van Hallo `.config` bestand als een vereiste bron in uw toepassing en stel vervolgens Hallo globale variabelen toothose in Hallo `config.js` document.
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-Open het bestand `server.js` in een teksteditor. Voeg de volgende informatie toe:
+Open Hallo `server.js` bestand in een teksteditor. Voeg Hallo volgende informatie:
 
 ```Javascript
 var config = require('./config');
 ```
-Voeg een nieuwe sectie aan `server.js` toe die de volgende code bevat:
+Voeg een nieuwe sectie te`server.js` die Hallo volgende code bevat:
 
 ```Javascript
-// We pass these options in to the ODICBearerStrategy.
+// We pass these options in toohello ODICBearerStrategy.
 
 var options = {
-    // The URL of the metadata document for your app. We put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
+    // hello URL of hello metadata document for your app. We put hello keys for token validation from hello URL found in hello jwks_uri tag of hello in hello metadata.
     identityMetadata: config.creds.identityMetadata,
     clientID: config.creds.clientID,
     tenantName: config.creds.tenantName,
@@ -313,10 +313,10 @@ var options = {
 };
 ```
 
-Daarna voegt u tijdelijke aanduidingen toe voor de gebruikers die van de aanroepende toepassingen worden ontvangen.
+Vervolgens laten we de tijdelijke aanduidingen voor Hallo gebruikers we van onze aanroepen toepassingen ontvangen toevoegen.
 
 ```Javascript
-// array to hold logged in users and the current logged in user (owner)
+// array toohold logged in users and hello current logged in user (owner)
 var users = [];
 var owner = null;
 ```
@@ -330,32 +330,32 @@ var log = bunyan.createLogger({
 });
 ```
 
-## <a name="add-the-mongodb-model-and-schema-information-by-using-mongoose"></a>Het MongoDB-model en de schemagegevens toevoegen met behulp van Mongoose
-De eerdere voorbereiding loont de moeite wanneer u deze drie bestanden samenbrengt in een REST-API-service.
+## <a name="add-hello-mongodb-model-and-schema-information-by-using-mongoose"></a>Hallo MongoDB-model en schema-informatie toevoegen met behulp van Mongoose
+Hallo handig eerdere voorbereiding wanneer u deze drie bestanden samenbrengt in een REST-API-service.
 
-Voor deze procedure gebruikt u MongoDB om uw taken op te slaan, zoals eerder is besproken.
+Voor deze procedure gebruikt u MongoDB toostore uw taken, zoals eerder besproken.
 
-In het bestand `config.js` hebt u de **takenlijst** van uw database aangeroepen. De naam van de takenlijst is aan het einde van de verbindings-URL van `mongoose_auth_local` geplaatst. U hoeft deze database niet vooraf in MongoDB te maken. De database wordt voor u gemaakt wanneer u de servertoepassing voor de eerste keer uitvoert.
+In Hallo `config.js` -bestand dat u uw database aangeroepen **tasklist**. Die naam is ook wat u achter Hallo Hallo opnemen `mongoose_auth_local` verbindings-URL. U hoeft niet toocreate deze vooraf in MongoDB-database. Het Hallo-database voor u gemaakt op de eerste uitvoering van de servertoepassing Hallo.
 
-Nadat u de server hebt laten weten welke MongoDB-database u wilt gebruiken, moet u aanvullende code schrijven om het model en het schema voor de servertaken te maken.
+Nadat u welke MongoDB-database toouse Hallo-server zien, moet u toowrite enkele aanvullende code toocreate Hallo model en het schema voor de servertaken.
 
-### <a name="expand-the-model"></a>Het model uitbreiden
+### <a name="expand-hello-model"></a>Hallo model uitbreiden
 Dit schemamodel is eenvoudig. U kunt het naar behoefte uitbreiden.
 
-`owner`: de persoon die aan de taak is toegewezen. Dit object is een **tekenreeks**.  
+`owner`: De persoon toohello taak is toegewezen. Dit object is een **tekenreeks**.  
 
-`Text`: de taak zelf. Dit object is een **tekenreeks**.
+`Text`: Hallo taak zelf. Dit object is een **tekenreeks**.
 
-`date`: de datum waarop de taak moet zijn voltooid. Dit object is een **datum/tijd**.
+`date`: Hallo datum die taak Hallo vervalt. Dit object is een **datum/tijd**.
 
-`completed`: of de taak is voltooid. Dit object is een **Booleaanse waarde**.
+`completed`: Als het Hallo-taak is voltooid. Dit object is een **Booleaanse waarde**.
 
-### <a name="create-the-schema-in-the-code"></a>Het schema in de code maken
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+### <a name="create-hello-schema-in-hello-code"></a>Hallo-schema in Hallo code maken
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-Open het bestand `server.js` in een teksteditor. Voeg de volgende informatie toe onder het configuratie-item:
+Open Hallo `server.js` bestand in een teksteditor. Hallo volgende informatie hieronder Hallo configuratie-item toevoegen:
 
 ```Javascript
 // MongoDB setup
@@ -363,12 +363,12 @@ Open het bestand `server.js` in een teksteditor. Voeg de volgende informatie toe
 var serverPort = process.env.PORT || 3000; // Note we are hosting our API on port 3000
 var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
 
-// Connect to MongoDB
+// Connect tooMongoDB
 global.db = mongoose.connect(serverURI);
 var Schema = mongoose.Schema;
 log.info('MongoDB Schema loaded');
 
-// Here we create a schema to store our tasks and users. Pretty simple schema for now.
+// Here we create a schema toostore our tasks and users. Pretty simple schema for now.
 var TaskSchema = new Schema({
     owner: String,
     Text: String,
@@ -376,17 +376,17 @@ var TaskSchema = new Schema({
     date: Date
 });
 
-// Use the schema to register a model
+// Use hello schema tooregister a model
 mongoose.model('Task', TaskSchema);
 var Task = mongoose.model('Task');
 ```
-Eerst maakt u het schema en vervolgens maakt u een modelobject dat u gebruikt om uw gegevens in de code op te slaan wanneer u de **routes** definieert.
+Hallo-schema voor het eerst wordt gemaakt en maakt u een modelobject dat u uw gegevens in de gehele Hallo code bij het definiëren van toostore uw **routes**.
 
 ## <a name="add-routes-for-your-rest-api-task-server"></a>Routes toevoegen voor de REST-API-taakserver
-Nu u een databasemodel hebt om mee te werken, voegt u de routes toe die u voor de REST-API-server wilt toevoegen.
+Nu u een database model toowork met hebt, toevoegen Hallo routes die u voor de REST-API-server gebruikt.
 
 ### <a name="about-routes-in-restify"></a>Routes in Restify
-Routes werken in Restify op precies dezelfde manier als wanneer ze de Express-stack gebruiken. U definieert routes met behulp van de URI die de clienttoepassingen aanroepen.
+Routes werken in Restify op Hallo dezelfde manier als wanneer ze de Express-stack hello gebruiken. U definieert routes met behulp van Hallo URI dat u Hallo client toepassingen toocall verwacht.
 
 Een doorsnee patroon voor een Restify-route is:
 
@@ -395,22 +395,22 @@ function createObject(req, res, next) {
 // do work on Object
 _object.name = req.params.object; // passed value is in req.params under object
 ///...
-return next(); // keep the server going
+return next(); // keep hello server going
 }
 ....
 server.post('/service/:add/:object', createObject); // calls createObject on routes that match this.
 ```
 
-U kunt Restify en Express gebruiken voor een veel diepere functionaliteit, zoals voor het definiëren van toepassingstypen en de uitvoering van complexe routering tussen verschillende eindpunten. Voor deze zelfstudie houden we de routes eenvoudig.
+U kunt Restify en Express gebruiken voor een veel diepere functionaliteit, zoals voor het definiëren van toepassingstypen en de uitvoering van complexe routering tussen verschillende eindpunten. Voor Hallo doel van deze zelfstudie Houd we deze routes eenvoudig.
 
-#### <a name="add-default-routes-to-your-server"></a>Standaardroutes toevoegen aan een server
-U voegt nu de CRUD-basisroutes voor **maken** en **vermelden** toe aan de REST-API. Andere routes vindt u in het gedeelte `complete` van het voorbeeld.
+#### <a name="add-default-routes-tooyour-server"></a>Standaard routes tooyour server toevoegen
+U nu Hallo eenvoudige CRUD-routes voor toevoegen **maken** en **lijst** voor onze REST-API. Andere deze routes kunnen worden gevonden in Hallo `complete` vertakking van Hallo-voorbeeld.
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-Open het bestand `server.js` in een teksteditor. Voeg de volgende informatie toe onder de databasevermeldingen die u hierboven hebt gemaakt:
+Open Hallo `server.js` bestand in een teksteditor. Onder de databasevermeldingen Hallo aangebrachte hoger toevoegen Hallo volgende informatie:
 
 ```Javascript
 /**
@@ -422,13 +422,13 @@ Open het bestand `server.js` in een teksteditor. Voeg de volgende informatie toe
 
 function createTask(req, res, next) {
 
-    // Resitify currently has a bug which doesn't allow you to set default headers
-    // This headers comply with CORS and allow us to mongodbServer our response to any origin
+    // Resitify currently has a bug which doesn't allow you tooset default headers
+    // This headers comply with CORS and allow us toomongodbServer our response tooany origin
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-    // Create a new task model, fill it up and save it to Mongodb
+    // Create a new task model, fill it up and save it tooMongodb
     var _task = new Task();
 
     if (!req.params.Text) {
@@ -445,7 +445,7 @@ function createTask(req, res, next) {
 
     _task.save(function(err) {
         if (err) {
-            req.log.warn(err, 'createTask: unable to save');
+            req.log.warn(err, 'createTask: unable toosave');
             next(err);
         } else {
             res.send(201, _task);
@@ -459,11 +459,11 @@ function createTask(req, res, next) {
 ```
 
 ```Javascript
-/// Simple returns the list of TODOs that were loaded.
+/// Simple returns hello list of TODOs that were loaded.
 
 function listTasks(req, res, next) {
-    // Resitify currently has a bug which doesn't allow you to set default headers
-    // This headers comply with CORS and allow us to mongodbServer our response to any origin
+    // Resitify currently has a bug which doesn't allow you tooset default headers
+    // This headers comply with CORS and allow us toomongodbServer our response tooany origin
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -482,7 +482,7 @@ function listTasks(req, res, next) {
         }
 
         if (!data.length) {
-            log.warn(err, "There is no tasks in the database. Add one!");
+            log.warn(err, "There is no tasks in hello database. Add one!");
         }
 
         if (!owner) {
@@ -499,13 +499,13 @@ function listTasks(req, res, next) {
 ```
 
 
-#### <a name="add-error-handling-for-the-routes"></a>Foutafhandeling voor de routes toevoegen
-Voeg een vorm van foutafhandeling toe, zodat u eventuele problemen op een begrijpelijke manier kunt terugkoppelen naar de client.
+#### <a name="add-error-handling-for-hello-routes"></a>Foutafhandeling voor Hallo routes toevoegen
+Sommige foutafhandeling toevoegen zodat u eventuele problemen die kunnen optreden back toohello-client op een manier die kunt kan communiceren.
 
-Voeg de volgende code toe:
+Hallo na code toevoegen:
 
 ```Javascript
-///--- Errors for communicating something interesting back to the client
+///--- Errors for communicating something interesting back toohello client
 function MissingTaskError() {
 restify.RestError.call(this, {
 statusCode: 409,
@@ -542,9 +542,9 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 
 ## <a name="create-your-server"></a>De server maken
-U hebt nu een database gedefinieerd en de routes geconfigureerd. Nu hoeft u alleen nog het serverexemplaar toe te voegen waarmee uw aanroepen worden beheerd.
+U hebt nu een database gedefinieerd en de routes geconfigureerd. Hallo laatste wat voor u toodo is tooadd Hallo server-exemplaar waarmee uw aanroepen worden beheerd.
 
-Met Restify en Express kunt u de REST-API-server in grote mate aanpassen, maar hier gebruikt u de meest eenvoudige configuratie.
+Restify en Express kunt u mate aanpassen voor een REST-API-server, maar we de meest eenvoudige configuratie Hallo hier gebruiken.
 
 ```Javascript
 
@@ -570,21 +570,21 @@ server.pre(restify.pre.userAgentConnection());
 // Set a per request bunyan logger (with requestid filled in)
 server.use(restify.requestLogger());
 
-// Allow 5 requests/second by IP, and burst to 10
+// Allow 5 requests/second by IP, and burst too10
 server.use(restify.throttle({
     burst: 10,
     rate: 5,
     ip: true,
 }));
 
-// Use the common stuff you probably want
+// Use hello common stuff you probably want
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.dateParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser({
     mapParams: true
-})); // Allows for JSON mapping to REST
+})); // Allows for JSON mapping tooREST
 server.use(restify.authorizationParser()); // Looks for authorization headers
 
 // Let's start using Passport.js
@@ -594,7 +594,7 @@ server.use(passport.session()); // Provides session support
 
 
 ```
-## <a name="add-the-routes-to-the-server-without-authentication"></a>De routes toevoegen aan de server (zonder verificatie)
+## <a name="add-hello-routes-toohello-server-without-authentication"></a>Hallo routes toohello server (zonder verificatie) toevoegen
 ```Javascript
 server.get('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
@@ -655,9 +655,9 @@ server.listen(serverPort, function() {
     var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
     consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
     consoleMessage += '\n %s server is listening at %s';
-    consoleMessage += '\n Open your browser to %s/api/tasks\n';
+    consoleMessage += '\n Open your browser too%s/api/tasks\n';
     consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n';
-    consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? \n';
+    consoleMessage += '\n !!! why not try a $curl -isS %s | json tooget some ideas? \n';
     consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
     //log.info(consoleMessage, server.name, server.url, server.url, server.url);
@@ -666,20 +666,20 @@ server.listen(serverPort, function() {
 
 ```
 
-## <a name="add-authentication-to-your-rest-api-server"></a>Verificatie toevoegen aan een REST-API-app
+## <a name="add-authentication-tooyour-rest-api-server"></a>Authentication tooyour REST-API-server toevoegen
 Nu u een actieve REST-API-server hebt, kunt u deze gaan gebruiken met Azure AD.
 
-Wijzig de directory vanaf de opdrachtregel in `azuread`, als dat nog niet is gebeurd:
+Vanaf de opdrachtregel hello, wijzig de directory te`azuread`, als deze nog niet is gebeurd:
 
 `cd azuread`
 
-### <a name="use-the-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>De OIDCBearerStrategy gebruiken die is opgenomen in passport-azure-ad
+### <a name="use-hello-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>Hallo OIDCBearerStrategy die is opgenomen in passport-azure-ad gebruiken
 > [!TIP]
-> Wanneer u API's schrijft, moet u de gegevens altijd koppelen aan iets unieks in het token, iets dat de gebruiker niet kan vervalsen. Wanneer de server ToDo-items opslaat, gebeurt dit op basis van de **oid** van de gebruiker in het token (aangeroepen via token.oid); deze komt in het eigenaarsveld te staan. Met deze waarde zorgt u ervoor dat alleen die gebruiker toegang heeft tot zijn/haar eigen ToDo-items. In de API wordt de 'eigenaar' niet weergegeven. Dat betekent dat een externe gebruiker ToDo-items van anderen kan aanvragen, ook al zijn ze geverifieerd.
+> Wanneer u API's schrijft, u moet altijd koppelen Hallo gegevens toosomething uniek in vergelijking met het Hallo-token dat Hallo gebruiker niet kunnen vervalsen. Wanneer Hallo server ToDo-items opslaat, gebeurt dit op basis van Hallo **oid** van Hallo-gebruiker in Hallo-token (aangeroepen via token.oid), die in het veld Hallo 'eigenaar' gaat. Met deze waarde zorgt u ervoor dat alleen die gebruiker toegang heeft tot zijn/haar eigen ToDo-items. Er is geen blootstelling in Hallo API van de 'eigenaar' zodat een externe gebruiker anderen ToDo-items aanvragen kan, zelfs als ze zijn geverifieerd.
 >
 >
 
-Vervolgens gebruikt u de bearer-strategie die bij `passport-azure-ad` is geleverd.
+Gebruik vervolgens Hallo bearer-strategie die wordt geleverd met `passport-azure-ad`.
 
 ```Javascript
 var findById = function(id, fn) {
@@ -696,8 +696,8 @@ var findById = function(id, fn) {
 
 var oidcStrategy = new OIDCBearerStrategy(options,
     function(token, done) {
-        log.info('verifying the user');
-        log.info(token, 'was the token retreived');
+        log.info('verifying hello user');
+        log.info(token, 'was hello token retreived');
         findById(token.sub, function(err, user) {
             if (err) {
                 return done(err);
@@ -718,21 +718,21 @@ var oidcStrategy = new OIDCBearerStrategy(options,
 passport.use(oidcStrategy);
 ```
 
-Passport maakt gebruik van hetzelfde patroon voor alle strategieën. U geeft hieraan een `function()` door die `token` en `done` als parameters heeft. De strategie komt weer naar u terug nadat al het werk is uitgevoerd. Sla de gebruiker op en sla ook het token op, zodat u het niet opnieuw hoeft op te vragen.
+Hallo hetzelfde patroon wordt gebruikt voor alle strategieën Passport. U geeft hieraan een `function()` door die `token` en `done` als parameters heeft. Hallo-strategie komt weer tooyou nadat deze zijn werk heeft gedaan. U moet vervolgens Hallo gebruiker opslaat en Hallo token opslaan zodat u niet tooask voor het opnieuw hoeft.
 
 > [!IMPORTANT]
-> In bovenstaande code wordt elke gebruiker gebruikt die zich bij de server kan verifiëren. Dit proces wordt automatische registratie genoemd. In productieservers geeft u gebruikers geen toegang tot de API zonder ze een registratieproces te laten doorlopen. Dit proces is doorgaans het patroon dat u ziet in consumentenapps, waarbij u zich kunt registreren via Facebook, maar waarvoor u vervolgens aanvullende informatie moet invullen. Als dit geen opdrachtregelprogramma was, had u het e-mailadres kunnen verkrijgen uit het tokenobject dat wordt geretourneerd en had u gebruikers daarna niet kunnen vragen aanvullende gegevens in te vullen. Omdat dit een voorbeeld is, voegt u ze toe aan een database in het geheugen.
+> Hallo bovenstaande code wordt elke gebruiker die zich tooauthenticate tooyour server. Dit proces wordt automatische registratie genoemd. In productieservers laat niet in alle gebruikers toegang Hallo API zonder dat zij een registratieproces doorlopen eerst. Dit proces is meestal Hallo patroon dat u in consumenten-apps die tooregister toestaan ziet via Facebook, maar vervolgens vraagt u toofill aanvullende informatie. Als dit programma is niet een opdrachtregelprogramma, kan hebben we Hallo e opgehaald uit Hallo Tokenobject dat wordt geretourneerd en vervolgens gebruikers toofill aanvullende informatie gevraagd. Omdat dit een voorbeeld is, we ze tooan in-memory database toevoegen.
 >
 >
 
-## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>De servertoepassing uitvoeren om te verifiëren dat u wordt geweigerd
-U kunt `curl` gebruiken om na te gaan of u nu OAuth2-bescherming voor uw eindpunten hebt. De geretourneerde headers moeten voldoende zijn om aan te geven dat u op de juiste weg bent.
+## <a name="run-your-server-application-tooverify-that-it-rejects-you"></a>Dat het weigert uitvoeren van uw toepassing server tooverify u
+U kunt `curl` toosee hebt u nu OAuth2-bescherming voor uw eindpunten. Hallo geretourneerde headers moeten voldoende tootell u dat u op het juiste pad Hallo.
 
 Controleer of het MongoDB-exemplaar is geactiveerd:
 
     $sudo mongodb
 
-Schakel naar de directory en voer de server uit:
+Toohello directory en Voer Hallo-server wijzigen:
 
     $ cd azuread
     $ node server.js
@@ -751,12 +751,12 @@ Date: Tue, 14 Jul 2015 05:45:03 GMT
 Transfer-Encoding: chunked
 ```
 
-Een 401-fout is het gewenste antwoord. Hiermee wordt aangegeven dat de Passport-laag probeert om te leiden naar het geautoriseerde eindpunt.
+Een 401-fout is Hallo-reactie die u wilt. Hiermee wordt aangegeven dat Hallo Passport-laag probeert tooredirect toohello autoriseren eindpunt.
 
 ## <a name="you-now-have-a-rest-api-service-that-uses-oauth2"></a>U hebt nu een REST-API-service die gebruikmaakt van OAuth2
-U hebt een REST-API geïmplementeerd met behulp van Restify en OAuth! U hebt nu voldoende code om door te gaan met het ontwikkelen van uw service. U kunt voortbouwen op dit voorbeeld. U bent nu met deze server zo ver mogelijk gegaan zonder gebruik te maken van een OAuth2-compatibele client. Gebruik voor de volgende stap een aanvullende walkthrough, zoals [Een web-API verbinden met behulp van iOS met B2C](active-directory-b2c-devquickstarts-ios.md).
+U hebt een REST-API geïmplementeerd met behulp van Restify en OAuth! U hebt nu voldoende code zodat u kunt doorgaan toodevelop uw service en op dit voorbeeld bouwen. U bent nu met deze server zo ver mogelijk gegaan zonder gebruik te maken van een OAuth2-compatibele client. Voor die stap gebruikt u een extra procedure zoals onze [tooa web-API verbinden met behulp van iOS met B2C](active-directory-b2c-devquickstarts-ios.md) scenario.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu verdergaan met geavanceerdere onderwerpen, te weten:
+U kunt nu toomore geavanceerde onderwerpen, zoals verplaatsen:
 
-[Een web-API verbinden met behulp van iOS met B2C](active-directory-b2c-devquickstarts-ios.md)
+[Verbinding maken met tooa web-API met behulp van iOS met B2C](active-directory-b2c-devquickstarts-ios.md)

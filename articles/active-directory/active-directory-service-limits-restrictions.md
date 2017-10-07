@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Servicelimieten en beperkingen
-description: Gebruik beperkingen en andere Servicelimieten voor de Azure Active Directory-service
+title: aaaAzure Active Directory Servicelimieten en beperkingen
+description: Gebruik beperkingen en andere beperkingen van de service voor hello Azure Active Directory-service
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: aaddev
-ms.openlocfilehash: 100cfb213917854b0bfbaccdd46ea625d721c59c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3971cb40ed53d6e0c11f124f334d1dc6a2cdf769
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD-service limieten en beperkingen
-In dit artikel bevat de beperkingen voor informatie over het gebruik en andere beperkingen van de service voor de service Azure Active Directory (Azure AD). Als u de volledige set van Microsoft Azure Servicelimieten zoekt, Zie [Azure-abonnement en Service-limieten, quota's en beperkingen](../azure-subscription-service-limits.md).
+In dit artikel bevat Hallo sleutelgebruik en andere beperkingen van de service voor hello Azure Active Directory (Azure AD)-service. Als u de volledige set Hallo van Microsoft Azure Servicelimieten zoekt, Zie [Azure-abonnement en Service-limieten, quota's en beperkingen](../azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure activiteitenlogboeken om te controleren bronnen weergeven | Microsoft Docs
-description: Gebruik de activiteitenlogboeken gebruikersacties controleren en fouten. Toont PowerShell voor Azure Portal, Azure CLI en REST.
+title: aaaView Azure activiteit logboeken toomonitor resources | Microsoft Docs
+description: Gebruik Hallo activiteit logboeken tooreview-gebruikersacties en fouten. Toont PowerShell voor Azure Portal, Azure CLI en REST.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,75 +14,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8430ed2a9c1dfe5f13423a55d358e590b0facb22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van de acties op resources
+# <a name="view-activity-logs-tooaudit-actions-on-resources"></a>Activiteit weergeven registreert tooaudit acties voor bronnen
 Via activiteitenlogboeken, kunt u bepalen:
 
-* welke bewerkingen zijn uitgevoerd op de resources in uw abonnement
-* wie heeft de bewerking gestart (Hoewel de bewerkingen die zijn gestart door een back-endservice niet retourneren als de aanroeper van een gebruiker)
-* Wanneer de bewerking is opgetreden
-* De status van de bewerking
-* De bewerking van de waarden van andere eigenschappen die u kunnen helpen onderzoek
+* welke bewerkingen zijn uitgevoerd op Hallo van resources in uw abonnement
+* wie Hallo-bewerking gestart (Hoewel de bewerkingen die zijn gestart door een back-endservice niet retourneren een gebruiker als Hallo aanroeper)
+* Wanneer Hallo-bewerking heeft plaatsgevonden
+* Hallo-status van Hallo-bewerking
+* Hallo-waarden van andere eigenschappen die u kunnen helpen onderzoek Hallo-bewerking
 
 [!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
 
-U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, PowerShell, Azure CLI, inzicht REST API of [Insights .NET-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+U kunt informatie ophalen uit Hallo activiteitenlogboeken via Hallo portal, PowerShell, Azure CLI, inzicht REST API of [Insights .NET-bibliotheek](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
-1. De om activiteitenlogboeken te raadplegen via de portal, selecteer **Monitor**.
+1. tooview hello activiteitenlogboeken via Hallo-portal, selecteer **Monitor**.
    
     ![Selecteer activiteitenlogboeken](./media/resource-group-audit/select-monitor.png)
 
-   Of selecteer automatisch filter het logboek voor een bepaalde bron of de resourcegroep: **activiteitenlogboek** van die resourceblade. U ziet dat het activiteitenlogboek automatisch wordt gefilterd op de geselecteerde bron.
+   Of tooautomatically filter Hallo-logboek voor een bepaalde bron of de resourcegroep, selecteer **activiteitenlogboek** van die resourceblade. U ziet dat activiteitenlogboek hello wordt automatisch gefilterd op Hallo geselecteerd resource.
    
     ![filteren op resource](./media/resource-group-audit/filtered-by-resource.png)
-2. In de **activiteitenlogboek** blade ziet u een overzicht van recente bewerkingen.
+2. In Hallo **activiteitenlogboek** blade ziet u een overzicht van recente bewerkingen.
    
     ![acties weergeven](./media/resource-group-audit/audit-summary.png)
-3. Als u wilt beperken het aantal bewerkingen die worden weergegeven, selecteer andere voorwaarden. Bijvoorbeeld de volgende afbeelding toont de **Timespan** en **gebeurtenis wordt gestart door** velden gewijzigd om de acties die door een bepaalde gebruiker of toepassing voor de afgelopen maand weer te geven. Selecteer **toepassen** de resultaten van uw query wilt weergeven.
+3. toorestrict hello aantal bewerkingen die worden weergegeven, met selecteren verschillende voorwaarden. Hallo volgende afbeelding ziet u bijvoorbeeld Hallo **Timespan** en **gebeurtenis wordt gestart door** velden gewijzigd tooview Hallo acties die door een bepaalde gebruiker of toepassing voor Hallo afgelopen maand. Selecteer **toepassen** tooview Hallo resultaten van de query.
    
     ![Stel filteropties](./media/resource-group-audit/set-filter.png)
 
-4. Als u de query opnieuw uitvoert wilt, selecteert u **opslaan** en geef een naam op voor de query.
+4. Als u toorun Hallo query later nodig hebt, selecteert u **opslaan** en Hallo query een naam geven.
    
     ![query opslaan](./media/resource-group-audit/save-query.png)
-5. Om snel een query uitvoert, kunt u een van de ingebouwde query's, zoals mislukte implementatie.
+5. tooquickly een query uitvoert, kunt u een van de ingebouwde Hallo-query's zoals mislukte implementatie.
 
     ![query selecteren](./media/resource-group-audit/select-quick-query.png)
 
-   De geselecteerde query stelt automatisch de vereiste filterwaarden.
+   de geselecteerde query Hallo wordt automatisch ingesteld filterwaarden Hallo vereist.
 
     ![implementatie-fouten weergeven](./media/resource-group-audit/view-failed-deployment.png)   
 
-6. Selecteer een van de bewerkingen voor een overzicht van de gebeurtenis.
+6. Selecteer een van de Hallo operations toosee een samenvatting van Hallo-gebeurtenis.
 
     ![de bewerking weergeven](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
-1. Uitvoeren voor het logboekvermeldingen ophalen, de **Get-AzureRmLog** opdracht. U opgeven extra parameters om te filteren op de lijst met items. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor het afgelopen uur geretourneerd. Als u bijvoorbeeld voor het ophalen van de bewerkingen voor een resourcegroep in het afgelopen uur uitgevoerd:
+1. de logboekvermeldingen tooretrieve, Hallo uitvoeren **Get-AzureRmLog** opdracht. U vindt aanvullende parameters toofilter Hallo lijst met items. Als u een begin- en -tijd niet opgeeft, worden vermeldingen voor laatste uur Hallo geretourneerd. Bijvoorbeeld: tooretrieve Hallo-bewerkingen voor een resourcegroep tijdens Hallo afgelopen uur uitgevoerd:
 
   ```powershell
   Get-AzureRmLog -ResourceGroup ExampleGroup
   ```
    
-    Het volgende voorbeeld ziet hoe u het activiteitenlogboek onderzoek bewerkingen die zijn uitgevoerd tijdens een opgegeven periode. De begin- en einddatums zijn opgegeven in een datumnotatie.
+    Hallo volgende voorbeeld ziet u hoe toouse Hallo activiteit Meld tooresearch bewerkingen die zijn uitgevoerd tijdens een opgegeven periode. Hallo zijn begin- en einddatums opgegeven in een datumnotatie.
 
   ```powershell
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
   ```
 
-    Of u kunt de datumfuncties gebruiken om op te geven het datumbereik, zoals de afgelopen 14 dagen.
+    Of u kunt functies toospecify Hallo datum datumbereik, zoals Hallo afgelopen 14 dagen.
    
   ```powershell 
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
-2. Afhankelijk van de begintijd die u opgeeft, kunnen de eerdere opdrachten een lange lijst met bewerkingen voor de resourcegroep geretourneerd. U kunt de resultaten voor wat u zoekt dankzij de zoekcriteria filteren. Als u probeert te onderzoeken hoe een web-app is gestopt, kunt u bijvoorbeeld de volgende opdracht uitvoeren:
+2. Afhankelijk van het Hallo-begintijd die u opgeeft, kunnen Hallo eerdere opdrachten een lange lijst met bewerkingen voor Hallo resourcegroep geretourneerd. U kunt filteren Hallo resultaten voor wat u zoekt dankzij de zoekcriteria voldoen. Als u tooresearch hoe een web-app is gestopt probeert, kunt u bijvoorbeeld Hallo volgende opdracht uitvoeren:
 
   ```powershell
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
@@ -108,7 +108,7 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
   SubStatus         : OK
   ```
 
-3. U kunt de acties die door een bepaalde gebruiker, zelfs voor een resourcegroep die niet langer bestaat opzoeken.
+3. U kunt opzoeken Hallo-acties die door een bepaalde gebruiker, zelfs voor een resourcegroep die niet meer bestaat.
 
   ```powershell 
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
@@ -120,7 +120,7 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. U kunt zich richten op één fout door te kijken het statusbericht voor dat item.
+5. U kunt zich richten op één fout door te kijken Hallo statusbericht voor dat item.
    
         ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
    
@@ -132,7 +132,7 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
 
 
 ## <a name="azure-cli"></a>Azure CLI
-* Voor het ophalen van logboekvermeldingen die u uitvoert het **azure-groep logboek weergeven** opdracht.
+* logboekvermeldingen tooretrieve, u Hallo uitvoeren **azure-groep logboek weergeven** opdracht.
 
   ```azurecli
   azure group log show ExampleGroup --json
@@ -140,11 +140,11 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
 
 
 ## <a name="rest-api"></a>REST API
-De REST-bewerkingen voor het werken met het activiteitenlogboek deel uitmaken van de [Insights REST-API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Zie voor het ophalen van de activiteit logboekgebeurtenissen [lijst van de management-gebeurtenissen in een abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Hallo REST-bewerkingen voor het werken met Hallo activiteitenlogboek deel uitmaken van Hallo [Insights REST-API](https://msdn.microsoft.com/library/azure/dn931943.aspx). tooretrieve activiteit logboekgebeurtenissen, Zie [lijst Hallo management gebeurtenissen in een abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Azure activiteitenlogboeken kunnen worden gebruikt met Power BI om meer inzicht over de acties in uw abonnement te krijgen. Zie [weergeven en analyseren van Azure activiteitenlogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Zie voor meer informatie over het instellen van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md).
-* Zie voor meer informatie over de opdrachten voor het weergeven van implementatiebewerkingen, [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
-* Zie voor informatie over het voorkomen van een resource voor alle gebruikers zijn verwijderd, [resources met Azure Resource Manager vergrendelen](resource-group-lock-resources.md).
+* Azure activiteitenlogboeken kunnen worden gebruikt met Power BI toogain meer inzicht over Hallo-acties in uw abonnement. Zie [weergeven en analyseren van Azure activiteitenlogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
+* toolearn over het instellen van beveiligingsbeleid, Zie [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md).
+* toolearn over Hallo-opdrachten voor het weergeven van implementatiebewerkingen, Zie [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
+* hoe tooprevent verwijderingen van een resource voor alle gebruikers zien toolearn [resources met Azure Resource Manager vergrendelen](resource-group-lock-resources.md).
 

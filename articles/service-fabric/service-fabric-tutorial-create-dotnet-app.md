@@ -1,6 +1,6 @@
 ---
-title: Maak een .NET-toepassing voor Service Fabric | Microsoft Docs
-description: Informatie over het maken van een toepassing met een front-ASP.NET Core en een stateful betrouwbare service back-end en de toepassing implementeren naar een cluster.
+title: een .NET-toepassing voor Service Fabric aaaCreate | Microsoft Docs
+description: Ontdek hoe toocreate een toepassing met een front-ASP.NET Core en een betrouwbare stateful back-end-service en Hallo toepassing tooa cluster implementeren.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: ef50adf3af19bce494c3256308b443c8eaccdcea
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bab331b9f8616c50a2794b6c048aace15579c8b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Maken en implementeren van een toepassing met een front-ASP.NET Core Web API-service en een stateful back-endservice
-Deze zelfstudie maakt deel uit een reeks.  U leert hoe een Azure Service Fabric-toepassing maken met een front-end van ASP.NET Core Web-API en een stateful back-end-service voor het opslaan van uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core web-front-die stemmende resultaten worden opgeslagen in een stateful back-end-service in het cluster. Als u niet wilt dat u handmatig de stemtoepassing maken, kunt u [download de broncode](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing en gaat u verder met [doorlopen van de stemmende voorbeeldtoepassing](#walkthrough_anchor).
+Deze zelfstudie maakt deel uit een reeks.  U leert hoe toocreate een Azure Service Fabric-toepassing met een Web-API van ASP.NET Core front end en een stateful back-endservice toostore uw gegevens. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core web-front-die stemmende resultaten worden opgeslagen in een stateful back-end-service in Hallo-cluster. Als u niet wilt dat toomanually Hallo stemmen toepassing maken, kunt u [Hallo broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor Hallo voltooid toepassing en gaat u verder te[doorlopen Hallo stemmen voorbeeldtoepassing](#walkthrough_anchor).
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Deel een van de reeks, leert u hoe:
+Deel een reeks hello, leert u hoe:
 
 > [!div class="checklist"]
 > * Een ASP.NET Core Web API-service als betrouwbare stateful service maken
 > * Een ASP.NET-webtoepassing Core-service als een stateless webservice maken
-> * De omgekeerde proxy gebruiken om te communiceren met de stateful service
+> * Hallo omgekeerde proxy toocommunicate Hallo stateful service gebruiken
 
 In deze zelfstudie reeks leert u hoe:
 > [!div class="checklist"]
 > * Een .NET-Service Fabric-toepassing bouwen
-> * [De toepassing naar een externe-cluster implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Hallo toepassing tooa RAS-cluster implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [CI/CD met behulp van Visual Studio Team Services configureren](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u deze zelfstudie begint:
 - Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
-- [De Service Fabric SDK installeren](service-fabric-get-started.md)
+- [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer Hallo **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
+- [Hallo Service Fabric SDK installeren](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Een ASP.NET Web API-service als een betrouwbare service maken
-Maak eerst de web-front-van de stemmende toepassing met behulp van ASP.NET Core. ASP.NET Core is een lichtgewicht, platformoverschrijdende ontwikkeling webframework die u gebruiken kunt voor het maken van moderne webgebruikersinterface en web-API's. Als u een compleet begrip van hoe ASP.NET Core met Service Fabric integreert, wordt aangeraden lezen via de [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) artikel. Op dit moment kunt u deze zelfstudie voor snel aan de slag. Zie voor meer informatie over ASP.NET Core, de [ASP.NET Core documentatie](https://docs.microsoft.com/aspnet/core/).
+Maak eerst Hallo web front-Hallo stemmen toepassing via ASP.NET Core. ASP.NET Core is een lichtgewicht, platformoverschrijdende ontwikkeling webframework toocreate moderne webgebruikersinterface gebruiken en web-API's. een volledig begrip van hoe ASP.NET Core met Service Fabric integreert tooget, wordt aangeraden lezen via Hallo [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) artikel. Op dit moment kunt u deze zelfstudie tooget snel aan de slag. toolearn meer informatie over ASP.NET Core, Zie Hallo [ASP.NET Core documentatie](https://docs.microsoft.com/aspnet/core/).
 
 > [!NOTE]
-> Deze zelfstudie is gebaseerd op de [ASP.NET Core tools voor Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). De .NET Core hulpprogramma's voor Visual Studio 2015 worden niet langer bijgewerkt.
+> Deze zelfstudie is gebaseerd op Hallo [ASP.NET Core tools voor Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). Hallo .NET Core tools voor Visual Studio 2015 worden niet langer bijgewerkt.
 
 1. Start Visual Studio als **beheerder**.
 
 2. Maken van een project met **bestand**->**nieuw**->**Project**
 
-3. Kies in het dialoogvenster **Nieuw Project** de optie **Cloud > Service Fabric-toepassing**.
+3. In Hallo **nieuw Project** dialoogvenster kiezen **Cloud > Service Fabric-toepassing**.
 
-4. Naam van de toepassing **Voting** en druk op **OK**.
+4. Naam van de toepassing hello **Voting** en druk op **OK**.
 
    ![Dialoogvenster voor nieuw project in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. Op de **nieuwe Service Fabric-Service** pagina **staatloze ASP.NET Core**, en de naam van uw service **VotingWeb**.
+5. Op Hallo **nieuwe Service Fabric-Service** pagina **staatloze ASP.NET Core**, en de naam van uw service **VotingWeb**.
    
-   ![ASP.NET-webservice te kiezen in het dialoogvenster voor nieuwe service](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
+   ![ASP.NET-webservice te kiezen in het dialoogvenster voor nieuwe service Hallo](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. De volgende pagina bevat een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **webtoepassing**. 
+6. de volgende pagina Hallo biedt een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **webtoepassing**. 
    
    ![ASP.NET-project kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -72,8 +72,8 @@ Maak eerst de web-front-van de stemmende toepassing met behulp van ASP.NET Core.
 
    ![Solution Explorer na het maken van een toepassing met ASP.NET core Web API-service]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="add-angularjs-to-the-votingweb-service"></a>AngularJS toevoegen aan de VotingWeb-service
-Voeg [AngularJS](http://angularjs.org/) met uw service met de ingebouwde [Bower ondersteuning](/aspnet/core/client-side/bower). Open *bower.json* en vermeldingen voor hoeken en hoekvormige bootstrap toevoegen en vervolgens uw wijzigingen niet opslaan.
+### <a name="add-angularjs-toohello-votingweb-service"></a>AngularJS toohello VotingWeb service toevoegen
+Voeg [AngularJS](http://angularjs.org/) tooyour service met behulp van de ingebouwde Hallo [Bower ondersteuning](/aspnet/core/client-side/bower). Open *bower.json* en vermeldingen voor hoeken en hoekvormige bootstrap toevoegen en vervolgens uw wijzigingen niet opslaan.
 
 ```json
 {
@@ -89,10 +89,10 @@ Voeg [AngularJS](http://angularjs.org/) met uw service met de ingebouwde [Bower 
   }
 }
 ```
-Bij het opslaan de *bower.json* bestand Angular is geïnstalleerd in uw project *wwwroot/lib* map. Bovendien wordt vermeld in de *afhankelijkheden/Bower* map.
+Bij het opslaan van Hallo *bower.json* bestand Angular is geïnstalleerd in uw project *wwwroot/lib* map. Bovendien wordt vermeld in Hallo *afhankelijkheden/Bower* map.
 
-### <a name="update-the-sitejs-file"></a>Het bestand site.js bijwerken
-Open de *wwwroot/js/site.js* bestand.  De inhoud ervan vervangen door JavaScript gebruikt door de startpagina weergaven:
+### <a name="update-hello-sitejs-file"></a>Hallo site.js bestand bijwerken
+Open Hallo *wwwroot/js/site.js* bestand.  De inhoud ervan vervangen door Hallo JavaScript gebruikt door Hallo Home weergaven:
 
 ```javascript
 var app = angular.module('VotingApp', ['ui.bootstrap']);
@@ -131,8 +131,8 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 }]);
 ```
 
-### <a name="update-the-indexcshtml-file"></a>Het bestand Index.cshtml bijwerken
-Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor de controller startpagina.  Vervang de inhoud door het volgende, sla de wijzigingen vervolgens.
+### <a name="update-hello-indexcshtml-file"></a>Hallo Index.cshtml bestand bijwerken
+Open Hallo *Views/Home/Index.cshtml* bestand, Hallo specifieke toohello Home weergavebesturing.  Vervang de inhoud door de volgende Hallo en vervolgens uw wijzigingen niet opslaan.
 
 ```html
 @{
@@ -167,7 +167,7 @@ Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor 
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="row">
                     <div class="col-xs-4">
-                        Click to vote
+                        Click toovote
                     </div>
                 </div>
                 <div class="row top-buffer" ng-repeat="vote in votes.data">
@@ -194,8 +194,8 @@ Open de *Views/Home/Index.cshtml* -bestand, de weergave die specifiek zijn voor 
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Het bestand _Layout.cshtml bijwerken
-Open de *Views/Shared/_Layout.cshtml* -bestand, de standaardindeling voor de ASP.NET-app.  Vervang de inhoud door het volgende, sla de wijzigingen vervolgens.
+### <a name="update-hello-layoutcshtml-file"></a>Hallo _Layout.cshtml bestand bijwerken
+Open Hallo *Views/Shared/_Layout.cshtml* bestand, Hallo standaardindeling voor Hallo ASP.NET-app.  Vervang de inhoud door de volgende Hallo en vervolgens uw wijzigingen niet opslaan.
 
 ```html
 <!DOCTYPE html>
@@ -225,8 +225,8 @@ Open de *Views/Shared/_Layout.cshtml* -bestand, de standaardindeling voor de ASP
 </html>
 ```
 
-### <a name="update-the-votingwebcs-file"></a>Het bestand VotingWeb.cs bijwerken
-Open de *VotingWeb.cs* bestand, dat wordt gemaakt van de WebHost ASP.NET Core binnen de staatloze service met de webserver WebListener.  Voeg de `using System.Net.Http;` richtlijn boven aan het bestand.  Vervang de `CreateServiceInstanceListeners()` werken met het volgende en sla vervolgens uw wijzigingen.
+### <a name="update-hello-votingwebcs-file"></a>Hallo VotingWeb.cs bestand bijwerken
+Open Hallo *VotingWeb.cs* bestand, dat Hallo ASP.NET Core WebHost binnen Hallo staatloze service met Hallo WebListener webserver maakt.  Hallo toevoegen `using System.Net.Http;` richtlijn toohello bovenaan Hallo-bestand.  Vervang Hallo `CreateServiceInstanceListeners()` werken met de volgende Hallo en sla vervolgens uw wijzigingen.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -254,8 +254,8 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-### <a name="add-the-votescontrollercs-file"></a>Het bestand VotesController.cs toevoegen
-Een controller waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van het bestand 'VotesController.cs' en klik op **toevoegen**.  Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.  Verderop in [bijwerken van het bestand VotesController.cs](#updatevotecontroller_anchor), wordt dit bestand worden gewijzigd om te lezen en schrijven van stemmende gegevens op de back-endservice.  Op dit moment retourneert de controller statische tekenreeksgegevens naar de weergave.
+### <a name="add-hello-votescontrollercs-file"></a>Hallo VotesController.cs bestand toevoegen
+Een controller waarmee wordt gedefinieerd stemmende acties toevoegen. Met de rechtermuisknop op Hallo **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**.  Naam van bestand Hallo 'VotesController.cs' en klik op **toevoegen**.  Bestandsinhoud Hallo vervangen door de volgende Hallo en vervolgens uw wijzigingen niet opslaan.  Verderop in [updatebestand Hallo VotesController.cs](#updatevotecontroller_anchor), dit bestand wordt gewijzigd tooread en stemmende gegevens uit het back-endservice Hallo schrijven.  Op dit moment retourneert Hallo domeincontroller de gegevensweergave toohello vaste tekenreeks.
 
 ```csharp
 using System;
@@ -296,36 +296,36 @@ namespace VotingWeb.Controllers
 
 
 
-### <a name="deploy-and-run-the-application-locally"></a>Implementeren en de toepassing lokaal uitvoeren
-U kunt nu doorgaan en de toepassing uitvoeren. Druk op `F5` in Visual Studio om de toepassing voor foutopsporing te implementeren. `F5`mislukt als u niet eerder Visual Studio als Open **beheerder**.
+### <a name="deploy-and-run-hello-application-locally"></a>Implementeren en het Hallo-toepassing lokaal uitvoeren
+U kunt nu doorgaan en Hallo toepassing uitvoeren. Druk in Visual Studio op `F5` toodeploy Hallo-toepassing voor foutopsporing. `F5`mislukt als u niet eerder Visual Studio als Open **beheerder**.
 
 > [!NOTE]
-> De eerste keer dat u de toepassing lokaal uitvoert en implementeert, wordt door Visual Studio een lokaal cluster voor foutopsporing gemaakt.  Maken van het cluster kan enige tijd duren. De status van het maken van het cluster wordt weergegeven in het Visual Studio-uitvoervenster.
+> Hallo maakt eerst u uitvoeren en implementeren van Hallo toepassing lokaal door Visual Studio een lokaal cluster voor foutopsporing.  Maken van het cluster kan enige tijd duren. status van het Hallo-cluster maken wordt weergegeven in Visual Studio-uitvoervenster Hallo.
 
 Uw web-app moet er op dit punt wordt als volgt uitzien:
 
 ![ASP.NET Core front-](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-Als u wilt stop de foutopsporing voor de toepassing, gaat u terug naar Visual Studio en druk op **Shift + F5**.
+toostop foutopsporing toepassing hello, gaat u terug tooVisual Studio en druk op **Shift + F5**.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>Een stateful back-endservice toevoegt aan uw toepassing
-Nu dat we een ASP.NET Web API-service die in onze toepassing wordt uitgevoerd hebben, maar eens en een stateful betrouwbare service voor het opslaan van sommige gegevens in onze toepassing toevoegen.
+## <a name="add-a-stateful-back-end-service-tooyour-application"></a>Een stateful back-endservice tooyour toepassing toevoegen
+Nu dat we een ASP.NET Web API-service die in onze toepassing wordt uitgevoerd hebben, maar eens en een stateful betrouwbare service toostore sommige gegevens in onze toepassing toevoegen.
 
-Service Fabric kunt u voor het opslaan van uw gegevens rechtstreeks in uw service met behulp van betrouwbare verzamelingen consistent en betrouwbaar. Betrouwbare verzamelingen zijn een set van maximaal beschikbare en betrouwbare verzameling klassen die bekend zijn voor iedereen die is gebruikt C#-verzamelingen.
+Service Fabric kunt u tooconsistently en veilig opslaan van uw gegevens rechtstreeks in uw service met behulp van betrouwbare verzamelingen. Betrouwbare verzamelingen zijn een set van maximaal beschikbare en betrouwbare verzameling klassen die bekend tooanyone die C# verzamelingen heeft gebruikt.
 
 In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare verzameling opslaat.
 
-1. Klik in Solution Explorer met de rechtermuisknop op **Services** in de toepassing project en kies **toevoegen > nieuwe Service Fabric-Service**.
+1. Klik in Solution Explorer met de rechtermuisknop op **Services** binnen Hallo application-project en kies **toevoegen > nieuwe Service Fabric-Service**.
    
-    ![Een nieuwe service toe te voegen aan een bestaande toepassing](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
+    ![Een nieuwe service tooan bestaande toepassing toevoegen](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
 
-2. In de **nieuwe Service Fabric-Service** dialoogvenster kiezen **Stateful ASP.NET Core**, en de naam van de service **VotingData** en druk op **OK**.
+2. In Hallo **nieuwe Service Fabric-Service** dialoogvenster kiezen **Stateful ASP.NET Core**, en de naam Hallo service **VotingData** en druk op **OK**.
 
     ![Dialoogvenster voor nieuwe service in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
-    Nadat uw serviceproject is gemaakt, hebt u twee services in uw toepassing. Als u doorgaat met uw toepassing bouwen, kunt u meer services die zich op dezelfde manier kunt toevoegen. Elk zijn onafhankelijk samengestelde en bijgewerkte.
+    Nadat uw serviceproject is gemaakt, hebt u twee services in uw toepassing. Als u toobuild uw toepassing doorgaat, kunt u meer services toevoegen in Hallo dezelfde manier. Elk zijn onafhankelijk samengestelde en bijgewerkte.
 
-3. De volgende pagina bevat een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **Web API**.
+3. de volgende pagina Hallo biedt een set van ASP.NET Core projectsjablonen. Voor deze zelfstudie kiest **Web API**.
 
     ![ASP.NET-project kiezen](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
@@ -333,9 +333,9 @@ In deze zelfstudie maakt u een service die een itemwaarde in een betrouwbare ver
 
     ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="add-the-votedatacontrollercs-file"></a>Het bestand VoteDataController.cs toevoegen
+### <a name="add-hello-votedatacontrollercs-file"></a>Hallo VoteDataController.cs bestand toevoegen
 
-In de **VotingData** project met de rechtermuisknop op de **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**. Naam van het bestand 'VoteDataController.cs' en klik op **toevoegen**. Inhoud van het bestand vervangen door de volgende, sla de wijzigingen vervolgens.
+In Hallo **VotingData** project met de rechtermuisknop op Hallo **domeincontrollers** map, selecteer vervolgens **toevoegen -> Nieuw item -> klasse**. Naam van bestand Hallo 'VoteDataController.cs' en klik op **toevoegen**. Bestandsinhoud Hallo vervangen door de volgende Hallo en vervolgens uw wijzigingen niet opslaan.
 
 ```csharp
 using System;
@@ -424,17 +424,17 @@ namespace VotingData.Controllers
 ```
 
 
-## <a name="connect-the-services"></a>Verbinding maken met de services
-In deze stap, wordt er verbinding maken met de twee services en de front-end-webservers toepassing get en set-informatie van de back-endservice stemmen.
+## <a name="connect-hello-services"></a>Verbinding maken met de Hallo-services
+In deze stap, we Hallo twee services verbinding en zorg Hallo front-end Web application get en set gegevens uit het back-endservice Hallo stemmen.
 
-Service Fabric biedt volledige flexibiliteit in hoe u met reliable services communiceren. Binnen één toepassing hebt u mogelijk services die toegankelijk via TCP zijn. Andere services die mogelijk toegankelijk via een HTTP REST-API en nog andere services kunnen toegang worden verkregen via websockets. Zie voor achtergrondinformatie over de beschikbare opties en de wisselwerking betrokken [services communiceert](service-fabric-connect-and-communicate-with-services.md).
+Service Fabric biedt volledige flexibiliteit in hoe u met reliable services communiceren. Binnen één toepassing hebt u mogelijk services die toegankelijk via TCP zijn. Andere services die mogelijk toegankelijk via een HTTP REST-API en nog andere services kunnen toegang worden verkregen via websockets. Zie voor achtergrondinformatie over Hallo opties die beschikbaar zijn en Hallo-en nadelen betrokken [services communiceert](service-fabric-connect-and-communicate-with-services.md).
 
 In deze zelfstudie gebruiken we [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
-### <a name="update-the-votescontrollercs-file"></a>Het bestand VotesController.cs bijwerken
-In de **VotingWeb** project, open de *Controllers/VotesController.cs* bestand.  Vervang de `VotesController` definitie inhoud met de volgende klasse en sla vervolgens uw wijzigingen.
+### <a name="update-hello-votescontrollercs-file"></a>Hallo VotesController.cs bestand bijwerken
+In Hallo **VotingWeb** project, open Hallo *Controllers/VotesController.cs* bestand.  Vervang Hallo `VotesController` definitie inhoud met de volgende Hallo klasse en sla vervolgens uw wijzigingen.
 
 ```csharp
     public class VotesController : Controller
@@ -504,59 +504,59 @@ In de **VotingWeb** project, open de *Controllers/VotesController.cs* bestand.  
 ```
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
-## <a name="walk-through-the-voting-sample-application"></a>Doorloop de stemmende voorbeeldtoepassing
-De stemtoepassing bestaat uit twee services:
-- Web-front-service (VotingWeb): een ASP.NET Core web-front-service, die de webpagina fungeert en zichtbaar gemaakt web-API's om te communiceren met de back-endservice.
-- Back-end-service (VotingData)-Core van een ASP.NET-webservice, die wordt er een API voor het opslaan van de stem resultaten in een betrouwbare woordenlijst persistent op schijf.
+## <a name="walk-through-hello-voting-sample-application"></a>Hallo stemmen voorbeeldtoepassing doorlopen
+Hallo stemmen toepassing bestaat uit twee services:
+- Web-front-service (VotingWeb): een ASP.NET Core web-front-endservice die webpagina Hallo fungeert en zichtbaar gemaakt web-API's toocommunicate met Hallo back-endservice.
+- Back-end-service (VotingData)-Core van een ASP.NET-webservice, die zichtbaar gemaakt die een API toostore Hallo stem in een betrouwbare woordenlijst resulteert op schijf persistent.
 
 ![Diagram van de toepassing](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-Wanneer u in de toepassing stemmen gebeurt het volgende:
-1. Een JavaScript verzendt de stemaanvraag naar de web-API in de web-front-endservice als een HTTP PUT-aanvraag.
+Wanneer u stemmen in Hallo toepassing hello volgende gebeurtenissen:
+1. Een JavaScript verzendt Hallo stem aanvraag toohello web API in Hallo web-front-service als een HTTP PUT-aanvraag.
 
-2. De web-front-service wordt een proxyserver gebruikt om te zoeken en doorsturen van een HTTP PUT-aanvraag naar de back-endservice.
+2. Hallo-web-front-service gebruikt een toolocate proxy en doorsturen van een HTTP PUT-aanvraag toohello back-endservice.
 
-3. De back-endservice nodig van de binnenkomende aanvraag en slaat de bijgewerkte resultaten in een betrouwbare woordenlijst die wordt gerepliceerd naar meerdere knooppunten binnen het cluster en opgeslagen op schijf. Gegevens van de toepassing wordt opgeslagen in het cluster, zodat er geen database nodig is.
+3. Hallo back-endservice Hallo inkomende aanvraag duurt en winkels Hallo bijgewerkt resulteren in een betrouwbare woordenlijst die gerepliceerde toomultiple knooppunten binnen Hallo cluster opgehaald en opgeslagen op schijf. Alle Hallo toepassingsgegevens wordt opgeslagen in Hallo-cluster, zodat er geen database nodig is.
 
 ## <a name="debug-in-visual-studio"></a>Fouten opsporen in Visual Studio
-Als u fouten opspoort toepassing in Visual Studio, gebruikt u een lokaal cluster van de Service Fabric-ontwikkeling. U hebt de optie voor het aanpassen van uw ervaring foutopsporing op uw scenario. In deze toepassing opgeslagen gegevens in onze back-end-service met behulp van een betrouwbare woordenlijst. Visual Studio verwijdert u de toepassing per standaard, wanneer u het foutopsporingsprogramma stopt. De toepassing is verwijderd, worden de gegevens in de back-end-service ook verwijderd. Om te blijven behouden de gegevens tussen foutopsporingssessies, kunt u de **toepassing foutopsporingsmodus** als eigenschap op de **Voting** -project in Visual Studio.
+Als u fouten opspoort toepassing in Visual Studio, gebruikt u een lokaal cluster van de Service Fabric-ontwikkeling. U hebt uw foutopsporing ervaring tooyour scenario Hallo optie tooadjust. In deze toepassing opgeslagen gegevens in onze back-end-service met behulp van een betrouwbare woordenlijst. Visual Studio Hiermee verwijdert u de toepassing hello per standaard wanneer u Hallo foutopsporingsprogramma stopt. Verwijderen van de toepassing hello zorgt ervoor dat de gegevens Hallo in Hallo back-end service tooalso worden verwijderd. toopersist hello gegevens tussen foutopsporingssessies, kunt u Hallo **toepassing foutopsporingsmodus** als eigenschap op Hallo **Voting** -project in Visual Studio.
 
-Als u wilt kijken wat er in de code gebeurt, kunt u de volgende stappen uitvoeren:
-1. Open de **VotesController.cs** bestands- en stel een onderbrekingspunt in de web-API's **plaatsen** methode (regel 47) - u kunt zoeken naar het bestand in Solution Explorer in Visual Studio.
+toolook op wat er gebeurt in Hallo code voltooid Hallo stappen te volgen:
+1. Open Hallo **VotesController.cs** bestands- en stel een onderbrekingspunt in Hallo web-API's **plaatsen** methode (regel 47) - u kunt zoeken naar Hallo-bestand in Hallo Solution Explorer in Visual Studio.
 
-2. Open de **VoteDataController.cs** bestands- en stel een onderbrekingspunt in deze web-API **plaatsen** methode (line 50).
+2. Open Hallo **VoteDataController.cs** bestands- en stel een onderbrekingspunt in deze web-API **plaatsen** methode (line 50).
 
-3. Ga terug naar de browser en klik op een optie of een nieuwe stemmende optie toevoegen. U onderbrekingspunt de eerste in de web front-end van api-controller.
+3. Ga terug toohello browser en klik op een optie of toevoegen van een nieuwe stemmende optie. U onderbrekingspunt Hallo eerste in Hallo web front-end van api-controller.
     
-    1. Dit is waar de JavaScript in de browser wordt een aanvraag verzonden naar de web-API-controller in de front-end-service.
+    1. Dit is waar Hallo JavaScript in browser Hallo verzendt u een aanvraag toohello web API-controller in Hallo front-end-service.
     
     ![Stem front-end-Service toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Eerst wordt de URL van de ReverseProxy opstellen voor onze back-endservice **(1)**.
-    3. Vervolgens wordt de HTTP PUT-aanvraag naar de ReverseProxy verzenden **(2)**.
-    4. Ten slotte de we het antwoord van de back-end-service naar de client geretourneerd **(3)**.
+    2. Eerst we Hallo URL toohello ReverseProxy opstellen voor onze back-endservice **(1)**.
+    3. Vervolgens we Hallo HTTP PUT-aanvraag toohello ReverseProxy sturen **(2)**.
+    4. Ten slotte hello wordt teruggeplaatst antwoord Hallo van Hallo back-endservice toohello client **(3)**.
 
-4. Druk op **F5** om door te gaan
-    1. U bent nu op het punt onderbreking in de back-endservice.
+4. Druk op **F5** toocontinue
+    1. U bent nu op Hallo break punt in Hallo back-endservice.
     
     ![Stem Back-End-Service toevoegen](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. In de eerste regel in de methode **(1)** gebruiken we de `StateManager` ophalen of het toevoegen van een betrouwbare woordenlijst aangeroepen `counts`.
+    2. In de eerste regel in de methode Hallo Hallo **(1)** gebruiken we Hallo `StateManager` tooget of toevoegen van een betrouwbare woordenlijst aangeroepen `counts`.
     3. Alle interacties met waarden in een betrouwbare woordenlijst vereisen een transactie, deze met de instructie **(2)** die transactie maakt.
-    4. In de transactie we vervolgens de waarde van de relevante sleutel voor de optie bijwerken en voert de bewerking **(3)**. Als de gegevens van de commit-methode retourneert is bijgewerkt in de woordenlijst en gerepliceerd naar andere knooppunten in het cluster. De gegevens worden nu veilig opgeslagen in het cluster en de back-endservice failover naar andere knooppunten, nog steeds de gegevens beschikbaar.
-5. Druk op **F5** om door te gaan
+    4. In de transactie hello, werk we vervolgens Hallo-waarde van relevante Hallo-sleutel voor uw stem optie Hallo en doorvoeracties Hallo bewerking **(3)**. Zodra het Hallo doorvoeren retourneert methode, Hallo gegevens wordt bijgewerkt in de woordenlijst Hallo en tooother knooppunten in cluster Hallo gerepliceerd. Hallo gegevens worden nu veilig opgeslagen in de cluster Hallo en Hallo back-endservice failover tooother knooppunten, nog steeds Hallo gegevens beschikbaar.
+5. Druk op **F5** toocontinue
 
-Als u wilt de Foutopsporingssessie stoppen, drukt u op **Shift + F5**.
+toostop hello foutopsporingssessie, drukt u op **Shift + F5**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit deel van de zelfstudie hebt u geleerd hoe:
+In dit deel van de zelfstudie hello, hebt u geleerd hoe:
 
 > [!div class="checklist"]
 > * Een ASP.NET Core Web API-service als betrouwbare stateful service maken
 > * Een ASP.NET-webtoepassing Core-service als een stateless webservice maken
-> * De omgekeerde proxy gebruiken om te communiceren met de stateful service
+> * Hallo omgekeerde proxy toocommunicate Hallo stateful service gebruiken
 
-Ga naar de volgende zelfstudie:
+Geavanceerde toohello volgende zelfstudie:
 > [!div class="nextstepaction"]
-> [De toepassing implementeren naar Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Hallo toepassing tooAzure implementeren](service-fabric-tutorial-deploy-app-to-party-cluster.md)

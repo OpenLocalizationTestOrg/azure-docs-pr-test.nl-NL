@@ -1,6 +1,6 @@
 ---
-title: MapReduce en PowerShell gebruiken met Hadoop - Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruiken van PowerShell op afstand MapReduce-taken uitvoeren met Hadoop op HDInsight.
+title: aaaUse MapReduce en PowerShell gebruiken met Hadoop - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse PowerShell tooremotely MapReduce-taken uitvoeren met Hadoop op HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,56 +16,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59524f0e8813d4c017f92bccb2e50d4c018acf71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>MapReduce-taken uitvoeren met Hadoop in HDInsight met behulp van PowerShell
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Dit document bevat een voorbeeld van een MapReduce-taak uitgevoerd in een Hadoop op HDInsight-cluster met behulp van Azure PowerShell.
+Dit document bevat een voorbeeld van het gebruik van Azure PowerShell toorun een MapReduce-taak in een Hadoop op HDInsight-cluster.
 
 ## <a id="prereq"></a>Vereisten
 
 * **Een Azure HDInsight (Hadoop in HDInsight)-cluster**
 
   > [!IMPORTANT]
-  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+  > Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * **Een werkstation met Azure PowerShell**.
 
 ## <a id="powershell"></a>Voer een MapReduce-taak met Azure PowerShell
 
-Azure PowerShell biedt *cmdlets* waarmee u kunt op afstand MapReduce-taken uitvoeren op HDInsight. Intern maakt u dit kunt doen met behulp van REST-aanroepen naar [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (voorheen Templeton) uitgevoerd op het HDInsight-cluster.
+Azure PowerShell biedt *cmdlets* waarmee u kunt uitvoeren tooremotely MapReduce-taken in HDInsight. Intern, dit wordt gerealiseerd met behulp van REST-aanroepen te[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (voorheen Templeton) uitgevoerd op Hallo HDInsight-cluster.
 
-De volgende cmdlets worden gebruikt bij het uitvoeren van MapReduce-taken in een externe HDInsight-cluster.
+Hallo worden volgende cmdlets gebruikt bij het uitvoeren van MapReduce-taken in een externe HDInsight-cluster.
 
-* **Login-AzureRmAccount**: Azure PowerShell verifieert met uw Azure-abonnement.
+* **Login-AzureRmAccount**: Azure PowerShell verifieert tooyour Azure-abonnement.
 
-* **Nieuwe AzureRmHDInsightMapReduceJobDefinition**: maakt een nieuw *taak definitie* met behulp van de opgegeven MapReduce-informatie.
+* **Nieuwe AzureRmHDInsightMapReduceJobDefinition**: maakt een nieuw *taak definitie* opgegeven met behulp van Hallo MapReduce-informatie.
 
-* **Start AzureRmHDInsightJob**: de taakdefinitie verzendt naar HDInsight, wordt de taak wordt gestart en wordt een *taak* -object dat kan worden gebruikt om de status van de taak te controleren.
+* **Start AzureRmHDInsightJob**: Hallo taak definitie tooHDInsight verzendt, Hallo taak start en retourneert een *taak* -object dat gebruikt toocheck Hallo status van Hallo-taak worden kan.
 
-* **Wacht AzureRmHDInsightJob**: het taakobject gebruikt om te controleren van de status van de taak. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* **Wacht AzureRmHDInsightJob**: Hallo object toocheck Hallo taakstatus van Hallo taak gebruikt. Wacht totdat het Hallo-taak is voltooid of Hallo wachttijd is overschreden.
 
-* **Get-AzureRmHDInsightJobOutput**: gebruikt voor het ophalen van de uitvoer van de taak.
+* **Get-AzureRmHDInsightJobOutput**: tooretrieve Hallo uitvoer van Hallo taak gebruikt.
 
-De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoert in uw HDInsight-cluster.
+Hallo volgende stappen laten zien hoe toouse deze cmdlets toorun een taak in uw HDInsight-cluster.
 
-1. De volgende code als met een editor opslaan **mapreducejob.ps1**.
+1. Hallo code als volgt met een editor opslaan **mapreducejob.ps1**.
 
-    [!code-powershell[belangrijkste](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
+    [!code-powershell[main](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
-2. Open een nieuw **Azure PowerShell** opdrachtprompt. Wijzig de mappen naar de locatie van de **mapreducejob.ps1** bestand en vervolgens voert u het script met de volgende opdracht:
+2. Open een nieuw **Azure PowerShell** opdrachtprompt. Locatie van de mappen toohello Hallo wijzigen **mapreducejob.ps1** bestand en gebruik vervolgens Hallo opdrachtscript toorun hello te volgen:
 
         .\mapreducejob.ps1
 
-    Wanneer u het script uitvoert, wordt u gevraagd om de naam van het HDInsight-cluster en de HTTPS/Admin-accountnaam en wachtwoord voor het cluster. U mogelijk ook gevraagd om uw Azure-abonnement te verifiëren.
+    Wanneer u Hallo script uitvoert, wordt u gevraagd Hallo-naam van Hallo HDInsight-cluster en Hallo HTTPS/Admin-accountnaam en wachtwoord voor Hallo-cluster. Hebt u mogelijk ook na vragen aan gebruiker tooauthenticate tooyour Azure-abonnement.
 
-3. Wanneer de taak is voltooid, wordt de uitvoer is vergelijkbaar met de volgende tekst:
+3. Wanneer het Hallo-taak is voltooid, wordt uitvoer vergelijkbare toohello tekst te volgen:
 
         Cluster         : CLUSTERNAME
         ExitCode        : 0
@@ -77,27 +77,27 @@ De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoert
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
 
-    Deze uitvoer geeft aan dat de taak is voltooid.
+    Deze uitvoer geeft aan dat Hallo-taak is voltooid.
 
     > [!NOTE]
-    > Als de **ExitCode** is een waarde dan 0, Zie [probleemoplossing](#troubleshooting).
+    > Als hello **ExitCode** is een waarde dan 0, Zie [probleemoplossing](#troubleshooting).
 
-    In dit voorbeeld worden ook opgeslagen de gedownloade bestanden naar een **uitvoer.txt** bestand in de map met het script uit.
+    In dit voorbeeld worden ook opgeslagen Hallo gedownloade bestanden tooan **uitvoer.txt** bestand in map Hallo met Hallo-script uit.
 
 ### <a name="view-output"></a>Uitvoer weergeven
 
-Open de **uitvoer.txt** bestand in een teksteditor om de woorden en aantallen geproduceerd door de taak te zien.
+Open Hallo **uitvoer.txt** bestand in een tekst-editor toosee Hallo woorden en telt geproduceerd door Hallo-taak.
 
 > [!NOTE]
-> De uitvoerbestanden van een MapReduce-taak zijn niet-wijzigbaar. Dus als u dit voorbeeld opnieuw uitvoeren, moet u de naam van het uitvoerbestand wijzigen.
+> Hallo uitvoerbestanden van een MapReduce-taak zijn niet-wijzigbaar. Als u dit voorbeeld opnieuw uitvoeren, moet u dus toochange Hallo-naam van het uitvoerbestand Hallo.
 
 ## <a id="troubleshooting"></a>Problemen oplossen
 
-Als er geen gegevens worden geretourneerd als de taak is voltooid, is een fout kan zijn opgetreden tijdens de verwerking. Om weer te geven informatie over de fout voor deze taak, kunt u de volgende opdracht toevoegen aan het einde van de **mapreducejob.ps1** bestand, opslaan en vervolgens opnieuw uit te voeren.
+Als er geen informatie wordt geretourneerd wanneer Hallo-taak is voltooid, is een fout kan zijn opgetreden tijdens de verwerking. de foutgegevens tooview voor deze taak toevoegen na einde van de opdracht toohello Hallo Hallo **mapreducejob.ps1** bestand, opslaan en vervolgens opnieuw uit te voeren.
 
 ```powershell
-# Print the output of the WordCount job.
-Write-Host "Display the standard output ..." -ForegroundColor Green
+# Print hello output of hello WordCount job.
+Write-Host "Display hello standard output ..." -ForegroundColor Green
 Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
@@ -105,11 +105,11 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Deze cmdlet retourneert de informatie die is geschreven naar STDERR op de server bij het uitvoeren van de taak en mogelijk kunt u bepalen waarom de taak is mislukt.
+Deze cmdlet retourneert Hallo-informatie die is geschreven tooSTDERR terwijl u Hallo taak werd uitgevoerd op de server Hallo en mogelijk kunt u bepalen waarom de Hallo-taak is mislukt.
 
 ## <a id="summary"></a>Samenvatting
 
-Zoals u zien kunt, biedt Azure PowerShell een eenvoudige manier om MapReduce-taken uitvoeren op een HDInsight-cluster, de taakstatus te controleren en ophalen van de uitvoer.
+Zoals u ziet, Azure PowerShell biedt een eenvoudige manier toorun MapReduce-taken op een HDInsight-cluster, de status van de taak Hallo monitor en ophalen Hallo uitvoer.
 
 ## <a id="nextsteps"></a>Volgende stappen
 

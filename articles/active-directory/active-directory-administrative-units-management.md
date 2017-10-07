@@ -1,5 +1,5 @@
 ---
-title: Voorbeeld van de administratieve eenheden management in Azure Active Directory
+title: Voorbeeld van aaaAdministrative eenheden management in Azure Active Directory
 description: Administratieve eenheden gebruiken voor meer gedetailleerd overdracht van machtigingen in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -16,28 +16,28 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e12a0aea8264b1ea67c26294ec5bbe9c404a171e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ee2c7beb6f9f6292bbf3cdeab00801ac066ae0e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Beheer van beheereenheden in Azure AD - openbare preview
-In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active Directory-container van bronnen die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en -beleid toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders overdragen van machtigingen voor de regionale beheerders of beleid instellen op een gedetailleerd niveau.
+In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active Directory-container van bronnen die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en toepassen van beleid tooa subset van gebruikers. In Azure Active Directory inschakelen administratieve eenheden centrale beheerders toodelegate machtigingen tooregional beheerders of tooset beleid op een gedetailleerd niveau.
 
-Dit is handig in organisaties met onafhankelijke divisies, bijvoorbeeld een grote universiteit bestaat uit veel autonome scholen (Business school, school Engineering, enzovoort) die onafhankelijk van elkaar. Dergelijke afdelingen hebben hun eigen IT-beheerders die toegang te beheren, gebruikers beheren en beleidsregels die specifiek is voor hun deling instellen. Centrale beheerders kunnen wilt verlenen deze afdelingen beheerders machtigingen via de gebruikers in hun specifieke afdelingen. Meer specifiek, kunt het volgende voorbeeld de beheerder van een centrale, bijvoorbeeld een administratieve eenheid voor een bepaalde school (Business school) maken en deze vullen met alleen de zakelijke school gebruikers. Een centrale beheerder kan de IT-personeel van Business school toevoegen aan een rol binnen het bereik met andere woorden, Verleen de IT-medewerkers van Business school-beheerdersmachtigingen alleen via de Business school administratieve eenheid.
+Dit is handig in organisaties met onafhankelijke divisies, bijvoorbeeld een grote universiteit bestaat uit veel autonome scholen (Business school, school Engineering, enzovoort) die onafhankelijk van elkaar. Dergelijke afdelingen hebben hun eigen IT-beheerders die toegang te beheren, gebruikers beheren en beleidsregels die specifiek is voor hun deling instellen. Centrale beheerders kunnen verlenen toobe deze afdelingen beheerders machtigingen wilt via Hallo gebruikers in hun specifieke afdelingen. Meer specifiek, kunt het volgende voorbeeld de beheerder van een centrale, bijvoorbeeld een administratieve eenheid voor een bepaalde school (Business school) maken en deze vullen met alleen Hallo zakelijke school gebruikers. Vervolgens kunt de beheerder van een centrale Hallo Business school IT-personeel tooa binnen het bereik van functie, met andere woorden, grant Hallo IT-personeel van Business school-beheerdersmachtigingen alleen via Hallo school beheerdersrechten bedrijfseenheid toevoegen.
 
 > [!IMPORTANT]
 > Alleen als u Azure Active Directory Premium inschakelt, kunt u administratieve eenheid bereik beheerdersrollen toewijzen. Zie voor meer informatie [aan de slag met Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 
-Uit oogpunt van de centrale beheerder is een administratieve eenheid een directoryobject dat kan worden gemaakt en gevuld met resources. **In deze preview-versie, kunnen deze resources worden alleen gebruikers.** Zodra u hebt gemaakt en ingevuld, kan de administratieve eenheid als bereik worden gebruikt om te beperken van de toegekende machtiging alleen via de bronnen die zich bevinden in de administratieve eenheid.
+Uit oogpunt van Hallo centrale beheerder is een administratieve eenheid een directoryobject dat kan worden gemaakt en gevuld met resources. **In deze preview-versie, kunnen deze resources worden alleen gebruikers.** Zodra u hebt gemaakt en ingevuld, kan Hallo administratieve eenheid worden gebruikt als een bereik toorestrict Hallo gemachtigd alleen via de bronnen die zich bevinden in Hallo administratieve eenheid.
 
 ## <a name="managing-administrative-units"></a>Het beheren van administratieve eenheden
-U kunt maken en beheren van administratieve eenheden met de Azure Active Directory-Module voor Windows PowerShell-cmdlets in deze preview-versie. Voor meer informatie over hoe u kunt doen, Zie [werken met administratieve eenheden](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
+U kunt maken en beheren van administratieve eenheden met hello Azure Active Directory-Module voor Windows PowerShell-cmdlets in deze preview-versie. meer informatie over hoe toolearn toodo die Zie [werken met administratieve eenheden](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Zie voor meer informatie over de softwarevereisten en de Azure AD-module installeren en voor informatie over de Azure AD-Module-cmdlets voor het beheren van administratieve eenheden, inclusief syntaxis, beschrijvingen van parameters en voorbeelden [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Zie voor meer informatie over installeren hello Azure AD-module- en softwarevereisten en voor informatie over hello Azure AD-Module-cmdlets voor het beheren van administratieve eenheden, inclusief syntaxis, beschrijvingen van parameters en voorbeelden [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Azure Active Directory-edities](active-directory-editions.md)

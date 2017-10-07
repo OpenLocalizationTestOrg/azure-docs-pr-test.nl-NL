@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure IoT Hub direct methoden (.NET/.NET) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub rechtstreekse methoden. U het apparaat met Azure IoT SDK voor .NET gebruiken voor het implementeren van een gesimuleerde apparaattoepassing met een directe methode en de service Azure IoT SDK voor .NET voor het implementeren van een service-app die de directe methode aanroept.
+title: Azure IoT Hub aaaUse directe methoden (.NET/.NET) | Microsoft Docs
+description: Hoe Azure IoT Hub toouse directe methoden. U gebruikt hello Azure IoT-device SDK voor .NET tooimplement een gesimuleerde apparaattoepassing met een directe methode en hello Azure IoT service SDK voor .NET tooimplement een service-app die Hallo directe methode aanroept.
 services: iot-hub
 documentationcenter: 
 author: dsk-2015
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: dkshir
-ms.openlocfilehash: 9ce1fbebb6417c10618aa182e3c1d9ddf8132fb6
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: d4fa093a99558ec6faf294c2583a14a722b9ac03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-direct-methods-netnet"></a>Directe methoden (.NET/.NET) gebruiken
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-In deze zelfstudie gaan we twee .NET-console-apps ontwikkelen:
+In deze zelfstudie zijn we continu toodevelop twee .NET-console apps:
 
-* **CallMethodOnDevice**, een back-end-app, die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing en het antwoord weergegeven.
-* **SimulateDeviceMethods**, een consoletoepassing waarmee een verbinding te maken met uw IoT-hub aan de apparaat-id apparaat simuleert eerder hebt gemaakt en reageert de methode wordt aangeroepen door de cloud.
+* **CallMethodOnDevice**, een back-end-app, die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing Hallo en antwoord Hallo weergegeven.
+* **SimulateDeviceMethods**, een consoletoepassing die overeenkomt met een apparaat tooyour IoT-hub te koppelen aan de apparaat-id Hallo eerder hebt gemaakt en toohello methode aangeroepen door Hallo cloud reageert.
 
 > [!NOTE]
-> Het artikel [Azure IoT-SDK's][lnk-hub-sdks] bevat informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
+> Hallo artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over hello Azure IoT SDK's waarmee u toobuild beide toorun toepassingen op apparaten en de back-end van uw oplossing kunt.
 > 
 > 
 
-Voor deze zelfstudie hebt u het volgende nodig:
+toocomplete deze zelfstudie hebt u nodig:
 
 * Visual Studio 2015 of Visual Studio 2017.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
@@ -42,31 +42,31 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Als u de apparaat-id in plaats daarvan programmatisch maken wilt, leest u de bijbehorende sectie in het [uw gesimuleerde apparaat verbonden met uw iothub met .NET] [ lnk-device-identity-csharp] artikel.
+Als u toocreate Hallo apparaat-id via een programma in plaats daarvan wilt, lezen Hallo overeenkomstige sectie in Hallo [verbinding maken met uw gesimuleerde apparaat tooyour iothub met .NET] [ lnk-device-identity-csharp] artikel.
 
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
-In deze sectie maakt u een .NET-consoletoepassing dat met een methode aangeroepen door de oplossing voor back-end overeenkomt.
+In deze sectie maakt u een .NET-consoletoepassing die tooa methode met de naam door Hallo oplossing back-end reageert.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Noem het project **SimulateDeviceMethods**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toohello huidige oplossing met behulp van Hallo **consoletoepassing** projectsjabloon. Naam Hallo project **SimulateDeviceMethods**.
    
     ![Nieuwe Visual C# klassieke Windows-apparaat-app][img-createdeviceapp]
     
-1. Klik in Solution Explorer met de rechtermuisknop op de **SimulateDeviceMethods** project en klik vervolgens op **NuGet-pakketten beheren...** .
-1. In de **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices.client**. Selecteer **installeren** voor het installeren van de **Microsoft.Azure.Devices.Client** Inpakken en accepteer de gebruiksvoorwaarden. Deze procedure downloadt, installeert en voegt u een verwijzing naar de [Azure IoT-device SDK] [ lnk-nuget-client-sdk] NuGet-pakket en de bijbehorende afhankelijkheden.
+1. Klik in Solution Explorer met de rechtermuisknop op Hallo **SimulateDeviceMethods** project en klik vervolgens op **NuGet-pakketten beheren...** .
+1. In Hallo **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices.client**. Selecteer **installeren** tooinstall hello **Microsoft.Azure.Devices.Client** Inpakken en accepteer de gebruiksvoorwaarden Hallo. Deze procedure downloadt, installeert en voegt u een verwijzing toohello [Azure IoT-device SDK] [ lnk-nuget-client-sdk] NuGet-pakket en de bijbehorende afhankelijkheden.
    
     ![NuGet-Pakketbeheer venster Client-app][img-clientnuget]
-1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
+1. Voeg de volgende Hallo `using` instructies boven Hallo Hallo **Program.cs** bestand:
    
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
-1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de verbindingsreeks voor apparaten die u in de vorige sectie hebt genoteerd.
+1. Hallo na toohello velden toevoegen **programma** klasse. Vervang Hallo tijdelijke aanduidingswaarde met de verbindingsreeks van het Hallo-apparaat die u hebt genoteerd in de vorige sectie Hallo.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
 
-1. Voeg de volgende voor het implementeren van de directe methode op het apparaat:
+1. Hallo tooimplement Hallo directe methode volgen op Hallo apparaat toevoegen:
 
         static Task<MethodResponse> WriteLineToConsole(MethodRequest methodRequest, object userContext)
         {
@@ -74,25 +74,25 @@ In deze sectie maakt u een .NET-consoletoepassing dat met een methode aangeroepe
             Console.WriteLine("\t{0}", methodRequest.DataAsJson);
             Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
 
-            string result = "'Input was written to log.'";
+            string result = "'Input was written toolog.'";
             return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
 
-1. Voeg de volgende code naar de **Main** methode voor het openen van de verbinding met uw IoT-hub en de methode-listener initialiseren:
+1. Voeg code toohello na Hallo **Main** methode tooopen Hallo verbinding tooyour IoT hub en geïnitialiseerd Hallo methode listener:
    
         try
         {
-            Console.WriteLine("Connecting to hub");
+            Console.WriteLine("Connecting toohub");
             Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
 
             // setup callback for "writeLine" method
             Client.SetMethodHandlerAsync("writeLine", WriteLineToConsole, null).Wait();
-            Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
+            Console.WriteLine("Waiting for direct method call\n Press enter tooexit.");
             Console.ReadLine();
 
             Console.WriteLine("Exiting...");
 
-            // as a good practice, remove the "writeLine" handler
+            // as a good practice, remove hello "writeLine" handler
             Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
             Client.CloseAsync().Wait();
         }
@@ -102,38 +102,38 @@ In deze sectie maakt u een .NET-consoletoepassing dat met een methode aangeroepe
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-1. In de Visual Studio Solution Explorer met de rechtermuisknop op uw oplossing en klik vervolgens op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens de **SimulateDeviceMethods** -project in de vervolgkeuzelijst.        
+1. In Visual Studio Solution Explorer hello, met de rechtermuisknop op uw oplossing en klik op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens Hallo **SimulateDeviceMethods** -project in het vervolgkeuzemenu Hallo.        
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. In productiecode moet u beleid voor opnieuw proberen (zoals verbinding opnieuw), zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].
+> tookeep dingen eenvoudige, deze zelfstudie wordt niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u beleid voor opnieuw proberen (zoals verbinding opnieuw), zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].
 > 
 > 
 
 ## <a name="call-a-direct-method-on-a-device"></a>Een directe methode is aangeroepen voor een apparaat
-In deze sectie maakt u een .NET consoletoepassing maken die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing en wordt vervolgens het antwoord.
+In deze sectie maakt maken u een .NET-consoletoepassing die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing Hallo en wordt vervolgens weergegeven antwoord Hallo.
 
-1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toe aan de huidige oplossing met behulp van de projectsjabloon **Console Application**. Zorg ervoor dat de versie van .NET Framework minimaal 4.5.1 is. Noem het project **CallMethodOnDevice**.
+1. Voeg in Visual Studio een Visual C# Classic Windows Desktop-project toohello huidige oplossing met behulp van Hallo **consoletoepassing** projectsjabloon. Zorg ervoor dat .NET Framework-versie Hallo 4.5.1 of later. Naam Hallo project **CallMethodOnDevice**.
    
     ![Nieuw Windows Classic Desktop-project in Visual C#][img-createserviceapp]
-2. Klik in Solution Explorer met de rechtermuisknop op de **CallMethodOnDevice** project en klik vervolgens op **NuGet-pakketten beheren...** .
-3. Klik in de **NuGet Package Manager** op **Browse** en zoek naar **microsoft.azure.devices**. Accepteer de gebruiksvoorwaarden en klik op **Install** om het **Microsoft.Azure.Devices**-pakket te installeren. Met deze procedure worden de [Azure IoT-service-SDK][lnk-nuget-service-sdk], het NuGet-pakket en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
+2. Klik in Solution Explorer met de rechtermuisknop op Hallo **CallMethodOnDevice** project en klik vervolgens op **NuGet-pakketten beheren...** .
+3. In Hallo **NuGet Package Manager** Selecteer **Bladeren**, zoeken naar **microsoft.azure.devices**, selecteer **installeren** tooinstall Hallo **Microsoft.Azure.Devices** Inpakken en accepteer de gebruiksvoorwaarden Hallo. Deze procedure downloadt, installeert en voegt u een verwijzing toohello [Azure IoT service SDK] [ lnk-nuget-service-sdk] NuGet-pakket en de bijbehorende afhankelijkheden.
    
     ![Sluit het venster Nuget Package Manager.][img-servicenuget]
 
-4. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
+4. Voeg de volgende Hallo `using` instructies boven Hallo Hallo **Program.cs** bestand:
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de IoT Hub-verbindingsreeks voor de hub die u hebt gemaakt in de vorige sectie.
+5. Hallo na toohello velden toevoegen **programma** klasse. Vervang Hallo tijdelijke aanduidingswaarde met IoT Hub-verbindingsreeks voor Hallo-hub die u hebt gemaakt in de vorige sectie Hallo Hallo.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
-6. Voeg de volgende methode toe aan de klasse **Program**:
+6. Hallo na methode toohello toevoegen **programma** klasse:
    
         private static async Task InvokeMethod()
         {
             var methodInvocation = new CloudToDeviceMethod("writeLine") { ResponseTimeout = TimeSpan.FromSeconds(30) };
-            methodInvocation.SetPayloadJson("'a line to be written'");
+            methodInvocation.SetPayloadJson("'a line toobe written'");
 
             var response = await serviceClient.InvokeDeviceMethodAsync("myDeviceId", methodInvocation);
 
@@ -141,38 +141,38 @@ In deze sectie maakt u een .NET consoletoepassing maken die een methode wordt aa
             Console.WriteLine(response.GetPayloadAsJson());
         }
    
-    Deze methode wordt aangeroepen voor een directe methode met de naam `writeLine` op de `myDeviceId` apparaat. Vervolgens worden de respons van het apparaat in de console geschreven. Houd er rekening mee hoe het is mogelijk om op te geven van een time-outwaarde voor het apparaat om te reageren.
-7. Voeg tot slot de volgende regels toe aan de methode **Main**:
+    Deze methode wordt aangeroepen voor een directe methode met de naam `writeLine` op Hallo `myDeviceId` apparaat. Vervolgens worden Hallo respons van Hallo-apparaat op Hallo console geschreven. Houd er rekening mee hoe het is mogelijk toospecify een time-outwaarde voor Hallo apparaat toorespond.
+7. Voeg regels toohello na Hallo **Main** methode:
    
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
         InvokeMethod().Wait();
-        Console.WriteLine("Press Enter to exit.");
+        Console.WriteLine("Press Enter tooexit.");
         Console.ReadLine();
 
-1. In de Visual Studio Solution Explorer met de rechtermuisknop op uw oplossing en klik vervolgens op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens de **CallMethodOnDevice** -project in de vervolgkeuzelijst.
+1. In Visual Studio Solution Explorer hello, met de rechtermuisknop op uw oplossing en klik op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens Hallo **CallMethodOnDevice** -project in het vervolgkeuzemenu Hallo.
 
-## <a name="run-the-applications"></a>De toepassingen uitvoeren
-U kunt nu de toepassingen gaan uitvoeren.
+## <a name="run-hello-applications"></a>Hallo-toepassingen uitvoeren
+U bent nu klaar toorun Hallo toepassingen.
 
-1. Voer de app voor .NET-apparaat **SimulateDeviceMethods**. Deze zou moeten starten luisteren naar methodeaanroepen van uw IoT-Hub: 
+1. Uitvoeren van .NET-apparaattoepassing Hallo **SimulateDeviceMethods**. Deze zou moeten starten luisteren naar methodeaanroepen van uw IoT-Hub: 
 
     ![Apparaat-app uitvoeren][img-deviceapprun]
-1. Nu dat het apparaat is verbonden en wachten op methode-aanroepen uitgevoerd .NET **CallMethodOnDevice** app de methode in de gesimuleerde apparaattoepassing aan te roepen. U ziet de reactie van het apparaat in de console geschreven.
+1. Nu dat het Hallo-apparaat is verbonden en Hallo .NET wacht methode aanroepen, voer **CallMethodOnDevice** app tooinvoke Hallo methode in de gesimuleerde apparaattoepassing Hallo. U ziet Hallo apparaat antwoord is geschreven in Hallo-console.
    
     ![Service-app uitvoeren][img-serviceapprun]
-1. Het apparaat reageert vervolgens aan de methode door dit bericht afdrukken:
+1. Hallo apparaat reageert vervolgens toohello methode door dit bericht afdrukken:
    
-    ![Directe methode wordt aangeroepen op het apparaat][img-directmethodinvoked]
+    ![Directe methode aangeroepen op Hallo-apparaat][img-directmethodinvoked]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om in te schakelen van de gesimuleerde apparaattoepassing om te reageren op de methoden die worden aangeroepen door de cloud. Hebt u ook een app roept methoden op het apparaat en de reactie van het apparaat wordt gemaakt. 
+In deze zelfstudie maakt u een nieuwe iothub geconfigureerd in hello Azure-portal en vervolgens een apparaat-id in de id-register Hallo iothub hebt gemaakt. U hebt deze apparaat-id tooenable Hallo gesimuleerd apparaat app tooreact toomethods aangeroepen door Hallo cloud gebruikt. Hebt u ook een app die wordt aangeroepen methoden op Hallo apparaat en geeft weer Hallo-antwoord van Hallo-apparaat hebt gemaakt. 
 
-Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
+toocontinue aan de slag met IoT Hub en tooexplore raadpleegt u andere IoT-scenario's:
 
 * [Aan de slag met IoT Hub]
 * [Taken plannen op meerdere apparaten][lnk-devguide-jobs]
 
-Zie voor meer informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten aanroepen, de [planning en broadcast taken] [ lnk-tutorial-jobs] zelfstudie.
+toolearn hoe tooextend uw IoT-oplossing en schema-methode aanroepen op meerdere apparaten, raadpleegt u Hallo [planning en broadcast taken] [ lnk-tutorial-jobs] zelfstudie.
 
 <!-- Images. -->
 [img-createdeviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-device-app.png

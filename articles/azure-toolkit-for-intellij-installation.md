@@ -1,6 +1,6 @@
 ---
-title: De installatie van de Azure Toolkit voor IntelliJ | Microsoft Docs
-description: Informatie over het installeren van de Azure-Toolkit voor de IntelliJ IDEA.
+title: aaaInstalling hello Azure Toolkit voor IntelliJ | Microsoft Docs
+description: Meer informatie over hoe tooinstall Azure Toolkit Hallo voor Hallo IntelliJ IDEA.
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,83 +14,83 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: bf11a8580500f78c4a96a02953f221501eeffe6c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a39f27002835c356fc4da09bf9f45359c3c30b34
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="installing-the-azure-toolkit-for-intellij"></a>De installatie van de Azure Toolkit voor IntelliJ
-De Azure-werkset voor IntelliJ biedt sjablonen en kunt u gemakkelijk maken, ontwikkelen, testen en implementeren van Azure-toepassingen met behulp van de ontwikkelomgeving IntelliJ IDEA functionaliteit. De Azure-werkset voor IntelliJ is een Open Source-project, waarvan de broncode beschikbaar onder de MIT-licentie van de site van het project op GitHub op de volgende URL is:
+# <a name="installing-hello-azure-toolkit-for-intellij"></a>Hello Azure Toolkit voor IntelliJ installeren
+Hello Azure Toolkit voor IntelliJ bevat sjablonen en functionaliteit waarmee u tooeasily maken, ontwikkelen, testen en implementeren van Azure-toepassingen met behulp van Hallo IntelliJ IDEA ontwikkelomgeving. Hello Azure Toolkit voor IntelliJ is een Open Source-project, waarvan de broncode is beschikbaar onder Hallo MIT-licentie vanaf Hallo-project op GitHub op Hallo URL te volgen:
 
 <https://github.com/Microsoft/Azure-Tools-for-Java>
 
-Er zijn twee methoden voor het installeren van de Azure-Toolkit voor IntelliJ, in het dialoogvenster Instellingen en in het menu configureren op het startscherm; beide installatiemethoden wordt in de volgende stappen worden gedemonstreerd.
+Er zijn twee methoden voor het installeren van hello Azure Toolkit voor IntelliJ, uit in het dialoogvenster Instellingen Hallo en menu van Hallo configureren op het startscherm Hallo; beide installatiemethoden wordt aangetoond in Hallo stappen te volgen.
 
 [!INCLUDE [azure-toolkit-for-IntelliJ-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="to-install-the-azure-toolkit-for-intellij-from-the-settings-dialog-box"></a>De Azure-Toolkit voor IntelliJ van het dialoogvenster Instellingen installeren
+## <a name="tooinstall-hello-azure-toolkit-for-intellij-from-hello-settings-dialog-box"></a>tooinstall hello Azure Toolkit voor IntelliJ van het dialoogvenster Instellingen Hallo
 1. IntelliJ IDEA starten.
-2. Wanneer de IntelliJ IDEA wordt geopend, klikt u op **bestand**, klikt u vervolgens op **instellingen**.
+2. Wanneer Hallo IntelliJ IDEA wordt geopend, klikt u op **bestand**, klikt u vervolgens op **instellingen**.
    
-    ![Open IntelliJ IDEA in het dialoogvenster Instellingen][01a]
-3. Klik in het dialoogvenster instellingen op **Plugins**, en klik vervolgens op **bladeren opslagplaatsen**.
+    ![Hallo IntelliJ IDEA in het dialoogvenster instellingen openen][01a]
+3. Hallo-instellingen in het dialoogvenster klikt u op **Plugins**, en klik vervolgens op **bladeren opslagplaatsen**.
    
     ![Dialoogvenster van de instellingen voor IntelliJ IDEA][02a]
-4. In de **bladeren opslagplaatsen** dialoogvenster 'Azure' typt in het zoekvak. Markeer **Azure Toolkit voor IntelliJ**, en klik vervolgens op **installeren**.
+4. In Hallo **bladeren opslagplaatsen** dialoogvenster 'Azure' typt in het zoekvak Hallo. Markeer **Azure Toolkit voor IntelliJ**, en klik vervolgens op **installeren**.
    
-    ![Zoeken naar de Azure Toolkit voor IntelliJ][03]
+    ![Zoeken naar hello Azure Toolkit voor IntelliJ][03]
    
-    IntelliJ IDEA wordt de installatievoortgang weergegeven in het dialoogvenster.
+    IntelliJ IDEA weergegeven Hallo installatievoortgang in een dialoogvenster.
    
     ![Installatievoortgang][04]
-5. Wanneer de installatie is voltooid, klikt u op **opnieuw IntelliJ IDEA**.
+5. Wanneer het Hallo-installatie is voltooid, klikt u op **opnieuw IntelliJ IDEA**.
    
     ![Opnieuw opstarten IntelliJ IDEA][05]
-6. Klik op **OK** te sluiten van het dialoogvenster instellingen.
+6. Klik op **OK** tooclose Hallo in het dialoogvenster instellingen.
    
     ![Sluit het dialoogvenster IntelliJ IDEA-instellingen][06]
-7. Als u wordt gevraagd IntelliJ IDEA opnieuw opstarten of uitstellen, klikt u op **opnieuw**.
+7. Wanneer u daarom wordt gevraagd toorestart IntelliJ IDEA of uitstellen, klikt u op **opnieuw**.
    
     ![Opnieuw opstarten IntelliJ IDEA][07]
 
-## <a name="to-install-the-azure-toolkit-for-intellij-from-the-start-screen"></a>De Azure-Toolkit voor IntelliJ installeren vanuit het startscherm
+## <a name="tooinstall-hello-azure-toolkit-for-intellij-from-hello-start-screen"></a>tooinstall hello Azure Toolkit voor IntelliJ van Hallo startscherm
 1. IntelliJ IDEA starten.
-2. Wanneer het startscherm IntelliJ IDEA wordt weergegeven, klikt u op **configureren**, klikt u vervolgens op **Plugins**.
+2. Wanneer Hallo IntelliJ IDEA startscherm wordt weergegeven, klikt u op **configureren**, klikt u vervolgens op **Plugins**.
    
     ![IntelliJ IDEA invoegtoepassingen installeren][01b]
-3. In de **Plugins** in het dialoogvenster, klikt u op **bladeren opslagplaatsen**.
+3. In Hallo **Plugins** in het dialoogvenster, klikt u op **bladeren opslagplaatsen**.
    
     ![IntelliJ IDEA invoegtoepassing opslagplaatsen bladeren][02b]
-4. In de **bladeren opslagplaatsen** dialoogvenster 'Azure' typt in het zoekvak. Markeer **Azure Toolkit voor IntelliJ**, en klik vervolgens op **installeren**.
+4. In Hallo **bladeren opslagplaatsen** dialoogvenster 'Azure' typt in het zoekvak Hallo. Markeer **Azure Toolkit voor IntelliJ**, en klik vervolgens op **installeren**.
    
-    ![Zoeken naar de Azure Toolkit voor IntelliJ][03]
+    ![Zoeken naar hello Azure Toolkit voor IntelliJ][03]
    
-    IntelliJ IDEA wordt de installatievoortgang weergegeven in het dialoogvenster.
+    IntelliJ IDEA weergegeven Hallo installatievoortgang in een dialoogvenster.
    
     ![Installatievoortgang][04]
-5. Wanneer de installatie is voltooid, klikt u op **opnieuw IntelliJ IDEA**.
+5. Wanneer het Hallo-installatie is voltooid, klikt u op **opnieuw IntelliJ IDEA**.
    
     ![Opnieuw opstarten IntelliJ IDEA][05]
-6. Als u wordt gevraagd IntelliJ IDEA opnieuw opstarten of uitstellen, klikt u op **opnieuw**.
+6. Wanneer u daarom wordt gevraagd toorestart IntelliJ IDEA of uitstellen, klikt u op **opnieuw**.
    
     ![Opnieuw opstarten IntelliJ IDEA][07]
 
 ## <a name="see-also"></a>Zie ook
-Voor meer informatie over de Azure Toolkits voor Java-IDE's klikt u op de volgende koppelingen:
+Zie voor meer informatie over hello Azure Toolkits voor IDE voor Java Hallo koppelingen te volgen:
 
 * [Azure Toolkit voor Eclipse]
-  * [What's New in the Azure Toolkit for Eclipse] (Nieuw in de Azure Toolkit voor Eclipse)
-  * [Installing the Azure Toolkit for Eclipse] (De Azure Toolkit voor Eclipse installeren)
-  * [Sign In Instructions for the Azure Toolkit for Eclipse] (Aanmeldingsinstructies voor de Azure Toolkit voor Eclipse)
+  * [Wat is er nieuw in hello Azure Toolkit voor Eclipse]
+  * [Hello Azure Toolkit voor Eclipse installeren]
+  * [Meld u In instructies voor het hello Azure Toolkit voor Eclipse]
   * [Een Hallo wereld Web-App maken voor Azure in Eclipse]
 * [Azure Toolkit for IntelliJ] (Azure Toolkit voor IntelliJ)
-  * [What's New in the Azure Toolkit for IntelliJ] (Nieuw in de Azure Toolkit voor IntelliJ)
-  * *De installatie van de Azure Toolkit voor IntelliJ (in dit artikel)*
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ] (Aanmeldingsinstructies voor de Azure Toolkit voor IntelliJ)
+  * [Wat is er nieuw in hello Azure Toolkit voor IntelliJ]
+  * *De installatie van hello Azure Toolkit voor IntelliJ (dit artikel)*
+  * [Meld u In instructies voor het hello Azure Toolkit voor IntelliJ]
   * [Een Hallo wereld Web-App maken voor Azure in IntelliJ]
 
-In het [Azure Java Developer Center] vindt u meer informatie over het gebruik van Azure met Java.
+Zie voor meer informatie over het gebruik van Azure met Java Hallo [Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -98,12 +98,12 @@ In het [Azure Java Developer Center] vindt u meer informatie over het gebruik va
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md (Azure Toolkit voor IntelliJ)
 [Een Hallo wereld Web-App maken voor Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Een Hallo wereld Web-App maken voor Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md (De Azure Toolkit voor Eclipse installeren)
-[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Aanmeldingsinstructies voor de Azure Toolkit voor Eclipse)
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md (Aanmeldingsinstructies voor de Azure Toolkit voor IntelliJ)
-[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md (Nieuw in de Azure Toolkit voor Eclipse)
-[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md (Nieuw in de Azure Toolkit voor IntelliJ)
+[Hello Azure Toolkit voor Eclipse installeren]: ./azure-toolkit-for-eclipse-installation.md
+[Installing hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Meld u In instructies voor het hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Meld u In instructies voor het hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Wat is er nieuw in hello Azure Toolkit voor Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Wat is er nieuw in hello Azure Toolkit voor IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 

@@ -1,6 +1,6 @@
 ---
-title: Vinden van de volgende Hop met Azure-netwerk-Watcher volgende Hop - REST | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u kunt vinden wat het volgende hoptype is en IP-adres met de volgende Hop met de REST-API van Azure
+title: Volgende Hop met Azure-netwerk-Watcher volgende Hop - REST aaaFind | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u kunt zoeken welke Hallo type voor het volgende hop is en het IP-adres met behulp van volgende Hop hello Azure REST-API
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2b61b355aae8ae513ebd44837184fbc6cfd668c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Uitzoeken wat het volgende hoptype gebruikt de mogelijkheid van de volgende Hop in Azure met Azure REST API netwerk-Watcher
+# <a name="find-out-what-hello-next-hop-type-is-using-hello-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Ontdek welke Hallo volgend hoptype Hallo volgende Hop mogelijkheid gebruikt in Azure met Azure REST API netwerk-Watcher
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-check-next-hop-portal.md)
@@ -29,25 +29,25 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [Azure REST-API](network-watcher-check-next-hop-rest.md)
 
-De volgende hop is een functie van netwerk-Watcher die de mogelijkheid get biedt de volgende hoptype en IP-adres op basis van een opgegeven virtuele machine. Deze functie is handig bij het bepalen of een virtuele machine uitgaand verkeer van een gateway, internet of virtuele netwerken om te gaan naar de bestemming passeert.
+De volgende hop is een functie van netwerk-Watcher die de mogelijkheid Hallo biedt Hallo volgend hoptype en IP-adres op basis van een opgegeven virtuele machine ophalen. Deze functie is handig bij het bepalen of een virtuele machine uitgaand verkeer van een gateway, internet of virtuele netwerken tooget tooits bestemming passeert.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-ARMclient wordt gebruikt voor het aanroepen van de REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient is gebruikte toocall Hallo REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher.
 
 ## <a name="scenario"></a>Scenario
 
-Het scenario beschreven in dit artikel maakt gebruik van volgende Hop, een functie van netwerk-Watcher waarmee wordt gezocht naar de volgende hoptype en IP-adres voor een resource. Voor meer informatie over de volgende Hop, gaat u naar [volgende Hop overzicht](network-watcher-next-hop-overview.md).
+Hallo scenario beschreven in dit artikel maakt gebruik van volgende Hop, een functie van netwerk-Watcher waarmee wordt gezocht naar het volgende hoptype hello en IP-adres voor een resource. toolearn meer informatie over het volgende Hop, gaat u naar [volgende Hop overzicht](network-watcher-next-hop-overview.md).
 
 U wordt in dit scenario:
 
-* De volgende hop voor een virtuele machine worden opgehaald.
+* De volgende hop Hallo voor een virtuele machine worden opgehaald.
 
 ## <a name="log-in-with-armclient"></a>Meld u aan met ARMClient
 
-Aanmelden bij armclient met uw Azure-referenties.
+Meld u bij tooarmclient met uw Azure-referenties.
 
 ```PowerShell
 armclient login
@@ -55,12 +55,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Een virtuele machine ophalen
 
-Voer het volgende script om te retourneren van een virtuele machine. Deze informatie is nodig voor het uitvoeren van volgende hop.
+Hallo script tooreturn na een virtuele machine uitvoeren. Deze informatie is nodig voor het uitvoeren van volgende hop.
 
-De volgende code moet waarden voor de volgende variabelen:
+Hallo na code moet waarden voor Hallo variabelen te volgen:
 
-- **subscriptionId** -de abonnements-Id te gebruiken.
-- **resourceGroupName** -de naam van een resourcegroep die virtuele machines bevatten.
+- **subscriptionId** -Hallo toouse voor abonnement-Id.
+- **resourceGroupName** - hello naam van een resourcegroep die virtuele machines bevatten.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -69,7 +69,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-De id van de virtuele machine wordt gebruikt van de volgende uitvoer in het volgende voorbeeld:
+Hallo-id van Hallo virtuele machine wordt van de volgende Hallo uitvoer, gebruikt in Hallo voorbeeld te volgen:
 
 ```json
 ...
@@ -86,10 +86,10 @@ De id van de virtuele machine wordt gebruikt van de volgende uitvoer in het volg
 
 ## <a name="get-next-hop"></a>Ophalen van de volgende Hop
 
-Zodra de autorisatie-header is gemaakt, kan de volgende hop van een virtuele machine worden opgehaald. De volgende waarden moeten worden vervangen voor het voorbeeld om te werken.
+Zodra Hallo autorisatie-header is gemaakt, kan de volgende hop Hallo van een virtuele machine worden opgehaald. Hallo moeten volgende waarden worden vervangen voor Hallo code voorbeeld toowork.
 
 > [!Important]
-> Voor netwerk-Watcher REST API-aanroepen dat de naam van de resourcegroep in de aanvraag-URI is de resourcegroep met de netwerk-Watcher, niet de resources u diagnostische acties op uitvoert.
+> Voor de REST-API voor netwerk-Watcher Hallo aanroepen Resourcegroepnaam in Hallo aanvraag-URI is Hallo-resourcegroep met Hallo netwerk-Watcher niet Hallo-bronnen zoals u Hallo diagnostische acties uitvoert op.
 
 ```powershell
 $sourceIP = "10.0.0.4"
@@ -108,17 +108,17 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 ```
 
 > [!NOTE]
-> Volgende hop is vereist dat de VM-resource wordt toegewezen om te worden uitgevoerd.
+> Volgende hop is vereist dat de VM-resource Hallo toorun wordt toegewezen.
 
 ## <a name="results"></a>Resultaten
 
-Het volgende codefragment is een voorbeeld van de uitvoer ontvangen. De resultaten bevatten de volgende waarden:
+Hallo bevat volgende fragment een voorbeeld van uitvoer van Hallo ontvangen. Hallo resultaten bevatten Hallo volgende waarden:
 
-* **nextHopType** -deze waarde is een van de volgende waarden: Internet, VirtualAppliance, VirtualNetworkGateway, VnetLocal, HyperNetGateway of None.
-* **nextHopIpAddress** -het IP-adres van de volgende hop.
-* **routeTableId** : de waarde van een uri voor de routetabel die zijn gekoppeld aan de route is of als geen gebruiker gedefinieerde route is gedefinieerd de waarde van *Systeemroute* wordt geretourneerd.
+* **nextHopType** -deze waarde is een van de volgende waarden Hallo: Internet, VirtualAppliance, VirtualNetworkGateway, VnetLocal, HyperNetGateway of None.
+* **nextHopIpAddress** -IP-adres van de volgende hop Hallo Hallo.
+* **routeTableId** - Hallo-waarde is ofwel een uri voor de routetabel Hallo Hallo route gekoppeld of als geen gebruiker gedefinieerde route is gedefinieerd Hallo-waarde van *Systeemroute* wordt geretourneerd.
 
-Hieronder vindt u de resultaten in json-indeling.
+Hallo volgen Hallo resulteert in een json-indeling.
 
 ```json
 {
@@ -129,7 +129,7 @@ Hieronder vindt u de resultaten in json-indeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u gelukt om erachter te komen de volgende hop voor een virtuele machine, kunt u de beveiliging van uw netwerkbronnen bekijken in via [overzicht van de beveiliging](network-watcher-security-group-view-overview.md)
+Als u kunnen toofind uit de volgende hop Hallo voor een virtuele machine zijn, kunt u Hallo beveiliging van uw netwerkresources bekijken in via [overzicht van de beveiliging](network-watcher-security-group-view-overview.md)
 
 
 

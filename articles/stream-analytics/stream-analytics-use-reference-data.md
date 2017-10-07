@@ -1,5 +1,5 @@
 ---
-title: Gebruik van gegevens en lookup verwijzingsdimensies in Stream Analytics | Microsoft Docs
+title: aaaUse gegevens en lookup verwijzingsdimensies in Stream Analytics | Microsoft Docs
 description: Referentiegegevens gebruiken in een Stream Analytics-query
 keywords: referentiegegevens opzoektabel
 services: stream-analytics
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 3fd9c869be68d624a59ffb09ee53e31cd5a2f71b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fb1d18fba920db5e097d0c95d333e8e8390d1589
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>Met behulp van verwijzingsdimensies of opzoeken van gegevens in een Stream Analytics-invoerstroom
-Referentiegegevens (ook wel bekend als een opzoektabel) is een beperkte verzameling die is statisch of vertraging wijzigen van aard gebruikt om een zoekopdracht uitvoert of correleren met de gegevensstroom. Om ervoor te gebruiken van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u doorgaans een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Stream Analytics maakt gebruik van Azure Blob storage als de storage-laag voor referentiegegevens en met Azure Data Factory-verwijzing gegevens kunnen worden omgezet en/of gekopieerd naar Azure Blob-opslag voor gebruik als referentie-gegevens van [alle cloud-gebaseerde aantal en de on-premises gegevensopslagexemplaren](../data-factory/data-factory-data-movement-activities.md). Referentiegegevens is gemodelleerd als een reeks blobs (gedefinieerd in de configuratie van de invoer) in oplopende volgorde van de datum/tijd opgegeven in de blob-naam. Deze **alleen** ondersteunt toe te voegen aan het einde van de reeks met behulp van een datum/tijd **groter** dan die is opgegeven door de laatste blob in de reeks.
+Referentiegegevens (ook wel bekend als een opzoektabel) is een beperkte verzameling die is statisch of vertraging wijzigen van aard gebruikt tooperform een lookup- of toocorrelate met uw gegevensstroom. gebruik van referentiegegevens toomake in uw Azure Stream Analytics-taak in het algemeen gebruikt u een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Stream Analytics maakt gebruik van Azure Blob storage als Hallo opslaglaag voor referentiegegevens, en met Azure Data Factory-verwijzing gegevens kan getransformeerd en/of gekopieerde tooAzure Blob-opslag voor gebruik als referentie-gegevens van [een willekeurig aantal cloud-gebaseerde en lokale gegevensarchieven](../data-factory/data-factory-data-movement-activities.md). Referentiegegevens is gemodelleerd als een reeks blobs (gedefinieerd in de invoer configuratie Hallo) in oplopende volgorde van Hallo datum/tijd in Hallo blob-naam opgegeven. Deze **alleen** ondersteunt toohello einde van Hallo reeks toe te voegen met behulp van een datum/tijd **groter** dan Hallo opgegeven in de laatste blob Hallo in Hallo reeks.
 
-Stream Analytics is een **limiet van 100 MB per blob** maar taken kunnen meerdere verwijzing blobs verwerken met behulp van de **pad patroon** eigenschap.
+Stream Analytics is een **limiet van 100 MB per blob** maar taken kunnen meerdere verwijzing blobs verwerken met behulp van Hallo **pad patroon** eigenschap.
 
 
 ## <a name="configuring-reference-data"></a>Referentiegegevens configureren
-Als u wilt uw referentiegegevens configureren, moet u eerst voor het maken van een invoer van het type **referentiegegevens**. De onderstaande tabel wordt elke eigenschap die u opgeven moet tijdens het maken van de referentiegegevens invoer met de beschrijving uitgelegd:
+tooconfigure uw referentiegegevens, moet u eerst toocreate invoer van het type **referentiegegevens**. Hallo in de volgende tabel wordt elke eigenschap die u tijdens het Hallo verwijzing gegevensinvoer maken met de beschrijving tooprovide moet uitgelegd:
 
 
 <table>
@@ -39,69 +39,69 @@ Als u wilt uw referentiegegevens configureren, moet u eerst voor het maken van e
 </tr>
 <tr>
 <td>Invoeralias</td>
-<td>Een beschrijvende naam die wordt gebruikt in de taak query om te verwijzen naar deze invoer.</td>
+<td>Een beschrijvende naam die wordt gebruikt in Hallo taak query tooreference deze invoer.</td>
 </tr>
 <tr>
 <td>Storage-Account</td>
-<td>De naam van het opslagaccount waar uw BLOB's zich bevinden. Als deze zich binnen hetzelfde abonnement als uw Stream Analytics-taak, kunt u het selecteren in de vervolgkeuzelijst.</td>
+<td>Hallo-naam van de opslagaccount Hallo waar uw BLOB's zich bevinden. Als het zich in Hallo hetzelfde abonnement als uw Stream Analytics-taak kunt u deze selecteren in de vervolgkeuzelijst Hallo.</td>
 </tr>
 <tr>
 <td>De sleutel van opslagaccount</td>
-<td>De geheime sleutel die is gekoppeld aan het opslagaccount. Dit wordt automatisch ingevuld als het opslagaccount zich in hetzelfde abonnement als uw Stream Analytics-taak.</td>
+<td>de geheime sleutel Hallo Hallo storage-account gekoppeld. Dit wordt automatisch gevuld als Hallo storage-account in Hallo is hetzelfde abonnement als uw Stream Analytics-taak.</td>
 </tr>
 <tr>
 <td>Storage-Container</td>
-<td>Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob naar de Blob-service uploaden, moet u een blob-container opgeven.</td>
+<td>Containers bieden een logische groepering van blobs die zijn opgeslagen in Hallo Microsoft Azure Blob-service. U moet een container voor blob opgeven tijdens het uploaden van een blob toohello Blob-service.</td>
 </tr>
 <tr>
 <td>Het pad</td>
-<td>Het pad dat wordt gebruikt om uw blobs in de opgegeven container te vinden. U kunt kiezen binnen het pad naar een of meer exemplaren van de volgende 2 variabelen opgeven:<BR>{date} {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv
+<td>Hallo pad gebruikt toolocate uw blobs in de opgegeven container Hallo. Binnen Hallo pad, kunt u kiezen toospecify een of meer exemplaren van Hallo 2 variabelen te volgen:<BR>{date} {time}<BR>Voorbeeld 1: products/{date}/{time}/product-list.csv<BR>Voorbeeld 2: products/{date}/product-list.csv
 </tr>
 <tr>
 <td>[Optioneel] datumnotatie</td>
-<td>Als u {date} binnen het pad dat u hebt opgegeven gebruikt hebt, kunt u de datumnotatie waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst met ondersteunde indelingen selecteren.<BR>Voorbeeld: Jjjj/MM/DD, DD-MM-jjjj, enzovoort.</td>
+<td>Als u {date} binnen Hallo pad patroon die u hebt opgegeven gebruikt hebt, kunt u de datumnotatie Hallo waarin uw blobs zijn ingedeeld in Hallo vervolgkeuzelijst met ondersteunde indelingen selecteren.<BR>Voorbeeld: Jjjj/MM/DD, DD-MM-jjjj, enzovoort.</td>
 </tr>
 <tr>
 <td>[Optioneel] tijdnotatie</td>
-<td>Als u {time} binnen het pad dat u hebt opgegeven gebruikt hebt, kunt u de tijdnotatie waarin uw blobs zijn ingedeeld in de vervolgkeuzelijst met ondersteunde indelingen selecteren.<BR>Bijvoorbeeld: HH uu/mm of uu mm</td>
+<td>Als u {time} binnen Hallo pad patroon die u hebt opgegeven gebruikt hebt, kunt u de tijdnotatie Hallo waarin uw blobs zijn ingedeeld in Hallo vervolgkeuzelijst met ondersteunde indelingen selecteren.<BR>Bijvoorbeeld: HH uu/mm of uu mm</td>
 </tr>
 <tr>
 <td>Gebeurtenis serialisatie-indeling</td>
-<td>Om ervoor te zorgen dat uw query's werken zoals verwacht, Stream Analytics moet weten welke serialisatie-indeling gebruikt u voor inkomende gegevensstromen. De ondersteunde indelingen zijn voor referentiegegevens, CSV en JSON.</td>
+<td>controleren of dat uw query's werken Hallo zoals verwacht, Stream Analytics toomake moet tooknow welke serialisatie-indeling wordt gebruikt voor inkomende gegevensstromen. Hallo ondersteunde indelingen zijn voor referentiegegevens, CSV en JSON.</td>
 </tr>
 <tr>
 <td>Encoding</td>
-<td>UTF-8 is de enige ondersteunde coderingsindeling op dit moment</td>
+<td>UTF-8 wordt de coderingsindeling Hallo alleen ondersteund op dit moment</td>
 </tr>
 </tbody>
 </table>
 
 ## <a name="generating-reference-data-on-a-schedule"></a>Referentiegegevens volgens een schema genereren
-Als uw referentiegegevens een langzaam veranderende gegevensset is, wordt ondersteund voor het vernieuwen van verwijzing gegevens wordt ingeschakeld door het opgeven van een patroon pad in de configuratie van de invoer met de {date} en {time} vervanging tokens. Stream Analytics neemt over de bijgewerkte referentiegegevens gegevensdefinities op basis van dit patroon pad. Bijvoorbeeld, een patroon van `sample/{date}/{time}/products.csv` met een datumnotatie van **'Jjjj-MM-DD'** en tijdnotatie **'Uu mm'** Hiermee geeft u Stream Analytics om op te halen de bijgewerkte blob `sample/2015-04-16/17-30/products.csv` om 5:30 uur 16de April 2015 UTC-tijdzone.
+Als uw referentiegegevens een langzaam veranderende gegevensset is, wordt ondersteuning voor het vernieuwen van referentiegegevens ingeschakeld door het opgeven van een pad-patroon in invoer Hallo-configuratie met behulp van Hallo {date} en {time} vervanging tokens. Stream Analytics hervat Hallo bijgewerkt verwijzing gegevensdefinities op basis van dit patroon pad. Bijvoorbeeld, een patroon van `sample/{date}/{time}/products.csv` met een datumnotatie van **'Jjjj-MM-DD'** en tijdnotatie **'Uu mm'** Hiermee geeft u Stream Analytics toopick up Hallo bijgewerkt blob `sample/2015-04-16/17-30/products.csv` om 5:30 uur April 16de, 2015 UTC-tijdzone.
 
 > [!NOTE]
-> Momenteel er Stream Analytics-taken voor het vernieuwen van de blob alleen wanneer de machinetijd wordt verplaatst naar de tijd die is gecodeerd in de blob-naam. Bijvoorbeeld: de taak zoekt `sample/2015-04-16/17-30/products.csv` zo snel mogelijk, maar geen eerder dan 5:30 PM 16de April 2015 UTC tijdzone. Het *nooit* zoekt u naar een blob met een gecodeerde tijd eerder dan de laatste versie die is gedetecteerd.
+> Momenteel zoekt Stream Analytics-taken Hallo blob vernieuwen alleen wanneer toohello tijd gecodeerd in de blob-naam Hallo Hallo machinetijd wordt bestuurd. Bijvoorbeeld, Hallo taak zoekt `sample/2015-04-16/17-30/products.csv` zo snel mogelijk, maar geen eerder dan 5:30 PM 16de April 2015 UTC tijdzone. Het *nooit* zoekt u naar een blob met een gecodeerde tijd eerder dan Hallo laatste Count(*)) wordt gedetecteerd.
 > 
-> Bijvoorbeeld Zodra de taak de blob vindt `sample/2015-04-16/17-30/products.csv` deze bestanden met een gecodeerde datum ouder is dan 5:30 PM 16de April 2015 wordt genegeerd als een laat binnenkomen `sample/2015-04-16/17-25/products.csv` blob wordt gemaakt in dezelfde container de taak wordt niet gebruikt.
+> Bijvoorbeeld Zodra de taak Hallo Hallo blob vindt `sample/2015-04-16/17-30/products.csv` negeert deze bestanden met een gecodeerde datum ouder is dan 5:30 PM 16de April 2015 als een laat binnenkomen `sample/2015-04-16/17-25/products.csv` blob wordt gemaakt in Hallo dezelfde container Hallo taak maakt geen gebruik.
 > 
-> Op dezelfde manier als `sample/2015-04-16/17-30/products.csv` alleen op 10:03 PM 16de April 2015 wordt geproduceerd, maar geen blob met een eerdere datum is aanwezig in de container, de taak wordt dit bestand begint bij 10:03 PM 16de April 2015 gebruiken en gebruik van de vorige referentiegegevens tot die tijd.
+> Op dezelfde manier als `sample/2015-04-16/17-30/products.csv` alleen op 10:03 PM 16de April 2015 wordt geproduceerd, maar geen blob met een eerdere datum is aanwezig in de container hello, Hallo taak wordt dit bestand begint bij 10:03 PM 16de April 2015 gebruiken en vorige referentiegegevens hello gebruiken tot.
 > 
-> Een uitzondering hierop is wanneer de taak opnieuw verwerken gegevens terug in tijd moet of wanneer de taak is het eerste gestart. Tijdens het starten is de taak op zoek naar de meest recente blob geproduceerd voordat de taak begintijd opgegeven. Dit wordt gedaan om ervoor te zorgen dat er een **niet-lege** verwijst naar gegevensset wanneer de taak wordt gestart. Als er een kan niet worden gevonden, de taak wordt weergegeven met de volgende diagnose: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> Een uitzondering toothis is als Hallo-taak toore-proces gegevens terug in tijd moet of wanneer het Hallo-taak voor het eerst wordt gestart. Aan begin zoekt tijd Hallo taak naar de meest recente blob Hallo geproduceerd voordat de taak Hallo begintijd opgegeven. Dit wordt gedaan tooensure dat er een **niet-lege** verwijst naar gegevensset wanneer Hallo-taak wordt gestart. Als er een kan niet worden gevonden, Hallo-taak wordt weergegeven na diagnostische Hallo: `Initializing input without a valid reference data blob for UTC time <start time>`.
 > 
 > 
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan worden gebruikt voor het indelen van de taak voor het maken van de bijgewerkte blobs vereist door Stream Analytics verwijzing gegevensdefinities bijwerken. Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd. Data Factory ondersteunt [verbinding te maken met een groot aantal cloud gebaseerd en on-premises gegevensopslagexemplaren](../data-factory/data-factory-data-movement-activities.md) en gemakkelijk verplaatsen van gegevens op een vaste planning die u opgeeft. Voor meer informatie en stapsgewijze instructies voor het instellen van een Data Factory-pijplijn voor het genereren van referentiegegevens voor Stream Analytics die wordt vernieuwd op basis van een vooraf gedefinieerde planning, Bekijk dit [GitHub voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) gebruikte tooorchestrate Hallo taak voor het maken van Hallo bijgewerkt blobs is vereist voor Stream Analytics tooupdate verwijzing gegevensdefinities kan zijn. Data Factory is een cloud-gebaseerde gegevens integration-service die is ingedeeld en automatiseert Hallo verplaatsing en transformatie van gegevens. Data Factory ondersteunt [tooa groot aantal in de cloud en on-premises gegevensopslagexemplaren verbinden](../data-factory/data-factory-data-movement-activities.md) en gemakkelijk verplaatsen van gegevens op een vaste planning die u opgeeft. Voor meer informatie en stapsgewijze instructies over hoe tooset van een Data Factory met toogenerate referentiegegevens voor Stream Analytics die wordt vernieuwd op basis van een vooraf gedefinieerde planning pipeline, Bekijk dit [GitHub voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Tips voor het vernieuwen van uw verwijzingsgegevens
-1. Stream Analytics om opnieuw te laden van de blob leidt niet tot verwijzing gegevensblobs overschrijven en in sommige gevallen kan dit leiden tot de taak is mislukt. De aanbevolen manier om te wijzigen van referentiegegevens is een nieuwe blob met behulp van de container en het pad patroon gedefinieerd in de invoer van de taak toevoegen en gebruiken van een datum/tijd **groter** dan die is opgegeven door de laatste blob in de reeks.
-2. Verwijzing naar gegevensblobs zijn **niet** besteld door het tijdstip van de blob 'Laatst gewijzigd', maar alleen door de tijd en datum is opgegeven in de blob naam weergeven met de {date} en {time} vervangingen.
+1. Stream Analytics tooreload Hallo blob leidt niet tot verwijzing gegevensblobs overschrijven en in sommige gevallen kan dit leiden tot Hallo taak toofail. Hallo aanbevolen manier toochange referentiegegevens tooadd is een nieuwe blob Hallo container en het pad patroon gedefinieerd in Hallo taak invoer met en gebruik van een datum/tijd **groter** dan Hallo opgegeven in de laatste blob Hallo in Hallo reeks.
+2. Verwijzing naar gegevensblobs zijn **niet** geordend door 'Laatst gewijzigd' Hallo-blob-tijd, maar alleen door Hallo-tijd en datum in Hallo Hallo {date} en {time} vervangingen met blob-naam opgegeven.
 3. In enkele gevallen kan een taak moet teruggaan in tijd, daarom verwijzing gegevensblobs mag niet worden gewijzigd of verwijderd.
 
 ## <a name="get-help"></a>Help opvragen
 Voor verdere hulp kunt u mogelijk terecht op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt kennisgemaakt met Stream Analytics, een beheerde service voor streaminganalyse van gegevens afkomstig van het Internet of Things. Raadpleeg de volgende onderwerpen voor meer informatie over deze service:
+U hebt ingevoerd tooStream Analytics, een beheerde service voor streaminganalyse van gegevens van Hallo Internet der dingen zijn. toolearn meer informatie over deze service, Zie:
 
 * [Aan de slag met Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)

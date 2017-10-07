@@ -1,6 +1,6 @@
 ---
-title: Wijzig de creditcard die is gebruikt voor Azure | Microsoft Docs
-description: Hierin wordt beschreven hoe u de creditcard die is gebruikt om te betalen voor een Azure-abonnement wijzigen
+title: aaaChange Hallo-creditcard is gebruikt voor Azure | Microsoft Docs
+description: Hierin wordt beschreven hoe tooHow toochange Hallo creditcard toopay gebruikt voor een Azure-abonnement
 services: 
 documentationcenter: 
 author: genlin
@@ -15,60 +15,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: genli
-ms.openlocfilehash: 8c27eeda209815ee04ad52403296310c15869250
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 378640215853886b6be68cc59f8a0e88dcb2cf83
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-credit-card-used-to-pay-for-an-azure-subscription"></a>De creditcard die is gebruikt om te betalen voor een Azure-abonnement wijzigen
-U kunt toevoegen, wijzigen of verwijderen van een creditcard die is gekoppeld aan uw Azure-account wanneer u zich aanmeldt bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de [accountbeheerder](billing-subscription-transfer.md#whoisaa). 
+# <a name="change-hello-credit-card-used-toopay-for-an-azure-subscription"></a>Wijziging Hallo creditcard toopay gebruikt voor een Azure-abonnement
+U kunt toevoegen, wijzigen of verwijderen van een creditcard die is gekoppeld aan uw Azure-account wanneer u zich aanmeldt toohello [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als Hallo [accountbeheerder](billing-subscription-transfer.md#whoisaa). 
  
 <a id="addcard"></a>
 ## <a name="add-a-credit-card-as-a-payment-method"></a>Een creditcard als een betalingsmethode toevoegen
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
-2. Selecteer het abonnement.
-3. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
-4. Selecteer '+' als een creditcard wilt toevoegen.
-5. Kies een creditcardtype en voer de vereiste informatie.
+1. Meld u aan toohello [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder Hallo.
+2. Hallo-abonnement selecteren.
+3. Selecteer aan de rechterzijde Hallo van Hallo pagina, **betalingswijzen beheren**.
+4. Selecteer '+' tooadd een creditcard.
+5. Kies een type creditcard en Voer Hallo vereiste informatie.
 6. Selecteer **volgende**. 
 
-Als de kaart geldig is, wordt deze toegevoegd aan de lijst met beschikbare betalingswijzen.
+Als het Hallo-kaart is geldig, is het toegevoegde toohello lijst met beschikbare betalingswijzen.
 
-Als u een fout optreedt nadat u de creditcard hebt toegevoegd, Zie [creditcard geweigerd op Azure aanmelding](billing-credit-card-fails-during-azure-sign-up.md).
+Als u een fout optreedt nadat u Hallo creditcard hebt toegevoegd, Zie [creditcard geweigerd op Azure aanmelding](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## <a name="edit-payment-information-for-an-existing-credit-card"></a>Betalingsgegevens voor een bestaande creditcard bewerken
-  Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de details van de bestaande creditcard zoals de vervaldatum bijwerken. Als uw creditcard gewijzigd omdat de kaart verloren is, gestolen of verlopen, volg de stappen in de [een creditcard als een betalingsmethode toevoegen](#addcard) sectie. 
+  Als uw creditcard wordt vernieuwd en blijft Hallo Hallo dezelfde, zoals update Hallo bestaande creditcardgegevens Hallo vervaldatum. Als uw creditcard gewijzigd omdat het Hallo-kaart is verloren, gestolen of verlopen, Hallo in Hallo stappen [een creditcard als een betalingsmethode toevoegen](#addcard) sectie. 
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
-2. Selecteer het abonnement dat gekoppeld aan de creditcard.</br> ![Schermafbeelding van een voorbeeld-abonnement dat is geselecteerd.](./media/billing-how-to-change-credit-card/selectsub.png)
+1. Meld u aan toohello [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder Hallo.
+2. Selecteer Hallo-abonnement dat toohello creditcard is gekoppeld.</br> ![Schermafbeelding van een voorbeeld-abonnement dat is geselecteerd.](./media/billing-how-to-change-credit-card/selectsub.png)
 3. Selecteer **betalingswijzen beheren**.</br> ![Schermafbeelding van beheren betaling methoden optie is geselecteerd.](./media/billing-how-to-change-credit-card/changesub_new.png)
-4. Selecteer de betalingsmethode.
-5. Selecteer **bewerken** naast het creditcardnummer.</br> ![Schermafbeelding van de optie Bewerken naast de betalingsmethode.](./media/billing-how-to-change-credit-card/editcard_new.png)
-6. Zorg ervoor dat het creditcardtype en creditcardnummer correct is.
+4. Selecteer de betalingsmethode Hallo.
+5. Selecteer **bewerken** volgende toohello creditcardnummer.</br> ![Schermafbeelding van Hallo bewerken optie volgende toohello-betalingsmethode.](./media/billing-how-to-change-credit-card/editcard_new.png)
+6. Zorg ervoor dat Hallo creditcardtype en creditcardnummer correct is.
 7. Selecteer **volgende**.
 
-## <a name="change-the-credit-card-that-pays-your-azure-bill"></a>De creditcard die uw Azure-factuur betaalt wijzigen
+## <a name="change-hello-credit-card-that-pays-your-azure-bill"></a>Hallo creditcard die uw Azure-factuur betaalt wijzigen
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
-2. Selecteer het abonnement.
-3. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
-4. Klik op **gebruiken in plaats daarvan** en selecteer de creditcard die u wilt gebruiken.
+1. Meld u aan toohello [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder Hallo.
+2. Hallo-abonnement selecteren.
+3. Selecteer aan de rechterzijde Hallo van Hallo pagina, **betalingswijzen beheren**.
+4. Klik op **gebruik in plaats daarvan** en selecteer Hallo creditcard die u toouse wilt.
 
-## <a name="remove-a-credit-card-from-the-account"></a>Een creditcard verwijderen uit het account
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
-2. Selecteer het abonnement.
-3. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
-4. Klik op **verwijderen** voor de creditcard die u wilt verwijderen.
+## <a name="remove-a-credit-card-from-hello-account"></a>Verwijderen van een creditcard uit Hallo-account
+1. Meld u aan toohello [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder Hallo.
+2. Hallo-abonnement selecteren.
+3. Selecteer aan de rechterzijde Hallo van Hallo pagina, **betalingswijzen beheren**.
+4. Klik op **verwijderen** voor Hallo creditcard die u toodelete wilt.
 
-Als uw creditcard gekoppeld aan andere actieve abonnementen van Microsoft is, kunt u deze niet verwijderen uit uw Azure-account. Verwijder de creditcard van alle actieve abonnementen die u met Microsoft hebt.
+Als uw creditcard gekoppeld aan andere actieve abonnementen van Microsoft is, kunt u deze niet verwijderen uit uw Azure-account. Hallo creditcard verwijderen uit alle actieve abonnementen die u met Microsoft hebt.
 
-##  <a name="how-to-make-payments"></a>Het maken van betalingen
+##  <a name="how-toomake-payments"></a>Hoe toomake betalingen
 
-* Als u een creditcard of een betaalpas als uw betalingsmethode instellen, wordt de betaling automatisch gemaakt.
-* Als u [een factuur](https://azure.microsoft.com/pricing/invoicing/), uw betaling naar de locatie die onder van uw factuur verzenden.
+* Als u een creditcard of een betaalpas als uw betalingsmethode instellen, wordt Hallo betaald automatisch.
+* Als u [een factuur](https://azure.microsoft.com/pricing/invoicing/), de locatie van uw betaling toohello vermeld onder Hallo van uw factuur verzenden.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget uw probleem snel worden opgelost.

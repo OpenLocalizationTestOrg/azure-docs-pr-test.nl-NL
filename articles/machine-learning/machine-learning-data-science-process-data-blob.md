@@ -1,5 +1,5 @@
 ---
-title: Verwerken van Azure blob-gegevens met geavanceerde analyses | Microsoft Docs
+title: aaaProcess Azure blob-gegevens met geavanceerde analyses | Microsoft Docs
 description: Procesgegevens in Azure Blob-opslag.
 services: machine-learning,storage
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 36d950fd81029af82d9f2f652b2f01dba5fc8cc9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5911d4211c4135680555a8cdd99e745499a24215
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="heading"></a>Azure blob-gegevens met geavanceerde analyses verwerken
 Dit document bevat informatie over gegevens verkennen en genereren van de functies van de gegevens die zijn opgeslagen in Azure Blob-opslag. 
 
-## <a name="load-the-data-into-a-pandas-data-frame"></a>De gegevens in een frame Pandas-gegevens laden
-Om te verkennen en het bewerken van een gegevensset, moet deze worden gedownload van de bron van de blob naar een lokaal bestand die vervolgens kan worden geladen in een Pandas gegevensframe. Hier volgen de stappen voor deze procedure:
+## <a name="load-hello-data-into-a-pandas-data-frame"></a>Hallo gegevens laden in een frame Pandas-gegevens
+In de volgorde tooexplore en manipuleren van een gegevensset, deze moet worden gedownload uit Hallo blob tooa lokale bronbestand die vervolgens kan worden geladen in een Pandas gegevensframe. Hier volgen Hallo stappen toofollow voor deze procedure:
 
-1. Download de gegevens van Azure-blob met de volgende voorbeeldcode Python met behulp van blob-service. De variabele in de volgende code vervangen door uw eigen specifieke waarden: 
+1. Hallo gegevens downloaden vanaf Azure blob met Hallo Python voorbeeldcode met behulp van blob-service te volgen. Hallo-variabele in het Hallo-code hieronder vervangen door uw eigen specifieke waarden: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -42,52 +42,52 @@ Om te verkennen en het bewerken van een gegevensset, moet deze worden gedownload
         blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
-        print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. De gegevens in een Pandas gegevens tijdskader uit het gedownloade bestand gelezen.
+        print(("It takes %s seconds toodownload "+blobname) % (t2 - t1))
+2. Hallo-gegevens lezen in een Pandas gegevens tijdskader van Hallo gedownload bestand.
    
-        #LOCALFILE is the file path    
+        #LOCALFILE is hello file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-U bent nu klaar voor de gegevens verkennen en het genereren van functies op deze dataset.
+Nu u bent gereed tooexplore Hallo gegevens en genereren van de functies voor deze gegevensset.
 
 ## <a name="blob-dataexploration"></a>Gegevensverkenning
-Hier volgen enkele voorbeelden van methoden voor het verkennen van gegevens met behulp van Pandas:
+Hier volgen enkele voorbeelden van de manieren tooexplore-gegevens met behulp van Pandas:
 
-1. Het aantal rijen en kolommen controleren 
+1. Hallo aantal rijen en kolommen controleren 
    
-        print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-2. Inspecteer de eerste of laatste paar rijen in de gegevensset zoals hieronder:
+        print 'hello size of hello data is: %d rows and  %d columns' % dataframe_blobdata.shape
+2. Hallo eerst controleren of de laatste paar rijen in dataset Hallo zoals hieronder:
    
         dataframe_blobdata.head(10)
    
         dataframe_blobdata.tail(10)
-3. Controleer het gegevenstype dat elke kolom is geïmporteerd als het gebruik van de volgende voorbeeldcode
+3. Hallo-gegevenstype die elke kolom is geïmporteerd als het gebruik van de volgende voorbeeldcode Hallo controleren
    
         for col in dataframe_blobdata.columns:
             print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-4. De algemene statistieken voor de kolommen in de gegevensset als volgt controleren
+4. Hallo elementaire statistieken voor kolommen in gegevensset Hallo Hallo als volgt controleren
    
         dataframe_blobdata.describe()
-5. Het aantal items voor elke waarde in de kolom als volgt bekijken
+5. Bekijkt hello aantal items voor elke waarde in de kolom als volgt
    
         dataframe_blobdata['<column_name>'].value_counts()
-6. Ontbrekende waarden ten opzichte van het werkelijke aantal vermeldingen in elke kolom met de volgende voorbeeldcode tellen
+6. Ontbrekende waarden versus werkelijke aantal vermeldingen in elke kolom met de volgende voorbeeldcode Hallo Hallo tellen
    
         miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
         print miss_num
-7. Als u ontbrekende waarden voor een specifieke kolom in de gegevens hebt, kunt u ze als volgt verwijderen:
+7. Als u ontbrekende waarden voor een specifieke kolom in Hallo gegevens hebt, kunt u ze als volgt verwijderen:
    
      dataframe_blobdata_noNA dataframe_blobdata.dropna() dataframe_blobdata_noNA.shape =
    
-   Ontbrekende waarden te vervangen op een andere manier is met de modusfunctie:
+   Er is een andere manier tooreplace ontbrekende waarden met Hallo modusfunctie:
    
      dataframe_blobdata_mode dataframe_blobdata.fillna = ({< column_name >: .mode()[0]}) dataframe_blobdata ['< column_name >"]        
-8. Histogram tekent variabele aantal opslaglocaties gebruiken om te tekenen van de distributie van een variabele maken    
+8. Histogram tekent met variabele aantal opslaglocaties tooplot Hallo distributie van een variabele maken    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
         np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-9. Bekijk correlatie tussen variabelen met behulp van een scatterplot of via de ingebouwde correlatiefunctie
+9. Bekijk correlatie tussen variabelen met een scatterplot of functie van de ingebouwde correlation Hallo
    
         #relationship between column_a and column_b using scatter plot
         plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
@@ -101,43 +101,43 @@ Functies met behulp van Python als volgt kan worden gegenereerd:
 ### <a name="blob-countfeature"></a>Indicatorwaarde op basis van functie generatie
 Categorische functies kunnen als volgt worden gemaakt:
 
-1. Inspecteer de distributie van de kolom categorische:
+1. Hallo-verdeling van Hallo categorische kolom controleren:
    
         dataframe_blobdata['<categorical_column>'].value_counts()
-2. Indicatorwaarden voor elk van de kolomwaarden genereren
+2. Indicatorwaarden voor elk van de kolomwaarden Hallo genereren
    
-        #generate the indicator column
+        #generate hello indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Lid worden van de indicatorkolom met de oorspronkelijke gegevensframe 
+3. Hallo indicatorkolom met de oorspronkelijke gegevensframe Hallo koppelen 
    
-            #Join the dummy variables back to the original data frame
+            #Join hello dummy variables back toohello original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
-4. De oorspronkelijke variabele zelf verwijderen:
+4. Hallo oorspronkelijke variabele zelf verwijderen:
    
-        #Remove the original column rate_code in df1_with_dummy
+        #Remove hello original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Met binning functie generatie
 Voor het genereren van binned functies gaan we als volgt:
 
-1. Een reeks van kolommen die u wilt een numerieke kolom bin toevoegen
+1. Een reeks van kolommen toobin een numerieke kolom toevoegen
    
         bins = [0, 1, 2, 4, 10, 40]
         dataframe_blobdata_bin_id = pd.cut(dataframe_blobdata['<numeric_column>'], bins)
-2. Converteren naar een reeks Boole-variabelen met binning
+2. Met binning tooa reeks Boole-variabelen converteren
    
         dataframe_blobdata_bin_bool = pd.get_dummies(dataframe_blobdata_bin_id, prefix='<numeric_column>')
-3. Ten slotte de dummy variabelen Join terug naar de oorspronkelijke gegevensframe
+3. Ten slotte back Join Hallo dummy-variabelen-toohello oorspronkelijke gegevensframe
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Schrijven van gegevens terug naar Azure blob en gebruiken in Azure Machine Learning
-Nadat u de gegevens hebt verkend en de benodigde onderdelen hebt gemaakt, kunt u de gegevens uploaden (actieve of featurized) naar een Azure blob- en deze wordt gebruikt in Azure Machine Learning met behulp van de volgende stappen uit: Houd er rekening mee dat extra functies kunnen worden gemaakt in de Azure-Machine Ook Learning Studio. 
+## <a name="sql-featuregen"></a>Het schrijven van gegevens back-tooAzure blob en gebruiken in Azure Machine Learning
+Nadat u hebt Hallo gegevens verkend en Hallo benodigde onderdelen gemaakt, kunt u Hallo gegevens uploaden (actieve of featurized) tooan Azure blob- en deze wordt gebruikt in Azure Machine Learning met Hallo stappen te volgen: Houd er rekening mee dat extra functies kunnen worden gemaakt in Hallo Azure Machine Learning Studio ook. 
 
-1. Het gegevensframe schrijven naar een lokaal bestand
+1. Hallo gegevens frame toolocal-bestand schrijven
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
-2. Uploaden van de gegevens naar Azure blob als volgt:
+2. Hallo gegevens tooAzure blob als volgt uploaden:
    
         from azure.storage.blob import BlobService
         import tables
@@ -158,7 +158,7 @@ Nadat u de gegevens hebt verkend en de benodigde onderdelen hebt gemaakt, kunt u
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Nu de gegevens kunnen worden gelezen vanaf de blob met de Azure Machine Learning [importgegevens] [ import-data] module, zoals wordt weergegeven in het scherm hieronder:
+3. Nu Hallo gegevens kunnen worden gelezen vanuit Hallo blob met Azure Machine Learning Hallo [importgegevens] [ import-data] module, zoals wordt weergegeven in het welkomstscherm hieronder:
 
 ![lezer blob][1]
 

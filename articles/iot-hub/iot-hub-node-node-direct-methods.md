@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub directe methoden (knooppunt) | Microsoft Docs
-description: Het gebruik van Azure IoT Hub rechtstreekse methoden. U kunt Azure IoT SDK's voor Node.js gebruiken voor het implementeren van een gesimuleerde apparaattoepassing die een directe methode bevat en een service-app die de directe methode aanroept.
+title: aaaAzure IoT Hub directe methoden (knooppunt) | Microsoft Docs
+description: Hoe Azure IoT Hub toouse directe methoden. U hello Azure IoT SDK's gebruiken voor Node.js tooimplement een gesimuleerde apparaattoepassing die een directe methode bevat en een service-app die Hallo directe methode aanroept.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,26 +15,26 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83725c3ae3fd3807f2469be888e270ba078a8972
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 12300ba451816fec1f80163b633f6b6e411d9e5c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>Directe methoden te gebruiken op uw IoT-apparaat met behulp van Node.js
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-Aan het einde van deze zelfstudie hebt u twee console Node.js-apps:
+Aan het einde van de Hallo van deze zelfstudie hebt u twee console Node.js-apps:
 
-* **CallMethodOnDevice.js**, die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing en het antwoord weergegeven.
-* **SimulatedDevice.js**, die verbinding maakt met uw IoT-hub aan de apparaat-id eerder hebt gemaakt en reageert op de methode aangeroepen door de cloud.
+* **CallMethodOnDevice.js**, die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing Hallo en antwoord Hallo weergegeven.
+* **SimulatedDevice.js**, die tooyour IoT-hub aan Hallo apparaat-id eerder hebt gemaakt, en toohello methode aangeroepen door Hallo cloud reageert.
 
 > [!NOTE]
-> Het artikel [Azure IoT-SDK's][lnk-hub-sdks] bevat informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
+> Hallo artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over hello Azure IoT SDK's waarmee u toobuild beide toorun toepassingen op apparaten en de back-end van uw oplossing kunt.
 > 
 > 
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie, moet u hello te volgen:
 
 * Node.js versie 0.10.x of hoger.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
@@ -44,20 +44,20 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
-In deze sectie maakt u een Node.js-consoletoepassing dat met een methode aangeroepen door de cloud overeenkomt.
+In deze sectie maakt maken u een Node.js-consoletoepassing die tooa methode aangeroepen door Hallo cloud reageert.
 
-1. Maak een nieuwe lege map met de naam **simulateddevice**. In de map **simulateddevice** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map met de naam **simulateddevice**. In Hallo **simulateddevice** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. In de opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp** Device SDK-pakket en het **azure-iot-device-mqtt**-pakket te installeren:
+2. Bij de opdrachtprompt in Hallo **simulateddevice** map na de opdracht tooinstall Hallo Hallo **azure-iot-device** apparaat-SDK-pakket en **azure-iot-device-mqtt**pakket:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Maak met een tekstverwerker een nieuw bestand **SimulatedDevice.js** in de map **simulateddevice**.
-4. Voeg de volgende `require` instructies toe aan het begin van het bestand **SimulatedDevice.js**:
+3. Start een teksteditor en maak een nieuwe **SimulatedDevice.js** bestand in Hallo **simulateddevice** map.
+4. Voeg de volgende Hallo `require` instructies aan Hallo start Hallo **SimulatedDevice.js** bestand:
    
     ```
     'use strict';
@@ -65,28 +65,28 @@ In deze sectie maakt u een Node.js-consoletoepassing dat met een methode aangero
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Voeg een **connectionString** variabele en deze gebruiken voor het maken een **DeviceClient** exemplaar. Vervang **{verbindingsreeks apparaat}** tekenreeks met de apparaatverbinding u hebt gegenereerd tijdens de *maken van een apparaat-id* sectie:
+5. Voeg een **connectionString** variabele en gebruik deze toocreate een **DeviceClient** exemplaar. Vervang **{verbindingsreeks apparaat}** met Hallo verbindingsreeks voor apparaat u hebt gegenereerd in Hallo *maken van een apparaat-id* sectie:
    
     ```
     var connectionString = '{device connection string}';
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
-6. Voeg de volgende functie voor het implementeren van de methode op het apparaat toe:
+6. Hallo functie tooimplement Hallo methode volgen op Hallo apparaat toevoegen:
    
     ```
     function onWriteLine(request, response) {
         console.log(request.payload);
    
-        response.send(200, 'Input was written to log.', function(err) {
+        response.send(200, 'Input was written toolog.', function(err) {
             if(err) {
                 console.error('An error ocurred when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.' );
             }
         });
     }
     ```
-7. Open de verbinding met uw IoT-hub en begin initialiseren de listener voor methode:
+7. Open Hallo verbinding tooyour IoT-hub en geïnitialiseerd Hallo methode listener starten:
    
     ```
     client.open(function(err) {
@@ -98,47 +98,47 @@ In deze sectie maakt u een Node.js-consoletoepassing dat met een methode aangero
         }
     });
     ```
-8. Sla het bestand **SimulatedDevice.js** op en sluit het.
+8. Opslaan en sluiten Hallo **SimulatedDevice.js** bestand.
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. In productiecode moet u beleid voor opnieuw proberen (zoals verbinding opnieuw), zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].
+> tookeep dingen eenvoudige, deze zelfstudie wordt niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u beleid voor opnieuw proberen (zoals verbinding opnieuw), zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].
 > 
 > 
 
 ## <a name="call-a-method-on-a-device"></a>Een methode is aangeroepen voor een apparaat
-In deze sectie maakt u een Node.js-consoletoepassing die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing en wordt vervolgens het antwoord.
+In deze sectie maakt maken u een Node.js-consoletoepassing die een methode wordt aangeroepen in de gesimuleerde apparaattoepassing Hallo en wordt vervolgens weergegeven antwoord Hallo.
 
-1. Maak een nieuwe lege map genaamd **callmethodondevice**. In de **callmethodondevice** map, maakt u een package.json-bestand met de volgende opdracht achter de opdrachtprompt. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map genaamd **callmethodondevice**. In Hallo **callmethodondevice** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. Bij de opdrachtprompt in de **callmethodondevice** map, voer de volgende opdracht voor het installeren van de **azure-iothub** pakket:
+2. Bij de opdrachtprompt in Hallo **callmethodondevice** map na de opdracht tooinstall Hallo Hallo **azure-iothub** pakket:
    
     ```
     npm install azure-iothub --save
     ```
-3. Maak met een teksteditor, een **CallMethodOnDevice.js** bestand de **callmethodondevice** map.
-4. Voeg de volgende `require` instructies aan het begin van de **CallMethodOnDevice.js** bestand:
+3. Maak met een teksteditor, een **CallMethodOnDevice.js** bestand in Hallo **callmethodondevice** map.
+4. Voeg de volgende Hallo `require` instructies aan Hallo start Hallo **CallMethodOnDevice.js** bestand:
    
     ```
     'use strict';
    
     var Client = require('azure-iothub').Client;
     ```
-5. Voeg de volgende variabeledeclaratie toe en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks van uw hub:
+5. Hallo na variabelendeclaratie toevoegen en vervang Hallo tijdelijke aanduidingswaarde met Hallo IoT Hub-verbindingsreeks voor uw hub:
    
     ```
     var connectionString = '{iothub connection string}';
     var methodName = 'writeLine';
     var deviceId = 'myDeviceId';
     ```
-6. De client voor het openen van de verbinding met uw iothub maken.
+6. Hallo client tooopen Hallo verbinding tooyour iothub maken.
    
     ```
     var client = Client.fromConnectionString(connectionString);
     ```
-7. Voeg de volgende functie zodat deze de apparaat-methode worden aangeroepen en de reactie van het apparaat naar de console afdrukken:
+7. Hallo functie tooinvoke Hallo apparaat methode afdrukken Hallo apparaat antwoord toohello console en volgende toevoegen:
    
     ```
     var methodParams = {
@@ -149,45 +149,45 @@ In deze sectie maakt u een Node.js-consoletoepassing die een methode wordt aange
    
     client.invokeDeviceMethod(deviceId, methodParams, function (err, result) {
         if (err) {
-            console.error('Failed to invoke method \'' + methodName + '\': ' + err.message);
+            console.error('Failed tooinvoke method \'' + methodName + '\': ' + err.message);
         } else {
             console.log(methodName + ' on ' + deviceId + ':');
             console.log(JSON.stringify(result, null, 2));
         }
     });
     ```
-8. Sla op en sluit de **CallMethodOnDevice.js** bestand.
+8. Opslaan en sluiten Hallo **CallMethodOnDevice.js** bestand.
 
-## <a name="run-the-apps"></a>De apps uitvoeren
-U kunt nu de apps uitvoeren.
+## <a name="run-hello-apps"></a>Hallo-apps uitvoeren
+U bent nu klaar toorun Hallo apps.
 
-1. Bij een opdrachtprompt in de **simulateddevice** map, voer de volgende opdracht om te beginnen met luisteren voor methodeaanroepen vanuit uw IoT-Hub:
+1. Bij een opdrachtprompt in Hallo **simulateddevice** map Hallo opdracht toostart luisteren naar methodeaanroepen van uw IoT-Hub te volgen:
    
     ```
     node SimulatedDevice.js
     ```
    
     ![][7]
-2. Bij een opdrachtprompt in de **callmethodondevice** map, voer de volgende opdracht om te beginnen met bewaken van uw IoT-hub:
+2. Bij een opdrachtprompt in Hallo **callmethodondevice** map Hallo opdracht toobegin bewaking van uw IoT-hub te volgen:
    
     ```
     node CallMethodOnDevice.js 
     ```
    
     ![][8]
-3. Hier ziet u het apparaat aan de methode reageren door het afdrukken van het bericht en de toepassing die het antwoord van de weergave van de methode van het apparaat aangeroepen:
+3. Hier ziet u Hallo apparaat toohello methode reageren door het afdrukken van het Hallo-bericht en Hallo-toepassing die weergave Hallo antwoord voor Hallo methode vanuit Hallo apparaat aangeroepen:
    
     ![][9]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om in te schakelen van de gesimuleerde apparaattoepassing om te reageren op de methoden die worden aangeroepen door de cloud. Hebt u ook een app roept methoden op het apparaat en de reactie van het apparaat wordt gemaakt. 
+In deze zelfstudie maakt u een nieuwe iothub geconfigureerd in hello Azure-portal en vervolgens een apparaat-id in de id-register Hallo iothub hebt gemaakt. U hebt deze apparaat-id tooenable Hallo gesimuleerd apparaat app tooreact toomethods aangeroepen door Hallo cloud gebruikt. Hebt u ook een app die wordt aangeroepen methoden op Hallo apparaat en geeft weer Hallo-antwoord van Hallo-apparaat hebt gemaakt. 
 
-Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
+toocontinue aan de slag met IoT Hub en tooexplore raadpleegt u andere IoT-scenario's:
 
 * [Aan de slag met IoT Hub]
 * [Taken plannen op meerdere apparaten][lnk-devguide-jobs]
 
-Zie voor meer informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten aanroepen, de [planning en broadcast taken] [ lnk-tutorial-jobs] zelfstudie.
+toolearn hoe tooextend uw IoT-oplossing en schema-methode aanroepen op meerdere apparaten, raadpleegt u Hallo [planning en broadcast taken] [ lnk-tutorial-jobs] zelfstudie.
 
 <!-- Images. -->
 [7]: ./media/iot-hub-node-node-direct-methods/run-simulated-device.png

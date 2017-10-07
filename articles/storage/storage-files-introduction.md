@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure File Storage | Microsoft Docs
-description: Een overzicht van Azure File Storage, een service waarmee u netwerkbestandsshares kunt maken en gebruiken in de Microsoft Cloud volgens de industrienorm.
+title: aaaIntroduction tooAzure File storage | Microsoft Docs
+description: Een overzicht van Azure File storage, een service waarmee u toocreate en gebruik netwerkbestand deelt in Hallo Hallo industrie-initiatief met Microsoft-Cloud.
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: a0a6a80a2ccd9742aa470bdd02ff375387a1629b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-file-storage"></a>Inleiding tot Azure File Storage
-Azure File Storage biedt netwerkbestandsshares volgens de industrienormen met het [SMB-protocol (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) en [CIFS (Common Internet File System)](https://technet.microsoft.com/library/cc939973.aspx). Azure-bestandsshares kunnen gelijktijdig worden gekoppeld door clients zoals on-premises implementaties van Windows, Mac OS, Linux of door virtuele Azure-machines. Een opslagaccount voor algemeen gebruik biedt binnen één account toegang tot Azure File Storage en andere services, zoals Blobs, Queues en virtuele-machineschijven van Azure.
+# <a name="introduction-tooazure-file-storage"></a>Inleiding tooAzure File storage
+Azure File storage biedt bestandsshares netwerk in Hallo cloud met behulp van industriestandaard Hallo [Protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) en [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Azure-bestandsshares kunnen gelijktijdig worden gekoppeld door clients zoals on-premises implementaties van Windows, Mac OS, Linux of door virtuele Azure-machines. Een opslagaccounts voor algemeen gebruik biedt u toegang tot tooAzure opslag van bestanden en andere services zoals Blobs, virtuele machine van Azure-schijven, wachtrijen onder één account.
 
 
 
 ## <a name="videos"></a>Video's
 | Inleiding tot Azure File storage (27 minuten) | Azure File Storage-zelfstudie (5 minuten)  |
 |-|-|
-| [![Schermafbeelding van de video Inleiding tot Azure File storage - klik om af te spelen.](media/storage-file-storage/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Schermafbeelding van de Azure File Storage-zelfstudie - klik om af te spelen.](media/storage-file-storage/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Screencap van Hallo Introducing Azure File storage video - Klik tooplay.](media/storage-file-storage/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencap van hello Azure File storage zelfstudie - Klik tooplay.](media/storage-file-storage/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
 
 ## <a name="why-azure-file-storage-is-useful"></a>Waarom Azure File Storage handig is
-Azure File Storage biedt u de mogelijkheid om Windows Server-, Linux-, of NAS-bestandsservers die lokaal of in de cloud worden gehost te vervangen door een besturingssysteemvrije cloudbestandsshare. Dit biedt de volgende voordelen:
+Azure File storage kunt u tooreplace Server, Windows, Linux, of NAS-bestandsservers gehost lokaal of in de cloud Hallo met een besturingssysteem vrije cloud-bestand delen. Dit heeft Hallo volgende voordelen:
 
-* **Gedeelde toegang**. Azure-bestandsshares bieden ondersteuning voor de industrienorm SMB-protocol, wat betekent dat u uw lokale bestandsshares naadloos kunt vervangen door de Azure-bestandsshares zonder dat u zich zorgen hoeft te maken over de compatibiliteit van toepassingen. Het delen van een bestandssysteem op meerdere machines, toepassingen/exemplaren is een belangrijk voordeel van Azure File Storage voor toepassingen die gegevens moeten kunnen delen. 
-* **Volledig beheerd**. Azure-bestandsshares kunnen worden gemaakt zonder de noodzaak om hardware of een besturingssysteem te beheren. Dit betekent dat u geen essentiële beveiligingsupgrades hoeft te installeren op het serverbesturingssysteem of defecte harde schijven moet vervangen.
-* **Scripts en hulpprogramma’s**. PowerShell-cmdlets en Azure CLI kunnen worden gebruikt voor het maken, koppelen en beheren van bestandsshares voor opslag als onderdeel van het beheer van Azure-toepassingen. U kunt Azure-bestandsshares maken en beheren met Azure Portal en Azure Storage Explorer. 
-* **Flexibiliteit**. Azure File Storage is vanaf de grond opgebouwd om altijd beschikbaar te zijn. Het vervangen van on-premises bestandsshares door Azure File Storage betekent dat u niet langer problemen ondervindt door lokale stroomstoringen of netwerkstoringen. 
-* **Vertrouwde programmeerbaarheid**. Toepassingen die worden uitgevoerd in Azure hebben toegang tot de gegevens in de share via [System I/O-API's](https://msdn.microsoft.com/library/system.io.file.aspx). Dat betekent dat ontwikkelaars bestaande code en vaardigheden kunnen inzetten voor het migreren van bestaande toepassingen. Naast System IO-API's kunt u [Azure Storage-clientbibliotheken](https://msdn.microsoft.com/library/azure/dn261237.aspx) of de [REST-API van Azure Storage](/rest/api/storageservices/file-service-rest-api) gebruiken.
+* **Gedeelde toegang**. Azure support Hallo bedrijfstak standaard SMB-protocol, wat betekent dat u naadloos door uw lokale bestandsshares Azure-bestandsshares vervangen kunt zonder dat u toepassingscompatibiliteit voor bestandsshares. Wordt kunnen tooshare een bestandssysteem over meerdere machines, is-toepassingen/exemplaren een belangrijk voordeel ten met Azure File storage voor toepassingen die shareability moeten. 
+* **Volledig beheerd**. Azure-bestandsshares kunnen worden gemaakt zonder Hallo nodig toomanage hardware of een besturingssysteem. Dit betekent dat u hebt geen toodeal met patchen Hallo serverbesturingssysteem met essentiële upgrades of defecte harde schijven vervangen.
+* **Scripts en hulpprogramma’s**. PowerShell-cmdlets en Azure CLI mag gebruikte toocreate koppelen en beheren van bestandsshares voor opslag als onderdeel van Hallo beheer van Azure-toepassingen. U kunt maken en beheren met Azure Portal en Azure storage Explorer Azure-bestandsshares. 
+* **Flexibiliteit**. Azure File storage is uit Hallo gemalen up toobe altijd beschikbaar gemaakt. Lokale bestandsshares vervangen met Azure File storage betekent dat u niet langer toowake up toodeal met lokale stroomstoringen of netwerkproblemen. 
+* **Vertrouwde programmeerbaarheid**. Toepassingen die worden uitgevoerd in Azure toegang tot gegevens in de share Hallo via bestand [system I/O APIs](https://msdn.microsoft.com/library/system.io.file.aspx). Ontwikkelaars kunnen daarom gebruikmaken van hun bestaande code en vaardigheden toomigrate bestaande toepassingen. Bovendien tooSystem i/o-API's, kunt u [clientbibliotheken van Azure Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx) of Hallo [REST-API van Azure Storage](/rest/api/storageservices/file-service-rest-api).
 
 Azure-bestandsshares kunnen worden gebruikt voor het volgende:
 
 * **Ter vervanging van lokale bestandsservers**:  
-    Azure File Storage kan worden gebruikt om bestandsshares op traditionele on-premises bestandsservers of NAS-apparaten volledig te vervangen. Populaire besturingssystemen, zoals Windows, Mac OS en Linux kunnen gemakkelijk een Azure-bestandsshare koppelen, waar ter wereld ze zich maar bevinden.
+    Azure File storage kan worden gebruikt toocompletely vervangen bestandsshares op de bestandsservers traditionele on-premises of NAS-apparaten. Populaire besturingssystemen, zoals Windows, Mac OS- en Linux kunt gemakkelijk een Azure-bestandsshare koppelen waar ze ook in Hallo wereld zijn.
 
 * **'Lift- en shift'-toepassingen**:  
-    Met Azure File Storage kunt u toepassingen die gebruikmaken van on-premises bestandsshares gemakkelijk 'liften en shiften' om gegevens tussen onderdelen van de toepassing te delen. Om dit te realiseren, maakt elke virtuele machine verbinding met de bestandsshare en kan deze vervolgens bestanden lezen en schrijven op dezelfde manier als dit zou gebeuren op een on-premises bestandsshare.
+    Azure File storage kunt u gemakkelijk te 'lift- en verschuiven' toepassingen toohello cloud die gebruikmaken van lokale bestand tooshare gegevens tussen onderdelen van de toepassing hello deelt. dit gebeuren toomake elke virtuele machine maakt verbinding toohello bestandsshare en vervolgens het kan bestanden lezen en schrijven net zoals het zou tegen een lokaal bestand delen.
 
 * **Cloudontwikkeling vereenvoudigen**:  
-    Azure File Storage kan op een aantal verschillende manieren worden gebruikt voor het vereenvoudigen van nieuwe cloudontwikkelingsprojecten.
+    Azure File storage kan worden gebruikt in een aantal verschillende manieren toosimplify ontwikkelingsprojecten van nieuwe cloud.
     * **Gedeelde toepassingsinstellingen**:  
-        Een algemene patroon voor gedistribueerde toepassingen is de aanwezigheid van configuratiebestanden op een centrale locatie waar ze toegankelijk zijn vanuit veel andere VM's. Dergelijke configuratiebestanden kunnen nu worden opgeslagen op een Azure-bestandsshare en worden gelezen door alle exemplaren van een toepassing. Deze instellingen kunnen ook worden beheerd via de REST-interface waarmee u wereldwijd toegang krijgt tot de configuratiebestanden.
+        Een algemene patroon voor gedistribueerde toepassingen is toohave configuratiebestanden op een centrale locatie waar ze toegankelijk zijn vanuit veel andere VM's. Dergelijke configuratiebestanden kunnen nu worden opgeslagen op een Azure-bestandsshare en worden gelezen door alle exemplaren van een toepassing. Deze instellingen kunnen ook worden beheerd via de REST-interface hello, waarmee u wereldwijd toegang krijgt toohello configuratiebestanden.
 
     * **Diagnostische gegevens delen**:  
-        Een Azure-bestandsshare kan ook worden gebruikt om diagnostische bestanden op te slaan, zoals logboeken, metrische gegevens en crashdumps. Als u deze beschikbaar hebt via zowel de SMB- als de REST-interface kunt u toepassingen bouwen of gebruikmaken van tal van analysehulpprogramma's voor het verwerken en analyseren van de diagnostische gegevens.
+        Een Azure-bestandsshare kan ook worden gebruikt toosave diagnostische bestanden zoals Logboeken, meetgegevens en crashdumps. Deze updates via SMB Hallo en REST-interface kunt toepassingen toobuild of gebruikmaken van tal van hulpprogramma's voor analyse voor het verwerken en analyseren van Hallo diagnostische gegevens.
 
     * **Ontwikkelen/testen/fouten opsporen**:  
-        Wanneer ontwikkelaars of beheerders op virtuele machines in de cloud werken, hebben ze vaak een set hulpprogramma's nodig. Het installeren en distribueren van deze hulpprogramma's op elke virtuele machine waar ze nodig zijn, kan een tijdrovend proces zijn. Met Azure File Storage kan een ontwikkelaar of beheerder zijn favoriete hulpprogramma’s opslaan op een bestandsshare, waarmee eenvoudig verbinding kan worden gemaakt vanaf elke virtuele machine.
+        Wanneer ontwikkelaars of beheerders op VM's in de cloud Hallo werkt, moeten ze vaak een set hulpprogramma's of hulpprogramma's. Het installeren en distribueren van deze hulpprogramma's op elke virtuele machine waar ze nodig zijn, kan een tijdrovend proces zijn. Met Azure File storage, kan een ontwikkelaar of beheerder opslaan hun favoriete tools op een bestandsshare, wat kan eenvoudig verbonden toofrom een virtuele machine.
         
 ## <a name="how-does-it-work"></a>Hoe werkt het?
-Het beheren van Azure-bestandsshares is veel eenvoudiger dan het beheren van bestandsshares op locatie. Het volgende diagram illustreert de constructie van Azure File Storage-management:
+Het beheren van Azure-bestandsshares is veel eenvoudiger dan het beheren van bestandsshares op locatie. Hallo volgende diagram illustreert hello Azure File storage management-constructs:
 
 ![Bestandsstructuur](../../includes/media/storage-file-concepts-include/files-concepts.png)
 
-* **Opslagaccount**: alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie Schaalbaarheids- en prestatiedoelen in Azure Storage voor meer informatie over opslagaccountcapaciteit.
-* **Share**: een File Storage-share is een SMB-bestandsshare in Azure. Alle mappen en bestanden moeten worden gemaakt in een bovenliggende share. Een account kan een onbeperkt aantal shares bevatten en een bestandsshare kan een onbeperkt aantal bestanden bevatten, tot de totale capaciteit van 5 TB van de bestandsshare.
+* **Storage-Account**: alle toegang tot tooAzure opslag wordt gedaan via een opslagaccount. Zie Schaalbaarheids- en prestatiedoelen in Azure Storage voor meer informatie over opslagaccountcapaciteit.
+* **Share**: een File Storage-share is een SMB-bestandsshare in Azure. Alle mappen en bestanden moeten worden gemaakt in een bovenliggende share. Een account kan een onbeperkt aantal shares bevatten en een bestandsshare kan een onbeperkt aantal bestanden toohello 5 TB totale capaciteit van de bestandsshare Hallo opslaan.
 * **Map**: een optionele hiërarchie van mappen.
-* **Bestand**: een bestand in de share. Een bestand mag maximaal 1 TB groot zijn.
-* **URL-indeling**: bestanden kunnen worden opgevraagd met de volgende URL-indeling:  
+* **Bestand**: een bestand in Hallo-share. Een bestand mogelijk up too1 TB groot zijn.
+* **URL-indeling**: bestanden kunnen worden opgevraagd met Hallo URL-indeling te volgen:  
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
@@ -85,14 +85,14 @@ Het beheren van Azure-bestandsshares is veel eenvoudiger dan het beheren van bes
 
 ### <a name="tooling-support-for-azure-file-storage"></a>Hulpprogramma-ondersteuning voor Azure File Storage
 * [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md)
-* [AzCopy gebruiken met Microsoft Azure Storage](storage-use-azcopy.md)
-* [De Azure CLI gebruiken met Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Hoe toouse AzCopy met Microsoft Azure Storage](storage-use-azcopy.md)
+* [Hello Azure CLI gebruiken met Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
 
 ### <a name="blog-posts"></a>Blogberichten
 * [Azure File storage is now generally available (Azure File Storage is nu algemeen beschikbaar)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage (Een kijkje achter de schermen van Azure File Storage)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Microsoft Azure File Service (Introductie van Microsoft Azure File-service)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Gegevens migreren naar Azure File Storage](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+* [Migreren gegevens tooAzure bestand](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Naslaginformatie
 * [Naslaginformatie over de Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

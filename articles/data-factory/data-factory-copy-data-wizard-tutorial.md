@@ -1,6 +1,6 @@
 ---
 title: "Zelfstudie: een pijplijn maken met de wizard Kopiëren | Microsoft Docs"
-description: "In deze zelfstudie maakt u een Azure Data Factory-pijplijn met een kopieeractiviteit. Hiervoor gebruikt u de wizard Kopiëren die wordt ondersteund door Data Factory."
+description: "In deze zelfstudie maakt maakt u een Azure Data Factory-pijplijn met een Kopieeractiviteit via Hallo Wizard kopiëren die door Data Factory worden ondersteund"
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 5922c050cc09236ba5fdec885a70d11da20135cd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 567b89e7a54c245c134cd0674690e6f3499b46d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit middels de Data Factory-wizard Kopiëren
 > [!div class="op_single_selector"]
@@ -29,88 +29,88 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-Deze zelfstudie laat zien hoe u de **Wizard Kopiëren** kunt gebruiken om gegevens uit een Azure Blob-opslag te kopiëren naar een Azure SQL database. 
+Deze zelfstudie leert u hoe toouse hello **Wizard kopiëren** toocopy gegevens uit een Azure blob storage tooan Azure SQL database. 
 
-Met de **Wizard Kopiëren** van Azure Data Factory maakt u snel een gegevenspijplijn waarmee u gegevens uit een ondersteund brongegevensarchief kunt kopiëren naar een doelgegevensarchief. Daarom wordt u aangeraden de wizard te gebruiken als eerste stap bij het maken van een voorbeeldpijplijn voor uw gegevensverplaatsingsscenario. Zie [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als doel.  
+Hello Azure Data Factory **Wizard kopiëren** kunt u tooquickly een gegevens-pijplijn waarmee gegevens worden gekopieerd van een ondersteunde gegevensbron data store tooa ondersteund doelgegevensopslagplaats maken. Daarom raden we aan Hallo wizard te gebruiken als een eerste stap toocreate een voorbeeldpijplijn voor uw scenario van de verplaatsing van gegevens. Zie [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als doel.  
 
-Deze zelfstudie laat zien hoe u een Azure-gegevensfactory kunt maken, de wizard Kopiëren kunt starten en een reeks stappen kunt uitvoeren om informatie over uw scenario voor gegevensopname/-verplaatsing op te geven. Nadat u de stappen in de wizard hebt voltooid, maakt de wizard automatisch een pijplijn met een kopieeractiviteit om gegevens te kopiëren uit een Azure Blob-opslag naar Azure SQL-databases. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over kopieeractiviteiten.
+Deze zelfstudie leert u hoe toocreate een Azure data factory, Hallo Start de Wizard kopiëren, gaat u door een reeks stappen tooprovide details over uw gegevens opname/gegevensverplaatsing scenario. Wanneer u klaar bent met stappen in de wizard Hallo Hallo wizard maakt automatisch een pijplijn met een Kopieeractiviteit toocopy-gegevens van een Azure blob storage tooan Azure SQL database. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over kopieeractiviteiten.
 
 ## <a name="prerequisites"></a>Vereisten
-U dient eerst te voldoen aan de vereisten in het artikel [Overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voordat u deze zelfstudie volgt.
+Voldoen aan vereisten die worden vermeld in Hallo [overzicht van de zelfstudie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) artikel voordat u deze zelfstudie.
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
-In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADFTutorialDataFactory** te maken.
+In deze stap gebruikt u Hallo toocreate met Azure portal een Azure-gegevensfactory met de naam **ADFTutorialDataFactory**.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in het linkermenu op **+ NIEUW**, klik op **Gegevens + analyse** en **Data Factory**. 
+1. Meld u bij te[Azure-portal](https://portal.azure.com).
+2. Klik op **+ nieuw** van de linkerbovenhoek hello, klikt u op **gegevens en analyse**, en klik op **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
-2. In de blade **Nieuwe gegevensfactory**:
+2. In Hallo **nieuwe gegevensfactory** blade:
    
-   1. Voer **ADFTutorialDataFactory** in als **naam**.
-       De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als dit foutbericht wordt geretourneerd: `Data factory name “ADFTutorialDataFactory” is not available`, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactoryDDMMJJJJ) en maakt een nieuwe. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
+   1. Voer **ADFTutorialDataFactory** voor Hallo **naam**.
+       Hallo-naam van hello Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding Hallo: `Data factory name “ADFTutorialDataFactory” is not available`, wijzigt Hallo-naam van gegevensfactory hello (bijvoorbeeld yournameADFTutorialDataFactoryYYYYMMDD) en probeert u het opnieuw. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.  
       
        ![Naam van gegevensfactory niet beschikbaar](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Selecteer uw Azure-**abonnement**.
-   3. Voer een van de volgende stappen uit voor de resourcegroep: 
+   3. Voor de resourcegroep Doe Hallo stappen te volgen: 
       
-      - Selecteer **Bestaande gebruiken** om een bestaande resourcegroep te selecteren.
-      - Selecteer **Nieuwe maken** als u een naam voor een resourcegroep wilt typen.
+      - Selecteer **gebruik bestaande** tooselect een bestaande resourcegroep.
+      - Selecteer **nieuw** tooenter een naam voor een resourcegroep.
           
-        Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u voor de resourcegroep de naam **ADFTutorialResourceGroup** gebruikt. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.
-   4. Selecteer een **locatie** voor de gegevensfactory.
-   5. Selecteer het selectievakje **Vastmaken aan dashboard** onderaan de blade.  
+        Sommige van Hallo stappen in deze zelfstudie wordt ervan uitgegaan dat u de naam van de Hallo: **ADFTutorialResourceGroup** voor Hallo resourcegroep. toolearn over resourcegroepen, Zie [toomanage uw Azure-resources met behulp van de resource groepen](../azure-resource-manager/resource-group-overview.md).
+   4. Selecteer een **locatie** voor Hallo data factory.
+   5. Selecteer **pincode toodashboard** selectievakje onderaan Hallo Hallo-blade.  
    6. Klik op **Create**.
       
        ![Blade voor een nieuwe gegevensfactory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
-3. Wanneer het aanmaken is voltooid, ziet u de blade **Gegevensfactory** zoals op de volgende afbeelding wordt weergegeven:
+3. Nadat het maken van Hallo voltooid is, ziet u Hallo **Data Factory** blade zoals weergegeven in Hallo installatiekopie te volgen:
    
    ![Startpagina van de gegevensfactory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>De wizard Kopiëren starten
-1. Klik op de blade Gegevensfactory op **Gegevens kopiëren [PREVIEW]** om de **wizard Kopiëren** te starten. 
+1. Klik op de Data Factory-blade hello, **kopiëren van gegevens [PREVIEW]** toolaunch hello **Wizard kopiëren**. 
    
    > [!NOTE]
-   > Als u ziet dat de webbrowser is vastgelopen bij Autoriseren..., schakelt u **Cookies van derden en sitegegevens blokkeren** in de browserinstellingen uit. U kunt deze instelling ook ingeschakeld laten en een uitzondering maken voor **login.microsoftonline.com**. Open de wizard vervolgens opnieuw.
-2. Op de pagina **Eigenschappen**:
+   > Als u ziet dat Hallo webbrowser is vastgelopen bij 'Autoriseren...', schakelt **blokkeren van cookies van derden en sitegegevens** instelling in de browserinstellingen hello (of) Houd deze ingeschakeld en maakt een uitzondering voor  **Login.microsoftonline.com** en probeer het opnieuw starten van Hallo-wizard.
+2. In Hallo **eigenschappen** pagina:
    
    1. Voer **CopyFromBlobToAzureSql** in als **taaknaam**
    2. Voer de **beschrijving** in (optioneel).
-   3. Wijzig de **Startdatum en -tijd** en de **Einddatum en -tijd** zodat de einddatum is ingesteld op vandaag en de startdatum op vijf dagen eerder.  
+   3. Wijziging Hallo **begindatum tijd** en Hallo **einddatum en-tijd** zodat Hallo-einddatum is ingesteld tootoday en datum toofive dagen eerder worden gestart.  
    4. Klik op **Volgende**.  
       
       ![Hulpprogramma voor kopiëren - pagina Eigenschappen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. Op de pagina **Brongegevensarchief** klikt u op de tegel **Azure Blob Storage**. U gebruikt deze pagina om het brongegevensarchief op te geven voor de kopieertaak. 
+3. Op Hallo **brongegevensarchief** pagina, klikt u op **Azure Blob Storage** tegel. U gebruikt deze pagina toospecify Hallo-brongegevensarchief voor Hallo kopieertaak. 
    
     ![Hulpprogramma voor kopiëren - pagina van brongegevensarchief](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
-4. Op de pagina **Het Azure Blob Storage-account opgeven**:
+4. Op Hallo **hello Azure Blob storage-account opgeven** pagina:
    
    1. Voer **AzureStorageLinkedService** in als **naam van de gekoppelde service**.
    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **accountselectiemethode**.
    3. Selecteer uw Azure-**abonnement**.  
-   4. Selecteer een **Azure-opslagaccount** uit de lijst met Azure-opslagaccounts die beschikbaar is voor het abonnement dat u hebt geselecteerd. U kunt er ook voor kiezen om de opslagaccountinstellingen handmatig op te geven. Selecteer daarvoor de optie **Handmatig invoeren** als **accountselectiemethode** en klik vervolgens op **Volgende**. 
+   4. Selecteer een **Azure storage-account** van Hallo lijst met Azure storage accounts beschikbaar in het abonnement Hallo geselecteerd. U kunt ook tooenter Opslaginstellingen account handmatig door het selecteren van **handmatig invoeren** optie voor Hallo **Accountselectiemethode**, en klik vervolgens op **volgende**. 
       
-      ![Hulpprogramma voor kopiëren - Het Azure Blob Storage-account opgeven](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
-5. Op de pagina **Het invoerbestand of de invoermap kiezen**:
+      ![Hulpprogramma voor kopiëren - hello Azure Blob storage-account opgeven](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
+5. Op **Kies Hallo invoerbestand of de map** pagina:
    
    1. Dubbelklik op **adftutorial** (map).
    2. Selecteer **emp.txt** en klik op **Kiezen**
       
-      ![Hulpprogramma voor kopiëren - Het invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-6. Klik op de pagina **Het invoerbestand of de invoermap kiezen** op **Volgende** Selecteer niet **Binaire kopie**. 
+      ![Hulpprogramma voor kopiëren - Hallo invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+6. Op Hallo **Kies Hallo invoerbestand of de map** pagina, klikt u op **volgende**. Selecteer niet **Binaire kopie**. 
    
-    ![Hulpprogramma voor kopiëren - Het invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
-7. Op de pagina **Bestandsinstellingen** ziet u de scheidingstekens en het schema dat automatisch is gedetecteerd door de wizard tijdens het parseren van het bestand. U kunt de scheidingstekens ook handmatig invoeren zodat de wizard Kopiëren stopt met automatisch detecteren, of als u wilt dat gegevens worden overschreven. Klik op **Volgende** nadat u de scheidingstekens hebt gecontroleerd en een voorbeeld van de gegevens hebt bekeken. 
+    ![Hulpprogramma voor kopiëren - Hallo invoerbestand of de invoermap kiezen](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+7. Op Hallo **bestandsindelingsinstellingen** pagina ziet u Hallo scheidingstekens en het Hallo-schema die automatisch worden gedetecteerd door de wizard Hallo door parseren Hallo-bestand. U kunt ook Hallo scheidingstekens handmatig invoeren voor Hallo kopie wizard toostop auto-detecteren of toooverride. Klik op **volgende** nadat u hello scheidingstekens bekijkt en een voorbeeld van gegevens. 
    
     ![Hulpprogramma voor kopiëren - Bestandsindelingsinstellingen](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
-8. Op de pagina Doelgegevensarchief selecteert u **Azure SQL Database** en klikt u op **Volgende**.
+8. Pagina op Hallo bestemming gegevens opslaan, selecteert u **Azure SQL Database**, en klik op **volgende**.
    
     ![Hulpprogramma voor kopiëren - Doelarchief kiezen](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
-9. Op de pagina **De Azure SQL Database opgeven**:
+9. Op **Geef hello Azure SQL database** pagina:
    
-   1. Typ **AzureSqlLinkedService** in het veld **Verbindingsnaam**.
+   1. Voer **AzureSqlLinkedService** voor Hallo **verbindingsnaam** veld.
    2. Controleer of de optie **Van Azure-abonnementen** is geselecteerd als **Server-/databaseselectiemethode**.
    3. Selecteer uw Azure-**abonnement**.  
    4. Selecteer de **servernaam** en **database**.
@@ -118,38 +118,38 @@ In deze stap gebruikt u Azure Portal om een Azure Data Factory met de naam **ADF
    6. Klik op **Volgende**.  
       
       ![Hulpprogramma voor kopiëren - Azure SQL-database opgeven](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
-10. Op de pagina **Tabeltoewijzing** selecteert u uit de vervolgkeuzelijst **emp** in het veld **Bestemming** en klikt u op de **pijl naar beneden** (optioneel) om het schema en een voorbeeld van de gegevens te bekijken.
+10. Op Hallo **tabeltoewijzing** pagina **emp** voor Hallo **bestemming** veld uit de vervolgkeuzelijst hello, klikt u op **pijl-omlaag** (optioneel) toosee hello schema en toopreview Hallo gegevens.
     
      ![Hulpprogramma voor kopiëren - Tabeltoewijzing](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
-11. Op de pagina **Schematoewijzing** klikt u op **Volgende**.
+11. Op Hallo **schematoewijzing** pagina, klikt u op **volgende**.
     
     ![Hulpprogramma voor kopiëren - Schematoewijzing](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
-12. Op de pagina **Prestatie-instellingen** klikt u op **Volgende**. 
+12. Op Hallo **prestatie-instellingen** pagina, klikt u op **volgende**. 
     
     ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
-13. Lees de informatie op de pagina **Samenvatting** en klik op **Voltooien**. De wizard maakt twee gekoppelde services, twee gegevenssets (invoer en uitvoer) en één pijplijn in de gegevensfactory (van waaruit u de wizard Kopiëren hebt gestart). 
+13. Bekijk de informatie in Hallo **samenvatting** pagina en klik op **voltooien**. Hallo-wizard maakt twee gekoppelde services, twee gegevenssets (invoer en uitvoer) en één pijplijn in de gegevensfactory hello (van waaruit u Hallo Wizard kopiëren hebt gestart). 
     
     ![Hulpprogramma voor kopiëren - Prestatie-instellingen](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Monitor starten en toepassing beheren
-1. Klik op de pagina **Implementatie** op de koppeling: `Click here to monitor copy pipeline`.
+1. Op Hallo **implementatie** pagina, klikt u op de koppeling Hallo: `Click here toomonitor copy pipeline`.
    
    ![Hulpprogramma voor kopiëren - Implementeren voltooid](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. De bewakingstoepassing wordt gestart op een afzonderlijk tabblad in uw webbrowser.   
+2. Hallo monitoring-toepassing wordt gestart op een afzonderlijke tabblad in uw webbrowser.   
    
    ![App voor bewaking](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
-3. Klik op de knop **Vernieuwen** in de lijst **ACTIVITEITSVENSTERS** onderaan om de meest recente status van uursegmenten te zien. U ziet vijf activiteitsvensters voor vijf dagen tussen de start- en eindtijd voor de pijplijn. De lijst wordt niet automatisch vernieuwd. Het kan dus zijn dat u een paar keer op Vernieuwen moet klikken om alle activiteitsvensters weer te geven met de status Gereed. 
-4. Selecteer een activiteitsvenster in de lijst. Bekijk de details hierover deze in de **Activiteitsvensterverkenner** aan de rechterkant.
+3. toosee hello laatste status van elk uur segmenten, klikt u op **vernieuwen** knop in Hallo **ACTIVITEITSVENSTERS** lijst Hallo onderaan. Ziet u vijf activiteitsvensters gedurende vijf dagen tussen de begin- en eindtijden voor Hallo pijplijn. Hallo-lijst niet automatisch wordt vernieuwd, zodat u mogelijk de moet tooclick, een paar keer voordat u alle Hallo activiteit windows hello status Ready heeft vernieuwen. 
+4. Selecteer een venster van de activiteit in Hallo-lijst. Zie Hallo voor meer informatie over het Hallo **activiteit venster Explorer** op Hallo rechts.
 
     ![Details van activiteitsvenster](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-    Let op: de datums 11, 12, 13, 14 en 15 hebben een groene kleur. Dit betekent dat de dagelijkse uitvoersegmenten voor deze datums al zijn geproduceerd. U ziet deze kleurcodering ook bij de pijplijn en de uitvoergegevensset in de diagramweergave. U ziet (op basis van de kleurcodering) dat in de vorige stap al twee segmenten zijn gemaakt, dat één segment momenteel wordt verwerkt en dat de andere twee segmenten wachten op verwerking. 
+    Merk op dat Hallo datums 11, 12, 13, 14 en 15 in groen, wat betekent dat Hallo dagelijkse uitvoer segmenten voor deze datums zijn al gemaakt. U ook zien kleurcodering op Hallo pijplijn en uitvoergegevensset in de diagramweergave Hallo Hallo. In de vorige stap Hallo, zoals u ziet dat twee segmenten zijn al gemaakt, een segment wordt verwerkt en hello twee andere toobe verwerkt wachten (gebaseerd op Hallo van kleurcodering). 
 
     Zie het artikel [Pijplijnen bewaken en beheren met behulp van de app voor bewaking](data-factory-monitor-manage-app.md) voor meer informatie over het gebruik van deze toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 
+In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. Hallo bevat volgende tabel een lijst met gegevensarchieven als bronnen en bestemmingen wordt ondersteund door Hallo kopieeractiviteit: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Klik voor details over velden/eigenschappen die u ziet in de wizard Kopiëren voor een gegevensarchief, in de tabel op de koppeling voor dit gegevensarchief. 
+Klik op Hallo-koppeling voor de gegevensopslag Hallo in Hallo tabel voor meer informatie over de velden/eigenschappen die u in de wizard voor het kopiëren van een gegevensarchief Hallo ziet. 

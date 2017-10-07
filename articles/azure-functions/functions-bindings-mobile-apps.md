@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Mobile Apps-bindingen | Microsoft Docs
-description: Het gebruik van de bindingen van Azure Mobile Apps in Azure Functions begrijpen.
+title: Bindingen voor aaaAzure functies Mobile Apps | Microsoft Docs
+description: Begrijpen hoe Azure Mobile Apps-bindingen toouse in Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,48 +16,48 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/31/2016
 ms.author: glenga
-ms.openlocfilehash: c5e1c02984f9773b263c0bee7685c7d5ff62e658
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3679a5d5c66705b32e422ec17e3a1e6d6ac063c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-mobile-apps-bindings"></a>Azure Functions Mobile Apps-bindingen
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Dit artikel wordt uitgelegd hoe u kunt configureren en code [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindingen in de Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor mobiele Apps.
+Dit artikel wordt uitgelegd hoe tooconfigure en code [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindingen in de Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor mobiele Apps.
 
-De Mobile Apps-invoer en uitvoer bindingen kunnen u [lezen van en schrijven naar gegevenstabellen](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) in uw mobiele app.
+Hallo Mobile Apps-invoer en uitvoer bindingen kunnen u [lezen uit en schrijven toodata tabellen](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) in uw mobiele app.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="input"></a>
 
 ## <a name="mobile-apps-input-binding"></a>Invoer Mobile Apps-binding
-De invoer Mobile Apps-binding wordt een record van een eindpunt van de mobiele geladen en geeft deze door aan uw functie. In een C# en F # functies, worden wijzigingen in de record automatisch verzonden terug naar de tabel wanneer de functie is afgesloten.
+Hallo invoer Mobile Apps-binding wordt een record geladen uit een eindpunt van de mobiele en geeft deze door aan uw functie. In een C# en F # functies, worden eventuele wijzigingen toohello record automatisch back toohello tabel verzonden wanneer het Hallo-functie is afgesloten.
 
-De Mobile Apps-invoer voor een functie maakt gebruik van de volgende JSON-object in de `bindings` matrix van function.json:
+Hallo Mobile Apps invoer tooa functie maakt gebruik van volgende JSON-object in Hallo Hallo `bindings` matrix van function.json:
 
 ```json
 {
     "name": "<Name of input parameter in function signature>",
     "type": "mobileTable",
     "tableName": "<Name of your mobile app's data table>",
-    "id" : "<Id of the record to retrieve - see below>",
+    "id" : "<Id of hello record tooretrieve - see below>",
     "connection": "<Name of app setting that has your mobile app's URL - see below>",
     "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
     "direction": "in"
 }
 ```
 
-Houd rekening met het volgende:
+Let op Hallo volgende:
 
-* `id`kan niet statisch of het kan zijn gebaseerd op de trigger die de functie activeert. Als u bijvoorbeeld een [wachtrij trigger]() voor de functie vervolgens `"id": "{queueTrigger}"` de tekenreekswaarde van het bericht uit de wachtrij als de record-ID gebruikt om op te halen.
-* `connection`moet de naam van een appinstelling in de functie-app die op zijn beurt de URL van uw mobiele app bevat bevatten. De functie gebruikt deze URL om de REST-bewerkingen op basis van uw mobiele app samen te stellen. U [maken van een app-instelling in uw app functie]() die URL van uw mobiele app bevat (ziet eruit als `http://<appname>.azurewebsites.net`), geeft u de naam van de app-instelling in de `connection` eigenschap in de binding van uw invoer. 
-* U moet opgeven `apiKey` als u [implementeren van een API-sleutel in uw back-end voor Node.js mobiele app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [implementeren van een API-sleutel in uw back-end .NET mobiele app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Hiervoor u [maken van een app-instelling in uw app functie]() die de API-sleutel bevat, voegt u de `apiKey` eigenschap in uw invoer binding met de naam van de app-instelling. 
+* `id`kan niet statisch of het kan zijn gebaseerd op Hallo-trigger die Hallo-functie roept. Als u bijvoorbeeld een [wachtrij trigger]() voor de functie vervolgens `"id": "{queueTrigger}"` gebruikt Hallo string-waarde van de wachtrij het Hallo-bericht als Hallo record ID tooretrieve.
+* `connection`Hallo-naam van een appinstelling in de functie-app die op zijn beurt Hallo-URL van uw mobiele app bevat moet worden bevatten. Hallo-functie maakt gebruik van deze URL tooconstruct Hallo vereist REST-bewerkingen op uw mobiele app. U [maken van een app-instelling in uw app functie]() die URL van uw mobiele app bevat (ziet eruit als `http://<appname>.azurewebsites.net`), vervolgens Hallo-naam van Hallo app-instelling opgeven in Hallo `connection` eigenschap in de binding van uw invoer. 
+* U moet toospecify `apiKey` als u [implementeren van een API-sleutel in uw back-end voor Node.js mobiele app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [implementeren van een API-sleutel in uw back-end .NET mobiele app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). toodo dit u [maken van een app-instelling in uw app functie]() dat Hallo API-sleutel bevat, voegt u Hallo `apiKey` eigenschap in uw invoer binding met de naam van de app-instelling Hallo Hallo. 
   
   > [!IMPORTANT]
-  > Deze API-sleutel moet niet worden gedeeld met uw mobiele app-clients. Deze moet alleen worden gedistribueerd veilig aan servicezijde clients, zoals Azure Functions. 
+  > Deze API-sleutel moet niet worden gedeeld met uw mobiele app-clients. Dit moet gedistribueerde veilig tooservice-side '-clients, zoals Azure Functions. 
   > 
   > [!NOTE]
   > Azure Functions slaat uw verbindingsgegevens en API-sleutels als de app-instellingen zodat ze niet zijn ingeschakeld in uw resourcebeheerbibliotheek. Dit beschermt uw vertrouwelijke gegevens.
@@ -67,16 +67,16 @@ Houd rekening met het volgende:
 <a name="inputusage"></a>
 
 ## <a name="input-usage"></a>Invoer-gebruik
-Deze sectie wordt beschreven hoe u uw invoer binding Mobile Apps in uw functiecode. 
+Deze sectie leest u hoe toouse uw Mobile Apps invoer binding in uw functiecode. 
 
-Wanneer de record met de opgegeven tabel en de record-ID is gevonden, wordt doorgegeven in de benoemde [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter (of in Node.js, doorgegeven aan de `context.bindings.<name>` object). Wanneer de record niet gevonden is, wordt de parameter is `null`. 
+Hallo-record met Hallo opgegeven tabel en record-ID is gevonden, wordt doorgegeven in met de naam Hallo [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parameter (of in Node.js, is deze Hallo doorgegeven `context.bindings.<name>` object). Wanneer Hallo-record niet gevonden is, is het Hallo-parameter `null`. 
 
-In C# en F # functies en wijzigingen die u aanbrengt op invoer van de record (invoerparameter) automatisch terug naar de tabel Mobile Apps wordt verzonden wanneer de functie is afgesloten. Gebruik in Node.js-functies, `context.bindings.<name>` voor toegang tot de invoerrecord. U kunt een record in Node.js niet wijzigen.
+In C# en F # functies, wijzigingen die u aanbrengt toohello invoer-record (invoerparameter) automatisch verzonden back toohello Mobile Apps-tabel wanneer Hallo-functie met succes wordt afgesloten. Gebruik in Node.js-functies, `context.bindings.<name>` tooaccess Hallo invoerrecord. U kunt een record in Node.js niet wijzigen.
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample"></a>Voorbeeld van invoer
-Stel dat u hebt de volgende function.json die een record van de mobiele App tabel met de id van het bericht uit de wachtrij trigger ophaalt:
+Stel dat u hebt na function.json hello, haalt die een record in de tabel mobiele App met Hallo Hallo-bericht van wachtrij trigger-id:
 
 ```json
 {
@@ -102,7 +102,7 @@ Stel dat u hebt de volgende function.json die een record van de mobiele App tabe
 }
 ```
 
-Zie het voorbeeld taalspecifieke die gebruikmaakt van de invoerrecord van de binding. De C# en F # voorbeelden te wijzigen van de record `text` eigenschap.
+Zie Hallo taalspecifieke voorbeeld dat gebruikmaakt van de invoerrecord Hallo Hallo binding. Voorbeelden van C# en F # Hallo Hallo-record ook wijzigen `text` eigenschap.
 
 * [C#](#inputcsharp)
 * [Node.js](#inputnodejs)
@@ -150,9 +150,9 @@ module.exports = function (context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="mobile-apps-output-binding"></a>Mobile Apps uitvoer binding
-De Mobile Apps-uitvoer binden aan een nieuwe record schrijven naar een eindpunt van de Mobile Apps gebruiken.  
+Hallo Mobile Apps uitvoer binding toowrite een nieuw record tooa Mobile Apps tabel eindpunt gebruiken.  
 
-De Mobile Apps uitvoer voor een functie maakt gebruik van de volgende JSON-object in de `bindings` matrix van function.json:
+Hallo Mobile Apps uitvoer voor een functie maakt gebruik van volgende JSON-object in Hallo Hallo `bindings` matrix van function.json:
 
 ```json
 {
@@ -165,13 +165,13 @@ De Mobile Apps uitvoer voor een functie maakt gebruik van de volgende JSON-objec
 }
 ```
 
-Houd rekening met het volgende:
+Let op Hallo volgende:
 
-* `connection`moet de naam van een appinstelling in de functie-app die op zijn beurt de URL van uw mobiele app bevat bevatten. De functie gebruikt deze URL om de REST-bewerkingen op basis van uw mobiele app samen te stellen. U [maken van een app-instelling in uw app functie]() die URL van uw mobiele app bevat (ziet eruit als `http://<appname>.azurewebsites.net`), geeft u de naam van de app-instelling in de `connection` eigenschap in de binding van uw invoer. 
-* U moet opgeven `apiKey` als u [implementeren van een API-sleutel in uw back-end voor Node.js mobiele app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [implementeren van een API-sleutel in uw back-end .NET mobiele app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Hiervoor u [maken van een app-instelling in uw app functie]() die de API-sleutel bevat, voegt u de `apiKey` eigenschap in uw invoer binding met de naam van de app-instelling. 
+* `connection`Hallo-naam van een appinstelling in de functie-app die op zijn beurt Hallo-URL van uw mobiele app bevat moet worden bevatten. Hallo-functie maakt gebruik van deze URL tooconstruct Hallo vereist REST-bewerkingen op uw mobiele app. U [maken van een app-instelling in uw app functie]() die URL van uw mobiele app bevat (ziet eruit als `http://<appname>.azurewebsites.net`), vervolgens Hallo-naam van Hallo app-instelling opgeven in Hallo `connection` eigenschap in de binding van uw invoer. 
+* U moet toospecify `apiKey` als u [implementeren van een API-sleutel in uw back-end voor Node.js mobiele app](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), of [implementeren van een API-sleutel in uw back-end .NET mobiele app](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). toodo dit u [maken van een app-instelling in uw app functie]() dat Hallo API-sleutel bevat, voegt u Hallo `apiKey` eigenschap in uw invoer binding met de naam van de app-instelling Hallo Hallo. 
   
   > [!IMPORTANT]
-  > Deze API-sleutel moet niet worden gedeeld met uw mobiele app-clients. Deze moet alleen worden gedistribueerd veilig aan servicezijde clients, zoals Azure Functions. 
+  > Deze API-sleutel moet niet worden gedeeld met uw mobiele app-clients. Dit moet gedistribueerde veilig tooservice-side '-clients, zoals Azure Functions. 
   > 
   > [!NOTE]
   > Azure Functions slaat uw verbindingsgegevens en API-sleutels als de app-instellingen zodat ze niet zijn ingeschakeld in uw resourcebeheerbibliotheek. Dit beschermt uw vertrouwelijke gegevens.
@@ -181,14 +181,14 @@ Houd rekening met het volgende:
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Gebruik voor uitvoer
-Deze sectie wordt beschreven hoe u de binding in uw functiecode Mobile Apps-uitvoer. 
+Deze sectie leest u hoe toouse uw mobiele Apps uitvoeren in uw functiecode binding. 
 
-Gebruik in C# functies, een benoemde output-parameter van het type `out object` de uitvoer-record te openen. Gebruik in Node.js-functies, `context.bindings.<name>` de uitvoer-record te openen.
+Gebruik in C# functies, een benoemde output-parameter van het type `out object` tooaccess Hallo uitvoer record. Gebruik in Node.js-functies, `context.bindings.<name>` tooaccess Hallo uitvoer record.
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Voorbeeld van uitvoer
-Stel dat u hebt de volgende function.json die de trigger van een wachtrij en de uitvoer van een Mobile Apps definieert:
+Stel dat u hebt Hallo function.json die de trigger van een wachtrij en de uitvoer van een mobiele Apps definieert te volgen:
 
 ```json
 {
@@ -213,7 +213,7 @@ Stel dat u hebt de volgende function.json die de trigger van een wachtrij en de 
 }
 ```
 
-Zie de taalspecifieke-voorbeeldtoepassing die u een record in het eindpunt van de tabel Mobile Apps met de inhoud van het bericht uit de wachtrij maakt.
+Zie Hallo taalspecifieke voorbeeldtoepassing die u een record in Hallo Mobile Apps-eindpunt voor table met Hallo inhoud van de wachtrij het Hallo-bericht maakt.
 
 * [C#](#outcsharp)
 * [Node.js](#outnodejs)

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory gebaseerde verificatie op iOS | Microsoft Docs
-description: Meer informatie over de ondersteunde scenario's en de vereisten voor het configureren op certificaten gebaseerde verificatie in oplossingen met iOS-apparaten
+title: aaaAzure certificaat gebaseerde verificatie van Active Directory voor iOS | Microsoft Docs
+description: Meer informatie over Hallo ondersteund scenario's en het Hallo-vereisten voor het configureren van verificatie op basis van certificaten in oplossingen met iOS-apparaten
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c781f3f054fad5c5092fed5058c932fd4e97cf35
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4486ff5239c2897b3bc187053f31d74807430301
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory gebaseerde verificatie op iOS
 
-Certificaat gebaseerde verificatie (CBA) kunt u moeten worden geverifieerd door Azure Active Directory met een clientcertificaat op een Windows-, Android of iOS-apparaat verbinding te maken met uw Exchange online-account in: 
+Certificaat gebaseerde verificatie (CBA) kunt u toobe geverifieerd door Azure Active Directory met een clientcertificaat op een Windows-, Android of iOS-apparaat verbinding te maken met uw Exchange online-account in: 
 
 * Mobiele Office-toepassingen zoals Microsoft Outlook en Microsoft Word   
 * Exchange ActiveSync (EAS)-clients 
 
-Configuratie van deze functie wordt voorkomen moet een combinatie van gebruikersnaam en wachtwoord invoeren in bepaalde e-mail en Microsoft Office-toepassingen op uw mobiele apparaat. 
+Configuratie van deze functie wordt voorkomen dat Hallo nodig tooenter een gebruikersnaam en wachtwoord combinatie in bepaalde e-mail en Microsoft Office-toepassingen op uw mobiele apparaat. 
 
-Dit onderwerp vindt u de vereisten en de ondersteunde scenario's voor het configureren van CBA op een apparaat iOS(Android) voor gebruikers van tenants in Office 365 Enterprise, Business, Education, US Government, China en Duitsland plant.
+Dit onderwerp vindt u Hallo vereisten en Hallo ondersteund scenario's voor het configureren van CBA op een apparaat iOS(Android) voor gebruikers van tenants in Office 365 Enterprise, Business, Education, US Government, China en Duitsland plant.
 
 Deze functie is beschikbaar in preview in Office 365 US Government verdediging en Federal plannen.
 
@@ -53,40 +53,40 @@ Deze functie is beschikbaar in preview in Office 365 US Government verdediging e
 
 ## <a name="requirements"></a>Vereisten 
 
-De versie van het besturingssysteem van het apparaat moet iOS 9 en hoger 
+Hallo versie van besturingssysteem van het apparaat moet iOS 9 en hoger 
 
 Een federation-server moet worden geconfigureerd.  
 
 Microsoft Authenticator is vereist voor de Office-toepassingen op iOS.  
 
-Voor Azure Active Directory voor het intrekken van een clientcertificaat, moet het AD FS-token hebben de volgende claims:  
+Voor Azure Active Directory toorevoke een clientcertificaat bevatten Hallo AD FS-token Hallo claims te volgen:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (Het serienummer van het clientcertificaat) 
+  (serienummer van het clientcertificaat Hallo Hallo) 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (De tekenreeks voor de verlener van het clientcertificaat) 
+  (Hallo tekenreeks voor de verlener van het clientcertificaat Hallo Hallo) 
 
-Azure Active Directory toegevoegd deze claims naar het vernieuwingstoken als ze beschikbaar in de AD FS-token (of andere SAML-token zijn). Wanneer het vernieuwingstoken dat worden gevalideerd moet, wordt deze informatie wordt gebruikt om te controleren van de intrekking. 
+Azure Active Directory toegevoegd deze claimtoken voor het vernieuwen van toohello als ze beschikbaar in AD FS-token van het hello (of andere SAML-token zijn). Wanneer het vernieuwingstoken Hallo toobe gevalideerd moet, is deze informatie gebruikte toocheck Hallo intrekken. 
 
-Als een best practice moet u de AD FS-foutpagina's bijwerken met de volgende opties:
+Als een best practice moet u Hallo ADFS foutpagina's bijwerken met de volgende Hallo:
 
-* De vereiste voor het installeren van de Microsoft-Authenticator op iOS
-* Instructies voor het ophalen van het certificaat van een gebruiker. 
+* Hallo vereiste voor het installeren van Microsoft Authenticator Hallo op iOS
+* Instructies voor het tooget een gebruikerscertificaat. 
 
-Zie voor meer informatie [aanpassen van de AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
+Zie voor meer informatie [Hallo Sign in AD FS's aanpassen](https://technet.microsoft.com/library/dn280950.aspx).
 
-Sommige Office-apps (met moderne verificatie is ingeschakeld) verzenden '*prompt = aanmelding*' naar Azure AD in de aanvraag. Standaard Azure AD zet dit in de aanvraag voor ADFS naar '*wauth = usernamepassworduri*' (AD FS wilt U/P auth vragen) en '*wfresh = 0*' (vraagt ADFS te negeren van SSO-status en een nieuwe verificatie). Als u verificatie inschakelen op basis van certificaten voor deze apps wilt, moet u het standaardgedrag voor Azure AD te wijzigen. Stelt u de '*PromptLoginBehavior*'in de instellingen van het federatieve domein naar'*uitgeschakelde*'. U kunt de [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet deze taak uit te voeren:
+Sommige Office-apps (met moderne verificatie is ingeschakeld) verzenden '*prompt = aanmelding*' tooAzure AD in de aanvraag. Standaard Azure AD zet dit in Hallo aanvraag tooADFS te '*wauth = usernamepassworduri*' (vraagt ADFS toodo U/P auth) en '*wfresh = 0*' (vraagt ADFS tooignore SSO-status en voer een nieuwe verificatie) . Als u wilt dat tooenable op certificaten gebaseerde verificatie voor deze apps, moet u toomodify Hallo standaardgedrag Azure AD. NET set Hallo '*PromptLoginBehavior*' in de federatieve domeininstellingen te '*uitgeschakelde*'. U kunt Hallo [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet tooperform deze taak:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
   
 
 ## <a name="exchange-activesync-clients-support"></a>Ondersteuning voor Exchange ActiveSync-clients
-In iOS 9 of hoger, wordt de systeemeigen iOS-e-mailclient ondersteund. Voor alle andere Exchange ActiveSync-toepassingen om te bepalen of deze functie wordt ondersteund, contact op met de ontwikkelaar van uw toepassing.  
+In iOS 9 of hoger, wordt Hallo systeemeigen iOS-e-mailclient ondersteund. Voor alle andere toepassingen Exchange ActiveSync toodetermine als deze functie wordt ondersteund, contact op met de ontwikkelaar van uw toepassing.  
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u verificatie configureren op basis van certificaten in uw omgeving wilt, Zie [aan de slag met verificatie op basis van certificaten op Android](active-directory-certificate-based-authentication-get-started.md) voor instructies.
+Als u tooconfigure certificaat gebaseerde verificatie in uw omgeving wilt, Zie [aan de slag met verificatie op basis van certificaten op Android](active-directory-certificate-based-authentication-get-started.md) voor instructies.
 
 
 <!--Image references-->

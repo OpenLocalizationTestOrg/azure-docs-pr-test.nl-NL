@@ -1,6 +1,6 @@
 ---
-title: Sqoop taken met behulp van .NET- en HDInsight - Azure uitvoeren | Microsoft Docs
-description: Informatie over het gebruik van HDInsight .NET SDK voor het uitvoeren van Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
+title: aaaRun Sqoop taken met behulp van .NET- en HDInsight - Azure | Microsoft Docs
+description: Informatie over hoe toouse HDInsight .NET SDK toorun Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
 keywords: sqoop taak
 editor: cgronlun
 manager: jhubbard
@@ -17,37 +17,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: afa0a78ba5e5d89c04ba7be4b58dd24aea4f39ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>Met .NET SDK voor Hadoop in HDInsight Sqoop-taken uitvoeren
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informatie over het gebruik van HDInsight .NET SDK Sqoop taken uitvoeren in HDInsight om te importeren en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
+Informatie over hoe toouse HDInsight .NET SDK toorun Sqoop taken in HDInsight tooimport en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
 
 > [!NOTE]
-> De stappen in dit artikel kunnen worden gebruikt met ofwel een Windows- of Linux gebaseerde HDInsight-cluster; deze stappen werken echter alleen vanaf een Windows-client. Gebruik de tabselector boven aan dit artikel om andere methoden.
+> Hallo stappen in dit artikel kunnen worden gebruikt met ofwel een Windows- of Linux gebaseerde HDInsight-cluster; deze stappen werken echter alleen vanaf een Windows-client. Hallo tabselector op Hallo boven aan dit artikel toochoose andere methoden gebruiken.
 > 
 > 
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
+Voordat u deze zelfstudie begint, moet u de volgende items Hallo hebben:
 
 * **Een Hadoop-cluster in HDInsight**. Zie [cluster en SQL-database maken](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>Sqoop gebruiken op HDInsight-clusters met .NET SDK
-De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wordt om te werken met HDInsight-clusters in .NET. In deze sectie maakt u een C#-consoletoepassing de hivesampletable exporteren naar de SQL-databasetabel die u eerder in deze zelfstudie hebt gemaakt.
+Hallo HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het gemakkelijker toowork met HDInsight-clusters in .NET. In deze sectie maakt u een C#-console toepassing tooexport hello hivesampletable toohello SQL-Database tabel die u eerder in deze zelfstudie hebt gemaakt.
 
 ## <a name="submit-a-sqoop-job"></a>Verzenden van een taak Sqoop
 
 1. Maak een C#-consoletoepassing in Visual Studio.
-2. Voer de volgende Nuget-opdracht voor het importeren van het pakket van Visual Studio Package Manager-Console.
+2. Voer uit Hallo Visual Studio Package Manager-Console, Hallo Nuget opdracht tooimport Hallo-pakket te volgen.
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
-3. Gebruik de volgende code in het bestand Program.cs:
+3. Hallo na de code in het bestand Program.cs hello gebruiken:
    
         using System.Collections.Generic;
         using Microsoft.Azure.Management.HDInsight.Job;
@@ -67,14 +67,14 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
    
                 static void Main(string[] args)
                 {
-                    System.Console.WriteLine("The application is running ...");
+                    System.Console.WriteLine("hello application is running ...");
    
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
    
                     SubmitSqoopJob();
    
-                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.WriteLine("Press ENTER toocontinue ...");
                     System.Console.ReadLine();
                 }
    
@@ -101,25 +101,25 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
                         Command = "export --connect " + connectionString + " --table " + tableName + "_mobile --export-dir " + exportDir + "_mobile --fields-terminated-by \\t -m 1"
                     };
    
-                    System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+                    System.Console.WriteLine("Submitting hello Sqoop job toohello cluster...");
                     var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
-                    System.Console.WriteLine("Validating that the response is as expected...");
+                    System.Console.WriteLine("Validating that hello response is as expected...");
                     System.Console.WriteLine("Response status code is " + response.StatusCode);
-                    System.Console.WriteLine("Validating the response object...");
+                    System.Console.WriteLine("Validating hello response object...");
                     System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
                 }
             }
         }
-4. Druk op **F5** het programma uit te voeren. 
+4. Druk op **F5** toorun Hallo programma. 
 
 ## <a name="limitations"></a>Beperkingen
-* Bulksgewijs export - met Linux gebaseerde HDInsight, de Sqoop-connector gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
-* Batchverwerking - met HDInsight op basis van Linux, wanneer u de `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van de bewerkingen insert batchverwerking wordt uitgevoerd.
+* Bulk-export - met Linux gebaseerde HDInsight, Hallo Sqoop connector die wordt gebruikt tooexport gegevens tooMicrosoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
+* Batchverwerking - met HDInsight op basis van Linux bij gebruik van Hallo `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van batchverwerking Hallo insert-bewerkingen uitvoert.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu hebt u geleerd hoe Sqoop gebruiken. Voor meer informatie zie:
+Nu u hebt geleerd hoe toouse Sqoop. toolearn meer, Zie:
 
 * [Oozie gebruiken met HDInsight](hdinsight-use-oozie.md): Sqoop gebruiken in een werkstroom Oozie in te grijpen.
-* [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data.md): Hive gebruiken voor het analyseren van vlucht gegevens uit te stellen en vervolgens Sqoop gebruiken om gegevens te exporteren naar een Azure SQL database.
-* [Gegevens uploaden naar HDInsight](hdinsight-upload-data.md): vinden van andere methoden voor het uploaden van gegevens naar HDInsight/Azure Blob-opslag.
+* [Vertraging vluchtgegevens met HDInsight analyseren](hdinsight-analyze-flight-delay-data.md): tooanalyze vlucht Hive gebruiken gegevens uit te stellen en vervolgens Sqoop tooexport tooan Azure SQL database te gebruiken.
+* [Uploaden van gegevens tooHDInsight](hdinsight-upload-data.md): vinden van andere methoden voor het uploaden van gegevens tooHDInsight/Azure Blob-opslag.
 

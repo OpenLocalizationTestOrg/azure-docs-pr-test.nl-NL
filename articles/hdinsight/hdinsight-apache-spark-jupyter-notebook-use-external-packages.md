@@ -1,6 +1,6 @@
 ---
-title: Aangepaste Maven-pakketten gebruiken met Jupyter in Spark op Azure HDInsight | Microsoft Docs
-description: Stapsgewijze instructies voor het configureren van Jupyter-notebooks met HDInsight Spark-clusters aangepaste Maven-pakketten gebruiken.
+title: aangepaste Maven-pakketten aaaUse met Jupyter in Spark op Azure HDInsight | Microsoft Docs
+description: Stapsgewijze instructies over hoe tooconfigure Jupyter-notebooks beschikbaar met HDInsight Spark-clusters toouse aangepaste Maven-pakketten.
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: 0bcfe220e60e34937c667c7b416065d5f3dc8d63
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ba8ac13716bc94ab082a18fe02d4a40b2f1e09e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Externe pakketten gebruiken met Jupyter-notebooks in Apache Spark-clusters in HDInsight
 > [!div class="op_single_selector"]
@@ -29,25 +29,25 @@ ms.lasthandoff: 08/03/2017
 >
 >
 
-Informatie over het configureren van een Jupyter-notebook in Apache Spark-cluster in HDInsight gebruiken van externe, community bijgedragen **maven** pakketten die niet out-of-the-box opgenomen in het cluster. 
+Meer informatie over hoe tooconfigure een Jupyter-notebook in Apache Spark-cluster in HDInsight toouse externe, community-hebben bijgedragen **maven** pakketten die niet zijn opgenomen out-of-the-box in Hallo-cluster. 
 
-U kunt zoeken in de [Maven opslagplaats](http://search.maven.org/) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten opvragen uit andere bronnen. Bijvoorbeeld, een volledige lijst met pakketten community bijgedragen is beschikbaar op [Spark pakketten](http://spark-packages.org/).
+U kunt zoeken Hallo [Maven opslagplaats](http://search.maven.org/) voor Hallo volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten opvragen uit andere bronnen. Bijvoorbeeld, een volledige lijst met pakketten community bijgedragen is beschikbaar op [Spark pakketten](http://spark-packages.org/).
 
-In dit artikel leert u hoe u de [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket met de Jupyter-notebook.
+In dit artikel leert u hoe toouse hello [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket met de Jupyter-notebook Hallo.
 
 
 
 ## <a name="prerequisites"></a>Vereisten
-U hebt het volgende:
+U moet Hallo volgende hebben:
 
 * Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Externe pakketten gebruiken met Jupyter-notebooks
-1. Klik vanuit de [Azure Portal](https://portal.azure.com/), vanaf het startboard, op de tegel voor uw Spark-cluster (als u deze aan het startboard hebt vastgemaakt). U kunt ook naar uw cluster navigeren onder **Bladeren** > **HDInsight-clusters**.   
-2. Klik vanuit de blade Spark-cluster op **Snelkoppelingen**. Klik vervolgens vanuit het **Cluster-dashboard** op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
+1. Van Hallo [Azure Portal](https://portal.azure.com/), vanaf Hallo startboard, klikt u op Hallo tegel voor uw Spark-cluster (als u toohello startboard vastgemaakt). U kunt ook tooyour cluster onder navigeren **door alles bladeren** > **HDInsight-Clusters**.   
+2. Klik vanuit Hallo blade Spark-cluster op **snelkoppelingen**, en klik vervolgens vanuit Hallo **Cluster-Dashboard** blade klikt u op **Jupyter-Notebook**. Voer desgevraagd Hallo beheerdersreferenties voor Hallo-cluster.
 
     > [!NOTE]
-    > Mogelijk bereikt u de Jupyter-notebook voor uw cluster ook door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
+    > U mogelijk ook Hallo Jupyter-Notebook voor uw cluster door de volgende URL in uw browser openen-Hallo bereiken. Vervang **CLUSTERNAME** met Hallo-naam van het cluster:
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
     > 
@@ -58,40 +58,40 @@ U hebt het volgende:
    
     ![Een nieuwe Jupyter-notebook maken](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Een nieuwe Jupyter-notebook maken")
 
-4. Er wordt een nieuwe notebook gemaakt en geopend met de naam Untitled.pynb. Klik bovenaan op de naam van de notebook en wijzig deze in een beschrijvende naam.
+4. Een nieuwe notebook gemaakt en geopend met de Hallo naam Untitled.pynb. Klik op Hallo notebook naam Hallo boven en een beschrijvende naam.
    
-    ![Een naam opgeven voor de notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Een naam opgeven voor de notebook")
+    ![Geef een naam voor de notebook Hallo](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Geef een naam voor de notebook Hallo")
 
-5. U gebruikt de `%%configure` verwerkt Magic-pakket voor het configureren van de notebook voor het gebruik van een externe-pakket. Zorg ervoor dat u aanroept in notitieblokken die gebruikmaken van externe pakketten, het `%%configure` magische in de eerste codecel. Dit zorgt ervoor dat de kernel is geconfigureerd voor gebruik van het pakket voordat de sessie wordt gestart.
+5. U gebruikt Hallo `%%configure` magische tooconfigure Hallo notebook toouse een externe-pakket. Zorg ervoor dat u Hallo aanroepen in notitieblokken die gebruikmaken van externe pakketten, `%%configure` magische in de eerste codecel Hallo. Dit zorgt ervoor dat kernel Hallo geconfigureerde toouse Hallo pakket voordat het Hallo-sessie gestart.
 
     >[!IMPORTANT] 
-    >Als u voor het configureren van de kernel in de eerste cel vergeet, kunt u de `%%configure` met de `-f` parameter, maar die wordt de sessie opnieuw starten en alle voortgang gaan verloren.
+    >Als u tooconfigure Hallo kernel in de eerste cel Hallo vergeet, kunt u Hallo `%%configure` Hello `-f` parameter, maar die wordt opnieuw opgestart Hallo-sessie en voortgang van alle gaan verloren.
 
     | HDInsight-versie | Opdracht |
     |-------------------|---------|
     |Voor HDInsight 3.3 en HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
     | Voor HDInsight 3.5 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
-6. Het bovenstaande fragment verwacht de maven-coördinaten voor de externe pakket in de centrale opslagplaats Maven. In dit fragment `com.databricks:spark-csv_2.10:1.4.0` is de maven-coördinaat voor **spark-csv** pakket. Hier ziet u hoe u de coördinaten voor een pakket maken.
+6. Hallo codefragment hierboven verwacht Hallo maven-coördinaten voor een externe Hallo-pakket in de centrale opslagplaats Maven. In dit fragment `com.databricks:spark-csv_2.10:1.4.0` hello maven-coördinaat voor **spark-csv** pakket. Hier ziet u hoe u Hallo-coördinaten voor een pakket maken.
    
-    a. Het pakket niet vinden in de opslagplaats met Maven. Voor deze zelfstudie gebruiken we [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Hallo-pakket niet vinden in Hallo Maven-opslagplaats. Voor deze zelfstudie gebruiken we [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
-    b. Verzamel de waarden voor uit de opslagplaats **GroupId**, **artefact-id**, en **versie**. Zorg ervoor dat de waarden die u verzamelt die overeenkomen met uw cluster. In dit geval gebruiken we een Scala 2.10 en Spark 1.4.0 pakket, maar mogelijk moet u verschillende versies voor de juiste Scala of Spark versie selecteren in het cluster. U vindt hier de Scala-versie op het cluster door het uitvoeren van `scala.util.Properties.versionString` op de kernel Spark Jupyter of Spark verzenden. U vindt hier de Spark-versie op het cluster door het uitvoeren van `sc.version` op Jupyter-notebooks.
+    b. Verzamel uit de opslagplaats hello, Hallo waarden voor **GroupId**, **artefact-id**, en **versie**. Zorg ervoor dat u verzamelen Hallo-waarden overeenkomen met uw cluster. In dit geval gebruiken we een Scala 2.10 en Spark 1.4.0 pakket, maar mogelijk moet u verschillende versies van tooselect voor de juiste Scala of Spark versie Hallo in uw cluster. U vindt hier Hallo Scala versie op het cluster door het uitvoeren van `scala.util.Properties.versionString` op Hallo Spark Jupyter kernel of Spark verzenden. U vindt hier Hallo Spark versie op het cluster door het uitvoeren van `sc.version` op Jupyter-notebooks.
    
     ![Externe pakketten gebruiken met Jupyter-notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "externe pakketten gebruiken met Jupyter-notebook")
    
-    c. De drie waarden, gescheiden door een dubbele punt (**:**).
+    c. Samenvoegen van Hallo drie waarden, gescheiden door een dubbele punt (**:**).
    
         com.databricks:spark-csv_2.10:1.4.0
 
-7. Voer de codecel met de `%%configure` verwerkt Magic-pakket. Hiermee wordt de onderliggende Livy sessie configureren voor gebruik van het pakket dat u hebt opgegeven. U kunt nu het pakket gebruiken in de volgende cellen in de notebook, zoals hieronder wordt weergegeven.
+7. Hallo codecel uitvoeren met Hallo `%%configure` verwerkt Magic-pakket. Dit configureert Hallo onderliggende Livy sessie toouse Hallo pakket die u hebt opgegeven. U kunt nu Hallo-pakket gebruiken in de volgende cellen Hallo in Hallo laptop, zoals hieronder wordt weergegeven.
    
         val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-8. Vervolgens kunt u uitvoeren de codefragmenten zoals u hieronder kunt zien, om weer te geven van de gegevens van de dataframe die u in de vorige stap hebt gemaakt.
+8. Vervolgens kunt u Hallo codefragmenten uitvoeren, zoals hieronder weergegeven tooview hello gegevens van Hallo dataframe u hebt gemaakt in de vorige stap Hallo.
    
         df.show()
    
@@ -103,7 +103,7 @@ U hebt het volgende:
 ### <a name="scenarios"></a>Scenario's
 * [Spark met BI: interactieve gegevensanalyses uitvoeren met behulp van Spark in HDInsight met BI-tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark met Machine Learning: Spark in HDInsight toopredict voedselinspectieresultaten gebruiken](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark-streaming: Spark in HDInsight gebruiken voor het bouwen van realtime streamingtoepassingen](hdinsight-apache-spark-eventhub-streaming.md)
 * [Websitelogboekanalyse met Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -114,13 +114,13 @@ U hebt het volgende:
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
 
 * [Externe python-pakketten gebruiken met Jupyter-notebooks in Apache Spark-clusters in HDInsight Linux](hdinsight-apache-spark-python-package-installation.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om Spark Scala-toepassingen te maken en in te dienen](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA gebruiken om op afstand fouten in Spark Scala-toepassingen op te lossen](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [De invoegtoepassing HDInsight Tools voor IntelliJ IDEA toocreate en verzenden van Spark Scala-toepassingen](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [De invoegtoepassing HDInsight Tools for IntelliJ IDEA toodebug Spark applications op afstand gebruiken](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in Spark-cluster voor HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter op uw computer installeren en verbinding maken met een HDInsight Spark-cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter op uw computer installeren en verbinding maken met tooan HDInsight Spark-cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Resources beheren
-* [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Resources beheren voor Hallo Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Taken die worden uitgevoerd in een Apache Spark-cluster in HDInsight, traceren en er fouten in oplossen](hdinsight-apache-spark-job-debugging.md)
 

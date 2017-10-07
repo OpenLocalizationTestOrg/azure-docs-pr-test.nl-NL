@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD en toepassingen: gebruikers toewijzen aan een toepassing | Microsoft Docs'
-description: Klik hier voor meer informatie over het implementeren van de Gebruikerstoewijzing van de voor de Azure-toepassingen.
+title: 'Azure AD en toepassingen: gebruikers toe te wijzen tooan toepassing | Microsoft Docs'
+description: Hoe tooimplement Gebruikerstoewijzing voor Azure-toepassingen.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e9374cbd106d1bcb302645828a061fe184f9956b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD en toepassingen: gebruikers toewijzen aan een toepassing
-Voordat u gebruikers en groepen aan een toepassing toewijzen kunt, moet u de toewijzing van gebruiker vereisen.  Voor informatie over het vereisen Gebruikerstoewijzing raadpleegt u de [Gebruikerstoewijzing vereisen](active-directory-applications-guiding-developers-requiring-user-assignment.md) artikel.
+# <a name="azure-ad-and-applications-assigning-users-tooan-application"></a>Azure AD en toepassingen: gebruikers toe te wijzen tooan toepassing
+Voordat u gebruikers en groepen tooan toepassing toewijzen kunt, moet u de toewijzing van gebruiker vereisen.  toolearn hoe toorequire Gebruikerstoewijzing Zie Hallo [Gebruikerstoewijzing vereisen](active-directory-applications-guiding-developers-requiring-user-assignment.md) artikel.
 
-## <a name="assigning-users-to-an-application"></a>Gebruikers toewijzen aan een toepassing
-1. Aanmelden bij de Azure-portal met een administratoraccount.
-2. Klik op de **alle Items** item in het hoofdmenu.
-3. Kies de map die u voor de toepassing gebruikt.
-4. Klik op de **toepassingen** tabblad.
-5. Selecteer de toepassing uit de lijst met toepassingen die zijn gekoppeld aan deze map.
-6. Klik op de **gebruikers en groepen** tabblad.
-7. Selecteer de gebruikers die u wilt toewijzen aan de toepassing.
+## <a name="assigning-users-tooan-application"></a>Toewijzen van gebruikers tooan toepassing
+1. Meld u bij toohello Azure-portal met een administratoraccount.
+2. Klik op Hallo **alle Items** item in het hoofdmenu Hallo.
+3. Hallo-map die u voor de toepassing hello gebruikt te kiezen.
+4. Klik op Hallo **toepassingen** tabblad.
+5. Selecteer Hallo-toepassing uit het Hallo-lijst met toepassingen die zijn gekoppeld aan deze map.
+6. Klik op Hallo **gebruikers en groepen** tabblad.
+7. Hallo-gebruikers die u wilt dat tooassign toohello toepassing selecteren.
 8. Klik op **toewijzen**.
 9. Klik op **Ja** wanneer u wordt gevraagd.
 

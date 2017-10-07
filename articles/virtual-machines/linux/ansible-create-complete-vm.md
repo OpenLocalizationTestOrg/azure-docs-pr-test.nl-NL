@@ -1,6 +1,6 @@
 ---
-title: Ansible gebruiken voor het maken van een volledige Linux VM in Azure | Microsoft Docs
-description: Informatie over het gebruik van Ansible maken en beheren van een omgeving met volledige Linux virtuele machines in Azure
+title: aaaUse Ansible toocreate een volledige Linux VM in Azure | Microsoft Docs
+description: Meer informatie over hoe toouse Ansible toocreate en een omgeving met volledige Linux virtuele machines in Azure beheren
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2017
 ms.author: iainfou
-ms.openlocfilehash: b2fcc288b40c12a9b3f966156ee2eedf4acca313
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 970b0427f39fc23240f9faab868196ca4f444e0f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Maken van een omgeving met volledige Linux virtuele machines in Azure met Ansible
-Ansible kunt u de implementatie en configuratie van resources in uw omgeving automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net als elke andere bron dezelfde. In dit artikel leest u hoe een volledige Linux-omgeving en de ondersteunende resources met Ansible maken. U kunt ook meer te weten hoe [maken van een basis-VM met Ansible](ansible-create-vm.md).
+Ansible kunt u tooautomate Hallo implementatie en configuratie van resources in uw omgeving. U kunt Ansible toomanage van uw virtuele machines (VM's) in Azure gebruiken, dezelfde Hallo net als elke andere bron. Dit artikel ziet u hoe toocreate een volledige Linux-omgeving en de ondersteunende resources met Ansible. U kunt ook meer te weten hoe te[maken van een basis-VM met Ansible](ansible-create-vm.md).
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het beheren van Azure-resources met Ansible, moet u het volgende:
+toomanage Azure resources met Ansible, moet u hello te volgen:
 
-- Ansible en de Azure Python SDK-modules die op uw hostsysteem zijn geïnstalleerd.
+- Ansible en hello Azure Python SDK-modules die zijn geïnstalleerd op uw hostsysteem.
     - Installeer Ansible op [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), en [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
-- Azure-referenties en Ansible geconfigureerd ze gebruiken.
+- Azure-referenties en Ansible geconfigureerd toouse ze.
     - [Azure-referenties maken en configureren van Ansible](ansible-install-configure.md#create-azure-credentials)
-- Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. 
-    - Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). U kunt ook [Cloud Shell](/azure/cloud-shell/quickstart) vanuit de browser.
+- Azure CLI versie 2.0.4 of hoger. Voer `az --version` toofind Hallo versie. 
+    - Als u tooupgrade moet, Zie [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). U kunt ook [Cloud Shell](/azure/cloud-shell/quickstart) vanuit de browser.
 
 
 ## <a name="create-virtual-network"></a>Virtueel netwerk maken
-De volgende sectie in een playbook Ansible maakt een virtueel netwerk met de naam *myVnet* in de *10.0.0.0/16* adresruimte:
+Hallo volgende sectie in een playbook Ansible maakt een virtueel netwerk met de naam *myVnet* in Hallo *10.0.0.0/16* adresruimte:
 
 ```yaml
 - name: Create virtual network
@@ -47,7 +47,7 @@ De volgende sectie in een playbook Ansible maakt een virtueel netwerk met de naa
     address_prefixes: "10.10.0.0/16"
 ```
 
-Als u wilt toevoegen in een subnet, maakt de volgende sectie een subnet met de naam *mySubnet* in de *myVnet* virtueel netwerk:
+tooadd een subnet, Hallo volgende sectie maakt u een subnet met de naam *mySubnet* in Hallo *myVnet* virtueel netwerk:
 
 ```yaml
 - name: Add subnet
@@ -60,7 +60,7 @@ Als u wilt toevoegen in een subnet, maakt de volgende sectie een subnet met de n
 
 
 ## <a name="create-public-ip-address"></a>Openbare IP-adres maken
-Toegang krijgen tot bronnen via het Internet, maken en een openbare IP-adres toewijzen aan uw virtuele machine. De volgende sectie in een playbook Ansible maakt een openbaar IP-adres met de naam *myPublicIP*:
+tooaccess resources tussen Hallo Internet, maken en toewijzen van een openbare IP-adres tooyour VM. Hallo volgende sectie in een playbook Ansible maakt u een openbaar IP-adres met de naam *myPublicIP*:
 
 ```yaml
 - name: Create public IP address
@@ -72,7 +72,7 @@ Toegang krijgen tot bronnen via het Internet, maken en een openbare IP-adres toe
 
 
 ## <a name="create-network-security-group"></a>Netwerkbeveiligingsgroep maken
-Netwerkbeveiligingsgroepen regelen de stroom van netwerkverkeer binnen en buiten uw virtuele machine. De volgende sectie in een playbook Ansible maakt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* en definieert u een regel voor SSH-verkeer op TCP-poort 22:
+Netwerkbeveiligingsgroepen transportbesturing Hallo van netwerkverkeer binnen en buiten uw virtuele machine. Hallo volgende sectie in een playbook Ansible maakt een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* en definieert u een regel tooallow SSH-verkeer op TCP-poort 22:
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -90,7 +90,7 @@ Netwerkbeveiligingsgroepen regelen de stroom van netwerkverkeer binnen en buiten
 
 
 ## <a name="create-virtual-network-interface-card"></a>Maken van de virtuele netwerkinterfacekaart
-Een virtuele netwerkinterfacekaart (NIC) verbindt uw virtuele machine met een opgegeven virtuele netwerk, het openbare IP-adres en de netwerkbeveiligingsgroep. De volgende sectie in een playbook Ansible maakt u een virtuele NIC met de naam *myNIC* verbonden met de virtuele netwerken bronnen die u hebt gemaakt:
+Een virtuele netwerkinterfacekaart (NIC) maakt verbinding met uw VM tooa virtueel netwerk, openbare IP-adres en de netwerkbeveiligingsgroep opgegeven. Hallo volgende sectie in een playbook Ansible maakt u een virtuele NIC met de naam *myNIC* verbonden toohello virtuele netwerkresources u hebt gemaakt:
 
 ```yaml
 - name: Create virtual network inteface card
@@ -105,7 +105,7 @@ Een virtuele netwerkinterfacekaart (NIC) verbindt uw virtuele machine met een op
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-De laatste stap is het maken van een virtuele machine en gebruik van alle bronnen die zijn gemaakt. De volgende sectie in een playbook Ansible maakt u een virtuele machine met de naam *myVM* en koppelt u de virtuele NIC met de naam *myNIC*. Voer uw eigen gegevens voor openbare sleutel in de *key_data* koppelen als volgt:
+laatste stap Hallo toocreate is een virtuele machine en gebruik van alle Hallo bronnen die zijn gemaakt. Hallo volgende sectie in een playbook Ansible maakt u een virtuele machine met de naam *myVM* en wordt virtuele NIC met de naam Hallo *myNIC*. Voer uw eigen gegevens voor openbare sleutel in Hallo *key_data* koppelen als volgt:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ De laatste stap is het maken van een virtuele machine en gebruik van alle bronne
 ```
 
 ## <a name="complete-ansible-playbook"></a>Ansible playbook voltooien
-Maak een Ansible playbook met de naam voor het maken van alle deze secties samen, *azure_create_complete_vm.yml* en plak de volgende inhoud:
+toobring alle deze secties maken samen een Ansible playbook met de naam *azure_create_complete_vm.yml* en inhoud te plakken Hallo volgen:
 
 ```yaml
 - name: Create Azure VM
@@ -187,19 +187,19 @@ Maak een Ansible playbook met de naam voor het maken van alle deze secties samen
         version: latest
 ```
 
-Ansible moet een resourcegroep voor het implementeren van uw resources in. Maak een resourcegroep maken met [az group create](/cli/azure/vm#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+Ansible moet een groep resource toodeploy alle resources in. Maak een resourcegroep maken met [az group create](/cli/azure/vm#create). Hallo volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in Hallo *eastus* locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Als de volledige VM-omgeving maken met Ansible, voert u de playbook als volgt uit:
+toocreate hello voltooid VM-omgeving met Ansible, Hallo playbook als volgt uitvoeren:
 
 ```bash
 ansible-playbook azure_create_complete_vm.yml
 ```
 
-De uitvoer lijkt op het volgende voorbeeld ziet u dat de virtuele machine is gemaakt:
+Hallo-uitvoer ziet er vergelijkbare toohello volgende voorbeeld ziet u Hallo dat VM is gemaakt:
 
 ```bash
 PLAY [Create Azure VM] ****************************************************
@@ -230,4 +230,4 @@ localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit voorbeeld maakt u een volledige VM-omgeving met inbegrip van de vereiste resources voor virtuele netwerken. Zie voor een meer rechtstreekse voorbeeld voor het maken van een virtuele machine in de bestaande netwerkbronnen met de standaardopties [een virtuele machine maken](ansible-create-vm.md).
+In dit voorbeeld maakt u een volledige VM-omgeving met inbegrip van virtuele netwerken bronnen Hallo vereist. Zie voor een meer rechtstreekse voorbeeld toocreate een virtuele machine in de bestaande netwerkbronnen met de standaardopties [een virtuele machine maken](ansible-create-vm.md).

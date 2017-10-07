@@ -1,6 +1,6 @@
 ---
-title: SSL configureren voor een cloudservice (klassiek) | Microsoft Docs
-description: Informatie over het opgeven van een HTTPS-eindpunt voor een Webrol en het uploaden van een SSL-certificaat voor het beveiligen van uw toepassing.
+title: aaaConfigure SSL voor een cloudservice (klassiek) | Microsoft Docs
+description: Meer informatie over hoe toospecify een HTTPS-eindpunt voor een Webrol en hoe tooupload een SSL-certificaat toosecure uw toepassing.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a1ca031b98af49d371977a208ed24f6dc8ea2ac9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>SSL configureren voor een toepassing in Azure
 > [!div class="op_single_selector"]
@@ -27,37 +27,37 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-SSL-versleuteling (Secure Socket Layer) is de meest gebruikte methode voor het beveiligen van gegevens die via internet worden verzonden. In deze algemene taak wordt beschreven hoe u een HTTPS-eindpunt kunt opgeven voor een webrol en hoe u een SSL-certificaat kunt uploaden om uw toepassing te beveiligen.
+Secure Socket Layer (SSL)-versleuteling is Hallo meest gebruikte methode voor het beveiligen van gegevens via Hallo verzonden van internet. Deze algemene taak wordt beschreven hoe toospecify een HTTPS-eindpunt voor een Webrol en hoe tooupload een SSL-certificaat toosecure uw toepassing.
 
 > [!NOTE]
-> De procedures in deze taak gelden voor Azure Cloud Services; Zie voor App-Services, [dit](../app-service-web/web-sites-configure-ssl-certificate.md) artikel.
+> Hallo procedures in deze taak gelden tooAzure Cloudservices; Zie voor App-Services, [dit](../app-service-web/web-sites-configure-ssl-certificate.md) artikel.
 > 
 > 
 
-Deze taak maakt gebruik van een productie-implementatie. Informatie over het gebruik van een gefaseerde installatie-implementatie is verstrekt aan het einde van dit onderwerp.
+Deze taak maakt gebruik van een productie-implementatie. Informatie over het gebruik van een gefaseerde installatie-implementatie wordt op Hallo einde van dit onderwerp aangeboden.
 
 Lees [dit](cloud-services-how-to-create-deploy.md) eerst artikel als u nog geen een cloudservice hebt gemaakt.
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Stap 1: Haal een SSL-certificaat
-SSL configureren voor een toepassing, moet u eerst ophalen van een SSL-certificaat dat is ondertekend door een certificeringsinstantie (CA), een vertrouwde derde die certificaten voor dit doel verleent. Als u nog geen een, moet u aanvragen bij een bedrijf dat SSL-certificaten verkoopt.
+tooconfigure SSL voor een toepassing, moet u eerst tooget een SSL-certificaat dat is ondertekend door een certificeringsinstantie (CA), een vertrouwde derde die certificaten voor dit doel verleent. Als u nog geen een, moet u tooobtain van een bedrijf dat SSL-certificaten verkoopt.
 
-Het certificaat moet voldoen aan de volgende vereisten voor SSL-certificaten in Azure:
+Hallo-certificaat moet voldoen aan Hallo volgens de vereisten voor SSL-certificaten in Azure:
 
-* Het certificaat moet een persoonlijke sleutel bevatten.
-* Het certificaat moet worden gemaakt voor sleuteluitwisseling, geëxporteerd naar een bestand Personal Information Exchange (.pfx).
-* De onderwerpnaam van het certificaat moet overeenkomen met het domein dat wordt gebruikt voor toegang tot de cloudservice. U kunt een SSL-certificaat kan niet verkrijgen van een certificeringsinstantie (CA) voor het domein cloudapp.net. Moet u een aangepaste domeinnaam moeten worden gebruikt wanneer verkrijgen toegang tot uw service. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de naam van het aangepaste domein gebruikt voor toegang tot uw toepassing. Bijvoorbeeld, als uw aangepaste domeinnaam is **contoso.com** zou u een certificaat aanvragen van uw Certificeringsinstantie voor ***. contoso.com** of **www.contoso.com**.
-* Het certificaat moet ten minste 2048-bits codering gebruiken.
+* Hallo-certificaat moet een persoonlijke sleutel bevatten.
+* Hallo-certificaat moet worden gemaakt voor sleuteluitwisseling, exporteerbaar tooa Personal Information Exchange (.pfx)-bestand.
+* Hallo onderwerpnaam van het certificaat moet overeenkomen met Hallo domein gebruikt tooaccess Hallo-cloudservice. U kunt een SSL-certificaat kan niet verkrijgen van een certificeringsinstantie (CA) voor Hallo cloudapp.net domein. U moet een aangepast domein naam toouse verkrijgen wanneer toegang krijgen tot uw service. Wanneer u een certificaat bij een Certificeringsinstantie aanvraagt, de onderwerpnaam van het Hallo-certificaat moet overeenkomen met Hallo aangepast domein naam die wordt gebruikt tooaccess uw toepassing. Bijvoorbeeld, als uw aangepaste domeinnaam is **contoso.com** zou u een certificaat aanvragen van uw Certificeringsinstantie voor ***. contoso.com** of **www.contoso.com**.
+* Hallo-certificaat moet ten minste 2048-bits codering gebruiken.
 
-Voor testdoeleinden kunt u [maken](cloud-services-certs-create.md) en een zelfondertekend certificaat gebruiken. Een zelfondertekend certificaat is niet geverifieerd via een CA en het domein cloudapp.net kunt gebruiken als de website-URL. De volgende taak gebruikt bijvoorbeeld een zelfondertekend certificaat waarin de algemene naam (CN) gebruikt in het certificaat is **sslexample.cloudapp.net**.
+Voor testdoeleinden kunt u [maken](cloud-services-certs-create.md) en een zelfondertekend certificaat gebruiken. Een zelfondertekend certificaat is niet geverifieerd via een Certificeringsinstantie en Hallo cloudapp.net domein kunt gebruiken als Hallo website-URL. Hallo volgende taak gebruikt bijvoorbeeld een zelfondertekend certificaat in welke Hallo is de algemene naam (CN) in Hallo certificaat gebruikt **sslexample.cloudapp.net**.
 
-Vervolgens moet u informatie over het certificaat opnemen in uw servicedefinitie en configuratiebestanden van de service.
+Vervolgens moet u informatie over Hallo certificaat opnemen in uw servicedefinitie en configuratiebestanden van de service.
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Stap 2: De service-definitie en configuratie van bestanden wijzigen
-Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en een HTTPS-eindpunt moet worden toegevoegd. Als gevolg hiervan de servicedefinitie en configuratiebestanden van de service moeten worden bijgewerkt.
+## <a name="step-2-modify-hello-service-definition-and-configuration-files"></a>Stap 2: De bestanden voor het definitie- en configuratie van de Hallo wijzigen
+Uw toepassing moet geconfigureerde toouse Hallo certificaat en een HTTPS-eindpunt moet worden toegevoegd. Als gevolg hiervan moeten hello servicedefinitie en configuratiebestanden van de service toobe bijgewerkt.
 
-1. Open het servicedefinitiebestand (CSDEF) in uw ontwikkelomgeving, voegt een **certificaten** sectie binnen de **WebRole** sectie en bevatten de volgende informatie over het certificaat (en tussenliggende certificaten):
+1. Open in uw ontwikkelomgeving Hallo servicedefinitiebestand (CSDEF), Voeg een **certificaten** sectie binnen Hallo **WebRole** sectie en bevatten Hallo volgende informatie over de certificaat (en tussenliggende certificaten):
    
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -68,11 +68,11 @@ Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en
                         storeName="My"
                         permissionLevel="limitedOrElevated" />
             <!-- IMPORTANT! Unless your certificate is either
-            self-signed or signed directly by the CA root, you
-            must include all the intermediate certificates
+            self-signed or signed directly by hello CA root, you
+            must include all hello intermediate certificates
             here. You must list them here, even if they are
-            not bound to any endpoints. Failing to list any of
-            the intermediate certificates may cause hard-to-reproduce
+            not bound tooany endpoints. Failing toolist any of
+            hello intermediate certificates may cause hard-to-reproduce
             interoperability problems on some clients.-->
             <Certificate name="CAForSampleCertificate"
                         storeLocation="LocalMachine"
@@ -83,15 +83,15 @@ Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en
     </WebRole>
     ```
    
-   De **certificaten** sectie definieert de naam van onze certificaat, de locatie en de naam van het archief waar deze zich bevinden.
+   Hallo **certificaten** sectie definieert Hallo-naam van onze certificaat, de locatie en de naam op Hallo van Hallo store waar deze zich bevinden.
    
-   Machtigingen (`permisionLevel` kenmerk) kan worden ingesteld op een van de volgende waarden:
+   Machtigingen (`permisionLevel` kenmerk) kan worden ingesteld tooone Hallo de volgende waarden:
    
    | Waarde van machtiging | Beschrijving |
    | --- | --- |
-   | limitedOrElevated |**(Standaard)**  Alle processen van de rol toegang heeft tot de persoonlijke sleutel. |
-   | verhoogde |Alleen processen met verhoogde bevoegdheden hebben toegang tot de persoonlijke sleutel. |
-2. Voeg in het servicedefinitiebestand een **Invoereindpunt** element in de **eindpunten** sectie HTTPS inschakelen:
+   | limitedOrElevated |**(Standaard)**  Alle processen van de rol toegang tot de persoonlijke sleutel Hallo. |
+   | verhoogde |Alleen processen met verhoogde bevoegdheden hebben toegang tot de persoonlijke sleutel Hallo. |
+2. Voeg in het servicedefinitiebestand een **Invoereindpunt** element in Hallo **eindpunten** sectie tooenable HTTPS:
    
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -104,7 +104,7 @@ Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en
     </WebRole>
     ```
 
-3. Voeg in het servicedefinitiebestand een **Binding** element in de **Sites** sectie. Deze sectie wordt een HTTPS-binding het eindpunt toewijzen aan uw site toegevoegd:
+3. Voeg in het servicedefinitiebestand een **Binding** element in Hallo **Sites** sectie. Deze sectie wordt een HTTPS-binding toomap de tooyour eindpunt site toegevoegd:
    
     ```xml   
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -120,8 +120,8 @@ Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en
     </WebRole>
     ```
    
-   Alle vereiste wijzigingen in het servicedefinitiebestand zijn voltooid, maar u toch wilt gegevens van het certificaat toevoegen aan het configuratiebestand van de service.
-4. Voeg in uw serviceconfiguratiebestand (CSCFG) ServiceConfiguration.Cloud.cscfg, een **certificaten** sectie binnen de **rol** sectie, vervangen de vingerafdrukwaarde van voorbeeld hieronder wordt weergegeven met die van uw certificaat:
+   Alle Hallo vereiste wijzigingen toohello servicedefinitiebestand zijn voltooid, maar u moet nog steeds tooadd Hallo-certificaatinformatie naar Hallo serviceconfiguratiebestand.
+4. Voeg in uw serviceconfiguratiebestand (CSCFG) ServiceConfiguration.Cloud.cscfg, een **certificaten** sectie binnen Hallo **rol** sectie Hallo vingerafdruk Voorbeeldwaarde hieronder wordt weergegeven met vervangen die van uw certificaat:
    
     ```xml   
     <Role name="Deployment">
@@ -138,46 +138,46 @@ Uw toepassing moet worden geconfigureerd voor het gebruik van het certificaat en
     </Role>
     ```
 
-(Maakt gebruik van het vorige voorbeeld **sha1** voor de vingerafdruk van het algoritme. Geef op de juiste waarde voor de algoritme van de vingerafdruk van het certificaat.)
+(Hallo wordt vóór **sha1** voor Hallo vingerafdruk van het algoritme. Hallo geschikte waarde voor de algoritme van de vingerafdruk van het certificaat opgeven.)
 
-Nu dat de servicedefinitie en de configuratiebestanden van de service is bijgewerkt, het pakket uw implementatie voor het uploaden naar Azure. Als u **cspack**, gebruik niet de **/generateConfigurationFile** markeren, zoals die de gegevens van het certificaat dat u ingevoegd worden overschreven.
+Nu dat Hallo-service definitie- en configuratiebestanden zijn bijgewerkt, het pakket uw implementatie voor het uploaden van tooAzure. Als u **cspack**, gebruik niet de **/generateConfigurationFile** markeren, zoals die de gegevens van het certificaat dat u ingevoegd worden overschreven.
 
 ## <a name="step-3-upload-a-certificate"></a>Stap 3: Een certificaat uploaden
-Uw implementatiepakket is bijgewerkt om het certificaat te gebruiken en een HTTPS-eindpunt is toegevoegd. U kunt nu het pakket en een certificaat uploaden naar Azure met de klassieke Azure portal.
+Uw implementatiepakket is bijgewerkte toouse Hallo certificaat en een HTTPS-eindpunt is toegevoegd. U kunt nu de pakket- en certificaat tooAzure Hallo Hello klassieke Azure-portal uploaden.
 
-1. Meld u aan bij de [klassieke Azure-portal][Azure classic portal]. 
-2. Klik op **Cloudservices** in het navigatievenster aan de linkerkant.
-3. Klik op de gewenste cloudservice.
-4. Klik op de **certificaten** tabblad.
+1. Meld u bij toohello [klassieke Azure-portal][Azure classic portal]. 
+2. Klik op **Cloudservices** op Hallo-navigatievenster aan de linkerkant.
+3. Klik op Hallo desired-cloudservice.
+4. Klik op Hallo **certificaten** tabblad.
    
-    ![Klik op het tabblad certificaten](./media/cloud-services-configure-ssl-certificate/click-cert.png)
+    ![Klik op tabblad Hallo-certificaten](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-5. Klik op de knop **Uploaden**.
+5. Klik op Hallo **uploaden** knop.
    
     ![Uploaden](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. Geef de **bestand**, **wachtwoord**, klikt u vervolgens op **Complete** (het vinkje).
+6. Hallo bieden **bestand**, **wachtwoord**, klikt u vervolgens op **Complete** (Hallo vinkje).
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Stap 4: Verbinding maken met het rolexemplaar met behulp van HTTPS
-Nu dat uw implementatie actief in Azure is, kunt u verbinding met het gebruik van HTTPS.
+## <a name="step-4-connect-toohello-role-instance-by-using-https"></a>Stap 4: Toohello rolinstantie verbinding via HTTPS
+Nu dat uw implementatie actief in Azure is, kunt u tooit via HTTPS verbinding maken.
 
-1. In de klassieke Azure portal, selecteert u uw implementatie en klik op de koppeling onder **Site-URL**.
+1. In Hallo klassieke Azure-portal, selecteert u uw implementatie en klik vervolgens op Hallo koppeling onder **Site-URL**.
    
    ![Site-URL bepalen][2]
-2. Wijzig de koppeling om te gebruiken in uw webbrowser **https** in plaats van **http**, en ga vervolgens naar de pagina.
+2. Wijzig in uw webbrowser Hallo koppeling toouse **https** in plaats van **http**, en Ga naar de pagina Hallo.
    
    > [!NOTE]
-   > Als u een zelfondertekend certificaat gebruikt wanneer u naar een HTTPS-eindpunt dat is gekoppeld aan het zelfondertekende certificaat bladert, ziet u mogelijk een certificaatfout in de browser. Met behulp van een certificaat dat is ondertekend door een vertrouwde certificeringsinstantie wordt voorkomen dat u dit probleem; in de tussentijd kunt u de fout negeren. (Er is een andere optie is het zelfondertekende certificaat toevoegen aan certificaatarchief Vertrouwde certificaat van de gebruiker.)
+   > Als u een zelfondertekend certificaat gebruikt wanneer u HTTPS-eindpunt voor tooan die is gekoppeld aan de zelf-ondertekend certificaat Hallo bladert, ziet u mogelijk een certificaatfout in Hallo browser. Met behulp van een certificaat dat is ondertekend door een vertrouwde certificeringsinstantie wordt voorkomen dat u dit probleem; in Hallo kunt u tussentijd Hallo fout negeren. (Een andere optie is certificaatarchief Vertrouwde certificaat tooadd Hallo zelf-ondertekend certificaat toohello van gebruiker.)
    > 
    > 
    
    ![Website voor SSL-voorbeeld][3]
 
-Als u SSL gebruiken voor een gefaseerde installatie-implementatie in plaats van een productie-implementatie wilt, moet u eerst de URL die wordt gebruikt voor de implementatie van fasering bepalen. Uw cloudservice implementeren in de testomgeving zonder een certificaat of de gegevens van een certificaat. Zodra geïmplementeerd, kunt u de URL op basis van GUID, die wordt vermeld in de klassieke Azure portal van bepalen **Site-URL** veld. Een certificaat maken met de algemene naam (CN) gelijk zijn aan de URL op basis van GUID (bijvoorbeeld **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**). Gebruik de klassieke Azure portal naar het certificaat toevoegen aan uw voorbereide cloudservice. Gegevens van het certificaat vervolgens toevoegen aan uw CSDEF- en CSCFG-bestanden, opnieuw inpakken van uw toepassing en uw gefaseerde implementatie voor het gebruik van het nieuwe pakket bijwerken.
+Als u toouse SSL voor een gefaseerde installatie-implementatie in plaats van een productie-implementatie wilt, moet u eerst toodetermine Hallo-URL die wordt gebruikt voor Hallo staging-implementatie. Uw testomgeving voor cloud service toohello implementeren zonder een certificaat of de gegevens van een certificaat. Zodra geïmplementeerd, kunt u bepalen Hallo GUID op basis van een URL die wordt vermeld in Hallo klassieke Azure-portal van **Site-URL** veld. Een certificaat maken met de Hallo algemene naam (CN) gelijk toohello op basis van GUID-URL (bijvoorbeeld **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**). Gebruik hello Azure classic portal tooadd Hallo certificaat tooyour gefaseerde service in de cloud. Voeg Hallo informatie tooyour CSDEF- en CSCFG-certificaatbestanden, opnieuw inpakken van uw toepassing en uw gefaseerde implementatie toouse Hallo nieuw pakket bijwerken.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Algemene configuratie van uw cloudservice](cloud-services-how-to-configure.md).
-* Meer informatie over hoe [implementeren van een cloudservice](cloud-services-how-to-create-deploy.md).
+* Meer informatie over hoe te[implementeren van een cloudservice](cloud-services-how-to-create-deploy.md).
 * Configureer een [aangepaste domeinnaam](cloud-services-custom-domain-name.md).
 * [Beheren van uw cloudservice](cloud-services-how-to-manage.md).
 

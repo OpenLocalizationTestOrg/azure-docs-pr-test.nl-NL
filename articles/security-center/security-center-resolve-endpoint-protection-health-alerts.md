@@ -1,6 +1,6 @@
 ---
-title: Endpoint protection-status meldingen in Azure Security Center oplossen | Microsoft Docs
-description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** Endpoint Protection oplossen health waarschuwingen **.
+title: aaaResolve endpoint protection-status meldingen in Azure Security Center | Microsoft Docs
+description: Dit document leest u hoe tooimplement hello Azure Security Center aanbeveling ** Endpoint Protection oplossen health waarschuwingen **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-ms.openlocfilehash: 5e6b136d6bd3b11fb82126d104fd0cb149255118
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9631d15aa1dfa9003d56332363ae7911061ed0b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resolve-endpoint-protection-health-alerts-in-azure-security-center"></a>Endpoint protection-status meldingen in Azure Security Center oplossen
-Azure Security Center wordt aanbevolen dat u gedetecteerde endpoint protection-statuswaarschuwingen oplossen.  Security Center kunt u zien welke virtuele machines (VM's) hebt endpoint protection storingen en hoeveel.
+Azure Security Center wordt aanbevolen dat u gedetecteerde endpoint protection-statuswaarschuwingen oplossen.  Security Center kunt u welke virtuele machines (VM's) endpoint protection storingen en hoeveel hebt toosee.
 
 > [!NOTE]
-> In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie. Dit is geen stapsgewijze handleiding.
+> Dit document bevat Hallo service met behulp van een voorbeeldimplementatie. Dit is geen stapsgewijze handleiding.
 > 
 > 
 
-## <a name="implement-the-recommendation"></a>De aanbeveling implementeren
-1. In de **blade aanbevelingen**, selecteer **waarschuwingen voor Endpoint Protection oplossen health**.
+## <a name="implement-hello-recommendation"></a>Hallo aanbeveling implementeren
+1. In Hallo **blade aanbevelingen**, selecteer **waarschuwingen voor Endpoint Protection oplossen health**.
    ![Statusmeldingen endpoint protection oplossen][1]
-2. Hiermee opent u de blade **Endpoint Protection fout** die een lijst met virtuele machines met fouten en het aantal fouten voor elke virtuele machine. Selecteer een virtuele machine in de lijst.
+2. Hiermee opent u de blade Hallo **Endpoint Protection fout** die een lijst met virtuele machines met fouten en het aantal mislukte Hallo voor elke virtuele machine. Selecteer een virtuele machine in Hallo-lijst.
    ![Endpoint protection-fout][2]
-3. Een **fouten lijst** er wordt een blade geopend voor de geselecteerde virtuele machine met een lijst van fouten. Selecteer een fout in de lijst voor meer informatie. Dit wordt een blade geopend met informatie over de geselecteerde fout.
+3. Een **fouten lijst** blade wordt geopend voor Hallo virtuele machine geselecteerde, een lijst met fouten worden weergegeven. Selecteer een fout in Hallo lijst toolearn meer. Dit wordt een blade geopend met informatie over de fout Hallo geselecteerd.
    ![Lijst met fouten][3]
    ![foutgebeurtenis][4]
 
 ## <a name="see-also"></a>Zie ook
-Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
+toolearn meer informatie over Security Center Hallo ziet:
 
-* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+* [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md)--meer informatie over hoe tooconfigure beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): leer hoe aanbevelingen u helpen uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
-* [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): leer hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
-* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
-* [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) (Azure-beveiligingsblog): hier vindt u het laatste nieuws over Azure-beveiliging en andere informatie.
+* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md)--meer informatie over hoe toomonitor Hallo status van uw Azure-resources.
+* [Het beheer van is en reageert toosecurity waarschuwingen in Azure Security Center](security-center-managing-and-responding-alerts.md)--meer informatie over hoe toomanage en gereageerd had toosecurity waarschuwingen.
+* [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md) --meer informatie over hoe toomonitor gezondheidsstatus van uw partneroplossingen Hallo.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md)--Raadpleeg Veelgestelde vragen over het gebruik van Hallo-service.
+* [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/)--Hallo nieuwste Azure-beveiliging nieuws en informatie.
 
 <!--Image references-->
 [1]: ./media/security-center-resolve-endpoint-protection/resolve-endpoint-protection.png

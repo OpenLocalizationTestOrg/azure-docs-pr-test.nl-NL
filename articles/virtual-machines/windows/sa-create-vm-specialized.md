@@ -1,6 +1,6 @@
 ---
-title: Virtuele machine maken vanaf een speciale schijf in Azure | Microsoft Docs
-description: Maak een nieuwe virtuele machine door het koppelen van een niet-beheerde gespecialiseerde schijf, in het Resource Manager-implementatiemodel.
+title: aaaCreate VM vanaf een speciale schijf in Azure | Microsoft Docs
+description: Maak een nieuwe virtuele machine door het koppelen van een gespecialiseerde onbeheerde schijf Hallo Resource Manager-implementatiemodel.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c88f213b6629a6c1d6ff5845e76c2f7719672714
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Een virtuele machine vanaf een speciale VHD in een opslagaccount maken
 
-Maak een nieuwe virtuele machine door het koppelen van een gespecialiseerde onbeheerde schijf als de OS-schijf met behulp van Powershell. Een speciale schijf is een kopie van de VHD van een bestaande virtuele machine die de gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM onderhoudt. 
+Maak een nieuwe virtuele machine door het koppelen van een gespecialiseerde onbeheerde schijf als Hallo besturingssysteemschijf met behulp van Powershell. Een speciale schijf is een kopie van de VHD van een bestaande virtuele machine die wordt onderhouden door Hallo gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM. 
 
 U hebt hiervoor twee opties:
 * [Een VHD uploaden](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Kopieer de VHD van een bestaande virtuele machine in Azure](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Kopieer Hallo VHD van een bestaande virtuele machine in Azure](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u PowerShell gebruikt, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Voer de volgende opdracht om deze te installeren.
+Als u PowerShell gebruikt, zorg ervoor dat u de meest recente versie Hallo Hallo AzureRM.Compute PowerShell-module hebt. Voer Hallo na de opdracht tooinstall deze.
 
 ```powershell
 Install-Module AzureRM.Compute 
@@ -40,50 +40,50 @@ Zie voor meer informatie [Azure PowerShell Versioning](/powershell/azure/overvie
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Optie 1: Een gespecialiseerde VHD uploaden
 
-U kunt de VHD van een speciale virtuele machine gemaakt met een lokale virtualisatie hulpprogramma, zoals Hyper-V of een virtuele machine die zijn geëxporteerd uit een andere cloud uploaden.
+U kunt VHD van een speciale virtuele machine met een lokale virtualisatie hulpprogramma gemaakt, zoals Hyper-V of een virtuele machine die zijn geëxporteerd uit een andere cloud Hallo uploaden.
 
-### <a name="prepare-the-vm"></a>De virtuele machine voorbereiden
-U kunt een gespecialiseerde VHD die is gemaakt met een lokale virtuele machine of een VHD die is geëxporteerd uit een andere cloud uploaden. Een speciale VHD houdt de gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM. Als u wilt gebruiken van de VHD-is een nieuwe virtuele machine maken, controleert u de volgende stappen zijn voltooid. 
+### <a name="prepare-hello-vm"></a>Hallo VM voorbereiden
+U kunt een gespecialiseerde VHD die is gemaakt met een lokale virtuele machine of een VHD die is geëxporteerd uit een andere cloud uploaden. Een speciale VHD onderhoudt Hallo gebruikersaccounts, toepassingen en andere statusgegevens van uw oorspronkelijke VM. Als u van plan toouse bent Hallo VHD-toocreate is een nieuwe virtuele machine, Controleer Hallo stappen zijn voltooid. 
   
-  * [Voorbereiden van een Windows-VHD te uploaden naar Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Geen** generalize van de virtuele machine met behulp van Sysprep.
-  * Verwijder eventuele Gast virtualisatie-hulpprogramma's en de agents die zijn geïnstalleerd op de virtuele machine (dat wil zeggen VMware tools).
-  * Zorg ervoor dat de virtuele machine is geconfigureerd om op te halen van de IP-adres en DNS-instellingen via DHCP. Dit zorgt ervoor dat de server een IP-adres binnen het VNet verkrijgt wanneer deze opgestart wordt. 
+  * [Voorbereiden van een Windows-VHD tooupload tooAzure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Geen** generalize Hallo van virtuele machine met behulp van Sysprep.
+  * Verwijder eventuele Gast virtualisatie-hulpprogramma's en de agents die zijn geïnstalleerd op Hallo VM (dat wil zeggen VMware tools).
+  * Zorg ervoor dat Hallo VM geconfigureerde toopull is het IP-adres en DNS-instellingen via DHCP. Dit zorgt ervoor dat Hallo-server verkrijgt IP-adres binnen Hallo VNet wanneer deze opgestart wordt. 
 
 
-### <a name="get-the-storage-account"></a>Het storage-account ophalen
-U moet een opslagaccount in Azure voor het opslaan van de installatiekopie van het geüploade VM. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken. 
+### <a name="get-hello-storage-account"></a>Hallo storage-account ophalen
+U moet een opslagaccount in Azure toostore Hallo geüpload VM-installatiekopie. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken. 
 
-Als u wilt de beschikbare opslagruimte accounts weergeven, typt u:
+tooshow hello beschikbaar storage-accounts, typt u:
 
 ```powershell
 Get-AzureRmStorageAccount
 ```
 
-Als u een bestaand opslagaccount gebruiken wilt, gaat u verder met de [de VM-installatiekopie uploaden](#upload-the-vm-vhd-to-your-storage-account) sectie.
+Als u een bestaand opslagaccount toouse wilt, gaat u verder toohello [Hallo VM-installatiekopie uploaden](#upload-the-vm-vhd-to-your-storage-account) sectie.
 
-Als u wilt maken van een opslagaccount, als volgt te werk:
+Als u een opslagaccount toocreate moet, volg deze stappen:
 
-1. U moet de naam van de resourcegroep waar het storage-account moet worden gemaakt. Voor meer informatie over de resourcegroepen die zich in uw abonnement, typt u:
+1. U moet Hallo-naam van resourcegroep Hallo waar Hallo storage-account moet worden gemaakt. toofind uit alle Hallo resourcegroepen in uw abonnement, type:
    
     ```powershell
     Get-AzureRmResourceGroup
     ```
 
-    Maken van een resourcegroep met de naam **myResourceGroup** in de **VS-West** regio, type:
+    een resourcegroep met de naam toocreate **myResourceGroup** in Hallo **VS-West** regio, type:
 
     ```powershell
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Maken van een opslagaccount met de naam **mystorageaccount** in deze resourcegroep met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+2. Maken van een opslagaccount met de naam **mystorageaccount** in deze resourcegroep via Hallo [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
-### <a name="upload-the-vhd-to-your-storage-account"></a>De VHD te uploaden naar uw opslagaccount
-Gebruik de [toevoegen AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet voor het uploaden van de installatiekopie naar een container in uw opslagaccount. In dit voorbeeld wordt het bestand geüpload **myVHD.vhd** van `"C:\Users\Public\Documents\Virtual hard disks\"` om een opslagaccount met de naam **mystorageaccount** in de **myResourceGroup** resourcegroep. Het bestand worden opgenomen in de container met de naam **mycontainer** en worden de nieuwe bestandsnaam **myUploadedVHD.vhd**.
+### <a name="upload-hello-vhd-tooyour-storage-account"></a>Hallo VHD tooyour storage-account uploaden
+Gebruik Hallo [toevoegen AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet tooupload Hallo installatiekopie tooa container in uw opslagaccount. In dit voorbeeld uploads Hallo bestand **myVHD.vhd** van `"C:\Users\Public\Documents\Virtual hard disks\"` tooa opslagaccount met de naam **mystorageaccount** in Hallo **myResourceGroup** resourcegroep. Hallo-bestand worden opgenomen in het Hallo-container met de naam **mycontainer** en worden nieuwe bestandsnaam Hallo **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -93,12 +93,12 @@ Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Als dit lukt, kunt u krijgen een antwoord dat ziet er ongeveer als volgt:
+Als dit lukt, kunt u een antwoord dat vergelijkbare toothis lijkt krijgen:
 
 ```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
+MD5 hash is being calculated for hello file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
 MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
+Elapsed time for hello operation: 00:03:35
 Creating new page blob of size 53687091712...
 Elapsed time for upload: 01:12:49
 
@@ -107,59 +107,59 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Afhankelijk van uw netwerkverbinding en de grootte van de VHD-bestand kan met deze opdracht duren om te voltooien.
+Afhankelijk van uw netwerkverbinding en het Hallo-grootte van het VHD-bestand met deze opdracht kan een tijdje duren toocomplete.
 
 
-## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>Optie 2: Kopieer de VHD van een bestaande virtuele machine in Azure
+## <a name="option-2-copy-hello-vhd-from-an-existing-azure-vm"></a>Optie 2: Kopieer Hallo VHD van een bestaande virtuele machine in Azure
 
-U kunt een VHD kopiëren naar een ander opslagaccount te gebruiken bij het maken van een nieuwe, dubbele virtuele machine.
+Bij het maken van een nieuwe, dubbele virtuele machine, kunt u een VHD tooanother storage account toouse kopiëren.
 
 ### <a name="before-you-begin"></a>Voordat u begint
 Zorg ervoor dat u:
 
-* Hebt u informatie over de **bron- en storage-accounts**. Voor de bron-VM moet u de namen van de storage-account en container hebt. Normaal gesproken de containernaam is **VHD's**. U moet ook een doelopslagaccount hebben. Als u dit niet al hebt, kunt u een met ofwel de portal (**meer Services** > opslagaccounts > toevoegen) of met behulp van de [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
-* Hebt gedownload en geïnstalleerd de [AzCopy hulpprogramma](../../storage/common/storage-use-azcopy.md). 
+* Informatie over Hallo **bron- en storage-accounts**. Hallo bron-VM moet u toohave Hallo storage-account en de container namen. Normaal gesproken Hallo containernaam worden **VHD's**. U moet ook een doelopslagaccount toohave. Als u dit niet al hebt, kunt u een met een van de portals hello (**meer Services** > opslagaccounts > toevoegen) of met behulp van Hallo [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
+* Hebt gedownload en geïnstalleerd Hallo [AzCopy hulpprogramma](../../storage/common/storage-use-azcopy.md). 
 
-### <a name="deallocate-the-vm"></a>De virtuele machine ongedaan
-Toewijzing van de VM, u de VHD maakt moet worden gekopieerd. 
+### <a name="deallocate-hello-vm"></a>Hallo VM ongedaan gemaakt
+Toewijzing Hallo virtuele machine vrijgemaakt Hallo VHD toobe gekopieerd wordt. 
 
 * **Portal**: klik op **virtuele machines** > **myVM** > stoppen
-* **PowerShell**: Gebruik [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) gestopt (toewijzing ongedaan maken) de virtuele machine met de naam **myVM** in de resourcegroep **myResourceGroup**.
+* **PowerShell**: Gebruik [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) toostop (ongedaan gemaakt) met de naam VM Hallo **myVM** in de resourcegroep **myResourceGroup**.
 
 ```powershell
 Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-De **Status** voor de virtuele machine in Azure portal wordt gewijzigd van **gestopt** naar **gestopt (toewijzing opgeheven)**.
+Hallo **Status** voor Hallo VM in hello Azure portal wordt gewijzigd van **gestopt** te**gestopt (toewijzing opgeheven)**.
 
-### <a name="get-the-storage-account-urls"></a>De storage-account-URL's ophalen
-U moet de URL's van de bron- en storage-accounts. De URL's eruit: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Als u de naam van de storage-account en de container al weet, kunt u alleen de gegevens tussen de vierkante haken voor het maken van de URL van uw vervangen. 
+### <a name="get-hello-storage-account-urls"></a>Hallo storage-account-URL's ophalen
+U moet Hallo-URL's van Hallo bron- en storage-accounts. Hallo URL er als volgt uitzien: `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Als u al Hallo-account en de container Opslagnaam weet, kunt u zojuist hebt vervangen Hallo informatie tussen Hallo haken toocreate uw URL. 
 
-U kunt de Azure portal of Azure Powershell gebruiken om de URL te krijgen:
+U kunt hello Azure-portal of Azure Powershell tooget Hallo URL gebruiken:
 
-* **Portal**: klik op de  **>**  voor **meer services** > **opslagaccounts**  >   *Storage-account* > **Blobs** en de bron-VHD-bestand is waarschijnlijk in de **VHD's** container. Klik op **eigenschappen** voor de container en kopieer de tekst met het label **URL**. U moet de URL's van de bron- en doelserver containers. 
-* **PowerShell**: Gebruik [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) ophalen van de gegevens voor de virtuele machine met de naam **myVM** in de resourcegroep **myResourceGroup**. Zoeken in de resultaten in de **archiefprofiel** sectie voor de **Vhd-Uri**. Het eerste deel van de Uri is de URL van de container en het laatste deel is de naam van de OS-VHD voor de virtuele machine.
+* **Portal**: klik op Hallo  **>**  voor **meer services** > **opslagaccounts**  >   *Storage-account* > **Blobs** en de bron-VHD-bestand is waarschijnlijk in Hallo **VHD's** container. Klik op **eigenschappen** voor Hallo-container en de tekst hello kopiëren met het label **URL**. U moet Hallo-URL's van beide Hallo bron- en doelserver containers. 
+* **PowerShell**: Gebruik [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) tooget Hallo-informatie voor de virtuele machine met de naam **myVM** in de resourcegroep Hallo **myResourceGroup**. Hallo-resultaten, kijk in Hallo **archiefprofiel** sectie voor Hallo **Vhd-Uri**. Hallo eerste deel van Hallo Uri is Hallo URL toohello container en het laatste deel Hallo is Hallo OS VHD-naam voor Hallo VM.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
-## <a name="get-the-storage-access-keys"></a>Ophalen van de toegangssleutels voor opslag
-De sneltoetsen voor de bron- en storage-accounts vinden. Zie voor meer informatie over toegangstoetsen [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
+## <a name="get-hello-storage-access-keys"></a>Hallo opslagtoegangssleutels ophalen
+Hallo toegangstoetsen voor Hallo bron- en storage-accounts gevonden. Zie voor meer informatie over toegangstoetsen [over Azure storage-accounts](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: klik op **meer services** > **opslagaccounts** > *opslagaccount*  >  **Toegangssleutels**. Kopieer de sleutel met het label **key1**.
-* **PowerShell**: Gebruik [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ophalen van de opslagsleutel voor het opslagaccount **mystorageaccount** in de resourcegroep **myResourceGroup**. Kopieer de sleutel met het label **key1**.
+* **Portal**: klik op **meer services** > **opslagaccounts** > *opslagaccount*  >  **Toegangssleutels**. Kopiëren Hallo sleutel aangeduid als **key1**.
+* **PowerShell**: Gebruik [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) tooget Hallo-opslagsleutel voor opslagaccount hello **mystorageaccount** in de resourcegroep Hallo  **myResourceGroup**. Kopiëren Hallo sleutel met het label **key1**.
 
 ```powershell
 Get-AzureRmStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
 ```
 
-### <a name="copy-the-vhd"></a>Kopieer de VHD
-U kunt bestanden kopiëren tussen opslagaccounts met behulp van AzCopy. Voor de doelcontainer als de opgegeven container niet bestaat, wordt deze gemaakt voor u. 
+### <a name="copy-hello-vhd"></a>Hallo VHD kopiëren
+U kunt bestanden kopiëren tussen opslagaccounts met behulp van AzCopy. Voor de doelcontainer hello, als de opgegeven container Hallo niet bestaat, zal deze worden voor u gemaakt. 
 
-Open een opdrachtprompt op uw lokale computer voor het gebruik van AzCopy en navigeer naar de map waarin AzCopy is geïnstalleerd. Dit is vergelijkbaar met *C:\Program Files (x86) \Microsoft SDKs\Azure\AzCopy*. 
+toouse AzCopy, open een opdrachtprompt op uw lokale machine en navigeer toohello-map waarin AzCopy is geïnstalleerd. Deze lijken te*C:\Program Files (x86) \Microsoft SDKs\Azure\AzCopy*. 
 
-Alle bestanden in een container wilt kopiëren, gebruikt u de **/S** overschakelen. Dit kan worden gebruikt voor het kopiëren van de OS-VHD en alle gegevensschijven van de als deze zich in dezelfde container. Dit voorbeeld ziet u hoe u kopieert u alle bestanden in de container **mysourcecontainer** in opslagaccount **mysourcestorageaccount** aan de container **mydestinationcontainer**in de **mydestinationstorageaccount** storage-account. De namen van de storage-accounts en containers vervangen door uw eigen. Vervang `<sourceStorageAccountKey1>` en `<destinationStorageAccountKey1>` met uw eigen sleutels.
+toocopy alle Hallo bestanden binnen een container, gebruikt u Hallo **/S** overschakelen. Dit kan gebruikte toocopy Hallo OS VHD en alle Hallo gegevensschijven als ze in dezelfde container Hallo. Dit voorbeeld ziet u hoe alle Hallo bestanden in de container Hallo toocopy **mysourcecontainer** in opslagaccount **mysourcestorageaccount** toohello container **mydestinationcontainer**  in Hallo **mydestinationstorageaccount** storage-account. Hallo-namen van opslagaccounts hello en containers vervangen door uw eigen. Vervang `<sourceStorageAccountKey1>` en `<destinationStorageAccountKey1>` met uw eigen sleutels.
 
 ```
 AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
@@ -167,7 +167,7 @@ AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecont
     /SourceKey:<sourceStorageAccountKey1> /DestKey:<destinationStorageAccountKey1> /S
 ```
 
-Als u wilt kopiëren van een specifieke VHD in een container met meerdere bestanden, kunt u ook de naam van het bestand met de schakeloptie /Pattern opgeven. In dit voorbeeld wordt alleen het bestand met de naam **myFileName.vhd** worden gekopieerd.
+Als u wilt dat alleen toocopy een specifieke VHD in een container met meerdere bestanden, kunt u ook Hallo bestandsnaam met Hallo /Pattern switch opgeven. In dit voorbeeld bestand met de naam alleen Hallo **myFileName.vhd** worden gekopieerd.
 
 ```
 AzCopy /Source:https://mysourcestorageaccount.blob.core.windows.net/mysourcecontainer `
@@ -191,24 +191,24 @@ Elapsed time:            00.00:13:07
 ```
 
 ### <a name="troubleshooting"></a>Problemen oplossen
-* Wanneer u met AZCopy, als de foutmelding 'Kan niet verifiëren van de aanvraag Server', zorg ervoor dat de waarde van de autorisatie-header is een samengesteld correct met inbegrip van de handtekening. Als u sleutel 2 of de sleutel van de secundaire opslag gebruikt, probeert u de primaire of 1e-opslagsleutel.
+* Wanneer u met AZCopy, als er een fout Hallo 'Server is mislukt tooauthenticate Hallo aanvraag', zorg er dan voor dat Hallo-waarde van de autorisatie-header Hallo correct inclusief Hallo handtekening is samengesteld. Als u sleutel 2 of Hallo secundaire opslagsleutel gebruikt, probeert u de primaire of 1e opslagsleutel Hallo.
 
-## <a name="create-the-new-vm"></a>De nieuwe virtuele machine maken 
+## <a name="create-hello-new-vm"></a>Maken van nieuwe virtuele machine Hallo 
 
-U moet maken van netwerken en andere VM-netwerkbronnen kunnen worden gebruikt door de nieuwe virtuele machine.
+U moet toocreate netwerken en andere VM-resources toobe die wordt gebruikt door Hallo nieuwe virtuele machine.
 
-### <a name="create-the-subnet-and-vnet"></a>Het subNet en een vNet maken
+### <a name="create-hello-subnet-and-vnet"></a>Hallo-subNet en een vNet maken
 
-Maken van het vNet en het subNet van de [virtueel netwerk](../../virtual-network/virtual-networks-overview.md).
+Hallo vNet en subNet Hallo maken [virtueel netwerk](../../virtual-network/virtual-networks-overview.md).
 
-1. Het subNet maken. In dit voorbeeld wordt een subnet met de naam **mySubNet**, in de resourcegroep **myResourceGroup**, en stelt u het adres subnetvoorvoegsel op **10.0.0.0/24**.
+1. Hallo subNet maken. In dit voorbeeld wordt een subnet met de naam **mySubNet**, in de resourcegroep Hallo **myResourceGroup**, en stelt Hallo adresvoorvoegsel subnet te**10.0.0.0/24**.
    
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubNet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Het vNet maken. Dit voorbeeld wordt de naam van het virtuele netwerk moet **myVnetName**, de locatie voor het **VS-West**, en het adresvoorvoegsel voor het virtuele netwerk naar **10.0.0.0/16**. 
+2. Hallo vNet maken. In dit voorbeeld sets Hallo virtueel netwerk naam toobe **myVnetName**, locatie te Hallo**VS-West**, en het adresvoorvoegsel voor het virtuele netwerk hello te Hallo**10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"
@@ -218,16 +218,16 @@ Maken van het vNet en het subNet van de [virtueel netwerk](../../virtual-network
     ```    
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Een openbaar IP-adres en NIC maken
-Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt u een [openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) en een netwerkinterface nodig.
+tooenable communicatie met Hallo virtuele machine in het virtuele netwerk hello, moet u een [openbaar IP-adres](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) en een netwerkinterface.
 
-1. Het openbare IP-adres maken. In dit voorbeeld wordt de openbare naam van de IP-adres is ingesteld op **myIP**.
+1. Hallo openbare IP-adres maken. In dit voorbeeld Hallo naam openbare IP-adres te ingesteld**myIP**.
    
     ```powershell
     $ipName = "myIP"
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
-2. Maken van de NIC. In dit voorbeeld wordt de naam van de NIC is ingesteld op **myNicName**.
+2. Hallo NIC. maken In dit voorbeeld Hallo NIC naam te is ingesteld**myNicName**.
    
     ```powershell
     $nicName = "myNicName"
@@ -235,9 +235,9 @@ Om te kunnen communiceren met de virtuele machine in het virtuele netwerk, hebt 
     -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>De netwerkbeveiligingsgroep en een RDP-regel maken
-Als u zich aanmelden bij uw virtuele machine met RDP, moet u een regel waarmee op poort 3389 van RDP-toegang hebben. Omdat de VHD voor de nieuwe virtuele machine is gemaakt van een bestaand kunt gespecialiseerde VM, nadat de virtuele machine u maakt een bestaand account van de virtuele bronmachine die machtiging aan te melden met RDP had gebruiken.
-In het volgende voorbeeld wordt de naam van de NSG op **myNsg** en de naam van de RDP-regel aan **myRdpRule**.
+### <a name="create-hello-network-security-group-and-an-rdp-rule"></a>Netwerkbeveiligingsgroep hello en een RDP-regel maken
+toobe kunnen toolog in tooyour VM met RDP, moet u toohave een beveiligingsregel waarmee op poort 3389 van RDP-toegang. Omdat Hallo VHD voor de nieuwe virtuele machine is gemaakt van een bestaand Hallo gespecialiseerde kunt VM, nadat Hallo VM is gemaakt, moet u een bestaand account van Hallo virtuele bronmachine die machtiging toolog over het gebruik van RDP had gebruiken.
+In dit voorbeeld wordt de naam van het NSG te Hallo**myNsg** en Hallo RDP regelnaam te**myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"
@@ -251,53 +251,53 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
     
 ```
 
-Zie voor meer informatie over eindpunten en NSG-regels [openen van poorten voor een virtuele machine in Azure met behulp van PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Zie voor meer informatie over eindpunten en NSG-regels [openen van poorten tooa VM in Azure met behulp van PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="set-the-vm-name-and-size"></a>VM-naam en de grootte instellen
+### <a name="set-hello-vm-name-and-size"></a>Hallo VM-naam en de grootte instellen
 
-Dit voorbeeld wordt de naam van de VM naar 'myVM' en de VM-grootte naar 'Standard_A2'.
+In dit voorbeeld sets Hallo VM-naam te 'myVM' en Hallo VM grootte te 'Standard_A2'.
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-### <a name="add-the-nic"></a>De NIC toevoegen
+### <a name="add-hello-nic"></a>Hallo NIC toevoegen
     
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
     
-### <a name="configure-the-os-disk"></a>Configureer de OS-schijf
+### <a name="configure-hello-os-disk"></a>Configureer Hallo OS-schijf
 
-1. Stel de URI voor de VHD die u hebt geüpload of gekopieerd. In dit voorbeeld wordt het VHD-bestand met de naam **myOsDisk.vhd** wordt opgeslagen in een opslagaccount met de naam **myStorageAccount** in een container met de naam **myContainer**.
+1. Stel Hallo URI voor Hallo VHD die u hebt geüpload of gekopieerd. In dit voorbeeld Hallo VHD-bestand met de naam **myOsDisk.vhd** wordt opgeslagen in een opslagaccount met de naam **myStorageAccount** in een container met de naam **myContainer**.
 
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. De OS-schijf toevoegen. Wanneer de besturingssysteemschijf is gemaakt, is de term 'osDisk' in dit voorbeeld appened op de VM-naam voor het maken van de besturingssysteemschijf. In dit voorbeeld geeft ook dat deze VHD op basis van Windows moet worden gekoppeld aan de virtuele machine als de besturingssysteemschijf.
+2. Hallo OS-schijf toevoegen. Wanneer Hallo besturingssysteemschijf is gemaakt, is osDisk' hello term' in dit voorbeeld appened toohello VM naam toocreate Hallo naam Besturingssysteemschijf. In dit voorbeeld geeft ook dat deze VHD op basis van Windows gekoppelde toohello VM als Hallo OS-schijf moet worden.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"
     $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
-Optioneel: Als u gegevensschijven die moeten worden gekoppeld aan de virtuele machine hebt, de gegevensschijven toevoegen met behulp van de URL's van de gegevens van virtuele harde schijven en de juiste Logical Unit Number (Lun).
+Optioneel: Als u gegevensschijven hebt die moeten toobe gekoppeld toohello VM en voeg Hallo gegevensschijven met behulp van URL's van gegevens VHD's Hallo Hallo juiste Logical Unit Number (Lun).
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"
 $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
 ```
 
-Wanneer u een opslagaccount, de gegevens en de URL's van besturingssysteem schijf als volgt uitzien: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. U kunt dit vinden op de portal bladeren naar de doel-storage-container, klikt u op het besturingssysteem of gegevens VHD die is gekopieerd en vervolgens de inhoud van de URL te kopiëren.
+Wanneer u een opslagaccount, Hallo gegevens en URL's van besturingssysteem schijf als volgt uitzien: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. U kunt dit vinden op Hallo portal door bladeren toohello doel storage-container, klikt u op Hallo besturingssysteem of gegevens VHD die is gekopieerd en vervolgens inhoud Hallo van Hallo-URL te kopiëren.
 
 
-### <a name="complete-the-vm"></a>De virtuele machine voltooien 
+### <a name="complete-hello-vm"></a>Hallo VM voltooien 
 
-De virtuele machine maken met de configuraties die we zojuist hebben gemaakt.
+Maak Hallo VM die gebruikmaakt van Hallo-configuraties die we zojuist hebben gemaakt.
 
 ```powershell
-#Create the new VM
+#Create hello new VM
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
@@ -310,8 +310,8 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-### <a name="verify-that-the-vm-was-created"></a>Controleren of de virtuele machine is gemaakt
-U ziet de zojuist gemaakte virtuele machine ofwel in de [Azure-portal](https://portal.azure.com)onder **Bladeren** > **virtuele machines**, of met behulp van de volgende PowerShell-opdrachten:
+### <a name="verify-that-hello-vm-was-created"></a>Controleer of deze Hallo die VM is gemaakt
+U ziet Hallo nieuw gemaakte VM in Hallo [Azure-portal](https://portal.azure.com)onder **Bladeren** > **virtuele machines**, of met behulp van de volgende PowerShell Hallo opdrachten:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName
@@ -319,5 +319,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u wilt aanmelden bij uw nieuwe virtuele machine, blader naar de virtuele machine in de [portal](https://portal.azure.com), klikt u op **Connect**, en open het RDP-Remote Desktop-bestand. Gebruik de referenties van het account van uw oorspronkelijke virtuele machine aan te melden bij uw nieuwe virtuele machine. Zie voor meer informatie [verbinding maken met en meld u aan een virtuele machine van Azure waarop Windows wordt uitgevoerd bij](connect-logon.md).
+toosign in tooyour nieuwe virtuele machine, bladeren toohello VM in Hallo [portal](https://portal.azure.com), klikt u op **Connect**, en open Hallo Remote Desktop RDP-bestand. Gebruik de accountreferenties op Hallo van uw oorspronkelijke toosign van de virtuele machine in tooyour nieuwe virtuele machine. Zie voor meer informatie [hoe tooconnect en aanmelden tooan Azure virtuele machine met Windows](connect-logon.md).
 

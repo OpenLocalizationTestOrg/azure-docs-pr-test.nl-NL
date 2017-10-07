@@ -1,5 +1,5 @@
 ---
-title: Slimme detectie in Azure Application Insights | Microsoft Docs
+title: aaaSmart detectie in Azure Application Insights | Microsoft Docs
 description: "Application Insights voert een automatische grondige analyse van uw app Telemetrie en waarschuwt u potentiële problemen."
 services: application-insights
 documentationcenter: windows
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.openlocfilehash: f203b2a532ea721d9797c67a4750896e3ab2b9f7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f794476088fc69154eda2077b7a5cdc769fab3a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="smart-detection-in-application-insights"></a>Slimme detectie in Application Insights
- Slimme detectie waarschuwt automatisch u over potentiële prestatieproblemen in uw webtoepassing. Proactieve analyse van de telemetrie die uw app naar verzendt uitgevoerd [Application Insights](app-insights-overview.md). Als er een plotselinge toename van de fout tarieven of afwijkende patronen in de prestaties van de client of server is, krijgt u een waarschuwing. Deze functie heeft geen configuratie nodig. Dit werkt als uw toepassing voldoende telemetrie verzendt.
+ Slimme detectie waarschuwt automatisch u over potentiële prestatieproblemen in uw webtoepassing. Proactieve analyse van Hallo telemetrie die uw app te verzendt worden uitgevoerd[Application Insights](app-insights-overview.md). Als er een plotselinge toename van de fout tarieven of afwijkende patronen in de prestaties van de client of server is, krijgt u een waarschuwing. Deze functie heeft geen configuratie nodig. Dit werkt als uw toepassing voldoende telemetrie verzendt.
 
-U kunt toegang verkrijgen tot de Slimme detectie waarschuwingen van de e-mails die u ontvangt, en van de blade Slimme detectie.
+U kunt Slimme detectie waarschuwingen openen van e-mailberichten Hallo die u ontvangt, en van Hallo Slimme detectie blade.
 
 ## <a name="review-your-smart-detections"></a>Bekijk uw smartcard detecties
 U kunt detecteren detecties op twee manieren:
@@ -31,34 +31,34 @@ U kunt detecteren detecties op twee manieren:
   
     ![E-mailmelding](./media/app-insights-proactive-diagnostics/03.png)
   
-    Klik op de grote knop om meer details in de portal.
-* **De tegel Slimme detectie** op overzicht van uw app blade ziet u een aantal van recente meldingen. Klik op de tegel om een lijst met recente waarschuwingen weer.
+    Klik op Hallo big knop tooopen gedetailleerder Hallo-portal.
+* **Hallo Slimme detectie tegel** op overzicht van uw app blade ziet u een aantal van recente meldingen. Klik op Hallo tegel toosee een lijst met recente meldingen.
 
 ![Recente detecties weergeven](./media/app-insights-proactive-diagnostics/04.png)
 
-Selecteer een waarschuwing om de details te bekijken.
+Selecteer een waarschuwing toosee de details ervan.
 
 ## <a name="what-problems-are-detected"></a>Welke problemen worden ontdekt?
 Er zijn drie soorten detectie:
 
-* [Detectie - fout afwijkingen van smartcard](app-insights-proactive-failure-diagnostics.md). We gebruiken machine learning voor het instellen van de verwachte frequentie van mislukte aanvragen voor uw app correleren met load en andere factoren. Als het Faalpercentage buiten de verwachte envelop gaat, sturen we een waarschuwing.
-* [Detectie - afwijkingen van smartcard](app-insights-proactive-performance-diagnostics.md). Als de reactietijd van een bewerking of een afhankelijkheid duur is langzaam wordt vergeleken met de historische basislijn of als we een afwijkende patroon in reactietijden of laadtijd van pagina identificeren krijgt u meldingen.   
+* [Detectie - fout afwijkingen van smartcard](app-insights-proactive-failure-diagnostics.md). We gebruiken machine learning tooset Hallo verwacht aantal mislukte aanvragen voor uw app, correleren met load en andere factoren. Als percentage van de mislukte Hallo buiten de verwachte envelop hello gaat, verzonden er een waarschuwing.
+* [Detectie - afwijkingen van smartcard](app-insights-proactive-performance-diagnostics.md). Als de reactietijd van een bewerking of een afhankelijkheid duur vergeleken toohistorical basislijn is vertragen of als we een afwijkende patroon in reactietijden of laadtijd van pagina identificeren krijgt u meldingen.   
 * [Detectie - problemen met Azure Cloud Service slimme](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Als uw app wordt gehost in Azure Cloud Services en een rolinstantie heeft startfouten, vaak worden gerecycled of runtime crashes krijgt u waarschuwingen.
 
-(De help-koppelingen in elke melding gaat u naar de relevante artikelen.)
+(Hallo help-koppelingen in elke melding duren u relevante artikelen toohello.)
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app te controleren:
+Deze diagnostische hulpprogramma's kunnen u controleren Hallo telemetrie van uw app:
 
 * [Metrische explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
 * [Analytics - krachtige querytaal](app-insights-analytics-tour.md)
 
-Detectie van de smartcard is volledig automatisch. Maar misschien u sommige meer waarschuwingen instellen?
+Detectie van de smartcard is volledig automatisch. Maar misschien wilt u tooset van sommige waarschuwingen meer?
 
 * [Handmatig geconfigureerde metrische waarschuwingen](app-insights-alerts.md)
 * [Webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) 

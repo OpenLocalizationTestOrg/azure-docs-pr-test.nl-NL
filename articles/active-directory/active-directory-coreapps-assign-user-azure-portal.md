@@ -1,6 +1,6 @@
 ---
-title: Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory | Microsoft Docs
-description: Hoe u een enterprise app selecteren om een gebruiker of groep aan toewijzen in Azure Active Directory
+title: een gebruiker of groep tooan enterprise-app in Azure Active Directory aaaAssign | Microsoft Docs
+description: Hoe tooselect een enterprise-app tooassign een gebruiker of groep tooit in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: ee784704ada9238b5cd048f99aaa4cb192ec7d57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86c11f19892b9c947a5331677c17759178ed2806
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory
-Het is gemakkelijk een gebruiker of een groep toewijzen aan uw zakelijke toepassingen in Azure Active Directory (Azure AD). U moet de juiste machtigingen voor het beheren van de app voor de onderneming hebben en u moet een globale beheerder voor de map.
+# <a name="assign-a-user-or-group-tooan-enterprise-app-in-azure-active-directory"></a>Toewijzen van een gebruiker of groep tooan enterprise-app in Azure Active Directory
+Het is gemakkelijk tooassign een gebruiker of een groep tooyour zakelijke toepassingen in Azure Active Directory (Azure AD). U moet Hallo gemachtigd toomanage Hallo enterprise app, en moet u hoofdbeheerder voor Hallo-directory.
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Hoe wijs ik gebruikerstoegang naar een enterprise-app
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **meer services**, Azure Active Directory invoeren in het tekstvak en selecteer vervolgens **Enter**.
-3. Op de **Azure Active Directory - *directoryname***  blade (dat wil zeggen, de Azure AD blade voor de map die u beheert), selecteer **bedrijfstoepassingen**.
+## <a name="how-do-i-assign-user-access-tooan-enterprise-app"></a>Hoe wijs ik gebruiker access tooan enterprise-app
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor Hallo-directory.
+2. Selecteer **meer services**, Azure Active Directory in het tekstvak Hallo invoeren en selecteer vervolgens **Enter**.
+3. Op Hallo **Azure Active Directory - *directoryname***  blade (dat wil zeggen hello Azure AD blade voor Hallo-directory die u beheert), selecteer **bedrijfstoepassingen**.
 
     ![Openen zakelijke apps](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
-4. Op de **bedrijfstoepassingen** blade Selecteer **alle toepassingen**. Hier ziet u een lijst met de apps die u kunt beheren.
-5. Op de **bedrijfstoepassingen - alle toepassingen** blade, selecteert u een app.
-6. Op de ***appname*** blade (dat wil zeggen, de blade met de naam van de geselecteerde app in de titel), selecteer **gebruikers en groepen**.
+4. Op Hallo **bedrijfstoepassingen** blade Selecteer **alle toepassingen**. Hier ziet u een lijst met Hallo-apps die u kunt beheren.
+5. Op Hallo **bedrijfstoepassingen - alle toepassingen** blade, selecteert u een app.
+6. Op Hallo ***appname*** blade (dat wil zeggen, Hallo blade met de naam van de geselecteerde app Hallo in Hallo titel Hallo), selecteer **gebruikers en groepen**.
 
-    ![De opdracht Alles toepassingen selecteren](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
-7. Op de ***appname*** **-gebruiker & groepstoewijzing** blade, selecteer de **toevoegen** opdracht.
-8. Op de **toevoegen toewijzing** blade Selecteer **gebruikers en groepen**.
+    ![Opdracht voor alle toepassingen selecteren Hallo](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
+7. Op Hallo ***appname*** **-gebruiker & groepstoewijzing** blade, selecteer Hallo **toevoegen** opdracht.
+8. Op Hallo **toevoegen toewijzing** blade Selecteer **gebruikers en groepen**.
 
-    ![Een gebruiker of groep toewijzen aan de app.](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
-9. Op de **gebruikers en groepen** blade gebruikers of groepen uit de lijst selecteren en selecteer vervolgens de **Selecteer** knop aan de onderkant van de blade.
-10. Op de **toevoegen toewijzing** blade Selecteer **rol**. Klik op de **rol selecteren** blade, selecteert u een rol op de geselecteerde gebruikers of groepen wilt toepassen en selecteer vervolgens de **OK** knop aan de onderkant van de blade.
-11. Op de **toevoegen toewijzing** blade, selecteer de **toewijzen** knop aan de onderkant van de blade. De toegewezen gebruikers of groepen heeft de machtigingen die zijn gedefinieerd door de geselecteerde rol voor deze app voor de onderneming.
+    ![Toewijzen van een gebruiker of groep toohello-app](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
+9. Op Hallo **gebruikers en groepen** blade, selecteer een of meer gebruikers of groepen van Hallo lijst en selecteer vervolgens Hallo **Selecteer** knop Hallo Hallo blade onderaan in.
+10. Op Hallo **toevoegen toewijzing** blade Selecteer **rol**. Klik vervolgens op Hallo **rol selecteren** blade, selecteer een rol tooapply toohello gebruikers of groepen hebt geselecteerd, en selecteer vervolgens Hallo **OK** knop Hallo Hallo blade onderaan in.
+11. Op Hallo **toevoegen toewijzing** blade, selecteer Hallo **toewijzen** knop Hallo Hallo blade onderaan in. Hallo toegewezen gebruikers of groepen wordt gedefinieerd door de geselecteerde rol voor deze app enterprise Hallo Hallo-machtigingen hebben.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Zie al mijn groepen](active-directory-groups-view-azure-portal.md)
 * [De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Uitschakelen van de gebruikersaanmeldingen voor een enterprise-app](active-directory-coreapps-disable-app-azure-portal.md)
-* [Wijzig de naam of het logo van een enterprise-app](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+* [Hallo-naam of het logo van een enterprise-app wijzigen](active-directory-coreapps-change-app-logo-user-azure-portal.md)

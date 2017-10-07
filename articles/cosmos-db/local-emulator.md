@@ -1,6 +1,6 @@
 ---
-title: Lokaal ontwikkelen met de Azure Cosmos DB Emulator | Microsoft Docs
-description: Met behulp van de Azure-Emulator Cosmos DB, kunt u ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement.
+title: aaaDevelop lokaal met hello Azure Cosmos DB Emulator | Microsoft Docs
+description: Hello Azure Cosmos DB Emulator gebruikt, kunt u ontwikkelen en testen van de toepassing lokaal voor gratis, zonder te maken van een Azure-abonnement.
 services: cosmos-db
 documentationcenter: 
 keywords: Azure Cosmos DB Emulator
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: arramac
-ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fb5449489e5f71664e72d8e11e583315be371bf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
+# <a name="use-hello-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Hello Azure Cosmos DB Emulator gebruiken voor lokale ontwikkeling en testen
 
 <table>
 <tr>
@@ -38,35 +38,35 @@ ms.lasthandoff: 08/29/2017
 </tr>
 </table>
   
-De Azure-Emulator Cosmos DB biedt een lokale omgeving waarin de service Azure Cosmos DB voor ontwikkelingsdoeleinden worden geëmuleerd. Met behulp van de Azure-Emulator Cosmos DB, kunt u ontwikkelen en testen van de toepassing lokaal zonder te maken van een Azure-abonnement of mogelijke kosten. Wanneer u tevreden bent over hoe uw toepassing in de Azure-Emulator Cosmos DB werkt, kunt u overschakelen naar het met een Azure DB die Cosmos-account in de cloud.
+Hello Azure Cosmos DB Emulator biedt een lokale omgeving waarin hello Azure DB die Cosmos-service voor ontwikkelingsdoeleinden worden geëmuleerd. Hello Azure Cosmos DB Emulator gebruikt, kunt u ontwikkelen en testen van de toepassing lokaal zonder te maken van een Azure-abonnement of mogelijke kosten. Wanneer u tevreden bent over hoe uw toepassing in Azure Cosmos DB Emulator Hallo werkt, kunt u een Azure DB die Cosmos-account in Hallo cloud toousing overschakelen.
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt Hallo taken te volgen: 
 
 > [!div class="checklist"]
-> * Installeren van de Emulator
-> * De Emulator uitgevoerd op Docker voor Windows
+> * Hallo Emulator installeren
+> * Hallo Emulator uitgevoerd op Docker voor Windows
 > * Verificatie van aanvragen
-> * Met behulp van de Data Explorer in de Emulator
+> * Met behulp van Hallo Data Explorer in Hallo Emulator
 > * SSL-certificaten exporteren
-> * Het aanroepen van de Emulator vanaf de opdrachtregel
+> * Hallo Emulator aanroepen vanaf de opdrachtregel Hallo
 > * Traceringsbestanden verzamelen
 
-Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij Kirill Gavrylyuk ziet u hoe u aan de slag met de Azure-Emulator Cosmos DB. Denk eraan dat de video verwijst naar de emulator als de DocumentDB-Emulator, maar het programma zelf is de Azure-Emulator Cosmos DB gewijzigd sinds de video grondverf. Alle informatie in de video is nog steeds correct zijn voor de Emulator Azure Cosmos DB. 
+Het is raadzaam om aan de slag door bekijkt hello video te volgen waarbij Kirill Gavrylyuk ziet u hoe tooget Hello Azure Cosmos DB Emulator gestart. Hallo video toohello emulator verwezen als Hallo DocumentDB-Emulator, maar Hallo hulpprogramma zelf heeft gekregen hello Azure Cosmos DB Emulator sinds grondverf Hallo video. Alle informatie in Hallo video nog steeds correct voor hello Azure Cosmos DB-Emulator. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
 > 
 
-## <a name="how-the-emulator-works"></a>De werking van de Emulator
-De Azure-Emulator Cosmos DB biedt een hoogwaardige emulatie van de service Azure Cosmos DB. Het ondersteunt dezelfde functionaliteit als Azure Cosmos DB, inclusief ondersteuning voor het maken en uitvoeren van query's JSON-documenten, inrichting en schalen van verzamelingen en uitvoering van opgeslagen procedures en triggers. U kunt ontwikkelen en testen van toepassingen met behulp van de Azure-Emulator Cosmos-database en deze implementeren in Azure op schaal globale door het maken van een configuratie voor één eindpunt van de verbinding voor Azure Cosmos DB wijzigen.
+## <a name="how-hello-emulator-works"></a>De werking van Hallo Emulator
+Hello Azure Cosmos DB Emulator biedt een hoogwaardige emulatie van hello Azure DB die Cosmos-service. Het ondersteunt dezelfde functionaliteit als Azure Cosmos DB, inclusief ondersteuning voor het maken en uitvoeren van query's JSON-documenten, inrichting en schalen van verzamelingen en uitvoering van opgeslagen procedures en triggers. U kunt ontwikkelen en testen van toepassingen die gebruikmaken van hello Azure Cosmos DB Emulator en deze tooAzure op globale schaal implementeren door het maken van een configuratie voor één toohello verbindingseindpunt voor Azure Cosmos DB wijzigen.
 
-Terwijl we een lokale emulatie van hoge kwaliteit van de werkelijke Azure DB die Cosmos-service hebt gemaakt, is de implementatie van de Azure Cosmos DB-Emulator is anders dan die van de service. De Azure-Emulator Cosmos DB gebruikt bijvoorbeeld de standaard OS-componenten zoals het lokale bestandssysteem voor de persistentie en HTTPS-protocolstack voor connectiviteit. Dit betekent dat bepaalde functies die afhankelijk van de Azure-infrastructuur is zoals globale replicatie, één cijfer milliseconde latentie voor leest/schrijft en instelbare consistentieniveaus zijn niet beschikbaar via de Azure-Emulator Cosmos DB.
+Terwijl we een lokale emulatie van hoge kwaliteit van Hallo werkelijke Azure DB die Cosmos-service hebt gemaakt, is Hallo-implementatie van hello Azure Cosmos DB Emulator anders dan die van Hallo-service. Hello Azure Cosmos DB Emulator gebruikt bijvoorbeeld de standaard OS-componenten zoals Hallo lokaal bestandssysteem voor de persistentie en HTTPS-protocolstack voor connectiviteit. Dit betekent dat bepaalde functies die afhankelijk van de Azure-infrastructuur is zoals globale replicatie, één cijfer milliseconde latentie voor leest/schrijft en instelbare consistentieniveaus zijn niet beschikbaar via hello Azure Cosmos DB-Emulator.
 
 > [!NOTE]
-> Op dit moment ondersteunt de Data Explorer in de emulator alleen het maken van verzamelingen voor DocumentDB-API en MongoDB-verzamelingen. De Data Explorer in de emulator biedt momenteel geen ondersteuning voor het maken van tabellen en grafieken kunt maken. 
+> Op dit moment Hallo Data Explorer in Hallo ondersteunt emulator alleen Hallo maken van verzamelingen voor DocumentDB-API en verzamelingen voor MongoDB. Hallo Data Explorer in Hallo-emulator biedt momenteel geen ondersteuning voor Hallo maken van tabellen en grafieken kunt maken. 
 
 ## <a name="system-requirements"></a>Systeemvereisten
-De Azure-Emulator Cosmos DB heeft de volgende hardware en software-vereisten:
+Hello Azure Cosmos DB Emulator heeft Hallo hardware- en softwarevereisten te volgen:
 
 * Softwarevereisten
   * Windows Server 2012 R2, WindowsServer 2016 of Windows 10
@@ -75,44 +75,44 @@ De Azure-Emulator Cosmos DB heeft de volgende hardware en software-vereisten:
   * 10 GB beschikbare schijfruimte
 
 ## <a name="installation"></a>Installeren
-U kunt downloaden en installeren van de Azure Cosmos DB-Emulator van de [Microsoft Download Center](https://aka.ms/cosmosdb-emulator). 
+U kunt downloaden en installeren van hello Azure Cosmos DB Emulator van Hallo [Microsoft Download Center](https://aka.ms/cosmosdb-emulator). 
 
 > [!NOTE]
-> Als u wilt installeren, configureren en uitvoeren van de Azure Cosmos DB-Emulator, moet u beheerdersbevoegdheden hebben op de computer.
+> tooinstall, configureren en uitvoeren van hello Azure Cosmos DB Emulator, moet u beheerdersrechten hebben op Hallo-computer.
 
 ## <a name="running-on-docker-for-windows"></a>Uitgevoerd op Docker voor Windows
 
-De Azure-Emulator Cosmos DB kan worden uitgevoerd op Docker voor Windows. De Emulator werkt niet op Docker voor Oracle Linux.
+Hello Azure Cosmos DB Emulator kan worden uitgevoerd op Docker voor Windows. Hallo Emulator werkt niet op Docker voor Oracle Linux.
 
-Zodra u hebt [Docker voor Windows](https://www.docker.com/docker-windows) geïnstalleerd, kunt u de installatiekopie van de Emulator van Docker-Hub pull met de volgende opdracht in uw favoriete shell (cmd.exe, PowerShell, enz.).
+Zodra u hebt [Docker voor Windows](https://www.docker.com/docker-windows) geïnstalleerd, kunt u Hallo Emulator afbeelding van Docker-Hub pull door het uitvoeren van de volgende opdracht uit uw favoriete shell hello (cmd.exe, PowerShell, enz.).
 
 ```      
 docker pull microsoft/azure-cosmosdb-emulator 
 ```
-Voer de volgende opdrachten voor het starten van de installatiekopie.
+toostart hello afbeelding, Hallo volgende opdrachten uitvoeren.
 
 ``` 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
 docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
 ```
 
-Het antwoord ziet er ongeveer als volgt uit:
+Hallo reactie lijkt vergelijkbaar toohello volgende:
 
 ```
 Starting Emulator
 Emulator Endpoint: https://172.20.229.193:8081/
 Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 Exporting SSL Certificate
-You can import the SSL certificate from an administrator command prompt on the host by running:
+You can import hello SSL certificate from an administrator command prompt on hello host by running:
 cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
 ``` 
 
-De interactieve shell sluiten nadat de Emulator is gestart wordt afgesloten container van de Emulator.
+Hallo interactieve shell sluiten zodra Hallo Emulator is gestart, wordt afgesloten Hallo Emulator container.
 
-Het eindpunt en de hoofdsleutel in uit het antwoord in de client en het SSL-certificaat importeren in de host. Doe het volgende vanaf een opdrachtprompt admin voor het importeren van het SSL-certificaat:
+Hallo-eindpunt en de hoofdsleutel in uit Hallo antwoord gebruiken in uw client- en Hallo SSL-certificaat importeren in de host. tooimport hello SSL-certificaat Hallo vanaf een opdrachtprompt admin te volgen:
 
 ```
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
@@ -120,21 +120,21 @@ powershell .\importcert.ps1
 ```
 
 
-## <a name="start-the-emulator"></a>Start de Emulator
+## <a name="start-hello-emulator"></a>Hallo Emulator te starten
 
-Start de Emulator Azure Cosmos DB, selecteer de knop Start of druk op de Windows-toets. Begint te typen **Azure Cosmos DB Emulator**, en selecteert u de emulator in de lijst met toepassingen. 
+toostart hello Azure Cosmos DB-Emulator, selecteer de knop Start Hallo of druk op Hallo Windows-toets. Begint te typen **Azure Cosmos DB Emulator**, en selecteer Hallo-emulator in Hallo lijst met toepassingen. 
 
-![Selecteer de knop Start of druk op de Windows-toets, begint te typen ** Azure Cosmos DB Emulator ** en selecteert u de emulator van de lijst met toepassingen](./media/local-emulator/database-local-emulator-start.png)
+![Selecteer Hallo Start of drukt u op Hallo Windows-toets, begint te typen ** Azure Cosmos DB Emulator ** en selecteer Hallo-emulator in Hallo lijst met toepassingen](./media/local-emulator/database-local-emulator-start.png)
 
-Wanneer de emulator wordt uitgevoerd, ziet u een pictogram in het Windows-systeemvak. ![Azure DB Cosmos lokale emulator taakbalk melding](./media/local-emulator/database-local-emulator-taskbar.png)
+Wanneer het Hallo-emulator wordt uitgevoerd, ziet u een pictogram in systeemvak voor Windows hello. ![Azure DB Cosmos lokale emulator taakbalk melding](./media/local-emulator/database-local-emulator-taskbar.png)
 
-De Azure DB-Emulator standaard Cosmos wordt uitgevoerd op de lokale computer ('localhost'), luistert op poort 8081.
+Hello Azure Cosmos DB Emulator standaard op Hallo lokale computer ('localhost') luisteren op poort 8081 wordt uitgevoerd.
 
-De Azure-Emulator Cosmos DB wordt standaard geïnstalleerd bij naar de `C:\Program Files\Azure Cosmos DB Emulator` directory. U kunt ook starten en stoppen van de emulator vanaf de opdrachtregel. Zie [opdrachtregelprogramma](#command-line) voor meer informatie.
+Hello Azure Cosmos DB Emulator is geïnstalleerd door standaard toohello `C:\Program Files\Azure Cosmos DB Emulator` directory. U kunt ook starten en stoppen van de emulator vanaf de opdrachtregel Hallo Hallo. Zie [opdrachtregelprogramma](#command-line) voor meer informatie.
 
 ## <a name="start-data-explorer"></a>Start de Data Explorer
 
-Wanneer de emulator Azure Cosmos DB opent, wordt deze automatisch Azure Cosmos DB Data Explorer geopend in uw browser. Het adres wordt weergegeven als [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Als u de explorer sluiten en wilt het later opnieuw openen, kunt u de URL in uw browser te openen of starten van de Azure-Emulator Cosmos-database in het pictogram in systeemvak voor Windows, zoals hieronder wordt weergegeven.
+Wanneer hello Azure DB die Cosmos-emulator wordt gestart, wordt deze automatisch hello Azure Cosmos DB Data Explorer geopend in uw browser. Hallo-adres wordt weergegeven als [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Als u sluit Hallo explorer en toore open wilt dat deze later kunt u Hallo-URL in uw browser openen of starten van hello Azure Cosmos DB Emulator in pictogram in systeemvak voor Windows hello, zoals hieronder wordt weergegeven.
 
 ![Azure DB Cosmos lokale emulator data explorer starten](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -142,67 +142,67 @@ Wanneer de emulator Azure Cosmos DB opent, wordt deze automatisch Azure Cosmos D
 Data Explorer geeft aan of er een nieuwe update beschikbaar voor downloaden. 
 
 > [!NOTE]
-> Gegevens die zijn gemaakt in een versie van de Azure-Emulator Cosmos-database kan niet worden gegarandeerd toegankelijk zijn voor het gebruik van een andere versie. Als u nodig hebt om uw gegevens voor de lange termijn, verdient het aanbeveling om op te slaan die gegevens in een Azure DB die Cosmos-account, in plaats van de Azure-Emulator Cosmos DB. 
+> Gegevens die zijn gemaakt in een versie van hello Azure Cosmos DB Emulator kan niet worden gegarandeerd toobe toegankelijk wanneer u een andere versie. Als u toopersist uw gegevens nodig voor de lange termijn hello, verdient het aanbeveling om op te slaan die gegevens in een Azure DB die Cosmos-account, in plaats van hello Azure Cosmos DB-Emulator. 
 
 ## <a name="authenticating-requests"></a>Verificatie van aanvragen
-Net zoals met Azure Cosmos DB in de cloud, moet elke aanvraag die u op basis van de Azure-Emulator Cosmos DB maakt worden geverifieerd. De Azure-Emulator Cosmos DB ondersteunt één vaste account en een bekende verificatiesleutel voor de verificatie van de hoofdsleutel. Dit account en de sleutel zijn de enige referenties zijn toegestaan voor gebruik met de Azure Cosmos DB-Emulator. Ze zijn:
+Net zoals met Azure Cosmos-database in de cloud hello, moet elke aanvraag die u hebt aangebracht tegen hello Azure Cosmos DB Emulator worden geverifieerd. Hello Azure Cosmos DB Emulator ondersteunt één vaste account en een bekende verificatiesleutel voor de verificatie van de hoofdsleutel. Dit account en de sleutel zijn alleen Hallo-referenties zijn toegestaan voor gebruik met hello Azure Cosmos DB-Emulator. Ze zijn:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 
 > [!NOTE]
-> De hoofdsleutel ondersteund door de Azure Cosmos DB-Emulator is bedoeld voor gebruik met de emulator. U kunt uw Azure DB die Cosmos-account voor productie en de sleutel niet gebruiken met de Azure Cosmos DB-Emulator. 
+> hoofdsleutel Hello wordt ondersteund door hello Azure Cosmos DB Emulator is bedoeld voor gebruik met Hallo-emulator. U kunt uw Azure DB die Cosmos-account voor productie en de sleutel niet gebruiken met hello Azure Cosmos DB-Emulator. 
 
 > [!NOTE] 
-> Als u de emulator hebt gestart met de optie/Key, gebruikt u de gegenereerde sleutel in plaats van ' C2y6yDjf5/R + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw == "
+> Als u Hallo emulator hebt gestart met de optie/Key hello, gebruikt u Hallo gegenereerde sleutel in plaats van ' C2y6yDjf5/R + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw == "
 
-Bovendien, net als de service Azure Cosmos DB de Emulator Azure Cosmos-database ondersteunt alleen beveiligde communicatie via SSL.
+Bovendien, net zoals hello Azure DB die Cosmos-service, hello Azure Cosmos DB Emulator alleen beveiligde communicatie via SSL ondersteunt.
 
-## <a name="running-the-emulator-on-a-local-network"></a>De emulator uitgevoerd op een lokaal netwerk
+## <a name="running-hello-emulator-on-a-local-network"></a>Hallo-emulator uitgevoerd op een lokaal netwerk
 
-U kunt de emulator uitvoeren op een lokaal netwerk. Geef de optie /AllowNetworkAccess op zodat de toegang tot het netwerk de [opdrachtregel](#command-line-syntax), die ook vereisen dat u / Key opgeeft = key_string of/KeyFile = bestandsnaam. U kunt /GenKeyFile = bestandsnaam voor het genereren van een bestand met een willekeurige sleutel tevoren betaalt.  Vervolgens u doorgeven kunt dat naar/KeyFile = bestandsnaam of/Key = contents_of_file.
+U kunt Hallo emulator uitvoeren op een lokaal netwerk. tooenable netwerktoegang, geef Hallo /AllowNetworkAccess optie op Hallo [opdrachtregel](#command-line-syntax), die ook vereisen dat u / Key opgeeft = key_string of/KeyFile = bestandsnaam. U kunt /GenKeyFile = bestandsnaam toogenerate een bestand met een willekeurige sleutel tevoren betaalt.  Vervolgens kunt u die te/KeyFile doorgeven = bestandsnaam of/Key = contents_of_file.
 
-Toegang tot het netwerk voor het eerst inschakelen wordt de gebruiker moet de emulator afsluiten en verwijderen van de emulator gegevensmap (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
+toegang tot het netwerk van tooenable voor eerste gebruiker die tijd Hallo Hallo afsluiten Hallo-emulator moet en verwijder gegevensmap Hallo-emulator (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
-## <a name="developing-with-the-emulator"></a>Ontwikkelen met de Emulator
-Zodra u de Azure Cosmos DB-Emulator uitgevoerd op uw bureaublad hebt, kunt u elke ondersteunde [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) of de [REST-API van Azure Cosmos DB](/rest/api/documentdb/) om te communiceren met de Emulator. De Azure-Emulator Cosmos DB tevens een ingebouwde Data Explorer waarmee u verzamelingen voor de DocumentDB en MongoDB APIs en weergave maken en bewerken van documenten zonder een code te schrijven.   
+## <a name="developing-with-hello-emulator"></a>Ontwikkelen met Hallo Emulator
+Zodra u hebt Azure DB Cosmos-Emulator wordt uitgevoerd op uw bureaublad hello, kunt u elke ondersteunde [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) of Hallo [DB REST API van Azure Cosmos](/rest/api/documentdb/) toointeract Hello Emulator. Hello Azure Cosmos DB Emulator tevens een ingebouwde Data Explorer waarmee u verzamelingen voor Hallo DocumentDB en MongoDB APIs en weergave maken en bewerken van documenten zonder een code te schrijven.   
 
-    // Connect to the Azure Cosmos DB Emulator running locally
+    // Connect toohello Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Als u [Azure Cosmos DB protocolondersteuning voor MongoDB](mongodb-introduction.md), gebruik de volgende verbindingsreeks:
+Als u [Azure Cosmos DB protocolondersteuning voor MongoDB](mongodb-introduction.md), gebruik de volgende verbindingsreeks Hallo:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
-U kunt bestaande hulpprogramma's zoals [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) verbinding maken met de Azure-Emulator Cosmos DB. U kunt ook migreren van gegevens tussen de Azure-Emulator Cosmos DB en het gebruik van Azure DB die Cosmos service de [Azure Cosmos DB hulpprogramma voor gegevensmigratie](https://github.com/azure/azure-documentdb-datamigrationtool).
+U kunt bestaande hulpprogramma's zoals [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) tooconnect toohello Azure Cosmos DB-Emulator. U kunt ook gegevens migreert tussen hello Azure Cosmos DB Emulator en hello Azure Cosmos DB service met behulp van Hallo [Azure Cosmos DB hulpprogramma voor gegevensmigratie](https://github.com/azure/azure-documentdb-datamigrationtool).
 
 > [!NOTE] 
-> Als u de emulator hebt gestart met de optie/Key, gebruikt u de gegenereerde sleutel in plaats van ' C2y6yDjf5/R + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw == "
+> Als u Hallo emulator hebt gestart met de optie/Key hello, gebruikt u Hallo gegenereerde sleutel in plaats van ' C2y6yDjf5/R + ob0N8A7Cgv30VRDJIWEHLM + 4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw == "
 
-Met behulp van de emulator Azure Cosmos DB standaard, kunt u maximaal 25 verzamelingen met één partitie of 1 gepartitioneerde verzameling. Zie voor meer informatie over het wijzigen van deze waarde [PartitionCount waarde](#set-partitioncount).
+Met behulp van Azure DB die Cosmos-emulator hello, standaard, kunt u verzamelingen met één partitie too25 of 1 gepartitioneerde verzameling. Zie voor meer informatie over het wijzigen van deze waarde [hello PartitionCount instellingswaarde](#set-partitioncount).
 
-## <a name="export-the-ssl-certificate"></a>Het SSL-certificaat exporteren
+## <a name="export-hello-ssl-certificate"></a>Hallo SSL-certificaat exporteren
 
-.NET-talen en runtime gebruik van de Windows-certificaatarchief veilig verbinding te maken met de lokale Azure DB die Cosmos-emulator. Andere talen hebben hun eigen methode voor het beheren en gebruiken van certificaten. Java maakt gebruik van een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) dat gebruikmaakt van Python [socket wrappers](https://docs.python.org/2/library/ssl.html).
+.NET-talen en runtime gebruik Hallo Windows-certificaatarchief toosecurely verbinding maken met lokale toohello Azure DB die Cosmos-emulator. Andere talen hebben hun eigen methode voor het beheren en gebruiken van certificaten. Java maakt gebruik van een eigen [certificaatarchief](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) dat gebruikmaakt van Python [socket wrappers](https://docs.python.org/2/library/ssl.html).
 
-U wilt exporteren met behulp van de certificaatbeheerder Windows ter verkrijging van een certificaat wilt gebruiken met talen en runtimes die niet worden geïntegreerd in het certificaatarchief van Windows. U kunt starten door certlm.msc uitgevoerd of de stapsgewijze instructies in [exporteert u het certificaat Azure Cosmos DB Emulator](./local-emulator-export-ssl-certificates.md). Zodra de certificate manager wordt uitgevoerd, opent u de persoonlijke certificaten zoals hieronder wordt weergegeven en exporteer het certificaat met de beschrijvende naam 'DocumentDBEmulatorCertificate' als een BASE-64 X.509 (.cer)-bestand gecodeerde.
+In de volgorde tooobtain moet een certificaat toouse met talen en runtimes die niet worden geïntegreerd in Windows-certificaatarchief Hallo u tooexport met behulp van de certificaatbeheerder Windows hello. U kunt starten door het uitvoeren van certlm.msc of volg Hallo Stapsgewijze instructies in [hello Azure Cosmos DB Emulator certificaten exporteren](./local-emulator-export-ssl-certificates.md). Zodra de certificaatbeheerder hello wordt uitgevoerd, Hallo open Hallo persoonlijke certificaten zoals hieronder wordt weergegeven en exporteren certificaat met Hallo beschrijvende naam 'DocumentDBEmulatorCertificate' als een BASE-64 X.509 (.cer)-bestand gecodeerde.
 
 ![Azure DB Cosmos lokale emulator SSL-certificaat](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-Het X.509-certificaat kan worden geïmporteerd in het certificaatarchief Java door de instructies in [een certificaat toevoegen aan de Java CA certificatenarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Zodra het certificaat wordt geïmporteerd in het certificaatarchief, Java en de MongoDB-toepassingen worden verbinding kunnen maken met de Azure-Emulator Cosmos DB.
+Hallo X.509-certificaat kan worden geïmporteerd in Hallo Java-certificaatarchief door Hallo-instructies in [toevoegen van een certificaat toohello Java CA certificatenarchief](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Zodra het Hallo-certificaat wordt geïmporteerd in het certificaatarchief hello, zijn Java en de MongoDB-toepassingen kunnen tooconnect toohello Azure Cosmos DB Emulator.
 
-Bij het verbinden met de emulator van Python en Node.js-SDK's, is SSL-verificatie uitgeschakeld.
+Wanneer u verbinding maakt toohello emulator van Python en Node.js-SDK's, is SSL-verificatie uitgeschakeld.
 
 ## <a id="command-line"></a>Opdrachtregelprogramma
-Vanaf de installatielocatie, kunt u de opdrachtregel om te starten en stoppen van de emulator, opties configureren en andere bewerkingen uitvoeren.
+Vanaf de installatielocatie hello, kunt u Hallo opdrachtregelprogramma toostart gebruiken en Hallo emulator stoppen, opties configureren en andere bewerkingen uitvoeren.
 
 ### <a name="command-line-syntax"></a>De syntaxis van opdrachtregel
 
     CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
 
-Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` bij de opdrachtprompt.
+tooview hello lijst met opties, type `CosmosDB.Emulator.exe /?` achter de opdrachtprompt Hallo.
 
 <table>
 <tr>
@@ -213,51 +213,51 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 </tr>
 <tr>
   <td>[Geen argumenten]</td>
-  <td>De Azure-Emulator Cosmos DB met standaardinstellingen wordt opgestart.</td>
+  <td>Hello Azure Cosmos DB Emulator met standaardinstellingen wordt opgestart.</td>
   <td>CosmosDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>[Help]</td>
-  <td>Geeft de lijst met ondersteunde opdrachtregelargumenten.</td>
+  <td>Geeft Hallo lijst met ondersteunde opdrachtregelargumenten.</td>
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>afsluiten</td>
-  <td>De Azure Cosmos DB-Emulator wordt afgesloten.</td>
+  <td>Hello Azure Cosmos DB-Emulator wordt afgesloten.</td>
   <td>CosmosDB.Emulator.exe/Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>Gegevenspad</td>
-  <td>Hiermee geeft u het pad waarin de gegevensbestanden worden opgeslagen. Standaard is % LocalAppdata%\CosmosDBEmulator.</td>
+  <td>Hallo pad aangeeft in welke toostore gegevensbestanden worden opgeslagen. Standaard is % LocalAppdata%\CosmosDBEmulator.</td>
   <td>CosmosDB.Emulator.exe /DataPath =&lt;gegevenspad&gt;</td>
   <td>&lt;gegevenspad&gt;: een toegankelijk pad</td>
 </tr>
 <tr>
   <td>Poort</td>
-  <td>Hiermee geeft u het poortnummer dat moet worden gebruikt voor de emulator.  De standaardwaarde is 8081.</td>
+  <td>Hiermee geeft u de Hallo poort nummer toouse Hallo-emulator.  De standaardwaarde is 8081.</td>
   <td>CosmosDB.Emulator.exe/Port =&lt;poort&gt;</td>
   <td>&lt;poort&gt;: poortnummer</td>
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Hiermee geeft u het poortnummer dat moet worden gebruikt voor compatibiliteit met MongoDB API. De standaardwaarde is 10255.</td>
+  <td>Hiermee geeft u Hallo poort nummer toouse voor MongoDB-compatibiliteit API. De standaardwaarde is 10255.</td>
   <td>CosmosDB.Emulator.exe /MongoPort =&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: poortnummer</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
-  <td>Hiermee geeft u de poorten te gebruiken voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254.</td>
+  <td>Hiermee geeft u Hallo poorten toouse voor rechtstreekse connectiviteit. Standaardwaarden zijn 10251,10252,10253,10254.</td>
   <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: door komma's gescheiden lijst met 4 poorten</td>
 </tr>
 <tr>
   <td>Sleutel</td>
-  <td>De autorisatiesleutel voor de emulator. Sleutel moet de base 64-codering van een 64-byte-vector.</td>
+  <td>De autorisatiesleutel voor Hallo-emulator. Sleutel moet Hallo base 64-codering van een 64-byte-vector.</td>
   <td>CosmosDB.Emulator.exe/key:&lt;sleutel&gt;</td>
-  <td>&lt;sleutel&gt;: sleutel moet de base 64-codering van een 64-byte-vector</td>
+  <td>&lt;sleutel&gt;: sleutel moet Hallo base 64-codering van een 64-byte-vector</td>
 </tr>
 <tr>
   <td>EnableRateLimiting</td>
@@ -273,7 +273,7 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 </tr>
 <tr>
   <td>NoUI</td>
-  <td>Worden de emulator gebruikersinterface niet weergegeven.</td>
+  <td>Niet weergeven Hallo emulator gebruikersinterface.</td>
   <td>/ Noui CosmosDB.Emulator.exe</td>
   <td></td>
 </tr>
@@ -285,19 +285,19 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 </tr>
 <tr>
   <td>PartitionCount</td>
-  <td>Hiermee geeft u het maximum aantal gepartitioneerde verzamelingen. Zie [wijzigen van het aantal verzamelingen](#set-partitioncount) voor meer informatie.</td>
+  <td>Hiermee geeft u Hallo maximumaantal gepartitioneerde verzamelingen. Zie [Hallo aantal verzamelingen wijzigen](#set-partitioncount) voor meer informatie.</td>
   <td>CosmosDB.Emulator.exe /PartitionCount =&lt;partitioncount&gt;</td>
   <td>&lt;partitioncount&gt;: het maximale aantal toegestane verzamelingen met één partitie. Standaardwaarde is 25. Maximaal toegestane aantal is 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
-  <td>Hiermee geeft u het aantal partities voor een gepartitioneerde verzameling.</td>
+  <td>Hiermee geeft u Hallo standaardaantal partities voor een gepartitioneerde verzameling.</td>
   <td>CosmosDB.Emulator.exe /DefaultPartitionCount =&lt;defaultpartitioncount&gt;</td>
   <td>&lt;defaultpartitioncount&gt; standaardwaarde is 25.</td>
 </tr>
 <tr>
   <td>AllowNetworkAccess</td>
-  <td>Geeft toegang tot de emulator via een netwerk. U moet ook doorgeven/Key =&lt;key_string&gt; of/KeyFile =&lt;bestandsnaam&gt; waarmee toegang tot het netwerk.</td>
+  <td>Hiermee toegang tot toohello emulator via een netwerk. U moet ook doorgeven/Key =&lt;key_string&gt; of/KeyFile =&lt;bestandsnaam&gt; tooenable toegang tot het netwerk.</td>
   <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>of<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess/KeyFile =&lt;bestandsnaam&gt;</td>
   <td></td>
 </tr>
@@ -309,102 +309,102 @@ Als u wilt weergeven in de lijst met opties, typt u `CosmosDB.Emulator.exe /?` b
 </tr>
 <tr>
   <td>GenKeyFile</td>
-  <td>Een nieuwe autorisatiesleutel genereren en opslaan in het opgegeven bestand. De gegenereerde sleutel kan worden gebruikt met de opties/Key of/KeyFile.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile =&lt;pad naar het sleutelbestand&gt;</td>
+  <td>Een nieuwe autorisatiesleutel genereren en opslaan van het opgegeven bestand toohello. Hallo gegenereerde sleutel kan worden gebruikt met Hallo/Key of/KeyFile opties.</td>
+  <td>CosmosDB.Emulator.exe /GenKeyFile =&lt;pad tookey bestand&gt;</td>
   <td></td>
 </tr>
 <tr>
   <td>Consistentie</td>
-  <td>Stel het standaardniveau voor consistentie voor het account.</td>
+  <td>Hallo standaardniveau consistentie voor Hallo account instellen.</td>
   <td>CosmosDB.Emulator.exe /Consistency =&lt;consistentie&gt;</td>
-  <td>&lt;consistentie&gt;: waarde moet een van de volgende [consistentieniveaus](consistency-levels.md): sessie, sterke, Eventual of BoundedStaleness.  De standaardwaarde is de sessie.</td>
+  <td>&lt;consistentie&gt;: waarde moet een van de volgende Hallo [consistentieniveaus](consistency-levels.md): sessie, sterke, Eventual of BoundedStaleness.  de standaardwaarde Hallo is sessie.</td>
 </tr>
 <tr>
   <td>?</td>
-  <td>De helpbericht weergeven.</td>
+  <td>Hallo-bericht van help weergeven.</td>
   <td></td>
   <td></td>
 </tr>
 </table>
 
-## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Verschillen tussen de Azure Cosmos DB-Emulator en Azure Cosmos-DB 
-Omdat de Azure-Emulator Cosmos DB een geëmuleerde omgeving uitgevoerd op een lokale developer-werkstation biedt, zijn er enkele verschillen in functionaliteit tussen de emulator en een Cosmos-DB Azure-account in de cloud:
+## <a name="differences-between-hello-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Verschillen tussen hello Azure Cosmos DB Emulator en Azure Cosmos-DB 
+Omdat hello Azure Cosmos DB Emulator een geëmuleerde omgeving uitgevoerd op een lokale developer-werkstation biedt, zijn er enkele verschillen in functionaliteit tussen Hallo-emulator en een Cosmos-DB Azure-account in Hallo cloud:
 
-* De Azure-Emulator Cosmos DB ondersteunt slechts één vaste account en een bekende hoofdsleutel.  Toegangssleutel wordt opnieuw gegenereerd, is niet mogelijk in de Azure-Emulator Cosmos DB.
-* De Azure-Emulator Cosmos-database is niet een schaalbare service en wordt geen ondersteuning voor een groot aantal verzamelingen.
-* De Azure-Emulator Cosmos DB komt niet simuleren verschillende [Azure Cosmos DB consistentieniveaus](consistency-levels.md).
-* De Azure-Emulator Cosmos DB komt niet simuleren [meerdere landen/regio replicatie](distribute-data-globally.md).
-* De Azure-Emulator Cosmos DB biedt geen ondersteuning voor de service quotum onderdrukkingen die beschikbaar in de Azure DB die Cosmos-service (bijvoorbeeld de maximale grootte document, verbeterde gepartitioneerde verzameling opslag zijn).
-* Als uw exemplaar van de Azure Cosmos DB-Emulator zijn mogelijk niet bijgewerkt met de meest recente wijzigingen met de service Azure Cosmos DB, neemt u [Azure DB die Cosmos-Capaciteitsplanner](https://www.documentdb.com/capacityplanner) nauwkeurig te schatten productie doorvoer (RUs) behoeften van uw de toepassing.
+* Hello Azure Cosmos DB Emulator ondersteunt slechts één vaste account en een bekende hoofdsleutel.  Toegangssleutel wordt opnieuw gegenereerd, is niet mogelijk in hello Azure Cosmos DB-Emulator.
+* Hello Azure Cosmos DB Emulator is niet een schaalbare service en wordt geen ondersteuning voor een groot aantal verzamelingen.
+* Hello Azure Cosmos DB Emulator komt niet simuleren verschillende [Azure Cosmos DB consistentieniveaus](consistency-levels.md).
+* Hello Azure Cosmos DB Emulator komt niet simuleren [meerdere landen/regio replicatie](distribute-data-globally.md).
+* Hello Azure Cosmos DB Emulator biedt geen ondersteuning voor Hallo service quotum onderdrukkingen die beschikbaar in hello Azure DB die Cosmos-service (bijvoorbeeld de maximale grootte document, verbeterde gepartitioneerde verzameling opslag zijn).
+* Als uw exemplaar van hello Azure Cosmos DB Emulator mogelijk niet omhoog toodate met de meest recente wijzigingen Hallo met hello Azure DB die Cosmos-service, neemt u [Azure DB die Cosmos-Capaciteitsplanner](https://www.documentdb.com/capacityplanner) tooaccurately schatting productie doorvoer (RUs) de behoeften van uw toepassing.
 
-## <a id="set-partitioncount"></a>Het aantal verzamelingen wijzigen
+## <a id="set-partitioncount"></a>Aantal verzamelingen Hallo wijzigen
 
-Standaard kunt u maximaal 25 verzamelingen met één partitie of 1 gepartitioneerde verzameling op basis van de Azure-Emulator Cosmos DB. Doordat de **PartitionCount** waarde, kunt u maximaal 250 verzamelingen met één partitie of 10 gepartitioneerde verzamelingen of een combinatie van de twee die niet meer dan 250 één partities (waar 1 verzameling gepartitioneerd = 25 één partitie verzameling).
+Standaard kunt u verzamelingen met één partitie too25 of 1 gepartitioneerde verzameling op basis van hello Azure Cosmos DB-Emulator. Doordat Hallo **PartitionCount** waarde, kunt u verzamelingen met één partitie too250 of 10 gepartitioneerde verzamelingen of een combinatie van twee die niet meer dan 250 één Hallo partities (waar 1 gepartitioneerd verzameling = 25 één partitie verzameling).
 
-Als u probeert een verzameling maken nadat het huidige aantal partities is overschreden, genereert de emulator een uitzondering ServiceUnavailable met het volgende bericht.
+Als u een verzameling toocreate probeert nadat de huidige partitie aantal Hallo is overschreden, Hallo emulator een ServiceUnavailable-uitzondering genereert met het volgende bericht Hallo.
 
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
-    to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    toobring more and more capacity online, and encourage you tootry again. 
+    Please do not hesitate tooemail docdbswat@microsoft.com at any time or 
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
-Als u het aantal beschikbare verzamelingen wilt de Emulator Azure Cosmos DB, het volgende doen:
+toochange hello aantal verzamelingen beschikbaar toohello Azure Cosmos DB Emulator Hallo te volgen:
 
-1. Alle lokale Azure Cosmos DB Emulator gegevens verwijderen met de rechtermuisknop op de **Azure Cosmos DB Emulator** pictogram op de taakbalk en vervolgens klikken op **gegevens opnieuw instellen...** .
+1. Alle lokale Azure Cosmos DB Emulator gegevens verwijderen met de rechtermuisknop op Hallo **Azure Cosmos DB Emulator** pictogram in systeemvak Hallo en vervolgens te klikken **gegevens opnieuw instellen...** .
 2. Alle gegevens van de emulator in deze map C:\Users\user_name\AppData\Local\CosmosDBEmulator verwijderen.
-3. Sluit alle geopende exemplaren met de rechtermuisknop op de **Azure Cosmos DB Emulator** pictogram op de taakbalk en vervolgens klikken op **afsluiten**. Het duurt een paar minuten voor alle exemplaren om af te sluiten.
-4. Installeer de nieuwste versie van de [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
-5. Start de emulator met de vlag PartitionCount door een waarde < = 250. Bijvoorbeeld: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+3. Sluit alle geopende exemplaren met de rechtermuisknop op Hallo **Azure Cosmos DB Emulator** -pictogram op het systeemvak Hallo en vervolgens te klikken op **afsluiten**. Het duurt een paar minuten voor alle exemplaren tooexit.
+4. Installeer de meest recente versie Hallo Hallo [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
+5. Hallo-emulator Hello PartitionCount vlag starten door een waarde < = 250. Bijvoorbeeld: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Gebruik de volgende tips voor het oplossen van problemen die u met de Azure DB die Cosmos-emulator tegenkomt:
+Gebruik Hallo toohelp oplossen van problemen die u tegenkomt met hello Azure Cosmos DB emulator tips te volgen:
 
-- Als u een nieuwe versie van de Emulator is geïnstalleerd en worden er fouten optreden, zorg ervoor dat u uw gegevens herstellen. U kunt uw gegevens herstellen door met de rechtermuisknop op het pictogram Azure Cosmos DB Emulator op de taakbalk en vervolgens te klikken op de gegevens opnieuw instellen... Als de fouten die niet wordt opgelost, kunt u deze kunt verwijderen en opnieuw installeren van de app. Zie [verwijderen van de lokale emulator](#uninstall) voor instructies.
+- Als u een nieuwe versie van Hallo Emulator geïnstalleerd en worden er fouten optreden, zorg ervoor dat u uw gegevens herstellen. U kunt uw gegevens herstellen door met de rechtermuisknop op Hallo Azure Cosmos DB Emulator pictogram in systeemvak Hallo en vervolgens te klikken op de gegevens opnieuw instellen... Als Hallo fouten die niet wordt opgelost, kunt u deze kunt verwijderen en opnieuw installeren Hallo app. Zie [verwijderen van de lokale emulator Hallo](#uninstall) voor instructies.
 
-- Als de Azure DB die Cosmos-emulator vastloopt, verzamelen van dumpbestanden vanuit de map c:\Users\user_name\AppData\Local\CrashDumps, deze comprimeren en deze koppelt aan een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+- Als hello Azure Cosmos DB emulator vastloopt, dumpbestanden verzamelen uit de map c:\Users\user_name\AppData\Local\CrashDumps, deze comprimeren en koppelt u ze tooan e-mailbericht te[askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Als u crashes ondervindt in CosmosDB.StartupEntryPoint.exe, kunt u de volgende opdracht uitvoeren vanaf een opdrachtprompt beheerder:`lodctr /R` 
+- Als u crashes ondervindt in CosmosDB.StartupEntryPoint.exe, voert u de volgende opdracht vanaf een opdrachtprompt admin Hallo:`lodctr /R` 
 
-- Als u een verbindingsprobleem ondervindt [verzamelen traceringsbestanden](#trace-files), deze comprimeren en deze koppelt aan een e-mail naar [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+- Als u een verbindingsprobleem ondervindt [verzamelen traceringsbestanden](#trace-files), deze comprimeren en koppelt u ze tooan e-mailbericht te[askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- Als u krijgt een **Service niet beschikbaar** bericht, de emulator mogelijk mislukken de netwerkstack initialiseren. Controleer of er de beveiligde client Pulse of Juniper netwerken client is geïnstalleerd, zoals netwerk filterstuurprogramma ertoe leiden het probleem dat kunnen. Verwijderen van stuurprogramma's van derden netwerk filter doorgaans wordt het probleem opgelost.
+- Als u krijgt een **Service niet beschikbaar** bericht wordt weergegeven, hello emulator waarschijnlijk defect tooinitialize Hallo network-stack. Controleer toosee als er beveiligde Hallo Pulse-client of Juniper netwerken client is geïnstalleerd, zoals netwerk filterstuurprogramma Hallo probleem kunnen veroorzaken. Verwijderen van stuurprogramma's van derden netwerk filter doorgaans, wordt het Hallo-probleem opgelost.
 
 ### <a id="trace-files"></a>Traceringsbestanden verzamelen
 
-Voor het verzamelen van foutopsporingsgegevens, voert u de volgende opdrachten uit vanaf een administratieve opdrachtprompt:
+toocollect foutopsporingsgegevens Hallo volgende opdrachten uit een administratieve opdrachtprompt worden uitgevoerd:
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`. Bekijk het systeemvak om te controleren of het programma is afgesloten, kan een minuut duren. U kunt ook klikken op **afsluiten** in de gebruikersinterface van Azure DB die Cosmos-emulator.
+2. `CosmosDB.Emulator.exe /shutdown`. Controle Hallo system lade toomake ervoor Hallo programma is afgesloten, kan een minuut duren. U kunt ook klikken op **afsluiten** in de gebruikersinterface van hello Azure DB die Cosmos-emulator.
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
-5. Reproduceer het probleem. Als u Data Explorer niet werkt, hoeft u alleen moet worden gewacht op de browser te openen voor een paar seconden de fout te achterhalen.
+5. Hallo probleem reproduceren. Als u Data Explorer niet werkt, hoeft u alleen toowait voor Hallo browser tooopen voor een paar seconden toocatch Hallo-fout.
 5. `CosmosDB.Emulator.exe /stoptraces`
-6. Navigeer naar `%ProgramFiles%\Azure Cosmos DB Emulator` en het bestand docdbemulator_000001.etl niet vinden.
-7. Het etl-bestand samen met reproduceren stappen om verzenden [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com) voor foutopsporing.
+6. Navigeer te`%ProgramFiles%\Azure Cosmos DB Emulator` en Hallo docdbemulator_000001.etl bestand vinden.
+7. Hallo etl-bestand samen met Reproductiestappen te verzenden[ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com) voor foutopsporing.
 
-### <a id="uninstall"></a>Verwijderen van de lokale Emulator
+### <a id="uninstall"></a>Verwijder Hallo lokale Emulator
 
-1. Sluit alle geopende exemplaren van de lokale Emulator door met de rechtermuisknop op het pictogram Azure Cosmos DB Emulator op de taakbalk en klikt u op afsluiten. Het duurt een paar minuten voor alle exemplaren om af te sluiten.
-2. Typ in het zoekvak Windows **Apps en functies** en klik op de **Apps en -functies (systeeminstellingen)** resultaat.
-3. Schuif in de lijst met apps naar **Azure Cosmos DB Emulator**, selecteert u het, klik op **verwijderen**, bevestigen en klikt u op **verwijderen** opnieuw.
-4. Wanneer de app is verwijderd, gaat u naar C:\Users\<gebruiker > \AppData\Local\CosmosDBEmulator en verwijder de map. 
+1. Sluit alle geopende exemplaren van Hallo lokale Emulator met de rechtermuisknop op Hallo Azure Cosmos DB Emulator pictogram in systeemvak hello, klikt op afsluiten. Het duurt een paar minuten voor alle exemplaren tooexit.
+2. Typ in het zoekvak van Hallo Windows **Apps en functies** en klik op Hallo **Apps en -functies (systeeminstellingen)** resultaat.
+3. Schuif te in de lijst met apps Hallo**Azure Cosmos DB Emulator**, selecteert u het, klik op **verwijderen**, bevestigen en klikt u op **verwijderen** opnieuw.
+4. Hallo-app wordt verwijderd, gaat u tooC:\Users\<gebruiker > \AppData\Local\CosmosDBEmulator en delete Hallo-map. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u het volgende gedaan:
+In deze zelfstudie hebt u Hallo volgende gedaan:
 
 > [!div class="checklist"]
-> * De lokale Emulator geïnstalleerd
-> * Rand de Docker voor Windows-Emulator
+> * Geïnstalleerd Hallo lokale Emulator
+> * Rand Hallo Emulator op Docker voor Windows
 > * Geverifieerde aanvragen
-> * De Data Explorer gebruikt in de Emulator
+> * Hallo Data Explorer in Hallo Emulator gebruikt
 > * Geëxporteerde SSL-certificaten
-> * Naam van de Emulator vanaf de opdrachtregel
+> * Hallo Emulator vanaf de opdrachtregel Hallo aangeroepen
 > * Verzamelde traceringsbestanden
 
-In deze zelfstudie hebt u geleerd hoe u van de Emulator van de lokale voor gratis lokale ontwikkeling. U kunt nu doorgaan met de volgende zelfstudie en informatie over het exporteren van de Emulator SSL-certificaten. 
+In deze zelfstudie hebt u geleerd hoe toouse Hallo lokale Emulator voor gratis lokale ontwikkeling. U kunt nu de volgende zelfstudie toohello gaan en meer informatie hoe tooexport Emulator SSL-certificaten. 
 
 > [!div class="nextstepaction"]
-> [De Azure Cosmos DB Emulator certificaten exporteren](local-emulator-export-ssl-certificates.md)
+> [Hello Azure Cosmos DB Emulator certificaten exporteren](local-emulator-export-ssl-certificates.md)

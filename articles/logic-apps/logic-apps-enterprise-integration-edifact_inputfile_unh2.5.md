@@ -1,5 +1,5 @@
 ---
-title: Logic Apps B2B edifact decoderen oplossen UNH2.5 - Azure Logic Apps | Microsoft Docs
+title: aaaLogic Apps B2B edifact decoderen oplossen UNH2.5 - Azure Logic Apps | Microsoft Docs
 description: Azure Logic Apps B2B edifact decoderen oplossen UNH2.5
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d85242d0f828fa52cdc9689938f3ba1e51b1183
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>Hoe moet worden verwerkt EDIFACT documenten UNH2.5 segment
-Wanneer UNH2.5 aanwezig in het document EDIFACT is, wordt deze gebruikt voor het opzoeken van het schema. 
+# <a name="how-toohandle-edifact-documents-having-unh25-segment"></a>Hoe toohandle EDIFACT documenten met UNH2.5 segment
+Wanneer UNH2.5 op Hallo EDIFACT document aanwezig is, wordt deze gebruikt voor het opzoeken van het schema. 
 
-Voorbeeld: Het veld UNH is **EAN008** in het bericht EDIFACT  
+Voorbeeld: Hallo UNH veld is **EAN008** in EDIFACT het Hallo-bericht  
 UNH + SSDD1 + ORDERS: D: 03B: ONGEDAAN MAKEN:**EAN008**'  
 
-Stappen voor het afhandelen van het bericht 
-1. Het schema bijwerken
-2. Controleer de instellingen van de overeenkomst  
+Stappen toofollow toohandle Hallo-bericht 
+1. Hallo-schema bijwerken
+2. Controleer de instellingen van de overeenkomst Hallo  
 
-## <a name="update-the-schema"></a>Het schema bijwerken
-Voor het verwerken van het bericht, moet u een schema met de naam UNH2.5 hoofdknooppunt implementeren.  Voor een voorbeeld gegeven, zijn de naam van het schema-hoofdmap **EFACT_D03B_ORDERS_EAN008**  
+## <a name="update-hello-schema"></a>Hallo-schema bijwerken
+tooprocess het Hallo-bericht, moet u een schema met de naam hoofdknooppunt Hallo UNH2.5 toodeploy.  Voor een voorbeeld gegeven, hoofdnaam Hallo-schema zou worden **EFACT_D03B_ORDERS_EAN008**  
 
-Voor elke D03B_ORDERS met een andere UNH2.5 segment, zou u moet een afzonderlijk schema implementeren.  
+Voor elke D03B_ORDERS met een andere UNH2.5 segment hebt u toodeploy een afzonderlijk schema.  
 
-## <a name="add-schema-to-the-edifact-agreement"></a>Schema niet toevoegen aan de overeenkomst EDIFACT
+## <a name="add-schema-toohello-edifact-agreement"></a>Schema toohello EDIFACT overeenkomst toevoegen
 ### <a name="edifact-decode"></a>EDIFACT decoderen
-Het schema configureren voor het decoderen van het binnenkomende bericht in de EDIFACT ontvangen overeenkomst instellingen
-1. Het schema niet toevoegen aan de integratie-account    
-2. Het schema te configureren in de EDIFACT ontvangen overeenkomst instellingen. 
-3. Selecteer EDIFACT overeenkomst en klik op **bewerken als JSON**.  UNH2.5 waarde toevoegen in de overeenkomst ontvangen **schemaReferences**
+tooDecode Hallo binnenkomend bericht, Hallo schema configureren in Hallo EDIFACT ontvangen overeenkomst instellingen
+1. Hallo schema toohello integratie account toevoegen    
+2. Hallo-schema configureren in Hallo EDIFACT ontvangen overeenkomst instellingen. 
+3. Selecteer EDIFACT overeenkomst en klik op **bewerken als JSON**.  UNH2.5 waarde toevoegen in Hallo ontvangen overeenkomst **schemaReferences**
 ![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
 ### <a name="edifact-encode"></a>EDIFACT coderen
-Het schema voor het coderen van het binnenkomende bericht configureren in de instellingen voor EDIFACT overeenkomst verzenden
-1. Het schema niet toevoegen aan de integratie-account    
-2. Configureer het schema in de instellingen voor EDIFACT overeenkomst verzenden. 
-3. Selecteer EDIFACT overeenkomst en klik op **bewerken als JSON**.  UNH2.5 waarde toevoegen in de overeenkomst verzenden **schemaReferences**
+tooEncode Hallo binnenkomend bericht, Hallo schema in Hallo EDIFACT overeenkomst verzendinstellingen configureren
+1. Hallo schema toohello integratie account toevoegen    
+2. Hallo-schema in Hallo EDIFACT overeenkomst verzendinstellingen configureren. 
+3. Selecteer EDIFACT overeenkomst en klik op **bewerken als JSON**.  UNH2.5 waarde toevoegen in Hallo overeenkomst verzenden **schemaReferences**
 ![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
 ## <a name="next-steps"></a>Volgende stappen

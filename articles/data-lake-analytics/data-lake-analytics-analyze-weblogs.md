@@ -1,6 +1,6 @@
 ---
-title: Websitelogboeken analyseren met Azure Data Lake Analytics | Microsoft Docs
-description: 'Informatie over het websitelogboeken analyseren met Data Lake Analytics. '
+title: aaaAnalyze websitelogboeken met Azure Data Lake Analytics | Microsoft Docs
+description: 'Meer informatie over hoe tooanalyze websitelogboeken met Data Lake Analytics. '
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d27aaca95ed2b643cfed7a17b0066bf7fa4a1bf5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Websitelogboeken analyseren met Azure Data Lake Analytics
-Informatie over het websitelogboeken analyseren met Data Lake Analytics, met name op fouten die verwijzingen is gedetecteerd tijdens het naar de website te controleren.
+Meer informatie over hoe tooanalyze websitelogboeken met behulp van Data Lake Analytics, vooral bij het vinden van welke verwijzingen is gedetecteerd fouten tijdens het toovisit Hallo website.
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2015 of Visual Studio 2013**.
 * **[Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een **Data Lake** item in de **extra** menu in Visual Studio:
+    Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een **Data Lake** item in Hallo **extra** menu in Visual Studio:
 
     ![U-SQL Visual Studio-menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
-* **Basiskennis van Data Lake Analytics en Data Lake Tools voor Visual Studio**. Zie het volgende om te beginnen:
+* **Basiskennis van Data Lake Analytics en Data Lake Tools voor Visual Studio Hallo**. tooget gestart, Zie:
 
   * [U-SQL-script met Data Lake tools voor Visual Studio ontwikkelen](data-lake-analytics-data-lake-tools-get-started.md).
 * **Een Data Lake Analytics-account.**  Zie [een Azure Data Lake Analytics-account maken](data-lake-analytics-get-started-portal.md).
-* **Upload de voorbeeldgegevens naar het Data Lake Analytics-account.** Zie [kopiëren van bestanden met voorbeeldgegevens](data-lake-analytics-get-started-portal.md).
+* **Hallo sample data toohello Data Lake Analytics-account uploaden.** Zie [bestanden met voorbeeldgegevens toocopy](data-lake-analytics-get-started-portal.md).
 
-    Om een Data Lake Analytics-taak uit te voeren, hebt u enkele gegevens nodig. Hoewel Data Lake Tools ondersteuning biedt voor het uploaden van gegevens, gebruikt u de portal om de voorbeeldgegevens te uploaden. Zo is deze zelfstudie gemakkelijker te volgen.
+    een Data Lake Analytics-taak toorun, moet u enkele gegevens. Hoewel Hallo Data Lake Tools ondersteuning biedt voor uploaden van gegevens, gebruikt u Hallo portal tooupload Hallo sample data toomake deze zelfstudie gemakkelijker toofollow.
 
-## <a name="connect-to-azure"></a>Verbinding maken met Azure
-Voordat u kunt bouwen en testen van de U-SQL-scripts, moet u eerst verbinding met Azure.
+## <a name="connect-tooazure"></a>Verbinding maken met tooAzure
+Voordat u kunt bouwen en testen van de U-SQL-scripts, moet u eerst tooAzure verbinden.
 
-**Verbinding maken met Data Lake Analytics**
+**tooconnect tooData Lake Analytics**
 
 1. Open Visual Studio.
 2. Klik op **Data Lake > Opties en instellingen**.
-3. Klik op **aanmelden**, of **gebruiker wijzigen** als iemand anders heeft aangemeld en volg de instructies.
-4. Klik op **OK** om het dialoogvenster Opties en instellingen te sluiten.
+3. Klik op **aanmelden**, of **gebruiker wijzigen** als iemand heeft aangemeld en volg de instructies Hallo.
+4. Klik op **OK** tooclose Hallo opties en instellingen dialoogvenster.
 
-**Om te bladeren van uw Data Lake Analytics-accounts**
+**toobrowse uw Data Lake Analytics-accounts**
 
 1. Open in Visual Studio **Server Explorer** door press **CTRL + ALT + S**.
-2. Vouw in **Server Explorer** achtereenvolgens **Azure** en **Data Lake Analytics** uit. U ziet een lijst met uw Data Lake Analytics-accounts, als u die hebt. U kunt vanuit de studio Data Lake Analytics-accounts maken. Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) of [Aan de slag met Azure Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md) voor meer informatie over het maken van een account.
+2. Vouw in **Server Explorer** achtereenvolgens **Azure** en **Data Lake Analytics** uit. U ziet een lijst met uw Data Lake Analytics-accounts, als u die hebt. U kunt vanuit Hallo studio Data Lake Analytics-accounts maken. toocreate een account, Zie [aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) of [aan de slag met Azure Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## <a name="develop-u-sql-application"></a>U-SQL-toepassing ontwikkelen
-Een U-SQL-toepassing is meestal een U-SQL-script. Zie voor meer informatie over U-SQL, [aan de slag met U-SQL](data-lake-analytics-u-sql-get-started.md).
+Een U-SQL-toepassing is meestal een U-SQL-script. toolearn meer informatie over U-SQL, Zie [aan de slag met U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-U kunt de gebruiker gedefinieerde operators toevoeging toevoegen aan de toepassing.  Zie voor meer informatie [ontwikkelen van U-SQL door de gebruiker gedefinieerde operators voor Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+U kunt aanvullende gebruiker gedefinieerde operators toohello toepassing toevoegen.  Zie voor meer informatie [ontwikkelen van U-SQL door de gebruiker gedefinieerde operators voor Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
-**Een Data Lake Analytics-taak maken en verzenden**
+**toocreate en het verzenden van een Data Lake Analytics-taak**
 
-1. Klik op de **bestand > Nieuw > Project**.
-2. Selecteer het type Project U-SQL.
+1. Klik op Hallo **bestand > Nieuw > Project**.
+2. Hallo-Project U-SQL-type selecteren.
 
     ![nieuw U-SQL Visual Studio-project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Klik op **OK**. Visual studio maakt een oplossing met een bestand Script.usql.
-4. Voer het volgende script in het bestand Script.usql:
+4. Voer Hallo script in Hallo Script.usql-bestand te volgen:
 
-        // Create a database for easy reuse, so you don't need to read from a file every time.
+        // Create a database for easy reuse, so you don't need tooread from a file every time.
         CREATE DATABASE IF NOT EXISTS SampleDBTutorials;
 
-        // Create a Table valued function. TVF ensures that your jobs fetch data from the weblog file with the correct schema.
+        // Create a Table valued function. TVF ensures that your jobs fetch data from hello weblog file with hello correct schema.
         DROP FUNCTION IF EXISTS SampleDBTutorials.dbo.WeblogsView;
         CREATE FUNCTION SampleDBTutorials.dbo.WeblogsView()
         RETURNS @result TABLE
@@ -144,38 +144,38 @@ U kunt de gebruiker gedefinieerde operators toevoeging toevoegen aan de toepassi
                 cs_referer,
                 sc_status;
 
-    Zie voor informatie over de U-SQL, [aan de slag met Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md).    
-5. Een nieuw U-SQL-script toevoegen aan uw project en voer de volgende gegevens:
+    toounderstand hello U-SQL, Zie [aan de slag met Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md).    
+5. Voeg een nieuw U-SQL-script tooyour project en voer de volgende Hallo:
 
-        // Query the referrers that ran into errors
+        // Query hello referrers that ran into errors
         @content =
             SELECT *
             FROM SampleDBTutorials.dbo.ReferrersPerDay
             WHERE sc_status >=400 AND sc_status < 500;
 
         OUTPUT @content
-        TO @"/Samples/Outputs/UnsuccessfulResponses.log"
+        too@"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
-6. Schakel terug naar het eerste U-SQL-script en vervolgens naar de **indienen** knop, geeft u uw Analytics-account.
-7. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Build Script**. Controleer de resultaten in het deelvenster Uitvoer.
+6. Ga terug toohello eerste U-SQL-script en volgende toohello **indienen** knop, geeft u uw Analytics-account.
+7. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Build Script**. Controleer of Hallo resulteert in het deelvenster Hallo-uitvoer.
 8. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Submit Script**.
-9. Controleer of de **Analytics-Account** is waar u de taak uitvoeren en klik vervolgens op **indienen**. Het resultaat van het verzenden en de koppeling naar de taak zijn beschikbaar in het resultaatvenster van Data Lake Tools voor Visual Studio wanneer het verzenden is voltooid.
-10. Wacht totdat de taak is voltooid.  Als de taak is mislukt, waarschijnlijk ontbreken het bronbestand.  Zie de sectie vereisten van deze zelfstudie. Zie voor aanvullende informatie voor probleemoplossing [Monitor en Azure Data Lake Analytics-taken oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+9. Controleer of Hallo **Analytics-Account** is Hallo één waar toorun Hallo taak en klik vervolgens op **indienen**. Resultaat van het verzenden en een koppeling naar de taak zijn beschikbaar in Hallo Data Lake Tools voor Visual Studio resultatenvenster wanneer Hallo verzenden is voltooid.
+10. Wacht totdat het Hallo-taak is voltooid.  Als Hallo-taak is mislukt, waarschijnlijk ontbreken Hallo bronbestand.  Zie sectie voor vereisten Hallo van deze zelfstudie. Zie voor aanvullende informatie voor probleemoplossing [Monitor en Azure Data Lake Analytics-taken oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
-    Als de taak is voltooid, ziet u het volgende scherm:
+    Wanneer het Hallo-taak is voltooid, ziet u Hallo scherm te volgen:
 
     ![Data lake analytics analyseren weblogboeken websitelogboeken](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 11. Herhaal stap 7 - 10 voor **Script1.usql**.
 
-**De taakuitvoer weergeven**
+**toosee hello taakuitvoer**
 
-1. Ga naar **Server Explorer**, vouw **Azure** uit, vouw **Data Lake Analytics** uit, vouw uw Data Lake Analytics-account uit, vouw **Storage Accounts** uit, klik met de rechtermuisknop op het Data Lake Storage-standaardaccount en klik vervolgens op **Explorer**.
-2. Dubbelklik op **voorbeelden** open de map en dubbelklikt u vervolgens op **uitvoer**.
+1. Van **Server Explorer**, vouw **Azure**, vouw **Data Lake Analytics**, vouw uw Data Lake Analytics-account, vouw **Opslagaccounts**, met de rechtermuisknop op Hallo standaard Data Lake Storage-account en klik vervolgens op **Explorer**.
+2. Dubbelklik op **voorbeelden** tooopen Hallo map en dubbelklik vervolgens op **uitvoer**.
 3. Dubbelklik op **UnsuccessfulResponsees.log**.
-4. U kunt ook het uitvoerbestand binnen de grafiekweergave van de taak dubbelklikken om gaat u rechtstreeks naar de uitvoer.
+4. U kunt ook Hallo uitvoerbestand binnen Hallo grafiekweergave van Hallo taak in de volgorde toonavigate dubbelklikken direct toohello uitvoer.
 
 ## <a name="see-also"></a>Zie ook
-Om aan de slag te gaan met Data Lake Analytics met verschillende hulpprogramma's, zie:
+tooget de slag met Data Lake Analytics met verschillende hulpprogramma's, Zie:
 
 * [Aan de slag met Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md)
 * [Aan de slag met Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md)

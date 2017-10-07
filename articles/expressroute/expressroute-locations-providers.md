@@ -1,6 +1,6 @@
 ---
 title: 'Locaties en connectiviteitsproviders: Azure ExpressRoute | Microsoft Docs'
-description: Dit artikel bevat een gedetailleerd overzicht van de locaties waar services worden aangeboden en hoe u verbinding maakt met Azure-regio's. Gesorteerd op locatie.
+description: In dit artikel bevat een gedetailleerd overzicht van de locaties waar services worden aangeboden en hoe tooconnect tooAzure regio's. Gesorteerd op locatie.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: kaanan
-ms.openlocfilehash: a10986ac0b36a3f2065f02533f9e321c755d4cc8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 838d52701d177aa7f13e845b7bde66d07b5efed6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -27,17 +27,17 @@ ms.lasthandoff: 08/29/2017
 > * [Providers per locatie](expressroute-locations-providers.md)
 
 
-In de tabellen in dit artikel vindt u informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft Cloud-services die via ExpressRoute worden ondersteund en Expressroute SI's (System Integrator).
+Hallo-tabellen in dit artikel vindt informatie over ExpressRoute-connectiviteitsproviders, geografische dekking van ExpressRoute, Microsoft cloud-services die via ExpressRoute en een ExpressRoute-SI (SIs) worden ondersteund.
 
 ## <a name="partners"></a>ExpressRoute-connectiviteitsproviders
-ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. De volgende kaart bevat een lijst van Azure-regio's en ExpressRoute-locaties. ExpressRoute-locaties zijn locaties waarop Microsoft samenwerkt met verschillende serviceproviders.
+ExpressRoute wordt ondersteund in alle Azure-regio's en -locaties. Hallo volgende kaart bevat een lijst van Azure-regio's en een ExpressRoute-locaties. ExpressRoute-locaties zijn toothose waarop Microsoft met verschillende serviceproviders samenwerkt.
 
 ![Locatiekaart][0]
 
-U hebt toegang tot Azure-services in alle regio's binnen een geopolitieke regio als u bent verbonden met ten minste één ExpressRoute-locatie in die geopolitieke regio. 
+U hebt toegang tot tooAzure services in alle regio's binnen een geopolitieke regio als u tooat minimaal één ExpressRoute-locatie binnen de geopolitieke regio Hallo verbonden. 
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Azure-regio's naar ExpressRoute-locaties binnen een geopolitieke regio
-In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-locaties binnen een geopolitieke regio.
+### <a name="azure-regions-tooexpressroute-locations-within-a-geopolitical-region"></a>Azure-regio's tooExpressRoute locaties binnen een geopolitieke regio
+Hallo volgende tabel geeft een overzicht van Azure-regio's tooExpressRoute locaties binnen een geopolitieke regio.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ In de volgende tabel vindt u een toewijzing van Azure-regio's aan ExpressRoute-l
 | **Zuid-Korea** |Korea Centraal, Korea Zuid |Busan, Seoul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regio's en geopolitieke grenzen voor nationale clouds
-De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
+Hallo in de volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nationale clouds.
 
 | **Geopolitieke regio** | **Azure-regio's** | **ExpressRoute-locaties** |
 | --- | --- | --- |
@@ -59,11 +59,11 @@ De volgende tabel bevat informatie over regio's en geopolitieke grenzen voor nat
 | **China** |China Noord, China Oost |Beijing, Shanghai |
 | **Duitsland** |Duitsland Centraal, Duitsland Oost |Berlijn, Frankfurt |
 
-Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op de standaard ExpressRoute-SKU. U moet de invoegtoepassing ExpressRoute Premium inschakelen voor ondersteuning van globale connectiviteit. Connectiviteit met nationale cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
+Connectiviteit tussen de geopolitieke regio's wordt niet ondersteund op Hallo standaard ExpressRoute-SKU. U moet tooenable hello ExpressRoute premium-invoegtoepassing toosupport globale connectiviteit. Connectiviteit toonational cloudomgevingen wordt niet ondersteund. U kunt met uw connectiviteitsprovider samenwerken als de noodzaak daartoe zich voordoet.
 
 ## <a name="locations"></a>Locaties van connectiviteitsproviders
 
-De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor elke locatie weer. Als u serviceproviders en de locaties waarvoor zij deze service kunnen bieden, wilt bekijken, raadpleegt u [Locaties per serviceprovider](expressroute-locations.md#locations). 
+Hallo volgende tabel toont connectiviteit locaties en Hallo serviceproviders voor elke locatie. Als u wilt tooview-providers en Hallo locaties waarvoor deze services kunnen bieden, Zie [locaties door serviceprovider](expressroute-locations.md#locations). 
 
 
 ### <a name="production-azure"></a>Productie-Azure
@@ -121,7 +121,7 @@ De volgende tabel geeft de connectiviteitslocaties en de serviceproviders voor e
 | **Beijing** |China Telecom |
 | **Shanghai** |China Telecom |
 
-Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/) voor meer informatie.
+toolearn meer, Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Duitsland
 | **Locatie** | **Serviceproviders** |
@@ -132,7 +132,7 @@ Zie [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressrout
 ## <a name="c1partners"></a>Connectiviteit via Exchange-providers
 Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u alsnog verbinding maken.
 
-* Neem contact op met uw connectiviteitsprovider om na te gaan of ze zijn verbonden met een van de exchange-punten in de bovenstaande tabel. Via de volgende koppelingen vindt u meer informatie over services die door de exchange-providers worden verstrekt. Verschillende connectiviteitsproviders zijn al verbonden met Ethernet-exchange-punten.
+* Neem contact op met uw provider connectiviteit toosee als ze verbonden tooany Hallo uitwisseling in Hallo bovenstaande tabel zijn. U kunt controleren Hallo volgende koppelingen toogather meer informatie over services die worden aangeboden door providers van exchange. Verschillende connectiviteitsproviders zijn al verbonden tooEthernet kunnen worden uitgewisseld.
   * [Cologix](http://www.cologix.com/)
   * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
@@ -141,10 +141,10 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-* Vraag uw connectiviteitsprovider om uw netwerk uit te breiden tot de gewenste peeringlocatie.
+* Uw connectiviteitsprovider uitbreiden van uw netwerk toohello peering gewenste locatie hebben.
   * Vergewis u ervan dat de connectiviteitsprovider uw connectiviteit uitbreidt op een maximaal beschikbare manier, zodat er geen storingspunten zijn.
-* Vraag een ExpressRoute-circuit aan met het exchange-punt wanneer uw connectiviteitsprovider verbinding maakt met Microsoft.
-  * Volg de stappen in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) (Een ExpressRoute-circuit maken) om connectiviteit in te stellen.
+* Een ExpressRoute-circuit met Hallo exchange als uw connectiviteitsprovider tooconnect tooMicrosoft volgorde.
+  * Volg de stappen in [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) tooset connectiviteit.
 
 ## <a name="c1partners"></a>Connectiviteit via additionele serviceproviders
 | **Locatie** | **Exchange** | **Connectiviteitsproviders** |
@@ -169,7 +169,7 @@ Als uw connectiviteitsprovider niet wordt vermeld in de vorige secties, kunt u a
 | **Washington DC** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute-SI's
-Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften kan lastig zijn, al naargelang de schaal van uw netwerk. U kunt alle SI's uit de volgende tabel gebruiken om u te helpen met de voorbereidingen voor ExpressRoute.
+Inschakelen van particuliere connectiviteit toofit die uw behoeften kunnen lastig zijn gebaseerd op Hallo van schaal van uw netwerk. U kunt werken met een van de Hallo systeemintegrators die worden vermeld in de tabel tooassist na Hallo u met onboarding tooExpressRoute.
 
 | **Continent** | **Systeemintegratie** |
 | --- | --- |
@@ -179,7 +179,7 @@ Het inschakelen van particuliere connectiviteit conform uw specifieke behoeften 
 | **Noord-Amerika** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **Zuid-Amerika** |Avanade Inc. |
 ## <a name="next-steps"></a>Volgende stappen
-* Voor meer informatie over ExpressRoute raadpleegt u de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
+* Zie voor meer informatie over ExpressRoute hello [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md).
 * Controleer of aan alle vereisten is voldaan. Zie [ExpressRoute prerequisites](expressroute-prerequisites.md) (Vereisten voor ExpressRoute).
 
 <!--Image References-->

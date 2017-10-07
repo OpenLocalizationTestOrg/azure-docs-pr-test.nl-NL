@@ -1,6 +1,6 @@
 ---
-title: Met behulp van de opdrachtregel-Azure HDInsight Hadoop-clusters maken | Microsoft Docs
-description: Informatie over het maken van HDInsight-clusters met behulp van de platformoverschrijdende Azure CLI 1.0.
+title: aaaCreate Hadoop-clusters met behulp van de opdrachtregel - hello Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toocreate HDInsight-clusters met meerdere platforms Azure CLI 1.0 Hallo.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 8f2fcb46789d000cd66164508f1159338dcae5f9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5295b01054b8c23df0e3b75a3e0e8c933ac48b3c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Maken van HDInsight-clusters met de Azure CLI
+# <a name="create-hdinsight-clusters-using-hello-azure-cli"></a>Maken van HDInsight-clusters met hello Azure CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-De stappen in dit document procedure voor het maken van een 3.5 HDInsight-cluster met behulp van de Azure CLI 1.0.
+Hallo stappen in dit document procedure voor het maken van een 3.5 HDInsight-cluster met behulp van hello Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> Linux is Hallo enige besturingssysteem gebruikt op HDInsight versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -38,90 +38,90 @@ De stappen in dit document procedure voor het maken van een 3.5 HDInsight-cluste
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. De stappen in dit document zijn laatste getest met Azure CLI versie 0.10.14.
+* **Azure CLI**. Hallo stappen in dit document zijn laatste getest met Azure CLI versie 0.10.14.
 
     > [!IMPORTANT]
-    > De stappen in dit document werken niet met Azure CLI 2.0. Azure CLI 2.0 biedt geen ondersteuning voor het maken van een HDInsight-cluster.
+    > Hallo stappen in dit document werken niet met Azure CLI 2.0. Azure CLI 2.0 biedt geen ondersteuning voor het maken van een HDInsight-cluster.
 
-## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
+## <a name="log-in-tooyour-azure-subscription"></a>Meld u bij tooyour Azure-abonnement
 
-Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md) en maak verbinding met uw abonnement met behulp van de methode **login**.
+Hallo stappen beschreven in [tooan Azure-abonnement van hello Azure-opdrachtregelinterface (Azure CLI) verbinding](../xplat-cli-connect.md) en maak verbinding met Hallo tooyour-abonnement **aanmelding** methode.
 
 ## <a name="create-a-cluster"></a>Een cluster maken
 
-De volgende stappen moeten worden uitgevoerd vanaf een opdrachtregel zoals PowerShell of Bash.
+Hallo stappen moet worden uitgevoerd vanaf een opdrachtregel zoals PowerShell of Bash.
 
-1. Gebruik de volgende opdracht om uw Azure-abonnement te verifiëren:
+1. Gebruik Hallo opdracht tooauthenticate tooyour Azure-abonnement te volgen:
 
         azure login
 
-    U wordt gevraagd uw naam en wachtwoord opgeven. Als u meerdere Azure-abonnementen hebt, gebruikt u `azure account set <subscriptionname>` instellen van het abonnement dat Azure CLI-opdrachten gebruiken.
+    U na vragen aan gebruiker tooprovide zijn uw naam en wachtwoord. Als u meerdere Azure-abonnementen hebt, gebruikt u `azure account set <subscriptionname>` tooset Hallo abonnement dat hello Azure CLI-opdrachten gebruiken.
 
-2. Schakel over naar modus Azure Resource Manager met de volgende opdracht:
+2. De modus Resource Manager tooAzure met behulp van de volgende opdracht Hallo switch:
 
         azure config mode arm
 
-3. Maak een resourcegroep. Deze resourcegroep bevat het HDInsight-cluster en storage-account gekoppeld.
+3. Maak een resourcegroep. Deze resourcegroep bevat Hallo HDInsight-cluster en storage-account gekoppeld.
 
         azure group create groupname location
 
-    * Vervang `groupname` met een unieke naam voor de groep.
+    * Vervang `groupname` met een unieke naam voor de groep Hallo.
 
-    * Vervang `location` met de geografische regio die u wilt maken van de groep in.
+    * Vervang `location` met Hallo geografische regio die u wilt dat toocreate Hallo groep in.
 
-       Voor een lijst met geldige locaties, gebruikt u de `azure location list` opdracht en gebruik vervolgens een van de locaties van de `Name` kolom.
+       Gebruik voor een lijst met geldige locaties, Hallo `azure location list` opdracht en gebruik vervolgens een van de locaties van Hallo Hallo `Name` kolom.
 
-4. Een opslagaccount maken. Dit opslagaccount wordt gebruikt als de opslag van de standaard voor het HDInsight-cluster.
+4. Een opslagaccount maken. Dit opslagaccount wordt gebruikt als Hallo standaard opslag voor Hallo HDInsight-cluster.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Vervang `groupname` met de naam van de groep in de vorige stap hebt gemaakt.
+    * Vervang `groupname` met de naam van Hallo groep gemaakt in de vorige stap Hallo Hallo.
 
-    * Vervang `location` met dezelfde locatie die wordt gebruikt in de vorige stap.
+    * Vervang `location` met dezelfde locatie worden gebruikt in de vorige stap Hallo Hallo.
 
-    * Vervang `storagename` met een unieke naam voor het opslagaccount.
+    * Vervang `storagename` met een unieke naam voor het Hallo-opslagaccount.
 
         > [!NOTE]
-        > Gebruik voor meer informatie over de parameters in deze opdracht gebruikt `azure storage account create -h` om help voor deze opdracht te geven.
+        > Voor meer informatie over Hallo-parameters die worden gebruikt in deze opdracht gebruiken `azure storage account create -h` tooview help voor deze opdracht.
 
-5. De sleutel die wordt gebruikt voor toegang tot het opslagaccount ophalen.
+5. Hallo-sleutel ophalen tooaccess Hallo storage-account gebruikt.
 
         azure storage account keys list -g groupname storagename
 
-    * Vervang `groupname` met de naam van de resourcegroep.
-    * Vervang `storagename` met de naam van het opslagaccount.
+    * Vervang `groupname` met de naam van resourcegroep Hallo.
+    * Vervang `storagename` met de naam van het opslagaccount Hallo Hallo.
 
-     Opslaan in de gegevens die wordt geretourneerd, de `key` waarde voor `key1`.
+     Hallo-gegevens die wordt geretourneerd, opslaan Hallo `key` waarde voor `key1`.
 
 6. Maak een HDInsight-cluster.
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Vervang `groupname` met de naam van de resourcegroep.
+    * Vervang `groupname` met de naam van resourcegroep Hallo.
 
-    * Vervang `Hadoop` met het clustertype dat u wilt maken. Bijvoorbeeld: `Hadoop`, `HBase`, `Kafka`, `Spark`, of `Storm`.
+    * Vervang `Hadoop` met type Hallo-cluster dat u wenst dat toocreate. Bijvoorbeeld: `Hadoop`, `HBase`, `Kafka`, `Spark`, of `Storm`.
 
      > [!IMPORTANT]
-     > HDInsight clusters worden geleverd in verschillende typen die met de werkbelasting of technologie die het cluster is afgestemd overeenkomen op. Er is geen ondersteunde methode om een cluster waarin meerdere typen zoals Storm en HBase op één cluster te maken.
+     > HDInsight clusters worden geleverd in verschillende typen die overeenkomen met de werkbelasting toohello of technologie voor het cluster Hallo is afgestemd op. Er is geen ondersteunde methode toocreate van een cluster waarin meerdere typen zoals Storm en HBase op één cluster.
 
-    * Vervang `location` met dezelfde locatie gebruikt in de vorige stappen.
+    * Vervang `location` Hello dezelfde locatie worden gebruikt in de vorige stappen.
 
-    * Vervang `storagename` met de naam van het opslagaccount.
+    * Vervang `storagename` met Hallo opslagaccountnaam.
 
-    * Vervang `storagekey` met de sleutel in de vorige stap hebt verkregen.
+    * Vervang `storagekey` met Hallo-sleutel in de vorige stap Hallo verkregen.
 
-    * Voor de `--defaultStorageContainer` parameter, gebruik dezelfde naam als u gebruikt voor het cluster.
+    * Voor Hallo `--defaultStorageContainer` parameter, gebruik Hallo dezelfde naam als u voor het Hallo-cluster gebruikt.
 
-    * Vervang `admin` en `httppassword` met de naam en het wachtwoord dat u gebruiken wilt bij het openen van het cluster via HTTPS.
+    * Vervang `admin` en `httppassword` met Hallo naam en het wachtwoord u wenst dat toouse bij het openen van Hallo-cluster via HTTPS.
 
-    * Vervang `sshuser` en `sshuserpassword` met de gebruikersnaam en wachtwoord die u gebruiken wilt bij het openen van het cluster via SSH
+    * Vervang `sshuser` en `sshuserpassword` met Hallo gebruikersnaam en wachtwoord desgewenst toouse bij het openen van Hallo-cluster via SSH
 
     > [!IMPORTANT]
-    > In dit voorbeeld maakt een cluster met twee worker opmerkingen. U kunt het aantal worker-knooppunten ook wijzigen nadat de cluster is gemaakt door het uitvoeren van bewerkingen voor vergroten/verkleinen. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, selecteert u een grootte van het hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen. U kunt de grootte van het hoofdknooppunt instellen met behulp van de `--headNodeSize` parameter tijdens het maken van het cluster.
+    > In dit voorbeeld maakt een cluster met twee worker opmerkingen. U kunt ook het aantal worker-knooppunten Hallo na het maken van het cluster wijzigen door het vergroten/verkleinen bewerkingen uitvoert. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, selecteert u een grootte van het hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen. U kunt Hallo hoofdknooppunt grootte instellen met behulp van Hallo `--headNodeSize` parameter tijdens het maken van het cluster.
     >
     > Zie voor meer informatie over knooppuntgrootten en bijbehorende kosten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-    Duurt enkele minuten voor het cluster maken van het proces te voltooien. Meestal ongeveer 15.
+    Het kan enkele minuten duren voordat Hallo cluster maken van het proces toofinish. Meestal ongeveer 15.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 
@@ -129,7 +129,7 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een HDInsight-cluster met de Azure CLI hebt gemaakt, gebruikt u de volgende voor informatie over het werken met het cluster:
+Nu u een HDInsight-cluster met behulp van hello Azure CLI hebt gemaakt, gebruiken Hallo toolearn hoe na toowork met het cluster:
 
 ### <a name="hadoop-clusters"></a>Hadoop-clusters
 

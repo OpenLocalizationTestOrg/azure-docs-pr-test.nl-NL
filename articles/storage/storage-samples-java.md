@@ -1,6 +1,6 @@
 ---
-title: Azure Storage-voorbeelden met Java | Microsoft Docs
-description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek aan de slag voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van de clientbibliotheken van Java-opslag.
+title: aaaAzure opslag voorbeelden weergegeven met behulp van Java | Microsoft Docs
+description: Weergeven, downloaden en uitvoeren van toepassingen voor Azure Storage en voorbeeldcode. Ontdek voorbeelden voor blobs, wachtrijen, tabellen en bestanden, met behulp van Hallo Java opslagclientbibliotheken aan de slag.
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 98e6022062b4ef5b5c71b54a0e94775b925d216b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3b8fbe86e82dd58c2a13a3c68760cbf6e9a6e4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-java"></a>Azure Storage-voorbeelden u Java gebruikt
 
 ## <a name="java-sample-index"></a>Index van Java-voorbeeld
 
-De volgende tabel bevat een overzicht van onze voorbeelden-opslagplaats en de scenario's worden behandeld in elk voorbeeld. Klik op de koppelingen naar de bijbehorende voorbeeldcode weergeven in GitHub.
+Hallo volgende tabel geeft een overzicht van onze voorbeelden opslagplaats en Hallo scenario's die in elk voorbeeld worden behandeld. Klik op Hallo koppelingen tooview Hallo bijbehorende voorbeeldcode in GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Eindpunt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Voorbeeldcode</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ De volgende tabel bevat een overzicht van onze voorbeelden-opslagplaats en de sc
 
 ## <a name="azure-code-samples-library"></a>Azure-codevoorbeelden-bibliotheek
 
-Als u wilt de compleet codevoorbeeld bibliotheek bekijken, gaat u naar de [Azure codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=storage) bibliotheek, waaronder voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. De bibliotheek met voorbeeld wordt een voorbeeldcode in het ZIP-indeling. U kunt ook bladeren en kloon de GitHub-opslagplaats voor elk voorbeeld.
+tooview hello compleet codevoorbeeld bibliotheek, Ga toohello [Azure codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=storage) bibliotheek, waaronder voorbeelden voor Azure-opslag die u kunt downloaden en lokaal uitvoeren. Hallo Code voorbeeld van een bibliotheek bevat voorbeeldcode in het ZIP-indeling. U kunt ook bladeren en Hallo GitHub-opslagplaats voor elk voorbeeld klonen.
 
 [!INCLUDE [storage-java-samples-include](../../includes/storage-java-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Ophalen van slag-handleidingen
 
-Bekijk de volgende handleidingen in als u op zoek bent voor instructies over het installeren en aan de slag met de clientbibliotheken van Azure Storage.
+Hallo handleidingen volgen als u op zoek bent voor instructies over het uitchecken tooinstall en aan de slag met Hallo clientbibliotheken van Azure Storage.
 
 * [Aan de slag met Azure Blob-Service in Java](storage-java-how-to-use-blob-storage.md)
 * [Aan de slag met Azure Queue-Service in Java](storage-java-how-to-use-queue-storage.md)

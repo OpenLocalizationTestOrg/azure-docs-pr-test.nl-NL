@@ -1,6 +1,6 @@
 ---
-title: Met Azure CLI - Azure HDInsight Hadoop-clusters beheren | Microsoft Docs
-description: Informatie over het gebruiken van de Azure-opdrachtregelinterface voor het beheren van Hadoop-clusters in Azure HDInsight. De Azure CLI werkt op Windows, Mac en Linux.
+title: aaaManage Hadoop-clusters met Azure CLI - Azure HDInsight | Microsoft Docs
+description: Meer informatie over hoe toouse hello Azure-opdrachtregelinterface toomanage Hadoop-clusters in Azure HDInsight. Hello Azure CLI werkt op Windows, Mac en Linux.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -16,44 +16,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 0ee9f2f28978b207dcaf8f77950bd82a897d3fd1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 03b0cff9331c1c581095b80cc6d1177d843ffa83
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Hadoop-clusters in HDInsight met behulp van de Azure CLI beheren
+# <a name="manage-hadoop-clusters-in-hdinsight-using-hello-azure-cli"></a>Hadoop-clusters in HDInsight met behulp van Azure CLI Hallo beheren
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Meer informatie over het gebruik van de [Azure-opdrachtregelinterface](../cli-install-nodejs.md) voor het beheren van Hadoop-clusters in Azure HDInsight. De Azure CLI is geïmplementeerd in Node.js en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux.
+Meer informatie over hoe toouse hello [Azure-opdrachtregelinterface](../cli-install-nodejs.md) toomanage Hadoop-clusters in Azure HDInsight. Hello Azure CLI is geïmplementeerd in Node.js. en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux.
 
-In dit artikel behandelt alleen het gebruik van de Azure CLI met HDInsight. Zie voor een algemene richtlijnen over het gebruik van Azure CLI [installeren en configureren van Azure CLI][azure-command-line-tools].
+Dit artikel behandelt alleen hello Azure CLI gebruiken met HDInsight. Voor algemene richtlijnen over het toouse Azure CLI, Zie [installeren en configureren van Azure CLI][azure-command-line-tools].
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
+Voordat u dit artikel, moet u de volgende Hallo hebben:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Azure CLI**: zie [De Azure CLI installeren en configureren](../cli-install-nodejs.md) voor informatie over de installatie en configuratie.
-* **Verbinding maken met Azure**, met de volgende opdracht:
+* **Azure CLI** -Zie [installeren en configureren van Azure CLI Hallo](../cli-install-nodejs.md) voor installatie en configuratie-informatie.
+* **Verbinding maken met tooAzure**met Hallo volgende opdracht:
   
         azure login
   
-    Zie [Verbinding maken met een Azure-abonnement met Azure CLI](../xplat-cli-connect.md) voor meer informatie over verificatie met een werk- of schoolaccount.
-* **Overschakelen naar de modus Azure Resource Manager** met de volgende opdracht:
+    Zie voor meer informatie over verificatie met een werk- of schoolaccount [tooan Azure-abonnement verbinden van hello Azure CLI](../xplat-cli-connect.md).
+* **Modus van Azure Resource Manager toohello switch**met Hallo volgende opdracht:
   
         azure config mode arm
 
-Als u help, gebruikt de **-h** overschakelen.  Bijvoorbeeld:
+tooget hulp nodig hebt, gebruik Hallo **-h** overschakelen.  Bijvoorbeeld:
 
     azure hdinsight cluster create -h
 
-## <a name="create-clusters-with-the-cli"></a>Clusters maken met de CLI
-Zie [clusters maken in HDInsight met behulp van de Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+## <a name="create-clusters-with-hello-cli"></a>Maken van clusters met Hallo CLI
+Zie [clusters maken in HDInsight met behulp van Azure CLI Hallo](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Een lijst en clusterdetails weergeven
-Gebruik de volgende opdrachten te kunnen aanbieden en clusterdetails weergeven:
+Gebruik Hallo opdrachten toolist te volgen en clusterdetails weergeven:
 
     azure hdinsight cluster list
     azure hdinsight cluster show <Cluster Name>
@@ -61,16 +61,16 @@ Gebruik de volgende opdrachten te kunnen aanbieden en clusterdetails weergeven:
 ![Opdrachtregelprogramma weergave van de lijst met clusters][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>Clusters verwijderen
-Gebruik de volgende opdracht om te verwijderen van een cluster:
+Gebruik Hallo opdracht toodelete een cluster te volgen:
 
     azure hdinsight cluster delete <Cluster Name>
 
-U kunt ook een cluster verwijderen door de resourcegroep waarin het cluster te verwijderen. Let op: Hiermee verwijdert u alle resources in de groep met inbegrip van het standaardopslagaccount.
+U kunt ook een cluster verwijderen door het verwijderen van resourcegroep Hallo die Hallo cluster bevat. Let op: Hiermee verwijdert u alle Hallo bronnen in Hallo-groep met inbegrip van Hallo storage-standaardaccount.
 
     azure group delete <Resource Group Name>
 
 ## <a name="scale-clusters"></a>Clusters schalen
-De grootte van Hadoop-cluster wijzigen:
+toochange hello Hadoop clustergrootte:
 
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 
@@ -85,12 +85,12 @@ De grootte van Hadoop-cluster wijzigen:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe verschillende HDInsight-cluster administratieve taken uitvoeren. Zie voor meer informatie de volgende artikelen:
+In dit artikel hebt u geleerd hoe tooperform verschillende HDInsight-cluster beheertaken. toolearn Zie meer Hallo artikelen te volgen:
 
-* [HDInsight beheren met behulp van de Azure Portal][hdinsight-admin-portal]
+* [HDInsight beheren met behulp van hello Azure Portal][hdinsight-admin-portal]
 * [HDInsight met behulp van Azure PowerShell beheren][hdinsight-admin-powershell]
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
-* [Het gebruik van de Azure CLI][azure-command-line-tools]
+* [Hoe toouse hello Azure CLI][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

@@ -1,6 +1,6 @@
 ---
-title: Plan voor Hyper-V-replicatie naar een secundaire VMM-site met Azure Site Recovery netwerken | Microsoft Docs
-description: Dit artikel wordt de planning van het netwerk wanneer u Hyper-V-machines repliceren naar een secundaire site van System Center VMM met Azure Site Recovery.
+title: netwerk voor Hyper-V-replicatie tooa secundaire VMM-site met Azure Site Recovery aaaPlan | Microsoft Docs
+description: Dit artikel wordt de planning van het netwerk bij het repliceren van Hyper-V-machines tooa secundaire System Center VMM-site met Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.openlocfilehash: a1f3f6e6cba074647195e2b0cbcdc7b4f3dec475
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5934db4a661a2c697a1a799c3848852250ddb451
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-3-plan-networking-for-hyper-v-vm-replication-to-a-secondary-vmm-site"></a>Stap 3: Plannen netwerken voor replicatie van Hyper-V-machine naar een secundaire VMM-site
+# <a name="step-3-plan-networking-for-hyper-v-vm-replication-tooa-secondary-vmm-site"></a>Stap 3: Plannen netwerken voor virtuele machine van Hyper-V-replicatie tooa secundaire VMM-site
 
-Bekijk de vereisten voor implementatie en Lees dit artikel om te plannen wanneer repliceren van Hyper-V virtuele machines (VM's) wordt beheerd in System Center Virtual Machine Manager (VMM)-clouds, naar een secundaire site met netwerken [Azure Site Recovery](site-recovery-overview.md) in de Azure portal. 
+Bekijk de vereisten voor implementatie, Lees dit artikel tooplan networking bij het repliceren van Hyper-V virtuele machines (VM's) in System Center Virtual Machine Manager (VMM)-clouds worden beheerd met behulp tooa secundaire site [Azure Site Recovery](site-recovery-overview.md) in hello Azure-portal. 
 
-Na het lezen van dit artikel kunt u onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
+Lees dit artikel en eventuele opmerkingen posten Hallo onderin of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="network-mapping-overview"></a>Overzicht van de netwerk-toewijzing
 
-Netwerktoewijzing wordt gebruikt wanneer u Hyper-V-machines (beheerd in VMM) repliceren naar een secundair datacenter. Koppelingen van Netwerktoewijzingen tussen VM-netwerken op een bronserver met VMM en VM-netwerken op een VMM-server. Toewijzing doet het volgende:
+Netwerktoewijzing wordt gebruikt bij het repliceren van Hyper-V-machines (beheerd in VMM) tooa secundair datacenter. Koppelingen van Netwerktoewijzingen tussen VM-netwerken op een bronserver met VMM en VM-netwerken op een VMM-server. Toewijzing Hallo te volgen:
 
-- **Netwerkverbinding**: virtuele machines verbinding maakt met een juiste netwerk na een failover. De replica-VM wordt verbonden met het netwerk dat toegewezen aan de bron-netwerk.
-- **Optimale plaatsing**: optimaal plaatst de replica virtuele machines op Hyper-V-hostservers. Replica-VM's geplaatst op hosts die toegang heeft tot de toegewezen VM-netwerken.
-- **Er is geen netwerktoewijzing**— als u geen netwerktoewijzing configureert, replica VMs niet verbonden met een VM-netwerken na een failover.
+- **Netwerkverbinding**: verbindt VMs tooappropriate netwerken na een failover. Hallo replica-VM zijn doelnetwerk verbonden toohello die is toegewezen toohello Bronnetwerk.
+- **Optimale plaatsing**: optimaal plaatsen Hallo replica virtuele machines op Hyper-V-hostservers. Replica-VM's geplaatst op hosts dat de kunnen toegang hello, VM-netwerken toegewezen.
+- **Er is geen netwerktoewijzing**— als u geen netwerktoewijzing configureert, replica VMs verbonden tooany VM-netwerken niet na een failover.
 
 
 ### <a name="example"></a>Voorbeeld
 
-Hier volgt een voorbeeld ter illustratie van dit mechanisme. U gaat nu een organisatie met twee locaties in New York en Chicago.
+Hier volgt een voorbeeld tooillustrate dit mechanisme. U gaat nu een organisatie met twee locaties in New York en Chicago.
 
 **Locatie** | **VMM-server** | **VM-netwerken** | **Toegewezen aan**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1 NewYork | Toegewezen aan VMNetwork1 Chicago
+New York | VMM-NewYork| VMNetwork1 NewYork | Toegewezen tooVMNetwork1-Chicago
  |  | VMNetwork2 NewYork | Niet toegewezen
-Chicago | VMM-Chicago| VMNetwork1 Chicago | Toegewezen aan VMNetwork1 NewYork
+Chicago | VMM-Chicago| VMNetwork1 Chicago | Toegewezen tooVMNetwork1-NewYork
  | | VMNetwork1 Chicago | Niet toegewezen
 
 In dit voorbeeld:
 
-- Wanneer een replica virtuele machine is gemaakt voor elke virtuele machine die is verbonden met VMNetwork1 NewYork, wordt het verbonden zijn met VMNetwork1 Chicago.
-- Wanneer een replica virtuele machine wordt gemaakt voor VMNetwork2 NewYork of VMNetwork2 Chicago, wordt deze niet verbonden met een netwerk.
+- Wanneer een replica virtuele machine wordt gemaakt voor elke virtuele machine die is verbonden tooVMNetwork1-NewYork, zal de tooVMNetwork1-Chicago verbonden zijn.
+- Wanneer een replica virtuele machine wordt gemaakt voor VMNetwork2 NewYork of VMNetwork2 Chicago, het is niet verbonden tooany netwerk mogelijk.
 
-Hier volgt hoe VMM-clouds worden ingesteld in ons voorbeeldorganisatie en de logische netwerken die zijn gekoppeld aan clouds.
+Hier volgt hoe VMM-clouds in ons voorbeeldorganisatie en Hallo logische netwerken die zijn gekoppeld aan clouds Hallo zijn ingesteld.
 
 #### <a name="cloud-protection-settings"></a>Instellingen voor cloudbeveiliging
 
@@ -72,7 +72,7 @@ Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
 
 #### <a name="target-network-settings"></a>Doel-netwerkinstellingen
 
-Op basis van deze instellingen wanneer u het doel VM-netwerk selecteert, ziet de volgende tabel u de opties die beschikbaar zijn.
+Op basis van deze instellingen wanneer u Hallo doel VM-netwerk selecteert, worden Hallo tabel Hallo-opties die beschikbaar zijn.
 
 **Selecteren** | **Beveiligde cloud** | **Beveiligen van de cloud** | **Doelnetwerk beschikbaar**
 ---|---|---|---
@@ -82,15 +82,15 @@ VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Niet beschikbaar
  | GoldCloud1 | GoldCloud2 | Beschikbaar
 
 
-Als het doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde naam heeft als het subnet waarop de virtuele bronmachine zich bevindt, klikt u vervolgens de replica virtuele machine verbonden met dat Doelsubnet na een failover. Als er geen doelsubnet met een overeenkomende naam bestaat, wordt de virtuele machine verbonden met het eerste subnet in het netwerk.
+Als Hallo doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde naam als het subnet op welke Hallo virtuele bronmachine zich bevindt, Hallo vervolgens Hallo Hallo heeft worden replica virtuele machine verbonden toothat Doelsubnet na een failover. Als er geen Doelsubnet met een overeenkomende naam, wordt de Hallo virtuele machine verbonden toohello eerste subnet in het Hallo-netwerk zijn.
 
 
 #### <a name="failback-behavior"></a>Failback gedrag
 
-Als u wilt zien wat er gebeurt in het geval van een failback (omgekeerde replicatie), gaan we ervan uit dat VMNetwork1 NewYork is toegewezen aan VMNetwork1-Chicago, met de volgende instellingen.
+Wat gebeurt er in geval van failback (omgekeerde replicatie) Hallo toosee gaan we ervan uit dat VMNetwork1 NewYork is toegewezen tooVMNetwork1-Chicago, hello instellingen te volgen.
 
 
-**Virtuele machine** | **Verbonden met het VM-netwerk**
+**Virtuele machine** | **TooVM verbonden netwerk**
 ---|---
 VM1 | VMNetwork1-netwerk
 VM2 (replica van VM1) | VMNetwork1 Chicago
@@ -99,55 +99,55 @@ Met deze instellingen gaan we bekijken wat er gebeurt in een aantal mogelijke sc
 
 **Scenario** | **Resultaat**
 ---|---
-Er is geen wijziging in de netwerkeigenschappen van VM-2 na een failover. | VM-1 blijft verbonden met het Bronnetwerk.
+Geen wijziging in hello netwerkgegevens van VM-2 na een failover. | VM-1 blijft verbonden toohello Bronnetwerk.
 Netwerkeigenschappen van VM-2 worden gewijzigd na een failover en is verbroken. | VM-1 wordt verbroken.
-Netwerkeigenschappen van VM-2 zijn gewijzigd na een failover en is verbonden met VMNetwork2 Chicago. | Als VMNetwork2 Chicago niet is toegewezen, kunt u VM-1 wordt verbroken.
-Netwerktoewijzing van VMNetwork1 Chicago wordt gewijzigd. | VM-1 wordt verbonden met het netwerk is nu toegewezen aan VMNetwork1 Chicago.
+Netwerkeigenschappen van VM-2 zijn gewijzigd na een failover en is verbonden tooVMNetwork2-Chicago. | Als VMNetwork2 Chicago niet is toegewezen, kunt u VM-1 wordt verbroken.
+Netwerktoewijzing van VMNetwork1 Chicago wordt gewijzigd. | VM-1 zijn verbonden toohello netwerk nu toegewezen tooVMNetwork1-Chicago.
 
 
 
 ## <a name="prepare-for-network-mapping"></a>Voorbereiden op netwerktoewijzing
 
-1. U moet een logisch netwerk is gekoppeld aan de bron en doel-clouds hebben op de bron- en doel-VMM-servers. 
-2. In de bron en doel-servers, moet u een VM-netwerk dat is gekoppeld aan het logische netwerk hebben.
-3. Virtuele machines op Hyper-V-hosts op de bronlocatie moeten worden gekoppeld aan de bron-VM-netwerk. Als u slechts één VMM-server gebruikt, kunt u de toewijzing tussen VM-netwerken op dezelfde server configureren.
+1. Op Hallo bron en doel-VMM-servers, moet u een logisch netwerk is gekoppeld aan de bron en doel clouds Hallo hebben. 
+2. In het Hallo-bron- en servers, moet u een logisch netwerk voor VM-netwerk gekoppelde toohello hebben.
+3. Virtuele machines op Hyper-V-hosts op de bronlocatie Hallo moet gekoppelde toohello bron-VM-netwerk. Als u slechts één VMM-server gebruikt, kunt u configureren toewijzing tussen VM-netwerken op Hallo dezelfde server.
 
 Dit is wat er gebeurt als u netwerktoewijzing tijdens de implementatie van Site Recovery instellen:
 
-- Als u netwerktoewijzing instellen en selecteer een doel VM-netwerk, wordt de VMM-bron-clouds die gebruikmaken van de bron-VM-netwerk weergegeven, samen met de beschikbare doelservers VM-netwerken op de doel-clouds.
-- - Wanneer de toewijzing correct is geconfigureerd en de replicatie is ingeschakeld, wordt een bron-VM wordt verbonden met de bron-VM-netwerk en de replica op de doellocatie wordt verbonden met het toegewezen VM-netwerk.
-- Als het doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde naam heeft als het subnet waarop de virtuele bronmachine zich bevindt, klikt u vervolgens de replica virtuele machine verbonden met dat Doelsubnet na een failover. Als er geen Doelsubnet met een overeenkomende naam, wordt de virtuele machine verbonden met het eerste subnet in het netwerk.
+- Als u netwerktoewijzing instellen en selecteer een doel VM-netwerk, wordt Hallo VMM bron clouds die Hallo bron-VM-netwerk weergegeven, samen met de Hallo beschikbare doelservers VM-netwerken op Hallo doel clouds.
+- - Als de toewijzing correct is geconfigureerd en replicatie is ingeschakeld, een bron-VM is verbonden tooits bron-VM-netwerk en de replica op de doellocatie Hallo verbonden toegewezen tooits VM-netwerk.
+- Als Hallo doelnetwerk meerdere subnetten heeft en een van deze subnetten dezelfde naam als het subnet op welke Hallo virtuele bronmachine zich bevindt, Hallo vervolgens Hallo Hallo heeft worden replica virtuele machine verbonden toothat Doelsubnet na een failover. Als er geen Doelsubnet met een overeenkomende naam, worden Hallo VM verbonden toohello eerste subnet in het Hallo-netwerk.
 
-## <a name="connect-to-vms-after-failover"></a>Verbinding maken met virtuele machines na een failover
+## <a name="connect-toovms-after-failover"></a>Verbinding maken met tooVMs na een failover
 
-Bij het plannen van uw replicatie en failoverstrategie is een van de belangrijke vragen verbinding maken met de replica na een failover. Er zijn een aantal opties: 
+Bij het plannen van uw replicatie en failoverstrategie is een belangrijke vragen Hallo hoe tooconnect toohello replica na een failover. Er zijn een aantal opties: 
 
-- **Gebruik een ander IP-adres**: U kunt selecteren om een ander IP-adres voor de gerepliceerde virtuele machine. In dit scenario wordt de virtuele machine een nieuw IP-adres na een failover en een DNS-update is vereist.
-- **Hetzelfde IP-adres behouden**: U kunt hetzelfde IP-adres gebruiken voor de replica-VM. Houden dezelfde IP adressen het herstel vereenvoudigt door te beperken netwerkgerelateerde problemen na een failover. 
+- **Gebruik een ander IP-adres**: U kunt toouse een ander IP-adres voor selecteren Hallo VM gerepliceerd. In dit scenario Hallo VM krijgt een nieuwe IP-adres na een failover en een DNS-update is vereist.
+- **Behouden Hallo hetzelfde IP-adres**: U kunt toouse Hallo hetzelfde IP-adres voor Hallo replica-VM. Houden Hallo dezelfde IP-adressen vereenvoudigt Hallo recovery vermindert toegangsproblemen netwerk na een failover. 
 
 ## <a name="retain-ip-addresses"></a>IP-adressen behouden
 
-Als u behouden van de IP-adressen van de primaire site na een failover naar de secundaire site wilt, kunt u een volledige subnet failover doen en bijwerken van routes om aan te geven van de nieuwe locatie van de IP-adressen of alternatieve implementeren een gespreide subnet tussen de primaire en de herstellocatie.
+Als u tooretain Hallo IP-adressen wilt van Hallo primaire site na failover toohello secundaire site, kunt u een failover volledige subnet doen en bijwerken van routes tooindicate Hallo nieuwe locatie van Hallo IP-adressen of alternatieve een gespreide subnet tussen Hallo implementeren primaire en Hallo herstellocatie.
 
 ### <a name="stretched-subnet"></a>Gespreide subnet
 
-In een gespreide subnet is het subnet beschikbaar tegelijkertijd in de primaire en secundaire site. Als u een server en de configuratie van de IP-(laag 3) naar de secundaire site verplaatst, stuurt het netwerk het verkeer naar de nieuwe locatie automatisch. 
+In een gespreide subnet is Hallo subnet beschikbaar tegelijk in beide Hallo primaire en secundaire site. Als u een server en de secundaire site ervan IP (laag 3) configuratie toohello verplaatst, wordt Hallo netwerk Hallo verkeer toohello nieuwe locatie automatisch gerouteerd. 
 
-Vanuit een perspectief Layer 2 (data link-laag) moet u netwerkapparatuur die een gespreide VLAN kunt beheren. Bovendien door het VLAN rekken, breidt de potentiële foutdomein bij beide sites, wordt in wezen een potentieel risico. Hoewel dit een onwaarschijnlijk, kan het gebeuren dat een broadcast-storm gestart en kan niet geïsoleerd worden. 
+Vanuit een perspectief Layer 2 (data link-laag) moet u netwerkapparatuur die een gespreide VLAN kunt beheren. Bovendien breidt Hallo potentiële foutdomein door uitrekken Hallo VLAN tooboth sites, wordt in wezen een potentieel risico. Hoewel dit een onwaarschijnlijk, kan het gebeuren dat een broadcast-storm gestart en kan niet geïsoleerd worden. 
 
 
 ### <a name="subnet-failover"></a>Subnet failover
 
-U kunt een failover subnet om te verkrijgen van de voordelen van het subnet van de gespreide zonder het daadwerkelijk uitrekken uitvoeren. In deze oplossing wordt een subnet beschikbaar zijn in de bron- of doelentiteit site, maar niet in beide tegelijk. Om te blijven van de IP-adresruimte in het geval van een failover, kunt u via een programma voor de infrastructuur van de router voor het verplaatsen van de subnetten van de ene site naar een andere rangschikken. Na wanneer failover plaatsvindt, subnetten, zou worden verplaatst met de bijbehorende virtuele machines. Het grootste nadeel is dat bij een storing, die u moet het hele subnet verplaatsen.
+U kunt een subnet failover tooobtain Hallo voordelen van Hallo uitgerekt subnet, uitvoeren zonder het daadwerkelijk uitrekken. In deze oplossing wordt een subnet beschikbaar zijn in de bron- of doelentiteit site hello, maar niet in beide tegelijk. toomaintain hello IP-adresruimte in Hallo gebeurtenis van een failover, kunt u programmatisch rangschikken voor Hallo router infrastructuur toomove Hallo subnetten van één site tooanother. Nadat er bij een storing subnetten zou worden verplaatst met gekoppelde Hallo virtuele machines. het grootste nadeel Hallo is dat in geval van storing Hallo u toomove Hallo hele subnet.
 
 ### <a name="example"></a>Voorbeeld
 
-Hier volgt een voorbeeld van een volledige subnet failover. De primaire site zijn toepassingen in een subnet 192.168.1.0/24. Bij een failover alle VM's in dit subnet kan niet via de secundaire site en de IP-adressen behouden. Routes moeten worden gewijzigd naar aanleiding van het feit dat alle de virtuele machine virtuele machines die horen bij subnet 192.168.1.0/24 nu naar de secundaire site verplaatst zijn.
+Hier volgt een voorbeeld van een volledige subnet failover. Hallo primaire site heeft toepassingen in een subnet 192.168.1.0/24. Bij een failover alle Hallo virtuele machines in dit subnet wordt een failover uitgevoerd toohello secundaire site en de IP-adressen behouden. Routes moeten toobe gewijzigd tooreflect Hallo feit dat alle Hallo VM virtuele machines die horen toosubnet 192.168.1.0/24 nu toohello secundaire site hebt verplaatst.
 
-De volgende afbeeldingen tonen de subnetten voor en na failover:
+Hallo tonen onderstaande afbeeldingen Hallo subnetten vóór en na een failover:
 
-- Vóór de failover is subnet 192.168.0.1/24 actief op de bronsite worden actief op de secundaire site na een failover.
-- De routes tussen primaire site en de site recovery, derde en primaire site en derde site en herstelsite moet op de juiste wijze worden gewijzigd.
+- Vóór de failover is subnet 192.168.0.1/24 actief op de bronsite hello, worden actief op de secundaire site Hallo na een failover.
+- Hallo van routes tussen primaire site en de site recovery, derde en primaire site en derde en de site recovery heeft toobe op de juiste wijze zijn gewijzigd.
 
 **Vóór de failover**
 
@@ -159,14 +159,14 @@ De volgende afbeeldingen tonen de subnetten voor en na failover:
 
 Na een failover moet u dit is wat er gebeurt:
 
-- Site Recovery wijst een IP-adres voor elke netwerkinterface op de virtuele machine van de statische IP-adresgroep in het betreffende netwerk, voor elk exemplaar van VMM.
-- Als de IP-adresgroep op de secundaire site hetzelfde als die op de bronsite is, wordt de Site Recovery hetzelfde IP-adres (van de bron-VM) op de replica virtuele machine. Het IP-adres is gereserveerd in VMM, maar het is niet ingesteld als het failover-IP-adres op de Hyper-V-host. Het failover-IP-adres op een Hyper-v-host is net voordat de failover ingesteld.
-- Als hetzelfde IP-adres niet beschikbaar is, wijst Site Recovery een ander beschikbaar IP-adres van de groep.
-- Als VMs DHCP gebruikt, beheren niet de IP-adressen in Site Recovery. U moet controleren of de DHCP-server op de secundaire site-adres uit hetzelfde bereik als de bronsite kunt toewijzen.
+- Site Recovery wijst een IP-adres voor elke netwerkinterface op de virtuele machine, Hallo van Hallo statische IP-adresgroep in de relevante netwerk Hallo voor elk exemplaar van VMM.
+- Als Hallo IP-adresgroep op de secundaire site Hallo HALLO hallo dezelfde als diegene die op de bronsite hello, Site Recovery wijst hetzelfde IP-adres (van Hallo bron-VM) toohello replica-VM. Hallo IP-adres is gereserveerd in VMM, maar het is niet ingesteld als Hallo failover-IP-adres op Hallo Hyper-V-host. Hallo failover-IP-adres op een Hyper-v-host is ingesteld op net vóór Hallo failover.
+- Als hello hetzelfde IP-adres niet beschikbaar is, wijst Site Recovery een ander beschikbaar IP-adres uit groep Hallo.
+- Als VMs DHCP gebruikt, beheert de Site Recovery niet Hallo IP-adressen. U moet toocheck die Hallo DHCP-server op Hallo secundaire site-adres uit hetzelfde bereik als bronsite Hallo Hallo kunt toewijzen.
 
-### <a name="validate-the-ip-address"></a>Valideren van het IP-adres
+### <a name="validate-hello-ip-address"></a>Hallo IP-adres valideren
 
-Nadat u beveiliging voor een virtuele machine inschakelt, kunt u volgende voorbeeldscript gebruiken om te controleren of het adres dat is toegewezen aan de virtuele machine. Hetzelfde IP-adres worden ingesteld als het failover-IP-adres, en toegewezen aan de virtuele machine op het moment van failover:
+Nadat u de beveiliging voor een virtuele machine hebt ingeschakeld, kunt u de volgende sample script tooverify Hallo-adres is toegewezen toohello VM. Hallo hetzelfde IP-adres worden ingesteld als Hallo failover-IP-adres, en toegewezen toohello VM op moment van failover Hallo:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -177,10 +177,10 @@ Nadat u beveiliging voor een virtuele machine inschakelt, kunt u volgende voorbe
 
 ## <a name="changing-ip-addresses"></a>Het wijzigen van IP-adressen
 
-In dit scenario zijn de IP-adressen van virtuele machines die een failover worden gewijzigd. Het nadeel van deze oplossing is het onderhoud vereist. Normaal gesproken worden DNS bijgewerkt nadat de replica-VM start. DNS-vermeldingen mogelijk moet worden gewijzigd of fluster in thenetwork en vermeldingen in cache bijgewerkt. Dit kan leiden tot uitvaltijd. Uitvaltijd kan worden opgevangen volgt als volgt:
+In dit scenario worden Hallo IP-adressen van virtuele machines die een failover gewijzigd. Hallo nadeel van deze oplossing is Hallo onderhoud vereist. Normaal gesproken worden DNS bijgewerkt nadat de replica-VM start. DNS-vermeldingen mogelijk moet u toobe gewijzigd of fluster in thenetwork en vermeldingen in cache bijgewerkt. Dit kan leiden tot uitvaltijd. Uitvaltijd kan worden opgevangen volgt als volgt:
 
 - Lage TTL-waarden voor intranettoepassingen gebruiken.
-- Gebruik het volgende script in een herstelplan Site Recovery om bij te werken van de DNS-server om te controleren of een tijdige update. U kunt het script niet nodig als u dynamische DNS-registratie.
+- Hallo na script in een Site Recovery-herstelplan tooupdate Hallo DNS-server tooensure een tijdige update gebruiken. U hoeft niet Hallo script als u dynamische DNS-registratie.
 
     ```
     param(
@@ -196,12 +196,12 @@ In dit scenario zijn de IP-adressen van virtuele machines die een failover worde
     
 ### <a name="example"></a>Voorbeeld 
 
-We bekijken een scenario waarin u van plan bent te gebruiken verschillende IP-adressen voor de primaire en de herstellocatie. In dit voorbeeld hebben we verschillende IP-adressen op primaire en secundaire sites en er; s een externe site uit welke toepassingen die worden gehost op de primaire of herstel site toegankelijk zijn.
+We bekijken een scenario waarin u van plan bent toouse verschillende IP-adressen op Hallo van primaire en Hallo herstellocatie. In dit voorbeeld hebben we verschillende IP-adressen op primaire en secundaire sites en er; s een externe site uit welke toepassingen die worden gehost op de primaire of herstel site Hallo toegankelijk zijn.
 
-- Vóór de failover, apps 192.168.1.0/24 gehoste subnet op de primaire site zijn en zijn geconfigureerd als in het subnet 172.16.1.0/24 op de secundaire site na een failover.
+- Voordat u failover apps gehoste subnet 192.168.1.0/24 op Hallo primaire site zijn en zijn geconfigureerde toobe in 172.16.1.0/24 subnet op de secundaire site Hallo na een failover.
 - VPN-verbindingen/netwerkroutes zijn op de juiste wijze geconfigureerd zodat alle drie sites toegang elkaar tot hebben.
-- Na een failover wordt in het subnet herstel apps worden hersteld. In dit scenario is niet nodig voor failover van het gehele subnet en er zijn geen wijzigingen nodig zijn om opnieuw te configureren van VPN- of netwerkbeheerder routes. Zorg ervoor dat toepassingen toegankelijk blijven de failover en een aantal DNS-updates.
-- Als DNS is geconfigureerd voor dynamische updates toestaan, wordt klikt u vervolgens de virtuele machines geregistreerd zelf met behulp van het nieuwe IP-adres, wanneer ze na een failover wordt gestart.
+- Na een failover wordt in Hallo herstel subnet apps worden hersteld. In dit scenario er is geen toofail nodig via Hallo gehele subnet en er zijn geen wijzigingen nodig tooreconfigure VPN- of netwerkbeheerder routes. Zorg ervoor dat toepassingen toegankelijk blijven Hallo failover en een aantal DNS-updates.
+- Als DNS geconfigureerde tooallow dynamische updates, vervolgens registreert Hallo VM's zelf Hallo nieuwe IP-adres via wanneer ze na een failover wordt gestart.
 
 **Vóór de failover**
 
@@ -215,6 +215,6 @@ We bekijken een scenario waarin u van plan bent te gebruiken verschillende IP-ad
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [stap 4: voorbereiden, VMM en Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md).
+Ga te[stap 4: VMM voorbereiden en Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md).
 
 

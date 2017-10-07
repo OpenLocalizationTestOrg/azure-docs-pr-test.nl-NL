@@ -1,6 +1,6 @@
 ---
-title: Weergeven en wijzigen van de Cloud Solution Provider wederverkoper stimulans | Microsoft Docs
-description: Weergeven en wijzigen van uw selectie voor CSP wederverkoper stimulans
+title: aaaHow tooview en wijzig Hallo Cloud Solution Provider wederverkoper stimulans | Microsoft Docs
+description: Hoe tooview en uw selectie voor CSP wederverkoper stimulans wijzigen
 services: marketplace-publishing
 documentationcenter: na
 author: DavidBosland
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: DavidBosland
-ms.openlocfilehash: d6e6e13f352dea5c27939c39ecb8be97bf6990ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4702d0167c38d100755a872f9b23e49cc7a46ba2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Bekijken en wijzigen van uw Cloud Solution Provider 'Wederverkoper stimulans' in Azure Marketplace
-Op 15 maart 2016 maken we de Cloud Solution Providers (CSP's) 'Wederverkoper stimulans' beschikbaar voor Marketplace-publishers.  De standaardinstelling voor deze waarde incentive is **Ja**.  Als een publisher kunt u beslissen of u wilt uitsluiten van het programma incentive.  In dit artikel laat zien hoe de instelling wijzigen in je profiel publisher zodat u kunt opt-out.
+# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-hello-azure-marketplace"></a>Bekijken en wijzigen van uw Cloud Solution Provider 'Wederverkoper stimulans' in hello Azure Marketplace
+Op 15 maart 2016 maken we Hallo Cloud Solution Providers (CSP's) 'Wederverkoper stimulans' beschikbaar tooMarketplace uitgevers.  Hallo standaardinstelling voor deze waarde incentive is **Ja**.  Als een publisher kunt u beslissen tooopt-out van Hallo incentive programma.  Dit artikel laat zien hoe toochange Hallo-instelling in de uitgever van profiel zodat u kunt opt-out.
 
-Als u wilt weergeven of wijzigen van de status van uw 'Wederverkoper stimulans', de volgende stappen uit:
+tooview of wijzigen van de status van uw 'Wederverkoper stimulans', als volgt te werk:
 
-1. Meld u aan bij uw [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)
+1. Meld u bij tooyour [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)
 
    ![Profiel landingspagina scherm][1]
 2. Klik op **uitgevers**
 
    ![Profiel landingspagina scherm - uitgevers koppelen][2]
-3. U ziet de informatie in je profiel over CSP's.  Er is een **overschakelen naar spreek Ja of Nee** de standaardstatus is de 'wederverkoper stimulans"-"Ja".
+3. U ziet Hallo-informatie over CSP's in uw profiel.  Er is een **toosay Ja of Nee overschakelen** toohello 'Wederverkoper stimulans' - status van de standaard Hallo is "Ja".
 
    ![Profile - uitgevers][3]
-4. Wijzigen van uw 'wederverkoper stimulans' status toegang tot uw profiel Publisher Selecteer en opslaan van uw keuze:
+4. toochange de status van uw 'Wederverkoper stimulans' toegang tot uw profiel Publisher en vervolgens selecteert en slaat u uw keuze:
 
-   * Selecteer **Ja** te kiezen voor de korting 20 procent bieden aan de CSP's die de toepassingen en services die u hebt opgenomen in de Azure Marketplace zijn verkopen.  Of selecteer **Nee** voor dit programma incentive afmelden.  In beide gevallen ontvangt de uitgever van de dezelfde toekenning.
-   * Nadat u een selectie Zorg ervoor dat u klikt op **opslaan** in de rechterbovenhoek.
+   * Selecteer **Ja** toochoose tooprovide Hallo 20 procent korting toohello CSP's die zijn verkopen Hallo-toepassingen en services die u hebt opgenomen in hello Azure Marketplace.  Of selecteer **Nee** tooopt buiten dit incentive programma.  In beide case Hallo publisher Hallo ontvangt dezelfde toekenning.
+   * Nadat u een selectie Zorg ervoor dat u klikt op **opslaan** in Hallo rechtsboven.
 
    ![Profiel - uitgevers - wijziging vakken][4]
 

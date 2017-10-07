@@ -1,6 +1,6 @@
 ---
-title: De Azure portal gebruiken om te uploaden bestand configureren | Microsoft Docs
-description: Het gebruik van de Azure-portal voor het configureren van uw IoT-hub zodat bestandsuploads van verbonden apparaten. Bevat informatie over het configureren van de doel-Azure storage-account.
+title: uploaden van aaaUse hello Azure portal tooconfigure bestand | Microsoft Docs
+description: Hoe toouse hello Azure portal tooconfigure bestandsuploads uw IoT hub tooenable-bestand van verbonden apparaten. Bevat informatie over het configureren van Hallo bestemming Azure storage-account.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b90c3fbed47b4eb144d3cb7480068b7cfc776ba6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>IoT Hub uploaden van bestanden met de Azure portal configureren
+# <a name="configure-iot-hub-file-uploads-using-hello-azure-portal"></a>IoT Hub bestandsuploads met hello Azure-portal configureren
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## <a name="file-upload"></a>Bestand uploaden
 
-Gebruik de [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure Storage-account koppelen met de hub. Selecteer **uploaden bestand** om weer te geven een lijst met eigenschappen van bestand laden voor de IoT-hub die wordt gewijzigd.
+Hallo toouse [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure Storage-account koppelen met de hub. Selecteer **uploaden bestand** toodisplay een lijst met eigenschappen van bestand laden voor Hallo IoT-hub die wordt gewijzigd.
 
-![IoT Hub-bestand voor de weergave instellingen in de portal uploaden][13]
+![IoT Hub-bestand voor de weergave-instellingen in de portal Hallo uploaden][13]
 
-**Storage-container**: de Azure portal gebruiken om te selecteren van een blob-container in een Azure Storage-account in uw huidige Azure-abonnement wilt koppelen aan uw IoT-Hub. Indien nodig, kunt u een Azure Storage-account op de **opslagaccounts** blade en blob-container op de **Containers** blade. IoT Hub genereert automatisch SAS URI's met schrijfmachtigingen in voor deze blob-container voor apparaten voor gebruik bij het uploaden van bestanden.
+**Storage-container**: gebruik hello Azure portal tooselect een blobcontainer in een Azure Storage-account in uw huidige Azure-abonnement tooassociate met uw IoT-Hub. Indien nodig, kunt u een Azure Storage-account op Hallo **opslagaccounts** blade en blob-container op Hallo **Containers** blade. IoT Hub genereert automatisch SAS URI's met schrijven machtigingen toothis blob-container voor apparaten toouse wanneer het uploaden van bestanden.
 
-![Storage-containers voor uploaden van het bestand weergeven in de portal][14]
+![Storage-containers voor uploaden van het bestand in Hallo portal weergeven][14]
 
-**Meldingen ontvangen voor de geüploade bestanden**: bestand uploaden meldingen via de wisselknop- of uitschakelen.
+**Meldingen ontvangen voor de geüploade bestanden**: bestand uploaden meldingen via Hallo aan/uit- of uitschakelen.
 
-**SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's die aan het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
+**SAS TTL**: deze instelling is Hallo time-to-live Hallo SAS URI's toohello apparaat geretourneerd door de IoT Hub. Tooone uur standaard ingesteld, maar kunnen worden aangepast tooother waarden met behulp van Hallo schuifregelaar.
 
-**Bestand notification instellingen standaard TTL**: de time-to-live van een bestand uploaden melding voordat het is verlopen. Standaard ingesteld op één dag, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
+**Bestand notification instellingen standaard TTL**: Hallo time-to-live van een bestand uploaden melding voordat het is verlopen. Tooone dag standaard ingesteld, maar kunnen worden aangepast tooother waarden met behulp van Hallo schuifregelaar.
 
-**Melding levering van het maximum aantal bestanden**: het aantal keren dat de IoT-Hub probeert een bestand uploaden een melding. Standaard ingesteld op 10, maar kan worden aangepast aan andere waarden met behulp van de schuifregelaar.
+**Melding levering van het maximum aantal bestanden**: Hallo aantal keren dat Hallo IoT Hub pogingen toodeliver een melding van bestand uploaden. Too10 standaard ingesteld, maar kunnen worden aangepast tooother waarden met behulp van Hallo schuifregelaar.
 
-![Het uploaden van het IoT-Hub in de portal configureren][15]
+![Het uploaden van het IoT-Hub in Hallo portal configureren][15]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de functies voor het uploaden van bestanden van IoT Hub [uploaden van bestanden van een apparaat] [ lnk-upload] in de IoT Hub developer guide.
+Zie voor meer informatie over functies voor het uploaden van bestanden Hallo van IoT Hub [uploaden van bestanden van een apparaat] [ lnk-upload] in Hallo Ontwikkelaarshandleiding voor IoT Hub.
 
-Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
+Volg deze koppelingen toolearn meer over het beheren van Azure IoT Hub:
 
 * [Bulksgewijs IoT-apparaten beheren][lnk-bulk]
 * [IoT Hub metrische gegevens][lnk-metrics]
 * [Bewerkingen controleren][lnk-monitor]
 
-Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
+toofurther verkennen Hallo-mogelijkheden van IoT Hub, Zie:
 
 * [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
 * [Een apparaat simuleren met IoT rand][lnk-iotedge]
-* [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
+* [Uw IoT-oplossing van Hallo gemalen beveiligen][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png

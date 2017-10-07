@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: Sign up wijzigen in het aangepaste beleid en zelf-provider die wordt beweerd configureren'
-description: Een stapsgewijze uitleg over het toevoegen van claims moeten registreren en invoer van de gebruiker configureren
+description: Een stapsgewijze uitleg over het toevoegen van toosign van claims en gebruikersinvoer Hallo configureren
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,30 +14,30 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.openlocfilehash: 64b9d904d7d070052e125b479f4719d208c9ff85
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: c31d737263fef3e771bdf451b809b0ca522c8fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Wijzigen aanmelding om nieuwe claims toe te voegen en invoer van gebruiker configureren.
+# <a name="azure-active-directory-b2c-modify-sign-up-tooadd-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: Meld u aan de nieuwe claims tooadd wijzigen en configureren van invoer van gebruiker.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In dit artikel hebt toevoegt u een nieuwe vermelding voor gebruiker is opgegeven (een claim) aan uw aanmelding gebruiker reis.  U wordt de vermelding configureren als een vervolgkeuzelijst en definiëren als dat nodig is.
+In dit artikel, voegt u een nieuwe gebruiker is opgegeven (een claim) vermelding tooyour aanmelding gebruiker reis toe.  U Hallo vermelding configureren als een vervolgkeuzelijst en definiëren als dat nodig is.
 
-Door Sipi voor het activeren van de test handoff bewerkt.
+Door Sipi tootrigger test handoff bewerkt.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Voer de stappen in het artikel [aan de slag met beleid voor aangepaste](active-directory-b2c-get-started-custom.md).  Test het traject aanmelding/aanmelding gebruiker voor aanmelding bij een nieuwe lokale account voordat u doorgaat.
+* Volledige Hallo stappen voor het artikel Hallo [aan de slag met beleid voor aangepaste](active-directory-b2c-get-started-custom.md).  Test Hallo aanmelding/aanmelding gebruiker reis toosignup een nieuwe lokale account voordat u doorgaat.
 
 
-Initiële gegevens verzamelen uit uw gebruikers wordt via aanmelding/aanmelding bereikt.  Aanvullende claims kunnen later via profiel bewerken gebruiker trajecten worden verzameld. Telkens wanneer Azure AD B2C informatie interactief rechtstreeks van de gebruiker verzamelt, het identiteit ervaring Framework gebruikt de `selfasserted provider`. De onderstaande stappen gelden telkens wanneer deze provider wordt gebruikt.
+Initiële gegevens verzamelen uit uw gebruikers wordt via aanmelding/aanmelding bereikt.  Aanvullende claims kunnen later via profiel bewerken gebruiker trajecten worden verzameld. Telkens wanneer Azure AD B2C informatie rechtstreeks vanuit Hallo gebruiker interactief verzamelt, Hallo identiteit ervaring Framework gebruikt de `selfasserted provider`. Hallo stappen hieronder toepassing telkens wanneer deze provider wordt gebruikt.
 
 
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Definieer de claim, de weergavenaam en het invoertype van gebruiker
-Hiermee kunt de gebruiker vragen voor hun plaats.  Voeg het volgende element aan de `<ClaimsSchema>` element in het beleidsbestand TrustFrameWorkExtensions:
+## <a name="define-hello-claim-its-display-name-and-hello-user-input-type"></a>Hallo claim, de weergavenaam en Hallo gebruikersinvoer type definiëren
+U kunt Hallo gebruiker vragen voor hun plaats.  Hallo na element toohello toevoegen `<ClaimsSchema>` -element in het bestand met beleidsregel van Hallo TrustFrameWorkExtensions:
 
 ```xml
 <ClaimType Id="city">
@@ -47,13 +47,13 @@ Hiermee kunt de gebruiker vragen voor hun plaats.  Voeg het volgende element aan
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor een volledige schema, de **identiteit ervaring Framework technische handleiding**.  Deze handleiding zal binnenkort worden gepubliceerd in de sectie verwijzingen.
+Er zijn aanvullende opties die u kunt hier toocustomize Hallo claim.  Raadpleeg voor een volledige schema toohello **identiteit ervaring Framework technische handleiding**.  Deze handleiding zal binnenkort worden gepubliceerd in de sectie Hallo-documentatie.
 
-* `<DisplayName>`is een tekenreeks waarin de gebruiker gerichte *label*
+* `<DisplayName>`is een tekenreeks die Hallo gebruikersgerichte definieert *label*
 
-* `<UserHelpText>`kan de gebruiker begrijpen wat is vereist
+* `<UserHelpText>`helpt Hallo gebruiker begrijpen wat is vereist
 
-* `<UserInputType>`heeft de volgende vier opties hieronder gemarkeerd:
+* `<UserInputType>`heeft hello volgende vier opties hieronder gemarkeerd:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -78,7 +78,7 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect`-Hiermee kunt de selectie van de enige geldige waarde.
+    * `DropdownSingleSelect`-Hiermee kunt Hallo selectie van de enige geldige waarde.
 
 ![Schermopname van dropdown-optie](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -97,7 +97,7 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
 ```
 
 
-* `CheckboxMultiSelect`Kunt u de selectie van een of meer waarden.
+* `CheckboxMultiSelect`Kunt u Hallo selectie van een of meer waarden.
 
 ![Schermopname van meervoudige selectie optie](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -115,9 +115,9 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Toevoegen van de claim op het teken omhoog/reis gebruiker aanmelden
+## <a name="add-hello-claim-toohello-sign-upsign-in-user-journey"></a>Hallo claim toohello sign up/aanmelden gebruiker reis toevoegen
 
-1. Toevoegen van de claim als een `<OutputClaim ClaimTypeReferenceId="city"/>` naar de TechnicalProfile `LocalAccountSignUpWithLogonEmail` (te vinden in het beleidsbestand TrustFrameworkBase).  Houd er rekening mee dat deze TechnicalProfile maakt gebruik van de SelfAssertedAttributeProvider.
+1. Toevoegen van de claim Hallo als een `<OutputClaim ClaimTypeReferenceId="city"/>` toohello TechnicalProfile `LocalAccountSignUpWithLogonEmail` (te vinden op Hallo TrustFrameworkBase beleidsbestand).  Houd er rekening mee dat deze TechnicalProfile hello SelfAssertedAttributeProvider gebruikt.
 
   ```xml
   <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -142,7 +142,7 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
       <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
       <OutputClaim ClaimTypeReferenceId="authenticationSource" />
       <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
+      <!-- Optional claims, toobe collected from hello user -->
       <OutputClaim ClaimTypeReferenceId="givenName" />
       <OutputClaim ClaimTypeReferenceId="surName" />
       <OutputClaim ClaimTypeReferenceId="city"/>
@@ -154,7 +154,7 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
   </TechnicalProfile>
   ```
 
-2. Toevoegen van de claim de AAD-UserWriteUsingLogonEmail als een `<PersistedClaim ClaimTypeReferenceId="city" />` schrijven van de claim naar de AAD-directory na het verzamelen van de gebruiker. Als u liever niet persistent maken van de claim in de map voor toekomstig gebruik, kunt u deze stap overslaan.
+2. Toevoegen van Hallo claim toohello AAD UserWriteUsingLogonEmail als een `<PersistedClaim ClaimTypeReferenceId="city" />` toowrite Hallo claim toohello AAD-directory na het verzamelen van Hallo-gebruiker. Als u liever niet toopersist Hallo claim in de map Hallo voor toekomstig gebruik, kunt u deze stap overslaan.
 
   ```xml
   <!-- Technical profiles for local accounts -->
@@ -190,14 +190,14 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
   </TechnicalProfile>
   ```
 
-3. Toevoegen van de claim de TechnicalProfile die uit de map lezen wanneer een gebruiker zich als aanmeldt een`<OutputClaim ClaimTypeReferenceId="city" />`
+3. Toevoegen van Hallo claim toohello TechnicalProfile die uit de directory Hallo lezen wanneer een gebruiker zich als aanmeldt een`<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
     <Metadata>
       <Item Key="Operation">Read</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for hello provided user ID.</Item>
     </Metadata>
     <IncludeInSso>false</IncludeInSso>
     <InputClaims>
@@ -218,7 +218,7 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
   </TechnicalProfile>
   ```
 
-4. Voeg de `<OutputClaim ClaimTypeReferenceId="city" />` bestand aan het beleid RP SignUporSignIn.xml zodat deze claim wordt verzonden naar de toepassing in het token na een geslaagde-transport.
+4. Hallo toevoegen `<OutputClaim ClaimTypeReferenceId="city" />` toohello RP beleidsbestand SignUporSignIn.xml zodat deze claim toohello toepassing in Hallo token na een geslaagde-transport verzonden.
 
   ```xml
   <RelyingParty>
@@ -240,17 +240,17 @@ Er zijn aanvullende opties die u kunt hier de claim aanpassen.  Raadpleeg voor e
   </RelyingParty>
   ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>Het aangepaste beleid met 'Nu uitvoeren' testen
+## <a name="test-hello-custom-policy-using-run-now"></a>Hallo aangepast beleid met 'Nu uitvoeren' testen
 
-1. Open de **Azure AD B2C-Blade** en navigeer naar **identiteit ervaring Framework > aangepast beleid**.
-2. Selecteer het aangepaste beleid die u hebt geüpload en klik op de **nu uitvoeren** knop.
-3. U moet mogelijk aan te melden met behulp van een e-mailadres.
+1. Open Hallo **Azure AD B2C-Blade** en te navigeren**identiteit ervaring Framework > aangepast beleid**.
+2. Selecteer Hallo aangepaste beleid dat u hebt geüpload en klikt u op Hallo **nu uitvoeren** knop.
+3. U moet kunnen toosign met behulp van een e-mailadres.
 
-Het scherm aanmelding in de testmodus moet er ongeveer als volgt uitzien:
+aanmelding welkomstscherm in testmodus ziet vergelijkbare toothis:
 
 ![Schermopname van gewijzigde aanmeldingsoptie](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Het token terug naar de toepassing omvatten nu de `city` claim, zoals hieronder wordt weergegeven
+  Hallo token back tooyour toepassing zal bevatten Hallo `city` claim, zoals hieronder wordt weergegeven
 ```json
 {
   "exp": 1493596822,
@@ -273,16 +273,16 @@ Het scherm aanmelding in de testmodus moet er ongeveer als volgt uitzien:
 
 ## <a name="optional-remove-email-verification-from-signup-journey"></a>Optioneel: Verwijderen e-mailverificatie van aanmelding reis
 
-Als u wilt overslaan e-mailverificatie, de auteur van het beleid kunt verwijderen `PartnerClaimType="Verified.Email"`. Het e-mailadres vereist maar niet geverifieerd, tenzij 'Vereist' = true wordt verwijderd.  Overweeg zorgvuldig als deze optie geschikt voor uw gebruiksvoorbeelden is!
+e-mailverificatie tooskip, Hallo beleid auteur kunt tooremove `PartnerClaimType="Verified.Email"`. Hallo e-mailadres wordt vereist maar niet geverifieerd, tenzij 'Vereist' = true wordt verwijderd.  Overweeg zorgvuldig als deze optie geschikt voor uw gebruiksvoorbeelden is!
 
-Geverifieerd e-mailbericht is standaard ingeschakeld in de `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in het beleidsbestand TrustFrameworkBase in het starter pack:
+E-mailbericht is standaard ingeschakeld in Hallo geverifieerd `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in Hallo TrustFrameworkBase beleidsbestand in Hallo starter pack:
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De nieuwe claim op de stromen voor sociale account aanmeldingen toevoegen door het wijzigen van de hieronder vermelde TechnicalProfiles. Deze worden gebruikt door aanmeldingen sociale/federatieve account om te schrijven en de gebruikersgegevens lezen met de alternativeSecurityId als de locator.
+Hallo nieuwe claim toohello stromen voor sociale account aanmeldingen toevoegen door te wijzigen van Hallo TechnicalProfiles hieronder vermeld. Deze zijn gebruikt door de account sociale/federatieve aanmeldingen toowrite en gebruikersgegevens Hallo Hallo alternativeSecurityId zo Hallo locator met lezen.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

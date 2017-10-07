@@ -1,6 +1,6 @@
 ---
-title: XEvent-ringbuffer code voor de SQL-Database | Microsoft Docs
-description: Biedt een Transact-SQL-codevoorbeeld die eenvoudig en snel door gebruik van het doel ringbuffer in Azure SQL Database is gemaakt.
+title: aaaXEvent code ringbuffer voor SQL-Database | Microsoft Docs
+description: Biedt een Transact-SQL-codevoorbeeld die eenvoudig en snel door gebruik van Hallo ringbuffer doel in Azure SQL Database is gemaakt.
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,33 +16,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 6fbefe151901ac3b15d93712422878fc4d6206f1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 21df748d9999d6837d2b5bbe4a3f47fb351b4633
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring Buffer doel code voor uitgebreide gebeurtenissen in SQL-Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-U wilt een compleet codevoorbeeld voor het snel eenvoudigst vastleggen en rapport-informatie voor een uitgebreide gebeurtenis tijdens een test. De eenvoudigste doel voor uitgebreide gebeurtenisgegevens de [ringbuffer doel](http://msdn.microsoft.com/library/ff878182.aspx).
+U wilt een compleet codevoorbeeld voor Hallo eenvoudigste snel toocapture en rapport-informatie voor een uitgebreide gebeurtenis tijdens een test. Hallo eenvoudigste doel voor uitgebreide gebeurtenisgegevens is Hallo [ringbuffer doel](http://msdn.microsoft.com/library/ff878182.aspx).
 
 In dit onderwerp wordt een voorbeeld van Transact-SQL-code die:
 
-1. Maakt een tabel met gegevens voor het demonstreren van met.
+1. Maakt een tabel met toodemonstrate met gegevens.
 2. Een sessie gemaakt voor een bestaande uitgebreide gebeurtenis, namelijk **sqlserver.sql_statement_starting**.
    
-   * De gebeurtenis is beperkt tot de SQL-instructies die een bepaalde Update tekenreeks bevatten: **instructie als '% UPDATE tabEmployee %'**.
-   * Kiest voor het verzenden van de uitvoer van de gebeurtenis aan een doel van het type ringbuffer, namelijk **package0.ring_buffer**.
-3. Start de gebeurtenissessie.
+   * Hallo gebeurtenis is beperkt tooSQL instructies die een bepaalde Update tekenreeks bevatten: **instructie als '% UPDATE tabEmployee %'**.
+   * Toosend hello uitvoer van Hallo gebeurtenis tooa doel van het type ringbuffer, namelijk kiest **package0.ring_buffer**.
+3. Hallo event-sessie begint.
 4. Problemen met een paar eenvoudige UPDATE van SQL-instructies.
-5. Een SQL SELECT-instructie voor het ophalen van gebeurtenis uitvoer van de ringbuffer verstrekt.
+5. Een SQL SELECT-instructie tooretrieve gebeurtenis uitvoer van Hallo ringbuffer verstrekt.
    
    * **sys.dm_xe_database_session_targets** en lid zijn van andere dynamische beheerweergaven (DMV's).
-6. Stopt de gebeurtenissessie.
-7. Het doel ringbuffer release van de resources verwijderd.
-8. De gebeurtenissessie en de demo-tabel verwijderd.
+6. Hallo gebeurtenissessie stopt.
+7. Verwijdert Hallo ringbuffer doel, toorelease de daarbij behorende bronnen.
+8. Hallo event-sessie en Hallo demo tabel verwijderd.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -51,14 +51,14 @@ In dit onderwerp wordt een voorbeeld van Transact-SQL-code die:
   
   * Desgewenst kunt u [maken een **AdventureWorksLT** demonstratiedatabase](sql-database-get-started.md) in minuten.
 * SQL Server Management Studio (ssms.exe) in het ideale geval de meest recente maandelijkse updateversie. 
-  U kunt de meest recente ssms.exe van downloaden:
+  U kunt de meest recente ssms.exe Hallo van downloaden:
   
   * Onderwerp [SQL Server Management Studio downloaden](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Een directe koppeling naar de download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * [Een directe koppeling toohello downloaden.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Codevoorbeeld
 
-Met zeer kleine wijziging, kan het volgende codevoorbeeld van ringbuffer worden uitgevoerd op Azure SQL Database of Microsoft SQL Server. Het verschil is de aanwezigheid van het knooppunt '_database' in de naam van een dynamische beheerweergaven (DMV's), die wordt gebruikt in de component FROM in stap 5. Bijvoorbeeld:
+Met zeer kleine wijziging kan hello codevoorbeeld ringbuffer worden uitgevoerd op Azure SQL Database of Microsoft SQL Server. Hallo verschil is Hallo aanwezigheid van Hallo knooppunt '_database' Hallo-naam van een dynamische beheerweergaven (DMV's), die wordt gebruikt in hello FROM-component in stap 5. Bijvoorbeeld:
 
 * sys.dm_xe**_database**_session_targets
 * sys.dm_xe_session_targets
@@ -220,13 +220,13 @@ GO
 
 ## <a name="ring-buffer-contents"></a>Ring Buffer inhoud
 
-We ssms.exe gebruikt voor het uitvoeren van het codevoorbeeld.
+We ssms.exe toorun Hallo codevoorbeeld gebruikt.
 
-U kunt de resultaten, we de cel onder de kolomkop geklikt **target_data_XML**.
+tooview hello resultaten geklikt we Hallo cel onder de kolomkop Hallo **target_data_XML**.
 
-Klik in het deelvenster met resultaten we de cel onder de kolomkop geklikt **target_data_XML**. Klikt u op een ander tabblad van het bestand in ssms.exe waarin de inhoud van de resultaatcel wordt weergegeven, als XML gemaakt.
+Klik in het resultatenvenster Hallo we Hallo cel onder de kolomkop Hallo geklikt **target_data_XML**. Klikt u op een ander tabblad van het bestand in ssms.exe in welke Hallo inhoud van Hallo resultaatcel wordt weergegeven, als XML gemaakt.
 
-De uitvoer wordt weergegeven in het volgende blok. Het lijkt erop lang, maar dit is slechts twee  **<event>**  elementen.
+Hallo-uitvoer wordt weergegeven in Hallo blok te volgen. Het lijkt erop lang, maar dit is slechts twee  **<event>**  elementen.
 
 &nbsp;
 
@@ -320,7 +320,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 #### <a name="release-resources-held-by-your-ring-buffer"></a>Bronnen vastgehouden door uw ringbuffer vrijgeven
 
-Wanneer u klaar bent met uw ringbuffer, u kunt verwijderen en de daarbij behorende bronnen uitgeven release een **ALTER** als volgt:
+Wanneer u klaar bent met uw ringbuffer, u kunt verwijderen en de daarbij behorende bronnen uitgeven release een **ALTER** Hallo volgende, zoals:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -330,7 +330,7 @@ GO
 ```
 
 
-De definitie van de gebeurtenissessie is bijgewerkt, maar niet verwijderd. U kunt een ander exemplaar van de ringbuffer later toevoegen aan uw gebeurtenissessie:
+Hallo-definitie van de gebeurtenissessie is bijgewerkt, maar niet verwijderd. Later kunt u een ander exemplaar van Hallo ringbuffer tooyour gebeurtenissessie toevoegen:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -345,11 +345,11 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## <a name="more-information"></a>Meer informatie
 
-Het primaire onderwerp voor uitgebreide gebeurtenissen op Azure SQL Database is:
+Hallo primaire onderwerp voor uitgebreide gebeurtenissen op Azure SQL Database is:
 
 * [Overwegingen voor gebeurtenissen in SQL-Database uitgebreid](sql-database-xevent-db-diff-from-svr.md), dit in tegenstelling tot bepaalde aspecten van uitgebreide gebeurtenissen die tussen Azure SQL Database ten opzichte van Microsoft SQL Server verschillen.
 
-Er zijn andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurtenissen beschikbaar op de volgende koppelingen. Echter, moet u een voorbeeld om te zien of het voorbeeld is bedoeld voor Microsoft SQL Server versus Azure SQL Database regelmatig controleren. U kunt vervolgens beslissen of kleine wijzigingen nodig zijn om uit te voeren van het voorbeeld.
+Andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurtenissen zijn beschikbaar op Hallo koppelingen te volgen. Echter, moet u eventuele toosee voorbeeld regelmatig controleren of Hallo voorbeeld is bedoeld voor Microsoft SQL Server versus Azure SQL Database. U kunt vervolgens beslissen of kleine wijzigingen nodig toorun Hallo voorbeeld zijn.
 
 * Voorbeeld van code voor Azure SQL Database: [gebeurtenisbestand doel code voor uitgebreide gebeurtenissen in SQL-Database](sql-database-xevent-code-event-file.md)
 
@@ -357,5 +357,5 @@ Er zijn andere onderwerpen voor het voorbeeld van code voor uitgebreide gebeurte
 ('lock_acquired' event.)
 
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Find hello Objects That Have hello Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->

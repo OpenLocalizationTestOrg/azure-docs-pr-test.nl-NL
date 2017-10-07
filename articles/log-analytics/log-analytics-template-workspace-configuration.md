@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Resource Manager-sjablonen te maken en configureren van een Log Analytics-werkruimte | Microsoft Docs
-description: U kunt Azure Resource Manager-sjablonen maken en configureren van Log Analytics-werkruimten.
+title: aaaUse Azure Resource Manager-sjablonen tooCreate en configureren van een Log Analytics-werkruimte | Microsoft Docs
+description: U kunt Azure Resource Manager-sjablonen toocreate gebruiken en Log Analytics-werkruimten configureren.
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,43 +14,43 @@ ms.devlang: json
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: richrund
-ms.openlocfilehash: 505b741d14c594b22108298466c646bf723ce2d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f413e982f5eeed73f463524ff6f239f26c9127
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
-U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:
+U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) toocreate en Log Analytics-werkruimten configureren. Voorbeelden van Hallo kunt u taken met behulp van sjablonen uitvoeren zijn:
 
 * Een werkruimte maken
 * Een oplossing toevoegen
 * Opgeslagen zoekopdrachten maken
 * Maak een computergroep
-* Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
+* Verzamelen van IIS-logboeken van computers met Hallo Windows-agent is geïnstalleerd
 * Verzamelen van prestatiemeteritems van Linux- en Windows-computers
 * Gebeurtenissen verzamelen van syslog op Linux-computers 
 * Verzamelen van gebeurtenissen van Windows-gebeurtenislogboeken
 * Aangepaste logboeken verzamelen
-* Log analytics agent toevoegen aan een virtuele machine van Azure
-* Log analytics om gegevens te indexeren verzameld met behulp van Azure diagnostics configureren
+* Hallo log analytics agent tooan Azure virtuele machine toevoegen
+* Log analytics-tooindex gegevens verzameld met behulp van Azure diagnostics configureren
 
-In dit artikel biedt een sjabloon steekproeven illustratie van enkele van de configuratie die u van sjablonen uitvoeren kunt.
+In dit artikel biedt een sjabloon steekproeven illustratie van enkele Hallo-configuratie die u van sjablonen uitvoeren kunt.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Maak en configureer een Log Analytics-werkruimte
-De volgende sjabloon voorbeeld ziet u hoe:
+Hallo volgende sjabloon voorbeeld ziet u hoe:
 
 1. Een werkruimte, met inbegrip van gegevensretentie instelling maken
-2. Oplossingen toevoegen aan de werkruimte
+2. Oplossingen toohello werkruimte toevoegen
 3. Opgeslagen zoekopdrachten maken
 4. Maak een computergroep
-5. Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
+5. Verzamelen van IIS-logboeken van computers met Hallo Windows-agent is geïnstalleerd
 6. Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)
 7. Syslog-gebeurtenissen verzamelen van Linux-computers
-8. Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers
+8. Fout- en waarschuwingsberichten gebeurtenissen verzamelen van Hallo gebeurtenislogboek van toepassing op Windows-computers
 9. Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers
 10. Een aangepaste logboekgegevens verzamelen 
-11. IIS-logboeken en Windows-gebeurtenislogboeken is geschreven door Azure diagnostische gegevens naar een opslagaccount verzamelen
+11. Verzamelen van IIS-logboeken en Windows-gebeurtenislogboeken geschreven door Azure diagnostics tooa storage-account
 
 ```
 {
@@ -95,13 +95,13 @@ De volgende sjabloon voorbeeld ziet u hoe:
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
         "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
+          "description": "Name of hello storage account with Azure diagnostics output"
         }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
         "type": "string",
         "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
+          "description": "hello resource group name containing hello storage account with Azure diagnostics output"
         }
     }
   },
@@ -426,12 +426,12 @@ De volgende sjabloon voorbeeld ziet u hoe:
 }
 
 ```
-### <a name="deploying-the-sample-template"></a>De voorbeeldsjabloon implementeren
-De voorbeeldsjabloon implementeren:
+### <a name="deploying-hello-sample-template"></a>Hallo-voorbeeldsjabloon implementeren
+toodeploy hello voorbeeldsjabloon:
 
-1. De gekoppelde steekproef bijvoorbeeld in een bestand opslaan`azuredeploy.json` 
-2. De sjabloon om de gewenste configuratie bewerken
-3. Gebruik PowerShell of de opdrachtregel om de sjabloon te implementeren
+1. Hallo gekoppelde steekproef bijvoorbeeld in een bestand opslaan`azuredeploy.json` 
+2. Hallo sjabloon toohave Hallo configuratie die u wilt bewerken
+3. Gebruik PowerShell of Hallo opdrachtregel toodeploy Hallo-sjabloon
 
 #### <a name="powershell"></a>PowerShell
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
@@ -444,15 +444,15 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Voorbeeld van de Resource Manager-sjablonen
-De Azure quickstart-sjablonengalerie bevat verschillende sjablonen voor logboekanalyse, met inbegrip van:
+Azure snelstartgalerie sjabloon Hallo bevat verschillende sjablonen voor logboekanalyse, met inbegrip van:
 
-* [Een virtuele machine met Windows met de extensie Log Analytics VM implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Een virtuele machine waarop Linux wordt uitgevoerd met de extensie Log Analytics VM implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Een virtuele machine met Windows Hello Log Analytics VM-extensie implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Een virtuele machine met Linux Hello Log Analytics VM-extensie implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Azure Site Recovery met behulp van een bestaande werkruimte voor logboekanalyse bewaken](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Bewaak Web-Apps van Azure met behulp van een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Controleprogramma SQL Azure met behulp van een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
 * [Een Service Fabric-cluster implementeren en controleren van het aan een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Een Service Fabric-cluster implementeren en het maken van een werkruimte voor logboekanalyse voor het bewaken van deze](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Een Service Fabric-cluster implementeert en een toomonitor Log Analytics-werkruimte maken het](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Agents te implementeren in Azure VM's met behulp van Resource Manager-sjablonen](log-analytics-azure-vm-extension.md)

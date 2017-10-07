@@ -1,6 +1,6 @@
 ---
-title: Extern verbinding maken met uw StorSimple-apparaat | Microsoft Docs
-description: Legt uit hoe u uw apparaat voor extern beheer configureren en verbinding maken met Windows PowerShell voor StorSimple via HTTP of HTTPS.
+title: aaaConnect op afstand tooyour StorSimple-apparaat | Microsoft Docs
+description: Legt uit hoe tooconfigure uw apparaat voor extern beheer en hoe tooconnect tooWindows PowerShell voor StorSimple via HTTP of HTTPS.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,133 +15,133 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 55ed8fcdd997901301e0adc164a302216cde0332
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Extern verbinding maken met uw StorSimple 8000 series apparaat
+# <a name="connect-remotely-tooyour-storsimple-8000-series-device"></a>Tooyour StorSimple 8000 series apparaat op afstand verbinding maken
 
 ## <a name="overview"></a>Overzicht
-U kunt Windows PowerShell op afstand verbinding maken met uw StorSimple-apparaat gebruiken. Als u op deze manier verbinding, ziet u een menu. (Ziet u een menu alleen als u de seriële console op het apparaat om verbinding te gebruiken.) Met Windows PowerShell op afstand verbinding u met een specifieke runspace. U kunt ook de weergavetaal opgeven. 
+U kunt Windows PowerShell voor externe toegang tooconnect tooyour StorSimple-apparaat gebruiken. Als u op deze manier verbinding, ziet u een menu. (Ziet u een menu alleen als u de seriële console Hallo op Hallo apparaat tooconnect gebruiken.) Met Windows PowerShell op afstand, moet u specifieke runspace tooa verbinden. U kunt ook de weergavetaal Hallo opgeven. 
 
-Voor meer informatie over het beheren van uw apparaat met Windows PowerShell op afstand, gaat u naar [gebruik Windows PowerShell voor StorSimple voor het beheren van uw StorSimple-apparaat](storsimple-windows-powershell-administration.md).
+Voor meer informatie over het gebruik van Windows PowerShell voor externe toegang toomanage uw apparaat gaat te[gebruik Windows PowerShell voor StorSimple tooadminister uw StorSimple-apparaat](storsimple-windows-powershell-administration.md).
 
-Deze zelfstudie wordt uitgelegd hoe u uw apparaat voor extern beheer configureren en vervolgens verbinding maken met Windows PowerShell voor StorSimple. U kunt HTTP of HTTPS gebruiken via Windows PowerShell op afstand te verbinden. Echter, wanneer u verbinding maken met Windows PowerShell voor StorSimple beslist, het volgende overwegen: 
+Deze zelfstudie wordt uitgelegd hoe tooconfigure uw apparaat voor extern beheer en klikt u vervolgens het tooconnect tooWindows PowerShell voor StorSimple. Hier kunt u HTTP of HTTPS tooconnect via Windows PowerShell op afstand. Echter, wanneer u beslist hoe tooconnect tooWindows PowerShell voor StorSimple, houd rekening met Hallo volgende: 
 
-* Rechtstreeks verbinding maken met de seriële console van het apparaat is beveiligd, maar geen verbinding maken met de seriële console via netwerkswitches is. Wees voorzichtig met over de beveiligingsrisico's het verbinding maken met de seriële console van het apparaat via netwerkswitches. 
-* Verbinding maken via een HTTP-sessie, is het mogelijk bieden meer beveiliging dan verbinding maken via de seriële console via het netwerk. Hoewel dit niet de meest beveiligde methode, is het is acceptabel in vertrouwde netwerken. 
-* Verbinding maken via een HTTPS-sessie met een zelfondertekend certificaat is de veiligste en de aanbevolen optie.
+* Toohello rechtstreeks verbinding maken de seriële console apparaat beveiligd is, maar verbindende toohello seriële console via netwerkswitches is niet. Wees voorzichtig met van Hallo beveiligingsrisico, omdat het toohello de seriële console apparaat via netwerkswitches verbinding te maken. 
+* Verbinding maken via een HTTP-sessie biedt meer beveiliging dan verbinding maken via de seriële console Hallo via Hallo netwerk mogelijk. Hoewel dit niet de meest beveiligde methode hello, is het is acceptabel in vertrouwde netwerken. 
+* Verbinding maken via een HTTPS-sessie met een zelfondertekend certificaat is Hallo veiligste en aanbevolen optie Hallo.
 
-U kunt op afstand verbinden met de Windows PowerShell-interface. Externe toegang tot uw StorSimple-apparaat via de Windows PowerShell-interface wordt echter niet standaard ingeschakeld. U moet eerst extern beheer op het apparaat inschakelen en klik vervolgens op de client die wordt gebruikt voor toegang tot uw apparaat.
+U kunt verbinden op afstand toohello Windows PowerShell-interface. Externe toegang tooyour StorSimple-apparaat via Windows PowerShell-interface Hallo is echter niet standaard ingeschakeld. U moet extern beheer van de tooenable op Hallo apparaat eerst en klik vervolgens op Hallo client die wordt gebruikt tooaccess uw apparaat.
 
-De stappen in dit artikel zijn uitgevoerd op een hostsysteem met Windows Server 2012 R2.
+Hallo stappen in dit artikel zijn uitgevoerd op een hostsysteem met Windows Server 2012 R2.
 
 ## <a name="connect-through-http"></a>Verbinding maken via HTTP
-Verbinding maken met Windows PowerShell voor StorSimple via een HTTP-sessie, biedt betere beveiliging dan verbinding maken via de seriële console van uw StorSimple-apparaat. Hoewel dit niet de meest beveiligde methode, is het is acceptabel in vertrouwde netwerken.
+Een tooWindows PowerShell voor StorSimple verbinding via een HTTP-sessie, biedt betere beveiliging dan verbinding maken via de seriële console Hallo van uw StorSimple-apparaat. Hoewel dit niet de meest beveiligde methode hello, is het is acceptabel in vertrouwde netwerken.
 
-U kunt de klassieke Azure portal of de seriële console extern beheer configureren. Selecteer in de volgende procedures:
+U kunt Hallo klassieke Azure-portal of Hallo seriële console tooconfigure extern beheer gebruiken. Selecteer een van de Hallo procedures te volgen:
 
-* [Gebruik de klassieke Azure portal extern beheer inschakelen via HTTP](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
-* [Gebruik de seriële console extern beheer inschakelen via HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
+* [Hello Azure classic portal tooenable extern beheer via HTTP gebruiken](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* [Hallo seriële console tooenable extern beheer via HTTP gebruiken](#use-the-serial-console-to-enable-remote-management-over-http)
 
-Nadat u extern beheer inschakelen, gebruik de volgende procedure voor het voorbereiden van de client voor een externe verbinding.
+Nadat u extern beheer inschakelen, gebruikt u hello te volgen procedure tooprepare Hallo-client voor een externe verbinding.
 
-* [De client voorbereiden voor externe verbinding](#prepare-the-client-for-remote-connection)
+* [Hallo-client voorbereiden voor externe verbinding](#prepare-the-client-for-remote-connection)
 
-### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-http"></a>Gebruik de klassieke Azure portal extern beheer inschakelen via HTTP
-Voer de volgende stappen uit in de klassieke Azure portal extern beheer inschakelen via HTTP.
+### <a name="use-hello-azure-classic-portal-tooenable-remote-management-over-http"></a>Hello Azure classic portal tooenable extern beheer via HTTP gebruiken
+Voer Hallo stappen te volgen in hello Azure classic portal tooenable extern beheer via HTTP.
 
-#### <a name="to-enable-remote-management-through-the-azure-classic-portal"></a>Extern beheer via de klassieke Azure portal inschakelen
+#### <a name="tooenable-remote-management-through-hello-azure-classic-portal"></a>extern beheer via de klassieke Azure-portal Hallo tooenable
 1. Toegang **apparaten** > **configureren** voor uw apparaat.
-2. Schuif omlaag naar het gedeelte **Extern beheer**.
-3. Stel **Extern beheer inschakelen** in op **Ja**.
-4. U kunt nu verbinding maken via HTTP. (De standaardinstelling is verbinding maken via HTTPS.) Zorg ervoor dat HTTP is geselecteerd.
+2. Schuif omlaag toohello **extern beheer** sectie.
+3. Stel **extern beheer inschakelen** te**Ja**.
+4. U kunt nu tooconnect via HTTP. (Hallo standaardwaarde is tooconnect via HTTPS). Zorg ervoor dat HTTP is geselecteerd.
    
    > [!NOTE]
    > Verbinding maken via HTTP is alleen acceptabel in vertrouwde netwerken.
    > 
    > 
-5. Klik op **Opslaan** onder aan de pagina.
+5. Klik op **opslaan** Hallo Hallo pagina onderaan in.
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Gebruik de seriële console extern beheer inschakelen via HTTP
-De volgende stappen uitvoeren op de seriële console van het apparaat extern beheer inschakelen.
+### <a name="use-hello-serial-console-tooenable-remote-management-over-http"></a>Hallo seriële console tooenable extern beheer via HTTP gebruiken
+Hallo volgende stappen uit op Hallo apparaat seriële console tooenable extern beheer uitvoeren.
 
-#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Extern beheer via de seriële console van het apparaat inschakelen
-1. Selecteer in het menu seriële console optie 1. Voor meer informatie over het gebruik van de seriële console op het apparaat, gaat u naar [verbinding maken met Windows PowerShell voor StorSimple via de seriële console apparaat](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Typ het volgende bij de opdrachtprompt:`Enable-HcsRemoteManagement –AllowHttp`
-3. U ontvangt een melding over de beveiligingsproblemen van het gebruik van HTTP verbinding maken met het apparaat. Bevestig door op te geven wanneer u wordt gevraagd, **Y**.
+#### <a name="tooenable-remote-management-through-hello-device-serial-console"></a>extern beheer via de seriële console van Hallo apparaat tooenable
+1. Selecteer optie 1 Hallo seriële consolemenu. Voor meer informatie over het gebruik van de seriële console Hallo op Hallo apparaat gaat te[tooWindows PowerShell voor StorSimple-verbinding via de seriële console apparaat](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. Hallo opdrachtprompt, typt u:`Enable-HcsRemoteManagement –AllowHttp`
+3. U wordt gewaarschuwd over Hallo beveiligingsproblemen van het gebruik van HTTP-tooconnect toohello apparaat. Bevestig door op te geven wanneer u wordt gevraagd, **Y**.
 4. Controleer of HTTP is ingeschakeld door te typen:`Get-HcsSystem`
-5. Controleer de **RemoteManagementMode** veld bevat **HttpsAndHttpEnabled**. De volgende afbeelding ziet deze instellingen in de PuTTY.
+5. Controleer of deze Hallo **RemoteManagementMode** veld bevat **HttpsAndHttpEnabled**.hello volgende afbeelding ziet u deze instellingen in de PuTTY.
    
      ![Seriële HTTPS en HTTP-ingeschakeld](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-### <a name="prepare-the-client-for-remote-connection"></a>De client voorbereiden voor externe verbinding
-Voer de volgende stappen uit op de client extern beheer inschakelen.
+### <a name="prepare-hello-client-for-remote-connection"></a>Hallo-client voorbereiden voor externe verbinding
+Hallo volgende stappen uit op Hallo client tooenable extern beheer uitvoeren.
 
-#### <a name="to-prepare-the-client-for-remote-connection"></a>De client voorbereiden voor externe verbinding
+#### <a name="tooprepare-hello-client-for-remote-connection"></a>tooprepare Hallo-client voor externe verbinding
 1. Start een Windows PowerShell-sessie als administrator.
-2. Typ de volgende opdracht het IP-adres van het StorSimple-apparaat toevoegen aan lijst met vertrouwde hosts van de client: 
+2. Type Hallo volgende opdracht tooadd Hallo IP-adres van de lijst met vertrouwde hosts Hallo StorSimple-apparaat toohello van client: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-     Vervang <*device_ip*> met het IP-adres van uw apparaat; bijvoorbeeld: 
+     Vervang <*device_ip*> met Hallo IP-adres van uw apparaat; bijvoorbeeld: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
-3. Typ de volgende opdracht voor het opslaan van de referenties van het apparaat in een variabele: 
+3. Type Hallo opdracht toosave Hallo apparaat referenties in een variabele te volgen: 
    
     ```
     $cred = Get-Credential
     ```
     
-4. In het dialoogvenster dat wordt weergegeven:
+4. In het dialoogvenster Hallo die wordt weergegeven:
    
-   1. Typ de gebruikersnaam in deze indeling: *device_ip\SSAdmin*.
-   2. Typ het administrator-wachtwoord voor het apparaat dat is ingesteld wanneer het apparaat is geconfigureerd met de wizard setup. Is het standaardwachtwoord *Wachtwoord1*.
-5. Start een Windows PowerShell-sessie op het apparaat door deze opdracht te typen:
+   1. Typ de gebruikersnaam in deze indeling Hallo: *device_ip\SSAdmin*.
+   2. Typ beheerderswachtwoord van het Hallo-apparaat dat is ingesteld wanneer het Hallo-apparaat is geconfigureerd met de wizard setup Hallo. is het standaardwachtwoord Hallo *Wachtwoord1*.
+5. Start een Windows PowerShell-sessie op Hallo apparaat door deze opdracht te typen:
    
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
    
    > [!NOTE]
-   > Toevoegen als u wilt maken voor gebruik van een Windows PowerShell-sessie met het virtuele StorSimple-apparaat, de `–Port` parameter en geeft u de openbare poort die u hebt geconfigureerd in externe toegang voor virtueel StorSimple-apparaat.
+   > toocreate een Windows PowerShell-sessie voor gebruik met Hallo virtuele StorSimple-apparaat, append Hallo `–Port` parameter en geef Hallo openbare poort die u hebt geconfigureerd in externe toegang voor virtueel StorSimple-apparaat.
    > 
    > 
    
-     U hebt op dit moment een actieve externe Windows PowerShell-sessie op het apparaat.
+     Op dit moment hebt u een actieve externe Windows PowerShell-sessie toohello apparaat.
    
     ![Externe communicatie via HTTP met PowerShell](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## <a name="connect-through-https"></a>Verbinding maken via HTTPS
-Verbinding maken met Windows PowerShell voor StorSimple via een HTTPS-sessie, is de veiligste en aanbevolen methode externe verbinding maken met uw Microsoft Azure StorSimple-apparaat. De volgende procedures wordt uitgelegd hoe voor het instellen van de seriële console en client-computers, zodat u HTTPS kunt verbinding maken met Windows PowerShell voor StorSimple.
+Een tooWindows PowerShell voor StorSimple verbinding via een HTTPS-sessie Hallo veiligste en aanbevolen methode van Microsoft Azure StorSimple-apparaat voor op afstand verbinding tooyour. Hallo volgen procedures wordt uitgelegd hoe tooset up Hallo seriële console en client-computers zodat u kunt HTTPS tooconnect tooWindows PowerShell voor StorSimple.
 
-U kunt de klassieke Azure portal of de seriële console extern beheer configureren. Selecteer in de volgende procedures:
+U kunt Hallo klassieke Azure-portal of Hallo seriële console tooconfigure extern beheer gebruiken. Selecteer een van de Hallo procedures te volgen:
 
-* [Gebruik de klassieke Azure portal extern beheer inschakelen via HTTPS](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
-* [Gebruik de seriële console extern beheer inschakelen via HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
+* [Hello Azure classic portal tooenable extern beheer via HTTPS gebruiken](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* [Hallo seriële console tooenable extern beheer via HTTPS gebruiken](#use-the-serial-console-to-enable-remote-management-over-https)
 
-Nadat u extern beheer inschakelen, gebruikt u de volgende procedures voor het voorbereiden van de host voor een extern beheer en verbinding maken met het apparaat van de externe host.
+Nadat u extern beheer inschakelen, Hallo procedures tooprepare Hallo host voor een extern beheer na gebruik en toohello apparaat verbinden van de externe host Hallo.
 
-* [De host voorbereiden voor extern beheer](#prepare-the-host-for-remote-management)
-* [Verbinding maken met het apparaat van de externe host](#connect-to-the-device-from-the-remote-host)
+* [Hallo host voorbereiden voor extern beheer](#prepare-the-host-for-remote-management)
+* [Verbinding maken met toohello apparaat van de externe host Hallo](#connect-to-the-device-from-the-remote-host)
 
-### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-https"></a>Gebruik de klassieke Azure portal extern beheer inschakelen via HTTPS
-Voer de volgende stappen uit in de klassieke Azure portal extern beheer inschakelen via HTTPS.
+### <a name="use-hello-azure-classic-portal-tooenable-remote-management-over-https"></a>Hello Azure classic portal tooenable extern beheer via HTTPS gebruiken
+Voer Hallo stappen te volgen in hello Azure classic portal tooenable extern beheer via HTTPS.
 
-#### <a name="to-enable-remote-management-over-https-from-the-azure-classic-portal"></a>Extern beheer inschakelen via HTTPS vanaf de klassieke Azure portal
+#### <a name="tooenable-remote-management-over-https-from-hello-azure-classic-portal"></a>tooenable remote management via HTTPS van Hallo klassieke Azure-portal
 1. Toegang **apparaten** > **configureren** voor uw apparaat.
-2. Schuif omlaag naar het gedeelte **Extern beheer**.
-3. Stel **Extern beheer inschakelen** in op **Ja**.
-4. U kunt nu verbinding maken via HTTPS. (De standaardinstelling is verbinding maken via HTTPS.) Zorg ervoor dat HTTPS is geselecteerd. 
-5. Klik op **certificaat voor extern beheer downloaden**. Geef een locatie voor dit bestand opslaan. U moet dit certificaat installeren op de client of hostcomputer computer die u gebruiken wilt voor het verbinding maken met het apparaat.
-6. Klik op **Opslaan** onder aan de pagina.
+2. Schuif omlaag toohello **extern beheer** sectie.
+3. Stel **extern beheer inschakelen** te**Ja**.
+4. U kunt nu tooconnect via HTTPS. (Hallo standaardwaarde is tooconnect via HTTPS). Zorg ervoor dat HTTPS is geselecteerd. 
+5. Klik op **certificaat voor extern beheer downloaden**. Geef een locatie toosave dit bestand. U moet dit certificaat op de client of hostcomputer computer Hallo die u tooconnect toohello apparaat gebruikt tooinstall.
+6. Klik op **opslaan** Hallo Hallo pagina onderaan in.
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Gebruik de seriële console extern beheer inschakelen via HTTPS
-De volgende stappen uitvoeren op de seriële console van het apparaat extern beheer inschakelen.
+### <a name="use-hello-serial-console-tooenable-remote-management-over-https"></a>Hallo seriële console tooenable extern beheer via HTTPS gebruiken
+Hallo volgende stappen uit op Hallo apparaat seriële console tooenable extern beheer uitvoeren.
 
-#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Extern beheer via de seriële console van het apparaat inschakelen
-1. Selecteer in het menu seriële console optie 1. Voor meer informatie over het gebruik van de seriële console op het apparaat, gaat u naar [verbinding maken met Windows PowerShell voor StorSimple via de seriële console apparaat](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Typ het volgende bij de opdrachtprompt: 
+#### <a name="tooenable-remote-management-through-hello-device-serial-console"></a>extern beheer via de seriële console van Hallo apparaat tooenable
+1. Selecteer optie 1 Hallo seriële consolemenu. Voor meer informatie over het gebruik van de seriële console Hallo op Hallo apparaat gaat te[tooWindows PowerShell voor StorSimple-verbinding via de seriële console apparaat](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. Hallo opdrachtprompt, typt u: 
    
      `Enable-HcsRemoteManagement`
    
@@ -150,89 +150,89 @@ De volgende stappen uitvoeren op de seriële console van het apparaat extern beh
    
      `Get-HcsSystem`
    
-    Zorg ervoor dat de **RemoteManagementMode** veld bevat **HttpsEnabled**. De volgende afbeelding ziet deze instellingen in de PuTTY.
+    Zorg ervoor dat Hallo **RemoteManagementMode** veld bevat **HttpsEnabled**.hello volgende afbeelding ziet u deze instellingen in de PuTTY.
    
      ![Seriële HTTPS-functionaliteit](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. Vanuit de uitvoer van `Get-HcsSystem`, Kopieer het serienummer van het apparaat en opslaan voor later gebruik.
+4. Vanuit de uitvoer Hallo van `Get-HcsSystem`, serienummer Hallo Hallo apparaat kopiëren en opslaan voor later gebruik.
    
    > [!NOTE]
-   > Het serienummer wordt toegewezen aan de CN-naam in het certificaat.
+   > Hallo serienummer maps toohello CN-naam in Hallo certificaat.
    > 
    > 
 5. Een certificaat voor extern beheer verkrijgen door te typen: 
    
      `Get-HcsRemoteManagementCert`
    
-    Een certificaat voor de volgende strekking weergegeven.
+    Een certificaat vergelijkbare toohello volgende wordt weergegeven.
    
     ![Extern beheercertificaat ophalen](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
-6. Kopieer de gegevens in het certificaat van **---BEGIN CERTIFICATE---** naar **---EINDCERTIFICAAT---** in een teksteditor zoals Kladblok en sla deze op te geven als een .cer-bestand. (Kopieert u dit bestand met de externe host bij het voorbereiden van de host.)
+6. Hallo gegevens kopiëren in Hallo-certificaat van **---BEGIN CERTIFICATE---** te**---EINDCERTIFICAAT---** in een teksteditor zoals Kladblok en sla deze op te geven als een .cer-bestand. (Kopieert u dit bestand tooyour externe host wanneer u Hallo host voorbereidt.)
    
    > [!NOTE]
-   > Als een nieuw certificaat worden gegenereerd, gebruiken de `Set-HcsRemoteManagementCert` cmdlet.
+   > een nieuw certificaat toogenerate gebruiken Hallo `Set-HcsRemoteManagementCert` cmdlet.
    > 
    > 
 
-### <a name="prepare-the-host-for-remote-management"></a>De host voorbereiden voor extern beheer
-Als u de computer voorbereiden voor een externe verbinding die gebruikmaakt van een HTTPS-sessie, kunt u de volgende procedures uitvoeren:
+### <a name="prepare-hello-host-for-remote-management"></a>Hallo host voorbereiden voor extern beheer
+het Hallo-hostcomputer tooprepare voor een externe verbinding die gebruikmaakt van een HTTPS-sessie uitvoeren Hallo procedures te volgen:
 
-* [Het cer-bestand importeren in het basisarchief van de client of de externe host](#to-import-the-certificate-on-the-remote-host).
-* [De serienummers van het apparaat toevoegen aan het hosts-bestand op de externe host](#to-add-device-serial-numbers-to-the-remote-host).
+* [Importeren Hallo cer-bestand in de basisarchief Hallo van Hallo-client of de externe host](#to-import-the-certificate-on-the-remote-host).
+* [Hallo apparaat serienummers toohello hosts-bestand op de externe host toevoegen](#to-add-device-serial-numbers-to-the-remote-host).
 
 Elk van deze procedures wordt hieronder beschreven.
 
-#### <a name="to-import-the-certificate-on-the-remote-host"></a>Het certificaat op de externe host importeren
-1. Met de rechtermuisknop op het cer-bestand en selecteer **installeren certificaat**. Hiermee wordt de Wizard Certificaat importeren gestart.
+#### <a name="tooimport-hello-certificate-on-hello-remote-host"></a>tooimport hello certificaat op de externe host Hallo
+1. Met de rechtermuisknop op Hallo cer-bestand en selecteer **installeren certificaat**. Hiermee start u Hallo Wizard Certificaat importeren.
    
     ![Wizard Certificaat importeren 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
 2. Voor **archieflocatie**, selecteer **lokale Machine**, en klik vervolgens op **volgende**.
-3. Selecteer **alle certificaten in het onderstaande archief plaatsen**, en klik vervolgens op **Bladeren**. Navigeer naar het basisarchief van de externe host, en klik vervolgens op **volgende**.
+3. Selecteer **alle certificaten in Hallo volgende archief plaatsen**, en klik vervolgens op **Bladeren**. Navigeer toohello basisarchief van de externe host, en klik vervolgens op **volgende**.
    
     ![Wizard Certificaat importeren 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Klik op **Voltooien**. Er verschijnt een bericht dat u het importeren is geslaagd.
+4. Klik op **Voltooien**. Er verschijnt een bericht dat aangeeft dat Hallo importeren geslaagd is.
    
     ![Wizard Certificaat importeren 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
-#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Serienummers toevoegen aan de externe host
-1. Kladblok start als beheerder en open vervolgens het hosts-bestand dat zich bevindt op \Windows\System32\Drivers\etc.
-2. De volgende drie items toevoegen aan het hosts-bestand: **DATA 0-IP-adres**, **Controller 0 vast IP-adres**, en **Controller 1 vast IP-adres**.
-3. Voer het serienummer van het apparaat dat u eerder hebt opgeslagen. Toewijzing van het IP-adres zoals in de volgende afbeelding. Voor Controller 0 en Controller 1 toevoegen **Controller0** en **Controller1** aan het einde van het serienummer (CN-naam).
+#### <a name="tooadd-device-serial-numbers-toohello-remote-host"></a>tooadd apparaat serienummers toohello externe host
+1. Kladblok start als beheerder en open vervolgens Hallo hosts-bestand op \Windows\System32\Drivers\etc.
+2. Hallo na drie vermeldingen tooyour hosts-bestand toevoegen: **DATA 0-IP-adres**, **Controller 0 vast IP-adres**, en **Controller 1 vast IP-adres**.
+3. Voer het serienummer van het Hallo-apparaat dat u eerder hebt opgeslagen. Dit toohello IP-adres toewijzen zoals weergegeven in Hallo installatiekopie te volgen. Voor Controller 0 en Controller 1 toevoegen **Controller0** en **Controller1** aan Hallo einde van het serienummer hello (CN-naam).
    
-    ![CN-naam aan het hosts-bestand toe te voegen](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
-4. Sla het hosts-bestand.
+    ![CN-naam toohosts bestand toe te voegen](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+4. Hallo hosts-bestand opslaan.
 
-### <a name="connect-to-the-device-from-the-remote-host"></a>Verbinding maken met het apparaat van de externe host
-Gebruik Windows PowerShell- en SSL voor een sessie SSAdmin op uw apparaat vanaf een externe host of de client. De sessie SSAdmin wordt toegewezen aan de optie 1 in de [seriële console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) menu van uw apparaat.
+### <a name="connect-toohello-device-from-hello-remote-host"></a>Verbinding maken met toohello apparaat van de externe host Hallo
+Gebruik Windows PowerShell- en SSL tooenter een SSAdmin-sessie op uw apparaat vanaf een externe host of de client. Hallo SSAdmin sessie toegewezen toooption 1 in Hallo [seriële console](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) menu van uw apparaat.
 
-De volgende procedure uitvoeren op de computer van waaruit u wilt maken van de externe verbinding met Windows PowerShell.
+Hallo na de procedure op Hallo computer van waaruit u toomake Hallo externe Windows PowerShell verbinding wilt uitvoeren.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Een sessie SSAdmin invoeren op het apparaat met behulp van Windows PowerShell- en SSL
+#### <a name="tooenter-an-ssadmin-session-on-hello-device-by-using-windows-powershell-and-ssl"></a>tooenter een SSAdmin-sessie op Hallo apparaat via Windows PowerShell- en SSL
 1. Start een Windows PowerShell-sessie als administrator.
-2. Het IP-adres van het apparaat toevoegen aan de vertrouwde hosts van de client door te typen:
+2. Hallo IP-adres toohello apparaatclient van vertrouwde hosts toevoegen door te typen:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-    Waarbij <*device_ip*> het IP-adres van uw apparaat is; bijvoorbeeld: 
+    Waarbij <*device_ip*> Hallo IP-adres van uw apparaat is; bijvoorbeeld: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 3. Een nieuwe referentie maken door te typen: 
    
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
    
-    Waarbij <*IP-adres van het doelapparaat*> het IP-adres van de DATA 0 voor uw apparaat; bijvoorbeeld **10.126.173.90** zoals weergegeven in de voorgaande afbeelding van het hosts-bestand. Geef ook het administrator-wachtwoord voor uw apparaat.
+    Waarbij <*IP-adres van het doelapparaat*> Hallo IP-adres van de DATA 0 voor uw apparaat; bijvoorbeeld **10.126.173.90** zoals weergegeven in de voorafgaande aan de installatiekopie van het hosts-bestand Hallo Hallo. Hallo beheerderswachtwoord voor uw apparaat ook opgeven.
 4. Een sessie maken door te typen:
    
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
-    Voor de parameter - ComputerName in de cmdlet, geeft u de <*serienummer van het doelapparaat*>. Dit serienummer is toegewezen aan het IP-adres van de DATA 0 in het bestand hosts op de externe host; bijvoorbeeld: **SHX0991003G44MT** zoals weergegeven in de volgende afbeelding.
+    Hallo - ComputerName parameter in Hallo-cmdlet, bieden Hallo <*serienummer van het doelapparaat*>. Dit serienummer is toegewezen toohello IP-adres van de DATA 0 Hallo hostbestand op de externe host; bijvoorbeeld: **SHX0991003G44MT** zoals weergegeven in Hallo installatiekopie te volgen.
 5. Type: 
    
      `Enter-PSSession $session`
-6. U moet wacht een paar minuten en vervolgens u worden verbonden met uw apparaat via HTTPS via SSL. U ziet een bericht dat u bent verbonden met uw apparaat aangeeft.
+6. U toowait moet een paar minuten en vervolgens kunt u zich verbonden tooyour apparaat via HTTPS via SSL. U ziet een bericht waarin wordt aangegeven dat u verbonden tooyour apparaat.
    
     ![PowerShell voor externe toegang met behulp van HTTPS- en SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [Windows PowerShell gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-windows-powershell-administration.md).
-* Meer informatie over [de StorSimple Manager-service gebruiken voor het beheer van uw StorSimple-apparaat](storsimple-manager-service-administration.md).
+* Meer informatie over [uw StorSimple-apparaat met behulp van Windows PowerShell tooadminister](storsimple-windows-powershell-administration.md).
+* Meer informatie over [StorSimple Manager service tooadminister uw StorSimple-apparaat met behulp van Hallo](storsimple-manager-service-administration.md).
 

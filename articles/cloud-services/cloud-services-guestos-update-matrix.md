@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over de nieuwste Azure Gast OS Releases | Microsoft Docs
-description: De meest recente release nieuws en SDK compatibiliteit voor Azure Cloud Services-Gastbesturingssysteem.
+title: aaaLearn over de nieuwste Azure Gast OS Releases Hallo | Microsoft Docs
+description: Hallo laatste release nieuws en SDK compatibiliteit voor Azure Cloud Services-Gastbesturingssysteem.
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/24/2017
 ms.author: raiye
-ms.openlocfilehash: a4439346817df9223c032abc1405a7cf9cbe780b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7274f5a68a32ce91bdede77e1443cdb8053c07ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
-Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
+Biedt u actuele informatie over de nieuwste Azure Gast OS releases voor Cloudservices Hallo. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw toouse rollen configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
 
 > [!IMPORTANT]
-> Deze pagina geldt voor Cloud Services-web- en werkrollen rollen, dat boven op een Gastbesturingssysteem wordt uitgevoerd. Dit gebeurt **niet van toepassing** IaaS virtuele Machines.
+> Deze pagina geldt tooCloud Services web- en werkrollen rollen die boven op een Gastbesturingssysteem uitvoeren. Dit gebeurt **niet van toepassing** tooIaaS virtuele Machines.
 >
 >
 
 
 > [!NOTE]
-> De RSS-Feed is onlangs afgeschaft. Controle op updates op een nieuwe feed binnenkort beschikbaar.
+> Hallo RSS-Feed onlangs is afgeschaft. Controle op updates op een nieuwe feed binnenkort beschikbaar.
 >
 >
 
-Onzekerheid over het Gastbesturingssysteem is of hoe de Gast OS releases werk? Lees [dit](#how-it-works) sectie.
+Niet zeker weet welke Hallo Gastbesturingssysteem is of hoe Hallo Gast OS releases werk? Lees [dit](#how-it-works) sectie.
 
 ## <a name="news-updates"></a>Nieuws
 
@@ -57,7 +57,7 @@ Implementatie van het Gastbesturingssysteem juni juni 16 wordt gestart en heeft 
 Kan het Gastbesturingssysteem is vrijgegeven.
 
 ###### <a name="may-17-2017"></a>**17 mei 2017**
-Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt uitgeschakeld OS-versies waarvoor geen de [los] vanuit de portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GAST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+Vanwege een beveiligingsfout tooa, we Hallo na December 2016 en januari 2017 uitschakelen OS-versies waarvoor geen Hallo [los] vanuit de portal Hallo: WA-GUEST-OS-5.4_201612-01, WA-GAST-OS-4.39_201612-01, WA-GAST-OS-3.46_ 201612-01, WA-GUEST-OS-2.59_201701-01
 
 ###### <a name="may-12-2017"></a>**12 mei 2017**
 Mei Gastbesturingssysteem implementatie mogelijk 12 wordt gestart en heeft een verwachte release van juni 13.
@@ -69,7 +69,7 @@ Implementatie van het Gastbesturingssysteem april 18 April wordt gestart en heef
 Implementatie van het Gastbesturingssysteem maart 14 maart 2017 gestart en uitgebracht op 10 April 2017.
 
 ###### <a name="january-10-2017"></a>**10 januari 2017**
-Het Gastbesturingssysteem januari bevat patches die alleen van invloed zijn OS-familie 2 (Windows 2008 Server R2). We hebben daarom alleen de installatiekopie van het OS-familie 2 uitgebracht (WA-GUEST-OS-2.59_201701-01) voor deze maand. Voor alle andere besturingssystemen, het besturingssysteem December (201612 - 01) blijft de meest recente.
+Hallo januari Gast OS bevat patches die alleen van invloed zijn OS-familie 2 (Windows 2008 Server R2). We hebben daarom alleen Hallo OS-familie 2 afbeelding uitgebracht (WA-GUEST-OS-2.59_201701-01) voor deze maand. Voor alle andere besturingssystemen Hallo December OS (201612 - 01) blijft Hallo meest recente.
 
 
 ## <a name="releases"></a>Versies
@@ -79,9 +79,9 @@ Het Gastbesturingssysteem januari bevat patches die alleen van invloed zijn OS-f
 .NET framework is geïnstalleerd: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Datums met een * zijn kan worden gewijzigd.
+> Datums met een * onderwerp toochange zijn.
 >
-> Het RDP-wachtwoord voor OS-familie 5 moet minimaal 10 tekens.
+> Hallo RDP-wachtwoord voor OS-familie 5 moet minimaal 10 tekens.
 >
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
@@ -102,7 +102,7 @@ Het Gastbesturingssysteem januari bevat patches die alleen van invloed zijn OS-f
 Ondersteunt .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> Datums met een * zijn kan worden gewijzigd
+> Datums met een * onderwerp toochange zijn
 >
 >
 
@@ -128,7 +128,7 @@ Ondersteunt .NET 4.0, 4.5, 4.5.1, 4.5.2
 Ondersteunt .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> Datums met een * zijn kan worden gewijzigd
+> Datums met een * onderwerp toochange zijn
 >
 >
 
@@ -154,7 +154,7 @@ Ondersteunt .NET 4.0, 4.5, 4.5.1, 4.5.2
 Ondersteunt .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> Datums met een * zijn kan worden gewijzigd
+> Datums met een * onderwerp toochange zijn
 >
 >
 
@@ -177,10 +177,10 @@ Ondersteunt .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 
 ## <a name="msrc-patch-updates"></a>MSRC patchupdates
-De lijst met patches die opgenomen in elke versie van de maandelijkse Gastbesturingssysteem zijn is beschikbaar [hier][patches].
+Hallo lijst met patches die opgenomen in elke versie van de maandelijkse Gastbesturingssysteem zijn is beschikbaar [hier][patches].
 
 ## <a name="sdk-support"></a>SDK-ondersteuning
-Hoewel de [buiten gebruik stellen beleid voor de Azure SDK] [ retire policy sdk] geeft aan dat alleen versies hierboven 2.2 ondersteunde, specifieke zijn Gastbesturingssysteem families kunnen u oudere versies. U moet altijd de meest recente ondersteunde SDK gebruiken.
+Hoewel Hallo [buiten gebruik stellen beleid voor hello Azure SDK] [ retire policy sdk] geeft aan dat alleen versies hierboven 2.2 ondersteunde, specifieke zijn Gastbesturingssysteem families u toouse kunnen eerdere versies. Gebruik altijd Hallo nieuwste SDK ondersteund.
 
 | Gast OS-familie | Compatibel SDK-versies |
 | --- | --- |
@@ -191,45 +191,45 @@ Hoewel de [buiten gebruik stellen beleid voor de Azure SDK] [ retire policy sdk]
 | 1 |Versie 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Gast OS Release-informatie
-Er zijn drie datums die belangrijk voor de Gast OS releases zijn: **release** datum, **uitgeschakeld** datum, en **verlopen** datum. Een Gastbesturingssysteem wordt beschouwd als beschikbaar wanneer het wordt in de Portal en kan worden geselecteerd als het doel Gastbesturingssysteem. Wanneer een Gastbesturingssysteem bereikt de **uitgeschakeld** datum is, wordt deze verwijderd uit Azure. Elke Cloud-Service die gericht is op dat Gastbesturingssysteem wordt echter nog steeds werken normaal.
+Er zijn drie datums die belangrijk tooGuest OS-versies zijn: **release** datum, **uitgeschakeld** datum, en **verlopen** datum. Een Gastbesturingssysteem wordt beschouwd als beschikbaar wanneer het wordt in Hallo Portal en kan worden geselecteerd als doel Hallo Gastbesturingssysteem. Wanneer een Gastbesturingssysteem Hallo bereikt **uitgeschakeld** datum is, wordt deze verwijderd uit Azure. Elke Cloud-Service die gericht is op dat Gastbesturingssysteem wordt echter nog steeds werken normaal.
 
-Het venster tussen de **uitgeschakeld** datum en de **verlopen** datum vindt u een buffer naar eenvoudig overgang van een Gastbesturingssysteem naar een nieuwere. Als u *automatische* als het Gastbesturingssysteem altijd, moet u over de nieuwste versie en u hoeft te hoeven maken over verloopt.
+Hallo-venster tussen Hallo **uitgeschakeld** datum en het Hallo **verlopen** datum biedt u de overgang van een buffer tooeasily van een Gastbesturingssysteem tooone nieuwere. Als u *automatische* als het Gastbesturingssysteem altijd, moet u op de meest recente versie Hallo en u hebt geen tooworry over deze verloopt.
 
-Wanneer de **verlopen** datum verstrijkt, elke Cloud-Service nog steeds met dat Gastbesturingssysteem worden gestopt, verwijderd of gedwongen om bij te werken. Meer informatie over het buiten gebruik stellen beleid [hier][retirepolicy].
+Wanneer Hallo **verlopen** geeft elke Cloud-Service nog steeds met dat Gastbesturingssysteem wordt gestopt, verwijderd of geforceerde tooupgrade datum. U kunt meer lezen over Hallo buiten gebruik stellen beleid [hier][retirepolicy].
 
 ## <a name="guest-os-family-version-explanation"></a>Uitleg van Gast OS-familie-versie
-De Gast OS-familie zijn gebaseerd op uitgebrachte versies van Microsoft Windows Server. Het Gastbesturingssysteem is het onderliggende besturingssysteem dat op Azure Cloud Services wordt uitgevoerd. Elk Gastbesturingssysteem heeft een familie, versie en release nummer.
+Hallo Gastbesturingssysteem families zijn gebaseerd op uitgebrachte versies van Microsoft Windows Server. Hallo Gastbesturingssysteem is Hallo onderliggende besturingssysteem dat op Azure Cloud Services wordt uitgevoerd. Elk Gastbesturingssysteem heeft een familie, versie en release nummer.
 
 * **Gast OS-familie**  
   De release van een Windows Server-besturingssysteem die een Gastbesturingssysteem is gebaseerd op. Bijvoorbeeld: *familie 3* is gebaseerd op Windows Server 2012.
 * **Versie van het besturingssysteem van de Gast**  
-  Specifiek zijn voor een Gastbesturingssysteem familie installatiekopie plus relevante [Microsoft Security Response Center (MSRC)] [ msrc] patches die beschikbaar zijn op de datum waarop de nieuwe versie van de Gast OS wordt geproduceerd. Niet alle patches kunnen worden opgenomen.
+  Specifieke tooa Gast OS-familie installatiekopie plus relevante [Microsoft Security Response Center (MSRC)] [ msrc] patches die beschikbaar zijn op Hallo datum Hallo nieuwe Gast OS-versie wordt geproduceerd. Niet alle patches kunnen worden opgenomen.
 
     Nummers beginnen bij 0 en verhogen door 1 telkens wanneer die een nieuwe set van updates wordt toegevoegd. Volgnullen worden alleen weergegeven als belangrijk. Versie 2.10 is een versie afwijken, veel hoger dan versie 2.1.
 * **Gastbesturingssysteem release**  
-  Een nieuwe versie van de versie van een Gastbesturingssysteem. Een nieuwe versie Deze gebeurtenis treedt op als Microsoft problemen gevonden tijdens het testen; die moeten worden gewijzigd. De meest recente versie vervangt altijd alle vorige versies, openbare of niet. De Azure-portal kunnen alleen gebruikers om op te halen van de meest recente release voor een bepaalde versie. Implementaties die worden uitgevoerd op een eerdere versie zijn meestal niet geforceerd bijgewerkt, afhankelijk van de ernst van de fout.
+  Een nieuwe versie van de versie van een Gastbesturingssysteem. Een nieuwe versie Deze gebeurtenis treedt op als Microsoft problemen gevonden tijdens het testen; die moeten worden gewijzigd. Hallo nieuwste release altijd vervangt alle vorige versies, openbare of niet. Hello Azure-portal kunnen gebruikers alleen meest recente versie van toopick Hallo voor een bepaalde versie. Implementaties die worden uitgevoerd op een eerdere versie zijn meestal niet bijgewerkt, afhankelijk van Hallo ernst van Hallo bug force.
 
-In het onderstaande voorbeeld 2 is de familie, 12, is de versie en 'rel2' is de release.
+In Hallo onderstaand voorbeeld 2 is Hallo-serie, 12 is Hallo-versie en 'rel2' hello release is.
 
 **Gastbesturingssysteem release** - 2,12 rel2
 
 **De configuratietekenreeks voor deze release** -WA-GUEST-OS-2.12_201208-02
 
-De configuratietekenreeks voor een Gastbesturingssysteem heeft dezelfde informatie in dit ingesloten samen met een datum wordt weergegeven welke patches MSRC zijn van belang is voor deze release. In dit voorbeeld zijn MSRC patches geproduceerd voor Windows Server 2008 R2 tot en met inbegrip van augustus 2012 overwogen om opgenomen. Alleen patches toepassen van specifiek voor die versie van Windows Server zijn opgenomen. Bijvoorbeeld, als een patch MSRC voor Microsoft Office geldt, kan deze niet worden opgenomen omdat dat product geen deel uit van de basisinstallatiekopie van Windows Server maakt.
+Hallo configuratietekenreeks voor een Gastbesturingssysteem heeft dezelfde informatie in dit ingesloten samen met een datum wordt weergegeven welke patches MSRC zijn van belang is voor deze release. In dit voorbeeld zijn MSRC patches geproduceerd voor Windows Server 2008 R2 up tooand inclusief augustus 2012 overwogen om opgenomen. Alleen patches toepassen specifiek toothat versie van Windows Server zijn opgenomen. Bijvoorbeeld, als een patch MSRC tooMicrosoft Office geldt, kan deze niet worden opgenomen omdat dat product geen deel uit van de basisinstallatiekopie van Hallo Windows Server maakt.
 
 ## <a name="guest-os-system-update-process"></a>Gast OS systeemproces Update
-Deze pagina bevat informatie over toekomstige Gast OS Releases. Klanten hebt aangegeven dat ze willen weten wanneer een release treedt op omdat de rollen van hun cloud-service opnieuw opgestart wordt als ze zijn ingesteld op 'Automatisch' update. Gast OS releases optreden doorgaans ten minste vijf (5) dagen na het MSRC update versie die wordt uitgevoerd op de tweede dinsdag van elke maand. Nieuwe releases omvatten de relevante MSRC patches voor elke gast OS-familie.
+Deze pagina bevat informatie over toekomstige Gast OS Releases. Klanten hebt aangegeven dat ze willen tooknow wanneer een release doet zich voor omdat hun rollen cloud-service opnieuw opgestart wordt als ze te 'automatisch' update zijn ingesteld. Gast OS releases optreden doorgaans ten minste vijf (5) dagen nadat hello MSRC release van update die wordt uitgevoerd op Hallo van tweede dinsdag van elke maand. Nieuwe releases omvatten alle Hallo relevante MSRC patches voor elke gast OS-familie.
 
-Microsoft Azure brengt voortdurend updates. Het Gastbesturingssysteem is slechts één update in de pijplijn. Een release kan worden beïnvloed door diverse factoren te groot om weer te geven hier. Bovendien Azure wordt uitgevoerd op letterlijk honderden of duizenden-of-machines. Dit betekent dat is het onmogelijk geven een exacte datum en tijd waarop de rollen opnieuw wordt opgestart. We werken aan een plan te beperken of tijd opnieuw wordt opgestart.
+Microsoft Azure brengt voortdurend updates. Hallo Gastbesturingssysteem is slechts één update in Hallo pijplijn. Een release kan worden beïnvloed door diverse factoren te groot toolist hier. Bovendien Azure wordt uitgevoerd op letterlijk honderden of duizenden-of-machines. Dit betekent dat het is onmogelijk toogive een exacte datum en tijd waarop de rollen opnieuw wordt opgestart. We werken aan een plan toolimit of tijd opnieuw wordt opgestart.
 
-Wanneer een nieuwe versie van het Gastbesturingssysteem wordt gepubliceerd, kan het duren naar Azure volledig is doorgegeven. Als de services zijn bijgewerkt naar de nieuwe Gastbesturingssysteem, worden ze opgestart naleven van update-domeinen. Services die zijn ingesteld op "Automatisch" updates krijgt een release eerste. Nadat de update ziet u de nieuwe Gast OS-versie die wordt vermeld voor uw service in de Azure portal. Opnieuw uitgebrachte versies optreden tijdens deze periode. Sommige versies gedurende langere tijd kunnen worden geïmplementeerd en Automatische upgrade herstarts niet plaatsvindt voor veel weken na de releasedatum van de officiële. Zodra een Gastbesturingssysteem beschikbaar is, klikt u vervolgens kunt expliciet u die versie van de portal of in uw configuratiebestand.
+Wanneer een nieuwe versie van Hallo die GASTBESTURINGSSYSTEEM wordt gepubliceerd, kan het toofully is doorgegeven Azure tijd duren. Omdat services bijgewerkte toohello zijn nieuwe Gastbesturingssysteem, zijn ze opnieuw opgestart naleven van update-domeinen. Services set toouse 'Automatisch' updates krijgt een release eerste. Nadat de update hello ziet u Hallo nieuwe Gastbesturingssysteem versie weergegeven voor de service in hello Azure-portal. Opnieuw uitgebrachte versies optreden tijdens deze periode. Sommige versies gedurende langere tijd kunnen worden geïmplementeerd en Automatische upgrade herstarts niet plaatsvindt voor veel weken na Hallo officiële releasedatum. Zodra een Gastbesturingssysteem beschikbaar is, klikt u vervolgens kunt expliciet u die versie van het Hallo-portal of in uw configuratiebestand.
 
-Voor een grote hoeveelheid waardevolle informatie over het opnieuw is opgestart en koppelingen naar meer informatie technische details van de Gast en Host-OS-updates, Zie de MSDN-blog post met de titel [rol exemplaar opnieuw wordt opgestart vanwege Upgrades voor het besturingssysteem] [ restarts].
+Zie voor een grote hoeveelheid waardevolle informatie voor opnieuw opstarten en aanwijzers toomore informatie technische details van updates voor gast en Host-OS Hallo MSDN blog post met de titel [rol exemplaar opnieuw wordt opgestart vanwege tooOS Upgrades] [ restarts].
 
-Als u uw Gastbesturingssysteem handmatig bijwerken, raadpleegt u de [Gastbesturingssysteem buiten gebruik stellen beleid] [ retirepolicy] voor meer informatie.
+Als u uw Gastbesturingssysteem handmatig bijwerken, raadpleegt u Hallo [Gastbesturingssysteem buiten gebruik stellen beleid] [ retirepolicy] voor meer informatie.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Gast OS ondersteuningsmogelijkheden en buiten gebruik stellen beleid
-Het Gastbesturingssysteem ondersteuningsmogelijkheden en buiten gebruik stellen beleid wordt uitgelegd [hier][retirepolicy].
+Hallo Gastbesturingssysteem ondersteuningsmogelijkheden en buiten gebruik stellen beleid wordt uitgelegd [hier][retirepolicy].
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md

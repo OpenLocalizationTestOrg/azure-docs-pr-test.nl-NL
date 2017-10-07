@@ -1,6 +1,6 @@
 ---
-title: Toegang tot on-premises gegevensbronnen voor Azure Logic Apps | Microsoft Docs
-description: De lokale data gateway instellen, zodat u toegang hebt tot gegevensbronnen on-premises vanuit logic apps
+title: de gegevensbronnen aaaAccess on-premises voor Azure Logic Apps | Microsoft Docs
+description: Hallo lokale gegevensgateway instellen, zodat u toegang hebt tot gegevensbronnen on-premises vanuit logic apps
 keywords: toegang tot gegevens, op de lokale, gegevensoverdracht, versleuteling en gegevensbronnen
 services: logic-apps
 author: jeffhollan
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1d3deaac5a095316ce78e224dab0c08559bc2ff2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Toegang tot gegevensbronnen on-premises vanuit logic apps met de lokale data gateway
+# <a name="access-data-sources-on-premises-from-logic-apps-with-hello-on-premises-data-gateway"></a>Toegang tot gegevensbronnen on-premises vanuit logic apps met Hallo lokale gegevensgateway
 
-Instellen voor toegang tot gegevensbronnen on-premises van uw logische apps moet een lokale gegevensgateway die logische apps met ondersteunde connectors kunnen gebruiken. De gateway fungeert als een brug waarmee snelle gegevensoverdracht en -versleuteling tussen gegevensbronnen on-premises en uw logische apps. De gateway stuurt gegevens van lokale bronnen op gecodeerde kanalen via de Azure Service Bus. Al het verkeer afkomstig is als beveiligde uitgaand verkeer van de gateway-agent. Meer informatie over [de werking van de gegevensgateway](logic-apps-gateway-install.md#gateway-cloud-service). 
+de gegevensbronnen tooaccess on-premises van logic apps, instellen van een lokale gegevensgateway die logische apps met ondersteunde connectors kunnen gebruiken. Hallo gateway fungeert als een brug waarmee snelle gegevensoverdracht en -versleuteling tussen gegevensbronnen on-premises en uw logische apps. Hallo gateway doorstuurt gegevens van lokale bronnen op gecodeerde kanalen via hello Azure Service Bus. Al het verkeer afkomstig is als beveiligde uitgaand verkeer van Hallo gateway agent. Meer informatie over [de werking van de gegevensgateway Hallo](logic-apps-gateway-install.md#gateway-cloud-service). 
 
-De gateway ondersteunt verbindingen met deze gegevensbronnen on-premises:
+Hallo-gateway ondersteunt verbindingen toothese gegevensbronnen on-premises:
 
 *   BizTalk Server 2016
 *   DB2  
@@ -41,9 +41,9 @@ De gateway ondersteunt verbindingen met deze gegevensbronnen on-premises:
 *   SQL Server
 *   Teradata
 
-Deze stappen laten zien hoe de gegevens op de lokale gateway instellen om te werken met uw logische apps. Zie voor meer informatie over ondersteunde connectors [Connectors voor Azure Logic Apps](../connectors/apis-list.md). 
+Deze stappen laten zien hoe tooset up Hallo lokale gegevens gateway toowork met uw logische apps. Zie voor meer informatie over ondersteunde connectors [Connectors voor Azure Logic Apps](../connectors/apis-list.md). 
 
-Zie voor informatie over het gebruik van de gateway met andere services, deze artikelen:
+Zie voor informatie over hoe toouse Hallo gateway met andere services, deze artikelen:
 
 *   [Microsoft Power BI lokale gegevensgateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Azure Analysis Services op locatie gegevensgateway](../analysis-services/analysis-services-gateway.md)
@@ -52,111 +52,111 @@ Zie voor informatie over het gebruik van de gateway met andere services, deze ar
 
 ## <a name="requirements"></a>Vereisten
 
-* U moet al hebben [data gateway geïnstalleerd op een lokale computer](logic-apps-gateway-install.md).
+* U moet al hebben [Hallo data gateway geïnstalleerd op een lokale computer](logic-apps-gateway-install.md).
 
-* Wanneer u zich bij de Azure-portal aanmelden, hebt u dezelfde werk of schoolaccount dat is gebruikt om te gebruiken [installeren van de lokale data gateway](logic-apps-gateway-install.md#requirements). Uw account aanmelden moet ook beschikken over een Azure-abonnement moet worden gebruikt wanneer u een gateway-resource in de Azure-portal voor uw gateway-installatie maken.
+* Wanneer u zich aanmeldt toohello Azure-portal, hebt u toouse Hallo dezelfde werk- of schoolaccount dat is gebruikt te[Hallo lokale gegevensgateway installeren](logic-apps-gateway-install.md#requirements). Uw account moet ook een Azure-abonnement toouse hebben wanneer u een gateway-resource in hello Azure-portal voor uw gateway-installatie maakt.
 
-* De gateway-installatie kan niet al door een Azure-gateway-resource wordt geclaimd. U kunt de gateway-installatie slechts aan één Azure-gateway resource koppelen. Claim gebeurt wanneer u de gateway-resource maken, zodat de installatie niet beschikbaar voor andere bronnen is.
+* De gateway-installatie kan niet al door een Azure-gateway-resource wordt geclaimd. U kunt uw gateway installatie tooonly één Azure-gateway resource koppelen. Claim gebeurt wanneer u Hallo gateway resource maken zodat Hallo-installatie niet beschikbaar voor andere bronnen is.
 
-## <a name="set-up-the-data-gateway-connection"></a>De data gateway-verbinding instellen
+## <a name="set-up-hello-data-gateway-connection"></a>Hallo data gateway-verbinding instellen
 
-### <a name="1-install-the-on-premises-data-gateway"></a>1. De on-premises gegevensgateway installeren
+### <a name="1-install-hello-on-premises-data-gateway"></a>1. Hallo lokale gegevensgateway installeren
 
-Als u nog niet gedaan hebt, volgt u de [stappen voor het installeren van de lokale data gateway](logic-apps-gateway-install.md). Voordat u met de andere stappen doorgaat, zorg er dan voor dat u de data gateway geïnstalleerd op een lokale computer.
+Als u nog niet gedaan hebt, volgt u Hallo [stappen tooinstall Hallo lokale gegevensgateway](logic-apps-gateway-install.md). Voordat u met de Hallo doorgaat andere stappen, zorgt u ervoor dat u Hallo data gateway geïnstalleerd op een lokale computer.
 
 <a name="create-gateway-resource"></a>
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Een Azure-resource voor de lokale data gateway maken
+### <a name="2-create-an-azure-resource-for-hello-on-premises-data-gateway"></a>2. Een Azure-resource voor Hallo lokale gegevensgateway maken
 
-Nadat u de gateway op een lokale computer installeert, maakt u uw data gateway als een resource in Azure. Uw gateway-resource koppelt in deze stap ook aan uw Azure-abonnement.
+Nadat u Hallo gateway geïnstalleerd op een lokale computer, moet u uw data gateway maken als een resource in Azure. Uw gateway-resource koppelt in deze stap ook aan uw Azure-abonnement.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com "Azure Portal"). Zorg ervoor dat voor het gebruik van hetzelfde Azure werk of school e-mailadres gebruikt voor het installeren van de gateway.
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com "Azure-portal"). Zorg ervoor dat toouse Hallo dezelfde Azure werk of school e-mailadres tooinstall Hallo gateway gebruikt.
 
-2. Kies in het menu links in Azure **nieuw** > **Enterprise Integration** > **On-premises gegevensgateway** als volgt te werk:
+2. Op Hallo linkermenu in Azure, kiest u **nieuw** > **Enterprise Integration** > **On-premises gegevensgateway** als volgt te werk:
 
    !['On-premises data gateway' vinden](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. Op de **verbinding-gateway maken** blade vindt deze informatie om de bron van uw data gateway te maken:
+3. Op Hallo **verbinding-gateway maken** blade bieden deze toocreate details van uw data gateway resource:
 
     * **Naam**: Voer een naam voor uw gateway-resource. 
 
-    * **Abonnement**: Selecteer de Azure-abonnement wilt koppelen aan uw gateway-resource. 
-    Dit abonnement moet hetzelfde abonnement als uw logische app.
+    * **Abonnement**: Selecteer Hallo tooassociate Azure-abonnement met uw gateway-resource. 
+    Dit abonnement moet hetzelfde abonnement als uw logische app Hallo.
    
-      Het standaardabonnement is gebaseerd op het Azure-account dat u gebruikt voor aanmelden.
+      Hallo standaardabonnement is gebaseerd op Hallo Azure-account waarmee u toosign in.
 
     * **Resourcegroep**: een resourcegroep maken of een bestaande resourcegroep selecteren voor het implementeren van uw gateway-resource. 
     Resourcegroepen kunnen u gerelateerde Azure activa beheren als een verzameling.
 
-    * **Locatie**: Azure beperkt deze locatie bij dezelfde regio die is geselecteerd voor de gateway-cloudservice tijdens [gateway-installatie](logic-apps-gateway-install.md). 
+    * **Locatie**: Azure beperkt deze locatie toohello dezelfde regio die is geselecteerd voor het gateway-cloudservice Hallo tijdens [gateway-installatie](logic-apps-gateway-install.md). 
 
       > [!NOTE]
-      > Zorg ervoor dat de locatie van de resource gateway overeenkomt met de gateway cloud service-locatie. De gateway-installatie mogelijk anders niet weergegeven in de lijst Geïnstalleerde gateways voor selectie in de volgende stap.
+      > Zorg ervoor dat Hallo gateway Resourcelocatie overeenkomt met Hallo gateway cloud servicelocatie. De gateway-installatie mogelijk anders niet weergegeven in de lijst met de Hallo geïnstalleerd gateways voor u tooselect in de volgende stap Hallo.
       > 
       > U kunt verschillende regio's gebruiken voor uw gateway-resource en voor uw logische app.
 
-    * **De naam van de installatie**: als uw gateway-installatie niet is geselecteerd, selecteert u de gateway die u eerder hebt geïnstalleerd. 
+    * **De naam van de installatie**: als uw gateway-installatie niet is geselecteerd, selecteert u Hallo-gateway die u eerder hebt geïnstalleerd. 
 
-    Als u wilt de bron van de gateway toevoegen aan uw Azure-dashboard, kies **vastmaken aan dashboard**. 
+    tooadd hello gateway resource tooyour Azure-dashboard, kies **pincode toodashboard**. 
     Als u bent klaar, kiest u **maken**.
 
     Bijvoorbeeld:
 
-    ![Geef details op uw on-premises gegevensgateway maken](./media/logic-apps-gateway-connection/createblade.png)
+    ![Geef details toocreate uw on-premises gegevensgateway](./media/logic-apps-gateway-connection/createblade.png)
 
-    Als u wilt zoeken of weergeven van uw data gateway op elk gewenst moment, de belangrijkste Azure linkermenu, gaat u naar **meer Services** > **Enterprise Integration** > **On-premises gegevensgateways**.
+    toofind of weergave uw data gateway op elk gewenst moment in hello Azure links hoofdmenu te gaan **meer Services** > **Enterprise Integration** > **On-premises gegevens Gateways**.
 
-    ![Ga naar 'Meer services', 'Enterprise Integration', 'On-premises gegevensgateways'](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Ga te 'Meer services', 'Enterprise Integration', 'On-premises gegevensgateways'](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Uw logische app verbinden met de lokale data gateway
+### <a name="3-connect-your-logic-app-toohello-on-premises-data-gateway"></a>3. Verbinding maken met uw logische app toohello lokale gegevensgateway
 
-Nu dat u hebt uw data gateway resource gemaakt en die uw Azure-abonnement is gekoppeld aan deze resource, maak een verbinding tussen uw logische app en de data gateway.
+Nu dat u hebt uw data gateway resource gemaakt en die uw Azure-abonnement is gekoppeld aan deze resource, maak een verbinding tussen uw logische app en Hallo data gateway.
 
 > [!NOTE]
-> De locatie van uw gateway verbinding moet aanwezig zijn in dezelfde regio bevinden als uw logische app, maar u kunt een data gateway die voorkomt in een andere regio.
+> De locatie van uw gateway verbinding moet aanwezig zijn in Hallo dezelfde regio bevinden als uw logische app, maar u kunt een data gateway die voorkomt in een andere regio.
 
-1. In de Azure portal maken of openen van uw logische app in Logic App-ontwerper.
+1. Maak in hello Azure-portal, of open uw logische app in Logic App-ontwerper.
 
 2. Toevoegen van een connector die ondersteuning biedt voor lokale verbindingen, zoals SQL Server.
 
-3. Na de aangegeven volgorde en selecteer **verbinden via lokale gegevensgateway**, Geef een unieke verbindingsnaam en de vereiste gegevens in en selecteert u de gateway-resource voor gegevens die u wilt gebruiken. Als u bent klaar, kiest u **maken**.
+3. Hallo-volgorde wordt weergegeven, selecteert u **verbinden via lokale gegevensgateway**, Geef een unieke verbindingsnaam Hallo vereiste informatie en selecteer Hallo data gateway resource die u toouse wilt. Als u bent klaar, kiest u **maken**.
 
    > [!TIP]
-   > Een unieke verbindingsnaam kunt u gemakkelijk herkennen die verbinding later, vooral wanneer u meerdere verbindingen maken. Indien van toepassing, moet u ook de gekwalificeerde domeinnaam voor uw gebruikersnaam bevatten. 
+   > Een unieke verbindingsnaam kunt u gemakkelijk herkennen die verbinding later, vooral wanneer u meerdere verbindingen maken. Indien van toepassing, moet u ook Hallo gekwalificeerde domeinnaam voor uw gebruikersnaam bevatten. 
 
    ![Verbinding maken tussen logic app en data gateway](./media/logic-apps-gateway-connection/blankconnection.png)
 
-Gefeliciteerd, uw gatewayverbinding is nu gereed voor uw logische app te gebruiken.
+Gefeliciteerd, uw gatewayverbinding is nu gereed voor uw logische app toouse.
 
 ## <a name="edit-your-gateway-connection-settings"></a>De instellingen voor de gateway-verbinding bewerken
 
-Nadat u een gatewayverbinding voor uw logische app maakt, kunt u later de instellingen voor die specifieke verbinding bijwerken.
+Nadat u een gatewayverbinding voor uw logische app maakt, kunt u toolater update Hallo-instellingen voor die specifieke verbinding.
 
-1. De gatewayverbinding vinden:
+1. toofind hello gatewayverbinding:
 
-   * Op de blade logic app onder **ontwikkelingsprogramma's**, selecteer **API verbindingen**. 
+   * Op Hallo logic app blade onder **ontwikkelingsprogramma's**, selecteer **API verbindingen**. 
    
-     De **API verbindingen** deelvenster ziet u alle API-verbindingen die zijn gekoppeld aan uw logische app, inclusief gatewayverbindingen.
+     Hallo **API verbindingen** deelvenster ziet u alle API-verbindingen die zijn gekoppeld aan uw logische app, inclusief gatewayverbindingen.
 
-     ![Ga naar uw logische app, selecteert u 'API verbindingen'](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+     ![Ga tooyour logische app, selecteert u 'API verbindingen'](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Of Ga naar in het belangrijkste Azure linkermenu **meer Services** > **Web- en Mobile Services** > **API verbindingen** voor alle API-verbindingen, inclusief gatewayverbindingen die gekoppeld aan uw Azure-abonnement zijn. 
+   * Of Ga te hello Azure links hoofdmenu en **meer Services** > **Web- en Mobile Services** > **API verbindingen** voor alle API-verbindingen inclusief gatewayverbindingen die gekoppeld aan uw Azure-abonnement zijn. 
 
-   * Of op het belangrijkste Azure linkermenu, gaat u naar **alle resources** voor alle API-verbindingen, inclusief gatewayverbindingen die gekoppeld aan uw Azure-abonnement zijn.
+   * Of Ga te op Hallo belangrijkste Azure linkermenu**alle resources** voor alle API-verbindingen, inclusief gatewayverbindingen die gekoppeld aan uw Azure-abonnement zijn.
 
-2. Selecteer de gatewayverbinding die u wilt weergeven of bewerken en kies **API bewerken verbinding**.
+2. Selecteer Hallo gatewayverbinding wilt tooview of bewerken en kies **API bewerken verbinding**.
 
    > [!TIP]
-   > Als u de updates worden niet doorgevoerd, probeert u [stoppen en opnieuw starten van de gateway Windows-service](./logic-apps-gateway-install.md#restart-gateway).
+   > Als u de updates worden niet doorgevoerd, probeert u [stoppen en opnieuw starten van de gatewayservice Windows hello](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Schakelt u of uw lokale gegevens gateway bron verwijderen
 
-Als u wilt maken van een andere gateway-resource, uw gateway koppelen aan een andere resource of verwijder de gateway-resource, kunt u de bron van de gateway verwijderen zonder gevolgen voor de installatie van de gateway. 
+toocreate een andere gateway-resource, uw gateway koppelen aan een andere resource of Hallo gateway resource verwijdert, kunt u Hallo gateway resource verwijderen zonder gevolgen voor Hallo gateway-installatie. 
 
-1. In het belangrijkste Azure linkermenu, gaat u naar **alle resources**. 
+1. Hello Azure links hoofdmenu en ga te**alle resources**. 
 2. Zoek en selecteer uw data gateway-resource.
-3. Kies **On-premises Data Gateway**, en kies op de werkbalk resource **verwijderen**.
+3. Kies **On-premises Data Gateway**, en kies op Hallo resource werkbalk **verwijderen**.
 
 <a name="faq"></a>
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen

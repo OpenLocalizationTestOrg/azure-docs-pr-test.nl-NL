@@ -1,8 +1,8 @@
 ---
-title: Aan de slag met voorwaardelijke toegang in Azure Active Directory | Microsoft Docs
+title: aaaGet de slag met voorwaardelijke toegang in Azure Active Directory | Microsoft Docs
 description: Voorwaardelijke toegang met behulp van een locatie voorwaarde testen.
 services: active-directory
-keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
+keywords: voorwaardelijke toegang tooapps, voorwaardelijke toegang in Azure AD, beveiligde toegang tot resources toocompany, beleidsregels voor voorwaardelijke toegang
 documentationcenter: 
 author: MarkusVi
 manager: femila
@@ -15,35 +15,35 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: cd53e8be32d1e98aaf9f72177895871dba69df86
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4521f5a34f5882e026f5e58a7127d8c55cba2f0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Aan de slag met voorwaardelijke toegang in Azure Active Directory
 
-Voorwaardelijke toegang is een functie van Azure Active Directory waarmee u kunt de voorwaarden waaronder gemachtigde gebruikers toegang uw apps tot hebben definiëren. 
+Voorwaardelijke toegang is een functie van Azure Active Directory waarmee u toodefine voorwaarden waaronder gemachtigde gebruikers toegang uw apps tot hebben. 
 
 In dit onderwerp vindt u instructies voor het testen van een voorwaardelijke toegang op basis van de voorwaarde van een locatie in uw omgeving.  
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-Een van de algemene vereisten in veel organisaties is het alleen meervoudige verificatie vereisen voor toegang tot apps die niet van het bedrijfsintranet wordt uitgevoerd. Met Azure Active Directory, kunt u eenvoudig deze doelstelling uitvoeren door het configureren van beleid voor voorwaardelijke toegang op basis van locatie. Dit onderwerp vindt u gedetailleerde instructies voor het configureren van een gerelateerd beleid. Het beleid maakt gebruik van [goedgekeurde IP-adressen](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) onderscheid maken tussen toegangspogingen tot van het bedrijf de intranet- en alle andere locaties.
+Een van de algemene vereisten in veel organisaties is tooonly meervoudige verificatie vereisen voor toegang tooapps die niet van het bedrijfsintranet hello wordt uitgevoerd. Met Azure Active Directory, kunt u eenvoudig deze doelstelling uitvoeren door het configureren van beleid voor voorwaardelijke toegang op basis van locatie. Dit onderwerp vindt u gedetailleerde instructies voor het configureren van een gerelateerd beleid. maakt gebruik van beleid Hallo [goedgekeurde IP-adressen](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) toodistinguish tussen toegangspogingen tot van zakelijke Hallo de intranet- en alle andere locaties.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het scenario in dit onderwerp wordt ervan uitgegaan dat u bekend met de concepten die worden beschreven bent in [voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Hallo scenario beschreven in dit onderwerp wordt ervan uitgegaan dat u bekend met Hallo concepten die worden beschreven bent in [voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-Als u wilt testen van dit scenario, moet u:
+tootest dit scenario moet u:
 
 - Een testgebruiker maken 
 
-- Een Azure AD Premium-licentie toewijzen aan de testgebruiker
+- Wijs een licentie voor Azure AD Premium toohello testgebruiker
 
-- Configureren van een beheerde app en uw testgebruiker toekennen
+- Configureren van een beheerde app en uw test gebruiker tooit toewijzen
 
 - Goedgekeurde IP-adressen configureren
 
@@ -52,29 +52,29 @@ Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adr
 
 ## <a name="policy-configuration-steps"></a>Beleid configuratiestappen
 
-**Ga voor het configureren van uw beleid voor voorwaardelijke toegang:**
+**tooconfigure uw beleid voor voorwaardelijke toegang, doen:**
 
-1. In de Azure-portal op de navigatiebalk links, klikt u op **Azure Active Directory**. 
+1. Klik in hello Azure-portal op Hallo links navigatiebalk, op **Azure Active Directory**. 
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/01.png)
 
-2. Op de **Azure Active Directory** blade in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+2. Op Hallo **Azure Active Directory** blade in Hallo **beheren** sectie, klikt u op **voorwaardelijke toegang**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/02.png)
  
-3. Op de **voorwaardelijke toegang** blade openen de **nieuw** blade in de werkbalk bovenaan, klikt u op **toevoegen**.
+3. Op Hallo **voorwaardelijke toegang** blade, tooopen hello **nieuw** blade in de werkbalk Hallo op Hallo boven, klikt u op **toevoegen**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/03.png)
 
-4. Op de **nieuw** blade in de **naam** textbox, typ een naam voor uw beleid.
+4. Op Hallo **nieuw** blade in Hallo **naam** textbox, typ een naam voor uw beleid.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/04.png)
 
-5. In de **toewijzing** sectie, klikt u op **gebruikers en groepen**.
+5. In Hallo **toewijzing** sectie, klikt u op **gebruikers en groepen**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/05.png)
 
-6. Op de **gebruikers en groepen** blade, voer de volgende stappen uit:
+6. Op Hallo **gebruikers en groepen** blade Hallo volgende stappen uit te voeren:
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/06.png)
 
@@ -82,15 +82,15 @@ Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adr
 
     b. Klik op **Selecteren**.
 
-    c. Op de **Selecteer** blade uw testgebruiker selecteren en klik vervolgens op **Selecteer**.
+    c. Op Hallo **Selecteer** blade uw testgebruiker selecteren en klik vervolgens op **Selecteer**.
 
-    d. Op de **gebruikers en groepen** blade, klikt u op **gedaan**.
+    d. Op Hallo **gebruikers en groepen** blade, klikt u op **gedaan**.
 
-7. Op de **nieuw** blade openen de **Cloud-apps** blade in de **toewijzing** sectie, klikt u op **Cloud-apps**.
+7. Op Hallo **nieuw** blade, tooopen hello **Cloud-apps** blade in Hallo **toewijzing** sectie, klikt u op **Cloud-apps**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
 
-8. Op de **Cloud-apps** blade, voer de volgende stappen uit:
+8. Op Hallo **Cloud-apps** blade Hallo volgende stappen uit te voeren:
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/08.png)
 
@@ -98,19 +98,19 @@ Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adr
 
     b. Klik op **Selecteren**.
 
-    c. Op de **Selecteer** blade uw cloud-app selecteren en klik vervolgens op **Selecteer**.
+    c. Op Hallo **Selecteer** blade uw cloud-app selecteren en klik vervolgens op **Selecteer**.
 
-    d. Op de **Cloud-apps** blade, klikt u op **gedaan**.
+    d. Op Hallo **Cloud-apps** blade, klikt u op **gedaan**.
 
-9. Op de **nieuw** blade openen de **voorwaarden** blade in de **toewijzing** sectie, klikt u op **voorwaarden**.
+9. Op Hallo **nieuw** blade, tooopen hello **voorwaarden** blade in Hallo **toewijzing** sectie, klikt u op **voorwaarden**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/09.png)
 
-10. Op de **voorwaarden** blade openen de **locaties** blade, klikt u op **locaties**.
+10. Op Hallo **voorwaarden** blade, tooopen hello **locaties** blade, klikt u op **locaties**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/10.png)
 
-11. Op de **locaties** blade, voer de volgende stappen uit:
+11. Op Hallo **locaties** blade Hallo volgende stappen uit te voeren:
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/11.png)
 
@@ -124,13 +124,13 @@ Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adr
 
     d. Klik op **Gereed**.
 
-12. Op de **voorwaarden** blade, klikt u op **gedaan**.
+12. Op Hallo **voorwaarden** blade, klikt u op **gedaan**.
 
-13. Op de **nieuw** blade openen de **Grant** blade in de **besturingselementen** sectie, klikt u op **Grant**.
+13. Op Hallo **nieuw** blade, tooopen hello **Grant** blade in Hallo **besturingselementen** sectie, klikt u op **Grant**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 
-14. Op de **Grant** blade, voer de volgende stappen uit:
+14. Op Hallo **Grant** blade Hallo volgende stappen uit te voeren:
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
 
@@ -138,16 +138,16 @@ Als u meer informatie over de goedgekeurde IP-adressen, Zie [goedgekeurde IP-adr
 
     b. Klik op **Selecteren**.
 
-15. Op de **nieuw** blade onder **beleid inschakelen**, klikt u op **op**.
+15. Op Hallo **nieuw** blade onder **beleid inschakelen**, klikt u op **op**.
 
     ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/15.png)
 
-16. Op de **nieuw** blade, klikt u op **maken**.
+16. Op Hallo **nieuw** blade, klikt u op **maken**.
 
 
-## <a name="testing-the-policy"></a>Het beleid testen
+## <a name="testing-hello-policy"></a>Hallo beleid testen
 
-Als u wilt testen van uw beleid, moet u toegang tot uw app vanaf een apparaat dat: 
+tootest uw beleid, moet u toegang tot uw app vanaf een apparaat dat: 
 
 1. Heeft een IP-adres dat binnen de geconfigureerde goedgekeurde IP-adressen 
 
@@ -158,5 +158,5 @@ Multi-factor authentication-server zijn moet alleen tijdens een verbindingspogin
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u meer informatie over voorwaardelijke toegang wilt, Zie [voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Als u meer informatie over voorwaardelijke toegang toolearn, Zie [voorwaardelijke toegang van Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

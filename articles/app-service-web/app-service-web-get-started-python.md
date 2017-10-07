@@ -1,5 +1,5 @@
 ---
-title: Een Python-web-app maken in Azure | Microsoft Docs
+title: aaaCreate een Python-web-app in Azure | Microsoft Docs
 description: Implementeer in enkele minuten uw eerste Python-app (Hallo wereld) in Azure App Service Web Apps.
 services: app-service\web
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 119f9770097c010cc360e0e204d06a307a268814
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 42178d490d8aa8eaf93710667aad598794c62c8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Een Python-web-app maken in Azure
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstartgids helpt u bij het ontwikkelen en implementeren van een Python-app in Azure Web Apps. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Python in de web-app te implementeren.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstartgids wordt uitgelegd hoe u toodevelop en implementeren van een Python-app tooAzure Web-Apps. Maken van Hallo web-app met behulp van Hallo [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u Git toodeploy voorbeeld Python code toohello web-app gebruiken.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer. Vanaf het moment dat de vereiste onderdelen zijn geïnstalleerd, duurt het ongeveer vijf minuten om de stappen uit te voeren.
+U kunt stappen Hallo onder het gebruik van een Mac-, Windows- of Linux-machine. Zodra het Hallo-vereisten zijn geïnstalleerd, duurt het ongeveer vijf minuten toocomplete Hallo stappen.
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+toocomplete in deze zelfstudie:
 
 1. [Git installeren](https://git-scm.com/)
 1. [Python installeren](https://www.python.org/downloads/)
@@ -39,47 +39,47 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u tooinstall kiest en Hallo CLI lokaal gebruiken, wordt in dit onderwerp vereist dat u hello Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` toofind Hallo versie. Als u tooinstall of upgrade nodig hebt, raadpleegt u [2.0 voor Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
-## <a name="download-the-sample"></a>Het voorbeeld downloaden
+## <a name="download-hello-sample"></a>Hallo voorbeeld downloaden
 
-Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
+Voer in een terminalvenster Hallo opdracht tooclone Hallo voorbeeld-app-opslagplaats tooyour lokale computer te volgen.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-Dit terminalvenster gebruikt u om alle opdrachten in deze Quickstart uit te voeren.
+U gebruikt deze toorun terminalvenster alle Hallo-opdrachten in deze snelstartgids.
 
-Ga naar de map die de voorbeeldcode bevat.
+Toohello map waarin de voorbeeldcode Hallo wijzigen.
 
 ```bash
 cd Python-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
+## <a name="run-hello-app-locally"></a>Hallo-app lokaal uitvoeren
 
-Installeer de vereiste pakketten met `pip`.
+Met behulp van vereist hello-pakketten installeren `pip`.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Voer de toepassing lokaal uit door een terminalvenster te openen en de opdracht `Python` te gebruiken om de ingebouwde Python-webserver te starten.
+Hallo-toepassing lokaal uitvoeren door te openen, een terminalvenster en Hallo `Python` opdracht toolaunch Hallo ingebouwde Python-webserver.
 
 ```bash
 python main.py
 ```
 
-Open een webbrowser en ga naar de voorbeeld-app op http://localhost:5000.
+Open een webbrowser en navigeer toohello voorbeeld-app op http://localhost:5000.
 
-Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
+U kunt zien Hallo **Hallo wereld** bericht van Hallo voorbeeld-app in Hallo pagina weergegeven.
 
 ![Voorbeeld-app die lokaal wordt uitgevoerd](media/app-service-web-get-started-python/localhost-hello-world-in-browser.png)
 
-Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
+Druk in uw terminalvenster op **Ctrl + C** tooexit Hallo-webserver.
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Log in tooAzure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -93,24 +93,24 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 U hebt een lege, nieuwe web-app gemaakt in Azure.
 
-## <a name="configure-to-use-python"></a>Configureren voor het gebruik van Python
+## <a name="configure-toouse-python"></a>Toouse Python configureren
 
-Gebruik de opdracht [az webapp config set](/cli/azure/webapp/config#set) om de web-app te configureren voor het gebruik van Python versie `3.4`.
+Gebruik Hallo [az webapp configuratieset](/cli/azure/webapp/config#set) opdracht tooconfigure Hallo web app toouse Python-versie `3.4`.
 
 ```azurecli-interactive
 az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
 
-Door de versie van Python op deze manier in te stellen, wordt een standaardcontainer gebruikt die door het platform wordt geleverd. Als u uw eigen container wilt gebruiken, raadpleegt u de CLI-informatie voor de opdracht [az webapp config container set](/cli/azure/webapp/config/container#set).
+Standaardcontainer geleverd door Hallo platform Hallo Python-versie instellen op deze manier worden gebruikt. toouse uw eigen container Zie Hallo CLI-verwijzing voor Hallo [az webapp config container set](/cli/azure/webapp/config/container#set) opdracht.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push tooAzure](../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 18, done.
-Delta compression using up to 4 threads.
+Delta compression using up too4 threads.
 Compressing objects: 100% (16/16), done.
 Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
 Total 18 (delta 4), reused 0 (delta 0)
@@ -146,56 +146,56 @@ remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+toohttps://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## <a name="browse-to-the-app"></a>Bladeren naar de app
+## <a name="browse-toohello-app"></a>Toohello app bladeren
 
-Blader naar de geïmplementeerde toepassing via uw webbrowser.
+Bladeren toohello toepassing via uw webbrowser geïmplementeerd.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-De Python-voorbeeldcode wordt uitgevoerd in een web-app van Azure App Service.
+Hallo Python voorbeeldcode wordt uitgevoerd in een Azure App Service-web-app.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-**Gefeliciteerd!** U hebt uw eerste Python-app geïmplementeerd naar App Service.
+**Gefeliciteerd!** U hebt uw eerste Python-app tooApp Service geïmplementeerd.
 
-## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
+## <a name="update-and-redeploy-hello-code"></a>Bijwerken en implementeren van Hallo-code
 
-Gebruik een lokale teksteditor om het bestand `main.py` in de Python-app te openen en breng een kleine wijziging aan in de tekst naast de instructie `return`:
+Met een lokale teksteditor openen Hallo `main.py` in Hallo Python-app, en breng een kleine wijziging toohello tekst volgende toohello `return` instructie:
 
 ```python
 return 'Hello, Azure!'
 ```
 
-Leg uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
+Uw wijzigingen in Git en vervolgens push Hallo code wijzigingen tooAzure.
 
 ```bash
 git commit -am "updated output"
 git push azure master
 ```
 
-Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap [Bladeren naar de app](#browse-to-the-app) en vernieuwt u de pagina.
+Als de implementatie is voltooid, overschakelen back toohello browservenster geopend in Hallo [bladeren toohello app](#browse-to-the-app) stap en het Hallo-pagina vernieuwen.
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
-Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
+Ga toohello <a href="https://portal.azure.com" target="_blank">Azure-portal</a> toomanage Hallo web-app die u hebt gemaakt.
 
-Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+In het linkermenu hello, klikt u op **App Services**, en klik vervolgens op Hallo-naam van uw Azure-web-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Navigatie in de portal tooAzure web-app](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
 
 ![App Service-blade in Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+Hallo linkermenu biedt verschillende pagina's voor het configureren van uw app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

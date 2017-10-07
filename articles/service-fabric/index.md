@@ -1,6 +1,6 @@
 ---
-title: Documentatie voor Azure Service Fabric - zelfstudies, API-verwijzing | Microsoft Docs
-description: Meer informatie over hoe u het Service Fabric-middlewareplatform gebruikt om microservices voor toepassingen op cloudschaal te verpakken en implementeren. Zelfstudies, API-verwijzingen en codevoorbeelden.
+title: aaaAzure documentatie in Service Fabric - zelfstudies, API-referentiemateriaal | Microsoft Docs
+description: Meer informatie over hoe toouse Service Fabric-middleware platform toopackage en microservices voor cloud-toepassingen implementeren. Zelfstudies, API-verwijzingen en codevoorbeelden.
 services: service-fabric
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 95499b3ca42e17a6586f97ca3e28919d2fc64a80
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0758059e7f8604fc2fe9cff4acb826204ff8d686
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="service-fabric-documentation"></a>Documentatie over Service Fabric
 
-Meer informatie over hoe u Service Fabric gebruikt om schaalbare en betrouwbare microservices te verpakken, implementeren en beheren. Zelfstudies, API-verwijzingen en codevoorbeelden laten zien hoe u dit middlewareplatform gebruikt voor het bouwen en beheren van toepassingen op cloudschaal.
+Informatie over hoe toouse Service Fabric toopackage, implementeren en beheren van schaalbare en betrouwbare microservices. Zelfstudies, API-verwijzingen en code-voorbeelden tonen hoe toouse dit platform middleware toobuild en cloud-toepassingen te beheren.
 
 <ul class="panelContent cardsFTitle">
     <li>

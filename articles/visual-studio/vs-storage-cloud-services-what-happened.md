@@ -1,6 +1,6 @@
 ---
-title: Wat is er gebeurd met mijn cloudserviceproject? | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurt in een cloud services-project nadat verbinding te maken met een Azure storage-account met Visual Studio services verbonden
+title: aaaWhat is er gebeurd toomy cloudserviceproject? | Microsoft Docs
+description: Hierin wordt beschreven wat er gebeurt in een cloud services-project nadat verbinding maken met Azure storage-account met Visual Studio tooan services verbonden
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: 4c9de56f6daf07097c0f593db37d14dce3bce05f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 52e292558fb66b56e9d2e8e06ff489ae7a4bc845
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn cloud services-project (Visual Studio Azure Storage verbonden service)?
+# <a name="what-happened-toomy-cloud-services-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd toomy cloud-services-project (Visual Studio Azure Storage verbonden service)?
 ## <a name="references-added"></a>Verwijzingen die zijn toegevoegd
-Het Azure Storage NuGet-pakket is toegevoegd aan uw Visual Studio-project.  
-Dit pakket voegt de volgende .NET verwijzingen toe:
+Hello Azure Storage NuGet-pakket is toegevoegd, tooyour Visual Studio-project.  
+Dit pakket wordt toegevoegd Hallo .NET verwijzingen te volgen:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -35,7 +35,7 @@ Dit pakket voegt de volgende .NET verwijzingen toe:
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>Verbindingsreeks voor Azure Storage toegevoegd
-Elementen zijn gemaakt met de verbindingsreeks en de sleutel van het geselecteerde opslagaccount. Wijzigingen zijn aangebracht in de volgende bestanden:
+Elementen zijn gemaakt met de verbindingsreeks en de sleutel Hallo geselecteerd van het opslagaccount. Wijzigingen zijn aangebracht toohello volgende bestanden:
 
 * **ServiceDefinition.csdef**
 * **ServiceConfiguration.Cloud.cscfg**

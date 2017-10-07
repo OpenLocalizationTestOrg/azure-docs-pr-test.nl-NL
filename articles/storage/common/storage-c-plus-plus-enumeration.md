@@ -1,6 +1,6 @@
 ---
-title: Lijst met Azure Storage-resources met de Opslagclientbibliotheek voor C++ | Microsoft Docs
-description: Informatie over het gebruik van de aanbieding API's in Microsoft Azure Storage-clientbibliotheek voor C++ opsommen containers, blobs, wachtrijen, tabellen en entiteiten.
+title: Azure Storage-resources aaaList Hello Opslagclientbibliotheek voor C++ | Microsoft Docs
+description: Meer informatie over hoe toouse Hallo aanbieding API's in Microsoft Azure Storage-clientbibliotheek voor C++ tooenumerate containers, blobs, wachtrijen, tabellen en entiteiten.
 documentationcenter: .net
 services: storage
 author: dineshmurthy
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a76a5ce3cd690f32914f8f0c1f64273f13c5063e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lijst van Azure Storage-resources in C++
-Aanbieding-bewerkingen zijn sleutel naar veel ontwikkelscenario's met Azure Storage. Dit artikel wordt beschreven hoe u zo efficiënt mogelijk opsommen objecten in Azure Storage met behulp van de aanbieding beschikbaar in de Microsoft Azure Storage-clientbibliotheek voor C++ API's.
+Aanbieding-bewerkingen zijn toomany belangrijke ontwikkelscenario's met Azure Storage. Dit artikel wordt beschreven hoe toomost efficiënt objecten in Azure Storage met API's die zijn opgegeven in Microsoft Azure Storage-clientbibliotheek Hallo voor C++ aanbieding Hallo inventariseren.
 
 > [!NOTE]
-> Deze handleiding is bedoeld voor de Azure Storage-clientbibliotheek voor C++ versie 2.x die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Deze handleiding is bedoeld voor hello Azure Storage-clientbibliotheek voor C++ versie 2.x die beschikbaar is via [NuGet](http://www.nuget.org/packages/wastorage) of [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
-De Opslagclientbibliotheek biedt diverse methoden om de lijst of query-objecten in Azure Storage. In dit artikel worden de volgende scenario's:
+Hallo Storage-clientbibliotheek biedt tal van manieren toolist of query-objecten in Azure Storage. In dit artikel komen Hallo volgen scenario's:
 
 * Lijst containers in een account
 * Lijst met blobs in een container of blob virtuele map
@@ -39,13 +39,13 @@ De Opslagclientbibliotheek biedt diverse methoden om de lijst of query-objecten 
 Elk van deze methoden wordt weergegeven als u verschillende overbelastingen voor verschillende scenario's.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynchrone en synchrone
-Omdat de Opslagclientbibliotheek voor C++ is gebouwd boven de [REST C++-bibliotheek](https://github.com/Microsoft/cpprestsdk), we inherent bieden ondersteuning voor asynchrone bewerkingen met behulp van [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Bijvoorbeeld:
+Omdat Hallo Opslagclientbibliotheek voor C++ is gebouwd boven op Hallo [REST C++-bibliotheek](https://github.com/Microsoft/cpprestsdk), we inherent bieden ondersteuning voor asynchrone bewerkingen met behulp van [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Bijvoorbeeld:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 ```
 
-Synchrone bewerkingen teruglopen de corresponderende asynchrone bewerkingen:
+Synchrone bewerkingen teruglopen Hallo corresponderende asynchrone bewerkingen:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
@@ -54,22 +54,22 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 }
 ```
 
-Als u met meerdere threads toepassingen of services werkt, wordt u aangeraden dat u het async-API's rechtstreeks in plaats van het maken van een thread om aan te roepen de synchronisatie-API's, die aanzienlijk heeft impact op de prestaties van uw.
+Als u met meerdere threads toepassingen of services werkt, raden wij aan dat u Hallo async API's rechtstreeks in plaats van het maken van een thread toocall Hallo synchronisatie API's, die aanzienlijk heeft impact op de prestaties van uw.
 
 ## <a name="segmented-listing"></a>Gesegmenteerde aanbieding
-De schaal van cloud-opslag vereist gesegmenteerde aanbieding. U kunt bijvoorbeeld via een miljoen blobs in een Azure blob-container of via een miljard entiteiten in een Azure-tabel hebben. Dit zijn geen theoretische cijfers, maar de informatie over het gebruik van echte klantaanvragen.
+Hallo schaal van cloud-opslag vereist gesegmenteerde aanbieding. U kunt bijvoorbeeld via een miljoen blobs in een Azure blob-container of via een miljard entiteiten in een Azure-tabel hebben. Dit zijn geen theoretische cijfers, maar de informatie over het gebruik van echte klantaanvragen.
 
-Daarom is het niet praktisch voor een lijst met alle objecten in een enkel antwoord. In plaats daarvan kunt u objecten met behulp van paginering aanbieden. Elk van de aanbieding API's heeft een *gesegmenteerde* overbelasting.
+Daarom is het niet praktisch toolist alle objecten in een enkel antwoord. In plaats daarvan kunt u objecten met behulp van paginering aanbieden. Elk van de API's aanbieding Hallo heeft een *gesegmenteerde* overbelasting.
 
-Het antwoord voor het uitvoeren van een gesegmenteerde aanbieding omvat:
+Hallo-antwoord voor het uitvoeren van een gesegmenteerde aanbieding omvat:
 
-* <i>_Segment</i>, die de verzameling resultaten geretourneerd voor één aanroep van de aanbieding API bevat.
-* *continuation_token*, die wordt doorgegeven aan de volgende oproep om op te halen van de volgende pagina van de resultaten. Wanneer er geen verdere resultaten te retourneren, is het vervolgtoken is null.
+* <i>_Segment</i>, die Hallo set resultaten geretourneerd voor een enkele aanroep toohello aanbieding API bevat.
+* *continuation_token*, die de volgende oproep toohello wordt doorgegeven in volgorde tooget Hallo volgende pagina van de resultaten. Wanneer er geen meer resultaten tooreturn, is Hallo vervolgtoken null.
 
-Een typische aanroep voor een lijst met alle blobs in een container kan bijvoorbeeld het volgende codefragment eruit. De code is beschikbaar in onze [voorbeelden](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Bijvoorbeeld, een aanroep van typische toolist alle blobs in een container eruit als Hallo codefragment te volgen. Hallo-code is beschikbaar in onze [voorbeelden](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
 ```cpp
-// List blobs in the blob container
+// List blobs in hello blob container
 azure::storage::continuation_token token;
 do
 {
@@ -91,7 +91,7 @@ do
 while (!token.empty());
 ```
 
-Houd er rekening mee dat het aantal resultaten in een pagina kan worden beheerd door de parameter *max_results* in de overbelasting van elke API, bijvoorbeeld:
+Houd er rekening mee dat het aantal resultaten in een pagina Hallo kan worden beheerd door Hallo parameter *max_results* in Hallo overbelasting van elke API, bijvoorbeeld:
 
 ```cpp
 list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
@@ -99,14 +99,14 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Als u niet geeft de *max_results* parameter, worden de standaardinstellingen in één pagina maximumwaarde van maximaal 5.000 resultaten geretourneerd.
+Als u geen Hallo opgeeft *max_results* parameter, Hallo standaard maximale waarde van too5000 resultaten wordt geretourneerd als één pagina.
 
-Let ook op dat een query op Azure Table storage geen records, of minder dan de waarde van retourneren kan de *max_results* parameter die u hebt opgegeven, zelfs als het vervolgtoken niet leeg is. Een reden hiervoor is mogelijk dat de query kan niet worden voltooid in de vijf seconden. De query moet worden voortgezet, zolang het vervolgtoken niet leeg is, en uw code mogen niet de grootte van het resultaat van een segment aannemen.
+Let ook op een query op Azure Table storage kan geen records of minder records zijn dan de waarde van Hallo Hallo retourneren *max_results* parameter die u hebt opgegeven, zelfs als Hallo vervolgtoken niet leeg is. Een reden hiervoor is mogelijk dat Hallo-query kan niet worden voltooid in de vijf seconden. Zolang Hallo vervolgtoken niet leeg is, Hallo query moet worden voortgezet en uw code mogen niet Hallo-grootte van het resultaat van een segment aannemen.
 
-Het aanbevolen codering patroon voor de meeste scenario is onderverdeeld op te nemen, waarmee u expliciete voortgang van de aanbieding of uitvoeren van query's en hoe de service reageert op elke aanvraag. Met name voor C++-toepassingen of services kunt lager niveau controle over de voortgang van de aanbieding besturingselement geheugen en de prestaties.
+Hallo aanbevolen coderen patroon voor de meeste scenario is onderverdeeld op te nemen, waarmee u expliciete voortgang van de aanbieding of uitvoeren van query's en hoe Hallo service tooeach aanvraag reageert. Met name voor C++-toepassingen of services kunt lager niveau besturingselement Hallo aanbieding voortgang besturingselement geheugen en de prestaties.
 
 ## <a name="greedy-listing"></a>Greedy aanbieding
-Eerdere versies van de Opslagclientbibliotheek voor C++ (Preview-versies 0.5.0 en eerder) opgenomen van niet-gesegmenteerde aanbieding API's voor tabellen en wachtrijen, zoals in het volgende voorbeeld:
+Eerdere versies van Hallo Opslagclientbibliotheek voor C++ (Preview-versies 0.5.0 en eerder) niet-gesegmenteerde aanbieding API's voor tabellen en wachtrijen, zoals in het volgende voorbeeld Hallo opgenomen:
 
 ```cpp
 std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
@@ -114,11 +114,11 @@ std::vector<table_entity> execute_query(const table_query& query) const;
 std::vector<cloud_queue> list_queues() const;
 ```
 
-Deze methoden zijn geïmplementeerd als wrappers gesegmenteerde API's. Voor elke reactie van gesegmenteerde aanbieding, worden de code de resultaten toegevoegd aan een vector en alle resultaten geretourneerd nadat de volledige-containers zijn gescand.
+Deze methoden zijn geïmplementeerd als wrappers gesegmenteerde API's. Voor elke reactie van gesegmenteerde aanbieding Hallo code Hallo resultaten tooa vector toegevoegd en alle resultaten geretourneerd nadat de volledige containers Hallo zijn gescand.
 
-Deze methode werkt mogelijk wanneer het opslagaccount of de tabel een klein aantal objecten bevat. Echter, met een toename in het aantal objecten, het geheugen dat nodig kan vergroten zonder beperking, omdat alle resultaten bleef in het geheugen. Één aanbieding bewerking kan erg lang duren, gedurende welke de aanroeper geen informatie over de voortgang heeft.
+Deze methode werkt mogelijk wanneer Hallo storage-account of de tabel een klein aantal objecten bevat. Echter met een toename in aantal objecten Hallo kan Hallo geheugen vereist verhogen zonder beperking, omdat alle resultaten bleef in het geheugen. Één aanbieding bewerking kan erg lang duren, tijdens welke Hallo aanroeper geen informatie over de voortgang heeft.
 
-Deze greedy aanbieding API's in de SDK niet bestaan in C#, Java of de JavaScript-Node.js-omgeving. Om te voorkomen de potentiële problemen van het gebruik van deze greedy API's, wordt deze verwijderd in versie 0.6.0 Preview.
+Deze greedy aanbieding API's in Hallo SDK niet bestaan in C#, Java, of Hallo JavaScript Node.js-omgeving. tooavoid hello potentiële problemen van het gebruik van deze greedy API's, wordt deze verwijderd in versie 0.6.0 Preview.
 
 Als uw code deze greedy API's aanroept:
 
@@ -130,7 +130,7 @@ for (auto it = entities.cbegin(); it != entities.cend(); ++it)
 }
 ```
 
-Wijzig vervolgens de code voor het gebruik van de gesegmenteerde aanbieding API's:
+Vervolgens moet u uw code wijzigen toouse Hallo gesegmenteerde aanbieding API's:
 
 ```cpp
 azure::storage::continuation_token token;
@@ -146,14 +146,14 @@ do
 } while (!token.empty());
 ```
 
-Door op te geven de *max_results* parameter van het segment kan verdeeld tussen het aantal aanvragen en geheugengebruik om te voldoen aan de prestatie-overwegingen voor uw toepassing.
+Door op te geven Hallo *max_results* parameter van Hallo segment kan verdeeld tussen Hallo aantallen aanvragen en geheugen gebruik toomeet prestatie-overwegingen voor uw toepassing.
 
-Bovendien, als u gesegmenteerde aanbieding API's gebruikt, maar de gegevens opslaan in een lokale verzameling in een style 'greedy', wordt ook aangeraden dat u uw code voor het opslaan van gegevens in een lokale verzameling zorgvuldig op grote schaal afhandelen opsplitsen.
+Bovendien, als u gesegmenteerde aanbieding API's gebruiken, maar Hallo gegevens opslaan in een lokale verzameling in een style 'greedy', wordt ook aangeraden dat u uw code toohandle opslaan van gegevens in een lokale verzameling zorgvuldig op grote schaal opsplitsen.
 
 ## <a name="lazy-listing"></a>Vertraagde aanbieding
-Hoewel greedy aanbieding potentiële problemen gegenereerd, is het handig als er niet te veel objecten in de container.
+Hoewel greedy aanbieding potentiële problemen gegenereerd, is het handig als er niet te veel objecten in het Hallo-container.
 
-Als u ook C# of Oracle Java SDK's gebruikt, kunt u moet bekend bent met het inventariseerbare programming model een vertraagde--stijl op te nemen biedt, waar de gegevens op een bepaalde offset alleen worden opgehaald als dat nodig is. In C++ kunt biedt de sjabloon op basis van een iterator ook een soortgelijke benadering.
+Als u ook C# of Oracle Java SDK's gebruikt, kunt u moet bekend bent met Hallo inventariseerbare programming model een vertraagde--stijl op te nemen biedt, waarbij Hallo gegevens bij een bepaalde offset worden alleen opgehaald als dat nodig is. In C++ kunt biedt Hallo iterator gebaseerde sjabloon ook een soortgelijke benadering.
 
 Een typische vertraagde aanbieding API, met behulp van **list_blobs** bijvoorbeeld zo uitziet:
 
@@ -161,10 +161,10 @@ Een typische vertraagde aanbieding API, met behulp van **list_blobs** bijvoorbee
 list_blob_item_iterator list_blobs() const;
 ```
 
-Een typische codefragment die gebruikmaakt van het patroon vertraagde aanbieding uitzien als volgt:
+Een typische codefragment dat Hallo vertraagde aanbieding patroon gebruikt uitzien als volgt:
 
 ```cpp
-// List blobs in the blob container
+// List blobs in hello blob container
 azure::storage::list_blob_item_iterator end_of_results;
 for (auto it = container.list_blobs(); it != end_of_results; ++it)
 {
@@ -181,24 +181,24 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Houd er rekening mee vertraagde aanbieding is alleen beschikbaar in synchrone modus.
 
-Vergeleken met greedy aanbieding, haalt vertraagde aanbieding gegevens alleen indien nodig. Onder de behandelt ophaalt het gegevens uit Azure Storage alleen wanneer de volgende iterator is verplaatst naar de volgende segment. Daarom geheugengebruik wordt beheerd met een begrensde grootte en de bewerking is snel.
+Vergeleken met greedy aanbieding, haalt vertraagde aanbieding gegevens alleen indien nodig. Onder Hallo dekt ophaalt het gegevens uit Azure Storage alleen wanneer de volgende iterator Hallo is verplaatst naar de volgende segment. Daarom geheugengebruik wordt beheerd met een begrensde grootte en Hallo-bewerking is snel.
 
-Vertraagde aanbieding API's worden opgenomen in de Opslagclientbibliotheek voor C++ in versie 2.2.0.
+Vertraagde aanbieding API's worden opgenomen in Hallo Opslagclientbibliotheek voor C++ in versie 2.2.0.
 
 ## <a name="conclusion"></a>Conclusie
-In dit artikel wordt besproken verschillende overbelastingen voor het aanbieden van API's voor verschillende objecten in de Opslagclientbibliotheek voor C++. Samengevat:
+In dit artikel wordt besproken verschillende overbelastingen voor het aanbieden van API's voor verschillende objecten in Hallo Opslagclientbibliotheek voor C++. toosummarize:
 
 * Asynchrone APIs ten sterkste aangeraden onder scenario's met meerdere threads.
 * Gesegmenteerde aanbieding wordt aanbevolen voor de meeste scenario's.
-* Vertraagde aanbieding is opgegeven in de bibliotheek als een handige wrapper in synchrone scenario's.
-* Greedy aanbieding wordt niet aanbevolen en is verwijderd uit de bibliotheek.
+* Vertraagde aanbieding is opgegeven in de bibliotheek Hallo als een handige wrapper in synchrone scenario's.
+* Greedy aanbieding wordt niet aanbevolen en is verwijderd uit het Hallo-bibliotheek.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie over Azure Storage en -clientbibliotheek voor C++.
+Zie voor meer informatie over Azure Storage en -clientbibliotheek voor C++ Hallo resources te volgen.
 
-* [Het Blob Storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Hoe Table Storage gebruiken met C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Hoe Queue Storage gebruiken met C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Hoe toouse C++ Blob-opslag](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Hoe toouse Table Storage uit het C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Hoe toouse Queue Storage vanuit C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage-clientbibliotheek voor C++ API-documentatie.](http://azure.github.io/azure-storage-cpp/)
 * [Blog van het Azure Storage-team](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentatie bij Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

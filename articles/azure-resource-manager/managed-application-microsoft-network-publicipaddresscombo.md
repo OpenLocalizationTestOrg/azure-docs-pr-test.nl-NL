@@ -1,6 +1,6 @@
 ---
-title: Azure beheerde toepassing PublicIpAddressCombo UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Network.PublicIpAddressCombo UI-element voor beheerde Azure-toepassingen
+title: Beheerde toepassing PublicIpAddressCombo UI-element aaaAzure | Microsoft Docs
+description: Beschrijft Hallo Microsoft.Network.PublicIpAddressCombo UI-element voor beheerde Azure-toepassingen
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ba689005c0eccda0a57bf628de4b5197886a950
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI-element
 Een groep besturingselementen voor het selecteren van een nieuw of bestaand openbaar IP-adres. Gebruik van dit element wanneer [maken van een Azure-toepassing beheerd](managed-application-publishing.md).
@@ -25,9 +25,9 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand open
 ## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Als de gebruiker 'None' voor openbare IP-adres selecteert, wordt het tekstvak domain name label verborgen.
-- Als de gebruiker selecteert een bestaand openbaar IP-adres, is het tekstvak label domein uitgeschakeld. De waarde is het domeinnaamlabel van het geselecteerde IP-adres.
-- De domain name achtervoegsel (bijvoorbeeld westus.cloudapp.azure.com)-updates automatisch op basis van de geselecteerde locatie.
+- Als de gebruiker Hallo 'None' voor openbare IP-adres selecteert, is Hallo label tekstvak domeinnaam verborgen.
+- Als het Hallo-gebruiker selecteert een bestaand openbaar IP-adres, is Hallo label tekstvak domeinnaam uitgeschakeld. De waarde ervan Hallo domeinnaamlabel van Hallo geselecteerd IP-adres.
+- Hallo domain name achtervoegsel (bijvoorbeeld westus.cloudapp.azure.com) updates automatisch op basis van locatie Hallo geselecteerd.
 
 ## <a name="schema"></a>Schema
 ```json
@@ -61,20 +61,20 @@ Een groep besturingselementen voor het selecteren van een nieuw of bestaand open
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- Als `constraints.required.domainNameLabel` is ingesteld op **true**, de gebruiker moet een domeinnaamlabel opgeven bij het maken van een nieuw openbaar IP-adres. Bestaande openbare IP-adressen zonder een label zijn niet beschikbaar voor selectie.
-- Als `options.hideNone` is ingesteld op **true**, klikt u vervolgens de optie te selecteren **geen** voor het openbare IP-adres wordt verborgen. De standaardwaarde is **false**.
-- Als `options.hideDomainNameLabel` is ingesteld op **true**, en vervolgens in het tekstvak voor domeinnaamlabel wordt verborgen. De standaardwaarde is **false**.
-- Als `options.hideExisting` is ingesteld op true, wordt de gebruiker is geen kunnen kiezen een bestaand openbaar IP-adres. De standaardwaarde is **false**.
+- Als `constraints.required.domainNameLabel` te is ingesteld,**true**, Hallo-gebruiker moet een domeinnaamlabel opgeven bij het maken van een nieuw openbaar IP-adres. Bestaande openbare IP-adressen zonder een label zijn niet beschikbaar voor selectie.
+- Als `options.hideNone` te is ingesteld,**true**, vervolgens Hallo optie tooselect **geen** voor Hallo openbare IP-adres wordt verborgen. de standaardwaarde Hallo is **false**.
+- Als `options.hideDomainNameLabel` te is ingesteld,**true**, en vervolgens in het tekstvak voor domeinnaamlabel hello wordt verborgen. de standaardwaarde Hallo is **false**.
+- Als `options.hideExisting` is ingesteld op true, en vervolgens het Hallo-gebruiker is geen kunnen toochoose een bestaand openbaar IP-adres. de standaardwaarde Hallo is **false**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
-Als de gebruiker heeft geen openbare IP-adres geselecteerd, worden de volgende uitvoer wordt verwacht.
+Als het Hallo-gebruiker selecteert geen openbare IP-adres, wordt hello volgende uitvoer verwacht.
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt de volgende uitvoer verwacht:
+Als het Hallo-gebruiker selecteert een nieuwe of bestaande IP-adres, wordt hello volgende uitvoer verwacht.
 ```json
 {
   "name": "ip01",
@@ -87,6 +87,6 @@ Als de gebruiker een nieuwe of bestaande IP-adres selecteert, wordt de volgende 
 - Wanneer `options.hideDomainNameLabel` is opgegeven, `domainNameLabel` is niet gedeclareerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot beheerde toepassingen, [overzicht van Azure Managed toepassing](managed-application-overview.md).
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Zie voor een inleiding toomanaged toepassingen, [overzicht van Azure Managed toepassing](managed-application-overview.md).
+* Zie voor een inleiding toocreating UI definities [aan de slag met CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](managed-application-createuidefinition-elements.md).

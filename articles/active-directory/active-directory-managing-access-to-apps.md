@@ -1,6 +1,6 @@
 ---
-title: Het beheren van toegang tot apps die gebruikmaken van Azure AD | Microsoft Docs
-description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties om op te geven de apps waartoe elke gebruiker toegang heeft.
+title: aaaManaging toegang tooapps gebruikmaken van Azure AD | Microsoft Docs
+description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties toospecify Hallo apps toowhich elke gebruiker toegang heeft.
 services: active-directory
 documentationcenter: 
 author: femila
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 46e001b440802e0d5d16b7cf75344c7b9ce6fad3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b9461b7a1cc8913cd8fb4a4ce0778afe03274935
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="managing-access-to-apps"></a>Toegang tot apps beheren
-Beheer lopende toegang, gebruik beoordeling en rapportage blijven een challenge nadat een app is geïntegreerd in uw organisatie identiteitsbeheersysteem. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Soms wordt toewijzing uitgevoerd door een algemene of divisie IT-team. Vaak wordt de beslissing toewijzing bedoeld worden gedelegeerd naar de besluitvormer vereisen van hun goedkeuring voordat IT heeft de toewijzing.  Andere organisaties Investeer in integratie met een bestaand geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals rollen gebaseerd toegangsbeheer (RBAC) of toegangsbeheer op basis van kenmerken (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en duur. Controleren of rapportage over de aanpak van beide management is een eigen afzonderlijke, complexe en dure investering.
+# <a name="managing-access-tooapps"></a>Het beheren van toegang tooapps
+Beheer lopende toegang, gebruik beoordeling en rapportage blijven toobe een challenge nadat een app is geïntegreerd in uw organisatie identiteitsbeheersysteem. In veel gevallen IT-beheerders of helpdesk hebben tootake een lopende actieve rol bij het beheren van toegang tooyour apps. Soms wordt toewijzing uitgevoerd door een algemene of divisie IT-team. Hallo toewijzing besluit is vaak beoogde toobe gedelegeerd toohello besluitvormer, vereisen van hun goedkeuring voordat IT heeft Hallo toewijzing.  Andere organisaties Investeer in integratie met een bestaand geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals rollen gebaseerd toegangsbeheer (RBAC) of toegangsbeheer op basis van kenmerken (ABAC). Zowel Hallo-integratie en ontwikkeling van de regel vaak toobe gespecialiseerde en duur. Controleren of rapportage over de aanpak van beide management is een eigen afzonderlijke, complexe en dure investering.
 
 ## <a name="how-does-azure-active-directory-help"></a>Hoe helpt Azure Active Directory?
- Azure AD ondersteunt uitgebreide toegangsbeheer voor geconfigureerde toepassingen, waarmee organisaties eenvoudig de juiste toegangsbeleid, variërend van automatische, op basis van kenmerken toewijzing (ABAC of RBAC scenario's) via overdracht en inclusief bereiken beheerdersbeheer. Met Azure AD kunt eenvoudig complexe beleidsregels bereiken combineren van meerdere management modellen voor één toepassing en regels voor poortbeheer opnieuw zelfs voor toepassingen met de dezelfde doelgroepen kunt gebruiken.
+ Azure AD ondersteunt uitgebreide access management voor geconfigureerde applicaties, waardoor organisaties tooeasily rechts toegangsbeleid Hallo variërend van automatische, op basis van kenmerken toewijzing (ABAC of RBAC scenario's) via delegering en inclusief bereiken beheerdersbeheer. Met Azure AD kunt u eenvoudig bereiken complexe beleid combineren van meerdere management modellen voor één toepassing en kunnen zelfs hergebruik regels van verschillende toepassingen met dezelfde doelgroepen Hallo.
 
 * [Toevoegen van nieuwe of bestaande toepassingen](active-directory-sso-integrate-saas-apps.md)
 
  Toewijzing van Azure AD-toepassing is gericht op twee primaire toewijzing modi:
 
-* **Afzonderlijke toewijzing** een IT-beheerder met de globale beheerder mapmachtigingen kunt selecteren van afzonderlijke gebruikersaccounts en ze toegang verlenen tot de toepassing.
-* **Toewijzing op basis van een groep (betaald alleen Azure AD)** een IT-beheerder met globale beheerdersmachtigingen voor directory een groep kunt toewijzen aan de toepassing. Specifieke gebruikers toegang is afhankelijk van of ze lid zijn van de groep op het moment dat ze proberen toegang tot de toepassing. Een beheerder kan met andere woorden, een mededeling 'alle huidige leden van de toegewezen groep toegang heeft tot de toepassing' toewijzingsregel effectief maken. Met deze optie toewijzing beheerders kunnen profiteren van een Azure AD-groep voor beheeropties, met inbegrip van [dynamische groepen op basis van kenmerken](active-directory-accessmanagement-manage-groups.md), extern systeemgroepen (bijvoorbeeld on-premises Active Directory of werkdag) of de Administrator beheerde of zelfstandige-verkeer beheerde groepen. Een groep kan worden eenvoudig toegewezen aan meerdere apps ervoor te zorgen dat toepassingen met toewijzing affiniteit toewijzingsregels, kunnen delen de algehele management complexiteit te verminderen. Houd er rekening mee dat geneste groep lidmaatschappen worden niet ondersteund voor toewijzing op basis van een groep van toepassingen op dit moment.
+* **Afzonderlijke toewijzing** een IT-beheerder met de globale beheerder mapmachtigingen kunt selecteren van afzonderlijke gebruikersaccounts en toegang verlenen toohello toepassing.
+* **Toewijzing op basis van een groep (betaald alleen Azure AD)** een IT-beheerder met globale beheerdersmachtigingen voor directory een groep toohello toepassing kunt toewijzen. Specifieke gebruikers toegang is afhankelijk van dat of ze deel uitmaken van de groep Hallo Hallo gelijktijdig ze proberen tooaccess Hallo-toepassing. Een beheerder kan met andere woorden, een mededeling 'alle leden van de groep toegewezen Hallo heeft toegang tot toohello toepassing' toewijzingsregel effectief maken. Met deze optie toewijzing beheerders kunnen profiteren van een Azure AD-groep voor beheeropties, met inbegrip van [dynamische groepen op basis van kenmerken](active-directory-accessmanagement-manage-groups.md), extern systeemgroepen (bijvoorbeeld on-premises Active Directory of werkdag) of de Administrator beheerde of zelfstandige-verkeer beheerde groepen. Een groep kan worden eenvoudig toegewezen toomultiple apps, ervoor te zorgen dat toepassingen met toewijzing affiniteit toewijzingsregels, kunnen delen minder Hallo algehele beheercomplexiteit. Houd er rekening mee dat geneste groep lidmaatschappen worden niet ondersteund voor toewijzing op basis van een groep tooapplications op dit moment.
 
 Met behulp van deze toewijzing van de twee modi, kunnen beheerders eventuele wenselijk toewijzing managementbenadering bereiken.
 
-Met Azure AD is gebruiks- en rapportage over volledig geïntegreerd, waardoor beheerders gemakkelijk rapporteren over de status van sitetoewijzing toewijzingsfouten en zelfs informatie over het gebruik.
+Met Azure AD is gebruiks- en rapportage over volledig geïntegreerd, waardoor beheerders tooeasily rapport over de status van sitetoewijzing toewijzingsfouten en zelfs informatie over het gebruik.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Toewijzing van complexe toepassingen met Azure AD
-U kunt een toepassing zoals Salesforce. In veel organisaties wordt Salesforce voornamelijk gebruikt door de marketing- en organisaties. Vaak uitgebreide marketing teamleden maximaal toegang tot Salesforce, terwijl de leden van het verkoopteam beperkte toegang hebben. In veel gevallen een algemene populatie informatiemedewerkers beperkte toegang hebben tot de toepassing. Uitzonderingen op deze regels bemoeilijken belangrijk is. Het is vaak het recht van de leidinggevende teams marketing- of een gebruikerstoegang verlenen of hun rollen onafhankelijk van deze algemene regels wijzigen.
+U kunt een toepassing zoals Salesforce. In veel organisaties wordt Salesforce voornamelijk gebruikt door Hallo marketing- en organisaties. Vaak uitgebreide leden van Hallo marketing team maximaal toegang tooSalesforce, terwijl de leden van het verkoopteam Hallo beperkte toegang hebben. In veel gevallen hebben een algemene populatie van IT-medewerkers toegang toohello toepassing beperkt. Uitzonderingen toothese regels bemoeilijken belangrijk is. Het is vaak het recht van Hallo marketing- of leidinggevende teams toogrant een gebruikerstoegang Hallo of hun rollen onafhankelijk van deze algemene regels wijzigen.
 
-Met Azure AD kunnen toepassingen zoals Salesforce zijn vooraf geconfigureerd voor eenmalige aanmelding (SSO) en de geautomatiseerde inrichting. Zodra de toepassing is geconfigureerd, kan een beheerder de eenmalige actie maken en toewijzen van de juiste groepen duren. In dit voorbeeld kan een beheerder de volgende toewijzingen uitvoeren:
+Met Azure AD kunnen toepassingen zoals Salesforce zijn vooraf geconfigureerd voor eenmalige aanmelding (SSO) en de geautomatiseerde inrichting. Zodra de toepassing hello is geconfigureerd, kan een beheerder Hallo eenmalige actie toocreate nemen en Hallo juiste groepen toewijzen. In dit voorbeeld kan een beheerder Hallo toewijzingen volgende uitvoeren:
 
-* [Dynamische groepen](active-directory-accessmanagement-manage-groups.md) ter vertegenwoordiging van alle leden van de marketing- en teams met kenmerken zoals afdeling of rol automatisch kunnen worden gedefinieerd:
+* [Dynamische groepen](active-directory-accessmanagement-manage-groups.md) kan worden gedefinieerd tooautomatically vertegenwoordigen alle leden van Hallo marketing- en teams met kenmerken zoals afdeling of rol:
   
-  * Alle leden van marketing groepen wordt toegewezen aan de rol 'marketing' in Salesforce
-  * Alle leden van het verkoopteam groepen wordt toegewezen aan de rol 'verkoop' in Salesforce. Een verdere verfijning kan meerdere groepen die overeenkomen met regionale sales-teams toegewezen aan verschillende rollen van Salesforce gebruiken.
-* Om de uitzonderingsmechanisme, kan een groepsbeheer met Self-service voor elke rol worden gemaakt. De groep 'Salesforce marketing uitzondering' kan bijvoorbeeld worden gemaakt als een groepsbeheer met Self-service. De groep kan worden toegewezen aan de rol van de Salesforce-marketing en de marketing leiding eigenaren kan worden gemaakt. Leden van de marketing leiding kunnen toevoegen of verwijderen gebruikers, stelt u een beleid join of zelfs goedkeuren of weigeren van afzonderlijke gebruikers aanvragen voor deelname aan. Dit wordt ondersteund door een information worker juiste ervaring die geen speciale training voor eigenaars of leden vereist.
+  * Alle leden van marketing groepen wordt toohello 'marketing' rol in Salesforce toegewezen
+  * Alle leden van de verkoop team groepen toohello 'verkoop' rol in Salesforce wordt toegewezen. Een verdere verfijning kan meerdere groepen die overeenkomen met regionale sales-teams toodifferent Salesforce rollen toegewezen gebruiken.
+* uitzonderingsmechanisme tooenable hello, een groepsbeheer met Self-service kan worden gemaakt voor elke rol. Hallo 'Salesforce marketing uitzondering' groep kan bijvoorbeeld worden gemaakt als een groepsbeheer met Self-service. Hallo-groep marketing toohello Salesforce-rol kan worden toegewezen en marketing leiding Hallo eigenaren kan worden gemaakt. Leden van de marketing leiding Hallo kunnen toevoegen of verwijderen gebruikers, stelt u een beleid join of zelfs goedkeuren of weigeren van afzonderlijke gebruikers aanvragen toojoin. Dit wordt ondersteund door een information worker juiste ervaring die geen speciale training voor eigenaars of leden vereist.
 
-In dit geval zouden alle toegewezen gebruikers worden automatisch ingericht bij Salesforce, wanneer ze worden toegevoegd aan verschillende groepen die hun roltoewijzing zou worden bijgewerkt in Salesforce. Gebruikers zou kunnen detecteren en toegang tot de Salesforce via de toepassing toegang Configuratiescherm van Microsoft Office web-clients, of zelfs door te navigeren naar de aanmeldingspagina van hun organisatie Salesforce. Beheerders zou kunnen eenvoudig bekijken en toewijzing van de status van met behulp van Azure AD-rapportage.
+In dit geval alle toegewezen gebruikers die automatisch ingerichte tooSalesforce zou zijn, omdat ze toegevoegde toodifferent groepen die hun roltoewijzing zou worden bijgewerkt in Salesforce. Gebruikers zou kunnen toodiscover en toegang tot de Salesforce via Hallo toepassing toegang Configuratiescherm van Microsoft Office web-clients, of zelfs door te navigeren tootheir organisatie Salesforce-aanmeldingspagina. Beheerders zijn kunnen tooeasily gebruiks- en toewijzing status weergeven met behulp van Azure AD-rapportage.
 
-Beheerders kunnen gebruikmaken van [voorwaardelijke toegang van Azure AD](active-directory-conditional-access.md) beleidsregels voor toegang voor specifieke rollen instellen. Deze beleidsregels kunnen bevatten of toegang is toegestaan buiten de bedrijfsomgeving en zelfs multi-Factor Authentication vereisten of apparaten toegang in verschillende gevallen bereiken.
+Beheerders kunnen gebruikmaken van [voorwaardelijke toegang van Azure AD](active-directory-conditional-access.md) tooset toegangsbeleid voor specifieke rollen. Deze beleidsregels kunnen bevatten of toegang is toegestaan buiten de bedrijfsomgeving Hallo en zelfs multi-factor Authentication of vereisten tooachieve Apparaattoegang in verschillende gevallen.
 
 ## <a name="how-can-i-get-started"></a>Hoe kan ik aan de slag?
 Eerste, als u niet al Azure AD gebruikt en u een IT-beheerder:
@@ -60,7 +60,7 @@ Eerste, als u niet al Azure AD gebruikt en u een IT-beheerder:
 Azure AD-functies die delen van het account inschakelen:
 
 * [Toewijzing van updategroep](active-directory-accessmanagement-self-service-group-management.md)
-* Toepassingen toevoegen aan Azure AD
+* Toepassingen tooAzure AD toevoegen
 * Aan de slag met toewijzing
 * Toewijzing van de toepassing Veelgestelde vragen
 * [App-dashboard/gebruiksrapporten](active-directory-passwords-get-insights.md)

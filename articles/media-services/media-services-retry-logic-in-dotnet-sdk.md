@@ -1,6 +1,6 @@
 ---
-title: Pogingslogica in de Media Services SDK voor .NET | Microsoft Docs
-description: Het onderwerp overzicht een van Pogingslogica in de Media Services SDK voor .NET.
+title: aaaRetry logica in Hallo Media Services SDK voor .NET | Microsoft Docs
+description: Hallo onderwerp overzicht een van Pogingslogica in Hallo Media Services SDK voor .NET.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako
-ms.openlocfilehash: 859dd76db4ba06196a853469a1385703d835fa22
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 18d0a9d68e55a48bc769fb6ae5711ddba78ed8e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Pogingslogica in de Media Services SDK voor .NET
-Als u werkt met Microsoft Azure-services, kunnen tijdelijke fouten optreden. Als een tijdelijke fout in de meeste gevallen optreedt na een paar pogingen de bewerking is geslaagd. De Media Services SDK voor .NET implementeert de Pogingslogica voor het afhandelen van tijdelijke fouten die zijn gekoppeld aan de uitzonderingen en fouten die worden veroorzaakt door webaanvragen, uitvoeren van query's, het opslaan van wijzigingen en opslagbewerkingen.  Standaard wordt de Media Services SDK voor .NET vier pogingen uitgevoerd voordat de uitzondering voor uw toepassing opnieuw te genereren. Deze uitzondering moet vervolgens goed omgaan met de code in uw toepassing.  
+# <a name="retry-logic-in-hello-media-services-sdk-for-net"></a>Pogingslogica in Hallo Media Services SDK voor .NET
+Als u werkt met Microsoft Azure-services, kunnen tijdelijke fouten optreden. Als een tijdelijke fout in de meeste gevallen optreedt na een paar pogingen hello bewerking is geslaagd. Media Services SDK voor .NET Hallo implementeert Hallo opnieuw logica toohandle tijdelijke fouten die zijn gekoppeld aan de uitzonderingen en fouten die worden veroorzaakt door webaanvragen, uitvoeren van query's opslaan van wijzigingen en opslagbewerkingen.  Standaard wordt Hallo Media Services SDK voor .NET vier pogingen uitgevoerd voordat het opnieuw genereren Hallo uitzondering tooyour toepassing. Hallo-code in uw toepassing moet deze uitzondering vervolgens correct verwerken.  
 
- Hier volgt een korte richtlijn webaanvraag, opslag, Query en SaveChanges beleidsregels:  
+ Hallo Hier volgt een korte richtlijn webaanvraag, opslag, Query en SaveChanges beleidsregels:  
 
-* Het beleid voor opslag wordt gebruikt voor bewerkingen voor blob-opslag (uploads of downloaden van assetbestanden).  
-* Het beleid webaanvraag wordt gebruikt voor algemene webaanvragen (bijvoorbeeld voor een verificatietoken ophalen en het oplossen van het eindpunt van de cluster gebruikers).  
-* Het beleid van de Query wordt gebruikt voor het uitvoeren van query's entiteiten van REST (bijvoorbeeld mediaContext.Assets.Where(...)).  
-* Het beleid SaveChanges wordt gebruikt voor het uitvoeren van alles wat gegevens in de service (bijvoorbeeld het maken van een entiteit bijwerken van een entiteit, een servicefunctie aanroepen voor een bewerking) wijzigt.  
+* Hallo-beleid voor opslag wordt gebruikt voor bewerkingen voor blob-opslag (uploads of downloaden van assetbestanden).  
+* Hallo webaanvraag beleid wordt gebruikt voor algemene webaanvragen (bijvoorbeeld voor een verificatie-token ophalen en oplossen van Hallo gebruikers cluster eindpunt).  
+* Hallo querybeleid wordt gebruikt voor het uitvoeren van query's entiteiten van REST (bijvoorbeeld mediaContext.Assets.Where(...)).  
+* Hallo SaveChanges beleid wordt gebruikt voor het uitvoeren van alles wat gegevens binnen het Hallo-service (bijvoorbeeld het maken van een entiteit bijwerken van een entiteit, een servicefunctie aanroepen voor een bewerking) wordt gewijzigd.  
   
-  Dit onderwerp bevat de typen en Pogingslogica foutcodes die worden verwerkt door de Media Services SDK voor .NET.  
+  Dit onderwerp bevat de typen en Pogingslogica foutcodes die worden verwerkt door Hallo Media Services SDK voor .NET.  
 
 ## <a name="exception-types"></a>Uitzondering typen
-De volgende tabel beschrijft de uitzonderingen die de Media Services SDK voor .NET worden verwerkt of verwerkt niet voor bepaalde bewerkingen, die tijdelijke fouten kunnen veroorzaken.  
+Hello volgende tabel beschrijft de uitzonderingen die Hallo Media Services SDK voor .NET-ingangen of verwerkt niet voor bepaalde bewerkingen, die tijdelijke fouten kunnen veroorzaken.  
 
 | Uitzondering | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>Zie voor meer informatie de [WebException statuscodes](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) sectie. |Ja |Ja |Ja |Ja |
+| WebException<br/>Zie voor meer informatie, Hallo [WebException statuscodes](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) sectie. |Ja |Ja |Ja |Ja |
 | DataServiceClientException<br/> Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
 | DataServiceQueryException<br/> Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
 | DataServiceRequestException<br/> Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nee |Ja |Ja |Ja |
@@ -48,7 +48,7 @@ De volgende tabel beschrijft de uitzonderingen die de Media Services SDK voor .N
 | IOException |Nee |Ja |Nee |Nee |
 
 ### <a name="WebExceptionStatus"></a>Statuscodes WebException
-De volgende tabel ziet welke foutcodes WebException de Pogingslogica is geïmplementeerd. De [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) opsomming definieert de statuscodes.  
+Hallo volgende tabel toont voor welke WebException codes Hallo Pogingslogica is geïmplementeerd. Hallo [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) opsomming Hallo statuscodes definieert.  
 
 | Status | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -63,10 +63,10 @@ De volgende tabel ziet welke foutcodes WebException de Pogingslogica is geïmple
 | ReceiveFailure |Ja |Ja |Ja |Nee |
 | RequestCanceled |Ja |Ja |Ja |Nee |
 | Time-out |Ja |Ja |Ja |Nee |
-| Een protocolfout <br/>De nieuwe poging op een protocolfout wordt bepaald door de verwerking van HTTP-status code. Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
+| Een protocolfout <br/>Hallo opnieuw op een protocolfout wordt bepaald door Hallo HTTP-status code verwerken. Zie voor meer informatie [HTTP-fout statuscodes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
 
 ### <a name="HTTPStatusCode"></a>Statuscodes voor HTTP-fout
-Wanneer bewerkingen query's en SaveChanges throw DataServiceClientException, DataServiceQueryException of DataServiceQueryException, wordt de status van HTTP-foutcode in de eigenschap StatusCode geretourneerd.  De volgende tabel ziet welke foutcodes de Pogingslogica is geïmplementeerd.  
+Wanneer bewerkingen query's en SaveChanges throw DataServiceClientException, DataServiceQueryException of DataServiceQueryException, wordt in Hallo eigenschap StatusCode Hallo HTTP-status foutcode geretourneerd.  Hallo volgende tabel ziet u welke foutcodes Hallo Pogingslogica is geïmplementeerd.  
 
 | Status | Webaanvraag | Storage | Query’s uitvoeren | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ Wanneer bewerkingen query's en SaveChanges throw DataServiceClientException, Dat
 | 503 |Ja |Ja |Ja |Ja |
 | 504 |Ja |Ja |Ja |Nee |
 
-Als u bekijken op de werkelijke implementatie van de Media Services SDK voor .NET-Pogingslogica wilt, Zie [azure-sdk-voor-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
+Als u tootake bekijkt hello werkelijke implementatie van Hallo Media Services SDK voor .NET-Pogingslogica wilt, Zie [azure-sdk-voor-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

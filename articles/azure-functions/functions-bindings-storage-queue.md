@@ -1,6 +1,6 @@
 ---
-title: Azure Functions wachtrij opslag bindingen | Microsoft Docs
-description: Het gebruik van Azure Storage-triggers en bindingen in de Azure Functions begrijpen.
+title: aaaAzure functies queue storage bindingen | Microsoft Docs
+description: Begrijpen hoe Azure Storage toouse triggers en bindingen in Azure Functions.
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -16,49 +16,49 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: e007acd75a2210d54f512e2c6698c90919f0fcd2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 438b4f63e823149072c86fdefa7e15bfd2a2c4df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Azure Functions Queue Storage bindingen
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Dit artikel wordt beschreven hoe u configureert en code Azure Queue storage bindingen in de Azure Functions. Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Azure wachtrijen. Zie functies die beschikbaar in alle bindingen zijn [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md).
+Dit artikel wordt beschreven hoe tooconfigure en code Azure Queue storage bindingen in de Azure Functions. Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Azure wachtrijen. Zie functies die beschikbaar in alle bindingen zijn [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="trigger"></a>
 
 ## <a name="queue-storage-trigger"></a>Queue storage trigger
-De trigger van Azure Queue storage kunt u de opslag van een wachtrij voor nieuwe berichten controleren en reageren op deze. 
+Hello Azure Queue storage trigger kunt u de opslag van een wachtrij voor nieuwe berichten toomonitor en toothem reageren. 
 
-Definieer een wachtrij trigger met de **integreren** tabblad in de portal functies. De portal maakt de volgende definitie in de **bindingen** sectie van *function.json*:
+Een wachtrij trigger met Hallo definiëren **integreren** tabblad in Hallo Functions-portal. Hallo portal maakt na definitie in Hallo Hallo **bindingen** sectie van *function.json*:
 
 ```json
 {
     "type": "queueTrigger",
     "direction": "in",
-    "name": "<The name used to identify the trigger data in your code>",
-    "queueName": "<Name of queue to poll>",
+    "name": "<hello name used tooidentify hello trigger data in your code>",
+    "queueName": "<Name of queue toopoll>",
     "connection":"<Name of app setting - see below>"
 }
 ```
 
-* De `connection` eigenschap moet bevatten de naam van een app-instelling met een verbindingsreeks voor opslag. In de Azure portal, de standaard editor in de **integreren** tabblad dit app-instelling die u configureert wanneer u een opslagaccount selecteren.
+* Hallo `connection` eigenschap Hallo-naam van een app-instelling met een verbindingsreeks voor opslag moet bevatten. Hallo in hello Azure-portal, standaardeditor in Hallo **integreren** tabblad dit app-instelling die u configureert wanneer u een opslagaccount selecteren.
 
-Extra instellingen kunnen worden opgegeven in een [host.json bestand](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) naar queue storage-triggers verder te verfijnen. U kunt bijvoorbeeld de polling-interval in host.json wachtrij wijzigen.
+Extra instellingen kunnen worden opgegeven in een [host.json bestand](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) toofurther stemmen queue storage-triggers. U kunt bijvoorbeeld Hallo wachtrij polling-interval in host.json wijzigen.
 
 <a name="triggerusage"></a>
 
 ## <a name="using-a-queue-trigger"></a>Met behulp van een trigger wachtrij
-In een Node.js-functies, toegang heeft tot de wachtrij gegevens met `context.bindings.<name>`.
+In een Node.js-functies, toegang heeft tot Hallo wachtrij gegevens met `context.bindings.<name>`.
 
 
-Toegang tot de nettolading van de wachtrij met een parameter van de methode, zoals in de .NET-functies `CloudQueueMessage paramName`. Hier `paramName` is de waarde die u hebt opgegeven in de [trigger configuratie](#trigger). Bericht uit de wachtrij kan worden gedeserialiseerd met een van de volgende typen:
+Toegang tot Hallo wachtrij nettolading met een parameter van de methode, zoals in de .NET-functies `CloudQueueMessage paramName`. Hier `paramName` is Hallo-waarde die u hebt opgegeven in Hallo [trigger configuratie](#trigger). Hallo-bericht van wachtrij kan gedeserialiseerde tooany Hallo volgende typen zijn:
 
-* POCO-object. Gebruik deze optie als de nettolading van de wachtrij een JSON-object is. De runtime van Functions deserializes de nettolading in de POCO-object. 
+* POCO-object. Gebruik deze optie als de nettolading van de wachtrij Hallo een JSON-object is. Hallo functies runtime deserializes Hallo nettolading in Hallo POCO-object. 
 * `string`
 * `byte[]`
 * [`CloudQueueMessage`]
@@ -66,22 +66,22 @@ Toegang tot de nettolading van de wachtrij met een parameter van de methode, zoa
 <a name="meta"></a>
 
 ### <a name="queue-trigger-metadata"></a>Wachtrij trigger metagegevens
-De trigger wachtrij biedt verschillende eigenschappen voor metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. De waarden hebben dezelfde betekenis als [ `CloudQueueMessage` ].
+Hallo wachtrij trigger biedt verschillende eigenschappen voor metagegevens. Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. Hallo waarden Hallo hebben dezelfde betekenis als [ `CloudQueueMessage` ].
 
 * **QueueTrigger** -nettolading van de wachtrij (als een geldige tekenreeks)
-* **DequeueCount** -Type `int`. Het aantal keren dat dit bericht uit wachtrij is geplaatst.
-* **ExpirationTime** -Type `DateTimeOffset?`. De tijd waarop het bericht is verlopen.
+* **DequeueCount** -Type `int`. Hallo aantal keren dat dit bericht uit wachtrij is geplaatst.
+* **ExpirationTime** -Type `DateTimeOffset?`. Hallo-tijd die het Hallo-bericht is verlopen.
 * **Id** -Type `string`. Wachtrij bericht-ID.
-* **InsertionTime** -Type `DateTimeOffset?`. De tijd die het bericht is toegevoegd aan de wachtrij.
-* **NextVisibleTime** -Type `DateTimeOffset?`. De tijd die het bericht vervolgens zichtbaar zijn.
-* **PopReceipt** -Type `string`. Pop ontvangst van het bericht.
+* **InsertionTime** -Type `DateTimeOffset?`. Hallo-tijd die het Hallo-bericht toohello wachtrij is toegevoegd.
+* **NextVisibleTime** -Type `DateTimeOffset?`. Hallo-tijd die het Hallo-bericht naast zichtbaar zijn.
+* **PopReceipt** -Type `string`. Hallo-bericht pop ontvangst.
 
-Informatie over het gebruiken van de metagegevens van de wachtrij in [Trigger voorbeeld](#triggersample).
+Zie hoe toouse metagegevens in de wachtrij Hallo [Trigger voorbeeld](#triggersample).
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Voorbeeld van de trigger
-Stel dat u hebt de volgende function.json die een trigger wachtrij definieert:
+Stel dat u hebt Hallo function.json die de trigger van een wachtrij definieert te volgen:
 
 ```json
 {
@@ -98,7 +98,7 @@ Stel dat u hebt de volgende function.json die een trigger wachtrij definieert:
 }
 ```
 
-Zie het voorbeeld taalspecifieke die worden opgehaald en logboeken van de metagegevens van de wachtrij.
+Zie Hallo taalspecifieke steekproef die worden opgehaald en logboeken van de metagegevens van de wachtrij.
 
 * [C#](#triggercsharp)
 * [Node.js](#triggernodejs)
@@ -160,35 +160,35 @@ module.exports = function (context) {
 ```
 
 ### <a name="handling-poison-queue-messages"></a>Verwerken van verontreinigde berichten
-Wanneer een functie van de trigger wachtrij mislukt pogingen Azure Functions die functie maximaal vijf keer voor een bepaalde wachtrij-bericht, met inbegrip van de eerste poging. Als alle vijf pogingen mislukken, wordt een bericht met de runtime van functions toegevoegd aan de opslag van een wachtrij met de naam  *&lt;originalqueuename >-verontreinigd*. U kunt schrijven om een functie verwerken van berichten uit de wachtrij verontreinigd door registratie of het verzenden van een melding dat handmatige aandacht nodig is. 
+Wanneer een functie van de trigger wachtrij is mislukt, probeert die functie up toofive tijden voor een bepaalde wachtrijbericht Hallo eerst probeer opnieuw in Azure Functions. Als alle vijf pogingen mislukken, Hallo functions-runtime voegt een bericht tooa queue storage met de naam  *&lt;originalqueuename >-verontreinigd*. U schrijft een functie tooprocess berichten uit Hallo verontreinigd wachtrij registratie of het verzenden van een melding dat handmatige aandacht nodig is. 
 
-Voor het afhandelen van verontreinigde berichten handmatig, Controleer de `dequeueCount` van het bericht uit de wachtrij (Zie [wachtrij trigger metagegevens](#meta)).
+handmatig controleren Hallo toohandle verontreinigde berichten `dequeueCount` van wachtrij het Hallo-bericht (Zie [wachtrij trigger metagegevens](#meta)).
 
 <a name="output"></a>
 
 ## <a name="queue-storage-output-binding"></a>Queue storage uitvoer binding
-De Azure queue storage uitvoer binding kunt u berichten schrijven naar een wachtrij. 
+Hello Azure queue storage uitvoer binding kunt u toowrite berichten tooa wachtrij. 
 
-Definieer een wachtrij uitvoer binding met de **integreren** tabblad in de portal functies. De portal maakt de volgende definitie in de **bindingen** sectie van *function.json*:
+Definieer een wachtrij uitvoer binding met Hallo **integreren** tabblad in Hallo Functions-portal. Hallo portal maakt na definitie in Hallo Hallo **bindingen** sectie van *function.json*:
 
 ```json
 {
    "type": "queue",
    "direction": "out",
-   "name": "<The name used to identify the trigger data in your code>",
-   "queueName": "<Name of queue to write to>",
+   "name": "<hello name used tooidentify hello trigger data in your code>",
+   "queueName": "<Name of queue toowrite to>",
    "connection":"<Name of app setting - see below>"
 }
 ```
 
-* De `connection` eigenschap moet bevatten de naam van een app-instelling met een verbindingsreeks voor opslag. In de Azure portal, de standaard editor in de **integreren** tabblad dit app-instelling die u configureert wanneer u een opslagaccount selecteren.
+* Hallo `connection` eigenschap Hallo-naam van een app-instelling met een verbindingsreeks voor opslag moet bevatten. Hallo in hello Azure-portal, standaardeditor in Hallo **integreren** tabblad dit app-instelling die u configureert wanneer u een opslagaccount selecteren.
 
 <a name="outputusage"></a>
 
 ## <a name="using-a-queue-output-binding"></a>Binding met behulp van een wachtrij uitvoer
-In een Node.js-functies, opent u de uitvoer wachtrij via `context.bindings.<name>`.
+In Node.js-functies, opent u met behulp Hallo uitvoer wachtrij `context.bindings.<name>`.
 
-In de .NET-functies, kunt u uitvoeren met een van de volgende typen. Wanneer er een typeparameter `T`, `T` moet een van de ondersteunde uitvoermethode typen, zoals `string` of een POCO.
+In de .NET-functies, kunt u tooany van de volgende typen Hallo uitvoeren. Wanneer er een typeparameter `T`, `T` moet een van de typen van de uitvoer hello wordt ondersteund, zoals `string` of een POCO.
 
 * `out T`(geserialiseerd als JSON)
 * `out string`
@@ -198,12 +198,12 @@ In de .NET-functies, kunt u uitvoeren met een van de volgende typen. Wanneer er 
 * `IAsyncCollector<T>`
 * [`CloudQueue`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
-U kunt het retourtype van methode ook gebruiken als de uitvoer-binding.
+U kunt ook retourtype Hallo-methode gebruiken als Hallo uitvoer van de binding.
 
 <a name="outputsample"></a>
 
 ## <a name="queue-output-sample"></a>Voorbeeld van wachtrij-uitvoer
-De volgende *function.json* definieert een HTTP-trigger met een wachtrij binding uitvoer:
+Hallo volgende *function.json* definieert een HTTP-trigger met een wachtrij binding uitvoer:
 
 ```json
 {
@@ -230,7 +230,7 @@ De volgende *function.json* definieert een HTTP-trigger met een wachtrij binding
 }
 ``` 
 
-Zie het voorbeeld taalspecifieke die een wachtrijbericht met de nettolading van de binnenkomende HTTP-uitvoer.
+Zie Hallo taalspecifieke voorbeeldtoepassing die u een wachtrijbericht met Hallo binnenkomende HTTP-nettolading levert.
 
 * [C#](#outcsharp)
 * [Node.js](#outnodejs)
@@ -240,7 +240,7 @@ Zie het voorbeeld taalspecifieke die een wachtrijbericht met de nettolading van 
 ### <a name="queue-output-sample-in-c"></a>Voorbeeld van uitvoer wachtrij in C# #
 
 ```cs
-// C# example of HTTP trigger binding to a custom POCO, with a queue output binding
+// C# example of HTTP trigger binding tooa custom POCO, with a queue output binding
 public class CustomQueueMessage
 {
     public string PersonName { get; set; }
@@ -253,7 +253,7 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 }
 ```
 
-Meerdere om berichten te verzenden, gebruikt u een `ICollector`:
+toosend meerdere berichten gebruiken een `ICollector`:
 
 ```cs
 public static void Run(CustomQueueMessage input, ICollector<CustomQueueMessage> myQueueItem, TraceWriter log)
@@ -273,11 +273,11 @@ module.exports = function (context, input) {
 };
 ```
 
-Of om meerdere berichten te verzenden
+Of toosend meerdere berichten
 
 ```javascript
 module.exports = function(context) {
-    // Define a message array for the myQueueItem output binding. 
+    // Define a message array for hello myQueueItem output binding. 
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
@@ -285,7 +285,7 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een voorbeeld van een functie die gebruikmaakt van queue storage-triggers en bindingen [maken een Azure-functie die is verbonden met een Azure-service](functions-create-an-azure-connected-function.md).
+Zie voor een voorbeeld van een functie die gebruikmaakt van queue storage-triggers en bindingen [maken van een Azure-functie verbonden tooan Azure service](functions-create-an-azure-connected-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

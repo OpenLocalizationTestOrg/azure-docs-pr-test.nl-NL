@@ -1,6 +1,6 @@
 ---
-title: Aanroepen van Spark-programma's van Azure Data Factory | Microsoft Docs
-description: Informatie over het aanroepen van Spark-programma's van een Azure data factory met behulp van de MapReduce-activiteit.
+title: aaaInvoke Spark programma's van Azure Data Factory | Microsoft Docs
+description: Meer informatie over hoe tooinvoke Spark-programma's vanuit een Azure data factory met Hallo MapReduce-activiteit.
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f88943ece7ee3d21dedbd857609f1b2713b62741
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -35,75 +35,75 @@ ms.lasthandoff: 08/29/2017
 > * [Aangepaste activiteit .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Inleiding
-Spark-activiteit is een van de [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) ondersteund door Azure Data Factory. Deze activiteit wordt het opgegeven Spark-programma uitgevoerd op uw Apache Spark-cluster in Azure HDInsight.    
+Spark-activiteit is een van de Hallo [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) ondersteund door Azure Data Factory. Deze activiteit wordt uitgevoerd Hallo opgegeven programma op uw Apache Spark-cluster in Azure HDInsight Spark.    
 
 > [!IMPORTANT]
 > - Spark activiteit biedt geen ondersteuning voor HDInsight Spark-clusters die gebruikmaken van een Azure Data Lake Store als primaire opslag.
 > - Spark-activiteit ondersteunt alleen bestaande (uw eigen) HDInsight Spark-clusters. Een gekoppelde HDInsight-service op aanvraag worden niet ondersteund.
 
 ## <a name="walkthrough-create-a-pipeline-with-spark-activity"></a>Overzicht: een pijplijn maken met Spark-activiteit
-Hier volgen de gebruikelijke stappen voor het maken van een Data Factory-pijplijn met een Spark-activiteit.  
+Hier volgen Hallo gebruikelijke stappen toocreate een Data Factory-pijplijn met een Spark-activiteit.  
 
-1. Maak een gegevensfactory.
-2. Maak een gekoppelde Azure Storage-service om te koppelen van uw Azure-opslag die is gekoppeld aan uw HDInsight Spark-cluster aan de gegevensfactory.     
-2. Maak een gekoppelde HDInsight-service als u wilt uw Apache Spark-cluster in Azure HDInsight koppelen aan de gegevensfactory.
-3. Maak een gegevensset die naar de gekoppelde Azure Storage-service verwijst. U moet een uitvoergegevensset voor een activiteit op dit moment kunt opgeven, zelfs als er wordt geen uitvoer wordt geproduceerd.  
-4. Een pijplijn maken met Spark-activiteit die naar de gekoppelde HDInsight-service in #2 hebt gemaakt verwijst. De activiteit is geconfigureerd met de gegevensset die u hebt gemaakt in de vorige stap als een uitvoergegevensset. De uitvoergegevensset is uitvoergegevensset het schema (elk uur, dagelijks, enz.). Daarom moet u de uitvoergegevensset opgeven, zelfs als de activiteit geen echt uitvoer produceert.
+1. Een gegevensfactory maakt.
+2. Maak een gekoppelde Azure Storage-service toolink uw Azure-opslag die is gekoppeld aan uw HDInsight Spark-cluster toohello data factory.     
+2. Maak een gekoppelde HDInsight-service toolink Apache Spark-cluster in Azure HDInsight toohello gegevensfactory.
+3. Maak een gegevensset die toohello Azure Storage gekoppelde service verwijst. U moet een uitvoergegevensset voor een activiteit op dit moment kunt opgeven, zelfs als er wordt geen uitvoer wordt geproduceerd.  
+4. Een pijplijn maken met Spark-activiteit die toohello gekoppelde HDInsight-service is gemaakt in #2 verwijst. Hallo-activiteit is geconfigureerd met Hallo gegevensset die u hebt gemaakt in de vorige stap Hallo als een uitvoergegevensset. Hallo uitvoergegevensset is welke stations Hallo planning (elk uur, dagelijks, enz.). Daarom moet u Hallo uitvoergegevensset zelfs als er geen activiteit Hallo echt uitvoer te produceren.
 
 ### <a name="prerequisites"></a>Vereisten
-1. Maak een **voor algemene doeleinden Azure Storage-Account** door de instructies te volgen in het overzicht: [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Maak een **Apache Spark-cluster in Azure HDInsight** door de instructies in de zelfstudie te volgen: [maken Apache Spark-cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Koppel de Azure storage-account dat u hebt gemaakt in stap 1 van # met dit cluster.  
-3. Downloaden en bekijken van het scriptbestand python **test.py** vinden op: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
-3.  Uploaden **test.py** naar de **pyFiles** map in de **adfspark** container in uw Azure-blobopslag. De container en de map maken als ze bestaan niet.
+1. Maak een **voor algemene doeleinden Azure Storage-Account** door de instructies te volgen in Hallo overzicht te: [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+2. Maak een **Apache Spark-cluster in Azure HDInsight** door de instructies te volgen in Hallo-zelfstudie: [maken Apache Spark-cluster in Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Hello Azure storage-account die u hebt gemaakt in stap 1 van # met dit cluster koppelen.  
+3. Downloaden en bekijken Hallo python-scriptbestand **test.py** vinden op: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
+3.  Uploaden **test.py** toohello **pyFiles** map in Hallo **adfspark** container in uw Azure-blobopslag. Hallo-container en map Hallo maken als ze bestaan niet.
 
 ### <a name="create-data-factory"></a>Een gegevensfactory maken
-U begint in deze stap met het maken van de gegevensfactory.
+Laten we beginnen met het maken van de gegevensfactory Hallo in deze stap.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **NIEUW** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**.
-3. In de **nieuwe gegevensfactory** blade Voer **SparkDF** voor de naam.
+1. Meld u bij toohello [Azure-portal](https://portal.azure.com/).
+2. Klik op **nieuw** op Hallo menu links, klikt u op **gegevens en analyse**, en klik op **Data Factory**.
+3. In Hallo **nieuwe gegevensfactory** blade Voer **SparkDF** voor Hallo naam.
 
    > [!IMPORTANT]
-   > De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u de volgende fout: **Data factory-naam 'SparkDF' is niet beschikbaar**. Wijzig de naam van de gegevensfactory (bijvoorbeeld yournameSparkDFdate en probeer het opnieuw maken. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.   
-4. Selecteer het **Azure-abonnement** waarvoor u de gegevensfactory wilt maken.
+   > Hallo-naam van hello Azure-gegevensfactory moet **globaal unieke**. Als u Hallo fout ziet: **Data factory-naam 'SparkDF' is niet beschikbaar**. Wijzig de naam van de Hallo van gegevensfactory hello (bijvoorbeeld yournameSparkDFdate en probeer het opnieuw maken. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.   
+4. Selecteer Hallo **Azure-abonnement** waar u Hallo data factory toobe gemaakt.
 5. Selecteer een bestaande **resourcegroep** of maak een Azure-resourcegroep.
-6. Selecteer **vastmaken aan dashboard** optie.  
-6. Klik op de blade **Nieuwe gegevensfactory** op **Maken**.
+6. Selecteer **pincode toodashboard** optie.  
+6. Klik op **maken** op Hallo **nieuwe gegevensfactory** blade.
 
    > [!IMPORTANT]
-   > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.
-7. U ziet de gegevensfactory wordt gemaakt in de **dashboard** van de Azure portal als volgt:   
-8. Nadat de gegevensfactory is gemaakt, ziet u de gegevensfactorypagina. Hierop wordt de inhoud van de gegevensfactory weergegeven. Als u de data factory-pagina niet ziet, klikt u op de tegel voor uw gegevensfactory op het dashboard.
+   > toocreate Data Factory-exemplaren, moet u lid zijn van Hallo [Data Factory Inzender](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rol op het niveau van de Hallo abonnement/resourcegroep.
+7. Zie van Hallo gegevensfactory wordt gemaakt in Hallo **dashboard** Hallo Azure-portal als volgt:   
+8. Nadat het Hallo-gegevensfactory is gemaakt, ziet u Hallo data factory-pagina waarop u inhoud van de gegevensfactory Hallo Hallo. Als u Hallo data factory-pagina niet ziet, klikt u op Hallo tegel voor uw gegevensfactory op Hallo-dashboard.
 
     ![Blade Gegevensfactory](./media/data-factory-spark/data-factory-blade.png)
 
 ### <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap maakt u twee gekoppelde services, een Spark-cluster koppelen aan uw gegevensfactory en de andere met uw Azure-opslag te koppelen aan uw gegevensfactory.  
+In deze stap kunt u twee gekoppelde services, één toolink uw Spark-cluster tooyour een gegevensfactory maken en andere toolink Hallo uw Azure-opslag tooyour data factory.  
 
 #### <a name="create-azure-storage-linked-service"></a>Een gekoppelde Azure Storage-service maken
-In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory. Een gegevensset die u in een stap verderop in dit overzicht maakt verwijst naar deze gekoppelde service. De gekoppelde HDInsight-service die u in de volgende stap definieert verwijst te naar deze gekoppelde service.  
+In deze stap koppelt u uw Azure Storage-account tooyour data factory. Een gegevensset die u in stap verderop in dit scenario maakt verwijst toothis gekoppelde service. Hallo gekoppelde HDInsight-service die u in de volgende stap Hallo definieert verwijst te toothis gekoppelde service.  
 
-1. Klik op **auteur en implementeren van** op de **Data Factory** blade van uw gegevensfactory. U krijgt de Data Factory-editor te zien.
+1. Klik op **auteur en implementeren van** op Hallo **Data Factory** blade van uw gegevensfactory. U ziet Hallo Data Factory-Editor.
 2. Klik op **Nieuwe gegevensopslag** en kies **Azure-opslag**.
 
    ![Nieuwe gegevensopslag - Azure Storage - menu](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
-3. U ziet de **JSON-script** voor het maken van een Azure Storage gekoppelde service in de editor.
+3. U ziet Hallo **JSON-script** voor het maken van een Azure Storage gekoppelde service in Hallo-editor.
 
    ![Een gekoppelde Azure Storage-service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. Vervang **accountnaam** en **accountsleutel** met de naam en toegangssleutel van uw Azure storage-account. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van een toegangssleutel voor opslag.
-5. Voor het implementeren van de gekoppelde service, klikt u op **implementeren** op de opdrachtbalk. Wanneer de gekoppelde service is geïmplementeerd, verdwijnt het venster **Draft-1** en ziet u **AzureStorageLinkedService** in de structuurweergave links.
+4. Vervang **accountnaam** en **accountsleutel** met de naam en toegangssleutel Hallo van uw Azure storage-account. toolearn hoe tooget uw opslag heeft toegang tot sleutel, raadpleegt u Hallo informatie over hoe tooview, kopiëren en opnieuw genereren opslag toegangstoetsen in [uw opslagaccount beheren](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+5. toodeploy Hallo gekoppelde service, klikt u op **implementeren** op Hallo opdrachtbalk klikken. Nadat hello gekoppelde service is geïmplementeerd, Hallo **Draft-1** venster verdwijnt en ziet u **AzureStorageLinkedService** in Hallo structuurweergave Hallo links.
 
 #### <a name="create-hdinsight-linked-service"></a>Een gekoppelde HDInsight-service maken
-In deze stap maakt u een gekoppelde HDInsight-service als u wilt uw HDInsight Spark-cluster koppelen aan de gegevensfactory. Het HDInsight-cluster wordt gebruikt voor het programma Spark is opgegeven in de Spark-activiteit van de pijplijn in dit voorbeeld uitvoert.  
+In deze stap maakt u een gekoppelde HDInsight-service toolink uw HDInsight Spark-cluster toohello data factory. Hallo HDInsight-cluster is gebruikte toorun Hallo Spark programma dat is opgegeven in de Hallo Spark activiteit van Hallo pijplijn in dit voorbeeld.  
 
-1. Klik op **... Meer** op de werkbalk klikt **nieuwe berekening**, en klik vervolgens op **HDInsight-cluster**.
+1. Klik op **... Meer** op de werkbalk Hallo **nieuwe berekening**, en klik vervolgens op **HDInsight-cluster**.
 
     ![Een gekoppelde HDInsight-service maken](media/data-factory-spark/new-hdinsight-linked-service.png)
-2. Kopieer het onderstaande codefragment en plak het in het venster **Draft-1**. Voer de volgende stappen uit in de JSON-editor:
-    1. Geef de **URI** voor het HDInsight Spark-cluster. Bijvoorbeeld: `https://<sparkclustername>.azurehdinsight.net/`.
-    2. Geef de naam van de **gebruiker** wie toegang heeft tot het Spark-cluster.
-    3. Geef de **wachtwoord** voor de gebruiker.
-    4. Geef de **gekoppelde Azure Storage-service** dat is gekoppeld aan de HDInsight Spark-cluster. In dit voorbeeld is: **AzureStorageLinkedService**.
+2. Kopieer en plak de volgende codefragment toohello hello **Draft-1** venster. In de JSON-editor Hallo Hallo stappen te volgen:
+    1. Geef Hallo **URI** voor Hallo HDInsight Spark-cluster. Bijvoorbeeld: `https://<sparkclustername>.azurehdinsight.net/`.
+    2. Geef de naam Hallo Hallo **gebruiker** wie heeft toegang tot toohello Spark-cluster.
+    3. Geef Hallo **wachtwoord** voor de gebruiker.
+    4. Geef Hallo **gekoppelde Azure Storage-service** dat is gekoppeld aan Hallo HDInsight Spark-cluster. In dit voorbeeld is: **AzureStorageLinkedService**.
 
     ```json
     {
@@ -124,14 +124,14 @@ In deze stap maakt u een gekoppelde HDInsight-service als u wilt uw HDInsight Sp
     > - Spark activiteit biedt geen ondersteuning voor HDInsight Spark-clusters die gebruikmaken van een Azure Data Lake Store als primaire opslag.
     > - Spark-activiteit ondersteunt alleen bestaande (uw eigen) HDInsight Spark-cluster. Een gekoppelde HDInsight-service op aanvraag worden niet ondersteund.
 
-    Zie [gekoppelde HDInsight-Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie over de HDInsight gekoppelde service.
-3.  Voor het implementeren van de gekoppelde service, klikt u op **implementeren** op de opdrachtbalk.  
+    Zie [gekoppelde HDInsight-Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) voor meer informatie over Hallo HDInsight gekoppelde service.
+3.  toodeploy Hallo gekoppelde service, klikt u op **implementeren** op Hallo opdrachtbalk klikken.  
 
 ### <a name="create-output-dataset"></a>Uitvoergegevensset maken
-De uitvoergegevensset is uitvoergegevensset het schema (elk uur, dagelijks, enz.). U moet daarom een uitvoergegevensset voor de activiteit spark in de pijplijn opgeven, zelfs als de activiteit geen echt geen uitvoer produceert. Het opgeven van een invoergegevensset voor de activiteit is optioneel.
+Hallo uitvoergegevensset is welke stations Hallo planning (elk uur, dagelijks, enz.). Daarom moet u een uitvoergegevensset voor Hallo spark activiteit in de pijplijn Hallo Hoewel Hallo activiteit geen echt geen uitvoer produceert. Het opgeven van een invoergegevensset voor Hallo-activiteit is optioneel.
 
-1. Klik in de **Data Factory-editor** op **... Meer** op de opdrachtbalk, klik op **Nieuwe gegevensset** en selecteer **Azure-blobopslag**.  
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. Het JSON-fragment een gegevensset met de naam definieert **OutputDataset**. Bovendien u opgeven dat de resultaten worden opgeslagen in de blob-container aangeroepen **adfspark** en de map met de naam **pyFiles/uitvoer**. Zoals eerder vermeld, is deze gegevensset een dummy-gegevensset. De Spark-programma in dit voorbeeld heeft geen uitvoer wordt geproduceerd. De **beschikbaarheid** sectie geeft aan dat de uitvoergegevensset die dagelijks wordt geproduceerd.  
+1. In Hallo **Data Factory-Editor**, klikt u op **... Meer** op de opdrachtbalk hello, klikt u op **nieuwe gegevensset**, en selecteer **Azure Blob storage**.  
+2. Kopieer en plak Hallo na codefragment toohello Draft-1-venster. Hallo JSON-fragment een gegevensset met de naam definieert **OutputDataset**. Bovendien u opgeven dat Hallo resultaten worden opgeslagen in blob-container Hallo aangeroepen **adfspark** en Hallo map met de naam **pyFiles/uitvoer**. Zoals eerder vermeld, is deze gegevensset een dummy-gegevensset. Hallo Spark programma in dit voorbeeld heeft geen uitvoer wordt geproduceerd. Hallo **beschikbaarheid** sectie geeft die Hallo-uitvoergegevensset dagelijks wordt geproduceerd.  
 
     ```json
     {
@@ -154,14 +154,14 @@ De uitvoergegevensset is uitvoergegevensset het schema (elk uur, dagelijks, enz.
         }
     }
     ```
-3. Voor het implementeren van de gegevensset, klikt u op **implementeren** op de opdrachtbalk.
+3. toodeploy Hallo gegevensset, klikt u op **implementeren** op Hallo opdrachtbalk klikken.
 
 
 ### <a name="create-pipeline"></a>Pijplijn maken
-In deze stap maakt u een pijplijn met een **HDInsightSpark** activiteit. Op dit moment wordt de planning gebaseerd op de uitvoergegevensset. Daarom moet u ook een uitvoergegevensset maken als er tijdens de activiteit geen uitvoer wordt geproduceerd. Als er voor de activiteit geen invoer nodig is, kunt u het maken van de invoergegevensset overslaan. Daarom is geen invoergegevensset opgegeven in dit voorbeeld.
+In deze stap maakt u een pijplijn met een **HDInsightSpark** activiteit. Uitvoergegevensset is momenteel welke stations Hallo planning, dus u een uitvoergegevensset maken moet, zelfs als Hallo activiteit geen uitvoer produceert. Als Hallo activiteit geen invoer neemt, kunt u maken Hallo invoergegevensset overslaan. Daarom is geen invoergegevensset opgegeven in dit voorbeeld.
 
-1. In de **Data Factory-Editor**, klikt u op **... Meer** op de opdrachtbalk en klik vervolgens op **nieuwe pijplijn**.
-2. Het script in het venster Draft-1 vervangen door het volgende script:
+1. In Hallo **Data Factory-Editor**, klikt u op **... Meer** op Hallo opdrachtbalk en klik vervolgens op **nieuwe pijplijn**.
+2. Hallo-script in het venster Draft-1 Hallo vervangen door Hallo script volgen:
 
     ```json
     {
@@ -189,68 +189,68 @@ In deze stap maakt u een pijplijn met een **HDInsightSpark** activiteit. Op dit 
         }
     }
     ```
-    Houd rekening met de volgende punten:
-    - De **type** eigenschap is ingesteld op **HDInsightSpark**.
-    - De **rootPath** is ingesteld op **adfspark\\pyFiles** waarbij adfspark Azure Blob-container en pyFiles fijn map in de container. In dit voorbeeld is de Azure Blob-opslag die is gekoppeld aan het Spark-cluster. U kunt het bestand uploaden naar een andere Azure-opslag. Als u doet dit, maakt u een gekoppelde Azure Storage-service als u wilt dat storage-account koppelen aan de gegevensfactory. Geef de naam van de gekoppelde service als een waarde voor de **sparkJobLinkedService** eigenschap. Zie [Spark activiteitseigenschappen](#spark-activity-properties) voor meer informatie over deze eigenschap en andere eigenschappen die ondersteund worden door de activiteit Spark.  
-    - De **entryFilePath** is ingesteld op de **test.py**, namelijk het python-bestand.
-    - De **getDebugInfo** eigenschap is ingesteld op **altijd**, wat betekent dat de logboekbestanden altijd zijn gegenereerd (slagen of mislukken).
+    Houd er rekening mee Hallo volgende punten:
+    - Hallo **type** eigenschap is ingesteld, te**HDInsightSpark**.
+    - Hallo **rootPath** te is ingesteld,**adfspark\\pyFiles** waarbij adfspark hello Azure Blob-container en pyFiles is map in de container. In dit voorbeeld is hello Azure Blob Storage Hallo die is gekoppeld aan Hallo Spark-cluster. U kunt uploaden Hallo bestand tooa andere Azure-opslag. Als u doet dit, wordt een gekoppelde Azure Storage-service toolink die storage account toohello een gegevensfactory maken. Hallo-naam van gekoppelde Hallo-service vervolgens opgeven als een waarde voor Hallo **sparkJobLinkedService** eigenschap. Zie [Spark activiteitseigenschappen](#spark-activity-properties) voor meer informatie over deze eigenschap en andere eigenschappen die ondersteund worden door Hallo Spark-activiteit.  
+    - Hallo **entryFilePath** toohello is ingesteld **test.py**, namelijk Hallo python-bestand.
+    - Hallo **getDebugInfo** eigenschap is ingesteld, te**altijd**, wat betekent dat het Hallo-logboekbestanden zijn altijd gegenereerd (slagen of mislukken).
 
         > [!IMPORTANT]
-        > Het is raadzaam dat u deze eigenschap niet instellen op `Always` in een productieomgeving tenzij u een probleem wilt oplossen.
-    - De **levert** sectie heeft één uitvoergegevensset. U kunt een uitvoergegevensset moet opgeven, zelfs als het programma spark geen uitvoer produceert. De uitvoergegevensset stations de planning voor de pijplijn (elk uur, dagelijks, enz.).  
+        > Het is raadzaam dat u niet deze eigenschap te stelt`Always` in een productieomgeving tenzij u een probleem wilt oplossen.
+    - Hallo **levert** sectie heeft één uitvoergegevensset. U kunt een uitvoergegevensset moet opgeven, zelfs als Hallo spark programma geen uitvoer produceert. Hallo output dataset stations Hallo planning voor Hallo pijplijn (elk uur, dagelijks, enz.).  
 
-        Zie voor meer informatie over de eigenschappen die worden ondersteund door de activiteit Spark [activiteitseigenschappen Spark](#spark-activity-properties) sectie.
-3. Voor het implementeren van de pijplijn, klikt u op **implementeren** op de opdrachtbalk.
+        Zie voor meer informatie over het Hallo-eigenschappen die ondersteund worden door de activiteit Spark [activiteitseigenschappen Spark](#spark-activity-properties) sectie.
+3. toodeploy hello pipeline, klikt u op **implementeren** op Hallo opdrachtbalk klikken.
 
 ### <a name="monitor-pipeline"></a>De pijplijn bewaken
-1. Klik op **X** blades Data Factory-Editor sluiten en terug naar de startpagina van de Data Factory. Klik op **bewaken en beheren** om de bewaking toepassing in een ander tabblad te starten.
+1. Klik op **X** tooclose Data Factory-Editor blades en toonavigate weer toohello Data Factory-startpagina. Klik op **bewaken en beheren** toolaunch Hallo monitoring-toepassing in een ander tabblad.
 
     ![Bewaken en beheren van de tegel](media/data-factory-spark/monitor-and-manage-tile.png)
-2. Wijzig de **begintijd** filter boven aan **2/1/2017**, en klik op **toepassen**.
-3. Als er slechts één dag tussen het begin (2017-02-01)- en eindtijden (2017-02-02) van de pijplijn is, moet u slechts één activiteitvenster zien. Controleer of het gegevenssegment **gereed** status.
+2. Wijziging Hallo **begintijd** te filteren Hallo boven**2/1/2017**, en klik op **toepassen**.
+3. Omdat er slechts één dag tussen hello (2017-02-01) start- en eindtijden (2017-02-02) van de pijplijn hello, moet u slechts één activiteitvenster zien. Bevestig dat gegevenssegment Hallo **gereed** status.
 
-    ![De pijplijn bewaken](media/data-factory-spark/monitor-and-manage-app.png)    
-4. Selecteer de **activiteitvenster** voor informatie over de activiteit die wordt uitgevoerd. Als er een fout is, ziet u informatie over het in het rechterdeelvenster.
+    ![Hallo-pijplijn bewaken](media/data-factory-spark/monitor-and-manage-app.png)    
+4. Selecteer Hallo **activiteitsvenster** toosee details over Hallo activiteit die wordt uitgevoerd. Als er een fout is, ziet u meer informatie over het in het rechterdeelvenster Hallo.
 
-### <a name="verify-the-results"></a>De resultaten controleren
+### <a name="verify-hello-results"></a>Hallo resultaten controleren
 
 1. Start **Jupyter-notebook** voor uw HDInsight Spark-cluster door te navigeren naar: https://CLUSTERNAME.azurehdinsight.NET/jupyter. U kunt ook starten cluster-dashboard voor uw HDInsight Spark-cluster en start vervolgens **Jupyter-Notebook**.
-2. Klik op **nieuw** -> **PySpark** starten van een nieuwe notebook.
+2. Klik op **nieuw** -> **PySpark** toostart een nieuwe notebook.
 
     ![Nieuwe Jupyter-notebook](media/data-factory-spark/jupyter-new-book.png)
-3. Voer de volgende opdracht door de tekst kopiëren/plakken en drukt u op **SHIFT + ENTER** aan het einde van de tweede instructie.  
+3. Voer hello na de opdracht door de tekst hello kopiëren/plakken en drukt u op **SHIFT + ENTER** aan Hallo einde van de tweede instructie Hallo.  
 
     ```sql
     %%sql
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-4. Controleer of u de gegevens uit de tabel hvac:  
+4. Controleer of u Hallo gegevens uit Hallo hvac tabel:  
 
     ![Jupyter-queryresultaten](media/data-factory-spark/jupyter-notebook-results.png)
 
 Zie [een Spark SQL-query uitvoeren](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) gedeelte voor meer informatie. 
 
 ### <a name="troubleshooting"></a>Problemen oplossen
-Aangezien u ingesteld **getDebugInfo** naar **altijd**, ziet u een **logboek** submap in de **pyFiles** map in uw Azure Blob-container. Het logboekbestand in de logboekmap biedt aanvullende informatie. Dit logboekbestand is vooral nuttig wanneer er een fout optreedt. In een productieomgeving kunt u instellen op **fout**.
+Aangezien u ingesteld **getDebugInfo** te**altijd**, ziet u een **logboek** submap Hallo **pyFiles** map in uw Azure Blob-container. Hallo-logboekbestand in de logboekmap Hallo vindt u meer informatie. Dit logboekbestand is vooral nuttig wanneer er een fout optreedt. In een productieomgeving kunt u tooset deze te**fout**.
 
-Ga voor meer informatie over de volgende stappen uit:
+Voor meer informatie over Hallo stappen te volgen:
 
 
-1. Navigeer naar `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
+1. Navigeer te`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Gebruikersinterface van YARN-toepassing](media/data-factory-spark/yarnui-application.png)  
-2. Klik op **logboeken** probeert om een van de uitvoering.
+2. Klik op **logboeken** uitvoeren voor een Hallo pogingen.
 
     ![Toepassingspagina](media/data-factory-spark/yarn-applications.png)
-3. Hier ziet u aanvullende foutinformatie in de pagina.
+3. U kunt aanvullende foutinformatie in Hallo logboek pagina moeten zien.
 
     ![Fout in logboek](media/data-factory-spark/yarnui-application-error.png)
 
-De volgende secties bevatten informatie over Data Factory-entiteiten met Apache Spark-cluster en Spark-activiteit in uw gegevensfactory.
+Hallo volgende secties bevatten informatie over Data Factory-entiteiten toouse Apache Spark-cluster en Spark-activiteit in uw gegevensfactory.
 
 ## <a name="spark-activity-properties"></a>Spark-activiteitseigenschappen
-Hier volgt de voorbeeld-JSON-definitie van een pijplijn met Spark-activiteit:    
+Hier volgt Hallo voorbeeld JSON-definitie van een pijplijn met Spark-activiteit:    
 
 ```json
 {
@@ -274,7 +274,7 @@ Hier volgt de voorbeeld-JSON-definitie van een pijplijn met Spark-activiteit:
                     }
                 ],
                 "name": "MySparkActivity",
-                "description": "This activity invokes the Spark program",
+                "description": "This activity invokes hello Spark program",
                 "linkedServiceName": "HDInsightLinkedService"
             }
         ],
@@ -284,39 +284,39 @@ Hier volgt de voorbeeld-JSON-definitie van een pijplijn met Spark-activiteit:
 }
 ```
 
-De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie:
+Hallo staan volgende tabel Hallo JSON-eigenschappen die in Hallo JSON-definitie:
 
 | Eigenschap | Beschrijving | Vereist |
 | -------- | ----------- | -------- |
-| naam | De naam van de activiteit in de pijplijn. | Ja |
-| Beschrijving | Tekst die beschrijft wat de activiteit doet. | Nee |
-| type | Deze eigenschap moet worden ingesteld op HDInsightSpark. | Ja |
-| linkedServiceName | De naam van de gekoppelde HDInsight-service op het Spark-programma wordt uitgevoerd. | Ja |
-| rootPath | De Azure Blob-container en de map waarin het Spark-bestand. De bestandsnaam is hoofdlettergevoelig. | Ja |
-| entryFilePath | Relatief pad naar de hoofdmap van het Spark/codepakket. | Ja |
+| naam | Naam van de activiteit Hallo in Hallo pijplijn. | Ja |
+| description | Tekst die beschrijft welke activiteit Hallo komt. | Nee |
+| type | Deze eigenschap moet worden ingesteld als tooHDInsightSpark. | Ja |
+| linkedServiceName | Naam van Hallo HDInsight gekoppelde service op welke Hallo Spark programma wordt uitgevoerd. | Ja |
+| rootPath | Hello Azure Blob-container en map met Hallo Spark-bestand. Hallo-bestandsnaam is hoofdlettergevoelig. | Ja |
+| entryFilePath | Relatief pad toohello Hallo Spark codepakket hoofdmap. | Ja |
 | className | Belangrijkste Java/Spark-klasse van de toepassing | Nee |
-| Argumenten | Een lijst met opdrachtregelargumenten aan het programma Spark. | Nee |
-| proxyUser | De account van de gebruiker te imiteren voor het uitvoeren van het Spark-programma | Nee |
-| sparkConfig | Geef waarden voor Spark configuratie-eigenschappen die worden vermeld in het onderwerp: [Spark-configuratie - eigenschappen van Application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee |
-| getDebugInfo | Geeft aan wanneer de Spark-logboekbestanden worden gekopieerd naar de Azure-opslag door HDInsight-cluster gebruikt (of) opgegeven door sparkJobLinkedService. Toegestane waarden: None, altijd of fout. Standaardwaarde: geen. | Nee |
-| sparkJobLinkedService | Azure Storage gekoppelde service die de Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt de opslag die is gekoppeld aan de HDInsight-cluster gebruikt. | Nee |
+| Argumenten | Een lijst met opdrachtregelargumenten toohello Spark programma. | Nee |
+| proxyUser | Hallo account tooimpersonate tooexecute Hallo Spark programma door de gebruiker | Nee |
+| sparkConfig | Geef waarden voor Spark configuratie-eigenschappen die worden vermeld in het onderwerp Hallo: [Spark-configuratie - eigenschappen van Application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nee |
+| getDebugInfo | Geeft aan wanneer Hallo Spark logboekbestanden gekopieerde toohello Azure-opslag die wordt gebruikt door HDInsight-cluster zijn (of) opgegeven door sparkJobLinkedService. Toegestane waarden: None, altijd of fout. Standaardwaarde: geen. | Nee |
+| sparkJobLinkedService | Hallo gekoppelde Azure Storage-service die Hallo Spark taakbestand, afhankelijkheden en Logboeken bevat.  Als u een waarde op voor deze eigenschap niet opgeeft, wordt Hallo opslag die is gekoppeld aan de HDInsight-cluster gebruikt. | Nee |
 
 ## <a name="folder-structure"></a>Mapstructuur
-Een in-line-script als Pig biedt geen ondersteuning voor de activiteit Spark en Hive-activiteiten doen. Spark-taken zijn ook meer extensible dan Pig/Hive-taken. Voor Spark taken, kunt u meerdere afhankelijkheden, zoals opgeven jar-pakketten (geplaatst in de java CLASSPATH), python-bestanden (geplaatst op de PYTHONPATH) en andere bestanden.
+Hallo Spark activiteit biedt geen ondersteuning voor een in-line-script als Pig en Hive-activiteiten doen. Spark-taken zijn ook meer extensible dan Pig/Hive-taken. Voor Spark taken, kunt u meerdere afhankelijkheden, zoals opgeven jar-pakketten (in Hallo java CLASSPATH geplaatst), python-bestanden (geplaatst op Hallo PYTHONPATH) en andere bestanden.
 
-De volgende mapstructuur maken in Azure Blob storage waarnaar wordt verwezen door de gekoppelde HDInsight-service. Vervolgens afhankelijke bestanden uploaden naar de juiste submappen in de hoofdmap dat wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, python-bestanden naar de submap pyFiles en jar-bestanden uploaden naar de submap potten van de hoofdmap. Tijdens runtime verwacht Data Factory-service de volgende mapstructuur in de Azure Blob-opslag:     
+Hallo volgende mapstructuur in hello Azure Blob storage waarnaar wordt verwezen door Hallo gekoppelde HDInsight-service maken. Vervolgens kunt u uploaden afhankelijke bestanden toohello juiste submappen in de hoofdmap Hallo dat wordt vertegenwoordigd door **entryFilePath**. Bijvoorbeeld, python bestanden toohello pyFiles submap en jar-bestanden toohello potten submap van hoofdmap Hallo uploaden. Tijdens runtime verwacht Data Factory-service Hallo mapstructuur in hello Azure Blob-opslag te volgen:     
 
 | Pad | Beschrijving | Vereist | Type |
 | ---- | ----------- | -------- | ---- |
-| . | Het pad naar de hoofdmap van de taak Spark in gekoppelde storage-service  | Ja | Map |
-| &lt;de gebruiker gedefinieerde&gt; | Het pad verwijst naar het bestand vermelding van de Spark-taak | Ja | File |
-| . / jars | Alle bestanden onder deze map worden geüpload en op de java-klassenpad van het cluster geplaatst | Nee | Map |
-| . / pyFiles | Alle bestanden onder deze map worden geüpload en op de PYTHONPATH van het cluster geplaatst | Nee | Map |
+| . | Hallo hoofdpad van Hallo Spark taak in Hallo opslag gekoppelde service    | Ja | Map |
+| &lt;de gebruiker gedefinieerde&gt; | Hallo pad toohello het gegevensbestand van Hallo Spark taak aan te wijzen | Ja | File |
+| . / jars | Alle bestanden onder deze map worden geüpload en op Hallo java klassenpad van Hallo cluster geplaatst | Nee | Map |
+| . / pyFiles | Alle bestanden onder deze map worden geüpload en op Hallo PYTHONPATH van Hallo cluster geplaatst | Nee | Map |
 | . / bestanden | Alle bestanden onder deze map worden geüpload en in de werkmap executor geplaatst | Nee | Map |
 | . / archiveert | Alle bestanden onder deze map zijn gecomprimeerd | Nee | Map |
-| . / Logboeken | De map waar de logboeken van het Spark-cluster worden opgeslagen.| Nee | Map |
+| . / Logboeken | Hallo-map waarin de logboeken van Hallo Spark-cluster worden opgeslagen.| Nee | Map |
 
-Hier volgt een voorbeeld van een opslagruimte met twee Spark taakbestanden in de Azure-blobopslag waarnaar wordt verwezen door de gekoppelde HDInsight-service.
+Hier volgt een voorbeeld van een opslagruimte met twee Spark taakbestanden in hello Azure Blob Storage waarnaar wordt verwezen door Hallo gekoppelde HDInsight-service.
 
 ```
 SparkJob1

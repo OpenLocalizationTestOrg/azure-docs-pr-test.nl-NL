@@ -1,6 +1,6 @@
 ---
-title: Lees NSG stroom-Logboeken | Microsoft Docs
-description: In dit artikel ziet u hoe NSG stroom logboeken parseren
+title: aaaRead NSG stromen Logboeken | Microsoft Docs
+description: Dit artikel laat zien hoe tooparse NSG stroom registreert
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,69 +13,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 9bb48157b2b8e483e063058f761c3a8f531927f9
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b4f0f64639c7b2a6b4db50e54d15056bfd809e48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="read-nsg-flow-logs"></a>NSG lezen stroom Logboeken
 
-Informatie over het NSG stroom logboeken vermeldingen met PowerShell lezen.
+Meer informatie over hoe tooread NSG stroom vermeldingen registreert met PowerShell.
 
-NSG stroom logboeken worden opgeslagen in een opslagaccount in [blok-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blok-blobs bestaan uit kleinere blokken. Elk logboek is een afzonderlijke blok-blob die elk uur wordt gegenereerd. Nieuwe logboeken worden gegenereerd om het uur, de logboeken worden bijgewerkt met nieuwe vermeldingen om de paar minuten met de meest recente gegevens. In dit artikel leert u hoe u onderdelen van de logboeken van de stroom lezen.
+NSG stroom logboeken worden opgeslagen in een opslagaccount in [blok-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blok-blobs bestaan uit kleinere blokken. Elk logboek is een afzonderlijke blok-blob die elk uur wordt gegenereerd. Nieuwe logboeken worden elk uur gegenereerd, Hallo logboeken worden bijgewerkt met nieuwe vermeldingen om de paar minuten met de meest recente gegevens Hallo. In dit artikel leert u hoe tooread gedeelten van Hallo logboeken stromen.
 
 ## <a name="scenario"></a>Scenario
 
-In het volgende scenario hebt u een voorbeeld van de stroom logboek die is opgeslagen in een opslagaccount. we stapsgewijs hoe u de meest recente gebeurtenissen in het NSG stroom logboeken selectief kunt lezen. In dit artikel gebruiken we PowerShell, maar de concepten beschreven in het artikel zijn niet beperkt tot de programmeertaal en van toepassing zijn op alle talen die worden ondersteund door de Azure Storage-API 's
+In de Hallo scenario te volgen, hebt u een voorbeeld van de stroom logboek die is opgeslagen in een opslagaccount. we stapsgewijs hoe kunt u selectief Hallo meest recente gebeurtenissen in Logboeken van NSG-stroom lezen. In dit artikel gebruiken we PowerShell, Hallo concepten beschreven in artikel Hallo zijn echter niet beperkt toohello programmeertaal en toepasselijke tooall talen wordt ondersteund door hello Azure Storage-API 's
 
 ## <a name="setup"></a>Instellen
 
-Voordat u begint, kunt u Network Security groep stromen-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben. Voor instructies over het inschakelen van netwerkbeveiliging stromen Logboeken, raadpleegt u het volgende artikel: [Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
+Voordat u begint, kunt u Network Security groep stromen-logboekregistratie is ingeschakeld op een of meer Netwerkbeveiligingsgroepen in uw account moet hebben. Voor instructies over het inschakelen van netwerkbeveiliging stromen Logboeken, raadpleeg dan toohello volgende artikel: [inleiding tooflow logboekregistratie voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="retrieve-the-block-list"></a>De lijst met geblokkeerde ophalen
+## <a name="retrieve-hello-block-list"></a>Lijst met geblokkeerde websites Hallo ophalen
 
-De volgende PowerShell stelt u de variabelen die nodig zijn de NSG stroom logboek blob opvragen en weergeven van de blokken binnen de [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob. Het script bevat geldige waarden voor uw omgeving bijwerken.
+Hallo PowerShell Hallo variabelen ingesteld na nodig tooquery hello NSG stroom Meld blob en lijst Hallo-blokken binnen Hallo [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob. Hallo script toocontain geldige waarden voor uw omgeving bijwerken.
 
 ```powershell
-# The SubscriptionID to use
+# hello SubscriptionID toouse
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 
-# Resource group that contains the Network Security Group
+# Resource group that contains hello Network Security Group
 $resourceGroupName = "<resourceGroupName>"
 
-# The name of the Network Security Group
+# hello name of hello Network Security Group
 $nsgName = "NSGName"
 
-# The storage account name that contains the NSG logs
+# hello storage account name that contains hello NSG logs
 $storageAccountName = "<storageAccountName>" 
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
+# hello date and time for hello log toobe queried, logs are stored in hour intervals.
 [datetime]$logtime = "06/16/2017 20:00"
 
-# Retrieve the primary storage account key to access the NSG logs
+# Retrieve hello primary storage account key tooaccess hello NSG logs
 $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 
-# Setup a new storage context to be used to query the logs
+# Setup a new storage context toobe used tooquery hello logs
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Container name used by NSG flow logs
 $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# Name of the blob that contains the NSG flow log
+# Name of hello blob that contains hello NSG flow log
 $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/PT1H.json"
 
-# Gets the storage blog
+# Gets hello storage blog
 $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+# Gets hello block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from hello storage blob
 $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Stores the block list in a variable from the block blob.
+# Stores hello block list in a variable from hello block blob.
 $blockList = $CloudBlockBlob.DownloadBlockList()
 ```
 
-De `$blockList` variabele retourneert een lijst van de blokken in de blob. Elk blok-blob bevat ten minste twee blokken.  Het eerste vereiste blok heeft een lengte van `21` bytes, dit blok bevat de haakjes openen van het json-logboek. Het andere blok is de haakjes en heeft een lengte van `9` bytes.  Zoals u het volgende voorbeeld-logboek ziet bevat zeven vermeldingen, elk een afzonderlijke vermelding wordt. Alle nieuwe vermeldingen in het logboek worden toegevoegd aan het einde aan vóór het laatste blok.
+Hallo `$blockList` variabele retourneert een lijst van Hallo blokken in Hallo blob. Elk blok-blob bevat ten minste twee blokken.  Hallo eerste vereiste blok heeft een lengte van `21` bytes, dit blok bevat Hallo vierkante haken van Hallo json logboek openen. Hallo andere blok Hallo vierkant haakje sluiten en heeft een lengte van `9` bytes.  Zoals u ziet bevat Hallo na voorbeeld logboek zeven vermeldingen, elk een afzonderlijke vermelding wordt. Alle nieuwe vermeldingen in logboek Hallo toohello end aan vóór het laatste blok Hallo toegevoegd.
 
 ```
 Name                                         Length Committed
@@ -91,45 +91,45 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      9      True
 ```
 
-## <a name="read-the-block-blob"></a>Lezen van het blok-blob
+## <a name="read-hello-block-blob"></a>Lees Hallo blok-blob
 
-Vervolgens moet lezen de `$blocklist` variabele gegevens ophalen. In dit voorbeeld die wordt de blocklist doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel. We gebruiken de [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.
+Vervolgens moet tooread hello `$blocklist` variabele tooretrieve Hallo gegevens. In dit voorbeeld die we Hallo blocklist doorlopen Hallo bytes lezen van elk blok en ze in een matrix van artikel. We gebruiken Hallo [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode tooretrieve Hallo gegevens.
 
 ```powershell
-# Set the size of the byte array to the largest block
+# Set hello size of hello byte array toohello largest block
 $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Create an array to store values in
+# Create an array toostore values in
 $valuearray = @()
 
-# Define the starting index to track the current block being read
+# Define hello starting index tootrack hello current block being read
 $index = 0
 
-# Loop through each block in the block list
+# Loop through each block in hello block list
 for($i=0; $i -lt $blocklist.count; $i++)
 {
 
-# Create a byte array object to story the bytes from the block
+# Create a byte array object toostory hello bytes from hello block
 $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+# Download hello data into hello ByteArray, starting with hello current index, for hello number of bytes in hello current block. Index is increased by 3 when reading tooremove preceding comma.
 $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
+# Increment hello index by adding hello current block length toohello previous index
 $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+# Retrieve hello string from hello byte array
 
 $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
+# Add hello log entry toohello value array
 $valuearray += $value
 }
 ```
 
-Nu de `$valuearray` matrix de tekenreekswaarde bevat van elk blok. Om te controleren of de vermelding, krijgen de tweede tot de laatste waarde van de matrix door te voeren `$valuearray[$valuearray.Length-2]`. We wil niet de laatste waarde wordt alleen het haakje sluiten.
+Nu Hallo `$valuearray` matrix Hallo tekenreekswaarde bevat van elk blok. tooverify Hallo-item, get Hallo tweede toohello laatste waarde van een matrix door te voeren Hallo `$valuearray[$valuearray.Length-2]`. We wil niet de laatste waarde Hallo is zojuist Hallo vierkant haakje sluiten.
 
-De resultaten van deze waarde worden weergegeven in het volgende voorbeeld:
+Hallo-resultaten van deze waarde worden weergegeven in Hallo voorbeeld te volgen:
 
 ```json
         {
@@ -151,11 +151,11 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-Dit scenario is een voorbeeld van hoe vermeldingen in Logboeken van NSG-stroom lezen zonder het hele logboek parseren. U kunt nieuwe vermeldingen in het logboek kunt lezen, omdat ze zijn geschreven met behulp van de blok-ID of het bijhouden van de lengte van blokken die zijn opgeslagen in het blok-blob. Hiermee kunt u alleen de nieuwe vermeldingen lezen.
+Dit scenario is een voorbeeld van hoe tooread vermeldingen in het NSG logboeken zonder tooparse Hallo hele logboek stromen. Als ze zijn geschreven met behulp van Hallo blok-ID of lengte van blokken die zijn opgeslagen in het blok-blob Hallo Hallo bijhouden, kunt u nieuwe vermeldingen in logboek Hallo lezen. Hiermee kunt u tooread alleen Hallo nieuwe vermeldingen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [visualiseren met open-source hulpprogramma's van Azure-netwerk-Watcher NSG stroom logboeken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) voor meer informatie over andere manieren om NSG stroom logboeken weer te geven.
+Ga naar [visualiseren met open-source hulpprogramma's van Azure-netwerk-Watcher NSG stroom logboeken](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) toolearn meer informatie over andere manieren tooview NSG stromen Logboeken.
 
-Voor meer informatie over de storage-blobs gaat u naar: [bindingen van Azure Functions Blob-opslag](../azure-functions/functions-bindings-storage-blob.md)
+meer informatie over de storage-blobs bezoeken toolearn: [bindingen van Azure Functions Blob-opslag](../azure-functions/functions-bindings-storage-blob.md)

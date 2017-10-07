@@ -1,6 +1,6 @@
 ---
-title: Azure aanbevelingen voor hoge beschikbaarheid van Advisor | Microsoft Docs
-description: Gebruik Azure Advisor voor het verbeteren van hoge beschikbaarheid van uw Azure-implementaties.
+title: aanbevelingen voor hoge beschikbaarheid van Advisor aaaAzure | Microsoft Docs
+description: Gebruik Azure Advisor tooimprove hoge beschikbaarheid van uw Azure-implementaties.
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 23c159471a6e5a7ad9cb545840e8afd3ac72ecba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ac75ce401271f0212d198d7a7dc75ab702b6eda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advisor-high-availability-recommendations"></a>Hoge beschikbaarheid aanbevelingen Advisor te ontvangen
 
-Azure Advisor kunt u ervoor te zorgen en de continuïteit van uw bedrijfskritieke toepassingen te verbeteren. U krijgt aanbevelingen voor hoge beschikbaarheid door Advisor van de **hoge beschikbaarheid** van de Advisor-dashboard.
+Azure Advisor kunt u ervoor te zorgen en Hallo continuïteit van uw bedrijfskritieke toepassingen te verbeteren. Hallo kunt u hoge beschikbaarheid aanbevelingen door Advisor downloaden **hoge beschikbaarheid** van Hallo Advisor dashboard.
 
-![Hoge beschikbaarheid knop op de Advisor-dashboard](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
+![Hoge beschikbaarheid knop op Hallo Advisor dashboard](./media/advisor-high-availability-recommendations/advisor-high-availability-tab.png)
 
 
 ## <a name="ensure-virtual-machine-fault-tolerance"></a>Zorg ervoor dat de virtuele machine fouttolerantie
 
-Advisor identificeert virtuele machines die geen deel uitmaken van een beschikbaarheidsset en raadt in een beschikbaarheidsset. U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset te groeperen, om uw toepassing van redundantie te voorzien. Deze configuratie zorgt ervoor dat ten minste één virtuele machine tijdens beide gepland of ongepland onderhoud, beschikbaar is en voldoet aan de virtuele machine van Azure SLA. U kunt kiezen voor het maken van een beschikbaarheidsset voor de virtuele machine of de virtuele machine toevoegen aan een bestaande beschikbaarheidsset.
+Advisor identificeert virtuele machines die geen deel uitmaken van een beschikbaarheidsset en raadt in een beschikbaarheidsset. Als u redundantie tooyour toepassing, is het raadzaam dat u twee of meer virtuele machines in een beschikbaarheidsset te groeperen. Deze configuratie zorgt ervoor dat tijdens de gepland of ongepland onderhoud ten minste één virtuele machine beschikbaar is en voldoet aan de virtuele machine van Azure SLA Hallo. U kunt beide toocreate beschikbaarheidsset voor Hallo virtuele machine of tooadd Hallo virtuele machine tooan bestaande beschikbaarheidsset.
 
 > [!NOTE]
-> Als u een beschikbaarheidsset maakt, moet u ten minste één meer virtuele machine in de App toevoegen. U wordt aangeraden die groep u twee of meer virtuele machines in een beschikbaarheidsset instellen om ervoor te zorgen dat ten minste één van de machine is beschikbaar tijdens een storing.
+> Als u een beschikbaarheidsset toocreate kiest ingesteld, moet u ten minste één meer virtuele machine in de App toevoegen. Het is raadzaam dat u twee groeperen of meer virtuele machines in een beschikbaarheidsset ingesteld tooensure ten minste één machine is beschikbaar tijdens een storing.
 
 ![Advisor aanbeveling: voor de redundantie van de virtuele machine, gebruik beschikbaarheidssets](./media/advisor-high-availability-recommendations/advisor-high-availability-create-availability-set.png)
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>Zorg ervoor dat de beschikbaarheidsset fouttolerantie 
 
-Advisor identificeert beschikbaarheidssets met een enkele virtuele machine en raadt aan om een of meer virtuele machines toe te voegen. U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset te groeperen, om uw toepassing van redundantie te voorzien. Deze configuratie zorgt ervoor dat ten minste één virtuele machine tijdens beide gepland of ongepland onderhoud, beschikbaar is en voldoet aan de virtuele machine van Azure SLA. U kunt een virtuele machine maken of gebruiken van een bestaande virtuele machine en toe te voegen aan de beschikbaarheidsset.  
+Advisor identificeert beschikbaarheidssets met een enkele virtuele machine en aan een of meer virtuele machines tooit toe te voegen. Als u redundantie tooyour toepassing, is het raadzaam dat u twee of meer virtuele machines in een beschikbaarheidsset te groeperen. Deze configuratie zorgt ervoor dat tijdens de gepland of ongepland onderhoud ten minste één virtuele machine beschikbaar is en voldoet aan de virtuele machine van Azure SLA Hallo. U kunt beide toocreate op een virtuele machine of een bestaande virtuele machine toouse en tooadd deze beschikbaarheidsset toohello.  
 
-![Advisor aanbeveling: een of meer virtuele machines toevoegen aan deze beschikbaarheidsset](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
+![Advisor aanbeveling: Voeg een of meer virtuele machines toothis beschikbaarheidsset weergeven](./media/advisor-high-availability-recommendations/advisor-high-availability-add-vm-to-availability-set.png)
 
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Zorg ervoor dat fouttolerantie voor application gateway
-De bedrijfscontinuïteit van bedrijfskritieke toepassingen die gemaakt, via Toepassingsgateways aangeboden zijn Advisor identificeert toepassingsexemplaren gateway die niet zijn geconfigureerd voor fouttolerantie en er wordt verwezen naar herstelacties die u kunt ondernemen. Advisor identificeert grote of middelgrote single instance Toepassingsgateways en raadt aan om ten minste één meer exemplaar toe te voegen. Ook één of meerdere instance kleine Toepassingsgateways identificeert en raadt aan om te migreren naar grote of middelgrote SKU's. Advisor raadt aan om deze acties om ervoor te zorgen dat uw toepassing gateway-exemplaren zijn geconfigureerd om te voldoen aan de huidige SLA-vereisten voor deze resources.
+tooensure hello zakelijke continuïteit van bedrijfskritieke toepassingen die gemaakt, via Toepassingsgateways aangeboden zijn Advisor identificeert toepassingsexemplaren gateway die niet zijn geconfigureerd voor fouttolerantie en er wordt verwezen naar herstelacties die u kunt ondernemen . Advisor identificeert grote of middelgrote single instance Toepassingsgateways en raadt aan om ten minste één meer exemplaar toe te voegen. Ook één of meerdere instance kleine Toepassingsgateways identificeert en raadt aan om te migreren toomedium of groot SKU's. Advisor raadt aan om deze acties tooensure dat uw gateway toepassingsexemplaren geconfigureerde toosatisfy Hallo huidige SLA-vereisten voor deze resources zijn.
 
 ![Advisor aanbeveling: twee of meer grote of middelgrote grootte gatewayexemplaren van een toepassing implementeren](./media/advisor-high-availability-recommendations/advisor-high-availability-application-gateway.png)
 
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>De prestaties en betrouwbaarheid van de virtuele-machineschijven verbeteren
+## <a name="improve-hello-performance-and-reliability-of-virtual-machine-disks"></a>Hallo prestaties en betrouwbaarheid van de virtuele-machineschijven verbeteren
 
-Advisor identificeert virtuele machines met standaardschijven en raadt aan om een upgrade naar de premium-schijven.
+Advisor identificeert virtuele machines met standaardschijven en raadt toopremium schijven.
  
-Azure Premium-opslag biedt ondersteuning voor hoge prestaties, lage latentie schijven voor virtuele machines die I/O-intensieve werkbelastingen worden uitgevoerd. Virtuele machine-schijven die gebruikmaken van premium storage-accounts opslaan gegevens op de SSD-schijven (SSD's). Voor de beste prestaties voor uw toepassing, wordt u aangeraden een hoge IOPS naar premium-opslag vereisen schijven op virtuele machine te migreren. 
+Azure Premium-opslag biedt ondersteuning voor hoge prestaties, lage latentie schijven voor virtuele machines die I/O-intensieve werkbelastingen worden uitgevoerd. Virtuele machine-schijven die gebruikmaken van premium storage-accounts opslaan gegevens op de SSD-schijven (SSD's). Voor de beste prestaties voor uw toepassing hello wordt u aangeraden een hoge IOPS toopremium opslag vereisen schijven op virtuele machine te migreren. 
 
-Als uw schijven geen hoge IOPS vereisen, kunt u de kosten beperken door het onderhoud ervan in standard-opslag. Standard-opslag slaat schijfgegevens voor virtuele machine op de harde schijven (HDD's) in plaats van SSD's. U kunt kiezen voor het migreren van uw schijven op virtuele machine naar de premium-schijven. Premium-schijven worden op de meeste virtuele machine SKU's ondersteund. In sommige gevallen, als u wilt gebruiken van premium-schijven, hoeft u wellicht uw virtuele machine SKU's ook te upgraden.
+Als uw schijven geen hoge IOPS vereisen, kunt u de kosten beperken door het onderhoud ervan in standard-opslag. Standard-opslag slaat schijfgegevens voor virtuele machine op de harde schijven (HDD's) in plaats van SSD's. U kunt uw virtuele machine schijven toopremium schijven toomigrate. Premium-schijven worden op de meeste virtuele machine SKU's ondersteund. In sommige gevallen, als u wilt dat toouse premium-schijven, hoeft u wellicht tooupgrade uw virtuele machine SKU's ook.
 
-![Advisor aanbeveling: de betrouwbaarheid van uw virtuele-machineschijven verbeteren door te upgraden naar de premium-schijven](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
+![Advisor aanbeveling: Hallo betrouwbaarheid van uw virtuele-machineschijven verbeteren door het upgraden van toopremium schijven](./media/advisor-high-availability-recommendations/advisor-high-availability-upgrade-to-premium-disks.png)
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>De gegevens van uw virtuele machines te beschermen tegen onopzettelijk verwijderen
-Advisor identificeert virtuele machines waar back-up is niet ingeschakeld en het beveelt back-up inschakelen. Instellen van de virtuele machine back-up zorgt ervoor dat de beschikbaarheid van uw bedrijfskritieke gegevens en biedt bescherming tegen onbedoeld worden verwijderd of beschadigd.
+Advisor identificeert virtuele machines waar back-up is niet ingeschakeld en het beveelt back-up inschakelen. Instellen van de virtuele machine back-up zorgt voor de beschikbaarheid van uw bedrijfskritieke gegevens Hallo en biedt bescherming tegen onbedoeld worden verwijderd of beschadigd.
 
-![Advisor aanbeveling: back-up van virtuele machine voor het beveiligen van uw bedrijfskritieke gegevens configureren](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
+![Advisor aanbeveling: uw bedrijfskritieke gegevens van virtuele machine back-tooprotect configureren](./media/advisor-high-availability-recommendations/advisor-high-availability-virtual-machine-backup.png)
 
 ## <a name="access-high-availability-recommendations-in-advisor"></a>Toegang tot hoge beschikbaarheid aanbevelingen in Advisor
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan toohello [Azure-portal](https://portal.azure.com).
 
-2. Klik in het linkerdeelvenster op **meer services**.
+2. Klik in het linkerdeelvenster Hallo **meer services**.
 
-3. Klik in het deelvenster service menu onder **bewaking en beheer**, klikt u op **Azure Advisor**.  
- De Advisor-dashboard wordt weergegeven.
+3. Service in Hallo menu deelvenster onder **bewaking en beheer**, klikt u op **Azure Advisor**.  
+ Hallo Advisor dashboard wordt weergegeven.
 
-4. Klik op het dashboard Advisor de **hoge beschikbaarheid** tabblad en selecteer vervolgens het abonnement waarvoor u wilt ontvangen van aanbevelingen.
+4. Klik op Hallo Advisor dashboard Hallo **hoge beschikbaarheid** tabblad en selecteer vervolgens Hallo-abonnement waarvoor u tooreceive aanbevelingen wilt.
 
 > [!NOTE]
-> Voor toegang tot de aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* start van de Advisor-dashboard en klikt op de **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het abonnement is geregistreerd, kunt u de aanbevelingen van Advisor als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, resourcegroep of een specifieke bron.
+> tooaccess aanbevelingen Advisor te ontvangen, moet u eerst *registreren van uw abonnement* met Advisor. Een abonnement is geregistreerd als een *abonnement eigenaar* gestart Hallo dashboard en klikt op Hallo van Advisor **aanbevelingen krijgen** knop. Dit is een *eenmalige bewerking*. Nadat het Hallo-abonnement is geregistreerd, kunt u Advisor aanbevelingen als openen *eigenaar*, *Inzender*, of *lezer* voor een abonnement, een resourcegroep of een bepaalde resource.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Advisor aanbevelingen:
-* [Inleiding tot Azure Advisor](advisor-overview.md)
+* [Inleiding tooAzure Advisor](advisor-overview.md)
 * [Aan de slag met Advisor](advisor-get-started.md)
 * [Advisor kosten aanbevelingen](advisor-performance-recommendations.md)
 * [Aanbevelingen van Advisor-prestaties](advisor-performance-recommendations.md)

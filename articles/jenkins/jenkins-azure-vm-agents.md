@@ -1,5 +1,5 @@
 ---
-title: Azure VM-agents gebruiken voor continue integratie met Jenkins
+title: voor continue integratie met Jenkins aaaUse Azure VM-agents.
 description: Azure VM-agents als Jenkins-slaves.
 services: multiple
 documentationcenter: 
@@ -15,57 +15,57 @@ ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0b22a559fbc03158a6d4398603d1a7d2874d7b67
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2388e6919d0280372166fbd325d80dafb00d7550
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-vm-agents-for-continuous-integration-with-jenkins"></a>Azure VM-agents gebruiken voor continue integratie met Jenkins
 
-In deze Quickstart ziet u hoe u met de invoegtoepassing Jenkins Azure VM Agents een on-demand Linux-agent (Ubuntu) maakt in Azure.
+Deze snelstartgids ziet u hoe toouse Hallo Jenkins Azure VM Agents invoegtoepassing toocreate een agent op aanvraag Linux (Ubuntu) in Azure.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+toocomplete deze snelstartgids:
 
-* Als u nog geen Jenkins-master hebt, kunt u beginnen met de [oplossingssjabloon](install-jenkins-solution-template.md). 
-* Raadpleeg [Een Azure-service-principal maken met de Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) als u nog geen Azure-service-principal hebt.
+* Als u nog geen een model Jenkins, kunt u beginnen met Hallo [oplossingssjabloon](install-jenkins-solution-template.md) 
+* Raadpleeg te[een Azure-Service-principal maken met Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) als u nog geen een Azure-service-principal.
 
 ## <a name="install-azure-vm-agents-plugin"></a>Azure VM Agents-invoegtoepassing installeren
 
-Als u begint vanuit de [oplossingssjabloon](install-jenkins-solution-template.md), wordt de invoegtoepassing Azure VM Agents geïnstalleerd in de Jenkins-master.
+Als u vanaf Hallo [oplossingssjabloon](install-jenkins-solution-template.md), hello Azure VM-Agent-invoegtoepassing is geïnstalleerd in de Hallo Jenkins master.
 
-Anders installeert u de**invoegtoepassing** vanuit het dashboard van Jenkins.
+Anders installeert Hallo **Azure VM Agents** invoegtoepassing uit binnen Hallo Jenkins dashboard.
 
-## <a name="configure-the-plugin"></a>De invoegtoepassing configureren
+## <a name="configure-hello-plugin"></a>Hallo-invoegtoepassing configureren
 
-* Klik in het dashboard van Jenkins op **Manage Jenkins -> Configure System ->**. Ga naar de onderkant van de pagina en zoek de sectie met de vervolgkeuzelijst **Add new cloud**. Selecteer **Microsoft Azure VM Agents** in de lijst.
-* Selecteer een bestaand account in de vervolgkeuzelijst Azure Credentials.  Als u een nieuwe **Microsoft Azure-service-principal** wilt toevoegen, geeft u waarden op voor: Subscription ID, Client ID, Client Secret en OAuth 2.0 Token Endpoint.
+* Klik in het Hallo Jenkins dashboard op **Jenkins beheren -> systeem configureren ->**. Schuif toohello onder aan de pagina Hallo en Hallo sectie met Hallo dropdown zoeken **toevoegen van nieuwe cloud**. Hallo-menu en selecteer **Microsoft Azure VM-Agents**
+* Selecteer een bestaand account in hello Azure-referenties vervolgkeuzelijst.  tooadd een nieuwe **Microsoft Azure Service-Principal** Hallo waarden volgende invoeren: abonnements-ID, Client-ID, Client Secret en OAuth 2.0-Tokeneindpunt.
 
 ![Azure-referenties](./media/jenkins-azure-vm-agents/service-principal.png)
 
-* Klik op **Verify configuration** om er zeker van te zijn dat de configuratie juist is.
-* Sla de configuratie op en ga verder met de volgende stap.
+* Klik op **controleren configuratie** toomake of die Hallo profielconfiguratie juist is.
+* Hallo-configuratie op te slaan en verder toohello volgende stap.
 
 ## <a name="template-configuration"></a>Sjabloonconfiguratie
 
 ### <a name="general-configuration"></a>Algemene configuratie
-Configureer vervolgens een sjabloon die u wilt gebruiken voor het definiëren van een Azure VM-agent. 
+Configureer vervolgens een sjabloon voor gebruik toodefine een Azure VM-agent. 
 
-* Klik op **Add** om een sjabloon toe te voegen. 
+* Klik op **toevoegen** tooadd een sjabloon. 
 * Geef een naam op voor de nieuwe sjabloon. 
-* Voer voor het label 'ubuntu' in. Dit label wordt gebruikt tijdens de taakconfiguratie.
-* Selecteer de gewenste regio in de keuzelijst met invoervak.
-* Selecteer de gewenste grootte van de virtuele machine.
-* Geef de naam van het Azure Storage-account op of laat het veld leeg als u de standaardnaam 'jenkinsarmst' wilt gebruiken.
-* Geef de bewaartijd in minuten op. Deze instelling bepaalt het aantal minuten dat Jenkins moet wachten voordat een niet-actieve agent automatisch wordt verwijderd. Geef 0 op om niet-actieve agents nooit te verwijderen.
+* Voer voor Hallo-label "ubuntu." Dit label wordt gebruikt tijdens het Hallo taak configureren.
+* Selecteer de gewenste regio Hallo in Hallo keuzelijst met invoervak.
+* Selecteer Hallo gewenste VM-grootte.
+* Geef hello Azure Storage-accountnaam of laat dit leeg toouse Hallo standaardnaam 'jenkinsarmst'.
+* Geef de bewaartijd Hallo in minuten. Deze instelling bepaalt Hallo aantal minuten die jenkins wachten kunt voordat u een niet-actieve agent automatisch worden verwijderd. Geef 0 als u niet dat niet-actieve agents toobe automatisch verwijderd wilt.
 
 ![Algemene configuratie](./media/jenkins-azure-vm-agents/general-config.png)
 
 ### <a name="image-configuration"></a>Configuratie van installatiekopie
 
-Als u een Linux-agent (Ubuntu) wilt maken, selecteert u **Image reference** en gebruikt u de volgende configuratie als voorbeeld. Raadpleeg [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) voor de nieuwste ondersteunde Azure-installatiekopieën.
+Selecteer toocreate (Ubuntu) Linux-agent **verwijzing afbeelding** en gebruik Hallo configuratie als een voorbeeld te volgen. Raadpleeg te[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) voor Hallo meest recente Azure installatiekopieën ondersteund.
 
 * Image Publisher: Canonical
 * Image Offer: UbuntuServer
@@ -84,23 +84,23 @@ sudo apt-get install -y openjdk-7-jdk
 ```
 ![Configuratie van installatiekopie](./media/jenkins-azure-vm-agents/image-config.png)
 
-* Klik op **Verify Template** om de configuratie te controleren.
+* Klik op **sjabloon controleren** tooverify Hallo configuratie.
 * Klik op **Opslaan**.
 
 ## <a name="create-a-job-in-jenkins"></a>Een taak maken in Jenkins
 
-* Klik in het dashboard van Jenkins op **New Item**. 
+* Klik in het Hallo Jenkins dashboard op **Nieuw Item**. 
 * Voer een naam in, selecteer **Freestyle project** en klik op **OK**.
-* Schakel op het tabblad **General** het selectievakje Restrict where this project can be run in en typ 'ubuntu' in het vak Label Expression. U ziet nu 'ubuntu' in de vervolgkeuzelijst.
+* In Hallo **algemene** tabblad, selecteer 'Beperken waar project kan worden uitgevoerd' en het type 'ubuntu' in de Label-expressie. U ziet nu 'ubuntu' hello vervolgkeuzelijst.
 * Klik op **Opslaan**.
 
 ![Een taak instellen](./media/jenkins-azure-vm-agents/job-config.png)
 
 ## <a name="build-your-new-project"></a>Het nieuwe project bouwen
 
-* Ga terug naar het dashboard van Jenkins.
-* Klik met de rechtermuisknop op de nieuwe taak die u hebt gemaakt en klik vervolgens op **Build now**. De bewerking wordt gestart. 
-* Zodra de bewerking is voltooid, gaat u naar **Console Output**. U ziet dat de bewerking op afstand is uitgevoerd in Azure.
+* Ga terug toohello Jenkins dashboard.
+* Klik met de rechtermuisknop Hallo nieuwe taak die u hebt gemaakt, klikt u op **nu samenstellen**. De bewerking wordt gestart. 
+* Zodra de Hallo build is voltooid, gaat u te**Console uitvoer**. U ziet Hallo build op afstand is uitgevoerd op Azure.
 
 ![Console-uitvoer](./media/jenkins-azure-vm-agents/console-output.png)
 

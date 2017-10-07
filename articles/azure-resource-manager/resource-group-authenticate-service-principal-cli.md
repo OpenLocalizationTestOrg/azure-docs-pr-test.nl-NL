@@ -1,6 +1,6 @@
 ---
-title: Identiteit voor Azure-app maken met Azure CLI | Microsoft Docs
-description: "Beschrijft hoe Azure CLI gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal en toegang tot resources via toegangsbeheer op basis van rollen. Er wordt weergegeven hoe toepassing met een wachtwoord of certificaat te verifiëren."
+title: aaaCreate identiteit voor Azure-app met Azure CLI | Microsoft Docs
+description: Hierin wordt beschreven hoe toouse Azure CLI toocreate een Azure Active Directory-toepassing en service-principal en verleen deze toegang hebben tot tooresources via op rollen gebaseerde toegang beheren. Er wordt weergegeven hoe tooauthenticate toepassing met een wachtwoord of certificaat.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3c5826d58887ff1af4df8e66999d9c1a1643bcc7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0d693ec801d4f4d6c24ec420580776e73014b325
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>Azure CLI gebruiken om een service-principal te maken voor toegang tot resources
+# <a name="use-azure-cli-toocreate-a-service-principal-tooaccess-resources"></a>Een service principal tooaccess-resources voor Azure CLI toocreate gebruiken
 
-Wanneer u een app of een script dat nodig heeft voor toegang tot resources hebt, kunt u een identiteit voor de app instellen en de app met een eigen referenties verifiëren. Deze identiteit staat bekend als een service-principal. Deze aanpak kunt u:
+Wanneer u een app of een script dat tooaccess resources moet hebt, kunt u een identiteit voor het Hallo-app instellen en Hallo-app met een eigen referenties verifiëren. Deze identiteit staat bekend als een service-principal. Deze aanpak kunt u:
 
-* Machtigingen toekennen aan de identiteit van de app die anders zijn dan uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
+* Wijs machtigingen toe toohello app identiteit die anders zijn dan uw eigen machtigingen. Deze machtigingen zijn normaal gesproken beperkt tooexactly welke app Hallo moet toodo.
 * Een certificaat voor verificatie gebruiken bij het uitvoeren van een onbewaakt script.
 
-Dit artikel laat zien hoe u [Azure CLI 1.0](../cli-install-nodejs.md) voor het instellen van een toepassing wilt uitvoeren onder een eigen referenties en identiteit. Installeer de nieuwste versie van [Azure CLI 1.0](../cli-install-nodejs.md) om ervoor te zorgen dat uw omgeving overeenkomt met de voorbeelden in dit artikel.
+Dit artikel ziet u hoe toouse [Azure CLI 1.0](../cli-install-nodejs.md) tooset van een toepassing toorun onder een eigen referenties en identiteit. Installeer de nieuwste versie Hallo van [Azure CLI 1.0](../cli-install-nodejs.md) toomake ervoor dat uw omgeving overeenkomt met de Hallo voorbeelden in dit artikel.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
-Als u dit onderwerp, moet u voldoende machtigingen in uw Azure Active Directory en uw Azure-abonnement hebben. In het bijzonder moet u een app maken in de Azure Active Directory en de service-principal toewijzen aan een rol. 
+toocomplete in dit onderwerp, moet u voldoende machtigingen in uw Azure Active Directory en uw Azure-abonnement hebben. In het bijzonder moeten kunnen toocreate een app in Azure Active Directory hello, en Hallo service principal tooa rol toe te wijzen. 
 
-De eenvoudigste manier om te controleren of uw account over de juiste machtigingen beschikt, verloopt via de portal. Zie [Check required permission in portal](resource-group-create-service-principal-portal.md#required-permissions) (Vereiste machtigingen controleren in de portal).
+Hallo gemakkelijkste manier toocheck of uw account de juiste machtigingen heeft, is via Hallo-portal. Zie [Check required permission in portal](resource-group-create-service-principal-portal.md#required-permissions) (Vereiste machtigingen controleren in de portal).
 
-Nu gaat u verder met een sectie voor [wachtwoord](#create-service-principal-with-password) of [certificaat](#create-service-principal-with-certificate) verificatie.
+Nu gaan tooa sectie voor [wachtwoord](#create-service-principal-with-password) of [certificaat](#create-service-principal-with-certificate) verificatie.
 
 ## <a name="create-service-principal-with-password"></a>Service-principal maken met wachtwoord
-In deze sectie maakt u de stappen voor het maken van de AD-toepassing met een wachtwoord en de rol Lezer toegewezen aan de service-principal.
+In deze sectie uitvoeren Hallo stappen toocreate Hallo AD-toepassing met een wachtwoord en Hallo lezer rol toohello service-principal toewijzen.
 
-1. Aanmelden bij uw account.
+1. Meld u aan tooyour-account.
    
    ```azurecli
    azure login
    ```
-2. Voor het maken van een app-identiteit bieden u de naam van de app en een wachtwoord, zoals wordt weergegeven in de volgende opdracht:
+2. toocreate een identiteit app bieden Hallo-naam van Hallo-app en een wachtwoord, zoals wordt weergegeven in de volgende opdracht Hallo:
      
    ```azurecli
    azure ad sp create -n exampleapp -p {your-password}
    ```
      
-   De nieuwe service-principal wordt geretourneerd. De Object-Id is vereist bij het verlenen van machtigingen. De guid worden weergegeven met de Service Principal Names is nodig wanneer u zich aanmeldt. Deze guid is dezelfde waarde als de app-id. In de voorbeeldtoepassingen deze waarde wordt aangeduid als de `Client ID`. 
+   Hallo nieuwe service-principal wordt geretourneerd. Hallo Object-Id is vereist bij het verlenen van machtigingen. Hallo-guid worden weergegeven met de Service Principal Names Hallo is nodig wanneer u zich aanmeldt. Deze guid is Hallo dezelfde waarde als Hallo app-id. Deze waarde is Hallo voorbeeldtoepassingen waarnaar wordt verwezen tooas Hallo `Client ID`. 
      
    ```azurecli
    info:    Executing command ad sp create
@@ -65,18 +65,18 @@ In deze sectie maakt u de stappen voor het maken van de AD-toepassing met een wa
      info:    ad sp create command OK
    ```
 
-3. Aan de service principal machtigingen verlenen voor uw abonnement. In dit voorbeeld kunt u de service-principal toevoegen aan de rol lezer die machtiging toekent voor het lezen van alle resources in het abonnement. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md). Geef de Object-Id die u hebt gebruikt bij het maken van de toepassing voor de object-id-parameter. Voordat u deze opdracht uitvoert, moet u even totdat de nieuwe service-principal worden doorgegeven in Azure Active Directory toestaan. Wanneer u deze opdrachten handmatig uitvoert, is meestal voldoende tijd verstreken tussen taken. In een script, moet u een stap in de slaapstand tussen de opdrachten toevoegen (zoals `sleep 15`). Als u een foutmelding weergegeven dat de principal bestaat niet in de map ziet, voert u de opdracht opnieuw uit.
+3. Machtigingen Hallo service principal op uw abonnement. In dit voorbeeld moet u Hallo service principal toohello lezer functie, die machtiging tooread alle resources in het Hallo-abonnement verleent toevoegen. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md). Hallo object-id-parameter, bieden Hallo Object-Id die u hebt gebruikt bij het maken van de toepassing hello. Voordat u deze opdracht uitvoert, moet u even totdat Hallo nieuwe service principal toopropagate in Azure Active Directory toestaan. Wanneer u deze opdrachten handmatig uitvoert, is meestal voldoende tijd verstreken tussen taken. In een script, moet u een stap toosleep tussen opdrachten Hallo toevoegen (zoals `sleep 15`). Als er dat een fout vermelden Hallo principal bestaat niet in de directory hello, moet u de opdracht Hallo opnieuw uitvoeren.
    
    ```azurecli
    azure role assignment create --objectId ff863613-e5e2-4a6b-af07-fff6f2de3f4e -o Reader -c /subscriptions/{subscriptionId}/
    ```
    
-Dat is alles. Uw AD-toepassing en service-principal worden ingesteld. De volgende sectie leest u hoe aanmelden met de referentie via Azure CLI. Als u de referentie gebruiken in uw toepassing code wilt, hoeft u niet om door te gaan met dit onderwerp. U kunt naar gaan de [voorbeeldtoepassingen](#sample-applications) voor voorbeelden van aangemeld met uw toepassings-id en wachtwoord. 
+Dat is alles. Uw AD-toepassing en service-principal worden ingesteld. de volgende sectie Hallo ziet u hoe toolog met Hallo referenties via Azure CLI. Als u wilt dat toouse Hallo referentie in uw toepassing code, hoeft u geen toocontinue met dit onderwerp. U kunt gaan toohello [voorbeeldtoepassingen](#sample-applications) voor voorbeelden van aangemeld met uw toepassings-id en wachtwoord. 
 
 ### <a name="provide-credentials-through-azure-cli"></a>Geef referenties op via Azure CLI
-Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
+Nu moet u toolog in als Hallo toepassing tooperform bewerkingen.
 
-1. Wanneer u zich aanmeldt als een service-principal, moet u voor de tenant-id van de map voor uw AD-app. Een tenant is een exemplaar van Azure Active Directory. Voor het ophalen van de tenant-id voor uw abonnement op dat moment geverifieerde gebruiken:
+1. Wanneer u zich aanmeldt als een service-principal, moet u tooprovide hello tenant-id van Hallo directory voor uw AD-app. Een tenant is een exemplaar van Azure Active Directory. tooretrieve hello tenant-id voor uw huidige geverifieerde abonnement, gebruiken:
    
    ```azurecli
    azure account show
@@ -94,18 +94,18 @@ Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
    ...
    ```
    
-     Als u de tenant-id van een ander abonnement ophalen moet, gebruikt u de volgende opdracht:
+     Als u tooget hello tenant-id van een ander abonnement moet, gebruikt u Hallo volgende opdracht:
    
    ```azurecli
    azure account show -s {subscription-id}
    ```
-2. Als u ophalen van de client-id moet worden gebruikt wilt voor aanmelden, gebruiken:
+2. Als u tooretrieve Hallo client-id toouse voor logboekregistratie in nodig hebt, gebruikt:
    
    ```azurecli
    azure ad sp show -c exampleapp --json
    ```
    
-     De waarde moet worden gebruikt voor het aanmelden is de guid die worden vermeld in de SPN-namen.
+     Hallo waarde toouse voor aanmelden is vermeld in de SPN-namen Hallo Hallo-guid.
    
    ```azurecli
    [
@@ -121,31 +121,31 @@ Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
      }
    ]
    ```
-3. Aanmelden als service-principal.
+3. Aanmelden als service-principal Hallo.
    
    ```azurecli
    azure login -u 7132aca4-1bdb-4238-ad81-996ff91d8db4 --service-principal --tenant {tenant-id}
    ```
    
-    U wordt gevraagd om het wachtwoord. Geef het wachtwoord die u hebt opgegeven bij het maken van de AD-toepassing.
+    U wordt gevraagd om Hallo wachtwoord. U hebt opgegeven bij het maken van de toepassing hello AD Hallo-wachtwoord opgeven.
    
    ```azurecli
    info:    Executing command login
    Password: ********
    ```
 
-U bent nu geautoriseerd als de service-principal voor de service-principal die u hebt gemaakt.
+U bent nu geautoriseerd als Hallo service-principal voor Hallo service-principal die u hebt gemaakt.
 
-U kunt ook de REST-bewerkingen aan te melden vanaf de opdrachtregel aanroepen. U kunt het toegangstoken voor gebruik met andere bewerkingen ophalen uit het verificatieantwoord. Zie voor een voorbeeld van het ophalen van het toegangstoken door aan te roepen REST-bewerkingen [genereren van een Token toegang](resource-manager-rest-api.md#generating-an-access-token).
+U kunt ook de REST-bewerkingen van het Hallo opdrachtregel toolog in aanroepen. U kunt van antwoord Hallo-verificatie, Hallo toegangstoken voor gebruik met andere bewerkingen ophalen. Zie voor een voorbeeld van het toegangstoken Hallo ophalen door aan te roepen REST-bewerkingen [genereren van een Token toegang](resource-manager-rest-api.md#generating-an-access-token).
 
 ## <a name="create-service-principal-with-certificate"></a>Service-principal maken met certificaat
-In deze sectie kunt u de stappen voor het uitvoeren:
+In deze sectie kunt u Hallo stappen uitvoeren:
 
 * Een zelfondertekend certificaat maken
-* de AD-toepassing maken met het certificaat en de service-principal
-* de rol Lezer toegewezen aan de service-principal
+* Hallo AD-toepassing maken met het Hallo-certificaat en Hallo service-principal
+* Hallo lezer rol toohello service-principal toewijzen
 
-Deze stappen uit te voeren, moet u hebben [OpenSSL](http://www.openssl.org/) geïnstalleerd.
+toocomplete deze stappen, hebt u [OpenSSL](http://www.openssl.org/) geïnstalleerd.
 
 1. Een zelfondertekend certificaat maken.
    
@@ -153,26 +153,26 @@ Deze stappen uit te voeren, moet u hebben [OpenSSL](http://www.openssl.org/) ge�
    openssl req -x509 -days 3650 -newkey rsa:2048 -out cert.pem -nodes -subj '/CN=exampleapp'
    ```
 
-2. De voorgaande stap twee bestanden - privkey.pem en cert.pem hebt gemaakt. De openbare en persoonlijke sleutels worden gecombineerd tot één bestand.
+2. Hallo vóór stap gemaakt twee bestanden - privkey.pem en cert.pem. Hallo openbare en persoonlijke sleutels worden gecombineerd tot één bestand.
 
    ```
    cat privkey.pem cert.pem > examplecert.pem
    ```
 
-3. Open de **examplecert.pem** -bestand en zoek naar de lang reeks tekens tussen **---BEGIN CERTIFICATE---** en **---EINDCERTIFICAAT---**. Kopieer de gegevens van het certificaat. U kunt deze gegevens als een parameter doorgeven bij het maken van de service principal.
+3. Open Hallo **examplecert.pem** bestand en zoek naar zeer lange reeks tekens tussen Hallo **---BEGIN CERTIFICATE---** en **---EINDCERTIFICAAT---**. Hallo certificaatgegevens kopiëren. U kunt deze gegevens als een parameter doorgeven bij het Hallo-service-principal maken.
 
-4. Aanmelden bij uw account.
+4. Meld u aan tooyour-account.
 
    ```azurecli
    azure login
    ```
-5. Voor het maken van de service-principal bieden u de naam van de app en de gegevens van het certificaat, zoals wordt weergegeven in de volgende opdracht:
+5. toocreate hello service-principal bieden Hallo-naam van het Hallo-app en de certificaatgegevens van Hallo, zoals wordt weergegeven in de volgende opdracht Hallo:
      
    ```azurecli
    azure ad sp create -n exampleapp --cert-value {certificate data}
    ```
      
-   De nieuwe service-principal wordt geretourneerd. De Object-Id is vereist bij het verlenen van machtigingen. De guid worden weergegeven met de Service Principal Names is nodig wanneer u zich aanmeldt. Deze guid is dezelfde waarde als de app-id. In de voorbeeldtoepassingen wordt deze waarde aangeduid als de Client-ID. 
+   Hallo nieuwe service-principal wordt geretourneerd. Hallo Object-Id is vereist bij het verlenen van machtigingen. Hallo-guid worden weergegeven met de Service Principal Names Hallo is nodig wanneer u zich aanmeldt. Deze guid is Hallo dezelfde waarde als Hallo app-id. Deze waarde is Hallo voorbeeldtoepassingen waarnaar wordt verwezen tooas Hallo Client-ID. 
      
    ```azurecli
    info:    Executing command ad sp create
@@ -185,16 +185,16 @@ Deze stappen uit te voeren, moet u hebben [OpenSSL](http://www.openssl.org/) ge�
      data:                      https://www.contoso.org/example
      info:    ad sp create command OK
    ```
-6. Aan de service principal machtigingen verlenen voor uw abonnement. In dit voorbeeld kunt u de service-principal toevoegen aan de rol lezer die machtiging toekent voor het lezen van alle resources in het abonnement. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md). Geef de Object-Id die u hebt gebruikt bij het maken van de toepassing voor de object-id-parameter. Voordat u deze opdracht uitvoert, moet u even totdat de nieuwe service-principal worden doorgegeven in Azure Active Directory toestaan. Wanneer u deze opdrachten handmatig uitvoert, is meestal voldoende tijd verstreken tussen taken. In een script, moet u een stap in de slaapstand tussen de opdrachten toevoegen (zoals `sleep 15`). Als u een foutmelding weergegeven dat de principal bestaat niet in de map ziet, voert u de opdracht opnieuw uit.
+6. Machtigingen Hallo service principal op uw abonnement. In dit voorbeeld moet u Hallo service principal toohello lezer functie, die machtiging tooread alle resources in het Hallo-abonnement verleent toevoegen. Zie voor andere rollen, [RBAC: ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md). Hallo object-id-parameter, bieden Hallo Object-Id die u hebt gebruikt bij het maken van de toepassing hello. Voordat u deze opdracht uitvoert, moet u even totdat Hallo nieuwe service principal toopropagate in Azure Active Directory toestaan. Wanneer u deze opdrachten handmatig uitvoert, is meestal voldoende tijd verstreken tussen taken. In een script, moet u een stap toosleep tussen opdrachten Hallo toevoegen (zoals `sleep 15`). Als er dat een fout vermelden Hallo principal bestaat niet in de directory hello, moet u de opdracht Hallo opnieuw uitvoeren.
    
    ```azurecli
    azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Reader -c /subscriptions/{subscriptionId}/
    ```
   
 ### <a name="provide-certificate-through-automated-azure-cli-script"></a>Geef het certificaat via automatische Azure CLI-script
-Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
+Nu moet u toolog in als Hallo toepassing tooperform bewerkingen.
 
-1. Wanneer u zich aanmeldt als een service-principal, moet u voor de tenant-id van de map voor uw AD-app. Een tenant is een exemplaar van Azure Active Directory. Voor het ophalen van de tenant-id voor uw abonnement op dat moment geverifieerde gebruiken:
+1. Wanneer u zich aanmeldt als een service-principal, moet u tooprovide hello tenant-id van Hallo directory voor uw AD-app. Een tenant is een exemplaar van Azure Active Directory. tooretrieve hello tenant-id voor uw huidige geverifieerde abonnement, gebruiken:
    
    ```azurecli
    azure account show
@@ -212,12 +212,12 @@ Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
    ...
    ```
    
-   Als u de tenant-id van een ander abonnement ophalen moet, gebruikt u de volgende opdracht:
+   Als u tooget hello tenant-id van een ander abonnement moet, gebruikt u Hallo volgende opdracht:
    
    ```azurecli
    azure account show -s {subscription-id}
    ```
-2. Vingerafdruk van het certificaat ophalen en verwijder overbodige tekens, gebruiken:
+2. tooretrieve Hallo certificaatvingerafdruk en verwijder overbodige tekens, gebruiken:
    
    ```
    openssl x509 -in "C:\certificates\examplecert.pem" -fingerprint -noout | sed 's/SHA1 Fingerprint=//g'  | sed 's/://g'
@@ -228,13 +228,13 @@ Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
    ```
    30996D9CE48A0B6E0CD49DBB9A48059BF9355851
    ```
-3. Als u ophalen van de client-id moet worden gebruikt wilt voor aanmelden, gebruiken:
+3. Als u tooretrieve Hallo client-id toouse voor logboekregistratie in nodig hebt, gebruikt:
    
    ```azurecli
    azure ad sp show -c exampleapp
    ```
    
-   De waarde moet worden gebruikt voor het aanmelden is de guid die worden vermeld in de SPN-namen.
+   Hallo waarde toouse voor aanmelden is vermeld in de SPN-namen Hallo Hallo-guid.
      
    ```azurecli
    [
@@ -250,25 +250,25 @@ Nu moet u zich aanmelden als de toepassing bewerkingen uit te voeren.
      }
    ]
    ```
-4. Aanmelden als service-principal.
+4. Aanmelden als service-principal Hallo.
    
    ```azurecli
    azure login --service-principal --tenant {tenant-id} -u 4fd39843-c338-417d-b549-a545f584a745 --certificate-file C:\certificates\examplecert.pem --thumbprint {thumbprint}
    ```
 
-U bent nu geautoriseerd als de service-principal voor de Azure Active Directory-toepassing die u hebt gemaakt.
+U bent nu geautoriseerd als Hallo service-principal voor hello Azure Active Directory-toepassing die u hebt gemaakt.
 
 ## <a name="change-credentials"></a>Referenties wijzigen
 
-U kunt de referenties voor een AD-app, hetzij vanwege een beveiligingsinbreuk of een vervaldatum referentie wijzigen met `azure ad app set`.
+toochange hello referenties voor een AD-app, hetzij vanwege een beveiligingsinbreuk of een vervaldatum referentie gebruiken `azure ad app set`.
 
-Een wachtwoord wilt wijzigen, gebruikt u:
+een wachtwoord, toochange gebruiken:
 
 ```azurecli
 azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password p@ssword
 ```
 
-De waarde van een certificaat wilt wijzigen, gebruikt u:
+de waarde van een certificaat toochange gebruiken:
 
 ```azurecli
 azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
@@ -276,14 +276,14 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-val
 
 ## <a name="debug"></a>Fouten opsporen
 
-De volgende fouten kunnen optreden bij het maken van een service-principal:
+Hallo volgende fouten bij het maken van een service-principal kunnen optreden:
 
-* **'Authentication_Unauthorized'** of **'geen abonnement gevonden in de context.'** -U hebt deze fout te zien wanneer uw account beschikt niet over de [vereist machtigingen](#required-permissions) op de Azure Active Directory om een app te registreren. Normaal gesproken u deze fout te zien wanneer alleen admin gebruikers in uw Azure Active Directory apps registreren kunnen en uw account niet een beheerder is. Vraag uw beheerder u ofwel toewijzen aan een beheerdersrol of waarmee gebruikers om apps te registreren.
+* **'Authentication_Unauthorized'** of **'geen abonnement gevonden in de context van Hallo'.** -U hebt deze fout te zien wanneer uw account geen Hallo [vereist machtigingen](#required-permissions) op Hallo Azure Active Directory tooregister een app. Normaal gesproken u deze fout te zien wanneer alleen admin gebruikers in uw Azure Active Directory apps registreren kunnen en uw account niet een beheerder is. Vraag uw beheerder tooeither tooan beheerdersrol of tooenable gebruikers tooregister apps toewijzen.
 
-* Uw account **"heeft geen autorisatie om uit te voeren van de actie 'Microsoft.Authorization/roleAssignments/write' bereik/subscriptions / {guid}."**  -Deze fout te zien wanneer uw account beschikt niet over voldoende machtigingen aan een rol toewijzen aan een identiteit. Vraag de abonnementsbeheerder u toe te voegen aan de rol beheerder voor gebruikerstoegang.
+* Uw account **"heeft geen autorisatie tooperform actie 'Microsoft.Authorization/roleAssignments/write' bereik/subscriptions / {guid}."**  -Deze fout te zien wanneer uw account geen voldoende machtigingen tooassign tooan identiteit van een rol. Vraag uw beheerder abonnement tooadd u tooUser toegang beheerdersrol.
 
 ## <a name="sample-applications"></a>Voorbeeldtoepassingen
-Zie voor informatie over logboekregistratie in als de toepassing via verschillende platforms:
+Zie voor informatie over logboekregistratie in als de toepassing hello via verschillende platforms:
 
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
@@ -292,6 +292,6 @@ Zie voor informatie over logboekregistratie in als de toepassing via verschillen
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor gedetailleerde stappen voor het integreren van een toepassing in Azure voor het beheren van resources [Ontwikkelaarshandleiding voor autorisatie met de Azure Resource Manager-API](resource-manager-api-authentication.md).
-* Zie voor meer informatie over het gebruik van certificaten en Azure CLI, [certificaat gebaseerde verificatie met Azure Service-Principals vanaf de opdrachtregel Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
-* Zie voor een lijst met beschikbare acties die kunnen worden verleend of geweigerd voor gebruikers, [Resourceprovider van Azure Resource Manager operations](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Zie voor gedetailleerde stappen voor het integreren van een toepassing in Azure voor het beheren van resources [Developer's guide tooauthorization Hello Azure Resource Manager-API](resource-manager-api-authentication.md).
+* tooget meer informatie over het gebruik van certificaten en Azure CLI, Zie [certificaat gebaseerde verificatie met Azure Service-Principals vanaf de opdrachtregel Linux](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
+* Zie voor een lijst met beschikbare acties die kunnen worden verleend of geweigerd toousers [Resourceprovider van Azure Resource Manager operations](../active-directory/role-based-access-control-resource-provider-operations.md).

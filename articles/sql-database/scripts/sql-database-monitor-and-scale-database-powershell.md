@@ -1,6 +1,6 @@
 ---
-title: PowerShell-voorbeeld-monitor-scale-enkel Azure SQL database | Microsoft Docs
-description: "Azure PowerShell-voorbeeldscript om te bewaken en schalen van één Azure SQL database"
+title: aaaPowerShell voorbeeld-monitor-scale-enkel Azure SQL database | Microsoft Docs
+description: "Voorbeeld van een Azure PowerShell script toomonitor en schalen van één Azure SQL database"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 5d08335f4b1d6c5c6a120cbfb86ab2c62b79bb9f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bd8f880fb47b1360ae4962d2b039faa742de258e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell gebruiken om te bewaken en schalen van een enkele SQL-database
+# <a name="use-powershell-toomonitor-and-scale-a-single-sql-database"></a>Gebruik PowerShell toomonitor en schalen van een enkele SQL-database
 
-Voorbeeld van deze PowerShell-script bewaakt de maatstaven voor prestaties van een database naar een hoger prestatieniveau op schaal en een waarschuwingsregel maakt op een van de maatstaven voor prestaties. 
+Voorbeeld van deze PowerShell-script monitors Hallo maatstaven voor prestaties van een database, op schaal tooa hoger prestatieniveau en een waarschuwingsregel maakt op een van de maatstaven voor prestaties Hallo. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-powershell[belangrijkste](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "bewaken en schalen één SQL-Database")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Na het uitvoeren van het voorbeeldscript kan de volgende opdracht worden gebruikt om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld.
+Na het uitvoeren van het voorbeeldscript Hallo mag na de opdracht Hallo gebruikte tooremove Hallo-resourcegroep en alle resources die zijn gekoppeld.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,20 +42,20 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo opdrachten te volgen. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
  [Nieuwe AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
 | [Nieuwe AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Maakt een logische server die als host fungeert voor een database of elastische pool. |
-| [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Toont de gebruiksgegevens van de grootte voor de database.|
+| [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Toont informatie over het gebruik Hallo grootte voor Hallo-database.|
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Database-eigenschappen-updates of een database verplaatst naar, uit of tussen elastische pools. |
-| [Voeg AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Hiermee stelt u een waarschuwingsregel automatisch dtu's in de toekomst te bewaken. |
+| [Voeg AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Hiermee stelt u een waarschuwingsregel tooautomatically monitor dtu's in Hallo toekomstige. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
 |||
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
+Zie voor meer informatie over hello Azure PowerShell [documentatie van Azure PowerShell](/powershell/azure/overview).
 
-Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in de [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).
+Voorbeelden van aanvullende SQL Database PowerShell-script kunnen worden gevonden in Hallo [Azure SQL Database PowerShell-scripts](../sql-database-powershell-samples.md).

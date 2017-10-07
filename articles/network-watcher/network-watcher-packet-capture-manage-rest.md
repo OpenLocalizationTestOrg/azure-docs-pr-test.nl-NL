@@ -1,6 +1,6 @@
 ---
-title: Beheren van opnamen van pakket met de Azure-netwerk-Watcher - REST-API | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u de functie voor het vastleggen van pakket van netwerk-Watcher met Azure REST API beheren
+title: aaaManage pakket worden vastgelegd met Azure-netwerk-Watcher - REST-API | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe toomanage Hallo pakket vastleggen functie van netwerk-Watcher met Azure REST API
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 49ec20802a252258d8493eb26510270b925e851a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a531fbe796e85e94961bd192d171defb299be05
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Pakket opnamen beheren met Azure met Azure REST API netwerk-Watcher
 
@@ -29,24 +29,24 @@ ms.lasthandoff: 08/29/2017
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
 
-Netwerk-Watcher pakketopname kunt u om sessies vastleggen om bij te houden van verkeer van en naar een virtuele machine te maken. Filters zijn beschikbaar voor de opnamesessie om te controleren of dat u alleen het verkeer die u wilt vastleggen. Pakketopname helpt op te sporen netwerk afwijkingen reactief en proactief. Andere toepassingen zijn onder andere het verzamelen van netwerkstatistieken, krijgt informatie over het netwerk beveiligingsrisico's voor foutopsporing van client-servercommunicaties en nog veel meer. Door op afstand activeren pakket opnamen, deze mogelijkheid kan vergemakkelijken de last van een pakketopname handmatig en op de gewenste machine, die kostbare tijd bespaart worden uitgevoerd.
+Netwerk-Watcher pakketopname kunt u toocreate vastleggen sessies tootrack verkeer tooand van een virtuele machine. Filters zijn beschikbaar voor Hallo vastleggen sessie tooensure dat u alleen Hallo verkeer die u wilt vastleggen. Pakketopname helpt toodiagnose netwerk afwijkingen reactief en proactief. Andere toepassingen zijn onder andere het verzamelen van netwerkstatistieken, krijgt informatie over het netwerk beveiligingsrisico's, toodebug client / server-communicatie en nog veel meer. Deze mogelijkheid vergemakkelijkt door kunnen tooremotely trigger pakket opnamen, Hallo last van een pakketopname handmatig en op de gewenste machine hello, die kostbare tijd bespaart worden uitgevoerd.
 
-In dit artikel leert u de verschillende beheertaken die momenteel beschikbaar voor pakketopname zijn.
+In dit artikel leert u Hallo verschillende beheertaken uitvoeren die momenteel beschikbaar zijn voor pakketopname.
 
 - [**Ophalen van een pakketopname**](#get-a-packet-capture)
 - [**Lijst van alle pakket-opnamen**](#list-all-packet-captures)
-- [**De status van een pakketopname opvragen**](#query-packet-capture-status)
+- [**Hallo-status van een pakketopname opvragen**](#query-packet-capture-status)
 - [**Start een pakketopname**](#start-packet-capture)
 - [**Stop de pakketopname van een**](#stop-packet-capture)
 - [**Het vastleggen van een pakket verwijderen**](#delete-packet-capture)
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit scenario moet u de netwerk-Watcher Rest-API om te worden uitgevoerd met het IP-stromen controleren aanroepen. ARMclient wordt gebruikt voor het aanroepen van de REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
+In dit scenario moet u Hallo Rest-API voor netwerk-Watcher toorun IP-stromen controleren aanroepen. ARMclient is gebruikte toocall Hallo REST-API met behulp van PowerShell. ARMClient is gevonden op chocolatey op [ARMClient op Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Dit scenario wordt ervan uitgegaan dat u de stappen in al hebt gevolgd [maken van een netwerk-Watcher](network-watcher-create.md) voor het maken van een netwerk-Watcher.
+Dit scenario wordt ervan uitgegaan dat u hebt al Hallo stappen uitgevoerd in [maken van een netwerk-Watcher](network-watcher-create.md) toocreate een netwerk-Watcher.
 
-> Pakketopname vereist dat de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
+> Pakketopname vereist dat de extensie van een virtuele machine `AzureNetworkWatcherExtension`. Ga voor het Hallo-uitbreiding installeren op een virtuele machine van Windows naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Meld u aan met ARMClient
 
@@ -56,12 +56,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Een virtuele machine ophalen
 
-Voer het volgende script om te retourneren van een virtuele machine. Deze informatie is nodig voor het starten van een pakketopname.
+Hallo script tooreturn na een virtuele machine uitvoeren. Deze informatie is nodig voor het starten van een pakketopname.
 
-De volgende code moet variabelen:
+Hallo moet volgende code variabelen:
 
-- **subscriptionId** -de abonnements-id kan ook worden opgehaald met de **Get-AzureRMSubscription** cmdlet.
-- **resourceGroupName** -de naam van een resourcegroep die virtuele machines bevatten.
+- **subscriptionId** -Hallo abonnements-id kan ook worden opgehaald met Hallo **Get-AzureRMSubscription** cmdlet.
+- **resourceGroupName** - hello naam van een resourcegroep die virtuele machines bevatten.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -70,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-De id van de virtuele machine wordt gebruikt van de volgende uitvoer in het volgende voorbeeld.
+Hallo-id van Hallo virtuele machine wordt van de volgende Hallo uitvoer, in het volgende voorbeeld Hallo gebruikt.
 
 ```json
 ...
@@ -88,7 +88,7 @@ De id van de virtuele machine wordt gebruikt van de volgende uitvoer in het volg
 
 ## <a name="get-a-packet-capture"></a>Ophalen van een pakketopname
 
-Het volgende voorbeeld wordt de status van een enkele pakketopname
+Hallo volgende voorbeeld wordt opgehaald Hallo status van een enkele pakketopname
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -97,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-De volgende antwoorden zijn voorbeelden van een typische antwoord geretourneerd bij het opvragen van de status van een pakketopname.
+Hallo zijn volgende antwoorden voorbeelden van een typische antwoord geretourneerd bij het Hallo-status van een pakketopname opvragen.
 
 ```json
 {
@@ -122,7 +122,7 @@ De volgende antwoorden zijn voorbeelden van een typische antwoord geretourneerd 
 
 ## <a name="list-all-packet-captures"></a>Lijst van alle pakket-opnamen
 
-Het volgende voorbeeld wordt alle sessies van pakket vastleggen in een regio.
+Hallo volgt haalt alle sessies van pakket vastleggen in een regio.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -131,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-Het antwoord van de volgende is een voorbeeld van een typische antwoord geretourneerd tijdens het ophalen van alle pakketten worden vastgelegd
+Hallo is volgende antwoord een voorbeeld van een typische antwoord geretourneerd tijdens het ophalen van alle pakketten worden vastgelegd
 
 ```json
 {
@@ -196,7 +196,7 @@ ture_17_23_15_364.cap",
 
 ## <a name="query-packet-capture-status"></a>Status van pakket vastleggen
 
-Het volgende voorbeeld wordt alle sessies van pakket vastleggen in een regio.
+Hallo volgt haalt alle sessies van pakket vastleggen in een regio.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -206,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Het volgende antwoord is een voorbeeld van een typische antwoord geretourneerd bij het opvragen van de status van een pakketopname.
+Hallo is volgende antwoord een voorbeeld van een typische antwoord geretourneerd bij het Hallo-status van een pakketopname opvragen.
 
 ```json
 {
@@ -220,7 +220,7 @@ Het volgende antwoord is een voorbeeld van een typische antwoord geretourneerd b
 
 ## <a name="start-packet-capture"></a>Start pakketopname
 
-Het volgende voorbeeld wordt een pakketopname op een virtuele machine.  In het voorbeeld met parameters om toe te staan voor flexibiliteit bij het maken van een voorbeeld.
+Hallo volgende voorbeeld maakt een pakketopname op een virtuele machine.  Hallo-voorbeeld is geparameteriseerd tooallow voor flexibiliteit bij het maken van een voorbeeld.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -272,7 +272,7 @@ armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/Reso
 
 ## <a name="stop-packet-capture"></a>Stop de pakketopname
 
-Het volgende voorbeeld wordt een pakketopname gestopt op een virtuele machine.  In het voorbeeld met parameters om toe te staan voor flexibiliteit bij het maken van een voorbeeld.
+Hallo volgende voorbeeld wordt een pakketopname gestopt op een virtuele machine.  Hallo-voorbeeld is geparameteriseerd tooallow voor flexibiliteit bij het maken van een voorbeeld.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -284,7 +284,7 @@ armclient post "https://management.azure.com/subscriptions/${subscriptionId}/Res
 
 ## <a name="delete-packet-capture"></a>Pakketopname verwijderen
 
-Het volgende voorbeeld wordt een pakketopname op een virtuele machine.  In het voorbeeld met parameters om toe te staan voor flexibiliteit bij het maken van een voorbeeld.
+Hallo volgende voorbeeld wordt een pakketopname op een virtuele machine verwijderd.  Hallo-voorbeeld is geparameteriseerd tooallow voor flexibiliteit bij het maken van een voorbeeld.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -296,13 +296,13 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> Verwijderen van een pakketopname, wordt het bestand in het opslagaccount niet verwijderd
+> Verwijderen van een pakketopname verwijderen Hallo-bestand in Hallo storage-account niet
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor instructies over het downloaden van bestanden van azure storage-accounts, [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma dat kan worden gebruikt, is Storage Explorer. Meer informatie over Opslagverkenner vindt u hier op de volgende koppeling: [Opslagverkenner](http://storageexplorer.com/)
+Voor instructies over het downloaden van bestanden van azure storage-accounts, Raadpleeg te[aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Een ander hulpprogramma dat kan worden gebruikt, is Storage Explorer. Meer informatie over Opslagverkenner vindt u hier op Hallo koppeling: [Opslagverkenner](http://storageexplorer.com/)
 
-Meer informatie over het automatiseren van pakket opnamen met waarschuwingen van de virtuele machine met weer te geven [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
+Meer informatie over hoe tooautomate pakket worden vastgelegd met waarschuwingen van de virtuele machine door [maken van een waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md)
 
 
 

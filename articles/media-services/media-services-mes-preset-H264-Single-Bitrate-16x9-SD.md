@@ -1,6 +1,6 @@
 ---
-title: Geselecteerde instelling H264 Single-Bitrate 16 x 9 SD Media Encoder Standard voorinstelling - Azure | Microsoft Docs
-description: Het onderwerp een overzicht van de ** standaardinstelling H264 Single-Bitrate 16 x 9 SD ** taak definitie.
+title: Single-Bitrate 16 x 9 SD Media Encoder Standard voorinstelling aaaH264 - Azure | Microsoft Docs
+description: Hallo onderwerp een overzicht van Hallo ** standaardinstelling H264 Single-Bitrate 16 x 9 SD ** taak definitie.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 746dc845f1e32d6be3f207448523d8966da9f8a0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e5fbf6b8accaf779014bee67ee4f5fd6910b2d25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="h264-single-bitrate-16x9-sd"></a>Geselecteerde instelling H264 Single-Bitrate 16 x 9 SD
-`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` om op te geven naar welke indeling u wilt uw mediabestand coderen. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou geeft u het aangepaste vooraf ingesteld op de encoder. Voor een overzicht van de vooraf ingestelde namen ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definieert een aantal standaardinstellingen die u gebruiken kunt bij het maken van codering taken codering. Kunt u ofwel een `preset name` toospecify naar welke indeling u tooencode wilt dat uw mediabestand. U kunt maken met uw eigen JSON of XML gebaseerde standaardinstellingen (met UTF-8- of UTF-16-codering. U zou vervolgens Hallo aangepaste vooraf ingestelde toohello encoder doorgeven. Voorinstelling voor Hallo lijst met alle Hallo namen die worden ondersteund door dit `Media Encoder Standard` encoder, Zie [taak standaardinstellingen voor Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- In dit onderwerp leest de `H264 Single Bitrate 16x9 SD` vooraf in XML en JSON-indeling.  
+ In dit onderwerp leest Hallo `H264 Single Bitrate 16x9 SD` vooraf in XML en JSON-indeling.  
   
- Deze vooraf ingestelde produceert een enkel MP4-bestand met een bitrate van 2200 kbps en aansluiting AAC audio. Voor gedetailleerde informatie over profiel bitrate, snelheid, enz. dit wordt vooraf ingesteld, controleert u de XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en de geldige waarden voor elk element in de [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
+ Deze vooraf ingestelde produceert een enkel MP4-bestand met een bitrate van 2200 kbps en aansluiting AAC audio. Voor gedetailleerde informatie over het profiel bitrate, snelheid, enz. dit wordt vooraf ingestelde, onderzoekt Hallo XML- of JSON zoals hieronder gedefinieerd. Zie voor uitleg van welke elk element in deze standaardinstellingen middelen en Hallo geldige waarden voor elk element Hallo [Media Encoder Standard schema](media-services-mes-schema.md) onderwerp.  
   
  XML  
   

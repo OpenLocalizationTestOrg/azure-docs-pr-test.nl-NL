@@ -1,6 +1,6 @@
 ---
-title: Het ontwerpen van maximaal beschikbare toepassingen met behulp van Azure leestoegang geografisch redundante opslag (RA-GRS) | Microsoft Docs
-description: Klik hier voor meer informatie over het RA-GRS van Azure storage gebruiken voor het bouwen van een maximaal beschikbare toepassing flexibel genoeg is voor het afhandelen van storingen.
+title: aaaDesigning maximaal beschikbare toepassingen met behulp van Azure leestoegang geografisch redundante opslag (RA-GRS) | Microsoft Docs
+description: Hoe toouse Azure RA-GRS opslag tooarchitect een maximaal beschikbare toepassing flexibel genoeg toohandle storingen.
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,93 +14,93 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e4a9fe7ef33eecd894408b3c1ef59920a248d1bd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met behulp van RA-GRS ontwerpen
 
-Een algemene functie van de cloud-gebaseerde infrastructuur is dat ze een maximaal beschikbare platform voor het hosten van toepassingen. Ontwikkelaars van cloud-gebaseerde toepassingen Overweeg zorgvuldig hoe u dit platform voor het leveren van maximaal beschikbare toepassingen voor hun gebruikers. Dit artikel is gericht specifiek op hoe ontwikkelaars de Azure Storage geografisch redundante opslag met leestoegang (RA-GRS) gebruiken kunnen om hun toepassingen meer beschikbaar.
+Een algemene functie van de cloud-gebaseerde infrastructuur is dat ze een maximaal beschikbare platform voor het hosten van toepassingen. Ontwikkelaars van toepassingen op basis van een cloud moeten rekening houden met zorgvuldig hoe tooleverage dit platform toodeliver maximaal beschikbare toepassingen tootheir gebruikers. In dit artikel is gericht specifiek op hoe ontwikkelaars van hello Azure Storage geografisch redundante opslag met leestoegang (RA-GRS) toomake gebruikmaken kunnen hun toepassingen meer beschikbaar.
 
-Er zijn vier opties voor de redundantie – LRS (lokaal redundante opslag), ZRS (Zone-redundante opslag), (Geo-Redundant Storage) GRS en RA-GRS (leestoegang Geo-Redundant Storage). We gaan bespreken GRS en RA-GRS in dit artikel. Met GRS worden drie kopieën van uw gegevens worden opgeslagen in de primaire regio die u hebt geselecteerd bij het instellen van het opslagaccount. Drie extra kopieën worden asynchroon worden bijgehouden in een secundaire regio die is opgegeven door Azure. RA-GRS is hetzelfde als GRS, behalve dat u beschikken over leestoegang tot de secundaire kopie. Zie voor meer informatie over de verschillende opties voor Azure Storage-redundantie [Azure Storage-replicatie](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy). De replicatie-artikel ziet ook de koppelingen tussen de primaire en secundaire regio's.
+Er zijn vier opties voor de redundantie – LRS (lokaal redundante opslag), ZRS (Zone-redundante opslag), (Geo-Redundant Storage) GRS en RA-GRS (leestoegang Geo-Redundant Storage). We gaan toodiscuss GRS en RA-GRS in dit artikel. Met GRS worden in Hallo primaire regio die u hebt geselecteerd bij het instellen van het opslagaccount Hallo drie kopieën van uw gegevens bewaard. Drie extra kopieën worden asynchroon worden bijgehouden in een secundaire regio die is opgegeven door Azure. RA-GRS is hetzelfde als GRS hello, behalve dat u leestoegang toohello secundaire exemplaar hebt. Zie voor meer informatie over verschillende opties voor Azure Storage redundantie Hallo [Azure Storage-replicatie](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy). Hallo replicatie ook wordt uitgelegd Hallo koppelingen van Hallo primaire en secundaire regio's.
 
-Er zijn codefragmenten die zijn opgenomen in dit artikel en een koppeling naar een compleet codevoorbeeld aan het einde die u kunt downloaden en uitvoeren.
+Er zijn codefragmenten die zijn opgenomen in dit artikel en een koppeling tooa compleet codevoorbeeld aan Hallo einde die u kunt downloaden en uitvoeren.
 
 ## <a name="key-features-of-ra-grs"></a>Belangrijke functies van RA-GRS
 
-Voordat we hoe RA-GRS opslag gebruiken, moet u iets over de eigenschappen en het gedrag uitleggen.
+Voordat we hoe uitleggen toouse RA-GRS-opslag, iets over de eigenschappen en het gedrag.
 
-* Azure-opslag onderhoudt een alleen-lezen kopie van de gegevens die u in de primaire regio in een secundaire regio opslaat; zoals eerder vermeld, bepaalt de storage-service de locatie van de secundaire regio.
+* Azure-opslag onderhoudt een alleen-lezen kopie van Hallo-gegevens die u in de primaire regio in een secundaire regio opslaat; zoals eerder vermeld, bepaalt de opslagservice Hallo Hallo-locatie van de secundaire regio Hallo.
 
-* De alleen-lezen kopie is [uiteindelijk consistent](https://en.wikipedia.org/wiki/Eventual_consistency) met de gegevens in de primaire regio.
+* Hallo alleen-lezen kopie is [uiteindelijk consistent](https://en.wikipedia.org/wiki/Eventual_consistency) met gegevens in de primaire regio Hallo Hallo.
 
-* Voor blobs, tabellen en wachtrijen, kunt u een query de secundaire regio voor een *tijd van laatste synchronisatie* waarde die aangeeft wanneer de laatste replicatie vanaf de primaire naar de secundaire regio is opgetreden. (Dit wordt niet ondersteund voor Azure File storage die geen RA-GRS redundantie op dit moment.)
+* Voor blobs, tabellen en wachtrijen, kunt u een query Hallo secundaire regio voor een *tijd van laatste synchronisatie* waarde die aangeeft wanneer de laatste replicatie Hallo van Hallo primaire toohello secundaire regio is opgetreden. (Dit wordt niet ondersteund voor Azure File storage die geen RA-GRS redundantie op dit moment.)
 
-* U kunt de Storage-clientbibliotheek gebruiken om te communiceren met de gegevens in de primaire of secundaire regio. U kunt ook omleiden schijfleesaanvragen automatisch naar de secundaire regio als een aanvraag voor leestoegang tot de primaire regio een optreedt time-out.
+* U kunt Hallo Storage-clientbibliotheek toointeract gebruiken met Hallo-gegevens in beide Hallo primaire of secundaire regio. U kunt ook omleiden lezen aanvragen automatisch toohello secundaire regio als een leesaanvraag toohello primaire regio een optreedt time-out.
 
-* Als er een grote probleem met betrekking tot de toegankelijkheid van de gegevens in de primaire regio, kan het team van Azure een geo-failover, waarna de DNS-vermeldingen die verwijst naar de primaire regio worden gewijzigd om te verwijzen naar de secundaire regio activeren.
+* Als er een grote probleem met betrekking tot toegankelijkheid Hallo Hallo-gegevens in de primaire regio hello, activeren hello Azure team mogelijk een geo-failover, waarna de clientzijdebewaking Hallo DNS-vermeldingen die wijst toohello primaire regio gewijzigde toopoint toohello secundaire regio worden.
 
-* Als een geo-failover optreedt, wordt Azure selecteert u een nieuwe secundaire locatie en de gegevens worden gerepliceerd naar die locatie en de secundaire DNS-vermeldingen wijs. Secundair eindpunt is niet beschikbaar totdat het opslagaccount is voltooid met repliceren. Zie voor meer informatie [wat te doen als een Azure Storage-storing optreedt,](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance).
+* Als een geo-failover optreedt, wordt Azure selecteert u een nieuwe secundaire locatie en repliceren Hallo toothat gegevenslocatie vervolgens Hallo secundaire DNS-vermeldingen tooit verwijzen. secundair eindpunt Hallo is pas beschikbaar als Hallo storage-account is klaar met repliceren. Zie voor meer informatie [welke toodo als een Azure Storage-storing optreedt,](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Toepassing Ontwerpoverwegingen bij het gebruik van RA-GRS
 
-Het belangrijkste doel van dit artikel is beschreven hoe u met het ontwerpen van een toepassing die wel blijft werken (maar in een beperkte capaciteit), zelfs in het geval van een noodgeval op het primaire Datacenter. U doen dit door uw toepassing voor het afhandelen van tijdelijke of langdurige problemen door schakelen om te lezen van de secundaire regio, terwijl er een probleem is en overschakelen terug wanneer de primaire regio weer beschikbaar is.
+Hallo belangrijkste doel van dit artikel is tooshow u hoe een toepassing die toofunction (maar in een beperkte capaciteit) wordt voortgezet zelfs in geval van een noodgeval op de primaire gegevensbron Hallo Hallo toodesign center. U doen dit door uw toepassing toohandle tijdelijke of langdurige problemen door tooread overschakelen van de secundaire regio Hallo terwijl er een probleem is en weer schakelen wanneer de primaire regio Hallo weer beschikbaar is.
 
 ### <a name="using-eventually-consistent-data"></a>Met behulp van uiteindelijk consistent gegevens
 
-Deze voorgestelde oplossing wordt ervan uitgegaan dat dit klopt wat verouderde gegevens aan de aanroepende toepassing kan worden geretourneerd. Omdat de secundaire gegevens uiteindelijk consistent is, is het mogelijk dat de gegevens zijn geschreven naar de primaire, maar de update naar de secundaire niet was voltooid wanneer de primaire regio is niet toegankelijk geworden repliceren.
+Deze voorgestelde oplossing wordt ervan uitgegaan dat het is niet erg tooreturn wat verouderde gegevens toohello aanroepende toepassing kan worden. Omdat secundaire gegevens Hallo uiteindelijk consistent is, is het mogelijk dat Hallo-gegevens zijn geschreven toohello primaire maar Hallo update toohello secundaire niet was voltooid repliceren wanneer de primaire regio Hallo werd niet toegankelijk.
 
-Bijvoorbeeld, een update die is geslaagd door uw klant kan verzenden en vervolgens de primaire kan uitvallen voordat de update wordt doorgegeven naar de secundaire. In dit geval als de klant wordt vervolgens gevraagd om de gegevens terug te lezen, ontvangt hij de verouderde gegevens in plaats van de bijgewerkte gegevens. U moet beslissen als dit is acceptabel en zo ja, hoe u de klant wordt weergegeven. Hier ziet u hoe u controleert de tijd van laatste synchronisatie op de secundaire gegevens verderop in dit artikel om te zien als de secundaire bijgewerkt is.
+Bijvoorbeeld een update die is geslaagd door uw klant kan verzenden en vervolgens Hallo primaire kan uitvallen voordat hello update doorgegeven toohello secundaire is. In dit geval als Hallo klant wordt vervolgens gevraagd tooread Hallo gegevens terug, ontvangt hij Hallo verouderde gegevens in plaats van de gegevens van Hallo bijgewerkt. U moet beslissen als dit is acceptabel en zo ja, hoe u Hallo klant wordt weergegeven. U ziet hoe toocheck Hallo tijd van laatste synchronisatie op de secundaire gegevensbron Hallo verderop in dit artikel toosee als secundaire Hallo is bijgewerkt.
 
 ### <a name="handling-services-separately-or-all-together"></a>Afhandeling van de services afzonderlijk of Alles samenvoegen
 
-Tijdens het niet waarschijnlijk is het mogelijk voor een service niet beschikbaar terwijl de andere services nog steeds volledig functioneel zijn. U kunt verwerkt de nieuwe pogingen en de modus alleen-lezen voor elke service afzonderlijk (blobs, wachtrijen, tabellen), of kunt u pogingen algemeen voor de opslagservices tegelijk verwerken.
+Tijdens het niet waarschijnlijk is het mogelijk voor één service toobecome niet beschikbaar terwijl hello andere services nog steeds volledig functioneel zijn. U kunnen ingang Hallo pogingen en alleen-lezenmodus voor elke service afzonderlijk (blobs, wachtrijen, tabellen), of kunt u nieuwe pogingen algemeen voor alle Hallo storage-services tegelijk verwerken.
 
-Bijvoorbeeld, als u wachtrijen en blobs in uw toepassing gebruikt, besluiten u in afzonderlijke code voor het afhandelen van herstelbare fouten voor elk van deze te plaatsen. Klik als u een nieuwe poging van de blob-service krijgt, maar de queue-service is nog steeds werken, worden slechts het deel van uw toepassing die verantwoordelijk is voor blobs beïnvloed. Als u besluit om af te handelen alle opslag service pogingen algemeen en een aanroep van de blob-service een herstelbare fout retourneert, worden aanvragen voor zowel de blob-service en de queue-service worden beïnvloed.
+Bijvoorbeeld, als u wachtrijen en blobs in uw toepassing gebruikt, besluiten u tooput in afzonderlijke toohandle herstelbare codefouten voor elk van deze. Klik als u een nieuwe poging van Hallo blob-service krijgt, maar Hallo queue-service is nog steeds werken, worden slechts een deel van uw toepassing die verantwoordelijk is voor blobs Hallo beïnvloed. Als u besluit toohandle alle opslagservice algemeen pogingen en een aanroep toohello blob-service retourneert een herstelbare fout vervolgens aanvragen tooboth Hallo blob-service en Hallo queue-service worden beïnvloed.
 
-Dit is uiteindelijk afhankelijk van de complexiteit van uw toepassing. U kunt besluiten geen te verwerken van de fouten door service, maar in plaats daarvan omleiden van aanvragen voor alle storage-services naar de secundaire regio voor lezen en de toepassing uitvoert in de modus alleen-lezen wanneer u een probleem met een storage-service in de primaire regio detecteren.
+Uiteindelijk hangt dit Hallo complexiteit van uw toepassing. Desgewenst kunt u geen toohandle Hallo fouten door service, maar in plaats daarvan tooredirect schijfleesaanvragen voor alle storage services toohello secundaire regio en Hallo-toepassing uitvoeren in de modus alleen-lezen wanneer u een probleem met een storage-service in de primaire regio Hallo detecteren.
 
 ### <a name="other-considerations"></a>Andere overwegingen
 
-Dit zijn de andere overwegingen die worden besproken in de rest van dit artikel.
+Dit zijn andere overwegingen worden besproken in de rest van dit artikel Hallo Hallo.
 
-*   Verwerking van nieuwe pogingen van leesaanvragen met behulp van het patroon Circuitonderbreker
+*   Verwerking van nieuwe pogingen van leesaanvragen Hallo Circuitonderbreker patroon
 
-*   Uiteindelijk consistent gegevens en de tijd van laatste synchronisatie
+*   Uiteindelijk consistent gegevens en Hallo tijd van laatste synchronisatie
 
 *   Testen
 
 ## <a name="running-your-application-in-read-only-mode"></a>Uitvoeren van uw toepassing in de modus alleen-lezen
 
-Voor het gebruik van RA-GRS-opslag, u moet beide mislukte leesaanvragen overweg en mislukte updateaanvragen (met update, wat betekent dat in dit geval voegt, updates en verwijderingen). Als de primaire gegevens mislukt centreren, wordt alleen aanvragen kunnen worden omgeleid naar het secundaire Datacenter, maar verzoeken om te werken niet omdat de secundaire alleen-lezen is. Daarom moet u een bepaalde manier voor het uitvoeren van uw toepassing in de modus alleen-lezen.
+toouse RA-GRS-opslag, moet de leesaanvragen kunnen toohandle beide is mislukt en mislukte updateaanvragen (met de update in dit geval betekenis invoeg-, updates en verwijderingen). Als hello primaire data center mislukt, lezen aanvragen kunnen worden omgeleid toohello secundaire Datacenter, maar verzoeken om te werken niet omdat Hallo secundaire alleen-lezen is. Daarom moet u enkele toorun manier uw toepassing in de modus alleen-lezen.
 
-U kunt bijvoorbeeld een vlag die wordt gecontroleerd vóór het verzenden van de updateaanvragen die naar de storage-service instellen. Wanneer een van de updateaanvragen via komt, kunt u dit overslaan en retourneren een juiste reactie aan de klant. U kunt ook bepaalde functies uitschakelen helemaal totdat het probleem is opgelost en laat gebruikers weten dat deze functies zijn tijdelijk niet beschikbaar.
+U kunt bijvoorbeeld een vlag die wordt gecontroleerd vóór het verzenden van een update aanvragen toohello storage-service instellen. Wanneer een van de aanvragen van Hallo bijwerken via komt, kunt u dit overslaan en retourneren een juiste reactie toohello klant. U kunt zelfs toodisable wilt bepaalde functies helemaal tot Hallo probleem opgelost is en laat gebruikers weten dat deze functies tijdelijk niet beschikbaar zijn.
 
-Als u besluit fouten worden verwerkt voor elke service afzonderlijk, moet u ook de mogelijkheid voor het uitvoeren van uw toepassing in de modus alleen-lezen door de service verwerkt. Er kan alleen-lezen vlaggen voor elke service die kan worden ingeschakeld, uitgeschakeld en de juiste vlag in de juiste locaties in uw code te verwerken.
+Als u fouten toohandle voor elke service afzonderlijk, moet u ook toohandle Hallo mogelijkheid toorun uw toepassing in de modus alleen-lezen door de service. Er kan alleen-lezen vlaggen voor elke service die kunnen worden ingeschakeld en uitgeschakeld en ingang Hallo geschikte vlag op de juiste plaatsen Hallo in uw code.
 
-Kunnen de toepassing uitvoeren in de modus alleen-lezen heeft een ander voordeel van de zijde – dit biedt u de mogelijkheid om ervoor te zorgen beperkte functionaliteit tijdens een upgrade van de primaire toepassing. U kunt uw toepassing uitvoeren in de modus alleen-lezen en wijs het secundaire Datacenter activeren zodat niemand toegang heeft tot de gegevens in de primaire regio terwijl u upgrades wilt aanbrengen.
+Kan toorun wordt uw toepassing in de modus alleen-lezen heeft een ander voordeel van de zijde: dit biedt u Hallo mogelijkheid tooensure beperkte functionaliteit tijdens een upgrade van de primaire toepassing. U kunt uw toepassing toorun in alleen-lezen-modus en punt toohello secundaire Datacenter, activeren zodat niemand toegang heeft tot gegevens in de primaire regio Hallo Hallo terwijl u upgrades wilt aanbrengen.
 
 ## <a name="handling-updates-when-running-in-read-only-mode"></a>Verwerken van wijzigingen in de modus alleen-lezen
 
-Er zijn veel manieren voor het afhandelen van aanvragen voor updates in de modus alleen-lezen. We dit uitvoerig won't verrekend, maar er zijn in het algemeen een aantal patronen waarmee u rekening houden.
+Er zijn veel manieren toohandle update aanvragen in de modus alleen-lezen. We dit uitvoerig won't verrekend, maar er zijn in het algemeen een aantal patronen waarmee u rekening houden.
 
-1.  U kunt reageren als de gebruiker en laat dat u bent momenteel accepteert geen updates. Bijvoorbeeld, kan een contactpersoon beheersysteem kunnen klanten toegang krijgen tot contactgegevens, maar geen updates.
+1.  U kunt reageren tooyour gebruiker en laat dat u bent momenteel accepteert geen updates. Een contactpersoon beheersysteem klanten tooaccess contactgegevens inschakelen maar updates niet maken.
 
-2.  U kunt de updates in een andere regio in de wachtrij plaatsen. In dit geval zou u schrijfaanvragen voor de update in behandeling aan een wachtrij in een andere regio en hebt een manier die aanvragen verwerkt nadat het primaire Datacenter weer online komt. Laat de klant weten dat de update die is aangevraagd in de wachtrij staat voor het verwerken van later in dit scenario.
+2.  U kunt de updates in een andere regio in de wachtrij plaatsen. In dit geval zou u de update in behandeling zijnde aanvragen tooa wachtrij schrijven in een andere regio en vervolgens hebben een tooprocess manier deze aanvragen nadat de primaire Datacenter Hallo online wordt gezet opnieuw. In dit scenario laat Hallo klant weten later worden verwerkt in de wachtrij staat Hallo update aangevraagd.
 
-3.  U kunt uw updates schrijven naar een opslagaccount in een andere regio. Als het primaire Datacenter weer online komt, kunt u een manier die updates samenvoegen met de primaire gegevens, afhankelijk van de structuur van de gegevens hebben. Als u afzonderlijke bestanden met een datum/tijd-stempel in de naam maakt, kunt u deze bestanden kopiëren terug naar de primaire regio. Dit werkt voor sommige werkbelastingen zoals logboekregistratie en iOT-gegevens.
+3.  U kunt updates van uw opslagaccount tooa schrijven in een andere regio. Wanneer de primaire Datacenter Hallo weer online komt, kunt hebt u een manier toomerge die updates in de primaire gegevens hello, afhankelijk van het Hallo-structuur van Hallo-gegevens. Bijvoorbeeld, als u afzonderlijke bestanden met een datum/tijd-stempel in de naam van de Hallo maakt, kunt u deze bestanden back toohello primaire regio. Dit werkt voor sommige werkbelastingen zoals logboekregistratie en iOT-gegevens.
 
 ## <a name="handling-retries"></a>Verwerking van nieuwe pogingen
 
-Hoe wilt u weten welke fouten herstelbare? Dit wordt bepaald door de storage-clientbibliotheek. Een 404-fout (resource niet gevonden) is bijvoorbeeld niet-herstelbare omdat deze opnieuw proberen is niet waarschijnlijk leiden tot succes. Een 500 fout is aan de andere kant herstelbare omdat het een serverfout is opgetreden, en dit eenvoudig een tijdelijk probleem komen kan. Bekijk voor meer informatie de [open source code voor de klasse ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in de storage-clientbibliotheek voor .NET. (Zoek naar de methode ShouldRetry).
+Hoe wilt u weten welke fouten herstelbare? Dit wordt bepaald door de storage-clientbibliotheek Hallo. Een 404-fout (resource niet gevonden) is bijvoorbeeld niet-herstelbare omdat deze opnieuw proberen niet waarschijnlijk tooresult in geslaagd is. Op Hallo daarentegen een 500 fout is herstelbare omdat het een serverfout is opgetreden, en dit eenvoudig een tijdelijk probleem komen kan. Bekijk voor meer informatie Hallo [openen van de broncode voor Hallo ExponentialRetry klasse](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) in Hallo .NET storage-clientbibliotheek. (Zoek naar Hallo ShouldRetry methode).
 
 ### <a name="read-requests"></a>Alleen aanvragen
 
-Alleen aanvragen kunnen worden omgeleid naar de secundaire opslag als er een probleem met de primaire opslag. Als opgemerkt in [uiteindelijk consistente gegevens met behulp van](#using-eventually-consistent-data), moet deze zijn aanvaardbaar is voor uw toepassing verouderde gegevens mogelijk lezen. Als u de storage-clientbibliotheek voor toegang tot gegevens van de RA-GRS gebruikt, kunt u het gedrag van een leesaanvraag voor het opnieuw door een waarde voor de **LocationMode** eigenschap in op een van de volgende:
+Als er een probleem met de primaire opslag, kunnen alleen aanvragen omgeleide toosecondary opslag worden. Als opgemerkt in [uiteindelijk consistente gegevens met behulp van](#using-eventually-consistent-data), deze moet acceptabele voor uw toepassing toopotentially verouderde gegevens lezen. Als u Hallo opslag client bibliotheek tooaccess RA-GRS gegevens gebruikt, kunt u Hallo opnieuw gedrag van een leesaanvraag opgeven door een waarde voor Hallo **LocationMode** tooone van Hallo volgende eigenschap:
 
-*   **PrimaryOnly** (de standaardinstelling)
+*   **PrimaryOnly** (Hallo standaard)
 
 *   **PrimaryThenSecondary**
 
@@ -108,54 +108,54 @@ Alleen aanvragen kunnen worden omgeleid naar de secundaire opslag als er een pro
 
 *   **SecondaryThenPrimary**
 
-Tijdens het instellen van de **LocationMode** naar **PrimaryThenSecondary**, als de eerste aanvraag voor leestoegang tot de primaire eindpunt mislukt met een herstelbare fout, de client automatisch een andere leesaanvraag naar het secundaire eindpunt maakt. Als de fout een time-out van de server is, hebben de client moet worden gewacht voor de time-out is verlopen voordat het een herstelbare fout van de service ontvangt.
+Als u instelt dat Hallo **LocationMode** te**PrimaryThenSecondary**als eerste Hallo lezen aanvraag toohello primaire eindpunt is mislukt met een herstelbare fout, Hallo client maakt automatisch een andere lezen secundair eindpunt toohello aanvragen. Als Hallo-fout een time-out van de server is, klikt u vervolgens hebben Hallo client toowait voor Hallo time-out tooexpire voordat het een herstelbare fout van Hallo-service ontvangt.
 
-Er zijn in feite twee scenario's om u te overwegen wanneer u beslist reageren op een herstelbare fout:
+Er zijn in feite twee scenario's tooconsider wanneer u bepaalt hoe toorespond tooa herstelbare fout:
 
-*   Dit probleem is en een herstelbare fout niet de volgende aanvragen naar de primaire eindpunt wordt geretourneerd. Een voorbeeld van wanneer dit gebeurt mogelijk is wanneer er een tijdelijke fout.
+*   Dit is een probleem met geïsoleerde en volgende aanvragen toohello primaire eindpunt niet een herstelbare fout retourneert. Een voorbeeld van wanneer dit gebeurt mogelijk is wanneer er een tijdelijke fout.
 
-    In dit scenario wordt er is geen aanzienlijke prestaties voor het hebben van **LocationMode** ingesteld op **PrimaryThenSecondary** als dit alleen zelden gebeurt.
+    In dit scenario wordt er is geen aanzienlijke prestaties voor het hebben van **LocationMode** instellen te**PrimaryThenSecondary** als dit alleen zelden gebeurt.
 
-*   Dit is een probleem met ten minste één van de storage-services in de primaire regio en alle volgende aanvragen die service in de primaire regio waarschijnlijk herstelbare fouten retourneren, voor een bepaalde periode. Een voorbeeld hiervan is als de primaire regio volledig niet toegankelijk.
+*   Dit is een probleem met ten minste één van de opslagservices Hallo in de primaire regio Hallo en alle volgende aanvragen toothat-service in de primaire regio Hallo zijn waarschijnlijk tooreturn herstelbare fouten voor een bepaalde periode. Een voorbeeld hiervan is als de primaire regio Hallo volledig niet toegankelijk.
 
-    In dit scenario is het een op de prestaties omdat uw leesaanvragen wordt Probeer eerst het primaire eindpunt, wacht u totdat de time-out is verlopen en schakel over naar het secundaire eindpunt.
+    In dit scenario is het een op de prestaties omdat uw leesaanvragen wordt Probeer eerst de primaire eindpunt hello, op Hallo time-out tooexpire wachten en schakel toohello secundair eindpunt.
 
-Voor deze scenario's, moet u bepalen dat er een actieve probleem met het primaire eindpunt en verzendt alle aanvragen rechtstreeks naar het secundaire eindpunt gelezen door het instellen van de **LocationMode** eigenschap **SecondaryOnly**. Op dit moment moet u ook de toepassing uit te voeren in de modus alleen-lezen te wijzigen. Deze aanpak wordt ook wel de [Circuitonderbreker patroon](https://msdn.microsoft.com/library/dn589784.aspx).
+Voor deze scenario's, moet u bepalen dat er een lopende probleem met de primaire eindpunt Hallo en verzendt alle schijfleesaanvragen direct toohello secundair eindpunt door in te stellen Hallo **LocationMode** eigenschap te **SecondaryOnly**. Op dit moment moet u ook Hallo toepassing toorun in de modus alleen-lezen te wijzigen. Deze aanpak wordt ook wel Hallo [Circuitonderbreker patroon](https://msdn.microsoft.com/library/dn589784.aspx).
 
 ### <a name="update-requests"></a>Verzoeken om te werken
 
-Het patroon Circuitonderbreker kan ook worden toegepast voor het bijwerken van aanvragen. Echter worden niet updateaanvragen omgeleid naar secundaire opslag alleen-lezen is. Voor deze aanvragen, laat u de **LocationMode** eigenschap ingesteld op **PrimaryOnly** (de standaardinstelling). U kunt een waarde van toepassing op deze aanvragen – zoals 10 fouten in een rij- en als de drempelwaarde wordt voldaan, schakelt de toepassing in de modus alleen-lezen voor het afhandelen van deze fouten. U kunt dezelfde methoden gebruiken voor het retourneren van modus als die hieronder wordt beschreven in de volgende sectie over het patroon Circuitonderbreker bijwerken.
+Hallo Circuitonderbreker patroon kan ook worden toegepast tooupdate aanvragen. Updateaanvragen kunnen echter niet dat omgeleide toosecondary-opslag alleen-lezen is. Voor deze aanvragen, laat u Hallo **LocationMode** eigenschappenset te**PrimaryOnly** (Hallo standaard). toohandle deze fouten kunt u een aanvragen metrische toothese – zoals 10 fouten in een rij – toepassen en als de drempelwaarde wordt voldaan, schakelt u Hallo-toepassing in de modus alleen-lezen. U kunt dezelfde methoden voor het retourneren van tooupdate-modus als die hieronder wordt beschreven in de volgende sectie Hallo over Hallo Circuitonderbreker patroon Hallo.
 
 ## <a name="circuit-breaker-pattern"></a>Patroon voor Circuitonderbreker
 
-Het patroon Circuitonderbreker gebruiken in uw toepassing kunt voorkomen dat deze opnieuw wordt geprobeerd een bewerking die is waarschijnlijk geen herhaaldelijk. Kunt u de toepassing wordt uitgevoerd in plaats van exponentieel inneemt bij de bewerking is geprobeerd. Daarnaast wordt gedetecteerd wanneer het probleem is opgelost, op dat moment kan de toepassing probeer het opnieuw.
+Hallo Circuitonderbreker patroon gebruiken in uw toepassing kunt voorkomen dat deze opnieuw wordt geprobeerd een bewerking die waarschijnlijk toofail herhaaldelijk is. Kunt u Hallo toepassing toocontinue toorun in plaats van tijd in beslag bij bewerking Hallo exponentieel wordt herhaald. Daarnaast wordt gedetecteerd wanneer Hallo-fout is opgelost, waarmee de toepassing hello Hallo opnieuw kunt proberen.
 
-### <a name="how-to-implement-the-circuit-breaker-pattern"></a>Het implementeren van het patroon Circuitonderbreker
+### <a name="how-tooimplement-hello-circuit-breaker-pattern"></a>Hoe tooimplement Circuitonderbreker patroon Hallo
 
-Om aan te duiden dat er een actieve probleem met een primaire eindpunt is, kunt u controleren hoe vaak de client er een herstelbare fout optreedt. Omdat elk geval niet hetzelfde is, hebt u besluit de drempel die u wilt gebruiken voor de beslissing overschakelen naar het secundaire eindpunt en de toepassing uitvoert in de modus alleen-lezen. U kan bijvoorbeeld besluiten om uit te voeren van de switch als er 10 fouten in een rij met geen uitkomsten. Een ander voorbeeld is om over te schakelen als 90% van de aanvragen in een periode van 2 minuten mislukken.
+tooidentify dat er een actieve probleem met een primaire eindpunt is, kunt u controleren hoe vaak Hallo client er een herstelbare fout optreedt. Omdat elk geval niet hetzelfde is, hebt u toodecide Hallo drempel toouse voor Hallo besluit tooswitch toohello secundair eindpunt en Hallo toepassing uitvoeren in de modus alleen-lezen. U kan bijvoorbeeld tooperform Hallo switch besluit als er 10 fouten in een rij met geen uitkomsten. Een ander voorbeeld is tooswitch als 90% van het Hallo-aanvragen in een periode van 2 minuten mislukken.
 
-Voor het eerste scenario kunt u eenvoudig houden van een aantal van de fouten en als er een is voltooid voordat het maximum is bereikt de telling weer instellen op nul. Voor het tweede scenario is een manier om dit te implementeren voor gebruik van het object MemoryCache (in .NET). Voor elke aanvraag een CacheItem toevoegen aan de cache, de waarde instellen op geslaagd (1) of mislukt (0) en de verlooptijd ingesteld op 2 minuten vanaf nu (of wat uw tijdsbeperking is). Wanneer een vermelding verlooptijd is bereikt, wordt de vermelding automatisch verwijderd. Hierdoor krijgt u een venster met rolling 2 minuten. Elke keer dat u een aanvraag naar de service storage u eerst gebruiken een Linq-query over het MemoryCache-object voor het berekenen van het percentage succes door de waarden op te tellen en te delen door het aantal. Als het percentage succes zakt onder sommige drempelwaarde (zoals 10%), stelt de **LocationMode** eigenschap voor lezen aanvragen naar **SecondaryOnly** en schakel over naar de toepassing in de modus alleen-lezen voordat u doorgaat.
+Voor het eerste scenario hello, kunt u gewoon een telling van fouten van Hallo houden en als er een geslaagde alvorens maximale, stel Hallo aantal back-toozero Hallo. Voor het tweede scenario Hallo Hallo eenrichtingssessie tooimplement is toouse MemoryCache-object (in .NET). Voor elke aanvraag een CacheItem toohello cache toevoegen, Hallo waarde toosuccess (1) ingesteld of mislukt (0) en Hallo verlopen tijd too2 minuten ingesteld van nu (of wat uw tijdsbeperking is). Wanneer een vermelding verlooptijd is bereikt, wordt Hallo-vermelding automatisch verwijderd. Hierdoor krijgt u een venster met rolling 2 minuten. Telkens wanneer u een aanvraag toohello storage-service u eerst gebruiken een Linq-query in Hallo MemoryCache object toocalculate Hallo percentage geslaagd door het Hallo-waarden op te tellen en te delen door Hallo aantal. Als percentage geslaagd Hallo zakt onder sommige drempelwaarde (zoals 10%), stelt u Hallo **LocationMode** eigenschap voor schijfleesaanvragen te**SecondaryOnly** en schakel over naar de toepassing hello in alleen-lezenmodus voordat u kunt doorgaan.
 
-De drempelwaarde van fouten die worden gebruikt om te bepalen bij het maken van de switch kan variëren van services in uw toepassing, zodat u kunt overwegen om deze parameters kunnen worden geconfigureerd. Dit is ook waarin u kiest voor het afhandelen van herstelbare fouten van elke service afzonderlijk of als een, zoals eerder besproken.
+Hallo-drempelwaarde voor fouten gebruikt toodetermine wanneer toomake Hallo switch van service tooservice in uw toepassing, afwijken kan zodat u kunt overwegen om deze parameters kunnen worden geconfigureerd. Dit is ook u besluiten het toohandle herstelbare fouten van elke service afzonderlijk of als een, zoals eerder besproken.
 
-Andere overweging is hoe meerdere exemplaren van een toepassing verwerkt, en wat te doen wanneer u in elk exemplaar herstelbare fouten worden opgespoord. Bijvoorbeeld wellicht 20 VM's die worden uitgevoerd met dezelfde toepassing geladen. Verwerkt u elke instantie afzonderlijk? Als één exemplaar begint problemen, wilt u het antwoord op slechts één exemplaar beperken of u proberen wilt om alle exemplaren reageren op dezelfde manier als één exemplaar een probleem heeft? Afhandeling van de exemplaren afzonderlijk is veel eenvoudiger dan probeert te coördineren van het antwoord onder te brengen, maar hoe u dit doen is afhankelijk van de architectuur van uw toepassing.
+Een andere overweging is hoe toohandle meerdere exemplaren van een toepassing, en welke toodo wanneer u herstelbare fouten in elke instantie detecteren. Bijvoorbeeld wellicht 20 VM's die worden uitgevoerd met Hallo dezelfde toepassing geladen. Verwerkt u elke instantie afzonderlijk? Als één exemplaar begint problemen, wilt u toch toolimit Hallo antwoord toojust dat één exemplaar of wilt u toch tootry toohave alle exemplaren reageren in Hallo dezelfde manier als één exemplaar een probleem is? Hallo exemplaren afzonderlijk verwerking is veel eenvoudiger dan het antwoord van toocoordinate Hallo onder te brengen, maar hoe u dit doen is afhankelijk van de architectuur van uw toepassing.
 
-### <a name="options-for-monitoring-the-error-frequency"></a>Opties voor het controleren van de frequentie van de fout
+### <a name="options-for-monitoring-hello-error-frequency"></a>Opties voor het bewaken van Hallo fout frequentie
 
-Hebt u drie belangrijkste mogelijkheden voor het controleren van de frequentie van nieuwe pogingen in de primaire regio om te bepalen wanneer u overstapt op de secundaire regio en het wijzigen van de toepassing uit te voeren in de modus alleen-lezen.
+Hebt u drie belangrijkste mogelijkheden voor het bewaken van Hallo frequentie van nieuwe pogingen in de primaire regio Hallo in volgorde toodetermine wanneer tooswitch via toohello secundaire regio en wijzig Hallo toorun toepassing in de modus alleen-lezen.
 
-*   Toevoegen van een handler voor de [ **opnieuw proberen** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) gebeurtenis op de [ **OperationContext** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) object die u doorgeeft aan uw opslag aanvragen: dit is de methode weergegeven in dit artikel en gebruikt in de bijbehorende steekproef. Deze gebeurtenis geactiveerd wanneer de client een aanvraag opnieuw, zodat u bijhouden hoe vaak de client er een herstelbare fout op een primaire eindpunt optreedt.
+*   Toevoegen van een handler voor Hallo [ **opnieuw proberen** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) gebeurtenis op Hallo [ **OperationContext** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) object u tooyour opslag aanvragen doorgeeft – dit Hallo is methode weergegeven in dit artikel en gebruikt in Hallo begeleidende voorbeeld. Deze gebeurtenissen worden geactiveerd wanneer het Hallo-client een aanvraag opnieuw, zodat u hoe vaak tootrack Hallo client herstelbare fouten op een primaire eindpunt optreedt.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
     {
-        // Retrying in the primary region
+        // Retrying in hello primary region
         if (arguments.Request.Host == primaryhostname)
             ...
     };
     ```
 
-*   In de [ **Evaluate** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) methode in een beleid voor aangepaste opnieuw proberen, kunt u aangepaste code uitvoeren telkens wanneer een nieuwe poging plaatsvindt. Naast de opnemen wanneer een nieuwe poging gebeurt, dit biedt u eveneens de mogelijkheid om uw gedrag voor opnieuw proberen te wijzigen.
+*   In Hallo [ **Evaluate** ](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) methode in een beleid voor aangepaste opnieuw proberen, kunt u aangepaste code uitvoeren telkens wanneer een nieuwe poging plaatsvindt. In aanvulling toorecording wanneer een nieuwe poging gebeurt, wordt dit ook hebt u kans toomodify Hallo uw gedrag voor het opnieuw.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -172,7 +172,7 @@ Hebt u drie belangrijkste mogelijkheden voor het controleren van de frequentie v
             return null;
         }
 
-        // Monitor retries in the primary location
+        // Monitor retries in hello primary location
         ...
 
         // Determine RetryInterval and TargetLocation
@@ -183,37 +183,37 @@ Hebt u drie belangrijkste mogelijkheden voor het controleren van de frequentie v
     }
     ```
 
-*   De derde aanpak is het implementeren van een aangepaste bewakingsonderdeel in uw toepassing waarmee u uw eindpunt primaire opslag voortdurend met dummy schijfleesaanvragen pingt (zoals het lezen van een kleine blob) om de status te bepalen. Deze zou resources, maar een aanzienlijke duren. Wanneer er een probleem is gedetecteerd dat de drempel bereikt, voert u vervolgens het overschakelen naar **SecondaryOnly** en alleen-lezen-modus.
+*   Hallo derde aanpak is een aangepaste bewakingsonderdeel in uw toepassing die voortdurend uw eindpunt primaire opslag met dummy pingt tooimplement toodetermine aanvragen (zoals het lezen van een kleine blob) de status lezen. Deze zou resources, maar een aanzienlijke duren. Wanneer een probleem is gedetecteerd dat de drempel bereikt, u wilt uitvoeren, Hallo switch te**SecondaryOnly** en alleen-lezen-modus.
 
-U wilt overschakelen naar het primaire eindpunt gebruikt en het toestaan van updates op een bepaald moment. Als u een van de eerste twee methoden die hierboven worden genoemd, kan u gewoon Ga terug naar de primaire eindpunt en de updatemodus inschakelen nadat een willekeurig geselecteerde hoeveelheid tijd of het aantal bewerkingen is uitgevoerd. Vervolgens kunt u deze opnieuw de Pogingslogica doorlopen. Als het probleem is verholpen, blijft het primaire eindpunt gebruikt en dat de updates. Als er nog steeds een probleem is, zal deze één keer terug naar de secundaire eindpunt en de modus alleen-lezen overschakelen lukt de criteria die u hebt ingesteld.
+Op een bepaald moment zult u tooswitch back toousing Hallo primaire eindpunt en updates toestaan. Als een van de eerste twee methoden Hallo die hierboven worden genoemd, kan u gewoon overschakelen back toohello primaire eindpunt en updatemodus inschakelen nadat een willekeurig geselecteerde hoeveelheid tijd of het aantal bewerkingen zijn uitgevoerd. Vervolgens kunt u deze opnieuw Hallo Pogingslogica doorlopen. Als Hallo probleem is opgelost, wordt de toouse Hallo primaire eindpunt gaan en updates toestaan. Als u nog steeds een probleem is, zal deze zodra er meer back toohello secundaire eindpunt en alleen-lezenmodus overschakelen lukt Hallo criteria die u hebt ingesteld.
 
-Voor het derde scenario wanneer het eindpunt van de primaire opslag pingen weer mislukt, kunt u activeren de switch terug naar **PrimaryOnly** en doorgaan updates toestaan.
+Hallo derde scenario wanneer pingen Hallo primaire opslag eindpunt weer mislukt, kunt u activeren Hallo switch terug te**PrimaryOnly** en doorgaan updates toestaan.
 
 ## <a name="handling-eventually-consistent-data"></a>Uiteindelijk consistente gegevens verwerken
 
-RA-GRS werkt met het repliceren van transacties van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio is *uiteindelijk consistent*. Dit betekent dat alle transacties in de primaire regio uiteindelijk wordt weergegeven in de secundaire regio, maar dat er mogelijk een vertraging voordat ze worden weergegeven en of er is geen garantie de transacties in de secundaire regio in dezelfde volgorde als waarin ze oorspronkelijk zijn toegepast in de primaire regio binnenkomen. Als uw transacties in de secundaire regio volgorde plaatsvinden, u *mogelijk* Houd rekening met uw gegevens in de secundaire regio niet in een inconsistente status totdat de service de resultaten.
+RA-GRS werkt door transacties van Hallo primaire toohello secundaire regio te repliceren. Dit replicatieproces zorgt ervoor dat gegevens in de secundaire regio Hallo Hallo is *uiteindelijk consistent*. Dit betekent dat alle Hallo transacties in de primaire regio Hallo uiteindelijk wordt weergegeven in de secundaire regio hello, maar dat er mogelijk een vertraging voordat ze worden weergegeven en of er is geen garantie Hallo transacties binnenkomen in de secundaire regio Hallo in dezelfde als volgorde Hallo die waarin ze oorspronkelijk zijn toegepast in de primaire regio Hallo. Als uw transacties in de secundaire regio Hallo volgorde plaatsvinden, u *mogelijk* Houd rekening met uw gegevens in Hallo secundaire regio toobe in een inconsistente status totdat het Hallo-service de resultaten.
 
-De volgende tabel toont een voorbeeld van wat er gebeuren kan wanneer u de details van een werknemer haar een lid maken van bijwerken de *beheerders* rol. In dit voorbeeld hiervoor moet u bijwerken de **werknemer** entiteit en update een **beheerdersrol** entiteit met een telling van het totale aantal beheerders. U ziet hoe de updates volgorde in de secundaire regio worden toegepast.
+Hallo volgende tabel toont een voorbeeld van wat er gebeuren kan wanneer u de details van een werknemer toomake Hallo bijwerken haar lid zijn van Hallo *beheerders* rol. Voor Hallo mogelijk te houden in dit voorbeeld, hiervoor moet u bijwerken Hallo **werknemer** entiteit en update een **beheerdersrol** entiteit met een telling van totaal aantal beheerders Hallo. U ziet hoe Hallo updates volgorde in Hallo secundaire regio worden toegepast.
 
 | **Tijd** | **Transactie**                                            | **Replicatie**                       | **Tijd van laatste synchronisatie** | **Resultaat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
-| T0       | Transactie A: <br> Werknemer invoegen <br> entiteit in primaire |                                   |                    | Transactie A ingevoegd op primaire,<br> nog niet gerepliceerd. |
-| T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundaire | T1 | Een transactie is gerepliceerd naar de secundaire. <br>Tijd van laatste synchronisatie is bijgewerkt.    |
-| T2       | Transactie B:<br>Update<br> werknemer-entiteit<br> in primaire  |                                | T1                 | Transactie geschreven naar de primaire B<br> nog niet gerepliceerd.  |
-| T3       | Transactie C:<br> Update <br>Beheerder<br>de entiteit rol in<br>primaire |                    | T1                 | Transactie geschreven naar de primaire, C<br> nog niet gerepliceerd.  |
-| *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundaire | T1         | Transactie C gerepliceerd naar de secundaire.<br>LastSyncTime niet bijgewerkt, omdat <br>transactie B is nog niet gerepliceerd.|
-| *T 5*     | Entiteiten lezen <br>secundaire                           |                                  | T1                 | Ophalen van de verouderde waarde voor de werknemer <br> entiteit omdat de transactie B nog niet <br> nog gerepliceerd. Ophalen van de nieuwe waarde voor<br> Administrator-rol entiteit omdat C<br> gerepliceerd. Tijd van laatste synchronisatie is nog steeds niet<br> is bijgewerkt, omdat de transactie B<br> nog niet gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat de entiteit datum/tijd na <br>de tijd van laatste synchronisatie. |
+| T0       | Transactie A: <br> Werknemer invoegen <br> entiteit in primaire |                                   |                    | Een transactie ingevoegd tooprimary,<br> nog niet gerepliceerd. |
+| T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundaire | T1 | Een transactie toosecondary gerepliceerd. <br>Tijd van laatste synchronisatie is bijgewerkt.    |
+| T2       | Transactie B:<br>Update<br> werknemer-entiteit<br> in primaire  |                                | T1                 | Transactie B tooprimary, geschreven<br> nog niet gerepliceerd.  |
+| T3       | Transactie C:<br> Update <br>Beheerder<br>de entiteit rol in<br>primaire |                    | T1                 | Transactie C tooprimary, geschreven<br> nog niet gerepliceerd.  |
+| *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundaire | T1         | Transactie C toosecondary gerepliceerd.<br>LastSyncTime niet bijgewerkt, omdat <br>transactie B is nog niet gerepliceerd.|
+| *T 5*     | Entiteiten lezen <br>secundaire                           |                                  | T1                 | U opvragen Hallo verouderde waarde voor werknemer <br> entiteit omdat de transactie B nog niet <br> nog gerepliceerd. Ophalen van de nieuwe waarde Hallo voor<br> Administrator-rol entiteit omdat C<br> gerepliceerd. Tijd van laatste synchronisatie is nog steeds niet<br> is bijgewerkt, omdat de transactie B<br> nog niet gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat Hallo entiteit datum/tijd na <br>Hallo tijd van laatste synchronisatie. |
 | *T6*     |                                                      | Transactie B<br> gerepliceerd naar<br> secundaire | T6                 | *T6* – alle transacties via C hebben <br>zijn gerepliceerd, tijd van laatste synchronisatie<br> is bijgewerkt. |
 
-In dit voorbeeld wordt ervan uitgegaan dat de client overschakelt naar het lezen van de secundaire regio op t 5. Deze kan lezen de **beheerdersrol** entiteit op dit moment, maar de entiteit bevat een waarde op voor het aantal komt niet overeen met het aantal beheerders **werknemer** entiteiten die zijn gemarkeerd als beheerders in de secundaire regio op dit moment. De client kan deze waarde, met het risico dat het inconsistente informatie is gewoon weergeven. U kunt ook de client kan proberen om te bepalen die de **beheerdersrol** is een mogelijk inconsistente status omdat de updates is een ongeldige volgorde, en vervolgens de gebruiker van dit feit informeert.
+In dit voorbeeld wordt ervan uitgegaan Hallo client switches tooreading van de secundaire regio Hallo op t 5. Het Hallo kan lezen **beheerdersrol** entiteit op dit moment maar Hallo entiteit bevat een waarde voor Hallo aantal beheerders die is niet consistent met de Hallo aantal **werknemer** entiteiten die zijn gemarkeerd als beheerders in de secundaire regio Hallo op dit moment. De client kan deze waarde, met Hallo risico dat het inconsistente informatie is gewoon weergeven. U kunt ook Hallo-client kan proberen toodetermine die Hallo **beheerdersrol** heeft een mogelijk inconsistente status omdat het Hallo-updates is een ongeldige volgorde en vervolgens informeert Hallo gebruiker van dit feit.
 
-Voor het herkennen van of deze heeft mogelijk inconsistente gegevens, de client gebruikt de waarde van de *tijd van laatste synchronisatie* dat u op elk gewenst moment ophalen kunt door het opvragen van een storage-service. Weet u de tijd waarop de gegevens in de secundaire regio laatst consistent en wanneer de service alle transacties voorafgaand aan dat punt in tijd waren toegepast. In het voorbeeld hierboven, nadat de service wordt ingevoegd de **werknemer** entiteit in de secundaire regio, de tijd van laatste synchronisatie is ingesteld op *T1*. Blijft *T1* tot de service-updates de **werknemer** entiteit in de secundaire regio wanneer deze is ingesteld op *T6*. Als de client worden opgehaald van de tijd van laatste synchronisatie het lezen van de entiteit op *t 5*, deze kan worden vergeleken met de tijdstempel op de entiteit. Als de tijdstempel op de entiteit later dan de tijd van laatste synchronisatie is, klikt u vervolgens de entiteit is een mogelijk inconsistente status heeft en u kunt nemen wat is de juiste actie voor uw toepassing. In dit veld is vereist dat u weet waarop het laatst is bijgewerkt naar de primaire is voltooid.
+toorecognize dat er mogelijk inconsistente gegevens, Hallo-client kunt Hallo waarde gebruiken Hallo *tijd van laatste synchronisatie* dat u op elk gewenst moment ophalen kunt door het opvragen van een storage-service. Weet u Hallo tijd waarop het Hallo-gegevens in de secundaire regio Hallo laatst consistent en wanneer Hallo service waren toegepast alle transacties voorafgaande toothat punt in tijd Hallo. In het bovenstaande nadat het Hallo-service wordt ingevoegd Hallo voorbeeld Hallo **werknemer** entiteit in de secundaire regio Hallo Hallo tijd van laatste synchronisatie is ingesteld te*T1*. Blijft *T1* totdat het Hallo-service-updates voor Hallo **werknemer** entiteit in de secundaire regio hello te is ingesteld*T6*. Als client Hallo Hallo tijd van laatste synchronisatie Hallo-entiteit bij het lezen opgehaald *t 5*, deze kan worden vergeleken met Hallo tijdstempel op Hallo entiteit. Als Hallo tijdstempel op Hallo entiteit later dan Hallo is gesynchroniseerd op tijd, en vervolgens hello entiteit is een mogelijk inconsistente status heeft en u kunt nemen wat de juiste actie Hallo voor uw toepassing is. In dit veld is vereist dat u weet wanneer Hallo laatste update toohello primaire is voltooid.
 
 ## <a name="testing"></a>Testen
 
-Het is belangrijk om te testen dat uw toepassing werkt zoals verwacht wanneer herstelbare fouten worden aangetroffen. Bijvoorbeeld, wilt u testen dat de toepassing aan de secundaire en in de modus alleen-lezen wanneer deze een probleem detecteert en verandert teruggeschakeld wanneer de primaire regio weer beschikbaar. Om dit te doen, moet u een manier om te simuleren herstelbare fouten en beheer op hoe vaak ze voorkomen.
+Het is belangrijk tootest die uw toepassing werkt zoals verwacht wanneer herstelbare fouten worden aangetroffen. Bijvoorbeeld, moet u tootest die toepassing switches toohello secundaire hello en in de modus alleen-lezen wanneer er een probleem gedetecteerd en activeren wanneer de primaire regio Hallo weer beschikbaar is. toodo, u moet een manier toosimulate herstelbare fouten en bepalen hoe vaak ze voorkomen.
 
-U kunt [Fiddler](http://www.telerik.com/fiddler) onderscheppen en HTTP-antwoorden in een script wijzigen. Dit script kunt identificeren van reacties die afkomstig van uw primaire eindpunt zijn en de HTTP-statuscode wijzigen dat de Opslagclientbibliotheek wordt herkend als een herstelbare fout. Dit codefragment toont een eenvoudig voorbeeld van een Fiddler-script waarmee antwoorden onderschept moeten worden gelezen aanvragen op basis van de **employeedata** tabel de status 502:
+U kunt [Fiddler](http://www.telerik.com/fiddler) toointercept en HTTP-antwoorden in een script te wijzigen. Dit script kunt identificeren van reacties die afkomstig van uw primaire eindpunt zijn en wijzig Hallo HTTP-status code tooone die Hallo die Storage-clientbibliotheek wordt herkend als een herstelbare fout. Dit codefragment toont een eenvoudig voorbeeld van een script Fiddler die antwoorden tooread aanvragen op basis van Hallo onderschept **employeedata** tabel tooreturn status 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -225,12 +225,12 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-U kunt dit voorbeeld voor het onderscheppen van een breed scala aan aanvragen en alleen wijzigen uitbreiden de **responseCode** op sommige hiervan een Praktijkscenario beter te simuleren. Zie voor meer informatie over het aanpassen van Fiddler scripts [wijzigen van een aanvraag of antwoord](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in de documentatie van Fiddler.
+U kan een groter aantal aanvragen voor dit voorbeeld toointercept uitbreiden en alleen wijzigen Hallo **responseCode** op sommige van deze toobetter een Praktijkscenario simuleren. Zie voor meer informatie over het aanpassen van Fiddler scripts [wijzigen van een aanvraag of antwoord](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in Hallo Fiddler documentatie.
 
-Als u de drempelwaarden voor het overschakelen van uw toepassing naar de alleen-lezen-modus worden geconfigureerd hebt aangebracht, worden deze eenvoudiger is om het gedrag met niet-productieve transactie volumes te testen.
+Als u hebt aangebracht Hallo drempelwaarden voor het overschakelen van uw toepassing tooread alleen-lezen-modus worden geconfigureerd, worden deze eenvoudiger tootest Hallo gedrag met niet-productieve transactie volumes.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over leestoegang geografische redundantie, met inbegrip van een ander voorbeeld van hoe de LastSyncTime is ingesteld, neem [Windows Azure-opslagopties redundantie en geografisch redundante opslag met leestoegang](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Zie voor meer informatie over leestoegang geografische redundantie, met inbegrip van een ander voorbeeld van hoe Hallo LastSyncTime is ingesteld, neem [Windows Azure-opslagopties redundantie en geografisch redundante opslag met leestoegang](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-* Zie voor een compleet codevoorbeeld waarin wordt getoond hoe u de schakeloptie heen en weer tussen de primaire en secundaire eindpunten, [Azure Samples – het Circuitonderbreker-patroon gebruiken met RA-GRS-storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+* Zie voor een compleet codevoorbeeld die laat zien hoe toomake heen en weer schakelen tussen de primaire en secundaire eindpunten Hallo Hallo, [Azure Samples – met Hallo Circuitonderbreker patroon met RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

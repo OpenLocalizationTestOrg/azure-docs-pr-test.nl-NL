@@ -1,6 +1,6 @@
 ---
-title: Beheer van lab-beleid in Azure DevTest Labs | Microsoft Docs
-description: "Informatie over het lab beleid zoals VM-grootten, maximum aantal virtuele machines per gebruiker en afsluiten automation definiëren."
+title: labbeleidsregels aaaManage in Azure DevTest Labs | Microsoft Docs
+description: Meer informatie over hoe toodefine labbeleidsregels zoals VM-groottes, maximum aantal virtuele machines per gebruiker, en automatisering afsluiten.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -15,99 +15,99 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 351b3645a1fd729455884e5d177877c2986bd853
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Alle beleidsregels voor een testomgeving in Azure DevTest Labs beheren
 
-Azure DevTest Labs kunt u de kosten te beheren en afval in uw labs minimaliseren door het beleid (instellingen) beheren voor elke lab. In dit artikel stapsgewijze wordt gedetailleerd uitgelegd hoe u elk beleid instelt.  
+Azure DevTest Labs kunt u de kosten te beheren en afval in uw labs minimaliseren door het beleid (instellingen) beheren voor elke lab. In dit artikel wordt stapsgewijs gedetailleerd uitgelegd hoe tooset elk beleid.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>Set toegestane grootten van virtuele machines
-Het beleid voor het instellen van de toegestane VM-grootten helpt te minimaliseren lab verspilling kunt u opgeven welke VM-grootten zijn toegestaan in de testomgeving. Als dit beleid is geactiveerd, kan alleen VM-grootten uit deze lijst kunnen worden gebruikt voor het maken van virtuele machines.
+Hallo toegestaan-beleid voor instelling Hallo VM-grootten helpt toominimize lab afval doordat u toospecify welke VM-grootten zijn toegestaan in Hallo lab. Als dit beleid is geactiveerd, zijn alleen VM-grootten uit deze lijst gebruikte toocreate virtuele machines.
 
-1. Op de testomgeving **configuratie en het beleid** blade Selecteer **toegestane grootten voor virtuele machines**.
+1. Op de Hallo lab **configuratie en het beleid** blade Selecteer **toegestane grootten voor virtuele machines**.
    
     ![Grootten van de toegestane virtuele machines](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
-1. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
+1. Selecteer **op** tooenable dit beleid en **uit** toodisable deze.
 
 1. Als u dit beleid inschakelt, selecteert u een of meer VM-grootten die kunnen worden gemaakt in uw testomgeving.
 
 1. Selecteer **Opslaan**.
 
 ## <a name="set-virtual-machines-per-user"></a>Set virtuele machines per gebruiker
-Het beleid voor **virtuele machines per gebruiker** kunt u het maximum aantal VM's die kunnen worden gemaakt door een afzonderlijke gebruiker opgeven. Als een gebruiker probeert te maken of een virtuele machine wanneer de gebruikerslimiet is bereikt, wordt een foutbericht geeft aan dat de virtuele machine kan niet gemaakt/geclaimd worden. 
+beleid voor Hallo **virtuele machines per gebruiker** kunt u toospecify Hallo maximum aantal VM's die kunnen worden gemaakt door een afzonderlijke gebruiker. Als een gebruiker probeert toocreate of claim een virtuele machine wanneer Hallo gebruikerslimiet is bereikt, wordt een foutbericht dat Hallo die VM kan niet worden gemaakt/geclaimd aangeeft. 
 
-1. Op de testomgeving **configuratie en het beleid** selecteert u **virtuele machines per gebruiker**.
+1. Op de Hallo lab **configuratie en het beleid** selecteert u **virtuele machines per gebruiker**.
    
     ![Virtuele machines per gebruiker](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Selecteer **Ja** beperken het aantal virtuele machines per gebruiker. Als u niet beperken het aantal virtuele machines per gebruiker wilt, schakelt u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft van het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
+1. Selecteer **Ja** toolimit Hallo aantal virtuele machines per gebruiker. Als u niet dat toolimit Hallo aantal virtuele machines per gebruiker wilt, schakelt u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
 
-1. Selecteer **Ja** beperken het aantal virtuele machines met SSD (SSD-schijf). Als u niet wilt beperken het aantal virtuele machines die gebruik van SSD **Nee**. Als u selecteert **Ja**, voer een waarde die het maximum aantal VM's die kunnen worden gemaakt met SSD aangeeft. 
+1. Selecteer **Ja** toolimit Hallo aantal virtuele machines met SSD (SSD-schijf). Als u niet dat toolimit Hallo aantal virtuele machines die SSD gebruiken wilt kunt, selecteert u **Nee**. Als u selecteert **Ja**, voer een waarde die aangeeft Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt met SSD. 
 
 1. Selecteer **Opslaan**.
 
 ## <a name="set-virtual-machines-per-lab"></a>Set virtuele machines per lab
-Het beleid voor **virtuele machines per lab** kunt u het maximum aantal VM's die kunnen worden gemaakt voor het huidige lab opgeven. Als een gebruiker een virtuele machine maken probeert wanneer de limiet van het lab is voldaan, wordt een foutbericht geeft aan dat de virtuele machine kan niet worden gemaakt. 
+beleid voor Hallo **virtuele machines per lab** kunt u toospecify Hallo maximum aantal VM's die kunnen worden gemaakt voor de huidige lab Hallo. Als een gebruiker een virtuele machine toocreate probeert wanneer Hallo lab limiet is bereikt, geeft een foutbericht weergegeven dat Hallo die VM kan niet worden gemaakt. 
 
-1. Op de testomgeving **configuratie en het beleid** selecteert u **virtuele machines per lab**.
+1. Op de Hallo lab **configuratie en het beleid** selecteert u **virtuele machines per lab**.
    
     ![Virtuele machines per lab](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Selecteer **Ja** beperken het aantal virtuele machines per lab. Als u niet beperken het aantal virtuele machines per lab wilt, selecteert u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft van het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
+1. Selecteer **Ja** toolimit Hallo aantal virtuele machines per lab. Als u niet dat toolimit Hallo aantal virtuele machines per lab wilt, selecteert u **Nee**. Als u selecteert **Ja**, Geef een numerieke waarde die aangeeft Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt of door een gebruiker geclaimd. 
 
-1. Selecteer **Ja** beperken het aantal virtuele machines met SSD (SSD-schijf). Als u niet wilt beperken het aantal virtuele machines die gebruik van SSD **Nee**. Als u selecteert **Ja**, voer een waarde die het maximum aantal VM's die kunnen worden gemaakt met SSD aangeeft. 
+1. Selecteer **Ja** toolimit Hallo aantal virtuele machines met SSD (SSD-schijf). Als u niet dat toolimit Hallo aantal virtuele machines die SSD gebruiken wilt kunt, selecteert u **Nee**. Als u selecteert **Ja**, voer een waarde die aangeeft Hallo kunt u het maximum aantal VM's die kunnen worden gemaakt met SSD. 
 
 1. Selecteer **Opslaan**.
 
 ## <a name="set-auto-shutdown"></a>Stel automatisch afsluiten
-Het beleid voor automatisch afsluiten helpt te minimaliseren lab verspilling doordat u de tijd die dit lab virtuele machines afsluiten opgeven.
+Hallo automatisch afsluiten beleid helpt toominimize lab afval doordat u toospecify Hallo wanneer dit lab VMs afgesloten.
 
-1. Op de testomgeving **configuratie en het beleid** blade Selecteer **automatisch afsluiten**.
+1. Op de Hallo lab **configuratie en het beleid** blade Selecteer **automatisch afsluiten**.
    
     ![Automatisch afsluiten](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
+1. Selecteer **op** tooenable dit beleid en **uit** toodisable deze.
 
-1. Als u dit beleid inschakelt, geef de tijd (en tijdzone) de alle VM's in het huidige lab af te sluiten.
+1. Als u dit beleid inschakelt, geef Hallo tijd (en tijdzone) tooshut omlaag alle VM's in de huidige lab Hallo.
 
-1. Geef **Ja** of **Nee** voor de optie een melding te verzenden 15 minuten voordat de tijd opgegeven automatisch afsluiten. Als u opgeeft **Ja**, voer een webhook-URL-eindpunt voor het ontvangen van de melding. Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Geef **Ja** of **Nee** voor Hallo optie toosend een melding 15 minuten voorafgaande toohello automatisch afsluiten tijd opgegeven. Als u opgeeft **Ja**, voer een webhook-URL-eindpunt tooreceive Hallo melding. Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecteer **Opslaan**.
 
-    Eenmaal is ingeschakeld, geldt dit beleid voor alle VM's in het huidige lab. Als deze instelling uit een specifieke virtuele machine verwijderen, de VM-blade open en wijzig de **automatisch afsluiten** instelling 
+    Standaard eenmaal is ingeschakeld, geldt dit beleid tooall virtuele machines in de huidige lab Hallo. Deze instelling van een specifieke virtuele machine, opent u tooremove Hallo van de virtuele machine blade en wijzig de **automatisch afsluiten** instelling 
 
 ## <a name="set-auto-start"></a>Set automatisch starten
-Het beleid voor automatisch starten, kunt u opgeven wanneer de virtuele machines in het huidige lab moeten worden gestart.  
+Hallo automatisch starten van beleid kunt u toospecify wanneer Hallo virtuele machines in de huidige lab Hallo moet worden gestart.  
 
-1. Op de testomgeving **configuratie en het beleid** blade Selecteer **automatisch starten**.
+1. Op het Hallo lab **configuratie en het beleid** blade Selecteer **automatisch starten**.
    
     ![Automatisch starten](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-2. Selecteer **op** waarmee dit beleid en **uit** dat u deze uitschakelt.
+2. Selecteer **op** tooenable dit beleid en **uit** toodisable deze.
 
-3. Als u dit beleid inschakelt, geeft u het geplande begintijdstip, tijdzone en de dagen van de week waarop de tijd van toepassing is. 
+3. Als u dit beleid inschakelt, geef Hallo geplande begintijd, tijdzone en Hallo dagen van de week van Hallo welke Hallo tijd van toepassing is. 
 
 4. Selecteer **Opslaan**.
 
-    Eenmaal is ingeschakeld, wordt dit beleid niet automatisch toegepast op alle virtuele machines in het huidige lab. Als u wilt deze instelling toepast op een specifieke virtuele machine, van de VM-blade open en wijzig de **automatisch starten** instelling 
+    Eenmaal is ingeschakeld, dit beleid is niet automatisch toegepast tooany virtuele machines in de huidige lab Hallo. tooapply deze instelling tooa specifieke virtuele machine, blade van open Hallo van de virtuele machine en wijzig de **automatisch starten** instelling 
 
 ## <a name="set-expiration-date"></a>Verloopdatum instellen
-U kunt een vervaldatum instellen datum wanneer u [de virtuele machine maken](devtest-lab-add-vm.md). In **geavanceerde instellingen**, kies het pictogram Agenda om op te geven van een datum op waarop de virtuele machine automatisch worden verwijderd.  Standaard wordt de virtuele machine nooit verlopen.
+U kunt een vervaldatum instellen datum wanneer u [Hallo VM maken](devtest-lab-add-vm.md). In **geavanceerde instellingen**, kies Hallo kalender pictogram toospecify een datum waarop Hallo VM automatisch worden verwijderd.  Standaard Hallo VM nooit verloopt.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u hebt gedefinieerd en de verschillende VM-beleidsinstellingen worden toegepast op uw lab, zijn hier proberen het volgende:
+Zodra u hebt gedefinieerd en toegepast Hallo van verschillende instellingen voor virtuele machine voor uw testomgeving, Hier vindt u enkele dingen tootry volgende:
 
-* [Gedeelde IP-adressen begrijpen](devtest-lab-shared-ip.md) -wordt uitgelegd hoe gedeelde IP adressen worden gebruikt in DevTest Labs om het aantal openbare IP-adressen die zijn vereist om verbinding met uw lab VM's te minimaliseren.
-* [Kostenbeheer van configureren](devtest-lab-configure-cost-management.md) -laat zien hoe u de **maandelijkse geschatte kosten Trend** grafiek  
-  Als u wilt weergeven van de huidige maand de geschatte kosten-to-date en de geschatte kosten van de laatste van de maand.
-* [Maken van aangepaste installatiekopie](devtest-lab-create-template.md) : wanneer u een virtuele machine, maakt u een basis, kan dit een aangepaste installatiekopie of een Marketplace-installatiekopie opgeven. In dit artikel laat zien hoe een aangepaste installatiekopie maken van een VHD-bestand.
-* [Configureren van installatiekopieën van Marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs ondersteunt het maken van virtuele machines op basis van Azure Marketplace-installatiekopieën. Dit artikel wordt beschreven hoe u kunt opgeven die, indien aanwezig, Azure Marketplace-installatiekopieën kunnen worden gebruikt bij het maken van virtuele machines in een testomgeving.
-* [Een virtuele machine maken in een testomgeving](devtest-lab-add-vm-with-artifacts.md) -ziet u hoe u een virtuele machine maken van een basisinstallatiekopie (een aangepaste of Marketplace), en het werken met artefacten in uw virtuele machine.
+* [Gedeelde IP-adressen begrijpen](devtest-lab-shared-ip.md) -wordt uitgelegd hoe gedeelde IP adressen worden gebruikt in DevTest Labs toominimize Hallo aantal openbare IP-adressen vereist tooconnect tooyour lab virtuele machines.
+* [Kostenbeheer van configureren](devtest-lab-configure-cost-management.md) -illustreert hoe toouse hello **maandelijkse geschatte kosten Trend** grafiek  
+  tooview Hallo maand geschatte kosten-to-date en Hallo geprojecteerd einde van de maand kosten.
+* [Maken van aangepaste installatiekopie](devtest-lab-create-template.md) : wanneer u een virtuele machine, maakt u een basis, kan dit een aangepaste installatiekopie of een Marketplace-installatiekopie opgeven. In dit artikel ziet u hoe toocreate een aangepaste installatiekopie van een VHD-bestand.
+* [Configureren van installatiekopieën van Marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs ondersteunt het maken van virtuele machines op basis van Azure Marketplace-installatiekopieën. Dit artikel wordt beschreven hoe toospecify die, indien aanwezig, Azure Marketplace-installatiekopieën kunnen worden gebruikt bij het maken van virtuele machines in een testomgeving.
+* [Een virtuele machine maken in een testomgeving](devtest-lab-add-vm-with-artifacts.md) -ziet u hoe een virtuele machine uit een basisinstallatiekopie toocreate (ofwel aangepaste of Marketplace), en hoe toowork met artefacten in uw virtuele machine.
 

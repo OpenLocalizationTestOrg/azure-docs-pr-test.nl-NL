@@ -17,7 +17,7 @@
 ### [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
-## IP-stromen naar en van een VM verifiëren
+## Controleer of IP-stromen tooand van een virtuele machine
 ### [Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
@@ -59,8 +59,8 @@
 # Procedures
 ## [VPN Gateway bewaken met Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Problemen met on-premises connectiviteit via VPN Gateway vaststellen](network-watcher-diagnose-on-premises-connectivity.md)
-## [Pakketopnamen analyseren om afwijkingen te vinden](network-watcher-deep-packet-inspection.md)
-## [Pakketopname gebruiken voor proactieve netwerkbewaking met Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+## [Pakket opnamen toofind afwijkingen analyseren](network-watcher-deep-packet-inspection.md)
+## [Pakket vastleggen toodo proactieve netwerkbewaking met Azure Functions gebruiken](network-watcher-alert-triggered-packet-capture.md)
 ## [Stroomlogboeken visualiseren met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ## [Stroomlogboeken visualiseren met open-sourcehulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ## [Netwerkverkeerspatronen visualiseren met open-sourcehulpprogramma's](network-watcher-using-open-source-tools.md)

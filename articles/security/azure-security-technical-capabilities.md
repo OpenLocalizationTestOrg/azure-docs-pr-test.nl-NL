@@ -1,6 +1,6 @@
 ---
-title: Technische mogelijkheden van Azure-beveiliging | Microsoft Docs
-description: Meer informatie over cloud-gebaseerde computers onder meer services als een groot aantal compute-exemplaren en services die kunnen worden geschaald omhoog en omlaag automatisch om te voldoen aan de behoeften van uw toepassing of enterprise.
+title: technische beveiligingsmogelijkheden aaaAzure | Microsoft Docs
+description: Meer informatie over cloud-gebaseerde computers onder meer services als een groot aantal compute-exemplaren en services die kunnen worden geschaald omhoog en omlaag automatisch toomeet Hallo behoeften van uw toepassing of enterprise.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a0ef17883be54dab4cb6b597204f3197dc05c28c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
-Bij de huidige en toekomstige Azure klanten begrijpen en gebruiken van de verschillende betrekking hebben op beveiliging mogelijkheden beschikbaar in en rond de Azure-Platform, Microsoft heeft ontwikkeld die een reeks whitepapers, overzichten van de beveiliging, Best Practices en Controlelijsten. De onderwerpen in termen van breedte en diepte liggen en regelmatig worden bijgewerkt. Dit document is onderdeel van de reeks zoals samengevat in de onderstaande sectie Abstract. Meer informatie over deze reeks Azure-beveiliging kan worden gevonden op (URL).
+tooassist huidige en toekomstige Azure-klanten begrijpen en te gebruiken Hallo verschillende beveiligingsgerelateerde-mogelijkheden beschikbaar in en omringende Hallo Azure-Platform, er is een reeks whitepapers, overzichten van de beveiliging, Best Practices, ontwikkeld en Controlelijsten. bereik van de onderwerpen in termen van breedte en diepte Hallo en regelmatig worden bijgewerkt. Dit document is onderdeel van de reeks zoals samengevat in Hallo abstracte sectie hieronder. Meer informatie over deze reeks Azure-beveiliging kan worden gevonden op (URL).
 
 ## <a name="azure-platform"></a>Azure-platform
 
-[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) een cloudplatform bestaat uit de infrastructuur en toepassingsservices met geïntegreerde gegevensservices en geavanceerde analyses en hulpprogramma's voor ontwikkelaars en -services, gehost in Microsoft van openbare cloud data centers. Klanten kunnen Azure gebruiken voor veel verschillende capaciteiten en scenario's, uit de basic compute, netwerk en opslag, mobiele en web-app-services, voor het volledige cloud-scenario's zoals Internet der dingen worden gebruikt met open-source technologieën en geïmplementeerd als hybride cloud of gehost binnen het datacenter van de klant. Azure biedt cloud technologie als bouwstenen kunnen bedrijven opslaan kosten, snel innoveren en systemen proactief beheren. Wanneer u bouwen op of IT-middelen naar een cloudprovider migreren, worden de mogelijkheden van die organisatie aan uw toepassingen en gegevens beschermen met de services en de besturingselementen die ze bieden voor het beheren van de beveiliging van uw assets cloud-gebaseerde afhankelijk.
+[Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) een cloudplatform bestaat uit de infrastructuur en toepassingsservices met geïntegreerde gegevensservices en geavanceerde analyses en hulpprogramma's voor ontwikkelaars en -services, gehost in Microsoft van openbare cloud data centers. Klanten kunnen Azure gebruiken voor veel verschillende capaciteiten en scenario's van basic compute, netwerk en opslag, toomobile en web-app-services, toofull cloud scenario's zoals Internet der dingen worden gebruikt met open-source technologieën en geïmplementeerd als hybride cloud of gehost binnen het datacenter van de klant. Azure biedt cloud technologie als bouwstenen toohelp bedrijven kosten besparen, snel innoveren en systemen proactief beheren. Wanneer u bouwen op of migreren van IT activa tooa cloudprovider, zijn u afhankelijk te zijn van die organisatie mogelijkheden tooprotect uw toepassingen en gegevens met Hallo services en ze toomanage Hallo beveiliging van uw cloud-gebaseerde activa bieden Hallo-besturingselementen.
 
-Microsoft Azure is de enige cloud computing-provider die biedt een veilige, consistente toepassingsplatform en infrastructuur-as-a-service voor teams werken binnen hun andere cloud vaardigheden en niveaus van project complexiteit, met geïntegreerde dataservices en analyses die onthullen intelligence van gegevens naar waar deze zich voor zowel Microsoft als niet-Microsoft-platforms, open frameworks en hulpprogramma's, biedt opties voor het integreren van cloud met on-premises evenals Azure-cloud-services binnen implementeren een on-premises datacenters. Als onderdeel van de Microsoft Cloud vertrouwd, zijn klanten afhankelijk van Azure voor toonaangevende beveiliging, betrouwbaarheid, naleving, privacy en het netwerk vast van mensen, partners en processen voor de ondersteuning van organisaties in de cloud.
+Microsoft Azure is Hallo alleen cloud computing provider die een veilige, consistente toepassingsplatform en infrastructuur-as-a-service voor toowork teams binnen hun andere cloud vaardigheden en niveaus van project complexiteit, met geïntegreerde gegevens biedt Services en analyses die onthullen intelligence van gegevens naar waar deze zich voor zowel Microsoft als niet-Microsoft-platforms, open frameworks en hulpprogramma's, biedt opties voor het integreren van cloud met on-premises evenals Azure-cloud-services binnen implementeren een on-premises datacenters. Als onderdeel van Microsoft vertrouwde Cloud hello, zijn klanten afhankelijk van Azure voor toonaangevende beveiliging, betrouwbaarheid, naleving, privacy en Hallo vast netwerk van de mensen, partners en processen toosupport organisaties in Hallo cloud.
 
 U kunt met Microsoft Azure:
 
-- Versnellen innovatie aan de cloud.
+- Innovatie Hallo cloud versnellen.
 
 - Power zakelijke beslissingen te nemen en apps met insights.
 
@@ -42,40 +42,40 @@ U kunt met Microsoft Azure:
 
 ## <a name="scope"></a>Bereik
 
-Het centrale punt van dit technisch document betreft beveiligingsfuncties en -functionaliteit ondersteunen de basisonderdelen van Microsoft Azure, namelijk [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL-Databases](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure virtuele machine model](https://docs.microsoft.com/azure/virtual-machines/    ), en de hulpprogramma's en de infrastructuur die alles beheren. Dit document de focus op Microsoft Azure technische mogelijkheden beschikbaar zijn voor u als klanten te voldoen aan de rol bij het beschermen van de beveiliging en privacy van gegevens.
+Hallo contactpunt van dit technisch document betreft beveiligingsfuncties en -functionaliteit ondersteunen de basisonderdelen van Microsoft Azure, namelijk [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL-Databases](https://docs.microsoft.com/azure/sql-database/), [Van Microsoft Azure virtuele machine model](https://docs.microsoft.com/azure/virtual-machines/  ), en Hallo-hulpprogramma's en infrastructuur die alles beheren. Dit technisch document ligt de nadruk op Microsoft Azure technische mogelijkheden beschikbaar tooyou als klanten toofulfil hun rol binnen het Hallo-beveiliging en privacy van gegevens te beveiligen.
 
-Het belang van inzicht in dit model gedeelde verantwoordelijkheid is essentieel voor klanten die zijn verplaatst naar de cloud. Cloudproviders bieden aanzienlijke voordelen voor beveiliging en naleving inspanningen, maar deze voordelen niet absolve doen voor de klant hun gebruikers, toepassingen en serviceaanbiedingen beveiligen.
+Hallo belang van inzicht in dit model gedeelde verantwoordelijkheid is essentieel voor klanten die toohello cloud verplaatst. Cloudproviders bieden aanzienlijke voordelen voor beveiliging en naleving inspanningen, maar deze voordelen komen niet absolve Hallo klant hun gebruikers, toepassingen en serviceaanbiedingen beveiligen.
 
-De klant is verantwoordelijk of een gedeelde verantwoordelijk is voor het beveiligen en beheren van het besturingssysteem, netwerkconfiguratie, toepassingen, identiteit, clients en gegevens voor IaaS-oplossingen.  PaaS-oplossingen bouwen op IaaS-implementaties, de klant is nog steeds zelf verantwoordelijk of een gedeelde verantwoordelijkheid voor het beveiligen en beheren van toepassingen, identiteit, clients en gegevens. Voor SaaS-oplossingen, Nonetheless, blijft de klant verantwoordelijk zijn. Ze moeten ervoor zorgen dat gegevens correct ingedeeld en ze een verantwoordelijkheid delen voor het beheren van hun gebruikers- en eindpunt-apparaten.
+Hallo klant verantwoordelijk is of een gedeelde verantwoordelijk is voor het beveiligen en beheren van Hallo-besturingssysteem, netwerkconfiguratie, toepassingen, identiteit, clients en gegevens voor IaaS-oplossingen.  PaaS-oplossingen bouwen op IaaS-implementaties, Hallo klant is nog steeds verantwoordelijk of een gedeelde verantwoordelijk is voor het beveiligen en beheren van toepassingen, identiteit, clients en gegevens. Voor SaaS-oplossingen, Nonetheless, blijft de klant Hallo toobe die verantwoordelijk zijn. Ze moeten ervoor zorgen dat gegevens correct ingedeeld en ze een toomanage verantwoordelijkheid hun gebruikers- en eindpunt-apparaten delen.
 
-Dit document biedt geen gedetailleerde dekking van elk van de bijbehorende onderdelen van Microsoft Azure-platform zoals Azure websites, Azure Active Directory, HDInsight, Media Services en andere services die op de belangrijkste onderdelen zijn gelaagd. Hoewel een minimaal niveau van algemene informatie is opgegeven, zijn lezers verondersteld bekend bent met Azure basisconcepten, zoals beschreven in andere verwijzingen naar door Microsoft geleverd en opgenomen in de koppelingen in dit document.
+Dit document biedt geen gedetailleerde dekking van elk Hallo Microsoft Azure-platform-onderdelen zoals Azure websites, Azure Active Directory, HDInsight, Media Services en andere services die zijn gelaagd op Hallo kernonderdelen gerelateerd. Hoewel een minimaal niveau van algemene informatie is opgegeven, zijn lezers verondersteld bekend bent met Azure basisconcepten, zoals beschreven in andere verwijzingen naar door Microsoft geleverd en opgenomen in de koppelingen in dit document.
 
 
-## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Beschikbare beveiligingsupdates technische mogelijkheden om te voldoen aan de verantwoordelijkheid van de gebruiker (klant) - grote afbeelding
+## <a name="available-security-technical-capabilities-toofulfil-user-customer-responsibility---big-picture"></a>Beschikbare beveiligingsupdates technische mogelijkheden toofulfil gebruiker (klant) verantwoordelijkheid - grote afbeelding
 
-Microsoft Azure biedt services waarmee klanten kunnen de beveiliging, privacy en naleving behoeften. De volgende afbeelding kunt u verschillende Azure-services beschikbaar zijn voor gebruikers voor het bouwen van een beveiligd en compatibel infrastructuur op basis van industrienormen uitgelegd.
+Microsoft Azure biedt services waarmee klanten kunnen voldoen aan de Hallo beveiliging, privacy en naleving behoeften. Hallo volgende afbeelding kunt uitgelegd verschillende Azure-services beschikbaar voor gebruikers toobuild een infrastructuur voor beveiligd en compatibel zijn op basis van industrienormen.
 
 ![Beschikbare beveiligingsupdates technische mogelijkheden Big-afbeelding](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
 ## <a name="manage-and-control-identity-and-user-access-protect"></a>Beheren en beheren van identiteiten en -toegang (beveiligen)
 
-Azure helpt u zakelijke en persoonlijke gegevens beveiligen doordat u uw gebruikers-id's en referenties beheren en toegang beheren.
+Azure helpt u zakelijke en persoonlijke gegevens beveiligen doordat u toomanage gebruikers-id's en referenties en toegang beheren.
 
 ### <a name="azure-active-directory"></a>Azure active directory
 
-Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud, extra niveaus van validatie van de multi-factor authentication en voorwaardelijke toegang inschakelen beleid. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) biedt eenmalige aanmelding tot duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitgevoerd.
+Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen toegang tooapplications en bronnen in zakelijke datacenter hello en in de cloud hello, extra niveaus van validatie van de multi-factor Authentication-verificatie en voorwaardelijke inschakelen beleid voor toegang. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) biedt eenmalige aanmelding toothousands van cloudtoepassingen (SaaS)-apps en toegang tooweb apps u on-premises uitgevoerd.
 
-Beveiligingsvoordelen van Azure Active Directory (AD) omvatten de mogelijkheid om te:
+Beveiligingsvoordelen van Azure Active Directory (AD) omvatten Hallo kunnen:
 
 - Maken en beheren van één identiteit voor elke gebruiker in uw onderneming hybride, gebruikers, groepen en apparaten synchroon te houden.
 
-- Eenmalige aanmelding toegang bieden tot uw toepassingen met inbegrip van duizenden vooraf geïntegreerde SaaS-apps.
+- Geef één aanmelding toegang tooyour toepassingen, waaronder duizenden vooraf geïntegreerde SaaS-apps.
 
 - Toepassingsbeveiliging toegang inschakelen door het afdwingen van multi-factor Authentication op basis van regels voor zowel on-premises en cloudtoepassingen.
 
-- Veilige externe toegang tot on-premises webtoepassingen via Azure AD-toepassingsproxy inrichten.
+- Inrichten veilige externe toegang tooon-premises webtoepassingen via Azure AD-toepassingsproxy.
 
-[Azure active directory-portal](http://aad.portal.azure.com/) vindt u een deel van de azure-portal. Uit dit dashboard kunt u een overzicht van de status van uw organisatie en eenvoudig Duik in de directory, gebruikers of toegang tot toepassingen beheren.
+[Azure active directory-portal](http://aad.portal.azure.com/) vindt u een deel van de azure-portal. Uit dit dashboard kunt u een overzicht van status van uw organisatie Hallo en eenvoudig Duik in de directory hello, gebruikers of toegang tot toepassingen beheren.
 
 ![Azure active directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -97,63 +97,63 @@ Volgende zijn belangrijkste Azure Identity management mogelijkheden:
 
 #### <a name="single-sign-on"></a>Eenmalige aanmelding
 
-[Eenmalige aanmelding (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt bij het gebruik van slechts één keer één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle de toepassingen die u nodig zonder hebt vereist om te verifiëren openen (bijvoorbeeld: Typ een wachtwoord) een tweede keer.
+[Eenmalige aanmelding (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) betekent kunnen tooaccess wordt alle Hallo toepassingen en bronnen die u toodo bedrijven, nodig wanneer u zich aanmeldt bij het gebruik van slechts één keer één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle Hallo toepassingen zonder de vereiste tooauthenticate wordt (bijvoorbeeld: Typ een wachtwoord) een tweede keer.
 
-Veel organisaties zijn afhankelijk van de software als een dienst (SaaS)-toepassingen zoals Office 365, het selectievakje en Salesforce voor de productiviteit van eindgebruikers. In het verleden hebben IT-personeel nodig afzonderlijk maken en bijwerken van gebruikersaccounts in elke SaaS-toepassing en moesten gebruikers een wachtwoord voor elke SaaS-toepassing.
+Veel organisaties zijn afhankelijk van de software als een dienst (SaaS)-toepassingen zoals Office 365, het selectievakje en Salesforce voor de productiviteit van eindgebruikers. In het verleden hebben IT-personeel nodig tooindividually maken en bijwerken van gebruikersaccounts in elke SaaS-toepassing en moesten gebruikers deze tooremember een wachtwoord op voor elke SaaS-toepassing.
 
-[Azure AD loopt door op de lokale Active Directory in de cloud](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), zodat gebruikers hun primaire organisatie-account niet alleen te gebruiken zich aanmelden bij hun apparaten domein en de resources van het bedrijf, maar ook alle de web- en SaaS-toepassingen die nodig zijn voor de taak.
+[Azure AD door op de lokale Active Directory in de cloud Hallo](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), waardoor gebruikers toouse hun primaire organisatie-account toonot alleen aanmelden tootheir domein apparaten en resources van het bedrijf, maar ook alle Hallo web- en SaaS-toepassingen nodig voor hun taak.
 
-Niet alleen gebruikers hoeven niet te beheren van meerdere sets met gebruikersnamen en wachtwoorden, toegang tot de toepassing kan worden automatisch ingerichte of ongedaan ingerichte op basis van organisatie-groepen en hun status als een werknemer. [Azure AD de beveiliging en toegang governance besturingselementen introduceert](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) waarmee u kunt het centraal beheren van toegang van gebruikers over SaaS-toepassingen.
+Niet alleen hebben gebruikers geen toomanage meerdere sets met gebruikersnamen en wachtwoorden, toegang tot de toepassing kan worden automatisch ingerichte of ongedaan ingerichte op basis van organisatie-groepen en hun status als een werknemer. [Azure AD de beveiliging en toegang governance besturingselementen introduceert](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) waarmee u toocentrally toegang van gebruikers in de SaaS-toepassingen beheren.
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure multi-factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is een methode voor verificatie dat vereist het gebruik van meer dan één verificatiemethode en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. [MFA helpt safeguard](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoonoproep, tekstbericht of mobiele app melding of verificatie van code en derden OAuth-tokens.
+[Azure multi-factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) is een methode voor verificatie dat Hallo gebruik van meer dan één verificatiemethode vereist en wordt toegevoegd een cruciale tweede beveiligingslaag van beveiliging toouser aanmeldingen en transacties. [MFA helpt safeguard](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) toodata en toepassingen te openen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoonoproep, tekstbericht of mobiele app melding of verificatie van code en derden OAuth-tokens.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Beveiligingsbewaking, waarschuwingen en machine learning gebaseerde rapporten
 
-Beveiligingsbewaking en waarschuwingen en machine learning gebaseerde rapporten die inconsistente toegangspatronen aangeven kunt u uw bedrijf te beveiligen. U kunt toegang tot Azure Active Directory- en gebruiksrapporten meer inzicht verkrijgen in de integriteit en beveiliging van de directory van uw organisatie. Met deze informatie kunt kan directory-beheerder beter bepalen waar mogelijk beveiligingsrisico's mogelijk liggen zodat ze voldoende plannen kunnen die risico's te beperken.
+Beveiligingsbewaking en waarschuwingen en machine learning gebaseerde rapporten die inconsistente toegangspatronen aangeven kunt u uw bedrijf te beveiligen. U kunt toegang tot Azure Active Directory en gebruik rapporten toogain inzicht in Hallo integriteit en beveiliging van de directory van uw organisatie gebruiken. Met deze informatie kunt kan directory-beheerder beter bepalen waar mogelijk beveiligingsrisico's zodat u ze kunnen toomitigate voldoende plannen die risico's kunnen liggen.
 
-In de klassieke Azure portal of via [Azure Active directory-portal](http://aad.portal.azure.com/), [rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) zijn onderverdeeld in de volgende manieren:
+In de klassieke Azure-portal Hallo of via [Azure Active directory-portal](http://aad.portal.azure.com/), [rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) zijn onderverdeeld in de volgende manieren Hallo:
 
-- Rapporten voor afwijkingsdetectie – bevatten aanmelden gebeurtenissen die we afwijkende worden gevonden. Ons doel is u rekening houden met deze activiteit en kunt u om te bepalen of een gebeurtenis verdacht is.
+- Rapporten voor afwijkingsdetectie – bevatten Meld u aan dat we toobe afwijkende gevonden gebeurtenissen. Ons doel is toomake u rekening houden met deze activiteit en kunt u toobe kunnen toodecide of een gebeurtenis verdacht is.
 
 - Geïntegreerde toepassing rapporten – bieden inzicht in hoe cloud-toepassingen in uw organisatie worden gebruikt. Azure Active Directory biedt integratie met duizenden cloud-toepassingen.
 
-- Foutenrapporten – duiden op fouten die zich kunnen voordoen bij het inrichten van accounts kunnen externe toepassingen.
+- Foutenrapporten – fouten die zich kunnen voordoen bij het inrichten van accounts tooexternal toepassingen aangeven.
 
 - Apparaat/teken weergeven gebruikersspecifieke rapporten – in de activiteitsgegevens voor een specifieke gebruiker.
 
-- Een record van alle controlegebeurtenissen bevatten activiteitenlogboeken – in de afgelopen 24 uur, afgelopen 7 dagen of afgelopen 30 dagen en wijzigingen in groep activiteiten en activiteit voor wachtwoord opnieuw instellen en registratie.
+- Activiteitenlogboeken – bevatten een record van alle controlegebeurtenissen binnen Hallo afgelopen 24 uur en de laatste 7 dagen, of afgelopen 30 dagen en wijzigingen in groep activiteiten en activiteit voor wachtwoord opnieuw instellen en registratie.
 
 #### <a name="consumer-identity-and-access-management"></a>Identiteits- en toegangsbeheer van consumenten
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) is een maximaal beschikbare, wereldwijde, identity management-service voor consumententoepassingen voor honderden miljoenen identiteiten. De service kan worden geïntegreerd in zowel mobiele als webplatforms. Uw klanten kunnen zich bij al uw toepassingen aanmelden via verschillende aanpasbare methoden met hun bestaande sociale accounts of door nieuwe aanmeldingsgegevens te maken.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) is een maximaal beschikbare, wereldwijde, identity management-service voor consumententoepassingen die schaalbaar toohundreds miljoenen identiteiten. De service kan worden geïntegreerd in zowel mobiele als webplatforms. Uw consumenten kunnen aanmelden tooall uw toepassingen via aanpasbare ervaringen met behulp van hun bestaande sociale accounts of maken van nieuwe referenties.
 
-In de afgelopen, toepassingsontwikkelaars die wilden [aanmelden en meld u aan consumenten](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) in hun toepassingen schreven hun eigen code. Bovendien gebruikten ze on-premises databases of systemen om gebruikersnamen en wachtwoorden op te slaan. Azure Active Directory B2C biedt uw organisatie een betere manier identiteitsbeheer van consumenten integreren in toepassingen met behulp van een veilige, op standaarden gebaseerd platform en een grote set uitbreidbare beleidsregels.
+In Hallo voorbij toepassingsontwikkelaars wie te wilde[aanmelden en meld u aan consumenten](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) in hun toepassingen schreven hun eigen code. En ze gebruikten lokale databases of systemen toostore gebruikersnamen en wachtwoorden. Azure Active Directory B2C biedt uw organisatie een betere manier toointegrate identiteitsbeheer van consumenten in toepassingen met help Hallo van een veilige, op standaarden gebaseerd platform en een grote set uitbreidbare beleidsregels.
 
 Wanneer u Azure Active Directory B2C gebruikt, uw consumenten zich registreren voor uw toepassingen met behulp van hun bestaande sociale accounts (Facebook, Google, Amazon, LinkedIn) of door het maken van nieuwe referenties (e-mailadres en wachtwoord of gebruikersnaam en wachtwoord).
 
 Apparaatregistratie
 
-[Azure AD-apparaatregistratie](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure Active Directory-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor verificatie van het apparaat wanneer de gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van voorwaardelijk toegangsbeleid voor toepassingen die in de cloud en on-premises worden gehost.
+[Azure AD-apparaatregistratie](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) is Hallo basis voor apparaatgebaseerde [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-device-registration-overview) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure Active Directory-apparaatregistratie Hallo-apparaat met een identiteit die is gebruikt tooauthenticate Hallo apparaat wanneer Hallo gebruiker zich aanmeldt. vervolgens Hallo geverifieerde apparaat en Hallo kenmerken van Hallo-apparaat, kunnen de gebruikte tooenforce beleidsregels voor voorwaardelijke toegang voor toepassingen die worden gehost in Hallo cloud en on-premises worden.
 
-In combinatie met een [beheer van mobiele apparaten (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) oplossing zoals Intune, de apparaatkenmerken in Azure Active Directory worden bijgewerkt met aanvullende informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance
+In combinatie met een [beheer van mobiele apparaten (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) oplossing zoals Intune, Hallo apparaatkenmerken in Azure Active Directory worden bijgewerkt met aanvullende informatie over het Hallo-apparaat. Hiermee kunt u regels voor voorwaardelijke toegang toocreate die toegang van apparaten toomeet afdwingen uw standaarden voor beveiliging en naleving.
 
 #### <a name="privileged-identity-management"></a>Beschermde identiteitsbeheer
 
-[Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) kunt u beheren, beheren, en controleren van bevoegde identiteiten en toegang tot bronnen in Azure AD en ook voor andere Microsoft online services, zoals Office 365 of Microsoft Intune.
+[Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) kunt u beheren, het beheren, en het controleren van bevoegde identiteiten en tooresources openen in Azure AD en ook voor andere Microsoft online services, zoals Office 365 of Microsoft Intune.
 
-Gebruikers moeten soms bij het uitvoeren van bevoorrechte bewerkingen in de resources in Azure of Office 365 of andere SaaS-apps. Dit betekent vaak dat organisaties hebben om hem permanente bevoegde toegang in Azure AD. Dit is een groeiende beveiligingsrisico voor cloud-gebaseerde bronnen omdat organisaties voldoende kunnen niet controleren wat gebruikers doen met hun beheerdersbevoegdheden. Als een gebruikersaccount met uitgebreide toegang is aangetast, kan die een inbreuk bovendien invloed op de algehele beveiliging van de cloud. Azure AD Privileged Identity Management helpt bij het oplossen van dit risico.
+Gebruikers moeten soms toocarry bevoorrechte bewerkingen in de resources in Azure of Office 365 of andere SaaS-apps. Dit betekent vaak organisaties hebben toogive ze permanente bevoegde toegang in Azure AD. Dit is een groeiende beveiligingsrisico voor cloud-gebaseerde bronnen omdat organisaties voldoende kunnen niet controleren wat gebruikers doen met hun beheerdersbevoegdheden. Als een gebruikersaccount met uitgebreide toegang is aangetast, kan die een inbreuk bovendien invloed op de algehele beveiliging van de cloud. Azure AD Privileged Identity Management helpt tooresolve dit risico.
 
 Azure AD Privileged Identity Management kunt u:
 
 - Zien welke gebruikers zijn Azure AD-beheerders
 
-- On-demand 'just in time' beheerderstoegang toewijzen voor Microsoft Online Services, zoals Office 365 en Intune inschakelen
+- On-demand 'just in time' beheerderstoegang tooMicrosoft Online Services, zoals Office 365 en Intune inschakelen
 
 - Rapporten over beheerder toegang tot geschiedenis en wijzigingen in beheerderstoewijzingen ophalen
 
-- Ontvang waarschuwingen over de toegang tot een bevoorrechte rol
+- Ontvang waarschuwingen over toegang tooa bevoorrechte rol
 
 #### <a name="identity-protection"></a>Identiteitsbeveiliging
 
@@ -161,60 +161,60 @@ Azure AD Privileged Identity Management kunt u:
 
 ## <a name="secured-resource-access-in-azure"></a>Toegang tot beveiligde bronnen in Azure
 
-Toegangsbeheer in Azure wordt gestart vanuit het oogpunt van facturering van. De eigenaar van een Azure-account toegankelijk in via de [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions), is het Account Administrator (AA). Abonnementen zijn een container voor facturering, maar ze ook fungeren als een beveiligingsgrens: elk abonnement heeft een Service Administrator (SA) die u kunt toevoegen, verwijderen en wijzigen van de Azure-resources in het desbetreffende abonnement met behulp van de [klassieke Azure-portal](https://manage.windowsazure.com/). De SA standaard van een nieuw abonnement is de AA, maar de AA de SA in het midden van Azure-Accounts kunt wijzigen.
+Toegangsbeheer in Azure wordt gestart vanuit het oogpunt van facturering van. Hallo-eigenaar van een Azure-account toegankelijk via Hallo [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions), Hallo Account Administrator (AA) is. Abonnementen zijn een container voor facturering, maar ze ook fungeren als een beveiligingsgrens: elk abonnement heeft een Service Administrator (SA) die u kunt toevoegen, verwijderen en wijzigen van de Azure-resources in het desbetreffende abonnement met behulp van Hallo [klassieke Azure-portal](https://manage.windowsazure.com/). Hallo standaard SA van een nieuw abonnement Hallo AA is, maar Hallo AA Hallo SA in hello Azure Accounts Center kunt wijzigen.
 
 ![Toegang tot beveiligde bronnen in Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
-Abonnementen hebben ook een koppeling naar een map. De map definieert een set van gebruikers. Deze kunnen gebruikers van werk of school dat de map gemaakt, of ze kunnen externe gebruikers (dat wil zeggen, een Microsoft-Accounts). Abonnementen zijn toegankelijk voor een subset van de directorygebruikers die zijn toegewezen als Service-beheerder (SA) of Medebeheerder (CA); de enige uitzondering hierop is dat, omwille van de oudere Microsoft-Accounts (voorheen Windows Live ID) kan worden toegewezen als SA of CA zonder aanwezig in de map.
+Abonnementen hebben ook een koppeling naar een map. Hallo directory definieert een set van gebruikers. Deze kunnen gebruikers van Hallo werk of school die Hallo directory gemaakt, of ze kunnen externe gebruikers (dat wil zeggen, een Microsoft-Accounts). Abonnementen zijn toegankelijk voor een subset van de directorygebruikers die zijn toegewezen als Service-beheerder (SA) of Medebeheerder (CA); Hallo alleen uitzondering is dat, omwille van de oudere Microsoft-Accounts (voorheen Windows Live ID) kan worden toegewezen als SA of CA zonder aanwezig is in het Hallo-directory.
 
-Beveiliging gerichte bedrijven moeten zich richten op uw werknemers de exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helpt dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.
+Beveiliging gerichte bedrijven moeten zich richten op uw werknemers Hallo exacte machtigingen die ze nodig hebben. Te veel machtigingen kunnen een account tooattackers worden blootgesteld. Te weinig machtigingen betekenen dat werknemers hun werk efficiënt kunnen niet ophalen. [Azure op rollen gebaseerde toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) helpt dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure.
 
 ![Toegang tot beveiligde bronnen ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Met RBAC kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties. Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
+Met RBAC kunt u taken scheiden binnen uw team en alleen Hallo hoeveelheid toousers toegang verlenen die zij nodig hebben tooperform hun werk. In plaats van iedereen geven onbeperkte machtigingen in uw Azure-abonnement of de bronnen, kunt u alleen bepaalde acties. Bijvoorbeeld gebruik RBAC toolet één werknemer virtuele machines in een abonnement beheren, terwijl andere kunt beheren van SQL-databases binnen Hallo hetzelfde abonnement.
 
 ![Toegang tot beveiligde bronnen in Azure(RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="azure-data-security-and-encryption-protect"></a>Azure gegevensbeveiliging en -versleuteling (beveiligen)
 
-Een van de sleutels voor bescherming van gegevens in de cloud is accounting voor de mogelijke statussen in die uw gegevens zich kunnen voordoen, en welke besturingselementen beschikbaar zijn voor die status. Voor Azure data encryption best practices voor beveiliging en aanbevelingen worden rond de statussen van de volgende gegevens.
+Een van de Hallo sleutels toodata beveiliging in de cloud Hallo is accounting voor Hallo mogelijke statussen in die uw gegevens zich kunnen voordoen, en welke besturingselementen beschikbaar zijn voor die status. Voor Azure gegevensbeveiliging en versleuteling Hallo aanbevelingen worden rond Hallo statussen van gegevens te volgen.
 
 - In rust: Dit omvat alle informatie opslagobjecten, containers en typen die statisch bestaan op de fysieke media, worden deze magnetische of optische schijf.
 
-- In Transit: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, zoals via het netwerk via een servicebus (van on-premises naar cloud en vice versa, inclusief hybride verbindingen zoals ExpressRoute) of tijdens een i/o, dit wordt beschouwd als worden in beweging.
+- In Transit: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, zoals via Hallo-netwerk via een servicebus (van lokale toocloud en vice versa, inclusief hybride verbindingen zoals ExpressRoute) of tijdens een i/o proces, dit wordt beschouwd als wordt in beweging.
 
 ### <a name="encryption--rest"></a>Versleuteling @ rest
 
-Als u versleuteling in de Rest van de volgende opties:
+tooachieve versleuteling in rust van Hallo volgende:
 
-Ondersteuning voor ten minste één van de aanbevolen versleuteling modellen in de volgende tabel wordt beschreven om gegevens te versleutelen.
+Ondersteuning voor ten minste één Hallo aanbevolen versleuteling modellen in detail beschreven op Hallo tooencrypt tabelgegevens te volgen.
 
 | Versleuteling modellen |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Server-versleuteling | Server-versleuteling | Server-versleuteling | Client-versleuteling
 | Serverzijde codering met sleutels voor Service beheerd | Serverzijde versleuteling met Customer-Managed sleutels in Azure Sleutelkluis | Server-side '-codering met on-premises beheer van de klant sleutels |
-| • Azure Resourceproviders de versleuteling en ontsleuteling bewerkingen uitvoeren <br> • Microsoft beheert de sleutels <br>• Volledige cloud-functionaliteit | • Azure Resourceproviders de versleuteling en ontsleuteling bewerkingen uitvoeren<br>• Klant bepaalt sleutels via Azure Sleutelkluis<br>• Volledige cloud-functionaliteit | • Azure Resourceproviders de versleuteling en ontsleuteling bewerkingen uitvoeren <br>• Klant bepaalt sleutels On-premises <br> • Volledige cloud-functionaliteit| • Azure-services te ontsleutelen gegevens niet zien <br>• Klanten houden van sleutels lokale (of in andere secure winkels). Sleutels zijn niet beschikbaar voor Azure-services <br>• Verminderd cloud-functionaliteit|
+| • Azure Resourceproviders Hallo-versleuteling en ontsleuteling bewerkingen uitvoeren <br> • Microsoft beheert Hallo sleutels <br>• Volledige cloud-functionaliteit | • Azure Resourceproviders Hallo-versleuteling en ontsleuteling bewerkingen uitvoeren<br>• Klant bepaalt sleutels via Azure Sleutelkluis<br>• Volledige cloud-functionaliteit | • Azure Resourceproviders Hallo-versleuteling en ontsleuteling bewerkingen uitvoeren <br>• Klant bepaalt sleutels On-premises <br> • Volledige cloud-functionaliteit| • Azure-services te ontsleutelen gegevens niet zien <br>• Klanten houden van sleutels lokale (of in andere secure winkels). Sleutels zijn niet beschikbaar tooAzure services <br>• Verminderd cloud-functionaliteit|
 
 ### <a name="enabling-encryption-at-rest"></a>Codering in rust inschakelen
 
 **Uw gegevens opslaat voor alle locaties te identificeren**
 
-Het doel van versleuteling in rust is om alle gegevens te versleutelen. Hierdoor wordt voorkomen dat de mogelijkheid van belangrijke gegevens of alle persistente locaties ontbreekt. Opsomming van alle gegevens die zijn opgeslagen door uw toepassing. 
+Hallo-doel van versleuteling in rust tooencrypt zijn alle gegevens. In dat geval elimineert Hallo mogelijkheid van belangrijke gegevens of alle persistente locaties ontbreekt. Opsomming van alle gegevens die zijn opgeslagen door uw toepassing. 
 
 > [!Note] 
-> Niet alleen 'toepassingsgegevens' of ' PII', maar geen gegevens met betrekking tot de toepassing zoals account metagegevens (abonnement toewijzingen van contract info, PII).
+> Niet alleen 'toepassingsgegevens' of ' PII', maar geen gegevens die verband houden met inbegrip van tooapplication account metagegevens (abonnement toewijzingen van contract info, PII).
 
-Overweeg welke winkels die u gebruikt voor het opslaan van gegevens. Bijvoorbeeld:
+Houd rekening met wat u slaat toostore gegevens gebruikt. Bijvoorbeeld:
 
 - Externe opslag (bijvoorbeeld SQL Azure, Document-DB, HDInsights, Data Lake, enz.)
 
 - Tijdelijke opslag (een lokale cache met gegevens van de tenant)
 
-- Cache in het geheugen (in kan worden geplaatst het wisselbestand.)
+- Cache in het geheugen (in kan worden geplaatst wisselbestand Hallo.)
 
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Gebruik de bestaande versleuteling op rest-ondersteuning in Azure
+### <a name="leverage-hello-existing-encryption-at-rest-support-in-azure"></a>Gebruikmaken van bestaande versleuteling Hallo op rest-ondersteuning in Azure
 
-Voor elke store die u gebruikt, gebruikmaken van de bestaande versleuteling op Rest-ondersteuning.
+Voor elke store die u gebruikt, gebruikmaken van Hallo bestaande versleuteling op Rest-ondersteuning.
 
 - Azure Storage: Zie [Azure Storage-Service: versleuteling voor gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
@@ -226,77 +226,77 @@ Gebruik voor de virtuele machine en lokale schijfopslag Azure Disk Encryption in
 
 IaaS
 
-Services met IaaS VM's (Windows of Linux) moeten gebruiken [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) voor het versleutelen van volumes met gegevens van de klant.
+Services met IaaS VM's (Windows of Linux) moeten gebruiken [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) tooencrypt volumes met gegevens van de klant.
 
 PaaS-v2
 
-Services die worden uitgevoerd op PaaS-v2 met Service Fabric via Azure disk encryption voor virtuele-Machineschaalset [VMSS] coderen van hun PaaS v2 VM's.
+Services die worden uitgevoerd op PaaS-v2 met Service Fabric kunt gebruiken Azure disk encryption voor virtuele-Machineschaalset [VMSS] tooencrypt hun PaaS v2 VM's.
 
 PaaS v1
 
-Azure Disk Encryption is momenteel niet ondersteund voor PaaS v1. Daarom moet u versleuteling van toepassing op persistente gegevens in rust te versleutelen.  Dit omvat, maar is niet beperkt tot toepassingsgegevens, tijdelijke bestanden, logboeken en crashdumps.
+Azure Disk Encryption is momenteel niet ondersteund voor PaaS v1. Daarom moet u toepassingsniveau versleuteling tooencrypt permanente gegevens in rust.  Dit omvat, maar is niet beperkt tot toepassingsgegevens, tijdelijke bestanden, logboeken en crashdumps.
 
-De meeste services moeten proberen gebruikmaken van de versleuteling van een opslagprovider van de resource. Sommige services moeten expliciet versleuteling doen, bijvoorbeeld een sleutelmateriaal persistent (certificaten, root / de hoofdsleutel van de sleutels) moeten worden opgeslagen in de Sleutelkluis.
+De meeste services moeten proberen tooleverage Hallo versleuteling van een opslagprovider van de resource. Sommige services hebben toodo expliciete versleuteling, bijvoorbeeld een sleutelmateriaal persistent (certificaten, root / de hoofdsleutel van de sleutels) moeten worden opgeslagen in de Sleutelkluis.
 
-Als u ondersteuning bieden voor versleuteling aan servicezijde met sleutels door de klant beheerd moeten er een manier om de klant ophalen van de sleutel. De ondersteunde en aanbevolen manier om dat te doen door de integratie van Azure van met Azure Key Vault (Sleutelkluis). In dit geval kunnen klanten toevoegen en beheren van de sleutels in Azure Sleutelkluis. Een klant kan informatie over het gebruik van Azure Sleutelkluis via [aan de slag met Sleutelkluis](http://go.microsoft.com/fwlink/?linkid=521402).
+Als u ondersteuning bieden voor versleuteling aan servicezijde met sleutels door de klant beheerd moeten er een toobe een manier voor Hallo klant tooget Hallo sleutel toous. Hallo ondersteund en aan te raden manier toodo door de integratie van Azure van met Azure Key Vault (Sleutelkluis). In dit geval kunnen klanten toevoegen en beheren van de sleutels in Azure Sleutelkluis. Een klant leert u hoe toouse Azure Sleutelkluis via [aan de slag met Sleutelkluis](http://go.microsoft.com/fwlink/?linkid=521402).
 
-Als u wilt integreren met Azure Sleutelkluis, voegt u code voor het aanvragen van een sleutel van Azure Sleutelkluis wanneer deze nodig is voor ontsleuteling.
+toointegrate met Azure Sleutelkluis, voegt u code toorequest een sleutel van Azure Sleutelkluis wanneer deze nodig is voor ontsleuteling.
 
-- Zie [Azure Key Vault – stapsgewijze](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) voor informatie over het integreren met Azure Sleutelkluis.
+- Zie [Azure Key Vault – stapsgewijze](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) voor informatie over het toointegrate met Azure Sleutelkluis.
 
-Als u beheer van de klant sleutels ondersteunt, moet u bieden een UX voor de klant om op te geven welke Sleutelkluis (of Key Vault URI) te gebruiken.
+Als u beheer van de klant sleutels ondersteunt, moet u een UX tooprovide voor Hallo klant toospecify die welke toouse Sleutelkluis (of Key Vault URI).
 
-Als versleuteling in rust de versleuteling van de host, infrastructuur en tenant-gegevens, het verlies van de sleutels vanwege een systeemfout is opgetreden omvat of schadelijke activiteiten zou bijvoorbeeld kunnen de versleutelde gegevens gaat verloren. Het is daarom essentieel dat de versleuteling bij rust oplossing tegen systeemfouten en schadelijke activiteiten uitgebreide disaster recovery verhaal heeft.
+Als u versleuteling in rust omvat het Hallo-versleuteling van host, infrastructuur en tenant-gegevens, kan Hallo verlies van Hallo sleutels vervaldatum toosystem fout of schadelijke activiteiten betekenen alle Hallo versleutelde gegevens niet verloren. Het is daarom essentieel dat de versleuteling op Rest-oplossing heeft een uitgebreid noodherstel artikel robuuste toosystem fouten en schadelijke activiteiten.
 
-Services die versleuteling in rust implementeren zijn doorgaans nog steeds gevoelig zijn voor de versleutelingssleutels of gegevens blijft niet-versleuteld op de host-station (bijvoorbeeld in het wisselbestand van het hostbesturingssysteem.) Daarom moet services dat het hostvolume voor hun services is versleuteld. Om deze Compute team de implementatie van de Host-versleuteling wordt gebruikt is ingeschakeld [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP en uitbreidingen voor de DCM-service en de agent voor het versleutelen van het hostvolume.
+Services die versleuteling in rust implementeren zijn doorgaans nog steeds gevoelig toohello versleutelingssleutels of gegevens blijft niet-versleuteld op Hallo hoststation (bijvoorbeeld in Hallo wisselbestand van Hallo hostbesturingssysteem.) Services moeten waarborgen Hallo hostvolume voor hun services is versleuteld. toofacilitate dit Compute-team heeft ingeschakeld Hallo-implementatie van de Host-versleuteling gebruikt [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP en -extensies toohello DCM-service en agent tooencrypt Hallo hostvolume.
 
 De meeste services worden geïmplementeerd op standaard Azure Virtual machines. Dergelijke services krijgt [Host versleuteling](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatisch wanneer Compute ingeschakeld. Voor services die worden uitgevoerd in Compute beheerde clusters host versleuteling automatisch ingeschakeld als Windows Server 2016 is geïmplementeerd.
 
 ### <a name="encryption-in-transit"></a>Codering in transit
 
-Beveiligen van gegevens die onderweg moet essentieel onderdeel van uw strategie voor gegevensbescherming. Omdat gegevens heen en weer vanaf verschillende locaties verplaatst, is de algemene aanbeveling dat u altijd SSL/TLS-protocollen gebruiken voor het uitwisselen van gegevens op verschillende locaties. In sommige gevallen wilt u mogelijk het hele communicatiekanaal tussen uw on-premises en cloud isoleren infrastructuur met behulp van een virtueel particulier netwerk (VPN).
+Beveiligen van gegevens die onderweg moet essentieel onderdeel van uw strategie voor gegevensbescherming. Omdat gegevens heen en weer vanaf verschillende locaties verplaatst, is algemeen aanbeveling Hallo SSL/TLS-protocollen tooexchange gegevens altijd te gebruiken op verschillende locaties. In sommige gevallen kunt u tooisolate Hallo gehele communicatiekanaal tussen uw on-premises en cloud infrastructuur met behulp van een virtueel particulier netwerk (VPN).
 
 Gegevens verplaatsen tussen uw on-premises infrastructuur en Azure, moet u passende beveiligingsmaatregelen zoals HTTPS- of VPN.
 
-Voor organisaties die nodig zijn om de toegang van meerdere werkstations die zich on-premises naar Azure te beveiligen, gebruikt u [Azure site-naar-site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
+Gebruik voor organisaties die toegang vanuit meerdere werkstations zich lokaal tooAzure toosecure nodig, [Azure site-naar-site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
 
-Voor organisaties die nodig zijn om de toegang van een werkstation zich on-premises naar Azure te beveiligen, gebruikt u [punt-naar-Site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
+Voor organisaties die toosecure toegang vanaf één werkstation moeten zich op de lokale tooAzure, gebruik [punt-naar-Site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
-Grotere gegevenssets kan worden verplaatst via een speciale snelle WAN-verbinding, zoals [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Als u kiest voor ExpressRoute, kunt u ook de gegevens op het niveau van de toepassing met behulp van coderen [SSL/TLS](https://support.microsoft.com/kb/257591) of andere protocollen voor extra beveiliging.
+Grotere gegevenssets kan worden verplaatst via een speciale snelle WAN-verbinding, zoals [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Als u ervoor toouse ExpressRoute kiest, kunt u ook gegevens op het niveau van de toepassing met behulp van Hallo Hallo coderen [SSL/TLS](https://support.microsoft.com/kb/257591) of andere protocollen voor extra beveiliging.
 
-Als u met Azure Storage via de Azure-Portal communiceert, worden alle transacties plaatsvinden via HTTPS. [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS kan ook worden gebruikt om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Als u met Azure Storage via hello Azure Portal communiceert, worden alle transacties plaatsvinden via HTTPS. [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS kan ook worden gebruikt toointeract met [Azure Storage](https://azure.microsoft.com/services/storage/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx), en sessiehijacking. Deze aanvallen kunnen worden de eerste stap bij het toegang krijgen tot vertrouwelijke gegevens.
+Organisaties die niet voldoen aan tooprotect gegevens die onderweg zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx), en sessiehijacking. Deze aanvallen kunnen Hallo eerste stap bij het krijgen van toegang tot tooconfidential gegevens zijn.
 
-U kunt meer informatie over Azure VPN-optie lezen van het artikel [Planning en ontwerp voor VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+U kunt meer informatie over Azure VPN-optie Hallo artikel lezen [Planning en ontwerp voor VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ### <a name="enforce-file-level-data-encryption"></a>Bestand niveau gegevensversleuteling afdwingen
 
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) maakt gebruik van beleidsregels voor versleuteling, identiteit en verificatie om te helpen uw bestanden en e-mail te beveiligen. Azure RMS werkt op meerdere apparaten, telefoons, tablets en pc's voor beveiliging binnen uw organisatie en buiten uw organisatie. Deze mogelijkheid is mogelijk omdat Azure RMS wordt toegevoegd een beveiligingsniveau dat aan de gegevens gekoppeld blijft, zelfs wanneer deze de fysieke grenzen van uw organisatie.
+[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) maakt gebruik van versleuteling, identiteit en verificatie beleid toohelp beveiligen van uw bestanden en e-mail. Azure RMS werkt op meerdere apparaten, telefoons, tablets en pc's voor beveiliging binnen uw organisatie en buiten uw organisatie. Deze mogelijkheid is mogelijk omdat Azure RMS wordt toegevoegd een beveiligingsniveau dat met Hallo gegevens, resteert zelfs wanneer deze de fysieke grenzen van uw organisatie.
 
-Wanneer u Azure RMS gebruikt om uw bestanden te beveiligen, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Wanneer u Azure RMS-gegevensbeveiliging gebruikmaken, hebt u de zekerheid dat de beveiliging blijft van toepassing op het bestand, zelfs als deze wordt gekopieerd naar opslag die niet onder het beheer van IT, zoals een cloudopslagservice. Dezelfde vindt plaats voor bestanden die worden gedeeld via e-mail, het bestand is beveiligd als bijlage aan een e-mailbericht met instructies voor het openen van de beveiligde bijlage.
-Bij het plannen van de overstap op Azure RMS raden we het volgende:
+Wanneer u uw bestanden tooprotect Azure RMS gebruikt, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Wanneer u Azure RMS-gegevensbeveiliging gebruikmaken, hebt u zelfs als deze gekopieerde toostorage die niet onder het beheer van Hallo Hallo zekerheid dat Hallo beveiliging blijft van toepassing op Hallo-bestand, IT, zoals een cloudopslagservice. Hallo dezelfde vindt plaats voor bestanden die worden gedeeld via e-mail, Hallo-bestand is beveiligd als een bijlage tooan e-mailbericht met instructies hoe tooopen Hallo beveiligde bijlage.
+Bij het plannen van de overstap op Azure RMS wordt aangeraden Hallo volgende:
 
-- Installeer de [app RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Deze app kan worden geïntegreerd met Office-toepassingen door installatie van een Office-invoegtoepassing zodat gebruikers kunnen bestanden eenvoudig rechtstreeks beveiligen.
+- Hallo installeren [app RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Deze app kan worden geïntegreerd met Office-toepassingen door installatie van een Office-invoegtoepassing zodat gebruikers kunnen bestanden eenvoudig rechtstreeks beveiligen.
 
-- Configureer toepassingen en services voor ondersteuning van Azure RMS
+- Configureer toepassingen en services toosupport Azure RMS
 
 - Maak [aangepaste sjablonen](https://technet.microsoft.com/library/dn642472.aspx) die overeenstemming met uw zakelijke vereisten. Bijvoorbeeld: een sjabloon voor bovenste geheime gegevens die moet worden toegepast op alle bovenste geheim gerelateerde e-mailberichten.
 
-Organisaties die zich op zwakke [gegevensclassificatie](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging vatbaar voor lekken van gegevens. Zonder de juiste bestandsbeveiliging niet organisaties kunnen zakelijke inzichten te verkrijgen, op misbruik kunt controleren en te voorkomen dat schadelijke toegang tot bestanden.
+Organisaties die zich op zwakke [gegevensclassificatie](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging mogelijk vatbaarder toodata lekken. Zonder de juiste Bestandsbeveiliging, geen organisaties kunnen tooobtain worden zakelijke inzichten, controleren op misbruik en te voorkomen dat schadelijke toegang toofiles.
 
 > [!Note]
-> U meer informatie over Azure RMS door te lezen van het artikel [aan de slag met Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+> U kunt meer informatie over Azure RMS Hallo artikel lezen [aan de slag met Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
 ## <a name="secure-your-application-protect"></a>Beveiligen van uw toepassing (beveiligen)
-Hoewel Azure verantwoordelijk is voor het beveiligen van de infrastructuur en het platform dat op uw toepassing wordt uitgevoerd, is uw verantwoordelijkheid voor het beveiligen van uw toepassing zelf. Met andere woorden, wilt u ontwikkelen, implementeren en beheren van uw toepassingscode en inhoud op een veilige wijze. Zonder deze kunt uw toepassingscode of inhoud nog steeds kwetsbaar voor aanvallen.
+Hoewel Azure verantwoordelijk is voor het beveiligen van Hallo-infrastructuur en platform dat op uw toepassing wordt uitgevoerd, is uw verantwoordelijkheid toosecure uw toepassing zelf. Met andere woorden, moet u toodevelop, implementeren en beheren van uw toepassingscode en inhoud op een veilige wijze. Zonder deze kunt uw toepassingscode of inhoud nog steeds kwetsbaar toothreats.
 
 ### <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 [Web application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) is een functie van [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) die biedt gecentraliseerd beveiliging van uw webtoepassingen van algemene aanvallen en beveiligingsproblemen.
 
-Web Application Firewall is gebaseerd op regels uit de [Core Rule Set 3.0 of 2.2.9 van OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project). Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken van veelvoorkomende bekende beveiligingsproblemen. Veelvoorkomende aanvallen zijn hierbij onder andere aanvallen met SQL-injecties en aanvallen via scripting op meerdere sites. Het kan een hele uitdaging zijn om dergelijke aanvallen in toepassingscode te voorkomen en dit kan tevens veel onderhoud, patching en controle vereisen op meerdere lagen van de toepassingstopologie. Een gecentraliseerde firewall voor webtoepassingen maakt het beveiligingsbeheer veel eenvoudiger en biedt toepassingsbeheerders meer veiligheid tegen bedreigingen of aanvallen. Een WAF-oplossing kan ook sneller reageren op een beveiligingsrisico door een patch voor een bekend beveiligingsprobleem toe te passen op een centrale locatie in plaats van elke afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
+Web application firewall is gebaseerd op regels uit Hallo [regelsets voor OWASP core](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 of 2.2.9. Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken van veelvoorkomende bekende beveiligingsproblemen. Algemene tussen deze aanvallen zijn SQL-injectieaanvallen, tooname enkele cross-site scripting aanvallen. Zo wordt voorkomen dat dergelijke aanvallen in toepassingscode kan lastig zijn en vereisen mogelijk strengere onderhoud, patchen en de controle op meerdere lagen van Hallo Toepassingstopologie. Een gecentraliseerde web application firewall zorgt er beveiligingsbeheer veel eenvoudiger en biedt betere zekerheid tooapplication beheerders tegen bedreigingen of beveiligingsrisico's. Een WAF oplossing kan ook beveiligingsrisico tooa sneller reageren door een bekend beveiligingsprobleem met een centrale locatie en beveiliging van elk van de afzonderlijke webtoepassingen patchen. Bestaande toepassingsgateways kunnen eenvoudig toepassingsgateway voor geconverteerde tooa web application firewall is ingeschakeld worden.
 
-Hieronder ziet u enkele voorbeelden van veelvoorkomende beveiligingsproblemen waartegen Web Application Firewall bescherming biedt:
+Aantal Hallo veelvoorkomende web beveiligingslekken welke web application firewall wordt beschermd tegen omvat:
 
 - Beveiliging tegen SQL-injecties
 
@@ -313,62 +313,62 @@ Hieronder ziet u enkele voorbeelden van veelvoorkomende beveiligingsproblemen wa
 - Detectie van veelvoorkomende onvolkomenheden in toepassing (dat wil zeggen, Apache, IIS, enz.)
 
 > [!Note]
-> Voor een gedetailleerde lijst met regels en hun beschermingsmaatregelen raadpleegt u de volgende [regelsets Core](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
+> Voor een gedetailleerde lijst met regels en hun beschermingsmaatregelen Zie Hallo volgende [regelsets Core](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview#core-rule-sets):
 
-Azure biedt ook diverse functies voor eenvoudig te gebruiken om u te helpen beveiligen, zowel binnenkomend als uitgaand verkeer voor uw app. Azure ook helpt klanten hun toepassingscode beveiligen doordat extern opgegeven functionaliteit om het scannen van uw webtoepassing op beveiligingsproblemen.
+Azure biedt ook diverse functies eenvoudig te gebruiken toohelp beveiliging van binnenkomend en uitgaand verkeer voor uw app. Azure ook helpt klanten hun toepassingscode beveiligen doordat extern opgegeven functionaliteit tooscan uw webtoepassing op beveiligingsproblemen.
 
 - [Beveiligen van uw web-app met behulp van verschillende middelen van verificatie en autorisatie](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
 
     - [Azure Active Directory-verificatie voor uw app instellen](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [Beveiliging van verkeer naar uw app door in te schakelen Transport Layer Security (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [App voor verkeer tooyour beveiligen doordat Transport Layer Security (TLS/SSL) - HTTPS](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
 
     - [Alle binnenkomend verkeer via HTTPS-verbinding afdwingen](http://microsoftazurewebsitescheatsheet.info/)
 
   - [Strikte transportbeveiliging (HSTS) inschakelen](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
 
 
-- [Toegang tot uw app beperken door IP-adres van client](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
+- [Toegang tooyour app beperken door IP-adres van client](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 
-- [Toegang tot uw app beperken door van client probleem - frequentie van de aanvraag en gelijktijdigheid van taken](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+- [Toegang tooyour app beperken door van client probleem - frequentie van de aanvraag en gelijktijdigheid van taken](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
 
 - [Scannen van uw web-app-code voor beveiligingsproblemen met behulp van Tinfoil Security Scanning](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [TLS wederzijdse verificatie om te vereisen clientcertificaten verbinding maken met uw web-app configureren](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [TLS wederzijdse verificatie toorequire client certificaten tooconnect tooyour web-app configureren](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
 
-- [Configureren van een clientcertificaat voor gebruik van uw app veilig verbinding kunnen maken naar externe bronnen](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
+- [Een clientcertificaat configureren voor gebruik van uw app toosecurely tooexternal resources verbinden met](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
-- [Headers Standard van SQL server om te voorkomen dat de hulpprogramma's van uw app fingerprinting verwijderen](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
+- [Standard van SQL server-headers tooavoid's van uw app fingerprinting verwijderen](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
 - [Uw app veilig verbinding kunnen maken met resources in een particulier netwerk met punt-naar-Site VPN](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
 - [Uw app veilig verbinding kunnen maken met resources in een particulier netwerk met behulp van hybride verbindingen](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
 
-Azure App Service gebruikt dezelfde antimalwareoplossing uit die worden gebruikt door Azure Cloud Services en virtuele Machines. Voor meer informatie over deze verwijzen naar onze [Antimalware documentatie](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+Maakt gebruik van Azure App Service Hallo dezelfde antimalwareoplossing uit die worden gebruikt door Azure Cloud Services en virtuele Machines. toolearn meer informatie over dit verwijzen tooour [Antimalware documentatie](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 
 ## <a name="secure-your-network-protect"></a>Beveiliging van uw netwerk (beveiligen)
-Microsoft Azure omvat een robuuste netwerkinfrastructuur ter ondersteuning van uw toepassing en de vereisten voor service-connectiviteit. Verbinding met het netwerk mogelijk is tussen bronnen in Azure, tussen on-premises en Azure gehoste bronnen, en naar en van het Internet en Azure.
+Microsoft Azure omvat een robuuste netwerken infrastructuur toosupport uw toepassing en de vereisten voor service-connectiviteit. Netwerkverbinding is tussen de bronnen in Azure, tussen on-premises en Azure gehoste bronnen, en tooand van Hallo Internet en Azure.
 
-De [Azure netwerkinfrastructuur](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) kunt u Azure-resources veilig verbinding kunnen maken met elkaar met [virtuele netwerken (vnet's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Een VNet is een weergave van uw eigen netwerk in de cloud. Een VNet is een logische isolatie van het Azure-cloud-netwerk toegewezen aan uw abonnement. U kunt de VNets verbinden met uw on-premises netwerken.
+Hallo [Azure netwerkinfrastructuur](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) schakelt u toosecurely verbinding maken met andere Azure-resources tooeach [virtuele netwerken (vnet's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Een VNet is een weergave van uw eigen netwerk in Hallo cloud. Een VNet is een logische isolatie van hello Azure-cloud netwerk toegewezen tooyour abonnement. U kunt VNets tooyour on-premises netwerken kunt verbinden.
 
 ![Beveiliging van uw netwerk (beveiligen)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
-Als u Basisnetwerk toegangsbeheer op gebruikersniveau moet (op basis van IP-adres en de TCP- of UDP-protocollen), dan kunt u [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). Een Netwerkbeveiligingsgroep (NSG) is een eenvoudige filterregels voor pakketten firewall en Hiermee kunt u toegangsbeheer op basis van een [5-tuple](https://www.techopedia.com/definition/28190/5-tuple).
+Als u Basisnetwerk toegangsbeheer op gebruikersniveau moet (op basis van IP-adres en Hallo TCP of UDP-protocollen), dan kunt u [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg). Een Netwerkbeveiligingsgroep (NSG) is een eenvoudige filterregels voor pakketten firewall en zorgt ervoor dat u toocontrol toegang op basis van een [5-tuple](https://www.techopedia.com/definition/28190/5-tuple).
 
-Azure-netwerken ondersteunt de mogelijkheid om aan te passen van het routeringsgedrag voor netwerkverkeer op uw virtuele netwerken van Azure. U kunt dit doen door het configureren van [zelfgedefinieerde Routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) in Azure.
+Azure-netwerken ondersteunt Hallo mogelijkheid toocustomize Hallo routeringsgedrag voor netwerkverkeer op uw virtuele netwerken van Azure. U kunt dit doen door het configureren van [zelfgedefinieerde Routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) in Azure.
 
-[Geforceerde tunneling](https://www.petri.com/azure-forced-tunneling) is een mechanisme die u gebruiken kunt om ervoor te zorgen dat uw services niet zijn toegestaan voor het initiëren van een verbinding met apparaten op Internet.
+[Geforceerde tunneling](https://www.petri.com/azure-forced-tunneling) is een mechanisme kunt u tooensure die uw services niet zijn toegestaan tooinitiate een toodevices verbinding op Hallo Internet.
 
-Azure ondersteunt toegewezen WAN-koppeling connectiviteit voor uw on-premises netwerk en een Azure-netwerk met [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). De koppeling tussen Azure en uw site maakt gebruik van een speciale verbinding die u niet via het openbare Internet gaat. Als uw Azure-toepassing wordt uitgevoerd in meerdere datacenters, kunt u [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) op route-aanvragen van gebruikers op intelligente wijze over exemplaren van de toepassing. Ook kunt u verkeer routeren voor services in Azure niet worden uitgevoerd als ze toegankelijk vanaf Internet zijn.
+Azure ondersteunt toegewezen WAN-koppeling connectiviteit tooyour on-premises netwerk en een Azure-netwerk met [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). Hallo koppeling tussen Azure en uw site maakt gebruik van een speciale verbinding die verloopt niet Hallo via openbaar Internet. Als uw Azure-toepassing wordt uitgevoerd in meerdere datacenters, kunt u [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) tooroute aanvragen van gebruikers op intelligente wijze over exemplaren van de toepassing hello. U kunt ook verkeer tooservices niet wordt uitgevoerd in Azure als ze toegankelijk vanaf Internet Hallo zijn versturen.
 
 ## <a name="virtual-machine-security-protect"></a>Beveiliging van de virtuele machine (beveiligen)
 
 [Virtuele Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/) kunt u een breed scala aan oplossingen computergebruik in een flexibele manier te implementeren. Met ondersteuning voor Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP en Azure BizTalk Services kunt u elke workload en elke taal implementeren op vrijwel elk besturingssysteem.
 
-Met Azure, kunt u [antimalwaresoftware](https://docs.microsoft.com/azure/security/azure-security-antimalware) van beveiliging leveranciers zoals Microsoft, Symantec, Trend Micro en Kaspersky uw virtuele machines beschermen tegen schadelijke bestanden, adware en andere dreigingen.
+Met Azure, kunt u [antimalwaresoftware](https://docs.microsoft.com/azure/security/azure-security-antimalware) van beveiliging leveranciers zoals Microsoft, Symantec, Trend Micro en Kaspersky tooprotect uw virtuele machines van schadelijke bestanden, adware en andere dreigingen.
 
-Microsoft Antimalware voor Azure Cloud Services en virtuele Machines is een functie real-timebeveiliging die helpt bepalen en virussen, spyware en andere schadelijke software verwijderen. Microsoft Antimalware biedt configureerbare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uitvoeren op uw Azure-systemen.
+Microsoft Antimalware voor Azure Cloud Services en virtuele Machines is een functie real-timebeveiliging die helpt bepalen en virussen, spyware en andere schadelijke software verwijderen. Microsoft Antimalware biedt configureerbare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert tooinstall zelf of uit te op uw Azure-systemen voeren.
 
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) is een schaalbare oplossing die uw toepassingsgegevens met nul investeringen en minimale beschermt bedrijfskosten. Toepassingsfouten kunnen uw gegevens beschadigen, en menselijke fouten kunnen fouten introduceren in uw toepassingen. Uw virtuele machines met Windows en Linux zijn beveiligd met Azure Backup.
 
@@ -376,67 +376,67 @@ Microsoft Antimalware voor Azure Cloud Services en virtuele Machines is een func
 
 ## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Naleving: Cloudservices vanwege toewijding inzetten Controlelijst (beveiligen)
 
-Microsoft heeft ontwikkeld [de controlelijst voor Cloud Services toewijding inzetten vanwege](https://aka.ms/cloudchecklist.download) waarmee organisaties dat oefening innen als ze een verplaatsing naar de cloud overwegen. Dit biedt een structuur voor een organisatie met een grootte en het type: persoonlijke bedrijven en organisaties van openbare-sector, met inbegrip van de overheid op alle niveaus en non-profitorganisaties: voor het identificeren van hun eigen prestaties, service, beheer en toezicht doelstellingen en vereisten. Hierdoor kunnen ze de aanbiedingen van andere cloudserviceproviders, uiteindelijk vormen de basis voor een cloud-serviceovereenkomst vergelijken.
+Microsoft heeft ontwikkeld [Hallo Cloud-Services vanwege toewijding inzetten controlelijst](https://aka.ms/cloudchecklist.download) toohelp organisaties oefenen vanwege toewijding inzetten als ze een verplaatsen toohello cloud overwegen. Dit biedt een structuur voor een organisatie met een grootte en het type: persoonlijke bedrijven en organisaties van openbare-sector, met inbegrip van de overheid op alle niveaus en non-profitorganisaties: tooidentify hun eigen prestaties, service, beheer en toezicht doelstellingen en vereisten. Hierdoor kunnen ze toocompare Hallo aanbiedingen van andere cloudserviceproviders, uiteindelijk die Hallo basis voor een cloud-serviceovereenkomst.
 
-De controlelijst biedt een framework dat component door component met een nieuwe internationale standaard voor cloud serviceovereenkomsten, ISO/IEC 19086 wordt uitgelijnd. Deze standaard biedt een consistente verzameling overwegingen voor organisaties om te nemen van beslissingen over cloud acceptatie en een compleet gemeenschappelijke voor het vergelijken van serviceaanbiedingen cloud maken.
+Hallo controlelijst biedt een framework dat component door component met een nieuwe internationale standaard voor cloud serviceovereenkomsten, ISO/IEC 19086 wordt uitgelijnd. Deze standaard biedt een consistente verzameling overwegingen voor organisaties toohelp nemen van beslissingen over de acceptatie van de cloud, en een compleet gemeenschappelijke voor het vergelijken van serviceaanbiedingen cloud maken.
 
-De controlelijst bijdraagt aan een grondig gerenommeerde te verplaatsen naar de cloud, bieden gestructureerde richtlijnen en een consistente, herhaalbare aanpak voor het kiezen van een cloud-serviceprovider.
+Hallo controlelijst bijdraagt aan een grondig gerenommeerde verplaatsen toohello cloud, bieden gestructureerde richtlijnen en een consistente, herhaalbare aanpak voor het kiezen van een cloud-serviceprovider.
 
-Acceptatie van de cloud is niet langer gewoon een beslissing technologie. Controlelijst vereisten touch op elk aspect van een organisatie, daarom gebruikt voor het organiseren van alle belangrijke interne-besluitvormers: de CIO en CISO evenals de juridische, bestaat de kans professionals beheer- en inkoop en naleving. Dit verhoogt de efficiëntie van de besluitvormingsproces en compleet beslissingen ten aanzien van geluid redenering, waardoor de kans op onvoorziene problemen stimuleren.
+Acceptatie van de cloud is niet langer gewoon een beslissing technologie. Omdat controlelijst vereisten touch op elk aspect van een organisatie, ze bedienen tooconvene alle belangrijke interne-besluitvormers: hello CIO en CISO evenals juridische, bestaat de kans dat professionals beheer- en inkoop en naleving. Dit verhoogt de efficiëntie van Hallo van Hallo besluitvormingsproces en compleet beslissingen ten aanzien van geluid redeneren, waardoor de kans op Hallo van tooadoption onvoorziene problemen.
 
-Daarnaast biedt de Controlelijst:
+Bovendien Hallo Controlelijst:
 
-- Beschrijft de bespreking van de belangrijkste onderwerpen voor besluitvormers aan het begin van het overstapproces voor de cloud.
+- Beschrijft de bespreking van de belangrijkste onderwerpen voor besluitvormers aan Hallo begin van overstapproces voor Hallo cloud.
 
-- Biedt ondersteuning voor uitgebreide zakelijke discussies over voorschriften en de doelstellingen van organisatie voor privacy, persoonsgegevens (PII) en beveiliging van gegevens.
+- Biedt ondersteuning voor uitgebreide zakelijke discussies over voorschriften en Hallo van organisatie doelstellingen voor privacy, persoonsgegevens (PII) en beveiliging van gegevens.
 
 - Helpt organisaties bij potentiële problemen die invloed kunnen zijn op een cloudproject op te sporen.
 
-- Biedt een consistente set vragen, met dezelfde voorwaarden, definities, metrische gegevens en producten voor elke provider, de vergelijking van aanbiedingen van andere cloudserviceproviders vereenvoudigen.
+- Biedt een consistente set vragen Hello dezelfde voorwaarden, definities, metrische gegevens en producten voor elke provider, toosimplify Hallo proces waarbij de offerings van andere cloudserviceproviders worden vergeleken.
 
 ## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure-infrastructuur en toepassing beveiligingsvalidatie (detecteren)
 
-[Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security) verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure.
+[Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security) toohello services, besturingselementen en functies beschikbaar toousers verwijst voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure.
 
 ![mislukte beveiligingsvalidaties (detecteren)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-Azure operationele beveiliging is gebaseerd op een framework dat de kennis die is opgedaan met een verschillende mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Centre opgenomen , en grondige kennis van de threat cybersecurity Liggend.
+Azure operationele beveiliging is gebaseerd op een framework dat Hallo kennis die is opgedaan met een verschillende mogelijkheden die de unieke tooMicrosoft, met inbegrip van Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Centre Hallo Hallo zijn opgenomen programma en grondige kennis van Hallo cybersecurity threat Liggend.
 
 ### <a name="microsoft-operations-management-suiteoms"></a>Microsoft operations management suite(OMS)
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) kan de IT-beheeroplossing voor de hybride cloud. Alleen wordt gebruikt of als u wilt uitbreiden van uw bestaande System Center-implementatie, OMS biedt u de maximale flexibiliteit en controle voor cloud-gebaseerde beheer van uw infrastructuur.
+[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) Hallo IT beheeroplossing voor Hallo hybride cloud is. Alleen wordt gebruikt of uw bestaande System Center-implementatie, OMS biedt u tooextend Hallo maximale flexibiliteit en beheer voor cloud-gebaseerde beheer van uw infrastructuur.
 
 ![Microsoft operations management suite(OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Met OMS, kunt u een instantie in een cloud, met inbegrip van lokale, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende oplossingen beheren. OMS is gebouwd voor de cloud eerste, biedt een nieuwe benadering voor het beheren van uw onderneming is de snelste, meest rendabele manier om te voldoen aan de nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
+Met OMS, kunt u een instantie in een cloud, met inbegrip van lokale, Azure, AWS, Windows Server, Linux, VMware en OpenStack, tegen lagere kosten dan concurrerende oplossingen beheren. Gebouwd voor Hallo cloud eerste wereld, biedt OMS een nieuwe benadering toomanaging uw onderneming die Hallo snelste, meest rendabele manier toomeet nieuwe zakelijke uitdagingen en geschikt voor de nieuwe werkbelastingen, toepassingen en cloudomgevingen.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) biedt bewakingsservices voor OMS door in een centrale opslagplaats gegevens te verzamelen van beheerde resources. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) biedt bewakingsservices voor OMS door in een centrale opslagplaats gegevens te verzamelen van beheerde resources. Deze gegevens kan bevatten gebeurtenissen, prestatiegegevens of aangepaste worden geleverd via Hallo API. Zodra verzameld, zijn Hallo gegevens beschikbaar voor waarschuwingen, analyse en exporteren.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
-Deze methode kunt u gegevens uit diverse bronnen consolideren, zodat u kunt combineren gegevens van uw Azure-services met uw bestaande lokale omgeving. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
+Deze methode kunt u tooconsolidate gegevens uit diverse bronnen, zodat u kunt combineren gegevens van uw Azure-services met uw bestaande lokale omgeving. Ook duidelijk scheidt u Hallo verzamelen van gegevens van de Hallo van Hallo actie op die van die gegevens, zodat alle acties beschikbaar tooall soorten gegevens zijn.
 
 ### <a name="azure-security-center"></a>Azure security center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u te voorkomen, detecteren, en toothreats reageren met een verhoogde zichtbaarheid van en controle over Hallo beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
-Security Center analyseert de beveiligingsstatus van uw Azure-resources om mogelijke beveiligingsproblemen op te sporen. Een lijst met aanbevelingen begeleidt u bij het configureren van benodigde besturingselementen.
+Security Center analyseert de beveiligingsstatus Hallo van uw Azure-resources tooidentify mogelijke beveiligingsproblemen. Een lijst met aanbevelingen begeleidt u bij het Hallo-proces voor het configureren van benodigde besturingselementen.
 
 Voorbeelden zijn:
 
-- Inrichting van antimalware om schadelijke software te identificeren en te verwijderen
+- Inrichting van antimalware toohelp identificeren en verwijderen van schadelijke software
 
-- Netwerkbeveiligingsgroepen en regels voor het verkeer voor beheer voor virtuele machines configureren
+- Network security groepen en regels toocontrol tooVMs verkeer configureren
 
-- Inrichten van Web Application Firewalls om te beschermen tegen aanvallen die zijn gericht op uw webtoepassingen
+- Inrichting van web application firewalls toohelp beschermen tegen aanvallen die zijn gericht op uw webtoepassingen
 
 - Implementatie van ontbrekende systeemupdates
 
-- Aanpassing van besturingssysteemconfiguraties die niet overeenkomen met de aanbevolen basislijnen
+- Aanpassing van besturingssysteemconfiguraties die niet overeenkomen met de Hallo aanbevolen basislijnen
 
-Security Center verzamelt, analyseert en integreert automatisch logboekgegevens van uw Azure-resources, het netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls. Wanneer er dreigingen worden gedetecteerd, wordt een beveiligingswaarschuwing gemaakt. Voorbeelden zijn detectie van:
+Security Center automatisch verzamelt, analyseert en integreert logboekgegevens van uw Azure-resources, het Hallo-netwerk en partneroplossingen zoals antimalwareprogramma's en firewalls. Wanneer er dreigingen worden gedetecteerd, wordt een beveiligingswaarschuwing gemaakt. Voorbeelden zijn detectie van:
 
 - Verdachte VM's die communiceren met bekende schadelijke IP-adressen
 
@@ -448,25 +448,25 @@ Security Center verzamelt, analyseert en integreert automatisch logboekgegevens 
 
 ### <a name="azure-monitor"></a>Monitor voor Azure
 
-[Monitor voor Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) bevat koppelingen naar informatie over specifieke typen resources. Biedt visualisatie, query routering, waarschuwingen, automatisch schalen en automatisering op gegevens zowel in de Azure-infrastructuur (activiteitenlogboek) en elke afzonderlijke Azure-resource (diagnostische logboeken).
+[Monitor voor Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) aanwijzers tooinformation biedt op specifieke typen resources. Biedt visualisatie, query routering, waarschuwingen, automatisch schalen en automatisering op gegevens van hello Azure-infrastructuur (activiteitenlogboek) en elke afzonderlijke Azure-resource (diagnostische logboeken).
 
-Cloud-toepassingen zijn complexe met veel bewegende onderdelen. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing up blijft en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen uit het verleden zijn.
+Cloud-toepassingen zijn complexe met veel bewegende onderdelen. Monitoring biedt gegevens tooensure die uw toepassing up blijft en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u toostave potentiële problemen uitgeschakeld of het oplossen van het verleden zijn.
 
-![Monitor voor Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) Bovendien kunt u bewakingsgegevens grondige om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen bij het verbeteren van de prestaties van toepassingen of onderhoud of acties die anders worden handmatige interventie moeten automatiseren.
+![Monitor voor Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig10.png) Bovendien kunt u bewaking gegevens toogain uitgebreide statistieken over uw toepassing. Deze kennis kan u helpen de prestaties van toepassingen tooimprove of onderhoud of acties die anders worden handmatige interventie moeten automatiseren.
 
-Controle van de netwerkbeveiliging van uw is het essentieel zijn voor netwerk beveiligingsproblemen detecteren en de naleving van uw IT-beveiliging en regelgeving governance model. Overzicht van de beveiligingsgroep, kunt u de geconfigureerde Netwerkbeveiligingsgroep en beveiligingsregels voor verbindingen, evenals de effectieve beveiligingsregels voor verbindingen ophalen. Met de lijst met regels die zijn toegepast, kunt u bepalen de poorten die geopend zijn en ss beveiligingsproblemen van het netwerk.
+Controle van de netwerkbeveiliging van uw is het essentieel zijn voor netwerk beveiligingsproblemen detecteren en de naleving van uw IT-beveiliging en regelgeving governance model. Overzicht van de beveiligingsgroep, kunt u Hallo geconfigureerd Netwerkbeveiligingsgroep en beveiliging regels ophalen, evenals Hallo effectieve beveiligingsregels voor verbindingen. Hallo-lijst met regels die zijn toegepast, kunt u bepalen Hallo-poorten die geopend zijn en ss beveiligingsproblemen van het netwerk.
 
 ### <a name="network-watcher"></a>Netwerk-watcher
 
-[Netwerk-Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is een regionale service waarmee u kunt bewaken en onderzoeken van de voorwaarden op het netwerkniveau van een in, naar en van Azure. Netwerkcontrole en visualisatie hulpprogramma's beschikbaar met de netwerk-Watcher kunnen u begrijpen, diagnoses stellen en Verkrijg inzicht in uw netwerk in Azure. Deze service omvat pakketopname, volgende hop, IP-stroom controleren, groep beveiligingsweergave, NSG stroom Logboeken. Scenario niveau bewaking biedt een complete weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
+[Netwerk-Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) is een regionale service waarmee u toomonitor en onderzoeken van de voorwaarden op het netwerkniveau van een in, naar en van Azure. Netwerkcontrole en visualisatie hulpprogramma's beschikbaar met de netwerk-Watcher kunnen u begrijpen, diagnoses stellen en krijgen insights tooyour netwerk in Azure. Deze service omvat pakketopname, volgende hop, IP-stroom controleren, groep beveiligingsweergave, NSG stroom Logboeken. Scenario niveau bewaking biedt een end-tooend-weergave van netwerkbronnen in contrast tooindividual resource netwerkbewaking.
 
 ### <a name="storage-analytics"></a>Opslaganalyses
 
-[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) metrische gegevens die samengevoegde statistieken en capaciteit transactiegegevens over aanvragen met storage-service zijn kan opslaan. Transacties worden gerapporteerd op beide API bewerking niveau en op het niveau van de service storage en capaciteit op het niveau van de service storage wordt gerapporteerd. Metrische gegevens kan worden gebruikt om storage-service analyseren, onderzoeken van problemen met aanvragen ten opzichte van de storage-service en verbeteren de prestaties van toepassingen die gebruikmaken van een service.
+[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) metrische gegevens die samengevoegde statistieken en capaciteit transactiegegevens over aanvragen tooa storage-service zijn kan opslaan. Transacties worden gerapporteerd zowel niveau van de bewerking Hallo API, evenals op niveau van de opslag van Hallo en capaciteit op Hallo opslag serviceniveau wordt gerapporteerd. Metrische gegevens kunt gebruikte tooanalyze service opslaggebruik, vaststellen van problemen met aanvragen tegen Hallo storage-service en tooimprove Hallo prestaties van toepassingen die gebruikmaken van een service.
 
 ### <a name="application-insights"></a>Application insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbaar Management APM (Application Performance)-service voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. Dit omvat analytics krachtige hulpprogramma's voor hulp bij het vaststellen van problemen en om te begrijpen wat gebruikers doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. Het kan worden geïntegreerd met uw devOps-proces en verwijst naar een verschillende ontwikkelingsprogramma's heeft.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een uitbreidbaar Management APM (Application Performance)-service voor webontwikkelaars op meerdere platforms. Gebruik deze toomonitor uw live-webtoepassing. Afwijkende prestaties worden automatisch gedetecteerd. Dit omvat krachtige analytics extra toohelp onderzoeken van problemen en toounderstand wat gebruikers met uw app doen. Het ontworpen toohelp u continu prestaties en bruikbaarheid verbeteren. De Tool werkt voor apps gehost op een groot aantal verschillende platforms, waaronder .NET, Node.js en J2EE, lokaal of in de cloud Hallo. Het kan worden geïntegreerd met uw devOps-proces en verbinding punten tooa verschillende ontwikkelingsprogramma's heeft.
 
 Met deze service kunt u het volgende controleren:
 
@@ -474,7 +474,7 @@ Met deze service kunt u het volgende controleren:
 
 - **Aantal afhankelijkheidsrelaties, reactietijden en foutpercentages** - controleer of externe services zorgen voor vertraging.
 
-- **Uitzonderingen** - analyseren van de samengevoegde statistieken of Kies specifieke exemplaren en inzoomen op de stack-trace en de verwante aanvragen. Zowel server- als browseruitzonderingen worden gerapporteerd.
+- **Uitzonderingen** - analyseren Hallo geaggregeerd statistieken, of Kies specifieke exemplaren en inzoomen Hallo stacktracering en verwante aanvragen. Zowel server- als browseruitzonderingen worden gerapporteerd.
 
 - **Paginaweergaven en de prestaties bij het laden van pagina’s** - deze gegevens worden gerapporteerd door de browsers van uw gebruikers.
 
@@ -488,31 +488,31 @@ Met deze service kunt u het volgende controleren:
 
 - **Diagnostische traceerlogboeken** van uw app - met behulp hiervan kunt u de samenhang vaststellen tussen traceergebeurtenissen en aanvragen.
 
-- **Aangepaste gebeurtenissen en metrische gegevens** zelf in de code client of server zakelijke gebeurtenissen bijhouden zoals verkochte artikelen, of games gewonnen te schrijven.
-De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunt u werken met de resources in uw oplossing als een groep.
+- **Aangepaste gebeurtenissen en metrische gegevens** zelf in Hallo client of server code tootrack zakelijke gebeurtenissen zoals verkochte artikelen of games gewonnen te schrijven.
+Hallo-infrastructuur voor uw toepassing wordt normaal gesproken bestaat uit veel onderdelen, zoals een virtuele machine, storage-account en virtueel netwerk of een web-app, database, databaseserver en 3e services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U wilt dat toodeploy, beheren en ze als een groep te controleren. [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kunt u toowork met Hallo resources in uw oplossing als een groep.
 
-U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources.
+U kunt implementeren, bijwerken of verwijderen van alle Hallo resources voor uw oplossing in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en functies toohelp tagging u uw resources beheren na implementatie.
 
-**De voordelen van het gebruik van Resource Manager**
+**Hallo voordelen van het gebruik van Resource Manager**
 
 Resource Manager biedt diverse voordelen:
 
-- U kunt alle resources voor uw oplossing implementeren, beheren en bewaken als groep, in plaats van deze resources afzonderlijk te verwerken.
+- U kunt implementeren, beheren en bewaken van alle Hallo resources voor uw oplossing als een groep in plaats van deze resources afzonderlijk te verwerken.
 
-- U kunt gedurende de ontwikkelingscyclus uw oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd.
+- U kunt herhaaldelijk implementeren van uw oplossing gedurende de ontwikkelingscyclus Hallo en erop vertrouwen dat uw resources worden geïmplementeerd in een consistente status.
 
 - U kunt uw infrastructuur beheren via declaratieve sjablonen in plaats van scripts.
 
-- U kunt de afhankelijkheden tussen resources, zodat deze zijn geïmplementeerd in de juiste volgorde definiëren.
+- U kunt Hallo afhankelijkheden tussen resources, zodat deze zijn geïmplementeerd in de juiste volgorde Hallo definiëren.
 
-- U kunt toegangsbeheer toepassen op alle services in de resourcegroep omdat op rollen gebaseerd toegangsbeheer (RBAC) is geïntegreerd in het beheerplatform.
+- Omdat op rollen gebaseerde toegangsbeheer (RBAC) is geïntegreerd in het beheerplatform hello, kunt u access control-tooall services toepassen in de resourcegroep.
 
-- U kunt tags toepassen op de resources om alle resources in uw abonnement op een logische manier te organiseren.
+- U kunt tags toepassen tooresources toologically organiseren alle Hallo resources in uw abonnement.
 
-- U kunt de facturering van uw organisatie transparanter maken door te kijken naar de kosten voor een groep resources met dezelfde tag.
+- U kunt facturering voor uw organisatie verduidelijken door het bekijken van de kosten voor een groep resources delen dezelfde tag Hallo.
 
 > [!Note]
-> Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel en gewenste gebruikt voor meer informatie over de wijzigingen, Zie [Understanding Resource Manager-implementatie en klassieke implementatie](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+> Resource Manager biedt een nieuwe manier toodeploy en beheren van uw oplossingen. Als u hebt gebruikt eerdere implementatiemodel Hallo en toolearn over Hallo wijzigingen, Zie [Understanding Resource Manager-implementatie en klassieke implementatie](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,6 +1,6 @@
 ---
-title: Een bestaande aangepaste SSL-certificaat binden aan Azure Web Apps | Microsoft Docs
-description: Hoe u kunt een aangepaste SSL-certificaat binden aan uw web-app, back-end voor mobiele app of API-app in Azure App Service.
+title: aaaBind een bestaande aangepaste SSL-certificaat tooAzure Web-Apps | Microsoft Docs
+description: Meer informatie over tootoobind een aangepaste SSL-certificaat tooyour web-app, back-end voor mobiele app of API-app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 15c31ae5451a31dff2df08047ee43e75edacc127
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3503ba9f96c8ea8d18451e8bf9a9b441797ef44d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Een bestaande aangepaste SSL-certificaat binden aan Azure-Web-Apps
+# <a name="bind-an-existing-custom-ssl-certificate-tooazure-web-apps"></a>Binden van een bestaande aangepaste SSL-certificaat tooAzure Web-Apps
 
-Azure Web Apps biedt een zeer schaalbaar, zelf patch webhosting-service. Deze zelfstudie leert u hoe u kunt een aangepaste SSL-certificaat dat u hebt aangeschaft via een vertrouwde certificeringsinstantie te binden [Azure Web Apps](app-service-web-overview.md). Wanneer u klaar bent, kunt u zult toegang kunnen krijgen tot uw web-app op het HTTPS-eindpunt van uw aangepaste DNS-domein.
+Azure Web Apps biedt een zeer schaalbaar, zelf patch webhosting-service. Deze zelfstudie laat zien hoe toobind een aangepaste SSL-certificaat die u hebt aangeschaft via een vertrouwde certificeringsinstantie te[Azure Web Apps](app-service-web-overview.md). Wanneer u klaar bent, moet u kunnen tooaccess uw web-app op Hallo HTTPS-eindpunt van uw aangepaste DNS-domein.
 
 ![Web-app met aangepaste SSL-certificaat](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -31,72 +31,72 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Upgrade van uw app-prijscategorie
-> * Uw aangepaste SSL-certificaat binden aan de App Service
+> * Uw aangepaste SSL-certificaat tooApp Service binden
 > * Afdwingen van HTTPS voor uw app
 > * SSL-certificaat-binding met scripts automatiseren
 
 > [!NOTE]
-> Als u nodig hebt om een aangepaste SSL-certificaat te verkrijgen, kunt u een in de Azure portal rechtstreeks ophalen en bindt dit aan uw web-app. Ga als volgt de [App Service Certificate zelfstudie](web-sites-purchase-ssl-web-site.md).
+> Als u een aangepaste SSL-certificaat tooget nodig, kunt u één in hello Azure-portal rechtstreeks ophalen en bindt dit tooyour web-app. Ga als volgt Hallo [App Service Certificate zelfstudie](web-sites-purchase-ssl-web-site.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+toocomplete in deze zelfstudie:
 
 - [Een App Service-app maken](/azure/app-service/)
-- [Een aangepaste DNS-naam toegewezen aan uw web-app](app-service-web-tutorial-custom-domain.md)
+- [Toewijzen van een aangepaste DNS-naam tooyour web-app](app-service-web-tutorial-custom-domain.md)
 - Een SSL-certificaat van een vertrouwde certificeringsinstantie verkrijgen
 
 <a name="requirements"></a>
 
 ### <a name="requirements-for-your-ssl-certificate"></a>Vereisten voor SSL-certificaat
 
-Als u een certificaat in App Service, kan het certificaat moet voldoen aan de volgende vereisten:
+een certificaat in App Service toouse, Hallo certificaat moet voldoen aan alle Hallo volgens de vereisten:
 
 * Ondertekend door een vertrouwde certificeringsinstantie
 * Geëxporteerd als een PFX-wachtwoord is beveiligd bestand
 * Persoonlijke sleutel van minstens 2048 bits bevat lang
-* Bevat alle tussenliggende certificaten in de certificaatketen
+* Bevat alle tussenliggende certificaten in de certificaatketen Hallo
 
 > [!NOTE]
-> **Elliptic Curve Cryptography (ECC)-certificaten** kunt werken met App Service, maar worden niet behandeld in dit artikel wordt beschreven. Werken met uw certificeringsinstantie op de exacte stappen voor het maken van ECC-certificaten.
+> **Elliptic Curve Cryptography (ECC)-certificaten** kunt werken met App Service, maar worden niet behandeld in dit artikel wordt beschreven. Werken met uw certificeringsinstantie op Hallo exacte stappen toocreate ECC-certificaten.
 
 ## <a name="prepare-your-web-app"></a>Voorbereiden van uw web-app
 
-Een aangepaste SSL-certificaat binden aan uw web-app uw [App Service-abonnement](https://azure.microsoft.com/pricing/details/app-service/) moet zich in de **Basic**, **standaard**, of **Premium** laag. In deze stap maakt ervoor u zorgen dat uw web-app is in de ondersteunde prijscategorie.
+toobind een aangepaste SSL-certificaat tooyour web-app, uw [App Service-abonnement](https://azure.microsoft.com/pricing/details/app-service/) moet Hallo **Basic**, **standaard**, of **Premium** laag. In deze stap maakt ervoor u zorgen dat uw web-app wordt in Hallo ondersteund prijscategorie.
 
-### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+### <a name="log-in-tooazure"></a>Meld u bij tooAzure
 
-Open de [Azure Portal](https://portal.azure.com).
+Open Hallo [Azure-portal](https://portal.azure.com).
 
-### <a name="navigate-to-your-web-app"></a>Navigeer naar uw web-app
+### <a name="navigate-tooyour-web-app"></a>Navigeer tooyour web-app
 
-Klik in het menu links op **App Services**, en klik vervolgens op de naam van uw web-app.
+In het linkermenu hello, klikt u op **App Services**, en klik vervolgens op Hallo-naam van uw web-app.
 
 ![Web-app selecteren](./media/app-service-web-tutorial-custom-ssl/select-app.png)
 
-U bevindt zich op de beheerpagina van uw web-app.  
+U bevindt zich in de pagina voor het beheren van uw web-app Hallo.  
 
-### <a name="check-the-pricing-tier"></a>Controleer de prijscategorie
+### <a name="check-hello-pricing-tier"></a>Hallo prijscategorie controleren
 
-Schuif in de linkernavigatiebalk van uw web-app-pagina naar de **instellingen** sectie en selecteer **opschalen (App Service-abonnement)**.
+Schuif in de linkernavigatiebalk Hallo van uw app webpagina toohello **instellingen** sectie en selecteer **opschalen (App Service-abonnement)**.
 
 ![Omhoog schalen-menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Controleer of uw web-app is niet in de **vrije** of **gedeelde** laag. De huidige tier uw web-app is gemarkeerd met een donker blauw vak.
+Controleer toomake ervoor dat uw web-app niet wordt Hallo **vrije** of **gedeelde** laag. De huidige tier uw web-app is gemarkeerd met een donker blauw vak.
 
 ![Controleer de prijscategorie](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Aangepaste SSL wordt niet ondersteund in de **vrije** of **gedeelde** laag. Als u moet worden uitgebreid, volgt u de stappen in de volgende sectie. Anders sluit de **Kies uw prijscategorie** pagina en doorgaan met [uploaden en de SSL-certificaat binden](#upload).
+Aangepaste SSL wordt niet ondersteund in Hallo **vrije** of **gedeelde** laag. Als u nodig hebt tooscale, stappen Hallo in de volgende sectie Hallo. Anders sluit Hallo **Kies uw prijscategorie** pagina en te overslaan[uploaden en de SSL-certificaat binden](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Uw App Service-abonnement opschalen
 
-Selecteer een van de **Basic**, **standaard**, of **Premium** lagen.
+Selecteer een van de Hallo **Basic**, **standaard**, of **Premium** lagen.
 
 Klik op **Selecteren**.
 
 ![Kies de prijscategorie](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
-Wanneer u de volgende melding ziet, is de schaalbewerking is voltooid.
+Wanneer u de volgende kennisgeving Hallo ziet, is Hallo schaalbewerking is voltooid.
 
 ![Melding opschalen](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
 
@@ -104,15 +104,15 @@ Wanneer u de volgende melding ziet, is de schaalbewerking is voltooid.
 
 ## <a name="bind-your-ssl-certificate"></a>SSL-certificaat binden
 
-U bent klaar om uw SSL-certificaat uploaden naar uw web-app.
+U gereed tooupload zijn uw SSL-certificaat tooyour web-app.
 
 ### <a name="merge-intermediate-certificates"></a>Tussenliggende certificaten samenvoegen
 
-Als uw certificeringsinstantie meerdere certificaten in de certificaatketen geeft, moet u de certificaten in de volgorde samenvoegen. 
+Als uw certificeringsinstantie meerdere certificaten in de certificaatketen hello geeft, moet u toomerge Hallo certificaten in de volgorde. 
 
-U doet dit door elk certificaat dat u hebt ontvangen in een teksteditor te openen. 
+toodo moet dit open elk certificaat u hebt ontvangen in een teksteditor. 
 
-Maak een bestand voor het samengevoegde certificaat, aangeroepen _mergedcertificate.crt_. Kopieer de inhoud van elk certificaat in dit bestand in een teksteditor. De volgorde van uw certificaten moet eruitzien als in de volgende sjabloon:
+Maak een bestand voor Hallo Samengevoegde certificaat, genaamd _mergedcertificate.crt_. Kopieer Hallo inhoud van elk certificaat in dit bestand in een teksteditor. Hallo-volgorde van uw certificaten moet eruitzien als Hallo sjabloon te volgen:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -132,99 +132,99 @@ Maak een bestand voor het samengevoegde certificaat, aangeroepen _mergedcertific
 -----END CERTIFICATE-----
 ```
 
-### <a name="export-certificate-to-pfx"></a>PFX-certificaat exporteren
+### <a name="export-certificate-toopfx"></a>TooPFX certificaat exporteren
 
-Exporteer uw samengevoegde SSL-certificaat met de persoonlijke sleutel die uw certificaataanvraag is gegenereerd met.
+Uw samengevoegde SSL-certificaat met persoonlijke sleutel Hallo die uw certificaataanvraag is gegenereerd met exporteren.
 
-Als u de certificaataanvraag met het OpenSSL gegenereerd, kunt u een bestand met een persoonlijke sleutel hebt gemaakt. Voer de volgende opdracht om uw certificaat exporteren naar PFX. Vervang de tijdelijke aanduidingen  _&lt;persoonlijke sleutelbestand >_ en  _&lt;samengevoegd--certificaatbestand >_.
+Als u de certificaataanvraag met het OpenSSL gegenereerd, kunt u een bestand met een persoonlijke sleutel hebt gemaakt. tooexport uw certificaat tooPFX, Hallo volgende opdracht uitvoeren. Vervang de tijdelijke aanduidingen Hallo  _&lt;persoonlijke sleutelbestand >_ en  _&lt;samengevoegd--certificaatbestand >_.
 
 ```
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-Wanneer u wordt gevraagd, moet u een wachtwoord voor export definiëren. U hebt dit wachtwoord gebruiken wanneer u later uw SSL-certificaat uploadt naar App Service.
+Wanneer u wordt gevraagd, moet u een wachtwoord voor export definiëren. U hebt dit wachtwoord gebruiken tijdens het uploaden van uw SSL-certificaat tooApp Service later.
 
-Als u IIS gebruikt of _Certreq.exe_ bij het genereren van uw certificaataanvraag, installeer het certificaat in uw lokale computer en vervolgens [Exporteer het certificaat naar PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+Als u IIS gebruikt of _Certreq.exe_ toogenerate uw certificaataanvraag, installatie Hallo certificaat tooyour lokale computer, en vervolgens [exporteren Hallo certificaat tooPFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### <a name="upload-your-ssl-certificate"></a>Uw SSL-certificaat uploaden
 
-Als u wilt uw SSL-certificaat uploaden, klikt u op **SSL-certificaten** in het linkernavigatievenster van uw web-app.
+tooupload uw SSL-certificaat, klik op **SSL-certificaten** in Hallo linkernavigatiebalk van uw web-app.
 
 Klik op **-certificaat uploaden**.
 
-In **PFX-certificaatbestand**, selecteer uw PFX-bestand. In **certificaatwachtwoord**, typ het wachtwoord dat u hebt gemaakt toen u het PFX-bestand hebt geëxporteerd.
+In **PFX-certificaatbestand**, selecteer uw PFX-bestand. In **certificaatwachtwoord**, type Hallo wachtwoord die u hebt gemaakt tijdens het exporteren van Hallo PFX-bestand.
 
 Klik op **Uploaden**.
 
 ![Certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
 
-Wanneer de App Service klaar is met uw certificaat uploaden, wordt deze weergegeven de **SSL-certificaten** pagina.
+Wanneer de App Service klaar is met uw certificaat uploaden, wordt deze in Hallo **SSL-certificaten** pagina.
 
 ![Certificaat geüpload](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
 ### <a name="bind-your-ssl-certificate"></a>SSL-certificaat binden
 
-In de **SSL-bindingen** sectie, klikt u op **binding toevoegen**.
+In Hallo **SSL-bindingen** sectie, klikt u op **binding toevoegen**.
 
-In de **SSL-Binding toevoegen** pagina, gebruikt u de vervolgkeuzelijsten selecteren voor het beveiligen van de naam van het domein en het certificaat te gebruiken.
+In Hallo **SSL-Binding toevoegen** pagina, Hallo opgegeven waarin dropdowns tooselect Hallo domain name toosecure en Hallo certificaat toouse gebruiken.
 
 > [!NOTE]
-> Als u uw certificaat hebt geüpload, maar niet ziet de domein-/-namen in de **hostnaam** dropdown, probeer de browserpagina te vernieuwen.
+> Als u uw certificaat hebt geüpload, maar niet Hallo domein /-namen in Hallo ziet **hostnaam** vervolgkeuzelijst probeer Hallo browserpagina te vernieuwen.
 >
 >
 
-In **SSL Type**, opgeven of  **[indicatie voor Server-naam (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  of SSL op basis van IP.
+In **SSL Type**, selecteer of toouse  **[indicatie voor Server-naam (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  of SSL op basis van IP.
 
-- **Op basis van SNI SSL** -op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Deze optie kunt meerdere SSL-certificaten voor het beveiligen van meerdere domeinen op hetzelfde IP-adres. De meeste moderne browsers (met inbegrip van Internet Explorer, Chrome, Firefox en Opera) ondersteuning voor SNI (vinden uitgebreidere browser ondersteuningsinformatie op [Servernaamindicatie](http://wikipedia.org/wiki/Server_Name_Indication)).
-- **IP-gebaseerde SSL** -slechts één IP-gebaseerde SSL-binding kan worden toegevoegd. Deze optie kan slechts één SSL-certificaat voor het beveiligen van een specifieke openbare IP-adres. Als u wilt beveiligen in meerdere domeinen, moet u beveiligen ze allemaal zijn gebaseerd op het SSL-certificaat. Dit is de traditionele optie voor SSL-binding.
+- **Op basis van SNI SSL** -op basis van meerdere SNI SSL-bindingen kunnen worden toegevoegd. Met deze optie kunt u meerdere SSL-certificaten toosecure meerdere domeinen op Hallo hetzelfde IP-adres. De meeste moderne browsers (met inbegrip van Internet Explorer, Chrome, Firefox en Opera) ondersteuning voor SNI (vinden uitgebreidere browser ondersteuningsinformatie op [Servernaamindicatie](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **IP-gebaseerde SSL** -slechts één IP-gebaseerde SSL-binding kan worden toegevoegd. Deze optie kan slechts één SSL-certificaat toosecure een specifieke openbare IP-adres. toosecure meerdere domeinen, kunt u beveiligen door ze met behulp van alle Hallo SSL-certificaat. Dit is de traditionele optie Hallo voor SSL-binding.
 
 Klik op **Binding toevoegen**.
 
 ![SSL-certificaat binden](./media/app-service-web-tutorial-custom-ssl/bind-certificate.png)
 
-Wanneer de App Service klaar is met uw certificaat uploaden, wordt deze weergegeven de **SSL-bindingen** secties.
+Wanneer de App Service klaar is met uw certificaat uploaden, wordt deze in Hallo **SSL-bindingen** secties.
 
-![Certificaat dat is gebonden aan web-app](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
+![Certificaat gebonden tooweb app](./media/app-service-web-tutorial-custom-ssl/certificate-bound.png)
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Opnieuw toewijzen van een record voor IP-SSL
 
-Als u geen IP-gebaseerde SSL in uw web-app gebruikt, gaat u naar [Test HTTPS voor uw aangepaste domein](#test).
+Als u geen IP-gebaseerde SSL in uw web-app gebruikt, gaat u verder te[Test HTTPS voor uw aangepaste domein](#test).
 
 Uw web-app maakt standaard gebruik van een gedeelde openbare IP-adres. Wanneer u een certificaat met SSL op basis van IP verbonden, wordt een nieuwe, toegewezen IP-adres voor uw web-app in App Service gemaakt.
 
-Als u een A-record hebt toegewezen aan uw web-app, bijwerken van uw domein register met dit nieuwe, toegewezen IP-adres.
+Als u een A-record tooyour-web-app hebt gekoppeld, bijwerken van uw domein register met dit nieuwe, toegewezen IP-adres.
 
-Uw web-app **aangepaste domeinen** pagina wordt bijgewerkt met de nieuwe, toegewezen IP-adres. [Kopieer dit IP-adres](app-service-web-tutorial-custom-domain.md#info), klikt u vervolgens [opnieuw toewijzen van de A-record](app-service-web-tutorial-custom-domain.md#map-an-a-record) naar deze nieuwe IP-adres.
+Uw web-app **aangepaste domeinen** pagina met Hallo nieuwe, toegewezen IP-adres wordt bijgewerkt. [Kopieer dit IP-adres](app-service-web-tutorial-custom-domain.md#info), klikt u vervolgens [opnieuw toewijzen Hallo een record](app-service-web-tutorial-custom-domain.md#map-an-a-record) toothis nieuwe IP-adres.
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>Test HTTPS
 
-Alle die nog moet doen nu om ervoor te zorgen dat HTTPS voor uw aangepaste domein werkt is. Blader in verschillende browsers naar `https://<your.custom.domain>` om te zien dat het fungeert van uw web-app.
+Alles wat toodo nu is verdwenen toomake ervoor dat HTTPS voor uw aangepaste domein werkt is. In verschillende browsers te bladeren`https://<your.custom.domain>` toosee die het van uw web-app fungeert.
 
-![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
+![Navigatie in de portal tooAzure app](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
 > Als uw web-app biedt u validatiefouten van het certificaat, gebruikt u waarschijnlijk een zelfondertekend certificaat.
 >
-> Als dit niet het geval is, mogelijk hebt u weggelaten tussenliggende certificaten als u uw certificaat naar het PFX-bestand exporteert.
+> Als dat niet Hallo geval is, mogelijk hebt u weggelaten tussenliggende certificaten wanneer u uw certificaat toohello PFX-bestand exporteren.
 
 <a name="bkmk_enforce"></a>
 
 ## <a name="enforce-https"></a>HTTPS afdwingen
 
-App Service biedt *niet* afdwingen HTTPS, zodat iedereen nog steeds toegang tot uw web-app met behulp van HTTP. Als u wilt afdwingen HTTPS voor uw web-app, definieert u een regel herschrijven in de _web.config_ -bestand voor uw web-app. App Service maakt gebruik van dit bestand, ongeacht het kader van de taal van uw web-app.
+App Service biedt *niet* afdwingen HTTPS, zodat iedereen nog steeds toegang tot uw web-app met behulp van HTTP. tooenforce HTTPS voor uw web-app definiëren een regel herschrijven in Hallo _web.config_ -bestand voor uw web-app. App Service maakt gebruik van dit bestand, ongeacht de taalframework Hallo van uw web-app.
 
 > [!NOTE]
-> Er is een specifieke taal zijn gebonden omleiding van aanvragen. ASP.NET MVC kunt gebruiken de [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter in plaats van de regel herschrijven in _web.config_.
+> Er is een specifieke taal zijn gebonden omleiding van aanvragen. ASP.NET MVC kunt Hallo [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter in plaats van de regel voor het herschrijven van Hallo in _web.config_.
 
-Als u een .NET-ontwikkelaar bent, moet u relatief vertrouwd zijn met dit bestand zijn. Het is in de hoofdmap van uw oplossing.
+Als u een .NET-ontwikkelaar bent, moet u relatief vertrouwd zijn met dit bestand zijn. Het is in de hoofdmap Hallo van uw oplossing.
 
 U kunt ook als u met PHP, Node.js, Python of Java ontwikkelt, is er een kans we dit bestand namens jou gegenereerd in App Service.
 
-Verbinding maken met uw web-app FTP-eindpunt volgens de instructies op [uw app implementeren in Azure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
+Verbinding maken met tooyour van web-app FTP-eindpunt met behulp Hallo-instructies in [implementeren van uw app tooAzure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
 
-Dit bestand moet zich in _/home/site/wwwroot_. Als dit niet het geval is, maakt u een _web.config_ bestand in deze map met de volgende XML-code:
+Dit bestand moet zich in _/home/site/wwwroot_. Als dit niet het geval is, maakt u een _web.config_ bestand in deze map Hello XML te volgen:
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -247,19 +247,19 @@ Dit bestand moet zich in _/home/site/wwwroot_. Als dit niet het geval is, maakt 
 </configuration>
 ```
 
-Voor een bestaande _web.config_ bestand, Kopieer de gehele `<rule>` element in uw _web.config_van `configuration/system.webServer/rewrite/rules` element. Als er andere `<rule>` elementen in uw _web.config_, plaatst u de gekopieerde `<rule>` element voordat de andere `<rule>` elementen.
+Voor een bestaande _web.config_ bestand, Hallo gehele kopiëren `<rule>` element in uw _web.config_van `configuration/system.webServer/rewrite/rules` element. Als er andere `<rule>` elementen in uw _web.config_, plaats Hallo gekopieerd `<rule>` element voordat andere Hallo `<rule>` elementen.
 
-Deze regel retourneert HTTP 301 (permanente omleiding) en het HTTPS-protocol, wanneer de gebruiker een HTTP-aanvraag aan uw web-app maakt. Bijvoorbeeld, wordt hij omgeleid van `http://contoso.com` naar `https://contoso.com`.
+Deze regel wordt een HTTP 301 (permanente omleiding) toohello HTTPS-protocol wanneer Hallo gebruiker een HTTP-aanvraag tooyour web-app maakt. Bijvoorbeeld, wordt hij omgeleid van `http://contoso.com` te`https://contoso.com`.
 
-Zie voor meer informatie over de module voor het herschrijven van IIS-URL, de [herschrijven van URL's](http://www.iis.net/downloads/microsoft/url-rewrite) documentatie.
+Zie voor meer informatie over Hallo herschrijven van IIS URL's module Hallo [herschrijven van URL's](http://www.iis.net/downloads/microsoft/url-rewrite) documentatie.
 
 ## <a name="enforce-https-for-web-apps-on-linux"></a>Afdwingen van HTTPS voor Web-Apps op Linux
 
-Op Linux-App Service biedt *niet* afdwingen HTTPS, zodat iedereen nog steeds toegang tot uw web-app met behulp van HTTP. Als u wilt afdwingen HTTPS voor uw web-app, definieert u een regel herschrijven in de _.htaccess_ -bestand voor uw web-app. 
+Op Linux-App Service biedt *niet* afdwingen HTTPS, zodat iedereen nog steeds toegang tot uw web-app met behulp van HTTP. tooenforce HTTPS voor uw web-app definiëren een regel herschrijven in Hallo _.htaccess_ -bestand voor uw web-app. 
 
-Verbinding maken met uw web-app FTP-eindpunt volgens de instructies op [uw app implementeren in Azure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
+Verbinding maken met tooyour van web-app FTP-eindpunt met behulp Hallo-instructies in [implementeren van uw app tooAzure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
 
-In _/home/site/wwwroot_, maak een _.htaccess_ bestand met de volgende code:
+In _/home/site/wwwroot_, maak een _.htaccess_ bestand met de volgende code Hallo:
 
 ```
 RewriteEngine On
@@ -267,15 +267,15 @@ RewriteCond %{HTTP:X-ARR-SSL} ^$
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ```
 
-Deze regel retourneert HTTP 301 (permanente omleiding) en het HTTPS-protocol, wanneer de gebruiker een HTTP-aanvraag aan uw web-app maakt. Bijvoorbeeld, wordt hij omgeleid van `http://contoso.com` naar `https://contoso.com`.
+Deze regel wordt een HTTP 301 (permanente omleiding) toohello HTTPS-protocol wanneer Hallo gebruiker een HTTP-aanvraag tooyour web-app maakt. Bijvoorbeeld, wordt hij omgeleid van `http://contoso.com` te`https://contoso.com`.
 
 ## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
 
-U kunt SSL-bindingen automatiseren voor uw web-app met behulp van scripts, met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
+U kunt SSL-bindingen automatiseren voor uw web-app met behulp van scripts, met behulp van Hallo [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>Azure CLI
 
-De volgende opdracht een geëxporteerde PFX-bestand uploadt en de vingerafdruk van het opgehaald.
+Hallo na de opdracht een geëxporteerde PFX-bestand uploadt en Hallo vingerafdruk opgehaald.
 
 ```bash
 thumbprint=$(az appservice web config ssl upload \
@@ -287,7 +287,7 @@ thumbprint=$(az appservice web config ssl upload \
     --output tsv)
 ```
 
-De volgende opdracht voegt een SNI op basis van een SSL-binding met de vingerafdruk van de vorige opdracht.
+Hallo voegt volgende opdracht een SNI op basis van een SSL-binding, met de vingerafdruk van het Hallo uit de vorige opdracht Hallo.
 
 ```bash
 az appservice web config ssl bind \
@@ -299,7 +299,7 @@ az appservice web config ssl bind \
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-De volgende opdracht een geëxporteerde PFX-bestand uploadt en voegt een SNI op basis van een SSL-binding.
+Hallo volgende opdracht een geëxporteerde PFX-bestand uploadt en voegt een SNI op basis van een SSL-binding.
 
 ```PowerShell
 New-AzureRmWebAppSSLBinding `
@@ -317,11 +317,11 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Upgrade van uw app-prijscategorie
-> * Uw aangepaste SSL-certificaat binden aan de App Service
+> * Uw aangepaste SSL-certificaat tooApp Service binden
 > * Afdwingen van HTTPS voor uw app
 > * SSL-certificaat-binding met scripts automatiseren
 
-Ga naar de volgende zelfstudie voor meer informatie over het gebruik van Azure Content Delivery Network.
+Hoe gaan van de volgende zelfstudie toolearn toohello toouse Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
-> [Een Content Delivery Network (CDN) toevoegen aan een Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Toevoegen van een Content Delivery Network (CDN) tooan Azure App Service](app-service-web-tutorial-content-delivery-network.md)

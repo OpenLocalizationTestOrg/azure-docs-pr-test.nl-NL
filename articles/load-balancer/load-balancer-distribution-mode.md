@@ -1,6 +1,6 @@
 ---
-title: Modus voor Load Balancer-distributie configureren | Microsoft Docs
-description: Het configureren van Azure load balancer distributie modus om ondersteuning voor affiniteit tussen bron-IP
+title: aaaConfigure Load Balancer-distributie modus | Microsoft Docs
+description: Hoe tooconfigure Azure load balancer distributie modus toosupport bron-IP-affiniteit
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: 4cb000c8ee1bb2e267dc0813dab23a77a46080ce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e745240b733ffc07928d8ed0ae097785ad4f412e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-the-distribution-mode-for-load-balancer"></a>De distributie-modus voor de load balancer configureren
+# <a name="configure-hello-distribution-mode-for-load-balancer"></a>Hallo distributie modus voor de load balancer configureren
 
 ## <a name="hash-based-distribution-mode"></a>Distributiepunten in de hash-modus
 
-De standaard distributie-algoritme is een 5-tuple (bron-IP, bronpoort, doel-IP, doelpoort protocoltype) hash verkeer toewijzen aan beschikbare servers. Het biedt gebruikerspad alleen een transportsessie. Pakketten in dezelfde sessie wordt doorgestuurd naar het hetzelfde exemplaar van datacenter IP (DIP) achter het eindpunt van de taakverdeling. Wanneer de client wordt gestart van een nieuwe sessie van dezelfde bron-IP, wordt de bronpoort wijzigt en zorgt ervoor dat het verkeer naar een ander DIP-eindpunt.
+Hallo standaard distributie-algoritme is een 5-tuple (bron-IP, bronpoort, doel-IP, doelpoort protocoltype) hash-toomap verkeer tooavailable servers. Het biedt gebruikerspad alleen een transportsessie. Pakketten in dezelfde sessie worden Hallo omgeleid toohello dezelfde datacenter IP (DIP) achter Hallo taakverdeling endpoint-instantie. Als Hallo client start een nieuwe sessie van Hallo dezelfde bron-IP, bronpoort Hallo wijzigingen en zorgt ervoor dat Hallo verkeer toogo tooa ander DIP eindpunt.
 
 ![hash op basis van load balancer](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
@@ -31,37 +31,37 @@ Afbeelding 1-5-tuple distributie
 
 ## <a name="source-ip-affinity-mode"></a>Affiniteitsmodus voor IP-bron
 
-We hebben een ander distributiepunt installatiemodus bron-IP-affiniteit (ook wel bekend als sessie affiniteit of IP-clientaffiniteit). Azure Load Balancer kan worden geconfigureerd voor het gebruik van een 2-tuple (bron-IP, doel-IP) of 3-tuple (bron-IP, doel-IP, Protocol) verkeer toewijzen aan de beschikbare servers. Met behulp van de bron-IP-affiniteit verbindingen geïnitieerd door dezelfde clientcomputer gaat naar hetzelfde DIP-eindpunt.
+We hebben een ander distributiepunt installatiemodus bron-IP-affiniteit (ook wel bekend als sessie affiniteit of IP-clientaffiniteit). Azure Load Balancer kan geconfigureerde toouse 2-tuple (bron-IP, doel-IP) of 3-tuple (bron-IP, doel-IP, Protocol) toomap verkeer toohello beschikbare servers. Met behulp van de bron-IP-affiniteit verbindingen geïnitieerd vanaf Hallo dezelfde clientcomputer gaat toohello hetzelfde DIP-eindpunt.
 
-Het volgende diagram ziet u een configuratie met 2-tuple. U ziet hoe de 2-tuple via de load balancer voor virtuele machine, 1 (VM1) die vervolgens back-up door VM2 en VM3 wordt uitgevoerd.
+Hallo volgende diagram ziet u een configuratie met 2-tuple. U ziet hoe Hallo 2-tuple via Hallo load balancer toovirtual machine 1 (VM1) die vervolgens back-up door VM2 en VM3 wordt uitgevoerd.
 
 ![sessie-affiniteit](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 Afbeelding 2-2-tuple distributie
 
-Bron-IP-affiniteit is opgelost incompatibiliteit tussen de Load Balancer van Azure en de Gateway van de extern bureaublad (RD). U kunt nu een farm RD-gateway in een enkel cloudservice maken.
+Bron-IP-affiniteit is opgelost incompatibiliteit tussen hello Azure Load Balancer en extern bureaublad (RD)-Gateway. U kunt nu een farm RD-gateway in een enkel cloudservice maken.
 
-Voorbeeldscenario voor een andere gebruik is media uploaden waar het uploaden van gegevens gebeurt via UDP, maar het besturingselement vlak wordt geregeld via TCP:
+Voorbeeldscenario voor een andere gebruik is media uploaden waar Hallo gegevens uploaden gebeurt via UDP, maar Hallo besturingselement vlak wordt geregeld via TCP:
 
-* Een client eerst een TCP-sessie in het openbare adres van de taakverdeling initieert, wordt omgeleid naar een specifieke DIP dit kanaal blijft aanwezig voor het bewaken van de status van de verbinding
-* Een nieuwe sessie UDP van dezelfde clientcomputer aan hetzelfde taakverdeling openbaar eindpunt wordt gestart, wordt hier de verwachting is dat deze verbinding, ook wordt omgeleid naar hetzelfde DIP eindpunt, zoals de vorige TCP-verbinding zodat media uploaden kan worden uitgevoerd op hoog de doorvoer en tegelijkertijd ook een besturingskanaal via TCP.
+* Een client eerst een openbaar adres met gelijke taakverdeling toohello TCP-sessie start, gerichte tooa specifieke DIP, dit kanaal is de status van de verbinding Hallo links active toomonitor opgehaald
+* Een nieuwe sessie UDP van Hallo dezelfde clientcomputer wordt geïnitieerd toohello dezelfde taakverdeling openbaar eindpunt, hier Hallo verwachting dat deze verbinding ook gerichte toohello dezelfde DIP eindpunt als Hallo vorige TCP-verbinding zodat media uploaden mag uitgevoerd op maximale doorvoer en tegelijkertijd ook een besturingskanaal via TCP.
 
 > [!NOTE]
-> Wanneer een set met gelijke taakverdeling wordt gewijzigd (een virtuele machine toevoegen of verwijderen), de distributie van aanvragen van clients opnieuw berekend. U kunt geen afhankelijk van nieuwe verbindingen van bestaande clients op dezelfde server loopt. Bovendien met behulp van de bron-IP affiniteitsmodus voor verdeling kan leiden tot een ongelijke distributie van verkeer. Clients met achter proxy's kunnen worden gezien als een unieke client-toepassing.
+> Wanneer een set met gelijke taakverdeling wordt gewijzigd (verwijderen of toevoegen van een virtuele machine), worden de Hallo distributie van clientaanvragen herberekend. U kan niet afhankelijk zijn van de nieuwe verbindingen van bestaande clients loopt op Hallo dezelfde server. Bovendien met behulp van de bron-IP affiniteitsmodus voor verdeling kan leiden tot een ongelijke distributie van verkeer. Clients met achter proxy's kunnen worden gezien als een unieke client-toepassing.
 
 ## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>Configureren affiniteit van bron-IP-instellingen voor de load balancer
 
-Voor virtuele machines, kunt u PowerShell time-out-instellingen te wijzigen:
+Voor virtuele machines, kunt u PowerShell toochange time-outinstellingen:
 
-Een Azure-eindpunt toevoegen aan een virtuele Machine en load balancer distributie modus instellen
+Toevoegen van een Azure-eindpunt tooa virtuele Machine en het instellen van de load balancer-distributie-modus
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-LoadBalancerDistribution kan worden ingesteld op sourceIP voor 2-tuple (bron-IP, doel-IP) voor de load balancer, sourceIPProtocol voor taakverdeling van 3-tuple (bron-IP, doel-IP, protocol) of none als u wilt dat het standaardgedrag van 5-tuple taakverdeling.
+LoadBalancerDistribution kan toosourceIP voor 2-tuple (bron-IP, doel-IP) voor de load balancer, sourceIPProtocol voor taakverdeling van 3-tuple (bron-IP, doel-IP, protocol) of none als u wilt dat de standaardgedrag Hallo van 5-tuple taakverdeling worden ingesteld.
 
-Gebruik de volgende voor het ophalen van een load balancer distributie modus eindpuntconfiguratie:
+Gebruik Hallo tooretrieve een load balancer distributie modus eindpuntconfiguratie te volgen:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -83,19 +83,19 @@ Gebruik de volgende voor het ophalen van een load balancer distributie modus ein
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Als de LoadBalancerDistribution-element niet aanwezig is gebruikt de 5-tuple standaardalgoritme met de Azure Load balancer.
+Als Hallo LoadBalancerDistribution element niet aanwezig is gebruikt hello Azure Load balancer Hallo standaard 5-tuple algoritme.
 
-### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>De distributie-modus instellen op een set met gelijke taakverdeling eindpunt
+### <a name="set-hello-distribution-mode-on-a-load-balanced-endpoint-set"></a>Hallo distributie modus instellen op een set met gelijke taakverdeling eindpunt
 
-Als eindpunten deel van een set met gelijke taakverdeling eindpunt uitmaken, moet u de distributie-modus instellen op de set met gelijke taakverdeling eindpunt:
+Als eindpunten deel van een set met gelijke taakverdeling eindpunt uitmaken, moet Hallo distributie modus worden ingesteld op Hallo eindpuntset met gelijke taakverdeling:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configuratie voor cloud-Service om distributie-modus te wijzigen
+### <a name="cloud-service-configuration-toochange-distribution-mode"></a>Cloud Service toochange distributie configuratiemodus
 
-U kunt gebruikmaken van de Azure SDK voor .NET 2.5 (om te worden uitgebracht in November) voor het bijwerken van uw Cloud-Service. Instellingen voor endpoint voor Cloudservices zijn aangebracht in het csdef. Bijwerken van de load balancer distributie-modus voor een Cloud Services-implementatie, is een upgrade van een implementatie vereist.
+U kunt gebruikmaken van hello Azure SDK voor .NET 2.5 (toobe uitgebracht in November) tooupdate uw Cloud-Service. Instellingen voor endpoint voor Cloudservices zijn aangebracht in Hallo csdef. De upgrade van een implementatie is in de volgorde tooupdate Hallo load balancer distributie-modus voor een Cloud Services-implementatie vereist.
 Hier volgt een voorbeeld van wijzigingen voor eindpuntinstellingen csdef:
 
 ```xml
@@ -118,9 +118,9 @@ Hier volgt een voorbeeld van wijzigingen voor eindpuntinstellingen csdef:
 
 ## <a name="api-example"></a>API-voorbeeld
 
-U kunt configureren dat de load balancer-distributie met behulp van de servicebeheer-API. Zorg ervoor dat u toevoegt de `x-ms-version` header is ingesteld op versie `2014-09-01` of hoger.
+U kunt Hallo load balancer distributie op basis van de API voor servicebeheer Hallo configureren. Zorg ervoor dat tooadd hello `x-ms-version` header is ingesteld tooversion `2014-09-01` of hoger.
 
-### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>De configuratie van de opgegeven set taakverdeling in een implementatie bijwerken
+### <a name="update-hello-configuration-of-hello-specified-load-balanced-set-in-a-deployment"></a>Configuratie van de update Hallo Hallo opgegeven set met gelijke taakverdeling in een implementatie
 
 #### <a name="request-example"></a>Voorbeeld van de aanvraag
 
@@ -145,7 +145,7 @@ U kunt configureren dat de load balancer-distributie met behulp van de servicebe
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-De waarde van LoadBalancerDistribution mag sourceIP voor affiniteit tussen de 2-tuple, sourceIPProtocol voor affiniteit tussen de 3-tuple of none (voor geen relatie. dat wil zeggen 5-tuple)
+Hallo-waarden voor LoadBalancerDistribution zijn sourceIP voor affiniteit tussen de 2-tuple, sourceIPProtocol voor affiniteit tussen de 3-tuple of none (voor geen relatie. dat wil zeggen 5-tuple)
 
 #### <a name="response"></a>Antwoord
 

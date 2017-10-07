@@ -1,6 +1,6 @@
 ---
-title: Controleren, vaststellen en oplossen van Storage | Microsoft Docs
-description: Functies gebruiken, zoals storage analytics, client-side '-logboekregistratie en andere hulpprogramma's van derden om te identificeren, onderzoeken en oplossen van problemen met Azure Storage met.
+title: aaaMonitor, opsporen en oplossen van Storage | Microsoft Docs
+description: Functies gebruiken, zoals diagnosticeren en oplossen van problemen met Azure Storage met storage analytics, client-side '-logboekregistratie en andere tooidentify hulpprogramma's van derden.
 services: storage
 documentationcenter: 
 author: fhryo-msft
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: 0ce739e1b62c908a469a5c37331915f17809018b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 294a0bd27bd03913e01a719c0175cab827d58225
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Overzicht
-Diagnose van en het oplossen van problemen in een gedistribueerde toepassing die wordt gehost in een cloudomgeving kunnen worden complexer dan in traditionele omgevingen. Toepassingen kunnen worden geïmplementeerd in een PaaS of IaaS-infrastructuur on-premises, op een mobiel apparaat of in een combinatie hiervan. Normaal gesproken netwerkverkeer van uw toepassing lopen mogelijk langs openbare en particuliere netwerken en toepassingen kan gebruikmaken van meerdere opslagtechnologieën zoals Microsoft Azure Storage-tabellen, Blobs, wachtrijen of bestanden naast de andere gegevens zoals opgeslagen als relationele en documenteren van databases.
+Diagnose van en het oplossen van problemen in een gedistribueerde toepassing die wordt gehost in een cloudomgeving kunnen worden complexer dan in traditionele omgevingen. Toepassingen kunnen worden geïmplementeerd in een PaaS of IaaS-infrastructuur on-premises, op een mobiel apparaat of in een combinatie hiervan. Normaal gesproken netwerkverkeer van uw toepassing lopen mogelijk langs openbare en particuliere netwerken en toepassingen kan gebruikmaken van meerdere opslagtechnologieën zoals Microsoft Azure Storage-tabellen, Blobs, wachtrijen of bestanden in de toevoeging tooother gegevens worden opgeslagen zoals als relationele en documenteren van databases.
 
-U moet deze proactief controleren en te begrijpen hoe vaststellen en oplossen van alle aspecten van deze en hun afhankelijke technologieën voor het beheren van dergelijke toepassingen is. Als een gebruiker van Azure Storage-services, moet u voortdurend controleren van de Storage-services die uw toepassing wordt gebruikt voor eventuele onverwachte wijzigingen in gedrag (zoals langzamer dan gebruikelijk reactietijden) en logboekregistratie gebruiken om meer gedetailleerde gegevens te verzamelen en analyseren van een probleem in de diepte. De diagnostische gegevens die u verkrijgen van zowel controle en logboekregistratie helpt u bij het vaststellen van de hoofdoorzaak van het probleem is opgetreden in uw toepassing. Vervolgens kunt u het probleem op te lossen en bepalen de juiste stappen die u ondernemen kunt worden opgelost. Azure Storage is een kern Azure-service en vormt een belangrijk onderdeel van het merendeel van de oplossingen die klanten in de Azure-infrastructuur implementeert. Azure Storage bevat mogelijkheden voor het vereenvoudigen van bewaking, onderzoeken en het oplossen van opslagproblemen in uw cloud-gebaseerde toepassingen.
+toomanage dergelijke toepassingen met succes u moet deze proactief controleren en inzicht in hoe toodiagnose en alle aspecten van hun afhankelijke technologieën en ze problemen oplossen. Als een gebruiker van Azure Storage-services, u moet continu Hallo opslagservices uw toepassing wordt gebruikt voor eventuele onverwachte wijzigingen in gedrag (zoals langzamer dan gebruikelijk reactietijden) bewaken en logboekregistratie toocollect gebruik meer gedetailleerde gegevens en tooanalyze een probleem in de diepte. Hallo diagnostische gegevens die u van controle en logboekregistratie verkrijgen kunt u toodetermine Hallo hoofdoorzaak Hallo uitgeven van uw toepassing aangetroffen. Vervolgens kunt u Hallo probleem op te lossen en Hallo passende stappen kunt tooremediate bepalen het. Azure Storage is een kern Azure-service en vormt een belangrijk onderdeel van de meeste Hallo-oplossingen klanten toohello Azure-infrastructuur te implementeren. Azure Storage bevat mogelijkheden toosimplify bewaking, onderzoeken en het oplossen van opslagproblemen in uw cloud-gebaseerde toepassingen.
 
 > [!NOTE]
-> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) beschikt niet over de metrische gegevens of de logboekregistratie kunnen op dit moment is ingeschakeld. 
+> Storage-accounts met een replicatietype van de Zone-redundante opslag (ZRS) hebben geen Hallo metrische gegevens of logboekregistratie kunnen op dit moment is ingeschakeld. 
 > 
 > 
 
-Zie voor een praktische handleiding voor het end-to-end het oplossen van problemen in toepassingen met Azure Storage [End-to-End problemen oplossen met metrische gegevens van Azure Storage en logboekregistratie, AzCopy en Message Analyzer](storage-e2e-troubleshooting.md).
+Zie voor een praktische gids tooend-to-end het oplossen van problemen in toepassingen met Azure Storage, [End-to-End problemen oplossen met metrische gegevens van Azure Storage en logboekregistratie, AzCopy en Message Analyzer](storage-e2e-troubleshooting.md).
 
 * [Inleiding]
   * [Rangschikking van deze handleiding]
@@ -56,152 +56,152 @@ Zie voor een praktische handleiding voor het end-to-end het oplossen van problem
   * [Tijdstempels]
 * [richtlijnen voor probleemoplossing]
   * [metrische gegevens tonen AverageE2ELatency hoge en lage AverageServerLatency]
-  * [Prestatiegegevens geven lage AverageE2ELatency en lage AverageServerLatency aan, maar de client ondervindt hoge latentie]
+  * [Metrische gegevens tonen lage AverageE2ELatency en lage AverageServerLatency maar Hallo client ondervindt hoge latentie]
   * [Prestatiegegevens geven hoge AverageServerLatency aan]
   * [U ervaart onverwachte vertragingen bij de levering van berichten in een wachtrij]
   * [metrische gegevens tonen een toename in PercentThrottlingError]
   * [metrische gegevens tonen een toename in PercentTimeoutError]
   * [Prestatiegegevens geven een toename in PercentNetworkError aan]
-  * [De client ontvangt berichten HTTP 403 (verboden)]
-  * [De client ontvangt berichten HTTP 404 (niet gevonden)]
-  * [De client ontvangt berichten van de HTTP-409 (Conflict)]
-  * [metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met de status van ClientOtherErrors]
+  * [Hallo client ontvangt berichten HTTP 403 (verboden)]
+  * [Hallo-client is ontvangen HTTP 404 (niet gevonden)-berichten]
+  * [Hallo client ontvangt berichten van de HTTP-409 (Conflict)]
+  * [metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met transactiestatus ClientOtherErrors]
   * [Capaciteit metrische gegevens tonen een onverwachte toename in opslaggebruik capaciteit]
   * [Er is sprake van virtuele Machines met een groot aantal gekoppelde VHD's onverwacht opnieuw wordt opgestart]
-  * [Het probleem zich voordoet de opslagemulator voor ontwikkeling of tests gebruiken]
-  * [U ondervindt problemen met het installeren van de Azure SDK voor .NET]
+  * [Het probleem zich voordoet Hallo-opslagemulator gebruiken voor ontwikkeling of tests]
+  * [U ondervindt problemen met het installeren van hello Azure SDK voor .NET]
   * [U hebt een ander probleem met storage-service]
 * [bijlagen]
-  * [bijlage 1: gebruik Fiddler om vast te leggen HTTP en HTTPS-verkeer]
-  * [bijlage 2: Wireshark gebruiken om vast te leggen netwerkverkeer]
-  * [bijlage 3: met behulp van Microsoft Message Analyzer om vast te leggen netwerkverkeer]
-  * [Bijlage 4: Met behulp van Excel metrische gegevens weergeven en gegevens aanmelden]
+  * [bijlage 1: met behulp van Fiddler toocapture HTTP en HTTPS-verkeer]
+  * [bijlage 2: met behulp van Wireshark toocapture netwerkverkeer]
+  * [bijlage 3: met behulp van Microsoft Message Analyzer toocapture netwerkverkeer]
+  * [Bijlage 4: Tooview Excel-gegevens metrische gegevens en logboekbestanden gebruiken]
   * [bijlage 5: bewaking met Application Insights for Visual Studio teamservices]
 
 ## <a name="introduction"></a>Inleiding
-Deze handleiding wordt beschreven hoe u functies zoals Azure Storage Analytics clientzijde logboekregistratie in de Azure Storage-clientbibliotheek en andere hulpprogramma's van derden om te bepalen, onderzoeken en oplossen van Azure Storage problemen met betrekking tot.
+Problemen met betrekking tot deze handleiding ziet u hoe toouse functies zoals Azure Storage Analytics, client-side '-logboekregistratie in hello Azure Storage-clientbibliotheek en andere hulpprogramma's van derden-tooidentify vaststellen en oplossen van Azure Storage.
 
 ![][1]
 
 *Afbeelding 1 bewakings-, diagnose, en problemen oplossen*
 
-Deze handleiding is bedoeld om te lezen voornamelijk door ontwikkelaars van online services die gebruikmaken van Azure Storage-Services en IT-professionals die verantwoordelijk is voor het beheren van dergelijke online services. De doelstellingen van deze handleiding zijn:
+Deze handleiding is bedoeld toobe lezen voornamelijk door ontwikkelaars van online services die gebruikmaken van Azure Storage-Services en IT-professionals die verantwoordelijk is voor het beheren van dergelijke online services. Hallo doelstellingen van deze handleiding zijn:
 
-* Om u te helpen houden de status en prestaties van uw Azure Storage-accounts.
-* Om aan te bieden u de benodigde processen en hulpprogramma's om te bepalen of een probleem of een probleem in een toepassing is gekoppeld aan Azure Storage.
-* Om u te bieden bruikbare richtlijnen voor het oplossen van problemen met betrekking tot Azure Storage.
+* toohelp hello status en prestaties van uw Azure Storage-accounts te behouden.
+* tooprovide u met de Hallo nodig processen en hulpprogramma's voor toohelp u besluit als een probleem of een probleem in een toepassing is gekoppeld tooAzure opslag.
+* tooprovide u met bruikbare richtlijnen voor het oplossen van problemen tooAzure opslag gekoppeld.
 
 ### <a name="how-this-guide-is-organized"></a>Rangschikking van deze handleiding
-De sectie '[bewaking van uw opslagservice]' wordt beschreven hoe u voor het bewaken van de status en prestaties van uw Azure Storage-services met Azure Storage Analytics metrische gegevens (metrische gegevens Storage).
+sectie Hallo '[bewaking van uw opslagservice]' wordt beschreven hoe toomonitor Hallo status en prestaties van uw Azure Storage-services met Azure Storage Analytics metrische gegevens (metrische gegevens Storage).
 
-De sectie '[diagnose van opslagproblemen]' wordt beschreven hoe u problemen met behulp van Azure Storage Analytics Logging (logboekregistratie van opslag) op te sporen. Tevens wordt beschreven hoe logboekregistratie voor client-side met behulp van de faciliteiten in een van de clientbibliotheken zoals de Storage-clientbibliotheek voor .NET of de Azure SDK voor Java inschakelen.
+sectie Hallo '[diagnose van opslagproblemen]' wordt beschreven hoe toodiagnose problemen met behulp van Azure Storage Analytics Logging (logboekregistratie van opslag). Ook wordt beschreven hoe tooenable met behulp van logboekregistratie voor client-side ' hello faciliteiten in een van de clientbibliotheken Hallo zoals Hallo Storage-clientbibliotheek voor .NET of hello Azure SDK voor Java.
 
-De sectie '[End-to-end tracering]' wordt beschreven hoe u de informatie in de verschillende logboekbestanden en metrische gegevens kunt correleren.
+sectie Hallo '[End-to-end tracering]' wordt beschreven hoe correleren van Hallo gegevens in de verschillende logboekbestanden en metrische gegevens.
 
-De sectie '[richtlijnen voor probleemoplossing]' biedt richtlijnen voor probleemoplossing voor sommige van de algemene opslag-gerelateerde problemen die u kunt tegenkomen.
+sectie Hallo '[richtlijnen voor probleemoplossing]' bevat richtlijnen voor probleemoplossing voor een aantal Hallo algemene opslag problemen kunnen optreden.
 
-De '[bijlagen]' bevatten informatie over het gebruik van andere hulpprogramma's zoals Wireshark en Netmon voor analyse van netwerk-pakketgegevens, Fiddler voor het analyseren van HTTP/HTTPS-berichten en Microsoft Message Analyzer voor het correleren van gegevens vastleggen.
+Hallo '[bijlagen]' bevatten informatie over het gebruik van andere hulpprogramma's zoals Wireshark en Netmon voor analyse van netwerk-pakketgegevens, Fiddler voor het analyseren van HTTP/HTTPS-berichten en Microsoft Message Analyzer voor het correleren van gegevens vastleggen.
 
 ## <a name="monitoring-your-storage-service"></a>Bewaking van uw storage-service
-Als u bekend zijn met Windows performance monitoring bent, kunt u metrische gegevens Storage zien als wordt een Azure Storage-equivalent van de Prestatiemeter van Windows. In de opslag metrische gegevens vindt u een uitgebreide set met metrische gegevens (items in Prestatiemeter van Windows-terminologie) zoals servicebeschikbaarheid totaal aantal aanvragen voor de service of percentage van geslaagde aanvragen naar service (Zie voor een volledige lijst van de beschikbare metrische gegevens <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics metrische gegevens tabelschema</a> op MSDN). U kunt opgeven of u wilt dat de opslagservice te verzamelen en samenvoegen van metrische gegevens elk uur of elke minuut. Zie voor meer informatie over het inschakelen van metrische gegevens en bewaken van uw opslagaccounts <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">metrische gegevens storage inschakelen</a> op MSDN.
+Als u bekend zijn met Windows performance monitoring bent, kunt u metrische gegevens Storage zien als wordt een Azure Storage-equivalent van de Prestatiemeter van Windows. In de opslag metrische gegevens vindt u een uitgebreide set met metrische gegevens (items in Prestatiemeter van Windows-terminologie) zoals beschikbaarheid van de service, het totale aantal aanvragen tooservice of percentage van geslaagde aanvragen tooservice (voor een volledige lijst met Hallo beschikbare metrische gegevens en Zie <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics metrische gegevens tabelschema</a> op MSDN). U kunt opgeven of u wilt dat Hallo opslag service toocollect en cumulatieve metrische gegevens elk uur of elke minuut. Voor meer informatie over hoe tooenable metrische gegevens en monitor uw storage-accounts, Zie <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">metrische gegevens storage inschakelen</a> op MSDN.
 
-U kunt kiezen welke per uur metrische gegevens die u wilt weergeven in de klassieke Azure Portal en regels configureren waarmee beheerders door waarschuwen wanneer een per uur metrische gegevens een bepaalde drempelwaarde overschrijdt e (Zie voor meer informatie de pagina <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">hoe: waarschuwingsmeldingen ontvangen en regels voor waarschuwingen beheren in Azure</a>). De storage-service met een zo goed mogelijke poging metrische gegevens verzamelt, maar u kunt elke opslagbewerking niet registreren.
+U kunt kiezen welke per uur metrische gegevens in de gewenste toodisplay Hallo klassieke Azure-Portal en regels configureren waarmee beheerders per e-mail wordt gewaarschuwd wanneer een per uur metrische gegevens een bepaalde drempelwaarde overschrijdt (Zie voor meer informatie, Hallo pagina <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">hoe: Ontvangen van meldingen van waarschuwingen en waarschuwingsregels in Azure beheren</a>). Hallo storage-service met een zo goed mogelijke poging metrische gegevens verzamelt, maar kunt elke opslagbewerking niet registreren.
 
-Afbeelding 2 hieronder ziet de Monitor-pagina in de klassieke Azure-Portal waar u metrische gegevens zoals beschikbaarheid, totaal aantal aanvragen en gemiddelde latentie cijfers voor een opslagaccount kunt bekijken. Een meldingsregel is ook ingesteld zodat een beheerder wordt gewaarschuwd als beschikbaarheid onder een bepaalde mate zakt. Deze gegevens bekijken, een mogelijke gebied voor onderzoek Verwerkingsfrequentie van de tabel-service wordt dan 100% is (Zie voor meer informatie de sectie '[metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met de status van ClientOtherErrors]').
+Afbeelding 2 hieronder ziet Hallo Monitor pagina in Hallo klassieke Azure-Portal waar u metrische gegevens zoals beschikbaarheid, totaal aantal aanvragen en gemiddelde latentie cijfers voor een opslagaccount kunt bekijken. Een meldingsregel is ook ingesteld tooalert beheerder als beschikbaarheid onder een bepaalde mate zakt. Van deze gegevens weer te geven, een mogelijke gebied voor onderzoek Hallo tabel service Verwerkingsfrequentie wordt dan 100% is (Zie Hallo sectie voor meer informatie '[metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met transactiestatus ClientOtherErrors]').
 
 ![][2]
 
-*Afbeelding 2 opslag metrische gegevens weergeven in de klassieke Azure Portal*
+*Afbeelding 2 opslag metrische gegevens bekijkt in de klassieke Azure-Portal Hallo*
 
-Uw Azure-toepassingen om te controleren of dat ze zijn in orde en zoals verwacht door het uitvoeren, moet u continu controleren:
+Uw Azure-toepassingen tooensure ze zijn in orde en zoals verwacht door het uitvoeren, moet u continu controleren:
 
-* Tot stand brengen van een basislijn metrische gegevens voor de toepassing waarmee u huidige gegevens vergelijken en identificeren van alle belangrijke wijzigingen in het gedrag van Azure storage en uw toepassing. De waarden van de metrische gegevens van uw basislijn, in veel gevallen worden specifieke toepassing en u moet tot stand worden gebracht wanneer u de prestaties van uw toepassing testen bent.
-* Opname minuut metrische gegevens en het gebruik ervan controleren actief voor onverwachte fouten en afwijkingen zoals pieken in fout, telt of vraag tarieven.
-* Opnemen per uur metrische gegevens en ze worden gebruikt voor het bewaken van gemiddelde waarden zoals gemiddelde aantallen van de fout en tarieven aanvragen.
-* Onderzoeken van mogelijke problemen met diagnostische hulpprogramma's zoals verderop in de sectie '[diagnose van opslagproblemen]. "
+* Tot stand brengen van sommige basislijn metrische gegevens voor de toepassing die wordt kunt u gegevens van de huidige toocompare en belangrijke wijzigingen in gedrag van Azure storage en uw toepassing hello identificeren. Hallo-waarden van de metrische gegevens van uw basislijn, in veel gevallen worden specifieke toepassing en moet u deze instellen wanneer u de prestaties van uw toepassing testen bent.
+* Opname minuut metrische gegevens en het gebruik ervan toomonitor actief voor onverwachte fouten en afwijkingen zoals pieken in fout tellingen of aanvraag tarieven.
+* Per uur metrische gegevens opnemen en gebruik ze zoals gemiddelde waarden toomonitor gemiddelde aantallen van de fout en tarieven aanvragen.
+* Onderzoeken van mogelijke problemen met diagnostische hulpprogramma's zoals verderop in de sectie Hallo '[diagnose van opslagproblemen]. "
 
-De grafieken in afbeelding 3 hieronder laten zien hoe de gemiddelde die voor de per uur metrische gegevens optreedt kunt verbergen pieken in de activiteit. De Uurlijkse metrische gegevens worden weergegeven om weer te geven van een constante snelheid van aanvragen, terwijl de minuut metrieken onthullen de schommelingen die echt plaatsvinden.
+Hallo-grafieken in afbeelding 3 hieronder laten zien hoe Hallo gemiddelde die voor de per uur metrische gegevens optreedt kunt verbergen pieken in de activiteit. Hallo per uur metrische gegevens weergegeven tooshow een constante snelheid van aanvragen, tijdens het Hallo minuut metrieken onthullen Hallo schommelingen die echt plaatsvinden.
 
 ![][3]
 
-De rest van deze sectie wordt beschreven welke metrische gegevens, moet u controleren en waarom.
+Hallo rest van deze sectie wordt beschreven welke metrische gegevens, moet u controleren en waarom.
 
 ### <a name="monitoring-service-health"></a>Bewaking servicestatus
-U kunt de [klassieke Azure-Portal](https://manage.windowsazure.com) om de status van de Storage-service (en andere Azure-services) in alle Azure-regio's over de hele wereld. Hiermee kunt u onmiddellijk te zien als een probleem buiten uw invloedssfeer invloed op de Storage-service in de regio die u voor uw toepassing gebruiken.
+U kunt Hallo [klassieke Azure-Portal](https://manage.windowsazure.com) tooview Hallo status van Hallo Storage-service (en andere Azure-services) in alle Azure-regio's Hallo wereld Hallo. Hiermee kunt u toosee onmiddellijk als een probleem buiten uw invloedssfeer invloed op Hallo opslagservice in Hallo regio die u voor uw toepassing gebruiken.
 
-De klassieke Azure Portal biedt ook met meldingen van incidenten die invloed hebben op de verschillende Azure-services.
-Opmerking: Deze informatie is eerder beschikbaar is, samen met de historische gegevens, op het Dashboard van de Service Azure op <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
+Hallo klassieke Azure-Portal biedt ook met meldingen van incidenten die invloed hebben op Hallo verschillende Azure-services.
+Opmerking: Deze informatie is eerder beschikbaar is, samen met de historische gegevens, op Hallo servicedashboard op Azure <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-Terwijl de klassieke Azure Portal verzamelt informatie uit in de Azure-datacenters (binnen-out bewaking), kunt u ook heeft een benadering buiten in voor het genereren van synthetische transacties die regelmatig toegang hebben tot uw Azure gehoste webtoepassing vanaf meerdere locaties. De services die worden aangeboden door <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, en de Application Insights for Visual Studio Team Services zijn voorbeelden van deze benadering buiten in. Zie voor meer informatie over Application Insights voor Visual Studio Team Services, de bijlage '[bijlage 5: bewaking met Application Insights for Visual Studio teamservices]. "
+Tijdens het Hallo klassieke Azure-Portal verzamelt informatie uit binnen hello Azure-datacenters (binnen-out bewaking), u kunt ook een benadering van buitenaf toogenerate synthetische transacties die regelmatig toegang tot uw Azure gehoste overstap de webtoepassing vanaf meerdere locaties. services die worden aangeboden door Hallo <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, en de Application Insights for Visual Studio Team Services zijn voorbeelden van deze benadering buiten in. Zie voor meer informatie over Application Insights voor Visual Studio Team Services, bijlage Hallo '[bijlage 5: bewaking met Application Insights for Visual Studio teamservices]. "
 
 ### <a name="monitoring-capacity"></a>Bewaking van capaciteit
-Metrische gegevens Storage alleen capaciteitsmetrieken voor de blob-service worden opgeslagen omdat blobs doorgaans voor het grootste deel van de opgeslagen gegevens account (op het moment van schrijven, het is niet mogelijk-opslag metrische gegevens gebruiken om te bewaken van de capaciteit van de tabellen en wachtrijen). U vindt deze gegevens in de **$MetricsCapacityBlob** tabel als u bewaking voor de Blob-service hebt ingeschakeld. Metrische gegevens Storage registreert deze gegevens eenmaal per dag en kunt u de waarde van de **RowKey** om te bepalen of de rij bevat een entiteit die is gekoppeld aan de gebruikersgegevens (waarde **gegevens**) of analytische gegevens (waarde **analytics**). Elke entiteit opgeslagen bevat informatie over de hoeveelheid opslagruimte gebruikt (**capaciteit** gemeten in bytes) en het huidige aantal containers (**ContainerCount**) en -blobs (**ObjectCount**) in het opslagaccount wordt gebruikt. Voor meer informatie over de capaciteit metrische gegevens opgeslagen in de **$MetricsCapacityBlob** tabel, Zie <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics metrische gegevens tabelschema</a> op MSDN.
+Metrische gegevens Storage alleen capaciteitsmetrieken voor Hallo blob-service worden opgeslagen omdat blobs doorgaans rekening voor Hallo grootste gedeelte van de opgeslagen gegevens (Hallo schrijven, het is momenteel niet mogelijk toouse metrische gegevens Storage toomonitor Hallo capaciteit van de tabellen en wachtrijen) . U vindt deze gegevens in Hallo **$MetricsCapacityBlob** tabel als u bewaking voor Hallo Blob-service hebt ingeschakeld. Metrische gegevens Storage registreert deze gegevens eenmaal per dag en kunt u Hallo-waarde van Hallo **RowKey** toodetermine of Hallo rij bevat voor een entiteit die is gekoppeld toouser gegevens (waarde **gegevens**) of analytics gegevens ( waarde **analytics**). Elke entiteit opgeslagen bevat informatie over Hallo hoeveelheid gebruikte ruimte (**capaciteit** gemeten in bytes) en het huidige aantal containers hello (**ContainerCount**) en -blobs ( **ObjectCount**) in Hallo storage-account wordt gebruikt. Voor meer informatie over Hallo capaciteitsmetrieken opgeslagen in Hallo **$MetricsCapacityBlob** tabel, Zie <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics metrische gegevens tabelschema</a> op MSDN.
 
 > [!NOTE]
-> Deze waarden voor een vroegtijdige waarschuwing dat u de capaciteitslimiet van uw opslagaccount nadert, moet u controleren. In de klassieke Azure-Portal op de **Monitor** pagina voor uw opslagaccount u regels voor waarschuwingen om u te waarschuwen als cumulatieve opslaggebruik overschrijdt of minder is dan de drempels die u opgeeft kunt toevoegen.
+> Deze waarden voor een vroegtijdige waarschuwing dat u beperkingen van de capaciteit van uw opslagaccount Hallo nadert, moet u controleren. In de klassieke Azure-Portal Hallo op Hallo **Monitor** pagina voor uw storage-account, kunt u toevoegen waarschuwing toonotify regels die u als cumulatieve opslaggebruik overschrijdt of ligt onder de drempels die u opgeeft.
 > 
 > 
 
-Voor hulp bij het schatten van de grootte van verschillende opslagobjecten zoals blobs, Zie het blogbericht <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">wat Azure Storage facturering – bandbreedte, transacties en capaciteit</a>.
+Zie voor informatie over het schatten van de grootte van verschillende opslagobjecten zoals blobs Hallo Hallo blogbericht <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">wat Azure Storage facturering – bandbreedte, transacties en capaciteit</a>.
 
 ### <a name="monitoring-availability"></a>Controleprogramma beschikbaarheid
-U moet de beschikbaarheid van de storage-services in uw opslagaccount bewaken door de bewaking van de waarde in de **beschikbaarheid** kolom in de tabellen per uur of minuut metrieken: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. De **beschikbaarheid** kolom bevat een percentagewaarde die aangeeft van de beschikbaarheid van de service of de API-bewerking dat wordt vertegenwoordigd door de rij (de **RowKey** bevat als de rij metrische gegevens voor de service als geheel of voor het uitvoeren van een specifieke API bevat).
+Hallo beschikbaarheid van de opslagservices Hallo moet u controleren in uw opslagaccount door de bewaking van Hallo-waarde in Hallo **beschikbaarheid** kolom in per uur of minuut metrieken tabellen Hallo: **$ MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$ MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$ MetricsCapacityBlob**. Hallo **beschikbaarheid** kolom bevat een percentagewaarde die Hallo beschikbaarheid van Hallo service of Hallo API-bewerking dat wordt vertegenwoordigd door Hallo rij aangeeft (Hallo **RowKey** toont als Hallo rij bevat. metrische gegevens voor de service Hallo als geheel of voor het uitvoeren van een specifieke API).
 
-Een waarde op die kleiner is dan 100% Hiermee wordt aangegeven dat bepaalde opslag-aanvragen mislukken. U kunt zien waarom ze zijn mislukt door de andere kolommen in de metrische gegevens die het aantal aanvragen met verschillende fouttypen zoals weergeven in **ServerTimeoutError**. U mag verwachten **beschikbaarheid** tijdelijk vallen onder de 100% om redenen als tijdelijke server time-outs tijdens de service wordt verplaatst partities naar betere taakverdeling aanvraag; de Pogingslogica in uw clienttoepassing die onregelmatige voorwaarden moet verwerken. De pagina <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"> </a> geeft een lijst van de transactietypen die metrische gegevens Storage bevat in de **beschikbaarheid** berekening.
+Een waarde op die kleiner is dan 100% Hiermee wordt aangegeven dat bepaalde opslag-aanvragen mislukken. U kunt zien waarom ze zijn mislukt door in andere kolommen in Hallo metrische gegevens die Hallo getallen aanvragen met verschillende fouttypen zoals weergeven Hallo **ServerTimeoutError**. U kunt verwachten toosee **beschikbaarheid** vallen tijdelijk dan 100% om redenen als tijdelijke servertime terwijl Hallo service partities toobetter verdelen aanvraag verplaatst; Hallo Pogingslogica in uw clienttoepassing Deze voorwaarden onregelmatige moet kunnen verwerken. Hallo pagina <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"> </a> lijsten Hallo transactietypen die metrische gegevens Storage bevat in de **beschikbaarheid** berekening.
 
-In de klassieke Azure-Portal op de **Monitor** pagina voor uw storage-account, kunt u regels voor waarschuwingen om u te waarschuwen als toevoegen **beschikbaarheid** voor een service valt onder de drempelwaarde die u opgeeft.
+In de klassieke Azure-Portal Hallo op Hallo **Monitor** pagina voor uw storage-account, kunt u regels voor waarschuwingen toonotify toevoegen u als **beschikbaarheid** voor een service valt onder de drempelwaarde die u opgeeft.
 
-De '[richtlijnen voor probleemoplossing]' van deze handleiding worden enkele veelvoorkomende problemen beschreven voor opslag service betrekking hebben op beschikbaarheid.
+Hallo '[richtlijnen voor probleemoplossing]' van deze handleiding beschrijft een aantal algemene opslag service problemen gerelateerde tooavailability.
 
 ### <a name="monitoring-performance"></a>Prestaties bewaken
-U kunt de volgende metrische gegevens van de metrische gegevens per uur en minuut tabellen gebruiken voor het controleren van de prestaties van de storage-services.
+toomonitor hello prestaties van de opslagservices hello, kunt u Hallo per uur na het metrische gegevens uit Hallo en metrische gegevens tabellen minuut.
 
-* De waarden in de **AverageE2ELatency** en **AverageServerLatency** de storage-service voor de gemiddelde tijd weergeven of type API-bewerking duurt naar aanvragen verwerkt. **AverageE2ELatency** is een meting van end-to-end-latentie die de tijd die nodig is omvat voor het lezen van de aanvraag en verzenden van het antwoord naast de tijd die het verzoek niet verwerken (dus inclusief netwerklatentie zodra de aanvraag de storage-service bereikt); **AverageServerLatency** is een meting van alleen de verwerkingstijd en daarom omvat niet alle netwerklatentie die betrekking hebben op de client communiceert. Zie de sectie '[metrische gegevens tonen AverageE2ELatency hoge en lage AverageServerLatency]' verderop in deze handleiding voor een beschrijving van waarom er mogelijk een aanzienlijk verschil tussen deze twee waarden.
-* De waarden in de **TotalIngress** en **TotalEgress** kolommen bevatten de totale hoeveelheid gegevens, in bytes dat en zullen buiten uw storage-service of via een specifiek type van de API-bewerking.
-* De waarden in de **TotalRequests** kolom tonen het totale aantal aanvragen dat is ontvangen van de storage-service van API-bewerking. **TotalRequests** is het totale aantal aanvragen dat de storage-service ontvangt.
+* waarden in Hallo Hallo **AverageE2ELatency** en **AverageServerLatency** Hallo gemiddelde tijd Hallo opslagservice of type API-bewerking duurt tooprocess aanvragen weergeven. **AverageE2ELatency** is een meting van end-to-end-latentie met Hallo tijd tooread Hallo aanvraag en antwoord Hallo in toevoeging toohello tijd tooprocess Hallo aanvraag verzenden (dus inclusief netwerklatentie zodra Hallo aanvragen Hallo opslagservice bereikt;) **AverageServerLatency** is een meting NET Hallo verwerkingstijd en daarom sluit eventuele gerelateerde netwerklatentie toocommunicating met Hallo-client. Zie de sectie Hallo '[metrische gegevens tonen AverageE2ELatency hoge en lage AverageServerLatency]' verderop in deze handleiding voor een beschrijving van waarom er mogelijk een aanzienlijk verschil tussen deze twee waarden.
+* waarden in Hallo Hallo **TotalIngress** en **TotalEgress** kolommen weergeven Hallo totale hoeveelheid gegevens, in bytes binnenkort in tooand gaat buiten uw storage-service of via een specifiek type van de API-bewerking.
+* waarden in Hallo Hallo **TotalRequests** ontvangen van de kolom weergeven Hallo totaal aantal aanvragen dat Hallo opslagservice van API-bewerking. **TotalRequests** is Hallo totaal aantal aanvragen dat Hallo storage-service ontvangt.
 
 Normaal gesproken bewaakt u onverwachte wijzigingen in een van deze waarden als een indicatie dat er een probleem waarvoor onderzoek vereist.
 
-In de klassieke Azure-Portal op de **Monitor** pagina voor uw opslagaccount u regels voor waarschuwingen om u te waarschuwen als een van de maatstaven voor prestaties voor deze service onder vallen of groter zijn dan een drempel die u opgeeft kunt toevoegen.
+In de klassieke Azure-Portal Hallo op Hallo **Monitor** pagina voor uw opslagaccount u waarschuwingsregels toonotify u eventuele Hallo maatstaven voor prestaties voor deze service onder vallen of een groter zijn dan een drempel die u opgeeft kunt toevoegen.
 
-De '[richtlijnen voor probleemoplossing]' van deze handleiding beschrijft een aantal algemene problemen met de opslag service betrekking hebben op prestaties.
+Hallo '[richtlijnen voor probleemoplossing]' van deze handleiding beschrijft een aantal algemene opslag service problemen gerelateerde tooperformance.
 
 ## <a name="diagnosing-storage-issues"></a>Diagnose van opslagproblemen
 Er zijn een aantal manieren dat u mogelijk op de hoogte van een probleem of een probleem in uw toepassing, deze omvatten:
 
-* Een ernstige fout die ervoor zorgt de toepassing dat vastloopt of niet meer werkt.
-* Belangrijke wijzigingen van basislijnwaarden in de metrische gegevens die u controleren wilt, zoals beschreven in de vorige sectie '[bewaking van uw opslagservice]. "
+* Een ernstige fout die ervoor zorgt Hallo toepassing toocrash of toostop werken dat.
+* Belangrijke wijzigingen van basislijnwaarden in Hallo metrische gegevens die u controleren wilt, zoals beschreven in de vorige sectie Hallo '[bewaking van uw opslagservice]. "
 * Rapporten van gebruikers van uw toepassing die een bepaalde bewerking niet voltooid zoals verwacht of dat bepaalde functie niet werkt.
 * Fouten die zijn gegenereerd binnen de toepassing die worden weergegeven in logboekbestanden of via een andere meldingsmethode.
 
-Normaal gesproken problemen met Azure storage-services worden onderverdeeld in een van de vier hoofdcategorieën:
+Normaal gesproken problemen gerelateerde tooAzure storage-services worden onderverdeeld in een van de vier hoofdcategorieën:
 
-* Uw toepassing heeft een prestatieprobleem gerapporteerd door uw gebruikers of door wijzigingen in de maatstaven voor prestaties getoond.
-* Er is een probleem met de Azure Storage-infrastructuur in een of meer regio's.
-* Uw toepassing wordt uitgevoerd als een fout gerapporteerd door uw gebruikers of door een toename in een van de fout aantal metrische gegevens die u bewaakt getoond.
-* Tijdens de ontwikkeling en tests u mogelijk gebruik van de emulator van de lokale opslag; enkele problemen beschreven die specifiek betrekking op informatie over het gebruik van de opslagemulator hebben kunnen optreden.
+* Uw toepassing heeft een prestatieprobleem gerapporteerd door uw gebruikers of door wijzigingen in maatstaven voor prestaties Hallo getoond.
+* Er is een probleem met hello Azure Storage-infrastructuur in een of meer regio's.
+* Uw toepassing wordt uitgevoerd als een fout gerapporteerd door uw gebruikers of door een toename in een Hallo fout aantal metrische gegevens die u bewaken getoond.
+* Tijdens de ontwikkeling en tests u mogelijk gebruikmaken van de emulator van de lokale opslag Hallo; Sommige problemen die gerelateerd zijn specifiek toousage van Hallo opslagemulator kunnen optreden.
 
-De volgende secties worden de stappen die u moet volgen voor het opsporen en oplossen van problemen in elk van de volgende vier categorieën. De sectie '[richtlijnen voor probleemoplossing]' verderop in deze handleiding biedt meer details voor enkele veelvoorkomende problemen kunnen optreden.
+Hallo volgende secties worden Hallo stappen u moet toodiagnose volgen en oplossen van problemen in elk van de volgende vier categorieën. sectie Hallo '[richtlijnen voor probleemoplossing]' verderop in deze handleiding biedt meer details voor enkele veelvoorkomende problemen kunnen optreden.
 
 ### <a name="service-health-issues"></a>Health service-problemen
-Problemen met de status van de service zijn meestal buiten het besturingselement. De klassieke Azure Portal bevat informatie over actieve problemen met Azure-services met inbegrip van opslagservices. Als u hebt gekozen voor geografisch redundante opslag met leestoegang wanneer u uw opslagaccount hebt gemaakt, kan klikt u vervolgens in het geval van uw gegevens tijdelijk niet beschikbaar zijn op de primaire locatie, uw toepassing overschakelen tijdelijk in de alleen-lezen kopie op de secundaire locatie. Om dit te doen, moet uw toepassing kunnen schakelen tussen het gebruik van de primaire en secundaire opslaglocaties en kunnen werken in een modus met verminderde functionaliteit met alleen-lezen gegevens. De clientbibliotheken van Azure Storage kunnen u voor het definiëren van een beleid voor opnieuw proberen dat uit de secundaire opslag lezen kan als van de primaire opslag gelezen is mislukt. Uw toepassing moet ook Houd er rekening mee dat de gegevens in de secundaire locatie uiteindelijk consistent is. Zie voor meer informatie het blogbericht <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">opslagopties van Azure voor redundantie en geografisch redundante opslag met leestoegang</a>.
+Problemen met de status van de service zijn meestal buiten het besturingselement. Hallo klassieke Azure-Portal bevat informatie over actieve problemen met Azure-services met inbegrip van opslagservices. Als u hebt gekozen voor geografisch redundante opslag met leestoegang wanneer u uw opslagaccount hebt gemaakt, kan klikt u vervolgens in Hallo-gebeurtenis van uw gegevens tijdelijk niet beschikbaar zijn op de primaire locatie hello, uw toepassing overschakelen tijdelijk toohello alleen-lezen kopie op de secundaire locatie Hallo. toodo dit door uw toepassing moet kunnen tooswitch tussen het gebruik van de primaire en secundaire opslaglocaties Hallo en kunnen toowork in een modus met verminderde functionaliteit met alleen-lezen gegevens. Hello Azure Storage-clientbibliotheken kunnen u een beleid voor opnieuw proberen dat uit de secundaire opslag lezen kan als van de primaire opslag gelezen mislukt toodefine. Uw toepassing moet ook toobe Houd er rekening mee dat de gegevens op de secundaire locatie Hallo Hallo uiteindelijk consistent is. Zie voor meer informatie Hallo blogbericht <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">opslagopties van Azure voor redundantie en geografisch redundante opslag met leestoegang</a>.
 
 ### <a name="performance-issues"></a>Prestatieproblemen
-De prestaties van een toepassing kunnen subjectief zijn, met name vanuit het perspectief van een gebruiker. Het is daarom belangrijk dat u over prestatiegegevens voor een basislijn beschikt aan de hand waarvan u kunt bepalen waar er prestatieproblemen zijn. Veel factoren kunnen invloed hebben op de prestaties van een Azure storage-service vanuit het perspectief van de toepassing client. Deze factoren kunnen werken in de storage-service, in de client of in de netwerkinfrastructuur; Daarom is het belangrijk dat u een strategie voor het identificeren van de oorsprong van het prestatieprobleem.
+prestaties van een toepassing Hello kan subjectieve, met name vanuit het perspectief van een gebruiker zijn. Het is daarom belangrijk toohave basislijn metrische gegevens beschikbaar toohelp u identificeren waar mogelijk een prestatieprobleem. Veel factoren mogelijk Hallo prestaties van een Azure storage-service van de toepassing clientperspectief Hallo beïnvloeden. Deze factoren kunnen werken in opslagservice hello, Hallo-client of Hallo-netwerkinfrastructuur. het is daarom belangrijk toohave een strategie voor het identificeren van de oorsprong van het prestatieprobleem Hallo Hallo.
 
-Nadat u de waarschijnlijk locatie van de oorzaak van het prestatieprobleem van de metrische gegevens hebt geïdentificeerd, kunt u de logboekbestanden vervolgens gebruiken om gedetailleerde informatie voor het opsporen en oplossen van het probleem verder te vinden.
+Nadat u waarschijnlijk locatie Hallo Hallo oorzaak van het prestatieprobleem Hallo van Hallo metrische gegevens hebt geïdentificeerd, kunt u vervolgens gebruik Hallo logboek bestanden toofind gedetailleerde informatie toodiagnose en Hallo probleem verder oplossen.
 
-De sectie '[richtlijnen voor probleemoplossing]' verderop in deze handleiding biedt meer informatie over algemene prestaties gerelateerd problemen die u kunt tegenkomen.
+sectie Hallo '[richtlijnen voor probleemoplossing]' verderop in deze handleiding biedt meer informatie over algemene prestaties gerelateerd problemen die u kunt tegenkomen.
 
 ### <a name="diagnosing-errors"></a>Fouten opsporen
-Gebruikers van uw toepassing kunnen melding van fouten die zijn gerapporteerd door de clienttoepassing. Metrische gegevens Storage registreert ook de aantallen voor verschillende fouttypen van uw storage-services zoals **NetworkError**, **ClientTimeoutError**, of **AuthorizationError**. Terwijl de opslag metrische gegevens worden alleen tellingen van verschillende fouttypen registreert, kunt u meer informatie over afzonderlijke aanvragen door te onderzoeken serverzijde en clientzijde netwerk Logboeken. De HTTP-statuscode geretourneerd door de storage-service krijgt doorgaans een indicatie van waarom de aanvraag is mislukt.
+Gebruikers van uw toepassing kunnen melding van fouten die zijn gerapporteerd door de clienttoepassing Hallo. Metrische gegevens Storage registreert ook de aantallen voor verschillende fouttypen van uw storage-services zoals **NetworkError**, **ClientTimeoutError**, of **AuthorizationError**. Terwijl de opslag metrische gegevens worden alleen tellingen van verschillende fouttypen registreert, kunt u meer informatie over afzonderlijke aanvragen door te onderzoeken serverzijde en clientzijde netwerk Logboeken. Hallo HTTP-statuscode geretourneerd door Hallo storage-service krijgt doorgaans een indicatie van waarom Hallo-aanvraag is mislukt.
 
 > [!NOTE]
-> Houd er rekening mee dat u mag verwachten onregelmatige fouten: bijvoorbeeld door tijdelijke netwerkproblemen fouten of toepassingsfouten.
+> Houd er rekening mee dat u kunt toosee onregelmatige fouten verwachten: bijvoorbeeld fouten vanwege tootransient netwerkomstandigheden of toepassingsfouten.
 > 
 > 
 
-De volgende bronnen op MSDN zijn nuttig voor de opslag-gerelateerde status en foutcodes begrijpen:
+Hallo zijn volgende bronnen op MSDN nuttig voor de opslag-gerelateerde status en foutcodes begrijpen:
 
 * <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Algemene REST API-foutcodes</a>
 * <a href="http://msdn.microsoft.com/library/azure/dd179439.aspx" target="_blank">Foutcodes voor BLOB-Service</a>
@@ -209,71 +209,71 @@ De volgende bronnen op MSDN zijn nuttig voor de opslag-gerelateerde status en fo
 * <a href="http://msdn.microsoft.com/library/azure/dd179438.aspx" target="_blank">Foutcodes voor tabel-Service</a>
 
 ### <a name="storage-emulator-issues"></a>Emulator opslagproblemen
-De Azure-SDK bevat een opslagemulator die u op een werkstation ontwikkeling uitvoeren kunt. Deze emulator simuleert de meeste van de werking van de Azure storage-services en is nuttig tijdens het ontwikkelen en testen, zodat u kunt toepassingen uitvoeren die gebruikmaken van Azure storage-services zonder de noodzaak van een Azure-abonnement en Azure storage-account.
+Hello Azure SDK bevat een opslagemulator die u op een werkstation ontwikkeling uitvoeren kunt. Deze emulator simuleert meeste Hallo gedrag van hello Azure storage-services en is handig als u tijdens de ontwikkeling en tests, zodat u toorun toepassingen die gebruikmaken van Azure storage-services zonder Hallo nodig hebt voor een Azure-abonnement en Azure storage-account.
 
-De '[richtlijnen voor probleemoplossing]' van deze handleiding beschrijft enkele veelvoorkomende problemen aangetroffen met de opslagemulator.
+Hallo '[richtlijnen voor probleemoplossing]' van deze handleiding beschrijft enkele veelvoorkomende problemen aangetroffen met Hallo-opslagemulator.
 
 ### <a name="storage-logging-tools"></a>Logboekregistratieprogramma's voor opslag
-Logboekregistratie van opslag biedt serverzijde registratie van aanvragen van de opslag in uw Azure storage-account. Zie voor meer informatie over het inschakelen van logboekregistratie voor serverzijde en toegang tot de logboekgegevens <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">serverzijde logboekregistratie met</a> op MSDN.
+Logboekregistratie van opslag biedt serverzijde registratie van aanvragen van de opslag in uw Azure storage-account. Zie voor meer informatie over hoe tooenable serverzijde logboekregistratie en toegang Hallo gegevens vastleggen, <a href="http://go.microsoft.com/fwlink/?LinkId=510867" target="_blank">serverzijde logboekregistratie met</a> op MSDN.
 
-De Storage-clientbibliotheek voor .NET kunt u voor het verzamelen van client-side '-logboekgegevens die is gekoppeld aan opslagbewerkingen wordt uitgevoerd door uw toepassing. Zie voor meer informatie over het inschakelen van logboekregistratie voor client-side en toegang tot de logboekgegevens <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">clientzijde logboekregistratie met behulp van de Storage-clientbibliotheek</a> op MSDN.
+Hallo Storage-clientbibliotheek voor .NET kunt u toocollect clientzijde logboekgegevens die is gekoppeld toostorage bewerkingen wordt uitgevoerd door uw toepassing. Zie voor meer informatie over hoe tooenable clientzijde logboekregistratie en toegang Hallo gegevens vastleggen, <a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">clientzijde logboekregistratie met behulp van Storage-clientbibliotheek Hallo</a> op MSDN.
 
 > [!NOTE]
-> In sommige gevallen (zoals SAS autorisatiefouten), kan een gebruiker waarvoor u geen aanvraaggegevens in de logboeken van de opslag serverzijde vinden kunt fout gemeld. U kunt de mogelijkheden voor logboekregistratie van het Storage-clientbibliotheek gebruiken voor het onderzoeken van als de oorzaak van het probleem op de client of -hulpprogramma's voor netwerkbewaking gebruikt voor het onderzoeken van het netwerk.
+> In sommige gevallen (zoals SAS autorisatiefouten), kan een gebruiker waarvoor u er zijn geen aanvraaggegevens in Hallo serverzijde opslag Logboeken vindt fout gemeld. U kunt Hallo mogelijkheden voor logboekregistratie van Hallo Storage-clientbibliotheek tooinvestigate gebruiken als Hallo oorzaak van het probleem Hallo op Hallo-client of -hulpprogramma's voor tooinvestigate Hallo netwerk netwerkbewaking gebruiken.
 > 
 > 
 
 ### <a name="using-network-logging-tools"></a>Met behulp van hulpprogramma's voor logboekregistratie
-U kunt het verkeer tussen de client en server te bieden gedetailleerde informatie over de gegevens die de client en server uitwisselt en de onderliggende netwerkomstandigheden vastleggen. Nuttige hulpprogramma's voor logboekregistratie omvatten:
+U kunt vastleggen Hallo-verkeer tussen Hallo-client en server tooprovide gedetailleerde informatie over Hallo gegevens Hallo client en server zijn uitwisselen en Hallo onderliggende netwerkomstandigheden. Nuttige hulpprogramma's voor logboekregistratie omvatten:
 
-* Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) is een gratis web proxy die u onderzoekt de kopteksten en de gegevens over de nettolading van HTTP en HTTPS-aanvraag en antwoord-berichten kunt opsporen. Zie voor meer informatie '[bijlage 1: gebruik Fiddler om vast te leggen HTTP en HTTPS-verkeer]'.
-* Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) en Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) zijn gratis netwerk protocol analyzers waarmee u kunt het gedetailleerde Pakketgegevens weergeven voor een breed scala aan-netwerkprotocollen. Zie voor meer informatie over Wireshark '[bijlage 2: Wireshark gebruiken om vast te leggen netwerkverkeer]'.
-* Microsoft Message Analyzer is een hulpprogramma van Microsoft die Netmon en die naast netwerkgegevens pakket vervangt, helpt u bij het weergeven en analyseren van de gegevens aan het logboek vastgelegd vanaf andere hulpprogramma's. Zie voor meer informatie '[bijlage 3: met behulp van Microsoft Message Analyzer om vast te leggen netwerkverkeer]'.
-* Als u een basisconnectiviteit test om te controleren wilt dat de clientcomputer verbinding met de Azure storage-service via het netwerk maken kan uitvoeren, u dit niet doen met de standaard **ping** hulpprogramma op de client. U kunt echter de **tcping** hulpprogramma connectiviteit controleren. **Tcping** is beschikbaar voor downloaden op <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
+* Fiddler (<a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>) is een gratis web proxy waarmee u tooexamine Hallo headers en gegevens over de nettolading van HTTP en HTTPS-aanvraag en antwoord berichten foutopsporing. Zie voor meer informatie '[bijlage 1: met behulp van Fiddler toocapture HTTP en HTTPS-verkeer]'.
+* Microsoft Network Monitor (Netmon) (<a href="http://www.microsoft.com/download/details.aspx?id=4865" target="_blank">http://www.microsoft.com/download/details.aspx?id=4865</a>) en Wireshark (<a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>) zijn gratis netwerk protocol analyzers waarmee tooview u gedetailleerde informatie voor een breed scala aan netwerkprotocollen pakket. Zie voor meer informatie over Wireshark '[bijlage 2: met behulp van Wireshark toocapture netwerkverkeer]'.
+* Microsoft Message Analyzer is een hulpprogramma van Microsoft die vervangt Netmon en die bovendien toocapturing netwerk pakketgegevens, kunt u tooview en analyseren van Hallo logboekgegevens vastgelegd vanaf andere hulpprogramma's. Zie voor meer informatie '[bijlage 3: met behulp van Microsoft Message Analyzer toocapture netwerkverkeer]'.
+* Als u tooperform een basisconnectiviteit test toocheck wilt dat de clientcomputer toohello Azure storage-service via Hallo netwerk verbinding kan maken, dit is niet met behulp van standaard Hallo **ping** hulpprogramma op Hallo-client. U kunt echter hello gebruiken **tcping** hulpprogramma toocheck connectiviteit. **Tcping** is beschikbaar voor downloaden op <a href="http://www.elifulkerson.com/projects/tcping.php" target="_blank">http://www.elifulkerson.com/projects/tcping.php</a>.
 
-In veel gevallen de logboekgegevens van registratie van opslag en de Storage-clientbibliotheek is voldoende voor het vaststellen van een probleem, maar in sommige scenario's, moet u mogelijk de meer gedetailleerde informatie die deze hulpprogramma's voor network logboekregistratie kunnen bieden. Bijvoorbeeld, kunt u header en de nettolading van gegevens die worden verzonden naar en van de storage-services, waarmee u om te onderzoeken hoe een clienttoepassing probeert opnieuw opslagbewerkingen weergeven met Fiddler om HTTP en HTTPS-berichten te bekijken. Protocol analyzers zoals Wireshark werken op pakketniveau waarmee u TCP-gegevens waarmee u problemen met verloren pakketten en verbindingsproblemen weergeven. Berichtanalyse kan werken op HTTP- en TCP-lagen.
+In veel gevallen Hallo logboekgegevens van registratie van opslag en Hallo Storage-clientbibliotheek is voldoende toodiagnose een probleem, maar in sommige scenario's, moet u mogelijk Hallo die meer gedetailleerde informatie die deze hulpprogramma's voor network logboekregistratie kunnen bieden. Bijvoorbeeld met behulp van Fiddler tooview HTTP en HTTPS-berichten kunt u tooview header en -nettolading gegevens afkomstig tooand Hallo opslagservices, waardoor u tooexamine hoe een clienttoepassing probeert opnieuw opslagbewerkingen. Protocol analyzers zoals Wireshark werken op pakketniveau Hallo zodat u tooview TCP-gegevens, waarmee u tootroubleshoot verloren pakketten en verbindingsproblemen. Berichtanalyse kan werken op HTTP- en TCP-lagen.
 
 ## <a name="end-to-end-tracing"></a>End-to-end-tracering
-End-to-end-tracering met een aantal logboekbestanden is een techniek nuttig voor het onderzoeken van mogelijke problemen. U kunt de datum/tijd-gegevens uit uw gegevens metrische gegevens gebruiken als indicatie van de locatie waar te bekijken in de logboekbestanden voor de gedetailleerde informatie waarmee u het probleem op te lossen.
+End-to-end-tracering met een aantal logboekbestanden is een techniek nuttig voor het onderzoeken van mogelijke problemen. U kunt Hallo datum/tijd informatie van de metrische gegevens gebruiken als een indicatie van waar toostart bekijkt hello logboekbestanden voor Hallo gedetailleerde informatie waarmee u Hallo probleem op te lossen.
 
 ### <a name="correlating-log-data"></a>Logboekgegevens correleren
-Tijdens het weergeven van Logboeken van clienttoepassingen netwerk traceert en serverzijde opslag logboekregistratie, is het belangrijk om te correleren-aanvragen via de verschillende logboekbestanden. De logboekbestanden van opnemen een aantal verschillende velden die handig als de correlatie-id's zijn. De client-request-id is het nuttigst veld gebruiken om te correleren vermeldingen in de verschillende logboeken. Maar in sommige gevallen, kan het handig zijn om de server aanvraag-id of de tijdstempels te gebruiken. De volgende secties vindt u meer informatie over deze opties.
+Tijdens het weergeven van Logboeken van clienttoepassingen netwerk traceert en serverzijde opslag logboekregistratie het kritieke toobe kunnen toocorrelate aanvragen over de verschillende logboekbestanden Hallo is. Hallo-logboekbestanden bevatten een aantal verschillende velden die handig als de correlatie-id's zijn. Hallo client aanvraag-id is Hallo nuttigst veld toouse toocorrelate vermeldingen in verschillende Hallo-Logboeken. Maar in sommige gevallen, het kan ook nuttig toouse Hallo server aanvraag-id of tijdstempels. Hallo bevatten volgende secties meer informatie over deze opties.
 
 ### <a name="client-request-id"></a>Aanvraag-ID van client
-De Opslagclientbibliotheek genereert automatisch een unieke client aanvraag-id voor elke aanvraag.
+Hallo Storage-clientbibliotheek genereert automatisch een unieke client aanvraag-id voor elke aanvraag.
 
-* In het logboek van clientzijde die de Storage-clientbibliotheek maakt de client-request-id wordt weergegeven in de **aanvraag-ID van Client** veld van elke logboekvermelding met betrekking tot de aanvraag.
-* In een netwerktracering zoals een vastgelegd door Fiddler, de client-request-id is zichtbaar in aanvraagberichten als de **x-ms-client-request-id** waarde van de HTTP-header.
-* In het logboek serverzijde opslag logboekregistratie wordt de client-request-id weergegeven in de kolom-ID van Client-aanvraag.
+* In Hallo client-side '-log dat Hallo Storage-clientbibliotheek maakt, Hallo client aanvraag-id wordt weergegeven in Hallo **aanvraag-ID van Client** veld van elke logboekvermelding betreffende toohello aanvraag.
+* In een netwerktracering zoals een vastgelegd door Fiddler Hallo client aanvraag-id is zichtbaar in aanvraagberichten als Hallo **x-ms-client-request-id** waarde van de HTTP-header.
+* In Hallo serverzijde opslag logboekregistratie logboek weergegeven Hallo client aanvraag-id in kolom-ID Hallo Client-aanvraag.
 
 > [!NOTE]
-> Het is mogelijk voor meerdere aanvragen voor het delen van dezelfde client aanvraag-id, omdat de client deze waarde worden toegewezen (Hoewel de Storage-clientbibliotheek automatisch een nieuwe waarde wijst). In het geval van nieuwe pogingen van de client delen alle pogingen dezelfde client aanvraag-id. In het geval van een batch van de client wordt verzonden, heeft de batch een aanvraag-id van één client.
+> Het is mogelijk voor meerdere aanvragen tooshare Hallo dezelfde aanvraag-id van client omdat Hallo-client kan deze waarde toewijzen (Hoewel Hallo Storage-clientbibliotheek wijst automatisch een nieuwe waarde). In geval van nieuwe pogingen van client Hallo Hallo alle pogingen Hallo delen dezelfde client aanvraag-id. In geval van een batch verzonden vanaf de client Hallo Hallo heeft Hallo batch een aanvraag-id van één client.
 > 
 > 
 
 ### <a name="server-request-id"></a>Aanvraag-ID van server
-Server aanvraag-id's wordt automatisch gegenereerd door de storage-service.
+Hallo storage-service wordt automatisch gegenereerd server aanvraag-id's.
 
-* In het logboek serverzijde opslag logboekregistratie de aanvraag-id wordt weergegeven de **aanvraag-ID header** kolom.
-* In een netwerktracering zoals een vastgelegd door Fiddler, de aanvraag-id wordt weergegeven in antwoordberichten als de **x-ms-aanvraag-id** waarde van de HTTP-header.
-* In het logboek voor clientzijde die de Storage-clientbibliotheek maakt, wordt de aanvraag-id weergegeven in de **bewerking tekst** kolom voor de details van de serverreactie met logboekvermelding.
+* In Hallo serverzijde opslag logboekregistratie logboek Hallo server aanvraag-id weergegeven Hallo **aanvraag-ID header** kolom.
+* In een netwerktracering zoals een vastgelegd door Fiddler Hallo server aanvraag-id wordt weergegeven in antwoordberichten als Hallo **x-ms-aanvraag-id** waarde van de HTTP-header.
+* In Hallo client-side '-log dat Hallo Storage-clientbibliotheek maakt, Hallo server aanvraag-id wordt weergegeven in Hallo **bewerking tekst** kolom voor Hallo logboekvermelding details van de serverreactie hello wordt weergegeven.
 
 > [!NOTE]
-> De storage-service altijd een unieke server aanvraag-id aan toegewezen elke aanvraag die wordt ontvangen, zodat elke nieuwe poging van de client en elke bewerking die is opgenomen in een batch een unieke server aanvraag-id heeft.
+> Hallo opslagservice altijd toegewezen een unieke server aanvraag-id tooevery aanvraag die wordt ontvangen, zodat elke nieuwe poging van de client hello en elke bewerking die is opgenomen in een batch een unieke server aanvraag-id heeft.
 > 
 > 
 
-Als de Storage-clientbibliotheek genereert een **StorageException** in de client de **RequestInformation** eigenschap bevat een **RequestResult** -object met een **ServiceRequestID** eigenschap. U kunt ook toegang tot een **RequestResult** object uit een **OperationContext** exemplaar.
+Als hello Storage-clientbibliotheek genereert een **StorageException** Hallo Hallo-client **RequestInformation** eigenschap bevat een **RequestResult** -object met een **ServiceRequestID** eigenschap. U kunt ook toegang tot een **RequestResult** object uit een **OperationContext** exemplaar.
 
-Het volgende codevoorbeeld toont het instellen van een aangepaste **ClientRequestId** waarde door het koppelen van een **OperationContext** object van het verzoek om de storage-service. Ook ziet u hoe voor het ophalen van de **ServerRequestId** waarde van het antwoordbericht.
+Hallo voorbeeldcode laat zien hoe een aangepaste tooset **ClientRequestId** waarde door het koppelen van een **OperationContext** object Hallo aanvraag toohello storage-service. U ziet ook hoe tooretrieve hello **ServerRequestId** waarde uit het antwoord Hallo-bericht.
 
 ```csharp
-//Parse the connection string for the storage account.
+//Parse hello connection string for hello storage account.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
+// Create an Operation Context that includes custom ClientRequestId string based on constants defined within hello application along with a Guid.
 OperationContext oc = new OperationContext();
 oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
@@ -285,13 +285,13 @@ try
     using (var fs = File.OpenWrite(downloadToPath))
     {
         blob.DownloadToStream(fs, null, null, oc);
-        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
+        Console.WriteLine("\t Blob downloaded toofile: {0}", downloadToPath);
     }
 }
 catch (StorageException storageException)
 {
     Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
+    // Multiple results may exist due tooclient side retry logic - each retried operation will have a unique ServiceRequestId
     foreach (var result in oc.RequestResults)
     {
             Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
@@ -300,23 +300,23 @@ catch (StorageException storageException)
 ```
 
 ### <a name="timestamps"></a>Tijdstempels
-U kunt ook tijdstempels gerelateerde logboekvermeldingen vinden, maar wees voorzichtig met een tijdverschil tussen de client en server die zich kan voordoen. Plus of min 15 minuten voor de overeenkomende serverzijde vermeldingen op basis van de tijdstempel op de client moet worden gezocht. Houd er rekening mee dat de blobmetagegevens voor de blobs metrische gegevens met het tijdsbereik van de metrische gegevens opgeslagen in de blob; Dit is handig als u veel metrische gegevens blobs voor dezelfde minuut of uur.
+U kunt ook de tijdstempels toolocate logboekvermeldingen gerelateerd, maar wees voorzichtig met eventuele tijdsverschil tussen Hallo-client en server die zich kan voordoen. Plus of min 15 minuten voor de overeenkomende serverzijde vermeldingen op basis van Hallo tijdstempel op Hallo-client moet worden gezocht. Houd er rekening mee dat Hallo blob-metagegevens voor Hallo blobs met metrische gegevens Hallo tijdsbereik voor Hallo metrische gegevens die zijn opgeslagen in blob Hallo; geeft aan Dit is handig als er veel metrische gegevens blobs voor Hallo dezelfde minuut of uur.
 
 ## <a name="troubleshooting-guidance"></a>Richtlijnen voor probleemoplossing
-Deze sectie helpt u bij de diagnose en het oplossen van enkele veelvoorkomende problemen van uw toepassing kan optreden wanneer u de Azure storage-services. Gebruik de onderstaande lijst om de informatie die relevant zijn voor uw specifieke probleem te vinden.
+Deze sectie helpt u met de Hallo diagnose en het oplossen van enkele veelvoorkomende problemen Hallo van uw toepassing kan optreden wanneer u hello Azure storage-services. Gebruik de lijst Hallo hieronder toolocate Hallo informatie relevante tooyour specifiek probleem.
 
 **Het oplossen van de beslissingsstructuur**
 
 - - -
-Uw probleem betrekking hebben op de prestaties van een van de storage-services?
+Uw probleem toohello prestaties van een van de opslagservices Hallo relateren?
 
 * [metrische gegevens tonen AverageE2ELatency hoge en lage AverageServerLatency]
-* [Prestatiegegevens geven lage AverageE2ELatency en lage AverageServerLatency aan, maar de client ondervindt hoge latentie]
+* [Metrische gegevens tonen lage AverageE2ELatency en lage AverageServerLatency maar Hallo client ondervindt hoge latentie]
 * [Prestatiegegevens geven hoge AverageServerLatency aan]
 * [U ervaart onverwachte vertragingen bij de levering van berichten in een wachtrij]
 
 - - -
-Uw probleem betrekking hebben op de beschikbaarheid van een van de storage-services?
+Uw probleem toohello beschikbaarheid van een van de opslagservices Hallo relateren?
 
 * [metrische gegevens tonen een toename in PercentThrottlingError]
 * [metrische gegevens tonen een toename in PercentTimeoutError]
@@ -325,12 +325,12 @@ Uw probleem betrekking hebben op de beschikbaarheid van een van de storage-servi
 - - -
 De clienttoepassing ontvangt een HTTP-4XX (zoals 404) antwoord van een storage-service?
 
-* [De client ontvangt berichten HTTP 403 (verboden)]
-* [De client ontvangt berichten HTTP 404 (niet gevonden)]
-* [De client ontvangt berichten van de HTTP-409 (Conflict)]
+* [Hallo client ontvangt berichten HTTP 403 (verboden)]
+* [Hallo-client is ontvangen HTTP 404 (niet gevonden)-berichten]
+* [Hallo client ontvangt berichten van de HTTP-409 (Conflict)]
 
 - - -
-[metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met de status van ClientOtherErrors]
+[metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met transactiestatus ClientOtherErrors]
 
 - - -
 [Capaciteit metrische gegevens tonen een onverwachte toename in opslaggebruik capaciteit]
@@ -339,31 +339,31 @@ De clienttoepassing ontvangt een HTTP-4XX (zoals 404) antwoord van een storage-s
 [Er is sprake van virtuele Machines met een groot aantal gekoppelde VHD's onverwacht opnieuw wordt opgestart]
 
 - - -
-[Het probleem zich voordoet de opslagemulator voor ontwikkeling of tests gebruiken]
+[Het probleem zich voordoet Hallo-opslagemulator gebruiken voor ontwikkeling of tests]
 
 - - -
-[U ondervindt problemen met het installeren van de Azure SDK voor .NET]
+[U ondervindt problemen met het installeren van hello Azure SDK voor .NET]
 
 - - -
 [U hebt een ander probleem met storage-service]
 
 - - -
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrische gegevens tonen AverageE2ELatency hoge en lage AverageServerLatency
-De afbeelding bLaag vanuit de klassieke Azure-Portal-controleprogramma toont een voorbeeld waarin de **AverageE2ELatency** aanzienlijk hoger is dan de **AverageServerLatency**.
+Hello bLaag van Hallo klassieke Azure-Portal controleprogramma afbeelding toont een voorbeeld waarbij hello **AverageE2ELatency** aanzienlijk hoger is dan Hallo **AverageServerLatency**.
 
 ![][4]
 
-De opslagservice berekent alleen de metriek Opmerking **AverageE2ELatency** voor geslaagde aanvragen en, in tegenstelling tot **AverageServerLatency**, de duur van de client verzenden van de gegevens en bevestiging ontvangen van de storage-service bevat. Daarom een verschil tussen **AverageE2ELatency** en **AverageServerLatency** kan zijn vanwege de clienttoepassing wordt traag reageren of als gevolg van de voorwaarden op het netwerk.
+Opmerking Hallo opslagservice berekent alleen Hallo metriek **AverageE2ELatency** voor geslaagde aanvragen en, in tegenstelling tot **AverageServerLatency**, Hallo duurt voordat een client hello toosend Hallo bevat gegevens en de bevestiging van Hallo storage-service ontvangen. Daarom een verschil tussen **AverageE2ELatency** en **AverageServerLatency** kan ofwel vanwege toohello client toepassing wordt toorespond of vervaldatum tooconditions op Hallo netwerk vertragen.
 
 > [!NOTE]
-> U kunt ook weergeven **E2ELatency** en **ServerLatency** gegevens vastleggen voor afzonderlijke opslagbewerkingen in de logboekregistratie van opslag.
+> U kunt ook weergeven **E2ELatency** en **ServerLatency** voor afzonderlijke opslagbewerkingen in Hallo opslag logboekregistratie gegevens vastleggen.
 > 
 > 
 
 #### <a name="investigating-client-performance-issues"></a>Het onderzoeken van prestatieproblemen van client
-Mogelijke oorzaken voor de client reageert traag zijn met een beperkt aantal beschikbare verbindingen of threads. U kunt mogelijk het probleem oplossen door het wijzigen van de clientcode voor het efficiënter zijn (bijvoorbeeld met behulp van asynchrone aanroepen van de storage-service) of met behulp van een grotere virtuele Machine (met meer kernen en meer geheugen).
+Mogelijke oorzaken voor Hallo client reageert traag zijn met een beperkt aantal beschikbare verbindingen of threads. Hebt u mogelijk kunnen tooresolve Hallo probleem doordat Hallo client code toobe efficiënter (bijvoorbeeld via asynchrone aanroepen toohello storage-service) of met behulp van een grotere virtuele Machine (met meer kernen en meer geheugen).
 
-Voor de tabel en wachtrij-services, het algoritme Nagle kan ook leiden tot hoge **AverageE2ELatency** in vergelijking met op **AverageServerLatency**: Zie voor meer informatie het bericht <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">van Nagle-algoritme is niet beschrijvende kleine aanvragen</a> op de Blog met Microsoft Azure Storage-Team. U kunt het algoritme Nagle in code uitschakelen met behulp van de **ServicePointManager** -klasse in de **System.Net** naamruimte. U moet dit doen voordat u ervoor dat alle aanroepen naar de tabel of wachtrijservices in uw toepassing omdat dit geldt niet voor verbindingen die al zijn geopend. Het volgende voorbeeld is afkomstig uit de **Application_Start** methode in een werkrol.
+Voor Hallo table en queue services Hallo Nagle algoritme kan ook worden veroorzaakt hoge **AverageE2ELatency** zoals vergeleken te**AverageServerLatency**: Zie voor meer informatie Hallo boeken <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">van Nagle Algoritme is niet beschrijvende kleine aanvragen</a> op Hallo Blog van Microsoft Azure Storage-Team. U kunt Hallo Nagle-algoritme in code uitschakelen met behulp van Hallo **ServicePointManager** klasse in Hallo **System.Net** naamruimte. U moet dit doen voordat u een tabel van de toohello aanroepen of wachtrijservices in uw toepassing omdat dit geldt niet voor verbindingen die al zijn geopend. Hallo volgende voorbeeld is afkomstig uit Hallo **Application_Start** methode in een werkrol.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -373,32 +373,32 @@ ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAcc
 queueServicePoint.UseNagleAlgorithm = false;
 ```
 
-Raadpleeg de logboeken van de clientzijde om te zien hoeveel aanvragen indienen van de clienttoepassing en controle voor algemene .NET gerelateerde knelpunten in uw client zoals CPU, .NET-garbagecollection, netwerkgebruik of geheugen (Zie als een beginpunt voor het oplossen van .NET-clienttoepassingen <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">foutopsporing en tracering Profiling</a> op MSDN).
+U moet controleren Hallo clientzijde logboeken toosee hoeveel aanvragen indienen van de clienttoepassing en controle voor algemene .NET gerelateerde knelpunten in uw client zoals CPU, .NET-garbagecollection, netwerkgebruik of geheugen (als een begin punt voor het oplossen van .NET-clienttoepassingen, Zie <a href="http://msdn.microsoft.com/library/7fe0dd2y(v=vs.110).aspx" target="_blank">foutopsporing en tracering Profiling</a> op MSDN).
 
 #### <a name="investigating-network-latency-issues"></a>Netwerklatentieproblemen onderzoeken
-Hoge end-to-end-latentie veroorzaakt door het netwerk is meestal vanwege tijdelijke omstandigheden. U kunt beide tijdelijke en permanente netwerkproblemen zoals verloren pakketten met hulpprogramma's zoals Wireshark of Microsoft Message Analyzer onderzoeken.
+Hoge end-to-end-latentie veroorzaakt door Hallo is doorgaans vanwege tootransient voorwaarden. U kunt beide tijdelijke en permanente netwerkproblemen zoals verloren pakketten met hulpprogramma's zoals Wireshark of Microsoft Message Analyzer onderzoeken.
 
-Zie voor meer informatie over het oplossen van problemen met netwerken met Wireshark '[bijlage 2: Wireshark gebruiken om vast te leggen netwerkverkeer]. "
+Zie voor meer informatie over het gebruik van Wireshark tootroubleshoot netwerkproblemen '[bijlage 2: met behulp van Wireshark toocapture netwerkverkeer]. "
 
-Zie voor meer informatie over het gebruik van Microsoft Message Analyzer problemen '[bijlage 3: met behulp van Microsoft Message Analyzer om vast te leggen netwerkverkeer]. "
+Zie voor meer informatie over het gebruik van Microsoft Message Analyzer tootroubleshoot netwerkproblemen '[bijlage 3: met behulp van Microsoft Message Analyzer toocapture netwerkverkeer]. "
 
-### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrische gegevens tonen lage AverageE2ELatency en lage AverageServerLatency, maar de client ondervindt hoge latentie
-In dit scenario is de meest waarschijnlijke oorzaak een vertraging in de opslag-aanvragen dat de opslagservice is bereikt. U moet onderzoeken waarom aanvragen van de client zijn niet waardoor het via voor de blob-service.
+### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrische gegevens tonen lage AverageE2ELatency en lage AverageServerLatency maar Hallo client ondervindt hoge latentie
+In dit scenario is de meest waarschijnlijke oorzaak Hallo een vertraging in Hallo opslag aanvragen Hallo opslagservice is bereikt. U moet onderzoeken waarom aanvragen van Hallo client zijn niet waardoor het via toohello blob-service.
 
-Mogelijke oorzaken voor de client verzenden van aanvragen vertragen zijn met een beperkt aantal beschikbare verbindingen of threads. U moet ook controleren of de client is bezig met meerdere pogingen en onderzoek de reden als dit het geval is. U kunt dit programmatisch doen door te kijken in de **OperationContext** object gekoppeld aan de aanvraag en bij het ophalen van de **ServerRequestId** waarde. Zie voor meer informatie de voorbeeldcode in de sectie '[Server aanvraag-ID]. "
+Mogelijke oorzaken voor Hallo client vertragen verzenden van aanvragen zijn met een beperkt aantal beschikbare verbindingen of threads. U moet ook controleren of het Hallo-client uitvoert meerdere pogingen en onderzoek van Hallo reden als dit Hallo geval. U kunt dit programmatisch doen door te kijken in Hallo **OperationContext** object gekoppeld aan het Hallo-aanvraag en ophalen Hallo **ServerRequestId** waarde. Zie voor meer informatie, Hallo-codevoorbeeld in de sectie Hallo '[Server aanvraag-ID]. "
 
-Als er geen problemen in de client zijn, moet u onderzoeken van mogelijke netwerkproblemen zoals pakketverlies. U kunt hulpprogramma's zoals Wireshark of Microsoft Message Analyzer gebruiken voor het onderzoeken van problemen met netwerken.
+Als er geen problemen in Hallo-client zijn, moet u onderzoeken van mogelijke netwerkproblemen zoals pakketverlies. U kunt hulpprogramma's zoals Wireshark of Microsoft Message Analyzer tooinvestigate netwerkproblemen.
 
-Zie voor meer informatie over het oplossen van problemen met netwerken met Wireshark '[bijlage 2: Wireshark gebruiken om vast te leggen netwerkverkeer]. "
+Zie voor meer informatie over het gebruik van Wireshark tootroubleshoot netwerkproblemen '[bijlage 2: met behulp van Wireshark toocapture netwerkverkeer]. "
 
-Zie voor meer informatie over het gebruik van Microsoft Message Analyzer problemen '[bijlage 3: met behulp van Microsoft Message Analyzer om vast te leggen netwerkverkeer]. "
+Zie voor meer informatie over het gebruik van Microsoft Message Analyzer tootroubleshoot netwerkproblemen '[bijlage 3: met behulp van Microsoft Message Analyzer toocapture netwerkverkeer]. "
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Metrische gegevens tonen hoge AverageServerLatency
-In het geval van hoog **AverageServerLatency** voor aanvragen voor het downloaden van blob, moet u de logboeken van de logboekregistratie voor opslag om te zien als er herhaalde aanvragen voor de blob dezelfde (of een reeks blobs). Voor blob uploaden aanvragen, moet u onderzoeken welke blok grootte van de client wordt gebruikt (bijvoorbeeld geblokkeerd minder dan 64 kB groot kan leiden tot overhead tenzij gelezen gegevens zich ook in minder dan 64 kB segmenten), en als meerdere clients blokken naar de dezelfde blob parallel uploadt. Controleer ook de per minuut metrische gegevens voor pieken in het aantal aanvragen weer die in meer dan resulteren de per tweede schaalbaarheidsdoelen: Zie ook '[metrische gegevens tonen een toename in PercentTimeoutError]. "
+In geval van hoog niveau Hallo **AverageServerLatency** voor aanvragen voor het downloaden van blob, moet u Hallo toosee opslag logboekregistratie logboeken als er herhaalde verzoeken om Hallo dezelfde blob-(of set van BLOB's). Voor blob uploaden aanvragen, moet u onderzoeken welke blok grootte Hallo client gebruikt (bijvoorbeeld blokken die minder dan 64 kB groot kan leiden tot overhead tenzij Hallo leest zich ook in minder dan 64 kB segmenten geüpload), en als meerdere clients uploadt blokkeert toohello dezelfde BLOB-parallel. Controleer ook Hallo per minuut metrische gegevens voor pieken in het aantal aanvragen die resulteren in meer dan Hallo per schaalbaarheidsdoelen van tweede Hallo: Zie ook '[metrische gegevens tonen een toename in PercentTimeoutError]. "
 
-Als u hoog ziet **AverageServerLatency** blob gedownload aanvragen wanneer er worden herhaald aanvragen dezelfde blob of reeks blobs en vervolgens kunt u overwegen deze blobs met Azure-Cache of het Azure Content Delivery Network (CDN) opslaan in cache. Voor het uploaden van aanvragen, kunt u de doorvoer te verbeteren met behulp van een groter blok. Voor query's op tabellen is het ook mogelijk om te implementeren op clients die dezelfde querybewerkingen uitvoeren en waar de gegevens niet regelmatig worden gewijzigd caching aan clientzijde.
+Als u hoog ziet **AverageServerLatency** voor blob downloadverzoeken wanneer er worden herhaald aanvragen Hallo dezelfde blob of een reeks blobs, vervolgens moet u overwegen deze blobs met Azure Cache opslaan in cache of hello Azure Content Delivery Network (CDN). Voor het uploaden van aanvragen, kunt u Hallo doorvoer verbeteren met behulp van een groter blok. Voor query's tootables, is het ook mogelijk tooimplement caching aan clientzijde op clients waarmee Hallo dezelfde bewerkingen opvragen en waar Hallo gegevens niet regelmatig worden gewijzigd.
 
-Hoge **AverageServerLatency** waarden kunnen ook worden veroorzaakt een symptoom van slecht geschreven tabellen of query's die leiden tot scanbewerkingen of die antivirusprogramma patroon append/toevoegen volgen. Zie '[metrische gegevens tonen een toename in PercentThrottlingError]' voor meer informatie.
+Hoge **AverageServerLatency** waarden kunnen ook een symptoom van tabellen slecht geschreven worden of query's dat hierdoor in scanbewerkingen of die Hallo volgen toevoegen/toevoegen anti-patroon. Zie '[metrische gegevens tonen een toename in PercentThrottlingError]' voor meer informatie.
 
 > [!NOTE]
 > U kunt een uitgebreide controlelijst voor prestaties controlelijst hier vinden: [Microsoft Azure Storage prestaties en schaalbaarheid controlelijst](storage-performance-checklist.md).
@@ -406,38 +406,38 @@ Hoge **AverageServerLatency** waarden kunnen ook worden veroorzaakt een symptoom
 > 
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>U ondervinden onverwachte vertragingen in de levering van berichten in een wachtrij
-Als er een vertraging tussen het moment dat een toepassing wordt een bericht naar een wachtrij toegevoegd en de tijd dat deze beschikbaar om te lezen uit de wachtrij, moet u de volgende stappen uit om de oorzaak van het probleem te nemen:
+Als er een vertraging tussen het Hallo op een toepassing wordt een bericht tooa wachtrij en Hallo tijdstip deze beschikbaar tooread uit Hallo wachtrij wordt toegevoegd en moet u rekening houden met Hallo stappen toodiagnose Hallo na:
 
-* Controleer of dat de toepassing is met succes is met het toevoegen van de berichten naar de wachtrij. Controleer of de toepassing wordt niet opnieuw geprobeerd de **AddMessage** methode meerdere keren voordat slaagt. De logboeken van de Storage-clientbibliotheek worden alle herhaalde pogingen van opslagbewerkingen weergegeven.
-* Controleer of er is geen klok scheeftrekken tussen de werkrol waarmee het bericht wordt toegevoegd aan de wachtrij en de werkrol die leest het bericht uit de wachtrij die het maakt worden weergegeven alsof er is een vertraging bij de verwerking.
-* Controleer of de werkrol die de berichten kan uit de wachtrij lezen is niet mogelijk. Als u een wachtrij client roept de **GetMessage** methode, maar niet reageren met een bevestiging, het bericht onzichtbaar voor de wachtrij totdat blijft de **invisibilityTimeout** periode is verstreken. Het bericht wordt op dit moment beschikbaar voor het opnieuw verwerken.
-* Controleer als de wachtrijlengte gedurende een bepaalde periode groeit. Dit kan gebeuren als er niet voldoende werknemers beschikbaar om te verwerken alle berichten die andere werknemers zijn die in de wachtrij. Controleer ook de metrische gegevens om te zien als delete-aanvragen mislukken en het aantal wachtrij halen op berichten, dit kan duiden op herhaalde mislukte pogingen tot het verwijderen van het bericht.
-* Bekijk de logboekbestanden opslag logboekregistratie voor alle bewerkingen wachtrij die hoger dan verwacht **E2ELatency** en **ServerLatency** waarden gedurende een langere periode dan normaal.
+* Controleer of de toepassing hello is met succes toe te voegen Hallo berichten toohello wachtrij. Controleer Hallo toepassing wordt niet opnieuw geprobeerd Hallo **AddMessage** methode meerdere keren voordat slaagt. Hallo Storage-clientbibliotheek Logboeken wordt een herhaalde pogingen van opslagbewerkingen weergegeven.
+* Controleer of er is geen klok scheeftrekken tussen Hallo-werkrol die de berichtenwachtrij toohello hello en Hallo-werkrol die het Hallo-bericht leest uit Hallo wachtrij die het maakt worden weergegeven alsof er een vertraging bij de verwerking is toegevoegd.
+* Controleer als Hallo-werkrol die Hallo-berichten uit de wachtrij Hallo lezen is mislukt. Als een client wachtrij Hallo aanroept **GetMessage** methode mislukt maar toorespond met een bevestiging, het Hallo-bericht onzichtbaar voor de wachtrij Hallo blijft totdat Hallo **invisibilityTimeout** periode is verstreken. Hallo-bericht wordt op dit moment beschikbaar voor het opnieuw verwerken.
+* Controleer als de wachtrijlengte Hallo gedurende een bepaalde periode groeit. Dit kan gebeuren als er niet voldoende werknemers beschikbaar tooprocess alle Hallo-berichten dat andere werknemers op Hallo wachtrij zijn geplaatst. U moet ook controleren Hallo metrische gegevens toosee als delete-aanvragen mislukken en Hallo aantal op berichten, dit kan duiden op in wachtrij herhaald mislukte pogingen toodelete Hallo-bericht.
+* Bekijk Hallo opslag logboekregistratie logboekbestanden voor elke wachtrij-bewerkingen die hoger dan verwacht **E2ELatency** en **ServerLatency** waarden gedurende een langere periode dan normaal.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metrische gegevens tonen een toename in PercentThrottlingError
-Bandbreedtebeperking fouten optreden wanneer u de schaalbaarheidsdoelen van een opslagservice overschrijdt. De opslagservice doet dit om ervoor te zorgen dat geen enkele client of de tenant de service ten koste van anderen kunt gebruiken. Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage Scalability and Performance Targets</a> voor meer informatie over schaalbaarheidsdoelen voor storage-accounts en prestatiedoelen voor partities binnen de storage-accounts.
+Bandbreedtebeperking fouten optreden wanneer u Hallo schaalbaarheidsdoelen van een opslagservice overschrijdt. Hallo storage-service biedt deze tooensure geen enkele client of de tenant Hallo-service op Hallo kosten van anderen kunt gebruiken. Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage Scalability and Performance Targets</a> voor meer informatie over schaalbaarheidsdoelen voor storage-accounts en prestatiedoelen voor partities binnen de storage-accounts.
 
-Als de **PercentThrottlingError** metriek een toename in het percentage verzoeken die met een bandbreedteregeling fout mislukken zien, moet u voor het onderzoeken van een van twee scenario's:
+Als hello **PercentThrottlingError** metriek een toename in Hallo percentage verzoeken die met een bandbreedteregeling fout mislukken weergeven, moet u tooinvestigate een van twee scenario's:
 
 * [Tijdelijke toename van PercentThrottlingError]
 * [Permanente toename PercentThrottlingError fout]
 
-Een toename van **PercentThrottlingError** vaak optreedt op hetzelfde moment als een toename van het aantal aanvragen voor opslag, of wanneer u in eerste instantie worden, laden uw toepassing testen. Dit kan ook zelf in de client als '503 Server bezet' of '500 time-out voor de bewerking' HTTP statusberichten opslagbewerkingen manifest.
+Een toename van **PercentThrottlingError** vaak gebeurt op Hallo dezelfde tijd als een toename van het aantal aanvragen dat opslag Hallo of wanneer u in eerste instantie worden, laden uw toepassing testen. Dit kan ook zelf in Hallo-client als '503 Server bezet' of '500 time-out voor de bewerking' HTTP statusberichten opslagbewerkingen manifest.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Tijdelijke toename van PercentThrottlingError
-Als u pieken in de waarde van ziet **PercentThrottlingError** die overeenkomen met perioden van hoge activiteit voor de toepassing, moet u een exponentiële (niet-lineair) terug uit een strategie voor nieuwe pogingen implementeren in uw client: Hiermee wordt de onmiddellijke belasting van de partitie verminderen en helpen uw toepassing vloeiend pieken in het verkeer. Zie voor meer informatie over het implementeren van beleid voor opnieuw proberen met behulp van de Storage-clientbibliotheek <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a> op MSDN.
+Als u pieken in het Hallo-waarde van ziet **PercentThrottlingError** die overeenkomen met perioden van hoge activiteit voor de toepassing hello, moet u een exponentiële (niet-lineair) terug uit een strategie voor nieuwe pogingen implementeren in uw client: dit wordt Hallo onmiddellijke belasting van partitie hello te verminderen en helpen uw toepassing toosmooth uit pieken in het verkeer. Zie voor meer informatie over hoe beleid voor opnieuw proberen tooimplement met behulp van Storage-clientbibliotheek Hallo <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies Namespace</a> op MSDN.
 
 > [!NOTE]
-> U ziet misschien ook pieken in de waarde van **PercentThrottlingError** die niet samenvallen met perioden van hoge activiteit voor de toepassing: de meest waarschijnlijke oorzaak hier is de storage-service voor het verplaatsen van partities voor het verbeteren van taakverdeling.
+> U ziet misschien ook pieken in het Hallo-waarde van **PercentThrottlingError** die niet samenvallen met perioden van hoge activiteit voor de toepassing hello: Hallo hoogstwaarschijnlijk hier is Hallo opslagservice partities tooimprove load verplaatsen Netwerktaakverdeling.
 > 
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Permanente toename PercentThrottlingError fout
-Als u ziet een consistent hoge waarde voor **PercentThrottlingError** na een permanente toename in de transactie-volumes, of als u uw eerste load uitvoert tests op uw toepassing, moet u om te evalueren hoe uw toepassing partities opslag gebruikt en of deze de schaalbaarheidsdoelen voor een opslagaccount bijna is bereikt. Bijvoorbeeld, als u fouten in een wachtrij (die telt als een enkele partitie) beperking ziet, moet klikt u vervolgens u extra wachtrijen gebruiken voor de transacties verdeeld over meerdere partities. Als u beperking van fouten in een tabel ziet, moet u overwegen om een andere partitieschema op uw transacties verdeeld over meerdere partities met behulp van een breed scala aan partitie sleutelwaarden. Een veelvoorkomende oorzaak van dit probleem is het prepend/append antivirusprogramma patroon waar u de datum selecteren als de partitiesleutel en vervolgens alle gegevens op een bepaalde dag wordt geschreven naar één partitie: belast, kan dit resulteren in een knelpunt schrijven. U moet overwegen van een ander partitionering ontwerp of evalueren of met behulp van blob-opslag is mogelijk een betere oplossing. U moet ook controleren of de beperking als gevolg van pieken in het verkeer optreedt en onderzoeken manieren van het vloeiend maken van het patroon van aanvragen.
+Als u ziet een consistent hoge waarde voor **PercentThrottlingError** na een permanente toename in de transactie-volumes, of als u uw eerste load uitvoert tests op uw toepassing, moet u tooevaluate hoe uw toepassing partities opslag gebruikt en of het Hallo-schaalbaarheidsdoelen voor een opslagaccount bijna is bereikt. Bijvoorbeeld, als u ziet beperking van fouten in een wachtrij (die telt als een enkele partitie), moet vervolgens u aanvullende wachtrijen toospread Hallo transacties met voor meerdere partities. Als u beperking van fouten in een tabel ziet, moet u met behulp van een andere partitionering schema toospread tooconsider uw transacties tussen meerdere partities met behulp van een breed scala aan partitie sleutelwaarden. Een veelvoorkomende oorzaak van dit probleem is Hallo toevoegen/append anti-patroon waarbij u Hallo datum als partitiesleutel Hallo selecteren en vervolgens alle gegevens op een bepaalde dag tooone partitie worden geschreven: belast, kan dit resulteren in een knelpunt schrijven. U moet overwegen van een ander partitionering ontwerp of evalueren of met behulp van blob-opslag is mogelijk een betere oplossing. U moet ook controleren als Hallo bandbreedtebeperking optreedt als gevolg van pieken in het verkeer en onderzoeken manieren van het vloeiend maken van het patroon van aanvragen.
 
-Als u uw transacties over meerdere partities verdelen, moet u nog steeds op de hoogte van de limieten voor schaalbaarheid ingesteld voor het opslagaccount zijn. Bijvoorbeeld, als u tien wachtrijen elke het maximum van 2.000 1KB-berichten per seconde verwerken gebruikt, kunt u zich op de algehele limiet van 20.000 berichten per seconde voor het opslagaccount. Als u meer dan 20.000 entiteiten per seconde wordt verwerkt wilt, moet u overwegen meerdere opslagaccounts. U moet ook Houd er rekening mee dat de grootte van uw aanvragen en entiteiten invloed is op wanneer de clients in de storage-service worden beperkt: als u grotere aanvragen en entiteiten hebt, u sneller kan worden beperkt.
+Als u uw transacties over meerdere partities verdelen, moet u nog steeds op de hoogte van de limieten voor schaalbaarheid Hallo instellen voor Hallo storage-account zijn. Bijvoorbeeld, als u op elke verwerking Hallo maximaal 2.000 1KB-berichten per seconde tien wachtrijen gebruikt, kunt u zich op Hallo algehele limiet van 20.000 berichten per seconde voor het Hallo-opslagaccount. Als u tooprocess meer dan 20.000 entiteiten per seconde moet, moet u rekening houden met behulp van meerdere opslagaccounts. U moet ook Houd er rekening mee dat formaat Hallo met uw verzoeken, en entiteiten invloed is op wanneer de opslagservice Hallo uw clients bandbreedte: als u grotere aanvragen en entiteiten hebt, u sneller kan worden beperkt.
 
-Inefficiënt Queryontwerp kan ook worden om de limieten voor schaalbaarheid voor Tabelpartities. Bijvoorbeeld, moet een query met een filter selecteert die alleen één procent van de entiteiten in een partitie, maar die scant alle entiteiten in een partitie toegang tot elke entiteit. Elke entiteit lezen meetelt voor het totale aantal transacties in de betreffende partitie; Daarom kunt u eenvoudig de van schaalbaarheidsdoelen bereiken.
+Inefficiënt Queryontwerp kunt u ook toohit hello schaalbaarheidsbeperkingen voor Tabelpartities veroorzaken. Bijvoorbeeld, moet een query met een filter selecteert die alleen één procent Hallo entiteiten in een partitie, maar die scant alle Hallo entiteiten in een partitie tooaccess elke entiteit. Elke entiteit lezen meetelt Hallo kunt u het totale aantal transacties in de betreffende partitie; Daarom kunt u eenvoudig hello schaalbaarheidsdoelen bereiken.
 
 > [!NOTE]
 > De prestatietests, zou moeten uitwijzen queryontwerpen inefficiënt in uw toepassing.
@@ -445,120 +445,120 @@ Inefficiënt Queryontwerp kan ook worden om de limieten voor schaalbaarheid voor
 > 
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Metrische gegevens tonen een toename in PercentTimeoutError
-De metrische gegevens tonen een toename van **PercentTimeoutError** voor een van uw storage-services. Op hetzelfde moment ontvangt de client een groot aantal statusberichten '500 time-out voor de bewerking' http-van-opslagbewerkingen.
+De metrische gegevens tonen een toename van **PercentTimeoutError** voor een van uw storage-services. Op Hallo dezelfde tijdstip, hello client ontvangt een groot aantal statusberichten '500 time-out voor de bewerking' http-van-opslagbewerkingen.
 
 > [!NOTE]
-> Mogelijk ziet u time-outfouten tijdelijk als de storage-service aanvragen saldo's laden door een partitie te verplaatsen naar een nieuwe server.
+> Mogelijk ziet u time-outfouten tijdelijk als Hallo opslagservice saldo's aanvragen laden door een nieuwe partitie tooa-server te verplaatsen.
 > 
 > 
 
-De **PercentTimeoutError** metriek is een samenvoeging van de volgende metrische gegevens: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**, en **SASServerTimeoutError**.
+Hallo **PercentTimeoutError** meetwaarde is een aggregatie van Hallo metrische gegevens te volgen: **ClientTimeoutError**, **AnonymousClientTimeoutError**,  **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**, en **SASServerTimeoutError**.
 
-Time-outs voor de server worden veroorzaakt door een fout op de server. De clienttime-outs gebeuren omdat een bewerking op de server is groter dan de time-out die is opgegeven door de client. bijvoorbeeld, een client met de Storage-clientbibliotheek kunt instellen voor een time-out voor een bewerking via de **ServerTimeout** eigenschap van de **QueueRequestOptions** klasse.
+Hallo servertime worden veroorzaakt door een fout op Hallo-server. Hallo clienttime-outs gebeuren omdat een bewerking op de server Hallo Hallo time-out is opgegeven door de client Hallo; heeft overschreden bijvoorbeeld, een client met Hallo Storage-clientbibliotheek kunt instellen voor een time-out voor een bewerking door Hallo **ServerTimeout** eigenschap Hallo **QueueRequestOptions** klasse.
 
-Time-outs van de server wijzen op een probleem met de storage-service die verder onderzoek vereist. U kunt metrische gegevens gebruiken om te zien als u de limieten voor schaalbaarheid van de service zijn raken en om te identificeren van eventuele pieken in het verkeer dat dit probleem veroorzaakt. Als het probleem onderbroken wordt, kan zijn vanwege taakverdeling activiteit in de service. Als het probleem permanent is en niet wordt veroorzaakt door uw toepassing kunt u door de limieten voor schaalbaarheid van de service, moet u een probleem op te verhogen. Voor clienttime-outs, moet u beslissen als de time-out is ingesteld op een geschikte waarde in de client en een van de wijzigingen de time-outwaarde is ingesteld in de client of onderzoeken hoe kunt u de verbeteren de prestaties van de bewerkingen in de storage-service, bijvoorbeeld door het optimaliseren van uw tabel query's of de grootte van uw berichten beperken.
+Time-outs van de server wijzen op een probleem met Hallo storage-service die verder onderzoek vereist. U kunt metrische gegevens toosee gebruiken als u Hallo schaalbaarheidslimieten voor het Hallo-service en tooidentify roept eventuele pieken in het verkeer dat dit probleem veroorzaakt. Als het probleem hello wordt onderbroken, kan dit worden veroorzaakt door tooload balancing activiteit in Hallo-service. Als Hallo probleem permanent is en niet wordt veroorzaakt door uw toepassing hello limieten voor schaalbaarheid van Hallo-service roept, moet u een probleem op te verhogen. Voor clienttime-outs, moet u beslissen als Hallo time-out tooan geschikte waarde is ingesteld in Hallo-client en beide Hallo time-outwaarde wijzigen in Hallo client instellen of onderzoeken hoe u kunt Hallo de prestaties verbeteren van Hallo-bewerkingen in het Hallo-storage-service voor voorbeeld door uw tabel query's optimaliseren of verkleinen van Hallo van uw berichten.
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Metrische gegevens tonen een toename in PercentNetworkError
-De metrische gegevens tonen een toename van **PercentNetworkError** voor een van uw storage-services. De **PercentNetworkError** metriek is een samenvoeging van de volgende metrische gegevens: **NetworkError**, **AnonymousNetworkError**, en **SASNetworkError**. Deze treden op wanneer de storage-service een netwerkfout detecteert wanneer de client een opslag-aanvraag indient.
+De metrische gegevens tonen een toename van **PercentNetworkError** voor een van uw storage-services. Hallo **PercentNetworkError** meetwaarde is een aggregatie van Hallo metrische gegevens te volgen: **NetworkError**, **AnonymousNetworkError**, en  **SASNetworkError**. Deze optreden wanneer Hallo storage-service een netwerkfout opgetreden detecteert bij het Hallo-client een opslag-aanvraag indient.
 
-De meest voorkomende oorzaak van deze fout is een client verbinding wordt verbroken voordat een time-out is verlopen in de storage-service. U moet de code onderzoeken in de client om te begrijpen waarom en wanneer de client wordt losgekoppeld van de storage-service. U kunt ook Wireshark, Microsoft Message Analyzer of Tcping gebruiken voor het onderzoeken van problemen met de netwerkverbinding van de client. Deze hulpprogramma's worden beschreven in de [bijlagen].
+Hallo meest voorkomende oorzaak van deze fout is een client verbinding wordt verbroken voordat een time-out is verlopen in Hallo storage-service. U moet Hallo code in uw client-toounderstand waarom en wanneer de client Hallo verbreekt de opslagservice Hallo onderzoeken. U kunt ook Wireshark, Microsoft Message Analyzer of Tcping tooinvestigate problemen met de netwerkverbinding van de client hello gebruiken. Deze hulpprogramma's worden beschreven in Hallo [bijlagen].
 
-### <a name="the-client-is-receiving-403-messages"></a>De client ontvangt berichten HTTP 403 (verboden)
-Als u de clienttoepassing die HTTP 403 (verboden) fouten, wordt er een waarschijnlijke oorzaak is dat de client een verlopen Shared Access Signature (SAS) wordt gebruikt wanneer het verzendt een aanvraag voor opslag (Hoewel andere mogelijke oorzaken klok scheeftrekken, ongeldige sleutels, en -koppen leeg zijn). Als dit wordt veroorzaakt door een verlopen SAS-sleutel, ziet u niet alle vermeldingen in de logboekgegevens van serverzijde opslag logboekregistratie. De volgende tabel ziet u een voorbeeld van het logboek voor clientzijde die worden gegenereerd door de Storage-clientbibliotheek die ziet u dit probleem optreedt:
+### <a name="the-client-is-receiving-403-messages"></a>Hallo client ontvangt berichten HTTP 403 (verboden)
+Als u de clienttoepassing die fouten HTTP 403 (verboden), is een waarschijnlijke oorzaak dat clientcomputers Hallo een verlopen Shared Access Signature (SAS) wordt gebruikt wanneer het verzendt een aanvraag voor opslag (Hoewel andere mogelijke oorzaken klok scheeftrekken, ongeldig sleutels bevatten en leeg headers). Als een verlopen SAS-sleutel Hallo oorzaak is, ziet u niet alle vermeldingen in serverzijde Hallo opslag logboekregistratie logboekgegevens. Hallo ziet volgende tabel u een voorbeeld Hallo clientzijde logboek is gegenereerd door Hallo Storage-clientbibliotheek die ziet u dit probleem optreedt:
 
 | Bron | Uitgebreidheid | Uitgebreidheid | Aanvraag-id van client | Bewerking tekst |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Bewerking wordt gestart met de primaire locatie per locatie modus PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14 starten&amp;sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Vanaf synchrone aanvragen toohttps://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr = c&amp;si = mypolicy&amp;sig OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % = 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Wachten op reactie. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab-... |Uitzondering geretourneerd tijdens het wachten op reactie: de externe server heeft een fout geretourneerd: (403) verboden... |
+| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab-... |Uitzondering geretourneerd tijdens het wachten op reactie: Hallo externe server heeft een fout geretourneerd: (403) verboden... |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Het antwoord is ontvangen. Statuscode = 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab-... |Uitzondering opgetreden tijdens de bewerking: de externe server heeft een fout geretourneerd: (403) verboden... |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Controleren of de bewerking moet opnieuw worden geprobeerd. Aantal nieuwe pogingen = 0, HTTP-statuscode = 403, uitzondering = de externe server heeft een fout geretourneerd: (403) verboden... |
-| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |De volgende locatie is ingesteld op de primaire, op basis van de locatie-modus. |
-| Microsoft.WindowsAzure.Storage |Fout |1 |85d077ab-... |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (403) verboden. |
+| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab-... |Uitzondering geretourneerd tijdens het Hallo: Hallo externe server heeft een fout geretourneerd: (403) verboden... |
+| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |Controleren als Hallo-bewerking moet opnieuw worden geprobeerd. Aantal nieuwe pogingen = 0, HTTP-statuscode = 403, uitzondering = Hallo van de externe server heeft een fout geretourneerd: (403) verboden... |
+| Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-... |de volgende locatie Hallo is tooPrimary, op basis van Hallo locatie modus ingesteld. |
+| Microsoft.WindowsAzure.Storage |Fout |1 |85d077ab-... |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server Hallo heeft een fout geretourneerd: (403) verboden. |
 
-In dit scenario moet u onderzoeken waarom het SAS-token is verlopen voordat de client het token naar de server stuurt:
+In dit scenario moet u onderzoeken waarom Hallo SAS-token verloopt voordat Hallo client Hallo token toohello server verzendt:
 
-* U moet een begintijd die bij het maken van een SAS voor een client direct kunt gebruiken doorgaans niet instellen. Als er klok kleine verschillen tussen de host genereren van de SAS met behulp van de huidige tijd en de storage-service, dan is het mogelijk voor de storage-service voor het ontvangen van een SAS die nog niet geldig.
-* U moet een zeer korte verlooptijd niet instellen op een SAS. Opnieuw kunnen klok kleine verschillen tussen de host genereren van de SAS- en de storage-service leiden tot een SAS blijkbaar verloopt eerder dan verwacht.
-* Biedt de versieparameter in de SAS-sleutel (bijvoorbeeld **AVP 2012-02-12 =**) overeenkomt met de versie van de Storage-clientbibliotheek die u gebruikt. U moet altijd de nieuwste versie van de Storage-clientbibliotheek gebruiken. Zie voor meer informatie over SAS-token versiebeheer [wat is er nieuw voor Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
-* * Als u uw opslagtoegangssleutels opnieuw genereren (Klik op **toegangssleutels beheren** op elke pagina van uw opslagaccount in de klassieke Azure Portal) dit ongeldig eventuele bestaande SAS-tokens kunt maken. Dit kan een probleem zijn als het genereren van SAS-tokens met een lange verlooptijdstip clienttoepassingen aan het cachegeheugen.
+* U moet een begintijd die bij het maken van een SAS voor een client toouse onmiddellijk normaal gesproken niet instellen. Als er kleine Hallo klok verschillen tussen Hallo host genereren Hallo SAS met behulp van huidige tijd- en opslagservice hello, dan is het mogelijk voor Hallo opslag service tooreceive een SA's dat is nog niet geldig.
+* U moet een zeer korte verlooptijd niet instellen op een SAS. Opnieuw klok kleine verschillen tussen Hallo host genereren van SAS Hallo en Hallo storage-service kan leiden tot tooa SAS blijkbaar verloopt eerder dan verwacht.
+* Hallo versieparameter in Hallo SAS-sleutel (bijvoorbeeld **AVP 2012-02-12 =**) overeen Hallo versie Hallo Storage-clientbibliotheek die u gebruikt. U moet altijd de meest recente versie Hallo Hallo Storage-clientbibliotheek gebruiken. Zie voor meer informatie over SAS-token versiebeheer [wat is er nieuw voor Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+* * Als u uw opslagtoegangssleutels opnieuw genereren (Klik op **toegangssleutels beheren** op elke pagina van uw opslagaccount in de klassieke Azure-Portal Hallo) dit ongeldig eventuele bestaande SAS-tokens kunt maken. Dit kan een probleem zijn als het genereren van SAS-tokens met een lange verlooptijd van de client toepassingen toocache.
 
-Als u de Storage-clientbibliotheek voor het genereren van SAS-tokens gebruikt, is het eenvoudig voor het bouwen van een geldig token. Echter, als u de REST-API voor Storage en handmatig maken van de SAS tokens zorgvuldig Lees het onderwerp <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">toegang delegeren met Shared Access Signature</a> op MSDN.
+Als u Hallo Storage-clientbibliotheek toogenerate SAS-tokens gebruikt, is het eenvoudig toobuild een geldig token. Echter, als u met behulp van Hallo REST API voor Storage en construeren Hallo SAS-tokens handmatig moet lees zorgvuldig door Hallo onderwerp <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">toegang delegeren met Shared Access Signature</a> op MSDN.
 
-### <a name="the-client-is-receiving-404-messages"></a>De client ontvangt berichten HTTP 404 (niet gevonden)
-Als de clienttoepassing een HTTP 404 (niet gevonden)-bericht van de server ontvangt, betekent dit dat het object dat de client probeerde te gebruiken (zoals een entiteit, tabel, blob, container of wachtrij) niet in de storage-service bestaat. Er zijn een aantal mogelijke redenen hiervoor, zoals:
+### <a name="the-client-is-receiving-404-messages"></a>Hallo-client is ontvangen HTTP 404 (niet gevonden)-berichten
+Als Hallo clienttoepassing een HTTP 404 (niet gevonden)-bericht van Hallo-server ontvangt, betekent dit dat Hallo object Hallo de client probeerde toouse (zoals een entiteit, tabel, blob, container of wachtrij) bestaat niet in Hallo storage-service. Er zijn een aantal mogelijke redenen hiervoor, zoals:
 
-* [De client of een ander proces eerder verwijderd van het object]
+* [Hallo-client of een ander proces het eerder verwijderd Hallo-object]
 * [Een probleem met de autorisatie Shared Access Signature (SAS)]
-* [Client-side JavaScript-code is niet gemachtigd voor toegang tot het object]
+* [Client-side JavaScript-code heeft geen machtiging tooaccess Hallo-object]
 * [Netwerkfout]
 
-#### <a name="client-previously-deleted-the-object"></a>De client of een ander proces eerder verwijderd van het object
-In scenario's waar de client probeert te lezen, bijwerken of verwijderen van gegevens in een storage-service is het meestal gemakkelijk kunt herkennen in de logboeken van de server als een eerdere bewerking die het desbetreffende object verwijderd uit de storage-service. Heel vaak ziet de logboekgegevens u dat een andere gebruiker of proces het object verwijderd. In het logboek serverzijde opslag logboekregistratie het type van de bewerking en aangevraagd-object-sleutelkolommen ziet u wanneer een client een object verwijderd.
+#### <a name="client-previously-deleted-the-object"></a>Hallo-client of een ander proces het eerder verwijderd Hallo-object
+Eenvoudig tooidentify in Hallo serverzijde registreert in scenario's waarbij Hallo client probeert tooread, bijwerken of verwijderen van gegevens in een storage-service is het meestal een eerdere bewerking die Hallo-object in kwestie van Hallo storage-service worden verwijderd. Hallo-logboekgegevens toont heel vaak dat een andere gebruiker of proces verwijderde Hallo-object. Hallo-serverzijde opslag logboekregistratie logboek hello type bewerking en aangevraagd-object-sleutelkolommen ziet u wanneer een client een object verwijderd.
 
-In het scenario waar een client is bij het invoegen van een object, deze mogelijk niet direct duidelijk waarom dit in een HTTP 404 (niet gevonden) antwoord resulteert gezien het feit dat de client een nieuw object maakt. Echter, als de client maakt een blob deze moet kunnen vinden van de blob-container, als de client is een bericht dat deze moet kunnen vinden van een wachtrij maakt, en als een rij is het toevoegen van de client deze moet kunnen worden gevonden in de tabel.
+In Hallo scenario waarin tooinsert een object van een client wordt geprobeerd deze mogelijk niet direct duidelijk waarom dit in een HTTP 404 (niet gevonden) antwoord resulteert gezien het feit dat hello client een nieuw object maakt. Als Hallo client een blob deze moet kunnen toofind Hallo blob-container, worden maakt als Hallo-client is een bericht dat moet kunnen toofind een wachtrij maakt, en als het Hallo-client is het toevoegen van een rij moet deze kunnen toofind Hallo tabel zijn.
 
-U kunt het client-side '-logboek van de Storage-clientbibliotheek krijgen een meer gedetailleerde begrip van wanneer de client specifieke aanvragen met de storage-service verzendt.
+U kunt Hallo clientzijde logboek vanaf Hallo Storage-clientbibliotheek toogain die een meer begrip van gedetailleerde als Hallo client specifieke aanvragen toohello storage-service verzendt gebruiken.
 
-De volgende client-side logboek dat wordt gegenereerd door de Storage-clientbibliotheek ziet u het probleem wanneer de client kan de container voor de blob die het maakt niet vinden. Dit logboek bevat details van de volgende opslagbewerkingen:
+Hallo volgende clientzijde logboek is gegenereerd door de Storage-clientbibliotheek Hallo ziet u Hallo probleem wanneer Hallo client Hallo container voor Hallo blob die het maakt niet kunt vinden. Dit logboek bevat details van Hallo opslagbewerkingen te volgen:
 
 | Aanvraag-id | Bewerking |
 | --- | --- |
-| 07b26a5d-... |**DeleteIfExists** methode om te verwijderen van de blob-container. Let op: deze bewerking bevat een **HEAD** aanvraag om te controleren op de aanwezigheid van de container. |
-| e2d06d78... |**CreateIfNotExists** methode voor het maken van de blob-container. Let op: deze bewerking bevat een **HEAD** aanvraag waarmee wordt gecontroleerd of het bestaan van de container. De **HEAD** retourneert een 404-bericht, maar blijft. |
-| de8b1c3c-... |**UploadFromStream** methode voor het maken van de blob. De **plaatsen** aanvraag is mislukt met een 404-bericht |
+| 07b26a5d-... |**DeleteIfExists** methode toodelete Hallo blob-container. Let op: deze bewerking bevat een **HEAD** toocheck Hallo bestaan van de container Hallo aanvragen. |
+| e2d06d78... |**CreateIfNotExists** methode toocreate Hallo blob-container. Let op: deze bewerking bevat een **HEAD** aanvraag waarmee wordt gecontroleerd of Hallo bestaan van Hallo-container. Hallo **HEAD** retourneert een 404-bericht, maar blijft. |
+| de8b1c3c-... |**UploadFromStream** methode toocreate Hallo blob. Hallo **plaatsen** aanvraag is mislukt met een 404-bericht |
 
 Logboekvermeldingen:
 
 | Aanvraag-id | Bewerking tekst |
 | --- | --- |
-| 07b26a5d-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
+| 07b26a5d-... |Synchrone aanvraag toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
 | 07b26a5d-... |StringToSign HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Jun 2014 = 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Wachten op reactie. |
 | 07b26a5d-... |Het antwoord is ontvangen. Statuscode 200, aanvraag-ID = = eeead849... Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
-| 07b26a5d-... |Antwoordheaders zijn verwerkt, u doorgaat met de rest van de bewerking. |
+| 07b26a5d-... |Antwoordheaders zijn verwerkt, teruglopende met rest Hallo van Hallo-bewerking. |
 | 07b26a5d-... |Antwoordtekst downloaden. |
 | 07b26a5d-... |De bewerking is voltooid. |
-| 07b26a5d-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
+| 07b26a5d-... |Synchrone aanvraag toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
 | 07b26a5d-... |StringToSign DELETE...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Jun 2014 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Wachten op reactie. |
 | 07b26a5d-... |Het antwoord is ontvangen. Statuscode = 202, aanvraag-ID = 6ab2a4cf-..., Content-MD5 =, ETag =. |
-| 07b26a5d-... |Antwoordheaders zijn verwerkt, u doorgaat met de rest van de bewerking. |
+| 07b26a5d-... |Antwoordheaders zijn verwerkt, teruglopende met rest Hallo van Hallo-bewerking. |
 | 07b26a5d-... |Antwoordtekst downloaden. |
 | 07b26a5d-... |De bewerking is voltooid. |
-| e2d06d78-... |Asynchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart.</td> |
+| e2d06d78-... |Asynchrone aanvraag toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart.</td> |
 | e2d06d78-... |StringToSign HEAD...x-ms-client-request-id:e2d06d78-...x-ms-date:Tue, 03 Jun 2014 = 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op reactie. |
-| de8b1c3c-... |Synchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt wordt gestart. |
+| de8b1c3c-... |Synchrone aanvraag toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt wordt gestart. |
 | de8b1c3c-... |StringToSign PUT =... 64.qCmF+TQLPhq/YYK50mP9ZQ==...x-MS-BLOB-type:BlockBlob.x-MS-Client-Request-id:de8b1c3c-...x-MS-Date:TUE, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
-| de8b1c3c-... |Schrijven van gegevens van aanvragen wordt voorbereid. |
-| e2d06d78-... |Uitzondering geretourneerd tijdens het wachten op reactie: de externe server heeft een fout geretourneerd: (404) niet gevonden... |
+| de8b1c3c-... |Aanvraaggegevens toowrite wordt voorbereid. |
+| e2d06d78-... |Uitzondering geretourneerd tijdens het wachten op reactie: Hallo externe server heeft een fout geretourneerd: (404) niet gevonden... |
 | e2d06d78-... |Het antwoord is ontvangen. Statuscode 404, aanvraag-ID = = 353ae3bc-..., Content-MD5 =, ETag =. |
-| e2d06d78-... |Antwoordheaders zijn verwerkt, u doorgaat met de rest van de bewerking. |
+| e2d06d78-... |Antwoordheaders zijn verwerkt, teruglopende met rest Hallo van Hallo-bewerking. |
 | e2d06d78-... |Antwoordtekst downloaden. |
 | e2d06d78-... |De bewerking is voltooid. |
-| e2d06d78-... |Asynchrone aanvraag voor https://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
+| e2d06d78-... |Asynchrone aanvraag toohttps://domemaildist.blob.core.windows.net/azuremmblobcontainer wordt gestart. |
 | e2d06d78-... |StringToSign PUT =... 0...x-MS-Client-Request-id:e2d06d78-...x-MS-Date:TUE, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Wachten op reactie. |
 | de8b1c3c-... |Aanvraag voor het schrijven van gegevens. |
 | de8b1c3c-... |Wachten op reactie. |
-| e2d06d78-... |Uitzondering geretourneerd tijdens het wachten op reactie: de externe server heeft een fout geretourneerd: (409) Conflict... |
+| e2d06d78-... |Uitzondering geretourneerd tijdens het wachten op reactie: Hallo externe server heeft een fout geretourneerd: (409) Conflict... |
 | e2d06d78-... |Het antwoord is ontvangen. Statuscode = 409, aanvraag-ID = c27da20e-..., Content-MD5 =, ETag =. |
 | e2d06d78-... |Antwoordtekst voor fout bij het downloaden. |
-| de8b1c3c-... |Uitzondering geretourneerd tijdens het wachten op reactie: de externe server heeft een fout geretourneerd: (404) niet gevonden... |
+| de8b1c3c-... |Uitzondering geretourneerd tijdens het wachten op reactie: Hallo externe server heeft een fout geretourneerd: (404) niet gevonden... |
 | de8b1c3c-... |Het antwoord is ontvangen. Statuscode 404, aanvraag-ID = = 0eaeab3e-..., Content-MD5 =, ETag =. |
-| de8b1c3c-... |Uitzondering opgetreden tijdens de bewerking: de externe server heeft een fout geretourneerd: (404) niet gevonden... |
-| de8b1c3c-... |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (404) niet gevonden... |
-| e2d06d78-... |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (409) Conflict... |
+| de8b1c3c-... |Uitzondering geretourneerd tijdens het Hallo: Hallo externe server heeft een fout geretourneerd: (404) niet gevonden... |
+| de8b1c3c-... |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server Hallo heeft een fout geretourneerd: (404) niet gevonden... |
+| e2d06d78-... |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server Hallo heeft een fout geretourneerd: (409) Conflict... |
 
-In dit voorbeeld toont het logboek dat de client is interleaving aanvragen van de **CreateIfNotExists** methode (aanvraag-id e2d06d78...) met het aanvragen van de **UploadFromStream** methode (de8b1c3c-...); dit gebeurt omdat de clienttoepassing asynchroon deze methoden is aangeroepen. U kunt de asynchrone code in de client om ervoor te zorgen dat de container wordt gemaakt voordat u probeert te uploaden van gegevens naar een blob in de container moet wijzigen. In het ideale geval moet u alle uw containers van tevoren maken.
+In dit voorbeeld toont Hallo logboek Hallo client-aanvragen van Hallo is interleaving **CreateIfNotExists** methode (aanvraag-id e2d06d78...) met Hallo aanvragen van Hallo **UploadFromStream** methode ( de8b1c3c-...); Dit gebeurt omdat Hallo clienttoepassing asynchroon deze methoden is aangeroepen. U moet de asynchrone code Hallo in Hallo client tooensure gemaakt Hallo container voordat u probeert tooupload alle gegevens tooa blob in de container wijzigen. In het ideale geval moet u alle uw containers van tevoren maken.
 
 #### <a name="SAS-authorization-issue"></a>Een probleem met de autorisatie Shared Access Signature (SAS)
-Als de clienttoepassing probeert te gebruiken van een SAS-sleutel die de benodigde machtigingen voor de bewerking niet bevat, retourneert de storage-service een HTTP 404 (niet gevonden)-bericht naar de client. Op hetzelfde moment ook ziet u een andere waarde dan nul voor **SASAuthorizationError** in de metrische gegevens.
+Als de client-toepassing hello toouse een SAS-sleutel die omvat niet de vereiste machtigingen voor de bewerking Hallo Hallo probeert, retourneert Hallo storage-service een HTTP 404 (niet gevonden) bericht toohello client. Op Hallo dezelfde tijdstip, ziet u ook een andere waarde dan nul voor **SASAuthorizationError** in Hallo metrische gegevens.
 
-De volgende tabel ziet u een voorbeeld serverzijde logboek-bericht van het logboekbestand opslag logboekregistratie:
+Hallo volgende tabel ziet u een voorbeeld logboekbericht serverzijde uit Hallo opslag logboekregistratie logboekbestand:
 
 | Naam | Waarde |
 | --- | --- |
@@ -573,10 +573,10 @@ De volgende tabel ziet u een voorbeeld serverzijde logboek-bericht van het logbo
 | Koptekst van de aanvraag-id  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Aanvraag-ID van client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
-U moet onderzoeken waarom de clienttoepassing probeert een bewerking die er geen machtigingen heeft voor uit te voeren.
+U moet onderzoeken waarom de clienttoepassing probeert tooperform een bewerking er geen machtigingen heeft voor.
 
-#### <a name="JavaScript-code-does-not-have-permission"></a>Client-side JavaScript-code is niet gemachtigd voor toegang tot het object
-Als u van een JavaScript-client gebruikmaakt en de storage-service HTTP 404-berichten retourneert, controleert u de volgende JavaScript-fouten in de browser:
+#### <a name="JavaScript-code-does-not-have-permission"></a>Client-side JavaScript-code heeft geen machtiging tooaccess Hallo-object
+Als u van een JavaScript-client gebruikmaakt en Hallo storage-service HTTP 404-berichten retourneert, controleert u Hallo volgende JavaScript-fouten in de browser Hallo:
 
 ```
 SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
@@ -584,19 +584,19 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 ```
 
 > [!NOTE]
-> U kunt de hulpprogramma's voor ontwikkelaars F12 in Internet Explorer gebruiken om te traceren, de berichten uitgewisseld tussen de browser en de storage-service als u de client-side JavaScript problemen wilt oplossen.
+> Hallo F12 ontwikkelhulpprogramma's kunt u in Internet Explorer tootrace Hallo-berichten uitgewisseld tussen Hallo-browser- en opslagservice Hallo als u de client-side JavaScript problemen wilt oplossen.
 > 
 > 
 
-Deze fouten optreden omdat de webbrowser implementeert de <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">dezelfde oorsprong beleid</a> beveiligingsbeperkingen waarmee wordt voorkomen dat een webpagina een API aanroept in een ander domein uit het domein de pagina is afkomstig uit.
+Deze fouten optreden omdat Hallo webbrowser Hallo implementeert <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">dezelfde oorsprong beleid</a> beveiligingsbeperkingen waarmee wordt voorkomen dat een webpagina een API aanroepen in een ander domein dan Hallo domein Hallo pagina is afkomstig uit.
 
-De JavaScript als probleem wilt verhelpen, kunt u Cross-Origin Resource delen (CORS) configureren voor de storage-service die is bij het openen van de client. Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Cross-Origin-Resource delen (CORS) ondersteuning voor Azure Storage-Services</a> op MSDN.
+toowork rond Hallo JavaScript probleem, kunt u de Cross-Origin Resource delen (CORS) configureren voor het openen van de client Hallo Hallo storage-service. Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/dn535601.aspx" target="_blank">Cross-Origin-Resource delen (CORS) ondersteuning voor Azure Storage-Services</a> op MSDN.
 
-Het volgende codevoorbeeld ziet u hoe uw blob-service zodat JavaScript uitgevoerd in het Contoso-domein toegang tot een blob in de blob storage-service te configureren:
+Hallo volgende codevoorbeeld ziet u hoe tooconfigure uw blob-service tooallow JavaScript uitgevoerd in de Contoso-domein tooaccess Hallo een blob in de blob storage-service:
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-// Set the service properties.
+// Set hello service properties.
 ServiceProperties sp = client.GetServiceProperties();
 sp.DefaultServiceVersion = "2013-08-15";
 CorsRule cr = new CorsRule();
@@ -611,18 +611,18 @@ client.SetServiceProperties(sp);
 ```
 
 #### <a name="network-failure"></a>Netwerkfout
-In sommige gevallen verloren netwerkpakketten kunnen leiden tot de storage-service HTTP 404-berichten naar de client wordt geretourneerd. Bijvoorbeeld, als uw clienttoepassing van een entiteit uit de tabelservice verwijderen ziet u de client een opslagrapportage uitzondering genereert een ' HTTP 404 (niet gevonden) ' statusbericht uit de tabelservice. Als u de tabel in de tabel opslagservice onderzoeken, ziet u dat de service de entiteit heeft verwijderd, zoals aangevraagd.
+In sommige gevallen kunnen verloren netwerkpakketten toohello opslagservice HTTP 404-berichten toohello client retourneren leiden. Bijvoorbeeld wanneer uw clienttoepassing van een entiteit uit de tabelservice Hallo verwijderen ziet u een opslagrapportage uitzondering genereert Hallo-client een ' HTTP 404 (niet gevonden) ' statusbericht van Hallo tabel-service. Als u Hallo-tabel in Hallo table storage-service onderzoeken, ziet u dat Hallo service Hallo entiteit hebt verwijderd, zoals aangevraagd.
 
-De uitzonderingsdetails in de client opnemen in de aanvraag-id (7e84f12d...) die door de tabelservice voor de aanvraag is toegewezen: deze informatie kunt u de aanvraagdetails van de in de logboeken serverzijde opslag vinden door te zoeken in de **aanvraag-id-header** kolom in het logboekbestand. U kunt ook de metrische gegevens te identificeren wanneer fouten zoals deze optreden en zoek vervolgens de logboekbestanden op basis van de tijd die de metrische gegevens vastgelegd deze fout. Deze logboekvermelding ziet u dat het verwijderen is mislukt met een statusbericht 'HTTP (404) Client andere fout'. De dezelfde logboekvermelding bevat ook de aanvraag-id gegenereerd door de client in de **client-request-id** kolom (813ea74f...).
+Hallo uitzonderingsdetails in Hallo client opnemen Hallo aanvraag-id (7e84f12d...) dat door Hallo tabelservice voor Hallo-aanvraag is toegewezen: kunt u deze informatie toolocate Hallo-aanvraaggegevens in Hallo serverzijde opslag Logboeken door te zoeken in Hallo  **aanvraag-id-header** kolom in het logboekbestand Hallo. U kunt ook Hallo metrische gegevens tooidentify wanneer de fouten, zoals dit optreden en zoek vervolgens Hallo-logboekbestanden op basis van Hallo Hallo tijdmetrieken deze fout vastgelegd. Dit logboek vermelding bevat die Hallo verwijderen is mislukt met een statusbericht 'HTTP (404) Client andere fout'. Hallo dezelfde logboekvermelding bevat ook Hallo aanvraag-id gegenereerd door de client Hallo in Hallo **client-request-id** kolom (813ea74f...).
 
-Het logboek serverzijde bevat ook een andere vermelding met dezelfde **client-request-id** waarde (813ea74f...) voor een geslaagde bewerking voor dezelfde entiteit en van dezelfde client verwijderen. Deze geslaagde bewerking heeft plaatsgevonden zeer snel voordat de mislukte aanvraag verwijderen.
+Hallo-serverzijde logboekbestand bevat ook een andere vermelding met Hallo dezelfde **client-request-id** waarde (813ea74f...) voor een geslaagde bewerking voor verwijderen Hallo dezelfde entiteit en Hallo van dezelfde client. Deze geslaagde bewerking heeft plaatsgevonden zeer kort voordat Hallo mislukte delete-aanvraag.
 
-De meest waarschijnlijke oorzaak van dit scenario is dat de client voor de entiteit een delete-aanvraag naar de tabelservice, die is voltooid verzonden, maar heeft geen een bevestiging ontvangen van de server maken (mogelijk vanwege een tijdelijk netwerkprobleem). De client vervolgens automatisch opnieuw geprobeerd de bewerking (met behulp van dezelfde **client-request-id**), en deze nieuwe poging is mislukt omdat de entiteit al is verwijderd.
+Hallo meest waarschijnlijke oorzaak van dit scenario is die Hallo-client heeft een aanvraag verwijderen voor Hallo entiteit toohello tabel-service, die is voltooid, maar heeft geen een bevestiging ontvangen van server hello (mogelijk vanwege een tijdelijk netwerkprobleem tooa) verzonden. Hallo-client vervolgens automatisch opnieuw geprobeerd Hallo-bewerking (met behulp van dezelfde Hallo **client-request-id**), en deze nieuwe poging is mislukt omdat het Hallo-entiteit al is verwijderd.
 
-Als dit probleem zich blijft voordoen, moet u onderzoeken waarom de client is niet ontvangen van bevestigingen uit de tabelservice. Als het probleem onderbroken wordt, moet u de fout 'HTTP (404) is niet gevonden' onderscheppen en het aanmelden bij de client, maar kan de client om door te gaan.
+Als dit probleem zich blijft voordoen, moet u onderzoeken waarom Hallo client tooreceive bevestigingen van Hallo tabel-service is mislukt. Als Hallo probleem onregelmatige, moet u Hallo 'HTTP (404) is niet gevonden' fout-trap en aanmelden Hallo-client, maar Hallo client toocontinue toestaan.
 
-### <a name="the-client-is-receiving-409-messages"></a>De client ontvangt berichten van de HTTP-409 (Conflict)
-De volgende tabel bevat een uitpakken uit het logboek serverzijde voor twee clientbewerkingen: **DeleteIfExists** gevolgd door onmiddellijk **CreateIfNotExists** met dezelfde naam van de blobcontainer. Opmerking dat elke clientbewerking in twee aanvragen verzonden naar de server eerst resulteert een **GetContainerProperties** aanvraag om te controleren of de container bestaat, gevolgd door de **DeleteContainer** of **CreateContainer** aanvraag.
+### <a name="the-client-is-receiving-409-messages"></a>Hallo client ontvangt berichten van de HTTP-409 (Conflict)
+Hallo volgende tabel ziet u een uitpakken uit Hallo serverzijde logboek voor twee clientbewerkingen: **DeleteIfExists** gevolgd door onmiddellijk **CreateIfNotExists** met behulp van dezelfde naam van de blob-container Hallo. Opmerking dat elke clientbewerking op de eerste in twee aanvragen verzonden toohello server resulteert, een **GetContainerProperties** aanvraag toocheck als Hallo-container bestaat, gevolgd door Hallo **DeleteContainer** of  **CreateContainer** aanvraag.
 
 | tijdstempel | Bewerking | Resultaat | Containernaam | Aanvraag-id van client |
 | --- | --- | --- | --- | --- |
@@ -631,61 +631,61 @@ De volgende tabel bevat een uitpakken uit het logboek serverzijde voor twee clie
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-... |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-... |
 
-De code in de clienttoepassing verwijderd en vervolgens onmiddellijk opnieuw een blob-container met dezelfde naam gemaakt: de **CreateIfNotExists** methode (Client aanvraag ID bc881924-...) uiteindelijk mislukt met de fout HTTP 409 (Conflict). Wanneer een client worden verwijderd blob-containers, tabellen of wachtrijen een korte voordat de naam periode weer beschikbaar.
+Hallo-code in de clienttoepassing Hallo verwijderd en vervolgens onmiddellijk opnieuw gemaakt een blob-container Hallo met dezelfde naam: Hallo **CreateIfNotExists** methode (Client aanvraag ID bc881924-...) uiteindelijk mislukt met de Hallo HTTP 409 (Conflict) Fout bij. Wanneer een client wordt verwijderd voor blob-containers, tabellen of wachtrijen die een korte voordat periode weer de naam van de Hallo beschikbaar is.
 
-De clienttoepassing moet unieke containernamen gebruiken wanneer er nieuwe containers maakt als het patroon verwijderen/opnieuw geldt.
+Hallo-clienttoepassing moet unieke containernamen gebruiken wanneer er nieuwe containers maakt als Hallo verwijderen/opnieuw patroon geldt.
 
 ### <a name="metrics-show-low-percent-success"></a>Metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met de status van ClientOtherErrors
-De **PercentSuccess** metriek bevat het percentage van bewerkingen die met succes zijn uitgevoerd op basis van hun HTTP-statuscode. Bewerkingen met statuscodes van 2XX tellen als geslaagd, terwijl de bewerkingen met statuscodes in 3XX, 4XX en 5XX bereiken worden geteld als mislukt en lagere de **PercentSucess** metrische waarde. In de logboekbestanden serverzijde opslag deze bewerkingen worden geregistreerd met een transactiestatus **ClientOtherErrors**.
+Hallo **PercentSuccess** metriek Hallo procent van de bewerkingen die met succes zijn uitgevoerd op basis van hun HTTP-statuscode worden vastgelegd. Bewerkingen met statuscodes van 2XX tellen als geslaagd, terwijl de bewerkingen met statuscodes in 3XX, 4XX en 5XX bereiken worden geteld als mislukt en lagere Hallo **PercentSucess** metrische waarde. In logboekbestanden Hallo serverzijde opslag, deze bewerkingen worden geregistreerd met een transactiestatus **ClientOtherErrors**.
 
-Het is belangrijk te weten dat deze bewerkingen zijn voltooid en daarom niet van invloed op andere metrische gegevens zoals beschikbaarheid. Enkele voorbeelden van bewerkingen die met succes uitvoeren, maar dat kan leiden tot mislukte HTTP-statuscodes zijn:
+Het is belangrijk toonote dat deze bewerkingen zijn voltooid en daarom niet van invloed op andere metrische gegevens zoals beschikbaarheid. Enkele voorbeelden van bewerkingen die met succes uitvoeren, maar dat kan leiden tot mislukte HTTP-statuscodes zijn:
 
-* **ResourceNotFound** (niet gevonden 404), bijvoorbeeld van een aanvraag voor ophalen naar een blob die niet bestaat.
-* **ResouceAlreadyExists** (Conflict 409), bijvoorbeeld van een **CreateIfNotExist** bewerking waarbij de bron al bestaat.
-* **ConditionNotMet** (niet gewijzigd 304), bijvoorbeeld van een voorwaardelijke bewerking zoals wanneer een client verzendt een **ETag** waarde en een HTTP- **If-None-Match** header voor het aanvragen van een installatiekopie alleen als deze is bijgewerkt sinds de laatste bewerking.
+* **ResourceNotFound** (niet gevonden 404), bijvoorbeeld uit een GET aanvraag tooa blob die niet bestaat.
+* **ResouceAlreadyExists** (Conflict 409), bijvoorbeeld van een **CreateIfNotExist** bewerking waarbij Hallo resource al bestaat.
+* **ConditionNotMet** (niet gewijzigd 304), bijvoorbeeld van een voorwaardelijke bewerking zoals wanneer een client verzendt een **ETag** waarde en een HTTP- **If-None-Match** header toorequest een installatiekopie alleen als deze is bijgewerkt sinds de laatste bewerking Hallo.
 
-U vindt een lijst met algemene REST-API-foutcodes die de storage-services op de pagina retourneren <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">algemene foutcodes voor REST-API</a>.
+U vindt een lijst met algemene REST-API-foutcodes die Hallo storage-services op pagina Hallo retourneren <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">algemene foutcodes voor REST-API</a>.
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capaciteit metrische gegevens tonen een onverwachte toename in opslaggebruik capaciteit
-Als er plotseling, onverwachte wijzigingen in het capaciteitsverbruik in uw opslagaccount, kunt u onderzoeken de redenen door eerst te zoeken naar metrische gegevens over uw beschikbaarheid; een toename van het aantal mislukte verwijderen aanvragen tot een toename van het blob-opslag die u gebruikt leiden kunnen als de toepassing specifieke opschoonacties vereisen die mogelijk hebben uitgegaan dat u worden vrijmaken van ruimte werkt niet zoals verwacht (bijvoorbeeld omdat de SAS-tokens die worden gebruikt voor het vrijmaken van ruimte verlopen).
+Als er plotseling, onverwachte wijzigingen in het capaciteitsverbruik in uw opslagaccount, kunt u onderzoeken Hallo redenen door eerst te zoeken naar metrische gegevens over uw beschikbaarheid; bijvoorbeeld, kan een toename van het aantal mislukte aanvragen voor verwijderen Hallo tooan toename in Hallo bedrag van blob-opslag die u als de toepassing specifieke opschoonacties vereisen die mogelijk hebben verwachte toobe vrijmaken van ruimte werkt niet gebruikt zoals verwacht (voor leiden bijvoorbeeld omdat Hallo SAS-tokens die worden gebruikt voor het vrijmaken van ruimte verlopen).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>U ondervindt onverwacht opnieuw wordt opgestart van Azure Virtual Machines waarvoor een groot aantal gekoppelde VHD 's
-Als een Azure-virtuele Machine (VM) een groot aantal gekoppelde VHD's die zich in hetzelfde opslagaccount gebruikt heeft, kunt u de schaalbaarheidsdoelen voor een afzonderlijke opslagaccount, waardoor de virtuele machine mislukken kan overschrijdt. Controleer de minuut metrische gegevens voor het opslagaccount (**TotalRequests**/**TotalIngress**/**TotalEgress**) pieken die groter is dan de schaalbaarheidsdoelen voor een opslagaccount. Zie de sectie '[metrische gegevens tonen een toename in PercentThrottlingError]' voor hulp bij het bepalen of beperking van uw opslagaccount is opgetreden.
+Als een Azure-virtuele Machine (VM) heeft een groot aantal gekoppelde VHD's die in Hallo hetzelfde opslagaccount kan u Hallo schaalbaarheidsdoelen voor een afzonderlijke opslagaccount veroorzaakt Hallo VM toofail overschrijdt. Controleer Hallo minuut metrieken voor Hallo storage-account (**TotalRequests**/**TotalIngress**/**TotalEgress**) pieken die groter zijn dan de schaalbaarheidsdoelen Hallo voor een opslagaccount. Zie de sectie Hallo '[metrische gegevens tonen een toename in PercentThrottlingError]' voor hulp bij het bepalen of beperking van uw opslagaccount is opgetreden.
 
-In het algemeen elke afzonderlijke invoer of uitvoerbewerking op een VHD van een virtuele Machine wordt omgezet in **downloaden pagina** of **pagina plaatsen** bewerkingen op de onderliggende paginablob. Daarom kunt u het geschatte aantal IOPS dat voor uw omgeving om af te stemmen hoeveel VHD's die u kunt hebben in een één opslagaccount op basis van het specifieke gedrag van uw toepassing. We raden niet meer dan 40 schijven in een één opslagaccount hebben. Zie <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage Scalability and Performance Targets</a> voor meer informatie over de huidige schaalbaarheidsdoelen voor storage-accounts, met name de totale aanvraag en de totale bandbreedte van het type opslagaccount u gebruikt.
-Als u de van schaalbaarheidsdoelen voor uw opslagaccount overschreden, schakelt u uw VHD's in meerdere verschillende opslagaccounts te verminderen van de activiteit in elke rekening.
+In het algemeen elke afzonderlijke invoer of uitvoerbewerking op een VHD van een virtuele Machine vertaalt te**downloaden pagina** of **pagina plaatsen** bewerkingen op Hallo onderliggende pagina-blob. Daarom kunt u Hallo geschatte IOP's voor uw omgeving tootune hoeveel VHD's die u kunt hebben in een één opslagaccount op basis van Hallo specifiek gedrag van uw toepassing. We raden niet meer dan 40 schijven in een één opslagaccount hebben. Zie <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure Storage Scalability and Performance Targets</a> voor meer informatie over huidige schaalbaarheidsdoelen Hallo voor storage-accounts, met name Hallo totale aanvraag en de totale bandbreedte voor Hallo type opslagaccount u gebruikt .
+Als u voor uw opslagaccount hello schaalbaarheidsdoelen overschrijdt, schakelt u uw VHD's in meerdere verschillende accounts tooreduce Hallo opslagactiviteiten voor elke afzonderlijke account.
 
-### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Het probleem zich voordoet de opslagemulator voor ontwikkeling of tests gebruiken
-U doorgaans de opslagemulator gebruiken tijdens het ontwikkelen en testen om te voorkomen dat de vereiste voor een Azure storage-account. De veelvoorkomende problemen die optreden kunnen wanneer u de opslagemulator gebruikt, zijn:
+### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Het probleem zich voordoet Hallo-opslagemulator gebruiken voor ontwikkeling of tests
+U doorgaans Hallo-opslagemulator gebruiken tijdens het ontwikkelen en testen van tooavoid Hallo vereiste voor een Azure storage-account. Hallo veelvoorkomende zijn problemen die optreden kunnen wanneer u van de opslagemulator Hallo gebruikmaakt:
 
-* [De functie 'X' werkt niet in de opslagemulator]
-* [Fout 'de waarde van een van de HTTP-headers heeft niet de juiste indeling' wanneer u de opslagemulator]
-* [De opslagemulator moet beheerdersbevoegdheden]
+* [Functie 'X' werkt niet in de opslagemulator Hallo]
+* [Fout 'Hallo-waarde van een Hallo HTTP-headers is niet de juiste indeling Hallo' wanneer met behulp van Hallo-opslagemulator]
+* [Actieve Hallo opslagemulator vereist beheerdersbevoegdheden]
 
-#### <a name="feature-X-is-not-working"></a>De functie 'X' werkt niet in de opslagemulator
-De opslagemulator ondersteunt niet alle functies van de Azure storage-services, zoals de file-service. Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">verschillen tussen de Opslagemulator en Azure Storage-Services</a> op MSDN.
+#### <a name="feature-X-is-not-working"></a>Functie 'X' werkt niet in de opslagemulator Hallo
+Hallo opslagemulator ondersteunt niet alle Hallo functies van hello Azure storage-services zoals Hallo file-service. Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">verschillen tussen Hallo Opslagemulator en Azure Storage-Services</a> op MSDN.
 
-Gebruik voor deze functies die de opslagemulator niet ondersteunt, de Azure storage-service in de cloud.
+Voor deze functies die Hallo storage emulator niet ondersteunen, hello Azure storage-service in de cloud hello gebruiken.
 
-#### <a name="error-HTTP-header-not-correct-format"></a>Fout 'de waarde van een van de HTTP-headers heeft niet de juiste indeling' wanneer u de opslagemulator
-U test uw toepassing met de Storage-clientbibliotheek tegen de emulator en methode aanroepen van de lokale opslag, zoals **CreateIfNotExists** mislukt met het foutbericht "de waarde van een van de HTTP-headers is niet de juiste indeling." Hiermee wordt aangegeven dat de versie van de opslagemulator die u met de versie van de storage-clientbibliotheek die u niet ondersteunt. De Opslagclientbibliotheek Hiermee wordt de koptekst van **x-ms-version** op alle aanvragen die op deze manier. Als de opslagemulator worden niet herkend door de waarde in de **x-ms-version** -kop, wordt de aanvraag geweigerd.
+#### <a name="error-HTTP-header-not-correct-format"></a>Fout 'Hallo-waarde van een Hallo HTTP-headers is niet de juiste indeling Hallo' wanneer met behulp van Hallo-opslagemulator
+U test uw toepassing dat Hallo Storage-clientbibliotheek tegen emulator en een methode-aanroepen van lokale opslag Hallo zoals **CreateIfNotExists** mislukken met fout Hallo-bericht 'hello waarde van een Hallo HTTP-headers zich niet in Hallo juiste indeling." Dit geeft aan dat Hallo Hallo-versie van de storage-clientbibliotheek Hallo u biedt geen ondersteuning voor versie van Hallo-opslagemulator die u gebruikt. Hallo Storage-clientbibliotheek voegt Hallo header **x-ms-version** tooall Hallo aanvragen maakt. Als de opslagemulator Hallo Hallo-waarde in hello wordt niet herkend **x-ms-version** -kop, het Hallo-aanvraag wordt geweigerd.
 
-U kunt de opslag Tapewisselaarclient-Logboeken kunt gebruiken om te zien van de waarde van de **header x-ms-version** is het verzenden. U ziet ook de waarde van de **header x-ms-version** als u Fiddler gebruiken om te traceren, de aanvragen van uw clienttoepassing.
+U kunt Hallo Tapewisselaarclient opslag logboeken toosee Hallo waarde Hallo gebruiken **header x-ms-version** is het verzenden. U ziet ook Hallo-waarde van Hallo **header x-ms-version** als u Fiddler tootrace Hallo aanvragen van de clienttoepassing.
 
-Dit scenario treedt meestal op als u installeert en de nieuwste versie van de Storage-clientbibliotheek gebruiken zonder het bijwerken van de opslagemulator. U moet de meest recente versie van de opslagemulator installeert of cloud-opslag gebruiken in plaats van de emulator voor ontwikkeling en tests.
+Dit scenario treedt meestal op als u installeren en gebruiken van de meest recente versie Hallo Hallo Storage-clientbibliotheek zonder bij te werken Hallo-opslagemulator. U moet installeren Hallo meest recente versie van de opslagemulator Hallo of cloud-opslag gebruiken in plaats van de emulator Hallo voor ontwikkeling en tests.
 
-#### <a name="storage-emulator-requires-administrative-privileges"></a>De opslagemulator moet beheerdersbevoegdheden
-U wordt gevraagd om beheerdersreferenties wanneer u de opslagemulator uitvoert. Dit gebeurt alleen als u bij het initialiseren van de opslagemulator voor de eerste keer. Nadat u hebt de opslagemulator geïnitialiseerd, hoeft u geen beheerdersbevoegdheden opnieuw uitvoeren.
+#### <a name="storage-emulator-requires-administrative-privileges"></a>Actieve Hallo opslagemulator vereist beheerdersbevoegdheden
+U wordt gevraagd om beheerdersreferenties wanneer u de opslagemulator Hallo uitvoert. Dit gebeurt alleen als u de opslagemulator Hallo voor Hallo eerst initialiseren. Nadat u hebt de opslagemulator Hallo geïnitialiseerd, hoeft u geen beheerdersbevoegdheden toorun deze opnieuw.
 
-Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">initialiseren van de Opslagemulator met het hulpprogramma Command-Line</a> op MSDN (u kunt ook de opslagemulator in Visual Studio, wordt ook hebt u beheerdersbevoegdheden nodig initialiseren).
+Zie voor meer informatie <a href="http://msdn.microsoft.com/library/azure/gg433132.aspx" target="_blank">initialiseren Hallo Opslagemulator door Using Hallo opdrachtregelhulpprogramma</a> op MSDN (u kunt ook de opslagemulator Hallo in Visual Studio, wordt ook hebt u beheerdersbevoegdheden nodig initialiseren).
 
-### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>U ondervindt problemen met het installeren van de Azure SDK voor .NET
-Wanneer u de SDK installeren, mislukt dit probeert te installeren van de opslagemulator op uw lokale machine. Het installatielogboek bevat een van de volgende berichten:
+### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>U ondervindt problemen met het installeren van hello Azure SDK voor .NET
+Wanneer u tooinstall Hallo SDK, mislukt dit poging tooinstall hello opslagemulator op uw lokale machine. Hallo installatielogboek bevat een van de Hallo volgende berichten:
 
-* CAQuietExec: Fout: geen toegang tot SQL-exemplaar
-* CAQuietExec: Fout: kan geen database maken
+* CAQuietExec: Fout: kan geen tooaccess SQL-exemplaar
+* CAQuietExec: Fout: kan geen toocreate database
 
-De oorzaak is een probleem met een bestaande installatie van de LocalDB. De opslagemulator maakt standaard gebruik van LocalDB om gegevens als deze overeenkomt met de Azure storage-services. U kunt uw LocalDB-exemplaar herstellen met de volgende opdrachten in een opdrachtpromptvenster voordat u de SDK installeren.
+Hallo oorzaak is een probleem met een bestaande installatie van de LocalDB. Standaard gebruikt de opslagemulator hello LocalDB toopersist gegevens wanneer deze hello Azure storage-services simuleert. U kunt uw LocalDB-exemplaar herstellen door het uitvoeren van de volgende opdrachten in een opdrachtpromptvenster op voordat u probeert tooinstall Hallo SDK Hallo.
 
 ```
 sqllocaldb stop v11.0
@@ -694,123 +694,123 @@ delete %USERPROFILE%\WAStorageEmulatorDb3*.*
 sqllocaldb create v11.0
 ```
 
-De **verwijderen** opdracht wordt een oude databasebestanden uit eerdere installaties van de opslagemulator verwijderd.
+Hallo **verwijderen** opdracht wordt geen oude databasebestanden uit eerdere installaties van de opslagemulator Hallo verwijderd.
 
 ### <a name="you-have-a-different-issue-with-a-storage-service"></a>U hebt een ander probleem met storage-service
-Als de vorige secties het probleem met de storage-service niet opgeeft, dient u de volgende benadering voor de diagnose en het oplossen van uw probleem vast te stellen.
+Als Hallo vorige secties Hallo probleem met de storage-service niet opgeeft, moet u overstapt op Hallo benadering toodiagnosing te volgen en uw probleem op te lossen.
 
-* Controleer de metrische gegevens om te controleren of er elke wijziging van de verwachte basislijn gedrag wordt. Van de metrische gegevens, is het mogelijk om te bepalen of het probleem tijdelijke of permanente is en welke opslagbewerkingen een invloed op het probleem.
-* U kunt de metrische gegevens voor hulp bij het zoeken van uw server-side '-logboekgegevens voor meer gedetailleerde informatie over eventuele fouten die optreden. Deze informatie kunt u het probleem kunt oplossen.
-* Als de informatie in de logboeken serverzijde niet voldoende zijn is voor het oplossen van het probleem is, kunt u de logboeken van de client-side Storage-clientbibliotheek gebruiken voor het onderzoeken van het gedrag van uw clienttoepassing en hulpprogramma's zoals Fiddler, Wireshark en Microsoft Message Analyzer voor het onderzoeken van uw netwerk.
+* Controleer uw toosee metrische gegevens als er een wijziging van de verwachte basislijn gedrag. Van metrische gegevens voor hello, hebt u mogelijk kunnen toodetermine of Hallo probleem tijdelijke of permanente is en welke opslagbewerkingen Hallo probleem invloed op.
+* U kunt Hallo metrische gegevens toohelp u uw logboekgegevens serverzijde voor meer gedetailleerde informatie over eventuele fouten die optreden zoeken gebruiken. Deze informatie kunt u Hallo probleem kunt oplossen.
+* Als het Hallo-gegevens in Hallo serverzijde Logboeken is niet voldoende tootroubleshoot Hallo probleem is, kunt u Hallo Storage-clientbibliotheek clientzijde logboeken tooinvestigate Hallo gedrag van uw clienttoepassing en hulpprogramma's zoals Fiddler, Wireshark, en Microsoft Message Analyzer tooinvestigate uw netwerk.
 
-Zie voor meer informatie over het gebruik van Fiddler '[bijlage 1: gebruik Fiddler om vast te leggen HTTP en HTTPS-verkeer]. "
+Zie voor meer informatie over het gebruik van Fiddler '[bijlage 1: met behulp van Fiddler toocapture HTTP en HTTPS-verkeer]. "
 
-Zie voor meer informatie over het gebruik van Wireshark '[bijlage 2: Wireshark gebruiken om vast te leggen netwerkverkeer]. "
+Zie voor meer informatie over het gebruik van Wireshark '[bijlage 2: met behulp van Wireshark toocapture netwerkverkeer]. "
 
-Zie voor meer informatie over het gebruik van Microsoft Message Analyzer '[bijlage 3: met behulp van Microsoft Message Analyzer om vast te leggen netwerkverkeer]. "
+Zie voor meer informatie over het gebruik van Microsoft Message Analyzer '[bijlage 3: met behulp van Microsoft Message Analyzer toocapture netwerkverkeer]. "
 
 ## <a name="appendices"></a>Bijlagen
-In de bijlagen beschrijven verschillende hulpprogramma's die mogelijk nuttig bij het opsporen en het oplossen van problemen met Azure Storage (en andere services). Deze hulpprogramma's maken geen deel uit van Azure Storage en andere producten van derden zijn. Als zodanig worden de hulpprogramma's beschreven in deze bijlagen niet wordt gedekt door een ondersteuningsovereenkomst mogelijk met Microsoft Azure of Azure Storage en daarom als onderdeel van uw evaluatieproces onderzoekt u de licentie- en ondersteuningsbeleid beschikbare opties van de providers van deze hulpprogramma's.
+Hallo bijlagen beschrijven verschillende hulpprogramma's die mogelijk nuttig bij het opsporen en het oplossen van problemen met Azure Storage (en andere services). Deze hulpprogramma's maken geen deel uit van Azure Storage en andere producten van derden zijn. Als zodanig Hallo-hulpprogramma's beschreven in deze bijlagen niet wordt gedekt door een ondersteuningsovereenkomst mogelijk met Microsoft Azure of Azure Storage en daarom als onderdeel van uw evaluatieproces onderzoekt u Hallo-licentieverlening en ondersteuningsopties beschikbaar is via Hallo-providers van deze hulpprogramma's.
 
-### <a name="appendix-1"></a>Bijlage 1: Gebruik Fiddler om vast te leggen HTTP en HTTPS-verkeer
-Fiddler is een handig hulpmiddel voor het analyseren van de HTTP en HTTPS-verkeer tussen de clienttoepassing en de Azure storage-service die u gebruikt. U kunt downloaden Fiddler van <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
+### <a name="appendix-1"></a>Bijlage 1: Gebruik Fiddler toocapture HTTP en HTTPS-verkeer
+Fiddler is een handig hulpmiddel voor het analyseren van Hallo HTTP en HTTPS-verkeer tussen uw clienttoepassing en hello Azure storage-service die u gebruikt. U kunt downloaden Fiddler van <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a>.
 
 > [!NOTE]
-> Fiddler decodering HTTPS-verkeer; Lees de documentatie Fiddler zorgvuldig om te begrijpen hoe dit wordt uitgevoerd en inzicht krijgen in de beveiligingsrisico's.
+> Fiddler decodering HTTPS-verkeer; u moet zorgvuldig Hallo Fiddler documentatie lezen toounderstand hoe dit wordt uitgevoerd, en toounderstand Hallo beveiligingsgebied.
 > 
 > 
 
-Deze bijlage bevat een kort overzicht van hoe u Fiddler om vast te leggen van verkeer tussen de lokale computer waarop u Fiddler hebt geïnstalleerd en de Azure storage-services configureert.
+Deze bijlage bevat een kort overzicht van hoe tooconfigure Fiddler toocapture verkeer tussen de lokale computer Hallo waarin u Fiddler hebt geïnstalleerd en hello Azure storage-services.
 
-Wanneer u Fiddler hebt gestart, begint het vastleggen van HTTP en HTTPS-verkeer op uw lokale machine. Hier volgen enkele nuttige opdrachten voor het beheren van Fiddler:
+Wanneer u Fiddler hebt gestart, begint het vastleggen van HTTP en HTTPS-verkeer op uw lokale machine. Hallo Hieronder volgen enkele nuttige opdrachten voor het beheren van Fiddler:
 
-* Stop en start het vastleggen van verkeer. In het hoofdmenu, gaat u naar **bestand** en klik vervolgens op **verkeer vastleggen** in-of uitschakelen vastleggen in- of uitschakelen.
-* Van de vastgelegde verkeersgegevens opslaan. In het hoofdmenu, gaat u naar **bestand**, klikt u op **opslaan**, en klik vervolgens op **alle sessies**: Hiermee kunt u het verkeer niet opslaan in een sessie archiefbestand. U kunt een sessie-archief voor analyse later opnieuw laden of verzenden als aangevraagd aan Microsoft ondersteuning.
+* Stop en start het vastleggen van verkeer. In het hoofdmenu hello, ga te**bestand** en klik vervolgens op **verkeer vastleggen** tootoggle vastleggen in- of uitschakelen.
+* Van de vastgelegde verkeersgegevens opslaan. In het hoofdmenu hello, ga te**bestand**, klikt u op **opslaan**, en klik vervolgens op **alle sessies**: Hiermee kunt u toosave Hallo verkeer in een sessie archiefbestand. U kunt een sessie-archief voor analyse later opnieuw laden of verzenden als tooMicrosoft ondersteuning aangevraagd.
 
-Als u wilt beperken de hoeveelheid verkeer die Fiddler worden vastgelegd, kunt u filters die u configureert in de **Filters** tabblad. De volgende schermafbeelding ziet u een filter dat wordt vastgelegd alleen verkeer dat wordt verzonden naar de **contosoemaildist.table.core.windows.net** opslag eindpunt:
+toolimit hello hoeveelheid verkeer die Fiddler worden vastgelegd, kunt u filters die u in Hallo configureert **Filters** tabblad Hallo volgende schermafbeelding ziet u een filter waarmee alleen verkeer dat wordt verzonden toohello vastgelegd  **contosoemaildist.Table.Core.Windows.NET** opslag eindpunt:
 
 ![][5]
 
-### <a name="appendix-2"></a>Bijlage 2: Wireshark gebruiken voor het vastleggen van netwerkverkeer
-Wireshark is een netwerkprotocolanalyse waarmee u kunt het gedetailleerde Pakketgegevens weergeven voor een breed scala aan-netwerkprotocollen. U kunt downloaden Wireshark van <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
+### <a name="appendix-2"></a>Bijlage 2: Wireshark toocapture netwerkverkeer met behulp van
+Wireshark is een netwerkprotocolanalyse waarmee u tooview gedetailleerde informatie voor een breed scala aan netwerkprotocollen pakket. U kunt downloaden Wireshark van <a href="http://www.wireshark.org/" target="_blank">http://www.wireshark.org/</a>.
 
-De volgende procedure ziet u hoe om vast te leggen gedetailleerde pakketgegevens voor verkeer van de lokale computer waarop u Wireshark geïnstalleerd aan de tabelservice in uw Azure storage-account.
+Hallo volgende procedure laat zien u hoe toocapture pakketgegevens voor verkeer van de lokale computer Hallo gedetailleerde waar u Wireshark toohello tabelservice geïnstalleerd in uw Azure storage-account.
 
 1. Start Wireshark op uw lokale machine.
-2. In de **Start** sectie, selecteert u het lokale netwerk of interfaces die zijn verbonden met internet.
+2. In Hallo **Start** sectie, selecteer Hallo lokale netwerkinterface of interfaces die verbonden toohello zijn internet.
 3. Klik op **vastleggen opties**.
-4. Een filter toe te voegen de **vastleggen Filter** textbox. Bijvoorbeeld: **hosten contosoemaildist.table.core.windows.net** configureert Wireshark om vast te leggen alleen pakketten die worden verzonden naar of van het service-eindpunt van de tabel in de **contosoemaildist** storage-account. Zie voor een volledige lijst met Filters vastleggen <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
+4. Voeg een filter toohello **vastleggen Filter** textbox. Bijvoorbeeld: **hosten contosoemaildist.table.core.windows.net** Wireshark toocapture configureert alleen pakketten tooor van Hallo tabel service-eindpunt in Hallo verzonden **contosoemaildist** opslag account. Zie voor een volledige lijst met Filters vastleggen <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
    
    ![][6]
-5. Klik op **Start**. Wireshark zal nu alle de pakketten verzenden naar of van het eindpunt tabel-service tijdens het gebruik van uw client-toepassing op uw lokale machine vastgelegd.
-6. Wanneer u klaar bent, in het hoofdmenu klikt u op **vastleggen** en vervolgens **stoppen**.
-7. Als u wilt de vastgelegde gegevens opslaan in een bestand voor het vastleggen van Wireshark, klik op het hoofdmenu op **bestand** en vervolgens **opslaan**.
+5. Klik op **Start**. Wireshark wordt nu alle hello-pakketten verzenden tooor van Hallo tabel service-eindpunt vastgelegd tijdens het gebruik van uw client-toepassing op uw lokale machine.
+6. Wanneer u klaar bent, op Hallo hoofdmenu Klik **vastleggen** en vervolgens **stoppen**.
+7. Hallo toosave opgenomen gegevens in een Wireshark vastleggen bestand, op Hallo hoofdmenu Klik **bestand** en vervolgens **opslaan**.
 
-WireShark wordt gemarkeerd eventuele fouten die zijn opgenomen in de **packetlist** venster. Bovendien kunt u de **Expert Info** venster (Klik op **analyseren**, vervolgens **Expert Info**) om een samenvatting van fouten en waarschuwingen weer te geven.
+WireShark worden eventuele fouten die zijn opgenomen in Hallo Markeer **packetlist** venster. U kunt ook Hallo **Expert Info** venster (Klik op **analyseren**, vervolgens **Expert Info**) tooview een samenvatting van fouten en waarschuwingen.
 
 ![][7]
 
-U kunt ook kiezen voor het weergeven van de TCP-gegevens, zoals de toepassingslaag ziet dit door met de rechtermuisknop op de TCP-gegevens en te selecteren **TCP-stroom Volg**. Dit is vooral handig als u uw dump zonder een filter vastleggen zijn vastgelegd. Zie <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">hier</a> voor meer informatie.
+U kunt ook hebt gekozen tooview Hallo TCP-gegevens zoals toepassingslaag Hallo ziet dit door met de rechtermuisknop op Hallo TCP-gegevens en **TCP-stroom Volg**. Dit is vooral handig als u uw dump zonder een filter vastleggen zijn vastgelegd. Zie <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html" target="_blank">hier</a> voor meer informatie.
 
 ![][8]
 
 > [!NOTE]
-> Zie voor meer informatie over het gebruik van Wireshark de <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark gebruikershandleiding</a>.
+> Zie voor meer informatie over het gebruik van Wireshark hello <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark gebruikershandleiding</a>.
 > 
 > 
 
-### <a name="appendix-3"></a>Bijlage 3: Microsoft Message Analyzer gebruiken om vast te leggen van netwerkverkeer
-U kunt Microsoft Message Analyzer gebruiken om vast te leggen van HTTP en HTTPS-verkeer op vergelijkbare wijze als bij Fiddler en netwerkverkeer vastleggen in een vergelijkbare manier als bij Wireshark.
+### <a name="appendix-3"></a>Bijlage 3: Met behulp van Microsoft Message Analyzer toocapture netwerkverkeer
+U kunt Microsoft Message Analyzer toocapture HTTP en HTTPS-verkeer gebruiken in een vergelijkbare manier tooFiddler en het netwerkverkeer in een vergelijkbare manier tooWireshark opnemen.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Een websessie tracering met behulp van Microsoft Message Analyzer configureren
-Voor het configureren van een web-traceringssessie HTTP en HTTPS-verkeer met behulp van Microsoft Message Analyzer, voert u de toepassing Microsoft Message Analyzer en klik vervolgens op de **bestand** menu, klikt u op **vastleggen/Trace**. Selecteer in de lijst van beschikbare trace-scenario's **webproxy**. Klik dan in de **Scenario traceringsconfiguratie** deelvenster in de **HostnameFilter** textbox, voeg de namen van de eindpunten van uw opslag (u kunt deze namen opzoeken in de klassieke Azure Portal). Als de naam van uw Azure storage-account is bijvoorbeeld **contosodata**, u moet het volgende toevoegen aan de **HostnameFilter** textbox:
+tooconfigure een sessie voor web-tracering voor HTTP en HTTPS-verkeer met behulp van Microsoft Message Analyzer Hallo Microsoft Message Analyzer toepassing uitvoeren en klik vervolgens op Hallo **bestand** menu, klikt u op **vastleggen/Trace**. Selecteer in het Hallo-lijst met beschikbare trace-scenario's, **webproxy**. Klik dan in Hallo **Scenario traceringsconfiguratie** Configuratiescherm Hallo **HostnameFilter** textbox Hallo namen van de eindpunten van uw opslag (u kunt deze namen opzoeken in de klassieke Azure-Portal Hallo) toevoegen. Bijvoorbeeld, als hello naam van uw Azure storage-account is **contosodata**, moet u de volgende toohello Hallo toevoegen **HostnameFilter** textbox:
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 ```
 
 > [!NOTE]
-> De hostnamen wordt gescheiden door een spatie.
+> Hallo hostnamen wordt gescheiden door een spatie.
 > 
 > 
 
-Wanneer u klaar bent voor begint met het verzamelen van traceringsgegevens, klikt u op de **starten met** knop.
+Wanneer u klaar toostart verzamelen van traceringsgegevens bent, klikt u op Hallo **starten met** knop.
 
-Voor meer informatie over de Microsoft Message Analyzer **webproxy** traceren, Zie <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF WebProxy Provider</a> op TechNet.
+Voor meer informatie over Microsoft Message Analyzer Hallo **webproxy** traceren, Zie <a href="http://technet.microsoft.com/library/jj674814.aspx" target="_blank">PEF WebProxy Provider</a> op TechNet.
 
-De ingebouwde **webproxy** tracering in Microsoft Message Analyzer is gebaseerd op Fiddler; het kan vastleggen clientzijde HTTPS-verkeer en niet-versleutelde HTTPS-berichten worden weergegeven. De **webproxy** werkt door het configureren van een lokale proxy voor alle HTTP en HTTPS-verkeer dat deze toegang tot niet-versleutelde berichten geeft traceren.
+Hallo ingebouwde **webproxy** tracering in Microsoft Message Analyzer is gebaseerd op Fiddler; het kan vastleggen clientzijde HTTPS-verkeer en niet-versleutelde HTTPS-berichten worden weergegeven. Hallo **webproxy** werkt door het configureren van een lokale proxy voor alle HTTP en HTTPS-verkeer dat hieraan toegang toounencrypted berichten traceren.
 
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnose van netwerkproblemen met behulp van Microsoft Message Analyzer
-Naast het gebruik van de Microsoft Message Analyzer **webproxy** traceren om vast te leggen van de details van het HTTP/HTTPs-verkeer tussen de clienttoepassing en de storage-service, kunt u ook de ingebouwde **lokale Link-laag** tracering voor het vastleggen van gegevens van de netwerk-pakket. Dit kunt u voor het vastleggen van gegevens is vergelijkbaar met die welke u kunt vastleggen met Wireshark en diagnose problemen zoals netwerk verloren pakketten.
+Bovendien toousing Microsoft Message Analyzer Hallo **webproxy** trace toocapture details van Hallo HTTP/HTTPs-verkeer tussen Hallo-clienttoepassing en Hallo storage-service, kunt u ook Hallo ingebouwde  **Lokale Link-laag** toocapture pakket netwerkgegevens traceren. Dit kunt u toocapture gegevens vergelijkbaar toothat die u kunt met Wireshark vastleggen en analyseren problemen zoals netwerk verloren pakketten.
 
-De volgende schermafbeelding ziet u een voorbeeld **lokale Link-laag** traceren met een aantal **informatief** berichten in de **DiagnosisTypes** kolom. Te klikken op een pictogram in de **DiagnosisTypes** kolom ziet u de details van het bericht. In dit voorbeeld van de server opnieuw bericht #305 verzonden, omdat er geen bevestiging is ontvangen van de client:
+Hallo volgende schermafbeelding ziet u een voorbeeld **lokale Link-laag** traceren met een aantal **informatief** berichten in Hallo **DiagnosisTypes** kolom. Te klikken op een pictogram in Hallo **DiagnosisTypes** kolom Hallo worden details weergegeven van het Hallo-bericht. In dit voorbeeld doorgegeven Hallo server bericht #305 omdat er geen een bevestiging is ontvangen van Hallo-client:
 
 ![][9]
 
-Wanneer u de traceersessie in Microsoft Message Analyzer maakt, kunt u filters Verklein de hoeveelheid ruis in de tracering. Op de **vastleggen / traceren** pagina waar u de tracering definiëren, klikt u op de **configureren** koppelen naast **Microsoft Windows-NDIS PacketCapture**. De volgende Schermafbeelding toont een configuratie waarmee TCP-verkeer voor de IP-adressen van drie opslagservices gefilterd:
+Wanneer u Hallo traceersessie in Microsoft Message Analyzer maakt, kunt u filters tooreduce Hallo hoeveelheid ruis in Hallo tracering opgeven. Op Hallo **vastleggen / traceren** pagina waar het definiëren van Hallo trace, klikt u op Hallo **configureren** vervolgens te koppelen**Microsoft Windows-NDIS PacketCapture**. Hallo volgende Schermafbeelding toont een configuratie waarmee TCP-verkeer voor Hallo IP-adressen van drie opslagservices gefilterd:
 
 ![][10]
 
-Zie voor meer informatie over de tracering van Microsoft Message Analyzer lokale Link-laag, <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> op TechNet.
+Zie voor meer informatie over Microsoft Message Analyzer lokale Link-laag trace Hallo <a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">PEF-NDIS-PacketCapture Provider</a> op TechNet.
 
-### <a name="appendix-4"></a>Bijlage 4: Met behulp van Excel metrische gegevens weergeven en gegevens aanmelden
-Veel hulpprogramma's kunnen u downloaden van de metrische gegevens Storage-gegevens uit Azure-tabelopslag gescheiden indeling kunt u gemakkelijk de gegevens in Excel laden voor weergave en analyse. Logboekgegevens van de opslag van Azure blob-opslag is al een gescheiden indeling die u in Excel laden kunt. U moet echter toevoegen juiste kolomkoppen op basis van de informatie op <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">Storage Analytics logboekindeling</a> en <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics metrische gegevens tabelschema</a>.
+### <a name="appendix-4"></a>Bijlage 4: Tooview Excel-gegevens metrische gegevens en logboekbestanden gebruiken
+Veel hulpprogramma's kunnen u toodownload Hallo opslag metrische gegevens uit Azure-tabelopslag in een gescheiden indeling die maakt het eenvoudig tooload Hallo gegevens in Excel voor weer te geven en analyse. Logboekgegevens van de opslag van Azure blob-opslag is al een gescheiden indeling die u in Excel laden kunt. U moet echter tooadd juiste kolomkoppen op basis van informatie op Hallo <a href="http://msdn.microsoft.com/library/azure/hh343259.aspx" target="_blank">Storage Analytics logboekindeling</a> en <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics metrische gegevens tabelschema</a>.
 
-Uw opslag logboekregistratie om gegevens te importeren in Excel nadat u dit van blob-opslag downloaden:
+tooimport uw opslag logboekregistratie gegevens in Excel nadat u dit downloaden van blob-opslag:
 
-* Op de **gegevens** menu, klikt u op **van tekst**.
-* Blader naar het logboekbestand dat u wilt weergeven en klik op **importeren**.
-* In stap 1 van de **Wizard Tekst importeren**, selecteer **gescheiden**.
+* Op Hallo **gegevens** menu, klikt u op **van tekst**.
+* Bladeren toohello logboekbestand tooview en klik op **importeren**.
+* In stap 1 van Hallo **Wizard Tekst importeren**, selecteer **gescheiden**.
 
-In stap 1 van de **Wizard Tekst importeren**, selecteer **puntkomma** als het enige scheidingsteken en kiest u dubbele aanhalingstekens als de **tekstscheidingsteken**. Klik vervolgens op **voltooien** en geef aan waar de gegevens in uw werkmap te plaatsen.
+In stap 1 van Hallo **Wizard Tekst importeren**, selecteer **puntkomma** als enige scheidingsteken Hallo en kiest u dubbele aanhalingstekens als Hallo **tekstscheidingsteken**. Klik vervolgens op **voltooien** en kies waar tooplace Hallo gegevens in uw werkmap.
 
 ### <a name="appendix-5"></a>Bijlage 5: Bewaking met Application Insights voor Visual Studio teamservices
-U kunt ook de functie Application Insights voor Visual Studio Team Services gebruiken als onderdeel van de beschikbaarheidsbewaking van prestaties en. Dit hulpprogramma kunt doen:
+U kunt ook Hallo Application Insights-functie voor Visual Studio Team Services gebruiken als onderdeel van de beschikbaarheidsbewaking van prestaties en. Dit hulpprogramma kunt doen:
 
-* Zorg ervoor dat uw web-service beschikbaar is en reageert. Of uw app is een website of een apparaat-app die gebruikmaakt van een webservice, kunt u uw URL om de paar minuten testen vanaf locaties wereldwijd en laat u weten of er een probleem is.
-* Analyseer snel eventuele prestatieproblemen of uitzonderingen in uw webservice. Ontdek als CPU of andere bronnen worden uitgerekt, krijgen die stack-traces van uitzonderingen en eenvoudig doorzoeken logboektraceringen. Als de prestaties van de app onder acceptabele grenzen, kunnen we u een e-mail sturen. U kunt zowel .NET en Java-web-services bewaken.
+* Zorg ervoor dat uw web-service beschikbaar is en reageert. Of uw app is een website of een apparaat-app die gebruikmaakt van een webservice, kunt u uw URL om de paar minuten testen vanaf locaties Hallo wereld en laat u weten of er een probleem is.
+* Analyseer snel eventuele prestatieproblemen of uitzonderingen in uw webservice. Ontdek als CPU of andere bronnen worden uitgerekt, krijgen die stack-traces van uitzonderingen en eenvoudig doorzoeken logboektraceringen. Als hello van app prestaties aansluitingen hieronder acceptabele grenzen, we kunnen u een e-mail sturen. U kunt zowel .NET en Java-web-services bewaken.
 
-Op het moment van publicatie van Application Insights is preview. U vindt meer informatie op <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights for Visual Studio Team Services op MSDN</a>.
+Hallo is moment van publicatie van Application Insights in preview. U vindt meer informatie op <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights for Visual Studio Team Services op MSDN</a>.
 
 <!--Anchors-->
 [Inleiding]: #introduction
@@ -838,7 +838,7 @@ Op het moment van publicatie van Application Insights is preview. U vindt meer i
 
 [richtlijnen voor probleemoplossing]: #troubleshooting-guidance
 [metrische gegevens tonen AverageE2ELatency hoge en lage AverageServerLatency]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency
-[Prestatiegegevens geven lage AverageE2ELatency en lage AverageServerLatency aan, maar de client ondervindt hoge latentie]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
+[Metrische gegevens tonen lage AverageE2ELatency en lage AverageServerLatency maar Hallo client ondervindt hoge latentie]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
 [Prestatiegegevens geven hoge AverageServerLatency aan]: #metrics-show-high-AverageServerLatency
 [U ervaart onverwachte vertragingen bij de levering van berichten in een wachtrij]: #you-are-experiencing-unexpected-delays-in-message-delivery
 
@@ -848,29 +848,29 @@ Op het moment van publicatie van Application Insights is preview. U vindt meer i
 [metrische gegevens tonen een toename in PercentTimeoutError]: #metrics-show-an-increase-in-PercentTimeoutError
 [Prestatiegegevens geven een toename in PercentNetworkError aan]: #metrics-show-an-increase-in-PercentNetworkError
 
-[De client ontvangt berichten HTTP 403 (verboden)]: #the-client-is-receiving-403-messages
-[De client ontvangt berichten HTTP 404 (niet gevonden)]: #the-client-is-receiving-404-messages
-[De client of een ander proces eerder verwijderd van het object]: #client-previously-deleted-the-object
+[Hallo client ontvangt berichten HTTP 403 (verboden)]: #the-client-is-receiving-403-messages
+[Hallo-client is ontvangen HTTP 404 (niet gevonden)-berichten]: #the-client-is-receiving-404-messages
+[Hallo-client of een ander proces het eerder verwijderd Hallo-object]: #client-previously-deleted-the-object
 [Een probleem met de autorisatie Shared Access Signature (SAS)]: #SAS-authorization-issue
-[Client-side JavaScript-code is niet gemachtigd voor toegang tot het object]: #JavaScript-code-does-not-have-permission
+[Client-side JavaScript-code heeft geen machtiging tooaccess Hallo-object]: #JavaScript-code-does-not-have-permission
 [Netwerkfout]: #network-failure
-[De client ontvangt berichten van de HTTP-409 (Conflict)]: #the-client-is-receiving-409-messages
+[Hallo client ontvangt berichten van de HTTP-409 (Conflict)]: #the-client-is-receiving-409-messages
 
-[metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met de status van ClientOtherErrors]: #metrics-show-low-percent-success
+[metrische gegevens tonen lage PercentSuccess of analytics logboekvermeldingen bewerkingen hebben met transactiestatus ClientOtherErrors]: #metrics-show-low-percent-success
 [Capaciteit metrische gegevens tonen een onverwachte toename in opslaggebruik capaciteit]: #capacity-metrics-show-an-unexpected-increase
 [Er is sprake van virtuele Machines met een groot aantal gekoppelde VHD's onverwacht opnieuw wordt opgestart]: #you-are-experiencing-unexpected-reboots
-[Het probleem zich voordoet de opslagemulator voor ontwikkeling of tests gebruiken]: #your-issue-arises-from-using-the-storage-emulator
-[De functie 'X' werkt niet in de opslagemulator]: #feature-X-is-not-working
-[Fout 'de waarde van een van de HTTP-headers heeft niet de juiste indeling' wanneer u de opslagemulator]: #error-HTTP-header-not-correct-format
-[De opslagemulator moet beheerdersbevoegdheden]: #storage-emulator-requires-administrative-privileges
-[U ondervindt problemen met het installeren van de Azure SDK voor .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
+[Het probleem zich voordoet Hallo-opslagemulator gebruiken voor ontwikkeling of tests]: #your-issue-arises-from-using-the-storage-emulator
+[Functie 'X' werkt niet in de opslagemulator Hallo]: #feature-X-is-not-working
+[Fout 'Hallo-waarde van een Hallo HTTP-headers is niet de juiste indeling Hallo' wanneer met behulp van Hallo-opslagemulator]: #error-HTTP-header-not-correct-format
+[Actieve Hallo opslagemulator vereist beheerdersbevoegdheden]: #storage-emulator-requires-administrative-privileges
+[U ondervindt problemen met het installeren van hello Azure SDK voor .NET]: #you-are-encountering-problems-installing-the-Windows-Azure-SDK
 [U hebt een ander probleem met storage-service]: #you-have-a-different-issue-with-a-storage-service
 
 [bijlagen]: #appendices
-[bijlage 1: gebruik Fiddler om vast te leggen HTTP en HTTPS-verkeer]: #appendix-1
-[bijlage 2: Wireshark gebruiken om vast te leggen netwerkverkeer]: #appendix-2
-[bijlage 3: met behulp van Microsoft Message Analyzer om vast te leggen netwerkverkeer]: #appendix-3
-[Bijlage 4: Met behulp van Excel metrische gegevens weergeven en gegevens aanmelden]: #appendix-4
+[bijlage 1: met behulp van Fiddler toocapture HTTP en HTTPS-verkeer]: #appendix-1
+[bijlage 2: met behulp van Wireshark toocapture netwerkverkeer]: #appendix-2
+[bijlage 3: met behulp van Microsoft Message Analyzer toocapture netwerkverkeer]: #appendix-3
+[Bijlage 4: Tooview Excel-gegevens metrische gegevens en logboekbestanden gebruiken]: #appendix-4
 [bijlage 5: bewaking met Application Insights for Visual Studio teamservices]: #appendix-5
 
 <!--Image references-->

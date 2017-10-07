@@ -1,5 +1,5 @@
 ---
-title: Resources, rollen en toegang beheren in Azure Application Insights | Microsoft Docs
+title: aaaResources, rollen en -toegangsbeheer in Azure Application Insights | Microsoft Docs
 description: Eigenaren, bijdragers en lezers van inzicht in uw organisatie.
 services: application-insights
 documentationcenter: 
@@ -13,64 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: bwren
-ms.openlocfilehash: c979a8bfbeecacc7c0bbc112e02a4b68e874c219
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a6f6ca0443b5f60239f094606e124f856967d8ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resources, rollen en toegangsbeheer in Application Insights
-U kunt bepalen wie heeft lezen en bijwerken van toegang tot uw gegevens in Azure [Application Insights][start], met behulp van [toegangsbeheer op basis van rollen in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+U kunt bepalen wie heeft lees- en toegang tooyour gegevens bijwerken in Azure [Application Insights][start], met behulp van [toegangsbeheer op basis van rollen in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!IMPORTANT]
-> Toewijzen van toegang voor gebruikers in de **resourcegroep of abonnement** die uw toepassingsresource behoort - niet in de bron zelf. Wijs de **Application Insights-onderdeelinzender** rol. Dit zorgt ervoor uniform beheer van toegang tot webtests en waarschuwingen samen met de bron van uw toepassing. [Meer informatie](#access).
+> Toewijzen van toegang toousers in Hallo **resourcegroep of abonnement** toowhich die uw toepassingsresource - niet in Hallo resource zelf behoort. Hallo toewijzen **Application Insights-onderdeelinzender** rol. Dit zorgt ervoor uniform beheer van toegang tooweb tests en waarschuwingen samen met de bron van uw toepassing. [Meer informatie](#access).
 > 
 > 
 
 ## <a name="resources-groups-and-subscriptions"></a>Bronnen, groepen en abonnementen
 Eerste, sommige definities:
 
-* **Resource** : een exemplaar van een Microsoft Azure-service. Uw Application Insights-resource verzamelt, analyseert en geeft de telemetriegegevens van uw toepassing verzonden.  Andere soorten Azure-resources zijn web-apps, databases en virtuele machines.
+* **Resource** : een exemplaar van een Microsoft Azure-service. Uw Application Insights-resource verzamelt, analyseert en Hallo telemetriegegevens verzonden van uw toepassing worden weergegeven.  Andere soorten Azure-resources zijn web-apps, databases en virtuele machines.
   
-    Overzicht van uw resources, opent u de [Azure Portal][portal], aanmelden en alle Resources op. Typ een resource vindt deel van de naam in het filterveld.
+    uw resources, opent u toosee hello [Azure Portal][portal], aanmelden en alle Resources op. toofind een resource, typ een gedeelte van de naam in het filterveld Hallo.
   
     ![Lijst met Azure-resources](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Resourcegroep** ] [ group] -elke resource behoort tot één groep. Een groep is een handige manier om verwante resources, met name voor toegangsbeheer te beheren. Bijvoorbeeld, in één resourcegroep kan u zetten een Web-App, een Application Insights-resource voor het bewaken van de app en een opslagresource als geëxporteerde gegevens wilt behouden.
+* [**Resourcegroep** ] [ group] -elke resource tooone groep behoort. Een groep is een handige manier toomanage verwante resources, met name voor toegangsbeheer. In één resource bijvoorbeeld geëxporteerde groep kan u een Web-App, een Application Insights resource toomonitor Hallo-app en een resource opslag tookeep geplaatst gegevens.
 
     ![Kies Bladeren, resourcegroepen, en vervolgens kiest u een groep](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Abonnement** ](https://manage.windowsazure.com) - met Application Insights of andere Azure-resources, u zich aanmeldt bij een Azure-abonnement. Elke resourcegroep behoort tot één Azure-abonnement, waar u kiest uw pakket prijs en, als het een organisatie-abonnement, kiest u leden en hun machtigingen voor toegang.
-* [**Microsoft-account** ] [ account] -de gebruikersnaam en het wachtwoord dat u aan te melden bij Microsoft Azure-abonnementen, XBox Live, Outlook.com en andere Microsoft-services.
+* [**Abonnement** ](https://manage.windowsazure.com) -toouse Application Insights of andere Azure-resources, u zich aanmeldt tooan Azure-abonnement. Elke resourcegroep hoort tooone Azure-abonnement, waar u kiest uw pakket prijs en, als het een organisatie-abonnement, kiest u Hallo-leden en hun machtigingen voor toegang.
+* [**Microsoft-account** ] [ account] -Hallo gebruikersnaam en het wachtwoord dat u toosign in tooMicrosoft Azure-abonnementen, XBox Live, Outlook.com en andere Microsoft-services.
 
-## <a name="access"></a>Toegang beheren in de resourcegroep
-Het is belangrijk te weten dat naast de bron die u voor uw toepassing hebt gemaakt, er ook afzonderlijke verborgen bronnen voor waarschuwingen en webtests zijn. Deze zijn gekoppeld aan dezelfde [resourcegroep](#resource-group) als uw toepassing. Mogelijk hebt u andere Azure-services in, zoals websites of opslag is er ook plaatsen.
+## <a name="access"></a>Toegang beheren in de resourcegroep Hallo
+Het is belangrijk toounderstand dat in de toevoeging toohello bron die u voor uw toepassing hebt gemaakt, er zijn ook afzonderlijke verborgen bronnen voor waarschuwingen en webtests. Ze zijn aangesloten toohello dezelfde [resourcegroep](#resource-group) als uw toepassing. Mogelijk hebt u andere Azure-services in, zoals websites of opslag is er ook plaatsen.
 
 ![Resources in Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
 
-Toegang tot deze bronnen die daarom het raadzaam om te beheren:
+toegang tot toocontrol toothese-bronnen die daarom het raadzaam naar:
 
-* Toegangsbeheer op de **resourcegroep of abonnement** niveau.
-* Wijs de **Application Insights-onderdeelinzender** rol aan gebruikers. Hierdoor kunnen ze webtests, waarschuwingen en Application Insights-resources, zonder dat toegang biedt tot alle andere services in de groep bewerken.
+* Toegangsbeheer op Hallo **resourcegroep of abonnement** niveau.
+* Hallo toewijzen **Application Insights-onderdeelinzender** toousers rol. Hierdoor kunnen ze tooedit webtests, waarschuwingen en Application Insights-resources, zonder dat toegang tooany andere services in Hallo-groep.
 
-## <a name="to-provide-access-to-another-user"></a>Om toegang te bieden aan een andere gebruiker
-U moet de eigenaar van rechten voor het abonnement of de resourcegroep hebben.
+## <a name="tooprovide-access-tooanother-user"></a>tooprovide toegang tooanother gebruiker
+U moet de eigenaar van rechten toohello abonnement of resourcegroep Hallo hebben.
 
-De gebruiker moet beschikken over een [Microsoft-Account][account], of de toegang tot hun [organisatie Microsoft-Account](../active-directory/sign-up-organization.md). U kunt bieden toegang tot personen en gebruikersgroepen die zijn gedefinieerd in Azure Active Directory.
+Hallo-gebruiker moet beschikken over een [Microsoft-Account][account], of u toegang tot tootheir [organisatie Microsoft-Account](../active-directory/sign-up-organization.md). U kunt opgeven toegang tooindividuals en toouser groepen gedefinieerd in Azure Active Directory.
 
-#### <a name="navigate-to-the-resource-group"></a>Navigeer naar de resourcegroep
-De gebruiker er toevoegen.
+#### <a name="navigate-toohello-resource-group"></a>Navigeer toohello resourcegroep
+Er Hallo gebruiker toevoegen.
 
-![In de resourceblade van uw toepassing, Essentials openen, opent u de resourcegroep en er instellingen/gebruikers te selecteren. Klik op Add.](./media/app-insights-resources-roles-access-control/01-add-user.png)
+![In de resourceblade van uw toepassing, Essentials openen, open Hallo resourcegroep en er instellingen/gebruikers te selecteren. Klik op Add.](./media/app-insights-resources-roles-access-control/01-add-user.png)
 
-Of u kan hoofdmap en de gebruiker toevoegen aan het abonnement.
+Of u kan hoofdmap en Hallo gebruiker toohello abonnement toevoegen.
 
 #### <a name="select-a-role"></a>Rol selecteren
-![Selecteer een rol voor de nieuwe gebruiker](./media/app-insights-resources-roles-access-control/03-role.png)
+![Selecteer een rol voor de nieuwe gebruiker Hallo](./media/app-insights-resources-roles-access-control/03-role.png)
 
-| Rol | In de resourcegroep |
+| Rol | In de resourcegroep Hallo |
 | --- | --- |
 | Eigenaar |Alles, waaronder gebruikerstoegang kunt wijzigen |
 | Inzender |Alles zijn, met inbegrip van alle resources kunt bewerken |
@@ -84,9 +84,9 @@ De bewerking' omvat het maken, verwijderen en bijwerken:
 * Waarschuwingen
 * Continue export
 
-#### <a name="select-the-user"></a>Selecteer de gebruiker
+#### <a name="select-hello-user"></a>Hallo gebruiker selecteren
 
-Als de gebruiker die u wilt dat niet in de map, kunt u iedereen met een Microsoft-account kunt uitnodigen.
+Als Hallo gebruiker die zich niet in Hallo directory, kunt u iedereen met een Microsoft-account kunt uitnodigen.
 (Als deze services zoals Outlook.com, OneDrive, Windows Phone of XBox Live, beschikken over een Microsoft-account.)
 
 ## <a name="related-content"></a>Gerelateerde inhoud

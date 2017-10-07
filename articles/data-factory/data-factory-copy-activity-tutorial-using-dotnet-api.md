@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 30c7cd1ba455d7b1bc93d76e7ee79455bb52aae9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 52f72da54cdd80691e09d7453bf6730454c4089e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Zelfstudie: een pijplijn maken met de kopieeractiviteit in .NET API
 > [!div class="op_single_selector"]
@@ -29,106 +29,106 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-sjabloon](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-> * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+> * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-In dit artikel leert u hoe u [.NET API](https://portal.azure.com) kunt gebruiken om een gegevensfactory te maken met een pijplijn waarmee gegevens worden gekopieerd van een Azure blobopslag naar een Azure SQL-database. Als u niet bekend bent met Azure Data Factory, lees dan het artikel [Inleiding tot Azure Data Factory](data-factory-introduction.md) voordat u deze zelfstudie volgt.   
+In dit artikel leert u hoe toouse [.NET API](https://portal.azure.com) toocreate een gegevensfactory met een pijplijn waarmee gegevens worden gekopieerd van een Azure blob storage tooan Azure SQL database. Als u nieuwe tooAzure Data Factory, lees Hallo [inleiding tooAzure Data Factory](data-factory-introduction.md) artikel voordat u deze zelfstudie uitvoert.   
 
-In deze zelfstudie maakt u een pijplijn met één activiteit erin: kopieeractiviteit. De kopieeractiviteit in Data Factory kopieert gegevens uit een ondersteund gegevensarchief naar een ondersteund sinkgegevensarchief. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over kopieeractiviteiten.
+In deze zelfstudie maakt u een pijplijn met één activiteit erin: kopieeractiviteit. Hallo kopieeractiviteit kopieert gegevens van een gegevensarchief voor ondersteunde gegevens store tooa ondersteunde sink. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met gegevensarchieven die worden ondersteund als bron en als sink. Hallo-activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens tussen verschillende gegevensarchieven op een manier veilig, betrouwbaar en schaalbaar kan worden gekopieerd. Zie voor meer informatie over Hallo Kopieeractiviteit [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md).
 
-Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten koppelen (de ene activiteit na de andere laten uitvoeren) door de uitvoergegevensset van één activiteit in te stellen als invoergegevensset voor een andere activiteit. Zie [Meerdere activiteiten in een pijplijn](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie. 
+Een pijplijn kan meer dan één activiteit hebben. En u kunt twee activiteiten (één activiteit uitgevoerd na de andere) koppelen door de uitvoergegevensset Hallo van een activiteit instellen als de Hallo invoergegevensset Hallo andere activiteit. Zie [Meerdere activiteiten in een pijplijn](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) voor meer informatie. 
 
 > [!NOTE] 
 > Zie [Naslaginformatie over de .NET API voor Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) voor volledige documentatie over .NET API voor Data Factory.
 > 
-> In de gegevenspijplijn in deze zelfstudie worden gegevens van een brongegevensarchief gekopieerd naar een doelgegevensarchief. Zie [Zelfstudie: een pijplijn maken om gegevens te transformeren met een Hadoop-cluster](data-factory-build-your-first-pipeline.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory.
+> Hallo data pipeline in deze zelfstudie worden gegevens gekopieerd van een bron data store tooa doelgegevensopslagplaats. Voor een zelfstudie over het tootransform van gegevens met behulp van Azure Data Factory, Zie [zelfstudie: een pijplijn tootransform gegevens met Hadoop-cluster bouwen](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Vereisten
-* Neem [Overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) door voor een overzicht van de zelfstudie en voer de **vereiste** stappen uit.
+* Doorloop [overzicht van de zelfstudie en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tooget een overzicht van de zelfstudie Hallo en volledige Hallo **vereiste** stappen.
 * Visual Studio 2012 of 2013 of 2015
 * Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Volg de instructies in [Azure PowerShell installeren en configureren](../powershell-install-configure.md) om Azure PowerShell te installeren op uw computer. Azure PowerShell wordt gebruikt om een Azure Active Directory-toepassing te maken.
+* Azure PowerShell. Volg de instructies in [hoe tooinstall en configureren van Azure PowerShell](../powershell-install-configure.md) artikel tooinstall Azure PowerShell op uw computer. U Azure PowerShell toocreate een Azure Active Directory-toepassing.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
-Maak een Azure Active Directory-toepassing, maak een service-principal voor de toepassing en wijs deze toe aan de rol **Inzender Data Factory**.
+Een Azure Active Directory-toepassing maken, een service-principal voor de toepassing hello maken en toewijzen toohello **Data Factory Inzender** rol.
 
 1. Start **PowerShell**.
-2. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal.
+2. Voer Hallo volgende opdracht en Voer Hallo-gebruikersnaam en wachtwoord toosign in toohello Azure-portal te gebruiken.
 
     ```PowerShell
     Login-AzureRmAccount
     ```
-3. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven.
+3. Hallo opdracht tooview na alle Hallo abonnementen voor dit account uitgevoerd.
 
     ```PowerShell
     Get-AzureRmSubscription
     ```
-4. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **&lt;NameOfAzureSubscription**&gt; door de naam van uw Azure-abonnement.
+4. Hallo opdracht tooselect Hallo abonnement dat u wilt dat toowork met volgende worden uitgevoerd. Vervang  **&lt;NameOfAzureSubscription** &gt; met Hallo-naam van uw Azure-abonnement.
 
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
 
    > [!IMPORTANT]
-   > Noteer de **SubscriptionId** en de **TenantId** uit de uitvoer van deze opdracht.
+   > Noteer **SubscriptionId** en **TenantId** van Hallo-uitvoer van deze opdracht.
 
-5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren in PowerShell.
+5. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door het uitvoeren van de volgende opdracht in PowerShell Hallo Hallo.
 
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
-    Als de resourcegroep al bestaat, geeft u aan of u deze wilt bijwerken (Y) of ongewijzigd wilt laten (N).
+    Als de resourcegroep Hallo al bestaat, die u opgeeft of tooupdate deze (Y) of als (N).
 
-    Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie de naam van uw resourcegroep gebruiken in plaats van ADFTutorialResourceGroup.
+    Als u een andere resourcegroep gebruikt, moet u toouse Hallo-naam van de resourcegroep in plaats van ADFTutorialResourceGroup in deze zelfstudie.
 6. Maak een Azure Active Directory-toepassing.
 
     ```PowerShell
     $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
-    Als u de volgende fout ziet, geeft u een andere URL op en voert u de opdracht opnieuw uit.
+    Als u krijgt de volgende fout hello, Geef een andere URL en voer de opdracht Hallo opnieuw.
     
     ```PowerShell
-    Another object with the same value for property identifierUris already exists.
+    Another object with hello same value for property identifierUris already exists.
     ```
-7. Maak de AD-service-principal.
+7. Hallo AD-service-principal maken.
 
     ```PowerShell
     New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
-8. Voeg de service-principal toe aan de rol **Inzender Data Factory**.
+8. Toevoegen van de service principal toohello **Data Factory Inzender** rol.
 
     ```PowerShell
     New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
-9. Haal de toepassings-id op.
+9. Ophalen van Hallo toepassings-ID.
 
     ```PowerShell
     $azureAdApplication 
     ```
-    Noteer de toepassings-id (applicationID in de uitvoer).
+    Noteer Hallo toepassings-ID (applicationID) van Hallo-uitvoer.
 
 U moet na deze stappen beschikken over de volgende vier waarden:
 
 * Tenant-id
 * Abonnements-id
 * Toepassings-id
-* Wachtwoord (opgegeven in de eerste opdracht)
+* Wachtwoord (opgegeven in de eerste opdracht Hallo)
 
 ## <a name="walkthrough"></a>Walkthrough
 1. Maak met behulp van Visual Studio 2012/2013/2015 een C# .NET-consoletoepassing.
    1. Open **Visual Studio** 2012/2013/2015.
-   2. Klik op **File**, houd de muisaanwijzer op **New** en klik op **Project**.
+   2. Klik op **bestand**, wijst u te**nieuw**, en klik op **Project**.
    3. Vouw **Templates** uit en selecteer **Visual C#**. Tijdens deze walkthrough gebruikt u C#, maar u kunt een willekeurige .NET-taal gebruiken.
-   4. Selecteer **Console Application** uit de lijst met projecttypen aan de rechterkant.
-   5. Voer **DataFactoryAPITestApp** in als de naam.
-   6. Selecteer **C:\ADFGetStarted** als de locatie.
-   7. Klik op **OK** om het project te maken.
-2. Klik op **Tools**, wijs **NuGet Package Manager** aan en klik op **Package Manager Console**.
-3. Voer de volgende stappen uit in de **Package Manager Console**:
-   1. Voer de volgende opdracht uit om het Data Factory-pakket te installeren: `Install-Package Microsoft.Azure.Management.DataFactories`
-   2. Voer de volgende opdracht uit om het Azure Active Directory-pakket te installeren (u gebruikt de Active Directory API in de code): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Voeg de volgende sectie **appSetttings** toe aan het bestand **App.config**. Deze instellingen worden gebruikt door de Help-methode: **GetAuthorizationHeader**.
+   4. Selecteer **consoletoepassing** uit de lijst Hallo van projecttypen op Hallo rechts.
+   5. Voer **DataFactoryAPITestApp** voor Hallo naam.
+   6. Selecteer **C:\ADFGetStarted** voor Hallo locatie.
+   7. Klik op **OK** toocreate Hallo project.
+2. Klik op **extra**, wijst u te**NuGet Package Manager**, en klik op **Package Manager Console**.
+3. In Hallo **Package Manager Console**, Hallo volgende stappen:
+   1. Voer Hallo opdracht tooinstall Data Factory-pakket te volgen:`Install-Package Microsoft.Azure.Management.DataFactories`
+   2. Voer Hallo opdracht tooinstall Azure Active Directory-pakket (Active Directory-API in gebruikt Hallo code) te volgen:`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
+4. Voeg de volgende Hallo **appSetttings** sectie toohello **App.config** bestand. Deze instellingen worden gebruikt door Hallo Help-methode: **GetAuthorizationHeader**.
 
     Vervang de waarden voor **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** en **&lt;Tenant ID&gt;** door uw eigen waarden.
 
@@ -141,14 +141,14 @@ U moet na deze stappen beschikken over de volgende vier waarden:
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
             <add key="ApplicationId" value="your application ID" />
-            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="Password" value="Password you used while creating hello AAD application" />
             <add key="SubscriptionId" value= "Subscription ID" />
             <add key="ActiveDirectoryTenantId" value="Tenant ID" />
         </appSettings>
     </configuration>
     ```
 
-5. Voeg de volgende **using**-instructies toe aan het bronbestand (Program.cs) in het project.
+5. Voeg de volgende Hallo **met** instructies toohello bronbestand (Program.cs) in het Hallo-project.
 
     ```csharp
     using System.Configuration;
@@ -165,8 +165,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 
     ```
 
-6. Voeg de volgende code toe aan de methode **Main** om een instantie van de klasse **DataPipelineManagementClient** te maken.
- U gebruikt dit object om een gegevensfactory, een gekoppelde service, gegevenssets voor invoer en uitvoer, en een pijplijn te maken. U gebruikt dit object ook om segmenten van een gegevensset te bewaken tijdens runtime.
+6. Toevoegen na de code die u een exemplaar van maakt Hallo **DataPipelineManagementClient** klasse toohello **Main** methode. U kunt dit object toocreate gebruiken een gegevensfactory, een gekoppelde service, invoer- en uitvoergegevenssets en een pijplijn. U kunt ook dit object toomonitor segmenten van een gegevensset gebruiken tijdens runtime.
 
     ```csharp
     // create data factory management client
@@ -183,11 +182,11 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     ```
 
    > [!IMPORTANT]
-   > Vervang de waarde van **resourceGroupName** door de naam van uw Azure-resourcegroep.
+   > Vervang de waarde Hallo van **resourceGroupName** met Hallo-naam van uw Azure-resourcegroep.
    >
-   > Werk de naam van de data factory (dataFactoryName) zodanig bij dat deze uniek is. De naam van de gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
+   > Naam van de data factory (dataFactoryName) toobe Hallo unieke bijwerken. Naam van Hallo-gegevensfactory moet wereldwijd uniek zijn. Raadpleeg het onderwerp [Data Factory - Naamgevingsregels](data-factory-naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
 
-7. Voeg de volgende code die een **gegevensfactory** maakt toe aan de methode **Main**.
+7. Toevoegen Hallo code die wordt gemaakt na een **gegevensfactory** toohello **Main** methode.
 
     ```csharp
     // create a data factory
@@ -205,8 +204,8 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     );
     ```
 
-    Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld een kopieeractiviteit om gegevens van een bron- naar een doelgegevensopslagplaats te kopiëren en een HDInsight Hive-activiteit om een Hive-script uit te voeren voor het transformeren van invoergegevens naar productuitvoergegevens. U begint in deze stap met het maken van de gegevensfactory.
-8. Voeg de volgende code die een **gekoppelde Azure Storage-service** maakt toe aan de methode **Main**.
+    Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één of meer activiteiten bevatten. Bijvoorbeeld invoergegevens een Kopieeractiviteit toocopy-gegevens van een doelgegevensopslagplaats tooa bron en het toorun in een HDInsight Hive-activiteit een Hive-script tootransform gegevens tooproduct uitvoer. Laten we beginnen met het maken van de gegevensfactory Hallo in deze stap.
+8. Toevoegen Hallo code die wordt gemaakt na een **gekoppelde Azure Storage-service** toohello **Main** methode.
 
    > [!IMPORTANT]
    > Vervang **storageaccountname** en **accountkey** door de naam en sleutel van uw Azure Storage-account.
@@ -229,12 +228,12 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     );
     ```
 
-    U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze zelfstudie gebruikt u niet een willekeurige compute-service, zoals Azure HDInsight of Azure Data Lake Analytics. U gebruikt twee gegevensarchieven van het type Azure Storage (bron) en Azure SQL Database (doel). 
+    U maken gekoppelde services in een data factory-toolink uw gegevens worden opgeslagen en compute services toohello data factory. In deze zelfstudie gebruikt u niet een willekeurige compute-service, zoals Azure HDInsight of Azure Data Lake Analytics. U gebruikt twee gegevensarchieven van het type Azure Storage (bron) en Azure SQL Database (doel). 
 
     Daarom maakt u twee gekoppelde services met de naam AzureStorageLinkedService en AzureSqlLinkedService van het type: AzureStorage en AzureSqlDatabase.  
 
-    De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. Dit opslagaccount is het account waarin u een container hebt gemaakt en gegevens hebt geüpload als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-9. Voeg de volgende code die een **gekoppelde Azure SLQ-service** maakt toe aan de methode **Main**.
+    Hallo AzureStorageLinkedService koppelt u uw Azure storage-account toohello data factory. Dit opslagaccount wordt Hallo een waarop u container gemaakt en Hallo gegevens geüpload als onderdeel van [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+9. Toevoegen Hallo code die wordt gemaakt na een **Azure SQL gekoppelde service** toohello **Main** methode.
 
    > [!IMPORTANT]
    > Vervang **servername**, **databasename**, **username** en **password** door de namen van uw Azure SQL-server, database, gebruiker en wachtwoord.
@@ -257,8 +256,8 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     );
     ```
 
-    De AzureSqlLinkedService koppelt uw Azure SQL-database aan de gegevensfactory. De gegevens die worden gekopieerd uit de blobopslag worden opgeslagen in deze database. Als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) hebt u de emp-tabel in deze database gemaakt.
-10. Voeg de volgende code die **gegevenssets voor invoer en uitvoer** maakt toe aan de methode **Main**.
+    Azuresqllinkedservice wordt uw Azure SQL database toohello data factory. Hallo-gegevens die worden gekopieerd van de blob-opslag hello wordt opgeslagen in deze database. Hallo emp-tabel in deze database wordt gemaakt als onderdeel van [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+10. Hallo code die wordt gemaakt na toevoegen **invoer- en uitvoergegevenssets** toohello **Main** methode.
 
     ```csharp
     // create input and output datasets
@@ -334,16 +333,16 @@ U moet na deze stappen beschikken over de volgende vier waarden:
         });
     ```
     
-    In de vorige stap hebt u gekoppelde services gemaakt om uw Azure-opslagaccount en Azure SQL-database aan de gegevensfactory te koppelen. In deze stap definieert u twee gegevenssets, InputDataset en OutputDataset genaamd, die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk de AzureStorageLinkedService en de AzureSqlLinkedService.
+    In de vorige stap Hallo gemaakt gekoppelde services toolink uw Azure Storage-account en de Azure SQL database tooyour data factory. In deze stap definieert u twee gegevenssets met de naam InputDataset en OutputDataset die vertegenwoordigen de invoer- en uitvoergegevens die zijn opgeslagen in Hallo gegevensarchieven waarnaar wordt verwezen door de AzureStorageLinkedService en AzureSqlLinkedService respectievelijk.
 
-    De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. En de blobgegevensset voor invoer (InputDataset) geeft de container en de map met de invoergegevens op.  
+    Hallo gekoppelde Azure storage-service geeft Hallo verbindingsreeks die gebruikmaakt van de Data Factory-service op uitvoeringstijd tooconnect tooyour Azure storage-account. En Hallo blob-invoerbron gegevensset (InputDataset) geeft Hallo-container en Hallo-map met invoergegevens Hallo.  
 
-    Op dezelfde manier geeft de gekoppelde Azure SQL Database-service de verbindingsreeks op die de Data Factory-service in runtime gebruikt om verbinding te maken met uw Azure SQL-database. En de uitvoergegevensset van de SQL-tabel (OututDataset) geeft de tabel in de database op waarnaar de gegevens uit de blobopslag worden gekopieerd.
+    Op deze manier geeft hello Azure SQL Database gekoppeld service Hallo verbindingsreeks die gebruikmaakt van de Data Factory-service op de runtime tooconnect tooyour Azure SQL database. En Hallo uitvoer gegevensset met SQL-tabel (OututDataset) geeft Hallo tabel in Hallo database toowhich Hallo gegevens uit Hallo blob-opslag worden gekopieerd.
 
-    In deze stap maakt u een gegevensset met de naam InputDataset die verwijst naar een blobbestand (emp.txt) in de hoofdmap van een blobcontainer (adftutorial) in Azure Storage. Deze container wordt vertegenwoordigd door de gekoppelde AzureStorageLinkedService-service. Als u geen waarde voor de fileName hebt opgeven (of hebt overgeslagen), worden gegevens uit alle blobs in de invoermap naar het doel gekopieerd. In deze zelfstudie geeft u een waarde op voor de fileName.    
+    In deze stap maakt u een gegevensset met de naam InputDataset die tooa blob-bestand (emp.txt) verwijst in de hoofdmap Hallo van een blob-container (adftutorial) in hello Azure Storage dat wordt vertegenwoordigd door Hallo gekoppelde AzureStorageLinkedService-service. Als u niet een waarde voor fileName hello opgeven (of overslaan), zijn gegevens uit alle blobs in de invoermap Hallo gekopieerde toohello bestemming. In deze zelfstudie maakt opgeven u een waarde voor Hallo fileName.    
 
-    In deze stap maakt u een uitvoergegevensset met de naam **OutputDataset**. Deze gegevensset wijst naar een SQL-tabel in de Azure SQL-database die wordt vertegenwoordigd door **AzureSqlLinkedService**.
-11. Voeg de volgende code die **een pijplijn maakt en activeert** toe aan de methode **Main**. In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **InputDataset** als invoer en **OutputDataset** als uitvoer.
+    In deze stap maakt u een uitvoergegevensset met de naam **OutputDataset**. Deze gegevensset verwijst tooa SQL-tabel in hello Azure SQL-database dat wordt vertegenwoordigd door **AzureSqlLinkedService**.
+11. Voeg Hallo volgende code die **wordt gemaakt en wordt geactiveerd op een pijplijn** toohello **Main** methode. In deze stap maakt u een pijplijn met een **kopieeractiviteit** die gebruikmaakt van **InputDataset** als invoer en **OutputDataset** als uitvoer.
 
     ```csharp
     // create a pipeline
@@ -362,7 +361,7 @@ U moet na deze stappen beschikken over de volgende vier waarden:
                 {
                     Description = "Demo Pipeline for data transfer between blobs",
 
-                    // Initial value for pipeline's active period. With this, you won't need to set slice status
+                    // Initial value for pipeline's active period. With this, you won't need tooset slice status
                     Start = PipelineActivePeriodStartTime,
                     End = PipelineActivePeriodEndTime,
 
@@ -400,14 +399,14 @@ U moet na deze stappen beschikken over de volgende vier waarden:
         });
     ```
 
-    Houd rekening met de volgende punten:
+    Houd er rekening mee Hallo volgende punten:
    
-    - In het gedeelte Activiteiten is er slechts één activiteit waarvan **type** is ingesteld op **Copy**. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over kopieeractiviteiten. In Data Factory-oplossingen kunt u ook [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) gebruiken.
-    - De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**. 
-    - In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type. Zie [Ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een volledige lijst van gegevensarchieven die worden ondersteund door kopieeractiviteiten als bronnen en sinks. Klik op de koppeling in de tabel voor informatie over het gebruik van een specifiek ondersteund gegevensarchief als een bron/sink.  
+    - In Hallo gedeelte activiteiten is er slechts één activiteit waarvan **type** te is ingesteld,**kopie**. Zie voor meer informatie over de kopieeractiviteit hello [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md). In Data Factory-oplossingen kunt u ook [activiteiten voor gegevenstransformatie](data-factory-data-transformation-activities.md) gebruiken.
+    - Invoer voor Hallo-activiteit is ingesteld, te**InputDataset** en de uitvoer voor Hallo activiteit te is ingesteld**OutputDataset**. 
+    - In Hallo **typeProperties** sectie **BlobSource** is opgegeven als Hallo brontype en **SqlSink** is opgegeven als Hallo sink-type. Zie voor een volledige lijst van gegevensarchieven die worden ondersteund door Hallo kopieeractiviteit als bronnen en put [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats). toolearn hoe toouse een specifieke ondersteunde gegevens opslaan als een bron/sink, klikt u op Hallo-koppeling in Hallo tabel.  
    
-    Momenteel is de uitvoergegevensset dat wat de planning aanstuurt. In deze zelfstudie is de uitvoergegevensset geconfigureerd voor het produceren van een segment eenmaal per uur. De pijplijn heeft een begintijd en eindtijd die één dag uit elkaar liggen, ofwel 24 uur. Daarom worden 24 segmenten van de uitvoergegevensset door de pijplijn geproduceerd.
-12. Voeg de volgende code toe aan de methode **Main** om de status van een gegevenssegment van de uitvoergegevensset te achterhalen. In dit voorbeeld wordt alleen een segment verwacht.
+    Uitvoergegevensset is momenteel welke stations Hallo planning. In deze zelfstudie is uitvoergegevensset geconfigureerde tooproduce een segment eens per uur. Hallo pijplijn heeft een begintijd en eindtijd die één dag uit elkaar liggen, wat is 24 uur zijn. Daarom worden 24 segmenten van uitvoergegevensset geproduceerd door Hallo pijplijn.
+12. Hallo na code toohello toevoegen **Main** methode tooget Hallo status van een gegevenssegment Hallo uitvoergegevensset. In dit voorbeeld wordt alleen een segment verwacht.
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -416,8 +415,8 @@ U moet na deze stappen beschikken over de volgende vier waarden:
 
     while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
     {
-        Console.WriteLine("Pulling the slice status");        
-        // wait before the next status check
+        Console.WriteLine("Pulling hello slice status");        
+        // wait before hello next status check
         Thread.Sleep(1000 * 12);
 
         var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
@@ -443,13 +442,13 @@ U moet na deze stappen beschikken over de volgende vier waarden:
     }
     ```
 
-13. Voeg de volgende code toe om details van de uitvoering van een gegevenssegment naar de methode **Main** te achterhalen.
+13. Toevoegen van de volgende code tooget Voer details voor een segment gegevens toohello hello **Main** methode.
 
     ```csharp
     Console.WriteLine("Getting run details of a data slice");
 
-    // give it a few minutes for the output slice to be ready
-    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    // give it a few minutes for hello output slice toobe ready
+    Console.WriteLine("\nGive it a few minutes for hello output slice toobe ready and press any key.");
     Console.ReadKey();
 
     var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -473,14 +472,14 @@ U moet na deze stappen beschikken over de volgende vier waarden:
         Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
     }
 
-    Console.WriteLine("\nPress any key to exit.");
+    Console.WriteLine("\nPress any key tooexit.");
     Console.ReadKey();
     ```
 
-14. Voeg de volgende Help-methode toe die door de methode **Main** wordt gebruikt voor de klasse **Program**.
+14. Toevoegen van de volgende Help-methode die wordt gebruikt door Hallo Hallo **Main** methode toohello **programma** klasse.
 
     > [!NOTE] 
-    > Wanneer u de volgende code kopieert en plakt, zorg er dan voor dat de gekopieerde code zich op hetzelfde niveau bevindt als de Main-methode.
+    > Wanneer u kopieert en plakt Hallo code te volgen, zorg ervoor dat Hallo gekopieerde code is op hetzelfde niveau als Hallo Main-methode Hallo.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
@@ -496,31 +495,31 @@ U moet na deze stappen beschikken over de volgende vier waarden:
         if (result != null)
             return result.AccessToken;
 
-        throw new InvalidOperationException("Failed to acquire token");
+        throw new InvalidOperationException("Failed tooacquire token");
     }
     ```
 
-15. Vouw in Solution Explorer het project (DataFactoryAPITestApp) uit, klik met de rechtermuisknop op **References** en klik vervolgens op **Add Reference**. Schakel het selectievakje voor **System.Configuration**-assembly in. Klik vervolgens op **OK**.
-16. Bouw de consoletoepassing. Klik op **Build** in het menu en klik op **Build Solution**.
-17. Controleer of er ten minste één bestand in de **adftutorial**-container in uw Azure Blob Storage staat. Als dit niet het geval is, maakt u in Kladblok het **Emp.txt**-bestand met de volgende inhoud en uploadt u het bestand naar de adftutorial-container.
+15. In Solution Explorer hello, vouw Hallo-project (DataFactoryAPITestApp), met de rechtermuisknop op **verwijzingen**, en klik op **verwijzing toevoegen**. Schakel het selectievakje voor **System.Configuration**-assembly in. Klik vervolgens op **OK**.
+16. Hallo-consoletoepassing bouwen. Klik op **bouwen** op en klik op Hallo **Build Solution**.
+17. Controleer of er ten minste één bestand in Hallo **adftutorial** container in Azure blob-opslag. Als dit niet het geval is, maakt **Emp.txt** in Kladblok het bestand met de Hallo inhoud te volgen en upload het toohello adftutorial container.
 
     ```
     John, Doe
     Jane, Doe
     ```
-18. Voer het voorbeeld uit door op **Debug** -> **Start Debugging** te klikken in het menu. Als u **Getting run details of a data slice** ziet, wacht u een paar minuten en drukt u op **ENTER**.
-19. Gebruik Azure Portal om te controleren of de gegevensfactory **APITutorialFactory** wordt gemaakt met de volgende artefacten:
+18. Hallo-voorbeeld uitvoeren door te klikken op **Debug** -> **foutopsporing starten** Hallo-menu. Wanneer er Hallo **details van een gegevenssegment ophalen uitvoeren**, wacht een paar minuten en druk op **ENTER**.
+19. Gebruik hello Azure portal tooverify die gegevensfactory hello **APITutorialFactory** wordt gemaakt met de Hallo artefacten te volgen:
    * Gekoppelde service: **LinkedService_AzureStorage**
    * Gegevensset: **InputDataset** en **OutputDataset**.
    * Pijplijn: **PipelineBlobSample**
-20. Controleer of de twee werknemersrecords zijn gemaakt in de tabel **emp** in de opgegeven Azure SQL-database.
+20. Controleer of Hallo twee werknemerrecords worden gemaakt in Hallo **emp** tabel in Hallo opgegeven Azure SQL-database.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Naslaginformatie over de .NET API voor Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) voor volledige documentatie over .NET API voor Data Factory.
 
-In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 
+In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. Hallo bevat volgende tabel een lijst met gegevensarchieven als bronnen en bestemmingen wordt ondersteund door Hallo kopieeractiviteit: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Klik op de koppeling voor de gegevensopslag in de tabel voor meer informatie over het kopiëren van gegevens naar/uit een gegevensarchief.
+toolearn over hoe gegevens uit een data toocopy opslaan, klikt u op Hallo-koppeling voor de gegevensopslag Hallo in Hallo tabel.
 

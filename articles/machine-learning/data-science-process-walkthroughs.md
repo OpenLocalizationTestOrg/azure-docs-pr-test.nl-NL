@@ -1,6 +1,6 @@
 ---
-title: Scenario's het Team gegevens wetenschap proces worden uitgevoerd op Azure | Microsoft Docs
-description: Klik hier voor meer informatie over het combineren van de cloud en on-premises hulpprogramma's en services in een werkstroom of pijplijn een intelligente toepassing maken.
+title: uitvoeren van aaaWalkthroughs Hallo Team gegevens wetenschappelijke processen in Azure | Microsoft Docs
+description: Hoe toocombine cloud en lokale hulpprogramma's en services in een werkstroom of pijplijn toocreate een intelligente toepassing.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 1d6ac28355752d979490b1790ad45748f56e5c84
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 521da35dec605782fa0f4549044acbb2b84bfef5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="walkthroughs-executing-the-team-data-science-process"></a>Scenario's voor het uitvoeren van het Team gegevens wetenschap proces
+# <a name="walkthroughs-executing-hello-team-data-science-process"></a>Scenario's Hallo Team gegevens wetenschappelijke processen uitvoeren
 
-Deze **end-to-end-scenario's** demonstreren van de stappen in de procedure van wetenschappelijke gegevens Team voor specifieke scenario's. Ze te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of een pijplijn maken een **intelligent toepassing**. De scenario's zijn gegroepeerd op **platform** die ze gebruiken. De volgende menukoppelingen naar deze voorbeelden:
+Deze **end-to-end-scenario's** demonstreren Hallo stappen voor het Hallo-Team gegevens wetenschappelijke processen voor specifieke scenario's. Illustratie van hoe toocombine cloud, on-premises hulpprogramma's, en services in een werkstroom of pijplijn toocreate een **intelligent toepassing**. Hallo-scenario's zijn gegroepeerd op **platform** die ze gebruiken. Hallo menu volgen koppelingen toothese voorbeelden:
 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
@@ -31,19 +31,19 @@ Deze **end-to-end-scenario's** demonstreren van de stappen in de procedure van w
 
 Hier volgen korte beschrijvingen van deze voorbeelden van scenario op hun respectieve platforms bieden:
 
-- [HDInsight Spark-scenario's met PySpark en Scala](data-science-process-walkthroughs-spark.md) deze scenario's gebruikt PySpark en Scala in een Azure Spark-cluster te doen predictive analytics. 
-- [HDInsight Hadoop-scenario's met Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) deze scenario's Hive gebruiken met een HDInsight Hadoop-cluster te doen predictive analytics.
-- [Azure Data Lake-scenario's met U-SQL](data-science-process-walkthroughs-azure-data-lake.md) deze scenario's kunt U-SQL met Azure Data Lake predictive analytics doen.
-- [SQL Server](data-science-process-walkthroughs-sql-server.md) deze scenario's SQL Server, SQL Server-R-Services en SQL Server Python Services gebruiken om te doen van predictive analytics.
-- [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) SQL Data Warehouse wordt in deze scenario's voor predictive analytics gebruiken. 
+- [HDInsight Spark-scenario's met PySpark en Scala](data-science-process-walkthroughs-spark.md) deze scenario's met PySpark en Scala op een Azure Spark-cluster toodo predictive analytics. 
+- [HDInsight Hadoop-scenario's met Hive](data-science-process-walkthroughs-hdinsight-hadoop.md) deze scenario's Hive gebruiken met een HDInsight Hadoop-cluster toodo predictive analytics.
+- [Azure Data Lake-scenario's met U-SQL](data-science-process-walkthroughs-azure-data-lake.md) deze scenario's U-SQL met Azure Data Lake toodo predictive analytics gebruiken.
+- [SQL Server](data-science-process-walkthroughs-sql-server.md) deze scenario's SQL Server, SQL Server-R-Services en SQL Server-Services Python toodo predictive analytics gebruiken.
+- [SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md) deze scenario's SQL Data Warehouse toodo predictive analytics gebruiken. 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een bespreking van de belangrijke onderdelen waaruit het Team gegevens wetenschap proces [Team gegevens wetenschappelijke procesoverzicht](data-science-process-overview.md).
+Zie voor een beschrijving van de belangrijke onderdelen Hallo waaruit Hallo Team gegevens wetenschappelijke processen, [Team gegevens wetenschappelijke procesoverzicht](data-science-process-overview.md).
 
-Zie voor een bespreking van de levensduur van het Team gegevens wetenschappelijke processen die u gebruiken kunt voor de structuur van uw gegevens wetenschappelijke projecten [Team gegevens wetenschap proces lifecycle](data-science-process-lifecycle.md). De levenscyclus van bevat de stappen, van begin tot eind, projecten meestal volgen wanneer ze worden uitgevoerd. 
+Zie voor een beschrijving van de levenscyclus van Hallo Team gegevens wetenschappelijke processen waarmee u toostructure kunt gegevens wetenschappelijke projecten, [Team gegevens wetenschap proces lifecycle](data-science-process-lifecycle.md). Hallo lifecycle bevat een overzicht van Hallo stappen van de start-toofinish die projecten meestal volgt wanneer ze worden uitgevoerd. 
 
-Zie voor een overzicht van onderwerpen die helpt u stapsgewijs door de taken die het proces van de wetenschappelijke gegevens in Azure omvatten, [gegevens wetenschap proces](http://aka.ms/datascienceprocess). 
+Zie voor een overzicht van onderwerpen die helpt u bij het Hallo-taken die Hallo gegevens wetenschap proces in Azure omvatten, [gegevens wetenschap proces](http://aka.ms/datascienceprocess). 
 

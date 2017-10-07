@@ -1,5 +1,5 @@
 ---
-title: Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning | Microsoft Docs
+title: aaaUse Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning | Microsoft Docs
 description: Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning
 services: hdinsight
 documentationcenter: 
@@ -16,44 +16,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 14b7808c9534bce3049422d6bce1e8914b2c2fbc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6476a7ed3a0df38538e845d7d5404067b01113c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning
 
 
 ## <a name="introduction"></a>Inleiding
 
-Grondige learning is van invloed op alle gegevens van de gezondheidszorg voor verzending naar productie en meer. Bedrijven schakelt grondig learning voor het oplossen van problemen met vaste, zoals [installatiekopie classificatie](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)erkenning object en de vertaling van de computer. 
+Grondige learning is van invloed op Alles van gezondheidszorg tootransportation toomanufacturing en meer. Bedrijven schakelt toodeep learning toosolve harde problemen, zoals [installatiekopie classificatie](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [spraakherkenning](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)erkenning object en de vertaling van de computer. 
 
-Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft cognitieve Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, enzovoort. Caffe is een van de grootste beroemdheid frameworks voor neurale netwerk wordt niet symbolische (imperatieve) en veel worden gebruikt in veel gebieden, waaronder computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval diep learning gemakkelijk kan worden gebruikt op een bestaande Hadoop-cluster samen met Spark ETL pijplijnen, de complexiteit van systeem en latentie voor end-to-end learning.
+Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft cognitieve Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, enzovoort. Caffe is een van de Hallo grootste beroemdheid neurale netwerk wordt niet symbolische (imperatieve) frameworks en veel worden gebruikt in veel gebieden, waaronder computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval diep learning gemakkelijk kan worden gebruikt op een bestaande Hadoop-cluster samen met Spark ETL pijplijnen, de complexiteit van systeem en latentie voor end-to-end learning.
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) cloud alleen volledig beheerde Hadoop aangeboden met geoptimaliseerde open-source analytische clusters voor Spark, Hive, MapReduce, HBase, Storm, Kafka en R Server back-up een SLA met 99,9%. Al deze big data-technologieën en ISV-toepassingen zijn eenvoudig te implementeren als beheerde clusters met beveiliging en bewaking op ondernemingsniveau.
+[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) Hallo is alleen een volledig beheerde cloud Hadoop aanbieding die voorziet in analytische clusters open-source geoptimaliseerd voor Spark, Hive, MapReduce, HBase, Storm, Kafka en ondersteund door een SLA met 99,9% R-Server. Al deze big data-technologieën en ISV-toepassingen zijn eenvoudig te implementeren als beheerde clusters met beveiliging en bewaking op ondernemingsniveau.
 
-Sommige gebruikers zijn ons vragen over het gebruik van grondige learning op HDInsight, namelijk PaaS Hadoop-product van Microsoft. Er wordt meer hebben om te delen in de toekomst, maar we willen geven een overzicht van een technische blog over het gebruik van Caffe op HDInsight Spark vandaag.
+Sommige gebruikers vragen ons over het toouse grondige learning op HDInsight, namelijk PaaS Hadoop-product van Microsoft. We hebben meer tooshare in toekomstige hello, maar tegenwoordig willen we toosummarize een technische blog over de toouse Caffe op HDInsight Spark.
 
-Als u Caffe voordat hebt geïnstalleerd, ziet u dat het installeren van dit framework iets lastig is. In deze blog we wordt eerst te laten zien hoe installeren [Caffe op Spark](https://github.com/yahoo/CaffeOnSpark) voor een HDInsight-cluster, gebruik vervolgens de ingebouwde MNIST die demo voor demostrate grondige Learning gedistribueerd met behulp van HDInsight Spark op CPU's gebruiken.
+Als u Caffe voordat hebt geïnstalleerd, ziet u dat het installeren van dit framework iets lastig is. In deze blog we wordt eerst laten zien hoe tooinstall [Caffe op Spark](https://github.com/yahoo/CaffeOnSpark) voor een HDInsight-cluster vervolgens gebruik Hallo ingebouwde MNIST demo toodemostrate hoe toouse gedistribueerde grondige Learning met HDInsight Spark op CPU's.
 
-Er zijn vier hoofdstappen downloaden werken op HDInsight.
+Er zijn vier hoofdstappen tooget werkt deze op HDInsight.
 
-1. De vereiste afhankelijkheden te installeren op alle knooppunten
-2. Caffe op Spark voor HDInsight voor het hoofdknooppunt bouwen
-3. De vereiste bibliotheken voor alle worker-knooppunten distribueren
+1. Hallo vereist afhankelijkheden installeren op alle Hallo-knooppunten
+2. Caffe voor Spark voor HDInsight op Hallo hoofdknooppunt bouwen
+3. Hallo vereist bibliotheken tooall Hallo worker-knooppunten distribueren
 4. Een model Caffe opstellen en voer dit distributely
 
-Aangezien HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u heel gemakkelijk een aantal taken uit te voeren. Een van de functies die we veel in dit blogbericht gebruiken heet [scriptactie](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), waarmee u de shell-opdrachten voor het aanpassen van de clusterknooppunten (hoofdknooppunt, werkrolknooppunt of edge-knooppunt) kunt uitvoeren.
+Aangezien HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u eenvoudig tooperform sommige taken. Een van de Hallo-functies die we veel in dit blogbericht gebruiken heet [scriptactie](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), die u kunt uitvoeren met de shell-opdrachten toocustomize clusterknooppunten (hoofdknooppunt, werkrolknooppunt of edge-knooppunt).
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Stap 1: De vereiste afhankelijkheden installeren op alle knooppunten
+## <a name="step-1--install-hello-required-dependencies-on-all-hello-nodes"></a>Stap 1: Hallo vereist afhankelijkheden installeren op alle knooppunten van het Hallo
 
-Om te beginnen, moet voor het installeren van de afhankelijkheden die we nodig hebben. De site Caffe en [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) biedt sommige wiki erg nuttig zijn voor het installeren van de afhankelijkheden voor Spark op YARN-modus (dit is de modus voor HDInsight Spark), maar moeten we enkele meer afhankelijkheden voor HDInsight platform toevoegen. We gebruiken de scriptactie zoals hieronder en uitvoeren op alle hoofdknooppunten en worker-knooppunten. Deze scriptactie duurt ongeveer 20 minuten, zoals die afhankelijkheden is ook afhankelijk van andere pakketten zijn. U moet deze plaatsen op een locatie die toegankelijk is voor uw HDInsight-cluster, zoals een GitHub-locatie of de standaard BLOB storage-account.
+tooget gestart, moeten we tooinstall Hallo afhankelijkheden die we nodig hebben. Hallo Caffe site en [CaffeOnSpark site](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) biedt sommige wiki erg nuttig zijn voor het installeren van Hallo afhankelijkheden voor Spark op YARN-modus (dit is de modus voor HDInsight Spark Hallo), maar we moeten tooadd enkele meer afhankelijkheden voor HDInsight-platform. We gebruiken Hallo scriptactie zoals hieronder en uitvoeren op alle hoofdknooppunten Hallo en worker-knooppunten. Deze scriptactie duurt ongeveer 20 minuten, zoals die afhankelijkheden is ook afhankelijk van andere pakketten zijn. U moet deze in een locatie die toegankelijk tooyour HDInsight-cluster, zoals een GitHub-locatie of Hallo standaard BLOB storage-account is geplaatst.
 
     #!/bin/bash
-    #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
-    #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
-    #It seems numpy will only needed during compilation time, but for safety purpose we install them on all the nodes
+    #Please be aware that installing hello below will add additional 20 mins toocluster creation because of hello dependencies
+    #installing all dependencies, including hello ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
+    #It seems numpy will only needed during compilation time, but for safety purpose we install them on all hello nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
 
@@ -69,18 +69,18 @@ Om te beginnen, moet voor het installeren van de afhankelijkheden die we nodig h
     echo "protobuf installation done"
 
 
-Er zijn twee stappen in de bovenstaande scriptactie. De eerste stap is het de vereiste bibliotheken installeren. Deze bibliotheken bevatten de benodigde bibliotheken voor zowel Caffe compileren (zoals gflags, glog) en het uitvoeren van Caffe (zoals numpy). We libatlas voor CPU-optimalisatie gebruiken, maar u kunt de wiki CaffeOnSpark altijd volgen over het installeren van andere bibliotheken optimalisatie zoals MKL of CUDA (voor GPU).
+Er zijn twee stappen in de bovenstaande Hallo scriptactie. de eerste stap Hallo is tooinstall alle vereiste bibliotheken Hallo. Deze bibliotheken bevatten Hallo nodig bibliotheken voor zowel Caffe compileren (zoals gflags, glog) en het uitvoeren van Caffe (zoals numpy). We libatlas voor CPU-optimalisatie gebruiken, maar u kunt altijd Hallo CaffeOnSpark wiki volgen over het installeren van andere bibliotheken optimalisatie zoals MKL of CUDA (voor GPU).
 
-De tweede stap is het downloaden en protobuf 2.5.0 voor Caffe installeren tijdens de runtime worden gecompileerd. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moeten we er tijdens het compileren van de broncode. Er zijn ook enkele bronnen op het Internet voor het eerst compileren, zoals [dit](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)
+Hallo tweede stap bestaat uit toodownload, compileren en protobuf 2.5.0 voor Caffe installeren tijdens runtime. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus we er toocompile moeten op Hallo broncode. Er zijn ook enkele bronnen op Hallo Internet over het toocompile, zoals [dit](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)
 
-Gewoon aan de slag kunt u alleen uitvoeren met deze scriptactie op basis van uw cluster voor alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). Kunt u de scriptacties voor een actieve cluster uitvoeren of u kunt ook de scriptacties uitvoeren tijdens de periode van cluster inrichten. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)
+toosimply aan de slag, u kunt alleen uitvoeren met deze scriptactie op uw cluster tooall Hallo worker knooppunten en head knooppunten (voor HDInsight 3.5). U kunt ofwel scriptacties Hallo voor een actieve cluster uitvoeren of u kunt ook Hallo scriptacties uitvoeren tijdens Hallo cluster inrichten. Zie voor meer informatie over scriptacties Hallo Hallo documentatie [hier](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions)
 
-![Scriptacties afhankelijkheden installeren](./media/hdinsight-deep-learning-caffe-spark/Script-Action-1.png)
+![Script acties tooInstall afhankelijkheden](./media/hdinsight-deep-learning-caffe-spark/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Stap 2: Caffe op Spark voor HDInsight voor het hoofdknooppunt bouwen
+## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-hello-head-node"></a>Stap 2: Caffe voor Spark voor HDInsight op Hallo hoofdknooppunt bouwen
 
-De tweede stap is het bouwen van Caffe op de headnode, en distribueert u vervolgens de gecompileerde bibliotheken voor alle worker-knooppunten. In deze stap moet u [ssh in uw headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix), gewoon Volg daarna de [CaffeOnSpark buildproces](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn), en hieronder ziet u het script kunt u CaffeOnSpark bij het maken van een aantal extra stappen. 
+de tweede stap Hallo toobuild Caffe op Hallo headnode is en vervolgens distribueren Hallo gecompileerd bibliotheken tooall Hallo worker-knooppunten. In deze stap moet u te[ssh in uw headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix), volg Hallo gewoon [CaffeOnSpark buildproces](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn), en hieronder vindt u toobuild CaffeOnSpark kunt gebruiken met een aantal extra stappen Hallo-script. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive
@@ -89,7 +89,7 @@ De tweede stap is het bouwen van Caffe op de headnode, en distribueert u vervolg
     pushd ${CAFFE_ON_SPARK}/caffe-public/
     cp Makefile.config.example Makefile.config
     echo "INCLUDE_DIRS += ${JAVA_HOME}/include" >> Makefile.config
-    #Below configurations might need to be updated based on actual cases. For example, if you are using GPU, or using a different BLAS library, you may want to update those settings accordingly.
+    #Below configurations might need toobe updated based on actual cases. For example, if you are using GPU, or using a different BLAS library, you may want tooupdate those settings accordingly.
     echo "CPU_ONLY := 1" >> Makefile.config
     echo "BLAS := atlas" >> Makefile.config
     echo "INCLUDE_DIRS += /usr/include/hdf5/serial/" >> Makefile.config
@@ -98,9 +98,9 @@ De tweede stap is het bouwen van Caffe op de headnode, en distribueert u vervolg
 
     #compile CaffeOnSpark
     pushd ${CAFFE_ON_SPARK}
-    #always clean up the environment before building (especially when rebuiding), or there will be errors such as "failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2"
+    #always clean up hello environment before building (especially when rebuiding), or there will be errors such as "failed tooexecute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2"
     make clean 
-    #the build step usually takes 20~30 mins, since it has a lot maven dependencies
+    #hello build step usually takes 20~30 mins, since it has a lot maven dependencies
     make build 
     popd
     export LD_LIBRARY_PATH=${CAFFE_ON_SPARK}/caffe-public/distribute/lib:${CAFFE_ON_SPARK}/caffe-distri/distribute/lib
@@ -113,41 +113,41 @@ De tweede stap is het bouwen van Caffe op de headnode, en distribueert u vervolg
     ${CAFFE_ON_SPARK}/scripts/setup-cifar10.sh
     hadoop fs -put -f ${CAFFE_ON_SPARK}/data/cifar10_*_lmdb wasb:///projects/machine_learning/image_dataset/
 
-    #put the already compiled CaffeOnSpark libraries to wasb storage, then read back to each node using script actions. This is because CaffeOnSpark requires all the nodes have the libarries
+    #put hello already compiled CaffeOnSpark libraries toowasb storage, then read back tooeach node using script actions. This is because CaffeOnSpark requires all hello nodes have hello libarries
     hadoop fs -mkdir -p /CaffeOnSpark/caffe-public/distribute/lib/
     hadoop fs -mkdir -p /CaffeOnSpark/caffe-distri/distribute/lib/
     hadoop fs -put CaffeOnSpark/caffe-distri/distribute/lib/* /CaffeOnSpark/caffe-distri/distribute/lib/
     hadoop fs -put CaffeOnSpark/caffe-public/distribute/lib/* /CaffeOnSpark/caffe-public/distribute/lib/
 
-Wellicht moet u meer dan wat de documentatie van CaffeOnSpark staat. De wijzigingen zijn:
-- Ga naar de CPU alleen en libatlas bepaalde hiervoor gebruiken.
-- Plaats de gegevenssets naar de BLOB-opslag is een gedeelde locatie die toegankelijk is voor alle worker-knooppunten voor later gebruik.
-- Plaats de gecompileerde Caffe bibliotheken naar BLOB storage en later kopieert u deze bibliotheken voor alle knooppunten met behulp van scriptacties om te voorkomen dat extra compileertijd.
+Mogelijk moet u toodo meer dan welke documentatie Hallo van CaffeOnSpark staat. Hallo wijzigingen zijn:
+- Wijzig alleen tooCPU en libatlas bepaalde hiervoor gebruiken.
+- Hallo gegevenssets toohello BLOB storage, een gedeelde locatie plaatsen is dat toegankelijk tooall worker-knooppunten voor later gebruik.
+- Put Hallo gecompileerd Caffe bibliotheken tooBLOB opslag en kopieert u later deze bibliotheken tooall Hallo knooppunten met behulp van script acties tooavoid extra compileertijd.
 
 
 ### <a name="troubleshooting-an-ant-buildexception-has-occured-exec-returned-2"></a>Voor probleemoplossing: Een BuildException Ant is opgetreden: exec geretourneerd: 2
 
-Wanneer u eerst probeert CaffeOnSpark bouwen, wordt soms er
+Wanneer u eerst probeert toobuild CaffeOnSpark, wordt soms er
 
-    failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2
+    failed tooexecute goal org.apache.maven.plugins:maven-antrun-plugin:1.7:run (proto) on project caffe-distri: An Ant BuildException has occured: exec returned: 2
 
-De opslagplaats code door gewoon opschonen "Maak schone" en voer 'Maak bouwen' lost dit probleem, zolang u de juiste afhankelijkheden hebben.
+Gewoon schone Hallo code opslagplaats door 'schone maken' uit en vervolgens uitvoeren 'Maak bouwen' lost dit probleem, zolang u de juiste afhankelijkheden Hallo hebt.
 
 ### <a name="troubleshooting-maven-repository-connection-time-out"></a>Voor probleemoplossing: Maven-opslagplaats verbindingstime-out optreedt
 
-Soms krijg maven de time-out-verbindingsfout, vergelijkbaar met hieronder:
+Soms hebt maven mij Hallo verbinding time-outfout, vergelijkbare toobelow:
 
     Retry:
     [INFO] Downloading: https://repo.maven.apache.org/maven2/com/twitter/chill_2.11/0.8.0/chill_2.11-0.8.0.jar
     Feb 01, 2017 5:14:49 AM org.apache.maven.wagon.providers.http.httpclient.impl.execchain.RetryExec execute
-    INFO: I/O exception (java.net.SocketException) caught when processing request to {s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
+    INFO: I/O exception (java.net.SocketException) caught when processing request too{s}->https://repo.maven.apache.org:443: Connection timed out (Read failed)
 
-Het wordt OK worden na een wachttijd van een paar minuten en probeer vervolgens alleen de code opnieuw samenstellen zodat deze kan worden dat maven enigszins beperkt het verkeer van een opgegeven IP-adres.
+Deze OK na een wachttijd van een paar minuten en probeer NET toorebuild Hallo code, zodat Maven mogelijk enigszins limieten Hallo verkeer van een opgegeven IP-adres.
 
 
 ### <a name="troubleshooting-test-failure-for-caffe"></a>Voor probleemoplossing: Fout voor Caffe testen
 
-Waarschijnlijk ziet u een test-fout bij het uitvoeren van de laatste controle op CaffeOnSpark, vergelijkbaar met hieronder. Dit is gerelateerd aan UTF-8-codering prabably, maar moet geen invloed op het gebruik van Caffe
+Waarschijnlijk ziet u een test-fout bij het uitvoeren van de laatste controle Hallo voor CaffeOnSpark, vergelijkbaar met hieronder. Dit is prabably gerelateerd aan UTF-8-codering, maar moet geen invloed op Hallo gebruik van Caffe
 
     Run completed in 32 seconds, 78 milliseconds.
     Total number of tests run: 7
@@ -155,30 +155,30 @@ Waarschijnlijk ziet u een test-fout bij het uitvoeren van de laatste controle op
     Tests: succeeded 6, failed 1, canceled 0, ignored 0, pending 0
     *** 1 TEST FAILED ***
 
-## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>Stap 3: Distribueert vereiste bibliotheken voor alle worker-knooppunten
+## <a name="step-3-distribute-hello-required-libraries-tooall-hello-worker-nodes"></a>Stap 3: Distribueert vereiste Hallo bibliotheken tooall Hallo worker-knooppunten
 
-De volgende stap is het distribueren van de tapewisselaars (in feite de bibliotheken in CaffeOnSpark/caffe-openbare/distribueren/lib/en CaffeOnSpark/caffe-distri/distribueren/lib /) voor alle knooppunten. In stap 2, we deze bibliotheken in BLOB storage plaatsen en in deze stap gebruiken we scriptacties om deze te kopiëren naar de hoofdknooppunten en worker-knooppunten.
+de volgende stap Hallo is toodistribute Hallo-bibliotheken (in feite Hallo-bibliotheken in CaffeOnSpark/caffe-openbare/distribueren/lib/en CaffeOnSpark/caffe-distri/distribueren/lib /) tooall Hallo knooppunten. In stap 2 we deze bibliotheken in BLOB storage plaatsen en in deze stap gebruiken we script acties toocopy het tooall Hallo hoofdknooppunten en worker-knooppunten.
 
-U doet dit door eenvoudig een scriptactie uitvoeren zoals hieronder (u moet verwijzen naar de juiste locatie die specifiek zijn voor uw cluster):
+toodo deze, eenvoudig uitvoeren van een scriptactie zoals hieronder (u moet toopoint toohello juiste locatie specifieke tooyour cluster):
 
     #!/bin/bash
     hadoop fs -get wasb:///CaffeOnSpark /home/changetoyourusername/
 
-Omdat u in stap 2, we plaatsen in de BLOB-opslag die toegankelijk is voor alle knooppunten, in deze stap kopiëren gewoon items we deze voor alle knooppunten.
+Omdat u in stap 2, we op plaatsen Hallo BLOB-opslag die toegankelijk tooall Hallo knooppunten, in deze stap kopiëren gewoon items we deze tooall Hallo knooppunten.
 
 ## <a name="step-4-compose-a-caffe-model-and-run-it-distributely"></a>Stap 4: Een model Caffe opstellen en voer dit distributely
 
-Na het uitvoeren van de bovenstaande stappen Caffe is al geïnstalleerd op de headnode en de aan de slag. De volgende stap is het schrijven van een model Caffe. 
+Na het uitvoeren van Hallo bovenstaande stappen Caffe is al geïnstalleerd op Hallo headnode en de goede toogo. de volgende stap Hallo is toowrite een Caffe-model. 
 
-Caffe is een 'expressieve architectuur', waarbij voor het opstellen van een model, u alleen hoeft te definiëren van een configuratiebestand met en zonder codering helemaal (in de meeste gevallen). Dus laten we er. 
+Caffe maakt gebruik van een 'expressieve architectuur,' wanneer een model u zojuist hebt voor het opstellen van een configuratiebestand toodefine en zonder codering helemaal (in de meeste gevallen). Dus laten we er. 
 
-Het model die we zullen vandaag trainen is een voorbeeld-model voor MNIST training. De database MNIST geschreven cijfers heeft een trainingset 60.000 voorbeelden en geen testset van 10.000 voorbeelden. Dit is een subset van een grotere set van NIST beschikbaar. De cijfers zijn grootte genormaliseerd en in het midden van de installatiekopie van een vaste grootte. CaffeOnSpark heeft sommige scripts voor het downloaden van de gegevensset en deze converteren naar de juiste indeling.
+we zullen vandaag trainen Hallo-model is een voorbeeld-model voor MNIST training. Hallo MNIST database geschreven cijfers heeft een trainingset 60.000 voorbeelden en geen testset van 10.000 voorbeelden. Dit is een subset van een grotere set van NIST beschikbaar. Hallo cijfers zijn grootte genormaliseerd en in het midden van de installatiekopie van een vaste grootte. CaffeOnSpark heeft een aantal scripts toodownload Hallo gegevensset en te converteren naar de juiste notatie Hallo.
 
-CaffeOnSpark biedt een aantal voorbeelden van de netwerk-topologieën voor MNIST training. Er is een goed ontwerp van het splitsen van de netwerkarchitectuur (de topologie van het netwerk) en optimalisatie van. In dit geval zijn er twee bestanden vereist: 
+CaffeOnSpark biedt een aantal voorbeelden van de netwerk-topologieën voor MNIST training. Een goed ontwerp van splitsing Hallo netwerkarchitectuur (Hallo topologie van het Hallo-netwerk) en optimalisatie van heeft. In dit geval zijn er twee bestanden vereist: 
 
-het bestand 'Solver '' (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) wordt gebruikt voor de optimalisatie overzien en updates van de parameter wordt gegenereerd. Bijvoorbeeld definieert of CPU of GPU wordt gebruikt, wat is de dynamiek, het aantal iteraties zal zijn, enzovoort. Wordt ook gedefinieerd welke netwerktopologie neuron moet het programma gebruiken (dit is het tweede bestand we moeten). Raadpleeg voor meer informatie over Solver [Caffe documentatie](http://caffe.berkeleyvision.org/tutorial/solver.html).
+Hallo 'Solver '' bestand (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) wordt gebruikt voor het Hallo-optimalisatie overzien en parameter updates genereren. Bijvoorbeeld definieert of CPU of GPU wordt gebruikt, wat is er Hallo dynamiek, het aantal iteraties zal zijn, enzovoort. Ook wordt gedefinieerd welke netwerktopologie neuron moet Hallo programma gebruiken (dit is de tweede bestand Hallo we moeten). Voor meer informatie over Solver Raadpleeg te[Caffe documentatie](http://caffe.berkeleyvision.org/tutorial/solver.html).
 
-We gebruiken CPU in plaats van GPU, moeten we voor dit voorbeeld de laatste regel te wijzigen:
+We gebruiken CPU in plaats van GPU, moeten we voor dit voorbeeld Hallo laatste regel te wijzigen:
 
     # solver mode: CPU or GPU
     solver_mode: CPU
@@ -187,42 +187,42 @@ We gebruiken CPU in plaats van GPU, moeten we voor dit voorbeeld de laatste rege
 
 U kunt andere regels indien nodig wijzigen.
 
-De tweede (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt)-bestand definieert hoe het netwerk neuron eruit, en de relevante invoer- en -uitvoerbestand. Ook moet het bestand om de locatie van de gegevens training bijwerken. Wijzig het volgende gedeelte in lenet_memory_train_test.prototxt (u moet verwijzen naar de juiste locatie die specifiek zijn voor uw cluster):
+tweede Hallo-bestand (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) definieert hoe Hallo neuron netwerk eruit, en relevante Hallo-invoer en uitvoerbestand. Er moet ook tooupdate hello tooreflect Hallo training gegevens bestandslocatie. Wijzig hello onderdeel in lenet_memory_train_test.prototxt (u moet toopoint toohello juiste locatie specifieke tooyour cluster) te volgen:
 
-- Wijzig de 'file:/Users/mridul/bigml/demodl/mnist_train_lmdb' in ' wasb: / / / projecten/machine_learning/image_dataset/mnist_train_lmdb '
-- wijzigen in 'file:/Users/mridul/bigml/demodl/mnist_test_lmdb/' ' wasb: / / / projecten/machine_learning/image_dataset/mnist_test_lmdb '
+- Hallo 'file:/Users/mridul/bigml/demodl/mnist_train_lmdb' te wijzigen "wasb: / / / projecten/machine_learning/image_dataset/mnist_train_lmdb '
+- 'file:/Users/mridul/bigml/demodl/mnist_test_lmdb/' te wijzigen "wasb: / / / projecten/machine_learning/image_dataset/mnist_test_lmdb '
 
 ![Caffe Config](./media/hdinsight-deep-learning-caffe-spark/Caffe-2.png)
 
-Voor meer informatie over het definiëren van het netwerk, Controleer of de [Caffe documentatie over MNIST gegevensset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
+Controleer voor meer informatie over hoe toodefine netwerk Hallo Hallo [Caffe documentatie over MNIST gegevensset](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)
 
-Omwille van deze blog we dit eenvoudige voorbeeld van MNIST gebruiken. U moet de onderstaande opdracht uitvoeren vanaf het hoofdknooppunt van:
+Voor Hallo doel van deze blog gebruiken we dit eenvoudige voorbeeld van MNIST. Hallo onderstaande opdracht moet worden uitgevoerd vanaf het hoofdknooppunt Hallo van:
 
     spark-submit --master yarn --deploy-mode cluster --num-executors 8 --files ${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt,${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt --conf spark.driver.extraLibraryPath="${LD_LIBRARY_PATH}" --conf spark.executorEnv.LD_LIBRARY_PATH="${LD_LIBRARY_PATH}" --class com.yahoo.ml.caffe.CaffeOnSpark ${CAFFE_ON_SPARK}/caffe-grid/target/caffe-grid-0.1-SNAPSHOT-jar-with-dependencies.jar -train -features accuracy,loss -label label -conf lenet_memory_solver.prototxt -devices 1 -connection ethernet -model wasb:///mnist.model -output wasb:///mnist_features_result
 
-In feite deze distribueert de vereiste bestanden (lenet_memory_solver.prototxt en lenet_memory_train_test.prototxt) naar elke YARN-container en het relevante pad van elke Spark stuurprogramma/executor ook instellen op LD_LIBRARY_PATH die is gedefinieerd in de vorige codefragment en verwijst naar de locatie die CaffeOnSpark bibliotheken is. 
+In feite wordt gedistribueerd Hallo vereist-bestanden (lenet_memory_solver.prototxt en lenet_memory_train_test.prototxt) tooeach garens container en ook relevante pad van elke Spark stuurprogramma/executor tooLD_LIBRARY_PATH, die is gedefinieerd in Hallo Hallo vorige code codefragment en punten toohello locatie met CaffeOnSpark bibliotheken. 
 
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 
-We gebruiken YARN clustermodus, in dat geval het Spark-stuurprogramma wordt gepland om een willekeurige container (en een willekeurige werkrolknooppunt) weergegeven alleen in de console ongeveer als volgt uitvoeren:
+We gebruiken YARN clustermodus, in welk geval Hallo Spark stuurprogramma worden geplande tooan willekeurige container (en een willekeurige werkrolknooppunt) moet wordt alleen weergegeven in het Hallo console uitvoeren als:
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-Als u weten wat er gebeurd is wilt, moet u doorgaans de Spark ophalen van stuurprogramma-logboek met meer informatie. In dit geval moet u gaat u naar de gebruikersinterface van YARN de relevante YARN-logboeken vinden. U kunt de gebruikersinterface van YARN door deze URL krijgen: 
+Als u tooknow wat er gebeurd is wilt, moet u meestal tooget Hallo Spark van stuurprogramma-logboek met meer informatie. In dit geval moet u toogo toohello gebruikersinterface van YARN toofind Hallo relevante YARN-Logboeken. U kunt krijgen Hallo gebruikersinterface van YARN door deze URL: 
 
     https://yourclustername.azurehdinsight.net/yarnui
    
 ![GEBRUIKERSINTERFACE VAN YARN](./media/hdinsight-deep-learning-caffe-spark/YARN-UI-1.png)
 
-U kunt bekijken hoeveel resources worden toegewezen voor deze bepaalde toepassing op te nemen. U kunt klikken op de koppeling "Scheduler" en vervolgens ziet u dat voor deze toepassing, er zijn 9 containers die worden uitgevoerd. We vragen YARN voor 8 Executor en een andere container is voor stuurprogramma-proces. 
+U kunt bekijken hoeveel resources worden toegewezen voor deze bepaalde toepassing op te nemen. U kunt klikken op Hallo 'Scheduler' koppeling en, ziet u dat voor deze toepassing, er zijn 9 containers die worden uitgevoerd. We vragen YARN tooprovide 8 Executor en een andere container is voor stuurprogramma-proces. 
 
 ![YARN Scheduler](./media/hdinsight-deep-learning-caffe-spark/YARN-Scheduler.png)
 
-U kunt de logboeken van de container of stuurprogramma logboeken controleren of er fouten. Voor stuurprogramma zich aanmeldt, kunt u de toepassings-ID in de gebruikersinterface van YARN Klik op de knop 'Logboeken'. De stuurprogramma-Logboeken geschreven in stderr.
+U kunt toocheck Hallo stuurprogramma Logboeken of de logboeken van de container als er fouten zijn. Voor het stuurprogramma zich aanmeldt, kunt u Hallo toepassings-ID in de gebruikersinterface van YARN, klik op Hallo 'Logs' knop. Hallo stuurprogramma logboeken worden geschreven in stderr.
 
 ![GEBRUIKERSINTERFACE VAN YARN 2](./media/hdinsight-deep-learning-caffe-spark/YARN-UI-2.png)
 
-Bijvoorbeeld, ziet u mogelijk enkele van de fout hieronder in de stuurprogramma-logboeken die aangeeft dat u te veel Executor toewijzen.
+Bijvoorbeeld, ziet u mogelijk enkele Hallo fout hieronder van Hallo stuurprogramma zich aanmeldt, die aangeeft dat u te veel Executor toewijzen.
 
     17/02/01 07:26:06 ERROR ApplicationMaster: User class threw exception: java.lang.IllegalStateException: Insufficient training data. Please adjust hyperparameters or increase dataset.
     java.lang.IllegalStateException: Insufficient training data. Please adjust hyperparameters or increase dataset.
@@ -235,7 +235,7 @@ Bijvoorbeeld, ziet u mogelijk enkele van de fout hieronder in de stuurprogramma-
         at java.lang.reflect.Method.invoke(Method.java:498)
         at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 
-Soms kan het probleem kan zich voordoen in Executor in plaats van stuurprogramma's. In dit geval moet u de logboeken van de container. U kunt altijd de container-logboeken ophalen en vervolgens de container is mislukt. Bijvoorbeeld mogelijk voldoet deze fout aan wanneer Caffe wordt uitgevoerd.
+Soms Hallo probleem kan zich voordoen in Executor in plaats van stuurprogramma's. In dit geval moet u toocheck Hallo container Logboeken. U kunt altijd Hallo container logboeken ophalen en vervolgens Hallo mislukte container. Bijvoorbeeld mogelijk voldoet deze fout aan wanneer Caffe wordt uitgevoerd.
 
     17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.
     Container id: container_1485916338528_0008_05_000005
@@ -258,26 +258,26 @@ Soms kan het probleem kan zich voordoen in Executor in plaats van stuurprogramma
 
     Container exited with a non-zero exit code 134
 
-In dit geval moet u de mislukte container-ID (dit is in het bovenstaande geval container_1485916338528_0008_05_000005). U hoeft uit te voeren 
+In dit geval moet u tooget Hallo mislukt container-ID (in Hallo boven het geval is, is het container_1485916338528_0008_05_000005). Vervolgens moet u toorun 
 
     yarn logs -containerId container_1485916338528_0008_03_000005
 
-van de headnode. Nadat u hebt gecontroleerd container mislukt, wordt dit veroorzaakt door met GPU-modus (waarbij u gebruik CPU-modus in plaats daarvan) in lenet_memory_solver.prototxt.
+van Hallo headnode. Nadat u hebt gecontroleerd container mislukt, wordt dit veroorzaakt door met GPU-modus (waarbij u gebruik CPU-modus in plaats daarvan) in lenet_memory_solver.prototxt.
 
     17/02/01 07:10:48 INFO LMDB: Batch size:100
-    WARNING: Logging before InitGoogleLogging() is written to STDERR
+    WARNING: Logging before InitGoogleLogging() is written tooSTDERR
     F0201 07:10:48.309725 11624 common.cpp:79] Cannot use GPU in CPU-only Caffe: check mode.
 
 
 ## <a name="getting-results"></a>Ophalen van resultaten
 
-Aangezien we 8 Executor toewijzen wilt en de netwerktopologie eenvoudig is, moet het alleen ongeveer 30 minuten duren om uit te voeren van het resultaat. Vanaf de opdrachtregel, ziet u dat we plaatst u het model voor wasb:///mnist.model, en de resultaten naar een map met de naam wasb: / / / mnist_features_result.
+Aangezien we 8 Executor toewijzen wilt en netwerktopologie Hallo eenvoudig is, neemt het ongeveer 30 minuten toorun Hallo resultaat. Vanaf de opdrachtregel hello, ziet u dat we plaatst u Hallo model toowasb:///mnist.model, en Hallo resultaten tooa map met de naam wasb: / / / mnist_features_result.
 
-U kunt de resultaten krijgen door te voeren
+U kunt Hallo resultaten krijgen door te voeren
 
     hadoop fs -cat hdfs:///mnist_features_result/*
 
-en het resultaat lijkt op:
+en Hallo resultaat lijkt op:
 
     {"SampleID":"00009597","accuracy":[1.0],"loss":[0.028171852],"label":[2.0]}
     {"SampleID":"00009598","accuracy":[1.0],"loss":[0.028171852],"label":[6.0]}
@@ -289,12 +289,12 @@ en het resultaat lijkt op:
     {"SampleID":"00009604","accuracy":[0.97],"loss":[0.0677709],"label":[3.0]}
     {"SampleID":"00009605","accuracy":[0.97],"loss":[0.0677709],"label":[4.0]}
 
-De SampleID vertegenwoordigt de ID in de gegevensset MNIST, en het label is het nummer van het model.
+Hallo SampleID vertegenwoordigt Hallo-ID in Hallo MNIST gegevensset en Hallo-label is Hallo getal dat Hallo model identificeert.
 
 
 ## <a name="conclusion"></a>Conclusie
 
-U hebt geprobeerd in deze documentatie CaffeOnSpark installeren met het uitvoeren van een eenvoudig voorbeeld. HDInsight is een volledig beheerde cloud gedistribueerde compute-platform en de beste plaats voor het uitvoeren van machine learning en geavanceerde analyses werkbelastingen op grote gegevensset en voor gedistribueerde grondige learning, kunt u Caffe op HDInsight Spark grondige learning taken uit te voeren.
+U hebt in deze documentatie tooinstall CaffeOnSpark geprobeerd met het uitvoeren van een eenvoudig voorbeeld. HDInsight is een volledig beheerde gedistribueerde compute cloudplatform, Hallo beste plaats voor het uitvoeren van machine learning en geavanceerde analyses werkbelastingen op grote gegevensset en voor gedistribueerde grondige learning, kunt u Caffe gebruiken in HDInsight Spark tooperform grondige kennis taken.
 
 
 ## <a name="seealso"></a>Zie ook
@@ -302,8 +302,8 @@ U hebt geprobeerd in deze documentatie CaffeOnSpark installeren met het uitvoere
 
 ### <a name="scenarios"></a>Scenario's
 * [Spark met Machine Learning: Spark in HDInsight gebruiken voor het analyseren van de gebouwtemperatuur met behulp van HVAC-gegevens](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark met Machine Learning: Spark in HDInsight gebruiken om voedselinspectieresultaten te voorspellen](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark met Machine Learning: Spark in HDInsight toopredict voedselinspectieresultaten gebruiken](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Resources beheren
-* [Resources beheren voor het Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Resources beheren voor Hallo Apache Spark-cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 

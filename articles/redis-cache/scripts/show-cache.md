@@ -1,5 +1,5 @@
 ---
-title: Azure CLI-voorbeeldscript - Get-details van een Azure Redis-Cache | Microsoft Docs
+title: aaaAzure voorbeeldscript CLI - Get-details van een Azure Redis-Cache | Microsoft Docs
 description: Azure CLI-voorbeeldscript - Get-details van een Azure Redis-Cache
 services: redis-cache
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: 9f4eb32227bd8a68837eabd58b9d058bc4995d17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3ad1fdf000bbab52e84dbf9f002a5e9fa6d347a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-details-of-an-azure-redis-cache"></a>Informatie over een Azure Redis-Cache
 
-In dit scenario u informatie over het ophalen van de gegevens van een Azure Redis-Cache-exemplaar, inclusief de status van de inrichting.
+In dit scenario leert u hoe tooretrieve Hallo details van een Azure Redis-Cache exemplaar, inclusief de status van de inrichting.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 
-[!code-azurecli[belangrijkste](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis-Cache")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Redis Cache")]
 
 ## <a name="script-explanation"></a>Script uitleg
 
-Dit script gebruikt de volgende opdrachten voor het ophalen van de gegevens van een Azure Redis-Cache-exemplaar. Elke opdracht in de tabel is gekoppeld aan de specifieke documentatie opdracht.
+Dit script maakt gebruik van Hallo volgende opdrachten tooretrieve Hallo details van een Azure Redis-Cache-exemplaar. Elke opdracht in Hallo tabel koppelingen toocommand specifieke documentatie.
 
 | Opdracht | Opmerkingen |
 |---|---|
@@ -42,6 +42,6 @@ Dit script gebruikt de volgende opdrachten voor het ophalen van de gegevens van 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+Zie voor meer informatie over hello Azure CLI [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
-Aanvullende voorbeelden van Azure Redis-Cache CLI-script kunnen worden gevonden in de [documentatie van Azure Redis-Cache](../cli-samples.md).
+Aanvullende voorbeelden van Azure Redis-Cache CLI script kunnen u vinden in Hallo [documentatie van Azure Redis-Cache](../cli-samples.md).

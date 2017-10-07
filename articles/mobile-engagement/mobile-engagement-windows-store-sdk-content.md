@@ -1,6 +1,6 @@
 ---
-title: Windows universele Apps SDK-inhoud
-description: Meer informatie over de inhoud van de Windows universele Apps SDK voor Azure Mobile Engagement
+title: aaaWindows universele Apps SDK-inhoud
+description: Meer informatie over inhoud Hallo Hallo universele Windows-Apps-SDK voor Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,30 +14,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a8013d2433c0be62d737c8bc6e8360ed79bbe532
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Windows universele Apps SDK-inhoud
-Dit document bevat en beschrijft de inhoud die is geïmplementeerd door de SDK in uw toepassing.
+Dit document bevat en beschrijft Hallo inhoud geïmplementeerd door Hallo SDK in uw toepassing.
 
-## <a name="the-resources-folder"></a>De `/Resources` map
-Deze map bevat alle resources die behoeften van de Mobile Engagement. U kunt deze aanpassen aan uw app ook aanpassen.
+## <a name="hello-resources-folder"></a>Hallo `/Resources` map
+Deze map bevat alle Hallo resources dat Mobile Engagement moet. U kunt ook deze aanpassen toofit uw app.
 
-* `EngagementConfiguration.xml`: De Mobile Engagement-configuratiebestand, dit is waar u de Mobile Engagement-instellingen (Mobile Engagement-verbindingsreeks, rapport crash...) kunt aanpassen.
+* `EngagementConfiguration.xml`: Hallo Mobile Engagement-configuratiebestand, dit is waar u de Mobile Engagement-instellingen (Mobile Engagement-verbindingsreeks, rapport crash...) kunt aanpassen.
 
 ### <a name="html-folder"></a>de map/HTML
-* `EngagementNotification.html`: De `Notification` webontwerp weergave html voor in-app-banner.
-* `EngagementAnnouncement.html`: De `Announcement` webontwerp weergave html voor in-app-verspreide weergaven.
+* `EngagementNotification.html`: Hallo `Notification` webontwerp weergave html voor in-app-banner.
+* `EngagementAnnouncement.html`: Hallo `Announcement` webontwerp weergave html voor in-app-verspreide weergaven.
 
 ### <a name="images-folder"></a>de map/images
-* `EngagementIconNotification.png`: Het merk-pictogram weergegeven aan de linkerkant van een melding vervangen deze door uw merk-pictogram.
-* `EngagementIconOk.png`: De `Ok` pictogram reach inhoudspagina's voor de knop validatie of actie.
-* `EngagementIconNOK.png`: De `NOK` pictogram dat wordt gebruikt wanneer de knop validatie reach inhoudspagina's is uitgeschakeld.
-* `EngagementIconClose.png`: De `Close` pictogram van de reach-meldingen en de inhoud voor de knop sluiten.
+* `EngagementIconNotification.png`: Hallo merk pictogram dat wordt weergegeven op Hallo links van een melding, vervangt deze door uw merk-pictogram.
+* `EngagementIconOk.png`: Hallo `Ok` pictogram Hallo reach inhoudspagina's voor de knop validatie of actie Hallo.
+* `EngagementIconNOK.png`: Hallo `NOK` pictogram dat wordt gebruikt wanneer Hallo validatie knop Hallo reach inhoudspagina's is uitgeschakeld.
+* `EngagementIconClose.png`: Hallo `Close` pictogram Hallo bereiken meldingen en de inhoud voor Hallo knop negeren.
 
 ### <a name="overlay-folder"></a>/overlay map
-* `EngagementPageOverlay.cs`: De pagina overlay verantwoordelijk voor het toevoegen van de Engagement-app-gebruikersinterface voor het onderliggende bereiken.
+* `EngagementPageOverlay.cs`: Hallo overlay pagina verantwoordelijk voor het toevoegen van Hallo Engagement-app UI tooits onderliggende bereiken.
 

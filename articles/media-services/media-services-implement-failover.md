@@ -1,6 +1,6 @@
 ---
-title: Failover streamen met Azure Media Services implementeren | Microsoft Docs
-description: Dit onderwerp leest hoe u een failover streaming scenario implementeert.
+title: aaaImplement failover streamen met Azure Media Services | Microsoft Docs
+description: Dit onderwerp wordt beschreven hoe tooimplement een scenario voor het streamen van failover.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-ms.openlocfilehash: aed104c9c74606e0ad69fc2d0bfb2f38d85d795d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ade0bace57f35ab3ed855d3a98f743e08da4f324
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Failover streamen met Azure Media Services implementeren
 
-In dit scenario laat zien hoe inhoud (BLOB's) kopiëren tussen activa in een ander om redundantie voor streaming on demand verwerken. Dit scenario is nuttig als u wilt dat voor het instellen van Azure Content Delivery Network failover tussen twee datacentra, in geval van een storing in een datacenter. In dit scenario maakt gebruik van Azure Media Services SDK, de REST-API van Azure Media Services en de Azure-opslag-SDK voor het demonstreren van de volgende taken:
+In dit scenario laat zien hoe toocopy inhoud (BLOB's) van het ene activum in een ander in volgorde toohandle redundantie voor streaming on demand. Dit scenario is nuttig als u tooset van Azure Content Delivery Network toofail via tussen twee datacentra, in geval van een storing in een datacenter. In dit scenario gebruikt hello Azure Media Services SDK, Hallo REST-API van Azure Media Services en hello Azure-opslag-SDK toodemonstrate Hallo taken te volgen:
 
 1. Een Media Services-account in 'Data Center-a' instellen
 2. Upload een tussentijds bestand naar een activum bron.
-3. Codeer de asset in met meerdere bits snelheid MP4-bestanden. 
-4. Een alleen-lezen shared access signature locator maken. Dit is voor de bron-asset lezen toegang hebben tot de container in het opslagaccount dat is gekoppeld aan de bron-asset.
-5. De containernaam van de van het bron-activum ophalen van de alleen-lezen toegang van gedeelde handtekening locator gemaakt in de vorige stap. Dit is nodig voor het kopiëren van BLOB's tussen opslagaccounts (dit wordt verderop in het onderwerp.)
-6. Maak een oorsprong-locator voor de asset die is gemaakt door de taak voor codering. 
+3. Hallo asset coderen in meerdere bit snelheid MP4-bestanden. 
+4. Een alleen-lezen shared access signature locator maken. Dit is voor Hallo bron asset toohave leestoegang toohello container in Hallo storage-account dat is gekoppeld aan Hallo bron asset.
+5. De containernaam Hallo van Hallo bron actief ophalen van Hallo alleen-lezen toegang van gedeelde handtekening locator gemaakt in de vorige stap Hallo. Dit is nodig voor het kopiëren van BLOB's tussen opslagaccounts (dit wordt verderop in Hallo onderwerp.)
+6. Een locator oorsprong voor Hallo activa dat is gemaakt door Hallo codering taak maken. 
 
-Vervolgens, voor het afhandelen van de failover:
+Vervolgens toohandle Hallo failover:
 
 1. Een Media Services-account in 'Data Center B.' instellen
-2. Een leeg doel-activum maken in de doel-Media Services-account.
-3. Maak een locator schrijven gedeeld toegang handtekening. Dit is voor het doel leeg activum schrijven toegang hebben tot de container in het doel van een opslagaccount die is gekoppeld aan de doel-asset.
-4. De Azure-opslag-SDK gebruiken om te kopiëren van BLOB's (assetbestanden) tussen de bron-storage-account in "Data Center A" en het doel-opslagaccount in 'Data Center B.' Deze storage-accounts zijn gekoppeld aan de activa van belang.
-5. Blobs (assetbestanden) die zijn gekopieerd naar de doel-blob-container met de doel-asset koppelen. 
-6. Maken van een oorsprong-locator voor de activa in 'Data Center-B' en geef de locator-ID die is gegenereerd voor de activa in 'Data Center-a'
+2. Een leeg doel-activum maken in Hallo doel Media Services-account.
+3. Maak een locator schrijven gedeeld toegang handtekening. Dit is voor Hallo leeg asset toohave schrijftoegang toohello doelcontainer in Hallo doel storage-account dat is gekoppeld aan Hallo doel asset.
+4. Hello Azure-opslag-SDK toocopy BLOB's (assetbestanden) gebruiken tussen Hallo bron storage-account in "Data Center A" en doelopslagaccount in 'Data Center B.' Hallo Deze storage-accounts zijn gekoppeld aan Hallo activa van belang.
+5. Blobs (assetbestanden) die gekopieerd toohello doel blob-container met Hallo doel asset zijn koppelen. 
+6. Maken van een oorsprong-locator voor de activa in 'Data Center-B' Hallo en Hallo locator-ID die is gegenereerd voor de activa in 'Data Center-a' hello opgeven
 
-U kunt de streaming-URL's waarbij de relatieve paden van de URL's zijn hetzelfde (alleen de basis-URL's verschillend). 
+Dit biedt u streaming URL's waar Hallo relatieve paden van Hallo URL's zijn Hallo Hallo dezelfde (alleen hello basis-URL's zijn verschillende). 
 
-U kunt vervolgens een Content Delivery Network boven op deze oorsprong locators maken voor het afhandelen van eventuele uitval. 
+Vervolgens toohandle eventuele uitval, kunt u een Content Delivery Network boven op de locators voor deze oorsprong. 
 
-Het volgende letten:
+Hallo overwegingen volgende van toepassing:
 
-* De huidige versie van Media Services SDK biedt geen ondersteuning voor programmatisch genereren IAssetFile-informatie die u aan een asset assetbestanden koppelen wilt. In plaats daarvan de CreateFileInfos Media Services REST API gebruiken om dit te doen. 
-* Opslag versleuteld activa (AssetCreationOptions.StorageEncrypted) worden niet ondersteund voor replicatie (omdat de versleutelingssleutel voor beide Media Services-accounts verschilt). 
-* Als u wilt profiteren van dynamische pakketten, Controleer of het streaming-eindpunt van waaruit u wilt de inhoud streamen is in de **met** status.
+* de huidige versie Hallo van Media Services SDK biedt geen ondersteuning voor programmatisch genereren IAssetFile-informatie die u aan een asset assetbestanden koppelen wilt. In plaats daarvan Hallo CreateFileInfos Media Services REST-API toodo deze gebruiken. 
+* Opslag versleuteld activa (AssetCreationOptions.StorageEncrypted) worden niet ondersteund voor replicatie (omdat de versleutelingssleutel Hallo verschilt voor beide Media Services-accounts). 
+* Als u tootake profiteren van dynamische pakketten wilt, controleert u of Hallo streaming-eindpunt van waaruit u wilt dat toostream uw inhoud in Hallo **met** status.
 
 > [!NOTE]
-> Overweeg het gebruik van de Media Services [Replicator hulpprogramma](http://replicator.codeplex.com/) als alternatief voor het implementeren van een failover streaming scenario handmatig. Dit hulpprogramma kunt u activa repliceren via twee Media Services-accounts.
+> Overweeg het gebruik van Hallo Media Services [Replicator hulpprogramma](http://replicator.codeplex.com/) als een alternatieve tooimplementing een failover streaming scenario handmatig. Dit hulpprogramma kunt u tooreplicate activa tussen twee Media Services-accounts.
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
-* Twee Media Services-accounts in een nieuw of bestaand Azure-abonnement. Zie [het maken van een Media Services-Account](media-services-portal-create-account.md).
+* Twee Media Services-accounts in een nieuw of bestaand Azure-abonnement. Zie [hoe tooCreate een Media Services-Account](media-services-portal-create-account.md).
 * Besturingssysteem: Windows 7, Windows 2008 R2 of Windows 8.
 * .NET framework 4.5 of .NET Framework 4.
 * Visual Studio 2010 SP1 of hoger (Professional, Premium, Ultimate of Express).
@@ -64,11 +64,11 @@ Het volgende letten:
 ## <a name="set-up-your-project"></a>Instellen van uw project
 In deze sectie maken en instellen van een project C#-consoletoepassing.
 
-1. Visual Studio gebruiken om een nieuwe oplossing met het project C#-consoletoepassing te maken. Voer **HandleRedundancyForOnDemandStreaming** voor de naam en klik vervolgens op **OK**.
-2. Maak de **SupportFiles** map op hetzelfde niveau als het **HandleRedundancyForOnDemandStreaming.csproj** projectbestand. Onder de **SupportFiles** map, maken de **OutputFiles** en **MP4Files** mappen. Kopieer een MP4-bestand in de **MP4Files** map. (In dit voorbeeld wordt de **BigBuckBunny.mp4** -bestand wordt gebruikt.) 
-3. Gebruik **Nuget** om toe te voegen verwijzingen naar het dll-bestanden die zijn gerelateerd aan Media Services. In **Visual Studio in het hoofdmenu**, selecteer **extra** > **Library Package Manager** > **Package Manager Console**. Typ in het consolevenster **Install-Package windowsazure.mediaservices**, en druk op Enter.
+1. Gebruik Visual Studio toocreate een nieuwe oplossing waarin Hallo C#-consoletoepassing project. Voer **HandleRedundancyForOnDemandStreaming** voor Hallo naam en klik vervolgens op **OK**.
+2. Hallo maken **SupportFiles** map op Hallo van hetzelfde niveau als Hallo **HandleRedundancyForOnDemandStreaming.csproj** projectbestand. Onder Hallo **SupportFiles** map maken Hallo **OutputFiles** en **MP4Files** mappen. Een MP4-bestand kopiëren naar Hallo **MP4Files** map. (In dit voorbeeld Hallo **BigBuckBunny.mp4** -bestand wordt gebruikt.) 
+3. Gebruik **Nuget** tooadd verwijzingen tooDLLs gerelateerde tooMedia Services. In **Visual Studio in het hoofdmenu**, selecteer **extra** > **Library Package Manager** > **Package Manager Console**. Typ in het consolevenster hello, **Install-Package windowsazure.mediaservices**, en druk op Enter.
 4. Voeg andere verwijzingen die vereist voor dit project zijn toe: System.Configuration System.Runtime.Serialization en System.Web.
-5. Vervang **met** instructies die zijn toegevoegd aan de **Programs.cs** bestand standaard met de volgende resultaten:
+5. Vervang **met** instructies die zijn toegevoegd toohello **Programs.cs** bestand met de volgende toepassingsgroepen Hallo standaard:
    
         using System;
         using System.Configuration;
@@ -87,7 +87,7 @@ In deze sectie maken en instellen van een project C#-consoletoepassing.
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Voeg de **appSettings** sectie aan de **.config** bestands- en update de waarden op basis van uw Media Services en opslag sleutel en naam van de waarden. 
+6. Hallo toevoegen **appSettings** sectie toohello **.config** bestands- en update Hallo waarden op basis van uw Media Services en opslag en de naam waarden. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -101,11 +101,11 @@ In deze sectie maken en instellen van een project C#-consoletoepassing.
         </appSettings>
 
 ## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Code die verantwoordelijk is voor redundantie voor streaming on demand toevoegen
-In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
+In deze sectie maakt u Hallo mogelijkheid toohandle redundantie.
 
-1. De volgende klasseniveau velden toevoegen aan de klasse Program.
+1. Hallo na klasseniveau velden toohello programma klasse toevoegen.
        
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string MediaServicesAccountNameSource = ConfigurationManager.AppSettings["MediaServicesAccountNameSource"];
         private static readonly string MediaServicesAccountKeySource = ConfigurationManager.AppSettings["MediaServicesAccountKeySource"];
         private static readonly string StorageNameSource = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameSource"];
@@ -116,21 +116,21 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
         private static readonly string StorageNameTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountNameTarget"];
         private static readonly string StorageKeyTarget = ConfigurationManager.AppSettings["MediaServicesStorageAccountKeyTarget"];
         
-        // Base support files path.  Update this field to point to the base path  
-        // for the local support files folder that you create. 
+        // Base support files path.  Update this field toopoint toohello base path  
+        // for hello local support files folder that you create. 
         private static readonly string SupportFiles = Path.GetFullPath(@"../..\SupportFiles");
         
-        // Paths to support files (within the above base path). 
+        // Paths toosupport files (within hello above base path). 
         private static readonly string SingleInputMp4Path = Path.GetFullPath(SupportFiles + @"\MP4Files\BigBuckBunny.mp4");
         private static readonly string OutputFilesFolder = Path.GetFullPath(SupportFiles + @"\OutputFiles");
         
-        // Class-level field used to keep a reference to the service context.
+        // Class-level field used tookeep a reference toohello service context.
         static private CloudMediaContext _contextSource = null;
         static private CloudMediaContext _contextTarget = null;
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
 
-2. De standaarddefinitie Main-methode vervangen door de volgende. Methode-netwerkdefinities die worden aangeroepen vanuit Main worden hieronder gedefinieerd.
+2. Hallo standaard Main-methodedefinitie vervangen door Hallo volgt. Methode-netwerkdefinities die worden aangeroepen vanuit Main worden hieronder gedefinieerd.
         
         static void Main(string[] args)
         {
@@ -155,46 +155,46 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
             if (job.State != JobState.Error)
             {
                 IAsset sourceOutputAsset = job.OutputMediaAssets[0];
-                // Get the locator for Smooth Streaming
+                // Get hello locator for Smooth Streaming
                 var sourceOriginLocator = GetStreamingOriginLocator(_contextSource, sourceOutputAsset);
         
                 Console.WriteLine("Locator Id: {0}", sourceOriginLocator.Id);
                 
-                // 1.Create a read-only SAS locator for the source asset to have read access to the container in the source Storage account (associated with the source Media Services account)
+                // 1.Create a read-only SAS locator for hello source asset toohave read access toohello container in hello source Storage account (associated with hello source Media Services account)
                 var readSasLocator = GetSasReadLocator(_contextSource, sourceOutputAsset);
         
-                // 2.Get the container name of the source asset from the read-only SAS locator created in the previous step
+                // 2.Get hello container name of hello source asset from hello read-only SAS locator created in hello previous step
                 string containerName = (new Uri(readSasLocator.Path)).Segments[1];
         
-                // 3.Create a target empty asset in the target Media Services account
+                // 3.Create a target empty asset in hello target Media Services account
                 var targetAsset = CreateTargetEmptyAsset(_contextTarget, containerName);
         
-                // 4.Create a write SAS locator for the target empty asset to have write access to the container in the target Storage account (associated with the target Media Services account)
+                // 4.Create a write SAS locator for hello target empty asset toohave write access toohello container in hello target Storage account (associated with hello target Media Services account)
                 ILocator writeSasLocator = CreateSasWriteLocator(_contextTarget, targetAsset);
         
                 // Get asset container name.
                 string targetContainerName = (new Uri(writeSasLocator.Path)).Segments[1];
         
-                // 5.Copy the blobs in the source container (source asset) to the target container (target empty asset)
+                // 5.Copy hello blobs in hello source container (source asset) toohello target container (target empty asset)
                 CopyBlobsFromDifferentStorage(containerName, targetContainerName, StorageNameSource, StorageKeySource, StorageNameTarget, StorageKeyTarget);
         
-                // 6.Use the CreateFileInfos Media Services REST API to automatically generate all the IAssetFile’s for the target asset. 
-                //      This API call is not supported in the current Media Services SDK for .NET. 
+                // 6.Use hello CreateFileInfos Media Services REST API tooautomatically generate all hello IAssetFile’s for hello target asset. 
+                //      This API call is not supported in hello current Media Services SDK for .NET. 
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
-                // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                // Check if hello AssetFiles are now  associated with hello asset.
+                Console.WriteLine("Asset files assocated with hello {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);
                 }
         
-                // 7.Copy the Origin locator of the source asset to the target asset by using the same Id
+                // 7.Copy hello Origin locator of hello source asset toohello target asset by using hello same Id
                 var replicatedLocatorPath = CreateOriginLocatorWithRest(_contextTarget,
                             MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget,
                             sourceOriginLocator.Id, targetAsset.Id);
         
-                // Create a full URL to the manifest file. Use this for playback
+                // Create a full URL toohello manifest file. Use this for playback
                 // in streaming media clients. 
                 string originalUrlForClientStreaming = sourceOriginLocator.Path + GetPrimaryFile(sourceOutputAsset).Name + "/manifest";
         
@@ -208,10 +208,10 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                 writeSasLocator.Delete();
         }
 
-3. De volgende methodedefinities worden aangeroepen vanuit Main.
+3. Hallo volgende methodedefinities worden aangeroepen vanuit Main.
 
     >[!NOTE]
-    >Er is een limiet van 1.000.000 beleidsregels voor verschillende Media Services-beleidsregels (bijvoorbeeld voor Locator beleid of ContentKeyAuthorizationPolicy). Als u de dezelfde dagen en toegangsmachtigingen altijd gebruikt, moet u dezelfde beleids-ID gebruiken. Gebruik bijvoorbeeld dezelfde ID voor beleid voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-upload policies). Zie voor meer informatie [in dit onderwerp](media-services-dotnet-manage-entities.md#limit-access-policies).
+    >Er is een limiet van 1.000.000 beleidsregels voor verschillende Media Services-beleidsregels (bijvoorbeeld voor Locator beleid of ContentKeyAuthorizationPolicy). Hallo moet u dezelfde beleids-ID als u altijd dezelfde dagen en toegang Hallo machtigingen. Bijvoorbeeld Hallo dezelfde ID gebruiken voor beleid voor locators die beoogde tooremain aanwezig gedurende een lange periode (niet-upload policies zijn). Zie voor meer informatie [in dit onderwerp](media-services-dotnet-manage-entities.md#limit-access-policies).
 
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
@@ -242,49 +242,49 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
             // Declare a new job.
             IJob job = context.Jobs.Create("My encoding job");
    
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName(context,
                                                     "Media Encoder Standard");
    
-            // Create a task with the encoding details, using a string preset.
+            // Create a task with hello encoding details, using a string preset.
             // In this case "Adaptive Streaming" preset is used.
             ITask task = job.Tasks.AddNew("My encoding task",
                 processor,
                 "Adaptive Streaming",
                 TaskOptions.ProtectedConfiguration);
    
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
    
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is in the clear (unencrypted). 
+            // means hello output asset is in hello clear (unencrypted). 
             var outputAssetName = "OutputAsset_" + Guid.NewGuid();
             task.OutputAssets.AddNew(outputAssetName,
                 AssetCreationOptions.None);
    
-            // Use the following event handler to check job progress.  
+            // Use hello following event handler toocheck job progress.  
             job.StateChanged += new
                     EventHandler<JobStateChangedEventArgs>(StateChanged);
    
-            // Launch the job.
+            // Launch hello job.
             job.Submit();
    
             // Optionally log job details. This displays basic job details
-            // to the console and saves them to a JobDetails-{JobId}.txt file 
+            // toohello console and saves them tooa JobDetails-{JobId}.txt file 
             // in your output folder.
             LogJobDetails(context, job.Id);
    
-            // Check job execution and wait for job to finish. 
+            // Check job execution and wait for job toofinish. 
             Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
             progressJobTask.Wait();
    
             // Get an updated job reference.
             job = GetJob(context, job.Id);
    
-            // Since we the output asset contains a set of Smooth Streaming files,
-            // set the .ism file to be the primary file
+            // Since we hello output asset contains a set of Smooth Streaming files,
+            // set hello .ism file toobe hello primary file
             if (job.State != JobState.Error)
                 SetPrimaryFile(job.OutputMediaAssets[0]);
    
@@ -293,8 +293,8 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
    
         public static ILocator GetStreamingOriginLocator(CloudMediaContext context, IAsset assetToStream)
         {
-            // Get a reference to the streaming manifest file from the  
-            // collection of files in the asset. 
+            // Get a reference toohello streaming manifest file from hello  
+            // collection of files in hello asset. 
             IAssetFile manifestFile = GetPrimaryFile(assetToStream);
    
             // Create a 30-day readonly access policy. 
@@ -304,13 +304,13 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                 TimeSpan.FromDays(30),
                 AccessPermissions.Read);
    
-            // Create a locator to the streaming content on an origin. 
+            // Create a locator toohello streaming content on an origin. 
             ILocator originLocator = context.Locators.CreateLocator(LocatorType.OnDemandOrigin,
                 assetToStream,
                 policy,
                 DateTime.UtcNow.AddMinutes(-5));
    
-            // Return the locator. 
+            // Return hello locator. 
             return originLocator;
         }
    
@@ -418,7 +418,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                         .ToArray();
 
             if (ismAssetFiles.Count() != 1)
-                throw new ArgumentException("The asset should have only one, .ism file");
+                throw new ArgumentException("hello asset should have only one, .ism file");
 
             ismAssetFiles.First().IsPrimary = true;
             ismAssetFiles.First().Update();
@@ -431,7 +431,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                     where f.Name.EndsWith(".ism")
                     select f;
 
-            // Cast the reference to a true IAssetFile type. 
+            // Cast hello reference tooa true IAssetFile type. 
             IAssetFile manifestFile = theManifest.First();
 
             return manifestFile;
@@ -459,9 +459,9 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
 
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
-                // Specify the expiration time for the signature.
+                // Specify hello expiration time for hello signature.
                 SharedAccessExpiryTime = DateTime.Now.AddDays(1),
-                // Specify the permissions granted by the signature.
+                // Specify hello permissions granted by hello signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
 
@@ -473,16 +473,16 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
 
                 if (sourceCloudBlob.Properties.Length > 0)
                 {
-                    // In Azure Media Services, the files are stored as block blobs. 
+                    // In Azure Media Services, hello files are stored as block blobs. 
                     // Page blobs are not supported by Azure Media Services.  
                     var destinationBlob = targetContainer.GetBlockBlobReference(fileName);
                     destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + blobToken));
 
                     while (true)
                     {
-                        // The StartCopyFromBlob is an async operation, 
-                        // so we want to check if the copy operation is completed before proceeding. 
-                        // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
+                        // hello StartCopyFromBlob is an async operation, 
+                        // so we want toocheck if hello copy operation is completed before proceeding. 
+                        // toodo that, we call FetchAttributes on hello blob and check hello CopyStatus. 
                         destinationBlob.FetchAttributes();
                         if (destinationBlob.CopyState.Status != CopyStatus.Pending)
                         {
@@ -552,7 +552,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
             StringBuilder builder = new StringBuilder();
             IJob job = GetJob(context, jobId);
 
-            builder.AppendLine("\nThe job stopped due to cancellation or an error.");
+            builder.AppendLine("\nThe job stopped due toocancellation or an error.");
             builder.AppendLine("***************************");
             builder.AppendLine("Job ID: " + job.Id);
             builder.AppendLine("Job Name: " + job.Name);
@@ -573,7 +573,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                 }
             }
             builder.AppendLine("***************************\n");
-            // Write the output to a local file and to the console. The template 
+            // Write hello output tooa local file and toohello console. hello template 
             // for an error output file is:  JobStop-{JobId}.txt
             string outputFile = OutputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
             WriteToFile(outputFile, builder.ToString());
@@ -589,7 +589,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
             builder.AppendLine("Job Name: " + job.Name);
             builder.AppendLine("Job submitted (client UTC time): " + DateTime.UtcNow.ToString());
 
-            // Write the output to a local file and to the console. The template 
+            // Write hello output tooa local file and toohello console. hello template 
             // for an error output file is:  JobDetails-{JobId}.txt
             string outputFile = OutputFilesFolder + @"\JobDetails-" + JobIdAsFileName(job.Id) + ".txt";
             WriteToFile(outputFile, builder.ToString());
@@ -603,7 +603,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
             return jobID.Replace(":", "_");
         }
 
-        // Write method output to the output files folder.
+        // Write method output toohello output files folder.
         private static void WriteToFile(string outFilePath, string fileContent)
         {
             StreamWriter sr = File.CreateText(outFilePath);
@@ -613,14 +613,14 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
 
         private static IJob GetJob(CloudMediaContext context, string jobId)
         {
-            // Use a Linq select query to get an updated 
+            // Use a Linq select query tooget an updated 
             // reference by Id. 
             var jobInstance =
                 from j in context.Jobs
                 where j.Id == jobId
                 select j;
 
-            // Return the job reference as an Ijob. 
+            // Return hello job reference as an Ijob. 
             IJob job = jobInstance.FirstOrDefault();
 
             return job;
@@ -628,13 +628,13 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
 
         private static IAsset GetAsset(CloudMediaContext context, string assetId)
         {
-            // Use a LINQ Select query to get an asset.
+            // Use a LINQ Select query tooget an asset.
             var assetInstance =
                 from a in context.Assets
                 where a.Id == assetId
                 select a;
 
-            // Reference the asset as an IAsset.
+            // Reference hello asset as an IAsset.
             IAsset asset = assetInstance.FirstOrDefault();
 
             return asset;
@@ -667,8 +667,8 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
 
         public static void DeleteAccessPolicy(CloudMediaContext context, string existingPolicyId)
         {
-            // To delete a specific access policy, get a reference to the policy.  
-            // based on the policy Id passed to the method.
+            // toodelete a specific access policy, get a reference toohello policy.  
+            // based on hello policy Id passed toohello method.
             var policyInstance =
                     from p in context.AccessPolicies
                     where p.Id == existingPolicyId
@@ -681,7 +681,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
         }
 
         //////////////////////////////////////////////////////
-        /// The following methods use REST calls.
+        /// hello following methods use REST calls.
         //////////////////////////////////////////////////////
 
         public static string GetAcsBearerToken(string clientId, string clientSecret, string scope, string accessControlServiceUri)
@@ -797,7 +797,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                 switch (response.StatusCode)
                 {
                     case HttpStatusCode.MovedPermanently:
-                        //Recurse once with the mediaServicesApiServerUri redirect Location:
+                        //Recurse once with hello mediaServicesApiServerUri redirect Location:
                         if (autoRedirect)
                         {
                             redirectedMediaServicesApiServerUri = response.Headers["Location"];
@@ -809,7 +809,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
                         }
                         else
                         {
-                            Console.WriteLine("Redirection to {0} failed.",
+                            Console.WriteLine("Redirection too{0} failed.",
                                 mediaServicesApiServerUri);
                             return null;
                         }
@@ -940,7 +940,7 @@ In deze sectie maakt u de mogelijkheid voor het afhandelen van redundantie.
         }
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt nu een traffic manager gebruiken om te routeren aanvragen tussen twee datacentra en dus failover in geval van eventuele uitval.
+U kunt nu een traffic manager tooroute aanvragen tussen twee datacentra hello gebruiken en dus failover in geval van eventuele uitval.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

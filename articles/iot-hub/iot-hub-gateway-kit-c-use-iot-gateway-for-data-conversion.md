@@ -1,6 +1,6 @@
 ---
-title: Gegevensconversie op IoT gateway met Azure IoT rand | Microsoft Docs
-description: IoT gateway gebruiken voor het converteren van de indeling van sensorgegevens via een aangepaste module vanaf Azure IoT rand.
+title: conversie van aaaData bij IoT gateway met Azure IoT rand | Microsoft Docs
+description: Gebruik IoT gateway tooconvert Hallo-indeling van sensorgegevens via een aangepaste module op basis van Azure IoT rand.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,88 +15,88 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.openlocfilehash: d5c735a4adbc59e9526ec4fd40720c5ec136d63d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ae94b1f96f36dfcb4f77fadc0ece3cff3d0bba91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Gebruik IoT gateway voor gegevenstransformatie sensor met Azure IoT rand
 
 > [!NOTE]
-> Voordat u deze zelfstudie begint, zorg er dan voor dat u hebt de volgende uitkomsten voltooid in volgorde:
+> Voordat u deze zelfstudie begint, zorg er dan voor dat u bent voltooide Hallo uitkomsten in de juiste volgorde te volgen:
 > * [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-> * [Gebruik IoT gateway dingen verbinding met de cloud - SensorTag met Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+> * [Gebruik IoT gateway tooconnect dingen toohello cloud - SensorTag tooAzure IoT-Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-Een doel van een Iot-gateway is verzamelde gegevens verwerken voordat deze naar de cloud verzonden. Azure IoT-rand introduceert modules die kunnen worden gemaakt en om de werkstroom gegevensverwerking samengesteld. Een module een bericht ontvangt, voert een bepaalde actie op deze en vervolgens voor andere modules verwerken op verplaatsen.
+Een doel van een Iot-gateway is tooprocess verzamelde gegevens voordat u deze toohello cloud verzendt. Azure IoT-rand introduceert modules die gemaakt en gemonteerd tooform Hallo gegevensverwerking werkstroom worden kunnen. Een module een bericht ontvangt, voert een bepaalde actie op deze en vervolgens voor andere modules tooprocess op verplaatsen.
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-U informatie over het maken van een module berichten uit de SensorTag converteren naar een andere indeling.
+U leert hoe een module tooconvert toocreate van berichten van Hallo SensorTag naar een andere indeling.
 
 ## <a name="what-you-do"></a>Wat u doet
 
-* Maakt een module voor het converteren van een ontvangen bericht naar de .json-indeling.
-* De module worden gecompileerd.
-* De module toevoegen aan de voorbeeldtoepassing uitschakelen vanaf Azure IoT rand.
-* De voorbeeldtoepassing uitvoert.
+* Maak een module tooconvert een ontvangen bericht naar Hallo .json-indeling.
+* Hallo-module niet compileren.
+* Hallo module toohello uitschakelen-voorbeeldtoepassing uit Azure IoT rand toevoegen.
+* Hallo-voorbeeldtoepassing uitvoeren.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-* De volgende zelfstudies in de reeks voltooid:
+* Hallo voltooid in de reeks zelfstudies te volgen:
   * [Intel NUC instellen als IoT-gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-  * [Gebruik IoT gateway dingen verbinding met de cloud - SensorTag met Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+  * [Gebruik IoT gateway tooconnect dingen toohello cloud - SensorTag tooAzure IoT-Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 * Een SSH-client die wordt uitgevoerd op de hostcomputer. PuTTY wordt aanbevolen voor Windows. Linux- en Mac OS al worden geleverd met een SSH-client.
-* Het IP-adres en de gebruikersnaam en wachtwoord voor toegang tot de gateway van de SSH-client.
+* Hallo IP-adres en Hallo gebruikersnaam en wachtwoord tooaccess Hallo gateway vanuit Hallo SSH-client.
 * Een internetverbinding.
 
 ## <a name="create-a-module"></a>Een module maken
 
-1. De SSH-client wordt uitgevoerd op de hostcomputer en maak verbinding met de IoT-gateway.
-1. Kloon de bronbestanden van de module conversie vanuit GitHub naar de basismap van de IoT-gateway met de volgende opdrachten:
+1. Op de hostcomputer Hallo Hallo SSH-client wordt uitgevoerd en verbinding maken met toohello IoT gateway.
+1. Hallo-bronbestanden van Hallo conversie module op basis van GitHub toohello-basismappen van Hallo IoT gateway door het uitvoeren van de volgende opdrachten Hallo klonen:
 
    ```bash
    cd ~
    git clone https://github.com/Azure-Samples/iot-hub-c-intel-nuc-gateway-customized-module.git
    ```
 
-   Dit is een systeemeigen Azure Edge-module, geschreven in de programmeertaal. De module wordt de indeling van ontvangen berichten geconverteerd naar het volgende:
+   Dit is een systeemeigen Azure rand module, geschreven in Hallo programmeertaal. Hallo-indeling van ontvangen berichten converteert Hallo module naar Hallo volgt:
 
    ```json
    {"deviceId": "Intel NUC Gateway", "messageId": 0, "temperature": 0.0}
    ```
 
-## <a name="compile-the-module"></a>De module niet compileren
+## <a name="compile-hello-module"></a>Hallo-module niet compileren
 
-Samengesteld op basis van de module, voer de volgende opdrachten:
+toocompile Hallo-module, Hallo volgende opdrachten uitvoeren:
 
 ```bash
 cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
-# change the build script runnable
+# change hello build script runnable
 chmod 777 build.sh
-# remove the invalid windows character
+# remove hello invalid windows character
 sed -i -e "s/\r$//" build.sh
-# run the build shell script
+# run hello build shell script
 ./build.sh
 ```
 
-U krijgt een `libmy_module.so` bestand nadat het compileren is voltooid. Noteer het absolute pad van dit bestand.
+U krijgt een `libmy_module.so` bestand nadat Hallo compileren is voltooid. Noteer Hallo absolute pad van dit bestand.
 
-## <a name="add-the-module-to-the-ble-sample-application"></a>De module toevoegen aan de voorbeeldtoepassing uitschakelen
+## <a name="add-hello-module-toohello-ble-sample-application"></a>Hallo module toohello uitschakelen voorbeeld van een toepassing toevoegen
 
-1. Ga naar de map samples met de volgende opdracht:
+1. Map met voorbeelden toohello gaan door het uitvoeren van de volgende opdracht Hallo:
 
    ```bash
    cd /usr/share/azureiotgatewaysdk/samples
    ```
 
-1. Open het configuratiebestand met de volgende opdracht:
+1. Hallo-configuratiebestand openen door het uitvoeren van de volgende opdracht Hallo:
 
    ```bash
    vi ble_gateway.json
    ```
 
-1. Een module toevoegen door het invoegen van de volgende code naar de `modules` sectie.
+1. Een module toevoegen door het invoegen van de volgende code toohello Hallo `modules` sectie.
 
    ```json
    {
@@ -111,8 +111,8 @@ U krijgt een `libmy_module.so` bestand nadat het compileren is voltooid. Noteer 
     },
     ```
 
-1. Vervang `[Your libmy_module.so path]` in de code met het absolute pad van de libmy_module.so' bestand.
-1. Vervang de code in de `links` sectie met de volgende:
+1. Vervang `[Your libmy_module.so path]` in code met het absolute pad van Hallo libmy_module.so Hallo Hallo ' bestand.
+1. Vervang de code Hallo in Hallo `links` sectie Hello volgt:
 
    ```json
    {
@@ -125,18 +125,18 @@ U krijgt een `libmy_module.so` bestand nadat het compileren is voltooid. Noteer 
    }
    ```
 
-1. Druk op `ESC`, en typ vervolgens `:wq` het bestand wilt opslaan.
+1. Druk op `ESC`, en typ vervolgens `:wq` toosave Hallo-bestand.
 
-## <a name="run-the-sample-application"></a>De voorbeeldtoepassing uitvoeren
+## <a name="run-hello-sample-application"></a>Hallo-voorbeeldtoepassing uitvoeren
 
-1. Zet de SensorTag.
-1. De omgevingsvariabele SSL_CERT_FILE instellen met de volgende opdracht:
+1. Hallo SensorTag inschakelen.
+1. Hallo SSL_CERT_FILE omgevingsvariabele door het uitvoeren van de volgende opdracht Hallo instellen:
 
    ```bash
    export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
    ```
 
-1. Voer de voorbeeldtoepassing met de toegevoegde module met de volgende opdracht:
+1. Voer Hallo voorbeeldtoepassing met toegevoegde module Hallo door het uitvoeren van de volgende opdracht Hallo:
 
    ```bash
    ./ble_gateway ble_gateway.json
@@ -144,6 +144,6 @@ U krijgt een `libmy_module.so` bestand nadat het compileren is voltooid. Noteer 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt de IoT-gateway is het bericht uit de SensorTag converteren naar de .json-indeling gebruiken.
+U hebt gebruikt Hallo IoT gateway tooconvert Hallo-bericht van SensorTag naar Hallo .json-indeling.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

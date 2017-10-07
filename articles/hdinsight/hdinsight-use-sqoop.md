@@ -1,6 +1,6 @@
 ---
-title: Apache Sqoop taken uitvoeren met Azure HDInsight (Hadoop) | Microsoft Docs
-description: Informatie over het gebruik van Azure PowerShell vanaf een werkstation voor het uitvoeren van Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
+title: Apache Sqoop aaaRun voor taken met een Azure HDInsight (Hadoop) | Microsoft Docs
+description: Informatie over hoe Azure PowerShell toouse van een werkstation toorun Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -17,34 +17,34 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8e77153493b6f37f5f48116b86bad6b25a50d1a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bdac507704937d77921c9c13d70aa2434c7e3be4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informatie over het Sqoop in HDInsight gebruiken om te importeren en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
+Meer informatie over hoe toouse Sqoop in HDInsight tooimport en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
 
-Hoewel Hadoop een natuurlijke keuze voor het verwerken van ongestructureerde en semigestructureerde gegevens, zoals Logboeken en bestanden, is er mogelijk ook nodig om gestructureerde gegevens die zijn opgeslagen in de relationele databases te verwerken.
+Hoewel Hadoop een natuurlijke keuze voor het verwerken van ongestructureerde en semigestructureerde gegevens, zoals Logboeken en bestanden, is er mogelijk ook een noodzaak tooprocess gestructureerde gegevens die zijn opgeslagen in de relationele databases.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] is een hulpprogramma waarmee gegevens worden overgebracht tussen Hadoop-clusters en relationele databases. U kunt deze gebruiken om gegevens te importeren uit een relationele databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in het Hadoop distributed file system (HDFS), de gegevens in Hadoop met MapReduce of Hive transformeren en de gegevens vervolgens exporteren naar een RDBMS. In deze zelfstudie maakt u een SQL Server-database gebruikt voor de relationele database.
+[Sqoop] [ sqoop-user-guide-1.4.4] is een hulpprogramma waarmee u tootransfer gegevens tussen Hadoop-clusters en relationele databases. U kunt deze tooimport gegevens uit een relationele databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in Hallo Hadoop distributed file system (HDFS) gegevens in Hadoop met MapReduce of Hive Hallo transformeren en vervolgens exporteren Hallo gegevens terug in een RDBMS. In deze zelfstudie maakt u een SQL Server-database gebruikt voor de relationele database.
 
-Zie voor versies die worden ondersteund op HDInsight-clusters Sqoop [wat is er nieuw in de clusterversies geleverd door HDInsight?][hdinsight-versions]
+Zie voor versies die worden ondersteund op HDInsight-clusters Sqoop [wat is er nieuw in Hallo-clusterversies geleverd door HDInsight?][hdinsight-versions]
 
-## <a name="understand-the-scenario"></a>Inzicht in het scenario
+## <a name="understand-hello-scenario"></a>Hallo scenario begrijpen
 
-HDInsight-cluster wordt geleverd met voorbeeldgegevens. U gebruikt de volgende twee voorbeelden:
+HDInsight-cluster wordt geleverd met voorbeeldgegevens. U na twee voorbeelden hello gebruiken:
 
-* Een logboekbestand log4j, bevindt zich op */example/data/sample.log*. De volgende logboeken worden opgehaald uit het bestand:
+* Een logboekbestand log4j, bevindt zich op */example/data/sample.log*. Hallo na logboeken worden opgehaald uit bestand Hallo:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
-* Een Hive-tabel met de naam *hivesampletable*, die verwijst naar het bestand zich bevindt op */hive/warehouse/hivesampletable*. De tabel bevat de gegevens van sommige mobiele apparaten. 
+* Een Hive-tabel met de naam *hivesampletable*, die verwijzingen Hallo gegevensbestand zich bevindt op */hive/warehouse/hivesampletable*. Hallo tabel bevat de gegevens van sommige mobiele apparaten. 
   
   | Veld | Gegevenstype |
   | --- | --- |
@@ -60,86 +60,86 @@ HDInsight-cluster wordt geleverd met voorbeeldgegevens. U gebruikt de volgende t
   | sessie-id |bigint |
   | sessionpagevieworder |bigint |
 
-Exporteer eerst *sample.log* en *hivesampletable* aan de Azure SQL database of SQL Server en vervolgens importeren in de tabel met de gegevens van het mobiele apparaat terug naar HDInsight met behulp van het volgende pad:
+Exporteer eerst *sample.log* en *hivesampletable* toohello Azure SQL database of Server tooSQL en importtabel Hallo Hallo gegevens op mobiele apparaten met back-tooHDInsight met behulp van Hallo volgende pad:
 
     /tutorials/usesqoop/importeddata
 
 ## <a name="create-cluster-and-sql-database"></a>Cluster- en SQL-database maken
-Deze sectie wordt beschreven hoe u een cluster, een SQL-Database en de SQL-database schema's voor het uitvoeren van de zelfstudie met behulp van de Azure-portal en een Azure Resource Manager-sjabloon maken. De sjabloon kan worden gevonden in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). De Resource Manager-sjabloon roept een Bacpac-pakket voor het implementeren van het tabelschema met SQL-database.  Het Bacpac-pakket bevindt zich in een openbare blobcontainer, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Als u een persoonlijke container gebruiken voor het Bacpac-bestanden wilt, gebruikt u de volgende waarden in de sjabloon:
+Deze sectie leest u hoe toocreate een cluster, een SQL-Database en Hallo SQL database, schema voor het actieve Hallo zelfstudie gebruik hello Azure portal en een Azure Resource Manager-sjabloon. Hallo-sjabloon kunt u vinden in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Hallo Resource Manager-sjabloon roept een Bacpac-pakket toodeploy Hallo tabel schema's tooSQL-database.  Hallo Bacpac-pakket bevindt zich in een openbare blobcontainer, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Als u toouse een privé-container voor Hallo Bacpac-bestanden wilt, gebruikt u Hallo waarden in de sjabloon hello te volgen:
    
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
 
-Als u liever Azure PowerShell gebruiken voor het maken van het cluster en de SQL-Database, Zie [bijlage A](#appendix-a---a-powershell-sample).
+Als u liever toouse Azure PowerShell toocreate Hallo cluster en Hallo SQL-Database, Zie [bijlage A](#appendix-a---a-powershell-sample).
 
-1. Klik op de volgende afbeelding om te openen van een Resource Manager-sjabloon in de Azure portal.         
+1. Klik op Hallo installatiekopie tooopen Resource Manager-sjabloon in hello Azure-portal te volgen.         
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy tooAzure"></a>
    
 
-2. Voer de volgende eigenschappen:
+2. Voer de volgende eigenschappen Hallo:
 
     - **Abonnement**: Voer uw Azure-abonnement.
     - **Resourcegroep**: Maak een nieuwe Azure-resourcegroep of Selecteer een bestaande resourcegroep.  Een resourcegroep is voor management doel.  Er is een container voor objecten.
     - **Locatie**: Selecteer een regio.
-    - **Clusternaam**: Voer een naam voor het Hadoop-cluster.
-    - **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
+    - **Clusternaam**: Voer een naam voor Hallo Hadoop-cluster.
+    - **Cluster-aanmeldingsnaam en wachtwoord**: Hallo standaardaanmeldnaam is admin.
     - **SSH-aanmeldgegevens**.
     - **SQL server-aanmeldingsnaam en wachtwoord van de database**.
-    - **_artifacts locatie**: Gebruik de standaardwaarde, tenzij u het gebruik van uw eigen backpac-bestand in een andere locatie wilt wijzigen.
+    - **_artifacts locatie**: Hallo standaardwaarde gebruikt, tenzij u uw eigen backpac-bestand op een andere locatie toouse wilt.
     - **locatie Sas-Token _artifacts**: laat dit veld leeg.
-    - **De bestandsnaam Bacpac-**: Gebruik de standaardwaarde, tenzij u wilt gebruiken van uw eigen backpac-bestand.
+    - **De bestandsnaam Bacpac-**: Hallo standaardwaarde gebruikt, tenzij u uw eigen bestand backpac toouse wilt.
      
-     De volgende waarden zijn vastgelegd in het gedeelte variabelen:
+     Hallo volgende waarden zijn vastgelegd in de sectie met sjabloonvariabelen Hallo:
      
      | Naam van het standaardopslagaccount | <CluterName>opslaan |
      | --- | --- |
      | Azure SQL database-servernaam |<ClusterName>dbserver |
      | Naam van een Azure SQL-database |<ClusterName>DB |
      
-     Noteer deze waarden.  U hebt ze later in de zelfstudie nodig.
+     Noteer deze waarden.  U moet ze later in de zelfstudie Hallo.
 
-3. Klik op **OK** om de parameters op te slaan.
+3. Klik op **OK** toosave Hallo parameters.
 
-4. Klik vanuit de blade **Aangepaste implementatie** op de vervolgkeuzelijst **Resourcegroep**. Klik vervolgens op **Nieuw** om een nieuwe resourcegroep te maken. De resourcegroep is een container waarin het cluster, het afhankelijke opslagaccount en andere gekoppelde resources zijn gegroepeerd.
+4. Klik vanuit Hallo **aangepaste implementatie** blade, klikt u op **resourcegroep** dropdown vak en klik vervolgens op **nieuw** toocreate een nieuwe resourcegroep. Hallo-resourcegroep is een container waarin Hallo-cluster, Hallo afhankelijke opslagaccount en andere gekoppelde resources zijn gegroepeerd.
 
 5. Klik op **Juridische voorwaarden** en vervolgens op **Maken**.
 
-6. Klik op **Maken**. U ziet een nieuwe tegel met de titel implementatie indienen voor sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster en de SQL-database te maken.
+6. Klik op **Maken**. U ziet een nieuwe tegel met de titel implementatie indienen voor sjabloonimplementatie. Het duurt ongeveer 20 minuten toocreate Hallo cluster en de SQL-database.
 
-Als u ervoor kiest om bestaande Azure SQL database of Microsoft SQL Server te gebruiken
+Als u ervoor toouse bestaande Azure SQL database of Microsoft SQL Server kiest
 
-* **Azure SQL-database**: U moet een firewallregel voor de Azure SQL database-server toegang toestaan via uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. 
+* **Azure SQL-database**: U moet een firewallregel voor toegang tot de Azure SQL database-server tooallow Hallo configureren vanuit uw werkstation. Zie voor instructies over het maken van een Azure SQL database en configureren van Hallo firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Standaard kan een Azure SQL database verbindingen van Azure-services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u het inschakelen van de Azure-portal. Zie voor instructies over het maken van een Azure SQL database en firewallregels configureren [maken en configureren van de SQL-Database][sqldatabase-create-configue].
+  > Standaard kan een Azure SQL database verbindingen van Azure-services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u tooenable uit hello Azure-portal. Zie voor instructies over het maken van een Azure SQL database en firewallregels configureren [maken en configureren van de SQL-Database][sqldatabase-create-configue].
   > 
   > 
-* **SQL Server**: als uw HDInsight-cluster zich op hetzelfde virtuele netwerk in Azure SQL-Server, kunt u de stappen in dit artikel gebruiken om te importeren en exporteren van gegevens naar een SQL Server-database.
+* **SQL Server**: als uw HDInsight-cluster op Hallo hetzelfde virtuele netwerk in Azure SQL-Server, kunt u Hallo stappen in dit artikel tooimport en exporteren van gegevens tooa SQL Server-database.
   
   > [!NOTE]
   > HDInsight ondersteunt alleen op basis van locatie virtuele netwerken en het werkt momenteel niet met virtuele netwerken op basis van een affiniteitsgroep.
   > 
   > 
   
-  * Als u wilt maken en configureren van een virtueel netwerk, Zie [een virtueel netwerk maken met de Azure-portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+  * toocreate en een virtueel netwerk configureren, Zie [een virtueel netwerk maken met Azure-portal Hallo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
     
-    * Wanneer u SQL Server in uw datacenter gebruikt, moet u het virtuele netwerk als configureren *site-naar-site* of *punt-naar-site*.
+    * Wanneer u SQL Server in uw datacenter gebruikt, moet u configureren Hallo virtuele netwerk als *site-naar-site* of *punt-naar-site*.
       
       > [!NOTE]
-      > Voor **punt-naar-site** virtuele netwerken, SQL Server moeten worden uitgevoerd de VPN-client configuration toepassing, die beschikbaar via is de **Dashboard** van de configuratie van uw virtuele Azure-netwerk.
+      > Voor **punt-naar-site** virtuele netwerken, SQL Server moeten worden uitgevoerd Hallo VPN-client configuration toepassing, die beschikbaar via Hallo is **Dashboard** van de configuratie van uw virtuele Azure-netwerk.
       > 
       > 
-    * Wanneer u SQL Server op Azure een virtuele machine gebruikt, kan de configuratie van een virtueel netwerk worden gebruikt als de virtuele machine die als host fungeert voor SQL Server een lid van hetzelfde virtuele netwerk als HDInsight.
-  * Zie voor informatie over het maken van een HDInsight-cluster op een virtueel netwerk [maken Hadoop-clusters in HDInsight met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md)
+    * Wanneer u SQL Server op Azure een virtuele machine gebruikt, de configuratie van een virtueel netwerk kan worden gebruikt als Hallo virtuele machine die als host fungeert voor SQL Server deel uit van Hallo maakt hetzelfde virtuele netwerk als HDInsight.
+  * Zie toocreate een HDInsight-cluster op een virtueel netwerk [maken Hadoop-clusters in HDInsight met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
-    > SQL Server moet ook authenticatie toestaan. Een SQL Server-aanmelding moet u de stappen in dit artikel.
+    > SQL Server moet ook authenticatie toestaan. U moet een SQL-Server aanmelding toocomplete Hallo in dit artikel stappen gebruiken.
     > 
     > 
 
 ## <a name="run-sqoop-jobs"></a>Sqoop taken uitvoeren
-HDInsight kunt Sqoop taken uitvoeren met behulp van een aantal methoden. Gebruik de volgende tabel om te bepalen welke methode is geschikt voor u en volg de koppeling voor een overzicht.
+HDInsight kunt Sqoop taken uitvoeren met behulp van een aantal methoden. Gebruik Hallo tabel toodecide methode die geschikt voor u is te volgen en Hallo-koppeling voor de procedure volgen.
 
 | **Gebruik deze** als u wilt dat... | .. .an **interactieve** shell | ... **batch** verwerken | .. .door dit **cluster-besturingssysteem** | .. .from dit **clientbesturingssysteem** |
 |:--- |:---:|:---:|:--- |:--- |
@@ -148,26 +148,26 @@ HDInsight kunt Sqoop taken uitvoeren met behulp van een aantal methoden. Gebruik
 | [Azure PowerShell](hdinsight-hadoop-use-sqoop-powershell.md) |&nbsp; |✔ |Linux- of Windows |Windows |
 
 ## <a name="limitations"></a>Beperkingen
-* Bulksgewijs export - met Linux gebaseerde HDInsight, de Sqoop-connector gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
-* Batchverwerking - met HDInsight op basis van Linux, wanneer u de `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van de bewerkingen insert batchverwerking wordt uitgevoerd.
+* Bulk-export - met Linux gebaseerde HDInsight, Hallo Sqoop connector die wordt gebruikt tooexport gegevens tooMicrosoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
+* Batchverwerking - met HDInsight op basis van Linux bij gebruik van Hallo `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van batchverwerking Hallo insert-bewerkingen uitvoert.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu hebt u geleerd hoe Sqoop gebruiken. Voor meer informatie zie:
+Nu u hebt geleerd hoe toouse Sqoop. toolearn meer, Zie:
 
 * [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
 * [Pig gebruiken met HDInsight](hdinsight-use-pig.md)
 * [Oozie gebruiken met HDInsight][hdinsight-use-oozie]: Sqoop gebruiken in een werkstroom Oozie in te grijpen.
-* [Vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-data]: Hive gebruiken voor het analyseren van vlucht gegevens uit te stellen en vervolgens Sqoop gebruiken om gegevens te exporteren naar een Azure SQL database.
-* [Gegevens uploaden naar HDInsight][hdinsight-upload-data]: vinden van andere methoden voor het uploaden van gegevens naar HDInsight/Azure Blob-opslag.
+* [Vertraging vluchtgegevens met HDInsight analyseren][hdinsight-analyze-flight-data]: tooanalyze vlucht Hive gebruiken gegevens uit te stellen en vervolgens Sqoop tooexport tooan Azure SQL database te gebruiken.
+* [Uploaden van gegevens tooHDInsight][hdinsight-upload-data]: vinden van andere methoden voor het uploaden van gegevens tooHDInsight/Azure Blob-opslag.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Bijlage A - een PowerShell-voorbeeld
-De PowerShell-voorbeeld voert de volgende stappen uit:
+Hallo PowerShell-voorbeeld voert Hallo stappen te volgen:
 
-1. Verbinding maken met Azure.
+1. Verbinding maken met tooAzure.
 2. Maak een Azure-resourcegroep. Zie voor meer informatie [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md)
 3. Een Azure SQL Database-server, een Azure SQL database en twee tabellen maken. 
    
-    Als u SQL Server in plaats daarvan gebruikt, gebruikt u de volgende instructies om de tabellen te maken:
+    Als u SQL Server in plaats daarvan gebruiken, gebruikt u Hallo instructies toocreate Hallo tabellen na:
    
         CREATE TABLE [dbo].[log4jlogs](
          [t1] [nvarchar](50),
@@ -191,41 +191,41 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
          [sessionid] [bigint],
          [sessionpagevieworder][bigint])
    
-    De eenvoudigste manier om te onderzoeken van de database en tabellen is Visual Studio gebruiken. De databaseserver en de database kunnen worden gecontroleerd met de Azure-portal.
+    Hallo gemakkelijkste manier tooexamine Hallo database en tabellen is toouse Visual Studio. Hallo-databaseserver en hello database kunnen worden gecontroleerd met hello Azure-portal.
 4. Maak een HDInsight-cluster.
    
-    Als u wilt onderzoeken van het cluster, kunt u de Azure portal of Azure PowerShell.
-5. Het bronbestand van de gegevens vooraf verwerken.
+    tooexamine hello cluster, kunt u hello Azure-portal of Azure PowerShell gebruiken.
+5. Hallo brongegevensbestand vooraf verwerken.
    
-    In deze zelfstudie maakt u een een logboekbestand log4j (een bestand met scheidingstekens) en een Hive-tabel exporteren naar een Azure SQL database. Het bestand met scheidingstekens heet */example/data/sample.log*. Eerder in de zelfstudie hebt u enkele voorbeelden van log4j logboeken gezien. In het logboekbestand zijn er enkele lege regels en sommige regels zoals de volgende:
+    In deze zelfstudie maakt exporteren u een logboekbestand log4j (een bestand met scheidingstekens) en een Hive-tabel tooan Azure SQL database. Hallo gescheiden bestand heet */example/data/sample.log*. Eerder in Hallo-zelfstudie hebt u enkele voorbeelden van log4j logboeken gezien. Hallo-logboekbestand zijn sommige lege regels en sommige regels vergelijkbare toothese:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    Dit is andere voorbeelden die deze gegevens gebruiken, maar deze uitzonderingen moet worden verwijderd voordat we in de Azure SQL-database of SQL Server kunt importeren. Sqoop exporteren niet worden uitgevoerd als er een lege tekenreeks of een regel met een minder-elementen dan het aantal velden die zijn gedefinieerd in de Azure SQL database-tabel. De tabel log4jlogs heeft 7 type string-velden.
+    Dit is andere voorbeelden die deze gegevens gebruiken, maar deze uitzonderingen moet worden verwijderd voordat we in hello Azure SQL database of SQL Server kunt importeren. Sqoop exporteren niet worden uitgevoerd als er een lege tekenreeks of een regel met een minder-elementen dan het aantal velden in Azure SQL-databasetabel Hallo Hallo. Hallo log4jlogs tabel heeft 7 type string-velden.
    
-    Deze procedure maakt u een nieuw bestand op het cluster: tutorials/usesqoop/data/sample.log. Als u wilt onderzoeken het gewijzigde bestand, kunt u de Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell. [Aan de slag met HDInsight] [ hdinsight-get-started] is een voorbeeld van code voor het gebruik van Azure PowerShell te downloaden van een bestand en inhoud van het bestand weer te geven.
-6. Een gegevensbestand exporteren naar de Azure SQL database.
+    Deze procedure maakt u een nieuw bestand op Hallo-cluster: tutorials/usesqoop/data/sample.log. tooexamine hello gewijzigde gegevensbestand, kunt u hello Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell. [Aan de slag met HDInsight] [ hdinsight-get-started] heeft een code voorbeeld voor het gebruik van Azure PowerShell toodownload een bestand en de bestandsinhoud Hallo weer te geven.
+6. Exporteren van een bestand toohello Azure SQL-database.
    
-    Het bronbestand is tutorials/usesqoop/data/sample.log. De tabel waar de gegevens worden geëxporteerd naar heet log4jlogs.
+    Hallo-bronbestand is tutorials/usesqoop/data/sample.log. Hallo tabel Hallo gegevens geëxporteerde toois log4jlogs genoemd.
    
    > [!NOTE]
-   > Anders dan de verbindingsinformatie werken de stappen in deze sectie moeten voor een Azure SQL database of SQL Server. Deze stappen zijn getest met behulp van de volgende configuratie:
+   > Hallo stappen in deze sectie moeten dan de verbindingsinformatie samenwerken voor een Azure SQL database of SQL Server. Deze stappen zijn getest met behulp van Hallo volgende configuratie:
    > 
-   > * **Punt-naar-site-configuratie voor virtuele Azure-netwerk**: een virtueel netwerk het HDInsight-cluster verbonden met een SQL-Server in een particulier datacenter. Zie [een punt-naar-Site-VPN configureren in de beheerportal](../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
+   > * **Punt-naar-site-configuratie voor virtuele Azure-netwerk**: een virtueel netwerk verbonden Hallo HDInsight-cluster tooa SQL Server in een particulier datacenter. Zie [een punt-naar-Site-VPN configureren in Hallo-beheerportal](../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
    > * **Azure HDInsight 3.1**: Zie [maken Hadoop-clusters in HDInsight met aangepaste opties](hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster in een virtueel netwerk.
-   > * **SQL Server 2014**: is geconfigureerd voor verificatie en de VPN-client uitgevoerd configuratiepakket naar een veilige verbinding met het virtuele netwerk toestaan.
+   > * **SQL Server 2014**: tooallow verificatie en actieve Hallo VPN-client configuration pakket tooconnect veilig geconfigureerd toohello virtueel netwerk.
    > 
    > 
-7. Een Hive-tabel exporteren naar de Azure SQL database.
-8. De tabel mobiledata importeren naar het HDInsight-cluster.
+7. Exporteren van een Hive-tabel toohello Azure SQL database.
+8. Importeer Hallo mobiledata tabel toohello HDInsight-cluster.
    
-    Als u wilt onderzoeken het gewijzigde bestand, kunt u de Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell.  [Aan de slag met HDInsight] [ hdinsight-get-started] is een voorbeeld van code over het gebruik van Azure PowerShell te downloaden van een bestand en inhoud van het bestand weer te geven.
+    tooexamine hello gewijzigde gegevensbestand, kunt u hello Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell.  [Aan de slag met HDInsight] [ hdinsight-get-started] heeft een code voorbeeld over het gebruik van Azure PowerShell toodownload een bestand en de bestandsinhoud Hallo weer te geven.
 
-### <a name="the-powershell-sample"></a>De PowerShell-voorbeeld
-    # Prepare an Azure SQL database to be used by the Sqoop tutorial
+### <a name="hello-powershell-sample"></a>Hallo PowerShell-voorbeeld
+    # Prepare an Azure SQL database toobe used by hello Sqoop tutorial
 
-    #region - provide the following values
+    #region - provide hello following values
 
     $subscriptionID = "<Enter your Azure Subscription ID>"
 
@@ -292,8 +292,8 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
     # Treat all errors as terminating
     $ErrorActionPreference = "Stop"
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    #region - Connect tooAzure subscription
+    Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{Login-AzureRmAccount}
     #endregion
@@ -334,8 +334,8 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
             -StartIpAddress $workstationIPAddress `
             -EndIpAddress $workstationIPAddress
 
-        #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
-        #Note that this allows Azure traffic from any Azure subscription to access the server.
+        #tooallow other Azure services tooaccess hello server add a firewall rule and set both hello StartIpAddress and EndIpAddress too0.0.0.0. 
+        #Note that this allows Azure traffic from any Azure subscription tooaccess hello server.
         New-AzureRmSqlServerFirewallRule `
             -ResourceGroupName $resourceGroupName `
             -ServerName $sqlDatabaseServerName `
@@ -368,13 +368,13 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
     #endregion
 
     #region - Create tables
-    Write-Host "Creating the log4jlogs table and the mobiledata table ..." -ForegroundColor Green
+    Write-Host "Creating hello log4jlogs table and hello mobiledata table ..." -ForegroundColor Green
 
     $conn = New-Object System.Data.SqlClient.SqlConnection
     $conn.ConnectionString = $sqlDatabaseConnectionString
     $conn.Open()
 
-    # Create the log4jlogs table and index
+    # Create hello log4jlogs table and index
     $cmd = New-Object System.Data.SqlClient.SqlCommand
     $cmd.Connection = $conn
     $cmd.CommandText = $cmdCreateLog4jTable
@@ -382,7 +382,7 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
     $cmd.CommandText = $cmdCreateLog4jClusteredIndex
     $cmd.ExecuteNonQuery()
 
-    # Create the mobiledata table and index
+    # Create hello mobiledata table and index
     $cmd.CommandText = $cmdCreateMobileTable
     $cmd.ExecuteNonQuery()
     $cmd.CommandText = $cmdCreateMobileDataClusteredIndex
@@ -395,16 +395,16 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
 
     #region - Create HDInsight cluster
 
-    Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
+    Write-Host "Creating hello HDInsight cluster and hello dependent services ..." -ForegroundColor Green
 
-    # Create the default storage account
+    # Create hello default storage account
     New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_LRS
 
-    # Create the default Blob container
+    # Create hello default Blob container
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
@@ -415,7 +415,7 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
         -Name $defaultBlobContainerName `
         -Context $defaultStorageAccountContext 
 
-    # Create the HDInsight cluster
+    # Create hello HDInsight cluster
     $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
     $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
 
@@ -431,47 +431,47 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
         -DefaultStorageAccountKey $defaultStorageAccountKey `
         -DefaultStorageContainer $defaultBlobContainerName 
 
-    # Validate the cluster
+    # Validate hello cluster
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
     #endregion
 
-    #region - pre-process the source file
+    #region - pre-process hello source file
 
-    Write-Host "Preprocessing the source file ..." -ForegroundColor Green
+    Write-Host "Preprocessing hello source file ..." -ForegroundColor Green
 
     # This procedure creates a new file with $destBlobName
     $sourceBlobName = "example/data/sample.log"
     $destBlobName = "tutorials/usesqoop/data/sample.log"
 
-    # Define the connection string
+    # Define hello connection string
     $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
 
-    # Create block blob objects referencing the source and destination blob.
+    # Create block blob objects referencing hello source and destination blob.
     $storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
     $storageClient = $storageAccount.CreateCloudBlobClient();
     $storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
     $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
     $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
 
-    # Define a MemoryStream and a StreamReader for reading from the source file
+    # Define a MemoryStream and a StreamReader for reading from hello source file
     $stream = New-Object System.IO.MemoryStream
     $stream = $sourceBlob.OpenRead()
     $sReader = New-Object System.IO.StreamReader($stream)
 
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
+    # Define a MemoryStream and a StreamWriter for writing into hello destination file
     $memStream = New-Object System.IO.MemoryStream
     $writeStream = New-Object System.IO.StreamWriter $memStream
 
-    # Pre-process the source blob
+    # Pre-process hello source blob
     $exString = "java.lang.Exception:"
     while(-Not $sReader.EndOfStream){
         $line = $sReader.ReadLine()
         $split = $line.Split(" ")
 
-        # remove the "java.lang.Exception" from the first element of the array
+        # remove hello "java.lang.Exception" from hello first element of hello array
         # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
         if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
+            #create a new ArrayList tooremove $split[0]
             $newArray = [System.Collections.ArrayList] $split
             $newArray.Remove($exString)
 
@@ -480,23 +480,23 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
             $line = $newArray -join(" ")
         }
 
-        # remove the lines that has less than 7 elements
+        # remove hello lines that has less than 7 elements
         if ($split.count -ge 7){
             write-host $line
             $writeStream.WriteLine($line)
         }
     }
 
-    # Write to the destination blob
+    # Write toohello destination blob
     $writeStream.Flush()
     $memStream.Seek(0, "Begin")
     $destBlob.UploadFromStream($memStream)
 
     #endregion
 
-    #region - export a log file from the cluster to the SQL database
+    #region - export a log file from hello cluster toohello SQL database
 
-    Write-Host "Preprocessing the source file ..." -ForegroundColor Green
+    Write-Host "Preprocessing hello source file ..." -ForegroundColor Green
 
     $tableName_log4j = "log4jlogs"
 

@@ -1,6 +1,6 @@
 ---
-title: Azure diagnostische logboeken ondersteunde Services en schema's | Microsoft Docs
-description: De ondersteunde schema van de services en evenementen voor Azure diagnostische logboeken kennen.
+title: aaaAzure diagnostische logboeken ondersteund Services en schema's | Microsoft Docs
+description: Hallo ondersteund services en het schema van de gebeurtenis voor Azure diagnostische logboeken te begrijpen.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.openlocfilehash: aa4fa6e0310b2725005dfa34e3225c89fb4282d6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3cbf5267e1bd0dc257f4fb4f42c323644046a6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor Azure diagnostische logboeken
 
-[Diagnostische logboeken van Azure-resource](monitoring-overview-of-diagnostic-logs.md) logboeken die door uw Azure-resources die de werking van die bron te beschrijven. Deze logboeken vormen een resourcetype specifieke. In dit artikel, geven we een overzicht op de set ondersteunde services en het schema van de gebeurtenis voor gebeurtenissen die door elke service. Dit artikel bevat ook een volledige lijst met beschikbare logboek categorieën per resourcetype.
+[Diagnostische logboeken van Azure-resource](monitoring-overview-of-diagnostic-logs.md) logboeken die door uw Azure-resources die Hallo-bewerking van de bron beschrijven. Deze logboeken vormen een resourcetype specifieke. In dit artikel, geven we een overzicht op Hallo set ondersteunde services en evenementen schema voor gebeurtenissen die door elke service. Dit artikel bevat ook een volledige lijst met beschikbare logboek categorieën per resourcetype.
 
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>Ondersteunde services en schema's voor resource diagnostische logboeken
-Het schema voor resource diagnostische logboeken varieert, afhankelijk van de bron- en logboekbestanden categorie.   
+Hallo-schema voor resource diagnostische logboeken varieert, afhankelijk van de bron- en logboekbestanden categorie Hallo.   
 
 | Service | Schema & Docs |
 | --- | --- |
@@ -52,12 +52,12 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 ## <a name="supported-log-categories-per-resource-type"></a>Logboek categorieën per resourcetype ondersteund
 |Resourcetype|Category|Weergavenaam van de categorie|
 |---|---|---|
-|Microsoft.ApiManagement/service|GatewayLogs|Logboeken die betrekking hebben op ApiManagement Gateway|
+|Microsoft.ApiManagement/service|GatewayLogs|Logboeken gerelateerde tooApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Taaklogboeken|
 |Microsoft.Automation/automationAccounts|JobStreams|Taak stromen|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status van de DSC-knooppunt|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service-Logboeken|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee haalt u de metrische gegevens van het eindpunt, zoals bandbreedte, uitgaande, enzovoort.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee haalt u Hallo metrische gegevens van het Hallo-eindpunt, zoals bandbreedte, uitgaande, enzovoort.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataLakeAnalytics/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken aanvragen|
@@ -89,6 +89,6 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie over diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
-* [Diagnostische logboeken van de resource te streamen **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Diagnostische instellingen voor bronnen met de REST-API van Azure Monitor wijzigen](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Resource diagnostische logboeken te streamen**Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Resource diagnostische instellingen wijzigen met hello Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Logboeken van de Azure-opslag met logboekanalyse analyseren](../log-analytics/log-analytics-azure-storage.md)

@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub (Node) | Microsoft Docs
-description: Informatie over het verzenden van apparaat-naar-cloud-berichten naar Azure IoT Hub met behulp van IoT SDK's voor Node.js. U maakt gesimuleerde apparaat- en service-apps om uw apparaat te registreren, berichten te verzenden en berichten uit IoT Hub te lezen.
+title: aaaGet de slag met Azure IoT Hub (knooppunt) | Microsoft Docs
+description: Meer informatie over hoe toosend apparaat-naar-cloud-berichten tooAzure IoT Hub met IoT SDK's voor Node.js. Gesimuleerde apparaat en service-apps tooregister uw apparaat maken en berichten uit iothub berichten verzenden.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,64 +15,64 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b27a34c0f1f127628912ad68a002e15cc838b4d0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d0747895365f2359a9c38ea1e85a5881d6efec0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Uw gesimuleerde apparaat verbinding laten maken met uw IoT Hub met Node
+# <a name="connect-your-simulated-device-tooyour-iot-hub-using-node"></a>Verbinding maken met uw gesimuleerde apparaat tooyour iothub met behulp van knooppunt
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Nadat u deze zelfstudie volledig hebt doorlopen, beschikt u over drie Node.js-consoletoepassingen:
+Aan het einde van de Hallo van deze zelfstudie hebt u drie Node.js console apps:
 
-* **CreateDeviceIdentity.js**: deze toepassing maakt een apparaat-id en de bijbehorende beveiligingssleutel waarmee uw gesimuleerde apparaat-app verbonden kan worden.
-* **ReadDeviceToCloudMessages.js**: deze toepassing geeft de telemetrie weer die is verzonden door uw gesimuleerde apparaat-app.
-* **SimulatedDevice.js**: deze toepassing koppelt uw IoT-hub aan de apparaat-id die u eerder hebt gemaakt en verzendt iedere seconde een telemetriebericht via het MQTT-protocol.
+* **CreateDeviceIdentity.js**, die een apparaat-id maakt en gekoppelde beveiliging sleutel tooconnect app op uw gesimuleerde apparaat.
+* **ReadDeviceToCloudMessages.js**, wordt verzonden door uw gesimuleerde apparaattoepassing Hallo-telemetrie.
+* **SimulatedDevice.js**, die tooyour IoT-hub aan Hallo apparaat-id eerder hebt gemaakt, en verzendt een elke tweede met behulp van protocollen MQTT protocol Hallo telemetrie-bericht.
 
 > [!NOTE]
-> Het artikel [Azure IoT-SDK's][lnk-hub-sdks] bevat informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
+> Hallo artikel [Azure IoT SDK's] [ lnk-hub-sdks] bevat informatie over hello Azure IoT SDK's waarmee u toobuild beide toorun toepassingen op apparaten en de back-end van uw oplossing kunt.
 > 
 > 
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+toocomplete in deze zelfstudie, moet u hello te volgen:
 
 * Node.js versie 0.10.x of hoger.
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-U hebt nu uw IoT-hub gemaakt. U hebt de IoT Hub-hostnaam en -verbindingsreeks die u nodig hebt voor de rest van deze zelfstudie.
+U hebt nu uw IoT-hub gemaakt. U hebt Hallo IoT Hub-hostnaam en Hallo IoT Hub-verbindingsreeks moet u toocomplete Hallo rest van deze handleiding.
 
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
-In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id maakt in het identiteitenregister van uw IoT-hub. Een apparaat kan alleen verbinding maken met de IoT Hub als het vermeld staat in het id-register. Zie het gedeelte **Id-register** in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Wanneer u deze consoletoepassing uitvoert, worden er een unieke apparaat-id en sleutel gegenereerd waarmee uw apparaat zichzelf kan identificeren tijdens het verzenden van apparaat-naar-cloud-berichten naar IoT Hub.
+In deze sectie maakt maken u een Node.js-consoletoepassing die een apparaat-id in Hallo identiteitenregister van uw IoT-hub maakt. Een apparaat kan alleen verbinding maken met tooIoT hub als er een vermelding in het identiteitenregister Hallo. Zie voor meer informatie, Hallo **Identiteitsregister** sectie Hallo [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity]. Wanneer u deze consoletoepassing uitvoert, wordt een unieke apparaat-ID gegenereerd en sleutel waarmee het apparaat tooidentify zelf kunt wanneer het apparaat-naar-cloud verzendt berichten tooIoT Hub.
 
-1. Maak een nieuwe lege map met de naam **createdeviceidentity**. In de map **createdeviceidentity** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht te geven. Accepteer alle standaardwaarden:
+1. Maak een nieuwe lege map met de naam **createdeviceidentity**. In Hallo **createdeviceidentity** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. In het opdrachtprompt in de map **createdeviceidentity** voert u de volgende opdracht uit om het **azure-iothub** Service SDK-pakket te installeren:
+2. Bij de opdrachtprompt in Hallo **createdeviceidentity** map na de opdracht tooinstall Hallo Hallo **azure-iothub** Service SDK-pakket:
    
     ```
     npm install azure-iothub --save
     ```
-3. Maak met een tekstverwerker een **CreateDeviceIdentity.js**-bestand in de map **createdeviceidentity**.
-4. Voeg de volgende `require` instructie toe aan het begin van het bestand **CreateDeviceIdentity.js**-bestand:
+3. Maak met een teksteditor, een **CreateDeviceIdentity.js** bestand in Hallo **createdeviceidentity** map.
+4. Voeg de volgende Hallo `require` instructie aan begin Hallo Hallo **CreateDeviceIdentity.js** bestand:
    
     ```
     'use strict';
    
     var iothub = require('azure-iothub');
     ```
-5. Voeg de volgende code toe aan het bestand **CreateDeviceIdentity.js** en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks voor de hub die u in de vorige sectie hebt gemaakt: 
+5. Hallo na code toohello toevoegen **CreateDeviceIdentity.js** -bestand en vervang Hallo tijdelijke aanduidingswaarde met IoT Hub-verbindingsreeks voor Hallo-hub die u hebt gemaakt in de vorige sectie Hallo Hallo: 
    
     ```
     var connectionString = '{iothub connection string}';
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. Voeg de volgende code toe om een apparaatdefinitie te maken in het id-register van uw IoT-hub. Met deze code wordt een apparaat gemaakt als de apparaat-id nog niet voorkomt in het id-register. Anders wordt de sleutel van het bestaande apparaat geretourneerd:
+6. Voeg Hallo code toocreate een definitie van het apparaat in Hallo identiteitenregister van uw IoT-hub te volgen. Deze code maakt een apparaat als Hallo apparaat-ID bestaat niet in het identiteitenregister hello, anders wordt het Hallo-sleutel van de bestaande apparaat Hallo:
    
     ```
     var device = {
@@ -97,51 +97,51 @@ In dit gedeelte gaat u een Node.js-consoletoepassing maken die een apparaat-id m
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 7. Sla het bestand **CreateDeviceIdentity.js** op en sluit het.
-8. Als u de toepassing **createdeviceidentity** wilt uitvoeren, geeft u de volgende opdracht op in het opdrachtprompt in de map createdeviceidentity:
+8. Hallo toorun **createdeviceidentity** -toepassing uitvoeren van de volgende opdracht achter de opdrachtprompt Hallo in de map createdeviceidentity Hallo Hallo:
    
     ```
     node CreateDeviceIdentity.js 
     ```
-9. Noteer de **apparaat-id** en de **apparaatsleutel**. U hebt deze waarden later nodig wanneer u een toepassing maakt die verbinding maakt met IoT Hub als apparaat.
+9. Maak een notitie van Hallo **apparaat-ID** en **apparaatsleutel**. U moet deze waarden later bij het maken van een toepassing die tooIoT Hub als apparaat verbinding maakt.
 
 > [!NOTE]
-> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
+> Hallo id-register IoT Hub bewaart alleen apparaat-id's tooenable veilige toegang toohello IoT-hub. Apparaat-id's en sleutels toouse worden opgeslagen als beveiligingsreferenties en waarmee u toodisable toegang tot een afzonderlijk apparaat kunt vlag voor ingeschakeld/uitgeschakeld. Als uw toepassing toostore andere apparaatspecifieke metagegevens moet, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie voor meer informatie, Hallo [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity].
 > 
 > 
 
 <a id="D2C_node"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Apparaat-naar-cloud-berichten ontvangen
-In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub leest. Een IoT-hub toont een [Event Hub][lnk-event-hubs-overview]-compatibel eindpunt waarmee u apparaat-naar-cloud-berichten kunt lezen. Om de zaken niet nodeloos ingewikkeld te maken, maakt u met deze handleiding een basislezer die niet geschikt is voor hoge doorvoersnelheden. In de handleiding [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] leert u hoe u op grote schaal apparaat-naar-cloud-berichten kunt verwerken. In de handleiding [Aan de slag met Event Hubs][lnk-eventhubs-tutorial] leest u meer over het verwerken van berichten van Event Hubs. Deze handleiding is van toepassing op de Event Hub-compatibele eindpunten van IoT Hub.
+In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-berichten uit IoT Hub leest. Een iothub toont een [Event Hubs][lnk-event-hubs-overview]-compatibel eindpunt tooenable u tooread apparaat-naar-cloud-berichten. tookeep dingen eenvoudige, deze zelfstudie maakt u een basislezer die niet geschikt voor een implementatie met hoge doorvoer. Hallo [apparaat-naar-cloud-berichten verwerken] [ lnk-process-d2c-tutorial] zelfstudie laat zien hoe tooprocess apparaat-naar-cloud-berichten op grote schaal. Hallo [aan de slag met Event Hubs] [ lnk-eventhubs-tutorial] zelfstudie bevat meer informatie over hoe tooprocess van berichten van Event Hubs en toepasselijke toohello IoT Hub Event Hub-compatibele eindpunten is.
 
 > [!NOTE]
-> Het met Event Hub compatibele eindpunt voor het lezen van apparaat-naar-cloud-berichten maakt altijd gebruik van het AMQP-protocol.
+> Hallo Event Hub-compatibele eindpunt voor het lezen van apparaat-naar-cloudberichten altijd gebruikt Hallo AMQP-protocol.
 > 
 > 
 
-1. Maak een lege map met de naam **readdevicetocloudmessages**. In de map **readdevicetocloudmessages** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
+1. Maak een lege map met de naam **readdevicetocloudmessages**. In Hallo **readdevicetocloudmessages** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. Voer in het opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om het pakket **azure-event-hubs** te installeren:
+2. Bij de opdrachtprompt in Hallo **readdevicetocloudmessages** map na de opdracht tooinstall Hallo Hallo **azure-event-hubs** pakket:
    
     ```
     npm install azure-event-hubs --save
     ```
-3. Maak met een tekstverwerker een bestand **ReadDeviceToCloudMessages.js** in de map **readdevicetocloudmessages**.
-4. Voeg de volgende `require` instructies toe aan het begin van het bestand **ReadDeviceToCloudMessages.js**:
+3. Maak met een teksteditor, een **ReadDeviceToCloudMessages.js** bestand in Hallo **readdevicetocloudmessages** map.
+4. Voeg de volgende Hallo `require` instructies aan Hallo start Hallo **ReadDeviceToCloudMessages.js** bestand:
    
     ```
     'use strict';
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. Voeg de volgende variabeledeclaratie toe en vervang de waarde van de tijdelijke aanduiding door de IoT Hub-verbindingsreeks van uw hub:
+5. Hallo na variabelendeclaratie toevoegen en vervang Hallo tijdelijke aanduidingswaarde met Hallo IoT Hub-verbindingsreeks voor uw hub:
    
     ```
     var connectionString = '{iothub connection string}';
     ```
-6. Voeg de volgende twee functies toe die de uitvoer naar de console afdrukken:
+6. Na twee functies die uitvoer toohello console afdrukken Hallo toevoegen:
    
     ```
     var printError = function (err) {
@@ -154,7 +154,7 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-be
       console.log('');
     };
     ```
-7. Voeg de volgende code toe om de **EventHubClient** te maken, open de verbinding met uw IoT-Hub en maak voor elke partitie een ontvanger. Deze toepassing gebruikt een filter bij het maken van een ontvanger, zodat de ontvanger alleen berichten leest die naar IoT Hub worden verzonden wanneer de ontvanger is geactiveerd. Dit filter is handig in een testomgeving, omdat u zo alleen de huidige reeks berichten ziet. In een productieomgeving moet de code ervoor zorgen dat alle berichten worden verwerkt. Zie voor meer informatie de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial]:
+7. Toevoegen van de volgende code toocreate Hallo Hallo **EventHubClient**Hallo verbinding tooyour IoT Hub en opent een ontvanger voor elke partitie maken. Deze toepassing gebruikt een filter bij het maken van een ontvanger zodat hello ontvanger alleen berichten tooIoT Hub leest nadat Hallo ontvanger is geactiveerd. Dit filter is handig in een testomgeving zodat u alleen Hallo huidige reeks berichten zien. In een productieomgeving moet uw code ervoor zorgen dat alle Hallo-berichten worden verwerkt. Zie voor meer informatie, Hallo [hoe tooprocess IoT Hub apparaat-naar-cloud-berichten] [ lnk-process-d2c-tutorial] zelfstudie:
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -171,23 +171,23 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die apparaat-naar-cloud-be
         })
         .catch(printError);
     ```
-8. Sla het bestand **ReadDeviceToCloudMessages.js** op en sluit het.
+8. Opslaan en sluiten Hallo **ReadDeviceToCloudMessages.js** bestand.
 
 ## <a name="create-a-simulated-device-app"></a>Een gesimuleerde apparaattoepassing maken
-In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloud-berichten naar een IoT-hub verzendt.
+In deze sectie maakt u een Node.js-consoletoepassing die een apparaat simuleert dat apparaat-naar-cloudberichten tooan iothub verzendt.
 
-1. Maak een lege map met de naam **simulateddevice**. In de map **simulateddevice** maakt u een package.json-bestand door in het opdrachtprompt de volgende opdracht op te geven. Accepteer alle standaardwaarden:
+1. Maak een lege map met de naam **simulateddevice**. In Hallo **simulateddevice** map, een package.json-bestand met behulp van de volgende opdracht achter de opdrachtprompt Hallo maken. Accepteer alle Hallo standaardwaarden:
    
     ```
     npm init
     ```
-2. In de opdrachtprompt in de map **simulateddevice** voert u de volgende opdracht uit om het **azure-iot-device-amqp** Device SDK-pakket en het **azure-iot-device-mqtt**-pakket te installeren:
+2. Bij de opdrachtprompt in Hallo **simulateddevice** map na de opdracht tooinstall Hallo Hallo **azure-iot-device** apparaat-SDK-pakket en **azure-iot-device-mqtt**pakket:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Maak met een tekstverwerker een bestand **SimulatedDevice.js** in de map **simulateddevice**.
-4. Voeg de volgende `require` instructies toe aan het begin van het bestand **SimulatedDevice.js**:
+3. Maak met een teksteditor, een **SimulatedDevice.js** bestand in Hallo **simulateddevice** map.
+4. Voeg de volgende Hallo `require` instructies aan Hallo start Hallo **SimulatedDevice.js** bestand:
    
     ```
     'use strict';
@@ -195,14 +195,14 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. Voeg een **connectionString**-variabele toe en gebruik deze om een **client**exemplaar te maken. Vervang **{youriothostname}** door de naam van de IoT-hub die u hebt gemaakt in de sectie *Een IoT-hub maken*. Vervang **{yourdevicekey}** door de sleutelwaarde die u hebt gegenereerd in de sectie *Een apparaat-id maken*:
+5. Voeg een **connectionString** variabele en gebruik deze toocreate een **Client** exemplaar. Vervang **{youriothostname}** met de naam van de Hallo van Hallo IoT-hub die u hebt gemaakt Hallo *een IoT Hub maken* sectie. Vervang **{yourdevicekey}** met Hallo apparaat sleutelwaarde u hebt gegenereerd in Hallo *maken van een apparaat-id* sectie:
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
    
     var client = clientFromConnectionString(connectionString);
     ```
-6. Voeg de volgende functie toe om uitvoer van de toepassing weer te geven:
+6. Hallo functie toodisplay uitvoer van de toepassing hello volgende toevoegen:
    
     ```
     function printResultFor(op) {
@@ -212,7 +212,7 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert
       };
     }
     ```
-7. Maak een callback en verzend iedere seconde met de functie **setInterval** een bericht naar uw IoT-hub:
+7. Maak een callback en gebruik Hallo **setInterval** toosend een bericht tooyour IoT-hub elke seconde werken:
    
     ```
     var connectCallback = function (err) {
@@ -221,7 +221,7 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert
       } else {
         console.log('Client connected');
    
-        // Create a message and send it to the IoT Hub every second
+        // Create a message and send it toohello IoT Hub every second
         setInterval(function(){
             var temperature = 20 + (Math.random() * 15);
             var humidity = 60 + (Math.random() * 20);            
@@ -234,49 +234,49 @@ In dit gedeelte maakt u een Node.js-consoletoepassing die een apparaat simuleert
       }
     };
     ```
-8. Maak verbinding met uw IoT Hub en begin met het verzenden van berichten:
+8. Open Hallo verbinding tooyour IoT Hub en beginnen met het verzenden van berichten:
    
     ```
     client.open(connectCallback);
     ```
-9. Sla het bestand **SimulatedDevice.js** op en sluit het.
+9. Opslaan en sluiten Hallo **SimulatedDevice.js** bestand.
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
+> tookeep dingen eenvoudige, deze zelfstudie wordt niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals voorgesteld in de MSDN-artikel Hallo implementeren [afhandeling van tijdelijke fout][lnk-transient-faults].
 > 
 > 
 
-## <a name="run-the-apps"></a>De apps uitvoeren
-U kunt nu de apps uitvoeren.
+## <a name="run-hello-apps"></a>Hallo-apps uitvoeren
+U bent nu klaar toorun Hallo apps.
 
-1. Voer in het opdrachtprompt in de map **readdevicetocloudmessages** de volgende opdracht uit om uw IoT Hub te bewaken:
+1. Bij een opdrachtprompt in Hallo **readdevicetocloudmessages** map Hallo opdracht toobegin bewaking van uw IoT-hub te volgen:
    
     ```
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![De Node.js-app voor IoT Hub-services voor het bewaken van apparaat-naar-cloud-berichten][7]
-2. Voer in het opdrachtprompt in de map **simulateddevice** de volgende opdracht uit om telemetriegegevens naar uw IoT Hub te verzenden:
+    ![Node.js IoT Hub service app toomonitor apparaat-naar-cloud-berichten][7]
+2. Bij een opdrachtprompt in Hallo **simulateddevice** map Hallo opdracht toobegin verzenden van telemetrie gegevens tooyour IoT-hub te volgen:
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![De Node.js-app voor IoT Hub-apparaten voor het bewaken van apparaat-naar-cloud-berichten][8]
-3. De tegel **Gebruik** in [Azure Portal][lnk-portal] toont het aantal berichten dat is verzonden naar de IoT-hub:
+    ![Node.js IoT Hub apparaat-app toosend apparaat-naar-cloud-berichten][8]
+3. Hallo **gebruik** -tegel in Hallo [Azure-portal] [ lnk-portal] toont Hallo aantal verzonden berichten toohello IoT-hub:
    
-    ![De tegel Gebruik in Azure Portal met het aantal berichten dat is verzonden naar IoT Hub][43]
+    ![Azure portal gebruik tegel met aantal verzonden berichten tooIoT Hub][43]
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze handleiding hebt u een nieuwe IoT-hub geconfigureerd in Azure Portal en vervolgens een apparaat-id gemaakt in het id-register van de IoT-hub. U hebt deze apparaat-id gebruikt om de gesimuleerde apparaattoepassing in staat te stellen apparaat-naar-cloud-berichten te verzenden naar de IoT-hub. Ook hebt u een app gemaakt die de berichten weergeeft die worden ontvangen door de IoT-hub. 
+In deze zelfstudie maakt u een nieuwe iothub geconfigureerd in hello Azure-portal en vervolgens een apparaat-id in de id-register Hallo iothub hebt gemaakt. U hebt deze apparaat-id tooenable Hallo gesimuleerd apparaat app toosend apparaat-naar-cloudberichten toohello iothub gebruikt. Hebt u ook een app die wordt weergegeven Hallo-berichten dat is ontvangen door de Hallo iothub hebt gemaakt. 
 
-Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
+toocontinue aan de slag met IoT Hub en tooexplore raadpleegt u andere IoT-scenario's:
 
 * [Verbinding maken met uw apparaat][lnk-connect-device]
 * [Aan de slag met apparaatbeheer][lnk-device-management]
 * [Aan de slag met Azure IoT Edge][lnk-iot-edge]
 
-Raadpleeg de zelfstudie [Apparaat-naar-cloud-berichten verwerken][lnk-process-d2c-tutorial] voor meer informatie over hoe u uw IoT-oplossing uitbreidt en apparaat-naar-cloud-berichten op schaal verwerkt.
+toolearn hoe tooextend uw IoT-oplossing en proces apparaat-naar-cloud-berichten op grote schaal, zien Hallo [apparaat-naar-cloud-berichten verwerken] [ lnk-process-d2c-tutorial] zelfstudie.
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 

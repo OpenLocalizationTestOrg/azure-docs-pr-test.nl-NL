@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie voor Azure Containerexemplaren - app implementeren | Microsoft Docs
+title: aaaAzure Containerexemplaren zelfstudie - app implementeren | Microsoft Docs
 description: Zelfstudie voor Azure Containerexemplaren - app implementeren
 services: container-instances
 documentationcenter: 
@@ -17,24 +17,24 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 54151a5c1850ab7120fe666a46dc5dc99c0f5157
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b9fb098d9491e1073f0be4b14a0b9b1a18f16095
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Een container implementeren naar Azure Containerexemplaren
+# <a name="deploy-a-container-tooazure-container-instances"></a>Een container tooAzure Containerexemplaren implementeren
 
-Dit is de laatste van een zelfstudie drie delen. In vorige gedeelten [is gemaakt met een installatiekopie van een container](container-instances-tutorial-prepare-app.md) en [naar een Azure Container Registry gepusht](container-instances-tutorial-prepare-acr.md). Deze sectie is de zelfstudie voltooid door het implementeren van de container op exemplaren van Azure-Container. Stappen voltooid omvatten:
+Dit is Hallo laatste van een zelfstudie drie delen. In vorige gedeelten [is gemaakt met een installatiekopie van een container](container-instances-tutorial-prepare-app.md) en [tooan Azure Container register gepusht](container-instances-tutorial-prepare-acr.md). In deze sectie is Hallo-zelfstudie voltooid door het implementeren van Hallo container tooAzure Containerexemplaren. Stappen voltooid omvatten:
 
 > [!div class="checklist"]
 > * Het definiëren van de containergroep van een met een Azure Resource Manager-sjabloon
-> * Implementatie van de containergroep met de Azure CLI
+> * Hallo containergroep met behulp van Azure CLI Hallo implementeren
 > * Container-logboeken bekijken
 
-## <a name="deploy-the-container-using-the-azure-cli"></a>De container met de Azure CLI implementeren
+## <a name="deploy-hello-container-using-hello-azure-cli"></a>Met behulp van Azure CLI Hallo Hallo-container implementeren
 
-De Azure CLI kunt de implementatie van een container voor exemplaren van Azure-Container in één opdracht. Omdat de container-installatiekopie wordt gehost in het persoonlijke Azure-Container register, moet u de referenties voor toegang tot dit opnemen. Indien nodig, kunt u ze opvragen, zoals hieronder wordt weergegeven.
+Hello Azure CLI kunt implementatie van een container tooAzure Containerexemplaren in één opdracht. Aangezien Hallo container installatiekopie wordt gehost in Hallo persoonlijke Azure-Container register, moet u Hallo referenties vereist tooaccess opnemen deze. Indien nodig, kunt u ze opvragen, zoals hieronder wordt weergegeven.
 
 Container register login-server (update met de registernaam van uw):
 
@@ -48,23 +48,23 @@ Container register wachtwoord:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Voor het implementeren van uw installatiekopie container uit het register van de container met een resource-aanvraag van het CPU-kern 1 en 1GB geheugen, moet u de volgende opdracht uitvoeren:
+toodeploy gevraagd om uw installatiekopie container uit Hallo container register met een resource van 1 CPU-kern tot 1GB geheugen, Hallo volgende opdracht uitvoeren:
 
 ```azurecli-interactive
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Binnen enkele seconden ontvangt u een eerste reactie van Azure Resource Manager. Als u wilt weergeven van de status van de implementatie, gebruiken:
+Binnen enkele seconden ontvangt u een eerste reactie van Azure Resource Manager. tooview hello staat van Hallo-implementatie gebruiken:
 
 ```azurecli-interactive
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-U kunt doorgaan met deze opdracht wordt uitgevoerd totdat de status van verandert *in behandeling* naar *met*. Vervolgens kunnen we doorgaan.
+U kunt doorgaan met deze opdracht wordt uitgevoerd totdat Hallo status van verandert *in behandeling* te*met*. Vervolgens kunnen we doorgaan.
 
-## <a name="view-the-application-and-container-logs"></a>Bekijk de logboeken toepassingen en container
+## <a name="view-hello-application-and-container-logs"></a>Hallo toepassings- en logboekbestanden weergeven
 
-Zodra de implementatie is geslaagd, opent u uw browser naar de IP-adres dat wordt weergegeven in de uitvoer van de volgende opdracht:
+Zodra het Hallo-implementatie is gelukt, opent u uw browser toohello IP-adres wordt weergegeven in de uitvoer van de volgende opdracht Hallo Hallo:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
@@ -74,9 +74,9 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 "13.88.176.27"
 ```
 
-![Hallo wereld-app in de browser][aci-app-browser]
+![Hallo wereld-app in Hallo-browser][aci-app-browser]
 
-U kunt ook de uitvoer van de container bekijken:
+U kunt ook Hallo logboekuitvoer van Hallo container bekijken:
 
 ```azurecli-interactive
 az container logs --name aci-tutorial-app -g myResourceGroup
@@ -92,12 +92,12 @@ listening on port 80
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt voltooid u het proces voor het implementeren van uw containers op Azure Containerexemplaren. De volgende stappen zijn voltooid:
+In deze zelfstudie maakt voltooid u Hallo-proces voor het implementeren van uw containers tooAzure Containerexemplaren. Hallo stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * Implementatie van de container van het Azure-Container register met de Azure CLI
-> * De toepassing bekijken in de browser
-> * De container logboeken bekijken
+> * Hallo-container van het gebruik van hello Azure Container register implementeren hello Azure CLI
+> * Bekijkt hello toepassing in Hallo-browser
+> * Weergave Hallo container Logboeken
 
 <!-- LINKS -->
 [prepare-app]: ./container-instances-tutorial-prepare-app.md

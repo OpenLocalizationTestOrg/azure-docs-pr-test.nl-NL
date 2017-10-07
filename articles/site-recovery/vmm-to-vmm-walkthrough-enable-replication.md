@@ -1,6 +1,6 @@
 ---
-title: Schakel Hyper-V-replicatie naar een secundaire site met Azure Site Recovery | Microsoft Docs
-description: Beschrijft hoe u replicatie inschakelen voor Hyper-V-machines repliceren naar een secundaire site van System Center VMM met Azure Site Recovery.
+title: aaaEnable Hyper-V-replicatie tooa secundaire site met Azure Site Recovery | Microsoft Docs
+description: Hierin wordt beschreven hoe tooenable replicatie voor de Hyper-V-machines repliceren tooa secundaire System Center VMM site met Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 6673d192dbc18bfc955d9e7e3c55893512511ffb
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b4484e0118cb23f343187fe867d9795d30926baf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-9-enable-replication-to-a-secondary-site-for-hyper-v-vms"></a>Stap 9: Schakel replicatie naar een secundaire site voor Hyper-V-machines
+# <a name="step-9-enable-replication-tooa-secondary-site-for-hyper-v-vms"></a>Stap 9: Replicatie tooa secundaire site inschakelen voor Hyper-V virtuele machines
 
 
-Nadat het instellen van een beleid voor wachtwoordreplicatie gebruiken in dit artikel replicatie naar een secundaire site van System Center Virtual Machine Manager (VMM) voor on-premises Hyper-V virtuele machines (VM) in te schakelen, gebruik [Azure Site Recovery](site-recovery-overview.md).
+Na het instellen van een beleid voor wachtwoordreplicatie, kunt u deze site artikel tooenable replicatie tooa secundaire System Center Virtual Machine Manager (VMM) gebruiken voor on-premises Hyper-V virtuele machines (VM), met behulp van [Azure Site Recovery](site-recovery-overview.md).
 
-Na het lezen van dit artikel kunt u onder aan dit artikel of op het [Azure Recovery Services-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) opmerkingen of vragen plaatsen.
+Lees dit artikel en eventuele opmerkingen posten Hallo onderin of op Hallo [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
-## <a name="select-vms-to-replicate"></a>Selecteer de virtuele machines repliceren
+## <a name="select-vms-tooreplicate"></a>Virtuele machines tooreplicate selecteren
 
 1. Klik op **Stap 2: toepassing repliceren** > **Bron**. 
 
     ![Replicatie inschakelen](./media/vmm-to-vmm-walkthrough-enable-replication/enable-replication1.png)
 
-2. In **bron**, selecteert u de VMM-server en de cloud waarin u wilt repliceren Hyper-V-hosts zich bevinden. Klik vervolgens op **OK**.
+2. In **bron**Hallo VMM-server en selecteer Hallo cloud in welke Hallo gewenste tooreplicate van Hyper-V-hosts zich bevinden. Klik vervolgens op **OK**.
 
     ![Replicatie inschakelen](./media/vmm-to-vmm-walkthrough-enable-replication/enable-replication2.png)
-3. In **doel**, controleert u de secundaire VMM-server en de cloud.
-4. In **virtuele machines**, selecteert u de virtuele machines die u wilt beveiligen in de lijst.
+3. In **doel**, controleert u of Hallo secundaire VMM-server en de cloud.
+4. In **virtuele machines**, Hallo virtuele machines die u wilt dat tooprotect uit Hallo lijst selecteren.
 
     ![Beveiliging van de virtuele machine inschakelen](./media/vmm-to-vmm-walkthrough-enable-replication/enable-replication5.png)
 
-U kunt de voortgang van volgen de **beveiliging inschakelen** actie in **taken** > **Site Recovery-taken**. Na de **beveiliging voltooien** taak is voltooid, de initiële replicatie is voltooid en de virtuele machine is gereed voor failover.
+U kunt de voortgang van Hallo volgen **beveiliging inschakelen** actie in **taken** > **Site Recovery-taken**. Na het Hallo **beveiliging voltooien** taak is voltooid, Hallo initiële replicatie is voltooid en Hallo virtuele machine is gereed voor failover.
 
 Opmerking:
 
-- U kunt ook beveiliging voor virtuele machines in de VMM-console inschakelen. Klik op **beveiliging inschakelen** op de werkbalk van de eigenschappen van de virtuele machine > **Azure Site Recovery** tabblad.
-- Nadat u replicatie hebt ingeschakeld, kunt u de eigenschappen weergeven voor de virtuele machine in **gerepliceerde Items**. Op de **Essentials** dashboard ziet u informatie over het replicatiebeleid voor de virtuele machine en de status ervan. Klik op **eigenschappen** voor meer informatie.
+- U kunt ook beveiliging voor virtuele machines in Hallo VMM-console inschakelen. Klik op **beveiliging inschakelen** op Hallo werkbalk in de eigenschappen van de virtuele machine Hallo > **Azure Site Recovery** tabblad.
+- Nadat u replicatie hebt ingeschakeld, kunt u de eigenschappen voor Hallo VM weergeven in **gerepliceerde Items**. Op Hallo **Essentials** dashboard ziet u informatie over het replicatiebeleid Hallo voor Hallo VM en de status ervan. Klik op **eigenschappen** voor meer informatie.
 
 ## <a name="onboard-existing-vms"></a>Ingebouwde bestaande virtuele machines
 
 Als u een bestaande virtuele machines in VMM die worden gerepliceerd met Hyper-V Replica hebt, kunt u vrijgeven ze voor Azure Site Recovery replicatie als volgt:
 
-1. Zorg ervoor dat de Hyper-V-server die als host fungeert voor de bestaande virtuele machine zich bevinden in de primaire cloud en dat de Hyper-V-server die als host fungeert voor de replica virtuele machine bevindt zich in de secundaire cloud.
-2. Zorg ervoor dat een beleid voor wachtwoordreplicatie is geconfigureerd voor de primaire VMM-cloud.
-3. Replicatie inschakelen voor de primaire virtuele machine. Azure Site Recovery en VMM Zorg ervoor dat de dezelfde replicatiehost en de virtuele machine wordt gedetecteerd en Azure Site Recovery wordt opnieuw gebruikt en herstellen van replicatie met de opgegeven instellingen.
+1. Zorg dat Hallo Hyper-V-hostserver Hallo bestaande virtuele machine bevindt zich in de primaire cloud Hallo en die Hallo Hyper-V-server die als host fungeert voor Hallo replica virtuele machine bevindt zich in Hallo secundaire cloud.
+2. Zorg ervoor dat een beleid voor wachtwoordreplicatie is geconfigureerd voor Hallo primaire VMM-cloud.
+3. Replicatie inschakelen voor Hallo primaire virtuele machine. Azure Site Recovery en VMM ervoor te zorgen dat hello dezelfde replicatiehost en virtuele machine wordt gedetecteerd, en Azure Site Recovery opnieuw wilt gebruiken en om opnieuw replicatie met Hallo instellingen opgegeven.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar [stap 10: een testfailover uitvoeren](vmm-to-vmm-walkthrough-test-failover.md).
+Ga te[stap 10: een testfailover uitvoeren](vmm-to-vmm-walkthrough-test-failover.md).

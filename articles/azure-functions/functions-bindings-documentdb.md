@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Cosmos DB bindingen | Microsoft Docs
-description: Begrijpen hoe Azure Cosmos DB bindingen in de Azure Functions.
+title: aaaAzure functies Cosmos DB bindingen | Microsoft Docs
+description: Begrijpen hoe toouse Azure Cosmos DB bindingen in de Azure Functions.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,48 +16,48 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: glenga
-ms.openlocfilehash: de95b0591eb95e76dbb7ba2382e9e14e1f66cda1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 76b89e8296db1dd28dff9528903b1f6a28f55232
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Azure Functions Cosmos DB bindingen
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Dit artikel wordt uitgelegd hoe u configureert en bindingen van Azure DB die Cosmos code in Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Cosmos-DB.
+Dit artikel wordt uitgelegd hoe Azure DB die Cosmos-bindingen voor tooconfigure en code in Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Cosmos-DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Zie voor meer informatie over Cosmos DB [Inleiding tot Cosmos DB](../documentdb/documentdb-introduction.md) en [een Cosmos-DB-consoletoepassing bouwen](../documentdb/documentdb-get-started.md).
+Zie voor meer informatie over Cosmos DB [inleiding tooCosmos DB](../documentdb/documentdb-introduction.md) en [een Cosmos-DB-consoletoepassing bouwen](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>DocumentDB-API invoer binding
-De invoer DocumentDB API-binding een Cosmos-DB-document opgehaald en doorgegeven aan de benoemde invoerparameter van de functie. De ID kan worden bepaald document is gebaseerd op de trigger die de functie activeert. 
+Hallo DocumentDB API invoer binding een Cosmos-DB-document opgehaald en doorgegeven toohello invoerparameter van het Hallo-functie met de naam. Hallo-document-ID kan worden vastgesteld gebaseerd op Hallo-trigger die Hallo-functie roept. 
 
-De invoer DocumentDB API-binding heeft de volgende eigenschappen *function.json*:
+Hallo invoer DocumentDB API-binding heeft Hallo volgende eigenschappen in *function.json*:
 
-- `name`: De id die wordt gebruikt in de functiecode voor het document
-- `type`: moet worden ingesteld op 'documentdb'
-- `databaseName`: De database met het document
-- `collectionName`: De verzameling met het document
-- `id`: De Id van het document om op te halen. Deze eigenschap ondersteunt de bindingen van parameters. Zie [binden aan aangepaste eigenschappen voor de invoer in een expressie voor gegevensbinding](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) in het artikel [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md).
-- `sqlQuery`: Een Cosmos DB SQL-query die wordt gebruikt voor het ophalen van meerdere documenten. De query biedt ondersteuning voor runtime-bindingen. Bijvoorbeeld: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: De naam van de app-instelling met de verbindingsreeks van de Cosmos-DB
-- `direction`: moet worden ingesteld op `"in"`.
+- `name`: De id die wordt gebruikt in de functiecode voor Hallo document
+- `type`: moet te worden ingesteld 'documentdb'
+- `databaseName`: met Hallo document Hallo-database
+- `collectionName`: met Hallo document Hallo-verzameling
+- `id`: Hallo Hallo document tooretrieve-Id. Deze eigenschap ondersteunt de bindingen van parameters. Zie [toocustom invoer eigenschappen in een expressie voor gegevensbinding binden](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) in Hallo artikel [Azure Functions triggers en bindingen concepten](functions-triggers-bindings.md).
+- `sqlQuery`: Een Cosmos DB SQL-query die wordt gebruikt voor het ophalen van meerdere documenten. Hallo-query ondersteunt runtime-bindingen. Bijvoorbeeld: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: Hallo-naam van Hallo app-instelling met de verbindingsreeks van de Cosmos-DB
+- `direction`: moet te worden ingesteld`"in"`.
 
-De eigenschappen `id` en `sqlQuery` kunnen niet allebei worden opgegeven. Als geen van beide `id` noch `sqlQuery` is ingesteld, wordt de volledige verzameling worden opgehaald.
+Hallo eigenschappen `id` en `sqlQuery` kunnen niet allebei worden opgegeven. Als geen van beide `id` noch `sqlQuery` is ingesteld, hello volledige verzameling worden opgehaald.
 
 ## <a name="using-a-documentdb-api-input-binding"></a>Met behulp van een DocumentDB-API invoer binding
 
-* In C# en F # functies, wanneer de functie wordt voltooid, wordt afgesloten worden wijzigingen in het invoerdocument via benoemde invoerparameters automatisch doorgevoerd. 
-* In de JavaScript-functies worden niet automatisch updates gesteld bij functie beëindigen. Gebruik in plaats daarvan `context.bindings.<documentName>In` en `context.bindings.<documentName>Out` om updates te maken. Zie de [JavaScript voorbeeld](#injavascript).
+* In C# en F # functies, wanneer het Hallo-functie is, wordt afgesloten worden toohello invoerdocument via benoemde invoerparameters wijzigingen automatisch persistent. 
+* In de JavaScript-functies worden niet automatisch updates gesteld bij functie beëindigen. Gebruik in plaats daarvan `context.bindings.<documentName>In` en `context.bindings.<documentName>Out` toomake updates. Zie Hallo [JavaScript voorbeeld](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Invoer voorbeeld voor één document
-Stel dat u hebt de volgende invoer DocumentDB API-binding in de `bindings` matrix van function.json:
+Stel dat u hebt de volgende Hallo DocumentDB API binding in Hallo invoer `bindings` matrix van function.json:
 
 ```json
 {
@@ -71,7 +71,7 @@ Stel dat u hebt de volgende invoer DocumentDB API-binding in de `bindings` matri
 }
 ```
 
-Zie de taalspecifieke-voorbeeldtoepassing die u deze invoer binding gebruikt voor het bijwerken van de tekstwaarde van het document.
+Zie Hallo taalspecifieke voorbeeld dat gebruikmaakt van dit invoer binding tooupdate Hallo document tekstwaarde.
 
 * [C#](#incsharp)
 * [F#](#infsharp)
@@ -98,7 +98,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-Dit voorbeeld vereist een `project.json` -bestand dat Hiermee geeft u de `FSharp.Interop.Dynamic` en `Dynamitey` NuGet afhankelijkheden:
+Dit voorbeeld vereist een `project.json` bestand waarmee Hallo `FSharp.Interop.Dynamic` en `Dynamitey` NuGet afhankelijkheden:
 
 ```json
 {
@@ -113,7 +113,7 @@ Dit voorbeeld vereist een `project.json` -bestand dat Hiermee geeft u de `FSharp
 }
 ```
 
-Om toe te voegen een `project.json` bestand, Zie [F # pakket management](functions-reference-fsharp.md#package).
+tooadd een `project.json` bestand, Zie [F # pakket management](functions-reference-fsharp.md#package).
 
 <a name="injavascript"></a>
 
@@ -130,9 +130,9 @@ module.exports = function (context) {
 
 ## <a name="input-sample-with-multiple-documents"></a>Invoer voorbeeld met meerdere documenten
 
-Stel dat u ophalen van meerdere documenten die zijn opgegeven met een SQL-query met behulp van een wachtrij-trigger wilt voor het aanpassen van de queryparameters. 
+Stel dat u wenst tooretrieve meerdere documenten die zijn opgegeven door een SQL-query met behulp van een wachtrij trigger toocustomize Hallo queryparameters. 
 
-In dit voorbeeld wordt de trigger wachtrij een parameter opgegeven `departmentId`. Een wachtrijbericht van `{ "departmentId" : "Finance" }` alle records voor de afdeling Financiën zou retourneren. Gebruik de volgende in *function.json*:
+In dit voorbeeld Hallo wachtrij trigger wordt een parameter opgegeven `departmentId`. Een wachtrijbericht van `{ "departmentId" : "Finance" }` alle records voor de afdeling Financiën Hallo zou retourneren. Gebruik de volgende Hallo in *function.json*:
 
 ```
 {
@@ -177,30 +177,30 @@ module.exports = function (context, input) {
 ```
 
 ## <a id="docdboutput"></a>DocumentDB-API uitvoer binding
-De uitvoer van de DocumentDB-API binding kunt schrijven u een nieuw document naar een Azure DB die Cosmos-database. Deze heeft de volgende eigenschappen in *function.json*:
+Hallo DocumentDB API uitvoer binding kunt u een nieuw document tooan Azure DB die Cosmos-database te schrijven. Hieraan de volgende eigenschappen in Hallo *function.json*:
 
-- `name`: De id die is gebruikt in de functiecode voor het nieuwe document
-- `type`: moet worden ingesteld op`"documentdb"`
-- `databaseName`: De database met de verzameling waar het nieuwe document wordt gemaakt.
-- `collectionName`: De verzameling waar het nieuwe document wordt gemaakt.
-- `createIfNotExists`: Een Booleaanse waarde om aan te geven of de verzameling wordt gemaakt als deze niet bestaat. De standaardwaarde is *false*. De reden voor deze bewerking nieuwe is verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft. Voor meer informatie raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: De naam van de app-instelling met de verbindingsreeks van de Cosmos-DB
-- `direction`: moet worden ingesteld op`"out"`
+- `name`: De id die is gebruikt in de functiecode voor Hallo nieuw document
+- `type`: moet te worden ingesteld`"documentdb"`
+- `databaseName`: Hallo-database met Hallo verzameling waar Hallo nieuw document wordt gemaakt.
+- `collectionName`: Hallo verzameling waar Hallo nieuw document wordt gemaakt.
+- `createIfNotExists`: Een Booleaanse waarde tooindicate of Hallo verzameling wordt gemaakt als deze niet bestaat. Hallo standaardwaarde is *false*. Hallo reden voor deze bewerking nieuwe is verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft. Voor meer informatie gaat u naar Hallo [pagina met prijzen](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection`: Hallo-naam van Hallo app-instelling met de verbindingsreeks van de Cosmos-DB
+- `direction`: moet te worden ingesteld`"out"`
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Binding met een DocumentDB-API uitvoer
-Deze sectie wordt beschreven hoe u uw DocumentDB-API-uitvoer in uw functiecode binding.
+Deze sectie leest u hoe toouse uw DocumentDB-API uitvoer binding in uw functiecode.
 
-Bij het schrijven naar de output-parameter in de functie standaard wordt een nieuw document gegenereerd in de database, met een automatisch gegenereerde GUID als het document-ID. U kunt de document-ID van uitvoerdocument opgeven door te geven de `id` JSON-eigenschap in de output-parameter. 
+Wanneer u schrijft toohello output-parameter in de functie is standaard een nieuw document wordt gegenereerd in de database, met een automatisch gegenereerde GUID als Hallo document ID. U kunt Hallo document-ID van uitvoerdocument opgeven door te geven Hallo `id` JSON-eigenschap in Hallo uitvoerparameter. 
 
 >[!Note]  
->Wanneer u de ID van een bestaand document opgeeft, wordt deze door het nieuwe uitvoerdocument overschreven. 
+>Wanneer u een bestaand document Hallo-ID opgeeft, wordt deze overschreven door Hallo nieuw uitvoerdocument. 
 
-Als u wilt uitvoeren op meerdere documenten, kunt u ook binden aan `ICollector<T>` of `IAsyncCollector<T>` waar `T` is een van de ondersteunde typen.
+toooutput meerdere documenten, kunt u ook binden te`ICollector<T>` of `IAsyncCollector<T>` waar `T` een van de typen Hallo ondersteund.
 
 <a name="outputsample"></a>
 
 ## <a name="documentdb-api-output-binding-sample"></a>DocumentDB-API uitvoer binding-voorbeeld
-Stel dat u hebt de volgende DocumentDB API uitvoer binding in de `bindings` matrix van function.json:
+Stel dat u hebt de volgende Hallo DocumentDB API binding in Hallo uitvoer `bindings` matrix van function.json:
 
 ```json
 {
@@ -214,7 +214,7 @@ Stel dat u hebt de volgende DocumentDB API uitvoer binding in de `bindings` matr
 }
 ```
 
-En u een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt hebben:
+En u een wachtrij invoer binding voor een wachtrij die JSON ontvangt in Hallo volgende indeling hebben:
 
 ```json
 {
@@ -224,7 +224,7 @@ En u een wachtrij invoer binding voor een wachtrij die JSON in de volgende indel
 }
 ```
 
-En u wilt Cosmos DB documenten in de volgende notatie voor elke record te maken:
+En u wilt dat toocreate Cosmos DB documenten in Hallo indeling voor elke record te volgen:
 
 ```json
 {
@@ -235,7 +235,7 @@ En u wilt Cosmos DB documenten in de volgende notatie voor elke record te maken:
 }
 ```
 
-Zie het voorbeeld taalspecifieke die gebruikmaakt van deze binding uitvoer documenten toevoegen aan uw database.
+Zie Hallo taalspecifieke voorbeeldtoepassing die gebruikmaakt van deze uitvoer binding tooadd documenten tooyour database.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -292,7 +292,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-Dit voorbeeld vereist een `project.json` -bestand dat Hiermee geeft u de `FSharp.Interop.Dynamic` en `Dynamitey` NuGet afhankelijkheden:
+Dit voorbeeld vereist een `project.json` bestand waarmee Hallo `FSharp.Interop.Dynamic` en `Dynamitey` NuGet afhankelijkheden:
 
 ```json
 {
@@ -307,7 +307,7 @@ Dit voorbeeld vereist een `project.json` -bestand dat Hiermee geeft u de `FSharp
 }
 ```
 
-Om toe te voegen een `project.json` bestand, Zie [F # pakket management](functions-reference-fsharp.md#package).
+tooadd een `project.json` bestand, Zie [F # pakket management](functions-reference-fsharp.md#package).
 
 <a name="outjavascript"></a>
 

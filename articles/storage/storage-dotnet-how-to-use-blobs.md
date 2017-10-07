@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Blob Storage (objectopslag) met .NET | Microsoft Docs
-description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
+title: aaaGet de slag met Azure Blob storage (objectopslag) met .NET | Microsoft Docs
+description: Niet-gestructureerde gegevens opslaan in Hallo cloud met Azure Blob storage (objectopslag).
 services: storage
 documentationcenter: .net
 author: mmacy
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
-ms.openlocfilehash: 8393b2dc32f01cac301c713c2ae9f0ab7226ea37
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b675ac073e7e901fe1afe54f7bfea12eefbf3ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>Aan de slag met Azure Blob Storage met .NET
 
@@ -26,10 +26,10 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
-Azure Blob Storage is een service waarmee ongestructureerde gegevens als objecten/blobs worden opgeslagen in de cloud. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag.
+Azure Blob storage is een service die niet-gestructureerde gegevens in de cloud Hallo als objecten/blobs opslaat. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. BLOB-opslag is ook bedoeld tooas vorm van objectopslag.
 
 ### <a name="about-this-tutorial"></a>Over deze zelfstudie
-Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemene scenario's die gebruikmaken van Azure Blob Storage. Scenario's die aan bod komen, zijn onder meer het uploaden, in een lijst weergeven, downloaden en verwijderen van blobs.
+Deze zelfstudie laat zien hoe toowrite .NET code van enkele algemene scenario's met behulp van Azure Blob-opslag. Scenario's die aan bod komen, zijn onder meer het uploaden, in een lijst weergeven, downloaden en verwijderen van blobs.
 
 **Vereisten:**
 
@@ -41,7 +41,7 @@ Deze zelfstudie laat zien hoe u .NET-code kunt schrijven voor een aantal algemen
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### <a name="more-samples"></a>Meer voorbeelden
-Zie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Aan de slag met Azure Blob Storage in .NET) voor meer voorbeelden van het gebruik van Blob Storage. U kunt de voorbeeldtoepassing downloaden en uitvoeren, of de code bekijken op GitHub.
+Zie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Aan de slag met Azure Blob Storage in .NET) voor meer voorbeelden van het gebruik van Blob Storage. Hallo-voorbeeldtoepassing downloaden en uitvoeren, of blader Hallo-code op GitHub.
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -50,7 +50,7 @@ Zie [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.co
 [!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### <a name="add-using-directives"></a>Using-instructies toevoegen
-Voeg de volgende **using**-instructies aan het begin van het bestand `Program.cs` toe:
+Voeg de volgende Hallo **met** richtlijnen toohello bovenaan Hallo `Program.cs` bestand:
 
 ```csharp
 using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
@@ -58,89 +58,89 @@ using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```
 
-### <a name="parse-the-connection-string"></a>De verbindingsreeks parseren
+### <a name="parse-hello-connection-string"></a>Hallo-verbindingsreeks parseren
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="create-the-blob-service-client"></a>De Blob-serviceclient maken
-Met de klasse **CloudBlobClient** kunt u containers en blobs ophalen die zijn opgeslagen in Blob Storage. Hier volgt één manier om de serviceclient te maken:
+### <a name="create-hello-blob-service-client"></a>Hallo Blob-serviceclient maken
+Hallo **CloudBlobClient** klasse kunt u tooretrieve containers en blobs die zijn opgeslagen in Blob storage. Hier volgt een eenrichtingssessie toocreate Hallo-client-service:
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
-U bent nu klaar om code te schrijven die gegevens leest uit en schrijft naar Blob Storage.
+U bent nu klaar toowrite-code die gegevens leest uit en schrijft tooBlob gegevensopslag.
 
 ## <a name="create-a-container"></a>Een container maken
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-In dit voorbeeld ziet u hoe u een container kunt maken als deze nog niet bestaat:
+Dit voorbeeld ziet u hoe toocreate een container als deze niet al bestaat:
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the blob client.
+// Create hello blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve a reference to a container.
+// Retrieve a reference tooa container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Create the container if it doesn't already exist.
+// Create hello container if it doesn't already exist.
 container.CreateIfNotExists();
 ```
 
-Standaard is de nieuwe container privé, wat betekent dat u uw toegangssleutel voor opslag moet opgeven om blobs uit deze container te downloaden. Als u de bestanden in de container beschikbaar wilt maken voor iedereen, kunt u de container met de volgende code instellen op openbaar:
+Standaard is de Hallo nieuwe container privé, wat betekent dat u uw opslag toegang tot belangrijke toodownload blobs uit deze container moet opgeven. Als u toomake Hallo bestanden binnen hello container beschikbaar tooeveryone wilt, kunt u Hallo container toobe openbare met behulp van de volgende code Hallo instellen:
 
 ```csharp
 container.SetPermissions(
     new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 ```
 
-Iedereen op internet kan blobs in een openbare container bekijken. U kunt ze echter alleen wijzigen of verwijderen als u de juiste accounttoegangssleutel of een Shared Access Signature hebt.
+Iedereen op Internet Hallo kunt blobs in een openbare container zien. U kunt echter wijzigen of ze alleen verwijderen als er Hallo juiste accounttoegangssleutel of een shared access signature.
 
 ## <a name="upload-a-blob-into-a-container"></a>Een blob uploaden naar een container
-Azure Blob Storage ondersteunt blok-blobs en pagina-blobs.  In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.
+Azure Blob Storage ondersteunt blok-blobs en pagina-blobs.  In de meeste gevallen is de blok-blob Hallo type toouse aanbevolen.
 
-Om een bestand naar een blok-blob te uploaden, haalt u een containerverwijzing op en gebruikt u deze om een blok-blobverwijzing op te halen. Zodra u een blobverwijzing hebt, kunt u er elke gewenste gegevensstroom naar uploaden door de methode **UploadFromStream** aan te roepen. Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
+een bestand tooa blok-blob tooupload een containerverwijzing ophalen en deze tooget een blok-blobverwijzing gebruiken. Zodra u een blobverwijzing hebt, kunt u elke gewenste gegevensstroom tooit gegevens uploaden door de aanroepende Hallo **UploadFromStream** methode. Deze bewerking wordt Hallo blob gemaakt als deze niet eerder bestond, of deze wordt overschreven als deze bestaat.
 
-Het volgende voorbeeld laat zien hoe u een blob uploadt naar een container. Hierbij wordt ervan uitgegaan dat de container al is gemaakt.
+Hallo volgende voorbeeld wordt getoond hoe tooupload een blob naar een container en wordt ervan uitgegaan dat Hallo-container al is gemaakt.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the blob client.
+// Create hello blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference to a previously created container.
+// Retrieve reference tooa previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference to a blob named "myblob".
+// Retrieve reference tooa blob named "myblob".
 CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-// Create or overwrite the "myblob" blob with contents from a local file.
+// Create or overwrite hello "myblob" blob with contents from a local file.
 using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 {
     blockBlob.UploadFromStream(fileStream);
 }
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
-Als u een lijst van de blobs in een container wilt weergeven, moet u eerst een containerverwijzing ophalen. Vervolgens kunt u de methode **ListBlobs** van de container gebruiken voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde **IListBlobItem** moet u dit veranderen in een object van het type **CloudBlockBlob**, **CloudPageBlob** of **CloudBlobDirectory**. Als het type onbekend is, kunt u typecontrole gebruiken om te bepalen waarnaar het moet worden gecast. De volgende code toont hoe de URI van elk item in de _photos_-container wordt opgehaald en uitgevoerd:
+## <a name="list-hello-blobs-in-a-container"></a>Lijst Hallo blobs in een container
+toolist hello blobs in een container, eerst ophalen een containerverwijzing. Vervolgens kunt u Hallo-container **ListBlobs** methode tooretrieve Hallo blobs en/of mappen hierin. tooaccess Hallo uitgebreide set eigenschappen en methoden voor een geretourneerde **IListBlobItem**, u dit casten tooa **CloudBlockBlob**, **CloudPageBlob**, of  **CloudBlobDirectory** object. Als Hallo type onbekend is, kunt u een type selectievakje toodetermine welke toocast naar. Hallo volgende code laat zien hoe tooretrieve en uitvoer URI van elk item in Hallo Hallo _foto's_ container:
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the blob client.
+// Create hello blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference to a previously created container.
+// Retrieve reference tooa previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("photos");
 
-// Loop over items within the container and output the length and URI.
+// Loop over items within hello container and output hello length and URI.
 foreach (IListBlobItem item in container.ListBlobs(null, false))
 {
     if (item.GetType() == typeof(CloudBlockBlob))
@@ -166,9 +166,9 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 }
 ```
 
-Door padgegevens in blobnamen op te nemen, kunt u een virtuele mapstructuur maken die u kunt ordenen en doorlopen als een traditioneel bestandssysteem. Het is echter een virtuele mapstructuur: de enige beschikbare resources in Blob Storage zijn containers en blobs. De opslagclientbibliotheek biedt echter een **CloudBlobDirectory**-object om te verwijzen naar een virtuele map en het gemakkelijker te maken om te werken met blobs die op deze manier zijn ingedeeld.
+Door padgegevens in blobnamen op te nemen, kunt u een virtuele mapstructuur maken die u kunt ordenen en doorlopen als een traditioneel bestandssysteem. Hallo-mapstructuur virtueel is alleen--Hallo alleen beschikbare resources in Blob storage containers en blobs zijn. Hallo opslagclientbibliotheek biedt echter een **CloudBlobDirectory** object toorefer tooa virtuele map en Hallo vereenvoudigen van het werken met blobs die op deze manier zijn ingedeeld.
 
-Bekijk bijvoorbeeld de volgende set blok-blobs in een container met de naam *photos*:
+Denk bijvoorbeeld de volgende set blok-blobs in een container met de naam Hallo *foto's*:
 
 ```
 photo1.jpg
@@ -181,7 +181,7 @@ photo1.jpg
 2011/photo7.jpg
 ```
 
-Wanneer u **ListBlobs** aanroept in de container *photos* (zoals in het voorgaande codefragment), wordt er een hiërarchische opsomming geretourneerd. Deze opsomming bevat zowel **CloudBlobDirectory**- als **CloudBlockBlob**-objecten. Deze vertegenwoordigen respectievelijk de mappen en blobs in de container. De resulterende uitvoer ziet er als volgt uit:
+Als u aanroept **ListBlobs** op Hallo *foto's* container (zoals in Hallo voorgaande codefragment), een hiërarchische opsomming geretourneerd. Deze bevat zowel **CloudBlobDirectory** en **CloudBlockBlob** objecten, Hallo mappen en blobs in de container hello, respectievelijk. Hallo resulterende uitvoer ziet eruit als:
 
 ```
 Directory: https://<accountname>.blob.core.windows.net/photos/2010/
@@ -189,17 +189,17 @@ Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 ```
 
-U kunt desgewenst de parameter **UseFlatBlobListing** van de methode **ListBlobs** instellen op **true**. In dit geval wordt elke blob in de container geretourneerd als een **CloudBlockBlob**-object. De aanroep van **ListBlobs** om een platte lijst te retourneren, ziet er als volgt uit:
+Desgewenst kunt u instellen Hallo **UseFlatBlobListing** parameter Hallo **ListBlobs** methode **true**. In dit geval wordt elke blob in Hallo container geretourneerd als een **CloudBlockBlob** object. Hallo aanroep te**ListBlobs** tooreturn een platte lijst ziet er als volgt:
 
 ```csharp
-// Loop over items within the container and output the length and URI.
+// Loop over items within hello container and output hello length and URI.
 foreach (IListBlobItem item in container.ListBlobs(null, true))
 {
     ...
 }
 ```
 
-De resultaten worden als volgt weergegeven:
+en Hallo resultaten zien er als volgt:
 
 ```
 Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
@@ -213,43 +213,43 @@ Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/
 ```
 
 ## <a name="download-blobs"></a>Blobs downloaden
-Om blobs te downloaden, moet u eerst een blobverwijzing ophalen en vervolgens de methode **DownloadToStream** aanroepen. In het volgende voorbeeld wordt de methode **DownloadToStream** gebruikt om de blobinhoud over te dragen naar een stroomobject, dat u vervolgens persistent kunt maken in een lokaal bestand.
+toodownload blobs, eerst een blobverwijzing ophalen en vervolgens aanroepen Hallo **DownloadToStream** methode. Hallo volgende voorbeeld wordt Hallo **DownloadToStream** methode tootransfer Hallo blob inhoud tooa stroomobject dat u vervolgens blijven tooa lokaal bestand behouden kunt.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the blob client.
+// Create hello blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference to a previously created container.
+// Retrieve reference tooa previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference to a blob named "photo1.jpg".
+// Retrieve reference tooa blob named "photo1.jpg".
 CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
-// Save blob contents to a file.
+// Save blob contents tooa file.
 using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 {
     blockBlob.DownloadToStream(fileStream);
 }
 ```
 
-U kunt ook de methode **DownloadToStream** gebruiken om de inhoud van een blob te downloaden als een tekenreeks.
+U kunt ook Hallo **DownloadToStream** methode toodownload Hallo inhoud van een blob als een tekenreeks.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the blob client.
+// Create hello blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference to a previously created container.
+// Retrieve reference tooa previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference to a blob named "myblob.txt"
+// Retrieve reference tooa blob named "myblob.txt"
 CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
 
 string text;
@@ -261,48 +261,48 @@ using (var memoryStream = new MemoryStream())
 ```
 
 ## <a name="delete-blobs"></a>Blobs verwijderen
-Als u een blob wilt verwijderen, moet u eerst een blobverwijzing ophalen en vervolgens de methode **Delete** aanroepen.
+een blob toodelete eerst een blobverwijzing ophalen en roept u vervolgens de **verwijderen** methode erop.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create the blob client.
+// Create hello blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference to a previously created container.
+// Retrieve reference tooa previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference to a blob named "myblob.txt".
+// Retrieve reference tooa blob named "myblob.txt".
 CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
-// Delete the blob.
+// Delete hello blob.
 blockBlob.Delete();
 ```
 
 ## <a name="list-blobs-in-pages-asynchronously"></a>Blobs asynchroon op pagina's weergeven
-Als u een groot aantal blobs in een lijst weergeeft of als u het aantal resultaten dat per lijst wordt geretourneerd, wilt bepalen, kunt u blobs weergeven op pagina's met resultaten. Dit voorbeeld laat zien hoe resultaten op pagina's asynchroon worden geretourneerd, zodat de uitvoering niet wordt geblokkeerd tijdens het wachten op het retourneren van een groot aantal resultaten.
+Als u een groot aantal blobs aanbiedt of u toocontrol Hallo aantal u in één aanbieding bewerking retourneren resultaten wilt, kunt u op pagina's met resultaten kunt weergeven. Dit voorbeeld toont tooreturn hoe resultaten op pagina's asynchroon, zodat de uitvoering niet wordt geblokkeerd tijdens het wachten op tooreturn een groot aantal resultaten.
 
-In dit voorbeeld gebruiken we een platte bloblijst, maar u kunt ook een hiërarchische lijst uitvoeren door de parameter _useFlatBlobListing_ van de methode **ListBlobsSegmentedAsync** in te stellen op _false_.
+Dit voorbeeld ziet u een platte blob weergeven, maar u kunt ook een hiërarchische lijst uitvoeren door de instelling Hallo _useFlatBlobListing_ parameter Hallo **ListBlobsSegmentedAsync** too_false_ methode.
 
-Omdat de voorbeeldmethode een asynchrone bewerking aanroept, moet deze worden voorafgegaan door het sleutelwoord _async_ en een **Task**-object retourneren. Het sleutelwoord 'await' dat is opgegeven voor de methode **ListBlobsSegmentedAsync**, onderbreekt de uitvoering van de voorbeeldmethode totdat de taak in de lijst is voltooid.
+Omdat Hallo voorbeeldmethode een asynchrone methode wordt aangeroepen, moet deze worden voorafgegaan door hello _asynchrone_ sleutelwoord en deze moet retourneren een **taak** object. Hallo await trefwoord opgegeven voor Hallo **ListBlobsSegmentedAsync** methode onderbreekt de uitvoering van Hallo voorbeeldmethode totdat de taak in de lijst Hallo is voltooid.
 
 ```csharp
 async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
 {
-    //List blobs to the console window, with paging.
+    //List blobs toohello console window, with paging.
     Console.WriteLine("List blobs in pages:");
 
     int i = 0;
     BlobContinuationToken continuationToken = null;
     BlobResultSegment resultSegment = null;
 
-    //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
-    //When the continuation token is null, the last page has been returned and execution can exit the loop.
+    //Call ListBlobsSegmentedAsync and enumerate hello result segment returned, while hello continuation token is non-null.
+    //When hello continuation token is null, hello last page has been returned and execution can exit hello loop.
     do
     {
-        //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
+        //This overload allows control of hello page size. You can return all remaining results by passing null for hello maxResults parameter,
         //or by calling a different overload.
         resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
         if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
@@ -312,39 +312,39 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
         }
         Console.WriteLine();
 
-        //Get the continuation token.
+        //Get hello continuation token.
         continuationToken = resultSegment.ContinuationToken;
     }
     while (continuationToken != null);
 }
 ```
 
-## <a name="writing-to-an-append-blob"></a>Schrijven naar een toevoeg-blob
-Een toevoeg-blob is geoptimaliseerd voor toevoegbewerkingen, zoals logboekregistratie. Net als een blok-blob bestaat een toevoeg-blob uit blokken, maar wanneer u een nieuw blok aan een toevoeg-blob toevoegt, wordt het altijd toegevoegd aan het einde van de blob. U kunt een bestaand blok in een toevoeg-blob niet bijwerken of verwijderen. De blok-id's voor een toevoeg-blob worden niet weergegeven zoals voor een blok-blob.
+## <a name="writing-tooan-append-blob"></a>Schrijven tooan toevoeg-blob
+Een toevoeg-blob is geoptimaliseerd voor toevoegbewerkingen, zoals logboekregistratie. Zoals een blok-blob bestaat een toevoeg-blob uit blokken, maar wanneer u een nieuw blok tooan toevoeg-blob toevoegt, wordt het altijd toegevoegde toohello einde van Hallo blob. U kunt een bestaand blok in een toevoeg-blob niet bijwerken of verwijderen. Hallo blok-id's voor een toevoeg-blob worden niet weergegeven zoals ze zijn voor een blok-blob.
 
-Alle blokken in een toevoeg-blob kunnen verschillend van grootte zijn. De maximale grootte is 4 MB. Een toevoeg-blob kan maximaal 50.000 blokken bevatten. De maximale grootte van een toevoeg-blob is daarom iets meer dan 195 GB (4 MB X 50.000 blokken).
+Elk blok in een toevoeg-blob kan een andere grootte, up tooa maximaal 4 MB en een toevoeg-blob kan maximaal 50.000 blokken bevatten. Hallo maximale grootte van een toevoeg-blob is daarom iets meer dan 195 GB (4 MB X 50.000 blokken).
 
-In onderstaand voorbeeld wordt een nieuwe toevoeg-blob gemaakt en worden er enkele gegevens aan toegevoegd, waarmee een eenvoudige logboekregistratiebewerking wordt gesimuleerd.
+Hallo in het volgende voorbeeld maakt u een nieuwe toevoeg-blob en voegt sommige gegevens tooit, een bewerking voor eenvoudige logboekregistratie simuleren.
 
 ```csharp
-//Parse the connection string for the storage account.
+//Parse hello connection string for hello storage account.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-//Create service client for credentialed access to the Blob service.
+//Create service client for credentialed access toohello Blob service.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-//Get a reference to a container.
+//Get a reference tooa container.
 CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-//Create the container if it does not already exist.
+//Create hello container if it does not already exist.
 container.CreateIfNotExists();
 
-//Get a reference to an append blob.
+//Get a reference tooan append blob.
 CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
 
-//Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
-//You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+//Create hello append blob. Note that if hello blob already exists, hello CreateOrReplace() method will overwrite it.
+//You can check whether hello blob exists tooavoid overwriting it by using CloudAppendBlob.Exists().
 appendBlob.CreateOrReplace();
 
 int numBlocks = 10;
@@ -354,41 +354,41 @@ Random rnd = new Random();
 byte[] bytes = new byte[numBlocks];
 rnd.NextBytes(bytes);
 
-//Simulate a logging operation by writing text data and byte data to the end of the append blob.
+//Simulate a logging operation by writing text data and byte data toohello end of hello append blob.
 for (int i = 0; i < numBlocks; i++)
 {
     appendBlob.AppendText(String.Format("Timestamp: {0:u} \tLog Entry: {1}{2}",
         DateTime.UtcNow, bytes[i], Environment.NewLine));
 }
 
-//Read the append blob to the console window.
+//Read hello append blob toohello console window.
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Zie [Blok-blobs, pagina-blobs en toevoeg-blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) voor meer informatie over de verschillen tussen de drie typen blobs.
+Zie [blok-Blobs, pagina-Blobs en toevoeg-Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) voor meer informatie over Hallo verschillen tussen Hallo drie typen blobs.
 
 ## <a name="managing-security-for-blobs"></a>Beveiliging beheren voor blobs
-Standaard beveiligt Azure Storage uw gegevens door de toegang te beperken tot de accounteigenaar, die in het bezit is van de toegangssleutels van het account. Als u blobgegevens in uw opslagaccount wilt delen, moet u voorkomen dat u de beveiliging van de toegangssleutels van uw account in gevaar brengt. U kunt de blobgegevens ook versleutelen om ervoor te zorgen dat deze worden beveiligd tijdens de overdracht en in Azure Storage.
+Standaard beveiligt Azure Storage uw gegevens door te beperken van toegang toohello accounteigenaar, die in bezit is van de toegangssleutels Hallo-account. Wanneer u tooshare blob-gegevens in uw storage-account nodig hebt, is het belangrijk toodo geval Hallo beveiliging van de toegangssleutels van uw account in gevaar. U kunt bovendien versleutelen tooensure van de blob-gegevens die deze worden beveiligd via de kabel hello en in Azure Storage.
 
 [!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
-### <a name="controlling-access-to-blob-data"></a>Toegang tot blobgegevens beheren
-Standaard zijn de blobgegevens in uw opslagaccount alleen toegankelijk voor de eigenaar van het opslagaccount. Wanneer er een verificatieaanvraag wordt gedaan bij Blob Storage, is de toegangssleutel voor het account standaard vereist. Mogelijk wilt u echter bepaalde blobgegevens beschikbaar stellen aan andere gebruikers. U hebt hiervoor twee opties:
+### <a name="controlling-access-tooblob-data"></a>Toegang tot tooblob gegevens beheren
+Hallo blobgegevens in uw storage-account is standaard toegankelijk alleen toostorage accounteigenaar. Verificatie-aanvragen op basis van de Blob-opslag is toegangssleutel Hallo standaard vereist. Echter, kunt u toomake bepaalde blob-gegevens beschikbaar tooother gebruikers. U hebt hiervoor twee opties:
 
-* **Anonieme toegang:** u kunt een container of de blobs erin openbaar beschikbaar maken voor anonieme toegang. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
-* **Shared Access Signature:** u kunt clients voorzien van een Shared Access Signature (SAS), die gedelegeerde toegang tot een resource in uw opslagaccount biedt gedurende een door u opgegeven tijdsbestek en met door u opgegeven machtigingen. Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie.
+* **Anonieme toegang:** u kunt een container of de blobs erin openbaar beschikbaar maken voor anonieme toegang. Zie [anonieme leestoegang toocontainers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
+* **Shared access signatures:** u kunt clients voorzien een shared access signature (SAS), waarmee gedelegeerde toegang tooa bron in uw storage-account met machtigingen die u opgeeft en via een interval dat u opgeeft. Zie [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Shared Access Signatures (SAS) gebruiken) voor meer informatie.
 
 ### <a name="encrypting-blob-data"></a>Blobgegevens versleutelen
-Azure Storage ondersteunt de versleuteling van blobgegevens op de client en op de server:
+Azure Storage ondersteunt de versleuteling van blobgegevens op Hallo-client en server Hallo:
 
-* **Versleuteling aan clientzijde:** de Storage-clientbibliotheek voor .NET ondersteunt de versleuteling van gegevens binnen clienttoepassingen voordat naar Azure Storage wordt geüpload en de ontsleuteling van gegevens tijdens het downloaden naar de client. De bibliotheek ondersteunt ook integratie met Azure Key Vault voor het beheer van sleutels voor opslagaccounts. Zie [Versleuteling aan clientzijde met .NET voor Microsoft Azure Storage](storage-client-side-encryption.md) voor meer informatie. Zie ook [Zelfstudie: blobs versleutelen en ontsleutelen in Microsoft Azure Storage met Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
+* **Versleuteling aan clientzijde:** Hallo Storage-clientbibliotheek voor .NET biedt ondersteuning voor versleuteling van gegevens binnen clienttoepassingen voordat tooAzure opslag uploaden en ontsleutelen van gegevens tijdens het downloaden van toohello client. Hallo-bibliotheek ondersteunt ook integratie met Azure Key Vault voor sleutelbeheer storage-account. Zie [Versleuteling aan clientzijde met .NET voor Microsoft Azure Storage](storage-client-side-encryption.md) voor meer informatie. Zie ook [Zelfstudie: blobs versleutelen en ontsleutelen in Microsoft Azure Storage met Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
 * **Versleuteling aan serverzijde**: Azure Storage ondersteunt nu ook versleuteling aan serverzijde. Zie [Azure Storage-service: versleuteling van data-at-rest (preview)](storage-service-encryption.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-U bent nu bekend met de basisprincipes van Blob Storage. Volg deze koppelingen voor meer informatie.
+Nu u Hallo basisprincipes van Blob storage hebt geleerd, volgt u deze koppelingen toolearn meer.
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
-* [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
+* [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u toowork visueel met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
 
 ### <a name="blob-storage-samples"></a>Voorbeelden van Blob Storage
 * [Aan de slag met Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
@@ -398,6 +398,6 @@ U bent nu bekend met de basisprincipes van Blob Storage. Volg deze koppelingen v
 * [Naslaginformatie over REST API](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Conceptuele handleidingen
-* [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
+* [Gegevensoverdracht met Hallo AzCopy-opdrachtregelprogramma](storage-use-azcopy.md)
 * [Aan de slag met File Storage voor .NET](storage-dotnet-how-to-use-files.md)
-* [Het gebruik van Azure Blob Storage met de WebJobs-SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Hoe toouse Azure blob-opslag met Hallo WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
